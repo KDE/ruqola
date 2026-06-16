@@ -1397,6 +1397,7 @@
           <li xml:lang="ca-valencia">Millora el mode desconnectat</li>
           <li xml:lang="es">Mejoras en modo desconectado</li>
           <li xml:lang="fr">Améliorer le mode déconnecté</li>
+          <li xml:lang="it">Migliora la modalità non in linea</li>
           <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
           <li xml:lang="nl">Offline-modus verbeteren</li>
           <li xml:lang="pt-BR">Melhorar modo desconectado</li>
@@ -1410,6 +1411,7 @@
           <li xml:lang="ca-valencia">Permet obrir un fitxer guardat.</li>
           <li xml:lang="es">Permitir la apertura de archivos guardados.</li>
           <li xml:lang="fr">Autoriser l'ouverture du fichier enregistré.</li>
+          <li xml:lang="it">Consente l'apertura del file salvato.</li>
           <li xml:lang="ka">შენახული ფაილის გახსნის დაშვება.</li>
           <li xml:lang="nl">Toestaan opgeslagen bestand te openen.</li>
           <li xml:lang="pt-BR">Permite abrir arquivo salvo.</li>
@@ -1422,6 +1424,7 @@
           <li xml:lang="ca">Permet girar una imatge en el diàleg de mostrar imatges</li>
           <li xml:lang="ca-valencia">Permet girar una imatge en el diàleg de mostrar imatges</li>
           <li xml:lang="es">Permite la rotación de imágenes en el diálogo mostrar imagen</li>
+          <li xml:lang="it">Consenti di ruotare l'immagine nella finestra «Mostra immagine».</li>
           <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
           <li xml:lang="nl">In dialoog voor tonen van afbeelding draaien toestaan</li>
           <li xml:lang="pt-BR">Permitir rotação da imagem na caixa de diálogo de exibição de imagem</li>
@@ -1435,6 +1438,7 @@
           <li xml:lang="ca-valencia">Afig informació nova de sala al diàleg de l'historial de notificacions.</li>
           <li xml:lang="es">Añadida información de nueva sala en el diálogo histórico de notificaciones.</li>
           <li xml:lang="he">נוספו פרטי החדר החדש בחלונית היסטוריית ההתראות.</li>
+          <li xml:lang="it">Aggiungi le informazioni sulla nuova stanza nella finestra della cronologia delle notifiche.</li>
           <li xml:lang="ka">დაემატა ახალი ოთახის ინფორმაცია გაფრთხილებების ისტორიის დიალოგში.</li>
           <li xml:lang="nl">Voeg nieuwe roominformatie toe in de dialoog van de geschiedenis van meldingen</li>
           <li xml:lang="pt-BR">Adicionar novas informações da sala na janela do histórico de notificações.</li>
@@ -1447,6 +1451,7 @@
           <li xml:lang="ca">Usa el «textmessagewidget» nou per a notificacions d'error</li>
           <li xml:lang="ca-valencia">Utilitza el «textmessagewidget» nou per a notificacions d'error</li>
           <li xml:lang="es">Uso de los nuevos widgets de mensajes de texto para las notificaciones de error</li>
+          <li xml:lang="it">Utilizzare il nuovo oggetto per i messaggi di testo per la notifica degli errori.</li>
           <li xml:lang="ka">ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის</li>
           <li xml:lang="nl">Gebruik het nieuwe widget voor tekstberichten voor foutmeldingen</li>
           <li xml:lang="pt-BR">Usar o novo textmessagewidget para notificação de erro</li>
@@ -1470,6 +1475,7 @@
           <li xml:lang="ca-valencia">Copia blocs de codi amb més facilitat</li>
           <li xml:lang="es">Facilitada la copia de bloques de código</li>
           <li xml:lang="fr">Copier le code en bloc plus facilement</li>
+          <li xml:lang="it">Copia più facile dei blocchi di codice</li>
           <li xml:lang="ka">კოდის ბლოკის უფრო ადვილად კოპირება</li>
           <li xml:lang="nl">Blokcode gemakkelijker kopiëren</li>
           <li xml:lang="pt-BR">Copia código de bloco mais facilmente</li>
@@ -1483,6 +1489,7 @@
           <li xml:lang="ca-valencia">Millora la interfície d'usuari del text a veu</li>
           <li xml:lang="es">Mejoras en la interfaz de usuario de texto a habla</li>
           <li xml:lang="fr">Améliorer l'interface utilisateur pour la synthèse vocale</li>
+          <li xml:lang="it">Migliorare l'interfaccia utente della sintesi vocale</li>
           <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
           <li xml:lang="nl">Verbeter gebruikersinterface van tekst-naar-spraak</li>
           <li xml:lang="pt-BR">Melhora a interface de usuário de texto para fala</li>
@@ -1496,6 +1503,7 @@
           <li xml:lang="ca-valencia">Mostra els camps dels adjunts</li>
           <li xml:lang="es">Mostrar campos adjuntos</li>
           <li xml:lang="fr">Afficher les champs de pièce jointe</li>
+          <li xml:lang="it">Mostra i campi degli allegati</li>
           <li xml:lang="ka">მიმაგრებული ფაილის ველების ჩვენება</li>
           <li xml:lang="nl">Bijlagevelden tonen</li>
           <li xml:lang="pt-BR">Exibir campos de anexos</li>
@@ -1509,6 +1517,7 @@
           <li xml:lang="ca-valencia">Implementa el mode desconnectat (experimental)</li>
           <li xml:lang="es">Modo desconectado implementado (experimental)</li>
           <li xml:lang="fr">Implémenter le mode déconnecté (Expérimental)</li>
+          <li xml:lang="it">Implementa la modalità non in linea (sperimentale)</li>
           <li xml:lang="ka">ხაზგარეშე რეჟიმი (ექსპერიმენტული)</li>
           <li xml:lang="nl">Implementeert offline modus (experimenteel)</li>
           <li xml:lang="pt-BR">Modo offline implementado (experimental)</li>
@@ -1521,6 +1530,7 @@
           <li xml:lang="ca">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
           <li xml:lang="ca-valencia">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
           <li xml:lang="es">Implementado almacenamiento en base de datos  pendiente de tipos</li>
+          <li xml:lang="it">Implementa l'archiviazione della banca di dati per le informazioni in attesa di digitazione</li>
           <li xml:lang="ka">განხორციელდა რიგში მყოფი აკრეფილი მონაცემთა ბაზის საცავი</li>
           <li xml:lang="nl">Implementeer wachtende getypte database-opslag</li>
           <li xml:lang="pt-BR">Implementa armazenamento de banco de dados tipado pendente</li>
@@ -1533,6 +1543,7 @@
           <li xml:lang="ca">Corregeix la implementació del RC 8.0.0</li>
           <li xml:lang="ca-valencia">Corregix la implementació del RC 8.0.0</li>
           <li xml:lang="es">Mejora en el soporte de RC 80.0</li>
+          <li xml:lang="it">Corregge il supporto RC 8.0.0</li>
           <li xml:lang="ka">გასწორდა RC 8.0.0-ის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor RC 8.0.0 opgelost</li>
           <li xml:lang="pt-BR">Corrige suporte ao RC 8.0.0</li>
@@ -1545,6 +1556,7 @@
           <li xml:lang="ca">Afegeix la implementació d'accions d'adjunts</li>
           <li xml:lang="ca-valencia">Afig la implementació d'accions d'adjunts</li>
           <li xml:lang="es">Añadidas acciones de adjuntos</li>
+          <li xml:lang="it">Aggiunge il supporto per le azioni sugli allegati</li>
           <li xml:lang="ka">დაემატა ქმედებების მხარდაჭერა მიმაგრებული ფაილებისთვის</li>
           <li xml:lang="nl">Ondersteuning voor bijlageacties toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para ações de anexo</li>
@@ -1558,6 +1570,7 @@
           <li xml:lang="ca-valencia">Afig la implementació de marques de temps</li>
           <li xml:lang="es">Añadido soporte para marcas de tiempo</li>
           <li xml:lang="he">נוספה תמיכה בחותמות זמן</li>
+          <li xml:lang="it">Aggiunge il supporto per la marca temporale</li>
           <li xml:lang="ka">დაემატა დროის შტამპის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor tijdstempel toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para marca de tempo</li>
@@ -1570,6 +1583,7 @@
           <li xml:lang="ca">Desa la traducció local a la base de dades local</li>
           <li xml:lang="ca-valencia">Guarda la traducció local a la base de dades local</li>
           <li xml:lang="es">Guardar traducción local a base de datos local</li>
+          <li xml:lang="it">Salva la traduzione locale nella banca dati locale</li>
           <li xml:lang="ka">ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში</li>
           <li xml:lang="nl">Lokale vertaling in lokale gegevensbank opslaan</li>
           <li xml:lang="pt-BR">Salvar tradução local no banco de dados local</li>
@@ -1582,6 +1596,7 @@
           <li xml:lang="ca">Corregeix l'eliminació de sala (a la base de dades local)</li>
           <li xml:lang="ca-valencia">Corregix l'eliminació de sala (a la base de dades local)</li>
           <li xml:lang="es">Corrección al eliminar sala (en base de datos local)</li>
+          <li xml:lang="it">Corregge la rimozione della stanza (nella banca dati locale)</li>
           <li xml:lang="ka">გასწორდა ოთახის წაშლა (ლოკალურ მონაცემთა ბაზებში)</li>
           <li xml:lang="nl">Room verwijderen repareren (in lokale database)</li>
           <li xml:lang="pt-BR">Correção de remoção de sala (no banco de dados local)</li>
@@ -1594,6 +1609,7 @@
           <li xml:lang="ca">Corregeix l'exportació de la base de dades</li>
           <li xml:lang="ca-valencia">Corregix l'exportació de la base de dades</li>
           <li xml:lang="es">Corrección al exportar la base de datos</li>
+          <li xml:lang="it">Corregge l'esportazione della banca dati</li>
           <li xml:lang="ka">გასწორდა მონაცემთა ბაზის გატანა</li>
           <li xml:lang="nl">Exporteren van database repareren</li>
           <li xml:lang="pt-BR">Correção da exportação do banco de dados</li>
@@ -1606,6 +1622,7 @@
           <li xml:lang="ca">Corregeix la pujada de sons personalitzats</li>
           <li xml:lang="ca-valencia">Corregix la pujada de sons personalitzats</li>
           <li xml:lang="es">Mejora en la subida de sonidos personalizados</li>
+          <li xml:lang="it">Corregge il caricamento dei suoni personalizzati</li>
           <li xml:lang="ka">გასწორდა მორგებული ხმების ატვირთვა</li>
           <li xml:lang="nl">Eigen geluid uploaden oplossen</li>
           <li xml:lang="pt-BR">Corrige o envio de som personalizado</li>
@@ -1625,6 +1642,7 @@
           <li xml:lang="ca">Afegeix un connector d'IA</li>
           <li xml:lang="ca-valencia">Afig un connector d'IA</li>
           <li xml:lang="es">Añadido complemento AI</li>
+          <li xml:lang="it">Aggiungi estensione IA</li>
           <li xml:lang="ka">დაემატა ხი-ის დამატება</li>
           <li xml:lang="nl">AI-plug-in toevoegen</li>
           <li xml:lang="pt-BR">Adicionar plugin de IA</li>
@@ -1637,6 +1655,7 @@
           <li xml:lang="ca">Permet «dnd» una imatge</li>
           <li xml:lang="ca-valencia">Permet «dnd» una imatge</li>
           <li xml:lang="es">Permite imagen "No molestar"</li>
+          <li xml:lang="it">Consente immagine di Non disturbare</li>
           <li xml:lang="ka">გამოსახულების გადათრევა-დაგდების დაშვება</li>
           <li xml:lang="nl">Dnd doen van afbeelding toestaan</li>
           <li xml:lang="pt-BR">Permitir baixar imagem</li>
@@ -1649,6 +1668,7 @@
           <li xml:lang="ca">Afegeix el botó de restauració a la configuració d'administració</li>
           <li xml:lang="ca-valencia">Afig el botó de restauració a la configuració d'administració</li>
           <li xml:lang="es">Añade botón restaurar en las preferencias de administración</li>
+          <li xml:lang="it">Aggiunge il pulsante di ripristino nelle impostazioni di amministrazione</li>
           <li xml:lang="ka">დაემატა აღდგენის ღილაკი ადმინისტრატორის პარამეტრებში</li>
           <li xml:lang="nl">Herstelknop toevoegen in instellingen voor beheer</li>
           <li xml:lang="pt-BR">Adiciona botão de restauração na caixa de diálogo de configurações do administrador</li>
@@ -1661,6 +1681,7 @@
           <li xml:lang="ca">Permet activar els connectors</li>
           <li xml:lang="ca-valencia">Permet activar els connectors</li>
           <li xml:lang="es">Permite activar complementos</li>
+          <li xml:lang="it">Consenti l'attivazione delle estensioni</li>
           <li xml:lang="ka">დამატებების გააქტიურების დაშვება</li>
           <li xml:lang="nl">Sta plug-ins activeren toe</li>
           <li xml:lang="pt-BR">Permitir ativar plugins</li>
@@ -1673,6 +1694,7 @@
           <li xml:lang="ca">Afegeix el botó Obre amb en mostrar una imatge</li>
           <li xml:lang="ca-valencia">Afig el botó «Obri amb» en mostrar una imatge</li>
           <li xml:lang="es">Añadido «Abrir con» en mostrar imagen</li>
+          <li xml:lang="it">Aggiunge il pulsante Apri con nell'immagine mostrata</li>
           <li xml:lang="ka">გამოსახულების ჩვენებისას "გახსნა პროგრამით" ღილაკის დამატება</li>
           <li xml:lang="nl">Openen met knop toevoegen in tonen van afbeelding</li>
           <li xml:lang="pt-BR">Adiciona o botão Abrir com na imagem exibida</li>
@@ -1685,6 +1707,7 @@
           <li xml:lang="ca">Afegeix el format del text ràpid</li>
           <li xml:lang="ca-valencia">Afig el format ràpid del text</li>
           <li xml:lang="es">Añadido formato rápido de texto</li>
+          <li xml:lang="it">Aggiunge il formato di testo rapido</li>
           <li xml:lang="ka">სწრაფი ტექსტის დაფორმატების დამატება</li>
           <li xml:lang="nl">Snel tekstformaat toevoegen</li>
           <li xml:lang="pt-BR">Adiciona formato de texto rápido</li>
@@ -1697,6 +1720,7 @@
           <li xml:lang="ca">Afegeix l'extensió de botó de línia de missatge</li>
           <li xml:lang="ca-valencia">Afig l'extensió de botó de línia de missatge</li>
           <li xml:lang="es">Añadida línea de extensión del mensaje</li>
+          <li xml:lang="it">Aggiunge il pulsante Estensione alla riga del messaggio</li>
           <li xml:lang="ka">დაემატა გაფართოების შეტყობინების ხაზის ღილაკი</li>
           <li xml:lang="nl">Lijnknop voor uitbreidingsbericht toevoegen</li>
           <li xml:lang="pt-BR">Adicionar extensão de botão de linha de mensagem</li>
@@ -1709,6 +1733,7 @@
           <li xml:lang="ca">Permet afegir un servidor WebDav</li>
           <li xml:lang="ca-valencia">Permet afegir un servidor WebDAV</li>
           <li xml:lang="es">Soporte para añadir servidor WebDav</li>
+          <li xml:lang="it">Consente di aggiungere server WebDav</li>
           <li xml:lang="ka">WebDav სერვერის დამატების დაშვება</li>
           <li xml:lang="nl">Toestaan WebDav-server toe te voegen</li>
           <li xml:lang="pt-BR">Permite adicionar servidor WebDav</li>
@@ -1721,6 +1746,7 @@
           <li xml:lang="ca">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
           <li xml:lang="ca-valencia">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
           <li xml:lang="es">Mostrar información de la sala (texto en cursiva) cuando hay algún mensaje siendo escrito</li>
+          <li xml:lang="it">Se hai problemi con determinati colori sullo schermo, questi filtri possono trasformarli in altri colori</li>
           <li xml:lang="ka">ოთახის ინფორმაციის ჩვენება (კურსივი), როცა მიმდინარეობს დარჩენილი შეტყობინებების აკრეფა</li>
           <li xml:lang="nl">Roominformatie tonen (cursieve tekst) wanneer er een wachtend bericht wordt getypt</li>
           <li xml:lang="pt-BR">Mostra informações da sala (texto em itálico) quando houver alguma mensagem pendente digitada</li>
@@ -1733,6 +1759,7 @@
           <li xml:lang="ca">Permet afegir emoticones des d'un menú emergent</li>
           <li xml:lang="ca-valencia">Permet afegir emoticones des d'un menú emergent</li>
           <li xml:lang="es">Soporte para añadir emoticono desde el menú emergente</li>
+          <li xml:lang="it">Consenti di aggiungere emoticon dal menu a comparsa</li>
           <li xml:lang="ka">ემოციების მხტუნარა მენიუდან დამატების დაშვება</li>
           <li xml:lang="nl">Sta het toevoegen van een emoticon vanuit het pop-up-menu toe</li>
           <li xml:lang="pt-BR">Permite adicionar um emoticon a partir do menu de contexto</li>
@@ -1745,6 +1772,7 @@
           <li xml:lang="ca">Corregeix la visualització de la informació de la data</li>
           <li xml:lang="ca-valencia">Corregix la visualització de la informació de la data</li>
           <li xml:lang="es">Arreglada información al mostrar fecha</li>
+          <li xml:lang="it">Corregge le informazioni di visualizzazione della data</li>
           <li xml:lang="ka">გასწორდა თარიღის ინფორმაციის ჩვენება</li>
           <li xml:lang="nl">Datuminformatie tonen reparatie</li>
           <li xml:lang="pt-BR">Corrige exibição das informações de data</li>
@@ -1757,6 +1785,7 @@
           <li xml:lang="ca">Corregeix el desament de la configuració de l'aplicació</li>
           <li xml:lang="ca-valencia">Corregix la guardada de la configuració de l'aplicació</li>
           <li xml:lang="es">Corrección al guardar preferencias de aplicación</li>
+          <li xml:lang="it">Corregge le impostazioni di salvataggio dell'applicazione</li>
           <li xml:lang="ka">გასწორდა აპლიკაციის პარამეტრების შენახვა</li>
           <li xml:lang="nl">Opslaan van instellingen van toepassingen repareren</li>
           <li xml:lang="pt-BR">Corrige o salvamento das configurações do aplicativo</li>
@@ -1769,6 +1798,7 @@
           <li xml:lang="ca">Corregeix la selecció de text de l'adjunt</li>
           <li xml:lang="ca-valencia">Corregix la selecció de text de l'adjunt</li>
           <li xml:lang="es">Corrección de la selección de texto en adjuntos</li>
+          <li xml:lang="it">Corregge la selezione del testo nell'allegato</li>
           <li xml:lang="ka">გასწორდა ტექსტის მონიშვნა მიმაგრებულ ფაილში</li>
           <li xml:lang="nl">Tekstselectie in bijlage repareren</li>
           <li xml:lang="pt-BR">Corrige a seleção de texto no anexo</li>
@@ -1781,6 +1811,7 @@
           <li xml:lang="ca">Corregeix la visualització de l'usuari</li>
           <li xml:lang="ca-valencia">Corregix la visualització de l'usuari</li>
           <li xml:lang="es">Corrección en el usuario mostrado</li>
+          <li xml:lang="it">Corregge la visualizzazione dell'utente</li>
           <li xml:lang="ka">გასწორდა მომხმარებლის ჩვენება</li>
           <li xml:lang="nl">Oplossing gebruiker tonen</li>
           <li xml:lang="pt-BR">Corrige o usuário de exibição</li>
@@ -1793,6 +1824,7 @@
           <li xml:lang="ca">Mostra el menú de traducció en el diàleg dels fils</li>
           <li xml:lang="ca-valencia">Mostra el menú de traducció en el diàleg dels fils</li>
           <li xml:lang="es">Mostrar menú de traducción en el diálogo de hilos</li>
+          <li xml:lang="it">Visualizza il menu di traduzione nella finestra di della discussione</li>
           <li xml:lang="ka">თარგმანის მენიუს ჩვენება დისკუსიის დიალოგში</li>
           <li xml:lang="nl">Vertaalmenu in dialoog van discussiebundeling tonen</li>
           <li xml:lang="pt-BR">Exibe menu de tradução na caixa de diálogo do tópico</li>
@@ -1806,6 +1838,7 @@
           <li xml:lang="ca-valencia">Afig la implementació d'accions d'IA de Rocket Chat</li>
           <li xml:lang="es">Añadido soporte para acciones AI en Rocket Chat</li>
           <li xml:lang="he">נוספה תמיכה בפעולות בינה מלאכותית ב־Rocket Chat</li>
+          <li xml:lang="it">Aggiunge il supporto delle azioni IA di Rocket Chat</li>
           <li xml:lang="ka">დაემატა ხი-ით Rocket Chat-ის ქმედებების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor acties van Rocket Chat toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para ações do AI Rocket Chat</li>
@@ -1818,6 +1851,7 @@
           <li xml:lang="ca">Corregeix els botons «aplica», «restaura», «cancel·la» en el diàleg d'administració</li>
           <li xml:lang="ca-valencia">Corregix els botons «aplica», «restaura», «cancel·la» en el diàleg d'administració</li>
           <li xml:lang="es">Corrección en los botones aplicar, restaurar y cancelar en el diálogo de administración</li>
+          <li xml:lang="it">Corregge i pulsante di applicazione, ripristino e annullamento nelle impostazioni di amministrazione</li>
           <li xml:lang="ka">გასწორდა გადატარების, აღდგენის და გაუქმების ღილაკები ადმინისტრაციის დიალოგში</li>
           <li xml:lang="nl">Knoppen voor reparatie toepassen, herstellen en annuleren in systeembeheerdialoog</li>
           <li xml:lang="pt-BR">Corrige os botões aplicar, restaurar e cancelar na caixa de diálogo de administração</li>
@@ -1830,6 +1864,7 @@
           <li xml:lang="ca">Corregeix la cerca d'usuaris</li>
           <li xml:lang="ca-valencia">Corregix la busca d'usuaris</li>
           <li xml:lang="es">Corrección al buscar usuarios</li>
+          <li xml:lang="it">Corregge la ricerca degli utenti</li>
           <li xml:lang="ka">გასწორდა მომხმარებლების ძებნა</li>
           <li xml:lang="nl">Gebruikers zoeken repareren</li>
           <li xml:lang="pt-BR">Corrige a pesquisa de usuários</li>
@@ -1842,6 +1877,7 @@
           <li xml:lang="ca">Corregeix el llenguatge d'extracció a partir del bloc de codi</li>
           <li xml:lang="ca-valencia">Corregix el llenguatge d'extracció a partir del bloc de codi</li>
           <li xml:lang="es">Corrección al extraer lenguaje de un bloque de código</li>
+          <li xml:lang="it">Corregge l'estrazione della linguaggio dal blocco di codice</li>
           <li xml:lang="ka">გასწორდა ენის ამოღება კოდის ბლოკიდან</li>
           <li xml:lang="nl">Extraheren van taal uit codeblok repareren</li>
           <li xml:lang="pt-BR">Corrige a extração de linguagem do bloco de código</li>
@@ -1854,6 +1890,7 @@
           <li xml:lang="ca">Corregeix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
           <li xml:lang="ca-valencia">Corregix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
           <li xml:lang="es">Corrección de la información de adjuntos en el diálogo «Mostrar registro del canal»</li>
+          <li xml:lang="it">Corregge le informazioni sull'allegato nella finestra «Mostra il registro del canale»</li>
           <li xml:lang="ka">გასწორდა მიმაგრებული ფაილის ინფორმაციის ჩვენება დიალოგში \"არხის ჟურნალის ჩვენება\"</li>
           <li xml:lang="nl">Informatie over bijlage in dialoog van "Log van kanaal tonen" repareren</li>
           <li xml:lang="pt-BR">Corrige informações de anexo na caixa de diálogo \"Mostrar registro do canal\"</li>
@@ -1866,6 +1903,7 @@
           <li xml:lang="ca">Corregeix una icona al Windows</li>
           <li xml:lang="ca-valencia">Corregix una icona en Windows</li>
           <li xml:lang="es">Corrección del icono en Windows</li>
+          <li xml:lang="it">Corregge l'icona sulle finestre</li>
           <li xml:lang="ka">გასწორდა ხატულა Windows-ზე</li>
           <li xml:lang="nl">Pictogram op vensters repareren</li>
           <li xml:lang="pt-BR">Correção do ícone no Windows</li>
@@ -1878,6 +1916,7 @@
           <li xml:lang="ca">Corregeix la visualització de la mida del fitxer adjunt</li>
           <li xml:lang="ca-valencia">Corregix la visualització de la mida del fitxer adjunt</li>
           <li xml:lang="es">Corrección al mostrar el tamaño de un archivo adjunto</li>
+          <li xml:lang="it">Corregge la visualizzazione delle dimensioni degli allegati</li>
           <li xml:lang="ka">გასწორდა მიმაგრებული ფაილის ზომის ჩვენება</li>
           <li xml:lang="nl">Repareren van grootte van bestandsbijlage tonen</li>
           <li xml:lang="pt-BR">Corrige a exibição do tamanho de arquivo anexo</li>
@@ -1900,6 +1939,7 @@
           <li xml:lang="ca-valencia">Afig la implementació dels connectors d'eines</li>
           <li xml:lang="es">Añadir soporte para complementos de herramientas</li>
           <li xml:lang="he">נוספה תמיכה בתוספי כלים</li>
+          <li xml:lang="it">Aggiunge il supporto per le estensioni degli strumenti</li>
           <li xml:lang="ka">დაემატა ხელსაწყოს დამატებების მხადაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor plug-ins voor hulpmiddelen toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para plugins de ferramentas</li>
@@ -1912,6 +1952,7 @@
           <li xml:lang="ca">Connector: afegeix un botó de captura de pantalla (prop del botó d'enviament de missatge)</li>
           <li xml:lang="ca-valencia">Connector: afig un botó de captura de pantalla (prop del botó d'enviament de missatge)</li>
           <li xml:lang="es">Complemento: Añadido botón de captura de pantalla (al lado del botón de enviar un mensaje)</li>
+          <li xml:lang="it">Estensione: aggiunge il pulsante schermata (vicino al pulsante di invio messaggio)</li>
           <li xml:lang="ka">დამატება: ეკრანის ანაბეჭდის ღილაკის დამატება (შეტყობინების გაგზავნის ღილაკთან)</li>
           <li xml:lang="nl">Plug-in: knop voor schermafdruk toevoegen (nabij knop voor verzenden van bericht)</li>
           <li xml:lang="pt-BR">Plugin: Adiciona botão de captura de tela (próximo ao botão de enviar mensagem)</li>
@@ -1924,6 +1965,7 @@
           <li xml:lang="ca">Implementa el suport d'URL d'invitació RC</li>
           <li xml:lang="ca-valencia">Implementa el suport d'URL d'invitació RC</li>
           <li xml:lang="es">Implementado el soporte para invitar a través de RC URL</li>
+          <li xml:lang="it">Implementa il supporto per l'URL RC di invito</li>
           <li xml:lang="ka">განხორციელდა მოწვევის RC ბმულის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor uitnodiging-RC-url implementeren</li>
           <li xml:lang="pt-BR">Implementa suporte a URL de convite RC</li>
@@ -1936,6 +1978,7 @@
           <li xml:lang="ca">Implementa la verificació de si existeix una versió nova del Ruqola</li>
           <li xml:lang="ca-valencia">Implementa la verificació de si existix una versió nova de Ruqola</li>
           <li xml:lang="es">Implementado la verificación de nuevas versiones de Ruqola disponibles</li>
+          <li xml:lang="it">Implementa la verifica se esiste una nuova versione di Ruqola</li>
           <li xml:lang="ka">შემოწმება, არსებობს თუ არა Ruqola-ის ახალი ვერსია</li>
           <li xml:lang="nl">Implementeer verifiëren als een nieuwe Ruqola-versie bestaat</li>
           <li xml:lang="pt-BR">Implementa verificação se existe uma nova versão do Ruqola</li>
@@ -1948,6 +1991,7 @@
           <li xml:lang="ca">Permet cercar fils per seguits/no llegits</li>
           <li xml:lang="ca-valencia">Permet buscar fils per seguits/no llegits</li>
           <li xml:lang="es">Permitido buscar en hilos por no leído/siguiendo</li>
+          <li xml:lang="it">Consenti di cercare le discussioni per non letti/seguiti</li>
           <li xml:lang="ka">წაუკითხავ/მიყოლილ დისკუსიებში ძებნის დაშვება</li>
           <li xml:lang="nl">Sta toe threads (discussies) te doorzoeken op ongelezen/volgen</li>
           <li xml:lang="pt-BR">Permite pesquisar tópicos por não lidos/seguintes</li>
@@ -1960,6 +2004,7 @@
           <li xml:lang="ca">Mostra les imatges del quadre de diàleg de l'adjunt</li>
           <li xml:lang="ca-valencia">Mostra les imatges del diàleg de l'adjunt</li>
           <li xml:lang="es">Mostrar imágenes desde el diálogo de adjuntos</li>
+          <li xml:lang="it">Mostra le immagini dalla finestra degli allegati</li>
           <li xml:lang="ka">გამოსახულებების ჩვენება მიმაგრებული ფაილის ფანჯრიდან</li>
           <li xml:lang="nl">Afbeeldingen uit bijlage van dialoogvak tonen</li>
           <li xml:lang="pt-BR">Mostra imagens da caixa de diálogo de anexos</li>
@@ -1973,6 +2018,7 @@
           <li xml:lang="ca-valencia">Implementa el suport d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Implementado soporte para la aplicación Rocket.Chat</li>
           <li xml:lang="he">מומשה תמיכה ביישום Rocket.Chat</li>
+          <li xml:lang="it">Implementa il supporto delle applicazioni Rocket.Chat</li>
           <li xml:lang="ka">განხორციელდა Rocket.Chat-ის აპლიკაციის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor toepassing Rocket.Chat implementeren</li>
           <li xml:lang="pt-BR">Implementa suporte ao aplicativo Rocket.Chat</li>
@@ -1985,6 +2031,7 @@
           <li xml:lang="ca">Implementa la previsualització d'odres</li>
           <li xml:lang="ca-valencia">Implementa la previsualització d'odres</li>
           <li xml:lang="es">Implementado la vista previa de órdenes</li>
+          <li xml:lang="it">Implementa l'anteprima dei comandi</li>
           <li xml:lang="ka">განხორციელდა ბრძანების მინიატურა</li>
           <li xml:lang="nl">Voorbeeld van opdracht implementeren</li>
           <li xml:lang="pt-BR">Implementa visualização de comando</li>
@@ -1997,6 +2044,7 @@
           <li xml:lang="ca">Depuració: explora la traducció des del servidor RC</li>
           <li xml:lang="ca-valencia">Depuració: explora la traducció des del servidor RC</li>
           <li xml:lang="es">Depuración: explorar traducción desde el servidor RC</li>
+          <li xml:lang="it">Debug: esplora la traduzione dal server RC</li>
           <li xml:lang="ka">გამართვა: თარგმანის დათვალიერება RC სერვერიდან</li>
           <li xml:lang="nl">Debug: onderzoek vertaling uit RC-server</li>
           <li xml:lang="pt-BR">Depuração: explora a tradução do servidor RC</li>
@@ -2009,6 +2057,7 @@
           <li xml:lang="ca">Implementa el suport de la IU de connectors (crea el quadre de diàleg per a configurar les opcions)</li>
           <li xml:lang="ca-valencia">Implementa el suport de la IU de connectors (crea el diàleg per a configurar les opcions)</li>
           <li xml:lang="es">Implementado el soporte de complementos UI (Creado diálogo para configurar preferencias)</li>
+          <li xml:lang="it">Implementa il supporto dell'interfaccia utente delle estensioni (crea una finestra per configurare le impostazioni)</li>
           <li xml:lang="ka">განხორციელდა დამატების ინტერფეისის მხარდაჭერა (დიალოგი პარამეტრების მოსარგებად)</li>
           <li xml:lang="nl">Ondersteuning voor UI van plug-in implementeren (dialoogvak voor instellingen voor configureren aanmaken)</li>
           <li xml:lang="pt-BR">Implementa suporte à interface de usuário do plugin (criar caixa de diálogo para configurar definições)</li>
@@ -2021,6 +2070,7 @@
           <li xml:lang="ca">Permet cercar fitxers a partir del nom d'usuari i el nom de fitxer</li>
           <li xml:lang="ca-valencia">Permet buscar fitxers a partir del nom d'usuari i el nom de fitxer</li>
           <li xml:lang="es">Permitido buscar archivo por nombre de usuario y nombre de archivo</li>
+          <li xml:lang="it">Consente di cercare file in base al nome utente e al nome file</li>
           <li xml:lang="ka">ფაილის ძებნის დაშვება მომხმარებლის სახელიდან და ფაილის სახელიდან</li>
           <li xml:lang="nl">Zoeken van bestand bieden met gebruikersnaam en bestandsnaam</li>
           <li xml:lang="pt-BR">Permite pesquisar arquivos a partir do nome de usuário e nome do arquivo</li>
@@ -2033,6 +2083,7 @@
           <li xml:lang="ca">Corregeix el text de l'acció de còpia quan es copia una selecció de text</li>
           <li xml:lang="ca-valencia">Corregix el text de l'acció de còpia quan es copia una selecció de text</li>
           <li xml:lang="es">Arreglada la acción de copia de texto cuando se copia una selección de texto</li>
+          <li xml:lang="it">Corregge il testo dell'azione di copia quando si copia una selezione di testo</li>
           <li xml:lang="ka">გასწორდა კოპირების ქმედების ტექსტი, როცა მონიშნულ ტექსტს ვაკოპირებთ</li>
           <li xml:lang="nl">Kopie-actietekst wanneer we een tekstselectie kopiëren</li>
           <li xml:lang="pt-BR">Corrige texto de ação de cópia quando copiamos uma seleção de texto</li>
@@ -2045,6 +2096,7 @@
           <li xml:lang="ca">Una ordre comença per «/» i no /* ni //</li>
           <li xml:lang="ca-valencia">Una ordre comença per «/» i no /* ni //</li>
           <li xml:lang="es">La órdenes empiezan por «/» y no por «/*» o «//»</li>
+          <li xml:lang="it">Un comando inizia con «/» e non con /* o //</li>
           <li xml:lang="ka">ბრძანება იწყება '/'-ით და არა /*-ით ან //-ით</li>
           <li xml:lang="nl">Een opdracht begint met '/' en niet met /* of //</li>
           <li xml:lang="pt-BR">Um comando começa com '/' e não com /* ou //</li>
@@ -2057,6 +2109,7 @@
           <li xml:lang="ca">Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error</li>
           <li xml:lang="ca-valencia">Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error</li>
           <li xml:lang="es">Permitido poner la línea de orden en el portapapeles cuando ocurre un error</li>
+          <li xml:lang="it">Consente di inserire la riga di comando negli appunti quando si è verificato un errore</li>
           <li xml:lang="ka">საშუალებას გაძლევთ, შეცდომის შემთხვევაში ბრძანების სტრიქონი ბუფერში დააკოპიროთ</li>
           <li xml:lang="nl">Sta toe om opdrachtregel in het klembord te stoppen wanneer een fout optreedt</li>
           <li xml:lang="pt-BR">Permite colocar a linha de comando na área de transferência quando ocorrer um erro</li>
@@ -2069,6 +2122,7 @@
           <li xml:lang="ca">Permet activar/desactivar el mercat d'aplicacions</li>
           <li xml:lang="ca-valencia">Permet activar/desactivar el mercat d'aplicacions</li>
           <li xml:lang="es">Permitido activar/desactivar la tienda de aplicaciones</li>
+          <li xml:lang="it">Consenti di attivare/disattivare il negozio delle applicazioni</li>
           <li xml:lang="ka">აპების მაღაზიის გააქტიურება/დეაქტივაციის დაშვება</li>
           <li xml:lang="nl">Sta toe activeren/deactiveren van apps-markt</li>
           <li xml:lang="pt-BR">Permite ativar/desativar o mercado de aplicativos</li>
@@ -2081,6 +2135,7 @@
           <li xml:lang="ca">Millora la llista d'usuaris de la sala</li>
           <li xml:lang="ca-valencia">Millora la llista d'usuaris de la sala</li>
           <li xml:lang="es">Mejorada la lista de usuarios en salas</li>
+          <li xml:lang="it">Migliora l'elenco degli utenti nella stanza</li>
           <li xml:lang="ka">გაუმჯობესდა ოთახში მომხმარებლების სია</li>
           <li xml:lang="nl">Lijst van gebruikers in room</li>
           <li xml:lang="pt-BR">Melhora a lista de usuários na sala</li>
@@ -2093,6 +2148,7 @@
           <li xml:lang="ca">No és possible la cerca en una sala encriptada</li>
           <li xml:lang="ca-valencia">No és possible la busca en una sala encriptada</li>
           <li xml:lang="es">La búsqueda en salas cifradas no es posible</li>
+          <li xml:lang="it">Non è possibile effettuare ricerche in una stanza cifrata</li>
           <li xml:lang="ka">დაშიფრულ ოთახებში ძებნა შეუძლებელია</li>
           <li xml:lang="nl">Zoeken in versleuteld room is niet mogelijk</li>
           <li xml:lang="pt-BR">Não é possível pesquisar em sala criptografada</li>
@@ -2105,6 +2161,7 @@
           <li xml:lang="ca">Mostra els rols del d'usuaris de les sales</li>
           <li xml:lang="ca-valencia">Mostra els rols del d'usuaris de les sales</li>
           <li xml:lang="es">Mostrar los roles de usuarios en salas</li>
+          <li xml:lang="it">Mostra i ruoli per gli utenti nelle stanze</li>
           <li xml:lang="ka">როლების ჩვენება ოთახის მომხმარებლებისთვის</li>
           <li xml:lang="nl">Rollen voor gebruikers in room tonen</li>
           <li xml:lang="pt-BR">Mostra funções para usuários em salas</li>
@@ -2118,6 +2175,7 @@
           <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
           <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
           <li xml:lang="he">תוקנה בתמיכה במצב כהה</li>
+          <li xml:lang="it">Corregge il supporto della modalità scura</li>
           <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
@@ -2130,6 +2188,7 @@
           <li xml:lang="ca">Corregeix les aplicacions de baixada d'idiomes</li>
           <li xml:lang="ca-valencia">Corregix les aplicacions de baixada d'idiomes</li>
           <li xml:lang="es">Corrección al descargar aplicaciones de lenguaje</li>
+          <li xml:lang="it">Correggi le applicazioni per le lingue scaricate</li>
           <li xml:lang="ka">გასწორდა აპების ენის გადმოწერა</li>
           <li xml:lang="nl">Downloaden van talentoepassingen repareren</li>
           <li xml:lang="pt-BR">Corrige download de aplicativos de idiomas</li>
@@ -2148,6 +2207,7 @@
           <li xml:lang="ca">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
           <li xml:lang="ca-valencia">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
           <li xml:lang="es">Permitido limpiar la historia de una sala cuando la sala no se ha abierto en un plazo largo de tiempo</li>
+          <li xml:lang="it">Consente di ripulire la cronologia di una stanza quando questa non è stata aperta per molto tempo</li>
           <li xml:lang="ka">ოთახის ისტორიის გასუფთავებს დაშვება, როცა ოთახი დიდი ხნის განმავლობაში არ გაიხსნება</li>
           <li xml:lang="nl">Toestaan de geschiedenis van de room wissen wanneer de room lange tijd niet is geopend</li>
           <li xml:lang="pt-BR">Permite limpar o histórico do sala quando ele não foi aberto por muito tempo</li>
@@ -2160,6 +2220,7 @@
           <li xml:lang="ca">Afegeix el botó de restauració en el diàleg de configuració d'administració del servidor</li>
           <li xml:lang="ca-valencia">Afig el botó de restauració en el diàleg de configuració d'administració del servidor</li>
           <li xml:lang="es">Añadido botón de restaurar en el diálogo de preferencias de administrador de servidor</li>
+          <li xml:lang="it">Aggiunge il pulsante di ripristino nella finestra delle impostazioni del server dell'amministratore</li>
           <li xml:lang="ka">აღდგენის ღილაკის დამატება ადმინისტრატორის სერვერის მორგების დიალოგში</li>
           <li xml:lang="nl">Herstelknop toevoegen in de dialoog voor de instellingen van de server van de systeembeheerder</li>
           <li xml:lang="pt-BR">Adiciona botão de restauração na caixa de diálogo de configurações do servidor do administrador</li>
@@ -2172,6 +2233,7 @@
           <li xml:lang="ca">Millora el canvi de contrasenya (mostra la informació de validació)</li>
           <li xml:lang="ca-valencia">Millora el canvi de contrasenya (mostra la informació de validació)</li>
           <li xml:lang="es">Mejorado el cambio de contraseña (muestra información de validación)</li>
+          <li xml:lang="it">Migliora la modifica della password (mostra le informazioni di convalida)</li>
           <li xml:lang="ka">პაროლის შეცვლის გაუმჯობესება (გადამოწმების ინფორმაციის ჩვენება)</li>
           <li xml:lang="nl">Wijzigen van wachtwoord verbeteren (informatie over validatie tonen)</li>
           <li xml:lang="pt-BR">Melhora a alteração de senha (mostra informações de validação)</li>
@@ -2184,6 +2246,7 @@
           <li xml:lang="ca">Millora el registre d'un compte nou (afegir la implementació del motiu)</li>
           <li xml:lang="ca-valencia">Millora el registre d'un compte nou (afegir la implementació del motiu)</li>
           <li xml:lang="es">Mejorado el registro de nuevas cuentas (Añadido soporte para razón)</li>
+          <li xml:lang="it">Migliora la registrazione di un nuovo account (supporto per l'aggiunta di un motivo)</li>
           <li xml:lang="ka">ახალი ანგარიშის რეგისტრაციის გაუმჯობესება (მიზეზის მხარდაჭერის დამატება)</li>
           <li xml:lang="nl">Registreren van nieuw account verbeteren (Ondersteunen van reden toevoegen)</li>
           <li xml:lang="pt-BR">Melhora o registro de nova conta (adiciona suporte ao motivo)</li>
@@ -2196,6 +2259,7 @@
           <li xml:lang="ca">Implementa silenciar/deixar de silenciar un usuari</li>
           <li xml:lang="ca-valencia">Implementa silenciar/deixar de silenciar un usuari</li>
           <li xml:lang="es">Implementado el silenciado de usuarios</li>
+          <li xml:lang="it">Implementa silenzia/riabilita utente</li>
           <li xml:lang="ka">მომხმარებლის დადუმება/დადუმების მოხსნის განხორციელება</li>
           <li xml:lang="nl">Dempen/dempen ongedaan maken van gebruiker implementeren</li>
           <li xml:lang="pt-BR">Implementa silenciar/ativar som do usuário</li>
@@ -2208,6 +2272,7 @@
           <li xml:lang="ca">Afegeix color al text en la pestanya dels comptes</li>
           <li xml:lang="ca-valencia">Afig color al text en la pestanya dels comptes</li>
           <li xml:lang="es">Añadido color al texto en la pestaña de cuenta</li>
+          <li xml:lang="it">Aggiunge il colore al testo nella scheda degli account</li>
           <li xml:lang="ka">ანგარიშის ჩანართის ტექსტზე ფერის დამატება</li>
           <li xml:lang="nl">Kleur toevoegen aan de tekst in het tabblad account</li>
           <li xml:lang="pt-BR">Adiciona cor ao texto na aba da conta</li>
@@ -2220,6 +2285,7 @@
           <li xml:lang="ca">Permet mostrar les aplicacions privades instal·lades</li>
           <li xml:lang="ca-valencia">Permet mostrar les aplicacions privades instal·lades</li>
           <li xml:lang="es">Permite mostrar las aplicaciones instaladas de manera privada</li>
+          <li xml:lang="it">Consente di mostrare le applicazioni private installate</li>
           <li xml:lang="ka">პირადი დაყენებული აპლიკაციების ჩვენების დაშვება</li>
           <li xml:lang="nl">Bied het tonen van privé geïnstalleerde toepassingen</li>
           <li xml:lang="pt-BR">Permite mostrar aplicativos privados instalados</li>
@@ -2233,6 +2299,7 @@
           <li xml:lang="ca-valencia">Corregix l'edició de missatges</li>
           <li xml:lang="es">Corrección al editar mensajes</li>
           <li xml:lang="he">תוקנה עריכת הודעות</li>
+          <li xml:lang="it">Corregge la modifica del messaggio</li>
           <li xml:lang="ka">გასწორდა შეტყობინების ჩასწორება</li>
           <li xml:lang="nl">Bewerken van bericht repareren</li>
           <li xml:lang="pt-BR">Corrige edição de mensagem</li>
@@ -2245,6 +2312,7 @@
           <li xml:lang="ca">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Mostrar permisos en tienda Rocket.Chat</li>
+          <li xml:lang="it">Mostra i permessi in Rocket.Chat Marketplace</li>
           <li xml:lang="ka">წვდომების ჩვენება Rocket.Chat-ის მაღაზიაში</li>
           <li xml:lang="nl">Rechten van Marktplein van Rocket.Chat tonen</li>
           <li xml:lang="pt-BR">Mostra permissões no Marketplace do Rocket.Chat</li>
@@ -2257,6 +2325,7 @@
           <li xml:lang="ca">Corregeix la reconnexió del servidor</li>
           <li xml:lang="ca-valencia">Corregix tornar a connectar del servidor</li>
           <li xml:lang="es">Corrección al reconectar al servidor</li>
+          <li xml:lang="it">Corregge la riconnessione del server</li>
           <li xml:lang="ka">გასწორდა სერვერთან თავიდან დაკავშირება</li>
           <li xml:lang="nl">Server voor opnieuw verbinden repareren</li>
           <li xml:lang="pt-BR">Corrige reconexão ao servidor</li>
@@ -2269,6 +2338,7 @@
           <li xml:lang="ca">Corregeix l'aplicació individual a Windows/MacOs</li>
           <li xml:lang="ca-valencia">Corregix l'aplicació individual a Windows/MacOs</li>
           <li xml:lang="es">Corrección el la aplicación en Windows/MacOs</li>
+          <li xml:lang="it">Corregge la singola applicazione su Windows/MacOs</li>
           <li xml:lang="ka">ერთი აპლიკაციის გასწორება Windows/MacOS-ებზე</li>
           <li xml:lang="nl">Enkele toepassing op Windows/MacOs repareren</li>
           <li xml:lang="pt-BR">Corrige aplicativos simples no Windows/MacOs</li>
@@ -2281,6 +2351,7 @@
           <li xml:lang="ca">Corregeix la selecció de sales/debats/equips creats</li>
           <li xml:lang="ca-valencia">Corregix la selecció de sales/debats/equips creats</li>
           <li xml:lang="es">Corrección al seleccionar sala/discusión/equipo creados</li>
+          <li xml:lang="it">Corregge la selezione delle stanze/discussioni/squadre create</li>
           <li xml:lang="ka">გასწორდა შექმნილი ოთახის/კამათის/გუნდების მონიშვნა</li>
           <li xml:lang="nl">Reparatie van selecteer aangemaakte room/discussie/teams</li>
           <li xml:lang="pt-BR">Corrige seleção de sala/discussão/equipes criadas</li>
@@ -2293,6 +2364,7 @@
           <li xml:lang="ca">Corregeix el filtre de debats en mode d'administrador</li>
           <li xml:lang="ca-valencia">Corregix el filtre de debats en mode administrador</li>
           <li xml:lang="es">Corrección al filtrar discusión en modo administrador</li>
+          <li xml:lang="it">Corregge il filtro della discussione in modalità amministratore</li>
           <li xml:lang="ka">გასწორდა დისკუსიის ფილტრი ადმინისტრატორის რეჟიმში</li>
           <li xml:lang="nl">Reparatie van filter discussie in modus beheerder</li>
           <li xml:lang="pt-BR">Corrige discussão de filtro no modo administrador</li>
@@ -2306,6 +2378,7 @@
           <li xml:lang="ca-valencia">Corregix la implementació dels missatges de vídeo</li>
           <li xml:lang="es">Corrección en el soporte de mensajes de vídeos</li>
           <li xml:lang="he">תוקנה התמיכה בהודעות וידאו</li>
+          <li xml:lang="it">Corregge il supporto video dei messaggi</li>
           <li xml:lang="ka">გასწორდა შეტყობინების ვიდეოს მხარდაჭერა</li>
           <li xml:lang="nl">Reparatie van bericht ondersteuning van video</li>
           <li xml:lang="pt-BR">Corrige suporte a mensagens de vídeo</li>
@@ -2318,6 +2391,7 @@
           <li xml:lang="ca">Corregeix el text ressaltat en un missatge citat</li>
           <li xml:lang="ca-valencia">Corregix el text ressaltat en un missatge citat</li>
           <li xml:lang="es">Corrección al destacar texto en mensaje entrecomillado</li>
+          <li xml:lang="it">Corregge il testo evidenziato nel messaggio citato</li>
           <li xml:lang="ka">გასწორდა ტექსტის გამოკვეთა ციტირებულ შეტყობინებებში</li>
           <li xml:lang="nl">Geaccentueerde tekst in aangehaald bericht repareren</li>
           <li xml:lang="pt-BR">Corrige texto destacado em mensagem citada</li>
@@ -2330,6 +2404,7 @@
           <li xml:lang="ca">Corregeix l'obertura d'un canal de debat</li>
           <li xml:lang="ca-valencia">Corregix l'obertura d'un canal de debat</li>
           <li xml:lang="es">Corrección al abrir canal de discusión</li>
+          <li xml:lang="it">Corregge il canale di discussione aperto</li>
           <li xml:lang="ka">გასწორდა კამათის არხის გახსნა</li>
           <li xml:lang="nl">Open discussiekanaal repareren</li>
           <li xml:lang="pt-BR">Corrige canal de discussão aberto</li>
@@ -2342,6 +2417,7 @@
           <li xml:lang="ca">Permet mostrar la configuració del mercat d'aplicacions</li>
           <li xml:lang="ca-valencia">Permet mostrar la configuració del mercat d'aplicacions</li>
           <li xml:lang="es">Permite mostrar las preferencias de la tienda de aplicaciones</li>
+          <li xml:lang="it">Consente di mostrare le impostazioni del negozio delle applicazioni</li>
           <li xml:lang="ka">აპლიკაციის მარკეტის პარამეტრების ჩვენების დაშვება</li>
           <li xml:lang="nl">Sta het tonen van instellingen van toepassingenmarkt toe</li>
           <li xml:lang="pt-BR">Permite mostrar as configurações do mercado de aplicativos</li>
@@ -2361,6 +2437,7 @@
           <li xml:lang="ca">Implementa el mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Implementa el mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Implementada la tienda Rocket.Chat</li>
+          <li xml:lang="it">Implementa Rocket.Chat Marketplace</li>
           <li xml:lang="ka">განხორციელდა Rocket.Chat-ის მაღაზია</li>
           <li xml:lang="nl">Marktplein van Rocket.Chat implementeren</li>
           <li xml:lang="pt-BR">Implementa o Marketplace do Rocket.Chat</li>
@@ -2373,6 +2450,7 @@
           <li xml:lang="ca">Permet netejar l'historial de les sales</li>
           <li xml:lang="ca-valencia">Permet netejar l'historial de les sales</li>
           <li xml:lang="es">Permite limpiar la historia de salas</li>
+          <li xml:lang="it">Consente la cancellazione della cronologia della stanza</li>
           <li xml:lang="ka">ოთახის ისტორიის გასუფთავების დაშვება</li>
           <li xml:lang="nl">Toestaan de geschiedenis van de room te wissen</li>
           <li xml:lang="pt-BR">Permite limpar o histórico da sala</li>
@@ -2385,6 +2463,7 @@
           <li xml:lang="ca">Permet comprovar si hi ha una versió nova</li>
           <li xml:lang="ca-valencia">Permet comprovar si hi ha una versió nova</li>
           <li xml:lang="es">Permite comprobar nuevas versiones</li>
+          <li xml:lang="it">Consente di verificare una nuova versione</li>
           <li xml:lang="ka">ახალი ვერსიის შემოწმების დაშვება</li>
           <li xml:lang="nl">Toestaan op nieuwe versie te controleren</li>
           <li xml:lang="pt-BR">Permite verificar por nova versão</li>
@@ -2397,6 +2476,7 @@
           <li xml:lang="ca">Implementa la moderació (mode d'administrador)</li>
           <li xml:lang="ca-valencia">Implementa la moderació (mode administrador)</li>
           <li xml:lang="es">Implementada moderación (modo administrador)</li>
+          <li xml:lang="it">Implementa la moderazione (modalità amministratore)</li>
           <li xml:lang="ka">მოდერაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)</li>
           <li xml:lang="nl">Moderatie implementeren (modus systeembeheerder)</li>
           <li xml:lang="pt-BR">Implementa a moderação (modo de administrador)</li>
@@ -2409,6 +2489,7 @@
           <li xml:lang="ca">Afegeix la pàgina de benvinguda</li>
           <li xml:lang="ca-valencia">Afig la pàgina de benvinguda</li>
           <li xml:lang="es">Añadida página de bienvenida</li>
+          <li xml:lang="it">Aggiunge la pagina di benvenuto</li>
           <li xml:lang="ka">დაემატა მისალმების გვერდი</li>
           <li xml:lang="nl">Welkomstpagina toevoegen</li>
           <li xml:lang="pt-BR">Adiciona a página de boas-vindas</li>
@@ -2421,6 +2502,7 @@
           <li xml:lang="ca">Implementa la informació sobre els usuaris pendents (mode d'administrador)</li>
           <li xml:lang="ca-valencia">Implementa la informació sobre els usuaris pendents (mode administrador)</li>
           <li xml:lang="es">Implementada la información de usuarios pendiente (modo administrador)</li>
+          <li xml:lang="it">Implementa le informazioni sugli utenti in sospeso (modalità amministratore)</li>
           <li xml:lang="ka">განხორციელდა დარჩენილი მომხმარებლების ინფორმაციის მიღება(ადმინისტრატორის რეჟიმი).</li>
           <li xml:lang="nl">Informatie van wachtende gebruikers implementeren (modus systeembeheerder)</li>
           <li xml:lang="pt-BR">Implementa informações de usuários pendentes (modo de administrador)</li>
@@ -2433,6 +2515,7 @@
           <li xml:lang="ca">Usa «cmark-rc» per a implementar el Markdown</li>
           <li xml:lang="ca-valencia">Utilitza «cmark-rc» per a implementar Markdown</li>
           <li xml:lang="es">Uso de cmark-rc para el soporte Markdown</li>
+          <li xml:lang="it">Utilizza cmark-rc per il supporto markdown</li>
           <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის გამოყენება</li>
           <li xml:lang="nl">Cmark-rc gebruiken voor ondersteuning van markdown</li>
           <li xml:lang="pt-BR">Usar cmark-rc para suporte a Markdown</li>
@@ -2445,6 +2528,7 @@
           <li xml:lang="ca">Suprimeix els fitxers més antics d'alguns directoris de la memòria cau («file-upload» i «media») perquè no creixi per sempre</li>
           <li xml:lang="ca-valencia">Suprimix els fitxers més antics d'algunes carpetes de la memòria cau («file-upload» i «media») perquè no cresca per sempre</li>
           <li xml:lang="es">Borra los archivos más antiguos de algunos directorios de caché (archivos compartidos y medios) para que no crezcan para siempre</li>
+          <li xml:lang="it">Elimina i file più vecchi da alcune cartelle della cache (file-upload e media) in modo che non crescano all'infinito</li>
           <li xml:lang="ka">კეშის საქაღალდეებიდან (file-upload და media) უძველესი ფაილების წაშლა, რომ ისინი უსასრულოდ არ გაიზარდოს</li>
           <li xml:lang="nl">Oudste bestanden uit enige cachemappen verwijderen (bestanden uploaden en media) zodat het niet oneindig groeit</li>
           <li xml:lang="pt-BR">Exclui os arquivos mais antigos de alguns diretórios de cache (upload de arquivos e mídia) para que eles não cresçam para sempre</li>
@@ -2457,6 +2541,7 @@
           <li xml:lang="ca">Neteja el model d'aplicacions del mercat després de 30 minuts (redueix la petjada de memòria)</li>
           <li xml:lang="ca-valencia">Neteja el model d'aplicacions del mercat després de 30 minuts (reduïx la petjada de memòria)</li>
           <li xml:lang="es">Limpiar modelo de tienda de aplicaciones tras 30 minutos (reduce uso de memoria)</li>
+          <li xml:lang="it">Svuota il modello delle applicazioni del marketplace dopo 30 minuti (riducendo l'occupazione di memoria)</li>
           <li xml:lang="ka">მარკეტის აპლიკაციის მოდელის გასუფთავება 30 წუთის შემდეგ (ამცირებს დახარჯული მეხსიერების სიდიდეს)</li>
           <li xml:lang="nl">Toepassingsmodel voor markt wissen na 30 minuten (voetafdruk op geheugen verminderen)</li>
           <li xml:lang="pt-BR">Limpa o modelo de aplicativo do mercado após 30 minutos (reduz o consumo de memória)</li>
@@ -2469,6 +2554,7 @@
           <li xml:lang="ca">Corregeix la visualització del nom del debat a la compleció</li>
           <li xml:lang="ca-valencia">Corregix la visualització del nom del debat a la compleció</li>
           <li xml:lang="es">Corrección al mostrar el nombre de la discusión al completar</li>
+          <li xml:lang="it">Corregge il nome della discussione visualizzata in fase di completamento</li>
           <li xml:lang="ka">გასწორდა დასრულებისას კამათის სახელის ჩვენება</li>
           <li xml:lang="nl">Naam van discussie bij voltooien tonen repareren</li>
           <li xml:lang="pt-BR">Corrige nome da discussão exibida na conclusão</li>
@@ -2481,6 +2567,7 @@
           <li xml:lang="ca">Corregeix els missatges duplicats en el diàleg de cerca de missatges</li>
           <li xml:lang="ca-valencia">Corregix els missatges duplicats en el diàleg de busca de missatges</li>
           <li xml:lang="es">Corrección de mensajes duplicados en el diálogo de búsqueda de mensaje</li>
+          <li xml:lang="it">Corregge i messaggi duplicati nella finestra di ricerca dei messaggi</li>
           <li xml:lang="ka">გასწორდა გამეორებული შეტყობინებები ძებნის შეტყობინების დიალოგში</li>
           <li xml:lang="nl">Dubbele meldingen repareren in dialoog van zoekmelding</li>
           <li xml:lang="pt-BR">Corrige mensagens duplicadas na caixa de diálogo de pesquisa de mensagens</li>
@@ -2493,6 +2580,7 @@
           <li xml:lang="ca">Afegeix un delegat a la cerca de sales en el diàleg d'equip</li>
           <li xml:lang="ca-valencia">Afig un delegat a la busca de sales en el diàleg d'equip</li>
           <li xml:lang="es">Añade delegación en la búsqueda de salas en el diálogo de equipos</li>
+          <li xml:lang="it">Aggiunge un delegato nelle stanze di ricerca nella finestra della squadra</li>
           <li xml:lang="ka">დაემატა დელეგატი ოთახების ძებნაში გუნდის დიალოგში</li>
           <li xml:lang="nl">Afgevaardigde toevoegen in zoekrooms in teamdialoog</li>
           <li xml:lang="pt-BR">Adiciona delegado em salas de pesquisa na caixa de diálogo da equipe</li>
@@ -2511,6 +2599,7 @@
           <li xml:lang="ca">Permet augmentar/disminuir la lletra (CTRL++/CTRL+-)</li>
           <li xml:lang="ca-valencia">Permet augmentar o disminuir la lletra («Ctrl++» o «Ctrl+-»)</li>
           <li xml:lang="es">Permite incrementar/decrementar la fuente (CTRL++/CTRL+-)</li>
+          <li xml:lang="it">Consente di aumentare/diminuire il carattere (CTRL++/CTRL+-)</li>
           <li xml:lang="ka">ფონტის გადიდება/დაპატარავების (CTRL++/CTRL+-) დაშვება</li>
           <li xml:lang="nl">Bied het vergroten/verkleinen van het lettertype (CTRL++/CTRL+-)</li>
           <li xml:lang="pt-BR">Permite aumentar/diminuir a fonte (CTRL c/CTRL-)</li>
@@ -2523,6 +2612,7 @@
           <li xml:lang="ca">Afegeix un estil de llista de canals (condensada/mitjana/ampliada)</li>
           <li xml:lang="ca-valencia">Afig un estil de llista de canals (condensada, mitjana o ampliada)</li>
           <li xml:lang="es">Añadido estilo de la lista de canales (Condensado/Medio/Extendido)</li>
+          <li xml:lang="it">Aggiunge stile elenco canali (condensato/medio/esteso)</li>
           <li xml:lang="ka">არხების სიის სტილის დამატება (შესქელებული/საშაუალო/გაფართოებული)</li>
           <li xml:lang="nl">Stijl van kanaallijst toevoegen (Slank/Medium/Uitgebreid)</li>
           <li xml:lang="pt-BR">Adiciona estilo de lista de canais (Condensado/Médio/Estendido)</li>
@@ -2535,6 +2625,7 @@
           <li xml:lang="ca">Afegeix els missatges reenviats</li>
           <li xml:lang="ca-valencia">Afig els missatges reenviats</li>
           <li xml:lang="es">Añadido reenviar mensaje</li>
+          <li xml:lang="it">Aggiunge l'inoltro dei messaggi</li>
           <li xml:lang="ka">შეტყობინების გადაგზავნის დამატება</li>
           <li xml:lang="nl">Door te sturen bericht toevoegen</li>
           <li xml:lang="pt-BR">Adiciona encaminhamento de mensagem</li>
@@ -2548,6 +2639,7 @@
           <li xml:lang="ca-valencia">Millora la implementació de les mencions</li>
           <li xml:lang="es">Mejorado el soporte de menciones</li>
           <li xml:lang="he">השתפרה התמיכה באזכורים</li>
+          <li xml:lang="it">Migliora il supporto delle menzioni</li>
           <li xml:lang="ka">გაუმჯობესდა ხსენებების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning van vermeldingen verbeteren</li>
           <li xml:lang="pt-BR">Melhora o suporte a menções</li>
@@ -2561,6 +2653,7 @@
           <li xml:lang="ca-valencia">Afig la implementació per a l'enllaçament profund</li>
           <li xml:lang="es">Añadido el soporte para enlaces profundos</li>
           <li xml:lang="he">נוספה תמיכה בקישור עמוק</li>
+          <li xml:lang="it">Aggiungi il supporto la traduzione locale</li>
           <li xml:lang="ka">დაემატა ღრმა ბმულების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
           <li xml:lang="pt-BR">Adiciona suporte para links diretos (deep linking)</li>
@@ -2573,6 +2666,7 @@
           <li xml:lang="ca">Implementa accions de bloqueig</li>
           <li xml:lang="ca-valencia">Implementa accions de bloqueig</li>
           <li xml:lang="es">Implementado bloqueo de acciones</li>
+          <li xml:lang="it">Implementa le azioni di blocco</li>
           <li xml:lang="ka">განხორციელდა დაბლოკვის ქმედებები</li>
           <li xml:lang="nl">Blokkeeracties implementeren</li>
           <li xml:lang="pt-BR">Implementa ações de bloqueio</li>
@@ -2585,6 +2679,7 @@
           <li xml:lang="ca">Implementa l'autenticació de testimonis personals.</li>
           <li xml:lang="ca-valencia">Implementa l'autenticació de testimonis personals.</li>
           <li xml:lang="es">Implementado la autenticación por token personal.</li>
+          <li xml:lang="it">Implementa l'autenticazione tramite token personale.</li>
           <li xml:lang="ka">განხორციელდა პირადი ტოკენით ავთენტიკაცია.</li>
           <li xml:lang="nl">Implementeer authenticatie met persoonlijke tokens.</li>
           <li xml:lang="pt-BR">Implementa autenticação por token pessoal</li>
@@ -2597,6 +2692,7 @@
           <li xml:lang="ca">Afegeix el suport d'activitats del Plasma</li>
           <li xml:lang="ca-valencia">Afig el suport d'activitats de Plasma</li>
           <li xml:lang="es">Añadido soporte para actividades Plasma</li>
+          <li xml:lang="it">Aggiunge il supporto per le attività Plasma</li>
           <li xml:lang="ka">დაემატა Plasma-ის აქტივობების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor activiteiten van Plasma toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte às Atividades do Plasma</li>
@@ -2610,6 +2706,7 @@
           <li xml:lang="ca-valencia">Afig el suport d'informació d'un usuari</li>
           <li xml:lang="es">Añadido soporte para reportar usuarios</li>
           <li xml:lang="he">נוספה תמיכה בדיווח על משתמשים</li>
+          <li xml:lang="it">Aggiunge il supporto per la segnalazione degli utenti</li>
           <li xml:lang="ka">დაემატა მომხმარებლის შესახებ ანგარიშის გაგზავნის მხარდაჭერა</li>
           <li xml:lang="nl">Rapport over gebruikersondersteuning toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte a reporte de usuário</li>
@@ -2622,6 +2719,7 @@
           <li xml:lang="ca">Implementa la notificació de so de canal</li>
           <li xml:lang="ca-valencia">Implementa la notificació de so de canal</li>
           <li xml:lang="es">Implementada el sonido de notificación de canal</li>
+          <li xml:lang="it">Implementa la notifica sonora del canale</li>
           <li xml:lang="ka">განხორციელდა არხის ხმოვანი გაფრთხილება</li>
           <li xml:lang="nl">Melding van kanaalgeluid implementeren</li>
           <li xml:lang="pt-BR">Implementa notificação de som no canal</li>
@@ -2634,6 +2732,7 @@
           <li xml:lang="ca">Implementa la notificació de so de sala nova</li>
           <li xml:lang="ca-valencia">Implementa la notificació de so de sala nova</li>
           <li xml:lang="es">Implementado el sonido de notificación de nueva sala</li>
+          <li xml:lang="it">Implementa la notifica sonora della nuova stanza</li>
           <li xml:lang="ka">განხორციელდა ახალი არხის ხმოვანი გაფრთხილება</li>
           <li xml:lang="nl">Geluidsmelding voor nieuwe room implementeren</li>
           <li xml:lang="pt-BR">Implementa nova notificação de som para sala</li>
@@ -2646,6 +2745,7 @@
           <li xml:lang="ca">Implementa la llista ordenada/desordenada en Markdown</li>
           <li xml:lang="ca-valencia">Implementa la llista ordenada/desordenada en Markdown</li>
           <li xml:lang="es">Implementadas las listas ordenadas/desordenadas en Markdown</li>
+          <li xml:lang="it">Implementa l'elenco markdown ordinato/non ordinato</li>
           <li xml:lang="ka">განხორციელდა დალაგებული/დაულაგებელი markdown-ის ჩამონათვალი</li>
           <li xml:lang="nl">Gesorteerde/niet-gesorteerde markdown-lijst implementeren</li>
           <li xml:lang="pt-BR">Implementa lista de markdown classificada/não classificada</li>
@@ -2659,6 +2759,7 @@
           <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
           <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
           <li xml:lang="he">תוקנה בתמיכה במצב כהה</li>
+          <li xml:lang="it">Corregge il supporto della modalità scura</li>
           <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
@@ -2672,6 +2773,7 @@
           <li xml:lang="ca-valencia">Corregix la implementació de Jitsi</li>
           <li xml:lang="es">Corrección en el soporte de Jitsi</li>
           <li xml:lang="he">תוקנה התמיכה ב־Jitsi</li>
+          <li xml:lang="it">Corregge il supporto jitsi</li>
           <li xml:lang="ka">გასწორდა JITSI-ის მხარდაჭერა</li>
           <li xml:lang="nl">Jitsi-ondersteuning repareren</li>
           <li xml:lang="pt-BR">Corrige suporte a jitsi</li>
@@ -2684,6 +2786,7 @@
           <li xml:lang="ca">Corregeix el missatge de traducció al canal directe</li>
           <li xml:lang="ca-valencia">Corregix el missatge de traducció en el canal directe</li>
           <li xml:lang="es">Corrección en la traducción de mensaje en canales directos</li>
+          <li xml:lang="it">Corregge la traduzione del messaggio nel canale diretto</li>
           <li xml:lang="ka">გასწორდა შეტყობინების თარგმნა პირდაპირ არხში</li>
           <li xml:lang="nl">Bericht vertalen in direct kanaal repareren</li>
           <li xml:lang="pt-BR">Corrige mensagem de tradução no canal direto</li>
@@ -2696,6 +2799,7 @@
           <li xml:lang="ca">No mostra @here/@all com a usuari</li>
           <li xml:lang="ca-valencia">No mostra @here/@all com a usuari</li>
           <li xml:lang="es">No mostrar @here/@all como usuario</li>
+          <li xml:lang="it">Non mostra @qui/@tutti come utente</li>
           <li xml:lang="ka">მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება</li>
           <li xml:lang="nl">@here/@all als gebruiker niet tonen</li>
           <li xml:lang="pt-BR">Não mostra @here/@all como usuário</li>
@@ -2708,6 +2812,7 @@
           <li xml:lang="ca">Redueix el consum de memòria</li>
           <li xml:lang="ca-valencia">Reduïx el consum de memòria</li>
           <li xml:lang="es">Reducido el uso de memoria</li>
+          <li xml:lang="it">Impronta sulla memoria ridotta</li>
           <li xml:lang="ka">შემცირდა მეხსიერების გამოყენება</li>
           <li xml:lang="nl">Voetafdruk op geheugen verminderen</li>
           <li xml:lang="pt-BR">Reduz uso de memória</li>
@@ -2720,6 +2825,7 @@
           <li xml:lang="ca">Fa servir RESTAPI per al registre</li>
           <li xml:lang="ca-valencia">Utilitza RESTAPI per al registre</li>
           <li xml:lang="es">Uso de RESTAPI para los registros</li>
+          <li xml:lang="it">Utilizza le API REST per la registrazione</li>
           <li xml:lang="ka">RESTAPI-ის გამოყენება ჟურნალისთვის</li>
           <li xml:lang="nl">RESTAPI voor loggen gebruiken</li>
           <li xml:lang="pt-BR">Uso da API REST para registro</li>
@@ -2732,6 +2838,7 @@
           <li xml:lang="ca">Permet enviar diversos fitxers</li>
           <li xml:lang="ca-valencia">Permet enviar múltiples fitxers</li>
           <li xml:lang="es">Permitido añadir múltiples mensajes</li>
+          <li xml:lang="it">Consente di inviare più file</li>
           <li xml:lang="ka">ერთზე მეტი ფაილის გაგზავნის დაშვება</li>
           <li xml:lang="nl">Meerdere bestanden verzenden toestaan</li>
           <li xml:lang="pt-BR">Permite o envio de múltiplos arquivos</li>
@@ -2744,6 +2851,7 @@
           <li xml:lang="ca">Corregeix l'URL de la vista prèvia</li>
           <li xml:lang="ca-valencia">Corregix l'URL de la vista prèvia</li>
           <li xml:lang="es">Arreglada URL de vista previa</li>
+          <li xml:lang="it">Corregge l'URL di anteprima</li>
           <li xml:lang="ka">გასწორდა მინიატურის ბმული</li>
           <li xml:lang="nl">Voorbeeld-url repareren</li>
           <li xml:lang="pt-BR">Corrige visualização de URL</li>
@@ -2771,6 +2879,7 @@
           <li xml:lang="ca">Afegeix la consola de moderació (Administració, RC servidor 6.2)</li>
           <li xml:lang="ca-valencia">Afig la consola de moderació (Administració, RC servidor 6.2)</li>
           <li xml:lang="es">Añadida consola de moderación (Administración, servidor RC 6.2)</li>
+          <li xml:lang="it">Aggiunge console di moderazione (Amministrazione, server RC 6.2)</li>
           <li xml:lang="ka">მოდერაცის კონსოლის დამატება (ადმინისტრაცია, RC სერვერი 6.2)</li>
           <li xml:lang="nl">Moderatieconsole toevoegen (Administratie, RC-server 6.2)</li>
           <li xml:lang="pt-BR">Adiciona Console de Moderação (Administração, servidor RC 6.2)</li>
@@ -2783,6 +2892,7 @@
           <li xml:lang="ca">Implementa els estils dels missatges</li>
           <li xml:lang="ca-valencia">Implementa els estils dels missatges</li>
           <li xml:lang="es">Implementado estilo de mensaje</li>
+          <li xml:lang="it">Implementa lo stile del messaggio</li>
           <li xml:lang="ka">შეტყობინებების სტილის განხორციელება</li>
           <li xml:lang="nl">Berichtenstijl implementeren</li>
           <li xml:lang="pt-BR">Implementa estilo de mensagem</li>
@@ -2795,6 +2905,7 @@
           <li xml:lang="ca">Implementa la previsualització d'URL</li>
           <li xml:lang="ca-valencia">Implementa la previsualització dels URL</li>
           <li xml:lang="es">Implementada vista previa de URL</li>
+          <li xml:lang="it">Implementa l'anteprima dei collegamenti</li>
           <li xml:lang="ka">ბმულის მინიატურის განხორციელება</li>
           <li xml:lang="nl">Voorbeeld van Url implementeren</li>
           <li xml:lang="pt-BR">Implementa visualização de URL</li>
@@ -2807,6 +2918,7 @@
           <li xml:lang="ca">Corregeix la implementació del Markdown (capçalera + marca de selecció)</li>
           <li xml:lang="ca-valencia">Corregix la implementació de Markdown (capçalera + marca de selecció)</li>
           <li xml:lang="es">Corrección en el soporte Markdown (cabecera + marca de comprobado)</li>
+          <li xml:lang="it">Corregge il supporto markdown (intestazione + segno di spunta)</li>
           <li xml:lang="ka">Markdown-ის მხარდაჭერის გაუქმება (თავსართი + თოლია)</li>
           <li xml:lang="nl">Ondersteuning van markdown repareren (kop + vinkje)</li>
           <li xml:lang="pt-BR">Corrige suporte a markdown (cabeçalho + marca de seleção)</li>
@@ -2819,6 +2931,7 @@
           <li xml:lang="ca">Corregeix una fuita de memòria</li>
           <li xml:lang="ca-valencia">Corregix una fuita de memòria</li>
           <li xml:lang="es">Corregido uso excesivo de memoria</li>
+          <li xml:lang="it">Corregge della perdita di memoria</li>
           <li xml:lang="ka">გასწორდა მეხსიერების გაჟონვა</li>
           <li xml:lang="nl">Geheugenlek repareren</li>
           <li xml:lang="pt-BR">Corrige vazamento de memória</li>
@@ -2831,6 +2944,7 @@
           <li xml:lang="ca">Mida de la memòria cau dels missatges (optimització)</li>
           <li xml:lang="ca-valencia">Mida de la memòria cau dels missatges (optimització)</li>
           <li xml:lang="es">Cachear tamaño de mensaje (optimización)</li>
+          <li xml:lang="it">Dimensioni dei messaggi nella cache (ottimizzazione)</li>
           <li xml:lang="ka">კეშის შეტყობინების ზომა (ოპტიმიზაცია)</li>
           <li xml:lang="nl">Grootte van cache voor berichten (optimalisatie)</li>
           <li xml:lang="pt-BR">Otimização de tamanho da mensagem em cache</li>
@@ -2843,6 +2957,7 @@
           <li xml:lang="ca">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
           <li xml:lang="ca-valencia">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
           <li xml:lang="es">Mejorada la selección de sala o usuario en la línea de edición de mensaje (muestra icono e informa si el usuario está en el canal)</li>
+          <li xml:lang="it">Migliora la selezione della stanza o di un utente nella riga della riga dei messaggi (mostra l'icona, informa se l'utente è nel canale)</li>
           <li xml:lang="ka">ოთახის არჩევის ან მომხმარებლის ხაზის ჩასწორების გაუმჯობესება (ხატულის ჩვენება, მომხმარებლის შეტყობინება, თუ მომხმარებელი არხზეა)</li>
           <li xml:lang="nl">Room of gebruiker selecteren verbeteren in regelbewerking van melding (pictogram tonen, informeren of gebruiker in kanaal is)</li>
           <li xml:lang="pt-BR">Melhora a seleção de sala ou usuário na edição da linha de mensagem (mostrar ícone, informar se o usuário está no canal)</li>
@@ -2855,6 +2970,7 @@
           <li xml:lang="ca">Corregeix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
           <li xml:lang="ca-valencia">Corregix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
           <li xml:lang="es">Corrección al mostrar órdenes en la línea de edición de mensaje (Ocultar acción cuando la sala no lo soporta)</li>
+          <li xml:lang="it">Corregge i comandi show nella modifica della riga del messaggio (nasconde l'azione quando la stanza non la supporta)</li>
           <li xml:lang="ka">გასწორდა ბრძანებების ჩვენება შეტყობინების ხაზის ჩასწორებისას (ქმედების დამალვა, როცა ოთახს მისი მხარდაჭერა არ აქვს)</li>
           <li xml:lang="nl">Tonen van commando's in bewerken van berichtregel (actie verbergen wanneer room het niet ondersteunt)</li>
           <li xml:lang="pt-BR">Corrige comandos de exibição na edição da linha de mensagem (Ocultar ação quando a sala não a suporta)</li>
@@ -2867,6 +2983,7 @@
           <li xml:lang="ca">Corregeix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
           <li xml:lang="ca-valencia">Corregix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
           <li xml:lang="es">Corrección de la descarga de archivos de sonido/vídeo cuando no está en la caché</li>
+          <li xml:lang="it">Risolve il problema con lo scaricamento di un file sonoro/video quando non è nella cache</li>
           <li xml:lang="ka">გასწორდა ხმის/ვიდეოს ფაილის გადმოწერა, როცა ის კეშში არაა</li>
           <li xml:lang="nl">Downloaden van bestand met geluid/video wanneer het niet in de cache is</li>
           <li xml:lang="pt-BR">Corrige arquivo de som/vídeo para download quando não estiver no cache</li>
@@ -2880,6 +2997,7 @@
           <li xml:lang="ca-valencia">Corregix la llista de mètodes d'autenticació</li>
           <li xml:lang="es">Corrección en la lista de métodos de autenticación</li>
           <li xml:lang="he">תוקנה רשימת שיטות האימות</li>
+          <li xml:lang="it">Corregge l'elenco dei metodi di autenticazione</li>
           <li xml:lang="ka">გასწორდა ავთენტიკაციის მეთოდების ჩამონათვალი</li>
           <li xml:lang="nl">Lijst met authenticatiemethode repareren</li>
           <li xml:lang="pt-BR">Corrige lista de métodos de autenticação</li>
@@ -2893,6 +3011,7 @@
           <li xml:lang="ca-valencia">Corregix la visualització dels URL dels avatars</li>
           <li xml:lang="es">Corrección al mostrar la URL del avatar</li>
           <li xml:lang="he">תיקון כתובת הצגת תמונה ייצוגית</li>
+          <li xml:lang="it">Risolve la visualizzazione dell'URL dell'avatar</li>
           <li xml:lang="ka">გასწორდა საჩვენებელი ავატარის ბმული</li>
           <li xml:lang="nl">Tonen van url van avatar repareren</li>
           <li xml:lang="pt-BR">Corrige exibição do URL do avatar</li>
@@ -2913,6 +3032,7 @@
           <li xml:lang="ca-valencia">Emmagatzema els missatges en la base de dades local (experimental)</li>
           <li xml:lang="es">Almacenar mensaje en la base de datos local (experimental)</li>
           <li xml:lang="he">אחסון הודעה במסד נתונים מקומי (ניסיוני)</li>
+          <li xml:lang="it">Memorizza il messaggio nella banca dati locale (sperimentale)</li>
           <li xml:lang="ka">შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)</li>
           <li xml:lang="nl">Berichten in lokale database opslaan (experimenteel)</li>
           <li xml:lang="pt-BR">Armazena mensagem no banco de dados local (experimental)</li>
@@ -2927,6 +3047,7 @@
           <li xml:lang="cs">Stáhnout ikonu serveru ze serveru</li>
           <li xml:lang="es">Descarga del icono de servidor desde el servidor</li>
           <li xml:lang="he">הורדת סמל השרת מהשרת</li>
+          <li xml:lang="it">Scarica l'icona del server dal server</li>
           <li xml:lang="ka">სერვერის ხატულის სერვერიდან გადმოწერა</li>
           <li xml:lang="nl">Pictogram van server downloaden van server</li>
           <li xml:lang="pt-BR">Baixa ícone do servidor a partir do servidor</li>
@@ -2940,6 +3061,7 @@
           <li xml:lang="ca-valencia">Mostra la informació d'error del servidor en un diàleg específic</li>
           <li xml:lang="es">Mostrar información de error del servidor en un diálogo específico</li>
           <li xml:lang="he">הצגת פרטי שגיאות שרת בתיבת חלונית ייעודית</li>
+          <li xml:lang="it">Mostra informazioni sull'errore del server in una finestra specifica</li>
           <li xml:lang="ka">სერვერის შეცდომის ინფორმაციის ჩვენება მითითებულ ფანჯარაში</li>
           <li xml:lang="nl">Informatie over serverfout tonen in specifiek dialoogvak </li>
           <li xml:lang="pt-BR">Mostra informações de erro do servidor em caixa de diálogo específica</li>
@@ -2954,6 +3076,7 @@
           <li xml:lang="cs">Povolit zkování obrázku do schránky</li>
           <li xml:lang="es">Permite copiar imagen en el portapapeles</li>
           <li xml:lang="he">לאפשר להעתיק תמונה ללוח הגזירים</li>
+          <li xml:lang="it">Consente di copiare l'immagine negli appunti</li>
           <li xml:lang="ka">გამოსახულების ბუფერში კოპირების დაშვება</li>
           <li xml:lang="nl">Afbeelding naar klembord kopiëren toestaan</li>
           <li xml:lang="pt-BR">Permite copiar imagem para a área de transferência</li>
@@ -2967,6 +3090,7 @@
           <li xml:lang="ca-valencia">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="es">Mejorado el soporte de depuración (Permite mostrar los permisos actuales de la cuenta)</li>
           <li xml:lang="he">התמיכה בניפוי שגיאות השתפרה (לאפשר להציג את הרשאות החשבון הנוכחי)</li>
+          <li xml:lang="it">Migliora il supporto per il debug (consenti di mostrare le autorizzazioni dell'account attuale)</li>
           <li xml:lang="ka">გამართვის მხარდაჭერის გაუმჯობესება (მიმდინარე ანგარიშის წვდომების ჩვენების დაშვება)</li>
           <li xml:lang="nl">Ondersteunt voor debuggen verbeteren (sta toe de huidige toegangsrechten te bekijken)</li>
           <li xml:lang="pt-BR">Melhoria no suporte à depuração (permitir mostrar as permissões da conta atual)</li>
@@ -2980,6 +3104,7 @@
           <li xml:lang="ca-valencia">Afig la implementació per al text citat (text que comença amb «&gt;»)</li>
           <li xml:lang="es">Añadido soporte para texto entrecomillado (texto que empieza por \'&gt;\')</li>
           <li xml:lang="he">נוספה תמיכה בטקסט מצוטט (טקסט שמתחיל ב־‚&gt;’)</li>
+          <li xml:lang="it">Aggiunge il supporto per il testo tra virgolette (testo che inizia con \'&gt;\')</li>
           <li xml:lang="ka">დაემატა ციტირებული ტექსტის (ტექსტის, რომელიც \'&gt;\'-ით იწყება) მხარდაჭერა</li>
           <li xml:lang="nl">Voeg ondersteuning toe voor geciteerde tekst (tekst die begint met \'&gt;\').</li>
           <li xml:lang="pt-BR">Adiciona suporte para texto citado (texto que começa com \'&gt;\')</li>
@@ -2992,6 +3117,7 @@
           <li xml:lang="ca">Mostra el líder/moderador/propietari a la informació del canal</li>
           <li xml:lang="ca-valencia">Mostra el líder/moderador/propietari en la informació del canal</li>
           <li xml:lang="es">Mostrar líder/moderador/propietario en la información del canal</li>
+          <li xml:lang="it">Mostra leader/moderatore/proprietario nelle informazioni del canale</li>
           <li xml:lang="ka">არხის ინფორმაციაში ლიდერის/მოდერატორის/მფლობელის ჩვენება</li>
           <li xml:lang="nl">Leider/moderator/eigenaar tonen in kanaalinformatie</li>
           <li xml:lang="pt-BR">Mostra líder/moderador/proprietário nas informações do canal</li>
@@ -3005,6 +3131,7 @@
           <li xml:lang="ca-valencia">Implementació de missatges de vídeo i so (només KF6)</li>
           <li xml:lang="es">Soporte para mensajes de vídeo/sonido (solo KF6)</li>
           <li xml:lang="he">תמיכה בהודעות וידאו/שמע (kf6 בלבד)</li>
+          <li xml:lang="it">Supporto per messaggi video/audio (solo kf6)</li>
           <li xml:lang="ka">ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)</li>
           <li xml:lang="nl">Ondersteuning voor video/geluidsbericht (alleen kf6)</li>
           <li xml:lang="pt-BR">Suporte para mensagens de vídeo/som (somente kf6)</li>
@@ -3018,6 +3145,7 @@
           <li xml:lang="ca-valencia">Importació/exportació de comptes</li>
           <li xml:lang="es">Importar/Exportar cuentas</li>
           <li xml:lang="he">ייבוא/ייצוא חשבונות</li>
+          <li xml:lang="it">Importa/Esporta account</li>
           <li xml:lang="ka">ანგარიშების გატანა/შემოტანა</li>
           <li xml:lang="nl">Accounts im-/exporteren</li>
           <li xml:lang="pt-BR">Importação/Exportação de contas</li>
@@ -3031,6 +3159,7 @@
           <li xml:lang="ca-valencia">Corregix la implementació dels avatars</li>
           <li xml:lang="es">Corrección en el soporte de avatares</li>
           <li xml:lang="he">תוקנה תמיכה בתמונה ייצוגית</li>
+          <li xml:lang="it">Risolto il problema con il supporto dell'avatar</li>
           <li xml:lang="ka">ავატარის მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Ondersteuning voor avatar repareren</li>
           <li xml:lang="pt-BR">Corrige o suporte a avatar</li>
@@ -3044,6 +3173,7 @@
           <li xml:lang="ca-valencia">Corregix la implementació dels emoji (utilitza el ktextaddons/textemoticons nou)</li>
           <li xml:lang="es">Corrección en el soporte de Emojis (usando nuevos ktextaddons/textemoticons)</li>
           <li xml:lang="he">תוקנה תמיכה באמוג׳י (משתמש ב־ktextaddons/textemoticons החדש)</li>
+          <li xml:lang="it">Corregge il supporto delle emoji (usa i nuovi ktextaddons/textemoticons)</li>
           <li xml:lang="ka">ემოჯის მხარდაჭერის გასწორება (იყენებს ახალ ktextaddon/textemoticon)</li>
           <li xml:lang="nl">Ondersteuning voor emoji repareren (nieuwe ktextaddons/textemoticons gebruiken)</li>
           <li xml:lang="pt-BR">Corrige o suporte a emojis (usa os novos ktextaddons/textemoticons)</li>
@@ -3057,6 +3187,7 @@
           <li xml:lang="ca-valencia">Corregix els GIF animats en les reaccions</li>
           <li xml:lang="es">Corrección en los gif animados en reacciones</li>
           <li xml:lang="he">תוקנו gif מונפשים בתגובות הרגש</li>
+          <li xml:lang="it">Corregge la gif animata nelle reazioni</li>
           <li xml:lang="ka">რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Geanimeerde gif in reacties repareren</li>
           <li xml:lang="pt-BR">Corrige gif animados em reações</li>
@@ -3071,6 +3202,7 @@
           <li xml:lang="cs">Oprava podpory kf6</li>
           <li xml:lang="es">Corrección al soporte de KF6</li>
           <li xml:lang="he">תוקנה התמיכה ב־kf6</li>
+          <li xml:lang="it">Risolve il supporto kf6</li>
           <li xml:lang="ka">KF6-ის მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Ondersteuning voor kf6 repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao kf6</li>
