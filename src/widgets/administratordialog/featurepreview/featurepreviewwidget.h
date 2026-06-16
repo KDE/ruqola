@@ -18,8 +18,6 @@ public:
     ~FeaturePreviewWidget() override;
     void initialize();
 
-    void save();
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotNeedSaveSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFeaturePreviewChanged(bool checked);

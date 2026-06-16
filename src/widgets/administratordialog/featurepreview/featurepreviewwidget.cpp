@@ -70,11 +70,6 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
 
 FeaturePreviewWidget::~FeaturePreviewWidget() = default;
 
-void FeaturePreviewWidget::slotSaveSettings()
-{
-    // TODO
-}
-
 void FeaturePreviewWidget::slotNeedSaveSettings()
 {
     mPreviewMessageWidget->animatedShow();
@@ -101,7 +96,7 @@ void FeaturePreviewWidget::initialize()
     }
 }
 
-void FeaturePreviewWidget::save()
+void FeaturePreviewWidget::slotSaveSettings()
 {
     auto job = new RocketChatRestApi::MethodCallJob(this);
     QJsonArray params;
