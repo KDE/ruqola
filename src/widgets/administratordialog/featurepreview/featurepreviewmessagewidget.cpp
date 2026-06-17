@@ -7,7 +7,7 @@
 #include "featurepreviewmessagewidget.h"
 #include <KLocalizedString>
 #include <QAction>
-
+using namespace Qt::Literals::StringLiterals;
 FeaturePreviewMessageWidget::FeaturePreviewMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
@@ -16,11 +16,11 @@ FeaturePreviewMessageWidget::FeaturePreviewMessageWidget(QWidget *parent)
     setCloseButtonVisible(false);
     hide();
 
-    auto cancelAction = new QAction(i18nc("@action", "Cancel"), this);
+    auto cancelAction = new QAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Cancel"), this);
     addAction(cancelAction);
     connect(cancelAction, &QAction::triggered, this, &FeaturePreviewMessageWidget::animatedHide);
 
-    auto saveAction = new QAction(i18nc("@action", "Save"), this);
+    auto saveAction = new QAction(QIcon::fromTheme(u"dialog-ok-apply"_s), i18nc("@action", "Save"), this);
     addAction(saveAction);
     connect(saveAction, &QAction::triggered, this, [this]() {
         Q_EMIT saveSettings();
