@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-06-17 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3483,7 +3483,24 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Kasutaja kohandatud olek"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:19
+#: widgets/dialogs/roomavatarwidget.cpp:35
+#: widgets/room/roomquotemessagewidget.cpp:21
+#: widgets/room/roomreplythreadwidget.cpp:22
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Loobu"
+
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgctxt "@action"
+msgid "Save"
+msgstr "Faili salvestamine"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
@@ -3491,21 +3508,21 @@ msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Sõnum kustutatud"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Mainimised"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "Kõik sõnumid"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Private Messages"
@@ -9302,15 +9319,6 @@ msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Hangi avatar"
 
-#: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:21
-#: widgets/room/roomreplythreadwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Cancel"
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Loobu"
-
 #: widgets/dialogs/roomavatarwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
@@ -13549,12 +13557,6 @@ msgstr "Kohandatud olek:"
 #~ msgctxt "@action:button"
 #~ msgid "Save &As…"
 #~ msgstr "Salvesta tekstina ..."
-
-#, fuzzy
-#~| msgid "Save File"
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Faili salvestamine"
 
 #, fuzzy
 #~| msgid "Error saving file"

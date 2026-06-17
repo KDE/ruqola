@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-06-17 00:45+0000\n"
 "PO-Revision-Date: 2026-05-25 17:23+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-it@kde.org>\n"
@@ -3256,26 +3256,43 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Remove stato de usator personalisate"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:19
+#: widgets/dialogs/roomavatarwidget.cpp:35
+#: widgets/room/roomquotemessagewidget.cpp:21
+#: widgets/room/roomreplythreadwidget.cpp:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Cancella"
+
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save File"
+msgctxt "@action"
+msgid "Save"
+msgstr "Salveguarda file"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Permitte vista preliminar de characterictica"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Reactiones rapide"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "Timbro de tempore in messages"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Private Messages"
@@ -8627,14 +8644,6 @@ msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Refixa Avatar"
 
-#: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:21
-#: widgets/room/roomreplythreadwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Cancella"
-
 #: widgets/dialogs/roomavatarwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
@@ -12486,10 +12495,6 @@ msgstr "Corrige incargar Sonos personalisate"
 #~ msgctxt "@action:button"
 #~ msgid "Save &As…"
 #~ msgstr "S&alva como..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Salveguarda file"
 
 #~ msgctxt "@title:window"
 #~ msgid "Error saving file"

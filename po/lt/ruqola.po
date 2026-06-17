@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-06-17 00:45+0000\n"
 "PO-Revision-Date: 2025-12-29 17:10+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -3359,7 +3359,24 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "Tinkinta naudotojo būsena"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:19
+#: widgets/dialogs/roomavatarwidget.cpp:35
+#: widgets/room/roomquotemessagewidget.cpp:21
+#: widgets/room/roomreplythreadwidget.cpp:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr ""
+
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save File"
+msgctxt "@action"
+msgid "Save"
+msgstr "Įrašyti failą"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
@@ -3367,21 +3384,21 @@ msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "Žinutė ištrinta"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Description:"
 msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "Aprašas:"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "Šifruota žinutė"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
@@ -9075,14 +9092,6 @@ msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Slaptažodis"
 
-#: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:21
-#: widgets/room/roomreplythreadwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr ""
-
 #: widgets/dialogs/roomavatarwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
@@ -13207,10 +13216,6 @@ msgstr "Tinkinti garsai"
 #~ msgctxt "@title:window"
 #~ msgid "Open Attachment?"
 #~ msgstr "Atverti priedą?"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "Įrašyti failą"
 
 #~ msgctxt "@title:window"
 #~ msgid "Error saving file"

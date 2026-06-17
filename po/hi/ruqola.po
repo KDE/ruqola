@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:44+0000\n"
+"POT-Creation-Date: 2026-06-17 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -3264,14 +3264,31 @@ msgctxt "@title"
 msgid "Remove Custom User Status"
 msgstr "कस्टम उपयोगकर्ता स्थिति हटाएँ"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:19
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:19
+#: widgets/dialogs/roomavatarwidget.cpp:35
+#: widgets/room/roomquotemessagewidget.cpp:21
+#: widgets/room/roomreplythreadwidget.cpp:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "रद्द करना"
+
+#: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save File"
+msgctxt "@action"
+msgid "Save"
+msgstr "फाइल सुरक्षित करें"
+
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow Feature Preview"
 msgstr "फ़ीचर पूर्वावलोकन की अनुमति दें"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Reactions"
@@ -3279,14 +3296,14 @@ msgctxt "@option:check"
 msgid "Quick Reactions"
 msgstr "प्रतिक्रियाओं"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:21
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Total Messages"
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
 msgstr "कुल संदेश"
 
-#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
+#: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Private Messages"
@@ -8832,14 +8849,6 @@ msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "अवतार रीसेट करें"
 
-#: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:21
-#: widgets/room/roomreplythreadwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "रद्द करना"
-
 #: widgets/dialogs/roomavatarwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
@@ -12828,10 +12837,6 @@ msgstr "कस्टम ध्वनियाँ"
 #~ msgctxt "@action:button"
 #~ msgid "Save &As…"
 #~ msgstr "के रूप रक्षित करें…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save File"
-#~ msgstr "फाइल सुरक्षित करें"
 
 #~ msgctxt "@title:window"
 #~ msgid "Error saving file"
