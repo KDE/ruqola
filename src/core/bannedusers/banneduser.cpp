@@ -41,7 +41,9 @@ QDebug operator<<(QDebug d, const BannedUser &t)
 
 void BannedUser::parseBannedUser(const QJsonObject &obj)
 {
-    // TODO
+    mName = obj.value("name"_L1).toString();
+    mUserName = obj.value("username"_L1).toString();
+    mIdentifier = obj.value("_id"_L1).toString();
 }
 
 QString BannedUser::identifier() const

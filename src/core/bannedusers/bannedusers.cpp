@@ -38,27 +38,27 @@ BannedUser BannedUsers::at(int index) const
     return mBannedUsers.at(index);
 }
 
-void BannedUsers::parseMoreBannedUsers(const QJsonObject &commandsObj)
+void BannedUsers::parseMoreBannedUsers(const QJsonObject &bannerObj)
 {
-    const int commandsCount = commandsObj["count"_L1].toInt();
-    mOffset = commandsObj["offset"_L1].toInt();
-    mTotal = commandsObj["total"_L1].toInt();
-    parseListBannedUsers(commandsObj);
+    const int commandsCount = bannerObj["count"_L1].toInt();
+    mOffset = bannerObj["offset"_L1].toInt();
+    mTotal = bannerObj["total"_L1].toInt();
+    parseListBannedUsers(bannerObj);
     mBannedUsersCount += commandsCount;
 }
 
 void BannedUsers::parseListBannedUsers(const QJsonObject &commandsObj)
 {
-    const QJsonArray commandsArray = commandsObj["commands"_L1].toArray();
-    mBannedUsers.reserve(mBannedUsers.count() + commandsArray.count());
-    for (const auto &current : commandsArray) {
+    const QJsonArray bannedUsesArray = commandsObj["bannedUsers"_L1].toArray();
+    mBannedUsers.reserve(mBannedUsers.count() + bannedUsesArray.count());
+    for (const auto &current : bannedUsesArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject commandObj = current.toObject();
+            const QJsonObject bannedUsersObj = current.toObject();
             BannedUser m;
-            m.parseBannedUser(commandObj);
+            m.parseBannedUser(bannedUsersObj);
             mBannedUsers.append(std::move(m));
         } else {
-            qCWarning(RUQOLA_COMMANDS_LOG) << "Problem when parsing commands" << current.type();
+            qCWarning(RUQOLA_COMMANDS_LOG) << "Problem when parsing bannedusers" << current.type();
         }
     }
 }
@@ -116,7 +116,7 @@ QDebug operator<<(QDebug d, const BannedUsers &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "commandsCount" << t.bannedUsersCount() << "\n";
+    d.space() << "bannedUsersCount" << t.bannedUsersCount() << "\n";
     for (int i = 0, total = t.bannedUsers().count(); i < total; ++i) {
         d.space() << t.bannedUsers().at(i) << "\n";
     }
