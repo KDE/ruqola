@@ -20,3 +20,5 @@ void BannedUserTest::shouldHaveDefaultValues()
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.identifier().isEmpty());
 }
+
+#include "moc_bannedusertest.cpp"

@@ -22,3 +22,5 @@ void BannedUsersTest::shouldHaveDefaultValues()
     QCOMPARE(w.total(), 0);
     QCOMPARE(w.bannedUsersCount(), 0);
 }
+
+#include "moc_banneduserstest.cpp"
