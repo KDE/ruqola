@@ -52,7 +52,7 @@ QList<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() co
                 .identifier = banner.identifier(),
                 .i18nMessage = generateText(banner),
             };
-            infos.append(std::move(info));
+            infos.append(info);
         }
     }
     return infos;
