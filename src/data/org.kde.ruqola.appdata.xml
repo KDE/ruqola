@@ -1460,6 +1460,14 @@
           <li xml:lang="tr">Hata bildirimleri için yeni textmessagewidget kullan</li>
           <li xml:lang="uk">Для сповіщення про помилку використано новий textmessagewidget</li>
           <li>Implement Draft message sorting channel.</li>
+          <li xml:lang="ca">Implementa el canal d'ordenació dels esborranys.</li>
+          <li xml:lang="ca-valencia">Implementa el canal d'ordenació dels esborranys.</li>
+          <li xml:lang="ka">განხორციელდა მონახაზი შეტყობინებების დალაგების არხი.</li>
+          <li xml:lang="nl">Implementeer een kanaal voor het sorteren van conceptberichten.</li>
+          <li xml:lang="pt-BR">Implementa canal de classificação de mensagens em rascunho.</li>
+          <li xml:lang="sl">Implementira kanal za sortiranje osnutkov sporočil.</li>
+          <li xml:lang="tr">Taslak ileti sıralama özelliğini gerçekle</li>
+          <li xml:lang="uk">Реалізовано канал упорядковування повідомлень-чернеток</li>
         </ul>
       </description>
     </release>
