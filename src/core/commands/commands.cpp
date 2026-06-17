@@ -53,7 +53,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj)
     const QJsonArray commandsArray = commandsObj["commands"_L1].toArray();
     mCommands.reserve(mCommands.count() + commandsArray.count());
     const QString lang = QLocale().name();
-    for (const QJsonValue &current : commandsArray) {
+    for (const auto &current : commandsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject commandObj = current.toObject();
             Command m;
