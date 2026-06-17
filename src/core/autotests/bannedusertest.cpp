@@ -18,4 +18,5 @@ void BannedUserTest::shouldHaveDefaultValues()
     const BannedUser w;
     QVERIFY(w.userName().isEmpty());
     QVERIFY(w.name().isEmpty());
+    QVERIFY(w.identifier().isEmpty());
 }

@@ -18,9 +18,15 @@ public:
     [[nodiscard]] QString name() const;
     void setName(const QString &newName);
 
+    void parseBannedUser(const QJsonObject &obj);
+
+    [[nodiscard]] QString identifier() const;
+    void setIdentifier(const QString &newIndentifier);
+
 private:
     QString mUserName;
     QString mName;
+    QString mIdentifier;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(BannedUser, Ruqola_BannedUser, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(BannedUser, Q_RELOCATABLE_TYPE);

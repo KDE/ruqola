@@ -35,5 +35,21 @@ QDebug operator<<(QDebug d, const BannedUser &t)
 {
     d.space() << "name" << t.name();
     d.space() << "userName" << t.userName();
+    d.space() << "identifier" << t.identifier();
     return d;
+}
+
+void BannedUser::parseBannedUser(const QJsonObject &obj)
+{
+    // TODO
+}
+
+QString BannedUser::identifier() const
+{
+    return mIdentifier;
+}
+
+void BannedUser::setIdentifier(const QString &newIndentifier)
+{
+    mIdentifier = newIndentifier;
 }
