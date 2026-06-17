@@ -57,12 +57,14 @@ bool FeaturePreviewPreferences::hasFeaturePreview() const
 
 bool FeaturePreviewPreferences::serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType type) const
 {
-    return mPreviewStatus.contains(type);
+    const bool result = mPreviewStatus.contains(type);
+    return result;
 }
 
 bool FeaturePreviewPreferences::hasFeature(FeaturePreviewPreferences::FeaturePreviewType type) const
 {
-    return mPreviewStatus.value(type, false);
+    const bool result = mPreviewStatus.value(type, false);
+    return result;
 }
 
 #include "moc_featurepreviewpreferences.cpp"

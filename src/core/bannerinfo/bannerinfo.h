@@ -10,6 +10,7 @@
 #include <QMetaType>
 #include <QStringList>
 
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT BannerInfo
 {
@@ -58,5 +59,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(BannerInfo, Ruqola_BannerInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(BannerInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BannerInfo &t);
