@@ -40,7 +40,7 @@ public:
 
     void setFiles(const QList<File> &files);
 
-    FileAttachments *fileAttachments() const;
+    [[nodiscard]] FileAttachments *fileAttachments() const;
 
     [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
