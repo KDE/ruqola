@@ -556,6 +556,8 @@ target_sources(
         timestamp/timestampinmessagesutils.cpp
         bannedusers/banneduser.h
         bannedusers/banneduser.cpp
+        bannedusers/bannedusers.h
+        bannedusers/bannedusers.cpp
         emoji.qrc
 )
 
