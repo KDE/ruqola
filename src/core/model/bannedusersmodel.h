@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "attachments/file.h"
-#include "attachments/fileattachments.h"
+#include "bannedusers/banneduser.h"
+#include "bannedusers/bannedusers.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 class RocketChatAccount;
@@ -26,9 +26,9 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    void setFiles(const QList<File> &files);
+    void setBannedUsers(const QList<BannedUser> &files);
 
-    [[nodiscard]] FileAttachments *fileAttachments() const;
+    [[nodiscard]] BannedUsers *fileAttachments() const;
 
     [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
@@ -55,7 +55,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QString mRoomId;
     bool mHasFullList = false;
-    bool mLoadMoreFilesInProgress = false;
-    FileAttachments *const mBannedUsers;
+    bool mLoadMoreBannedUsersInProgress = false;
+    BannedUsers *const mBannedUsers;
     RocketChatAccount *const mRochetChantAccount;
 };

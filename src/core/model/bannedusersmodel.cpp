@@ -9,7 +9,7 @@
 
 BannedUsersModel::BannedUsersModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
-    , mBannedUsers(new FileAttachments)
+    , mBannedUsers(new BannedUsers)
     , mRochetChantAccount(account)
 {
 }
@@ -21,18 +21,18 @@ BannedUsersModel::~BannedUsersModel()
 
 void BannedUsersModel::checkFullList()
 {
-    setHasFullList(mBannedUsers->fileAttachments().count() == mBannedUsers->total());
+    setHasFullList(mBannedUsers->bannedUsers().count() == mBannedUsers->total());
 }
 
 bool BannedUsersModel::loadMoreFilesInProgress() const
 {
-    return mLoadMoreFilesInProgress;
+    return mLoadMoreBannedUsersInProgress;
 }
 
 void BannedUsersModel::setLoadMoreFilesInProgress(bool loadMoreFilesInProgress)
 {
-    if (mLoadMoreFilesInProgress != loadMoreFilesInProgress) {
-        mLoadMoreFilesInProgress = loadMoreFilesInProgress;
+    if (mLoadMoreBannedUsersInProgress != loadMoreFilesInProgress) {
+        mLoadMoreBannedUsersInProgress = loadMoreFilesInProgress;
         Q_EMIT loadingInProgressChanged();
     }
 }
@@ -46,9 +46,9 @@ void BannedUsersModel::clear()
 
 void BannedUsersModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
-    const int numberOfElement = mBannedUsers->fileAttachments().count();
-    mBannedUsers->parseMoreFileAttachments(fileAttachmentsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mBannedUsers->fileAttachments().count() - 1);
+    const int numberOfElement = mBannedUsers->bannedUsers().count();
+    mBannedUsers->parseMoreBannedUsers(fileAttachmentsObj);
+    beginInsertRows(QModelIndex(), numberOfElement, mBannedUsers->bannedUsers().count() - 1);
     endInsertRows();
     checkFullList();
 }
@@ -56,7 +56,7 @@ void BannedUsersModel::addMoreFileAttachments(const QJsonObject &fileAttachments
 void BannedUsersModel::initialize()
 {
     mRoomId.clear();
-    mLoadMoreFilesInProgress = false;
+    mLoadMoreBannedUsersInProgress = false;
     setHasFullList(false);
 }
 
@@ -66,9 +66,9 @@ void BannedUsersModel::parseBannedUsers(const QJsonObject &fileAttachmentsObj, c
     if (rowCount() != 0) {
         clear();
     }
-    mBannedUsers->parseFileAttachments(fileAttachmentsObj);
+    mBannedUsers->parseBannedUsers(fileAttachmentsObj);
     if (!mBannedUsers->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mBannedUsers->fileAttachments().count() - 1);
+        beginInsertRows(QModelIndex(), 0, mBannedUsers->bannedUsers().count() - 1);
         endInsertRows();
     }
     checkFullList();
@@ -85,12 +85,12 @@ void BannedUsersModel::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void BannedUsersModel::setFiles(const QList<File> &files)
+void BannedUsersModel::setBannedUsers(const QList<BannedUser> &users)
 {
     clear();
-    if (!files.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, files.count() - 1);
-        mBannedUsers->setFileAttachments(files);
+    if (!users.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, users.count() - 1);
+        mBannedUsers->setBannedUsers(users);
         endInsertRows();
     }
     checkFullList();
@@ -103,23 +103,23 @@ int BannedUsersModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    return mBannedUsers->fileAttachments().count();
+    return mBannedUsers->bannedUsers().count();
 }
 
 QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mBannedUsers->fileAttachments().count()) {
+    if (index.row() < 0 || index.row() >= mBannedUsers->bannedUsers().count()) {
         return {};
     }
 
-    const File &file = mBannedUsers->fileAttachments()[index.row()];
+    const BannedUser &user = mBannedUsers->bannedUsers()[index.row()];
     switch (role) {
         // TODO
     }
     return {};
 }
 
-FileAttachments *BannedUsersModel::fileAttachments() const
+BannedUsers *BannedUsersModel::fileAttachments() const
 {
     return mBannedUsers;
 }
