@@ -55,3 +55,5 @@ void ShowBannedUsersDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowBannedUsersDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+#include "moc_showbannedusersdialog.cpp"
