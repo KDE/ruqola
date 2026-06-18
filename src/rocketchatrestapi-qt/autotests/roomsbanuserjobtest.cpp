@@ -7,7 +7,7 @@
 #include "roomsbanuserjobtest.h"
 
 #include "restapimethod.h"
-#include "rooms/roomsmediaconfirmjob.h"
+#include "rooms/roomsbanuserjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -23,11 +23,9 @@ RoomsBanUserJobTest::RoomsBanUserJobTest(QObject *parent)
 
 void RoomsBanUserJobTest::shouldHaveDefaultValue()
 {
-    RoomsMediaConfirmJob job;
-    QVERIFY(job.fileId().isEmpty());
+    RoomsBanUserJob job;
     QVERIFY(job.roomId().isEmpty());
-    QVERIFY(job.tmid().isEmpty());
-    QVERIFY(job.description().isEmpty());
+    QVERIFY(job.userName().isEmpty());
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -36,29 +34,10 @@ void RoomsBanUserJobTest::shouldHaveDefaultValue()
 void RoomsBanUserJobTest::shouldGenerateRequest()
 {
     {
-        RoomsMediaConfirmJob job;
+        RoomsBanUserJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
         RuqolaRestApiHelper::verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.mediaConfirm//"_s));
-        QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
-    }
-    {
-        RoomsMediaConfirmJob job;
-        job.setRoomId("roomid1"_ba);
-        job.setFileId("fileId1"_ba);
-        QNetworkRequest request = QNetworkRequest(QUrl());
-        RuqolaRestApiHelper::verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.mediaConfirm/roomid1/fileId1"_s));
-        QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
-    }
-    {
-        RoomsMediaConfirmJob job;
-        job.setRoomId("roomid2"_ba);
-        job.setFileId("fileId2"_ba);
-        job.setTmid("tmid1"_ba);
-        QNetworkRequest request = QNetworkRequest(QUrl());
-        RuqolaRestApiHelper::verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.mediaConfirm/roomid2/fileId2"_s));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.banUser"_s));
         QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
     }
 }
@@ -66,29 +45,21 @@ void RoomsBanUserJobTest::shouldGenerateRequest()
 void RoomsBanUserJobTest::shouldGenerateJson()
 {
     {
-        RoomsMediaConfirmJob job;
+        RoomsBanUserJob job;
 
-        const QString description(u"descr"_s);
-        job.setDescription(description);
-
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"description":"%1"})").arg(description).toLatin1());
-    }
-    {
-        RoomsMediaConfirmJob job;
-
-        const QString description(u"descr"_s);
-        job.setDescription(description);
-        const QByteArray tmid = "tmid3"_ba;
-        job.setTmid(tmid);
+        const QByteArray roomId("rr1"_ba);
+        job.setRoomId(roomId);
+        const QString userName(u"foo1"_s);
+        job.setUserName(userName);
 
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"description":"%1","tmid":"%2"})").arg(description, QString::fromLatin1(tmid)).toLatin1());
+                 QStringLiteral(R"({"roomId":"%1","username":"%2"})").arg(QString::fromLatin1(roomId), userName).toLatin1());
     }
 }
 
 void RoomsBanUserJobTest::shouldNotStarting()
 {
-    RoomsMediaConfirmJob job;
+    RoomsBanUserJob job;
 
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
@@ -107,8 +78,8 @@ void RoomsBanUserJobTest::shouldNotStarting()
     const QByteArray roomId("room1");
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());
-    const QByteArray fileId("file25"_ba);
-    job.setFileId(fileId);
+    const QString username(u"file25"_s);
+    job.setUserName(username);
     QVERIFY(job.canStart());
 }
 

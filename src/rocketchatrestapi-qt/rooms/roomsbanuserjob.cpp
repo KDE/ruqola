@@ -39,41 +39,21 @@ void RoomsBanUserJob::onPostRequestResponse(const QString &replyErrorString, con
 
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("RoomsBanUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsMediaConfirmDone();
+        Q_EMIT roomsBanUserDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("RoomsBanUserJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
-QByteArray RoomsBanUserJob::tmid() const
+QString RoomsBanUserJob::userName() const
 {
-    return mTmid;
+    return mUserName;
 }
 
-void RoomsBanUserJob::setTmid(const QByteArray &newTmid)
+void RoomsBanUserJob::setUserName(const QString &newUserName)
 {
-    mTmid = newTmid;
-}
-
-QString RoomsBanUserJob::description() const
-{
-    return mDescription;
-}
-
-void RoomsBanUserJob::setDescription(const QString &newDescription)
-{
-    mDescription = newDescription;
-}
-
-QByteArray RoomsBanUserJob::fileId() const
-{
-    return mFileId;
-}
-
-void RoomsBanUserJob::setFileId(const QByteArray &newFileId)
-{
-    mFileId = newFileId;
+    mUserName = newUserName;
 }
 
 QByteArray RoomsBanUserJob::roomId() const
@@ -96,8 +76,8 @@ bool RoomsBanUserJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mFileId.isEmpty() || mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsBanUserJob: mFileId or mRoomId is empty.";
+    if (mUserName.isEmpty() || mRoomId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsBanUserJob: mUserName or mRoomId is empty.";
         return false;
     }
 
@@ -107,21 +87,15 @@ bool RoomsBanUserJob::canStart() const
 QJsonDocument RoomsBanUserJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["description"_L1] = mDescription;
-    if (!mTmid.isEmpty()) {
-        jsonObj["tmid"_L1] = QString::fromLatin1(mTmid);
-    }
-    // TODO jsonObj["msg"_L1] = QString::fromLatin1(mFileId);
+    jsonObj["roomId"_L1] = QString::fromLatin1(mRoomId);
+    jsonObj["username"_L1] = mUserName;
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    // qDebug() << " postData**************** " << postData;
     return postData;
 }
 
 QNetworkRequest RoomsBanUserJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsMediaConfirm,
-                                                 RestApiUtil::RestApiUrlExtensionType::V1,
-                                                 QStringLiteral("%1/%2").arg(QString::fromLatin1(mRoomId), QString::fromLatin1(mFileId)));
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsBanUser);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
