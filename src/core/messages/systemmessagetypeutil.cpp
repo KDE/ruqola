@@ -103,6 +103,10 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
         return UserRequesterOtrKeyRefresh;
     } else if (str == "videoconf"_L1) {
         return VideoConf;
+    } else if (str == "user-unbanned"_L1) {
+        return UserUnbanned;
+    } else if (str == "user-banned"_L1) {
+        return UserBanned;
     } else {
         qCWarning(RUQOLA_LOG) << " Unknown message type " << str;
         return Unknown;
@@ -200,6 +204,10 @@ QString SystemMessageTypeUtil::systemMessageTypeStringFromEnum(SystemMessageType
         return "user_requested_otr_key_refresh"_L1;
     case VideoConf:
         return "videoconf"_L1;
+    case UserBanned:
+        return "user-banned"_L1;
+    case UserUnbanned:
+        return "user-unbanned"_L1;
     case Unknown:
         return {};
     }

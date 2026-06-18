@@ -56,6 +56,8 @@ enum SystemMessageType {
     UserJoinedOtr,
     UserKeyRefreshedSuccessfully,
     UserRequesterOtrKeyRefresh,
+    UserUnbanned,
+    UserBanned,
     VideoConf,
     LastElement = VideoConf,
 };
