@@ -3271,7 +3271,7 @@ msgstr "Zrušit"
 #, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31

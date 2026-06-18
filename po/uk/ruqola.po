@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-17 00:45+0000\n"
-"PO-Revision-Date: 2026-06-15 09:56+0300\n"
+"PO-Revision-Date: 2026-06-17 10:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3301,12 +3301,10 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Збереження файла"
+msgstr "Зберегти"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31

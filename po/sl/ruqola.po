@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-17 00:45+0000\n"
-"PO-Revision-Date: 2026-06-15 06:33+0200\n"
+"PO-Revision-Date: 2026-06-17 07:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3286,12 +3286,10 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Shrani datoteko"
+msgstr "Shrani"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
