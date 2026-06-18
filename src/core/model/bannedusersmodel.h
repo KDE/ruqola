@@ -31,10 +31,10 @@ public:
 
     [[nodiscard]] BannedUsers *bannedUsers() const;
 
-    [[nodiscard]] QString roomId() const;
-    void setRoomId(const QString &roomId);
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &roomId);
 
-    void parseBannedUsers(const QJsonObject &bannedUsersObj, const QString &roomId);
+    void parseBannedUsers(const QJsonObject &bannedUsersObj, const QByteArray &roomId);
     void addMoreBannedUsers(const QJsonObject &bannedUsersObj);
     void initialize();
     [[nodiscard]] int total() const;
@@ -42,8 +42,8 @@ public:
     [[nodiscard]] bool hasFullList() const;
     void setHasFullList(bool state);
 
-    [[nodiscard]] bool loadMoreFilesInProgress() const;
-    void setLoadMoreFilesInProgress(bool loadMoreFilesInProgress);
+    [[nodiscard]] bool loadMoreBannedUsersInProgress() const;
+    void setLoadMoreBannedUsersInProgress(bool loadMoreFilesInProgress);
 
     void clear();
 
@@ -54,7 +54,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
-    QString mRoomId;
+    QByteArray mRoomId;
     bool mHasFullList = false;
     bool mLoadMoreBannedUsersInProgress = false;
     BannedUsers *const mBannedUsers;

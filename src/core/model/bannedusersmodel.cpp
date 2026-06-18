@@ -22,12 +22,12 @@ void BannedUsersModel::checkFullList()
     setHasFullList(mBannedUsers->bannedUsers().count() == mBannedUsers->total());
 }
 
-bool BannedUsersModel::loadMoreFilesInProgress() const
+bool BannedUsersModel::loadMoreBannedUsersInProgress() const
 {
     return mLoadMoreBannedUsersInProgress;
 }
 
-void BannedUsersModel::setLoadMoreFilesInProgress(bool loadMoreFilesInProgress)
+void BannedUsersModel::setLoadMoreBannedUsersInProgress(bool loadMoreFilesInProgress)
 {
     if (mLoadMoreBannedUsersInProgress != loadMoreFilesInProgress) {
         mLoadMoreBannedUsersInProgress = loadMoreFilesInProgress;
@@ -58,7 +58,7 @@ void BannedUsersModel::initialize()
     setHasFullList(false);
 }
 
-void BannedUsersModel::parseBannedUsers(const QJsonObject &bannedUsersObj, const QString &roomId)
+void BannedUsersModel::parseBannedUsers(const QJsonObject &bannedUsersObj, const QByteArray &roomId)
 {
     mRoomId = roomId;
     if (rowCount() != 0) {
@@ -73,12 +73,12 @@ void BannedUsersModel::parseBannedUsers(const QJsonObject &bannedUsersObj, const
     Q_EMIT totalChanged();
 }
 
-QString BannedUsersModel::roomId() const
+QByteArray BannedUsersModel::roomId() const
 {
     return mRoomId;
 }
 
-void BannedUsersModel::setRoomId(const QString &roomId)
+void BannedUsersModel::setRoomId(const QByteArray &roomId)
 {
     mRoomId = roomId;
 }
