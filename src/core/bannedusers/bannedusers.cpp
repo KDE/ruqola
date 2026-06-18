@@ -63,6 +63,8 @@ void BannedUsers::parseListBannedUsers(const QJsonObject &commandsObj)
     }
 }
 
+bool BannedUsers::operator==(const BannedUsers &other) const = default;
+
 int BannedUsers::bannedUsersCount() const
 {
     return mBannedUsersCount;

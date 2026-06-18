@@ -1,0 +1,23 @@
+{
+    "bannedUsers": [
+        {
+            "_id": "6WosXzDcZYJaoyan",
+            "username": "foo1",
+            "name": "name foo1"
+        },
+        {
+            "_id": "JZqJ5yAbgcgKDL4",
+            "username": "kde1",
+            "name": "name kde1"
+        },
+        {
+            "_id": "hGv7ntFhDxB7ePf",
+            "username": "plo",
+            "name": "plobame"
+        }
+    ],
+    "count": 3,
+    "offset": 0,
+    "total": 3,
+    "success": true
+}

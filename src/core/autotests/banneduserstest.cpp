@@ -30,9 +30,37 @@ void BannedUsersTest::shouldLoadBannedUsers_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("bannedUsersCount");
     QTest::addColumn<int>("total");
+    QTest::addColumn<QList<BannedUser>>("userlist");
 
-    QTest::addRow("bannedusers1") << u"bannedusers1"_s << 0 << 0;
-    QTest::addRow("bannedusers2") << u"bannedusers2"_s << 3 << 3;
+    {
+        QList<BannedUser> lst;
+        QTest::addRow("bannedusers1") << u"bannedusers1"_s << 0 << 0 << lst;
+    }
+    {
+        QList<BannedUser> lst;
+        {
+            BannedUser w;
+            w.setUserName(u"foo1"_s);
+            w.setName(u"name foo1"_s);
+            w.setIdentifier(u"6WosXzDcZYJaoyan"_s);
+            lst.append(w);
+        }
+        {
+            BannedUser w;
+            w.setUserName(u"kde1"_s);
+            w.setName(u"name kde1"_s);
+            w.setIdentifier(u"JZqJ5yAbgcgKDL4"_s);
+            lst.append(w);
+        }
+        {
+            BannedUser w;
+            w.setUserName(u"plo"_s);
+            w.setName(u"plobame"_s);
+            w.setIdentifier(u"hGv7ntFhDxB7ePf"_s);
+            lst.append(w);
+        }
+        QTest::addRow("bannedusers2") << u"bannedusers2"_s << 3 << 3 << lst;
+    }
 }
 
 void BannedUsersTest::shouldLoadBannedUsers()
@@ -40,6 +68,7 @@ void BannedUsersTest::shouldLoadBannedUsers()
     QFETCH(QString, name);
     QFETCH(int, bannedUsersCount);
     QFETCH(int, total);
+    QFETCH(QList<BannedUser>, userlist);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/bannedusers/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
@@ -47,6 +76,7 @@ void BannedUsersTest::shouldLoadBannedUsers()
     r.parseBannedUsers(obj);
     QCOMPARE(r.bannedUsersCount(), bannedUsersCount);
     QCOMPARE(r.total(), total);
+    QCOMPARE(r.bannedUsers(), userlist);
 }
 
 #include "moc_banneduserstest.cpp"

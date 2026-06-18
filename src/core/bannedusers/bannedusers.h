@@ -36,6 +36,8 @@ public:
     [[nodiscard]] int bannedUsersCount() const;
     void setBannedUsersCount(int commandsCount);
 
+    [[nodiscard]] bool operator==(const BannedUsers &other) const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListBannedUsers(const QJsonObject &commandsObj);
     QList<BannedUser> mBannedUsers;

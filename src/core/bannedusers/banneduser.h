@@ -23,6 +23,8 @@ public:
     [[nodiscard]] QString identifier() const;
     void setIdentifier(const QString &newIndentifier);
 
+    [[nodiscard]] bool operator==(const BannedUser &other) const;
+
 private:
     QString mUserName;
     QString mName;

@@ -55,3 +55,5 @@ void BannedUser::setIdentifier(const QString &newIndentifier)
 {
     mIdentifier = newIndentifier;
 }
+
+bool BannedUser::operator==(const BannedUser &other) const = default;
