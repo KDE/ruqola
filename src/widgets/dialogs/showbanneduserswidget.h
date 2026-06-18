@@ -28,8 +28,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
-    QLineEdit *const mSearchAttachmentFileLineEdit;
+    QLineEdit *const mSearchBannedUserLineEdit;
     QLabel *const mInfo;
-    QListView *const mListAttachment;
+    QListView *const mListBannedUsers;
     FilesForRoomFilterProxyModel *mModel = nullptr;
 };

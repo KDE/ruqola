@@ -18,25 +18,25 @@
 using namespace Qt::Literals::StringLiterals;
 ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mSearchAttachmentFileLineEdit(new QLineEdit(this))
+    , mSearchBannedUserLineEdit(new QLineEdit(this))
     , mInfo(new QLabel(this))
-    , mListAttachment(new QListView(this))
+    , mListBannedUsers(new QListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    auto searchAttachmentLayout = new QHBoxLayout;
-    searchAttachmentLayout->setObjectName(u"searchAttachmentLayout"_s);
-    searchAttachmentLayout->setContentsMargins({});
-    mainLayout->addLayout(searchAttachmentLayout);
+    auto searchBannedUsersLayout = new QHBoxLayout;
+    searchBannedUsersLayout->setObjectName(u"searchBannedUsersLayout"_s);
+    searchBannedUsersLayout->setContentsMargins({});
+    mainLayout->addLayout(searchBannedUsersLayout);
 
-    mSearchAttachmentFileLineEdit->setObjectName(u"mSearchAttachmentFileLineEdit"_s);
-    mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
-    KLineEditEventHandler::catchReturnKey(mSearchAttachmentFileLineEdit);
-    mSearchAttachmentFileLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search attachments…"));
-    connect(mSearchAttachmentFileLineEdit, &QLineEdit::textChanged, this, &ShowBannedUsersWidget::slotSearchMessageTextChanged);
-    searchAttachmentLayout->addWidget(mSearchAttachmentFileLineEdit);
+    mSearchBannedUserLineEdit->setObjectName(u"mSearchBannedUserLineEdit"_s);
+    mSearchBannedUserLineEdit->setClearButtonEnabled(true);
+    KLineEditEventHandler::catchReturnKey(mSearchBannedUserLineEdit);
+    mSearchBannedUserLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search attachments…"));
+    connect(mSearchBannedUserLineEdit, &QLineEdit::textChanged, this, &ShowBannedUsersWidget::slotSearchMessageTextChanged);
+    searchBannedUsersLayout->addWidget(mSearchBannedUserLineEdit);
 
     mInfo->setObjectName(u"mInfo"_s);
     mInfo->setTextFormat(Qt::RichText);
@@ -47,10 +47,10 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     mInfo->setFont(labFont);
     connect(mInfo, &QLabel::linkActivated, this, &ShowBannedUsersWidget::loadMoreFileAttachment);
 
-    mListAttachment->setObjectName(u"mListAttachment"_s);
-    mainLayout->addWidget(mListAttachment);
+    mListBannedUsers->setObjectName(u"mListBannedUsers"_s);
+    mainLayout->addWidget(mListBannedUsers);
     auto delegate = new ListAttachmentDelegate(account, this);
-    mListAttachment->setItemDelegate(delegate);
+    mListBannedUsers->setItemDelegate(delegate);
 }
 
 ShowBannedUsersWidget::~ShowBannedUsersWidget()
@@ -66,7 +66,7 @@ void ShowBannedUsersWidget::setModel(FilesForRoomFilterProxyModel *model)
 {
     mModel = model;
     mModel->resetTypeGroup();
-    mListAttachment->setModel(model);
+    mListBannedUsers->setModel(model);
     connect(mModel, &FilesForRoomFilterProxyModel::hasFullListChanged, this, &ShowBannedUsersWidget::updateLabel);
     connect(mModel, &FilesForRoomFilterProxyModel::totalChanged, this, &ShowBannedUsersWidget::updateLabel);
     connect(mModel, &FilesForRoomFilterProxyModel::loadingInProgressChanged, this, &ShowBannedUsersWidget::updateLabel);
@@ -85,7 +85,7 @@ void ShowBannedUsersWidget::updateLabel()
 
 QString ShowBannedUsersWidget::displayShowMessageInRoom() const
 {
-    QString displayMessageStr = i18np("%1 Attachment in room (Total: %2)", "%1 Banned Users in room (Total: %2)", mModel->attachmentCount(), mModel->total());
+    QString displayMessageStr = i18np("%1 Banned User in room (Total: %2)", "%1 Banned Users in room (Total: %2)", mModel->attachmentCount(), mModel->total());
     if (!mModel->hasFullList()) {
         displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
