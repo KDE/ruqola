@@ -40,6 +40,7 @@ public:
         ExportMessages = 13,
         OtrMessages = 14,
         EncryptMessages = 15,
+        ShowBannedUsers = 16,
     };
     Q_ENUM(ChannelActionType)
 

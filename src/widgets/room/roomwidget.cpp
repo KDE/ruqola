@@ -369,6 +369,9 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::EncryptMessages:
         // TODO
         break;
+    case RoomHeaderWidget::ShowBannedUsers:
+        slotShowBannedUsers();
+        break;
     }
 }
 
@@ -397,6 +400,11 @@ void RoomWidget::slotPruneMessages()
         }
     }
     delete dlg;
+}
+
+void RoomWidget::slotShowBannedUsers()
+{
+    // TODO
 }
 
 void RoomWidget::slotExportMessages()

@@ -137,6 +137,11 @@ void ChannelActionPopupMenu::createMenu()
     connect(mEncryptMessages, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::EncryptMessages);
     });
+    mShowBannedUsers = new QAction(i18nc("@action", "Show Banned Users…"), this);
+    mMenu->addAction(mShowBannedUsers);
+    connect(mShowBannedUsers, &QAction::triggered, this, [this]() {
+        Q_EMIT actionRequested(RoomHeaderWidget::ShowBannedUsers);
+    });
 }
 
 QMenu *ChannelActionPopupMenu::menu() const

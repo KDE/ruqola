@@ -53,6 +53,7 @@ private:
     QAction *mExportMessages = nullptr;
     QAction *mOffTheRecordMessages = nullptr;
     QAction *mEncryptMessages = nullptr;
+    QAction *mShowBannedUsers = nullptr;
 
     QPointer<Room> mRoom;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;

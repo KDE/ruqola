@@ -130,6 +130,7 @@ private:
 #if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType);
 #endif
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotShowBannedUsers();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
