@@ -16,6 +16,8 @@ public:
     explicit ShowBannedUsersDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowBannedUsersDialog() override;
 
+    void setRoomId(const QByteArray &roomId);
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();

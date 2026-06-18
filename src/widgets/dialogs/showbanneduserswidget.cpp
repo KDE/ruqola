@@ -7,7 +7,9 @@
 #include "showbanneduserswidget.h"
 
 #include "attachment/listattachmentdelegate.h"
+#include "model/bannedusersfilterproxymodel.h"
 #include "model/bannedusersmodel.h"
+#include "rooms/roomsbannedusersjob.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
@@ -22,6 +24,7 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     , mInfo(new QLabel(this))
     , mListBannedUsers(new QListView(this))
     , mModel(new BannedUsersModel(this))
+    , mBannedUsersFilterProxyModel(new BannedUsersFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -46,32 +49,26 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     QFont labFont = mInfo->font();
     labFont.setBold(true);
     mInfo->setFont(labFont);
-    connect(mInfo, &QLabel::linkActivated, this, &ShowBannedUsersWidget::loadMoreFileAttachment);
+    connect(mInfo, &QLabel::linkActivated, this, &ShowBannedUsersWidget::loadMoreBannedUsers);
 
     mListBannedUsers->setObjectName(u"mListBannedUsers"_s);
     mainLayout->addWidget(mListBannedUsers);
     auto delegate = new ListAttachmentDelegate(account, this);
     mListBannedUsers->setItemDelegate(delegate);
+    mBannedUsersFilterProxyModel->setSourceModel(mModel);
+    mListBannedUsers->setModel(mBannedUsersFilterProxyModel);
+
+    connect(mModel, &BannedUsersModel::hasFullListChanged, this, &ShowBannedUsersWidget::updateLabel);
+    connect(mModel, &BannedUsersModel::totalChanged, this, &ShowBannedUsersWidget::updateLabel);
+    connect(mModel, &BannedUsersModel::loadingInProgressChanged, this, &ShowBannedUsersWidget::updateLabel);
+    updateLabel();
 }
 
 ShowBannedUsersWidget::~ShowBannedUsersWidget() = default;
 
-#if 0
-void ShowBannedUsersWidget::setModel(FilesForRoomFilterProxyModel *model)
-{
-    mModel = model;
-    mModel->resetTypeGroup();
-    mListBannedUsers->setModel(model);
-    connect(mModel, &FilesForRoomFilterProxyModel::hasFullListChanged, this, &ShowBannedUsersWidget::updateLabel);
-    connect(mModel, &FilesForRoomFilterProxyModel::totalChanged, this, &ShowBannedUsersWidget::updateLabel);
-    connect(mModel, &FilesForRoomFilterProxyModel::loadingInProgressChanged, this, &ShowBannedUsersWidget::updateLabel);
-    updateLabel();
-}
-#endif
-
 void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)
 {
-    // TODO     mModel->setFilterString(str);
+    mBannedUsersFilterProxyModel->setFilterString(str);
 }
 
 void ShowBannedUsersWidget::updateLabel()
@@ -86,6 +83,12 @@ QString ShowBannedUsersWidget::displayShowMessageInRoom() const
         displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
+}
+
+void ShowBannedUsersWidget::setRoomId(const QByteArray &roomId)
+{
+    mModel->setRoomId(roomId);
+    // TODO
 }
 
 #include "moc_showbanneduserswidget.cpp"

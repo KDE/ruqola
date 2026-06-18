@@ -61,4 +61,9 @@ void ShowBannedUsersDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
+void ShowBannedUsersDialog::setRoomId(const QByteArray &roomId)
+{
+    mShowBannedUsersWidget->setRoomId(roomId);
+}
+
 #include "moc_showbannedusersdialog.cpp"
