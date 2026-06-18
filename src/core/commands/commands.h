@@ -9,6 +9,7 @@
 #include "command.h"
 #include "libruqola_private_export.h"
 #include <QList>
+class QDebug;
 class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT Commands
 {
@@ -35,7 +36,7 @@ public:
     [[nodiscard]] int commandsCount() const;
     void setCommandsCount(int commandsCount);
 
-    DownloadAppsLanguagesManager *downloadManager() const;
+    [[nodiscard]] DownloadAppsLanguagesManager *downloadManager() const;
     void setDownloadManager(DownloadAppsLanguagesManager *downloadManager);
 
 private:
@@ -48,5 +49,4 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(Commands, Ruqola_Commands, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Commands &t);
