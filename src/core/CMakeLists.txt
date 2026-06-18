@@ -325,6 +325,8 @@ target_sources(
         model/usersforroomlistheadingsproxymodel.cpp
         model/bannedusersmodel.cpp
         model/bannedusersmodel.h
+        model/bannedusersfilterproxymodel.h
+        model/bannedusersfilterproxymodel.cpp
         notificationinfo.cpp
         notificationinfo.h
         notifications/notification.cpp
