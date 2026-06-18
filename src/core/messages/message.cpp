@@ -884,6 +884,10 @@ QString Message::systemMessageText() const
         return i18n("%1 has requested key refresh.", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::VideoConf:
         return i18n("Conference Call");
+    case SystemMessageTypeUtil::SystemMessageType::UserBanned:
+        return i18n("User banned");
+    case SystemMessageTypeUtil::SystemMessageType::UserUnbanned:
+        return i18n("User unbanned");
     case SystemMessageTypeUtil::SystemMessageType::Unknown:
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         break;
