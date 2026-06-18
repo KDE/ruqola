@@ -33,7 +33,7 @@ public:
     [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    void parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId);
+    void parseBannedUsers(const QJsonObject &fileAttachmentsObj, const QString &roomId);
     void addMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
     void initialize();
     [[nodiscard]] int total() const;
@@ -56,6 +56,6 @@ private:
     QString mRoomId;
     bool mHasFullList = false;
     bool mLoadMoreFilesInProgress = false;
-    FileAttachments *const mFileAttachments;
+    FileAttachments *const mBannedUsers;
     RocketChatAccount *const mRochetChantAccount;
 };
