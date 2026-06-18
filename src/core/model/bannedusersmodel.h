@@ -17,6 +17,8 @@ class LIBRUQOLACORE_EXPORT BannedUsersModel : public QAbstractListModel
 public:
     enum BannedUserRoles {
         Name = Qt::UserRole + 1,
+        UserName,
+        Identifier,
     };
     Q_ENUM(BannedUserRoles)
 

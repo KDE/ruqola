@@ -112,9 +112,14 @@ QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const BannedUser &user = mBannedUsers->bannedUsers()[index.row()];
+    const BannedUser &user = mBannedUsers->bannedUsers().at(index.row());
     switch (role) {
-        // TODO
+    case BannedUserRoles::Name:
+        return user.name();
+    case BannedUserRoles::UserName:
+        return user.userName();
+    case BannedUserRoles::Identifier:
+        return user.identifier();
     }
     return {};
 }
