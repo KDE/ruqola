@@ -885,9 +885,9 @@ QString Message::systemMessageText() const
     case SystemMessageTypeUtil::SystemMessageType::VideoConf:
         return i18n("Conference Call");
     case SystemMessageTypeUtil::SystemMessageType::UserBanned:
-        return i18n("User banned");
+        return i18n("%1 banned %2", mUsername, mText);
     case SystemMessageTypeUtil::SystemMessageType::UserUnbanned:
-        return i18n("User unbanned");
+        return i18n("%1 unbanned %2", mUsername, mText);
     case SystemMessageTypeUtil::SystemMessageType::Unknown:
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         break;
