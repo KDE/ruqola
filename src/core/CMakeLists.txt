@@ -323,6 +323,8 @@ target_sources(
         model/previewcommandmodel.cpp
         model/usersforroomlistheadingsproxymodel.h
         model/usersforroomlistheadingsproxymodel.cpp
+        model/bannedusersmodel.cpp
+        model/bannedusersmodel.h
         notificationinfo.cpp
         notificationinfo.h
         notifications/notification.cpp
