@@ -491,14 +491,28 @@ void AccountManager::removeAccount(const QString &accountName, bool removeLogFil
     if (account) {
         disconnectAccount(account);
     }
+    removeDatabaseAccount(accountName);
+    if (removeLogFiles) {
+        removeLogs(accountName);
+    }
     if (mRocketChatAccountModel->accountNumber() > 0) {
-        mCurrentAccount = mRocketChatAccountModel->account(0);
-        removeDatabaseAccount(accountName);
-        if (removeLogFiles) {
-            removeLogs(accountName);
+        auto fallbackAccount = mRocketChatAccountModel->account(0);
+        if (fallbackAccount && fallbackAccount->accountEnabled()) {
+            QSettings settings;
+            settings.setValue("currentAccount"_L1, fallbackAccount->accountName());
+            settings.sync();
+            mCurrentAccount = fallbackAccount;
+        } else {
+            QSettings settings;
+            settings.remove("currentAccount"_L1);
+            settings.sync();
+            mCurrentAccount = nullptr;
         }
     } else {
-        // TODO create new dummy account !
+        QSettings settings;
+        settings.remove("currentAccount"_L1);
+        settings.sync();
+        mCurrentAccount = nullptr;
     }
     Q_EMIT currentAccountChanged();
     if (account) {
