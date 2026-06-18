@@ -11,6 +11,7 @@
 #include "dialogs/reportuserdialog.h"
 #include "moderation/moderationreportuserjob.h"
 #include "rocketchataccount.h"
+#include "rooms/roomsbanuserjob.h"
 #include "roomutil.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -203,8 +204,24 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         auto reportUserAction = new QAction(QIcon::fromTheme("emblem-warning"_L1), i18nc("@action", "Report User"), &menu);
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
         menu.addAction(reportUserAction);
+
+        menu.addSeparator();
+        auto banUserFromRoomAction = new QAction(QIcon::fromTheme("im-ban-user"_L1), i18nc("@action", "Ban User From Room"), &menu);
+        connect(banUserFromRoomAction, &QAction::triggered, this, &UsersInRoomMenu::slotBanUserFromRoomAction);
+        menu.addAction(banUserFromRoomAction);
     }
     menu.exec(mParentWidget->mapToGlobal(pos));
+}
+
+void UsersInRoomMenu::slotBanUserFromRoomAction()
+{
+    auto job = new RocketChatRestApi::RoomsBanUserJob(this);
+    Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+    job->setRoomId(mRoom->roomId());
+    job->setUserName(mUserName);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsBanUserJob job";
+    }
 }
 
 void UsersInRoomMenu::slotUserInfo()
