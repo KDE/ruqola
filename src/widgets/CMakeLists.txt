@@ -1,12 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolawidgets
-    administratordialog/featurepreview/featurepreviewmessagewidget.h
-    administratordialog/featurepreview/featurepreviewmessagewidget.cpp
-    dialogs/showbannedusersdialog.h
-    dialogs/showbannedusersdialog.cpp
-)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
@@ -216,6 +210,8 @@ target_sources(
         administratordialog/moderationconsole/moderationreportinfowidget.h
         administratordialog/moderationconsole/administratormoderationreportedmessageconsoletreewidget.h
         administratordialog/moderationconsole/administratormoderationreportedmessageconsoletreewidget.cpp
+        administratordialog/featurepreview/featurepreviewmessagewidget.h
+        administratordialog/featurepreview/featurepreviewmessagewidget.cpp
         bannerinfodialog/bannerinfodialog.h
         bannerinfodialog/bannerinfodialog.cpp
         bannerinfodialog/bannerinfowidget.h
@@ -452,6 +448,10 @@ target_sources(
         dialogs/createvideomessagewizard.cpp
         dialogs/createsoundmessagewizard.h
         dialogs/createsoundmessagewizard.cpp
+        dialogs/showbannedusersdialog.h
+        dialogs/showbannedusersdialog.cpp
+        dialogs/showbanneduserswidget.cpp
+        dialogs/showbanneduserswidget.h
         discussions/showdiscussionsdialog.cpp
         discussions/showdiscussionsdialog.h
         discussions/showdiscussionswidget.cpp
