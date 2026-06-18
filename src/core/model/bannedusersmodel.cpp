@@ -5,12 +5,10 @@
 */
 
 #include "bannedusersmodel.h"
-#include "rocketchataccount.h"
 
-BannedUsersModel::BannedUsersModel(RocketChatAccount *account, QObject *parent)
+BannedUsersModel::BannedUsersModel(QObject *parent)
     : QAbstractListModel(parent)
     , mBannedUsers(new BannedUsers)
-    , mRochetChantAccount(account)
 {
 }
 
@@ -44,10 +42,10 @@ void BannedUsersModel::clear()
     endResetModel();
 }
 
-void BannedUsersModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
+void BannedUsersModel::addMoreBannedUsers(const QJsonObject &bannedUsersObj)
 {
     const int numberOfElement = mBannedUsers->bannedUsers().count();
-    mBannedUsers->parseMoreBannedUsers(fileAttachmentsObj);
+    mBannedUsers->parseMoreBannedUsers(bannedUsersObj);
     beginInsertRows(QModelIndex(), numberOfElement, mBannedUsers->bannedUsers().count() - 1);
     endInsertRows();
     checkFullList();
@@ -60,13 +58,13 @@ void BannedUsersModel::initialize()
     setHasFullList(false);
 }
 
-void BannedUsersModel::parseBannedUsers(const QJsonObject &fileAttachmentsObj, const QString &roomId)
+void BannedUsersModel::parseBannedUsers(const QJsonObject &bannedUsersObj, const QString &roomId)
 {
     mRoomId = roomId;
     if (rowCount() != 0) {
         clear();
     }
-    mBannedUsers->parseBannedUsers(fileAttachmentsObj);
+    mBannedUsers->parseBannedUsers(bannedUsersObj);
     if (!mBannedUsers->isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mBannedUsers->bannedUsers().count() - 1);
         endInsertRows();
@@ -112,7 +110,7 @@ QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const BannedUser &user = mBannedUsers->bannedUsers().at(index.row());
+    const BannedUser user = mBannedUsers->bannedUsers().at(index.row());
     switch (role) {
     case BannedUserRoles::Name:
         return user.name();
@@ -124,7 +122,7 @@ QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-BannedUsers *BannedUsersModel::fileAttachments() const
+BannedUsers *BannedUsersModel::bannedUsers() const
 {
     return mBannedUsers;
 }

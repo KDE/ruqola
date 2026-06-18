@@ -10,7 +10,6 @@
 #include "bannedusers/bannedusers.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
-class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT BannedUsersModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -22,7 +21,7 @@ public:
     };
     Q_ENUM(BannedUserRoles)
 
-    explicit BannedUsersModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
+    explicit BannedUsersModel(QObject *parent = nullptr);
     ~BannedUsersModel() override;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -30,13 +29,13 @@ public:
 
     void setBannedUsers(const QList<BannedUser> &files);
 
-    [[nodiscard]] BannedUsers *fileAttachments() const;
+    [[nodiscard]] BannedUsers *bannedUsers() const;
 
     [[nodiscard]] QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    void parseBannedUsers(const QJsonObject &fileAttachmentsObj, const QString &roomId);
-    void addMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
+    void parseBannedUsers(const QJsonObject &bannedUsersObj, const QString &roomId);
+    void addMoreBannedUsers(const QJsonObject &bannedUsersObj);
     void initialize();
     [[nodiscard]] int total() const;
 
@@ -59,5 +58,4 @@ private:
     bool mHasFullList = false;
     bool mLoadMoreBannedUsersInProgress = false;
     BannedUsers *const mBannedUsers;
-    RocketChatAccount *const mRochetChantAccount;
 };

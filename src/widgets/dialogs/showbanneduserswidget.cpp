@@ -7,7 +7,7 @@
 #include "showbanneduserswidget.h"
 
 #include "attachment/listattachmentdelegate.h"
-#include "model/filesforroomfilterproxymodel.h"
+#include "model/bannedusersmodel.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
@@ -21,6 +21,7 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     , mSearchBannedUserLineEdit(new QLineEdit(this))
     , mInfo(new QLabel(this))
     , mListBannedUsers(new QListView(this))
+    , mModel(new BannedUsersModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -53,15 +54,9 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     mListBannedUsers->setItemDelegate(delegate);
 }
 
-ShowBannedUsersWidget::~ShowBannedUsersWidget()
-{
-    // Reset it
-    if (mModel) {
-        mModel->setFilterString(QString());
-        mModel->clear();
-    }
-}
+ShowBannedUsersWidget::~ShowBannedUsersWidget() = default;
 
+#if 0
 void ShowBannedUsersWidget::setModel(FilesForRoomFilterProxyModel *model)
 {
     mModel = model;
@@ -72,24 +67,29 @@ void ShowBannedUsersWidget::setModel(FilesForRoomFilterProxyModel *model)
     connect(mModel, &FilesForRoomFilterProxyModel::loadingInProgressChanged, this, &ShowBannedUsersWidget::updateLabel);
     updateLabel();
 }
+#endif
 
 void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)
 {
-    mModel->setFilterString(str);
+    // TODO     mModel->setFilterString(str);
 }
 
 void ShowBannedUsersWidget::updateLabel()
 {
-    mInfo->setText(mModel->attachmentCount() == 0 ? i18n("No Banned Users found") : displayShowMessageInRoom());
+    // TODO mInfo->setText(mModel->attachmentCount() == 0 ? i18n("No Banned Users found") : displayShowMessageInRoom());
 }
 
 QString ShowBannedUsersWidget::displayShowMessageInRoom() const
 {
+#if 0
     QString displayMessageStr = i18np("%1 Banned User in room (Total: %2)", "%1 Banned Users in room (Total: %2)", mModel->attachmentCount(), mModel->total());
     if (!mModel->hasFullList()) {
         displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
+#else
+    return {};
+#endif
 }
 
 #include "moc_showbanneduserswidget.cpp"

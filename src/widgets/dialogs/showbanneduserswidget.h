@@ -11,7 +11,7 @@
 class QLineEdit;
 class QLabel;
 class QListView;
-class FilesForRoomFilterProxyModel;
+class BannedUsersModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersWidget : public QWidget
 {
@@ -19,7 +19,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersWidget : public QWidget
 public:
     explicit ShowBannedUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowBannedUsersWidget() override;
-    void setModel(FilesForRoomFilterProxyModel *model);
 
 Q_SIGNALS:
     void loadMoreFileAttachment();
@@ -31,5 +30,5 @@ private:
     QLineEdit *const mSearchBannedUserLineEdit;
     QLabel *const mInfo;
     QListView *const mListBannedUsers;
-    FilesForRoomFilterProxyModel *mModel = nullptr;
+    BannedUsersModel *const mModel;
 };
