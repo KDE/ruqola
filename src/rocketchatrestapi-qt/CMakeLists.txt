@@ -366,6 +366,8 @@ target_sources(
         rooms/roomsmembersorderedbyrolejob.h
         rooms/roomsmediaconfirmjob.cpp
         rooms/roomsmediaconfirmjob.h
+        rooms/roomsbannedusersjob.cpp
+        rooms/roomsbannedusersjob.h
         serverinfojob.cpp
         serverinfojob.h
         sessions/sessionslistjob.cpp
