@@ -22,6 +22,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Use new textmessagewidget for error notification."),
         kli18n("Implement Draft message sorting channel."),
         kli18n("Implement Banned Users list dialog."),
+        kli18n("Implement Banned/Unbanned Users."),
     };
     return info;
 }
