@@ -101,7 +101,7 @@ QStringList RocketChatAccountModel::accountsName() const
 
 RocketChatAccount *RocketChatAccountModel::account(int index) const
 {
-    if (mRocketChatAccount.isEmpty() || (index > mRocketChatAccount.count() - 1)) {
+    if (index < 0 || index >= mRocketChatAccount.count()) {
         qCWarning(RUQOLA_LOG) << " Empty account";
         return nullptr;
     }
@@ -118,7 +118,7 @@ int RocketChatAccountModel::rowCount(const QModelIndex &parent) const
 
 QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()) {
+    if (!index.isValid() || index.model() != this || index.row() < 0 || index.row() >= mRocketChatAccount.count()) {
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
         return {};
     }

@@ -10,6 +10,7 @@
 #include "rocketchataccount.h"
 #include "test_model_helpers.h"
 #include <QSignalSpy>
+#include <QStandardItemModel>
 #include <QStandardPaths>
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
@@ -170,6 +171,22 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     QCOMPARE(rowABTRemoved.count(), 0);
     QCOMPARE(modelResetSpy.count(), 0);
     QCOMPARE(modelABTReset.count(), 0);
+}
+
+void RocketChatAccountModelTest::shouldRejectInvalidIndexAccess()
+{
+    RocketChatAccountModel w;
+
+    QVERIFY(!w.data(QModelIndex(), RocketChatAccountModel::Name).isValid());
+    QVERIFY(w.account(-1) == nullptr);
+
+    QStandardItemModel foreignModel;
+    foreignModel.setRowCount(2);
+    foreignModel.setColumnCount(1);
+
+    const QModelIndex foreignIndex = foreignModel.index(1, 0);
+    QVERIFY(foreignIndex.isValid());
+    QVERIFY(!w.data(foreignIndex, RocketChatAccountModel::Name).isValid());
 }
 
 #include "moc_rocketchataccountmodeltest.cpp"

@@ -20,4 +20,5 @@ private Q_SLOTS:
     void shouldRemoveAccount();
     void shouldAddAccountValue();
     void shouldClearAccounts();
+    void shouldRejectInvalidIndexAccess();
 };
