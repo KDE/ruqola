@@ -4,6 +4,8 @@ add_library(
     libruqolawidgets
     administratordialog/featurepreview/featurepreviewmessagewidget.h
     administratordialog/featurepreview/featurepreviewmessagewidget.cpp
+    dialogs/showbannedusersdialog.h
+    dialogs/showbannedusersdialog.cpp
 )
 
 if(TARGET KF6::UserFeedbackWidgets)
