@@ -76,20 +76,16 @@ void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)
 
 void ShowBannedUsersWidget::updateLabel()
 {
-    // TODO mInfo->setText(mModel->attachmentCount() == 0 ? i18n("No Banned Users found") : displayShowMessageInRoom());
+    mInfo->setText(mModel->rowCount() == 0 ? i18n("No Banned Users found") : displayShowMessageInRoom());
 }
 
 QString ShowBannedUsersWidget::displayShowMessageInRoom() const
 {
-#if 0
-    QString displayMessageStr = i18np("%1 Banned User in room (Total: %2)", "%1 Banned Users in room (Total: %2)", mModel->attachmentCount(), mModel->total());
+    QString displayMessageStr = i18np("%1 Banned User in room (Total: %2)", "%1 Banned Users in room (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {
         displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
-#else
-    return {};
-#endif
 }
 
 #include "moc_showbanneduserswidget.cpp"
