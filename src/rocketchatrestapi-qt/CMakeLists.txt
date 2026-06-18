@@ -368,6 +368,10 @@ target_sources(
         rooms/roomsmediaconfirmjob.h
         rooms/roomsbannedusersjob.cpp
         rooms/roomsbannedusersjob.h
+        rooms/roomsbanuserjob.cpp
+        rooms/roomsbanuserjob.h
+        rooms/roomsunbanuserjob.cpp
+        rooms/roomsunbanuserjob.h
         serverinfojob.cpp
         serverinfojob.h
         sessions/sessionslistjob.cpp
