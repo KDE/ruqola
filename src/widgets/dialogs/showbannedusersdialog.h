@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class RocketChatAccount;
+class ShowBannedUsersWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersDialog : public QDialog
 {
     Q_OBJECT
@@ -18,5 +19,6 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
+    ShowBannedUsersWidget *const mShowBannedUsersWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

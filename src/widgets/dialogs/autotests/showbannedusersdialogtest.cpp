@@ -7,7 +7,7 @@
 #include "showbannedusersdialogtest.h"
 
 #include "dialogs/showbannedusersdialog.h"
-// #include "dialogs/showattachmentwidget.h"
+#include "dialogs/showbanneduserswidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
@@ -28,8 +28,8 @@ void ShowBannedUsersDialogTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
-    // auto mShowAttachmentWidget = w.findChild<ShowAttachmentWidget *>(u"mShowAttachmentWidget"_s);
-    // QVERIFY(mShowAttachmentWidget);
+    auto mShowBannedUsersWidget = w.findChild<ShowBannedUsersWidget *>(u"mShowBannedUsersWidget"_s);
+    QVERIFY(mShowBannedUsersWidget);
 
     auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
     QVERIFY(button);

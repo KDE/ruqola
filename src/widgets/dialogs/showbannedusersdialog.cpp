@@ -6,6 +6,7 @@
 
 #include "showbannedusersdialog.h"
 #include "rocketchataccount.h"
+#include "showbanneduserswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -21,11 +22,15 @@ const char myShowBannedUsersDialogGroupName[] = "ShowBannedUsersDialog";
 using namespace Qt::Literals::StringLiterals;
 ShowBannedUsersDialog::ShowBannedUsersDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
+    , mShowBannedUsersWidget(new ShowBannedUsersWidget(account, this))
     , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Banned Users - %1", account ? account->accountName() : u"account"_s));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
+
+    mShowBannedUsersWidget->setObjectName(u"mShowBannedUsersWidget"_s);
+    mainLayout->addWidget(mShowBannedUsersWidget);
 
     setAttribute(Qt::WA_DeleteOnClose);
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
