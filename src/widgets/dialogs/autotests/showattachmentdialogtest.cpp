@@ -5,7 +5,6 @@
 */
 
 #include "showattachmentdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showattachmentwidget.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowAttachmentDialogTest)
+using namespace Qt::Literals::StringLiterals;
 ShowAttachmentDialogTest::ShowAttachmentDialogTest(QObject *parent)
     : QObject(parent)
 {
