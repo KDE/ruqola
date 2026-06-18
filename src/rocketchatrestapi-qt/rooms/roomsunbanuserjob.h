@@ -28,23 +28,15 @@ public:
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &newRoomId);
 
-    [[nodiscard]] QByteArray fileId() const;
-    void setFileId(const QByteArray &newFileId);
-
-    [[nodiscard]] QString description() const;
-    void setDescription(const QString &newDescription);
-
-    [[nodiscard]] QByteArray tmid() const;
-    void setTmid(const QByteArray &newTmid);
+    [[nodiscard]] QString userName() const;
+    void setUserName(const QString &newUserName);
 
 Q_SIGNALS:
-    void roomsMediaConfirmDone();
+    void roomsUnbanUserDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mRoomId;
-    QByteArray mFileId;
-    QByteArray mTmid;
-    QString mDescription;
+    QString mUserName;
 };
 }
