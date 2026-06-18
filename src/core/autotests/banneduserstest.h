@@ -16,4 +16,6 @@ public:
     ~BannedUsersTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadBannedUsers_data();
+    void shouldLoadBannedUsers();
 };
