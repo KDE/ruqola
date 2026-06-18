@@ -26,6 +26,7 @@
 #include "dialogs/inviteusersdialog.h"
 #include "dialogs/searchmessagedialog.h"
 #include "dialogs/showattachmentdialog.h"
+#include "dialogs/showbannedusersdialog.h"
 #include "dialogs/showmentionsmessagesdialog.h"
 #include "dialogs/showpinnedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
@@ -404,7 +405,11 @@ void RoomWidget::slotPruneMessages()
 
 void RoomWidget::slotShowBannedUsers()
 {
-    // TODO
+    QPointer<ShowBannedUsersDialog> dlg = new ShowBannedUsersDialog(mCurrentRocketChatAccount, this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void RoomWidget::slotExportMessages()
