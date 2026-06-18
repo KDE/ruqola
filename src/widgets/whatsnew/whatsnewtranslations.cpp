@@ -21,6 +21,7 @@ QList<KLazyLocalizedString> WhatsNewTranslations::lastNewFeatures() const
         kli18n("Add new room info in notification history dialog."),
         kli18n("Use new textmessagewidget for error notification."),
         kli18n("Implement Draft message sorting channel."),
+        kli18n("Implement Banned Users list dialog."),
     };
     return info;
 }

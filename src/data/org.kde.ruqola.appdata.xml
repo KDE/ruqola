@@ -1467,7 +1467,8 @@
           <li xml:lang="pt-BR">Implementa canal de classificação de mensagens em rascunho.</li>
           <li xml:lang="sl">Implementira kanal za sortiranje osnutkov sporočil.</li>
           <li xml:lang="tr">Taslak ileti sıralama özelliğini gerçekle</li>
-          <li xml:lang="uk">Реалізовано канал упорядковування повідомлень-чернеток</li>
+	  <li xml:lang="uk">Реалізовано канал упорядковування повідомлень-чернеток</li>
+	  <li>Implement Banned Users list dialog.</li>
         </ul>
       </description>
     </release>
