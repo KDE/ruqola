@@ -6,7 +6,6 @@
 
 #include "showbanneduserswidget.h"
 
-#include "attachment/listattachmentdelegate.h"
 #include "connection.h"
 #include "model/bannedusersfilterproxymodel.h"
 #include "model/bannedusersmodel.h"
@@ -58,8 +57,6 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
 
     mListBannedUsers->setObjectName(u"mListBannedUsers"_s);
     mainLayout->addWidget(mListBannedUsers);
-    // auto delegate = new ListAttachmentDelegate(account, this);
-    // mListBannedUsers->setItemDelegate(delegate);
     mBannedUsersFilterProxyModel->setSourceModel(mModel);
     mListBannedUsers->setModel(mBannedUsersFilterProxyModel);
 
