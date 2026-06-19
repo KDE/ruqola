@@ -47,6 +47,16 @@ void ChannelInviteJob::onPostRequestResponse(const QString &replyErrorString, co
     }
 }
 
+ChannelInviteJob::ChannelInviteInfo ChannelInviteJob::channelInviteInfo() const
+{
+    return mChannelInviteInfo;
+}
+
+void ChannelInviteJob::setChannelInviteInfo(const ChannelInviteInfo &newChannelInviteInfo)
+{
+    mChannelInviteInfo = newChannelInviteInfo;
+}
+
 QString ChannelInviteJob::inviteUserName() const
 {
     return mInviteUserName;
@@ -128,6 +138,11 @@ bool ChannelInviteJob::interceptError(const QJsonObject &replyObject)
         return true;
     }
     return false;
+}
+
+bool RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo::isValid() const
+{
+    return !identifier.isEmpty() && channelGroupInfoType != ChannelInviteJob::ChannelInviteInfoType::Unknown;
 }
 
 #include "moc_channelinvitejob.cpp"

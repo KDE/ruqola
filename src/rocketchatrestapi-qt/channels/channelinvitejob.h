@@ -16,14 +16,15 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelInviteJob : public ChannelGroupBaseJ
 public:
     enum class ChannelInviteInfoType : uint8_t {
         Unknown,
-        Identifier,
-        Name,
+        UserId,
+        UserName,
     };
     Q_ENUM(ChannelInviteInfoType)
 
     struct ChannelInviteInfo {
         QString identifier;
         ChannelInviteJob::ChannelInviteInfoType channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::Unknown;
+        [[nodiscard]] bool isValid() const;
     };
 
     explicit ChannelInviteJob(QObject *parent = nullptr);
@@ -43,6 +44,9 @@ public:
     [[nodiscard]] QString inviteUserName() const;
     void setInviteUserName(const QString &userName);
 
+    [[nodiscard]] ChannelInviteInfo channelInviteInfo() const;
+    void setChannelInviteInfo(const ChannelInviteInfo &newChannelInviteInfo);
+
 Q_SIGNALS:
     void inviteDone();
     void needUnbanned(const QString &userId, const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
@@ -55,5 +59,6 @@ private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mInviteUserId;
     QString mInviteUserName;
+    ChannelInviteInfo mChannelInviteInfo;
 };
 }

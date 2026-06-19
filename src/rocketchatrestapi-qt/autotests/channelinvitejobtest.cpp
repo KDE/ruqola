@@ -29,6 +29,25 @@ void ChannelInviteJobTest::shouldHaveDefaultValue()
     QVERIFY(job.inviteUserName().isEmpty());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
+
+    const ChannelInviteJob::ChannelInviteInfo info;
+    QVERIFY(info.identifier.isEmpty());
+    QCOMPARE(info.channelGroupInfoType, ChannelInviteJob::ChannelInviteInfoType::Unknown);
+    QVERIFY(!info.isValid());
+}
+
+void ChannelInviteJobTest::shouldChannelInviteInfoIsValid()
+{
+    ChannelInviteJob::ChannelInviteInfo info;
+    QVERIFY(!info.isValid());
+    info.identifier = u"foo"_s;
+    QVERIFY(!info.isValid());
+    info.channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserName;
+    QVERIFY(info.isValid());
+    info.channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserId;
+    QVERIFY(info.isValid());
+    info.identifier.clear();
+    QVERIFY(!info.isValid());
 }
 
 void ChannelInviteJobTest::shouldGenerateRequest()

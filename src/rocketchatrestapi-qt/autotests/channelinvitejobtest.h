@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldGenerateRequest();
     void shouldGenerateUserIdJson();
     void shouldGenerateUserNameJson();
+    void shouldChannelInviteInfoIsValid();
 };
