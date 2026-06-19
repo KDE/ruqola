@@ -45,7 +45,7 @@ bool BannerInfoListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewIt
 
 void BannerInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    if (model()->rowCount() > 0) {
+    if (model() && model()->rowCount() > 0) {
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             QMenu menu(this);
