@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "roomlistheadingsproxymodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
@@ -19,6 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RoomListHeadingsProxyModelTest)
 
+using namespace Qt::Literals::StringLiterals;
 RoomListHeadingsProxyModelTest::RoomListHeadingsProxyModelTest(QObject *parent)
     : QObject(parent)
 {
@@ -237,6 +237,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnUnreadChanges()
 
     const QStringList newExpected{u"Unread"_s, u"Room 1"_s};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+    delete room;
 }
 
 void RoomListHeadingsProxyModelTest::shouldUpdateOnAlertChanges()
@@ -264,6 +265,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnAlertChanges()
 
     const QStringList newExpected{u"Unread"_s, u"Room 1"_s};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+    delete room;
 }
 
 void RoomListHeadingsProxyModelTest::shouldUpdateOnFavoriteChanges()
@@ -292,6 +294,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnFavoriteChanges()
 
     const QStringList newExpected{u"Favorites"_s, u"Room 1"_s};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+    delete room;
 }
 
 void RoomListHeadingsProxyModelTest::shouldUpdateOnHideUnreadStatusChanges()
@@ -322,6 +325,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnHideUnreadStatusChanges()
 
     const QStringList newExpected{u"Rooms"_s, u"Room 1"_s};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+    delete room;
 }
 
 #include "moc_roomlistheadingsproxymodeltest.cpp"
