@@ -103,7 +103,7 @@ void ActionButton::parseWhen(const QJsonObject &json)
         mHasOneRole.append(r.toString());
     }
 
-    const QJsonArray hasAllRoles = json["hasAllRoles?"_L1].toArray();
+    const QJsonArray hasAllRoles = json["hasAllRoles"_L1].toArray();
     for (const auto &r : hasAllRoles) {
         mHasAllRoles.append(r.toString());
     }
@@ -113,7 +113,7 @@ void ActionButton::parseWhen(const QJsonObject &json)
         mHasOnePermission.append(r.toString());
     }
 
-    const QJsonArray hasAllPermissions = json["hasAllPermissions?"_L1].toArray();
+    const QJsonArray hasAllPermissions = json["hasAllPermissions"_L1].toArray();
     for (const auto &r : hasAllPermissions) {
         mHasAllPermissions.append(r.toString());
     }
