@@ -24,7 +24,6 @@ void ActionButtonsManager::fetchActionButtons()
     if (mRocketChatAccount) {
         auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
-        info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Get;
         info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::ActionButton;
         job->setAppUpdateInfo(info);
