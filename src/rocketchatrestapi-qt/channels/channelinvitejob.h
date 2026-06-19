@@ -38,18 +38,12 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QString inviteUserId() const;
-    void setInviteUserId(const QString &userId);
-
-    [[nodiscard]] QString inviteUserName() const;
-    void setInviteUserName(const QString &userName);
-
     [[nodiscard]] ChannelInviteInfo channelInviteInfo() const;
     void setChannelInviteInfo(const ChannelInviteInfo &newChannelInviteInfo);
 
 Q_SIGNALS:
     void inviteDone();
-    void needUnbanned(const QString &userId, const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
+    void needUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
 
 protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
@@ -57,8 +51,6 @@ protected:
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mInviteUserId;
-    QString mInviteUserName;
     ChannelInviteInfo mChannelInviteInfo;
 };
 }

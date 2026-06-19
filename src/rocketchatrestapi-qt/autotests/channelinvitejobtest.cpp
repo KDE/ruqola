@@ -5,7 +5,6 @@
 */
 
 #include "channelinvitejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelinvitejob.h"
 #include "restapimethod.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ChannelInviteJobTest)
 using namespace RocketChatRestApi;
 ChannelInviteJobTest::ChannelInviteJobTest(QObject *parent)
@@ -25,8 +25,7 @@ void ChannelInviteJobTest::shouldHaveDefaultValue()
 {
     ChannelInviteJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
-    QVERIFY(job.inviteUserId().isEmpty());
-    QVERIFY(job.inviteUserName().isEmpty());
+    QVERIFY(!job.channelInviteInfo().isValid());
     QVERIFY(!job.hasIdentifier());
     QVERIFY(!job.hasQueryParameterSupport());
 
@@ -65,10 +64,14 @@ void ChannelInviteJobTest::shouldGenerateUserIdJson()
     const QString roomId = u"foo1"_s;
     const QString userId = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
-    job.setInviteUserId(userId);
+    const ChannelInviteJob::ChannelInviteInfo inviteInfo{
+        .identifier = userId,
+        .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserId,
+    };
+    job.setChannelInviteInfo(inviteInfo);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(userId, roomId).toLatin1());
 }
 
@@ -78,10 +81,14 @@ void ChannelInviteJobTest::shouldGenerateUserNameJson()
     const QString roomId = u"foo1"_s;
     const QString userName = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
-    job.setInviteUserName(userName);
+    const ChannelInviteJob::ChannelInviteInfo inviteInfo{
+        .identifier = userName,
+        .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserName,
+    };
+    job.setChannelInviteInfo(inviteInfo);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userName, roomId).toLatin1());
 }
 
