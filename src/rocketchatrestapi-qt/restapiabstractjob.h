@@ -83,6 +83,7 @@ protected:
     [[nodiscard]] virtual QString errorMessage(const QString &str, const QJsonObject &detail);
     [[nodiscard]] virtual QString jobName() const;
     [[nodiscard]] virtual QString generateErrorMessage(const QString &errorStr) const;
+    [[nodiscard]] virtual bool interceptError(const QJsonObject &replyObject);
 
     // The main methods used for sending requests to the server
     void submitGetRequest();

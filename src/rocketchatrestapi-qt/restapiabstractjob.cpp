@@ -195,12 +195,19 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
     }
 }
 
+bool RestApiAbstractJob::interceptError([[maybe_unused]] const QJsonObject &replyObject)
+{
+    return false;
+}
+
 void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject)
 {
-    if (replyObject.isEmpty()) {
-        Q_EMIT failed(replyErrorString, {});
-    } else {
-        Q_EMIT failed(replyErrorString, errorStr(replyObject));
+    if (!interceptError(replyObject)) {
+        if (replyObject.isEmpty()) {
+            Q_EMIT failed(replyErrorString, {});
+        } else {
+            Q_EMIT failed(replyErrorString, errorStr(replyObject));
+        }
     }
 }
 
