@@ -92,10 +92,10 @@ QJsonDocument ChannelInviteJob::json() const
 {
     QJsonObject jsonObj;
     generateJson(jsonObj);
-    if (!inviteUserId().isEmpty()) {
-        jsonObj["userId"_L1] = inviteUserId();
-    } else if (!inviteUserName().isEmpty()) {
-        jsonObj["userName"_L1] = inviteUserName();
+    if (!mInviteUserId.isEmpty()) {
+        jsonObj["userId"_L1] = mInviteUserId;
+    } else if (!mInviteUserName.isEmpty()) {
+        jsonObj["userName"_L1] = mInviteUserName;
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
