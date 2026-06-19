@@ -81,7 +81,7 @@ bool PermissionsManager::storePermission(const QString &id)
         || id == "videoconf-ring-users"_L1 || id == "edit-other-user-password"_L1 || id == "view-moderation-console"_L1 || id == "manage-moderation-actions"_L1
         || id == "manage-emoji"_L1 || id == "view-room-administration"_L1 || id == "view-user-administration"_L1 || id == "edit-other-user-avatar"_L1
         || id == "create-team-channel"_L1 || id == "create-team-group"_L1 || id == "delete-team-channel"_L1 || id == "delete-team-group"_L1
-        || id == "bypass-time-limit-edit-and-delete"_L1;
+        || id == "bypass-time-limit-edit-and-delete"_L1 || id == "ban-user"_L1;
 }
 
 void PermissionsManager::parseUpdatePermission(const QJsonArray &updateArray)
