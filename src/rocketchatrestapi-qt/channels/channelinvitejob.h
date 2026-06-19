@@ -33,9 +33,11 @@ public:
 
 Q_SIGNALS:
     void inviteDone();
+    void needUnbanned(const QString &userId);
 
 protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    [[nodiscard]] bool interceptError(const QJsonObject &replyObject) override;
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
