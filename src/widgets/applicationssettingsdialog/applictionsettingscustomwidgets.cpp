@@ -175,7 +175,7 @@ ApplictionSettingsCustomWidgetsString::ApplictionSettingsCustomWidgetsString(con
         connect(mPlainTextEdit, &QPlainTextEdit::textChanged, this, [this]() {
             Q_EMIT dataChanged(true);
         });
-        connect(this, &ApplictionSettingsCustomWidgetsComboBox::resetValue, this, [this, r]() {
+        connect(this, &ApplictionSettingsCustomWidgetsBase::resetValue, this, [this, r]() {
             QSignalBlocker b(mPlainTextEdit);
             mPlainTextEdit->setPlainText(r.toString());
         });
@@ -189,7 +189,7 @@ ApplictionSettingsCustomWidgetsString::ApplictionSettingsCustomWidgetsString(con
         connect(mLineEdit, &QLineEdit::textChanged, this, [this]() {
             Q_EMIT dataChanged(true);
         });
-        connect(this, &ApplictionSettingsCustomWidgetsComboBox::resetValue, this, [this, r]() {
+        connect(this, &ApplictionSettingsCustomWidgetsBase::resetValue, this, [this, r]() {
             QSignalBlocker b(mLineEdit);
             mLineEdit->setText(r.toString());
         });
