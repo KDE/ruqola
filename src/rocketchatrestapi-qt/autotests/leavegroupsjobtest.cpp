@@ -45,7 +45,7 @@ void LeaveGroupsJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = roomId;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job.setChannelGroupInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }
@@ -70,7 +70,7 @@ void LeaveGroupsJobTest::shouldNotStarting()
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = roomId;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job.setChannelGroupInfo(info);
 
     QVERIFY(job.canStart());

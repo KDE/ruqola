@@ -922,7 +922,7 @@ void RocketChatAccount::getRoomByTypeAndName(const QByteArray &rid, const QStrin
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     mManageChannels->channelJoin(info, joinCode);
 }

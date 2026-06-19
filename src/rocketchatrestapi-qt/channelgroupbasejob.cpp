@@ -33,10 +33,10 @@ void ChannelGroupBaseJob::addQueryItem(QUrl &url) const
     case ChannelGroupBaseJob::ChannelGroupInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
-    case ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
+    case ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier:
         queryUrl.addQueryItem(u"roomId"_s, mChannelGroupInfo.identifier);
         break;
-    case ChannelGroupBaseJob::ChannelGroupInfoType::Name:
+    case ChannelGroupBaseJob::ChannelGroupInfoType::RoomName:
         queryUrl.addQueryItem(u"roomName"_s, mChannelGroupInfo.identifier);
         break;
     }
@@ -50,10 +50,10 @@ void ChannelGroupBaseJob::generateJson(QJsonObject &jsonObj) const
     case ChannelGroupBaseJob::ChannelGroupInfoType::Unknown:
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
         return;
-    case ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
+    case ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier:
         jsonObj["roomId"_L1] = mChannelGroupInfo.identifier;
         break;
-    case ChannelGroupBaseJob::ChannelGroupInfoType::Name:
+    case ChannelGroupBaseJob::ChannelGroupInfoType::RoomName:
         jsonObj["roomName"_L1] = mChannelGroupInfo.identifier;
         break;
     }

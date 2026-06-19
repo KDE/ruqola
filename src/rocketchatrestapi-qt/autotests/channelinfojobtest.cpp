@@ -33,7 +33,7 @@ void ChannelInfoJobTest::shouldGenerateRequest()
 {
     ChannelInfoJob job;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = u"foo"_s;
     job.setChannelGroupInfo(info);
 
@@ -61,7 +61,7 @@ void ChannelInfoJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());

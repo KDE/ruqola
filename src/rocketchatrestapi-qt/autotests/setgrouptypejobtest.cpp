@@ -46,7 +46,7 @@ void SetGroupTypeJobTest::shouldGenerateJson()
     SetGroupTypeJob job;
     const QString channelname = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = channelname;
     job.setChannelGroupInfo(info);
     job.setType(SetGroupTypeJob::Private);
@@ -75,7 +75,7 @@ void SetGroupTypeJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     QVERIFY(!job.canStart());

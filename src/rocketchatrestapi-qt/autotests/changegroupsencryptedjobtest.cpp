@@ -42,7 +42,7 @@ void ChangeGroupsEncryptedJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     bool encrypted = true;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setEncrypted(encrypted);

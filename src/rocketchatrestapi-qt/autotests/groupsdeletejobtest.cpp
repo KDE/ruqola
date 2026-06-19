@@ -44,7 +44,7 @@ void GroupsDeleteJobTest::shouldGenerateRoomIdJson()
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = roomId;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job.setChannelGroupInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
 }

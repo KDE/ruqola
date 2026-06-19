@@ -20,8 +20,8 @@ public:
     ~ChannelGroupBaseJob() override;
     enum class ChannelGroupInfoType : uint8_t {
         Unknown,
-        Identifier,
-        Name,
+        RoomIdentifier,
+        RoomName,
     };
     Q_ENUM(ChannelGroupInfoType)
 

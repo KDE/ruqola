@@ -46,7 +46,7 @@ void GroupAddOwnerJobTest::shouldGenerateJson()
     const QString addUsedId = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = roomId;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job.setChannelGroupInfo(info);
     job.setAddownerUserId(addUsedId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(addUsedId, roomId).toLatin1());

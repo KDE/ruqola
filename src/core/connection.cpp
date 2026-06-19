@@ -337,7 +337,7 @@ void Connection::leaveChannel(const QByteArray &roomId)
     auto job = new LeaveChannelJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -350,7 +350,7 @@ void Connection::leaveGroups(const QByteArray &roomId)
     auto job = new LeaveGroupsJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -407,7 +407,7 @@ void Connection::historyChannel(const QString &roomId, const QString &type)
     auto job = new ChannelHistoryJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
     if (type == u'd') {
@@ -434,7 +434,7 @@ void Connection::filesInRoom(const QByteArray &roomId, const QString &type, int 
     connect(job, &ChannelFilesJob::channelFilesDone, this, &Connection::channelFilesDone);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     QueryParameters parameters;
@@ -487,7 +487,7 @@ void Connection::membersInRoom(const QByteArray &roomId, const QString &type, in
             });
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (type == u'd') {
@@ -507,10 +507,14 @@ void Connection::addUserInChannel(const QByteArray &roomId, const QByteArray &us
     auto job = new ChannelInviteJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
-    job->setInviteUserId(QString::fromLatin1(userId));
+    const ChannelInviteJob::ChannelInviteInfo inviteInfo{
+        .identifier = QString::fromLatin1(userId),
+        .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserId,
+    };
+    job->setChannelInviteInfo(inviteInfo);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
     }
@@ -521,7 +525,7 @@ void Connection::addUserInGroup(const QByteArray &roomId, const QByteArray &user
     auto job = new GroupsInviteJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
@@ -724,7 +728,7 @@ void Connection::getGroupRoles(const QByteArray &roomId)
     auto job = new GetGroupRolesJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &GetGroupRolesJob::groupRolesDone, this, &Connection::groupRolesDone);
@@ -738,7 +742,7 @@ void Connection::getChannelRoles(const QByteArray &roomId)
     auto job = new GetChannelRolesJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &GetChannelRolesJob::channelRolesDone, this, &Connection::channelRolesDone);
@@ -763,7 +767,7 @@ void Connection::setJoinCodeChannel(const QString &roomId, const QString &joinCo
     initializeRestApiJob(job);
     job->setJoinCode(joinCode);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
 
@@ -778,7 +782,7 @@ void Connection::channelKick(const QByteArray &roomId, const QByteArray &userId)
     initializeRestApiJob(job);
     job->setKickUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -792,7 +796,7 @@ void Connection::groupKick(const QByteArray &roomId, const QByteArray &userId)
     initializeRestApiJob(job);
     job->setKickUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
@@ -807,7 +811,7 @@ void Connection::groupAddModerator(const QByteArray &roomId, const QString &user
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -822,7 +826,7 @@ void Connection::groupRemoveModerator(const QByteArray &roomId, const QString &u
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = QString::fromLatin1(roomId);
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveModerator";
@@ -835,7 +839,7 @@ void Connection::groupAddLeader(const QByteArray &roomId, const QString &userId)
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -850,7 +854,7 @@ void Connection::groupRemoveLeader(const QByteArray &roomId, const QString &user
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = QString::fromLatin1(roomId);
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupRemoveLeader";
@@ -864,7 +868,7 @@ void Connection::groupAddOwner(const QByteArray &roomId, const QString &userId)
     job->setAddownerUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = QString::fromLatin1(roomId);
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start groupAddOwner";
@@ -877,7 +881,7 @@ void Connection::groupRemoveOwner(const QByteArray &roomId, const QString &userI
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
 
@@ -892,7 +896,7 @@ void Connection::channelAddModerator(const QByteArray &roomId, const QString &us
     initializeRestApiJob(job);
     job->setAddModeratorUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -906,7 +910,7 @@ void Connection::channelRemoveModerator(const QByteArray &roomId, const QString 
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -920,7 +924,7 @@ void Connection::channelAddLeader(const QByteArray &roomId, const QString &userI
     initializeRestApiJob(job);
     job->setAddLeaderUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -934,7 +938,7 @@ void Connection::channelRemoveLeader(const QByteArray &roomId, const QString &us
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -948,7 +952,7 @@ void Connection::channelAddOwner(const QByteArray &roomId, const QString &userId
     initializeRestApiJob(job);
     job->setAddownerUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -962,7 +966,7 @@ void Connection::channelRemoveOwner(const QByteArray &roomId, const QString &use
     initializeRestApiJob(job);
     job->setRemoveUserId(userId);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -975,7 +979,7 @@ void Connection::channelDelete(const QByteArray &roomId)
     auto job = new ChannelDeleteJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     if (!job->start()) {
@@ -989,7 +993,7 @@ void Connection::groupDelete(const QByteArray &roomId)
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.identifier = QString::fromLatin1(roomId);
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job->setChannelGroupInfo(info);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start GroupsDeleteJob";
@@ -1185,7 +1189,7 @@ void Connection::getChannelsCounter(const QByteArray &roomId)
     auto job = new ChannelGetCountersJob(this);
     initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     connect(job, &ChannelGetCountersJob::channelGetCountersDone, this, &Connection::channelGetCountersDone);

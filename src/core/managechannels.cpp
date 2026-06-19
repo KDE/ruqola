@@ -51,10 +51,10 @@ RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo ManageChannels::generat
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
     switch (typeInfo) {
     case RocketChatAccount::ChannelTypeInfo::RoomId:
-        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
         break;
     case RocketChatAccount::ChannelTypeInfo::RoomName:
-        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Name;
+        info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomName;
         break;
     }
     info.identifier = roomId;
@@ -174,10 +174,10 @@ void ManageChannels::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBas
     case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Unknown:
         qCWarning(RUQOLA_CHANNEL_MANAGEMENT_LOG) << "setChannelJoinDone : RocketChatRestApi::ChannelBaseJob::ChannelInfoType::Unknown";
         break;
-    case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier:
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier:
         Q_EMIT selectRoomByRoomIdRequested(channelInfo.identifier.toLatin1());
         break;
-    case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Name:
+    case RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomName:
         Q_EMIT selectRoomByRoomNameRequested(channelInfo.identifier);
         break;
     }

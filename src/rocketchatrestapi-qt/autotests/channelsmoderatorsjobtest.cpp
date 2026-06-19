@@ -33,7 +33,7 @@ void ChannelsModeratorsJobTest::shouldGenerateRequest()
 {
     ChannelsModeratorsJob job;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = u"foo"_s;
     job.setChannelGroupInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
@@ -60,7 +60,7 @@ void ChannelsModeratorsJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     QVERIFY(job.canStart());

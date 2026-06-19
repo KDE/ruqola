@@ -45,7 +45,7 @@ void GroupsKickJobTest::shouldGenerateJson()
     GroupsKickJob job;
     const QString channelname = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = channelname;
     job.setChannelGroupInfo(info);
     const QByteArray userkick("bla");
@@ -74,7 +74,7 @@ void GroupsKickJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     QVERIFY(!job.canStart());

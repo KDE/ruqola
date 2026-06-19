@@ -45,7 +45,7 @@ void ChannelAddModeratorJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     const QString addUsedId = u"topic1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setAddModeratorUserId(addUsedId);

@@ -38,7 +38,7 @@ void GetChannelRolesJobTest::shouldGenerateRequest()
     job.setRestApiMethod(&method);
     const QString roomId = u"avat"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     const QNetworkRequest request = job.request();

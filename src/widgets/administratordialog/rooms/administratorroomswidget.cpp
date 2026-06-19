@@ -224,7 +224,7 @@ void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
             info.identifier = roomIdentifier;
-            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
             job->setChannelGroupInfo(info);
             connect(job, &RocketChatRestApi::GroupsDeleteJob::deleteGroupsDone, this, &AdministratorRoomsWidget::slotDeleteGroupsDone);
             if (!job->start()) {
@@ -236,7 +236,7 @@ void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
             auto job = new RocketChatRestApi::ChannelDeleteJob(this);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
-            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
             info.identifier = roomIdentifier;
             job->setChannelGroupInfo(info);
             connect(job, &RocketChatRestApi::ChannelDeleteJob::deletechannelDone, this, &AdministratorRoomsWidget::slotDeletechannelDone);
@@ -249,7 +249,7 @@ void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
             auto job = new RocketChatRestApi::DeleteDmJob(this);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
-            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
             info.identifier = roomIdentifier;
             job->setChannelGroupInfo(info);
             connect(job, &RocketChatRestApi::DeleteDmJob::deleteDirectMessagesDone, this, &AdministratorRoomsWidget::slotDeleteDirectMessageDone);

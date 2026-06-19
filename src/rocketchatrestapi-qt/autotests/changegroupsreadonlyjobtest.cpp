@@ -42,7 +42,7 @@ void ChangeGroupsReadonlyJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     bool readOnly = true;
     ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setReadOnly(readOnly);

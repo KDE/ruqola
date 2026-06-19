@@ -389,7 +389,7 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
     auto job = new RocketChatRestApi::ChannelCloseJob(this);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(roomId);
     job->setChannelGroupInfo(info);
     const QString type = Room::roomFromRoomType(roomType);
