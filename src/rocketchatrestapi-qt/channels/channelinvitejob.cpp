@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -108,6 +109,14 @@ QNetworkRequest ChannelInviteJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+QString ChannelInviteJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == "error-user-is-banned"_L1) {
+        return i18n("User is banned from this room");
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
 
 #include "moc_channelinvitejob.cpp"
