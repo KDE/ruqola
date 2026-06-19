@@ -124,7 +124,7 @@ bool ChannelInviteJob::interceptError(const QJsonObject &replyObject)
     const QString errorType = replyObject["errorType"_L1].toString();
     if (errorType == "error-user-is-banned"_L1) {
         qDebug() << " bool ChannelInviteJob::interceptError(const QJsonObject &replyObject) banned !!!!";
-        Q_EMIT needUnbanned(mInviteUserId);
+        Q_EMIT needUnbanned(mInviteUserId, {} /*TODO*/);
         return true;
     }
     return false;
