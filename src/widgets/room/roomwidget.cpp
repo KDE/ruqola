@@ -406,6 +406,7 @@ void RoomWidget::slotPruneMessages()
 void RoomWidget::slotShowBannedUsers()
 {
     QPointer<ShowBannedUsersDialog> dlg = new ShowBannedUsersDialog(mCurrentRocketChatAccount, this);
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     if (dlg->exec()) {
         // TODO
     }

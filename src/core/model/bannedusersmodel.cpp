@@ -112,6 +112,7 @@ QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
 
     const BannedUser user = mBannedUsers->bannedUsers().at(index.row());
     switch (role) {
+    case Qt::DisplayRole:
     case BannedUserRoles::Name:
         return user.name();
     case BannedUserRoles::UserName:

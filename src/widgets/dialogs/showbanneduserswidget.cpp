@@ -7,19 +7,24 @@
 #include "showbanneduserswidget.h"
 
 #include "attachment/listattachmentdelegate.h"
+#include "connection.h"
 #include "model/bannedusersfilterproxymodel.h"
 #include "model/bannedusersmodel.h"
+#include "rocketchataccount.h"
 #include "rooms/roomsbannedusersjob.h"
+#include "ruqolawidgets_debug.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
+constexpr ushort numberOfElment = 20;
 
 using namespace Qt::Literals::StringLiterals;
 ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
+    , mCurrentRocketChatAccount(account)
     , mSearchBannedUserLineEdit(new QLineEdit(this))
     , mInfo(new QLabel(this))
     , mListBannedUsers(new QListView(this))
@@ -49,12 +54,12 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     QFont labFont = mInfo->font();
     labFont.setBold(true);
     mInfo->setFont(labFont);
-    connect(mInfo, &QLabel::linkActivated, this, &ShowBannedUsersWidget::loadMoreBannedUsers);
+    connect(mInfo, &QLabel::linkActivated, this, &ShowBannedUsersWidget::slotLoadMoreBannedUsers);
 
     mListBannedUsers->setObjectName(u"mListBannedUsers"_s);
     mainLayout->addWidget(mListBannedUsers);
-    auto delegate = new ListAttachmentDelegate(account, this);
-    mListBannedUsers->setItemDelegate(delegate);
+    // auto delegate = new ListAttachmentDelegate(account, this);
+    // mListBannedUsers->setItemDelegate(delegate);
     mBannedUsersFilterProxyModel->setSourceModel(mModel);
     mListBannedUsers->setModel(mBannedUsersFilterProxyModel);
 
@@ -85,10 +90,49 @@ QString ShowBannedUsersWidget::displayShowMessageInRoom() const
     return displayMessageStr;
 }
 
+void ShowBannedUsersWidget::slotLoadMoreBannedUsers()
+{
+    loadBannedUsers();
+}
+
 void ShowBannedUsersWidget::setRoomId(const QByteArray &roomId)
 {
+    mOffset = 0;
     mModel->setRoomId(roomId);
-    // TODO
+    loadBannedUsers();
+}
+
+void ShowBannedUsersWidget::loadBannedUsers()
+{
+    auto job = new RocketChatRestApi::RoomsBannedUsersJob(this);
+    const RocketChatRestApi::RoomsBannedUsersJob::RoomsBannedUsersJobInfo info{
+        .roomId = mModel->roomId(),
+        .offset = mOffset,
+        .count = numberOfElment,
+    };
+    job->setRoomsBannedUsersJobInfo(info);
+
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsBannedUsersJob::roomsBannedUsersDone, this, &ShowBannedUsersWidget::slotBannedUsersDone);
+    connect(job, &RocketChatRestApi::RoomsBannedUsersJob::failed, this, &ShowBannedUsersWidget::slotBannedUsersFailed);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsBannedUsersJob job";
+    }
+}
+
+void ShowBannedUsersWidget::slotBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId)
+{
+    if (mOffset == 0) {
+        mModel->parseBannedUsers(obj, roomId);
+    } else {
+        mModel->addMoreBannedUsers(obj);
+    }
+    mOffset += numberOfElment;
+}
+
+void ShowBannedUsersWidget::slotBannedUsersFailed(const QString &serverErrorStr, const QString &descriptionError)
+{
+    qCWarning(RUQOLAWIDGETS_LOG) << "slotBannedUsersFailed:" << serverErrorStr << " descriptionError : " << descriptionError;
 }
 
 #include "moc_showbanneduserswidget.cpp"

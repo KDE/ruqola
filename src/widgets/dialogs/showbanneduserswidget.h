@@ -23,13 +23,16 @@ public:
 
     void setRoomId(const QByteArray &roomId);
 
-Q_SIGNALS:
-    void loadMoreBannedUsers();
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
+    LIBRUQOLAWIDGETS_NO_EXPORT void loadBannedUsers();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersFailed(const QString &serverErrorStr, const QString &descriptionError);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreBannedUsers();
+    int mOffset = 0;
+    RocketChatAccount *const mCurrentRocketChatAccount;
     QLineEdit *const mSearchBannedUserLineEdit;
     QLabel *const mInfo;
     QListView *const mListBannedUsers;
