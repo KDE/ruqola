@@ -77,8 +77,14 @@ void AutoGenerateInteractionUiView::setId(const QByteArray &newId)
 
 bool AutoGenerateInteractionUiView::operator==(const AutoGenerateInteractionUiView &other) const
 {
-    return other.id() == id() && other.showIcon() == showIcon() && *other.closeButton() == *closeButton() && *other.submitButton() == *submitButton()
-        && other.title() == title() && other.blocks() == blocks() && other.appId() == appId() && other.type() == type();
+    const bool closeButtonEqual =
+        (!other.closeButton() && !closeButton()) || (other.closeButton() && closeButton() && (*other.closeButton() == *closeButton()));
+    const bool submitButtonEqual =
+        (!other.submitButton() && !submitButton()) || (other.submitButton() && submitButton() && (*other.submitButton() == *submitButton()));
+    const bool blocksEqual = (!other.blocks() && !blocks()) || (other.blocks() && blocks() && (*other.blocks() == *blocks()));
+
+    return other.id() == id() && other.showIcon() == showIcon() && closeButtonEqual && submitButtonEqual && other.title() == title() && blocksEqual
+        && other.appId() == appId() && other.type() == type();
 }
 
 bool AutoGenerateInteractionUiView::showIcon() const
@@ -123,12 +129,17 @@ void AutoGenerateInteractionUiView::setTitle(const AutoGenerateInteractionUiView
 
 QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> AutoGenerateInteractionUiView::createStateInfos() const
 {
+    if (!mBlocks) {
+        return {};
+    }
     return mBlocks->createStateInfos();
 }
 
 void AutoGenerateInteractionUiView::assignState(const QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> &map)
 {
-    mBlocks->assignState(map);
+    if (mBlocks) {
+        mBlocks->assignState(map);
+    }
 }
 
 AutoGenerateInteractionUiViewBlocks *AutoGenerateInteractionUiView::blocks() const
@@ -159,8 +170,10 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
     // TODO get icon too ?
     // widget->setWindowIcon()
     auto mainLayout = new QVBoxLayout(widget);
-    connect(mBlocks, &AutoGenerateInteractionUiViewBlocks::actionChanged, this, &AutoGenerateInteractionUiView::slotActionChanged);
-    mBlocks->generateWidget(widget);
+    if (mBlocks) {
+        connect(mBlocks, &AutoGenerateInteractionUiViewBlocks::actionChanged, this, &AutoGenerateInteractionUiView::slotActionChanged);
+        mBlocks->generateWidget(widget);
+    }
     if (mCloseButton || mSubmitButton) {
         auto buttonDialog = new QDialogButtonBox(widget);
         if (mCloseButton) {
@@ -188,6 +201,9 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
 
 QJsonObject AutoGenerateInteractionUiView::serializeState() const
 {
+    if (!mBlocks) {
+        return {};
+    }
     return mBlocks->serializeState();
 }
 
@@ -195,7 +211,7 @@ QJsonObject AutoGenerateInteractionUiView::serialize(bool generateState) const
 {
     QJsonObject o;
     o["showIcon"_L1] = mShowIcon;
-    o["blocks"_L1] = mBlocks->serialize();
+    o["blocks"_L1] = mBlocks ? mBlocks->serialize() : QJsonArray();
     o["title"_L1] = mTitle.serialize();
     if (mSubmitButton) {
         o["submit"_L1] = mSubmitButton->serialize();
@@ -234,7 +250,9 @@ void AutoGenerateInteractionUiView::setAppId(const QByteArray &newAppId)
 
 void AutoGenerateInteractionUiView::setErrorMessages(const QMap<QString, QString> &map)
 {
-    mBlocks->setErrorMessages(map);
+    if (mBlocks) {
+        mBlocks->setErrorMessages(map);
+    }
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiView &t)

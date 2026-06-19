@@ -204,6 +204,10 @@ void AutoGenerateInteractionUi::setView(AutoGenerateInteractionUiView *newView)
 QWidget *AutoGenerateInteractionUi::generateWidget(QWidget *parent)
 {
     auto widget = new QWidget(parent);
+    if (!mView) {
+        qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "View is not initialized";
+        return widget;
+    }
     mView->generateWidget(widget);
     return widget;
 }

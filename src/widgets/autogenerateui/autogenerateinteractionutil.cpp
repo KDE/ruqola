@@ -69,7 +69,9 @@ QJsonObject AutoGenerateInteractionUtil::createViewSubmitUser(const ViewSubmitUs
     QJsonObject view;
     view["view"_L1] = info.payload;
     o["payload"_L1] = view;
-    o["actionId"_L1] = QString::fromLatin1(info.actionId);
+    if (!info.actionId.isEmpty()) {
+        o["actionId"_L1] = QString::fromLatin1(info.actionId);
+    }
     o["viewId"_L1] = QString::fromLatin1(info.viewId);
     o["triggerId"_L1] = info.triggerId;
     return o;
