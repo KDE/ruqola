@@ -802,6 +802,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_offline_m
     CATEGORY_NAME org.kde.ruqola.offline_mode DESCRIPTION "ruqola offline mode" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_unity_manager_debug.h IDENTIFIER RUQOLA_UNITY_MANAGER_LOG
+    CATEGORY_NAME org.kde.ruqola.unity_manager DESCRIPTION "ruqola unity manager" EXPORT RUQOLA
+)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)

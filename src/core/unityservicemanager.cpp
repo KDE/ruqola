@@ -6,7 +6,7 @@
 
 #include "unityservicemanager.h"
 
-#include "ruqola_debug.h"
+#include "ruqola_unity_manager_debug.h"
 #include <QApplication>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
@@ -27,6 +27,7 @@ UnityServiceManager::~UnityServiceManager() = default;
 
 void UnityServiceManager::updateCount()
 {
+    qCDebug(RUQOLA_UNITY_MANAGER_LOG) << "UnityServiceManager::updateCount. mUnityServiceAvailable:" << mUnityServiceAvailable;
     if (mUnityServiceAvailable) {
         const QString launcherId = qApp->desktopFileName() + ".desktop"_L1;
 
@@ -34,7 +35,9 @@ void UnityServiceManager::updateCount()
 
         QDBusMessage message = QDBusMessage::createSignal(u"/org/ruqola/UnityLauncher"_s, u"com.canonical.Unity.LauncherEntry"_s, u"Update"_s);
         message.setArguments({launcherId, properties});
-        QDBusConnection::sessionBus().send(message);
+        if (!QDBusConnection::sessionBus().send(message)) {
+            qCWarning(RUQOLA_UNITY_MANAGER_LOG) << "Impossible to send message on dbus";
+        }
     }
 }
 
@@ -52,11 +55,13 @@ void UnityServiceManager::initUnity()
     mUnityServiceWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration | QDBusServiceWatcher::WatchForRegistration);
     mUnityServiceWatcher->addWatchedService(u"com.canonical.Unity"_s);
     connect(mUnityServiceWatcher, &QDBusServiceWatcher::serviceRegistered, this, [this]([[maybe_unused]] const QString &service) {
+        qCWarning(RUQOLA_UNITY_MANAGER_LOG) << "Unity Service Registered";
         mUnityServiceAvailable = true;
         updateCount();
     });
 
     connect(mUnityServiceWatcher, &QDBusServiceWatcher::serviceUnregistered, this, [this]([[maybe_unused]] const QString &service) {
+        qCWarning(RUQOLA_UNITY_MANAGER_LOG) << "Unity Service Unregistered";
         mUnityServiceAvailable = false;
     });
 
@@ -68,12 +73,13 @@ void UnityServiceManager::initUnity()
         watcher->deleteLater();
 
         if (reply.isError()) {
-            qCWarning(RUQOLA_LOG) << " reply" << reply.error().message();
+            qCWarning(RUQOLA_UNITY_MANAGER_LOG) << " reply" << reply.error().message();
         }
 
         const QStringList &services = reply.value();
 
         mUnityServiceAvailable = services.contains("com.canonical.Unity"_L1);
+        qCWarning(RUQOLA_UNITY_MANAGER_LOG) << " mUnityServiceAvailable changed" << mUnityServiceAvailable;
         if (mUnityServiceAvailable) {
             updateCount();
         }
