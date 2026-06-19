@@ -150,7 +150,7 @@ ApplictionSettingsCustomWidgetsComboBox::~ApplictionSettingsCustomWidgetsComboBo
 
 QString ApplictionSettingsCustomWidgetsComboBox::value() const
 {
-    return mComboBox->currentText();
+    return mComboBox->currentData().toString();
 }
 
 ApplictionSettingsCustomWidgetsString::ApplictionSettingsCustomWidgetsString(const QByteArray &appId,
