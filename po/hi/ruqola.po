@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-17 00:45+0000\n"
+"POT-Creation-Date: 2026-06-19 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -925,7 +925,7 @@ msgstr "इस कमरे को %1 द्वारा संग्रहि�
 msgid "This room has been unarchived by %1"
 msgstr "इस कमरे को %1 द्वारा असंग्रहित किया गया है"
 
-#: core/messages/message.cpp:844 core/messages/message.cpp:891
+#: core/messages/message.cpp:844 core/messages/message.cpp:895
 #, kde-format
 msgid "Unknown action!"
 msgstr "अज्ञात कार्रवाई!"
@@ -1024,6 +1024,18 @@ msgstr "%1 कुंजी सफलतापूर्वक ताज़ा क
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1 ने कुंजी ताज़ा करने का अनुरोध किया है."
+
+#: core/messages/message.cpp:888
+#, fuzzy, kde-format
+#| msgid "%1 and %2"
+msgid "%1 banned %2"
+msgstr "%1 और %2"
+
+#: core/messages/message.cpp:890
+#, fuzzy, kde-format
+#| msgid "%1 and %2"
+msgid "%1 unbanned %2"
+msgstr "%1 और %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -9098,6 +9110,7 @@ msgid "Show Attachments - %1"
 msgstr "अनुलग्नक दिखाएँ - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:39
+#: widgets/dialogs/showbanneduserswidget.cpp:41
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search attachments…"
@@ -9116,6 +9129,7 @@ msgstr[0] "कमरे में %1 अटैचमेंट (कुल: %2)"
 msgstr[1] "कमरे में %1 अटैचमेंट (कुल: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
+#: widgets/dialogs/showbanneduserswidget.cpp:83
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9124,6 +9138,29 @@ msgstr[1] "कमरे में %1 अटैचमेंट (कुल: %2)"
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(अधिक जानकारी के लिए यहां क्लिक करें…)"
+
+#: widgets/dialogs/showbannedusersdialog.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Pinned Messages - %1"
+msgctxt "@title:window"
+msgid "Show Banned Users - %1"
+msgstr "पिन किए गए संदेश दिखाएं - %1"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:76
+#, fuzzy, kde-format
+#| msgid "No User found"
+msgid "No Banned Users found"
+msgstr "कोई उपयोगकर्ता नहीं मिला"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 User in room (Total: %2)"
+#| msgid_plural "%1 Users in room (Total: %2)"
+msgid "%1 Banned User in room (Total: %2)"
+msgid_plural "%1 Banned Users in room (Total: %2)"
+msgstr[0] "कमरे में %1 उपयोगकर्ता (कुल: %2)"
+msgstr[1] "कमरे में %1 उपयोगकर्ता (कुल: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -10693,6 +10730,14 @@ msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "संदेश एन्क्रिप्ट करें"
 
+#: widgets/room/channelactionpopupmenu.cpp:140
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Show Pinned Messages…"
+msgctxt "@action"
+msgid "Show Banned Users…"
+msgstr "पिन किए गए संदेश दिखाएं…"
+
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
@@ -11034,7 +11079,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "यूआरएल कॉपी करें"
 
-#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:128
+#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11267,34 +11312,34 @@ msgstr "किसी थ्रेड में उत्तर देना"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "संदेश के लिए थ्रेड में उत्तर दें: '%1'"
 
-#: widgets/room/roomwidget.cpp:387
+#: widgets/room/roomwidget.cpp:391
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "क्या आप सचमुच इतिहास हटाना चाहते हैं?"
 
-#: widgets/room/roomwidget.cpp:388
+#: widgets/room/roomwidget.cpp:392
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहास हटाएँ"
 
-#: widgets/room/roomwidget.cpp:422
+#: widgets/room/roomwidget.cpp:435
 #, kde-format
 msgid "Export Messages"
 msgstr "संदेश निर्यात करें"
 
-#: widgets/room/roomwidget.cpp:423
+#: widgets/room/roomwidget.cpp:436
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "आपका ईमेल भेजने के लिए कतारबद्ध कर दिया गया है."
 
-#: widgets/room/roomwidget.cpp:585
+#: widgets/room/roomwidget.cpp:598
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्ष संदेश संग्रहीत नहीं किए जा सकते"
 
-#: widgets/room/roomwidget.cpp:585
+#: widgets/room/roomwidget.cpp:598
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11302,7 +11347,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "संदेश खोजें"
 
-#: widgets/room/roomwidget.cpp:604
+#: widgets/room/roomwidget.cpp:617
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11310,7 +11355,7 @@ msgstr ""
 "कार्यस्थान व्यवस्थापक को कॉन्फ़्रेंस कॉल एप्लिकेशन इंस्टॉल और कॉन्फ़िगर करने की आवश्यकता होती "
 "है।"
 
-#: widgets/room/roomwidget.cpp:605
+#: widgets/room/roomwidget.cpp:618
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11362,146 +11407,154 @@ msgstr "(बाहरी संवाद खोलें…)"
 msgid "No Users Found."
 msgstr "कोई उपयोगकर्ता नहीं मिला"
 
-#: widgets/room/usersinroommenu.cpp:41
+#: widgets/room/usersinroommenu.cpp:42
 #, kde-format
 msgid "Do you want to block this user?"
 msgstr "क्या आप इस उपयोगकर्ता को ब्लॉक करना चाहते हैं?"
 
-#: widgets/room/usersinroommenu.cpp:42
+#: widgets/room/usersinroommenu.cpp:43
 #, kde-format
 msgctxt "@title"
 msgid "Block User"
 msgstr "खंड उपयोगकर्ता"
 
-#: widgets/room/usersinroommenu.cpp:43
+#: widgets/room/usersinroommenu.cpp:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Block User"
 msgstr "खंड उपयोगकर्ता"
 
-#: widgets/room/usersinroommenu.cpp:72
+#: widgets/room/usersinroommenu.cpp:73
 #, kde-format
 msgid "Do you want to mute this user?"
 msgstr "क्या आप इस उपयोगकर्ता को म्यूट करना चाहते हैं?"
 
-#: widgets/room/usersinroommenu.cpp:73
+#: widgets/room/usersinroommenu.cpp:74
 #, kde-format
 msgctxt "@title"
 msgid "Mute User"
 msgstr "उपयोगकर्ता को म्यूट करें"
 
-#: widgets/room/usersinroommenu.cpp:74
+#: widgets/room/usersinroommenu.cpp:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Mute User"
 msgstr "उपयोगकर्ता को म्यूट करें"
 
-#: widgets/room/usersinroommenu.cpp:89
+#: widgets/room/usersinroommenu.cpp:90
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "क्या आप इस उपयोगकर्ता को अनदेखा करना चाहते हैं?"
 
-#: widgets/room/usersinroommenu.cpp:90
+#: widgets/room/usersinroommenu.cpp:91
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "उपयोगकर्ता की अनदेखी करें"
 
-#: widgets/room/usersinroommenu.cpp:91
+#: widgets/room/usersinroommenu.cpp:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "उपयोगकर्ता की अनदेखी करें"
 
-#: widgets/room/usersinroommenu.cpp:120
+#: widgets/room/usersinroommenu.cpp:121
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "बातचीत शुरू करें"
 
-#: widgets/room/usersinroommenu.cpp:137
+#: widgets/room/usersinroommenu.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "स्वामी के रूप में निकालें"
 
-#: widgets/room/usersinroommenu.cpp:137
+#: widgets/room/usersinroommenu.cpp:138
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "स्वामी के रूप में जोड़ें"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "नेता के पद से हटाएँ"
 
-#: widgets/room/usersinroommenu.cpp:150
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "नेता के रूप में जोड़ें"
 
-#: widgets/room/usersinroommenu.cpp:162
+#: widgets/room/usersinroommenu.cpp:163
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "मॉडरेटर के पद से हटाएँ"
 
-#: widgets/room/usersinroommenu.cpp:162
+#: widgets/room/usersinroommenu.cpp:163
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "मॉडरेटर के रूप में जोड़ें"
 
-#: widgets/room/usersinroommenu.cpp:173
+#: widgets/room/usersinroommenu.cpp:174
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "कमरे से निकालें"
 
-#: widgets/room/usersinroommenu.cpp:184
+#: widgets/room/usersinroommenu.cpp:185
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "उपयोगकर्ता को अनब्लॉक करें"
 
-#: widgets/room/usersinroommenu.cpp:184
+#: widgets/room/usersinroommenu.cpp:185
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "खंड उपयोगकर्ता"
 
-#: widgets/room/usersinroommenu.cpp:189
+#: widgets/room/usersinroommenu.cpp:190
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "अनदेखा न करें"
 
-#: widgets/room/usersinroommenu.cpp:189
+#: widgets/room/usersinroommenu.cpp:190
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "अनदेखा करना"
 
-#: widgets/room/usersinroommenu.cpp:195
+#: widgets/room/usersinroommenu.cpp:196
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "उपयोगकर्ता को अनम्यूट करें"
 
-#: widgets/room/usersinroommenu.cpp:195
+#: widgets/room/usersinroommenu.cpp:196
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "उपयोगकर्ता को म्यूट करें"
 
-#: widgets/room/usersinroommenu.cpp:203
+#: widgets/room/usersinroommenu.cpp:204
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "उपयोगकर्ता को रिपोर्ट करें"
+
+#: widgets/room/usersinroommenu.cpp:209
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Users in Room"
+msgctxt "@action"
+msgid "Ban User From Room"
+msgstr "कक्ष में उपयोगकर्ता जोड़ें"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12126,102 +12179,112 @@ msgstr ""
 msgid "Implement Draft message sorting channel."
 msgstr "संदेश शैली लागू करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:32
+#: widgets/whatsnew/whatsnewtranslations.cpp:24
+msgid "Implement Banned Users list dialog."
+msgstr ""
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:25
+#, fuzzy
+#| msgid "Implement mute/unmute user."
+msgid "Implement Banned/Unbanned Users."
+msgstr "उपयोगकर्ता को म्यूट/अनम्यूट करना लागू करें।"
+
+#: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
 msgid "Store Message in Local Database (experimental)"
 msgstr "संदेश को स्थानीय डेटाबेस में संग्रहीत करें (प्रायोगिक)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
+#: widgets/whatsnew/whatsnewtranslations.cpp:36
 #, kde-format
 msgid "Download Server Icon from Server"
 msgstr "सर्वर से सर्वर आइकन डाउनलोड करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:35
+#: widgets/whatsnew/whatsnewtranslations.cpp:37
 #, kde-format
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr "विशिष्ट डायलॉगबॉक्स में सर्वर त्रुटि जानकारी दिखाएं"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
+#: widgets/whatsnew/whatsnewtranslations.cpp:38
 #, kde-format
 msgid "Allow to Copy Image in Clipboard"
 msgstr "क्लिपबोर्ड में छवि कॉपी करने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
+#: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr "डिबग समर्थन में सुधार करें (वर्तमान खाता अनुमतियाँ दिखाने की अनुमति दें)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
+#: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
 msgid "Add support for quoted text (text which starts by '>')"
 msgstr "उद्धृत पाठ के लिए समर्थन जोड़ें ('>' से शुरू होने वाला पाठ)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
+#: widgets/whatsnew/whatsnewtranslations.cpp:41
 #, kde-format
 msgid "Show leader/moderator/owner in channel info."
 msgstr "चैनल जानकारी में लीडर/मॉडरेटर/मालिक दिखाएं।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
+#: widgets/whatsnew/whatsnewtranslations.cpp:42
 #, kde-format
 msgid "Video/Sound Message support (kf6 only)."
 msgstr "वीडियो/ध्वनि संदेश समर्थन (केवल kf6)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
+#: widgets/whatsnew/whatsnewtranslations.cpp:43
 #, kde-format
 msgid "Import/Export Accounts."
 msgstr "आयात/निर्यात खाते."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
+#: widgets/whatsnew/whatsnewtranslations.cpp:45
 #, kde-format
 msgid "Fix avatar support"
 msgstr "अवतार समर्थन को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:44
+#: widgets/whatsnew/whatsnewtranslations.cpp:46
 #, kde-format
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr "इमोजी समर्थन को ठीक करें (नए ktextaddons/textemoticons का उपयोग करें)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
+#: widgets/whatsnew/whatsnewtranslations.cpp:47
 #, kde-format
 msgid "Fix animated gif in reactions"
 msgstr "प्रतिक्रियाओं में एनिमेटेड GIF को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:46
+#: widgets/whatsnew/whatsnewtranslations.cpp:48
 #, kde-format
 msgid "Fix kf6 support"
 msgstr "kf6 समर्थन ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Add Moderation Console (Administration, RC server 6.2)"
 msgstr "मॉडरेशन कंसोल जोड़ें (प्रशासन, RC सर्वर 6.2)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Implement message style"
 msgstr "संदेश शैली लागू करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:52
+#: widgets/whatsnew/whatsnewtranslations.cpp:54
 #, kde-format
 msgid "Implement Url Preview"
 msgstr "यूआरएल पूर्वावलोकन लागू करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
+#: widgets/whatsnew/whatsnewtranslations.cpp:56
 #, kde-format
 msgid "Fix markdown support (header + check mark)"
 msgstr "मार्कडाउन समर्थन को ठीक करें (हेडर + चेक मार्क)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:55
+#: widgets/whatsnew/whatsnewtranslations.cpp:57
 #, kde-format
 msgid "Fix mem leak"
 msgstr "मेम लीक ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
+#: widgets/whatsnew/whatsnewtranslations.cpp:58
 #, kde-format
 msgid "Cache message size (optimization)"
 msgstr "कैश संदेश आकार (अनुकूलन)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
+#: widgets/whatsnew/whatsnewtranslations.cpp:59
 #, kde-format
 msgid ""
 "Improve select room or user in message line edit (show icon, inform if user "
@@ -12230,7 +12293,7 @@ msgstr ""
 "संदेश पंक्ति संपादन में चयनित कक्ष या उपयोगकर्ता को बेहतर बनाएं (आइकन दिखाएं, सूचित करें कि "
 "उपयोगकर्ता चैनल में है या नहीं)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
+#: widgets/whatsnew/whatsnewtranslations.cpp:60
 #, kde-format
 msgid ""
 "Fix show commands in message line edit (Hide action when room doesn't "
@@ -12239,42 +12302,42 @@ msgstr ""
 "संदेश पंक्ति संपादन में शो कमांड को ठीक करें (जब कक्ष इसका समर्थन नहीं करता है तो कार्रवाई "
 "छिपाएं)।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:59
+#: widgets/whatsnew/whatsnewtranslations.cpp:61
 #, kde-format
 msgid "Fix download sound/video file when it's not in cache."
 msgstr "ध्वनि/वीडियो फ़ाइल को कैश में न होने पर डाउनलोड करने की समस्या को ठीक करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:60
+#: widgets/whatsnew/whatsnewtranslations.cpp:62
 #, kde-format
 msgid "Fix list of authentication method."
 msgstr "प्रमाणीकरण विधि की सूची ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:61
+#: widgets/whatsnew/whatsnewtranslations.cpp:63
 #, kde-format
 msgid "Fix show avatar url."
 msgstr "अवतार यूआरएल दिखाना ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:69
+#: widgets/whatsnew/whatsnewtranslations.cpp:71
 #, kde-format
 msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
 msgstr "फ़ॉन्ट बढ़ाने/घटाने की अनुमति दें (CTRL++/CTRL+-)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:70
+#: widgets/whatsnew/whatsnewtranslations.cpp:72
 #, kde-format
 msgid "Add channel list style (Condensed/Medium/Extended)"
 msgstr "चैनल सूची शैली जोड़ें (संक्षिप्त/मध्यम/विस्तारित)"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
+#: widgets/whatsnew/whatsnewtranslations.cpp:73
 #, kde-format
 msgid "Add forward message"
 msgstr "अग्रेषित संदेश जोड़ें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
+#: widgets/whatsnew/whatsnewtranslations.cpp:74
 #, kde-format
 msgid "Improve mentions support."
 msgstr "उल्लेख समर्थन में सुधार करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
+#: widgets/whatsnew/whatsnewtranslations.cpp:75
 #, kde-format
 msgid ""
 "Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
@@ -12283,12 +12346,12 @@ msgstr ""
 "डीप लिंकिंग के लिए समर्थन जोड़ें <a href=\"https://developer.rocket.chat/getting-"
 "started/deep-linking\">डीप लिंकिंग</a> ."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
+#: widgets/whatsnew/whatsnewtranslations.cpp:76
 #, kde-format
 msgid "Implement block actions."
 msgstr "ब्लॉक कार्यवाही लागू करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
+#: widgets/whatsnew/whatsnewtranslations.cpp:77
 #, kde-format
 msgid ""
 "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
@@ -12297,110 +12360,110 @@ msgstr ""
 "व्यक्तिगत टोकन प्रमाणीकरण लागू करें। <a href=\"https://bugs.kde.org/show_bug.cgi?"
 "id=481400\">बग 481400</a>"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
+#: widgets/whatsnew/whatsnewtranslations.cpp:78
 #, kde-format
 msgid "Add Plasma Activities Support"
 msgstr "प्लाज्मा गतिविधियाँ समर्थन जोड़ें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
+#: widgets/whatsnew/whatsnewtranslations.cpp:79
 #, kde-format
 msgid "Add Report User Support"
 msgstr "रिपोर्ट उपयोगकर्ता सहायता जोड़ें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
+#: widgets/whatsnew/whatsnewtranslations.cpp:80
 #, kde-format
 msgid "Implement Channel Sound Notification."
 msgstr "चैनल ध्वनि अधिसूचना लागू करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
+#: widgets/whatsnew/whatsnewtranslations.cpp:81
 #, kde-format
 msgid "Implement New Room Sound Notification."
 msgstr "नये कक्ष ध्वनि अधिसूचना को क्रियान्वित करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
+#: widgets/whatsnew/whatsnewtranslations.cpp:82
 #, kde-format
 msgid "Implement Sorted/Unsorted markdown list."
 msgstr "सॉर्टेड/अनसॉर्टेड मार्कडाउन सूची को कार्यान्वित करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:83
-#: widgets/whatsnew/whatsnewtranslations.cpp:170
+#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:172
 #, kde-format
 msgid "Fix dark mode support."
 msgstr "डार्क मोड समर्थन को ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:84
+#: widgets/whatsnew/whatsnewtranslations.cpp:86
 #, kde-format
 msgid "Fix jitsi support."
 msgstr "जित्सी समर्थन ठीक करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
+#: widgets/whatsnew/whatsnewtranslations.cpp:87
 #, kde-format
 msgid "Fix translate message in direct channel."
 msgstr "प्रत्यक्ष चैनल में संदेश का अनुवाद ठीक करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
+#: widgets/whatsnew/whatsnewtranslations.cpp:88
 #, kde-format
 msgid "Don't show @here/@all as user."
 msgstr "@here/@all को उपयोगकर्ता के रूप में न दिखाएं."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
+#: widgets/whatsnew/whatsnewtranslations.cpp:89
 #, kde-format
 msgid "Reduce memory footprint."
 msgstr "मेमोरी फ़ुटप्रिंट कम करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:88
+#: widgets/whatsnew/whatsnewtranslations.cpp:90
 #, kde-format
 msgid "Use RESTAPI for logging."
 msgstr "लॉगिंग के लिए RESTAPI का उपयोग करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:89
+#: widgets/whatsnew/whatsnewtranslations.cpp:91
 #, kde-format
 msgid "Allow to send multi files."
 msgstr "एकाधिक फ़ाइलें भेजने की अनुमति दें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:90
+#: widgets/whatsnew/whatsnewtranslations.cpp:92
 #, kde-format
 msgid "Fix preview url."
 msgstr "पूर्वावलोकन यूआरएल ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:98
+#: widgets/whatsnew/whatsnewtranslations.cpp:100
 #, kde-format
 msgid "Implement Rocket.Chat Marketplace."
 msgstr "रॉकेट.चैट मार्केटप्लेस को क्रियान्वित करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:99
+#: widgets/whatsnew/whatsnewtranslations.cpp:101
 #, kde-format
 msgid "Allow to clean room history."
 msgstr "कमरे का इतिहास साफ़ करने की अनुमति दें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:100
+#: widgets/whatsnew/whatsnewtranslations.cpp:102
 #, kde-format
 msgid "Allow to check new version."
 msgstr "नये संस्करण की जांच करने की अनुमति दें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
+#: widgets/whatsnew/whatsnewtranslations.cpp:103
 #, kde-format
 msgid "Implement moderation (administrator mode)."
 msgstr "मॉडरेशन (व्यवस्थापक मोड) लागू करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
+#: widgets/whatsnew/whatsnewtranslations.cpp:104
 #, kde-format
 msgid "Add welcome page."
 msgstr "स्वागत पृष्ठ जोड़ें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
+#: widgets/whatsnew/whatsnewtranslations.cpp:105
 #, kde-format
 msgid "Implement pending users info (administrator mode)."
 msgstr "लंबित उपयोगकर्ता जानकारी (व्यवस्थापक मोड) लागू करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:104
+#: widgets/whatsnew/whatsnewtranslations.cpp:106
 #, kde-format
 msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
 msgstr ""
 "मार्कडाउन समर्थन के लिए cmark-rc (https://github.com/dfaure/cmark-rc) का उपयोग "
 "करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:105
+#: widgets/whatsnew/whatsnewtranslations.cpp:107
 #, kde-format
 msgid ""
 "Delete oldest files from some cache directories (file-upload and media) so "
@@ -12409,400 +12472,400 @@ msgstr ""
 "कुछ कैश निर्देशिकाओं (फ़ाइल-अपलोड और मीडिया) से सबसे पुरानी फ़ाइलें हटा दें ताकि वे हमेशा के "
 "लिए बढ़ती न रहें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:109
+#: widgets/whatsnew/whatsnewtranslations.cpp:111
 #, kde-format
 msgid ""
 "Clean market application model after 30 minutes (reduce memory footprint)."
 msgstr "30 मिनट के बाद बाजार अनुप्रयोग मॉडल को साफ करें (मेमोरी फुटप्रिंट कम करें)।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:110
+#: widgets/whatsnew/whatsnewtranslations.cpp:112
 #, kde-format
 msgid "Fix show discussion name in completion."
 msgstr "चर्चा का नाम पूर्णता में दिखाना ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:111
+#: widgets/whatsnew/whatsnewtranslations.cpp:113
 #, kde-format
 msgid "Fix duplicated messages in search message dialog."
 msgstr "खोज संदेश संवाद में डुप्लिकेट संदेशों को ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:112
+#: widgets/whatsnew/whatsnewtranslations.cpp:114
 #, kde-format
 msgid "Add delegate in search rooms in team dialog."
 msgstr "टीम संवाद में खोज कक्षों में प्रतिनिधि जोड़ें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:121
+#: widgets/whatsnew/whatsnewtranslations.cpp:123
 #, kde-format
 msgid "Allow to clean up room history when room was not opened from long time."
 msgstr "जब कमरा लंबे समय से नहीं खोला गया हो तो कमरे का इतिहास साफ़ करने की अनुमति दें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:122
+#: widgets/whatsnew/whatsnewtranslations.cpp:124
 #, kde-format
 msgid "Add restore button in administrator server settings dialog."
 msgstr "व्यवस्थापक सर्वर सेटिंग संवाद में पुनर्स्थापना बटन जोड़ें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
+#: widgets/whatsnew/whatsnewtranslations.cpp:125
 #, kde-format
 msgid "Improve changing password (show validation info)."
 msgstr "पासवर्ड बदलने में सुधार करें (सत्यापन जानकारी दिखाएं)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
+#: widgets/whatsnew/whatsnewtranslations.cpp:126
 #, kde-format
 msgid "Improve register new account (Add reason support)."
 msgstr "नया खाता पंजीकृत करने में सुधार करें (कारण समर्थन जोड़ें)."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
+#: widgets/whatsnew/whatsnewtranslations.cpp:127
 #, kde-format
 msgid "Implement mute/unmute user."
 msgstr "उपयोगकर्ता को म्यूट/अनम्यूट करना लागू करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:126
+#: widgets/whatsnew/whatsnewtranslations.cpp:128
 #, kde-format
 msgid "Add color to the text in the account tab"
 msgstr "खाता टैब में टेक्स्ट में रंग जोड़ें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:127
+#: widgets/whatsnew/whatsnewtranslations.cpp:129
 #, kde-format
 msgid "Allow to show private installed applications"
 msgstr "निजी इंस्टॉल किए गए एप्लिकेशन दिखाने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:132
+#: widgets/whatsnew/whatsnewtranslations.cpp:134
 #, kde-format
 msgid "Fix editing message."
 msgstr "संपादन संदेश ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:133
+#: widgets/whatsnew/whatsnewtranslations.cpp:135
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
 msgstr "Rocket.Chat मार्केटप्लेस में अनुमतियाँ दिखाएँ."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:134
+#: widgets/whatsnew/whatsnewtranslations.cpp:136
 #, kde-format
 msgid "Fix reconnect server."
 msgstr "सर्वर को पुनः कनेक्ट करना ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:135
+#: widgets/whatsnew/whatsnewtranslations.cpp:137
 #, kde-format
 msgid "Fix single application on Windows/MacOs"
 msgstr "Windows/MacOs पर एकल एप्लिकेशन को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:136
+#: widgets/whatsnew/whatsnewtranslations.cpp:138
 #, kde-format
 msgid "Fix select created room/discussion/teams"
 msgstr "चयनित निर्मित कक्ष/चर्चा/टीमों को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:137
+#: widgets/whatsnew/whatsnewtranslations.cpp:139
 #, kde-format
 msgid "Fix filter discussion in administrator mode"
 msgstr "व्यवस्थापक मोड में फ़िल्टर चर्चा को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:138
+#: widgets/whatsnew/whatsnewtranslations.cpp:140
 #, kde-format
 msgid "Fix message video support"
 msgstr "संदेश वीडियो समर्थन ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:139
+#: widgets/whatsnew/whatsnewtranslations.cpp:141
 #, kde-format
 msgid "Fix highlight text in quoted message"
 msgstr "उद्धृत संदेश में हाइलाइट किए गए टेक्स्ट को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:140
+#: widgets/whatsnew/whatsnewtranslations.cpp:142
 #, kde-format
 msgid "Fix open discussion channel"
 msgstr "खुली चर्चा चैनल को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:141
+#: widgets/whatsnew/whatsnewtranslations.cpp:143
 #, kde-format
 msgid "Allow to show application market settings"
 msgstr "एप्लिकेशन मार्केट सेटिंग दिखाने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:149
+#: widgets/whatsnew/whatsnewtranslations.cpp:151
 #, kde-format
 msgid "Add support for tools plugins"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:150
+#: widgets/whatsnew/whatsnewtranslations.cpp:152
 #, kde-format
 msgid "Plugin: Add screenshot button (near send message button)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:151
+#: widgets/whatsnew/whatsnewtranslations.cpp:153
 #, fuzzy, kde-format
 #| msgid "Improve mentions support."
 msgid "Implement invite RC url support"
 msgstr "उल्लेख समर्थन में सुधार करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:152
+#: widgets/whatsnew/whatsnewtranslations.cpp:154
 #, kde-format
 msgid "Implement verify if a new Ruqola version exist"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:153
+#: widgets/whatsnew/whatsnewtranslations.cpp:155
 #, kde-format
 msgid "Allow to search threads by unread/following"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:154
+#: widgets/whatsnew/whatsnewtranslations.cpp:156
 #, kde-format
 msgid "Show images from attachment dialog box"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:155
+#: widgets/whatsnew/whatsnewtranslations.cpp:157
 #, fuzzy, kde-format
 #| msgid "Implement Rocket.Chat Marketplace."
 msgid "Implement Rocket.Chat application support."
 msgstr "रॉकेट.चैट मार्केटप्लेस को क्रियान्वित करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:156
+#: widgets/whatsnew/whatsnewtranslations.cpp:158
 #, fuzzy, kde-format
 #| msgid "Implement Url Preview"
 msgid "Implement command preview."
 msgstr "यूआरएल पूर्वावलोकन लागू करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:157
+#: widgets/whatsnew/whatsnewtranslations.cpp:159
 #, kde-format
 msgid "Debug: explore translation from RC server."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:158
+#: widgets/whatsnew/whatsnewtranslations.cpp:160
 #, kde-format
 msgid "Implement plugin UI support (Create dialog box for configure settings)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:162
+#: widgets/whatsnew/whatsnewtranslations.cpp:164
 #, kde-format
 msgid "Allow to search file from username and filename."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:163
+#: widgets/whatsnew/whatsnewtranslations.cpp:165
 #, kde-format
 msgid "Fix copy action text when we copy a text selection."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:164
+#: widgets/whatsnew/whatsnewtranslations.cpp:166
 #, kde-format
 msgid "A command start with '/' and not /* or // "
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:165
+#: widgets/whatsnew/whatsnewtranslations.cpp:167
 #, kde-format
 msgid "Allow to put command line in clipboard when an error occurred"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:166
+#: widgets/whatsnew/whatsnewtranslations.cpp:168
 #, fuzzy, kde-format
 #| msgid "Allow to write oauth app settings"
 msgid "Allow to activate/deactivate apps market."
 msgstr "oauth ऐप सेटिंग लिखने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:167
+#: widgets/whatsnew/whatsnewtranslations.cpp:169
 #, kde-format
 msgid "Improve list of user in room."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:168
+#: widgets/whatsnew/whatsnewtranslations.cpp:170
 #, kde-format
 msgid "Search in encrypted room is not possible."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:169
+#: widgets/whatsnew/whatsnewtranslations.cpp:171
 #, kde-format
 msgid "Show roles for users in rooms."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:171
+#: widgets/whatsnew/whatsnewtranslations.cpp:173
 #, kde-format
 msgid "Fix download languages apps."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:179
+#: widgets/whatsnew/whatsnewtranslations.cpp:181
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Add Autojoin"
 msgid "Add AI plugin"
 msgstr "ऑटोजॉइन जोड़ें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:180
+#: widgets/whatsnew/whatsnewtranslations.cpp:182
 #, fuzzy, kde-format
 #| msgid "Allow to send email"
 msgid "Allow to dnd image."
 msgstr "ईमेल भेजने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:181
+#: widgets/whatsnew/whatsnewtranslations.cpp:183
 #, fuzzy, kde-format
 #| msgid "Add restore button in administrator server settings dialog."
 msgid "Add restore button in administration settings."
 msgstr "व्यवस्थापक सर्वर सेटिंग संवाद में पुनर्स्थापना बटन जोड़ें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:182
+#: widgets/whatsnew/whatsnewtranslations.cpp:184
 #, fuzzy, kde-format
 #| msgid "Allow to write oauth app settings"
 msgid "Allow to activate plugins."
 msgstr "oauth ऐप सेटिंग लिखने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:183
+#: widgets/whatsnew/whatsnewtranslations.cpp:185
 #, kde-format
 msgid "Add Open With button in show image."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
+#: widgets/whatsnew/whatsnewtranslations.cpp:186
 #, fuzzy, kde-format
 #| msgid "Change Text Format"
 msgid "Add Quick Text Format."
 msgstr "पाठ प्रारूप बदलें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
+#: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Add Extension message line button."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
+#: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Server"
 msgid "Allow to Add WebDav Server."
 msgstr "सर्वर जोड़ें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
+#: widgets/whatsnew/whatsnewtranslations.cpp:189
 #, kde-format
 msgid "Show room info (italic text) when there is some pending message typed."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
+#: widgets/whatsnew/whatsnewtranslations.cpp:190
 #, kde-format
 msgid "Allow to add emoticon from popup menu."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:192
+#: widgets/whatsnew/whatsnewtranslations.cpp:194
 #, fuzzy, kde-format
 #| msgid "Fix show avatar url."
 msgid "Fix show date info."
 msgstr "अवतार यूआरएल दिखाना ठीक करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:193
+#: widgets/whatsnew/whatsnewtranslations.cpp:195
 #, fuzzy, kde-format
 #| msgid "Allow to show application market settings"
 msgid "Fix save application settings."
 msgstr "एप्लिकेशन मार्केट सेटिंग दिखाने की अनुमति दें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:194
+#: widgets/whatsnew/whatsnewtranslations.cpp:196
 #, kde-format
 msgid "Fix text selection in attachment."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:195
+#: widgets/whatsnew/whatsnewtranslations.cpp:197
 #, kde-format
 msgid "Fix display user."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:196
+#: widgets/whatsnew/whatsnewtranslations.cpp:198
 #, fuzzy, kde-format
 #| msgid "Fix translate message in direct channel."
 msgid "Display translate menu in thread dialog."
 msgstr "प्रत्यक्ष चैनल में संदेश का अनुवाद ठीक करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:197
+#: widgets/whatsnew/whatsnewtranslations.cpp:199
 #, fuzzy, kde-format
 #| msgid "Implement Rocket.Chat Marketplace."
 msgid "Add AI Rocket Chat Actions support."
 msgstr "रॉकेट.चैट मार्केटप्लेस को क्रियान्वित करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:198
+#: widgets/whatsnew/whatsnewtranslations.cpp:200
 #, fuzzy, kde-format
 #| msgid "Add restore button in administrator server settings dialog."
 msgid "Fix apply, restore, cancel buttons in administration dialog."
 msgstr "व्यवस्थापक सर्वर सेटिंग संवाद में पुनर्स्थापना बटन जोड़ें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:199
+#: widgets/whatsnew/whatsnewtranslations.cpp:201
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search users…"
 msgid "Fix search users."
 msgstr "उपयोगकर्ताओं को खोजें…"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:200
+#: widgets/whatsnew/whatsnewtranslations.cpp:202
 #, kde-format
 msgid "Fix extract language from code block."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:201
+#: widgets/whatsnew/whatsnewtranslations.cpp:203
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:202
+#: widgets/whatsnew/whatsnewtranslations.cpp:204
 #, fuzzy, kde-format
 #| msgid "Fix single application on Windows/MacOs"
 msgid "Fix icon on windows."
 msgstr "Windows/MacOs पर एकल एप्लिकेशन को ठीक करें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:203
+#: widgets/whatsnew/whatsnewtranslations.cpp:205
 #, fuzzy, kde-format
 #| msgid "Show File Attachments…"
 msgid "Fix show file attachment size."
 msgstr "फ़ाइल अनुलग्नक दिखाएँ…"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:212
+#: widgets/whatsnew/whatsnewtranslations.cpp:214
 #, kde-format
 msgid "Copy block code more easily."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:213
+#: widgets/whatsnew/whatsnewtranslations.cpp:215
 #, kde-format
 msgid "Improve Text To Speech user interface."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:214
+#: widgets/whatsnew/whatsnewtranslations.cpp:216
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
 msgstr "अनुलग्नक दिखाएँ - %1"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:215
+#: widgets/whatsnew/whatsnewtranslations.cpp:217
 #, kde-format
 msgid "Implement Offline Mode (experimental)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:216
+#: widgets/whatsnew/whatsnewtranslations.cpp:218
 #, kde-format
 msgid "Implement Pending Typed database storage."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:217
+#: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, fuzzy, kde-format
 #| msgid "Fix jitsi support."
 msgid "Fix RC 8.0.0 support."
 msgstr "जित्सी समर्थन ठीक करें।"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:218
+#: widgets/whatsnew/whatsnewtranslations.cpp:220
 #, fuzzy, kde-format
 #| msgid "Implement Rocket.Chat Marketplace."
 msgid "Add Attachment Actions Support."
 msgstr "रॉकेट.चैट मार्केटप्लेस को क्रियान्वित करें."
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
+#: widgets/whatsnew/whatsnewtranslations.cpp:221
 #, fuzzy, kde-format
 #| msgid "Add Report User Support"
 msgid "Add TimeStamp support."
 msgstr "रिपोर्ट उपयोगकर्ता सहायता जोड़ें"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:222
+#: widgets/whatsnew/whatsnewtranslations.cpp:224
 #, kde-format
 msgid "Save local translation to local database."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:223
+#: widgets/whatsnew/whatsnewtranslations.cpp:225
 #, kde-format
 msgid "Fix remove room (in local database)."
 msgstr ""
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:224
+#: widgets/whatsnew/whatsnewtranslations.cpp:226
 #, fuzzy, kde-format
 #| msgid "Report date"
 msgid "Fix export database."
 msgstr "रिपोर्ट की तारीख"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:225
+#: widgets/whatsnew/whatsnewtranslations.cpp:227
 #, fuzzy, kde-format
 #| msgid "Custom Sounds"
 msgid "Fix upload Custom Sound"
