@@ -5,7 +5,6 @@
 */
 
 #include "channelactionpopupmenu.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "actionbuttons/actionbuttonsmanager.h"
 #include "actionbuttons/actionbuttonutil.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QMenu>
 
+using namespace Qt::Literals::StringLiterals;
 ChannelActionPopupMenu::ChannelActionPopupMenu(QObject *parent)
     : QObject(parent)
     , mMenu(new QMenu)
@@ -216,6 +216,10 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         // FIXME Disable for the moment
         // TODO
         mEncryptMessages->setVisible(false);
+
+        const bool hasPermissionToBan = mRoom && mRoom->hasPermission(u"ban-user"_s)
+            && (mRoom->channelType() == Room::RoomType::Channel || mRoom->channelType() == Room::RoomType::Private);
+        mShowBannedUsers->setVisible(hasPermissionToBan);
     }
 }
 
