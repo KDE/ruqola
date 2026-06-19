@@ -20,6 +20,7 @@
         "Description[sv]": "Insticksprogrammet låter dig skapa en skärmbild.",
         "Description[tr]": "Bu eklenti, ekran görüntüleri almaya olanak tanır.",
         "Description[uk]": "За допомогою цього додатка ви зможете створювати знімки екрана.",
+        "Description[zh_CN]": "此插件允许您创建屏幕截图",
         "Description[zh_TW]": "這個外掛程式讓您建立螢幕截圖。",
         "EnabledByDefault": true,
         "Name": "Grab Screen",
@@ -42,6 +43,7 @@
         "Name[sv]": "Ta skärmbild",
         "Name[tr]": "Ekranı Yakala",
         "Name[uk]": "Захоплення екрана",
+        "Name[zh_CN]": "截取屏幕",
         "Name[zh_TW]": "擷取螢幕",
         "ServiceTypes": [
             "Ruqola/ToolsPlugin"
