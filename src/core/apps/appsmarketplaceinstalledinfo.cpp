@@ -72,6 +72,7 @@ QPixmap AppsMarketPlaceInstalledInfo::pixmap() const
 
 void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJsonObject &replyObject)
 {
+    mPixmap = QPixmap();
     mIsPrivate = replyObject["private"_L1].toBool();
     mAppName = replyObject["name"_L1].toString();
     mVersion = replyObject["version"_L1].toString();

@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadApplicationSettingsInfo();
     void shouldLoadApplicationSettingsInfo_data();
+    void shouldResetStateWhenParsingTwice();
 };

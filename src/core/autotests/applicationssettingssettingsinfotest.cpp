@@ -7,6 +7,8 @@
 #include "applicationssettingssettingsinfotest.h"
 #include "apps/applicationssettingssettingsinfo.h"
 #include "ruqola_autotest_helper.h"
+#include <QJsonArray>
+#include <QJsonObject>
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ApplicationsSettingsSettingsInfoTest)
@@ -68,6 +70,42 @@ void ApplicationsSettingsSettingsInfoTest::shouldLoadApplicationSettingsInfo()
     ApplicationsSettingsSettingsInfo m;
     m.parseSettings(obj);
     QCOMPARE(m, info);
+}
+
+void ApplicationsSettingsSettingsInfoTest::shouldResetStateWhenParsingTwice()
+{
+    ApplicationsSettingsSettingsInfo info;
+
+    const QJsonObject firstObj{
+        {"i18nDescription"_L1, "desc1"_L1},
+        {"i18nLabel"_L1, "label1"_L1},
+        {"id"_L1, "id1"_L1},
+        {"type"_L1, "select"_L1},
+        {"packageValue"_L1, "one"_L1},
+        {"value"_L1, "one"_L1},
+        {"values"_L1,
+         QJsonArray{
+             QJsonObject{{"key"_L1, "one"_L1}, {"i18nLabel"_L1, "One"_L1}},
+             QJsonObject{{"key"_L1, "two"_L1}, {"i18nLabel"_L1, "Two"_L1}},
+         }},
+    };
+    info.parseSettings(firstObj);
+    QVERIFY(!info.values().isEmpty());
+    QCOMPARE(info.value().toString(), "one"_L1);
+
+    const QJsonObject secondObj{
+        {"i18nDescription"_L1, "desc2"_L1},
+        {"i18nLabel"_L1, "label2"_L1},
+        {"id"_L1, "id2"_L1},
+        {"type"_L1, "string"_L1},
+        {"packageValue"_L1, "default"_L1},
+    };
+    info.parseSettings(secondObj);
+
+    QVERIFY(info.values().isEmpty());
+    QVERIFY(!info.value().isValid());
+    QCOMPARE(info.packageValue().toString(), "default"_L1);
+    QCOMPARE(info.settingType(), ApplicationsSettingsSettingsInfo::SettingType::String);
 }
 
 #include "moc_applicationssettingssettingsinfotest.cpp"

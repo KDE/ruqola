@@ -17,6 +17,9 @@ ApplicationsSettingsSettingsInfo::~ApplicationsSettingsSettingsInfo() = default;
 void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
 {
     mJsonObj = obj;
+    mPackageValue = {};
+    mValue = {};
+    mValues.clear();
     mI18nDescription = obj["i18nDescription"_L1].toString();
     mI18nLabel = obj["i18nLabel"_L1].toString();
     mId = obj["id"_L1].toString();
