@@ -181,8 +181,10 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     }
     const QSizeF statusTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.statusText);
 
-    layout.statusRect =
-        QRectF(usableRect.right() - requestedTextSize.width() - statusTextSize.width() - 2 * margin, topPos, statusTextSize.width(), statusTextSize.height());
+    layout.statusRect = QRectF(usableRect.right() - premiumTextSize.width() - requestedTextSize.width() - statusTextSize.width() - 2 * margin,
+                               topPos,
+                               statusTextSize.width(),
+                               statusTextSize.height());
 
     return layout;
 }
