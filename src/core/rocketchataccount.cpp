@@ -401,6 +401,8 @@ void RocketChatAccount::slotNeedToUpdateNotification()
     int nbUnread = 0;
     bool hasMention = false;
     mRoomModel->getUnreadAlertFromAccount(hasAlert, nbUnread, hasMention);
+    qCDebug(RUQOLA_NOTIFICATION_LOG) << "RocketChatAccount::slotNeedToUpdateNotification. hasAlert" << hasAlert << " nbUnread : " << nbUnread << "hasMention "
+                                     << hasMention;
     Q_EMIT updateNotification(hasAlert, nbUnread, accountName());
 }
 
