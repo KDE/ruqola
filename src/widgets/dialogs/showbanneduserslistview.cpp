@@ -35,9 +35,8 @@ void ShowBannedUsersListView::contextMenuEvent(QContextMenuEvent *event)
 
 void ShowBannedUsersListView::slotUnbanUser(const QModelIndex &index)
 {
-    // TODO fix username
-
-    Q_EMIT unbanUser({});
+    const QString userName = index.data(BannedUsersModel::UserName).toString();
+    Q_EMIT unbanUser(userName);
 }
 
 #include "moc_showbanneduserslistview.cpp"
