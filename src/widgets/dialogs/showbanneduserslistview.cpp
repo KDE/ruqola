@@ -5,6 +5,7 @@
 */
 
 #include "showbanneduserslistview.h"
+#include "model/bannedusersmodel.h"
 #include <KLocalizedString>
 #include <QAction>
 #include <QContextMenuEvent>
@@ -34,7 +35,9 @@ void ShowBannedUsersListView::contextMenuEvent(QContextMenuEvent *event)
 
 void ShowBannedUsersListView::slotUnbanUser(const QModelIndex &index)
 {
-    // TODO
+    // TODO fix username
+
+    Q_EMIT unbanUser({});
 }
 
 #include "moc_showbanneduserslistview.cpp"

@@ -71,9 +71,22 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
 
 ShowBannedUsersWidget::~ShowBannedUsersWidget() = default;
 
-void ShowBannedUsersWidget::slotUnbanUser(const QByteArray &userId)
+void ShowBannedUsersWidget::slotUnbanUser(const QString &userName)
 {
-    // TODO
+    auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
+    job->setRoomId(mModel->roomId());
+    job->setUserName(userName);
+
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, &ShowBannedUsersWidget::slotUnBanUsersDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsUnbanUserJob job";
+    }
+}
+
+void ShowBannedUsersWidget::slotUnBanUsersDone()
+{
+    qCDebug(RUQOLAWIDGETS_LOG) << "Unban done";
 }
 
 void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)

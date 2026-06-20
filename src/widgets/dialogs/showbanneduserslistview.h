@@ -16,7 +16,7 @@ public:
     ~ShowBannedUsersListView() override;
 
 Q_SIGNALS:
-    void unbanUser(const QByteArray &id);
+    void unbanUser(const QString &userName);
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
