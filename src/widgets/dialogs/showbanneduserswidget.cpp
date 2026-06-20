@@ -42,7 +42,7 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     mSearchBannedUserLineEdit->setObjectName(u"mSearchBannedUserLineEdit"_s);
     mSearchBannedUserLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchBannedUserLineEdit);
-    mSearchBannedUserLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search attachments…"));
+    mSearchBannedUserLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Banned Users…"));
     connect(mSearchBannedUserLineEdit, &QLineEdit::textChanged, this, &ShowBannedUsersWidget::slotSearchMessageTextChanged);
     searchBannedUsersLayout->addWidget(mSearchBannedUserLineEdit);
 
