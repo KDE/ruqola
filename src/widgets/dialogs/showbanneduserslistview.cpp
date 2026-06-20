@@ -6,9 +6,10 @@
 
 #include "showbanneduserslistview.h"
 #include <KLocalizedString>
+#include <QAction>
+#include <QContextMenuEvent>
 #include <QMenu>
-#include <qevent.h>
-
+using namespace Qt::Literals::StringLiterals;
 ShowBannedUsersListView::ShowBannedUsersListView(QWidget *parent)
     : QListView(parent)
 {
@@ -22,9 +23,18 @@ void ShowBannedUsersListView::contextMenuEvent(QContextMenuEvent *event)
     if (!index.isValid()) {
         return;
     }
-    // TODO
     QMenu menu(this);
+    auto unbanUserAction = new QAction(i18nc("@action", "Unban User"), &menu);
+    connect(unbanUserAction, &QAction::triggered, this, [this, index]() {
+        slotUnbanUser(index);
+    });
+    menu.addAction(unbanUserAction);
     menu.exec(event->globalPos());
+}
+
+void ShowBannedUsersListView::slotUnbanUser(const QModelIndex &index)
+{
+    // TODO
 }
 
 #include "moc_showbanneduserslistview.cpp"

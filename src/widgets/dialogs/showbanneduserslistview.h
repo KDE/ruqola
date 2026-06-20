@@ -17,4 +17,7 @@ public:
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUnbanUser(const QModelIndex &index);
 };
