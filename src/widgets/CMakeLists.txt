@@ -452,6 +452,8 @@ target_sources(
         dialogs/showbannedusersdialog.cpp
         dialogs/showbanneduserswidget.cpp
         dialogs/showbanneduserswidget.h
+        dialogs/showbanneduserslistview.h
+        dialogs/showbanneduserslistview.cpp
         discussions/showdiscussionsdialog.cpp
         discussions/showdiscussionsdialog.h
         discussions/showdiscussionswidget.cpp

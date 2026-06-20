@@ -1,0 +1,17 @@
+/*
+   SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+#include "libruqolawidgets_private_export.h"
+#include <QListView>
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersListView : public QListView
+{
+    Q_OBJECT
+public:
+    explicit ShowBannedUsersListView(QWidget *parent = nullptr);
+    ~ShowBannedUsersListView() override;
+};

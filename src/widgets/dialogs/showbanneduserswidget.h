@@ -14,6 +14,7 @@ class QListView;
 class BannedUsersModel;
 class RocketChatAccount;
 class BannedUsersFilterProxyModel;
+class ShowBannedUsersListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -35,7 +36,7 @@ private:
     RocketChatAccount *const mCurrentRocketChatAccount;
     QLineEdit *const mSearchBannedUserLineEdit;
     QLabel *const mInfo;
-    QListView *const mListBannedUsers;
+    ShowBannedUsersListView *const mListBannedUsers;
     BannedUsersModel *const mModel;
     BannedUsersFilterProxyModel *const mBannedUsersFilterProxyModel;
 };

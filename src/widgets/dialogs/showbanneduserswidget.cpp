@@ -12,6 +12,7 @@
 #include "rocketchataccount.h"
 #include "rooms/roomsbannedusersjob.h"
 #include "ruqolawidgets_debug.h"
+#include "showbanneduserslistview.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
@@ -26,7 +27,7 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     , mCurrentRocketChatAccount(account)
     , mSearchBannedUserLineEdit(new QLineEdit(this))
     , mInfo(new QLabel(this))
-    , mListBannedUsers(new QListView(this))
+    , mListBannedUsers(new ShowBannedUsersListView(this))
     , mModel(new BannedUsersModel(this))
     , mBannedUsersFilterProxyModel(new BannedUsersFilterProxyModel(this))
 {
