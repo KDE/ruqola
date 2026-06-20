@@ -20,6 +20,7 @@ UnityServiceManager::UnityServiceManager(QObject *parent)
     : QObject(parent)
     , mUnityServiceWatcher(new QDBusServiceWatcher(this))
 {
+    qCDebug(RUQOLA_UNITY_MANAGER_LOG) << "UnityServiceManager::UnityServiceManager" << this;
     initUnity();
 }
 
