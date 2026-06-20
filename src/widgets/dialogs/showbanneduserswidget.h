@@ -32,6 +32,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersFailed(const QString &serverErrorStr, const QString &descriptionError);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreBannedUsers();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUnbanUser(const QByteArray &userId);
     int mOffset = 0;
     RocketChatAccount *const mCurrentRocketChatAccount;
     QLineEdit *const mSearchBannedUserLineEdit;

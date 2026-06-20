@@ -15,6 +15,9 @@ public:
     explicit ShowBannedUsersListView(QWidget *parent = nullptr);
     ~ShowBannedUsersListView() override;
 
+Q_SIGNALS:
+    void unbanUser(const QByteArray &id);
+
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 

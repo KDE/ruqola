@@ -11,6 +11,7 @@
 #include "model/bannedusersmodel.h"
 #include "rocketchataccount.h"
 #include "rooms/roomsbannedusersjob.h"
+#include "rooms/roomsunbanuserjob.h"
 #include "ruqolawidgets_debug.h"
 #include "showbanneduserslistview.h"
 #include <KLineEditEventHandler>
@@ -64,10 +65,16 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     connect(mModel, &BannedUsersModel::hasFullListChanged, this, &ShowBannedUsersWidget::updateLabel);
     connect(mModel, &BannedUsersModel::totalChanged, this, &ShowBannedUsersWidget::updateLabel);
     connect(mModel, &BannedUsersModel::loadingInProgressChanged, this, &ShowBannedUsersWidget::updateLabel);
+    connect(mListBannedUsers, &ShowBannedUsersListView::unbanUser, this, &ShowBannedUsersWidget::slotUnbanUser);
     updateLabel();
 }
 
 ShowBannedUsersWidget::~ShowBannedUsersWidget() = default;
+
+void ShowBannedUsersWidget::slotUnbanUser(const QByteArray &userId)
+{
+    // TODO
+}
 
 void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)
 {
