@@ -5,6 +5,9 @@
 */
 
 #include "showbanneduserslistview.h"
+#include <KLocalizedString>
+#include <QMenu>
+#include <qevent.h>
 
 ShowBannedUsersListView::ShowBannedUsersListView(QWidget *parent)
     : QListView(parent)
@@ -12,4 +15,16 @@ ShowBannedUsersListView::ShowBannedUsersListView(QWidget *parent)
 }
 
 ShowBannedUsersListView::~ShowBannedUsersListView() = default;
+
+void ShowBannedUsersListView::contextMenuEvent(QContextMenuEvent *event)
+{
+    const QModelIndex index = indexAt(event->pos());
+    if (!index.isValid()) {
+        return;
+    }
+    // TODO
+    QMenu menu(this);
+    menu.exec(event->globalPos());
+}
+
 #include "moc_showbanneduserslistview.cpp"

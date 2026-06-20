@@ -14,4 +14,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersListView : public QListView
 public:
     explicit ShowBannedUsersListView(QWidget *parent = nullptr);
     ~ShowBannedUsersListView() override;
+
+protected:
+    void contextMenuEvent(QContextMenuEvent *event) override;
 };
