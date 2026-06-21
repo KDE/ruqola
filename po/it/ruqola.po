@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
+"POT-Creation-Date: 2026-06-21 00:44+0000\n"
 "PO-Revision-Date: 2026-06-13 17:54+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1837,7 +1837,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1846,12 +1846,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Non connesso"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "Non ancora connesso"

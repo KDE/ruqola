@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
-"PO-Revision-Date: 2026-06-13 19:31+0100\n"
+"POT-Creation-Date: 2026-06-21 00:44+0000\n"
+"PO-Revision-Date: 2026-06-21 00:08+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1022,16 +1022,14 @@ msgid "%1 has requested key refresh."
 msgstr "%1 ha pedido un refresco de la clave."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 y %2"
+msgstr "%1 expulsó a %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 y %2"
+msgstr "%1 reincorporó a %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1840,7 +1838,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo…"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1849,12 +1847,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "No conectado"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "No conectado todavía"
@@ -2220,10 +2218,9 @@ msgid "Invalid Parameters"
 msgstr "Parámetros no válidos"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "El usuario no se encuentra en esta sala"
+msgstr "El usuario ha sido expulsado de esta sala"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3296,7 +3293,7 @@ msgstr "Cancelar"
 #, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -9138,27 +9135,22 @@ msgid "(Click here for Loading more…)"
 msgstr "(Pulse aquí para cargar más…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Mostrar mensajes fijados - %1"
+msgstr "Mostrar usuarios expulsados - %1"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Banned Users found"
-msgstr "No se encontró ningún usuario"
+msgstr "No se encontraron usuarios expulsados"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:83
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 usuario en la sala (Total: %2)"
-msgstr[1] "%1 usuarios en la sala (Total: %2)"
+msgstr[0] "%1 usuario expulsado en la sala (Total: %2)"
+msgstr[1] "%1 usuarios expulsados en la sala (Total: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -10725,12 +10717,10 @@ msgid "Encrypt Messages"
 msgstr "Cifrar mensajes"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Mostrar mensajes fijados…"
+msgstr "Mostrar usuarios expulsados…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11525,12 +11515,10 @@ msgid "Report User"
 msgstr "Denunciar usuario"
 
 #: widgets/room/usersinroommenu.cpp:209
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Añadir usuarios a la sala"
+msgstr "Expulsar usuario de la sala"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12135,22 +12123,16 @@ msgstr ""
 "error."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Implementación del estilo del mensaje"
+msgstr "Implementado el canal ordenado de borradores. "
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr "Implementado almacenamiento en base de datos  pendiente de tipos."
+msgstr "Implementado el diálogo con la lista de usuarios expulsados."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Implementación silenciar usuario."
+msgstr "Implementada la expulsión de usuarios."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

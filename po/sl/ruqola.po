@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
-"PO-Revision-Date: 2026-06-19 07:18+0200\n"
+"POT-Creation-Date: 2026-06-21 00:44+0000\n"
+"PO-Revision-Date: 2026-06-20 15:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1844,7 +1844,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1853,12 +1853,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
@@ -2237,10 +2237,9 @@ msgid "Invalid Parameters"
 msgstr "Neveljavni parametri"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "Uporabnik ni v tej sobi"
+msgstr "Uporabnik je prepovedan iz te sobe"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
