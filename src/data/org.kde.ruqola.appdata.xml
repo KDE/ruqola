@@ -1469,7 +1469,23 @@
           <li xml:lang="tr">Taslak ileti sıralama özelliğini gerçekle</li>
           <li xml:lang="uk">Реалізовано канал упорядковування повідомлень-чернеток</li>
           <li>Implement Banned Users list dialog.</li>
+          <li xml:lang="ca">Implementa el diàleg de llista d'usuaris bandejats.</li>
+          <li xml:lang="ca-valencia">Implementa el diàleg de llista d'usuaris bandejats.</li>
+          <li xml:lang="ka">განხორციელდა დაბანილი მომხმარებლების სიის დიალოგი.</li>
+          <li xml:lang="nl">Implementeer een dialoogvenster voor de lijst met geblokkeerde gebruikers.</li>
+          <li xml:lang="pt-BR">Implementa o diálogo de lista de usuários banidos.</li>
+          <li xml:lang="sl">Implementira pogovorno okno s seznamom prepovedanih uporabnikov.</li>
+          <li xml:lang="tr">Yasaklı kullanıcılar iletişim kutusunu gerçekle</li>
+          <li xml:lang="uk">Реалізовано вікно списку заблокованих користувачів.</li>
           <li>Implement Banned/Unbanned Users.</li>
+          <li xml:lang="ca">Implementa usuaris bandejats/desbandejats.</li>
+          <li xml:lang="ca-valencia">Implementa usuaris bandejats/desbandejats.</li>
+          <li xml:lang="ka">განხორციელდა მომხმარებლების დაბანვა/ბანის მოხსნა.</li>
+          <li xml:lang="nl">Implementeer geblokkeerde/gedeblokkeerde gebruikers.</li>
+          <li xml:lang="pt-BR">Implementa usuários banidos/com banimento removido.</li>
+          <li xml:lang="sl">Implementira prepovedane/neprepovedane uporabnike.</li>
+          <li xml:lang="tr">Yasaklı/yasaklı olmayan kullanıcılar özelliğini gerçekle</li>
+          <li xml:lang="uk">Реалізовано показ блокованих і розблокованих користувачів.</li>
         </ul>
       </description>
     </release>
