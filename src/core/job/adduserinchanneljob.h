@@ -29,6 +29,9 @@ public:
     [[nodiscard]] AddUserInChannelJobInfo info() const;
     void setInfo(const AddUserInChannelJobInfo &newInfo);
 
+Q_SIGNALS:
+    void userNeedUnbanned(); // TODO identifier
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
     AddUserInChannelJobInfo mInfo;
