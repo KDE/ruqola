@@ -90,6 +90,7 @@ void ShowBannedUsersWidget::slotUnBanUsersDone(const QString &userName)
 {
     qCDebug(RUQOLAWIDGETS_LOG) << "Unban done";
     mModel->removeBannedUsers(userName);
+    updateLabel();
 }
 
 void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)
