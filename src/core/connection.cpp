@@ -511,6 +511,7 @@ void Connection::addUserInChannel(const QByteArray &roomId, const QByteArray &us
         .userId = userId,
     };
     job->setInfo(info);
+    connect(job, &AddUserInChannelJob::userNeedUnbanned, this, &Connection::userNeedUnbanned);
     job->start();
 }
 

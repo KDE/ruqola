@@ -8,6 +8,7 @@
 
 #include "channelgroupbasejob.h"
 #include "channels/channelhistoryjob.h"
+#include "channels/channelinvitejob.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "libruqolacore_export.h"
@@ -168,6 +169,7 @@ Q_SIGNALS:
     void loginStatusChanged();
     void createChannelDone(const QJsonObject &replyObject);
     void createGroupDone(const QJsonObject &replyObject);
+    void userNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();
