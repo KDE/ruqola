@@ -12,9 +12,9 @@
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
 
-AddUserInChannelJob::AddUserInChannelJob(RocketChatAccount *account, QObject *parent)
+AddUserInChannelJob::AddUserInChannelJob(Connection *restApiConnection, QObject *parent)
     : QObject{parent}
-    , mRocketChatAccount(account)
+    , mConnection(restApiConnection)
 {
 }
 
@@ -23,7 +23,7 @@ AddUserInChannelJob::~AddUserInChannelJob() = default;
 void AddUserInChannelJob::start()
 {
     auto job = new ChannelInviteJob(this);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    mConnection->initializeRestApiJob(job);
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = QString::fromLatin1(mInfo.roomId);

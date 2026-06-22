@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include <QObject>
-class RocketChatAccount;
+class Connection;
 class LIBRUQOLACORE_EXPORT AddUserInChannelJob : public QObject
 {
     Q_OBJECT
@@ -18,16 +18,16 @@ public:
         [[nodiscard]] bool isValid() const;
     };
 
-    explicit AddUserInChannelJob(RocketChatAccount *account, QObject *parent = nullptr);
+    explicit AddUserInChannelJob(Connection *restApiConnection, QObject *parent = nullptr);
     ~AddUserInChannelJob() override;
 
     [[nodiscard]] bool canStart() const;
 
     void start();
-    AddUserInChannelJobInfo info() const;
+    [[nodiscard]] AddUserInChannelJobInfo info() const;
     void setInfo(const AddUserInChannelJobInfo &newInfo);
 
 private:
     AddUserInChannelJobInfo mInfo;
-    RocketChatAccount *mRocketChatAccount;
+    Connection *const mConnection;
 };
