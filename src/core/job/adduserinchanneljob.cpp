@@ -5,7 +5,7 @@
 */
 
 #include "adduserinchanneljob.h"
-#include "channels/channelinvitejob.h"
+
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
@@ -33,9 +33,18 @@ void AddUserInChannelJob::start()
         .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserId,
     };
     job->setChannelInviteInfo(inviteInfo);
+    connect(job, &ChannelInviteJob::needUnbanned, this, &AddUserInChannelJob::slotNeedUnbanned);
+    connect(job, &ChannelInviteJob::inviteDone, this, &AddUserInChannelJob::deleteLater);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
+        deleteLater();
     }
+}
+
+void AddUserInChannelJob::slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info)
+{
+    // TODO
+    deleteLater();
 }
 
 AddUserInChannelJob::AddUserInChannelJobInfo AddUserInChannelJob::info() const

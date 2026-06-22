@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "channels/channelinvitejob.h"
 #include "libruqolacore_export.h"
 #include <QObject>
 class Connection;
@@ -24,10 +25,12 @@ public:
     [[nodiscard]] bool canStart() const;
 
     void start();
+
     [[nodiscard]] AddUserInChannelJobInfo info() const;
     void setInfo(const AddUserInChannelJobInfo &newInfo);
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
     AddUserInChannelJobInfo mInfo;
     Connection *const mConnection;
 };
