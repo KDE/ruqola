@@ -157,7 +157,6 @@ Q_SIGNALS:
     void failed(const QString &str, const QString &descriptionError);
     void networkError();
 
-    void runCommandDone();
     void registerUserDone();
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QByteArray &roomId);
