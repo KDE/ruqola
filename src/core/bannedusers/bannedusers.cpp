@@ -67,6 +67,7 @@ bool BannedUsers::operator==(const BannedUsers &other) const = default;
 
 BannedUser BannedUsers::takeAt(int index)
 {
+    mTotal--;
     return mBannedUsers.takeAt(index);
 }
 
