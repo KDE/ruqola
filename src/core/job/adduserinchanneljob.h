@@ -30,7 +30,7 @@ public:
     void setInfo(const AddUserInChannelJobInfo &newInfo);
 
 Q_SIGNALS:
-    void userNeedUnbanned(); // TODO identifier
+    void userNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);

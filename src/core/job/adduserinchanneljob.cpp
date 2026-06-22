@@ -43,7 +43,7 @@ void AddUserInChannelJob::start()
 
 void AddUserInChannelJob::slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info)
 {
-    // TODO
+    Q_EMIT userNeedUnbanned(info);
     deleteLater();
 }
 
