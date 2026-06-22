@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
-"PO-Revision-Date: 2026-06-03 22:50+0200\n"
+"POT-Creation-Date: 2026-06-22 02:44+0000\n"
+"PO-Revision-Date: 2026-05-03 12:03+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1841,7 +1841,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> sont en train d'écrire des messages..."
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1850,12 +1850,12 @@ msgstr ""
 "REST : %1\n"
 "DDP : %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Non connecté"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "Pas encore connecté"
@@ -8661,7 +8661,8 @@ msgid "Discussion Name"
 msgstr "Nom de la discussion"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Topic"
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Sujet"
@@ -9162,7 +9163,6 @@ msgid "Show Attachments - %1"
 msgstr "Afficher les pièces jointes - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:39
-#: widgets/dialogs/showbanneduserswidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search attachments…"
@@ -9181,7 +9181,7 @@ msgstr[0] "%1 pièce jointe dans le salon (Total : %2)"
 msgstr[1] "%1 pièces jointes dans le salon (Total : %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:85
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9199,13 +9199,29 @@ msgctxt "@title:window"
 msgid "Show Banned Users - %1"
 msgstr "Afficher les messages épinglés - %1"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:78
+#: widgets/dialogs/showbanneduserslistview.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@action"
+msgid "Unban User"
+msgstr "Débloquer un utilisateur"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search users…"
+msgctxt "@info:placeholder"
+msgid "Search Banned Users…"
+msgstr "Rechercher des utilisateurs..."
+
+#: widgets/dialogs/showbanneduserswidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Aucun utilisateur trouvé"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:83
+#: widgets/dialogs/showbanneduserswidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9265,16 +9281,17 @@ msgid "Fit to View"
 msgstr "Adapter à l'affichage"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rate Limiter"
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Faire pivoter vers la gauche"
+msgstr "Limiteur de taux"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr "Faire pivoter vers la droite"
+msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9849,15 +9866,17 @@ msgstr ""
 "se connecter."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No network"
 msgid "Not network found."
-msgstr "Aucun réseau n'a été trouvé."
+msgstr "Aucun réseau"
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Network is offline mode."
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "Sortir du mode déconnecté."
+msgstr "Le réseau est en mode déconnecté."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -12174,17 +12193,21 @@ msgstr "Ajouter un compte..."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr "Amélioration du mode déconnecté."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Autoriser l'ouverture du fichier enregistré."
+msgstr "Autoriser l'envoi de fichiers multiples."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
+#, fuzzy
+#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
 msgstr ""
-"Autoriser la rotation de l'image dans la boite de dialogue d'affichage de "
-"l'image."
+"Correction de la traduction de messages dans la boite de recherche de "
+"messages."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
@@ -12931,40 +12954,16 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgstr "Ignorer le cas du chameau"
 
 #~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Ouvrir la pièce jointe ?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Ouvrir la pièce jointe <filename>%1</filename> ? <nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Ouvrir"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Ouvrir avec « %1 »"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Ou&vrir avec..."
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Enregistrer &sous..."
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Erreur lors de l'enregistrement du fichier"
-
-#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Description"
 
 #~ msgctxt "@action"
 #~ msgid "Show Description…"
 #~ msgstr "Afficher une description..."
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Erreur lors de l'enregistrement du fichier"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Un redémarrage est nécessaire l'application des modifications."
@@ -12994,6 +12993,54 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgstr ""
 #~ "Votre version date de plus de une année. Il vous est très fortement "
 #~ "recommandé de faire une mise à niveau."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Ouvrir la pièce jointe ?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Ouvrir la pièce jointe <filename>%1</filename> ? <nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Ouvrir"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Ouvrir avec « %1 »"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Ou&vrir avec..."
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Enregistrer &sous..."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Gras"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Italique"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Barré"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Bloc de code"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Texte de citation"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Insérer un lien"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -13045,93 +13092,11 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgstr "Quelques correction de bogues :"
 
 #~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Gras"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Italique"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Barré"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Bloc de code"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Texte de citation"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Insérer un lien"
-
-#~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Restaurer"
 
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Supprimer..."
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Voulez-vous vraiment le supprimer ?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Supprimer"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Configurer les modules externes d'IA pour le texte"
-
-#~ msgid "Ask AI…"
-#~ msgstr "Demander à l'IA..."
-
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Configurer..."
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Engine"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Configurer un moteur"
-
-#, fuzzy
-#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Chargement en cours..."
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Joindre un fichier"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Impossible d'ouvrir un journal."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Afficher un journal"
-
-#~ msgid "Private"
-#~ msgstr "Privé"
-
-#~ msgid "Installed"
-#~ msgstr "Installé"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "Gros bouton bleu"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Rejoindre les canaux par défaut"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Messages avec étoiles"
@@ -13148,8 +13113,26 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Messages du fil de discussions non lus"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Marquer comme lu)"
+#~ msgid "System Messages"
+#~ msgstr "Messages du système"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Rejoindre les canaux par défaut"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Vérifié"
+
+#~ msgid "Private"
+#~ msgstr "Privé"
+
+#~ msgid "Installed"
+#~ msgstr "Installé"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Marquer comme lu"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nom d'utilisateur ou courriel :"
@@ -13182,64 +13165,53 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Server Url:"
 #~ msgstr "URL du serveur :"
 
-#~ msgid "Message %1"
-#~ msgstr "Message %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Marquer comme lu"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Ré-initialiser la clé « E2E »"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Tous les utilisateurs de cette équipe peuvent écrire des messages."
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Vérifié"
+#~ msgid "Message %1"
+#~ msgstr "Message %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Messages du système"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Marquer comme lu)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Impossible d'ouvrir un journal."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Afficher un journal"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "Gros bouton bleu"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Tout sélectionner"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Ré-initialiser « TOTP »"
 
-#~ msgid "Create"
-#~ msgstr "Créer"
+#~ msgid "Add..."
+#~ msgstr "Ajouter..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Marquer comme favori"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Rechercher des salons..."
-
-#~ msgid "Copy Message"
-#~ msgstr "Copier le message"
-
-#, fuzzy
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Rechercher des salons..."
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Rechercher des utilisateurs..."
-
-#~ msgid "Search channels…"
-#~ msgstr "Rechercher des canaux..."
+#~ msgid "Modify..."
+#~ msgstr "Modifier..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Dossier - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Rechercher des canaux..."
+
+#~ msgid "Go to Message"
+#~ msgstr "Aller au message"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Cliquez ici pour en charger davantage...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -13251,27 +13223,9 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Version 2.2"
 #~ msgstr "Version 2.2"
 
-#~ msgid "Version 2.3"
-#~ msgstr "Version 2.3"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Quoi de neuf dans Ruqola"
-
-#~ msgid "Select All"
-#~ msgstr "Tout sélectionner"
-
-#~ msgid "Go to Message"
-#~ msgstr "Aller au message"
-
-#~ msgid "Add..."
-#~ msgstr "Ajouter..."
-
-#~ msgid "Modify..."
-#~ msgstr "Modifier..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Cliquez ici pour en charger davantage...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13736,6 +13690,9 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "Close"
 #~ msgstr "Fermer"
 
+#~ msgid "Configure..."
+#~ msgstr "Configurer..."
+
 #~ msgid "Detect language"
 #~ msgstr "Détecter une langue"
 
@@ -13945,6 +13902,10 @@ msgstr "Corriger le téléchargement du son personnalisé"
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
 
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Configurer un moteur"
+
 #~ msgid "Use Free License Key"
 #~ msgstr "Utiliser une clé de licence libre"
 
@@ -14025,9 +13986,6 @@ msgstr "Corriger le téléchargement du son personnalisé"
 
 #~ msgid "No network connection detected, we cannot translate text."
 #~ msgstr "Aucune connexion détectée. Impossible de traduite le texte."
-
-#~ msgid "No network"
-#~ msgstr "Aucun réseau"
 
 #~ msgid "Translate error"
 #~ msgstr "Erreur de traduction"

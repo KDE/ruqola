@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
+"POT-Creation-Date: 2026-06-22 02:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/ruqola/ruqola.pot\n"
-"X-Crowdin-File-ID: 49360\n"
+"X-Crowdin-File: /kf6-stable/messages/ruqola/ruqola.pot\n"
+"X-Crowdin-File-ID: 53692\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -1824,19 +1824,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr ""
@@ -8817,7 +8817,6 @@ msgid "Show Attachments - %1"
 msgstr ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:39
-#: widgets/dialogs/showbanneduserswidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search attachments…"
@@ -8835,7 +8834,7 @@ msgid_plural "%1 Attachments in room (Total: %2)"
 msgstr[0] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:85
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -8851,12 +8850,26 @@ msgctxt "@title:window"
 msgid "Show Banned Users - %1"
 msgstr ""
 
-#: widgets/dialogs/showbanneduserswidget.cpp:78
+#: widgets/dialogs/showbanneduserslistview.cpp:28
+#, kde-format
+msgctxt "@action"
+msgid "Unban User"
+msgstr ""
+
+#: widgets/dialogs/showbanneduserswidget.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search rooms…"
+msgctxt "@info:placeholder"
+msgid "Search Banned Users…"
+msgstr "搜索聊天室..."
+
+#: widgets/dialogs/showbanneduserswidget.cpp:99
 #, kde-format
 msgid "No Banned Users found"
 msgstr ""
 
-#: widgets/dialogs/showbanneduserswidget.cpp:83
+#: widgets/dialogs/showbanneduserswidget.cpp:104
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -12398,3 +12411,7 @@ msgstr ""
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr ""
+
+#~ msgctxt "@info:shell"
+#~ msgid "Use ddp api for login"
+#~ msgstr "使用 ddp api 登录"

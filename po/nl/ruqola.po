@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2019-2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
-"PO-Revision-Date: 2026-06-19 10:25+0200\n"
+"POT-Creation-Date: 2026-06-22 02:44+0000\n"
+"PO-Revision-Date: 2026-03-07 23:40+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -394,12 +394,12 @@ msgstr "Livechat aangepast veldconfiguratie wijzigen"
 #: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Allow to write oauth app settings"
-msgstr "Bied het schrijven van oauth-app-instellingen"
+msgstr "Toestaan om oauth toepassingsinstellingen te schrijven"
 
 #: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Allow to read oauth app settings"
-msgstr "Bied het lezen van oauth-app-instellingen"
+msgstr "Toestaan om oauth toepassingsinstellingen te lezen"
 
 #: core/apps/appsmarketplaceinfo.cpp:686
 #, kde-format
@@ -1019,14 +1019,16 @@ msgid "%1 has requested key refresh."
 msgstr "%1 heeft vernieuwing van de sleutel gevraagd."
 
 #: core/messages/message.cpp:888
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 and %2"
 msgid "%1 banned %2"
-msgstr "%1 geblokkeerd %2"
+msgstr "%1 en %2"
 
 #: core/messages/message.cpp:890
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 and %2"
 msgid "%1 unbanned %2"
-msgstr "%1 heeft blokkering van %2 ongedaan gemaakt"
+msgstr "%1 en %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1429,7 +1431,7 @@ msgstr[1] "%1 seconden"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr "Room \"%1\" was toegevoegd"
+msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -1557,7 +1559,7 @@ msgstr "Privé berichten"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr "Concept"
+msgstr ""
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
 #, kde-format
@@ -1837,7 +1839,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1846,12 +1848,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "Nog niet verbonden"
@@ -1960,7 +1962,8 @@ msgstr "URL van bericht"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
-msgstr "Toont de beschikbare opties voor terugkoppeling van gebruiker"
+msgstr ""
+"Geeft een lijst met de beschikbare opties voor terugkoppeling van gebruiker"
 
 #: core/ruqolacommandlineparser.cpp:57
 #, kde-format
@@ -3290,10 +3293,12 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save File"
 msgctxt "@action"
 msgid "Save"
-msgstr "Opslaan"
+msgstr "Bestand opslaan"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3316,10 +3321,11 @@ msgstr "Tijdstempel in berichten"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Private Messages"
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Conceptberichten"
+msgstr "Privé berichten"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -3658,7 +3664,7 @@ msgstr "Rollen:"
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
 #, kde-format
 msgid "Report #%1"
-msgstr "#%1 rapporteren"
+msgstr "Rapport #%1"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:26
 #, kde-format
@@ -7364,7 +7370,7 @@ msgstr "Ingeschakeld"
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
-msgstr[0] "%1 verzoek"
+msgstr[0] "Verzoek"
 msgstr[1] "%1 verzoeken"
 
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:39
@@ -7747,7 +7753,7 @@ msgstr "Een oproep beginnen"
 #, kde-format
 msgctxt "@action:button"
 msgid "Start"
-msgstr "Begin"
+msgstr "Starten"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:33
 #, kde-format
@@ -8075,22 +8081,22 @@ msgstr "Json"
 #: widgets/databasedialog/exploredatabasedialog.cpp:59
 #, kde-format
 msgid "DataBase Messages"
-msgstr "DataBase-berichten"
+msgstr "Databaseberichten"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:62
 #, kde-format
 msgid "DataBase Accounts"
-msgstr "DataBase-accounts"
+msgstr "Databaseaccounts"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, kde-format
 msgid "DataBase Rooms"
-msgstr "DataBase-rooms"
+msgstr "Databaserooms"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:68
 #, kde-format
 msgid "DataBase Global"
-msgstr "DataBase-globaal"
+msgstr "Globale database"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:71
 #, kde-format
@@ -8281,7 +8287,7 @@ msgstr "Wachtwoord toevoegen"
 #, kde-format
 msgctxt "@option:check"
 msgid "Exclude pinned messages"
-msgstr "Vast gepinde berichten uitsluiten"
+msgstr "Vastgepinde berichten uitsluiten"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:22
 #, kde-format
@@ -8602,7 +8608,8 @@ msgid "Discussion Name"
 msgstr "Naam van discussie"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Topic"
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Onderwerp"
@@ -8923,7 +8930,7 @@ msgstr "Sorteer berichten op aflopend tijdstempel"
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr "Vòòr"
+msgstr "Vóór"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
@@ -9102,7 +9109,6 @@ msgid "Show Attachments - %1"
 msgstr "Bijlagen tonen - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:39
-#: widgets/dialogs/showbanneduserswidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search attachments…"
@@ -9121,7 +9127,7 @@ msgstr[0] "%1 bijlage in room (totaal: %2)"
 msgstr[1] "%1 bijlagen in room (totaal: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:85
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9132,22 +9138,43 @@ msgid "(Click here for Loading more…)"
 msgstr "(Klik hier om meer te laden…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Pinned Messages - %1"
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Geblokkeerde gebruikers tonen - %1"
+msgstr "Vastgepinde berichten tonen - %1"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:78
-#, kde-format
+#: widgets/dialogs/showbanneduserslistview.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@action"
+msgid "Unban User"
+msgstr "Gebruiker deblokkeren"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search users…"
+msgctxt "@info:placeholder"
+msgid "Search Banned Users…"
+msgstr "Gebruikers zoeken…"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:99
+#, fuzzy, kde-format
+#| msgid "No User found"
 msgid "No Banned Users found"
-msgstr "Geen geblokkeerde gebruikers gevonden"
+msgstr "Geen gebruiker gevonden"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:83
-#, kde-format
+#: widgets/dialogs/showbanneduserswidget.cpp:104
+#, fuzzy, kde-format
+#| msgid "%1 User in room (Total: %2)"
+#| msgid_plural "%1 Users in room (Total: %2)"
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 geblokkeerde gebruiker in room (totaal: %2)"
-msgstr[1] "%1 geblokkeerde gebruikers in room (totaal: %2)"
+msgstr[0] "%1 gebruiker in room (totaal: %2)"
+msgstr[1] "%1 gebruikers in room (totaal: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9169,7 +9196,7 @@ msgstr "Locatie naar klembord kopiëren"
 #: widgets/dialogs/showimagedialog.cpp:152
 #, kde-format
 msgid "Other Application..."
-msgstr "Andere toepassingen..."
+msgstr "Andere toepassing..."
 
 #: widgets/dialogs/showimageprevnextimagewidget.cpp:23
 #, kde-format
@@ -9200,16 +9227,17 @@ msgid "Fit to View"
 msgstr "Laten passen om te bekijken"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Rate Limiter"
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Linksom draaien"
+msgstr "Snelheidsbegrenzer"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr "Rechtsom draaien"
+msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9234,7 +9262,7 @@ msgstr "Vermeldingsberichten tonen - %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
-msgstr "Vast gepinde berichten tonen - %1"
+msgstr "Vastgepinde berichten tonen - %1"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format
@@ -9245,7 +9273,7 @@ msgstr "Berichten met sterren tonen - %1"
 #: widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Following"
-msgstr "Bezig met volgen"
+msgstr "Volgt op"
 
 #: widgets/dialogs/showthreadsdialog.cpp:28
 #, kde-format
@@ -9778,15 +9806,17 @@ msgstr ""
 "Aanmelden is mislukt: app-gebruiker is niet toegestaan om zich aan te melden"
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No network"
 msgid "Not network found."
-msgstr "Geen netwerk gevonden."
+msgstr "Geen netwerk"
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Network is offline mode."
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "Naar offline-modus omschakelen"
+msgstr "Netwerk is in modus offline."
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -10505,7 +10535,7 @@ msgstr "Wissen"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr "Schakel om naar nieuwe room"
+msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -10637,7 +10667,7 @@ msgstr "Vermeldingen tonen…"
 #, kde-format
 msgctxt "@action"
 msgid "Show Pinned Messages…"
-msgstr "Vast gepinde berichten tonen…"
+msgstr "Vastgepinde berichten tonen…"
 
 #: widgets/room/channelactionpopupmenu.cpp:57
 #, kde-format
@@ -10709,10 +10739,12 @@ msgid "Encrypt Messages"
 msgstr "Berichten versleutelen"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Show Pinned Messages…"
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Geblokkeerde gebruikers tonen…"
+msgstr "Vastgepinde berichten tonen…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11390,7 +11422,7 @@ msgstr "Wilt u deze gebruiker dempen?"
 #, kde-format
 msgctxt "@title"
 msgid "Mute User"
-msgstr "Gebruikers dempen"
+msgstr "Gebruiker dempen"
 
 #: widgets/room/usersinroommenu.cpp:75
 #, kde-format
@@ -11506,10 +11538,12 @@ msgid "Report User"
 msgstr "Gebruiker rapporteren"
 
 #: widgets/room/usersinroommenu.cpp:209
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Users in Room"
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Gebruiker in room blokkeren"
+msgstr "Gebruikers aan room toevoegen"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -11658,7 +11692,7 @@ msgstr "Geïnstalleerde toepassingen…"
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
-msgstr "Private toepassingen…"
+msgstr "Privé toepassingen…"
 
 #: widgets/ruqolamainwindow.cpp:605
 #, kde-format
@@ -12077,7 +12111,7 @@ msgstr "WebDAV-server toevoegen"
 #: widgets/webdav/webdavaddserverwidget.cpp:35
 #, kde-format
 msgid "Url:"
-msgstr "URL:"
+msgstr "Url:"
 
 #: widgets/webdav/webdavaddserverwidget.cpp:36
 #, kde-format
@@ -12092,38 +12126,45 @@ msgstr "Account toevoegen…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr "Offline-modus verbeteren"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
+#, fuzzy
+#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Toestaan opgeslagen bestand te openen."
+msgstr "Meerdere bestanden verzenden toestaan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
+#, fuzzy
+#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "In dialoog voor tonen van afbeelding draaien toestaan."
+msgstr "Dubbele meldingen repareren in dialoog van zoekmelding."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
 msgstr ""
-"Voeg nieuwe roominformatie toe in de dialoog van de geschiedenis van "
-"meldingen"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr "Gebruik het nieuwe widget voor tekstberichten voor foutmeldingen."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
+#, fuzzy
+#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Implementeer een kanaal voor het sorteren van conceptberichten."
+msgstr "Berichtenstijl implementeren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
+#, fuzzy
+#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr ""
-"Implementeer een dialoogvenster voor de lijst met geblokkeerde gebruikers."
+msgstr "Implementeer wachtende getypte database-opslag."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
+#, fuzzy
+#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Implementeer geblokkeerde/gedeblokkeerde gebruikers."
+msgstr "Dempen/dempen ongedaan maken van gebruiker implementeren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -12730,13 +12771,12 @@ msgstr "Extraheren van taal uit codeblok repareren."
 #: widgets/whatsnew/whatsnewtranslations.cpp:203
 #, kde-format
 msgid "Fix attachment info in \"Show Channel Log\" dialog."
-msgstr ""
-"Informatie over bijlage in dialoog van \"Log van kanaal tonen\" repareren."
+msgstr "Informatie over bijlage in dialoog \"Kanaallog tonen\" repareren."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:204
 #, kde-format
 msgid "Fix icon on windows."
-msgstr "Pictogram op venster repareren."
+msgstr "Pictogram op vensters repareren"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:205
 #, kde-format
@@ -12811,40 +12851,20 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ msgstr "Camel Case negeren"
 
 #~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Bijlage openen?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Bijlage <filename>%1</filename> openen?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Openen"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Openen met '%1'"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Openen &met…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Opslaan &als…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Fout bij opslaan van bestand"
-
-#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Beschrijving"
 
 #~ msgctxt "@action"
 #~ msgid "Show Description…"
 #~ msgstr "Beschrijving tonen…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Fout bij opslaan van bestand"
+
+#~ msgctxt "@option:check"
+#~ msgid "Enable experimental local database"
+#~ msgstr "Experimentele lokale database inschakelen"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Opnieuw opstarten is nodig om de wijzigingen toe te passen."
@@ -12872,6 +12892,54 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ "Your version is older than 1 year, we strongly encourage you to upgrade."
 #~ msgstr ""
 #~ "Uw versie is ouder dan 1 jaar, we moedigen u sterk aan om op te waarderen."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Bijlage openen?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Bijlage <filename>%1</filename> openen?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Openen"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Openen met '%1'"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Openen &met…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Opslaan &als…"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Vet"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Cursief"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Doorstrepen"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Codeblok"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Citaat"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Koppeling invoegen"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12919,99 +12987,12 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ msgid "Some bug fixing:"
 #~ msgstr "Enig repareren van bugs:"
 
-#~ msgctxt "@option:check"
-#~ msgid "Enable experimental local database"
-#~ msgstr "Experimentele lokale database inschakelen"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Vet"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Cursief"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Doorstrepen"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Codeblok"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Citaat"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Koppeling invoegen"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Herstellen"
 
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Verwijderen…"
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Wilt u het verwijderen?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Verwijderen"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "AI-tekstplug-ins configureren"
-
-#~ msgid "Ask AI…"
-#~ msgstr "Aan AI vragen…"
-
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Configureren…"
-
-#~| msgctxt "@title:window"
-#~| msgid "Configure Engine"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Openai IA configureren"
-
-#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Bezig met laden..."
-
-#~ msgid "Add screenshot button"
-#~ msgstr "Knop voor schermafdruk toevoegen"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Bestand bijvoegen"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Log openen is onmogelijk"
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Log tonen"
-
-#~ msgid "Private"
-#~ msgstr "Privé"
-
-#~ msgid "Installed"
-#~ msgstr "Geïnstalleerd"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Meedoen in standaard kanalen"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Berichten met sterren"
@@ -13028,27 +13009,53 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Ongelezen berichten uit discussiebundeling"
 
-#~ msgid "@option:check"
-#~ msgstr "@option:check"
+#~ msgid "System Messages"
+#~ msgstr "Systeemberichten"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Als gelezen markeren)"
+#, fuzzy
+#~| msgid "Join Default Channels"
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Meedoen in standaard kanalen"
+
+#, fuzzy
+#~| msgid "Verified"
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Geverifieerd"
+
+#~ msgid "Private"
+#~ msgstr "Privé"
+
+#, fuzzy
+#~| msgid "Mark As Read"
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Als gelezen markeren"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Gebruikersnaam of e-mailadres:"
 
+#, fuzzy
+#~| msgid "Show images by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show images by default"
 #~ msgstr "Standaard afbeeldingen tonen"
 
+#, fuzzy
+#~| msgid "Show preview url by default"
 #~ msgctxt "@option:check"
 #~ msgid "Show preview url by default"
 #~ msgstr "Standaard voorbeeld van url tonen"
 
+#, fuzzy
+#~| msgid "Show hover highlights"
 #~ msgctxt "@option:check"
 #~ msgid "Show hover highlights"
 #~ msgstr "Accentueringen bij er boven zweven tonen"
 
+#, fuzzy
+#~| msgid "Use local dataBase (experimental)"
 #~ msgctxt "@option:check"
 #~ msgid "Use local dataBase (experimental)"
 #~ msgstr "Lokale database gebruiken (experimenteel)"
@@ -13057,72 +13064,67 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ msgid "Account"
 #~ msgstr "Account"
 
+#, fuzzy
+#~| msgid "Connection"
 #~ msgctxt "@action:button"
 #~ msgid "Connection"
 #~ msgstr "Verbinding"
 
+#, fuzzy
+#~| msgid "Server Url:"
 #~ msgctxt "@label:textbox"
 #~ msgid "Server Url:"
-#~ msgstr "URL van server:"
-
-#~ msgid "Impossible to access to server."
-#~ msgstr "Toegang tot server is onmogelijk."
-
-#~ msgid "Message %1"
-#~ msgstr "Bericht %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Als gelezen markeren"
-
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Resetten"
+#~ msgstr "URL-adres server:"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Alle gebruikers in dit team kunnen berichten schrijven"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Geverifieerd"
+#~ msgid "Message %1"
+#~ msgstr "Bericht %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Systeemberichten"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Als gelezen markeren)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Log openen is onmogelijk"
+
+#, fuzzy
+#~| msgid "Show Log"
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Log tonen"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Alles selecteren"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "TOTP resetten"
 
-#~ msgid "Create"
-#~ msgstr "Aanmaken"
+#~ msgid "Add..."
+#~ msgstr "Toevoegen..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Als favoriet instellen"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Rooms zoeken…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Bericht kopiëren"
-
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Rooms zoeken…"
-
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Gebruikers zoeken…"
-
-#~ msgid "Search channels…"
-#~ msgstr "Kanalen doorzoeken…"
+#~ msgid "Modify..."
+#~ msgstr "Wijzigen..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Map - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Kanalen doorzoeken…"
+
+#~ msgid "Go to Message"
+#~ msgstr "Naar bericht gaan"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Klik hier om meer te laden...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -13134,27 +13136,9 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ msgid "Version 2.2"
 #~ msgstr "Versie 2.2"
 
-#~ msgid "Version 2.3"
-#~ msgstr "Versie 2.3"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Wat is er nieuw in Ruqola"
-
-#~ msgid "Select All"
-#~ msgstr "Alles selecteren"
-
-#~ msgid "Go to Message"
-#~ msgstr "Naar bericht gaan"
-
-#~ msgid "Add..."
-#~ msgstr "Toevoegen..."
-
-#~ msgid "Modify..."
-#~ msgstr "Wijzigen..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Klik hier om meer te laden...)"
 
 #~ msgid "(Click here for Loading more…"
 #~ msgstr "(Klik hier om meer te laden…)"
@@ -13659,6 +13643,9 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ msgid "Close"
 #~ msgstr "Sluiten"
 
+#~ msgid "Configure..."
+#~ msgstr "Configureren..."
+
 #~ msgid "Detect language"
 #~ msgstr "Taal detecteren"
 
@@ -13862,6 +13849,10 @@ msgstr "Eigen geluid uploaden oplossen"
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
 
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Configuratie-engine"
+
 #~ msgid "Use Free License Key"
 #~ msgstr "Vrije licentiesleutel gebruiken"
 
@@ -13944,9 +13935,6 @@ msgstr "Eigen geluid uploaden oplossen"
 
 #~ msgid "No network connection detected, we cannot translate text."
 #~ msgstr "Geen netwerkverbinding gedetecteerd, vertalen van tekst kan niet."
-
-#~ msgid "No network"
-#~ msgstr "Geen netwerk"
 
 #~ msgid "Translate error"
 #~ msgstr "Fout in vertalen"

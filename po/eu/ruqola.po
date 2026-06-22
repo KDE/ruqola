@@ -1,15 +1,15 @@
 # Translation for ruqola.po to Euskara/Basque (eu).
-# Copyright (C) 2022-2026 This file is copyright:
+# Copyright (C) 2022-2025 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 # SPDX-FileCopyrightText: 2024, 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023, 2024, 2025, 2026.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
+"POT-Creation-Date: 2026-06-22 02:44+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -21,9 +21,10 @@ msgstr ""
 "X-Generator: Lokalize 25.12.2\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2025 Ruqola authors"
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "Copyright © 2020-2026 Ruqola-ren egileak"
+msgstr "Copyright © 2020-2025 Ruqola-ren egileak"
 
 #: apps/main.cpp:66 core/notifications/notification.cpp:36
 #, kde-format
@@ -405,24 +406,27 @@ msgid "Allow to read oauth app settings"
 msgstr "Baimendu «oauth» aplikazioen ezarpenak irakurtzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:686
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to write oauth app settings"
 msgid "Allow to write video conference settings"
-msgstr "Baimendu bideo-konferentzia ezarpenak idaztea"
+msgstr "Baimendu «oauth» aplikazioen ezarpenak idaztea"
 
 #: core/apps/appsmarketplaceinfo.cpp:688
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to read oauth app settings"
 msgid "Allow to read video conference settings"
-msgstr "Baimendu bideo-konferentzia ezarpenak irakurtzea"
+msgstr "Baimendu «oauth» aplikazioen ezarpenak irakurtzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr "Baimendu bideo-konferentzia hornitzaile ezarpenak aldatzea"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:692
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow to write role"
 msgid "Allow to register button"
-msgstr "Baimendu botoia erregistratzea"
+msgstr "Baimendu eginkizuna idaztea"
 
 #: core/apps/appsmarketplaceinfo.cpp:698
 #, kde-format
@@ -440,9 +444,11 @@ msgid "Allow to read role"
 msgstr "Baimendu eginkizuna irakurtzea"
 
 #: core/apps/appsmarketplaceinfo.cpp:704
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Mute Focused Conversations"
 msgid "Out Bound Communication"
-msgstr "Kanporanzko komunikazioa"
+msgstr "Isilarazi fokua duten elkarrizketak"
 
 #: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
@@ -699,43 +705,28 @@ msgstr "Bat ere ez"
 msgid "Default"
 msgstr "Lehenetsia"
 
-# RocketChat-en soinuak:
-#
-# https://gitlab.ow2.org/RocketChat/Rocket.Chat/-/tree/3.11.3/public/sounds
 #: core/customsound/customsoundsmanager.cpp:43
 #: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Chime"
 msgstr "Kanpai-hotsa"
 
-# RocketChat-en soinuak:
-#
-# https://gitlab.ow2.org/RocketChat/Rocket.Chat/-/tree/3.11.3/public/sounds
 #: core/customsound/customsoundsmanager.cpp:51
 #: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Door"
 msgstr "Atea"
 
-# RocketChat-en soinuak:
-#
-# https://gitlab.ow2.org/RocketChat/Rocket.Chat/-/tree/3.11.3/public/sounds
 #: core/customsound/customsoundsmanager.cpp:59
 #, kde-format
 msgid "Beep"
 msgstr "Bip"
 
-# RocketChat-en soinuak:
-#
-# https://gitlab.ow2.org/RocketChat/Rocket.Chat/-/tree/3.11.3/public/sounds
 #: core/customsound/customsoundsmanager.cpp:67
 #, kde-format
 msgid "Chelle"
 msgstr "Chelle"
 
-# RocketChat-en soinuak:
-#
-# https://gitlab.ow2.org/RocketChat/Rocket.Chat/-/tree/3.11.3/public/sounds
 #: core/customsound/customsoundsmanager.cpp:75
 #, kde-format
 msgid "Ding"
@@ -1852,7 +1843,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira…"
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1861,12 +1852,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "Oraindik konektatu gabe"
@@ -1956,9 +1947,10 @@ msgid "Start with specific account"
 msgstr "Hasi kontu jakin batekin"
 
 #: core/ruqolacommandlineparser.cpp:49
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account Name:"
 msgid "Account Name"
-msgstr "Kontuaren izena"
+msgstr "Kontuaren izena:"
 
 #: core/ruqolacommandlineparser.cpp:51
 #, kde-format
@@ -1967,9 +1959,10 @@ msgid "Show Message"
 msgstr "Erakutsi mezua"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Message"
 msgid "Message Url"
-msgstr "Mezuaren URL"
+msgstr "Mezua"
 
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
@@ -1979,22 +1972,25 @@ msgstr ""
 "Erabiltzailearen atzera-elikadura aukera erabilgarriak zerrendatzen ditu"
 
 #: core/ruqolacommandlineparser.cpp:57
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Hasi lerroz kanpo"
+msgstr "Dei bat abiatzea"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Activated"
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Aktibatu arazteko modua"
+msgstr "Aktibatuta"
 
 #: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr "Garbitu datu-basea (Kontuz erabili)"
+msgstr ""
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
@@ -7903,10 +7899,12 @@ msgid "Animate GIFs"
 msgstr "GIFak animatzea"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Enable experimental local database"
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Gaitu datu-base lokala"
+msgstr "Gaitu datu-base lokal esperimentala"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -8105,15 +8103,18 @@ msgstr "Datu-baseko (E2E) muturren arteko zifratzea"
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
-msgstr "Datu-baseko, gela tekleatutakoaren zain, informazioa"
+msgstr ""
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "DataBase Rooms"
 msgid "DataBase Room Subscriptions"
-msgstr "Datu-baseko gela harpidetzak"
+msgstr "Datu-baseko gelak"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Copy"
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Kopiatu"
@@ -9121,7 +9122,6 @@ msgid "Show Attachments - %1"
 msgstr "Erakutsi eranskinak - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:39
-#: widgets/dialogs/showbanneduserswidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search attachments…"
@@ -9140,7 +9140,7 @@ msgstr[0] "Eranskin %1 gelan (Guztira: %2)"
 msgstr[1] "%1 eranskin gelan (Guztira: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:85
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9158,13 +9158,29 @@ msgctxt "@title:window"
 msgid "Show Banned Users - %1"
 msgstr "Erakutsi iltzatutako mezuak - %1"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:78
+#: widgets/dialogs/showbanneduserslistview.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@action"
+msgid "Unban User"
+msgstr "Oztopoa kendu Erabiltzailea"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search users…"
+msgctxt "@info:placeholder"
+msgid "Search Banned Users…"
+msgstr "Bilatu erabiltzaileak…"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Ez da erabiltzailerik aurkitu"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:83
+#: widgets/dialogs/showbanneduserswidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9647,9 +9663,10 @@ msgid "Impossible to create zip file."
 msgstr "Ezin da ZIP fitxategia sortu."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
 msgid "Impossible to export account."
-msgstr "Kontua esportatzea ezinezkoa da."
+msgstr "Ezin dira datuak esportatu."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -9657,24 +9674,28 @@ msgid "Export Done."
 msgstr "Esportatzea burutu da."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export config done."
 msgid "<b>Account %1:</b> export config done."
-msgstr "<b>%1 kontua:</b> konfigurazioa esportatzea burutu da."
+msgstr "%1 kontua: konfigurazioa esportatzea burutu da."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export cache done."
-msgstr "<b>%1 kontua:</b> cachea esportatzea burutu da."
+msgstr "%1 kontua: cachea esportatzea burutu da."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export logs done."
 msgid "<b>Account %1:</b> export logs done."
-msgstr "<b>%1 kontua:</b> egunkariak esportatzea burutu da."
+msgstr "%1 kontua: egunkariak esportatzea burutu da."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export database done."
-msgstr "<b>%1 kontua:</b> datu-basea esportatzea burutu da."
+msgstr "%1 kontua: cachea esportatzea burutu da."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9689,7 +9710,7 @@ msgstr "Kontuak esportatu dira."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr "Sortutako Zip: %1"
+msgstr ""
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9741,10 +9762,11 @@ msgid "Import Accounts"
 msgstr "Inportatu kontuak"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "Ezeztatu"
+msgstr "Utzi"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:42
 #, kde-format
@@ -9805,9 +9827,9 @@ msgstr ""
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
 #, fuzzy, kde-format
-#| msgid "No new version found."
+#| msgid "No user found"
 msgid "Not network found."
-msgstr "Ez da bertsio berririk aurkitu."
+msgstr "Ez da erabiltzaileri aurkitu"
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
 #, fuzzy, kde-format
@@ -10164,10 +10186,10 @@ msgstr "Kudeatu gailua"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
 #, fuzzy, kde-format
-#| msgid "Total Messages"
+#| msgid "Hide \"User Join\" messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Mezuak guztira"
+msgstr "Ezkutatu \"Erabiltzailea batu\" mezuak"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10836,10 +10858,12 @@ msgid "Message has been starred"
 msgstr "Mezuari izarri markatu diote"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1031
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Mezuak itzulitako testu bat du"
+msgstr "Mezuari izarri markatu diote"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1035
 #, kde-format
@@ -10857,10 +10881,12 @@ msgstr "Gehitu erreakzioa"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr "Gelditu"
+msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1045
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Speak Text"
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Esan testua"
@@ -11838,16 +11864,18 @@ msgid "Hide menu bar"
 msgstr "Ezkutatu menu-barra"
 
 #: widgets/ruqolamainwindow.cpp:1471
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Online"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Lerroan lan egin"
+msgstr "Lerroan"
 
 #: widgets/ruqolamainwindow.cpp:1474
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Offline"
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Lerroz kanpo lan egin"
+msgstr "Lerroz kanpo"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -12035,16 +12063,14 @@ msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Long Time (%1)"
-msgstr "Ordu lokala:"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date (%1)"
-msgstr "Txostenaren data"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
 #, fuzzy, kde-format
@@ -12131,10 +12157,8 @@ msgid "Add Account…"
 msgstr "Gehitu kontua…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Network is offline mode."
 msgid "Improve offline Mode"
-msgstr "Sarea lerroz kanpoko moduan dago."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 #, fuzzy
@@ -12163,10 +12187,8 @@ msgid "Implement Draft message sorting channel."
 msgstr "Mezuaren estiloa inplementatzea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr "\"Tekleatutakoa zain\" datu-basean biltegiratzea inplementatu da."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
@@ -12790,27 +12812,30 @@ msgstr "Erakutsi fitxategi-eranskinaren neurria konpontzea."
 #: widgets/whatsnew/whatsnewtranslations.cpp:214
 #, kde-format
 msgid "Copy block code more easily."
-msgstr "Kode-blokea errazago kopiatzea."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:215
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Testutik ahotserako erabiltzaile interfazea hobetzea."
+msgstr "Gelako erabiltzaileen zerrenda hobetzea."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Attachments - %1"
 msgid "Show attachment fields."
-msgstr "Erakutsi eranskin-eremuak."
+msgstr "Erakutsi eranskinak - %1"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:217
 #, kde-format
 msgid "Implement Offline Mode (experimental)."
-msgstr "Lerroz kanpoko modua inplementatu (esperimentala)."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:218
 #, kde-format
 msgid "Implement Pending Typed database storage."
-msgstr "\"Tekleatutakoa zain\" datu-basean biltegiratzea inplementatu da."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
 #, fuzzy, kde-format
@@ -12833,17 +12858,18 @@ msgstr "Gehitu erabiltzailearen berri emateko euskarria"
 #: widgets/whatsnew/whatsnewtranslations.cpp:224
 #, kde-format
 msgid "Save local translation to local database."
-msgstr "Itzulpen lokala datu-base lokalera gordetzea."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:225
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr "Kendu gela (datu-base lokalean) zuzentzea."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:226
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Report date"
 msgid "Fix export database."
-msgstr "Esportatu datu-basea zuzentzea."
+msgstr "Txostenaren data"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:227
 #, fuzzy, kde-format
@@ -12862,40 +12888,16 @@ msgstr "Neurrira ipinitako soinuak"
 #~ msgstr "Ezikusi erabiltzailea"
 
 #~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Eranskina ireki?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Eranskina ireki <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Ireki"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Ireki '%1'(r)ekin"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Ireki &honekin…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Gorde &honela…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Errorea fitxategia gordetzean"
-
-#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Deskribapena"
 
 #~ msgctxt "@action"
 #~ msgid "Show Description…"
 #~ msgstr "Erakutsi deskribapena…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Errorea fitxategia gordetzean"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Aldaketak ezartzeko berrabiatu beharra dago."
@@ -12925,6 +12927,54 @@ msgstr "Neurrira ipinitako soinuak"
 #~ msgstr ""
 #~ "Zure bertsioa urte 1 baino zaharragoa da, bertsio-berritzea biziki "
 #~ "gomendatzen dizugu."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Eranskina ireki?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Eranskina ireki <filename>%1</filename>?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Ireki"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Ireki '%1'(r)ekin"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Ireki &honekin…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Gorde &honela…"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Lodia"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Etzana"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Marratua"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Kode-blokea"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Aipua"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Txertatu esteka"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -12974,94 +13024,11 @@ msgstr "Neurrira ipinitako soinuak"
 #~ msgstr "Akatsak konponketa batzuk:"
 
 #~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Lodia"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Etzana"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Marratua"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Kode-blokea"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Aipu-testua"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Txertatu esteka"
-
-#~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Lehengoratu"
 
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Kendu..."
-
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Kendu nahi duzu?"
-
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Kendu"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Konfiguratu AA testu pluginak"
-
-#~ msgid "Ask AI…"
-#~ msgstr "Galdetu AAri..."
-
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Konfiguratu..."
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Konfiguratu"
-
-#, fuzzy
-#~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Zamatzen..."
-
-#~ msgid "Add screenshot button"
-#~ msgstr "Gehitu pantaila-argazki botoia"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Erantsi fitxategia"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Egunkaria irekitzea ezinezkoa da."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Erakutsi egunkaria"
-
-#~ msgid "Private"
-#~ msgstr "Pribatua"
-
-#~ msgid "Installed"
-#~ msgstr "Instalatuta"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "BigBlueButton"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Batu lehenetsitako kanaletara"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Mezu izardunak"
@@ -13078,8 +13045,26 @@ msgstr "Neurrira ipinitako soinuak"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Irakurri gabeko harietako mezuak"
 
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Markatu irakurritako gisa)"
+#~ msgid "System Messages"
+#~ msgstr "Sistemaren mezuak"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Batu lehenetsitako kanaletara"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Egiaztatuta"
+
+#~ msgid "Private"
+#~ msgstr "Pribatua"
+
+#~ msgid "Installed"
+#~ msgstr "Instalatuta"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Markatu irakurritako gisa"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Erabiltzaile-izena edo E-posta:"
@@ -13112,96 +13097,34 @@ msgstr "Neurrira ipinitako soinuak"
 #~ msgid "Server Url:"
 #~ msgstr "Zerbitzariaren URLa:"
 
-#~ msgid "Message %1"
-#~ msgstr "%1 mezua"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Markatu irakurritako gisa"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Berrezarri E2E"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Talde honetako erabiltzaile guztiek mezuak idatz ditzakete"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Egiaztatuta"
+#~ msgid "Message %1"
+#~ msgstr "%1 mezua"
 
-#~ msgid "System Messages"
-#~ msgstr "Sistemaren mezuak"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Markatu irakurritako gisa)"
 
-#~ msgid "Reset TOTP"
-#~ msgstr "Berrezarri TOTP"
-
-#~ msgid "Create"
-#~ msgstr "Sortu"
-
-#~ msgid "Set as Favorite"
-#~ msgstr "Ezarri gogoko gisa"
-
-#, fuzzy
-#~| msgid "Search rooms"
-#~ msgid "Search rooms…"
-#~ msgstr "Bilatu gelak"
-
-#~ msgid "Copy Message"
-#~ msgstr "Kopiatu mezua"
-
-#, fuzzy
-#~| msgid "Search rooms"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Bilatu gelak"
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Bilatu erabiltzaileak..."
-
-#, fuzzy
-#~| msgid "Search Channels"
-#~ msgid "Search channels…"
-#~ msgstr "Bilatu kanalak"
+#~ msgid "Impossible to open log."
+#~ msgstr "Egunkaria irekitzea ezinezkoa da."
 
 #~ msgctxt "@title:window"
-#~ msgid "Directory - %1"
-#~ msgstr "Direktorioa - %1"
+#~ msgid "Show Log"
+#~ msgstr "Erakutsi egunkaria"
 
-#, fuzzy
-#~| msgctxt "Action which allows to search room/user/team"
-#~| msgid "Directory..."
-#~ msgctxt "Action which allows to search room/user/team"
-#~ msgid "Directory…"
-#~ msgstr "Direktorioa..."
+#~ msgid "BigBlueButton"
+#~ msgstr "BigBlueButton"
 
-#, fuzzy
-#~| msgid "Version"
-#~ msgid "Version 2.0"
-#~ msgstr "Bertsioa"
-
-#, fuzzy
-#~| msgid "Version"
-#~ msgid "Version 2.2"
-#~ msgstr "Bertsioa"
-
-#, fuzzy
-#~| msgid "Version"
-#~ msgid "Version 2.3"
-#~ msgstr "Bertsioa"
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
 
 #~ msgid "Select All"
 #~ msgstr "Hautatu guztia"
 
-#~ msgid "Go to Message"
-#~ msgstr "Joan mezura"
+#~ msgid "Reset TOTP"
+#~ msgstr "Berrezarri TOTP"
 
 #~ msgid "Add..."
 #~ msgstr "Gehitu..."
@@ -13209,8 +13132,32 @@ msgstr "Neurrira ipinitako soinuak"
 #~ msgid "Modify..."
 #~ msgstr "Aldatu..."
 
+#~ msgctxt "@title:window"
+#~ msgid "Directory - %1"
+#~ msgstr "Direktorioa - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Bilatu kanalak..."
+
+#~ msgid "Go to Message"
+#~ msgstr "Joan mezura"
+
 #~ msgid "(Click here for Loading more...)"
 #~ msgstr "(Egin klik hemen gehiago zamatzeko...)"
+
+#~ msgctxt "Action which allows to search room/user/team"
+#~ msgid "Directory…"
+#~ msgstr "Direktorioa..."
+
+#~ msgid "Version 2.0"
+#~ msgstr "2.0 bertsioa"
+
+#~ msgid "Version 2.2"
+#~ msgstr "2.2 bertsioa"
+
+#~ msgctxt "@title:window"
+#~ msgid "What's new in Ruqola"
+#~ msgstr "Zer berri Ruqolan"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13246,6 +13193,9 @@ msgstr "Neurrira ipinitako soinuak"
 
 #~ msgid "Search channels..."
 #~ msgstr "Bilatu kanalak..."
+
+#~ msgid "Open..."
+#~ msgstr "Ireki..."
 
 #~ msgid "Search rooms..."
 #~ msgstr "Bilatu gelak..."
@@ -13519,6 +13469,10 @@ msgstr "Neurrira ipinitako soinuak"
 #~ msgid "Close"
 #~ msgstr "Itxi"
 
+#, fuzzy
+#~ msgid "Configure..."
+#~ msgstr "Konfiguratu"
+
 #~ msgid "Detect language"
 #~ msgstr "Hizkuntza antzeman"
 
@@ -13720,6 +13674,11 @@ msgstr "Neurrira ipinitako soinuak"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
+
+#, fuzzy
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Konfiguratu"
 
 #~ msgid "Libre Translate"
 #~ msgstr "Libre Translate"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-20 00:43+0000\n"
+"POT-Creation-Date: 2026-06-22 02:44+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -1847,7 +1847,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pisze..."
 
-#: core/rocketchataccount.cpp:700
+#: core/rocketchataccount.cpp:702
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1856,12 +1856,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:708 core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
 #, kde-format
 msgid "Not connected"
 msgstr "Niepodłączony"
 
-#: core/rocketchataccount.cpp:715
+#: core/rocketchataccount.cpp:717
 #, kde-format
 msgid "Not connected yet"
 msgstr "Jeszcze niepodłączony"
@@ -1975,10 +1975,11 @@ msgstr "Wymień dostępne możliwości informacji zwrotnej"
 
 #: core/ruqolacommandlineparser.cpp:57
 #, fuzzy, kde-format
-#| msgid "Offline"
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Niedostępny"
+msgstr "Rozpocznij rozmowę"
 
 #: core/ruqolacommandlineparser.cpp:59
 #, fuzzy, kde-format
@@ -8133,7 +8134,9 @@ msgid "DataBase Room Subscriptions"
 msgstr "Pokoje DataBase"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Copy"
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Skopiuj"
@@ -9147,7 +9150,6 @@ msgid "Show Attachments - %1"
 msgstr "Pokaż załączniki - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:39
-#: widgets/dialogs/showbanneduserswidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search attachments…"
@@ -9167,7 +9169,7 @@ msgstr[1] "%1 załączniki w pokoju (Razem: %2)"
 msgstr[2] "%1 załączników w pokoju (Razem: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:85
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9185,13 +9187,29 @@ msgctxt "@title:window"
 msgid "Show Banned Users - %1"
 msgstr "Pokaż przypięte wiadomości - %1"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:78
+#: widgets/dialogs/showbanneduserslistview.cpp:28
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@action"
+msgid "Unban User"
+msgstr "Odblokuj użytkownika"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:47
+#, fuzzy, kde-format
+#| msgctxt "@info:placeholder"
+#| msgid "Search users…"
+msgctxt "@info:placeholder"
+msgid "Search Banned Users…"
+msgstr "Poszukaj użytkowników…"
+
+#: widgets/dialogs/showbanneduserswidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Nie znaleziono żadnego użytkownika"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:83
+#: widgets/dialogs/showbanneduserswidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9839,9 +9857,9 @@ msgstr ""
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
 #, fuzzy, kde-format
-#| msgid "No new version found."
+#| msgid "No network"
 msgid "Not network found."
-msgstr "Żadna nowa wersja nie jest jeszcze dostępna."
+msgstr "Brak sieci"
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
 #, fuzzy, kde-format
@@ -10199,10 +10217,10 @@ msgstr "Zarządzaj urządzeniem"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
 #, fuzzy, kde-format
-#| msgid "Total Messages"
+#| msgid "Hide \"User Join\" messages"
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Wszystkie wiadomości"
+msgstr "Ukryj wiadomości \"Użytkownik dołączył\""
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10873,10 +10891,12 @@ msgid "Message has been starred"
 msgstr "Dodano gwiazdę do wiadomości"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1031
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Wiadomość ma przetłumaczony tekst"
+msgstr "Dodano gwiazdę do wiadomości"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1035
 #, kde-format
@@ -10891,13 +10911,16 @@ msgid "Add reaction"
 msgstr "Dodaj reakcję"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1045
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Stop"
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Zatrzymaj"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1045
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Speak Text"
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Wypowiedz tekst"
@@ -11877,10 +11900,10 @@ msgstr "Ukryj pasek menu"
 
 #: widgets/ruqolamainwindow.cpp:1471
 #, fuzzy, kde-format
-#| msgid "Offline"
+#| msgid "Online"
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Niedostępny"
+msgstr "Dostępny"
 
 #: widgets/ruqolamainwindow.cpp:1474
 #, fuzzy, kde-format
@@ -12075,16 +12098,14 @@ msgid "Short Time (%1)"
 msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Long Time (%1)"
-msgstr "Czas lokalny:"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date (%1)"
-msgstr "Data zgłoszenia"
+msgstr ""
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
 #, fuzzy, kde-format
@@ -12171,10 +12192,8 @@ msgid "Add Account…"
 msgstr "Dodaj konto…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
-#, fuzzy
-#| msgid "Network is offline mode."
 msgid "Improve offline Mode"
-msgstr "Sieć działa w trybie odłączonym."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
 #, fuzzy
@@ -12826,12 +12845,13 @@ msgstr "Naprawiono pokazywanie rozmiaru załącznika."
 #: widgets/whatsnew/whatsnewtranslations.cpp:214
 #, kde-format
 msgid "Copy block code more easily."
-msgstr "Szybsze kopiowanie bloków kodu."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:215
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Improve list of user in room."
 msgid "Improve Text To Speech user interface."
-msgstr "Ulepszono interfejs użytkownika od tekstu na mowę."
+msgstr "Ulepszenie listy użytkowników w pokoju."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
 #, fuzzy, kde-format
@@ -12871,7 +12891,7 @@ msgstr "Dodano możliwość zgłaszania użytkowników"
 #: widgets/whatsnew/whatsnewtranslations.cpp:224
 #, kde-format
 msgid "Save local translation to local database."
-msgstr "Zapisywanie lokalnych tłumaczeń do lokalnej bazy danych."
+msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:225
 #, kde-format
@@ -12901,40 +12921,16 @@ msgstr "Własne dźwięki"
 #~ msgstr "Lekceważ użytkownika"
 
 #~ msgctxt "@title:window"
-#~ msgid "Open Attachment?"
-#~ msgstr "Otworzyć załącznik?"
-
-#~ msgctxt "@info"
-#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
-#~ msgstr "Otwórz załącznik <filename>%1</filename>?<nl/>"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open"
-#~ msgstr "Otwórz"
-
-#~ msgctxt "@action:button"
-#~ msgid "&Open With '%1'"
-#~ msgstr "&Otwórz w '%1'"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open &With…"
-#~ msgstr "Otwórz &w…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Save &As…"
-#~ msgstr "Zapisz j&ako…"
-
-#~ msgctxt "@title:window"
-#~ msgid "Error saving file"
-#~ msgstr "Błąd zapisywania pliku"
-
-#~ msgctxt "@title:window"
 #~ msgid "Description"
 #~ msgstr "Opis"
 
 #~ msgctxt "@action"
 #~ msgid "Show Description…"
 #~ msgstr "Pokaż opis…"
+
+#~ msgctxt "@title:window"
+#~ msgid "Error saving file"
+#~ msgstr "Błąd zapisywania pliku"
 
 #~ msgid "Restart is necessary for applying the changes."
 #~ msgstr "Wymagane jest ponowne uruchomienie do zastosowania zmian."
@@ -12963,6 +12959,54 @@ msgstr "Własne dźwięki"
 #~ msgstr ""
 #~ "Twoja wersja jest starsza niż 1 rok, więc bardzo zalecamy jej "
 #~ "uaktualnienie."
+
+#~ msgctxt "@title:window"
+#~ msgid "Open Attachment?"
+#~ msgstr "Otworzyć załącznik?"
+
+#~ msgctxt "@info"
+#~ msgid "Open attachment <filename>%1</filename>?<nl/>"
+#~ msgstr "Otwórz załącznik <filename>%1</filename>?<nl/>"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open"
+#~ msgstr "Otwórz"
+
+#~ msgctxt "@action:button"
+#~ msgid "&Open With '%1'"
+#~ msgstr "&Otwórz w '%1'"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open &With…"
+#~ msgstr "Otwórz &w…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Save &As…"
+#~ msgstr "Zapisz j&ako…"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Bold"
+#~ msgstr "Pogrubienie"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Italic"
+#~ msgstr "Kursywa"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Strike Through"
+#~ msgstr "Przekreślenie"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Code Block"
+#~ msgstr "Blok kodu"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Quote Text"
+#~ msgstr "Zacytuj tekst"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Insert Link"
+#~ msgstr "Wstaw odnośnik"
 
 #~ msgctxt "@title:window"
 #~ msgid "Check New Version"
@@ -13011,118 +13055,14 @@ msgstr "Własne dźwięki"
 #~ msgid "Some bug fixing:"
 #~ msgstr "Naprawa błędów:"
 
-#, fuzzy
-#~| msgid "Bold"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Bold"
-#~ msgstr "Pogrubienie"
-
-#, fuzzy
-#~| msgid "Italic"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Italic"
-#~ msgstr "Kursywa"
-
-#, fuzzy
-#~| msgid "Strike-out"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Strike Through"
-#~ msgstr "Przekreślenie"
-
-#, fuzzy
-#~| msgid "Code Block"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Code Block"
-#~ msgstr "Blok kodu"
-
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Quote"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Quote Text"
-#~ msgstr "Cytuj"
-
-#, fuzzy
-#~| msgid "Insert"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Insert Link"
-#~ msgstr "Wstaw"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "Restore"
 #~ msgstr "Przywróć"
 
 #, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Remove"
-#~ msgctxt "@action"
-#~ msgid "Remove…"
-#~ msgstr "Usuń"
-
-#, fuzzy
-#~| msgid "Do you want to remove \"%1\"?"
-#~ msgid "Do you want to remove it?"
-#~ msgstr "Czy usunąć \"%1\"?"
-
-#, fuzzy
-#~| msgid "Remove"
-#~ msgctxt "@title"
-#~ msgid "Remove"
-#~ msgstr "Usuń"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Activities"
-#~ msgctxt "@title:window"
-#~ msgid "Configure AI text plugins"
-#~ msgstr "Ustawienia aktywności"
-
-#, fuzzy
-#~| msgid "Configure"
-#~ msgctxt "@action"
-#~ msgid "Configure…"
-#~ msgstr "Ustawienia"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Configure Ruqola"
-#~ msgctxt "@title:window"
-#~ msgid "Configure Openai IA"
-#~ msgstr "Ustawienia Ruqoli"
-
-#, fuzzy
 #~| msgid "Loading…"
 #~ msgid "Loading..."
 #~ msgstr "Wczytywanie…"
-
-#, fuzzy
-#~| msgid "Attach File"
-#~ msgctxt "@info:shell"
-#~ msgid "Attach File"
-#~ msgstr "Załącz plik"
-
-#~ msgid "Impossible to open log."
-#~ msgstr "Nie można otworzyć dziennika."
-
-#~ msgctxt "@title:window"
-#~ msgid "Show Log"
-#~ msgstr "Pokaż dziennik"
-
-#~ msgid "Private"
-#~ msgstr "Prywatny"
-
-#~ msgid "Installed"
-#~ msgstr "Wgrane"
-
-#~ msgid "BigBlueButton"
-#~ msgstr "DużyNiebieskiPrzycisk"
-
-#~ msgid "Jitsi"
-#~ msgstr "Jitsi"
-
-#~ msgctxt "@option:check"
-#~ msgid "Join Default Channels"
-#~ msgstr "Połącz domyślne kanały"
 
 #~ msgid "Starred Messages"
 #~ msgstr "Wiadomości wyróżnione"
@@ -13139,10 +13079,26 @@ msgstr "Własne dźwięki"
 #~ msgid "Unread Threads Messages"
 #~ msgstr "Oznacz wiadomości wątku jako nieprzeczytane"
 
-#, fuzzy
-#~| msgid "(Mark As Read)"
-#~ msgid "(Mark as Read)"
-#~ msgstr "(Oznacz jako przeczytana)"
+#~ msgid "System Messages"
+#~ msgstr "Wiadomości systemowe"
+
+#~ msgctxt "@option:check"
+#~ msgid "Join Default Channels"
+#~ msgstr "Połącz domyślne kanały"
+
+#~ msgctxt "@option:check"
+#~ msgid "Verified"
+#~ msgstr "Potwierdzony"
+
+#~ msgid "Private"
+#~ msgstr "Prywatny"
+
+#~ msgid "Installed"
+#~ msgstr "Wgrane"
+
+#~ msgctxt "@action"
+#~ msgid "Mark As Read"
+#~ msgstr "Oznacz jako przeczytany"
 
 #~ msgid "Username or Email:"
 #~ msgstr "Nazwa użytkownika lub e-mail:"
@@ -13175,64 +13131,53 @@ msgstr "Własne dźwięki"
 #~ msgid "Server Url:"
 #~ msgstr "Adres URL serwera:"
 
-#~ msgid "Message %1"
-#~ msgstr "Wiadomość %1"
-
-#~ msgctxt "@action"
-#~ msgid "Mark As Read"
-#~ msgstr "Oznacz jako przeczytany"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Reset E2E"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Reset"
-#~ msgstr "Wyzeruj klucz E2E"
-
 #~ msgctxt "@info:tooltip"
 #~ msgid "All users in this team can write messages"
 #~ msgstr "Wszyscy użytkownicy w tym zespole mogą pisać wiadomości"
 
-#~ msgctxt "@option:check"
-#~ msgid "Verified"
-#~ msgstr "Potwierdzony"
+#~ msgid "Message %1"
+#~ msgstr "Wiadomość %1"
 
-#~ msgid "System Messages"
-#~ msgstr "Wiadomości systemowe"
+#~ msgid "(Mark As Read)"
+#~ msgstr "(Oznacz jako przeczytana)"
+
+#~ msgid "Impossible to open log."
+#~ msgstr "Nie można otworzyć dziennika."
+
+#~ msgctxt "@title:window"
+#~ msgid "Show Log"
+#~ msgstr "Pokaż dziennik"
+
+#~ msgid "BigBlueButton"
+#~ msgstr "DużyNiebieskiPrzycisk"
+
+#~ msgid "Jitsi"
+#~ msgstr "Jitsi"
+
+#~ msgid "Select All"
+#~ msgstr "Zaznacz wszystko"
 
 #~ msgid "Reset TOTP"
 #~ msgstr "Wyzeruj TOTP"
 
-#~ msgid "Create"
-#~ msgstr "Utwórz"
+#~ msgid "Add..."
+#~ msgstr "Dodaj..."
 
-#~ msgid "Set as Favorite"
-#~ msgstr "Ustaw jako ulubiony"
-
-#~ msgid "Search rooms…"
-#~ msgstr "Poszukaj pokojów…"
-
-#~ msgid "Copy Message"
-#~ msgstr "Skopiuj wiadomość"
-
-#, fuzzy
-#~| msgid "Search rooms…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search rooms…"
-#~ msgstr "Poszukaj pokojów…"
-
-#, fuzzy
-#~| msgid "Search users…"
-#~ msgctxt "Placeholder"
-#~ msgid "Search users…"
-#~ msgstr "Poszukaj użytkowników…"
-
-#~ msgid "Search channels…"
-#~ msgstr "Poszukaj kanałów…"
+#~ msgid "Modify..."
+#~ msgstr "Zmień..."
 
 #~ msgctxt "@title:window"
 #~ msgid "Directory - %1"
 #~ msgstr "Katalog - %1"
+
+#~ msgid "Search channels…"
+#~ msgstr "Poszukaj kanałów…"
+
+#~ msgid "Go to Message"
+#~ msgstr "Przejdź do wiadomości"
+
+#~ msgid "(Click here for Loading more...)"
+#~ msgstr "(Naciśnij tutaj, aby wczytać więcej...)"
 
 #~ msgctxt "Action which allows to search room/user/team"
 #~ msgid "Directory…"
@@ -13244,27 +13189,9 @@ msgstr "Własne dźwięki"
 #~ msgid "Version 2.2"
 #~ msgstr "Wersja 2.2"
 
-#~ msgid "Version 2.3"
-#~ msgstr "Wersja 2.3"
-
 #~ msgctxt "@title:window"
 #~ msgid "What's new in Ruqola"
 #~ msgstr "Co nowego w Ruqoli"
-
-#~ msgid "Select All"
-#~ msgstr "Zaznacz wszystko"
-
-#~ msgid "Go to Message"
-#~ msgstr "Przejdź do wiadomości"
-
-#~ msgid "Add..."
-#~ msgstr "Dodaj..."
-
-#~ msgid "Modify..."
-#~ msgstr "Zmień..."
-
-#~ msgid "(Click here for Loading more...)"
-#~ msgstr "(Naciśnij tutaj, aby wczytać więcej...)"
 
 #, fuzzy
 #~| msgid "(Click here for Loading more...)"
@@ -13781,6 +13708,12 @@ msgstr "Własne dźwięki"
 #~ msgid "Close"
 #~ msgstr "Zamknij"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgid "Configure..."
+#~ msgstr "Ustawienia Ruqoli"
+
 #~ msgid "Detect language"
 #~ msgstr "Wykryj język"
 
@@ -13985,6 +13918,13 @@ msgstr "Własne dźwięki"
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
 
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Ruqola"
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Ustawienia Ruqoli"
+
 #~ msgid "Use Free License Key"
 #~ msgstr "Użyj darmowego klucza licencji"
 
@@ -14074,9 +14014,6 @@ msgstr "Własne dźwięki"
 #~ msgid "No network connection detected, we cannot translate text."
 #~ msgstr ""
 #~ "Nie wykryto połączenia z siecią, więc nie można przetłumaczyć tekstu."
-
-#~ msgid "No network"
-#~ msgstr "Brak sieci"
 
 #~ msgid "Translate error"
 #~ msgstr "Błąd tłumacza"
