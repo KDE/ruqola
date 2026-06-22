@@ -14,6 +14,19 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsUnbanUserJob : public RestApiAbstractJ
 {
     Q_OBJECT
 public:
+    enum class IdentifierType : uint8_t {
+        Unknown = 0,
+        UserId = 1,
+        UserName = 2,
+    };
+
+    struct RoomsUnbanUserInfo {
+        IdentifierType type = IdentifierType::Unknown;
+        QString identifier;
+        QByteArray roomId;
+        [[nodiscard]] bool isValid() const;
+    };
+
     explicit RoomsUnbanUserJob(QObject *parent = nullptr);
     ~RoomsUnbanUserJob() override;
 
@@ -25,18 +38,14 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QByteArray roomId() const;
-    void setRoomId(const QByteArray &newRoomId);
-
-    [[nodiscard]] QString userName() const;
-    void setUserName(const QString &newUserName);
+    [[nodiscard]] RoomsUnbanUserInfo roomsUnbanUserInfo() const;
+    void setRoomsUnbanUserInfo(const RoomsUnbanUserInfo &newRoomsUnbanUserInfo);
 
 Q_SIGNALS:
     void roomsUnbanUserDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QByteArray mRoomId;
-    QString mUserName;
+    RoomsUnbanUserInfo mRoomsUnbanUserInfo;
 };
 }

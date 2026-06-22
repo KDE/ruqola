@@ -1053,8 +1053,12 @@ void RoomWidget::slotUserNeedUnbanned(const AddUserInChannelJob::UserInChannelNe
             for (const auto &user : needUnbanUsers) {
                 auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
                 qDebug() << "user : " << user;
-                job->setUserName(user.userName);
-                job->setRoomId(user.roomId);
+                const RocketChatRestApi::RoomsUnbanUserJob::RoomsUnbanUserInfo info{
+                    .type = RocketChatRestApi::RoomsUnbanUserJob::IdentifierType::UserId,
+                    .identifier = user.userName,
+                    .roomId = user.roomId,
+                };
+                job->setRoomsUnbanUserInfo(info);
                 mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
                 connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, user]() {
                     auto addUserInRoomJob = new RocketChatRestApi::MethodCallJob(this);

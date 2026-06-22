@@ -46,24 +46,14 @@ void RoomsUnbanUserJob::onPostRequestResponse(const QString &replyErrorString, c
     }
 }
 
-QString RoomsUnbanUserJob::userName() const
+RoomsUnbanUserJob::RoomsUnbanUserInfo RoomsUnbanUserJob::roomsUnbanUserInfo() const
 {
-    return mUserName;
+    return mRoomsUnbanUserInfo;
 }
 
-void RoomsUnbanUserJob::setUserName(const QString &newUserName)
+void RoomsUnbanUserJob::setRoomsUnbanUserInfo(const RoomsUnbanUserInfo &newRoomsUnbanUserInfo)
 {
-    mUserName = newUserName;
-}
-
-QByteArray RoomsUnbanUserJob::roomId() const
-{
-    return mRoomId;
-}
-
-void RoomsUnbanUserJob::setRoomId(const QByteArray &newRoomId)
-{
-    mRoomId = newRoomId;
+    mRoomsUnbanUserInfo = newRoomsUnbanUserInfo;
 }
 
 bool RoomsUnbanUserJob::requireHttpAuthentication() const
@@ -76,7 +66,7 @@ bool RoomsUnbanUserJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mUserName.isEmpty() || mRoomId.isEmpty()) {
+    if (!mRoomsUnbanUserInfo.isValid()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsUnbanUserJob: mUserName or mRoomId is empty.";
         return false;
     }
@@ -87,8 +77,18 @@ bool RoomsUnbanUserJob::canStart() const
 QJsonDocument RoomsUnbanUserJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["roomId"_L1] = QString::fromLatin1(mRoomId);
-    jsonObj["username"_L1] = mUserName;
+    jsonObj["roomId"_L1] = QString::fromLatin1(mRoomsUnbanUserInfo.roomId);
+    switch (mRoomsUnbanUserInfo.type) {
+    case IdentifierType::Unknown:
+        break;
+    case IdentifierType::UserId:
+        jsonObj["userId"_L1] = mRoomsUnbanUserInfo.identifier;
+        break;
+    case IdentifierType::UserName:
+        jsonObj["username"_L1] = mRoomsUnbanUserInfo.identifier;
+        break;
+    }
+
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData**************** " << postData;
     return postData;
@@ -101,6 +101,11 @@ QNetworkRequest RoomsUnbanUserJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+bool RoomsUnbanUserJob::RoomsUnbanUserInfo::isValid() const
+{
+    return type != IdentifierType::Unknown && !identifier.isEmpty() && !roomId.isEmpty();
 }
 
 #include "moc_roomsunbanuserjob.cpp"

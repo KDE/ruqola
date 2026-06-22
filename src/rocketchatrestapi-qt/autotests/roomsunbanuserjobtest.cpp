@@ -24,8 +24,7 @@ RoomsUnbanUserJobTest::RoomsUnbanUserJobTest(QObject *parent)
 void RoomsUnbanUserJobTest::shouldHaveDefaultValue()
 {
     RoomsUnbanUserJob job;
-    QVERIFY(job.roomId().isEmpty());
-    QVERIFY(job.userName().isEmpty());
+    QVERIFY(!job.roomsUnbanUserInfo().isValid());
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -44,14 +43,28 @@ void RoomsUnbanUserJobTest::shouldGenerateJson()
 {
     {
         RoomsUnbanUserJob job;
-
+        RoomsUnbanUserJob::RoomsUnbanUserInfo info;
         const QByteArray roomId("rr1"_ba);
-        job.setRoomId(roomId);
+        info.roomId = roomId;
         const QString userName(u"foo1"_s);
-        job.setUserName(userName);
-
+        info.identifier = userName;
+        info.type = RoomsUnbanUserJob::IdentifierType::UserName;
+        job.setRoomsUnbanUserInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
                  QStringLiteral(R"({"roomId":"%1","username":"%2"})").arg(QString::fromLatin1(roomId), userName).toLatin1());
+    }
+    {
+        RoomsUnbanUserJob job;
+        RoomsUnbanUserJob::RoomsUnbanUserInfo info;
+        const QByteArray roomId("rr1"_ba);
+        info.roomId = roomId;
+        const QString userName(u"foo1"_s);
+        info.identifier = userName;
+        info.type = RoomsUnbanUserJob::IdentifierType::UserId;
+        job.setRoomsUnbanUserInfo(info);
+
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 QStringLiteral(R"({"roomId":"%1","userId":"%2"})").arg(QString::fromLatin1(roomId), userName).toLatin1());
     }
 }
 
@@ -73,11 +86,17 @@ void RoomsUnbanUserJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
+    RoomsUnbanUserJob::RoomsUnbanUserInfo info;
     const QByteArray roomId("room1");
-    job.setRoomId(roomId);
+    info.roomId = roomId;
+    job.setRoomsUnbanUserInfo(info);
     QVERIFY(!job.canStart());
     const QString username(u"file25"_s);
-    job.setUserName(username);
+    info.identifier = username;
+    job.setRoomsUnbanUserInfo(info);
+    QVERIFY(!job.canStart());
+    info.type = RoomsUnbanUserJob::IdentifierType::UserName;
+    job.setRoomsUnbanUserInfo(info);
     QVERIFY(job.canStart());
 }
 

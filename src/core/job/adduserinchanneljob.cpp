@@ -24,9 +24,10 @@ void AddUserInChannelJob::start()
 {
     auto job = new ChannelInviteJob(this);
     mConnection->initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
-    info.identifier = QString::fromLatin1(mInfo.roomId);
+    const ChannelGroupBaseJob::ChannelGroupInfo info{
+        .identifier = QString::fromLatin1(mInfo.roomId),
+        .channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier,
+    };
     job->setChannelGroupInfo(info);
     const ChannelInviteJob::ChannelInviteInfo inviteInfo{
         .identifier = QString::fromLatin1(mInfo.userId),
