@@ -29,17 +29,17 @@ UnbanUsersDialog::UnbanUsersDialog(QWidget *parent)
 
 UnbanUsersDialog::~UnbanUsersDialog() = default;
 
-QList<RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo> UnbanUsersDialog::needUnbanUsers() const
+QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> UnbanUsersDialog::needUnbanUsers() const
 {
     return mNeedUnbanUsers;
 }
 
-void UnbanUsersDialog::setNeedUnbanUsers(const QList<RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo> &newNeedUnbanUsers)
+void UnbanUsersDialog::setNeedUnbanUsers(const QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> &newNeedUnbanUsers)
 {
     mNeedUnbanUsers = newNeedUnbanUsers;
 }
 
-void UnbanUsersDialog::addNeedUnbanUsers(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &newNeedUnbanUsers)
+void UnbanUsersDialog::addNeedUnbanUsers(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &newNeedUnbanUsers)
 {
     mNeedUnbanUsers.append(newNeedUnbanUsers);
 }

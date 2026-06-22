@@ -13,6 +13,12 @@ class LIBRUQOLACORE_EXPORT AddUserInChannelJob : public QObject
 {
     Q_OBJECT
 public:
+    struct UserInChannelNeedUnBanJobInfo {
+        QByteArray roomId;
+        QString userName;
+        [[nodiscard]] bool isValid() const;
+    };
+
     struct AddUserInChannelJobInfo {
         QByteArray roomId;
         QByteArray userId;
@@ -30,7 +36,7 @@ public:
     void setInfo(const AddUserInChannelJobInfo &newInfo);
 
 Q_SIGNALS:
-    void userNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
+    void userNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);

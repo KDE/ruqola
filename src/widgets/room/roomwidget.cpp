@@ -1043,7 +1043,7 @@ Room::RoomType RoomWidget::roomType() const
     return mRoomType;
 }
 
-void RoomWidget::slotUserNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info)
+void RoomWidget::slotUserNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info)
 {
     if (!mUnbanUsersDialog) {
         mUnbanUsersDialog = new UnbanUsersDialog(this);
@@ -1052,8 +1052,8 @@ void RoomWidget::slotUserNeedUnbanned(const RocketChatRestApi::ChannelInviteJob:
             const auto needUnbanUsers = mUnbanUsersDialog->needUnbanUsers();
             for (const auto &user : needUnbanUsers) {
                 auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
-                job->setUserName(user.identifier);
-                // TODO add roomId
+                job->setUserName(user.userName);
+                job->setRoomId(user.roomId);
                 connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this]() {
                     // TODO
                 });

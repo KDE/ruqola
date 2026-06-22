@@ -41,8 +41,13 @@ void AddUserInChannelJob::start()
     }
 }
 
-void AddUserInChannelJob::slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info)
+void AddUserInChannelJob::slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &resultInfo)
 {
+    const UserInChannelNeedUnBanJobInfo info{
+        .roomId = mInfo.roomId,
+        .userName = resultInfo.identifier,
+    };
+
     Q_EMIT userNeedUnbanned(info);
     deleteLater();
 }

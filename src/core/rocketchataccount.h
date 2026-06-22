@@ -12,10 +12,10 @@
 
 #include "customusers/customuserstatuses.h"
 
-#include "channels/channelinvitejob.h"
 #include "ddpapi/ddpclient.h"
 #include "downloadappslanguages/downloadappslanguagesinfo.h"
 #include "inputtextmanager.h"
+#include "job/adduserinchanneljob.h"
 #include "libruqolacore_export.h"
 #include "licenses/licensesmanager.h"
 #include "model/listmessagesmodel.h"
@@ -516,7 +516,7 @@ Q_SIGNALS:
     void appsCountLoadDone();
     void offlineModeChanged();
     void openSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType);
-    void userNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
+    void userNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void deleteRoomFromDatabase(const QByteArray &roomId);

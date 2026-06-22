@@ -8,9 +8,9 @@
 
 #include "channelgroupbasejob.h"
 #include "channels/channelhistoryjob.h"
-#include "channels/channelinvitejob.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
+#include "job/adduserinchanneljob.h"
 #include "libruqolacore_export.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"
@@ -169,7 +169,7 @@ Q_SIGNALS:
     void loginStatusChanged();
     void createChannelDone(const QJsonObject &replyObject);
     void createGroupDone(const QJsonObject &replyObject);
-    void userNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
+    void userNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();

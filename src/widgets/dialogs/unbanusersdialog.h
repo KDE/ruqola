@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-#include "channels/channelinvitejob.h"
+#include "job/adduserinchanneljob.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class UnbanUsersWidget;
@@ -17,11 +17,11 @@ public:
 
     void addBanUser(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
 
-    [[nodiscard]] QList<RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo> needUnbanUsers() const;
-    void setNeedUnbanUsers(const QList<RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo> &newNeedUnbanUsers);
-    void addNeedUnbanUsers(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &newNeedUnbanUsers);
+    [[nodiscard]] QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> needUnbanUsers() const;
+    void setNeedUnbanUsers(const QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> &newNeedUnbanUsers);
+    void addNeedUnbanUsers(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &newNeedUnbanUsers);
 
 private:
-    QList<RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo> mNeedUnbanUsers;
+    QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> mNeedUnbanUsers;
     UnbanUsersWidget *const mUnbanUsersWidget;
 };
