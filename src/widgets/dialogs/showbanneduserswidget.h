@@ -14,6 +14,7 @@ class QListView;
 class BannedUsersModel;
 class RocketChatAccount;
 class BannedUsersFilterProxyModel;
+class ShowBannedUsersListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -31,11 +32,13 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersFailed(const QString &serverErrorStr, const QString &descriptionError);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreBannedUsers();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUnbanUser(const QString &userName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUnBanUsersDone(const QString &userName);
     int mOffset = 0;
     RocketChatAccount *const mCurrentRocketChatAccount;
     QLineEdit *const mSearchBannedUserLineEdit;
     QLabel *const mInfo;
-    QListView *const mListBannedUsers;
+    ShowBannedUsersListView *const mListBannedUsers;
     BannedUsersModel *const mModel;
     BannedUsersFilterProxyModel *const mBannedUsersFilterProxyModel;
 };

@@ -42,6 +42,19 @@ void BannedUsersModel::clear()
     endResetModel();
 }
 
+void BannedUsersModel::removeBannedUsers(const QString &userName)
+{
+    const int roomCount = mBannedUsers->count();
+    for (int i = 0; i < roomCount; ++i) {
+        if (mBannedUsers->at(i).userName() == userName) {
+            beginRemoveRows(QModelIndex(), i, i);
+            mBannedUsers->takeAt(i);
+            endRemoveRows();
+            break;
+        }
+    }
+}
+
 void BannedUsersModel::addMoreBannedUsers(const QJsonObject &bannedUsersObj)
 {
     const int numberOfElement = mBannedUsers->bannedUsers().count();

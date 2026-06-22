@@ -46,6 +46,7 @@ public:
     void setLoadMoreBannedUsersInProgress(bool loadMoreFilesInProgress);
 
     void clear();
+    void removeBannedUsers(const QString &userName);
 
 Q_SIGNALS:
     void hasFullListChanged();

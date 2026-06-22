@@ -38,6 +38,8 @@ public:
 
     [[nodiscard]] bool operator==(const BannedUsers &other) const;
 
+    BannedUser takeAt(int index);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListBannedUsers(const QJsonObject &commandsObj);
     QList<BannedUser> mBannedUsers;

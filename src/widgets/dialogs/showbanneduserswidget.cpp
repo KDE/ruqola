@@ -11,7 +11,9 @@
 #include "model/bannedusersmodel.h"
 #include "rocketchataccount.h"
 #include "rooms/roomsbannedusersjob.h"
+#include "rooms/roomsunbanuserjob.h"
 #include "ruqolawidgets_debug.h"
+#include "showbanneduserslistview.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
@@ -26,7 +28,7 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     , mCurrentRocketChatAccount(account)
     , mSearchBannedUserLineEdit(new QLineEdit(this))
     , mInfo(new QLabel(this))
-    , mListBannedUsers(new QListView(this))
+    , mListBannedUsers(new ShowBannedUsersListView(this))
     , mModel(new BannedUsersModel(this))
     , mBannedUsersFilterProxyModel(new BannedUsersFilterProxyModel(this))
 {
@@ -42,7 +44,7 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     mSearchBannedUserLineEdit->setObjectName(u"mSearchBannedUserLineEdit"_s);
     mSearchBannedUserLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchBannedUserLineEdit);
-    mSearchBannedUserLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search attachments…"));
+    mSearchBannedUserLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Banned Users…"));
     connect(mSearchBannedUserLineEdit, &QLineEdit::textChanged, this, &ShowBannedUsersWidget::slotSearchMessageTextChanged);
     searchBannedUsersLayout->addWidget(mSearchBannedUserLineEdit);
 
@@ -63,10 +65,33 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     connect(mModel, &BannedUsersModel::hasFullListChanged, this, &ShowBannedUsersWidget::updateLabel);
     connect(mModel, &BannedUsersModel::totalChanged, this, &ShowBannedUsersWidget::updateLabel);
     connect(mModel, &BannedUsersModel::loadingInProgressChanged, this, &ShowBannedUsersWidget::updateLabel);
+    connect(mListBannedUsers, &ShowBannedUsersListView::unbanUser, this, &ShowBannedUsersWidget::slotUnbanUser);
     updateLabel();
 }
 
 ShowBannedUsersWidget::~ShowBannedUsersWidget() = default;
+
+void ShowBannedUsersWidget::slotUnbanUser(const QString &userName)
+{
+    auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
+    job->setRoomId(mModel->roomId());
+    job->setUserName(userName);
+
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, userName]() {
+        slotUnBanUsersDone(userName);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsUnbanUserJob job";
+    }
+}
+
+void ShowBannedUsersWidget::slotUnBanUsersDone(const QString &userName)
+{
+    qCDebug(RUQOLAWIDGETS_LOG) << "Unban done";
+    mModel->removeBannedUsers(userName);
+    updateLabel();
+}
 
 void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)
 {
