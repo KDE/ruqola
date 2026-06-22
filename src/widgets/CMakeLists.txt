@@ -4,6 +4,8 @@ add_library(
     libruqolawidgets
     dialogs/unbanusersdialog.h
     dialogs/unbanusersdialog.cpp
+    dialogs/unbanuserswidget.h
+    dialogs/unbanuserswidget.cpp
 )
 
 if(TARGET KF6::UserFeedbackWidgets)
