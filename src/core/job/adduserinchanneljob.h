@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 class Connection;
+class QDebug;
 class LIBRUQOLACORE_EXPORT AddUserInChannelJob : public QObject
 {
     Q_OBJECT
@@ -43,3 +44,6 @@ private:
     AddUserInChannelJobInfo mInfo;
     Connection *const mConnection;
 };
+Q_DECLARE_TYPEINFO(AddUserInChannelJob::AddUserInChannelJobInfo, Q_RELOCATABLE_TYPE);
+Q_DECLARE_TYPEINFO(AddUserInChannelJob::UserInChannelNeedUnBanJobInfo, Q_RELOCATABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &arg);

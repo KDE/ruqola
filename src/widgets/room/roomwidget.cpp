@@ -1052,10 +1052,31 @@ void RoomWidget::slotUserNeedUnbanned(const AddUserInChannelJob::UserInChannelNe
             const auto needUnbanUsers = mUnbanUsersDialog->needUnbanUsers();
             for (const auto &user : needUnbanUsers) {
                 auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
+                qDebug() << "user : " << user;
                 job->setUserName(user.userName);
                 job->setRoomId(user.roomId);
-                connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this]() {
-                    // TODO
+                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, user]() {
+                    auto addUserInRoomJob = new RocketChatRestApi::MethodCallJob(this);
+                    QJsonObject obj;
+                    obj["rid"_L1] = QString::fromLatin1(user.roomId);
+                    obj["users"_L1] = QJsonArray::fromStringList({user.userName});
+                    const QJsonArray params{obj};
+
+                    RocketChatRestApi::MethodCallJob::MethodCallJobInfo addUserInRoomInfo;
+                    addUserInRoomInfo.methodName = u"addUsersToRoom"_s;
+                    addUserInRoomInfo.anonymous = false;
+                    addUserInRoomInfo.messageObj = mCurrentRocketChatAccount->ddp()->generateJsonObject(addUserInRoomInfo.methodName, params);
+                    addUserInRoomJob->setMethodCallJobInfo(addUserInRoomInfo);
+                    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(addUserInRoomJob);
+                    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+                    connect(addUserInRoomJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+                        const QJsonObject obj = root.value("result"_L1).toObject();
+                        // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
+                    });
+                    if (!addUserInRoomJob->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start addUsersToRoom job";
+                    }
                 });
                 if (!job->start()) {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsUnbanUserJob";

@@ -72,4 +72,11 @@ bool AddUserInChannelJob::canStart() const
     return mInfo.isValid();
 }
 
+QDebug operator<<(QDebug d, const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &arg)
+{
+    d.space() << "roomId:" << arg.roomId;
+    d.space() << "userName:" << arg.userName;
+    return d;
+}
+
 #include "moc_adduserinchanneljob.cpp"
