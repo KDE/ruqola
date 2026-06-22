@@ -1462,6 +1462,7 @@
           <li>Implement Draft message sorting channel.</li>
           <li xml:lang="ca">Implementa el canal d'ordenació dels esborranys.</li>
           <li xml:lang="ca-valencia">Implementa el canal d'ordenació dels esborranys.</li>
+          <li xml:lang="es">Implementado el canal ordenado de borradores. </li>
           <li xml:lang="ka">განხორციელდა მონახაზი შეტყობინებების დალაგების არხი.</li>
           <li xml:lang="nl">Implementeer een kanaal voor het sorteren van conceptberichten.</li>
           <li xml:lang="pt-BR">Implementa canal de classificação de mensagens em rascunho.</li>
@@ -1471,6 +1472,7 @@
           <li>Implement Banned Users list dialog.</li>
           <li xml:lang="ca">Implementa el diàleg de llista d'usuaris bandejats.</li>
           <li xml:lang="ca-valencia">Implementa el diàleg de llista d'usuaris bandejats.</li>
+          <li xml:lang="es">Implementado el diálogo con la lista de usuarios expulsados.</li>
           <li xml:lang="ka">განხორციელდა დაბანილი მომხმარებლების სიის დიალოგი.</li>
           <li xml:lang="nl">Implementeer een dialoogvenster voor de lijst met geblokkeerde gebruikers.</li>
           <li xml:lang="pt-BR">Implementa o diálogo de lista de usuários banidos.</li>
@@ -1480,6 +1482,7 @@
           <li>Implement Banned/Unbanned Users.</li>
           <li xml:lang="ca">Implementa usuaris bandejats/desbandejats.</li>
           <li xml:lang="ca-valencia">Implementa usuaris bandejats/desbandejats.</li>
+          <li xml:lang="es">Implementada la expulsión de usuarios.</li>
           <li xml:lang="ka">განხორციელდა მომხმარებლების დაბანვა/ბანის მოხსნა.</li>
           <li xml:lang="nl">Implementeer geblokkeerde/gedeblokkeerde gebruikers.</li>
           <li xml:lang="pt-BR">Implementa usuários banidos/com banimento removido.</li>
