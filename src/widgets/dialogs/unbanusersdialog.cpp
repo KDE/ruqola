@@ -26,3 +26,5 @@ UnbanUsersDialog::UnbanUsersDialog(QWidget *parent)
 }
 
 UnbanUsersDialog::~UnbanUsersDialog() = default;
+
+#include "moc_unbanusersdialog.cpp"
