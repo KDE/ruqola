@@ -65,6 +65,11 @@ void BannedUsers::parseListBannedUsers(const QJsonObject &commandsObj)
 
 bool BannedUsers::operator==(const BannedUsers &other) const = default;
 
+BannedUser BannedUsers::takeAt(int index)
+{
+    return mBannedUsers.takeAt(index);
+}
+
 int BannedUsers::bannedUsersCount() const
 {
     return mBannedUsersCount;
