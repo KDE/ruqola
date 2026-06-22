@@ -31,6 +31,7 @@
 #include "dialogs/showpinnedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
+#include "dialogs/unbanusersdialog.h"
 #include "discussions/showdiscussionsdialog.h"
 #include "exportmessages/exportmessagesdialog.h"
 #include "messagelinewidget.h"
@@ -39,6 +40,7 @@
 #include "plugintextmessagewidget.h"
 #include "prunemessages/prunemessagesdialog.h"
 #include "rocketchatbackend.h"
+#include "rooms/roomsunbanuserjob.h"
 #include "roomutil.h"
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
@@ -1041,9 +1043,60 @@ Room::RoomType RoomWidget::roomType() const
     return mRoomType;
 }
 
+void RoomWidget::slotUserNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info)
+{
+    if (!mUnbanUsersDialog) {
+        mUnbanUsersDialog = new UnbanUsersDialog(this);
+        mUnbanUsersDialog->addNeedUnbanUsers(info);
+        if (mUnbanUsersDialog->exec()) {
+            const auto needUnbanUsers = mUnbanUsersDialog->needUnbanUsers();
+            for (const auto &user : needUnbanUsers) {
+                auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
+                qDebug() << "user : " << user;
+                const RocketChatRestApi::RoomsUnbanUserJob::RoomsUnbanUserInfo info{
+                    .type = RocketChatRestApi::RoomsUnbanUserJob::IdentifierType::UserId,
+                    .identifier = user.userName,
+                    .roomId = user.roomId,
+                };
+                job->setRoomsUnbanUserInfo(info);
+                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, user]() {
+                    auto addUserInRoomJob = new RocketChatRestApi::MethodCallJob(this);
+                    QJsonObject obj;
+                    obj["rid"_L1] = QString::fromLatin1(user.roomId);
+                    obj["users"_L1] = QJsonArray::fromStringList({user.userName});
+                    const QJsonArray params{obj};
+
+                    RocketChatRestApi::MethodCallJob::MethodCallJobInfo addUserInRoomInfo;
+                    addUserInRoomInfo.methodName = u"addUsersToRoom"_s;
+                    addUserInRoomInfo.anonymous = false;
+                    addUserInRoomInfo.messageObj = mCurrentRocketChatAccount->ddp()->generateJsonObject(addUserInRoomInfo.methodName, params);
+                    addUserInRoomJob->setMethodCallJobInfo(addUserInRoomInfo);
+                    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(addUserInRoomJob);
+                    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+                    connect(addUserInRoomJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+                        const QJsonObject obj = root.value("result"_L1).toObject();
+                        // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
+                    });
+                    if (!addUserInRoomJob->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start addUsersToRoom job";
+                    }
+                });
+                if (!job->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsUnbanUserJob";
+                }
+            }
+        }
+        delete mUnbanUsersDialog;
+    } else {
+        mUnbanUsersDialog->addNeedUnbanUsers(info);
+    }
+}
+
 void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::userNeedUnbanned, this, &RoomWidget::slotUserNeedUnbanned);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
@@ -1074,6 +1127,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::showUiInteraction, this, &RoomWidget::slotShowUiInteraction);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::userNeedUnbanned, this, &RoomWidget::slotUserNeedUnbanned);
 
 #if ADD_OFFLINE_SUPPORT
     connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomWidget::slotOfflineModeChanged);

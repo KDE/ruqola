@@ -74,8 +74,12 @@ ShowBannedUsersWidget::~ShowBannedUsersWidget() = default;
 void ShowBannedUsersWidget::slotUnbanUser(const QString &userName)
 {
     auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
-    job->setRoomId(mModel->roomId());
-    job->setUserName(userName);
+    const RocketChatRestApi::RoomsUnbanUserJob::RoomsUnbanUserInfo info{
+        .type = RocketChatRestApi::RoomsUnbanUserJob::IdentifierType::UserName,
+        .identifier = userName,
+        .roomId = mModel->roomId(),
+    };
+    job->setRoomsUnbanUserInfo(info);
 
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, userName]() {

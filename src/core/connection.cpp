@@ -25,6 +25,7 @@
 #include "misc/owninfojob.h"
 
 #include "authentication/logoutjob.h"
+#include "job/adduserinchanneljob.h"
 
 #include "chat/getmentionedmessagesjob.h"
 #include "chat/getpinnedmessagesjob.h"
@@ -504,20 +505,14 @@ void Connection::membersInRoom(const QByteArray &roomId, const QString &type, in
 
 void Connection::addUserInChannel(const QByteArray &roomId, const QByteArray &userId)
 {
-    auto job = new ChannelInviteJob(this);
-    initializeRestApiJob(job);
-    ChannelGroupBaseJob::ChannelGroupInfo info;
-    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
-    info.identifier = QString::fromLatin1(roomId);
-    job->setChannelGroupInfo(info);
-    const ChannelInviteJob::ChannelInviteInfo inviteInfo{
-        .identifier = QString::fromLatin1(userId),
-        .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserId,
+    auto job = new AddUserInChannelJob(this, this);
+    const AddUserInChannelJob::AddUserInChannelJobInfo info{
+        .roomId = roomId,
+        .userId = userId,
     };
-    job->setChannelInviteInfo(inviteInfo);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
-    }
+    job->setInfo(info);
+    connect(job, &AddUserInChannelJob::userNeedUnbanned, this, &Connection::userNeedUnbanned);
+    job->start();
 }
 
 void Connection::addUserInGroup(const QByteArray &roomId, const QByteArray &userId)

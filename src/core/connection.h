@@ -10,6 +10,7 @@
 #include "channels/channelhistoryjob.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
+#include "job/adduserinchanneljob.h"
 #include "libruqolacore_export.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"
@@ -157,7 +158,6 @@ Q_SIGNALS:
     void failed(const QString &str, const QString &descriptionError);
     void networkError();
 
-    void runCommandDone();
     void registerUserDone();
     void channelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void markAsReadDone(const QByteArray &roomId);
@@ -169,6 +169,7 @@ Q_SIGNALS:
     void loginStatusChanged();
     void createChannelDone(const QJsonObject &replyObject);
     void createGroupDone(const QJsonObject &replyObject);
+    void userNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();

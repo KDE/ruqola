@@ -7,6 +7,7 @@
 #pragma once
 
 #include "config-ruqola.h"
+#include "dialogs/unbanusersdialog.h"
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
 #include "rocketchataccount.h"
@@ -131,6 +132,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType);
 #endif
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowBannedUsers();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUserNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
@@ -154,4 +156,5 @@ private:
 #if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
     TextAddonsWidgets::OpenSavedFileFolderWidget *const mOpenSavedFileFolderWidget;
 #endif
+    QPointer<UnbanUsersDialog> mUnbanUsersDialog;
 };

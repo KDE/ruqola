@@ -567,6 +567,7 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi.get(), &Connection::createChannelDone, this, &RocketChatAccount::slotCreateChannelDone);
         connect(mRestApi.get(), &Connection::createGroupDone, this, &RocketChatAccount::slotCreateGroupDone);
         connect(mRestApi.get(), &Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
+        connect(mRestApi.get(), &Connection::userNeedUnbanned, this, &RocketChatAccount::userNeedUnbanned);
 
         connect(mRestApi.get(), &Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
             slotGetListMessagesDone(obj,
