@@ -57,3 +57,5 @@ bool AddUserInChannelJob::canStart() const
 {
     return mInfo.isValid();
 }
+
+#include "moc_adduserinchanneljob.cpp"
