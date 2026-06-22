@@ -26,7 +26,6 @@
   <name xml:lang="fr">Ruqola</name>
   <name xml:lang="gl">Ruqola</name>
   <name xml:lang="he">Ruqola</name>
-  <name xml:lang="hi">आर्गुला</name>
   <name xml:lang="hu">Ruqola</name>
   <name xml:lang="ia">Ruqola</name>
   <name xml:lang="id">Ruqola</name>
@@ -39,10 +38,9 @@
   <name xml:lang="pt">Ruqola</name>
   <name xml:lang="pt-BR">Ruqola</name>
   <name xml:lang="ru">Ruqola</name>
-  <name xml:lang="sa">अरुगुला</name>
   <name xml:lang="sk">Ruqola</name>
   <name xml:lang="sl">Ruqola</name>
-  <name xml:lang="sv">Ruqola </name>
+  <name xml:lang="sv">Ruqola</name>
   <name xml:lang="tr">Roka</name>
   <name xml:lang="uk">Ruqola</name>
   <name xml:lang="zh-TW">Ruqola</name>
@@ -61,7 +59,6 @@
   <summary xml:lang="fr">Client de discussion « Rocket »</summary>
   <summary xml:lang="gl">Cliente de Rocket Chat</summary>
   <summary xml:lang="he">לקוח Rocket Chat</summary>
-  <summary xml:lang="hi">रॉकेट चैट क्लाइंट</summary>
   <summary xml:lang="hu">Rocket.Chat kliens</summary>
   <summary xml:lang="ia">Cliente de Rocket Chat (Conversation in directo de Rocchetta)</summary>
   <summary xml:lang="id">Klien Obrolan Rocket</summary>
@@ -74,7 +71,6 @@
   <summary xml:lang="pt">Cliente de Rocket Chat</summary>
   <summary xml:lang="pt-BR">Cliente Rocket Chat</summary>
   <summary xml:lang="ru">Клиент для протокола Rocket.Chat</summary>
-  <summary xml:lang="sa">रॉकेट चैट क्लाइंट</summary>
   <summary xml:lang="sk">Chatovací klient Rocket</summary>
   <summary xml:lang="sl">Odjemalec za Rocket chat</summary>
   <summary xml:lang="sv">Rocket Chat klient</summary>
@@ -97,7 +93,6 @@
     <p xml:lang="fr">Rugola est un client de discussions « Rocket.Chat »</p>
     <p xml:lang="gl">Ruqola é un cliente para Rocket.Chat.</p>
     <p xml:lang="he">Ruqola הוא לקוח ל־Rocket.Chat.</p>
-    <p xml:lang="hi">रुकोला रॉकेट.चैट का एक ग्राहक है।</p>
     <p xml:lang="hu">A Ruqola egy kliens a Rocket.Chathez.</p>
     <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rochet.Chat).</p>
     <p xml:lang="id">Ruqola adalah klien untuk Rocket.Chat.</p>
@@ -108,7 +103,6 @@
     <p xml:lang="pt">O Ruqola é um cliente de Rocket.Chat.</p>
     <p xml:lang="pt-BR">Ruqola é um cliente para Rocket Chat.</p>
     <p xml:lang="ru">Ruqola — клиент для протокола Rocket.Chat.</p>
-    <p xml:lang="sa">Ruqola Rocket.Chat इत्यस्य क्लायन्ट् अस्ति ।</p>
     <p xml:lang="sk">Ruqola je klient pre Rocket.Chat.</p>
     <p xml:lang="sl">Ruqola je odjemalec za Rocket chat.</p>
     <p xml:lang="sv">Ruqola är en Rocket Chat klient.</p>
@@ -129,7 +123,6 @@
     <p xml:lang="fr">Il prend en charge les fonctionnalités « RC »  :</p>
     <p xml:lang="gl">Permite funcionalidades de Rocket.Chat:</p>
     <p xml:lang="he">הוא תומך ביכולות של Rocket Chat:</p>
-    <p xml:lang="hi">यह आर.सी. सुविधाओं का समर्थन करता है:</p>
     <p xml:lang="hu">Támogatja az RC szolgáltatásokat:</p>
     <p xml:lang="ia">Il supporta characteristicas de RC:</p>
     <p xml:lang="id">Yang mendukung fitur RC:</p>
@@ -140,7 +133,6 @@
     <p xml:lang="pt">Suporta as funcionalidades do RC:</p>
     <p xml:lang="pt-BR">Ele suporta funcionalidades RC:</p>
     <p xml:lang="ru">Поддерживаются следующие возможности RC:</p>
-    <p xml:lang="sa">एतत् आरसी-विशेषतां समर्थयति :</p>
     <p xml:lang="sk">Podporuje funkcie RC:</p>
     <p xml:lang="sl">Podpira možnosti RC:</p>
     <p xml:lang="sv">Det stöder RC-funktioner:</p>
@@ -162,7 +154,6 @@
       <li xml:lang="fr">Message direct</li>
       <li xml:lang="gl">Mensaxes directas.</li>
       <li xml:lang="he">הודעה ישירה</li>
-      <li xml:lang="hi">सीधा संदेश</li>
       <li xml:lang="hu">Közvetlen üzenet</li>
       <li xml:lang="ia">Message Directe</li>
       <li xml:lang="id">Perpesanan Langsung</li>
@@ -173,12 +164,10 @@
       <li xml:lang="pt">Mensagem Directa</li>
       <li xml:lang="pt-BR">Mensagem direta</li>
       <li xml:lang="ru">Личное сообщение</li>
-      <li xml:lang="sa">प्रत्यक्ष सन्देश</li>
       <li xml:lang="sk">Priame správy</li>
       <li xml:lang="sl">Neposredno sporočilo</li>
       <li xml:lang="sv">Direktmeddelande</li>
       <li xml:lang="tr">Doğrudan İleti</li>
-      <li xml:lang="ug">بىۋاسىتە ئۇچۇر</li>
       <li xml:lang="uk">Безпосереднє повідомлення</li>
       <li xml:lang="zh-TW">私訊</li>
       <li>group channel</li>
@@ -193,7 +182,6 @@
       <li xml:lang="fr">canal de groupe</li>
       <li xml:lang="gl">Canles de grupo.</li>
       <li xml:lang="he">ערוץ קבוצה</li>
-      <li xml:lang="hi">समूह चैनल</li>
       <li xml:lang="hu">csoportos csatorna</li>
       <li xml:lang="ia">canal de gruppo</li>
       <li xml:lang="id">kanal kelompok grup</li>
@@ -204,12 +192,10 @@
       <li xml:lang="pt">canal em grupo</li>
       <li xml:lang="pt-BR">canal de grupo</li>
       <li xml:lang="ru">Группировка каналов</li>
-      <li xml:lang="sa">समूह चैनल</li>
       <li xml:lang="sk">skupinový kanál</li>
       <li xml:lang="sl">skupinski kanal</li>
       <li xml:lang="sv">gruppkanal</li>
       <li xml:lang="tr">grup kanalı</li>
-      <li xml:lang="ug">گۇرۇپپا قانىلى</li>
       <li xml:lang="uk">Групування каналів</li>
       <li xml:lang="zh-TW">群組頻道</li>
       <li>channel</li>
@@ -226,7 +212,6 @@
       <li xml:lang="fr">canal</li>
       <li xml:lang="gl">Canles.</li>
       <li xml:lang="he">ערוץ</li>
-      <li xml:lang="hi">चैनल</li>
       <li xml:lang="hu">csatorna</li>
       <li xml:lang="ia">Canal</li>
       <li xml:lang="id">kanal</li>
@@ -237,12 +222,10 @@
       <li xml:lang="pt">canal</li>
       <li xml:lang="pt-BR">canal</li>
       <li xml:lang="ru">Каналы</li>
-      <li xml:lang="sa">चैनल</li>
       <li xml:lang="sk">kanál</li>
       <li xml:lang="sl">kanal</li>
       <li xml:lang="sv">kanal</li>
       <li xml:lang="tr">kanal</li>
-      <li xml:lang="ug">قانال</li>
       <li xml:lang="uk">Канали</li>
       <li xml:lang="zh-TW">頻道</li>
       <li>Support autotranslate (when RC has it)</li>
@@ -257,7 +240,6 @@
       <li xml:lang="fr">Prise en charge de la traduction automatique (Lorsque RC le propose)</li>
       <li xml:lang="gl">Tradución automática (cando Rocket.Chat a permita).</li>
       <li xml:lang="he">תמיכה בתרגום אוטומטי (כתלות ב־Rocket Chat)</li>
-      <li xml:lang="hi">स्वचालित अनुवाद का समर्थन (जब RC में हो)</li>
       <li xml:lang="hu">Automatikus fordítás (ha a RC is támogatja)</li>
       <li xml:lang="ia">Supporta autotraduction (quando RC lo ha)</li>
       <li xml:lang="id">Dukungan auto terjemah (ketika RC memilikinya)</li>
@@ -268,7 +250,6 @@
       <li xml:lang="pt">Suporte para traduções automáticas (se o RC o suportar)</li>
       <li xml:lang="pt-BR">Suporta tradução automática (quando o RC possui)</li>
       <li xml:lang="ru">Поддержка автоперевода (если предусмотрен в RC)</li>
-      <li xml:lang="sa">autotranslate इत्यस्य समर्थनं (यदा RC इत्यस्य अस्ति)</li>
       <li xml:lang="sk">Podpora automatického prekladu (keď to RC podporuje)</li>
       <li xml:lang="sl">Podpira samodejni prevod (kadar ga RC ima)</li>
       <li xml:lang="sv">Stöd automatisk översättning (när RC har det)</li>
@@ -287,7 +268,6 @@
       <li xml:lang="fr">Configuration en cours de la notification des salons</li>
       <li xml:lang="gl">Configuración das notificacións das salas.</li>
       <li xml:lang="he">הגדרת התראות חדר</li>
-      <li xml:lang="hi">कक्ष अधिसूचना कॉन्फ़िगर करना</li>
       <li xml:lang="hu">Szobaértesítések beállítása</li>
       <li xml:lang="ia">Configurante notification de sala</li>
       <li xml:lang="id">Pengaturan notifikasi ruang</li>
@@ -298,7 +278,6 @@
       <li xml:lang="pt">Configuração das notificações da sala</li>
       <li xml:lang="pt-BR">Configuração de notificação de sala</li>
       <li xml:lang="ru">Настройка уведомлений в комнатах</li>
-      <li xml:lang="sa">कक्षसूचना विन्यस्तं करणम्</li>
       <li xml:lang="sk">Konfigurácia upozornení miestnosti</li>
       <li xml:lang="sl">Konfiguriranje obveščanja sobe</li>
       <li xml:lang="sv">Anpassa rumunderrättelser</li>
@@ -317,7 +296,6 @@
       <li xml:lang="fr">Configuration du salon en cours</li>
       <li xml:lang="gl">Configuración das salas.</li>
       <li xml:lang="he">הגדרת חדר</li>
-      <li xml:lang="hi">कक्ष विन्यास</li>
       <li xml:lang="hu">Szobák beállítása</li>
       <li xml:lang="ia">Configurante sala</li>
       <li xml:lang="id">Pengaturan ruang</li>
@@ -328,7 +306,6 @@
       <li xml:lang="pt">Configuração da sala</li>
       <li xml:lang="pt-BR">Configuração de sala</li>
       <li xml:lang="ru">Настройка комнат</li>
-      <li xml:lang="sa">कक्षस्य विन्यासः</li>
       <li xml:lang="sk">Konfigurácia miestnosti</li>
       <li xml:lang="sl">Konfiguriranje sobe</li>
       <li xml:lang="sv">Anpassar rum</li>
@@ -347,7 +324,6 @@
       <li xml:lang="fr">Prise en charge d'un message en fil de discussions</li>
       <li xml:lang="gl">Compatibilidade con mensaxes de fíos.</li>
       <li xml:lang="he">תמיכה בהודעות שרשור</li>
-      <li xml:lang="hi">थ्रेड संदेश समर्थन</li>
       <li xml:lang="hu">Szálüzenetek támogatása</li>
       <li xml:lang="ia">Supporto de message de topico</li>
       <li xml:lang="id">Dukungan perpesanan utas</li>
@@ -358,7 +334,6 @@
       <li xml:lang="pt">Suporte para mensagens por tópicos</li>
       <li xml:lang="pt-BR">Suporte a mensagens em tópicos</li>
       <li xml:lang="ru">Поддержка веток сообщений</li>
-      <li xml:lang="sa">सूत्रसन्देशसमर्थनम्</li>
       <li xml:lang="sk">Podpora vlákien správ</li>
       <li xml:lang="sl">Podpora niti sporočil</li>
       <li xml:lang="sv">Stöd meddelandetrådar</li>
@@ -377,7 +352,6 @@
       <li xml:lang="fr">Salon de discussions</li>
       <li xml:lang="gl">Salas de discusión.</li>
       <li xml:lang="he">חדר דיונים</li>
-      <li xml:lang="hi">चर्चा कक्ष</li>
       <li xml:lang="hu">Megbeszélésszobák</li>
       <li xml:lang="ia">Sala de discussion</li>
       <li xml:lang="id">Ruang diskusi</li>
@@ -388,7 +362,6 @@
       <li xml:lang="pt">Sala de discussão</li>
       <li xml:lang="pt-BR">Sala de discussão</li>
       <li xml:lang="ru">Переговорные комнаты</li>
-      <li xml:lang="sa">चर्चा कक्ष</li>
       <li xml:lang="sk">Diskusná miestnosť</li>
       <li xml:lang="sl">Debatna soba</li>
       <li xml:lang="sv">Diskussionsrum</li>
@@ -407,7 +380,6 @@
       <li xml:lang="fr">Prise en charge des salles de discussions « Teams »</li>
       <li xml:lang="gl">Compatibilidade con salas de equipos.</li>
       <li xml:lang="he">תמיכה בחדר צוותים</li>
-      <li xml:lang="hi">टीम रूम समर्थन</li>
       <li xml:lang="hu">Csapatszobák támogatása</li>
       <li xml:lang="ia">Supporto de Sala de Equipas</li>
       <li xml:lang="id">Dukungan ruang regu</li>
@@ -418,7 +390,6 @@
       <li xml:lang="pt">Suporte para sala de equipas</li>
       <li xml:lang="pt-BR">Suporte a salas de equipes</li>
       <li xml:lang="ru">Поддержка комнат команд</li>
-      <li xml:lang="sa">दलानाम् कक्षसमर्थनम्</li>
       <li xml:lang="sk">Podpora tímových miestností</li>
       <li xml:lang="sl">Podpora skupinske sobe</li>
       <li xml:lang="sv">Stöd rum för lag </li>
@@ -437,7 +408,6 @@
       <li xml:lang="fr">Configuration de son propre compte en cours</li>
       <li xml:lang="gl">Configuración da conta persoal.</li>
       <li xml:lang="he">הגדרת חשבון עצמי</li>
-      <li xml:lang="hi">अपना खाता कॉन्फ़िगर करना</li>
       <li xml:lang="hu">Saját fiók beállítása</li>
       <li xml:lang="ia">Configurante proprie conto</li>
       <li xml:lang="id">Pengaturan akun milik sendiri</li>
@@ -448,7 +418,6 @@
       <li xml:lang="pt">Configuração da própria conta</li>
       <li xml:lang="pt-BR">Configurar sua própria conta</li>
       <li xml:lang="ru">Настройка своей учётной записи</li>
-      <li xml:lang="sa">स्वस्य खातेः विन्यासः</li>
       <li xml:lang="sk">Konfigurácia vlastného účtu</li>
       <li xml:lang="sl">Konfiguriranje lastnega računa</li>
       <li xml:lang="sv">Anpassa eget konto</li>
@@ -467,7 +436,6 @@
       <li xml:lang="fr">Enregistrement en cours d'un nouveau compte</li>
       <li xml:lang="gl">Rexistro de novas contas.</li>
       <li xml:lang="he">רישום חשבון חדש</li>
-      <li xml:lang="hi">नया खाता पंजीकृत करना</li>
       <li xml:lang="hu">Új fiók regisztrációja</li>
       <li xml:lang="ia">Registrante nove conto</li>
       <li xml:lang="id">Peregistrasian akun baru</li>
@@ -478,7 +446,6 @@
       <li xml:lang="pt">A registar uma nova conta</li>
       <li xml:lang="pt-BR">Registrar nova conta</li>
       <li xml:lang="ru">Регистрация новой учётной записи</li>
-      <li xml:lang="sa">नवीन खाता पञ्जीकरण</li>
       <li xml:lang="sk">Registrácia nového účtu</li>
       <li xml:lang="sl">Registracija novega računa</li>
       <li xml:lang="sv">Registrerar nytt konto</li>
@@ -497,7 +464,6 @@
       <li xml:lang="fr">Prend en charge le compte multiple</li>
       <li xml:lang="gl">Permitir a combinación de varias contas.</li>
       <li xml:lang="he">תמיכה בריבוי חשבונות</li>
-      <li xml:lang="hi">बहु खाते का समर्थन</li>
       <li xml:lang="hu">Több fiók támogatása</li>
       <li xml:lang="ia">Supporta conto multiple</li>
       <li xml:lang="id">Dukungan banyak akun</li>
@@ -508,7 +474,6 @@
       <li xml:lang="pt">Suporte para várias contas</li>
       <li xml:lang="pt-BR">Suporte a múltiplas contas</li>
       <li xml:lang="ru">Поддержка работы с несколькими учётным записями</li>
-      <li xml:lang="sa">बहु खाता समर्थन</li>
       <li xml:lang="sk">Podpora viacerých účtov</li>
       <li xml:lang="sl">Podpora multi računa</li>
       <li xml:lang="sv">Stöd flera konton</li>
@@ -527,7 +492,6 @@
       <li xml:lang="fr">Rechercher un message dans le salon</li>
       <li xml:lang="gl">Busca de mensaxes en salas.</li>
       <li xml:lang="he">חיפוש הודעות בחדרים</li>
-      <li xml:lang="hi">कमरे में संदेश खोजें</li>
       <li xml:lang="hu">Üzenetek keresése a szobákban</li>
       <li xml:lang="ia">Cerca message in sala</li>
       <li xml:lang="id">Pencarian pesan di ruang</li>
@@ -538,7 +502,6 @@
       <li xml:lang="pt">Pesquisa de mensagens na sala</li>
       <li xml:lang="pt-BR">Pesquisa de mensagem na sala</li>
       <li xml:lang="ru">Поиск сообщений в комнате</li>
-      <li xml:lang="sa">कक्षे सन्देशं अन्वेष्टुम्</li>
       <li xml:lang="sk">Hľadanie správ v miestnosti</li>
       <li xml:lang="sl">Iskanje sporočila v sobi</li>
       <li xml:lang="sv">Sök efter meddelande i rum</li>
@@ -557,7 +520,6 @@
       <li xml:lang="fr">Afficher la mention / la pièce jointe / le message épinglé / le message de démarrage</li>
       <li xml:lang="gl">Amosar mensaxes de mención, de anexo, fixadas, e de inicio.</li>
       <li xml:lang="he">הצגת אזכור/קובץ מצורף/הודעה נעוצה/התחלת הודעה</li>
-      <li xml:lang="hi">उल्लेख/अनुलग्नक/पिन किया गया संदेश/आरंभ संदेश दिखाएं</li>
       <li xml:lang="hu">Említések/mellékletek/kitűzött üzenetek/kezdőüzenet megjelenítése</li>
       <li xml:lang="ia">Monstra mention/attachamento/Message affixate/messge di initio</li>
       <li xml:lang="id">Tampilkan pesan awal/sebutan/lampiran/pesan yang disematkan</li>
@@ -568,7 +530,6 @@
       <li xml:lang="pt">Mostrar as menções/anexos/mensagens fixas/mensagens iniciais</li>
       <li xml:lang="pt-BR">Mostrar menção/anexo/mensagem fixada/mensagem inicial</li>
       <li xml:lang="ru">Показ упоминаний/вложений/закреплённых сообщений/начального сообщения</li>
-      <li xml:lang="sa">उल्लेख/संलग्नकं/पिन्ड् सन्देशं/प्रारम्भसन्देशं दर्शयतु</li>
       <li xml:lang="sk">Zobrazenie zmienok/príloh/pripnutých správ/úvodných správ</li>
       <li xml:lang="sl">Prikaz omembe/priloge/pripetega sporočila/začetnega sporočila</li>
       <li xml:lang="sv">Visa omnämnande, bilaga, fästa meddelanden, startmeddelanden</li>
@@ -587,7 +548,6 @@
       <li xml:lang="fr">Prendre en charge les émoticônes</li>
       <li xml:lang="gl">Permitir expresións.</li>
       <li xml:lang="he">תמיכה באמוג׳י</li>
-      <li xml:lang="hi">समर्थन इमोजी</li>
       <li xml:lang="hu">Emodzsi támogatás</li>
       <li xml:lang="ia">Supporta emoji</li>
       <li xml:lang="id">Dukungan emoji</li>
@@ -598,7 +558,6 @@
       <li xml:lang="pt">Suporte para emojis</li>
       <li xml:lang="pt-BR">Suporte à emoji</li>
       <li xml:lang="ru">Поддержка смайликов</li>
-      <li xml:lang="sa">इमोजी समर्थन</li>
       <li xml:lang="sk">Podpora emoji</li>
       <li xml:lang="sl">Podpora čustvenčkom</li>
       <li xml:lang="sv">Stöd emoji</li>
@@ -618,7 +577,6 @@
       <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="gl">Compatibilidade con vídeo.</li>
       <li xml:lang="he">תמיכה בוידאו</li>
-      <li xml:lang="hi">वीडियो समर्थन</li>
       <li xml:lang="hu">Videó támogatás</li>
       <li xml:lang="ia">Supporto video</li>
       <li xml:lang="id">Dukungan video</li>
@@ -629,7 +587,6 @@
       <li xml:lang="pt">Suporte para vídeo</li>
       <li xml:lang="pt-BR">Suporte à vídeo</li>
       <li xml:lang="ru">Поддержка видео</li>
-      <li xml:lang="sa">विडियो समर्थनम्</li>
       <li xml:lang="sk">Podpora videa</li>
       <li xml:lang="sl">Podpora videa</li>
       <li xml:lang="sv">Videostöd</li>
@@ -648,7 +605,6 @@
       <li xml:lang="fr">Configurer la prise en charge du rôle administrateur (ajouter / supprimer des rôles, ajouter / supprimer des utilisateurs, ajouter / supprimer des permissions, configurer des salons, etc.)</li>
       <li xml:lang="gl">Permitir configurar a administración (roles, xente, permisos, salas, etc.).</li>
       <li xml:lang="he">הגדרת תמיכה בניהול (הוספת/הסרת תפקידים, הוספת/הסרת משתמשים, הוספת/הסרת הרשאות, הגדרת חדרים וכו׳)</li>
-      <li xml:lang="hi">व्यवस्थापक समर्थन कॉन्फ़िगर करें (भूमिकाएं जोड़ें/हटाएं, उपयोगकर्ता जोड़ें/हटाएं, अनुमतियां जोड़ें/हटाएं, कमरे कॉन्फ़िगर करें आदि)</li>
       <li xml:lang="hu">Adminisztrátori beállítások támogatása (szerepek, felhasználók és jogosultságok hozzáadása/eltávolítása szobák beállítása, stb.)</li>
       <li xml:lang="ia">Configura supporto de administrator (adde/remove rolos, adde/remove usatores, adde/remove permissiones, configura salas etc.)</li>
       <li xml:lang="id">Mengonfigurasi dukungan administrator (menambah/menghapus peran, menambah/menyingkirkan pengguna, menambah/menghapus izin, mengonfigurasi ruang, dll.)</li>
@@ -659,7 +615,6 @@
       <li xml:lang="pt">Suporte para a configuração do administrador (adição/remoção de perfis, adição/remoção de utilizadores, adição/remoção de permissões, configuração das salas, etc.)</li>
       <li xml:lang="pt-BR">Configurar o suporte do administrador (adicionar/remover funções, adicionar/remover usuários, adicionar/remover permissões, configurar salas etc.)</li>
       <li xml:lang="ru">Настройка параметров администрирования (добавление/удаление ролей, добавление/удаление пользователей, добавление/удаление прав, настройка комнат и так далее)</li>
-      <li xml:lang="sa">प्रशासकसमर्थनं विन्यस्तं कुर्वन्तु (भूमिकाः योजयन्तु/निष्कासयन्तु, उपयोक्तृन् योजयन्तु/निष्कासयन्तु, अनुमतिं योजयन्तु/निष्कासयन्तु, कक्षं विन्यस्तुं इत्यादयः)</li>
       <li xml:lang="sk">Podpora konfigurácie administrátora (pridanie/odobranie rolí, pridanie/odobranie používateľov, pridanie/odobranie oprávnení, konfigurácia miestností atď.)</li>
       <li xml:lang="sl">Konfiguriranje podpore skrbnika (dodajanje/odstranjevanje vlog, dodajanje/odstranjevanje uporabnikov, dodajanje/odstranjevanje dovoljenj, konfiguriranje sob itd.)</li>
       <li xml:lang="sv">Anpassa administratörsstöd (lägg till/ta bort roller, lägg till/ta bort användare, lägg till/ta bort rättigheter, anpassa rum, etc.)</li>
@@ -678,7 +633,6 @@
       <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
       <li xml:lang="gl">Permitir confidencialidade (en progreso).</li>
       <li xml:lang="he">תמיכה בסילוק תיעוד (בפיתוח)</li>
-      <li xml:lang="hi">OTR का समर्थन (प्रगति पर)</li>
       <li xml:lang="hu">OTR támogatása (folyamatban)</li>
       <li xml:lang="ia">Supporta OTR (in progresso)</li>
       <li xml:lang="id">Dukungan OTR (dalam progres)</li>
@@ -689,7 +643,6 @@
       <li xml:lang="pt">Suporte para OTR (em curso)</li>
       <li xml:lang="pt-BR">Suporte ao OTR (em progresso)</li>
       <li xml:lang="ru">Поддержка OTR (в работе)</li>
-      <li xml:lang="sa">समर्थन ओटीआर (प्रगते) .</li>
       <li xml:lang="sk">Podpora OTR (prebieha vývoj)</li>
       <li xml:lang="sl">Podpora OTS (v razvoju)</li>
       <li xml:lang="sv">Stöd OTR (pågår)</li>
@@ -708,7 +661,6 @@
       <li xml:lang="fr">Prend en charge les images « gif »</li>
       <li xml:lang="gl">Compatibilidade con imaxes GIF.</li>
       <li xml:lang="he">תמיכה בתמונת gif</li>
-      <li xml:lang="hi">समर्थन gif छवि</li>
       <li xml:lang="hu">GIF-képek támogatása</li>
       <li xml:lang="ia">supporta imagine gif</li>
       <li xml:lang="id">Dukungan gambar gift</li>
@@ -719,7 +671,6 @@
       <li xml:lang="pt">Suporte para imagens GIF</li>
       <li xml:lang="pt-BR">suporte a imagem gif</li>
       <li xml:lang="ru">Поддержка GIF-изображений</li>
-      <li xml:lang="sa">समर्थन gif चित्र</li>
       <li xml:lang="sk">podpora obrázkov GIF</li>
       <li xml:lang="sl">podpora slik gif</li>
       <li xml:lang="sv">stöd GIF-bild</li>
@@ -738,7 +689,6 @@
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
       <li xml:lang="gl">Permitir subir ficheiros anexos.</li>
       <li xml:lang="he">הוספת תמיכה בהעלאת קבצים מצורפים</li>
-      <li xml:lang="hi">अनुलग्नक फ़ाइलें अपलोड करने के लिए समर्थन जोड़ें</li>
       <li xml:lang="hu">Fájlmellékletek feltöltésének támogatása</li>
       <li xml:lang="ia">Adde supporto per incargar files de attachamento</li>
       <li xml:lang="id">Menambahkan dukungan untuk mengunggah pelampiran file</li>
@@ -749,7 +699,6 @@
       <li xml:lang="pt">Adição do suporte para o envio de ficheiros em anexo</li>
       <li xml:lang="pt-BR">Adiciona suporte para enviar arquivos anexos</li>
       <li xml:lang="ru">Поддержка отправки файлов вложений</li>
-      <li xml:lang="sa">संलग्नसञ्चिकानां अपलोड् कर्तुं समर्थनं योजयन्तु</li>
       <li xml:lang="sk">Podpora nahrávania príloh</li>
       <li xml:lang="sl">Dodajanje podpore za prenos priloženih datotek tja</li>
       <li xml:lang="sv">Lägg till stöd för uppladdning av bilagor</li>
@@ -768,7 +717,6 @@
       <li xml:lang="fr">Afficher les informations pour les messages non lus</li>
       <li xml:lang="gl">Amosar información de mensaxes sen ler.</li>
       <li xml:lang="he">הצגת פרטי הודעה שלא נקראה</li>
-      <li xml:lang="hi">अपठित संदेश जानकारी दिखाएं</li>
       <li xml:lang="hu">Olvasatlan üzenetek információinak megjelenítése</li>
       <li xml:lang="ia">Monstra information de message non legite</li>
       <li xml:lang="id">Tampilkan informasi pesan yang belum dibaca</li>
@@ -779,7 +727,6 @@
       <li xml:lang="pt">Mostrar informações de mensagens não-lidas</li>
       <li xml:lang="pt-BR">Mostrar informações de mensagens não lidas</li>
       <li xml:lang="ru">Показ сведений о непрочитанных сообщениях</li>
-      <li xml:lang="sa">अपठितसन्देशसूचना दर्शयतु</li>
       <li xml:lang="sk">Zobrazenie informácií o neprečítaných správach</li>
       <li xml:lang="sl">Prikaz informacij neprebranih sporočil</li>
       <li xml:lang="sv">Visa information om olästa meddelanden</li>
@@ -798,7 +745,6 @@
       <li xml:lang="fr">Autoriser le blocage / déblocage d'utilisateurs</li>
       <li xml:lang="gl">Bloquear ou desbloquear xente.</li>
       <li xml:lang="he">לאפשר לחסום/לבטל חסימת משתמשים</li>
-      <li xml:lang="hi">उपयोगकर्ताओं को ब्लॉक/अनब्लॉक करने की अनुमति दें</li>
       <li xml:lang="hu">Felhasználók tiltása/feloldása</li>
       <li xml:lang="ia">Permitte blocar/disblocar usatores</li>
       <li xml:lang="id">Izinkan memblokir/membuka blokir pengguna</li>
@@ -809,7 +755,6 @@
       <li xml:lang="pt">Permitir o bloqueio/desbloqueio de utilizadores</li>
       <li xml:lang="pt-BR">Permite bloquear/desbloquear usuários</li>
       <li xml:lang="ru">Блокировка и разблокировка пользователей</li>
-      <li xml:lang="sa">उपयोक्तृन् अवरोधयितुं/अनिरोधं कर्तुं अनुमतिं ददातु</li>
       <li xml:lang="sk">Možnosť blokovania/odblokovania používateľov</li>
       <li xml:lang="sl">Dovoljuje blokado/deblokado uporabnikov</li>
       <li xml:lang="sv">Tillåt att blockera och avblockera användare</li>
@@ -829,7 +774,6 @@
       <li xml:lang="fr">Absence automatique</li>
       <li xml:lang="gl">Ausencia automática.</li>
       <li xml:lang="he">התרחקות אוטומטית</li>
-      <li xml:lang="hi">स्वत: बंद</li>
       <li xml:lang="hu">Automatikus távollét</li>
       <li xml:lang="ia">Absente automatic</li>
       <li xml:lang="id">Pergi otomatis</li>
@@ -840,7 +784,6 @@
       <li xml:lang="pt">Ausência automática</li>
       <li xml:lang="pt-BR">Ausência automática</li>
       <li xml:lang="ru">Автоустановка отсутствия</li>
-      <li xml:lang="sa">स्वतः दूरम्</li>
       <li xml:lang="sk">Automatický stav neprítomnosti</li>
       <li xml:lang="sl">Samodejno zapuščanje sej</li>
       <li xml:lang="sv">Automatiskt frånvaro</li>
@@ -859,7 +802,6 @@
       <li xml:lang="fr">Authentification à deux facteurs par « TOTP »</li>
       <li xml:lang="gl">Autenticación de dous factores mediante pase momentáneo.</li>
       <li xml:lang="he">אימות דו־שלבי דרך TOTP</li>
-      <li xml:lang="hi">TOTP के माध्यम से दो-कारक प्रमाणीकरण</li>
       <li xml:lang="hu">Időalapú, egyszer használatos jelszóval történő kétfaktoros hitelesítés</li>
       <li xml:lang="ia">Authentication a duo factores via TOTP</li>
       <li xml:lang="id">Dua faktor autentikasi via TOTP</li>
@@ -870,7 +812,6 @@
       <li xml:lang="pt">Autenticação em dois-passos por TOTP</li>
       <li xml:lang="pt-BR">Autenticação de dois fatores via TOTP</li>
       <li xml:lang="ru">Двухфакторная аутентификация с помощью TOTP</li>
-      <li xml:lang="sa">TOTP मार्गेण द्विकारकप्रमाणीकरणं</li>
       <li xml:lang="sk">Dvojfaktorové overenie cez TOTP</li>
       <li xml:lang="sl">Dvo-faktorska avtentikacija prek TOTP</li>
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via TOTP</li>
@@ -889,7 +830,6 @@
       <li xml:lang="fr">Authentification à deux facteurs par courriel</li>
       <li xml:lang="gl">Autenticación de dous factores mediante correo electrónico.</li>
       <li xml:lang="he">אימות דו־שלבי דרך דוא״ל</li>
-      <li xml:lang="hi">ईमेल के माध्यम से दो-कारक प्रमाणीकरण</li>
       <li xml:lang="hu">E-mailen keresztüli kétfaktoros hitelesítés</li>
       <li xml:lang="ia">Authentication a duo factores via eposta</li>
       <li xml:lang="id">Dua faktor autentikasi via email</li>
@@ -900,7 +840,6 @@
       <li xml:lang="pt">Autenticação em dois-passos por e-mail</li>
       <li xml:lang="pt-BR">Autenticação de dois fatores via e-mail</li>
       <li xml:lang="ru">Двухфакторная аутентификация с помощью электронной почты</li>
-      <li xml:lang="sa">ईमेलद्वारा द्विकारकप्रमाणीकरणं</li>
       <li xml:lang="sk">Dvojfaktorové overenie cez e-mail</li>
       <li xml:lang="sl">Dvo-faktorska avtentikacija prek elektronske pošte</li>
       <li xml:lang="sv">Tvåfaktorsbehörighetskontroll via e-post</li>
@@ -919,7 +858,6 @@
       <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, État personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d'affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
       <li xml:lang="gl">Permitir administración (información de servidor, salas, estado de persoa personalizado, sons personalizados, expresións personalizadas, xente, invitacións, ver o rexistro, permisos, roles, OAuth), configuración de administración (mensaxe, conta, regras de retención, envío de ficheiros, cifraxe).</li>
       <li xml:lang="he">תמיכה בניהול (פרטי שרת, חדרים, Custom User Status, צלילים משלך, אמוג׳י משלך, משתמשים, הזמנות, הצגת יומן, הרשאות, תפקידים, Oauth), הגדרות ניהול (הודעה, חשבון, מדיניות התיישנות, העלאת קבצים, הצפנה)</li>
-      <li xml:lang="hi">व्यवस्थापक समर्थन (सर्वर जानकारी, कमरे, कस्टम उपयोगकर्ता स्थिति, कस्टम ध्वनियाँ, कस्टम इमोजी, उपयोगकर्ता, आमंत्रण, लॉग देखें, अनुमतियाँ, भूमिकाएँ, Oauth), व्यवस्थापक सेटिंग्स (संदेश, खाता, अवधारण नीति, फ़ाइल अपलोड, एन्क्रिप्शन)</li>
       <li xml:lang="hu">Adminisztrátori támogatás (kiszolgálóinformáció, szobál, egyéni felhasználóállapot, egyéni hangok, egyéni emodzsik, felhasználók, meghívások, napló megtekintése, jogosultságok szerepek, Oauth), Adminisztrátori beállítások (üzenet, fiók, megőrzési házirend, fájlfeltöltés, titkosítás)</li>
       <li xml:lang="ia">Supporto de Administrator (Info de servitor, Stato de Usator Personaliste, Sonos Personalisate, Emoji Personalisate, Usatores, Invitos, Vide registro, Rolos, Oauth),  Preferentias de Administrator (Message,Conto,Politica de Retention, Incargar de file, Encryptation)</li>
       <li xml:lang="id">Dukungan administrator (Info Server, Ruangan, Status Pengguna Kustom, Suara Kustom, Emoji Kustom, Pengguna, Undangan, Lihat Log, Izin, Peran, Oauth), Pengaturan Administrator (Pesan, Akun, Kebijakan Retensi, Unggah File, Enkripsi)</li>
@@ -930,7 +868,6 @@
       <li xml:lang="pt">Suporte para a administração (Informação do Servidor, Salas, Estados Personalizados do Utilizador, Sons Personalizados, Ícones Emotivos Personalizados, Utilizadores, Convites, Visualização do Registo, Permissões, Perfis, OAuth) e configuração do administrador (Mensagem, Conta, Política de Retenção, Envio de Ficheiros, Encriptação)</li>
       <li xml:lang="pt-BR">Suporte do administrador (Informações do servidor, Salas, Status de usuário personalizado, Sons personalizados, Emoji personalizado, Usuários, Convites, Visualizar log, Permissões, Funções, OAuth), Configurações do administrador (Mensagem, Conta, Política de retenção, Envio de arquivo, Criptografia)</li>
       <li xml:lang="ru">Поддержка администрирования (Сведения о сервере, Комнаты, Нестандартный статус пользователя, Нестандартные звуки, Нестандартные смайлики, Пользователи, Приглашения, Просмотр журнала, Права, Роли, Oauth), параметры администрирования (Сообщение, Учётная запись, Политика хранения, Отправка файлов, Шифрование)</li>
-      <li xml:lang="sa">प्रशासकसमर्थनम् (सर्वरसूचना, कक्ष्याः, कस्टम् उपयोक्तृस्थितिः, कस्टम् ध्वनयः, कस्टम् इमोजी, उपयोक्तारः, आमन्त्रणं, दृश्य लॉग, अनुमतिः, भूमिकाः, Oauth), प्रशासकस्य सेटिंग्स् (सन्देशः, खाता, अवधारणनीतिः, सञ्चिका अपलोड्, एन्क्रिप्शन)</li>
       <li xml:lang="sk">Podpora správcu (Informácie o serveri, Miestnosti, Vlastný stav používateľa, Vlastné zvuky, Vlastné emotikony, Používatelia, Pozvánky, Zobrazenie denníka, Oprávnenia, Roly, Oauth), Nastavenia správcu (Správa, Účet, Politika uchovávania, Nahrávanie súborov, Šifrovanie)</li>
       <li xml:lang="sl">Podpora skrbniku (informacije o strežniku, sobe, stanje uporabnikov po meri, zvoki po meri, čustvenčki po meri, uporabniki, vabila, ogled dnevnika, dovoljenja, vloge, prisege), nastavitve skrbnika (sporočilo, račun, pravilnik shranjevanja, prenos datotek tja, šifriranje)</li>
       <li xml:lang="sv">Administratörsstöd (serverinformation, rum, anpassad användarstatus, anpassade ljud, anpassade emoji, inbjudningar, loggvisning, rättigheter, roller, Oauth), administratörsinställningar (meddelanden, konton, bibehållandepolicy, filuppladdning, kryptering)</li>
@@ -950,7 +887,6 @@
       <li xml:lang="fr">Exporter des messages</li>
       <li xml:lang="gl">Exportar mensaxes.</li>
       <li xml:lang="he">ייצוא הודעות</li>
-      <li xml:lang="hi">संदेश निर्यात करें</li>
       <li xml:lang="hu">Üzenetek exportálása</li>
       <li xml:lang="ia">Exporta Messages </li>
       <li xml:lang="id">Ekspor Pesan</li>
@@ -961,8 +897,7 @@
       <li xml:lang="pt">Exportar as Mensagens</li>
       <li xml:lang="pt-BR">Exportar mensagens</li>
       <li xml:lang="ru">Экспорт сообщений</li>
-      <li xml:lang="sa">सन्देशान् निर्यातयन्तु</li>
-      <li xml:lang="sk">Správa</li>
+      <li xml:lang="sk">Export správ</li>
       <li xml:lang="sl">Izvozi sporočila</li>
       <li xml:lang="sv">Exportera meddelanden</li>
       <li xml:lang="tr">İletileri Dışa Aktar</li>
@@ -981,7 +916,6 @@
       <li xml:lang="fr">Vidéo-conférence</li>
       <li xml:lang="gl">Videoconferencia.</li>
       <li xml:lang="he">ועידת וידאו</li>
-      <li xml:lang="hi">वीडियो सम्मेलन</li>
       <li xml:lang="hu">Videokonferencia</li>
       <li xml:lang="ia">Video Conferentia</li>
       <li xml:lang="it">Videoconferenza</li>
@@ -991,8 +925,7 @@
       <li xml:lang="pt">Vídeo-Conferência</li>
       <li xml:lang="pt-BR">Vídeo-Conferência</li>
       <li xml:lang="ru">Видеоконференция</li>
-      <li xml:lang="sa">विडियो सम्मेलन</li>
-      <li xml:lang="sk">Video Conference</li>
+      <li xml:lang="sk">Videokonferencia</li>
       <li xml:lang="sl">Video konferenca</li>
       <li xml:lang="sv">Videokonferens</li>
       <li xml:lang="tr">Video Konferans</li>
@@ -1013,7 +946,6 @@
     <p xml:lang="fr">Fonctionnalités supplémentaires :</p>
     <p xml:lang="gl">Funcionalidades adicionais:</p>
     <p xml:lang="he">יכולות נוספות:</p>
-    <p xml:lang="hi">अतिरिक्त सुविधाएं:</p>
     <p xml:lang="hu">Extra szolgáltatások:</p>
     <p xml:lang="ia">Characteristicas Extra:</p>
     <p xml:lang="id">Fitur ekstra:</p>
@@ -1024,7 +956,6 @@
     <p xml:lang="pt">Funcionalidades extra:</p>
     <p xml:lang="pt-BR">Funcionalidades adicionais:</p>
     <p xml:lang="ru">Дополнительные возможности:</p>
-    <p xml:lang="sa">अतिरिक्तविशेषताः :</p>
     <p xml:lang="sk">Ďalšie funkcie:</p>
     <p xml:lang="sl">Ekstra možnosti:</p>
     <p xml:lang="sv">Extrafunktioner:</p>
@@ -1044,7 +975,6 @@
       <li xml:lang="fr">Autoriser à répondre directement au message à partir de la notification (fonctionnalités de KDE)</li>
       <li xml:lang="gl">Responder mensaxes directas desde notificacións (funcionalidades de KDE).</li>
       <li xml:lang="he">לאפשר לענות על הודעות ישירות מההתראות (יכולות של kde)</li>
-      <li xml:lang="hi">अधिसूचना से सीधे संदेश का उत्तर देने की अनुमति दें (केडीई सुविधाएँ)</li>
       <li xml:lang="hu">Közvetlen válasz üzenetekre az értesítésből (KDE szolgáltatás)</li>
       <li xml:lang="ia">Permitte replicar directemente a message aab notification (characteristicas de kde)</li>
       <li xml:lang="id">Izinkan untuk membalas langsung pesan dari notifikasi (fitur kde)</li>
@@ -1055,7 +985,6 @@
       <li xml:lang="pt">Possibilidade de responder directamente à mensagem a partir da notificação (no KDE)</li>
       <li xml:lang="pt-BR">Permitir responder diretamente à mensagem a partir da notificação (funcionalidade do KDE)</li>
       <li xml:lang="ru">Ответ на сообщение непосредственно из уведомления (возможности KDE)</li>
-      <li xml:lang="sa">सूचनातः सन्देशस्य प्रत्यक्षं उत्तरं दातुं अनुमन्यताम् (kde features)</li>
       <li xml:lang="sk">Možnosť priamej odpovede na správu z oznámenia (funkcie KDE)</li>
       <li xml:lang="sl">Dovoljuje, neposredne odgovore na sporočilo iz obvestila (možnosti KDE)</li>
       <li xml:lang="sv">Tillåt att svara direkt på meddelande från underrättelser (KDE-funktion)</li>
@@ -1074,19 +1003,17 @@
       <li xml:lang="fr">Glisser et déposer une image à partir de Ruqola vers le site Internet ou vers un dossier local</li>
       <li xml:lang="gl">Arrastrar e soltar imaxes de Ruqola nun sitio web ou cartafol local.</li>
       <li xml:lang="he">גרירה של תמונה מ־ruqola לאתר או לתיקייה מקומית</li>
-      <li xml:lang="hi">रुकोला से छवि को वेबसाइट या स्थानीय फ़ोल्डर में खींचें और छोड़ें</li>
       <li xml:lang="hu">Képek ejtése fogd és vidd módszerrel Ruqolából weboldalra vagy helyi mappába</li>
       <li xml:lang="ia">Traher e poner imagine ex ruqola a sito web o dossier local</li>
       <li xml:lang="it">Trascina e rilascia l'immagine da ruqola al sito web o alla cartella locale</li>
-      <li xml:lang="ka">გადაათრიეთ და დააგდეთ გამოსახულება ruqola-დან ვებსაიტზე ან ლოკალურ საქაღალდეში</li>
-      <li xml:lang="nl">Sleep een afbeelding uit ruqola en laat los op een website of lokale map</li>
+      <li xml:lang="ka">გადაათრიეთ და დააგდეთ გამოსახულება ruqola-დან ვებსაიტამდე ან ლოკალურ საქაღალდემდე</li>
+      <li xml:lang="nl">Afbeelding uit ruqola slepen  en loslaten naar website of lokale map</li>
       <li xml:lang="pl">Przeciągnij i upuść obraz ze strony sieciowej ruqoli do katalogu lokalnego</li>
       <li xml:lang="pt-BR">Arrastar e soltar imagem do ruqola para o site ou pasta local</li>
       <li xml:lang="ru">Перетаскивание изображения из Ruqola на веб-сайт или в локальную папку</li>
-      <li xml:lang="sa">ruqola तः website अथवा स्थानीय समुच्चय मध्ये चित्रं खींच्य पातयन्तु</li>
       <li xml:lang="sk">Pretiahnutie obrázka z Ruqola na webovú stránku alebo do miestneho priečinka</li>
       <li xml:lang="sl">Povlecite in spustite sliko iz ruqole na spletno mesto ali lokalno mapo</li>
-      <li xml:lang="sv">Dra och släpp bild from ruqola till webbplats eller lokal katalog</li>
+      <li xml:lang="sv">Dra och släpp bild från Ruqola till webbplats eller lokal katalog</li>
       <li xml:lang="tr">Roka’dan web sitesine veya yerel klasöre görsel sürükleyip bırakın</li>
       <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li xml:lang="zh-TW">從 Ruqola 拖放影像到網站或本地資料夾中</li>
@@ -1102,7 +1029,6 @@
       <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
       <li xml:lang="gl">Almacenar mensaxes nunha base de datos local para buscar nelas sen Internet.</li>
       <li xml:lang="he">אחסון הודעה במסד נתונים מקומי כדי שנוכל לחפש ללא חיבור לאינטרנט</li>
-      <li xml:lang="hi">संदेश को स्थानीय डेटाबेस में संग्रहीत करें ताकि हम ऑफ़लाइन खोज सकें</li>
       <li xml:lang="hu">Üzenetek tárolása helyi adatbázisban offline kereséshez</li>
       <li xml:lang="ia">Immagazina message in base de datos local assi que on pote cercar in foras de linea</li>
       <li xml:lang="id">Simpan pesan di database lokal sehingga kami bisa mencari secara offline</li>
@@ -1113,11 +1039,10 @@
       <li xml:lang="pt">Armazenamento da mensagem na base de dados local, para que possa ser pesquisada mesmo sem rede</li>
       <li xml:lang="pt-BR">Armazenar a mensagem no banco de dados local para que possamos pesquisar offline</li>
       <li xml:lang="ru">Хранение сообщений в локальной базе данных (позволяет выполнять поиск в автономном режиме)</li>
-      <li xml:lang="sa">सन्देशं स्थानीयदत्तांशकोशे संग्रहयन्तु येन वयं अफलाइनरूपेण अन्वेषणं कर्तुं शक्नुमः</li>
       <li xml:lang="sk">Ukladanie správ do miestnej databázy pre vyhľadávanie v režime offline</li>
       <li xml:lang="sl">Shrani sporočilo v lokalni bazi podatkov, da jo bomo lahko iskali tudi brez povezave</li>
       <li xml:lang="sv">Lagra meddelanden i lokal databas så de går att söka i nerkopplad</li>
-      <li xml:lang="tr">İletileri yerel bir veri tabanında depola, böylece çevrim dışıyken aranabilir</li>
+      <li xml:lang="tr">İletileri yerel bir veritabanında depola, böylece çevrimdışıyken aranabilir</li>
       <li xml:lang="uk">Зберігання повідомлення у локальній базі даних для пошуку в автономному режимі</li>
       <li xml:lang="zh-TW">將訊息儲存在本地資料庫以利離線搜尋</li>
       <li>Mark All Channels are read</li>
@@ -1132,7 +1057,6 @@
       <li xml:lang="fr">Marquer tous les canaux comme lus</li>
       <li xml:lang="gl">Marcar todas as canles como lidas.</li>
       <li xml:lang="he">לסמן את כל הערוצים כנקראו</li>
-      <li xml:lang="hi">सभी चैनल पढ़े हुए चिह्नित करें</li>
       <li xml:lang="hu">Összes csatorna megjelölése olvasottként</li>
       <li xml:lang="ia">Marca omne canales como legite</li>
       <li xml:lang="id">Tandai Semua Kanal yang dibaca</li>
@@ -1143,7 +1067,6 @@
       <li xml:lang="pt">Marcação de todos os canais como lidos</li>
       <li xml:lang="pt-BR">Marcar todos os canais como lidos</li>
       <li xml:lang="ru">Отметка всех каналов как прочитанных</li>
-      <li xml:lang="sa">Mark All Channels पठ्यते</li>
       <li xml:lang="sk">Označiť všetky kanály ako prečítané</li>
       <li xml:lang="sl">Označi vsa sporočila kot prebrana</li>
       <li xml:lang="sv">Markera alla kanaler som lästa</li>
@@ -1162,7 +1085,6 @@
       <li xml:lang="fr">Ajouter un historique de notifications</li>
       <li xml:lang="gl">Historial de notificacións.</li>
       <li xml:lang="he">הוספת היסטוריית התראות</li>
-      <li xml:lang="hi">अधिसूचना इतिहास जोड़ें</li>
       <li xml:lang="hu">Értesítési előzmények hozzáadása</li>
       <li xml:lang="ia">Adde chronologia de notification</li>
       <li xml:lang="id">Menambahkan histori notifikasi</li>
@@ -1173,7 +1095,6 @@
       <li xml:lang="pt">Adição do histórico de notificações</li>
       <li xml:lang="pt-BR">Adicionar histórico de notificação</li>
       <li xml:lang="ru">История уведомлений</li>
-      <li xml:lang="sa">सूचना इतिहासं योजयन्तु</li>
       <li xml:lang="sk">Pridanie histórie oznámení</li>
       <li xml:lang="sl">Dodaj zgodovino obvestil</li>
       <li xml:lang="sv">Lägg till underrättelsehistorik</li>
@@ -1192,7 +1113,6 @@
       <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
       <li xml:lang="gl">Compatibilidade con nova información de servidor de Rocket.Chat.</li>
       <li xml:lang="he">תמיכה חדשה בפרטי שרת RocketChat</li>
-      <li xml:lang="hi">नया रॉकेटचैट सर्वर सूचना समर्थन</li>
       <li xml:lang="hu">Új Rocket.Chat kiszolgálóinformációk támogatása</li>
       <li xml:lang="ia">Nove Supportode Information de servitor de RocketChat</li>
       <li xml:lang="id">Dukungan Informasi Server RocketChat Baru</li>
@@ -1203,7 +1123,6 @@
       <li xml:lang="pt">Nova Informação de Suporte do Servidor RocketChat</li>
       <li xml:lang="pt-BR">Suporte à informações do novo Servidor RocketChat</li>
       <li xml:lang="ru">Поддержка сведений о сервере RocketChat</li>
-      <li xml:lang="sa">नवीनं RocketChat सर्वर सूचनासमर्थनम्</li>
       <li xml:lang="sk">Podpora informácií o novom serveri RocketChat</li>
       <li xml:lang="sl">Informacijska podpora novemu strežniku RocketChat</li>
       <li xml:lang="sv">Stöd för information om ny RocketChat-server</li>
@@ -1223,7 +1142,6 @@
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
       <li xml:lang="gl">Xestión de dispositivos (Rocket.Chat ≥ 5.0).</li>
       <li xml:lang="he">ניהול מכשיר (RocketChat &gt;= 5.0)</li>
-      <li xml:lang="hi">डिवाइस प्रबंधित करें (RC &gt;= 5.0)</li>
       <li xml:lang="hu">Eszközkezelés (RC &gt;= 5.0)</li>
       <li xml:lang="ia">Gere Dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="id">Kelola Peranti (RC &gt;= 5.0)</li>
@@ -1234,7 +1152,6 @@
       <li xml:lang="pt">Gerir o Dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="pt-BR">Gerenciar dispositivos (RC &gt;= 5.0)</li>
       <li xml:lang="ru">Управление устройством (RC &gt;= 5.0)</li>
-      <li xml:lang="sa">उपकरणं प्रबन्धयतु (RC &gt;= 5.0)</li>
       <li xml:lang="sk">Správa zariadení (RC &gt;= 5.0)</li>
       <li xml:lang="sl">Upravljaj napravo (RC &gt;= 5.0)</li>
       <li xml:lang="sv">Hantera enhet (RC ≥ 5.0)</li>
@@ -1254,7 +1171,6 @@
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
       <li xml:lang="gl">Xestión de pase de acceso persoal.</li>
       <li xml:lang="he">ניהול אסימון גישה אישי</li>
-      <li xml:lang="hi">व्यक्तिगत एक्सेस टोकन प्रबंधित करें</li>
       <li xml:lang="hu">Személyes hozzáférési tokenek kezelése</li>
       <li xml:lang="ia">Gere Token de accesso Personal</li>
       <li xml:lang="id">Kelola Token Akses Personal</li>
@@ -1265,7 +1181,6 @@
       <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
       <li xml:lang="pt-BR">Gerenciar tokens de acesso pessoal</li>
       <li xml:lang="ru">Управление личным маркером доступа</li>
-      <li xml:lang="sa">व्यक्तिगत अभिगम टोकन प्रबन्धयन्तु</li>
       <li xml:lang="sk">Správa osobných prístupových tokenov</li>
       <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
       <li xml:lang="sv">Hantera personlig åtkomstsymbol</li>
@@ -1285,7 +1200,6 @@
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
       <li xml:lang="gl">Permitir traducións locais.</li>
       <li xml:lang="he">הוספת תמיכה בתרגום מקומי</li>
-      <li xml:lang="hi">स्थानीय अनुवाद के लिए समर्थन जोड़ें</li>
       <li xml:lang="hu">Helyi fordítás támogatása</li>
       <li xml:lang="ia">Adde supporto per traduction local</li>
       <li xml:lang="id">Menambahkan dukungan terjemahan lokal</li>
@@ -1296,7 +1210,6 @@
       <li xml:lang="pt">Adição do suporte para traduções locais</li>
       <li xml:lang="pt-BR">Adicionar suporte para tradução local</li>
       <li xml:lang="ru">Добавление поддержки локального перевода</li>
-      <li xml:lang="sa">स्थानीयानुवादस्य समर्थनं योजयन्तु</li>
       <li xml:lang="sk">Podpora miestneho prekladu</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
       <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
@@ -1316,7 +1229,6 @@
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
       <li xml:lang="gl">Permitir corrección automática de texto.</li>
       <li xml:lang="he">הוספת תמיכה בתיקון אוטומטי של טקסט</li>
-      <li xml:lang="hi">टेक्स्ट स्वतः सुधार के लिए समर्थन जोड़ें</li>
       <li xml:lang="hu">Automatikus szövegjavítás támogatása</li>
       <li xml:lang="ia">Adde supporto per auto-correction de texto</li>
       <li xml:lang="id">Menambahkan dukungan untuk auto koreksi teks</li>
@@ -1327,7 +1239,6 @@
       <li xml:lang="pt">Adição do suporte para a correcção automática do texto</li>
       <li xml:lang="pt-BR">Adicionar suporte para auto-correção de texto</li>
       <li xml:lang="ru">Добавление поддержки автоматического исправления текста</li>
-      <li xml:lang="sa">पाठस्वयं-शुद्ध्यर्थं समर्थनं योजयन्तु</li>
       <li xml:lang="sk">Podpora automatickej opravy textu</li>
       <li xml:lang="sl">Dodaj podporo za samodejno popravljanje besedila</li>
       <li xml:lang="sv">Lägg till stöd för automatisk textkorrigering</li>
@@ -1357,7 +1268,6 @@
       <caption xml:lang="fr">Salon de discussions dans ruqola</caption>
       <caption xml:lang="gl">Sala de conversa en Ruqola.</caption>
       <caption xml:lang="he">חדר שיחה ב־Ruqola</caption>
-      <caption xml:lang="hi">रुकोला में चैट रूम</caption>
       <caption xml:lang="hu">Csevegőszoba a Ruqolában</caption>
       <caption xml:lang="ia">Sala de conversation in Ruqola</caption>
       <caption xml:lang="id">Ruang obrolan di Ruqola</caption>
@@ -1369,7 +1279,6 @@
       <caption xml:lang="pt">Sala de conversação no Ruqola</caption>
       <caption xml:lang="pt-BR">Sala de bate-papo no Ruqola</caption>
       <caption xml:lang="ru">Комната разговора в Ruqola</caption>
-      <caption xml:lang="sa">रुकोला में गपशप कक्ष</caption>
       <caption xml:lang="sk">Chatovacia miestnosť v Ruqola</caption>
       <caption xml:lang="sl">Klepetalnica v Ruqoli</caption>
       <caption xml:lang="sv">Chattrum i Ruqola</caption>
@@ -1392,82 +1301,11 @@
       <description>
         <ul>
           <li>Improve offline Mode</li>
-          <li xml:lang="ar">تحسين وضع عدم الاتّصال</li>
-          <li xml:lang="ca">Millora el mode desconnectat</li>
-          <li xml:lang="ca-valencia">Millora el mode desconnectat</li>
-          <li xml:lang="es">Mejoras en modo desconectado</li>
-          <li xml:lang="fr">Améliorer le mode déconnecté</li>
-          <li xml:lang="it">Migliora la modalità non in linea</li>
-          <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
-          <li xml:lang="nl">Offline-modus verbeteren</li>
-          <li xml:lang="pt-BR">Melhorar modo desconectado</li>
-          <li xml:lang="sk">Vylepšenie režimu offline</li>
-          <li xml:lang="sl">Izboljša način brez povezave</li>
-          <li xml:lang="tr">Çevrim dışı kipini iyileştir</li>
-          <li xml:lang="uk">Удосконалено автономний режим</li>
           <li>Allow to open saved file.</li>
-          <li xml:lang="ar">اسمح بفتح ملف محفوظ.</li>
-          <li xml:lang="ca">Permet obrir un fitxer desat.</li>
-          <li xml:lang="ca-valencia">Permet obrir un fitxer guardat.</li>
-          <li xml:lang="es">Permitir la apertura de archivos guardados.</li>
-          <li xml:lang="fr">Autoriser l'ouverture du fichier enregistré.</li>
-          <li xml:lang="it">Consente l'apertura del file salvato.</li>
-          <li xml:lang="ka">შენახული ფაილის გახსნის დაშვება.</li>
-          <li xml:lang="nl">Toestaan opgeslagen bestand te openen.</li>
-          <li xml:lang="pt-BR">Permite abrir arquivo salvo.</li>
-          <li xml:lang="sk">Možnosť otvorenia uloženého súboru.</li>
-          <li xml:lang="sl">Dovoli odpiranje shranjene datoteke.</li>
-          <li xml:lang="tr">Kaydedilen dosyanın açılmasına izin ver.</li>
-          <li xml:lang="uk">Уможливлено відкриття збереженого файла.</li>
           <li>Allow to rotate image in show image dialog</li>
-          <li xml:lang="ar">اسمح بتدوير الصورة في حوار عرض الصورة</li>
-          <li xml:lang="ca">Permet girar una imatge en el diàleg de mostrar imatges</li>
-          <li xml:lang="ca-valencia">Permet girar una imatge en el diàleg de mostrar imatges</li>
-          <li xml:lang="es">Permite la rotación de imágenes en el diálogo mostrar imagen</li>
-          <li xml:lang="it">Consenti di ruotare l'immagine nella finestra «Mostra immagine».</li>
-          <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
-          <li xml:lang="nl">In dialoog voor tonen van afbeelding draaien toestaan</li>
-          <li xml:lang="pt-BR">Permitir rotação da imagem na caixa de diálogo de exibição de imagem</li>
-          <li xml:lang="sk">Umožnenie otočenia obrázka v dialógu zobrazenia obrázka</li>
-          <li xml:lang="sl">Dovoli vrtenje slike v pogovornem oknu za prikaz slike</li>
-          <li xml:lang="tr">Görsel görüntüleme iletişim kutusunda görseli döndürmeye olanak tanı</li>
-          <li xml:lang="uk">Уможливлено обертання зображення у вікні показу зображення</li>
           <li>Add new room info in notification history dialog.</li>
-          <li xml:lang="ar">أضف معلومات الغرفة الجديدة في حوار سجل الإشعارات.</li>
-          <li xml:lang="ca">Afegeix informació nova de sala al diàleg de l'historial de notificacions.</li>
-          <li xml:lang="ca-valencia">Afig informació nova de sala al diàleg de l'historial de notificacions.</li>
-          <li xml:lang="es">Añadida información de nueva sala en el diálogo histórico de notificaciones.</li>
-          <li xml:lang="he">נוספו פרטי החדר החדש בחלונית היסטוריית ההתראות.</li>
-          <li xml:lang="it">Aggiungi le informazioni sulla nuova stanza nella finestra della cronologia delle notifiche.</li>
-          <li xml:lang="ka">დაემატა ახალი ოთახის ინფორმაცია გაფრთხილებების ისტორიის დიალოგში.</li>
-          <li xml:lang="nl">Voeg nieuwe roominformatie toe in de dialoog van de geschiedenis van meldingen</li>
-          <li xml:lang="pt-BR">Adicionar novas informações da sala na janela do histórico de notificações.</li>
-          <li xml:lang="sk">Pridanie informácií o novej miestnosti v dialógu histórie oznámení.</li>
-          <li xml:lang="sl">Dodaj podatke o novi sobi v pogovorno okno zgodovine obvestil.</li>
-          <li xml:lang="tr">Bildirim geçmişi iletişim kutusuna yeni oda bilgisini ekle</li>
-          <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
           <li>Use new textmessagewidget for error notification</li>
-          <li xml:lang="ar">استخدام ودجة رسالة نصية جديدة للإشعارات الأخطاء</li>
-          <li xml:lang="ca">Usa el «textmessagewidget» nou per a notificacions d'error</li>
-          <li xml:lang="ca-valencia">Utilitza el «textmessagewidget» nou per a notificacions d'error</li>
-          <li xml:lang="es">Uso de los nuevos widgets de mensajes de texto para las notificaciones de error</li>
-          <li xml:lang="it">Utilizzare il nuovo oggetto per i messaggi di testo per la notifica degli errori.</li>
-          <li xml:lang="ka">ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის</li>
-          <li xml:lang="nl">Gebruik het nieuwe widget voor tekstberichten voor foutmeldingen</li>
-          <li xml:lang="pt-BR">Usar o novo textmessagewidget para notificação de erro</li>
-          <li xml:lang="sk">Použitie nového textmessagewidget na oznámenie chyby</li>
-          <li xml:lang="sl">Uporabi novi gradnik textmessagewidget za obvestilo o napaki</li>
-          <li xml:lang="tr">Hata bildirimleri için yeni textmessagewidget kullan</li>
-          <li xml:lang="uk">Для сповіщення про помилку використано новий textmessagewidget</li>
           <li>Implement Draft message sorting channel.</li>
-          <li xml:lang="ca">Implementa el canal d'ordenació dels esborranys.</li>
-          <li xml:lang="ca-valencia">Implementa el canal d'ordenació dels esborranys.</li>
-          <li xml:lang="ka">განხორციელდა მონახაზი შეტყობინებების დალაგების არხი.</li>
-          <li xml:lang="nl">Implementeer een kanaal voor het sorteren van conceptberichten.</li>
-          <li xml:lang="pt-BR">Implementa canal de classificação de mensagens em rascunho.</li>
-          <li xml:lang="sl">Implementira kanal za sortiranje osnutkov sporočil.</li>
-          <li xml:lang="tr">Taslak ileti sıralama özelliğini gerçekle</li>
-          <li xml:lang="uk">Реалізовано канал упорядковування повідомлень-чернеток</li>
           <li>Implement Banned Users list dialog.</li>
           <li>Implement Banned/Unbanned Users.</li>
         </ul>
@@ -1480,166 +1318,17 @@
       <description>
         <ul>
           <li>Copy block code more easily</li>
-          <li xml:lang="ar">انسخ كتلة الرمز بسهولة أكبر</li>
-          <li xml:lang="ca">Copia blocs de codi més fàcilment</li>
-          <li xml:lang="ca-valencia">Copia blocs de codi amb més facilitat</li>
-          <li xml:lang="es">Facilitada la copia de bloques de código</li>
-          <li xml:lang="fr">Copier le code en bloc plus facilement</li>
-          <li xml:lang="it">Copia più facile dei blocchi di codice</li>
-          <li xml:lang="ka">კოდის ბლოკის უფრო ადვილად კოპირება</li>
-          <li xml:lang="nl">Blokcode gemakkelijker kopiëren</li>
-          <li xml:lang="pt-BR">Copia código de bloco mais facilmente</li>
-          <li xml:lang="sk">Jednoduchšie kopírovanie blokov kódu</li>
-          <li xml:lang="sl">Lažje kopira blokovno kodo</li>
-          <li xml:lang="tr">Kod bloğunu daha kolay kopyala</li>
-          <li xml:lang="uk">Полегшено копіювання блоків коду</li>
           <li>Improve Text To Speech user interface</li>
-          <li xml:lang="ar">تحسين واجهة المستخدم لتحويل النص إلى كلام</li>
-          <li xml:lang="ca">Millora la interfície d'usuari del text a veu</li>
-          <li xml:lang="ca-valencia">Millora la interfície d'usuari del text a veu</li>
-          <li xml:lang="es">Mejoras en la interfaz de usuario de texto a habla</li>
-          <li xml:lang="fr">Améliorer l'interface utilisateur pour la synthèse vocale</li>
-          <li xml:lang="it">Migliorare l'interfaccia utente della sintesi vocale</li>
-          <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
-          <li xml:lang="nl">Verbeter gebruikersinterface van tekst-naar-spraak</li>
-          <li xml:lang="pt-BR">Melhora a interface de usuário de texto para fala</li>
-          <li xml:lang="sk">Vylepšenie používateľského rozhrania prevodu textu na reč</li>
-          <li xml:lang="sl">Izboljša uporabniški vmesnik za pretvorbo besedila v govor</li>
-          <li xml:lang="tr">Metinden konuşmaya kullanıcı arayüzünü iyileştir</li>
-          <li xml:lang="uk">Удосконалено інтерфейс озвучення тексту</li>
           <li>Show attachment fields</li>
-          <li xml:lang="ar">أظهر حقول المرفقات</li>
-          <li xml:lang="ca">Mostra els camps dels adjunts</li>
-          <li xml:lang="ca-valencia">Mostra els camps dels adjunts</li>
-          <li xml:lang="es">Mostrar campos adjuntos</li>
-          <li xml:lang="fr">Afficher les champs de pièce jointe</li>
-          <li xml:lang="it">Mostra i campi degli allegati</li>
-          <li xml:lang="ka">მიმაგრებული ფაილის ველების ჩვენება</li>
-          <li xml:lang="nl">Bijlagevelden tonen</li>
-          <li xml:lang="pt-BR">Exibir campos de anexos</li>
-          <li xml:lang="sk">Zobrazenie polí príloh</li>
-          <li xml:lang="sl">Prikaže polja za priloge</li>
-          <li xml:lang="tr">Ek alanlarını göster</li>
-          <li xml:lang="uk">Реалізовано показ полів долучень</li>
           <li>Implement Offline Mode (experimental)</li>
-          <li xml:lang="ar">تنفيذ الوضع غير المتصل بالإنترنت (تجريبي)</li>
-          <li xml:lang="ca">Implementa el mode desconnectat (experimental)</li>
-          <li xml:lang="ca-valencia">Implementa el mode desconnectat (experimental)</li>
-          <li xml:lang="es">Modo desconectado implementado (experimental)</li>
-          <li xml:lang="fr">Implémenter le mode déconnecté (Expérimental)</li>
-          <li xml:lang="it">Implementa la modalità non in linea (sperimentale)</li>
-          <li xml:lang="ka">ხაზგარეშე რეჟიმი (ექსპერიმენტული)</li>
-          <li xml:lang="nl">Implementeert offline modus (experimenteel)</li>
-          <li xml:lang="pt-BR">Modo offline implementado (experimental)</li>
-          <li xml:lang="sk">Implementácia režimu offline (experimentálne)</li>
-          <li xml:lang="sl">Implementacija načina brez povezave (poskusno)</li>
-          <li xml:lang="tr">Çevrim dışı kipini gerçekle (deneysel)</li>
-          <li xml:lang="uk">Реалізовано автономний режим (експериментальна можливість)</li>
           <li>Implement Pending Typed database storage</li>
-          <li xml:lang="ar">تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة</li>
-          <li xml:lang="ca">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
-          <li xml:lang="ca-valencia">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
-          <li xml:lang="es">Implementado almacenamiento en base de datos  pendiente de tipos</li>
-          <li xml:lang="it">Implementa l'archiviazione della banca di dati per le informazioni in attesa di digitazione</li>
-          <li xml:lang="ka">განხორციელდა რიგში მყოფი აკრეფილი მონაცემთა ბაზის საცავი</li>
-          <li xml:lang="nl">Implementeer wachtende getypte database-opslag</li>
-          <li xml:lang="pt-BR">Implementa armazenamento de banco de dados tipado pendente</li>
-          <li xml:lang="sk">Implementácia databázového ukladania rozpísaných správ</li>
-          <li xml:lang="sl">Implementira čakajoče shrambe tipizirane baze podatkov</li>
-          <li xml:lang="tr">Bekleyen yazılan veri tabanı depolamasını gerçekle</li>
-          <li xml:lang="uk">Реалізовано сховище у базі даних для черги введення</li>
           <li>Fix RC 8.0.0 support</li>
-          <li xml:lang="ar">إصلاح دعم RC 8.0.0</li>
-          <li xml:lang="ca">Corregeix la implementació del RC 8.0.0</li>
-          <li xml:lang="ca-valencia">Corregix la implementació del RC 8.0.0</li>
-          <li xml:lang="es">Mejora en el soporte de RC 80.0</li>
-          <li xml:lang="it">Corregge il supporto RC 8.0.0</li>
-          <li xml:lang="ka">გასწორდა RC 8.0.0-ის მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor RC 8.0.0 opgelost</li>
-          <li xml:lang="pt-BR">Corrige suporte ao RC 8.0.0</li>
-          <li xml:lang="sk">Oprava podpory RC 8.0.0</li>
-          <li xml:lang="sl">Popravljena podpora za RC 8.0.0</li>
-          <li xml:lang="tr">RC 8.0.0 desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено підтримку RC 8.0.0</li>
           <li>Add Attachment Actions Support</li>
-          <li xml:lang="ar">إضافة إجراءات المرفقات</li>
-          <li xml:lang="ca">Afegeix la implementació d'accions d'adjunts</li>
-          <li xml:lang="ca-valencia">Afig la implementació d'accions d'adjunts</li>
-          <li xml:lang="es">Añadidas acciones de adjuntos</li>
-          <li xml:lang="it">Aggiunge il supporto per le azioni sugli allegati</li>
-          <li xml:lang="ka">დაემატა ქმედებების მხარდაჭერა მიმაგრებული ფაილებისთვის</li>
-          <li xml:lang="nl">Ondersteuning voor bijlageacties toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona suporte para ações de anexo</li>
-          <li xml:lang="sk">Pridanie podpory akcií príloh</li>
-          <li xml:lang="sl">Podpora za dejanja dodajanja prilog</li>
-          <li xml:lang="tr">Ek eylemleri desteği ekle</li>
-          <li xml:lang="uk">Додано підтримку дій з долученнями</li>
           <li>Add TimeStamp support</li>
-          <li xml:lang="ar">إضافة الختم الزمني</li>
-          <li xml:lang="ca">Afegeix la implementació de marques horàries</li>
-          <li xml:lang="ca-valencia">Afig la implementació de marques de temps</li>
-          <li xml:lang="es">Añadido soporte para marcas de tiempo</li>
-          <li xml:lang="he">נוספה תמיכה בחותמות זמן</li>
-          <li xml:lang="it">Aggiunge il supporto per la marca temporale</li>
-          <li xml:lang="ka">დაემატა დროის შტამპის მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor tijdstempel toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona suporte para marca de tempo</li>
-          <li xml:lang="sk">Pridanie podpory časových značiek</li>
-          <li xml:lang="sl">Doda podporo za časovni žig</li>
-          <li xml:lang="tr">Zaman damgası desteği ekle</li>
-          <li xml:lang="uk">Додано підтримку часових позначок</li>
           <li>Save local translation to local database</li>
-          <li xml:lang="ar">حفظ الترجمة المحلية في قاعدة البيانات المحلية</li>
-          <li xml:lang="ca">Desa la traducció local a la base de dades local</li>
-          <li xml:lang="ca-valencia">Guarda la traducció local a la base de dades local</li>
-          <li xml:lang="es">Guardar traducción local a base de datos local</li>
-          <li xml:lang="it">Salva la traduzione locale nella banca dati locale</li>
-          <li xml:lang="ka">ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში</li>
-          <li xml:lang="nl">Lokale vertaling in lokale gegevensbank opslaan</li>
-          <li xml:lang="pt-BR">Salvar tradução local no banco de dados local</li>
-          <li xml:lang="sk">Ukladanie miestneho prekladu do miestnej databázy</li>
-          <li xml:lang="sl">Shrani lokalni prevod v lokalno podatkovno zbirko</li>
-          <li xml:lang="tr">Yerel çeviriyi yerel veri tabanına kaydet</li>
-          <li xml:lang="uk">Реалізовано збереження локального перекладу до локальної бази даних</li>
           <li>Fix remove room (in local database)</li>
-          <li xml:lang="ar">إصلاح إزالة الغرفة (في قاعدة البيانات المحلية)</li>
-          <li xml:lang="ca">Corregeix l'eliminació de sala (a la base de dades local)</li>
-          <li xml:lang="ca-valencia">Corregix l'eliminació de sala (a la base de dades local)</li>
-          <li xml:lang="es">Corrección al eliminar sala (en base de datos local)</li>
-          <li xml:lang="it">Corregge la rimozione della stanza (nella banca dati locale)</li>
-          <li xml:lang="ka">გასწორდა ოთახის წაშლა (ლოკალურ მონაცემთა ბაზებში)</li>
-          <li xml:lang="nl">Room verwijderen repareren (in lokale database)</li>
-          <li xml:lang="pt-BR">Correção de remoção de sala (no banco de dados local)</li>
-          <li xml:lang="sk">Oprava odstránenia miestnosti (v miestnej databáze)</li>
-          <li xml:lang="sl">Popravi odstranjevanje sobe (v lokalni bazi podatkov)</li>
-          <li xml:lang="tr">Odayı kaldırmayı düzelt (yerel veri tabanında)</li>
-          <li xml:lang="uk">Виправлено вилучення кімнати (у локальній базі даних)</li>
           <li>Fix export database</li>
-          <li xml:lang="ar">إصلاح تصدير قاعدة البيانات</li>
-          <li xml:lang="ca">Corregeix l'exportació de la base de dades</li>
-          <li xml:lang="ca-valencia">Corregix l'exportació de la base de dades</li>
-          <li xml:lang="es">Corrección al exportar la base de datos</li>
-          <li xml:lang="it">Corregge l'esportazione della banca dati</li>
-          <li xml:lang="ka">გასწორდა მონაცემთა ბაზის გატანა</li>
-          <li xml:lang="nl">Exporteren van database repareren</li>
-          <li xml:lang="pt-BR">Correção da exportação do banco de dados</li>
-          <li xml:lang="sk">Oprava exportu databázy</li>
-          <li xml:lang="sl">Popravi izvoz podatkovne baze</li>
-          <li xml:lang="tr">Veri tabanı dışa aktarımını düzelt</li>
-          <li xml:lang="uk">Виправлено експортування бази даних</li>
           <li>Fix upload Custom Sound</li>
-          <li xml:lang="ar">إصلاح تحميل الصوت المخصص</li>
-          <li xml:lang="ca">Corregeix la pujada de sons personalitzats</li>
-          <li xml:lang="ca-valencia">Corregix la pujada de sons personalitzats</li>
-          <li xml:lang="es">Mejora en la subida de sonidos personalizados</li>
-          <li xml:lang="it">Corregge il caricamento dei suoni personalizzati</li>
-          <li xml:lang="ka">გასწორდა მორგებული ხმების ატვირთვა</li>
-          <li xml:lang="nl">Eigen geluid uploaden oplossen</li>
-          <li xml:lang="pt-BR">Corrige o envio de som personalizado</li>
-          <li xml:lang="sk">Oprava nahrávania vlastného zvuku</li>
-          <li xml:lang="sl">Popravi prenos zvoka po meri</li>
-          <li xml:lang="tr">Özel ses yüklemeyi düzelt</li>
-          <li xml:lang="uk">Виправлено вивантаження нетипових звуків</li>
         </ul>
       </description>
     </release>
@@ -1648,292 +1337,27 @@
       <description>
         <ul>
           <li>Add AI plugin</li>
-          <li xml:lang="ar">أضف ملحقة الذكاء الاصطناعي</li>
-          <li xml:lang="ca">Afegeix un connector d'IA</li>
-          <li xml:lang="ca-valencia">Afig un connector d'IA</li>
-          <li xml:lang="es">Añadido complemento AI</li>
-          <li xml:lang="it">Aggiungi estensione IA</li>
-          <li xml:lang="ka">დაემატა ხი-ის დამატება</li>
-          <li xml:lang="nl">AI-plug-in toevoegen</li>
-          <li xml:lang="pt-BR">Adicionar plugin de IA</li>
-          <li xml:lang="sk">Pridanie zásuvného modulu AI</li>
-          <li xml:lang="sl">Dodaj vtičnik umetne inteligence</li>
-          <li xml:lang="tr">Yapay zekâ eklentisi ekle</li>
-          <li xml:lang="uk">Додано додаток ШІ</li>
           <li>Allow to dnd image</li>
-          <li xml:lang="ar">السماح بتحويل الصور إلى نمط سجون وتنانين</li>
-          <li xml:lang="ca">Permet «dnd» una imatge</li>
-          <li xml:lang="ca-valencia">Permet «dnd» una imatge</li>
-          <li xml:lang="es">Permite imagen "No molestar"</li>
-          <li xml:lang="it">Consente immagine di Non disturbare</li>
-          <li xml:lang="ka">გამოსახულების გადათრევა-დაგდების დაშვება</li>
-          <li xml:lang="nl">Dnd doen van afbeelding toestaan</li>
-          <li xml:lang="pt-BR">Permitir baixar imagem</li>
-          <li xml:lang="sk">Možnosť pretiahnutia obrázka myšou</li>
-          <li xml:lang="sl">Dovoli prepoved motenja slike</li>
-          <li xml:lang="tr">Görselin sürüklenip bırakılmasına izin ver</li>
-          <li xml:lang="uk">Дозволено зображення «Не турбувати»</li>
           <li>Add restore button in administration settings</li>
-          <li xml:lang="ar">إضافة زر استعادة في إعدادات الإدارة</li>
-          <li xml:lang="ca">Afegeix el botó de restauració a la configuració d'administració</li>
-          <li xml:lang="ca-valencia">Afig el botó de restauració a la configuració d'administració</li>
-          <li xml:lang="es">Añade botón restaurar en las preferencias de administración</li>
-          <li xml:lang="it">Aggiunge il pulsante di ripristino nelle impostazioni di amministrazione</li>
-          <li xml:lang="ka">დაემატა აღდგენის ღილაკი ადმინისტრატორის პარამეტრებში</li>
-          <li xml:lang="nl">Herstelknop toevoegen in instellingen voor beheer</li>
-          <li xml:lang="pt-BR">Adiciona botão de restauração na caixa de diálogo de configurações do administrador</li>
-          <li xml:lang="sk">Pridanie tlačidla obnovenia v nastaveniach správy</li>
-          <li xml:lang="sl">Doda gumb za obnovitev v administratorskih nastavitvah</li>
-          <li xml:lang="tr">Yönetim ayarlarına geri yükle düğmesi ekle</li>
-          <li xml:lang="uk">Додано кнопку відновлення на сторінку параметрів адміністрування</li>
           <li>Allow to activate plugins</li>
-          <li xml:lang="ar">اسمح بتفعيل الملحقات</li>
-          <li xml:lang="ca">Permet activar els connectors</li>
-          <li xml:lang="ca-valencia">Permet activar els connectors</li>
-          <li xml:lang="es">Permite activar complementos</li>
-          <li xml:lang="it">Consenti l'attivazione delle estensioni</li>
-          <li xml:lang="ka">დამატებების გააქტიურების დაშვება</li>
-          <li xml:lang="nl">Sta plug-ins activeren toe</li>
-          <li xml:lang="pt-BR">Permitir ativar plugins</li>
-          <li xml:lang="sk">Možnosť aktivácie zásuvných modulov</li>
-          <li xml:lang="sl">Dovoljuje aktiviranje vtičnikov</li>
-          <li xml:lang="tr">Eklentilerin etkinleştirilmesine izin ver</li>
-          <li xml:lang="uk">Дозволити активацію додатків</li>
           <li>Add Open With button in show image</li>
-          <li xml:lang="ar">إضافة زر ”افتح باستخدام“ في إظهار الصورة</li>
-          <li xml:lang="ca">Afegeix el botó Obre amb en mostrar una imatge</li>
-          <li xml:lang="ca-valencia">Afig el botó «Obri amb» en mostrar una imatge</li>
-          <li xml:lang="es">Añadido «Abrir con» en mostrar imagen</li>
-          <li xml:lang="it">Aggiunge il pulsante Apri con nell'immagine mostrata</li>
-          <li xml:lang="ka">გამოსახულების ჩვენებისას "გახსნა პროგრამით" ღილაკის დამატება</li>
-          <li xml:lang="nl">Openen met knop toevoegen in tonen van afbeelding</li>
-          <li xml:lang="pt-BR">Adiciona o botão Abrir com na imagem exibida</li>
-          <li xml:lang="sk">Pridanie tlačidla Otvoriť pomocou pri zobrazení obrázka</li>
-          <li xml:lang="sl">Doda gumb Odpri z na sliki</li>
-          <li xml:lang="tr">Görsel göstermeye “Birlikte Aç” düğmesi ekle</li>
-          <li xml:lang="uk">На панель показу зображення додано кнопку «Відкрити за допомогою»</li>
           <li>Add Quick Text Format</li>
-          <li xml:lang="ar">إضافة تنسيق سريع للنص</li>
-          <li xml:lang="ca">Afegeix el format del text ràpid</li>
-          <li xml:lang="ca-valencia">Afig el format ràpid del text</li>
-          <li xml:lang="es">Añadido formato rápido de texto</li>
-          <li xml:lang="it">Aggiunge il formato di testo rapido</li>
-          <li xml:lang="ka">სწრაფი ტექსტის დაფორმატების დამატება</li>
-          <li xml:lang="nl">Snel tekstformaat toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona formato de texto rápido</li>
-          <li xml:lang="sk">Pridanie rýchleho formátovania textu</li>
-          <li xml:lang="sl">Doda hitro oblikovanje besedila</li>
-          <li xml:lang="tr">Hızlı metin biçimlendirmesi ekle</li>
-          <li xml:lang="uk">Додано швидке форматування тексту</li>
           <li>Add Extension message line button</li>
-          <li xml:lang="ar">أضف زر سطر رسالة التمديد</li>
-          <li xml:lang="ca">Afegeix l'extensió de botó de línia de missatge</li>
-          <li xml:lang="ca-valencia">Afig l'extensió de botó de línia de missatge</li>
-          <li xml:lang="es">Añadida línea de extensión del mensaje</li>
-          <li xml:lang="it">Aggiunge il pulsante Estensione alla riga del messaggio</li>
-          <li xml:lang="ka">დაემატა გაფართოების შეტყობინების ხაზის ღილაკი</li>
-          <li xml:lang="nl">Lijnknop voor uitbreidingsbericht toevoegen</li>
-          <li xml:lang="pt-BR">Adicionar extensão de botão de linha de mensagem</li>
-          <li xml:lang="sk">Pridanie tlačidla rozšírenia v riadku správy</li>
-          <li xml:lang="sl">Doda gumb za razširitev sporočil v vrstici</li>
-          <li xml:lang="tr">Uzantı ileti satırı düğmesi ekle</li>
-          <li xml:lang="uk">Додати кнопку рядка повідомлення розширення</li>
           <li>Allow to Add WebDav Server</li>
-          <li xml:lang="ar">اسمح بإضافة خادم WebDav</li>
-          <li xml:lang="ca">Permet afegir un servidor WebDav</li>
-          <li xml:lang="ca-valencia">Permet afegir un servidor WebDAV</li>
-          <li xml:lang="es">Soporte para añadir servidor WebDav</li>
-          <li xml:lang="it">Consente di aggiungere server WebDav</li>
-          <li xml:lang="ka">WebDav სერვერის დამატების დაშვება</li>
-          <li xml:lang="nl">Toestaan WebDav-server toe te voegen</li>
-          <li xml:lang="pt-BR">Permite adicionar servidor WebDav</li>
-          <li xml:lang="sk">Možnosť pridania servera WebDav</li>
-          <li xml:lang="sl">Dovoli dodajanje strežnika WebDav</li>
-          <li xml:lang="tr">WebDav sunucusu eklenmesine izin ver</li>
-          <li xml:lang="uk">Дозволити додавання сервера WebDav</li>
           <li>Show room info (italic text) when there is some pending message typed</li>
-          <li xml:lang="ar">عرض معلومات الغرفة (نص مائل) عندما يكون هناك رسالة معلقة مكتوبة</li>
-          <li xml:lang="ca">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
-          <li xml:lang="ca-valencia">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
-          <li xml:lang="es">Mostrar información de la sala (texto en cursiva) cuando hay algún mensaje siendo escrito</li>
-          <li xml:lang="it">Se hai problemi con determinati colori sullo schermo, questi filtri possono trasformarli in altri colori</li>
-          <li xml:lang="ka">ოთახის ინფორმაციის ჩვენება (კურსივი), როცა მიმდინარეობს დარჩენილი შეტყობინებების აკრეფა</li>
-          <li xml:lang="nl">Roominformatie tonen (cursieve tekst) wanneer er een wachtend bericht wordt getypt</li>
-          <li xml:lang="pt-BR">Mostra informações da sala (texto em itálico) quando houver alguma mensagem pendente digitada</li>
-          <li xml:lang="sk">Zobrazenie informácií o miestnosti (kurzívou) pri rozpísanej správe</li>
-          <li xml:lang="sl">Prikaži informacije o sobi (ležeče besedilo), ko je vneseno kakšno čakajoče sporočilo</li>
-          <li xml:lang="tr">Yazılan bazı bekleyen iletiler olduğunda oda bilgisini (yatık metin) göster</li>
-          <li xml:lang="uk">Реалізовано показ відомостей щодо кімнати (курсивом), якщо виконується введення якогось повідомлення з черги</li>
           <li>Allow to add emoticon from popup menu</li>
-          <li xml:lang="ar">السماح بإضافة رموز تعبيرية من القائمة المنبثقة</li>
-          <li xml:lang="ca">Permet afegir emoticones des d'un menú emergent</li>
-          <li xml:lang="ca-valencia">Permet afegir emoticones des d'un menú emergent</li>
-          <li xml:lang="es">Soporte para añadir emoticono desde el menú emergente</li>
-          <li xml:lang="it">Consenti di aggiungere emoticon dal menu a comparsa</li>
-          <li xml:lang="ka">ემოციების მხტუნარა მენიუდან დამატების დაშვება</li>
-          <li xml:lang="nl">Sta het toevoegen van een emoticon vanuit het pop-up-menu toe</li>
-          <li xml:lang="pt-BR">Permite adicionar um emoticon a partir do menu de contexto</li>
-          <li xml:lang="sk">Možnosť pridania emotikonu z kontextovej ponuky</li>
-          <li xml:lang="sl">Dovoli dodajanje čustvenčka iz pojavnega menija</li>
-          <li xml:lang="tr">Açılır menüden ifade eklenmesine izin ver</li>
-          <li xml:lang="uk">Уможливлено додавання емоційки з контекстного меню</li>
           <li>Fix show date info</li>
-          <li xml:lang="ar">إصلاح عرض معلومات التاريخ</li>
-          <li xml:lang="ca">Corregeix la visualització de la informació de la data</li>
-          <li xml:lang="ca-valencia">Corregix la visualització de la informació de la data</li>
-          <li xml:lang="es">Arreglada información al mostrar fecha</li>
-          <li xml:lang="it">Corregge le informazioni di visualizzazione della data</li>
-          <li xml:lang="ka">გასწორდა თარიღის ინფორმაციის ჩვენება</li>
-          <li xml:lang="nl">Datuminformatie tonen reparatie</li>
-          <li xml:lang="pt-BR">Corrige exibição das informações de data</li>
-          <li xml:lang="sk">Oprava zobrazenia informácií o dátume</li>
-          <li xml:lang="sl">Popravi prikaz informacij o datumu</li>
-          <li xml:lang="tr">Tarih bilgisi göstermeyi düzelt</li>
-          <li xml:lang="uk">Виправлено показ даних щодо дати</li>
           <li>Fix save application settings</li>
-          <li xml:lang="ar">إصلاح حفظ إعدادات التطبيق</li>
-          <li xml:lang="ca">Corregeix el desament de la configuració de l'aplicació</li>
-          <li xml:lang="ca-valencia">Corregix la guardada de la configuració de l'aplicació</li>
-          <li xml:lang="es">Corrección al guardar preferencias de aplicación</li>
-          <li xml:lang="it">Corregge le impostazioni di salvataggio dell'applicazione</li>
-          <li xml:lang="ka">გასწორდა აპლიკაციის პარამეტრების შენახვა</li>
-          <li xml:lang="nl">Opslaan van instellingen van toepassingen repareren</li>
-          <li xml:lang="pt-BR">Corrige o salvamento das configurações do aplicativo</li>
-          <li xml:lang="sk">Oprava ukladania nastavení aplikácie</li>
-          <li xml:lang="sl">Popravi shranjevanje nastavitev aplikacije</li>
-          <li xml:lang="tr">Uygulama ayarlarını kaydetmeyi düzelt</li>
-          <li xml:lang="uk">Виправлено збереження параметрів роботи програми</li>
           <li>Fix text selection in attachment</li>
-          <li xml:lang="ar">إصلاح تحديد النصف في المرفقات</li>
-          <li xml:lang="ca">Corregeix la selecció de text de l'adjunt</li>
-          <li xml:lang="ca-valencia">Corregix la selecció de text de l'adjunt</li>
-          <li xml:lang="es">Corrección de la selección de texto en adjuntos</li>
-          <li xml:lang="it">Corregge la selezione del testo nell'allegato</li>
-          <li xml:lang="ka">გასწორდა ტექსტის მონიშვნა მიმაგრებულ ფაილში</li>
-          <li xml:lang="nl">Tekstselectie in bijlage repareren</li>
-          <li xml:lang="pt-BR">Corrige a seleção de texto no anexo</li>
-          <li xml:lang="sk">Oprava výberu textu v prílohe</li>
-          <li xml:lang="sl">Popravi izbiro besedila v prilogi</li>
-          <li xml:lang="tr">Ekteki metin seçimini düzelt</li>
-          <li xml:lang="uk">Виправлено позначення тексту у долученні</li>
           <li>Fix display user</li>
-          <li xml:lang="ar">إصلاح عرض المستخدم</li>
-          <li xml:lang="ca">Corregeix la visualització de l'usuari</li>
-          <li xml:lang="ca-valencia">Corregix la visualització de l'usuari</li>
-          <li xml:lang="es">Corrección en el usuario mostrado</li>
-          <li xml:lang="it">Corregge la visualizzazione dell'utente</li>
-          <li xml:lang="ka">გასწორდა მომხმარებლის ჩვენება</li>
-          <li xml:lang="nl">Oplossing gebruiker tonen</li>
-          <li xml:lang="pt-BR">Corrige o usuário de exibição</li>
-          <li xml:lang="sk">Oprava zobrazenia používateľa</li>
-          <li xml:lang="sl">Popravi zaslon uporabnika</li>
-          <li xml:lang="tr">Kullanıcı görüntülemeyi düzelt</li>
-          <li xml:lang="uk">Виправлено показ користувача</li>
           <li>Display translate menu in thread dialog</li>
-          <li xml:lang="ar">عرض قائمة الترجمة في مربع الحوار</li>
-          <li xml:lang="ca">Mostra el menú de traducció en el diàleg dels fils</li>
-          <li xml:lang="ca-valencia">Mostra el menú de traducció en el diàleg dels fils</li>
-          <li xml:lang="es">Mostrar menú de traducción en el diálogo de hilos</li>
-          <li xml:lang="it">Visualizza il menu di traduzione nella finestra di della discussione</li>
-          <li xml:lang="ka">თარგმანის მენიუს ჩვენება დისკუსიის დიალოგში</li>
-          <li xml:lang="nl">Vertaalmenu in dialoog van discussiebundeling tonen</li>
-          <li xml:lang="pt-BR">Exibe menu de tradução na caixa de diálogo do tópico</li>
-          <li xml:lang="sk">Zobrazenie ponuky prekladu v dialógu vlákna</li>
-          <li xml:lang="sl">Prikaži meni za prevajanje v pogovornem oknu niti</li>
-          <li xml:lang="tr">İleti dizisi penceresinde çeviri menüsünü göster</li>
-          <li xml:lang="uk">Реалізовано показ меню перекладу у вікні гілки</li>
           <li>Add AI Rocket Chat Actions support</li>
-          <li xml:lang="ar">إضافة إجراءات الذكاء الاصطناعي لروكت تشات</li>
-          <li xml:lang="ca">Afegeix la implementació d'accions d'IA de Rocket Chat</li>
-          <li xml:lang="ca-valencia">Afig la implementació d'accions d'IA de Rocket Chat</li>
-          <li xml:lang="es">Añadido soporte para acciones AI en Rocket Chat</li>
-          <li xml:lang="he">נוספה תמיכה בפעולות בינה מלאכותית ב־Rocket Chat</li>
-          <li xml:lang="it">Aggiunge il supporto delle azioni IA di Rocket Chat</li>
-          <li xml:lang="ka">დაემატა ხი-ით Rocket Chat-ის ქმედებების მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor acties van Rocket Chat toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona suporte para ações do AI Rocket Chat</li>
-          <li xml:lang="sk">Pridanie podpory akcií AI Rocket Chat</li>
-          <li xml:lang="sl">Doda podporo za dejanja klepeta z AI Rocket</li>
-          <li xml:lang="tr">Yapay zekâ Rocket.Chat eylemleri desteği ekle</li>
-          <li xml:lang="uk">Додано підтримку дій Rocket Chat з ШІ</li>
           <li>Fix apply, restore, cancel buttons in administration dialog</li>
-          <li xml:lang="ar">إصلاح أزرار التطبيق والاستعادة والإلغاء في مربع حوار الإدارة</li>
-          <li xml:lang="ca">Corregeix els botons «aplica», «restaura», «cancel·la» en el diàleg d'administració</li>
-          <li xml:lang="ca-valencia">Corregix els botons «aplica», «restaura», «cancel·la» en el diàleg d'administració</li>
-          <li xml:lang="es">Corrección en los botones aplicar, restaurar y cancelar en el diálogo de administración</li>
-          <li xml:lang="it">Corregge i pulsante di applicazione, ripristino e annullamento nelle impostazioni di amministrazione</li>
-          <li xml:lang="ka">გასწორდა გადატარების, აღდგენის და გაუქმების ღილაკები ადმინისტრაციის დიალოგში</li>
-          <li xml:lang="nl">Knoppen voor reparatie toepassen, herstellen en annuleren in systeembeheerdialoog</li>
-          <li xml:lang="pt-BR">Corrige os botões aplicar, restaurar e cancelar na caixa de diálogo de administração</li>
-          <li xml:lang="sk">Oprava tlačidiel použiť, obnoviť a zrušiť v dialógu správy</li>
-          <li xml:lang="sl">Popravljeni gumbi za uporabo, obnovitev in preklic v pogovornem oknu za skrbnike</li>
-          <li xml:lang="tr">Yönetim penceresindeki uygula, geri yükle, iptal et düğmelerini düzelt</li>
-          <li xml:lang="uk">Виправлено кнопки застосування, відновлення та скасування у вікні адміністрування</li>
           <li>Fix search users</li>
-          <li xml:lang="ar">إصلاح البحث عن المستخدمين</li>
-          <li xml:lang="ca">Corregeix la cerca d'usuaris</li>
-          <li xml:lang="ca-valencia">Corregix la busca d'usuaris</li>
-          <li xml:lang="es">Corrección al buscar usuarios</li>
-          <li xml:lang="it">Corregge la ricerca degli utenti</li>
-          <li xml:lang="ka">გასწორდა მომხმარებლების ძებნა</li>
-          <li xml:lang="nl">Gebruikers zoeken repareren</li>
-          <li xml:lang="pt-BR">Corrige a pesquisa de usuários</li>
-          <li xml:lang="sk">Oprava hľadania používateľov</li>
-          <li xml:lang="sl">Popravi iskanje uporabnikov</li>
-          <li xml:lang="tr">Kullanıcı aramayı düzelt</li>
-          <li xml:lang="uk">Виправлено пошук користувачів</li>
           <li>Fix extract language from code block</li>
-          <li xml:lang="ar">إصلاح لغة الاستخراج من كتلة التعليمات البرمجية</li>
-          <li xml:lang="ca">Corregeix el llenguatge d'extracció a partir del bloc de codi</li>
-          <li xml:lang="ca-valencia">Corregix el llenguatge d'extracció a partir del bloc de codi</li>
-          <li xml:lang="es">Corrección al extraer lenguaje de un bloque de código</li>
-          <li xml:lang="it">Corregge l'estrazione della linguaggio dal blocco di codice</li>
-          <li xml:lang="ka">გასწორდა ენის ამოღება კოდის ბლოკიდან</li>
-          <li xml:lang="nl">Extraheren van taal uit codeblok repareren</li>
-          <li xml:lang="pt-BR">Corrige a extração de linguagem do bloco de código</li>
-          <li xml:lang="sk">Oprava rozpoznania jazyka z bloku kódu</li>
-          <li xml:lang="sl">Popravi izvleček jezika iz bloka kode</li>
-          <li xml:lang="tr">Kod bloğundan dil çıkarmayı düzelt</li>
-          <li xml:lang="uk">Виправлено видобування мови з блоку програмного коду</li>
           <li>Fix attachment info in \"Show Channel Log\" dialog</li>
-          <li xml:lang="ar">إصلاح معلومات المرفق في مربع الحوار أظهر سجل القناة“</li>
-          <li xml:lang="ca">Corregeix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
-          <li xml:lang="ca-valencia">Corregix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
-          <li xml:lang="es">Corrección de la información de adjuntos en el diálogo «Mostrar registro del canal»</li>
-          <li xml:lang="it">Corregge le informazioni sull'allegato nella finestra «Mostra il registro del canale»</li>
-          <li xml:lang="ka">გასწორდა მიმაგრებული ფაილის ინფორმაციის ჩვენება დიალოგში \"არხის ჟურნალის ჩვენება\"</li>
-          <li xml:lang="nl">Informatie over bijlage in dialoog van "Log van kanaal tonen" repareren</li>
-          <li xml:lang="pt-BR">Corrige informações de anexo na caixa de diálogo \"Mostrar registro do canal\"</li>
-          <li xml:lang="sk">Oprava informácií o prílohe v dialógu \"Zobraziť denník kanála\"</li>
-          <li xml:lang="sl">Popravi podatke o prilogi v pogovornem oknu \"Prikaži dnevnik kanala\"</li>
-          <li xml:lang="tr">“Kanal Günlüğünü Göster” penceresindeki ek bilgisini düzelt</li>
-          <li xml:lang="uk">Виправлено відомості щодо долучення у вікні «Показати журнал каналу»</li>
           <li>Fix icon on windows</li>
-          <li xml:lang="ar">إصلاح أيقونة في ويندوز</li>
-          <li xml:lang="ca">Corregeix una icona al Windows</li>
-          <li xml:lang="ca-valencia">Corregix una icona en Windows</li>
-          <li xml:lang="es">Corrección del icono en Windows</li>
-          <li xml:lang="it">Corregge l'icona sulle finestre</li>
-          <li xml:lang="ka">გასწორდა ხატულა Windows-ზე</li>
-          <li xml:lang="nl">Pictogram op vensters repareren</li>
-          <li xml:lang="pt-BR">Correção do ícone no Windows</li>
-          <li xml:lang="sk">Oprava ikony vo Windows</li>
-          <li xml:lang="sl">Popravi ikono v oknih</li>
-          <li xml:lang="tr">Windows üzerindeki simgeyi düzelt</li>
-          <li xml:lang="uk">Виправлено піктограму у Windows</li>
           <li>Fix show file attachment size</li>
-          <li xml:lang="ar">إصلاح إظهار حجم المرفقات</li>
-          <li xml:lang="ca">Corregeix la visualització de la mida del fitxer adjunt</li>
-          <li xml:lang="ca-valencia">Corregix la visualització de la mida del fitxer adjunt</li>
-          <li xml:lang="es">Corrección al mostrar el tamaño de un archivo adjunto</li>
-          <li xml:lang="it">Corregge la visualizzazione delle dimensioni degli allegati</li>
-          <li xml:lang="ka">გასწორდა მიმაგრებული ფაილის ზომის ჩვენება</li>
-          <li xml:lang="nl">Repareren van grootte van bestandsbijlage tonen</li>
-          <li xml:lang="pt-BR">Corrige a exibição do tamanho de arquivo anexo</li>
-          <li xml:lang="sk">Oprava zobrazenia veľkosti súborovej prílohy</li>
-          <li xml:lang="sl">Popravi velikost priloge datoteke</li>
-          <li xml:lang="tr">Dosya eki boyutu göstermeyi düzelt</li>
-          <li xml:lang="uk">Виправлено показ розміру файлового долучення</li>
         </ul>
       </description>
     </release>
@@ -1944,268 +1368,25 @@
       <description>
         <ul>
           <li>Add support for tools plugins</li>
-          <li xml:lang="ar">إضافة ملحقات الأدوات</li>
-          <li xml:lang="ca">Afegeix la implementació dels connectors d'eines</li>
-          <li xml:lang="ca-valencia">Afig la implementació dels connectors d'eines</li>
-          <li xml:lang="es">Añadir soporte para complementos de herramientas</li>
-          <li xml:lang="he">נוספה תמיכה בתוספי כלים</li>
-          <li xml:lang="it">Aggiunge il supporto per le estensioni degli strumenti</li>
-          <li xml:lang="ka">დაემატა ხელსაწყოს დამატებების მხადაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor plug-ins voor hulpmiddelen toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona suporte para plugins de ferramentas</li>
-          <li xml:lang="sk">Pridanie podpory zásuvných modulov nástrojov</li>
-          <li xml:lang="sl">Doda podporo za vtičnike orodij</li>
-          <li xml:lang="tr">Araçlar eklentileri için destek ekle</li>
-          <li xml:lang="uk">Додано підтримку для додатків інструментів</li>
           <li>Plugin: Add screenshot button (near send message button)</li>
-          <li xml:lang="ar">ملحق: إضافة زر لقطة الشاشة (بالقرب من زر إرسال رسالة)</li>
-          <li xml:lang="ca">Connector: afegeix un botó de captura de pantalla (prop del botó d'enviament de missatge)</li>
-          <li xml:lang="ca-valencia">Connector: afig un botó de captura de pantalla (prop del botó d'enviament de missatge)</li>
-          <li xml:lang="es">Complemento: Añadido botón de captura de pantalla (al lado del botón de enviar un mensaje)</li>
-          <li xml:lang="it">Estensione: aggiunge il pulsante schermata (vicino al pulsante di invio messaggio)</li>
-          <li xml:lang="ka">დამატება: ეკრანის ანაბეჭდის ღილაკის დამატება (შეტყობინების გაგზავნის ღილაკთან)</li>
-          <li xml:lang="nl">Plug-in: knop voor schermafdruk toevoegen (nabij knop voor verzenden van bericht)</li>
-          <li xml:lang="pt-BR">Plugin: Adiciona botão de captura de tela (próximo ao botão de enviar mensagem)</li>
-          <li xml:lang="sk">Zásuvný modul: Pridanie tlačidla snímky obrazovky (vedľa tlačidla na odoslanie správy)</li>
-          <li xml:lang="sl">Vtičnik: Dod gumb za posnetek zaslona (blizu gumba za pošiljanje sporočila)</li>
-          <li xml:lang="tr">Eklenti: Ekran görüntüsü düğmesi ekle (ileti gönder düğmesinin yanına)</li>
-          <li xml:lang="uk">Додаток: додано кнопку знімків екрана (поряд із кнопкою надсилання повідомлення)</li>
           <li>Implement invite RC url support</li>
-          <li xml:lang="ar">إتاحة دعوة عنوان لـ RC</li>
-          <li xml:lang="ca">Implementa el suport d'URL d'invitació RC</li>
-          <li xml:lang="ca-valencia">Implementa el suport d'URL d'invitació RC</li>
-          <li xml:lang="es">Implementado el soporte para invitar a través de RC URL</li>
-          <li xml:lang="it">Implementa il supporto per l'URL RC di invito</li>
-          <li xml:lang="ka">განხორციელდა მოწვევის RC ბმულის მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor uitnodiging-RC-url implementeren</li>
-          <li xml:lang="pt-BR">Implementa suporte a URL de convite RC</li>
-          <li xml:lang="sk">Implementácia podpory pozývacích URL adries RC</li>
-          <li xml:lang="sl">Implementira podporo za URL-je za povabilo RC</li>
-          <li xml:lang="tr">Davet etme RC URL desteğini gerçekle</li>
-          <li xml:lang="uk">Реалізовано підтримку адрес RC запрошень</li>
           <li>Implement verify if a new Ruqola version exist</li>
-          <li xml:lang="ar">تنفيذ التحقق من وجود نسخة رقولة جديدة</li>
-          <li xml:lang="ca">Implementa la verificació de si existeix una versió nova del Ruqola</li>
-          <li xml:lang="ca-valencia">Implementa la verificació de si existix una versió nova de Ruqola</li>
-          <li xml:lang="es">Implementado la verificación de nuevas versiones de Ruqola disponibles</li>
-          <li xml:lang="it">Implementa la verifica se esiste una nuova versione di Ruqola</li>
-          <li xml:lang="ka">შემოწმება, არსებობს თუ არა Ruqola-ის ახალი ვერსია</li>
-          <li xml:lang="nl">Implementeer verifiëren als een nieuwe Ruqola-versie bestaat</li>
-          <li xml:lang="pt-BR">Implementa verificação se existe uma nova versão do Ruqola</li>
-          <li xml:lang="sk">Implementácia kontroly dostupnosti novej verzie Ruqola</li>
-          <li xml:lang="sl">Izvedite preverjanje, ali obstaja nova različica Ruqole.</li>
-          <li xml:lang="tr">Yeni bir Roka sürümünün olup olmadığını doğrulamayı gerçekle</li>
-          <li xml:lang="uk">Реалізовано перевірку наявності нової версії Ruqola</li>
           <li>Allow to search threads by unread/following</li>
-          <li xml:lang="ar">اسمح بالبحث عن سلاسل المحادثات حسب عدم قراءتها/متابعتها</li>
-          <li xml:lang="ca">Permet cercar fils per seguits/no llegits</li>
-          <li xml:lang="ca-valencia">Permet buscar fils per seguits/no llegits</li>
-          <li xml:lang="es">Permitido buscar en hilos por no leído/siguiendo</li>
-          <li xml:lang="it">Consenti di cercare le discussioni per non letti/seguiti</li>
-          <li xml:lang="ka">წაუკითხავ/მიყოლილ დისკუსიებში ძებნის დაშვება</li>
-          <li xml:lang="nl">Sta toe threads (discussies) te doorzoeken op ongelezen/volgen</li>
-          <li xml:lang="pt-BR">Permite pesquisar tópicos por não lidos/seguintes</li>
-          <li xml:lang="sk">Možnosť hľadania vlákien podľa neprečítaných/sledovaných</li>
-          <li xml:lang="sl">Dovoli iskanje niti po neprebranih/sledenih</li>
-          <li xml:lang="tr">İlmeklerin okunmamış/takip edilen durumuna göre aranmasına izin ver</li>
-          <li xml:lang="uk">Уможливлено пошук гілок за непрочитаними/відстежуваними</li>
           <li>Show images from attachment dialog box</li>
-          <li xml:lang="ar">عرض الصور من صندوق حوار المرفق</li>
-          <li xml:lang="ca">Mostra les imatges del quadre de diàleg de l'adjunt</li>
-          <li xml:lang="ca-valencia">Mostra les imatges del diàleg de l'adjunt</li>
-          <li xml:lang="es">Mostrar imágenes desde el diálogo de adjuntos</li>
-          <li xml:lang="it">Mostra le immagini dalla finestra degli allegati</li>
-          <li xml:lang="ka">გამოსახულებების ჩვენება მიმაგრებული ფაილის ფანჯრიდან</li>
-          <li xml:lang="nl">Afbeeldingen uit bijlage van dialoogvak tonen</li>
-          <li xml:lang="pt-BR">Mostra imagens da caixa de diálogo de anexos</li>
-          <li xml:lang="sk">Zobrazenie obrázkov z dialógu príloh</li>
-          <li xml:lang="sl">Prikaži slike iz pogovornega okna priloge</li>
-          <li xml:lang="tr">Ek penceresinden görselleri göster</li>
-          <li xml:lang="uk">Показувати зображення з панелі долучення</li>
           <li>Implement Rocket.Chat application support</li>
-          <li xml:lang="ar">إتاحة دعم تطبيق روكت تشات</li>
-          <li xml:lang="ca">Implementa el suport d'aplicacions Rocket.Chat</li>
-          <li xml:lang="ca-valencia">Implementa el suport d'aplicacions Rocket.Chat</li>
-          <li xml:lang="es">Implementado soporte para la aplicación Rocket.Chat</li>
-          <li xml:lang="he">מומשה תמיכה ביישום Rocket.Chat</li>
-          <li xml:lang="it">Implementa il supporto delle applicazioni Rocket.Chat</li>
-          <li xml:lang="ka">განხორციელდა Rocket.Chat-ის აპლიკაციის მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor toepassing Rocket.Chat implementeren</li>
-          <li xml:lang="pt-BR">Implementa suporte ao aplicativo Rocket.Chat</li>
-          <li xml:lang="sk">Implementácia podpory aplikácií Rocket.Chat</li>
-          <li xml:lang="sl">Implementirajte podporo za aplikacijo Rocket.Chat</li>
-          <li xml:lang="tr">Rocket.Chat uygulama desteğini gerçekle</li>
-          <li xml:lang="uk">Реалізовано підтримку програм Rocket.Chat</li>
           <li>Implement command preview</li>
-          <li xml:lang="ar">تنفيذ معاينة الأمر</li>
-          <li xml:lang="ca">Implementa la previsualització d'odres</li>
-          <li xml:lang="ca-valencia">Implementa la previsualització d'odres</li>
-          <li xml:lang="es">Implementado la vista previa de órdenes</li>
-          <li xml:lang="it">Implementa l'anteprima dei comandi</li>
-          <li xml:lang="ka">განხორციელდა ბრძანების მინიატურა</li>
-          <li xml:lang="nl">Voorbeeld van opdracht implementeren</li>
-          <li xml:lang="pt-BR">Implementa visualização de comando</li>
-          <li xml:lang="sk">Implementácia náhľadu príkazov</li>
-          <li xml:lang="sl">Implementira predogled ukaza</li>
-          <li xml:lang="tr">Komut önizlemeyi gerçekle</li>
-          <li xml:lang="uk">Реалізовано попередній перегляд команди</li>
           <li>Debug: explore translation from RC server</li>
-          <li xml:lang="ar">التنقيح: استكشاف الترجمة من خادم روكت تشات</li>
-          <li xml:lang="ca">Depuració: explora la traducció des del servidor RC</li>
-          <li xml:lang="ca-valencia">Depuració: explora la traducció des del servidor RC</li>
-          <li xml:lang="es">Depuración: explorar traducción desde el servidor RC</li>
-          <li xml:lang="it">Debug: esplora la traduzione dal server RC</li>
-          <li xml:lang="ka">გამართვა: თარგმანის დათვალიერება RC სერვერიდან</li>
-          <li xml:lang="nl">Debug: onderzoek vertaling uit RC-server</li>
-          <li xml:lang="pt-BR">Depuração: explora a tradução do servidor RC</li>
-          <li xml:lang="sk">Ladenie: preskúmanie prekladu zo servera RC</li>
-          <li xml:lang="sl">Odpravljanje napak: raziskovanje prevoda s strežnika RC</li>
-          <li xml:lang="tr">Hata ayıklama: RC sunucusundan çeviriyi keşfet</li>
-          <li xml:lang="uk">Діагностика: вивчення перекладу з сервера RC</li>
           <li>Implement plugin UI support (Create dialog box for configure settings)</li>
-          <li xml:lang="ar">تنفيذ واجهة المستخدم الإضافية (إنشاء مربع حوار لضبط الإعدادات)</li>
-          <li xml:lang="ca">Implementa el suport de la IU de connectors (crea el quadre de diàleg per a configurar les opcions)</li>
-          <li xml:lang="ca-valencia">Implementa el suport de la IU de connectors (crea el diàleg per a configurar les opcions)</li>
-          <li xml:lang="es">Implementado el soporte de complementos UI (Creado diálogo para configurar preferencias)</li>
-          <li xml:lang="it">Implementa il supporto dell'interfaccia utente delle estensioni (crea una finestra per configurare le impostazioni)</li>
-          <li xml:lang="ka">განხორციელდა დამატების ინტერფეისის მხარდაჭერა (დიალოგი პარამეტრების მოსარგებად)</li>
-          <li xml:lang="nl">Ondersteuning voor UI van plug-in implementeren (dialoogvak voor instellingen voor configureren aanmaken)</li>
-          <li xml:lang="pt-BR">Implementa suporte à interface de usuário do plugin (criar caixa de diálogo para configurar definições)</li>
-          <li xml:lang="sk">Implementácia podpory používateľského rozhrania zásuvných modulov (vytvorenie dialógu na konfiguráciu nastavení)</li>
-          <li xml:lang="sl">Implementira podporo za uporabniški vmesnik vtičnikov (ustvari pogovorno okno za konfiguracijo nastavitev)</li>
-          <li xml:lang="tr">Eklenti kullanıcı arayüzü desteğini gerçekle (ayarları yapılandırmak için pencere oluştur)</li>
-          <li xml:lang="uk">Реалізовано підтримку додатків інтерфейсу користувача (створено панель для налаштовування параметрів)</li>
           <li>Allow to search file from username and filename</li>
-          <li xml:lang="ar">السماح بالبحث في الملف من اسم المستخدم واسم الملف</li>
-          <li xml:lang="ca">Permet cercar fitxers a partir del nom d'usuari i el nom de fitxer</li>
-          <li xml:lang="ca-valencia">Permet buscar fitxers a partir del nom d'usuari i el nom de fitxer</li>
-          <li xml:lang="es">Permitido buscar archivo por nombre de usuario y nombre de archivo</li>
-          <li xml:lang="it">Consente di cercare file in base al nome utente e al nome file</li>
-          <li xml:lang="ka">ფაილის ძებნის დაშვება მომხმარებლის სახელიდან და ფაილის სახელიდან</li>
-          <li xml:lang="nl">Zoeken van bestand bieden met gebruikersnaam en bestandsnaam</li>
-          <li xml:lang="pt-BR">Permite pesquisar arquivos a partir do nome de usuário e nome do arquivo</li>
-          <li xml:lang="sk">Možnosť hľadania súboru podľa mena používateľa a názvu súboru</li>
-          <li xml:lang="sl">Dovoli iskanje datoteke po uporabniškem imenu in imenu datoteke</li>
-          <li xml:lang="tr">Kullanıcı adı ve dosya adına göre dosya aranmasına izin ver</li>
-          <li xml:lang="uk">Уможливлено пошук файла за іменем користувача і назвою файла</li>
           <li>Fix copy action text when we copy a text selection</li>
-          <li xml:lang="ar">إصلاح نص إجراء النسخ عندما نقوم بنسخ تحديد النص</li>
-          <li xml:lang="ca">Corregeix el text de l'acció de còpia quan es copia una selecció de text</li>
-          <li xml:lang="ca-valencia">Corregix el text de l'acció de còpia quan es copia una selecció de text</li>
-          <li xml:lang="es">Arreglada la acción de copia de texto cuando se copia una selección de texto</li>
-          <li xml:lang="it">Corregge il testo dell'azione di copia quando si copia una selezione di testo</li>
-          <li xml:lang="ka">გასწორდა კოპირების ქმედების ტექსტი, როცა მონიშნულ ტექსტს ვაკოპირებთ</li>
-          <li xml:lang="nl">Kopie-actietekst wanneer we een tekstselectie kopiëren</li>
-          <li xml:lang="pt-BR">Corrige texto de ação de cópia quando copiamos uma seleção de texto</li>
-          <li xml:lang="sk">Oprava textu akcie kopírovania pri kopírovaní výberu textu</li>
-          <li xml:lang="sl">Popravi besedilo dejanja kopiranja, kadar kopiramo izbrano besedilo</li>
-          <li xml:lang="tr">Bir metin seçimi kopyalandığında kopyalama eylemi metnini düzelt</li>
-          <li xml:lang="uk">Виправлено текст дії з копіювання, якщо копіюють позначений фрагмент тексту</li>
           <li>A command start with '/' and not /* or // </li>
-          <li xml:lang="ar">أمر يبدأ بـ '/' وليس /* أو //</li>
-          <li xml:lang="ca">Una ordre comença per «/» i no /* ni //</li>
-          <li xml:lang="ca-valencia">Una ordre comença per «/» i no /* ni //</li>
-          <li xml:lang="es">La órdenes empiezan por «/» y no por «/*» o «//»</li>
-          <li xml:lang="it">Un comando inizia con «/» e non con /* o //</li>
-          <li xml:lang="ka">ბრძანება იწყება '/'-ით და არა /*-ით ან //-ით</li>
-          <li xml:lang="nl">Een opdracht begint met '/' en niet met /* of //</li>
-          <li xml:lang="pt-BR">Um comando começa com '/' e não com /* ou //</li>
-          <li xml:lang="sk">Príkaz začína znakom '/', nie /* ani //</li>
-          <li xml:lang="sl">Ukaz se začne z '/' in ne z /* ali //</li>
-          <li xml:lang="tr">Bir komut “/” ile başlar; /* veya // ile değil</li>
-          <li xml:lang="uk">Команда розпочинається з «/», а не з /* або //</li>
           <li>Allow to put command line in clipboard when an error occurred</li>
-          <li xml:lang="ar">السماح بوضع سطر الأوامر في الحافظة عند حدوث خطأ</li>
-          <li xml:lang="ca">Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error</li>
-          <li xml:lang="ca-valencia">Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error</li>
-          <li xml:lang="es">Permitido poner la línea de orden en el portapapeles cuando ocurre un error</li>
-          <li xml:lang="it">Consente di inserire la riga di comando negli appunti quando si è verificato un errore</li>
-          <li xml:lang="ka">საშუალებას გაძლევთ, შეცდომის შემთხვევაში ბრძანების სტრიქონი ბუფერში დააკოპიროთ</li>
-          <li xml:lang="nl">Sta toe om opdrachtregel in het klembord te stoppen wanneer een fout optreedt</li>
-          <li xml:lang="pt-BR">Permite colocar a linha de comando na área de transferência quando ocorrer um erro</li>
-          <li xml:lang="sk">Možnosť vloženia príkazového riadka do schránky pri výskyte chyby</li>
-          <li xml:lang="sl">Dovoli shranjevanje ukazne vrstice na odložišče, kadar pride do napake</li>
-          <li xml:lang="tr">Bir hata oluştuğunda komut satırının panoya alınmasına izin ver</li>
-          <li xml:lang="uk">Надано змогу копіювати рядок команди до буфера обміну даними, якщо сталася помилка</li>
           <li>Allow to activate/deactivate apps market</li>
-          <li xml:lang="ar">اسمح بتنشيط/إلغاء تنشيط سوق التطبيقات</li>
-          <li xml:lang="ca">Permet activar/desactivar el mercat d'aplicacions</li>
-          <li xml:lang="ca-valencia">Permet activar/desactivar el mercat d'aplicacions</li>
-          <li xml:lang="es">Permitido activar/desactivar la tienda de aplicaciones</li>
-          <li xml:lang="it">Consenti di attivare/disattivare il negozio delle applicazioni</li>
-          <li xml:lang="ka">აპების მაღაზიის გააქტიურება/დეაქტივაციის დაშვება</li>
-          <li xml:lang="nl">Sta toe activeren/deactiveren van apps-markt</li>
-          <li xml:lang="pt-BR">Permite ativar/desativar o mercado de aplicativos</li>
-          <li xml:lang="sk">Možnosť aktivácie/deaktivácie obchodu s aplikáciami</li>
-          <li xml:lang="sl">Dovoli aktiviranje/deaktiviranje tržnice aplikacij</li>
-          <li xml:lang="tr">Uygulama pazarının etkinleştirilmesine/devre dışı bırakılmasına izin ver</li>
-          <li xml:lang="uk">Надано змогу вмикати і вимикати крамницю програм</li>
           <li>Improve list of user in room</li>
-          <li xml:lang="ar">تحسين قائمة المستخدمين في الغرفة</li>
-          <li xml:lang="ca">Millora la llista d'usuaris de la sala</li>
-          <li xml:lang="ca-valencia">Millora la llista d'usuaris de la sala</li>
-          <li xml:lang="es">Mejorada la lista de usuarios en salas</li>
-          <li xml:lang="it">Migliora l'elenco degli utenti nella stanza</li>
-          <li xml:lang="ka">გაუმჯობესდა ოთახში მომხმარებლების სია</li>
-          <li xml:lang="nl">Lijst van gebruikers in room</li>
-          <li xml:lang="pt-BR">Melhora a lista de usuários na sala</li>
-          <li xml:lang="sk">Vylepšenie zoznamu používateľov v miestnosti</li>
-          <li xml:lang="sl">Izboljša seznam uporabnika v sobi</li>
-          <li xml:lang="tr">Odadaki kullanıcı listesini iyileştir</li>
-          <li xml:lang="uk">Удосконалено список користувачів у кімнаті</li>
           <li>Search in encrypted room is not possible</li>
-          <li xml:lang="ar">البحث في الغرف المعماة غير ممكن</li>
-          <li xml:lang="ca">No és possible la cerca en una sala encriptada</li>
-          <li xml:lang="ca-valencia">No és possible la busca en una sala encriptada</li>
-          <li xml:lang="es">La búsqueda en salas cifradas no es posible</li>
-          <li xml:lang="it">Non è possibile effettuare ricerche in una stanza cifrata</li>
-          <li xml:lang="ka">დაშიფრულ ოთახებში ძებნა შეუძლებელია</li>
-          <li xml:lang="nl">Zoeken in versleuteld room is niet mogelijk</li>
-          <li xml:lang="pt-BR">Não é possível pesquisar em sala criptografada</li>
-          <li xml:lang="sk">Vyhľadávanie v šifrovanej miestnosti nie je možné</li>
-          <li xml:lang="sl">Iskanje v šifrirani sobi ni mogoče</li>
-          <li xml:lang="tr">Şifrelenmiş odada arama yapmak mümkün değildir</li>
-          <li xml:lang="uk">Пошук у зашифрованій кімнаті неможливий</li>
           <li>Show roles for users in rooms</li>
-          <li xml:lang="ar">عرض الأدوار للمستخدمين في الغرفة</li>
-          <li xml:lang="ca">Mostra els rols del d'usuaris de les sales</li>
-          <li xml:lang="ca-valencia">Mostra els rols del d'usuaris de les sales</li>
-          <li xml:lang="es">Mostrar los roles de usuarios en salas</li>
-          <li xml:lang="it">Mostra i ruoli per gli utenti nelle stanze</li>
-          <li xml:lang="ka">როლების ჩვენება ოთახის მომხმარებლებისთვის</li>
-          <li xml:lang="nl">Rollen voor gebruikers in room tonen</li>
-          <li xml:lang="pt-BR">Mostra funções para usuários em salas</li>
-          <li xml:lang="sk">Zobrazenie rolí používateľov v miestnostiach</li>
-          <li xml:lang="sl">Prikaži vloge uporabnikov v sobah</li>
-          <li xml:lang="tr">Odalardaki kullanıcılar için rolleri göster</li>
-          <li xml:lang="uk">Реалізовано показ ролей користувачів у кімнатах</li>
           <li>Fix dark mode support</li>
-          <li xml:lang="ar">إصلاح الوضع الداكن</li>
-          <li xml:lang="ca">Corregeix la implementació del mode fosc</li>
-          <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
-          <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
-          <li xml:lang="he">תוקנה בתמיכה במצב כהה</li>
-          <li xml:lang="it">Corregge il supporto della modalità scura</li>
-          <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
-          <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
-          <li xml:lang="sk">Oprava podpory tmavého režimu</li>
-          <li xml:lang="sl">Popravljena podpora za temni način</li>
-          <li xml:lang="tr">Koyu kip desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено підтримку темного режиму</li>
           <li>Fix download languages apps</li>
-          <li xml:lang="ar">إصلاح تنزيل تطبيقات لغات</li>
-          <li xml:lang="ca">Corregeix les aplicacions de baixada d'idiomes</li>
-          <li xml:lang="ca-valencia">Corregix les aplicacions de baixada d'idiomes</li>
-          <li xml:lang="es">Corrección al descargar aplicaciones de lenguaje</li>
-          <li xml:lang="it">Correggi le applicazioni per le lingue scaricate</li>
-          <li xml:lang="ka">გასწორდა აპების ენის გადმოწერა</li>
-          <li xml:lang="nl">Downloaden van talentoepassingen repareren</li>
-          <li xml:lang="pt-BR">Corrige download de aplicativos de idiomas</li>
-          <li xml:lang="sk">Oprava sťahovania jazykov aplikácií</li>
-          <li xml:lang="sl">Popravi prenos jezikovnih aplikacij</li>
-          <li xml:lang="tr">Dil uygulamalarını indirmeyi düzelt</li>
-          <li xml:lang="uk">Виправлено отримання мовних програм</li>
         </ul>
       </description>
     </release>
@@ -2213,228 +1394,22 @@
       <description>
         <ul>
           <li>Allow to clean up room history when room was not opened from long time</li>
-          <li xml:lang="ar">السماح بتنظيف سجل الغرفة عندما لا تُفتح الغرفة منذ وقت طويل</li>
-          <li xml:lang="ca">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
-          <li xml:lang="ca-valencia">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
-          <li xml:lang="es">Permitido limpiar la historia de una sala cuando la sala no se ha abierto en un plazo largo de tiempo</li>
-          <li xml:lang="it">Consente di ripulire la cronologia di una stanza quando questa non è stata aperta per molto tempo</li>
-          <li xml:lang="ka">ოთახის ისტორიის გასუფთავებს დაშვება, როცა ოთახი დიდი ხნის განმავლობაში არ გაიხსნება</li>
-          <li xml:lang="nl">Toestaan de geschiedenis van de room wissen wanneer de room lange tijd niet is geopend</li>
-          <li xml:lang="pt-BR">Permite limpar o histórico do sala quando ele não foi aberto por muito tempo</li>
-          <li xml:lang="sk">Možnosť vyčistenia histórie miestnosti, ktorá nebola dlho otvorená</li>
-          <li xml:lang="sl">Dovoli čiščenje zgodovine sobe, če soba ni bila odprta že dlje časa</li>
-          <li xml:lang="tr">Oda uzun süre açılmadığında oda geçmişinin temizlenmesine izin ver</li>
-          <li xml:lang="uk">Дозволити чищення журналу кімнати, якщо кімнату не відчиняли досить довго</li>
           <li>Add restore button in administrator server settings dialog</li>
-          <li xml:lang="ar">إضافة زر استعادة في مربع حوار إعدادات خادم المسؤول</li>
-          <li xml:lang="ca">Afegeix el botó de restauració en el diàleg de configuració d'administració del servidor</li>
-          <li xml:lang="ca-valencia">Afig el botó de restauració en el diàleg de configuració d'administració del servidor</li>
-          <li xml:lang="es">Añadido botón de restaurar en el diálogo de preferencias de administrador de servidor</li>
-          <li xml:lang="it">Aggiunge il pulsante di ripristino nella finestra delle impostazioni del server dell'amministratore</li>
-          <li xml:lang="ka">აღდგენის ღილაკის დამატება ადმინისტრატორის სერვერის მორგების დიალოგში</li>
-          <li xml:lang="nl">Herstelknop toevoegen in de dialoog voor de instellingen van de server van de systeembeheerder</li>
-          <li xml:lang="pt-BR">Adiciona botão de restauração na caixa de diálogo de configurações do servidor do administrador</li>
-          <li xml:lang="sk">Pridanie tlačidla obnovenia v dialógu nastavení servera pre správcu</li>
-          <li xml:lang="sl">Doda gumb za obnovo v pogovorno okno z nastavitvami skrbniškega strežnika</li>
-          <li xml:lang="tr">Yönetici sunucu ayarları penceresine geri yükle düğmesi ekle</li>
-          <li xml:lang="uk">Додано кнопку відновлення у вікні параметрів адміністратора сервера</li>
           <li>Improve changing password (show validation info)</li>
-          <li xml:lang="ar">تحسين تغيير كلمة السر (إظهار معلومات التحقق من الصحة)</li>
-          <li xml:lang="ca">Millora el canvi de contrasenya (mostra la informació de validació)</li>
-          <li xml:lang="ca-valencia">Millora el canvi de contrasenya (mostra la informació de validació)</li>
-          <li xml:lang="es">Mejorado el cambio de contraseña (muestra información de validación)</li>
-          <li xml:lang="it">Migliora la modifica della password (mostra le informazioni di convalida)</li>
-          <li xml:lang="ka">პაროლის შეცვლის გაუმჯობესება (გადამოწმების ინფორმაციის ჩვენება)</li>
-          <li xml:lang="nl">Wijzigen van wachtwoord verbeteren (informatie over validatie tonen)</li>
-          <li xml:lang="pt-BR">Melhora a alteração de senha (mostra informações de validação)</li>
-          <li xml:lang="sk">Vylepšenie zmeny hesla (zobrazenie informácií o overení)</li>
-          <li xml:lang="sl">Izboljšano spreminjanje gesla (prikazuje podatke za preverjanje)</li>
-          <li xml:lang="tr">Parola değiştirmeyi iyileştir (doğrulama bilgisini göster)</li>
-          <li xml:lang="uk">Удосконалено зміну пароля (показ даних щодо коректності)</li>
           <li>Improve register new account (Add reason support)</li>
-          <li xml:lang="ar">تحسين تسجيل حساب جديد (إضافة السبب)</li>
-          <li xml:lang="ca">Millora el registre d'un compte nou (afegir la implementació del motiu)</li>
-          <li xml:lang="ca-valencia">Millora el registre d'un compte nou (afegir la implementació del motiu)</li>
-          <li xml:lang="es">Mejorado el registro de nuevas cuentas (Añadido soporte para razón)</li>
-          <li xml:lang="it">Migliora la registrazione di un nuovo account (supporto per l'aggiunta di un motivo)</li>
-          <li xml:lang="ka">ახალი ანგარიშის რეგისტრაციის გაუმჯობესება (მიზეზის მხარდაჭერის დამატება)</li>
-          <li xml:lang="nl">Registreren van nieuw account verbeteren (Ondersteunen van reden toevoegen)</li>
-          <li xml:lang="pt-BR">Melhora o registro de nova conta (adiciona suporte ao motivo)</li>
-          <li xml:lang="sk">Vylepšenie registrácie nového účtu (pridanie podpory dôvodu)</li>
-          <li xml:lang="sl">Izboljša registracijo novega računa (doda podporo za razlog)</li>
-          <li xml:lang="tr">Yeni hesap kaydetmeyi iyileştir (gerekçe desteği ekle)</li>
-          <li xml:lang="uk">Удосконалено реєстрацію нового облікового запису (додано підтримку причини)</li>
           <li>Implement mute/unmute user</li>
-          <li xml:lang="ar">تنفيذ كتم/إلغاء كتم صوت المستخدم</li>
-          <li xml:lang="ca">Implementa silenciar/deixar de silenciar un usuari</li>
-          <li xml:lang="ca-valencia">Implementa silenciar/deixar de silenciar un usuari</li>
-          <li xml:lang="es">Implementado el silenciado de usuarios</li>
-          <li xml:lang="it">Implementa silenzia/riabilita utente</li>
-          <li xml:lang="ka">მომხმარებლის დადუმება/დადუმების მოხსნის განხორციელება</li>
-          <li xml:lang="nl">Dempen/dempen ongedaan maken van gebruiker implementeren</li>
-          <li xml:lang="pt-BR">Implementa silenciar/ativar som do usuário</li>
-          <li xml:lang="sk">Implementácia stíšenia/zrušenia stíšenia používateľa</li>
-          <li xml:lang="sl">Implementiraj utišanje/vklop zvoka uporabnika</li>
-          <li xml:lang="tr">Kullanıcıyı sessize almayı/sesini açmayı gerçekle</li>
-          <li xml:lang="uk">Реалізовано вимикання та вмикання повідомлень від користувача</li>
           <li>Add color to the text in the account tab</li>
-          <li xml:lang="ar">أضف لون إلى النص الموجود في لسان الحساب</li>
-          <li xml:lang="ca">Afegeix color al text en la pestanya dels comptes</li>
-          <li xml:lang="ca-valencia">Afig color al text en la pestanya dels comptes</li>
-          <li xml:lang="es">Añadido color al texto en la pestaña de cuenta</li>
-          <li xml:lang="it">Aggiunge il colore al testo nella scheda degli account</li>
-          <li xml:lang="ka">ანგარიშის ჩანართის ტექსტზე ფერის დამატება</li>
-          <li xml:lang="nl">Kleur toevoegen aan de tekst in het tabblad account</li>
-          <li xml:lang="pt-BR">Adiciona cor ao texto na aba da conta</li>
-          <li xml:lang="sk">Pridanie farby textu na karte účtu</li>
-          <li xml:lang="sl">Doda barvo besedilu na zavihku računa</li>
-          <li xml:lang="tr">Hesap sekmesindeki metne renk ekle</li>
-          <li xml:lang="uk">Додано колір до тексту на вкладці облікових записів</li>
           <li>Allow to show private installed applications</li>
-          <li xml:lang="ar">السماح بإظهار التطبيقات الخاصة المثبتة</li>
-          <li xml:lang="ca">Permet mostrar les aplicacions privades instal·lades</li>
-          <li xml:lang="ca-valencia">Permet mostrar les aplicacions privades instal·lades</li>
-          <li xml:lang="es">Permite mostrar las aplicaciones instaladas de manera privada</li>
-          <li xml:lang="it">Consente di mostrare le applicazioni private installate</li>
-          <li xml:lang="ka">პირადი დაყენებული აპლიკაციების ჩვენების დაშვება</li>
-          <li xml:lang="nl">Bied het tonen van privé geïnstalleerde toepassingen</li>
-          <li xml:lang="pt-BR">Permite mostrar aplicativos privados instalados</li>
-          <li xml:lang="sk">Možnosť zobrazenia súkromne nainštalovaných aplikácií</li>
-          <li xml:lang="sl">Dovoli prikaz zasebno nameščenih aplikacij</li>
-          <li xml:lang="tr">Özel kurulu uygulamaların gösterilmesine izin ver</li>
-          <li xml:lang="uk">Дозволити показ приватно встановлених програм</li>
           <li>Fix editing message</li>
-          <li xml:lang="ar">إصلاح رسالة التحرير</li>
-          <li xml:lang="ca">Corregeix l'edició de missatges</li>
-          <li xml:lang="ca-valencia">Corregix l'edició de missatges</li>
-          <li xml:lang="es">Corrección al editar mensajes</li>
-          <li xml:lang="he">תוקנה עריכת הודעות</li>
-          <li xml:lang="it">Corregge la modifica del messaggio</li>
-          <li xml:lang="ka">გასწორდა შეტყობინების ჩასწორება</li>
-          <li xml:lang="nl">Bewerken van bericht repareren</li>
-          <li xml:lang="pt-BR">Corrige edição de mensagem</li>
-          <li xml:lang="sk">Oprava úpravy správ</li>
-          <li xml:lang="sl">Popravi urejanje sporočila</li>
-          <li xml:lang="tr">İletiyi düzenlemeyi düzelt</li>
-          <li xml:lang="uk">Виправлено редагування повідомлень</li>
           <li>Show permissions in Rocket.Chat Marketplace</li>
-          <li xml:lang="ar">اعرض الأذونات في متجر روكت تشات</li>
-          <li xml:lang="ca">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
-          <li xml:lang="ca-valencia">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
-          <li xml:lang="es">Mostrar permisos en tienda Rocket.Chat</li>
-          <li xml:lang="it">Mostra i permessi in Rocket.Chat Marketplace</li>
-          <li xml:lang="ka">წვდომების ჩვენება Rocket.Chat-ის მაღაზიაში</li>
-          <li xml:lang="nl">Rechten van Marktplein van Rocket.Chat tonen</li>
-          <li xml:lang="pt-BR">Mostra permissões no Marketplace do Rocket.Chat</li>
-          <li xml:lang="sk">Zobrazenie oprávnení v Rocket.Chat Marketplace</li>
-          <li xml:lang="sl">Prikazuje dovoljenja v Rocket.Chat Marketplace</li>
-          <li xml:lang="tr">Rocket.Chat Mağazası’ndaki izinleri göster</li>
-          <li xml:lang="uk">Показ прав доступу у крамниці Rocket.Chat</li>
           <li>Fix reconnect server</li>
-          <li xml:lang="ar">إصلاح إعادة الاتصال بالخادم</li>
-          <li xml:lang="ca">Corregeix la reconnexió del servidor</li>
-          <li xml:lang="ca-valencia">Corregix tornar a connectar del servidor</li>
-          <li xml:lang="es">Corrección al reconectar al servidor</li>
-          <li xml:lang="it">Corregge la riconnessione del server</li>
-          <li xml:lang="ka">გასწორდა სერვერთან თავიდან დაკავშირება</li>
-          <li xml:lang="nl">Server voor opnieuw verbinden repareren</li>
-          <li xml:lang="pt-BR">Corrige reconexão ao servidor</li>
-          <li xml:lang="sk">Oprava opätovného pripojenia k serveru</li>
-          <li xml:lang="sl">Popravi strežnik za ponovno povezavo</li>
-          <li xml:lang="tr">Sunucuya yeniden bağlanmayı düzelt</li>
-          <li xml:lang="uk">Виправлено повторне з'єднання з сервером</li>
           <li>Fix single application on Windows/MacOs</li>
-          <li xml:lang="ar">إصلاح تطبيق واحد على نظامي التشغيل Windows/MacOs</li>
-          <li xml:lang="ca">Corregeix l'aplicació individual a Windows/MacOs</li>
-          <li xml:lang="ca-valencia">Corregix l'aplicació individual a Windows/MacOs</li>
-          <li xml:lang="es">Corrección el la aplicación en Windows/MacOs</li>
-          <li xml:lang="it">Corregge la singola applicazione su Windows/MacOs</li>
-          <li xml:lang="ka">ერთი აპლიკაციის გასწორება Windows/MacOS-ებზე</li>
-          <li xml:lang="nl">Enkele toepassing op Windows/MacOs repareren</li>
-          <li xml:lang="pt-BR">Corrige aplicativos simples no Windows/MacOs</li>
-          <li xml:lang="sk">Oprava jednej inštancie aplikácie vo Windows/MacOs</li>
-          <li xml:lang="sl">Popravi posamezno aplikacijo na sistemih Windows/MacOs</li>
-          <li xml:lang="tr">Windows/macOS üzerinde tek uygulama çalıştırmayı düzelt</li>
-          <li xml:lang="uk">Виправлено проблему із єдиним екземпляром програми у Windows/MacOs</li>
           <li>Fix select created room/discussion/teams</li>
-          <li xml:lang="ar">إصلاح تحديد الغرفة/المناقشة/الفرق المنشئة</li>
-          <li xml:lang="ca">Corregeix la selecció de sales/debats/equips creats</li>
-          <li xml:lang="ca-valencia">Corregix la selecció de sales/debats/equips creats</li>
-          <li xml:lang="es">Corrección al seleccionar sala/discusión/equipo creados</li>
-          <li xml:lang="it">Corregge la selezione delle stanze/discussioni/squadre create</li>
-          <li xml:lang="ka">გასწორდა შექმნილი ოთახის/კამათის/გუნდების მონიშვნა</li>
-          <li xml:lang="nl">Reparatie van selecteer aangemaakte room/discussie/teams</li>
-          <li xml:lang="pt-BR">Corrige seleção de sala/discussão/equipes criadas</li>
-          <li xml:lang="sk">Oprava výberu vytvorenej miestnosti/diskusie/tímu</li>
-          <li xml:lang="sl">Popravi izbiro ustvarjene sobe/razprave/ekip</li>
-          <li xml:lang="tr">Oluşturulan oda/tartışma/takımları seçmeyi düzelt</li>
-          <li xml:lang="uk">Виправлено позначення створених кімнат, обговорень та команд</li>
           <li>Fix filter discussion in administrator mode</li>
-          <li xml:lang="ar">إصلاح مناقشة التصفية في وضع المسؤول</li>
-          <li xml:lang="ca">Corregeix el filtre de debats en mode d'administrador</li>
-          <li xml:lang="ca-valencia">Corregix el filtre de debats en mode administrador</li>
-          <li xml:lang="es">Corrección al filtrar discusión en modo administrador</li>
-          <li xml:lang="it">Corregge il filtro della discussione in modalità amministratore</li>
-          <li xml:lang="ka">გასწორდა დისკუსიის ფილტრი ადმინისტრატორის რეჟიმში</li>
-          <li xml:lang="nl">Reparatie van filter discussie in modus beheerder</li>
-          <li xml:lang="pt-BR">Corrige discussão de filtro no modo administrador</li>
-          <li xml:lang="sk">Oprava filtrovania diskusií v režime správcu</li>
-          <li xml:lang="sl">Popravi filter razprave v skrbniškem načinu</li>
-          <li xml:lang="tr">Yönetici kipinde tartışma filtrelemeyi düzelt</li>
-          <li xml:lang="uk">Виправлено фільтрування обговорень у режимі адміністратора</li>
           <li>Fix message video support</li>
-          <li xml:lang="ar">إصلاح رسائل الفيديو</li>
-          <li xml:lang="ca">Corregeix la implementació dels missatges de vídeo</li>
-          <li xml:lang="ca-valencia">Corregix la implementació dels missatges de vídeo</li>
-          <li xml:lang="es">Corrección en el soporte de mensajes de vídeos</li>
-          <li xml:lang="he">תוקנה התמיכה בהודעות וידאו</li>
-          <li xml:lang="it">Corregge il supporto video dei messaggi</li>
-          <li xml:lang="ka">გასწორდა შეტყობინების ვიდეოს მხარდაჭერა</li>
-          <li xml:lang="nl">Reparatie van bericht ondersteuning van video</li>
-          <li xml:lang="pt-BR">Corrige suporte a mensagens de vídeo</li>
-          <li xml:lang="sk">Oprava podpory videa v správach</li>
-          <li xml:lang="sl">Popravi podporo za video sporočila</li>
-          <li xml:lang="tr">İleti video desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено підтримку відео у повідомленнях</li>
           <li>Fix highlight text in quoted message</li>
-          <li xml:lang="ar">إصلاح تمييز النص في الرسالة المقتبسة</li>
-          <li xml:lang="ca">Corregeix el text ressaltat en un missatge citat</li>
-          <li xml:lang="ca-valencia">Corregix el text ressaltat en un missatge citat</li>
-          <li xml:lang="es">Corrección al destacar texto en mensaje entrecomillado</li>
-          <li xml:lang="it">Corregge il testo evidenziato nel messaggio citato</li>
-          <li xml:lang="ka">გასწორდა ტექსტის გამოკვეთა ციტირებულ შეტყობინებებში</li>
-          <li xml:lang="nl">Geaccentueerde tekst in aangehaald bericht repareren</li>
-          <li xml:lang="pt-BR">Corrige texto destacado em mensagem citada</li>
-          <li xml:lang="sk">Oprava zvýraznenia textu v citovanej správe</li>
-          <li xml:lang="sl">Popravi označeno besedilo v citiranem sporočilu</li>
-          <li xml:lang="tr">Alıntılanan iletideki metin vurgulamayı düzelt</li>
-          <li xml:lang="uk">Виправлено підсвічування тексту у цитованому повідомленні</li>
           <li>Fix open discussion channel</li>
-          <li xml:lang="ar">إصلاح قناة المناقشة المفتوحة</li>
-          <li xml:lang="ca">Corregeix l'obertura d'un canal de debat</li>
-          <li xml:lang="ca-valencia">Corregix l'obertura d'un canal de debat</li>
-          <li xml:lang="es">Corrección al abrir canal de discusión</li>
-          <li xml:lang="it">Corregge il canale di discussione aperto</li>
-          <li xml:lang="ka">გასწორდა კამათის არხის გახსნა</li>
-          <li xml:lang="nl">Open discussiekanaal repareren</li>
-          <li xml:lang="pt-BR">Corrige canal de discussão aberto</li>
-          <li xml:lang="sk">Oprava otvorenia diskusného kanála</li>
-          <li xml:lang="sl">Popravi odprt kanal za razpravo</li>
-          <li xml:lang="tr">Tartışma kanalını açmayı düzelt</li>
-          <li xml:lang="uk">Виправлено канал відкритого спілкування</li>
           <li>Allow to show application market settings</li>
-          <li xml:lang="ar">السماح بإظهار إعدادات سوق التطبيقات</li>
-          <li xml:lang="ca">Permet mostrar la configuració del mercat d'aplicacions</li>
-          <li xml:lang="ca-valencia">Permet mostrar la configuració del mercat d'aplicacions</li>
-          <li xml:lang="es">Permite mostrar las preferencias de la tienda de aplicaciones</li>
-          <li xml:lang="it">Consente di mostrare le impostazioni del negozio delle applicazioni</li>
-          <li xml:lang="ka">აპლიკაციის მარკეტის პარამეტრების ჩვენების დაშვება</li>
-          <li xml:lang="nl">Sta het tonen van instellingen van toepassingenmarkt toe</li>
-          <li xml:lang="pt-BR">Permite mostrar as configurações do mercado de aplicativos</li>
-          <li xml:lang="sk">Možnosť zobrazenia nastavení obchodu s aplikáciami</li>
-          <li xml:lang="sl">Dovoli prikaz nastavitev tržnice aplikacij</li>
-          <li xml:lang="tr">Uygulama pazarı ayarlarının gösterilmesine izin ver</li>
-          <li xml:lang="uk">Уможливлено показ параметрів ринку програм</li>
         </ul>
       </description>
     </release>
@@ -2443,161 +1418,17 @@
       <description>
         <ul>
           <li>Implement Rocket.Chat Marketplace</li>
-          <li xml:lang="ar">تنفيذ متجر روكت تشات</li>
-          <li xml:lang="ca">Implementa el mercat d'aplicacions Rocket.Chat</li>
-          <li xml:lang="ca-valencia">Implementa el mercat d'aplicacions Rocket.Chat</li>
-          <li xml:lang="es">Implementada la tienda Rocket.Chat</li>
-          <li xml:lang="it">Implementa Rocket.Chat Marketplace</li>
-          <li xml:lang="ka">განხორციელდა Rocket.Chat-ის მაღაზია</li>
-          <li xml:lang="nl">Marktplein van Rocket.Chat implementeren</li>
-          <li xml:lang="pt-BR">Implementa o Marketplace do Rocket.Chat</li>
-          <li xml:lang="sk">Implementácia Rocket.Chat Marketplace</li>
-          <li xml:lang="sl">Implementira Rocket.Chat Marketplace</li>
-          <li xml:lang="tr">Rocket.Chat Mağazası’nı gerçekle</li>
-          <li xml:lang="uk">Реалізовано ринок програм Rocket.Chat</li>
           <li>Allow to clean room history</li>
-          <li xml:lang="ar">السماح بتنظيف سجل الغرفة</li>
-          <li xml:lang="ca">Permet netejar l'historial de les sales</li>
-          <li xml:lang="ca-valencia">Permet netejar l'historial de les sales</li>
-          <li xml:lang="es">Permite limpiar la historia de salas</li>
-          <li xml:lang="it">Consente la cancellazione della cronologia della stanza</li>
-          <li xml:lang="ka">ოთახის ისტორიის გასუფთავების დაშვება</li>
-          <li xml:lang="nl">Toestaan de geschiedenis van de room te wissen</li>
-          <li xml:lang="pt-BR">Permite limpar o histórico da sala</li>
-          <li xml:lang="sk">Možnosť vyčistenia histórie miestnosti</li>
-          <li xml:lang="sl">Dovoli brisanje zgodovine sobe</li>
-          <li xml:lang="tr">Oda geçmişinin temizlenmesine izin ver</li>
-          <li xml:lang="uk">Уможливлено очищення журналу кімнати</li>
           <li>Allow to check new version</li>
-          <li xml:lang="ar">السماح بالتحقق من الإصدار الجديد</li>
-          <li xml:lang="ca">Permet comprovar si hi ha una versió nova</li>
-          <li xml:lang="ca-valencia">Permet comprovar si hi ha una versió nova</li>
-          <li xml:lang="es">Permite comprobar nuevas versiones</li>
-          <li xml:lang="it">Consente di verificare una nuova versione</li>
-          <li xml:lang="ka">ახალი ვერსიის შემოწმების დაშვება</li>
-          <li xml:lang="nl">Toestaan op nieuwe versie te controleren</li>
-          <li xml:lang="pt-BR">Permite verificar por nova versão</li>
-          <li xml:lang="sk">Možnosť kontroly novej verzie</li>
-          <li xml:lang="sl">Dovoli preverjanje nove različice</li>
-          <li xml:lang="tr">Yeni sürümün denetlenmesine izin ver</li>
-          <li xml:lang="uk">Уможливити пошук нової версії</li>
           <li>Implement moderation (administrator mode)</li>
-          <li xml:lang="ar">تنفيذ الإشراف (وضع المسؤول)</li>
-          <li xml:lang="ca">Implementa la moderació (mode d'administrador)</li>
-          <li xml:lang="ca-valencia">Implementa la moderació (mode administrador)</li>
-          <li xml:lang="es">Implementada moderación (modo administrador)</li>
-          <li xml:lang="it">Implementa la moderazione (modalità amministratore)</li>
-          <li xml:lang="ka">მოდერაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)</li>
-          <li xml:lang="nl">Moderatie implementeren (modus systeembeheerder)</li>
-          <li xml:lang="pt-BR">Implementa a moderação (modo de administrador)</li>
-          <li xml:lang="sk">Implementácia moderovania (režim správcu)</li>
-          <li xml:lang="sl">Implementira moderiranje (skrbniški način)</li>
-          <li xml:lang="tr">Moderasyonu gerçekle (yönetici kipi)</li>
-          <li xml:lang="uk">Реалізовано модерацію (режим адміністратора)</li>
           <li>Add welcome page</li>
-          <li xml:lang="ar">إضافة صفحة الترحيب</li>
-          <li xml:lang="ca">Afegeix la pàgina de benvinguda</li>
-          <li xml:lang="ca-valencia">Afig la pàgina de benvinguda</li>
-          <li xml:lang="es">Añadida página de bienvenida</li>
-          <li xml:lang="it">Aggiunge la pagina di benvenuto</li>
-          <li xml:lang="ka">დაემატა მისალმების გვერდი</li>
-          <li xml:lang="nl">Welkomstpagina toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona a página de boas-vindas</li>
-          <li xml:lang="sk">Pridanie uvítacej stránky</li>
-          <li xml:lang="sl">Doda pozdravno stran</li>
-          <li xml:lang="tr">Karşılama sayfası ekle</li>
-          <li xml:lang="uk">Додано сторінку вітання</li>
           <li>Implement pending users info (administrator mode)</li>
-          <li xml:lang="ar">تنفيذ معلومات المستخدمين المعلقة (وضع المسؤول)</li>
-          <li xml:lang="ca">Implementa la informació sobre els usuaris pendents (mode d'administrador)</li>
-          <li xml:lang="ca-valencia">Implementa la informació sobre els usuaris pendents (mode administrador)</li>
-          <li xml:lang="es">Implementada la información de usuarios pendiente (modo administrador)</li>
-          <li xml:lang="it">Implementa le informazioni sugli utenti in sospeso (modalità amministratore)</li>
-          <li xml:lang="ka">განხორციელდა დარჩენილი მომხმარებლების ინფორმაციის მიღება(ადმინისტრატორის რეჟიმი).</li>
-          <li xml:lang="nl">Informatie van wachtende gebruikers implementeren (modus systeembeheerder)</li>
-          <li xml:lang="pt-BR">Implementa informações de usuários pendentes (modo de administrador)</li>
-          <li xml:lang="sk">Implementácia informácií o čakajúcich používateľoch (režim správcu)</li>
-          <li xml:lang="sl">Implementira podatke o čakajočih uporabnikih (skrbniški način)</li>
-          <li xml:lang="tr">Bekleyen kullanıcılar bilgisini gerçekle (yönetici kipi)</li>
-          <li xml:lang="uk">Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)</li>
           <li>Use cmark-rc for markdown support</li>
-          <li xml:lang="ar">استخدم cmark-rc لتوفير ماركدون</li>
-          <li xml:lang="ca">Usa «cmark-rc» per a implementar el Markdown</li>
-          <li xml:lang="ca-valencia">Utilitza «cmark-rc» per a implementar Markdown</li>
-          <li xml:lang="es">Uso de cmark-rc para el soporte Markdown</li>
-          <li xml:lang="it">Utilizza cmark-rc per il supporto markdown</li>
-          <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის გამოყენება</li>
-          <li xml:lang="nl">Cmark-rc gebruiken voor ondersteuning van markdown</li>
-          <li xml:lang="pt-BR">Usar cmark-rc para suporte a Markdown</li>
-          <li xml:lang="sk">Použitie cmark-rc na podporu markdown</li>
-          <li xml:lang="sl">Uporabi cmark-rc za podporo markdowna</li>
-          <li xml:lang="tr">Markdown desteği için cmark-rc kullan</li>
-          <li xml:lang="uk">Для підтримки markdown використано cmark-rc</li>
           <li>Delete oldest files from some cache directories (file-upload and media) so it doesn't grow forever</li>
-          <li xml:lang="ar">حذف الملفات الأقدم من بعض أدلة خبيئة رفع الملفات والوسائط حتى لا تتوسع إلى الأبد</li>
-          <li xml:lang="ca">Suprimeix els fitxers més antics d'alguns directoris de la memòria cau («file-upload» i «media») perquè no creixi per sempre</li>
-          <li xml:lang="ca-valencia">Suprimix els fitxers més antics d'algunes carpetes de la memòria cau («file-upload» i «media») perquè no cresca per sempre</li>
-          <li xml:lang="es">Borra los archivos más antiguos de algunos directorios de caché (archivos compartidos y medios) para que no crezcan para siempre</li>
-          <li xml:lang="it">Elimina i file più vecchi da alcune cartelle della cache (file-upload e media) in modo che non crescano all'infinito</li>
-          <li xml:lang="ka">კეშის საქაღალდეებიდან (file-upload და media) უძველესი ფაილების წაშლა, რომ ისინი უსასრულოდ არ გაიზარდოს</li>
-          <li xml:lang="nl">Oudste bestanden uit enige cachemappen verwijderen (bestanden uploaden en media) zodat het niet oneindig groeit</li>
-          <li xml:lang="pt-BR">Exclui os arquivos mais antigos de alguns diretórios de cache (upload de arquivos e mídia) para que eles não cresçam para sempre</li>
-          <li xml:lang="sk">Odstránenie najstarších súborov z niektorých adresárov vyrovnávacej pamäte (file-upload a media), aby nerástli donekonečna</li>
-          <li xml:lang="sl">Izbriše najstarejše datoteke iz nekaterih imenikov predpomnilnika (prenos datotek tja in mediji), da se ne bi večno povečevali</li>
-          <li xml:lang="tr">Sonsuza kadar büyümemesi için bazı önbellek dizinlerindeki (dosya yükleme ve ortam) en eski dosyaları sil</li>
-          <li xml:lang="uk">Вилучати найстаріші файли з каталогів кешу (отримання файлів і мультимедійних даних), щоб каталоги нескінченно не зростали у розмірі</li>
           <li>Clean market application model after 30 minutes (reduce memory footprint)</li>
-          <li xml:lang="ar">نموذج تطبيق السوق النظيف بعد 30 دقيقة (تقليل مساحة الذاكرة)</li>
-          <li xml:lang="ca">Neteja el model d'aplicacions del mercat després de 30 minuts (redueix la petjada de memòria)</li>
-          <li xml:lang="ca-valencia">Neteja el model d'aplicacions del mercat després de 30 minuts (reduïx la petjada de memòria)</li>
-          <li xml:lang="es">Limpiar modelo de tienda de aplicaciones tras 30 minutos (reduce uso de memoria)</li>
-          <li xml:lang="it">Svuota il modello delle applicazioni del marketplace dopo 30 minuti (riducendo l'occupazione di memoria)</li>
-          <li xml:lang="ka">მარკეტის აპლიკაციის მოდელის გასუფთავება 30 წუთის შემდეგ (ამცირებს დახარჯული მეხსიერების სიდიდეს)</li>
-          <li xml:lang="nl">Toepassingsmodel voor markt wissen na 30 minuten (voetafdruk op geheugen verminderen)</li>
-          <li xml:lang="pt-BR">Limpa o modelo de aplicativo do mercado após 30 minutos (reduz o consumo de memória)</li>
-          <li xml:lang="sk">Vyčistenie modelu aplikácií obchodu po 30 minútach (zníženie spotreby pamäte)</li>
-          <li xml:lang="sl">Očisti model tržne aplikacije po 30 minutah (zmanjšanje porabe pomnilnika)</li>
-          <li xml:lang="tr">30 dakika sonra mağaza uygulama modelini temizle (bellek ayak izini azaltır)</li>
-          <li xml:lang="uk">Спорожнити модель ринку програм за 30 хвилин (зменшує використання пам'яті)</li>
           <li>Fix show discussion name in completion</li>
-          <li xml:lang="ar">إصلاح إظهار اسم المناقشة عند الاكتمال</li>
-          <li xml:lang="ca">Corregeix la visualització del nom del debat a la compleció</li>
-          <li xml:lang="ca-valencia">Corregix la visualització del nom del debat a la compleció</li>
-          <li xml:lang="es">Corrección al mostrar el nombre de la discusión al completar</li>
-          <li xml:lang="it">Corregge il nome della discussione visualizzata in fase di completamento</li>
-          <li xml:lang="ka">გასწორდა დასრულებისას კამათის სახელის ჩვენება</li>
-          <li xml:lang="nl">Naam van discussie bij voltooien tonen repareren</li>
-          <li xml:lang="pt-BR">Corrige nome da discussão exibida na conclusão</li>
-          <li xml:lang="sk">Oprava zobrazenia názvu diskusie pri dopĺňaní</li>
-          <li xml:lang="sl">Popravi prikaz imena razprave v zaključku</li>
-          <li xml:lang="tr">Tamamlamada tartışma adı göstermeyi düzelt</li>
-          <li xml:lang="uk">Виправлено показ назви обговорення при доповненні</li>
           <li>Fix duplicated messages in search message dialog</li>
-          <li xml:lang="ar">إصلاح الرسائل المكررة في مربع حوار رسائل البحث</li>
-          <li xml:lang="ca">Corregeix els missatges duplicats en el diàleg de cerca de missatges</li>
-          <li xml:lang="ca-valencia">Corregix els missatges duplicats en el diàleg de busca de missatges</li>
-          <li xml:lang="es">Corrección de mensajes duplicados en el diálogo de búsqueda de mensaje</li>
-          <li xml:lang="it">Corregge i messaggi duplicati nella finestra di ricerca dei messaggi</li>
-          <li xml:lang="ka">გასწორდა გამეორებული შეტყობინებები ძებნის შეტყობინების დიალოგში</li>
-          <li xml:lang="nl">Dubbele meldingen repareren in dialoog van zoekmelding</li>
-          <li xml:lang="pt-BR">Corrige mensagens duplicadas na caixa de diálogo de pesquisa de mensagens</li>
-          <li xml:lang="sk">Oprava duplicitných správ v dialógu hľadania správ</li>
-          <li xml:lang="sl">Popravi podvojena sporočila v pogovornem oknu za iskanje sporočil</li>
-          <li xml:lang="tr">İleti arama penceresindeki yinelenen iletileri düzelt</li>
-          <li xml:lang="uk">Виправлено дублювання повідомлень у вікні пошуку повідомлень</li>
           <li>Add delegate in search rooms in team dialog</li>
-          <li xml:lang="ar">إضافة مندوب في غرف البحث في حوار الفريق</li>
-          <li xml:lang="ca">Afegeix un delegat a la cerca de sales en el diàleg d'equip</li>
-          <li xml:lang="ca-valencia">Afig un delegat a la busca de sales en el diàleg d'equip</li>
-          <li xml:lang="es">Añade delegación en la búsqueda de salas en el diálogo de equipos</li>
-          <li xml:lang="it">Aggiunge un delegato nelle stanze di ricerca nella finestra della squadra</li>
-          <li xml:lang="ka">დაემატა დელეგატი ოთახების ძებნაში გუნდის დიალოგში</li>
-          <li xml:lang="nl">Afgevaardigde toevoegen in zoekrooms in teamdialoog</li>
-          <li xml:lang="pt-BR">Adiciona delegado em salas de pesquisa na caixa de diálogo da equipe</li>
-          <li xml:lang="sk">Pridanie delegáta pri hľadaní miestností v dialógu tímu</li>
-          <li xml:lang="sl">Doda delegata v iskalne sobe v pogovornem oknu ekipe</li>
-          <li xml:lang="tr">Takım penceresinde oda arama kısmına delege ekle</li>
-          <li xml:lang="uk">Додано делегат у кімнати пошуку у вікні команд</li>
         </ul>
       </description>
     </release>
@@ -2605,270 +1436,25 @@
       <description>
         <ul>
           <li>Allow to increase/decrease font (CTRL++/CTRL+-)</li>
-          <li xml:lang="ar">السماح بزيادة/تقليل حجم الخط (CTRL++/CTRL+-)</li>
-          <li xml:lang="ca">Permet augmentar/disminuir la lletra (CTRL++/CTRL+-)</li>
-          <li xml:lang="ca-valencia">Permet augmentar o disminuir la lletra («Ctrl++» o «Ctrl+-»)</li>
-          <li xml:lang="es">Permite incrementar/decrementar la fuente (CTRL++/CTRL+-)</li>
-          <li xml:lang="it">Consente di aumentare/diminuire il carattere (CTRL++/CTRL+-)</li>
-          <li xml:lang="ka">ფონტის გადიდება/დაპატარავების (CTRL++/CTRL+-) დაშვება</li>
-          <li xml:lang="nl">Bied het vergroten/verkleinen van het lettertype (CTRL++/CTRL+-)</li>
-          <li xml:lang="pt-BR">Permite aumentar/diminuir a fonte (CTRL c/CTRL-)</li>
-          <li xml:lang="sk">Možnosť zväčšenia/zmenšenia písma (CTRL++/CTRL+-)</li>
-          <li xml:lang="sl">Dovoli povečanje/zmanjšanje pisave (CTRL++/CTRL+-)</li>
-          <li xml:lang="tr">Yazıtipini büyütmeye/küçültmeye izin ver (CTRL++ / CTRL+−)</li>
-          <li xml:lang="uk">Умовжливлено збільшення і зменшення шрифту (CTRL++/CTRL+-)</li>
           <li>Add channel list style (Condensed/Medium/Extended)</li>
-          <li xml:lang="ar">إضافة نمط قائمة القنوات (مكثف/متوسط/موسع)</li>
-          <li xml:lang="ca">Afegeix un estil de llista de canals (condensada/mitjana/ampliada)</li>
-          <li xml:lang="ca-valencia">Afig un estil de llista de canals (condensada, mitjana o ampliada)</li>
-          <li xml:lang="es">Añadido estilo de la lista de canales (Condensado/Medio/Extendido)</li>
-          <li xml:lang="it">Aggiunge stile elenco canali (condensato/medio/esteso)</li>
-          <li xml:lang="ka">არხების სიის სტილის დამატება (შესქელებული/საშაუალო/გაფართოებული)</li>
-          <li xml:lang="nl">Stijl van kanaallijst toevoegen (Slank/Medium/Uitgebreid)</li>
-          <li xml:lang="pt-BR">Adiciona estilo de lista de canais (Condensado/Médio/Estendido)</li>
-          <li xml:lang="sk">Pridanie štýlu zoznamu kanálov (zhustený/stredný/rozšírený)</li>
-          <li xml:lang="sl">Dodaj slog seznama kanalov (zgoščen/srednji/razširjen)</li>
-          <li xml:lang="tr">Kanal listesi stili ekle (Sıkışık/Orta/Genişletilmiş)</li>
-          <li xml:lang="uk">Додати стиль списку каналу (стиснений/середній/розгорнутий)</li>
           <li>Add forward message</li>
-          <li xml:lang="ar">إضافة رسالة إلى الأمام</li>
-          <li xml:lang="ca">Afegeix els missatges reenviats</li>
-          <li xml:lang="ca-valencia">Afig els missatges reenviats</li>
-          <li xml:lang="es">Añadido reenviar mensaje</li>
-          <li xml:lang="it">Aggiunge l'inoltro dei messaggi</li>
-          <li xml:lang="ka">შეტყობინების გადაგზავნის დამატება</li>
-          <li xml:lang="nl">Door te sturen bericht toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona encaminhamento de mensagem</li>
-          <li xml:lang="sk">Pridanie preposlania správy</li>
-          <li xml:lang="sl">Doda posredovanje sporočila</li>
-          <li xml:lang="tr">İletiyi yönlendirme ekle</li>
-          <li xml:lang="uk">Додати переспрямування повідомлення</li>
           <li>Improve mentions support</li>
-          <li xml:lang="ar">تحسين الإشارات</li>
-          <li xml:lang="ca">Millora la implementació de les mencions</li>
-          <li xml:lang="ca-valencia">Millora la implementació de les mencions</li>
-          <li xml:lang="es">Mejorado el soporte de menciones</li>
-          <li xml:lang="he">השתפרה התמיכה באזכורים</li>
-          <li xml:lang="it">Migliora il supporto delle menzioni</li>
-          <li xml:lang="ka">გაუმჯობესდა ხსენებების მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning van vermeldingen verbeteren</li>
-          <li xml:lang="pt-BR">Melhora o suporte a menções</li>
-          <li xml:lang="sk">Vylepšenie podpory zmienok</li>
-          <li xml:lang="sl">Izboljša podporo za omembe</li>
-          <li xml:lang="tr">Söz etme desteğini iyileştir</li>
-          <li xml:lang="uk">Удосконалено підтримку згадок</li>
           <li>Add support for deep linking</li>
-          <li xml:lang="ar">إضافة الارتباط العميق الارتباط العميق</li>
-          <li xml:lang="ca">Afegeix la implementació per a l'enllaçament profund</li>
-          <li xml:lang="ca-valencia">Afig la implementació per a l'enllaçament profund</li>
-          <li xml:lang="es">Añadido el soporte para enlaces profundos</li>
-          <li xml:lang="he">נוספה תמיכה בקישור עמוק</li>
-          <li xml:lang="it">Aggiungi il supporto la traduzione locale</li>
-          <li xml:lang="ka">დაემატა ღრმა ბმულების მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
-          <li xml:lang="pt-BR">Adiciona suporte para links diretos (deep linking)</li>
-          <li xml:lang="sk">Pridanie podpory hĺbkových odkazov</li>
-          <li xml:lang="sl">Doda podporo za globoko povezovanje</li>
-          <li xml:lang="tr">Derin bağlantı (deep linking) için destek ekle</li>
-          <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
           <li>Implement block actions</li>
-          <li xml:lang="ar">تنفيذ إجراءات الحظر</li>
-          <li xml:lang="ca">Implementa accions de bloqueig</li>
-          <li xml:lang="ca-valencia">Implementa accions de bloqueig</li>
-          <li xml:lang="es">Implementado bloqueo de acciones</li>
-          <li xml:lang="it">Implementa le azioni di blocco</li>
-          <li xml:lang="ka">განხორციელდა დაბლოკვის ქმედებები</li>
-          <li xml:lang="nl">Blokkeeracties implementeren</li>
-          <li xml:lang="pt-BR">Implementa ações de bloqueio</li>
-          <li xml:lang="sk">Implementácia blokových akcií</li>
-          <li xml:lang="sl">Implementira blokovne dejavnosti</li>
-          <li xml:lang="tr">Engelleme eylemlerini gerçekle</li>
-          <li xml:lang="uk">Реалізовано дії з блокування</li>
           <li>Implement personal token authentication.</li>
-          <li xml:lang="ar">تنفيذ الاستيثاق بالرمز الشخصي</li>
-          <li xml:lang="ca">Implementa l'autenticació de testimonis personals.</li>
-          <li xml:lang="ca-valencia">Implementa l'autenticació de testimonis personals.</li>
-          <li xml:lang="es">Implementado la autenticación por token personal.</li>
-          <li xml:lang="it">Implementa l'autenticazione tramite token personale.</li>
-          <li xml:lang="ka">განხორციელდა პირადი ტოკენით ავთენტიკაცია.</li>
-          <li xml:lang="nl">Implementeer authenticatie met persoonlijke tokens.</li>
-          <li xml:lang="pt-BR">Implementa autenticação por token pessoal</li>
-          <li xml:lang="sk">Implementácia overenia osobným tokenom.</li>
-          <li xml:lang="sl">Implementira avtentikacijo z osebnimi žetoni.</li>
-          <li xml:lang="tr">Kişisel jeton kimlik doğrulamasını gerçekle.</li>
-          <li xml:lang="uk">Реалізовано розпізнавання за особистим жетоном.</li>
           <li>Add Plasma Activities Support</li>
-          <li xml:lang="ar">إضافة التعامل مع أنشطة البلازما</li>
-          <li xml:lang="ca">Afegeix el suport d'activitats del Plasma</li>
-          <li xml:lang="ca-valencia">Afig el suport d'activitats de Plasma</li>
-          <li xml:lang="es">Añadido soporte para actividades Plasma</li>
-          <li xml:lang="it">Aggiunge il supporto per le attività Plasma</li>
-          <li xml:lang="ka">დაემატა Plasma-ის აქტივობების მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor activiteiten van Plasma toevoegen</li>
-          <li xml:lang="pt-BR">Adiciona suporte às Atividades do Plasma</li>
-          <li xml:lang="sk">Pridanie podpory aktivít Plasma</li>
-          <li xml:lang="sl">Doda podporo Plasma dejavnosti</li>
-          <li xml:lang="tr">Plasma Etkinlikler desteği ekle</li>
-          <li xml:lang="uk">Додано підтримку просторів дій Плазми</li>
           <li>Add Report User Support</li>
-          <li xml:lang="ar">إضافة الإبلاغ عن مستخدم</li>
-          <li xml:lang="ca">Afegeix el suport d'informació d'un usuari</li>
-          <li xml:lang="ca-valencia">Afig el suport d'informació d'un usuari</li>
-          <li xml:lang="es">Añadido soporte para reportar usuarios</li>
-          <li xml:lang="he">נוספה תמיכה בדיווח על משתמשים</li>
-          <li xml:lang="it">Aggiunge il supporto per la segnalazione degli utenti</li>
-          <li xml:lang="ka">დაემატა მომხმარებლის შესახებ ანგარიშის გაგზავნის მხარდაჭერა</li>
-          <li xml:lang="nl">Rapport over gebruikersondersteuning toevoegen</li>
-          <li xml:lang="pt-BR">Adicionar suporte a reporte de usuário</li>
-          <li xml:lang="sk">Pridanie podpory nahlasovania používateľov</li>
-          <li xml:lang="sl">Doda podporo poročil uporabnikom</li>
-          <li xml:lang="tr">Kullanıcıyı rapor etme desteği ekle</li>
-          <li xml:lang="uk">Додано підтримку скарг на користувача</li>
           <li>Implement Channel Sound Notification</li>
-          <li xml:lang="ar">تنفيذ إشعار صوت القناة</li>
-          <li xml:lang="ca">Implementa la notificació de so de canal</li>
-          <li xml:lang="ca-valencia">Implementa la notificació de so de canal</li>
-          <li xml:lang="es">Implementada el sonido de notificación de canal</li>
-          <li xml:lang="it">Implementa la notifica sonora del canale</li>
-          <li xml:lang="ka">განხორციელდა არხის ხმოვანი გაფრთხილება</li>
-          <li xml:lang="nl">Melding van kanaalgeluid implementeren</li>
-          <li xml:lang="pt-BR">Implementa notificação de som no canal</li>
-          <li xml:lang="sk">Implementácia zvukového upozornenia kanála</li>
-          <li xml:lang="sl">Implementira obveščanje zvočnega kanala</li>
-          <li xml:lang="tr">Kanal sesli bildirimini gerçekle</li>
-          <li xml:lang="uk">Реалізовано звукові сповіщення щодо дій на каналі</li>
           <li>Implement New Room Sound Notification</li>
-          <li xml:lang="ar">تنفيذ الإشعار الصوتي للغرفة الجديدة</li>
-          <li xml:lang="ca">Implementa la notificació de so de sala nova</li>
-          <li xml:lang="ca-valencia">Implementa la notificació de so de sala nova</li>
-          <li xml:lang="es">Implementado el sonido de notificación de nueva sala</li>
-          <li xml:lang="it">Implementa la notifica sonora della nuova stanza</li>
-          <li xml:lang="ka">განხორციელდა ახალი არხის ხმოვანი გაფრთხილება</li>
-          <li xml:lang="nl">Geluidsmelding voor nieuwe room implementeren</li>
-          <li xml:lang="pt-BR">Implementa nova notificação de som para sala</li>
-          <li xml:lang="sk">Implementácia zvukového upozornenia na novú miestnosť</li>
-          <li xml:lang="sl">Implementira zvočno obvestilo za novo sobo</li>
-          <li xml:lang="tr">Yeni oda sesli bildirimini gerçekle</li>
-          <li xml:lang="uk">Реалізовано нове звукове сповіщення щодо кімнати</li>
           <li>Implement Sorted/Unsorted markdown list</li>
-          <li xml:lang="ar">تنفيذ قائمة تخفيض الأسعار المصنفة/غير المصنفة</li>
-          <li xml:lang="ca">Implementa la llista ordenada/desordenada en Markdown</li>
-          <li xml:lang="ca-valencia">Implementa la llista ordenada/desordenada en Markdown</li>
-          <li xml:lang="es">Implementadas las listas ordenadas/desordenadas en Markdown</li>
-          <li xml:lang="it">Implementa l'elenco markdown ordinato/non ordinato</li>
-          <li xml:lang="ka">განხორციელდა დალაგებული/დაულაგებელი markdown-ის ჩამონათვალი</li>
-          <li xml:lang="nl">Gesorteerde/niet-gesorteerde markdown-lijst implementeren</li>
-          <li xml:lang="pt-BR">Implementa lista de markdown classificada/não classificada</li>
-          <li xml:lang="sk">Implementácia číslovaného/nečíslovaného zoznamu markdown</li>
-          <li xml:lang="sl">Implementira razvrščen/nerazvrščen seznam markdown</li>
-          <li xml:lang="tr">Sıralı/Sırasız Markdown listesini gerçekle</li>
-          <li xml:lang="uk">Реалізовано упорядковані і неупорядковані списки Markdown</li>
           <li>Fix dark mode support</li>
-          <li xml:lang="ar">إصلاح الوضع الداكن</li>
-          <li xml:lang="ca">Corregeix la implementació del mode fosc</li>
-          <li xml:lang="ca-valencia">Corregix la implementació del mode fosc</li>
-          <li xml:lang="es">Corrección en el soporte de modo oscuro</li>
-          <li xml:lang="he">תוקנה בתמיכה במצב כהה</li>
-          <li xml:lang="it">Corregge il supporto della modalità scura</li>
-          <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
-          <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
-          <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
-          <li xml:lang="sk">Oprava podpory tmavého režimu</li>
-          <li xml:lang="sl">Popravljena podpora za temni način</li>
-          <li xml:lang="tr">Koyu kip desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено підтримку темного режиму</li>
           <li>Fix jitsi support</li>
-          <li xml:lang="ar">إصلاح التعامل مع جيتسي</li>
-          <li xml:lang="ca">Corregeix la implementació del Jitsi</li>
-          <li xml:lang="ca-valencia">Corregix la implementació de Jitsi</li>
-          <li xml:lang="es">Corrección en el soporte de Jitsi</li>
-          <li xml:lang="he">תוקנה התמיכה ב־Jitsi</li>
-          <li xml:lang="it">Corregge il supporto jitsi</li>
-          <li xml:lang="ka">გასწორდა JITSI-ის მხარდაჭერა</li>
-          <li xml:lang="nl">Jitsi-ondersteuning repareren</li>
-          <li xml:lang="pt-BR">Corrige suporte a jitsi</li>
-          <li xml:lang="sk">Oprava podpory Jitsi</li>
-          <li xml:lang="sl">Popravi podporo za jitsi</li>
-          <li xml:lang="tr">Jitsi desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено підтримку jitsi</li>
           <li>Fix translate message in direct channel</li>
-          <li xml:lang="ar">إصلاح ترجمة الرسالة في القناة المباشرة</li>
-          <li xml:lang="ca">Corregeix el missatge de traducció al canal directe</li>
-          <li xml:lang="ca-valencia">Corregix el missatge de traducció en el canal directe</li>
-          <li xml:lang="es">Corrección en la traducción de mensaje en canales directos</li>
-          <li xml:lang="it">Corregge la traduzione del messaggio nel canale diretto</li>
-          <li xml:lang="ka">გასწორდა შეტყობინების თარგმნა პირდაპირ არხში</li>
-          <li xml:lang="nl">Bericht vertalen in direct kanaal repareren</li>
-          <li xml:lang="pt-BR">Corrige mensagem de tradução no canal direto</li>
-          <li xml:lang="sk">Oprava prekladu správy v priamom kanáli</li>
-          <li xml:lang="sl">Popravi prevedeno sporočilo v neposrednem kanalu</li>
-          <li xml:lang="tr">Doğrudan kanaldaki ileti çevirisini düzelt</li>
-          <li xml:lang="uk">Виправлено переклад повідомлень у безпосередньому каналі</li>
           <li>Don't show @here/@all as user</li>
-          <li xml:lang="ar">لا تظهر @هنا/@الكل كمستخدم</li>
-          <li xml:lang="ca">No mostra @here/@all com a usuari</li>
-          <li xml:lang="ca-valencia">No mostra @here/@all com a usuari</li>
-          <li xml:lang="es">No mostrar @here/@all como usuario</li>
-          <li xml:lang="it">Non mostra @qui/@tutti come utente</li>
-          <li xml:lang="ka">მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება</li>
-          <li xml:lang="nl">@here/@all als gebruiker niet tonen</li>
-          <li xml:lang="pt-BR">Não mostra @here/@all como usuário</li>
-          <li xml:lang="sk">Nezobrazovať @here/@all ako používateľa</li>
-          <li xml:lang="sl">Ne prikazuj @here/@all kot uporabnika</li>
-          <li xml:lang="tr">@here/@all ögelerini kullanıcı olarak gösterme</li>
-          <li xml:lang="uk">Вимкнено показ @here/@all як користувача</li>
           <li>Reduce memory footprint</li>
-          <li xml:lang="ar">تقليل مساحة الذاكرة</li>
-          <li xml:lang="ca">Redueix el consum de memòria</li>
-          <li xml:lang="ca-valencia">Reduïx el consum de memòria</li>
-          <li xml:lang="es">Reducido el uso de memoria</li>
-          <li xml:lang="it">Impronta sulla memoria ridotta</li>
-          <li xml:lang="ka">შემცირდა მეხსიერების გამოყენება</li>
-          <li xml:lang="nl">Voetafdruk op geheugen verminderen</li>
-          <li xml:lang="pt-BR">Reduz uso de memória</li>
-          <li xml:lang="sk">Zníženie spotreby pamäte</li>
-          <li xml:lang="sl">Zmanjša pomnilniški odtis</li>
-          <li xml:lang="tr">Bellek ayak izini azalt</li>
-          <li xml:lang="uk">Зменшити споживання пам'яті</li>
           <li>Use RESTAPI for logging</li>
-          <li xml:lang="ar">استخدم RESTAPI للتسجيل</li>
-          <li xml:lang="ca">Fa servir RESTAPI per al registre</li>
-          <li xml:lang="ca-valencia">Utilitza RESTAPI per al registre</li>
-          <li xml:lang="es">Uso de RESTAPI para los registros</li>
-          <li xml:lang="it">Utilizza le API REST per la registrazione</li>
-          <li xml:lang="ka">RESTAPI-ის გამოყენება ჟურნალისთვის</li>
-          <li xml:lang="nl">RESTAPI voor loggen gebruiken</li>
-          <li xml:lang="pt-BR">Uso da API REST para registro</li>
-          <li xml:lang="sk">Použitie RESTAPI na prihlasovanie</li>
-          <li xml:lang="sl">Uporabi REST API za beleženje</li>
-          <li xml:lang="tr">Günlükleme için RESTAPI kullan</li>
-          <li xml:lang="uk">Використати RESTAPI для ведення журналу</li>
           <li>Allow to send multi files</li>
-          <li xml:lang="ar">السماح بإرسال ملفات متعددة</li>
-          <li xml:lang="ca">Permet enviar diversos fitxers</li>
-          <li xml:lang="ca-valencia">Permet enviar múltiples fitxers</li>
-          <li xml:lang="es">Permitido añadir múltiples mensajes</li>
-          <li xml:lang="it">Consente di inviare più file</li>
-          <li xml:lang="ka">ერთზე მეტი ფაილის გაგზავნის დაშვება</li>
-          <li xml:lang="nl">Meerdere bestanden verzenden toestaan</li>
-          <li xml:lang="pt-BR">Permite o envio de múltiplos arquivos</li>
-          <li xml:lang="sk">Možnosť odoslania viacerých súborov</li>
-          <li xml:lang="sl">Dovoli pošiljanje več datotek</li>
-          <li xml:lang="tr">Çoklu dosya gönderilmesine izin ver</li>
-          <li xml:lang="uk">Уможливлено надсилання декількох файлів одночасно</li>
           <li>Fix preview url</li>
-          <li xml:lang="ar">إصلاح رابط المعاينة</li>
-          <li xml:lang="ca">Corregeix l'URL de la vista prèvia</li>
-          <li xml:lang="ca-valencia">Corregix l'URL de la vista prèvia</li>
-          <li xml:lang="es">Arreglada URL de vista previa</li>
-          <li xml:lang="it">Corregge l'URL di anteprima</li>
-          <li xml:lang="ka">გასწორდა მინიატურის ბმული</li>
-          <li xml:lang="nl">Voorbeeld-url repareren</li>
-          <li xml:lang="pt-BR">Corrige visualização de URL</li>
-          <li xml:lang="sk">Oprava náhľadu URL adresy</li>
-          <li xml:lang="sl">Popravi predogled url</li>
-          <li xml:lang="tr">Önizleme URL’sini düzelt</li>
-          <li xml:lang="uk">Виправлено адресу попереднього перегляду</li>
         </ul>
       </description>
     </release>
@@ -2885,150 +1471,16 @@
       <description>
         <ul>
           <li>Add Moderation Console (Administration, RC server 6.2)</li>
-          <li xml:lang="ar">إضافة وحدة تحكم الإشراف (الإدارة، خادم RC 6.2)</li>
-          <li xml:lang="ca">Afegeix la consola de moderació (Administració, RC servidor 6.2)</li>
-          <li xml:lang="ca-valencia">Afig la consola de moderació (Administració, RC servidor 6.2)</li>
-          <li xml:lang="es">Añadida consola de moderación (Administración, servidor RC 6.2)</li>
-          <li xml:lang="it">Aggiunge console di moderazione (Amministrazione, server RC 6.2)</li>
-          <li xml:lang="ka">მოდერაცის კონსოლის დამატება (ადმინისტრაცია, RC სერვერი 6.2)</li>
-          <li xml:lang="nl">Moderatieconsole toevoegen (Administratie, RC-server 6.2)</li>
-          <li xml:lang="pt-BR">Adiciona Console de Moderação (Administração, servidor RC 6.2)</li>
-          <li xml:lang="sk">Pridanie konzoly moderovania (Správa, server RC 6.2)</li>
-          <li xml:lang="sl">Doda konzolo za moderiranje (Administracija, RC strežnik 6.2)</li>
-          <li xml:lang="tr">Moderasyon konsolu ekle (Yönetim, RC sunucusu 6.2)</li>
-          <li xml:lang="uk">Додано консоль модерування (адміністрування, сервер RC 6.2)</li>
           <li>Implement message style</li>
-          <li xml:lang="ar">تنفيذ نمط الرسالة</li>
-          <li xml:lang="ca">Implementa els estils dels missatges</li>
-          <li xml:lang="ca-valencia">Implementa els estils dels missatges</li>
-          <li xml:lang="es">Implementado estilo de mensaje</li>
-          <li xml:lang="it">Implementa lo stile del messaggio</li>
-          <li xml:lang="ka">შეტყობინებების სტილის განხორციელება</li>
-          <li xml:lang="nl">Berichtenstijl implementeren</li>
-          <li xml:lang="pt-BR">Implementa estilo de mensagem</li>
-          <li xml:lang="sk">Implementácia štýlu správ</li>
-          <li xml:lang="sl">Implementira slog sporočila</li>
-          <li xml:lang="tr">İleti biçemi gerçekle</li>
-          <li xml:lang="uk">Реалізовано стиль повідомлень</li>
           <li>Implement Url Preview</li>
-          <li xml:lang="ar">تنفيذ معاينة عناوين الإنترنت</li>
-          <li xml:lang="ca">Implementa la previsualització d'URL</li>
-          <li xml:lang="ca-valencia">Implementa la previsualització dels URL</li>
-          <li xml:lang="es">Implementada vista previa de URL</li>
-          <li xml:lang="it">Implementa l'anteprima dei collegamenti</li>
-          <li xml:lang="ka">ბმულის მინიატურის განხორციელება</li>
-          <li xml:lang="nl">Voorbeeld van Url implementeren</li>
-          <li xml:lang="pt-BR">Implementa visualização de URL</li>
-          <li xml:lang="sk">Implementácia náhľadu URL adries</li>
-          <li xml:lang="sl">Implementira predogled Url</li>
-          <li xml:lang="tr">URL önizlemeyi gerçekle</li>
-          <li xml:lang="uk">Реалізовано попередній перегляд адрес</li>
           <li>Fix markdown support (header + check mark)</li>
-          <li xml:lang="ar">إصلاح ماركدون (الترويسة ومربع الاختيار)</li>
-          <li xml:lang="ca">Corregeix la implementació del Markdown (capçalera + marca de selecció)</li>
-          <li xml:lang="ca-valencia">Corregix la implementació de Markdown (capçalera + marca de selecció)</li>
-          <li xml:lang="es">Corrección en el soporte Markdown (cabecera + marca de comprobado)</li>
-          <li xml:lang="it">Corregge il supporto markdown (intestazione + segno di spunta)</li>
-          <li xml:lang="ka">Markdown-ის მხარდაჭერის გაუქმება (თავსართი + თოლია)</li>
-          <li xml:lang="nl">Ondersteuning van markdown repareren (kop + vinkje)</li>
-          <li xml:lang="pt-BR">Corrige suporte a markdown (cabeçalho + marca de seleção)</li>
-          <li xml:lang="sk">Oprava podpory markdown (hlavička + zaškrtnutie)</li>
-          <li xml:lang="sl">Popravi podporo za Markdown (glava + kljukica)</li>
-          <li xml:lang="tr">Markdown desteğini düzelt (başlık + onay işareti)</li>
-          <li xml:lang="uk">Виправлено підтримку markdown (заголовок + позначка)</li>
           <li>Fix mem leak</li>
-          <li xml:lang="ar">إصلاح تسرب الذاكرة</li>
-          <li xml:lang="ca">Corregeix una fuita de memòria</li>
-          <li xml:lang="ca-valencia">Corregix una fuita de memòria</li>
-          <li xml:lang="es">Corregido uso excesivo de memoria</li>
-          <li xml:lang="it">Corregge della perdita di memoria</li>
-          <li xml:lang="ka">გასწორდა მეხსიერების გაჟონვა</li>
-          <li xml:lang="nl">Geheugenlek repareren</li>
-          <li xml:lang="pt-BR">Corrige vazamento de memória</li>
-          <li xml:lang="sk">Oprava úniku pamäte</li>
-          <li xml:lang="sl">Popravi puščanje pomnilnika</li>
-          <li xml:lang="tr">Bellek sızıntısını düzelt</li>
-          <li xml:lang="uk">Виправлено виток пам'яті</li>
           <li>Cache message size (optimization)</li>
-          <li xml:lang="ar">حجم خبيئة الرسائل (تحسين)</li>
-          <li xml:lang="ca">Mida de la memòria cau dels missatges (optimització)</li>
-          <li xml:lang="ca-valencia">Mida de la memòria cau dels missatges (optimització)</li>
-          <li xml:lang="es">Cachear tamaño de mensaje (optimización)</li>
-          <li xml:lang="it">Dimensioni dei messaggi nella cache (ottimizzazione)</li>
-          <li xml:lang="ka">კეშის შეტყობინების ზომა (ოპტიმიზაცია)</li>
-          <li xml:lang="nl">Grootte van cache voor berichten (optimalisatie)</li>
-          <li xml:lang="pt-BR">Otimização de tamanho da mensagem em cache</li>
-          <li xml:lang="sk">Ukladanie veľkosti správ do vyrovnávacej pamäte (optimalizácia)</li>
-          <li xml:lang="sl">Velikost predpomnilnika sporočil (optimizacija)</li>
-          <li xml:lang="tr">İleti boyutunu önbelleğe al (eniyileme)</li>
-          <li xml:lang="uk">Реалізовано кешування розміру повідомлень (оптимізація)</li>
           <li>Improve select room or user in message line edit (show icon, inform if user is in channel)</li>
-          <li xml:lang="ar">تحسين تحديد الغرفة أو المستخدم في تحرير سطر الرسالة (إظهار الرمز، إبلاغ ما إذا كان المستخدم في القناة)</li>
-          <li xml:lang="ca">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
-          <li xml:lang="ca-valencia">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
-          <li xml:lang="es">Mejorada la selección de sala o usuario en la línea de edición de mensaje (muestra icono e informa si el usuario está en el canal)</li>
-          <li xml:lang="it">Migliora la selezione della stanza o di un utente nella riga della riga dei messaggi (mostra l'icona, informa se l'utente è nel canale)</li>
-          <li xml:lang="ka">ოთახის არჩევის ან მომხმარებლის ხაზის ჩასწორების გაუმჯობესება (ხატულის ჩვენება, მომხმარებლის შეტყობინება, თუ მომხმარებელი არხზეა)</li>
-          <li xml:lang="nl">Room of gebruiker selecteren verbeteren in regelbewerking van melding (pictogram tonen, informeren of gebruiker in kanaal is)</li>
-          <li xml:lang="pt-BR">Melhora a seleção de sala ou usuário na edição da linha de mensagem (mostrar ícone, informar se o usuário está no canal)</li>
-          <li xml:lang="sk">Vylepšenie výberu miestnosti alebo používateľa v riadku správy (zobrazenie ikony, informovanie, či je používateľ v kanáli)</li>
-          <li xml:lang="sl">Izboljša izbiro sobe ali uporabnika v urejanju sporočilne vrstice (prikaz ikone, obveščanje, če je uporabnik v kanalu)</li>
-          <li xml:lang="tr">İleti satırı düzenlemesinde oda veya kullanıcı seçmeyi iyileştir (simge göster, kullanıcı kanaldaysa bilgilendir)</li>
-          <li xml:lang="uk">Удосконалено засіб вибору кімнати або користувача у рядку редагування повідомлення (показ піктограми, інформування про те, що користувач присутній на каналі)</li>
           <li>Fix show commands in message line edit (Hide action when room doesn't support it)</li>
-          <li xml:lang="ar">إصلاح أوامر العرض في تحرير سطر الرسالة (إخفاء الإجراء عندما لا تتيحه الغرفة)</li>
-          <li xml:lang="ca">Corregeix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
-          <li xml:lang="ca-valencia">Corregix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
-          <li xml:lang="es">Corrección al mostrar órdenes en la línea de edición de mensaje (Ocultar acción cuando la sala no lo soporta)</li>
-          <li xml:lang="it">Corregge i comandi show nella modifica della riga del messaggio (nasconde l'azione quando la stanza non la supporta)</li>
-          <li xml:lang="ka">გასწორდა ბრძანებების ჩვენება შეტყობინების ხაზის ჩასწორებისას (ქმედების დამალვა, როცა ოთახს მისი მხარდაჭერა არ აქვს)</li>
-          <li xml:lang="nl">Tonen van commando's in bewerken van berichtregel (actie verbergen wanneer room het niet ondersteunt)</li>
-          <li xml:lang="pt-BR">Corrige comandos de exibição na edição da linha de mensagem (Ocultar ação quando a sala não a suporta)</li>
-          <li xml:lang="sk">Oprava zobrazenia príkazov v riadku správy (skrytie akcie, keď ju miestnosť nepodporuje)</li>
-          <li xml:lang="sl">Popravi prikaz ukazov v urejanju sporočilne vrstice (Skrij dejanje, ko soba tega ne podpira)</li>
-          <li xml:lang="tr">İleti satırı düzenlemesinde komutları göstermeyi düzelt (Oda desteklemediğinde eylemi gizle)</li>
-          <li xml:lang="uk">Виправлено показ команд у рядку редагування повідомлень (приховування дій, підтримки яких у кімнаті не передбачено)</li>
           <li>Fix download sound/video file when it's not in cache</li>
-          <li xml:lang="ar">إصلاح مشكلة تنزيل ملف الصوت/الفيديو عندما لا يكون في خبيئة</li>
-          <li xml:lang="ca">Corregeix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
-          <li xml:lang="ca-valencia">Corregix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
-          <li xml:lang="es">Corrección de la descarga de archivos de sonido/vídeo cuando no está en la caché</li>
-          <li xml:lang="it">Risolve il problema con lo scaricamento di un file sonoro/video quando non è nella cache</li>
-          <li xml:lang="ka">გასწორდა ხმის/ვიდეოს ფაილის გადმოწერა, როცა ის კეშში არაა</li>
-          <li xml:lang="nl">Downloaden van bestand met geluid/video wanneer het niet in de cache is</li>
-          <li xml:lang="pt-BR">Corrige arquivo de som/vídeo para download quando não estiver no cache</li>
-          <li xml:lang="sk">Oprava sťahovania zvukového/video súboru, keď nie je vo vyrovnávacej pamäti</li>
-          <li xml:lang="sl">Popravi prenos zvočne/video datoteke, kadar ni v predpomnilniku</li>
-          <li xml:lang="tr">Önbellekte olmadığında ses/video dosyasını indirmeyi düzelt</li>
-          <li xml:lang="uk">Виправити отриманий файл звукових даних або відео, коли він не перебуває у кеші</li>
           <li>Fix list of authentication method</li>
-          <li xml:lang="ar">إصلاح قائمة طريقة الاستيثاق</li>
-          <li xml:lang="ca">Corregeix la llista de mètodes d'autenticació</li>
-          <li xml:lang="ca-valencia">Corregix la llista de mètodes d'autenticació</li>
-          <li xml:lang="es">Corrección en la lista de métodos de autenticación</li>
-          <li xml:lang="he">תוקנה רשימת שיטות האימות</li>
-          <li xml:lang="it">Corregge l'elenco dei metodi di autenticazione</li>
-          <li xml:lang="ka">გასწორდა ავთენტიკაციის მეთოდების ჩამონათვალი</li>
-          <li xml:lang="nl">Lijst met authenticatiemethode repareren</li>
-          <li xml:lang="pt-BR">Corrige lista de métodos de autenticação</li>
-          <li xml:lang="sk">Oprava zoznamu metód overenia</li>
-          <li xml:lang="sl">Popravi seznam metod avtentikacije</li>
-          <li xml:lang="tr">Kimlik doğrulama yöntemleri listesini düzelt</li>
-          <li xml:lang="uk">Виправлено список способів розпізнавання</li>
           <li>Fix show avatar url</li>
-          <li xml:lang="ar">إصلاح رابط إظهار الصورة الرمزية</li>
-          <li xml:lang="ca">Corregeix la visualització dels URL dels avatars</li>
-          <li xml:lang="ca-valencia">Corregix la visualització dels URL dels avatars</li>
-          <li xml:lang="es">Corrección al mostrar la URL del avatar</li>
-          <li xml:lang="he">תיקון כתובת הצגת תמונה ייצוגית</li>
-          <li xml:lang="it">Risolve la visualizzazione dell'URL dell'avatar</li>
-          <li xml:lang="ka">გასწორდა საჩვენებელი ავატარის ბმული</li>
-          <li xml:lang="nl">Tonen van url van avatar repareren</li>
-          <li xml:lang="pt-BR">Corrige exibição do URL do avatar</li>
-          <li xml:lang="sk">Oprava zobrazenia URL adresy avatara</li>
-          <li xml:lang="sl">Popravi prikaz avatarjevega url</li>
-          <li xml:lang="tr">Profil resmi URL’si göstermeyi düzelt</li>
-          <li xml:lang="uk">Виправлено показ адреси аватару</li>
         </ul>
       </description>
     </release>
@@ -3037,189 +1489,18 @@
       <description>
         <ul>
           <li>Store Message in Local Database (experimental)</li>
-          <li xml:lang="ar">تخزين الرسالة في قاعدة البيانات المحلية (تجريبي)</li>
-          <li xml:lang="ca">Emmagatzema els missatges a la base de dades local (experimental)</li>
-          <li xml:lang="ca-valencia">Emmagatzema els missatges en la base de dades local (experimental)</li>
-          <li xml:lang="es">Almacenar mensaje en la base de datos local (experimental)</li>
-          <li xml:lang="he">אחסון הודעה במסד נתונים מקומי (ניסיוני)</li>
-          <li xml:lang="it">Memorizza il messaggio nella banca dati locale (sperimentale)</li>
-          <li xml:lang="ka">შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)</li>
-          <li xml:lang="nl">Berichten in lokale database opslaan (experimenteel)</li>
-          <li xml:lang="pt-BR">Armazena mensagem no banco de dados local (experimental)</li>
-          <li xml:lang="sk">Ukladanie správ do miestnej databázy (experimentálne)</li>
-          <li xml:lang="sl">Shrani sporočilo v lokalno zbirko podatkov (poskusno)</li>
-          <li xml:lang="tr">İletiyi yerel veri tabanında depola (deneysel)</li>
-          <li xml:lang="uk">Зберігати повідомлення у локальній базі даних (експериментальна можливість)</li>
           <li>Download Server Icon from Server</li>
-          <li xml:lang="ar">تنزيل أيقونة الخادم من الخادم</li>
-          <li xml:lang="ca">Baixa la icona del servidor des del servidor</li>
-          <li xml:lang="ca-valencia">Baixa la icona del servidor des del servidor</li>
-          <li xml:lang="cs">Stáhnout ikonu serveru ze serveru</li>
-          <li xml:lang="es">Descarga del icono de servidor desde el servidor</li>
-          <li xml:lang="he">הורדת סמל השרת מהשרת</li>
-          <li xml:lang="it">Scarica l'icona del server dal server</li>
-          <li xml:lang="ka">სერვერის ხატულის სერვერიდან გადმოწერა</li>
-          <li xml:lang="nl">Pictogram van server downloaden van server</li>
-          <li xml:lang="pt-BR">Baixa ícone do servidor a partir do servidor</li>
-          <li xml:lang="sk">Stiahnutie ikony servera zo servera</li>
-          <li xml:lang="sl">Prenesi ikono strežnika s strežnika</li>
-          <li xml:lang="tr">Sunucu simgesini sunucudan indir</li>
-          <li xml:lang="uk">Отримувати піктограму сервера з сервера</li>
           <li>Show Server Error Info in Specific DialogBox</li>
-          <li xml:lang="ar">إظهار معلومات خطأ الخادم في مربع حوار محدد</li>
-          <li xml:lang="ca">Mostra la informació d'error del servidor en un quadre de diàleg específic</li>
-          <li xml:lang="ca-valencia">Mostra la informació d'error del servidor en un diàleg específic</li>
-          <li xml:lang="es">Mostrar información de error del servidor en un diálogo específico</li>
-          <li xml:lang="he">הצגת פרטי שגיאות שרת בתיבת חלונית ייעודית</li>
-          <li xml:lang="it">Mostra informazioni sull'errore del server in una finestra specifica</li>
-          <li xml:lang="ka">სერვერის შეცდომის ინფორმაციის ჩვენება მითითებულ ფანჯარაში</li>
-          <li xml:lang="nl">Informatie over serverfout tonen in specifiek dialoogvak </li>
-          <li xml:lang="pt-BR">Mostra informações de erro do servidor em caixa de diálogo específica</li>
-          <li xml:lang="sk">Zobrazenie informácií o chybe servera v osobitnom dialógu</li>
-          <li xml:lang="sl">Prikaže informacije o napaki strežnika v določenem pogovornem oknu</li>
-          <li xml:lang="tr">Sunucu hatası bilgisini belirli bir iletişim kutusunda göster</li>
-          <li xml:lang="uk">Показувати дані помилки сервера у відповідному вікні</li>
           <li>Allow to Copy Image in Clipboard</li>
-          <li xml:lang="ar">السماح بنسخ الصورة في الحافظة</li>
-          <li xml:lang="ca">Permet copiar la imatge al porta-retalls</li>
-          <li xml:lang="ca-valencia">Permet copiar la imatge a dins del porta-retalls</li>
-          <li xml:lang="cs">Povolit zkování obrázku do schránky</li>
-          <li xml:lang="es">Permite copiar imagen en el portapapeles</li>
-          <li xml:lang="he">לאפשר להעתיק תמונה ללוח הגזירים</li>
-          <li xml:lang="it">Consente di copiare l'immagine negli appunti</li>
-          <li xml:lang="ka">გამოსახულების ბუფერში კოპირების დაშვება</li>
-          <li xml:lang="nl">Afbeelding naar klembord kopiëren toestaan</li>
-          <li xml:lang="pt-BR">Permite copiar imagem para a área de transferência</li>
-          <li xml:lang="sk">Možnosť kopírovania obrázka do schránky</li>
-          <li xml:lang="sl">Dovoli kopiranje slike na odložišče</li>
-          <li xml:lang="tr">Görselin panoya kopyalanmasına izin ver</li>
-          <li xml:lang="uk">Дозволити копіювання зображення до буфера</li>
           <li>Improve debug support (Allow to show current account permissions)</li>
-          <li xml:lang="ar">تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)</li>
-          <li xml:lang="ca">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
-          <li xml:lang="ca-valencia">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
-          <li xml:lang="es">Mejorado el soporte de depuración (Permite mostrar los permisos actuales de la cuenta)</li>
-          <li xml:lang="he">התמיכה בניפוי שגיאות השתפרה (לאפשר להציג את הרשאות החשבון הנוכחי)</li>
-          <li xml:lang="it">Migliora il supporto per il debug (consenti di mostrare le autorizzazioni dell'account attuale)</li>
-          <li xml:lang="ka">გამართვის მხარდაჭერის გაუმჯობესება (მიმდინარე ანგარიშის წვდომების ჩვენების დაშვება)</li>
-          <li xml:lang="nl">Ondersteunt voor debuggen verbeteren (sta toe de huidige toegangsrechten te bekijken)</li>
-          <li xml:lang="pt-BR">Melhoria no suporte à depuração (permitir mostrar as permissões da conta atual)</li>
-          <li xml:lang="sk">Vylepšenie podpory ladenia (možnosť zobrazenia oprávnení aktuálneho účtu)</li>
-          <li xml:lang="sl">Izboljša podporo za odpravljanje napak (Omogoča prikaz trenutnih dovoljenj računa)</li>
-          <li xml:lang="tr">Hata ayıklama desteğini iyileştir (geçerli hesap izinlerinin gösterilmesine izin ver)</li>
-          <li xml:lang="uk">Удосконалено підтримку діагностики (уможливлено показ поточних права доступу облікового запису)</li>
           <li>Add support for quoted text (text which starts by \'&gt;\')</li>
-          <li xml:lang="ar">إضافة التعامل مع النص المقتبس (النص الذي يبدأ بـ \'&gt;\')</li>
-          <li xml:lang="ca">Afegeix la implementació per al text citat (text que comença amb «&gt;»)</li>
-          <li xml:lang="ca-valencia">Afig la implementació per al text citat (text que comença amb «&gt;»)</li>
-          <li xml:lang="es">Añadido soporte para texto entrecomillado (texto que empieza por \'&gt;\')</li>
-          <li xml:lang="he">נוספה תמיכה בטקסט מצוטט (טקסט שמתחיל ב־‚&gt;’)</li>
-          <li xml:lang="it">Aggiunge il supporto per il testo tra virgolette (testo che inizia con \'&gt;\')</li>
-          <li xml:lang="ka">დაემატა ციტირებული ტექსტის (ტექსტის, რომელიც \'&gt;\'-ით იწყება) მხარდაჭერა</li>
-          <li xml:lang="nl">Voeg ondersteuning toe voor geciteerde tekst (tekst die begint met \'&gt;\').</li>
-          <li xml:lang="pt-BR">Adiciona suporte para texto citado (texto que começa com \'&gt;\')</li>
-          <li xml:lang="sk">Pridanie podpory citovaného textu (text, ktorý začína znakom \'&gt;\')</li>
-          <li xml:lang="sl">Doda podporo za citirano besedilo (besedilo, ki se začne z \'&gt;\')</li>
-          <li xml:lang="tr">Alıntılanan metin için destek ekle (“&gt;” ile başlayan metinler)</li>
-          <li xml:lang="uk">Додано підтримку цитованого тексту (тексту, який починається з «&gt;»)</li>
           <li>Show leader/moderator/owner in channel info</li>
-          <li xml:lang="ar">إظهار القائد/المشرف/المالك في معلومات القناة</li>
-          <li xml:lang="ca">Mostra el líder/moderador/propietari a la informació del canal</li>
-          <li xml:lang="ca-valencia">Mostra el líder/moderador/propietari en la informació del canal</li>
-          <li xml:lang="es">Mostrar líder/moderador/propietario en la información del canal</li>
-          <li xml:lang="it">Mostra leader/moderatore/proprietario nelle informazioni del canale</li>
-          <li xml:lang="ka">არხის ინფორმაციაში ლიდერის/მოდერატორის/მფლობელის ჩვენება</li>
-          <li xml:lang="nl">Leider/moderator/eigenaar tonen in kanaalinformatie</li>
-          <li xml:lang="pt-BR">Mostra líder/moderador/proprietário nas informações do canal</li>
-          <li xml:lang="sk">Zobrazenie vedúceho/moderátora/vlastníka v informáciách o kanáli</li>
-          <li xml:lang="sl">Prikazuje vodjo/moderatorja/lastnika v informacijah o kanalu</li>
-          <li xml:lang="tr">Kanal bilgisinde lideri/denetçiyi/sahibini göster</li>
-          <li xml:lang="uk">Показувати лідера, модератора та власника у даних каналу</li>
           <li>Video/Sound Message support (kf6 only)</li>
-          <li xml:lang="ar">إتاحة الرسائل الصوتية/الفيديو (kf6 فقط)</li>
-          <li xml:lang="ca">Implementació de missatges de vídeo/so (només KF6)</li>
-          <li xml:lang="ca-valencia">Implementació de missatges de vídeo i so (només KF6)</li>
-          <li xml:lang="es">Soporte para mensajes de vídeo/sonido (solo KF6)</li>
-          <li xml:lang="he">תמיכה בהודעות וידאו/שמע (kf6 בלבד)</li>
-          <li xml:lang="it">Supporto per messaggi video/audio (solo kf6)</li>
-          <li xml:lang="ka">ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)</li>
-          <li xml:lang="nl">Ondersteuning voor video/geluidsbericht (alleen kf6)</li>
-          <li xml:lang="pt-BR">Suporte para mensagens de vídeo/som (somente kf6)</li>
-          <li xml:lang="sk">Podpora video/zvukových správ (iba kf6)</li>
-          <li xml:lang="sl">Podpora za video/zvočna sporočila (samo kf6)</li>
-          <li xml:lang="tr">Video/Sesli ileti desteği (yalnızca kf6)</li>
-          <li xml:lang="uk">Підтримка звукових та відеоповідомлень (лише kf6)</li>
           <li>Import/Export Accounts</li>
-          <li xml:lang="ar">حسابات الاستيراد/التصدير</li>
-          <li xml:lang="ca">Importació/exportació de comptes</li>
-          <li xml:lang="ca-valencia">Importació/exportació de comptes</li>
-          <li xml:lang="es">Importar/Exportar cuentas</li>
-          <li xml:lang="he">ייבוא/ייצוא חשבונות</li>
-          <li xml:lang="it">Importa/Esporta account</li>
-          <li xml:lang="ka">ანგარიშების გატანა/შემოტანა</li>
-          <li xml:lang="nl">Accounts im-/exporteren</li>
-          <li xml:lang="pt-BR">Importação/Exportação de contas</li>
-          <li xml:lang="sk">Import/export účtov</li>
-          <li xml:lang="sl">Uvoz/izvoz računov</li>
-          <li xml:lang="tr">Hesapları içe/dışa aktar</li>
-          <li xml:lang="uk">Імпортувати/Експортувати облікові записи</li>
           <li>Fix avatar support</li>
-          <li xml:lang="ar">إصلاح الصورة الرمزية</li>
-          <li xml:lang="ca">Corregeix la implementació dels avatars</li>
-          <li xml:lang="ca-valencia">Corregix la implementació dels avatars</li>
-          <li xml:lang="es">Corrección en el soporte de avatares</li>
-          <li xml:lang="he">תוקנה תמיכה בתמונה ייצוגית</li>
-          <li xml:lang="it">Risolto il problema con il supporto dell'avatar</li>
-          <li xml:lang="ka">ავატარის მხარდაჭერის გასწორება</li>
-          <li xml:lang="nl">Ondersteuning voor avatar repareren</li>
-          <li xml:lang="pt-BR">Corrige o suporte a avatar</li>
-          <li xml:lang="sk">Oprava podpory avatarov</li>
-          <li xml:lang="sl">Popravi podporo za avatarje</li>
-          <li xml:lang="tr">Profil resmi desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено підтримку аватарів</li>
           <li>Fix emoji support (use new ktextaddons/textemoticons)</li>
-          <li xml:lang="ar">إصلاح الرموز التعبيرية (استخدم ktextaddons/textemoticons الجديدة)</li>
-          <li xml:lang="ca">Corregeix la implementació dels emojis (usa el ktextaddons/textemoticons nou)</li>
-          <li xml:lang="ca-valencia">Corregix la implementació dels emoji (utilitza el ktextaddons/textemoticons nou)</li>
-          <li xml:lang="es">Corrección en el soporte de Emojis (usando nuevos ktextaddons/textemoticons)</li>
-          <li xml:lang="he">תוקנה תמיכה באמוג׳י (משתמש ב־ktextaddons/textemoticons החדש)</li>
-          <li xml:lang="it">Corregge il supporto delle emoji (usa i nuovi ktextaddons/textemoticons)</li>
-          <li xml:lang="ka">ემოჯის მხარდაჭერის გასწორება (იყენებს ახალ ktextaddon/textemoticon)</li>
-          <li xml:lang="nl">Ondersteuning voor emoji repareren (nieuwe ktextaddons/textemoticons gebruiken)</li>
-          <li xml:lang="pt-BR">Corrige o suporte a emojis (usa os novos ktextaddons/textemoticons)</li>
-          <li xml:lang="sk">Oprava podpory emoji (použitie nového ktextaddons/textemoticons)</li>
-          <li xml:lang="sl">Popravi podporo za čustvenčke (uporabi nove dodatke ktext/textemoticons)</li>
-          <li xml:lang="tr">Emoji desteğini düzelt (yeni ktextaddons/textemoticons kullan)</li>
-          <li xml:lang="uk">Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)</li>
           <li>Fix animated gif in reactions</li>
-          <li xml:lang="ar">إصلاح الصورة المتحركة في التفاعلات</li>
-          <li xml:lang="ca">Corregeix els GIF animats a les reaccions</li>
-          <li xml:lang="ca-valencia">Corregix els GIF animats en les reaccions</li>
-          <li xml:lang="es">Corrección en los gif animados en reacciones</li>
-          <li xml:lang="he">תוקנו gif מונפשים בתגובות הרגש</li>
-          <li xml:lang="it">Corregge la gif animata nelle reazioni</li>
-          <li xml:lang="ka">რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება</li>
-          <li xml:lang="nl">Geanimeerde gif in reacties repareren</li>
-          <li xml:lang="pt-BR">Corrige gif animados em reações</li>
-          <li xml:lang="sk">Oprava animovaných GIF v reakciách</li>
-          <li xml:lang="sl">Popravi animirani gif v reakcijah</li>
-          <li xml:lang="tr">Tepkilerdeki hareketli GIF desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено анімований gif у реакціях</li>
           <li>Fix kf6 support</li>
-          <li xml:lang="ar">إصلاح التوافق مع kf6</li>
-          <li xml:lang="ca">Corregeix la implementació dels KF6</li>
-          <li xml:lang="ca-valencia">Corregix la implementació dels KF6</li>
-          <li xml:lang="cs">Oprava podpory kf6</li>
-          <li xml:lang="es">Corrección al soporte de KF6</li>
-          <li xml:lang="he">תוקנה התמיכה ב־kf6</li>
-          <li xml:lang="it">Risolve il supporto kf6</li>
-          <li xml:lang="ka">KF6-ის მხარდაჭერის გასწორება</li>
-          <li xml:lang="nl">Ondersteuning voor kf6 repareren</li>
-          <li xml:lang="pt-BR">Corrige suporte ao kf6</li>
-          <li xml:lang="sk">Oprava podpory kf6</li>
-          <li xml:lang="sl">Popravi podporo za kf6</li>
-          <li xml:lang="tr">kf6 desteğini düzelt</li>
-          <li xml:lang="uk">Виправлено підтримку kf6</li>
         </ul>
       </description>
     </release>
