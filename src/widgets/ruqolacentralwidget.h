@@ -22,12 +22,10 @@ class RocketChatAccount;
 class ServerErrorInfoMessageWidget;
 class QVBoxLayout;
 class WelcomeWidget;
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
 namespace TextAddonsWidgets
 {
 class TextMessageWidget;
 }
-#endif
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
@@ -71,7 +69,5 @@ private:
     WelcomeWidget *const mRuqolaWelcomeWidget;
     QVBoxLayout *const mMainLayout;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
     TextAddonsWidgets::TextMessageWidget *const mTextMessageWidget;
-#endif
 };

@@ -24,9 +24,7 @@
 #include <TextAddonsWidgets/WhatsNewMessageWidget>
 #endif
 
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
 #include <TextAddonsWidgets/TextMessageWidget>
-#endif
 
 #include <KLocalizedString>
 #include <QStackedWidget>
@@ -44,13 +42,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
     , mRuqolaWelcomeWidget(new WelcomeWidget(this))
     , mMainLayout(new QVBoxLayout(this))
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
     , mTextMessageWidget(new TextAddonsWidgets::TextMessageWidget(mRuqolaMainWidget))
-#endif
 {
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
     mTextMessageWidget->setTextFormat(Qt::RichText);
-#endif
     mMainLayout->setContentsMargins({});
     mMainLayout->setObjectName(u"mainlayout"_s);
     mMainLayout->setSpacing(0);
@@ -146,16 +140,12 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     info.setDetails(descriptionError);
     info.setMessage(messageError);
     bool showMessageWidget = true;
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
     showMessageWidget = descriptionError.isEmpty();
-#endif
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info), showMessageWidget);
-#if HAVE_TEXTADDONSWIDGETS_TEXTMESSAGEWIDGETS
     if (!descriptionError.isEmpty()) {
         const QString message = u"<b>%1</b><br/>%2"_s.arg(accountName, descriptionError);
         mTextMessageWidget->showMessage(message, {}, KMessageWidget::Error);
     }
-#endif
 }
 
 void RuqolaCentralWidget::slotSocketError([[maybe_unused]] QAbstractSocket::SocketError error, const QString &errorString)
