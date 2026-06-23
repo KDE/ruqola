@@ -26,3 +26,5 @@ void UnbanUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }
+
+#include "moc_unbanuserswidgettest.cpp"
