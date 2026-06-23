@@ -83,9 +83,7 @@
 #if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
 #include <TextAddonsWidgets/OpenSavedFileFolderWidget>
-#endif
 
 using namespace Qt::Literals::StringLiterals;
 RoomWidget::RoomWidget(QWidget *parent)
@@ -97,9 +95,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
     , mOpenSavedFileFolderWidget(new TextAddonsWidgets::OpenSavedFileFolderWidget(this))
-#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -141,10 +137,8 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomWidgetLayout->addWidget(mTextToSpeechWidget);
     connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
 #endif
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
     mOpenSavedFileFolderWidget->setObjectName(u"mOpenSavedFileFolderWidget"_s);
     mRoomWidgetLayout->addWidget(mOpenSavedFileFolderWidget);
-#endif
 
     mRoomWidgetLayout->addWidget(mRoomWidgetBase);
     connect(mRoomCounterInfoWidget, &RoomCounterInfoWidget::markAsRead, this, &RoomWidget::slotClearNotification);
@@ -1078,9 +1072,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 #if ADD_OFFLINE_SUPPORT
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomWidget::slotOfflineModeChanged);
 #endif
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openSavedFileFolderDone, this, &RoomWidget::slotOpenSavedFileFolderDone);
-#endif
     }
     mCurrentRocketChatAccount = account;
     mRoomWidgetBase->setCurrentRocketChatAccount(account);
@@ -1101,9 +1093,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 #if ADD_OFFLINE_SUPPORT
     connect(mCurrentRocketChatAccount, &RocketChatAccount::offlineModeChanged, this, &RoomWidget::slotOfflineModeChanged);
 #endif
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openSavedFileFolderDone, this, &RoomWidget::slotOpenSavedFileFolderDone);
-#endif
 
 #if USE_E2E_SUPPORT
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needToSaveE2EPassword, this, &RoomWidget::showE2eSaveEncryptionKeyWidget);
@@ -1127,7 +1117,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
     slotOfflineModeChanged();
 }
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
+
 void RoomWidget::slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType)
 {
     TextAddonsWidgets::OpenSavedFileFolderWidget::FileType openSavedFileType = TextAddonsWidgets::OpenSavedFileFolderWidget::FileType::Unknown;
@@ -1147,7 +1137,6 @@ void RoomWidget::slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChat
     }
     mOpenSavedFileFolderWidget->setUrls(urls, openSavedFileType);
 }
-#endif
 
 void RoomWidget::showE2eSaveEncryptionKeyWidget()
 {

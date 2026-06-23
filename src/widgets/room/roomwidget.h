@@ -32,12 +32,10 @@ namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
 }
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
 namespace TextAddonsWidgets
 {
 class OpenSavedFileFolderWidget;
 }
-#endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -128,9 +126,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void showE2eDecodeEncryptionKeyWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void showE2eSaveEncryptionKeyWidget();
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenSavedFileFolderDone(const QList<QUrl> &urls, RocketChatAccount::FileType fileType);
-#endif
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowBannedUsers();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
 
@@ -153,8 +149,6 @@ private:
     E2eDecodeEncryptionKeyFailedWidget *mE2eDecodeEncryptionKeyFailedWidget = nullptr;
     E2eDecodeEncryptionKeyWidget *mE2eDecodeEncryptionKeyWidget = nullptr;
     QPointer<ShowThreadsDialog> mShowThreadsDialog;
-#if HAVE_TEXTADDONSWIDGETS_OPENSAVEDFILEFOLDERWIDGET
     TextAddonsWidgets::OpenSavedFileFolderWidget *const mOpenSavedFileFolderWidget;
-#endif
     QPointer<UnbanUsersDialog> mUnbanUsersDialog;
 };
