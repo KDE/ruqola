@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolacore
-    job/unbanuserinchanneljob.h
-    job/unbanuserinchanneljob.cpp
-)
+add_library(libruqolacore)
 
 target_sources(
     libruqolacore
@@ -550,6 +546,8 @@ target_sources(
         job/validateinviteserverjob.cpp
         job/adduserinchanneljob.h
         job/adduserinchanneljob.cpp
+        job/unbanuserinchanneljob.h
+        job/unbanuserinchanneljob.cpp
         actionbuttons/actionbutton.h
         actionbuttons/actionbutton.cpp
         actionbuttons/actionbuttonsmanager.h
