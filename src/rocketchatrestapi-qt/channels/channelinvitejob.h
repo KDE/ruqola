@@ -21,7 +21,7 @@ public:
     };
     Q_ENUM(ChannelInviteInfoType)
 
-    struct ChannelInviteInfo {
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT ChannelInviteInfo {
         QString identifier;
         ChannelInviteJob::ChannelInviteInfoType channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::Unknown;
         [[nodiscard]] bool isValid() const;
