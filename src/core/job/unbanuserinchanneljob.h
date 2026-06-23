@@ -22,7 +22,15 @@ public:
 
     [[nodiscard]] bool canStart() const;
 
+    [[nodiscard]] QByteArray roomId() const;
+    void setRoomId(const QByteArray &newRoomId);
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void slotAddUserInRooms();
+    LIBRUQOLACORE_NO_EXPORT void findUserNames();
+    LIBRUQOLACORE_NO_EXPORT void slotRoomsBannedUsersDone();
+    LIBRUQOLACORE_NO_EXPORT void slotRoomsBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
     QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> mNeedUnbanUsers;
+    QByteArray mRoomId;
     RocketChatAccount *const mRocketChatAccount;
 };
