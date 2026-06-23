@@ -20,7 +20,7 @@ public:
         UserName = 2,
     };
 
-    struct RoomsUnbanUserInfo {
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT RoomsUnbanUserInfo {
         IdentifierType type = IdentifierType::Unknown;
         QString identifier;
         QByteArray roomId;
