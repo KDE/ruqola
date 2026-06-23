@@ -13,7 +13,6 @@
 #else
 #include "common/completionlistview.h"
 #endif
-#include "common/completionlistview.h"
 #include "common/emojicompletiondelegate.h"
 #include "common/userandchannelcompletiondelegate.h"
 #include "model/inputcompletermodel.h"
