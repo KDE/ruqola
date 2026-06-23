@@ -22,7 +22,7 @@ public:
     [[nodiscard]] QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> needUnbanUsers() const;
     void setNeedUnbanUsers(const QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> &newNeedUnbanUsers);
 
-    void start();
+    [[nodiscard]] bool start();
 
     [[nodiscard]] bool canStart() const;
 
@@ -30,12 +30,13 @@ public:
     void setRoomId(const QByteArray &newRoomId);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void slotAddUserInRooms(const QStringList &usernames);
+    LIBRUQOLACORE_NO_EXPORT void slotAddUserInRooms();
     LIBRUQOLACORE_NO_EXPORT void findUserNames();
     LIBRUQOLACORE_NO_EXPORT void slotRoomsBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void slotRoomsUnbanUserJobDone(RocketChatRestApi::RoomsUnbanUserJob *job);
     QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> mNeedUnbanUsers;
     QByteArray mRoomId;
+    QStringList mUsernames;
     RocketChatAccount *const mRocketChatAccount;
     QList<RocketChatRestApi::RoomsUnbanUserJob *> mRoomsUnbanUserJobList;
 };

@@ -40,41 +40,22 @@ bool UnbanUserInChannelJob::canStart() const
     return !mNeedUnbanUsers.isEmpty();
 }
 
-void UnbanUserInChannelJob::start()
+bool UnbanUserInChannelJob::start()
 {
     if (!canStart()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start UnbanUserInChannelJob";
         deleteLater();
-        return;
+        return false;
     }
-
-    for (const auto &user : std::as_const(mNeedUnbanUsers)) {
-        auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
-        qDebug() << "user : " << user;
-        const RocketChatRestApi::RoomsUnbanUserJob::RoomsUnbanUserInfo info{
-            .type = RocketChatRestApi::RoomsUnbanUserJob::IdentifierType::UserId,
-            .identifier = user.userName,
-            .roomId = user.roomId,
-        };
-        job->setRoomsUnbanUserInfo(info);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, job]() {
-            slotRoomsUnbanUserJobDone(job);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start RoomsUnbanUserJob";
-            job->deleteLater();
-        } else {
-            mRoomsUnbanUserJobList.append(job);
-        }
-    }
+    findUserNames();
+    return true;
 }
 
 void UnbanUserInChannelJob::slotRoomsUnbanUserJobDone(RocketChatRestApi::RoomsUnbanUserJob *job)
 {
     mRoomsUnbanUserJobList.removeAll(job);
     if (mRoomsUnbanUserJobList.isEmpty()) {
-        findUserNames();
+        slotAddUserInRooms();
     }
 }
 
@@ -101,31 +82,48 @@ void UnbanUserInChannelJob::slotRoomsBannedUsersDone(const QJsonObject &obj, [[m
     BannedUsers bannedUsers;
     bannedUsers.parseBannedUsers(obj);
     const QList<BannedUser> bannedUsersList = bannedUsers.bannedUsers();
-    QStringList usernames;
     for (const auto &user : std::as_const(mNeedUnbanUsers)) {
         for (const auto &bannedUser : bannedUsersList) {
             if (bannedUser.identifier() == user.userName) {
-                usernames.append(bannedUser.userName());
+                mUsernames.append(bannedUser.userName());
                 break;
             }
         }
     }
-    if (usernames.isEmpty()) {
+    if (mUsernames.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "usernames is empty. It's a bug";
         deleteLater();
     } else {
-        slotAddUserInRooms(usernames);
+        for (const auto &username : std::as_const(mUsernames)) {
+            auto job = new RocketChatRestApi::RoomsUnbanUserJob(this);
+            // qDebug() << "username : " << username;
+            const RocketChatRestApi::RoomsUnbanUserJob::RoomsUnbanUserInfo info{
+                .type = RocketChatRestApi::RoomsUnbanUserJob::IdentifierType::UserName,
+                .identifier = username,
+                .roomId = mRoomId,
+            };
+            job->setRoomsUnbanUserInfo(info);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, job]() {
+                slotRoomsUnbanUserJobDone(job);
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLA_LOG) << "Impossible to start RoomsUnbanUserJob";
+                job->deleteLater();
+            } else {
+                mRoomsUnbanUserJobList.append(job);
+            }
+        }
     }
 }
 
-void UnbanUserInChannelJob::slotAddUserInRooms(const QStringList &usernames)
+void UnbanUserInChannelJob::slotAddUserInRooms()
 {
     auto addUserInRoomJob = new RocketChatRestApi::MethodCallJob(this);
     QJsonObject obj;
     obj["rid"_L1] = QString::fromLatin1(mRoomId);
-    obj["users"_L1] = QJsonArray::fromStringList(usernames);
+    obj["users"_L1] = QJsonArray::fromStringList(mUsernames);
     const QJsonArray params{obj};
-    qDebug() << " CCCCCCCCCC  " << params;
 
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo addUserInRoomInfo;
     addUserInRoomInfo.methodName = u"addUsersToRoom"_s;
