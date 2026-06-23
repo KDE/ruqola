@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-22 02:44+0000\n"
-"PO-Revision-Date: 2026-03-07 06:29+0100\n"
+"POT-Creation-Date: 2026-06-23 02:40+0000\n"
+"PO-Revision-Date: 2026-06-22 07:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -1018,16 +1018,14 @@ msgid "%1 has requested key refresh."
 msgstr "%1 Je zahteval(a) osvežitev ključa."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 in %2"
+msgstr "%1 je prepovedal %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 in %2"
+msgstr "%1 od-prepovedal %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1432,7 +1430,7 @@ msgstr[3] "%1 sekund"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "Soba \"%1\" je bila dodana"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -1568,7 +1566,7 @@ msgstr "Zasebna sporočila"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Osnutek"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
 #, kde-format
@@ -1846,7 +1844,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1855,12 +1853,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
@@ -2239,10 +2237,9 @@ msgid "Invalid Parameters"
 msgstr "Neveljavni parametri"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "Uporabnik ni v tej sobi"
+msgstr "Uporabnik je prepovedan v tej sobi"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3304,12 +3301,10 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Shrani datoteko"
+msgstr "Shrani"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3332,11 +3327,10 @@ msgstr "Časovni žigi v sporočilih"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Zasebna sporočila"
+msgstr "Osnutki sporočil"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -8601,8 +8595,7 @@ msgid "Discussion Name"
 msgstr "Ime razprave"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Tema"
@@ -9122,7 +9115,7 @@ msgstr[2] "%1 priponke v sobi (skupaj: %2)"
 msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:114
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9133,45 +9126,36 @@ msgid "(Click here for Loading more…)"
 msgstr "(Kliknite tukaj za nalaganje dodatnih…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Pokaži pripeta sporočila - %1"
+msgstr "Pokaži prepovedane uporabnike - %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Odblokiraj uporabnika"
+msgstr "Od-prepovej uporabnika"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:47
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Išči uporabnike…"
+msgstr "Išči prepovedane uporabnike…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:99
-#, fuzzy, kde-format
-#| msgid "No User found"
+#: widgets/dialogs/showbanneduserswidget.cpp:107
+#, kde-format
 msgid "No Banned Users found"
-msgstr "Ni zadetkov med uporabniki"
+msgstr "Ni najdenih prepovedanih uporabnikov"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#: widgets/dialogs/showbanneduserswidget.cpp:112
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 uporabnik v sobi (skupaj: %2)"
-msgstr[1] "%1 uporabnika v sobi (skupaj: %2)"
-msgstr[2] "%1 uporabniki v sobi (skupaj: %2)"
-msgstr[3] "%1 uporabnikov v sobi (skupaj: %2)"
+msgstr[0] "%1 prepovedanih uporabnikov v sobi (skupaj: %2)"
+msgstr[1] "%1 prepovedan uporabnik v sobi (skupaj: %2)"
+msgstr[2] "%1 prepovedana uporabnika v sobi (skupaj: %2)"
+msgstr[3] "%1 prepovedani uporabniki v sobi (skupaj: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9224,17 +9208,16 @@ msgid "Fit to View"
 msgstr "Prilagodi pogledu"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Omejilnik hitrosti"
+msgstr "Zavrti levo"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Zavrti desno"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9292,12 +9275,20 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "Video: %1"
 
+#: widgets/dialogs/unbanusersdialog.cpp:16
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Naloži datoteko"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Do you want to mute this user?"
+msgctxt "@label:textbox"
+msgid "Do you want to unban user?"
+msgstr "Ali želite utišati tega uporabnika?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -9805,17 +9796,15 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "Prijava ni uspela: Uporabniku aplikacije ni dovoljena prijava."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No network"
+#, kde-format
 msgid "Not network found."
-msgstr "Ni omrežja"
+msgstr "Ni najdenega omrežja."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "Omrežje je v odklopljenem načinu."
+msgstr "Preklopi v odklopljen način"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -10532,7 +10521,7 @@ msgstr "Počisti"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Preklopi v novo sobo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -10736,12 +10725,10 @@ msgid "Encrypt Messages"
 msgstr "Šifriraj sporočila"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Pokaži pripeta sporočila…"
+msgstr "Pokaži prepovedane uporabnike…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11309,39 +11296,39 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: '%1'"
 
-#: widgets/room/roomwidget.cpp:391
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:392
+#: widgets/room/roomwidget.cpp:394
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:436
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:439
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Po šifrirani vsebini ni mogoče iskati."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Išči sporočilo"
 
-#: widgets/room/roomwidget.cpp:618
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11349,7 +11336,7 @@ msgstr ""
 "Skrbnik delovnega prostora mora namestiti in konfigurirati aplikacije "
 "konferenčnih klicev."
 
-#: widgets/room/roomwidget.cpp:619
+#: widgets/room/roomwidget.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11541,12 +11528,10 @@ msgid "Report User"
 msgstr "Poročaj uporabnika"
 
 #: widgets/room/usersinroommenu.cpp:209
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Dodaj uporabnike v sobo"
+msgstr "Prepovej uporabnike iz sobe"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12131,45 +12116,35 @@ msgstr "Dodaj račun…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr ""
+msgstr "Izboljšaj nepovezani način"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Dovoli pošiljanje več datotek."
+msgstr "Dovoli odpiranje shranjene datoteke."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "Popravit podvojena sporočila v pogovornem oknu za iskanje sporočil."
+msgstr "Dovoli vrtenje slike v pogovornem oknu za prikaz slike."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
-msgstr ""
+msgstr "Dodaj podatke o novi sobi v pogovornem oknu zgodovine obvestil."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr ""
+msgstr "Uporabi nov gradnik za besedilna sporočila za obveščanje o napakah."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Izvedi slog sporočila"
+msgstr "Implementiraj kanal za razvrščanje osnutkov sporočil."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr "Implementira shranjevanje čakajočih zbirk podatkov zvrsti."
+msgstr "Implementiraj pogovorno okno s seznamom prepovedanih uporabnikov."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Izvedi utišaj/odutišaj uporabnika."
+msgstr "Implementiraj prepovedane/ne-prepovedane uporabnike."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

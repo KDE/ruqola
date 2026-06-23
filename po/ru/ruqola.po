@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-22 02:44+0000\n"
+"POT-Creation-Date: 2026-06-23 02:40+0000\n"
 "PO-Revision-Date: 2026-03-08 08:37+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1854,7 +1854,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают…"
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1863,12 +1863,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr "Не подключено"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ещё не подключено"
@@ -9194,7 +9194,7 @@ msgstr[2] "%1 вложений в комнате (всего: %2)"
 msgstr[3] "%1 вложение в комнате (всего: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:114
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9228,13 +9228,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Поиск пользователей…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:99
+#: widgets/dialogs/showbanneduserswidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Пользователей не найдено"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:104
+#: widgets/dialogs/showbanneduserswidget.cpp:112
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9364,12 +9364,20 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "Видео: %1"
 
+#: widgets/dialogs/unbanusersdialog.cpp:16
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Отправка файла"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Do you want to mute this user?"
+msgctxt "@label:textbox"
+msgid "Do you want to unban user?"
+msgstr "Запретить этому пользователю говорить?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -11387,39 +11395,39 @@ msgstr "Ответ в ветке"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Ответить в ветке на сообщение: «%1»"
 
-#: widgets/room/roomwidget.cpp:391
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Удалить журнал?"
 
-#: widgets/room/roomwidget.cpp:392
+#: widgets/room/roomwidget.cpp:394
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Удаление журнала"
 
-#: widgets/room/roomwidget.cpp:436
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Export Messages"
 msgstr "Экспорт сообщений"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:439
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Электронное письмо помещено в очередь для отправки."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "В зашифрованном содержимом нельзя выполнять поиск."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Поиск сообщения"
 
-#: widgets/room/roomwidget.cpp:618
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11427,7 +11435,7 @@ msgstr ""
 "Администратору рабочего пространства необходимо установить и настроить "
 "приложения для конференц-вызовов."
 
-#: widgets/room/roomwidget.cpp:619
+#: widgets/room/roomwidget.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

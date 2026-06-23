@@ -4,13 +4,13 @@
 #
 # SPDX-FileCopyrightText: 2019 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2019 Manuel Alcaraz <manuelalcarazzam@gmail.com>
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024, 2025, 2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
+# SPDX-FileCopyrightText: 2020-2026 Víctor Rodrigo Córdoba <vrcordoba@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-22 02:44+0000\n"
-"PO-Revision-Date: 2026-03-08 00:08+0100\n"
+"POT-Creation-Date: 2026-06-23 02:40+0000\n"
+"PO-Revision-Date: 2026-06-22 23:55+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -1023,16 +1023,14 @@ msgid "%1 has requested key refresh."
 msgstr "%1 ha pedido un refresco de la clave."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 y %2"
+msgstr "%1 expulsó a %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 y %2"
+msgstr "%1 reincorporó a %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1435,7 +1433,7 @@ msgstr[1] "%1 segundos"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "Se añadió la sala «%1»"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -1563,7 +1561,7 @@ msgstr "Mensajes privados"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Borrador"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
 #, kde-format
@@ -1841,7 +1839,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo…"
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1850,12 +1848,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr "No conectado"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected yet"
 msgstr "No conectado todavía"
@@ -2221,10 +2219,9 @@ msgid "Invalid Parameters"
 msgstr "Parámetros no válidos"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "El usuario no se encuentra en esta sala"
+msgstr "El usuario ha sido expulsado de esta sala"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3297,7 +3294,7 @@ msgstr "Cancelar"
 #, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3320,11 +3317,10 @@ msgstr "Marca de tiempo en mensajes"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Mensajes privados"
+msgstr "Borrador de mensajes"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -8609,8 +8605,7 @@ msgid "Discussion Name"
 msgstr "Nombre de la discusión"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Tema"
@@ -9129,7 +9124,7 @@ msgstr[0] "%1 adjunto en la sala (total: %2)"
 msgstr[1] "%1 adjuntos en la sala (total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:114
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9140,43 +9135,34 @@ msgid "(Click here for Loading more…)"
 msgstr "(Pulse aquí para cargar más…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Mostrar mensajes fijados - %1"
+msgstr "Mostrar usuarios expulsados - %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Desbloquear usuario"
+msgstr "Reincorporar usuario"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:47
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Buscar usuarios…"
+msgstr "Buscar usuarios expulsados…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:99
-#, fuzzy, kde-format
-#| msgid "No User found"
+#: widgets/dialogs/showbanneduserswidget.cpp:107
+#, kde-format
 msgid "No Banned Users found"
-msgstr "No se encontró ningún usuario"
+msgstr "No se encontraron usuarios expulsados"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#: widgets/dialogs/showbanneduserswidget.cpp:112
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 usuario en la sala (Total: %2)"
-msgstr[1] "%1 usuarios en la sala (Total: %2)"
+msgstr[0] "%1 usuario expulsado en la sala (Total: %2)"
+msgstr[1] "%1 usuarios expulsados en la sala (Total: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9229,17 +9215,16 @@ msgid "Fit to View"
 msgstr "Ajustar a la vista"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Limitador de velocidad"
+msgstr "Rotar a la izquierda"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Rotar a la derecha"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9295,12 +9280,20 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "Video: %1"
 
+#: widgets/dialogs/unbanusersdialog.cpp:16
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Subir archivo"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Do you want to mute this user?"
+msgctxt "@label:textbox"
+msgid "Do you want to unban user?"
+msgstr "¿Quiere silenciar este usuario?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -9813,17 +9806,15 @@ msgstr ""
 "iniciar sesión."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "Not network found."
-msgstr "No se encontró ningún usuario"
+msgstr "No se encontró ninguna red."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "La red está en modo sin conexión."
+msgstr "Cambiar a modo desconectado"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -10542,7 +10533,7 @@ msgstr "Limpiar"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Cambiar a nueva sala"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -10746,12 +10737,10 @@ msgid "Encrypt Messages"
 msgstr "Cifrar mensajes"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Mostrar mensajes fijados…"
+msgstr "Mostrar usuarios expulsados…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11314,39 +11303,39 @@ msgstr "Respondiendo en un hilo"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Responder en el hilo al mensaje: «%1»"
 
-#: widgets/room/roomwidget.cpp:391
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "¿De verdad quiere eliminar el historial?"
 
-#: widgets/room/roomwidget.cpp:392
+#: widgets/room/roomwidget.cpp:394
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Eliminar historial"
 
-#: widgets/room/roomwidget.cpp:436
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensajes"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:439
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "No es posible buscar en contenido cifrado."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Buscar mensaje"
 
-#: widgets/room/roomwidget.cpp:618
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11354,7 +11343,7 @@ msgstr ""
 "Un administrador del espacio de trabajo necesita instalar y configurar una "
 "aplicación de llamadas de conferencia."
 
-#: widgets/room/roomwidget.cpp:619
+#: widgets/room/roomwidget.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11546,12 +11535,10 @@ msgid "Report User"
 msgstr "Denunciar usuario"
 
 #: widgets/room/usersinroommenu.cpp:209
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Añadir usuarios a la sala"
+msgstr "Expulsar usuario de la sala"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12134,46 +12121,38 @@ msgstr "Añadir cuenta…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr ""
+msgstr "Mejoras en modo desconectado"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Permitir el envío de múltiples archivos."
+msgstr "Permitir la apertura de archivos guardados."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr ""
-"Mejora en los mensajes duplicados en el diálogo de búsqueda de mensajes."
+msgstr "Permite la rotación de imágenes en el diálogo mostrar imagen."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
 msgstr ""
+"Añadida información de nueva sala en el diálogo histórico de notificaciones."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
 msgstr ""
+"Uso de los nuevos widgets de mensajes de texto para las notificaciones de "
+"error."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Implementación del estilo del mensaje"
+msgstr "Implementado el canal ordenado de borradores. "
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr "Implementado almacenamiento en base de datos  pendiente de tipos."
+msgstr "Implementado el diálogo con la lista de usuarios expulsados."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Implementación silenciar usuario."
+msgstr "Implementada la expulsión de usuarios."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -12855,7 +12834,3 @@ msgstr "Corrección al exportar la base de datos."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Mejora en la subida de sonidos personalizados"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Use ddp api for login"
-#~ msgstr "Uso de ddp api para el inicio de sesión"

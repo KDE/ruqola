@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-22 02:44+0000\n"
+"POT-Creation-Date: 2026-06-23 02:40+0000\n"
 "PO-Revision-Date: 2025-10-16 00:32+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1908,19 +1908,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:718
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Not connected yet"
@@ -9361,7 +9361,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:114
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9393,13 +9393,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Ieškoti naudotojų…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:99
+#: widgets/dialogs/showbanneduserswidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No Banned Users found"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:104
+#: widgets/dialogs/showbanneduserswidget.cpp:112
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9532,12 +9532,20 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr ""
 
+#: widgets/dialogs/unbanusersdialog.cpp:16
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr ""
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Do you want to ignore this user?"
+msgctxt "@label:textbox"
+msgid "Do you want to unban user?"
+msgstr "Ar norite nepaisyti šio naudotojo?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, fuzzy, kde-format
@@ -11650,49 +11658,49 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/roomwidget.cpp:391
+#: widgets/room/roomwidget.cpp:393
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:392
+#: widgets/room/roomwidget.cpp:394
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Šalinti"
 
-#: widgets/room/roomwidget.cpp:436
+#: widgets/room/roomwidget.cpp:438
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:439
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/room/roomwidget.cpp:618
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:619
+#: widgets/room/roomwidget.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

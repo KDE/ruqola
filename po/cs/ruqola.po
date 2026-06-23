@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-22 02:44+0000\n"
+"POT-Creation-Date: 2026-06-23 02:40+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1578,7 +1578,7 @@ msgstr "Soukromé zprávy"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Koncept"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
 #, kde-format
@@ -1864,19 +1864,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr "Nepřipojen"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:718
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
@@ -3320,12 +3320,10 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Uložit soubor"
+msgstr "Uložit"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -9097,7 +9095,7 @@ msgstr[1] "%1 přílohy v místnosti (celkem: %2)"
 msgstr[2] "%1 příloh v místnosti (celkem: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:114
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9130,13 +9128,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Hledat uživatele…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:99
+#: widgets/dialogs/showbanneduserswidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "No result found."
 msgid "No Banned Users found"
 msgstr "Nebyl nalezen žádný výsledek."
 
-#: widgets/dialogs/showbanneduserswidget.cpp:104
+#: widgets/dialogs/showbanneduserswidget.cpp:112
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -9200,13 +9198,13 @@ msgstr "Vyplnit pohled"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr ""
+msgstr "Rotovat vlevo"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Rotovat vpravo"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9263,12 +9261,20 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "Video: %1"
 
+#: widgets/dialogs/unbanusersdialog.cpp:16
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Odeslat soubor"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Do you want to ignore this user?"
+msgctxt "@label:textbox"
+msgid "Do you want to unban user?"
+msgstr "Chcete ignorovat tohoto uživatele?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -11284,34 +11290,34 @@ msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
 # power-off message
-#: widgets/room/roomwidget.cpp:391
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Opravdu si přejete odstranit historii?"
 
-#: widgets/room/roomwidget.cpp:392
+#: widgets/room/roomwidget.cpp:394
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Odstranit historii"
 
-#: widgets/room/roomwidget.cpp:436
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:439
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "Soukromé zprávy nelze archivovat"
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11319,13 +11325,13 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Hledat zprávy"
 
-#: widgets/room/roomwidget.cpp:618
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:619
+#: widgets/room/roomwidget.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"

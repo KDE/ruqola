@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-22 02:44+0000\n"
-"PO-Revision-Date: 2026-04-06 22:18+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"POT-Creation-Date: 2026-06-23 02:40+0000\n"
+"PO-Revision-Date: 2026-06-22 11:43+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -1023,16 +1023,14 @@ msgid "%1 has requested key refresh."
 msgstr "%1 ha sol·licitat l'actualització de la clau."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 i %2"
+msgstr "%1 ha bandejat %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 i %2"
+msgstr "%1 ha desbandejat %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1435,7 +1433,7 @@ msgstr[1] "%1 segons"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "S'ha afegit la sala «%1»"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -1563,7 +1561,7 @@ msgstr "Missatges privats"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Esborrany"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
 #, kde-format
@@ -1842,7 +1840,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:702
+#: core/rocketchataccount.cpp:703
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1851,12 +1849,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:710 core/rocketchataccount.cpp:723
+#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:717
+#: core/rocketchataccount.cpp:718
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -2221,10 +2219,9 @@ msgid "Invalid Parameters"
 msgstr "Paràmetres no vàlids"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "L'usuari no està en aquesta sala"
+msgstr "L'usuari està bandejat d'aquesta sala"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3296,7 +3293,7 @@ msgstr "Cancel·la"
 #, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr ""
+msgstr "Desa"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3319,11 +3316,10 @@ msgstr "Marca horària als missatges"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Missatges privats"
+msgstr "Esborranys"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -8605,8 +8601,7 @@ msgid "Discussion Name"
 msgstr "Nom del debat"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Tema"
@@ -9124,7 +9119,7 @@ msgstr[0] "%1 adjunt a la sala (Total: %2)"
 msgstr[1] "%1 adjunts a la sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:114
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9135,43 +9130,34 @@ msgid "(Click here for Loading more…)"
 msgstr "(Feu clic aquí per a carregar-ne més…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Mostra els missatges fixats - %1"
+msgstr "Mostra els usuaris bandejats - %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Desbloca l'usuari"
+msgstr "Desbandeja l'usuari"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:47
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Cerca usuaris…"
+msgstr "Cerca usuaris bandejats…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:99
-#, fuzzy, kde-format
-#| msgid "No User found"
+#: widgets/dialogs/showbanneduserswidget.cpp:107
+#, kde-format
 msgid "No Banned Users found"
-msgstr "No s'ha trobat cap usuari"
+msgstr "No s'ha trobat cap usuari bandejat"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#: widgets/dialogs/showbanneduserswidget.cpp:112
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 usuari a la sala (Total: %2)"
-msgstr[1] "%1 usuaris a la sala (Total: %2)"
+msgstr[0] "%1 usuari bandejat a la sala (Total: %2)"
+msgstr[1] "%1 usuaris bandejats a la sala (Total: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9224,17 +9210,16 @@ msgid "Fit to View"
 msgstr "Ajusta a la vista"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Limitador de velocitat"
+msgstr "Gira a l'esquerra"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Gira a la dreta"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9290,12 +9275,20 @@ msgctxt "@title:window"
 msgid "Video: %1"
 msgstr "Vídeo: %1"
 
+#: widgets/dialogs/unbanusersdialog.cpp:16
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Pujada de fitxer"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Do you want to mute this user?"
+msgctxt "@label:textbox"
+msgid "Do you want to unban user?"
+msgstr "Voleu silenciar aquest usuari?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -9809,17 +9802,15 @@ msgstr ""
 "la sessió."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "Not network found."
-msgstr "No s'ha trobat cap usuari"
+msgstr "No s'ha trobat cap xarxa."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "La xarxa està en mode desconnectat."
+msgstr "Canvia al mode desconnectat"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -10538,7 +10529,7 @@ msgstr "Neteja"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Canvia a una sala nova"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -10742,12 +10733,10 @@ msgid "Encrypt Messages"
 msgstr "Encriptació dels missatges"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Mostra els missatges fixats…"
+msgstr "Mostra els missatges bandejats…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11309,39 +11298,39 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:391
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:392
+#: widgets/room/roomwidget.cpp:394
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:436
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: widgets/room/roomwidget.cpp:437
+#: widgets/room/roomwidget.cpp:439
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "El contingut encriptat no es pot cercar."
 
-#: widgets/room/roomwidget.cpp:599
+#: widgets/room/roomwidget.cpp:601
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Cerca de missatge"
 
-#: widgets/room/roomwidget.cpp:618
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11349,7 +11338,7 @@ msgstr ""
 "Un administrador de l'espai de treball necessita instal·lar i configurar una "
 "aplicació de trucades de conferència."
 
-#: widgets/room/roomwidget.cpp:619
+#: widgets/room/roomwidget.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11541,12 +11530,10 @@ msgid "Report User"
 msgstr "Informa d'un usuari"
 
 #: widgets/room/usersinroommenu.cpp:209
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Afegeix usuaris a la sala"
+msgstr "Bandeja un usuari de la sala"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12129,45 +12116,36 @@ msgstr "Afegeix un compte…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr ""
+msgstr "Millora el mode desconnectat"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Permet enviar diversos fitxers."
+msgstr "Permet obrir un fitxer desat."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "Corregeix els missatges duplicats en el diàleg de cerca de missatges."
+msgstr "Permet girar una imatge en el diàleg de mostrar imatges."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
 msgstr ""
+"Afegeix informació nova de sala al diàleg de l'historial de notificacions."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr ""
+msgstr "Usa el «textmessagewidget» nou per a notificacions d'error."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Implementa els estils dels missatges"
+msgstr "Implementa el canal d'ordenació dels esborranys."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr "Implementa l'emmagatzematge a la base de dades del tecleig pendent."
+msgstr "Implementa el diàleg de llista d'usuaris bandejats."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Implementa silenciar/deixar de silenciar un usuari."
+msgstr "Implementa usuaris bandejats/desbandejats."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
