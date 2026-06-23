@@ -1301,7 +1301,9 @@
       <description>
         <ul>
           <li>Improve offline Mode</li>
+          <li xml:lang="fr">Améliorer le mode déconnecté</li>
           <li>Allow to open saved file.</li>
+          <li xml:lang="fr">Autoriser l'ouverture du fichier enregistré.</li>
           <li>Allow to rotate image in show image dialog</li>
           <li>Add new room info in notification history dialog.</li>
           <li>Use new textmessagewidget for error notification</li>
@@ -1318,9 +1320,13 @@
       <description>
         <ul>
           <li>Copy block code more easily</li>
+          <li xml:lang="fr">Copier le code en bloc plus facilement</li>
           <li>Improve Text To Speech user interface</li>
+          <li xml:lang="fr">Améliorer l'interface utilisateur pour la synthèse vocale</li>
           <li>Show attachment fields</li>
+          <li xml:lang="fr">Afficher les champs de pièce jointe</li>
           <li>Implement Offline Mode (experimental)</li>
+          <li xml:lang="fr">Implémenter le mode déconnecté (Expérimental)</li>
           <li>Implement Pending Typed database storage</li>
           <li>Fix RC 8.0.0 support</li>
           <li>Add Attachment Actions Support</li>
