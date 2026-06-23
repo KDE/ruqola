@@ -5,7 +5,6 @@
 */
 
 #include "showvideowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showvideowidget.h"
 #include <KMessageWidget>
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 #include <QVideoWidget>
 QTEST_MAIN(ShowVideoWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 ShowVideoWidgetTest::ShowVideoWidgetTest(QObject *parent)
     : QObject(parent)
 {
