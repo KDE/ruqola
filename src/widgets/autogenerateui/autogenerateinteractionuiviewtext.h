@@ -7,7 +7,6 @@
 
 #include "autogenerateinteractionuiviewelement.h"
 #include "libruqolawidgets_private_export.h"
-#include <QMetaType>
 
 class QJsonObject;
 

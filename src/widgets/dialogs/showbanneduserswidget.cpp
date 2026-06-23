@@ -18,7 +18,6 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
-#include <QListView>
 #include <QVBoxLayout>
 constexpr ushort numberOfElment = 20;
 

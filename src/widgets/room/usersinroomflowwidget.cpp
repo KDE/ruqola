@@ -40,6 +40,9 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
 {
     mRoom = room;
     if (mRoom) {
+        if (!mCurrentRocketChatAccount) {
+            return;
+        }
         auto sourceModel = mUsersForRoomFilterProxyModel->sourceModel();
         if (sourceModel) {
             auto usersForRoomModel = qobject_cast<UsersForRoomModel *>(sourceModel);
@@ -59,6 +62,7 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
         connect(model, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
     } else {
         mFlowLayout->clearAndDeleteWidgets();
+        mListUsersWidget.clear();
     }
 }
 
@@ -77,7 +81,7 @@ void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, co
 {
     if (isVisible()) {
         for (int row = topLeft.row(), total = bottomRight.row(); row <= total; ++row) {
-            const QModelIndex userModelIndex = topLeft.sibling(row, 0);
+            const QModelIndex userModelIndex = topLeft.model()->index(row, 0, topLeft.parent());
             const QByteArray userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toByteArray();
 
             UsersInRoomLabel *userLabel = mListUsersWidget.value(userId);

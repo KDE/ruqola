@@ -7,7 +7,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QObject>
 #include <QString>
 namespace ImportExportUtils
 {

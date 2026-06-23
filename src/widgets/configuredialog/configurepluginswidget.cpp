@@ -12,7 +12,6 @@
 #include "room/toolspluginmanager.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
-#include <QHeaderView>
 using namespace Qt::Literals::StringLiterals;
 ConfigurePluginsWidget::ConfigurePluginsWidget(QWidget *parent)
     : TextAddonsWidgets::ConfigurePluginsWidget{parent}

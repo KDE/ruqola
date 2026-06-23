@@ -546,6 +546,8 @@ target_sources(
         job/validateinviteserverjob.cpp
         job/adduserinchanneljob.h
         job/adduserinchanneljob.cpp
+        job/unbanuserinchanneljob.h
+        job/unbanuserinchanneljob.cpp
         actionbuttons/actionbutton.h
         actionbuttons/actionbutton.cpp
         actionbuttons/actionbuttonsmanager.h

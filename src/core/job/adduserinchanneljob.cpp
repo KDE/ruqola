@@ -22,6 +22,12 @@ AddUserInChannelJob::~AddUserInChannelJob() = default;
 
 void AddUserInChannelJob::start()
 {
+    if (!canStart()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start AddUserInChannelJob";
+        deleteLater();
+        return;
+    }
+
     auto job = new ChannelInviteJob(this);
     mConnection->initializeRestApiJob(job);
     const ChannelGroupBaseJob::ChannelGroupInfo info{
