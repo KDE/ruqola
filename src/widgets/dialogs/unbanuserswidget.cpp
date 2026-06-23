@@ -21,3 +21,5 @@ UnbanUsersWidget::UnbanUsersWidget(QWidget *parent)
 }
 
 UnbanUsersWidget::~UnbanUsersWidget() = default;
+
+#include "moc_unbanuserswidget.cpp"

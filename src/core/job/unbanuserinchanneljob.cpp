@@ -154,3 +154,5 @@ void UnbanUserInChannelJob::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }
+
+#include "moc_unbanuserinchanneljob.cpp"
