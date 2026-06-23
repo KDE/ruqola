@@ -320,9 +320,6 @@ endif()
 
 if(TARGET KF6::TextAutoGenerateText)
     set(HAVE_TEXT_AUTOGENERATE_TEXT TRUE)
-    if(${KF6TextAutoGenerateText_VERSION} VERSION_GREATER_EQUAL 2.0.52)
-        set(HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS TRUE)
-    endif()
 endif()
 
 find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
@@ -334,21 +331,6 @@ set_package_properties(
         TYPE
             REQUIRED
 )
-
-if(
-    ${KF6CoreAddons_VERSION}
-        VERSION_GREATER_EQUAL
-        6.26.0
-    AND ${KF6TextAddonsWidgets_VERSION}
-        VERSION_GREATER_EQUAL
-        2.0.69
-)
-    set(HAVE_WHATSNEWSNGSUPPORT TRUE)
-endif()
-
-if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 2.0.85)
-    set(HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT TRUE)
-endif()
 
 # shall we use DBus?
 # enabled per default on Linux & BSD systems

@@ -13,14 +13,10 @@
 #include <QPointer>
 
 class RocketChatAccount;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 namespace TextAddonsWidgets
 {
 class CompletionListView;
 }
-#else
-class CompletionListView;
-#endif
 class UserAndChannelCompletionDelegate;
 /**
  * @brief The MessageTextEdit class is the widget used for typing messages to be sent.
@@ -82,18 +78,9 @@ private:
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-    TextAddonsWidgets::
-#endif
-        CompletionListView *const mUserAndChannelCompletionListView;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-    TextAddonsWidgets::
-#endif
-        CompletionListView *const mEmojiCompletionListView;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-    TextAddonsWidgets::
-#endif
-        CompletionListView *const mCommandCompletionListView;
+    TextAddonsWidgets::CompletionListView *const mUserAndChannelCompletionListView;
+    TextAddonsWidgets::CompletionListView *const mEmojiCompletionListView;
+    TextAddonsWidgets::CompletionListView *const mCommandCompletionListView;
     UserAndChannelCompletionDelegate *mUserAndChannelCompletionDelegate = nullptr;
     QByteArray mRoomId;
 };

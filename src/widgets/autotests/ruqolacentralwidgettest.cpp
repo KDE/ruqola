@@ -11,8 +11,6 @@
 #if 0
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #endif
-#include "whatsnew/whatsnewtranslations.h"
-#include <TextAddonsWidgets/WhatsNewMessageWidget>
 
 #include <QStackedWidget>
 #include <QStandardPaths>
@@ -40,12 +38,6 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 #if 0 // Create on demand => it will be nullptr
     auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(u"mServerErrorInfoMessageWidget"_s);
     QVERIFY(mServerErrorInfoMessageWidget);
-#endif
-#if !HAVE_WHATSNEWSNGSUPPORT
-    auto whatsNewMessageWidget = w.findChild<TextAddonsWidgets::WhatsNewMessageWidget *>(u"whatsNewMessageWidget"_s);
-    if (WhatsNewTranslations().lastNewFeatures().isEmpty()) {
-        QVERIFY(!whatsNewMessageWidget);
-    }
 #endif
 }
 

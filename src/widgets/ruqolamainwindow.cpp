@@ -55,12 +55,7 @@
 #include "ruqolaserverconfig.h"
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"
-#if HAVE_WHATSNEWSNGSUPPORT
 #include <TextAddonsWidgets/WhatsNewNgDialog>
-#else
-#include "whatsnew/whatsnewtranslations.h"
-#include <TextAddonsWidgets/WhatsNewDialog>
-#endif
 
 #include "rooms/roomstartdiscussionjob.h"
 #include <KActionCollection>
@@ -112,18 +107,9 @@ const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 const int ruqolaVersion = 3;
 }
 using namespace Qt::Literals::StringLiterals;
-RuqolaMainWindow::RuqolaMainWindow(
-#if HAVE_WHATSNEWSNGSUPPORT
-    const QList<KAboutRelease> &releases,
-#endif
-    QWidget *parent)
+RuqolaMainWindow::RuqolaMainWindow(const QList<KAboutRelease> &releases, QWidget *parent)
     : KXmlGuiWindow(parent)
-    , mMainWidget(new RuqolaCentralWidget(
-#if HAVE_WHATSNEWSNGSUPPORT
-          releases,
-#endif
-
-          this))
+    , mMainWidget(new RuqolaCentralWidget(releases, this))
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
     , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
@@ -796,16 +782,9 @@ void RuqolaMainWindow::slotMessageStyleChanged()
 
 void RuqolaMainWindow::slotWhatsNew()
 {
-#if HAVE_WHATSNEWSNGSUPPORT
     TextAddonsWidgets::WhatsNewNgDialog dlg(this);
     dlg.setReleases(mMainWidget->releasesInfo());
     dlg.exec();
-#else
-    WhatsNewTranslations translations;
-    TextAddonsWidgets::WhatsNewDialog dlg(translations.createWhatsNewInfo(), this);
-    dlg.updateInformations();
-    dlg.exec();
-#endif
 }
 
 void RuqolaMainWindow::showNextView()

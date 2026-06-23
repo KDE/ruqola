@@ -8,10 +8,8 @@
 
 #include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
-#if HAVE_WHATSNEWSNGSUPPORT
-#include <KAboutData>
-#endif
 #include "room.h"
+#include <KAboutData>
 #include <QAbstractSocket>
 #include <QPointer>
 #include <QWidget>
@@ -31,11 +29,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit RuqolaCentralWidget(
-#if HAVE_WHATSNEWSNGSUPPORT
-        const QList<KAboutRelease> &releases,
-#endif
-        QWidget *parent = nullptr);
+    explicit RuqolaCentralWidget(const QList<KAboutRelease> &releases, QWidget *parent = nullptr);
     ~RuqolaCentralWidget() override;
     [[nodiscard]] QByteArray roomId() const;
 
@@ -43,9 +37,7 @@ public:
     void selectNextUnreadChannel();
     [[nodiscard]] Room::RoomType roomType() const;
     [[nodiscard]] Room *room() const;
-#if HAVE_WHATSNEWSNGSUPPORT
     [[nodiscard]] QList<KAboutRelease> releasesInfo() const;
-#endif
 
 Q_SIGNALS:
     void channelSelected();
@@ -59,9 +51,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotNewErrorInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void createServerErrorInfoMessageWidget();
 
-#if HAVE_WHATSNEWSNGSUPPORT
     QList<KAboutRelease> mReleasesInfo;
-#endif
     QStackedWidget *const mStackedWidget;
     RuqolaMainWidget *const mRuqolaMainWidget;
     RuqolaLoginWidget *const mRuqolaLoginWidget;

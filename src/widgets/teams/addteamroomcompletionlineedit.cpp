@@ -7,17 +7,13 @@
 #include "addteamroomcompletionlineedit.h"
 #include "common/teamroomcompletiondelegate.h"
 
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-#include <TextAddonsWidgets/CompletionListView>
-#else
-#include "common/completionlistview.h"
-#endif
 #include "connection.h"
 #include "model/teamroomcompletermodel.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "teams/roomsautocompleteavailableforteamsjob.h"
 #include "teams/teamroomcompleter.h"
+#include <TextAddonsWidgets/CompletionListView>
 
 #include <KLocalizedString>
 
@@ -29,11 +25,7 @@ using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
 
 AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
-    :
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-    TextAddonsWidgets::
-#endif
-        CompletionLineEdit(parent)
+    : TextAddonsWidgets::CompletionLineEdit(parent)
     , mTeamRoomCompleterModel(new TeamRoomCompleterModel(this))
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)

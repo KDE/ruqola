@@ -569,7 +569,7 @@ target_sources(
         emoji.qrc
 )
 
-if(HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS)
+if(HAVE_TEXT_AUTOGENERATE_TEXT)
     target_sources(
         libruqolacore
         PRIVATE

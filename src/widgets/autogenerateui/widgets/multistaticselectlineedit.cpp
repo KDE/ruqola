@@ -5,19 +5,11 @@
 */
 
 #include "multistaticselectlineedit.h"
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-#include <TextAddonsWidgets/CompletionListView>
-#else
-#include "common/completionlistview.h"
-#endif
 #include "multistaticselectlineeditproxymodel.h"
+#include <TextAddonsWidgets/CompletionListView>
 
 MultiStaticSelectLineEdit::MultiStaticSelectLineEdit(QWidget *parent)
-    :
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-    TextAddonsWidgets::
-#endif
-        CompletionLineEdit(parent)
+    : TextAddonsWidgets::CompletionLineEdit(parent)
     , mMultiStaticSelectLineEditModel(new MultiStaticSelectLineEditModel(this))
     , mMultiStaticSelectLineEditProxyModel(new MultiStaticSelectLineEditProxyModel(this))
 {

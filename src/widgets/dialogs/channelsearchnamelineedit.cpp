@@ -4,11 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "channelsearchnamelineedit.h"
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-#include <TextAddonsWidgets/CompletionListView>
-#else
-#include "common/completionlistview.h"
-#endif
 #include "common/userandchannelcompletiondelegate.h"
 #include "connection.h"
 #include "model/channelcompleterfilterproxymodel.h"
@@ -17,13 +12,10 @@
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "ruqolawidgets_debug.h"
 #include <QJsonObject>
+#include <TextAddonsWidgets/CompletionListView>
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent)
-    :
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-    TextAddonsWidgets::
-#endif
-        CompletionLineEdit(parent)
+    : TextAddonsWidgets::CompletionLineEdit(parent)
     , mChannelCompleterFilterProxyModel(new ChannelCompleterFilterProxyModel(this))
     , mChannelCompleterModel(new InputCompleterModel(account, this))
     , mRocketChatAccount(account)

@@ -56,19 +56,10 @@ int main(int argc, char *argv[])
 #endif
     KLocalizedString::setApplicationDomain("ruqola"_ba);
 
-#if HAVE_WHATSNEWSNGSUPPORT
     KAboutData aboutData = KAboutData::fromAppStreamForApplication();
     aboutData.setCopyrightStatement(i18n("Copyright © 2020-2026 Ruqola authors"));
     aboutData.setVersion(RUQOLA_VERSION);
     aboutData.setComponentName(u"ruqola"_s);
-#else
-    KAboutData aboutData(u"ruqola"_s,
-                         i18n("Ruqola"),
-                         QStringLiteral(RUQOLA_VERSION),
-                         i18n("Rocket Chat Client"),
-                         KAboutLicense::GPL_V2,
-                         i18n("Copyright © 2020-2026 Ruqola authors"));
-#endif
 
     aboutData.addAuthor(i18nc("@info:credit", "Laurent Montel"), i18n("Maintainer"), u"montel@kde.org"_s);
     aboutData.addAuthor(i18nc("@info:credit", "Riccardo Iaconelli"), i18n("Original Author"), u"riccardo@kde.org"_s);
@@ -177,11 +168,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    auto mw = new RuqolaMainWindow(
-#if HAVE_WHATSNEWSNGSUPPORT
-        aboutData.releases()
-#endif
-    );
+    auto mw = new RuqolaMainWindow(aboutData.releases());
 #if WITH_DBUS
     QObject::connect(&service, &KDBusService::activateRequested, mw, &RuqolaMainWindow::slotActivateRequested);
 #else

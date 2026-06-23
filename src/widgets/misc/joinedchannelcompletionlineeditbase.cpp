@@ -6,11 +6,6 @@
 
 #include "joinedchannelcompletionlineeditbase.h"
 
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-#include <TextAddonsWidgets/CompletionListView>
-#else
-#include "common/completionlistview.h"
-#endif
 #include "joinedchannelcompletiondelegate.h"
 #include "model/joinedchannelmodel.h"
 #include "model/roommodel.h"
@@ -18,17 +13,14 @@
 #include "room.h"
 #include <KLocalizedString>
 #include <QTimer>
+#include <TextAddonsWidgets/CompletionListView>
 #include <chrono>
 
 using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;
 
 JoinedChannelCompletionLineEditBase::JoinedChannelCompletionLineEditBase(RocketChatAccount *account, QWidget *parent)
-    :
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
-    TextAddonsWidgets::
-#endif
-        CompletionLineEdit(parent)
+    : TextAddonsWidgets::CompletionLineEdit(parent)
     , mJoinedChannelModel(new JoinedChannelModel(this))
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)

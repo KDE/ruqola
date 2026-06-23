@@ -830,8 +830,6 @@ target_sources(
         databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h
         databasedialog/exploredatabaseroomsubscriptionswidget.h
         databasedialog/exploredatabaseroomsubscriptionswidget.cpp
-        whatsnew/whatsnewtranslations.h
-        whatsnew/whatsnewtranslations.cpp
         explorepermissionsdialog/explorepermissionsdialog.h
         explorepermissionsdialog/explorepermissionsdialog.cpp
         explorepermissionsdialog/explorepermissionswidget.h
@@ -1021,17 +1019,6 @@ target_sources(
         timestampinmessages/timestampinmessagestimezonecombobox.h
         timestampinmessages/timestampinmessagestimezonecombobox.cpp
 )
-
-if(NOT HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT)
-    target_sources(
-        libruqolawidgets
-        PRIVATE
-            common/completionlineedit.cpp
-            common/completionlineedit.h
-            common/completionlistview.cpp
-            common/completionlistview.h
-    )
-endif()
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
     target_sources(

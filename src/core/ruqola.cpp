@@ -19,10 +19,8 @@
 #include <TextAutoCorrectionCore/AutoCorrection>
 #endif
 #if HAVE_TEXT_AUTOGENERATE_TEXT
-#include <TextAutoGenerateText/TextAutoGenerateManager>
-#endif
-#if HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS
 #include "internaltools/ruqolatoolinternalinterface.h"
+#include <TextAutoGenerateText/TextAutoGenerateManager>
 #endif
 static Ruqola *s_self = nullptr;
 
@@ -41,7 +39,7 @@ Ruqola::Ruqola(QObject *parent)
     // Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
-#if HAVE_TEXTAUTOGENERATE_INTERNAL_TOOLS
+#if HAVE_TEXT_AUTOGENERATE_TEXT
     mManager->setTextAutoGenerateTextToolInternalInterface(new RuqolaToolInternalInterface(this));
     mManager->setHaveInsertText(true);
 #endif
