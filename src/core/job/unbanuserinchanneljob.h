@@ -8,6 +8,10 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 class RocketChatAccount;
+namespace RocketChatRestApi
+{
+class RoomsUnbanUserJob;
+};
 class LIBRUQOLACORE_EXPORT UnbanUserInChannelJob : public QObject
 {
     Q_OBJECT
@@ -26,11 +30,12 @@ public:
     void setRoomId(const QByteArray &newRoomId);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void slotAddUserInRooms();
+    LIBRUQOLACORE_NO_EXPORT void slotAddUserInRooms(const QStringList &usernames);
     LIBRUQOLACORE_NO_EXPORT void findUserNames();
-    LIBRUQOLACORE_NO_EXPORT void slotRoomsBannedUsersDone();
     LIBRUQOLACORE_NO_EXPORT void slotRoomsBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
+    LIBRUQOLACORE_NO_EXPORT void slotRoomsUnbanUserJobDone(RocketChatRestApi::RoomsUnbanUserJob *job);
     QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> mNeedUnbanUsers;
     QByteArray mRoomId;
     RocketChatAccount *const mRocketChatAccount;
+    QList<RocketChatRestApi::RoomsUnbanUserJob *> mRoomsUnbanUserJobList;
 };
