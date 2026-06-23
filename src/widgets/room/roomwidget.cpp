@@ -1066,6 +1066,7 @@ void RoomWidget::slotUserNeedUnbanned(const AddUserInChannelJob::UserInChannelNe
                     obj["rid"_L1] = QString::fromLatin1(user.roomId);
                     obj["users"_L1] = QJsonArray::fromStringList({user.userName});
                     const QJsonArray params{obj};
+                    qDebug() << " CCCCCCCCCC  " << params;
 
                     RocketChatRestApi::MethodCallJob::MethodCallJobInfo addUserInRoomInfo;
                     addUserInRoomInfo.methodName = u"addUsersToRoom"_s;
