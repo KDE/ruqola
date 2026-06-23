@@ -79,26 +79,27 @@ void UsersInRoomFlowWidget::showEvent(QShowEvent *event)
 
 void UsersInRoomFlowWidget::updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
-    if (isVisible()) {
-        for (int row = topLeft.row(), total = bottomRight.row(); row <= total; ++row) {
-            const QModelIndex userModelIndex = topLeft.model()->index(row, 0, topLeft.parent());
-            const QByteArray userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toByteArray();
+    if (!isVisible() || !topLeft.isValid() || !bottomRight.isValid()) {
+        return;
+    }
 
-            UsersInRoomLabel *userLabel = mListUsersWidget.value(userId);
-            if (userLabel) {
-                const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
-                const QString iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
-                const QString userName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
-                // qDebug() << " updating userdId " << userId << " userName " << userName << "  info.iconStatus " << iconStatus;
-                UsersInRoomLabel::UserInfo info;
-                info.userDisplayName = userDisplayName;
-                info.iconStatus = iconStatus;
-                info.userId = userId;
-                info.userName = userName;
-                userLabel->setUserInfo(info);
-            }
+    // Batch updates to reduce repaint churn/flicker when many rows change at once.
+    setUpdatesEnabled(false);
+    for (int row = topLeft.row(), total = bottomRight.row(); row <= total; ++row) {
+        const QModelIndex userModelIndex = topLeft.model()->index(row, 0, topLeft.parent());
+        const QByteArray userId = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserId).toByteArray();
+
+        UsersInRoomLabel *userLabel = mListUsersWidget.value(userId);
+        if (userLabel) {
+            UsersInRoomLabel::UserInfo info;
+            info.userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
+            info.iconStatus = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::IconStatus).toString();
+            info.userId = userId;
+            info.userName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
+            userLabel->setUserInfo(info);
         }
     }
+    setUpdatesEnabled(true);
 }
 
 void UsersInRoomFlowWidget::generateListUsersWidget()

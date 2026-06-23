@@ -35,10 +35,19 @@ UsersInRoomLabel::~UsersInRoomLabel() = default;
 
 void UsersInRoomLabel::setUserInfo(const UsersInRoomLabel::UserInfo &info)
 {
-    mUserNameLabel->setText(info.userDisplayName);
-    mIconLabel->setPixmap(QIcon::fromTheme(info.iconStatus).pixmap(18, 18));
-    mUserNameLabel->setUserId(info.userId);
-    mUserNameLabel->setUserName(info.userName);
+    if (mInfo.userDisplayName != info.userDisplayName) {
+        mUserNameLabel->setText(info.userDisplayName);
+    }
+    if (mInfo.iconStatus != info.iconStatus) {
+        mIconLabel->setPixmap(QIcon::fromTheme(info.iconStatus).pixmap(18, 18));
+    }
+    if (mInfo.userId != info.userId) {
+        mUserNameLabel->setUserId(info.userId);
+    }
+    if (mInfo.userName != info.userName) {
+        mUserNameLabel->setUserName(info.userName);
+    }
+    mInfo = info;
 }
 
 void UsersInRoomLabel::setRoom(Room *room)
