@@ -11,26 +11,19 @@
 #include "downloadfilejob.h"
 #include "rocketchataccount.h"
 #include "ruqolautils.h"
-#include <KApplicationTrader>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
-#include <KIO/JobUiDelegateFactory>
 #include <KLocalizedString>
-#include <KMessageBox>
-#include <KService>
 #include <TextAddonsWidgets/SaveFileUtils>
 
 #include "messageattachmentdelegatehelperopenfilejob.h"
 #include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
 #include <QAbstractTextDocumentLayout>
-#include <QDesktopServices>
-#include <QMimeDatabase>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPushButton>
 #include <QStyleOptionViewItem>
-#include <QTemporaryDir>
 
 //  Name <download icon>
 //  Description

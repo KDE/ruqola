@@ -8,7 +8,6 @@
 
 #include "messageattachmentdelegatehelperbase.h"
 
-#include <QIcon>
 #include <QModelIndex>
 #include <QRect>
 

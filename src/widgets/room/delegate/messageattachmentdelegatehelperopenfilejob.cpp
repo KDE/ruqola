@@ -12,7 +12,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QDesktopServices>
-#include <QMimeDatabase>
 #include <QTemporaryDir>
 #include <QUrl>
 #include <kio/applicationlauncherjob.h>

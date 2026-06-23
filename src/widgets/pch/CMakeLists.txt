@@ -7,13 +7,7 @@ file(
     GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/ruqolawidgets_pch.h
     CONTENT
         "#pragma once
-#include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <QStringList>
-#include <QDebug>
-#include <QTest>
-#include <QWidget>
 "
 )
 
