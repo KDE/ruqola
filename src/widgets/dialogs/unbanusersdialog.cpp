@@ -13,7 +13,7 @@ UnbanUsersDialog::UnbanUsersDialog(QWidget *parent)
     : QDialog(parent)
     , mUnbanUsersWidget(new UnbanUsersWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Upload File"));
+    setWindowTitle(i18nc("@title:window", "Unban Users"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 
