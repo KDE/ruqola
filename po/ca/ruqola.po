@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 02:40+0000\n"
-"PO-Revision-Date: 2026-06-22 11:43+0200\n"
+"POT-Creation-Date: 2026-06-24 03:44+0000\n"
+"PO-Revision-Date: 2026-06-23 08:23+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3464,20 +3464,20 @@ msgstr[0] "%1 missatge a la sala"
 msgstr[1] "%1 missatges a la sala"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Cerca un missatge de moderació…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:62
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "No s'ha trobat cap missatge de moderació"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:70
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3491,7 +3491,7 @@ msgid "See messages"
 msgstr "Vegeu els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3504,14 +3504,14 @@ msgid "Delete all Messages"
 msgstr "Suprimeix tots els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Desactiva l'usuari"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3522,7 +3522,7 @@ msgstr ""
 "respectiva."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3562,13 +3562,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Suprimeix tots els missatges"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Veure dels informes"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3576,7 +3576,7 @@ msgstr ""
 "Se suprimiran tots els informes i els missatges informats no es veuran "
 "afectats."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -7908,12 +7908,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Activa la integració de les activitats del Plasma"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:51
+#: widgets/configuredialog/configurepluginswidget.cpp:50
 #, kde-format
 msgid "Tools Plugins"
 msgstr "Connectors d'eines"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:58
+#: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
 msgstr "Connectors de text"
@@ -9119,11 +9119,11 @@ msgstr[0] "%1 adjunt a la sala (Total: %2)"
 msgstr[1] "%1 adjunts a la sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:114
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:131
+#: widgets/room/usersinroomflowwidget.cpp:135
 #: widgets/room/usersinroomwidget.cpp:167
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -9141,18 +9141,18 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Desbandeja l'usuari"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:47
+#: widgets/dialogs/showbanneduserswidget.cpp:46
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Cerca usuaris bandejats…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:107
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #, kde-format
 msgid "No Banned Users found"
 msgstr "No s'ha trobat cap usuari bandejat"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:112
+#: widgets/dialogs/showbanneduserswidget.cpp:111
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9276,19 +9276,26 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@title:window"
+msgid "Unban Users"
+msgstr "Desbandeja l'usuari"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"Some user are banned from this room. Do you want to unban and add them back ?"
+msgstr ""
+
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Pujada de fitxer"
-
-#: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Do you want to mute this user?"
-msgctxt "@label:textbox"
-msgid "Do you want to unban user?"
-msgstr "Voleu silenciar aquest usuari?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -10744,12 +10751,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Depuració"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Impossible obrir %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
@@ -11121,37 +11128,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Error del traductor"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Paste Image"
 msgstr "Enganxa una imatge"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:280
 #, kde-format
 msgid "Change Text Format"
 msgstr "Canvia el format del text"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:282
 #, kde-format
 msgid "Bold"
 msgstr "Negreta"
 
-#: widgets/room/messagetextedit.cpp:284
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/messagetextedit.cpp:285
+#: widgets/room/messagetextedit.cpp:284
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrat"
 
-#: widgets/room/messagetextedit.cpp:287
+#: widgets/room/messagetextedit.cpp:286
 #, kde-format
 msgid "Code Block"
 msgstr "Bloc de codi"
 
-#: widgets/room/messagetextedit.cpp:289
+#: widgets/room/messagetextedit.cpp:288
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL en Markdown"
@@ -11377,7 +11384,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Usuaris"
 
-#: widgets/room/usersinroomflowwidget.cpp:137
+#: widgets/room/usersinroomflowwidget.cpp:141
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Obre un diàleg extern…)"
@@ -12826,6 +12833,11 @@ msgstr "Corregeix l'exportació de la base de dades."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Corregeix la pujada de sons personalitzats"
+
+#~| msgid "Do you want to mute this user?"
+#~ msgctxt "@label:textbox"
+#~ msgid "Do you want to unban user?"
+#~ msgstr "Voleu desbandejar aquest usuari?"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Use ddp api for login"

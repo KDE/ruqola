@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 02:40+0000\n"
+"POT-Creation-Date: 2026-06-24 03:44+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -3461,20 +3461,20 @@ msgstr[1] "%1 správa v miestnosti"
 msgstr[2] "%1 správy v miestnosti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Hľadať súbor..."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:62
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "Súkromné adresy"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:70
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3489,7 +3489,7 @@ msgid "See messages"
 msgstr "Hľadať súbor..."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3502,14 +3502,14 @@ msgid "Delete all Messages"
 msgstr "Zmazať všetky správy"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Zadajte užívateľské meno"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3519,7 +3519,7 @@ msgstr ""
 "Všetky nahlásené správy budú natrvalo odstránené z príslušných miestností."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3559,19 +3559,19 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Zmazať všetky správy"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Zobraziť hlásenia"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr "Všetky hlásenia budú vymazané a nahlásené správy nebudú ovplyvnené."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -7874,12 +7874,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Predvolené"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:51
+#: widgets/configuredialog/configurepluginswidget.cpp:50
 #, kde-format
 msgid "Tools Plugins"
 msgstr "Tools Plugins"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:58
+#: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
 msgstr "Text Plugins"
@@ -9087,11 +9087,11 @@ msgstr[1] "%1 príloha v miestnosti (Celkovo: %2)"
 msgstr[2] "%1 prílohy v miestnosti (Celkovo: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:114
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:131
+#: widgets/room/usersinroomflowwidget.cpp:135
 #: widgets/room/usersinroomwidget.cpp:167
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -9113,7 +9113,7 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Odblokovať používateľa"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:47
+#: widgets/dialogs/showbanneduserswidget.cpp:46
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search users…"
@@ -9121,13 +9121,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Hľadať súbor..."
 
-#: widgets/dialogs/showbanneduserswidget.cpp:107
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Súkromné adresy"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:112
+#: widgets/dialogs/showbanneduserswidget.cpp:111
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9256,19 +9256,26 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@title:window"
+msgid "Unban Users"
+msgstr "Odblokovať používateľa"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"Some user are banned from this room. Do you want to unban and add them back ?"
+msgstr ""
+
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Upload File"
-
-#: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Do you want to mute this user?"
-msgctxt "@label:textbox"
-msgid "Do you want to unban user?"
-msgstr "Opustiť kanál"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -10717,12 +10724,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Debug"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Nie je možné otvoriť %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
@@ -11096,37 +11103,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Preklad"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Paste Image"
 msgstr "Prilepiť obrázok"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:280
 #, kde-format
 msgid "Change Text Format"
 msgstr "Zmeniť formát textu"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:282
 #, kde-format
 msgid "Bold"
 msgstr "Bold"
 
-#: widgets/room/messagetextedit.cpp:284
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Italic"
 msgstr "Italic"
 
-#: widgets/room/messagetextedit.cpp:285
+#: widgets/room/messagetextedit.cpp:284
 #, kde-format
 msgid "Strike-out"
 msgstr "Strike-out"
 
-#: widgets/room/messagetextedit.cpp:287
+#: widgets/room/messagetextedit.cpp:286
 #, kde-format
 msgid "Code Block"
 msgstr "Code Block"
 
-#: widgets/room/messagetextedit.cpp:289
+#: widgets/room/messagetextedit.cpp:288
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown Url"
@@ -11353,7 +11360,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Užívatelia:"
 
-#: widgets/room/usersinroomflowwidget.cpp:137
+#: widgets/room/usersinroomflowwidget.cpp:141
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Open External Dialog…)"
@@ -12791,6 +12798,12 @@ msgstr "Správa"
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Stav:"
+
+#, fuzzy
+#~| msgid "Do you want to mute this user?"
+#~ msgctxt "@label:textbox"
+#~ msgid "Do you want to unban user?"
+#~ msgstr "Opustiť kanál"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Use ddp api for login"

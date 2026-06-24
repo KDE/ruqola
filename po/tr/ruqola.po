@@ -1,14 +1,14 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 02:40+0000\n"
-"PO-Revision-Date: 2026-04-06 19:50+0300\n"
+"POT-Creation-Date: 2026-06-24 03:44+0000\n"
+"PO-Revision-Date: 2026-06-23 18:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, fuzzy, kde-format
@@ -3460,20 +3460,20 @@ msgstr[0] "Odada %1 ileti"
 msgstr[1] "Odada %1 ileti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Moderasyon iletisi ara…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:62
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "Moderasyon iletisi bulunamadı"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:70
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3487,7 +3487,7 @@ msgid "See messages"
 msgstr "İletileri Gör"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3500,14 +3500,14 @@ msgid "Delete all Messages"
 msgstr "Tüm İletileri Sil"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Kullanıcıyı Pasifleştir"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3517,7 +3517,7 @@ msgstr ""
 "Tüm raporlanan iletiler, ilgili odalarından kalıcı olarak silinecektir."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3557,19 +3557,19 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Tüm İletileri Sil"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Raporları Gör"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr "Tüm raporlar silinecek ve raporlanan iletiler etkilenmeyecek."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -7871,12 +7871,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Plasma Etkinlikler tümleştirmesini etkinleştir"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:51
+#: widgets/configuredialog/configurepluginswidget.cpp:50
 #, kde-format
 msgid "Tools Plugins"
 msgstr "Araç Eklentileri"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:58
+#: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
 msgstr "Metin Eklentileri"
@@ -9096,11 +9096,11 @@ msgstr[0] "Odada %1 ek (Toplam: %2)"
 msgstr[1] "Odada %1 ek (Toplam: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:114
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:131
+#: widgets/room/usersinroomflowwidget.cpp:135
 #: widgets/room/usersinroomwidget.cpp:167
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -9115,14 +9115,12 @@ msgid "Show Banned Users - %1"
 msgstr "Sabitlenen İletileri Göster — %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Kullanıcının Engelini Kaldır"
+msgstr "Kullanıcının Yasağını Kaldır"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:47
+#: widgets/dialogs/showbanneduserswidget.cpp:46
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search users…"
@@ -9130,13 +9128,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Kullanıcılar ara…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:107
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Bulunan kullanıcı yok"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:112
+#: widgets/dialogs/showbanneduserswidget.cpp:111
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9263,19 +9261,26 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@title:window"
+msgid "Unban Users"
+msgstr "Kullanıcının Yasağını Kaldır"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"Some user are banned from this room. Do you want to unban and add them back ?"
+msgstr ""
+
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Dosyayı Karşıya Yükle"
-
-#: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Do you want to mute this user?"
-msgctxt "@label:textbox"
-msgid "Do you want to unban user?"
-msgstr "Bu kullanıcıyı sessize almak istiyor musunuz?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -10736,12 +10741,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Hata Ayıkla"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "%1 açılamıyor"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
@@ -11117,37 +11122,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Paste Image"
 msgstr "Görseli Yapıştır"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:280
 #, kde-format
 msgid "Change Text Format"
 msgstr "Metin Biçimini Değiştir"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:282
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/messagetextedit.cpp:284
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/messagetextedit.cpp:285
+#: widgets/room/messagetextedit.cpp:284
 #, kde-format
 msgid "Strike-out"
 msgstr "Üzeri Çizili"
 
-#: widgets/room/messagetextedit.cpp:287
+#: widgets/room/messagetextedit.cpp:286
 #, kde-format
 msgid "Code Block"
 msgstr "Kod Bloku"
 
-#: widgets/room/messagetextedit.cpp:289
+#: widgets/room/messagetextedit.cpp:288
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL’si"
@@ -11373,7 +11378,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: widgets/room/usersinroomflowwidget.cpp:137
+#: widgets/room/usersinroomflowwidget.cpp:141
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Dış İletişim Kutusu Aç…)"
@@ -12825,6 +12830,11 @@ msgstr "Bildirim tarihi"
 #| msgid "Custom Sounds"
 msgid "Fix upload Custom Sound"
 msgstr "Özel Sesler"
+
+#~| msgid "Do you want to mute this user?"
+#~ msgctxt "@label:textbox"
+#~ msgid "Do you want to unban user?"
+#~ msgstr "Bu kullanıcının yasağını kaldırmak istiyor musunuz?"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Use ddp api for login"

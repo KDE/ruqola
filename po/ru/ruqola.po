@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 02:40+0000\n"
-"PO-Revision-Date: 2026-03-08 08:37+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"POT-Creation-Date: 2026-06-24 03:44+0000\n"
+"PO-Revision-Date: 2026-06-23 16:11+0300\n"
+"Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -1026,16 +1026,14 @@ msgid "%1 has requested key refresh."
 msgstr "Пользователь %1 запросил обновление ключа."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 и %2"
+msgstr "%1 забанил(а) %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 и %2"
+msgstr "%1 разбанил(а) %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1440,7 +1438,7 @@ msgstr[3] "1 секунда"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "Добавлена комната «%1»"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -1576,7 +1574,7 @@ msgstr "Конфиденциальные сообщения"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Черновик"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
 #, kde-format
@@ -2247,10 +2245,9 @@ msgid "Invalid Parameters"
 msgstr "Недопустимые параметры"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "Пользователя нет в этой комнате"
+msgstr "Пользователь забанен в этой комнате"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3323,12 +3320,10 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Сохранение файла"
+msgstr "Сохранить"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3351,11 +3346,10 @@ msgstr "Метка времени в сообщениях"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Конфиденциальные сообщения"
+msgstr "Черновики сообщений"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -3502,20 +3496,20 @@ msgstr[2] "%1 сообщений в комнате"
 msgstr[3] "%1 сообщение в комнате"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Поиск сообщения модерации…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:62
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "Сообщений модерации не найдено"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:70
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3531,7 +3525,7 @@ msgid "See messages"
 msgstr "Просмотреть сообщения"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3544,14 +3538,14 @@ msgid "Delete all Messages"
 msgstr "Удалить все сообщения"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Деактивировать пользователя"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3563,7 +3557,7 @@ msgstr ""
 "комнат без возможности восстановления."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3603,13 +3597,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Удаление всех сообщений"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Просмотреть жалобы"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3617,7 +3611,7 @@ msgstr ""
 "Будут удалены все жалобы. Сообщения, на которые поданы жалобы, останутся без "
 "изменений."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -7966,12 +7960,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Включить интеграцию с комнатами Plasma"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:51
+#: widgets/configuredialog/configurepluginswidget.cpp:50
 #, kde-format
 msgid "Tools Plugins"
-msgstr "Плагины инструментов"
+msgstr "Модули инструментов"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:58
+#: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
 msgstr "Модули текста"
@@ -8666,8 +8660,7 @@ msgid "Discussion Name"
 msgstr "Название обсуждения"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Тема"
@@ -9194,56 +9187,47 @@ msgstr[2] "%1 вложений в комнате (всего: %2)"
 msgstr[3] "%1 вложение в комнате (всего: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:114
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:131
+#: widgets/room/usersinroomflowwidget.cpp:135
 #: widgets/room/usersinroomwidget.cpp:167
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Нажмите здесь, чтобы загрузить ещё…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Показ закреплённых сообщений — %1"
+msgstr "Показ забаненных пользователей — %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Разблокировать пользователя"
+msgstr "Разбанить пользователя"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:47
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#: widgets/dialogs/showbanneduserswidget.cpp:46
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Поиск пользователей…"
+msgstr "Поиск забаненных пользователей…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "No User found"
+#: widgets/dialogs/showbanneduserswidget.cpp:106
+#, kde-format
 msgid "No Banned Users found"
-msgstr "Пользователей не найдено"
+msgstr "Забаненных пользователей не найдено"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#: widgets/dialogs/showbanneduserswidget.cpp:111
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 пользователь в комнате (всего: %2)"
-msgstr[1] "%1 пользователя в комнате (всего: %2)"
-msgstr[2] "%1 пользователей в комнате (всего: %2)"
-msgstr[3] "%1 пользователь в комнате (всего: %2)"
+msgstr[0] "%1 забаненный пользователь в комнате (всего: %2)"
+msgstr[1] "%1 забаненных пользователя в комнате (всего: %2)"
+msgstr[2] "%1 забаненных пользователей в комнате (всего: %2)"
+msgstr[3] "%1 забаненный пользователь в комнате (всего: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9296,17 +9280,16 @@ msgid "Fit to View"
 msgstr "По размеру экрана"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Ограничитель частоты"
+msgstr "Повернуть влево"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Повернуть вправо"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9365,19 +9348,26 @@ msgid "Video: %1"
 msgstr "Видео: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@title:window"
+msgid "Unban Users"
+msgstr "Разбанить пользователя"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"Some user are banned from this room. Do you want to unban and add them back ?"
+msgstr ""
+
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Отправка файла"
-
-#: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Do you want to mute this user?"
-msgctxt "@label:textbox"
-msgid "Do you want to unban user?"
-msgstr "Запретить этому пользователю говорить?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -9888,17 +9878,15 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "Ошибка входа: пользователю приложения запрещён вход."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "Not network found."
-msgstr "Пользователей не найдено"
+msgstr "Сеть не найдена."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "Сеть в автономном режиме."
+msgstr "Переключить автономный режим"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -10618,7 +10606,7 @@ msgstr "Очистить"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Перейти в новую комнату"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -10822,12 +10810,10 @@ msgid "Encrypt Messages"
 msgstr "Зашифровать сообщения"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Показать закреплённые сообщения…"
+msgstr "Показать забаненных пользователей…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -10835,12 +10821,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Отладка"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Невозможно открыть «%1»"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
@@ -11216,37 +11202,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Ошибка переводчика"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Paste Image"
 msgstr "Вставить изображение"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:280
 #, kde-format
 msgid "Change Text Format"
 msgstr "Изменить формат текста"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:282
 #, kde-format
 msgid "Bold"
 msgstr "Полужирный"
 
-#: widgets/room/messagetextedit.cpp:284
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Italic"
 msgstr "Курсив"
 
-#: widgets/room/messagetextedit.cpp:285
+#: widgets/room/messagetextedit.cpp:284
 #, kde-format
 msgid "Strike-out"
 msgstr "Перечёркнутый"
 
-#: widgets/room/messagetextedit.cpp:287
+#: widgets/room/messagetextedit.cpp:286
 #, kde-format
 msgid "Code Block"
 msgstr "Блок кода"
 
-#: widgets/room/messagetextedit.cpp:289
+#: widgets/room/messagetextedit.cpp:288
 #, kde-format
 msgid "Markdown Url"
 msgstr "Адрес Markdown"
@@ -11474,7 +11460,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Пользователи"
 
-#: widgets/room/usersinroomflowwidget.cpp:137
+#: widgets/room/usersinroomflowwidget.cpp:141
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Открыть внешнее диалоговое окно…)"
@@ -11627,12 +11613,10 @@ msgid "Report User"
 msgstr "Пожаловаться на пользователя"
 
 #: widgets/room/usersinroommenu.cpp:209
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Добавление пользователей в комнату"
+msgstr "Забанить пользователя в комнате"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12217,47 +12201,35 @@ msgstr "Добавить учётную запись…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr ""
+msgstr "Улучшение автономного режима"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Возможность отправки нескольких файлов"
+msgstr "Возможность открытия сохранённого файла"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "Исправление дублирования сообщений в диалоге поиска сообщений"
+msgstr "Возможность вращения изображения в диалоге показа изображения"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
-msgstr ""
+msgstr "Добавление сведений о новой комнате в диалоге журнала уведомлений"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr ""
+msgstr "Использование нового textmessagewidget для уведомлений об ошибках"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Реализация стиля сообщения"
+msgstr "Реализация канала сортировки черновиков сообщений"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr ""
-"Реализация хранения набранной, но ещё не отправленной информации в базе "
-"данных"
+msgstr "Реализация диалога списка «Забаненные пользователи»"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Реализация запрета и разрешения говорить для пользователя"
+msgstr "Реализация функции «Забаненные/Разбаненные пользователи»"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
@@ -12795,7 +12767,7 @@ msgstr "Добавление формата быстрого текста"
 #: widgets/whatsnew/whatsnewtranslations.cpp:187
 #, kde-format
 msgid "Add Extension message line button."
-msgstr "Кнопка строки сообщения «Добавить расширение»"
+msgstr "Добавление кнопки строки сообщения «Добавить расширение»"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:188
 #, kde-format
@@ -12842,7 +12814,7 @@ msgstr "Показ меню перевода в диалоге цепочки с
 #: widgets/whatsnew/whatsnewtranslations.cpp:199
 #, kde-format
 msgid "Add AI Rocket Chat Actions support."
-msgstr "Добавление поддержки действий AI Rocket Chat"
+msgstr "Добавление поддержки действий ИИ Rocket Chat"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:200
 #, kde-format
@@ -12937,6 +12909,11 @@ msgstr "Исправление экспорта базы данных"
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Исправление отправки нестандартных звуков"
+
+#~| msgid "Do you want to mute this user?"
+#~ msgctxt "@label:textbox"
+#~ msgid "Do you want to unban user?"
+#~ msgstr "Снять бан пользователя?"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Use ddp api for login"

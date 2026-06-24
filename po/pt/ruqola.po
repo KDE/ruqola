@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 02:40+0000\n"
+"POT-Creation-Date: 2026-06-24 03:44+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3615,7 +3615,7 @@ msgstr[0] "%1 Mensagem na Sala"
 msgstr[1] "%1 Mensagens na Sala"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Search messages..."
 msgctxt "@info:placeholder"
@@ -3623,14 +3623,14 @@ msgid "Search moderation message…"
 msgstr "Procurar por mensagens..."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:62
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No moderation message found"
 msgstr "Não foi encontrada nenhuma mensagem"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:70
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, fuzzy, kde-format
 #| msgid "%1 device (Total: %2)"
 #| msgid_plural "%1 devices (Total: %2)"
@@ -3647,7 +3647,7 @@ msgid "See messages"
 msgstr "Procurar por mensagens"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgctxt "@action"
@@ -3662,7 +3662,7 @@ msgid "Delete all Messages"
 msgstr "Apagar Todas as Mensagens"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, fuzzy, kde-format
 #| msgid "Deactivated Users"
 msgctxt "@action"
@@ -3670,7 +3670,7 @@ msgid "Deactivate user"
 msgstr "Utilizadores Desactivados"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3678,7 +3678,7 @@ msgid ""
 msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, fuzzy, kde-format
 #| msgid "Deactivated Users"
 msgctxt "@title:window"
@@ -3714,20 +3714,20 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Apagar Todas as Mensagens"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgctxt "@action"
 msgid "See reports"
 msgstr "Relatórios"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgctxt "@title:window"
@@ -8447,12 +8447,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Activar a Limitação por Taxa"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:51
+#: widgets/configuredialog/configurepluginswidget.cpp:50
 #, kde-format
 msgid "Tools Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:58
+#: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
 msgstr ""
@@ -9761,11 +9761,11 @@ msgstr[0] "%1 Anexo na Sala (Total: %2)"
 msgstr[1] "%1 Anexos na Sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:114
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:131
+#: widgets/room/usersinroomflowwidget.cpp:135
 #: widgets/room/usersinroomwidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
@@ -9787,20 +9787,20 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Desbloquear Utilizador"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:47
+#: widgets/dialogs/showbanneduserswidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search users..."
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Procurar os utilizadores..."
 
-#: widgets/dialogs/showbanneduserswidget.cpp:107
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Nenhum utilizador encontrado"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:112
+#: widgets/dialogs/showbanneduserswidget.cpp:111
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9934,19 +9934,25 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
+#, fuzzy, kde-format
+#| msgid "Unblock User"
+msgctxt "@title:window"
+msgid "Unban Users"
+msgstr "Desbloquear Utilizador"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"Some user are banned from this room. Do you want to unban and add them back ?"
+msgstr ""
+
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Enviar um Ficheiro"
-
-#: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
-msgctxt "@label:textbox"
-msgid "Do you want to unban user?"
-msgstr "Deseja remover este utilizador?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -11538,13 +11544,13 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "Não é possível abrir o ficheiro"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, fuzzy, kde-format
 #| msgid "Error saving file"
 msgctxt "@title:window"
@@ -11965,37 +11971,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Erro do Tradutor"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:273
 #, kde-format
 msgid "Paste Image"
 msgstr "Colar a Imagem"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:280
 #, kde-format
 msgid "Change Text Format"
 msgstr "Mudar o Formato do Texto"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:282
 #, kde-format
 msgid "Bold"
 msgstr "Negrito"
 
-#: widgets/room/messagetextedit.cpp:284
+#: widgets/room/messagetextedit.cpp:283
 #, kde-format
 msgid "Italic"
 msgstr "Itálico"
 
-#: widgets/room/messagetextedit.cpp:285
+#: widgets/room/messagetextedit.cpp:284
 #, kde-format
 msgid "Strike-out"
 msgstr "Traçado"
 
-#: widgets/room/messagetextedit.cpp:287
+#: widgets/room/messagetextedit.cpp:286
 #, kde-format
 msgid "Code Block"
 msgstr "Bloco de Código"
 
-#: widgets/room/messagetextedit.cpp:289
+#: widgets/room/messagetextedit.cpp:288
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL do Markdown"
@@ -12246,7 +12252,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Utilizadores"
 
-#: widgets/room/usersinroomflowwidget.cpp:137
+#: widgets/room/usersinroomflowwidget.cpp:141
 #, fuzzy, kde-format
 #| msgid "(Open External Dialog...)"
 msgid "(Open External Dialog…)"
@@ -13786,6 +13792,12 @@ msgstr "Mensagem de Relatório"
 #| msgid "Custom Sounds"
 msgid "Fix upload Custom Sound"
 msgstr "Sons Personalizados"
+
+#, fuzzy
+#~| msgid "Do you want to remove this user?"
+#~ msgctxt "@label:textbox"
+#~ msgid "Do you want to unban user?"
+#~ msgstr "Deseja remover este utilizador?"
 
 #, fuzzy
 #~| msgctxt "@title"
