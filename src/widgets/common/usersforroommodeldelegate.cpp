@@ -5,7 +5,6 @@
 */
 
 #include "usersforroommodeldelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPainter>
 #include <QToolTip>
 
+using namespace Qt::Literals::StringLiterals;
 UsersForRoomModelDelegate::UsersForRoomModelDelegate(QObject *parent)
     : QItemDelegate{parent}
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
@@ -60,14 +60,14 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
         xPos += margin + option.rect.height();
     }
 
-    QFontMetrics fontMetrics(boldFont);
+    const QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(UsersForRoomModel::Name).toString();
     const QString userName = index.data(UsersForRoomModel::UserName).toString();
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     if (name.isEmpty()) {
         painter->drawText(xPos + margin, defaultCharHeight, userName);
     } else {
-        int nameWidth = fontMetrics.horizontalAdvance(name);
+        const int nameWidth = fontMetrics.horizontalAdvance(name);
         painter->drawText(xPos + margin, defaultCharHeight, name);
         xPos += nameWidth;
         if (!userName.isEmpty()) {
