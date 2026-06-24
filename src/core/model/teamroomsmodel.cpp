@@ -5,6 +5,7 @@
 */
 
 #include "teamroomsmodel.h"
+#include "utils.h"
 using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
@@ -41,6 +42,8 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
         return teamroom.autoJoin();
     case TeamRoomsRoles::Identifier:
         return teamroom.identifier();
+    case TeamRoomsRoles::AvatarInfo:
+        return QVariant::fromValue(avatarInfo(teamroom));
     case Qt::CheckStateRole: {
         if (mIsCheckable) {
             const QByteArray roomId = data(index, TeamRoomsModel::Identifier).toByteArray();
@@ -49,6 +52,16 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
     }
     }
     return {};
+}
+
+Utils::AvatarInfo TeamRoomsModel::avatarInfo(const TeamRoom &room) const
+{
+    const Utils::AvatarInfo info{
+        .etag = {},
+        .identifier = QString::fromLatin1(room.identifier()),
+        .avatarType = Utils::AvatarType::Room,
+    };
+    return info;
 }
 
 QList<TeamRoom> TeamRoomsModel::teamRooms() const

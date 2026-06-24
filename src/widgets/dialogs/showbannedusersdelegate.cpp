@@ -1,32 +1,27 @@
 /*
-   SPDX-FileCopyrightText: 2025-2026 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
-
-#include "usersforroommodeldelegate.h"
-
+#include "showbannedusersdelegate.h"
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
-#include "model/usersforroommodel.h"
-
-#include <QAbstractItemView>
-#include <QHelpEvent>
+#include "model/bannedusersmodel.h"
+#include "utils.h"
 #include <QPainter>
-#include <QToolTip>
 
 using namespace Qt::Literals::StringLiterals;
-UsersForRoomModelDelegate::UsersForRoomModelDelegate(QObject *parent)
+ShowBannedUsersDelegate::ShowBannedUsersDelegate(QObject *parent)
     : QItemDelegate{parent}
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
 }
 
-UsersForRoomModelDelegate::~UsersForRoomModelDelegate() = default;
+ShowBannedUsersDelegate::~ShowBannedUsersDelegate() = default;
 
-void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void ShowBannedUsersDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // [M] icon ? status name (username)
+    // [M] icon ? name (username)
     drawBackground(painter, option, index);
 
     if (option.state & QStyle::State_Selected) {
@@ -41,7 +36,7 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
     painter->setFont(boldFont);
 
     int xPos = -1;
-    const Utils::AvatarInfo info = index.data(UsersForRoomModel::AvatarInfo).value<Utils::AvatarInfo>();
+    const Utils::AvatarInfo info = index.data(BannedUsersModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
@@ -52,17 +47,9 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
         xPos = margin + option.rect.height();
     }
 
-    const QString iconStatusStr = index.data(UsersForRoomModel::IconStatus).toString();
-    if (!iconStatusStr.isEmpty()) {
-        const QIcon iconStatus = QIcon::fromTheme(iconStatusStr);
-        const QRect displayRect(margin + xPos, option.rect.y(), option.rect.height(), option.rect.height());
-        drawDecoration(painter, option, displayRect, iconStatus.pixmap(option.rect.height(), option.rect.height()));
-        xPos += margin + option.rect.height();
-    }
-
     const QFontMetrics fontMetrics(boldFont);
-    const QString name = index.data(UsersForRoomModel::Name).toString();
-    const QString userName = index.data(UsersForRoomModel::UserName).toString();
+    const QString name = index.data(BannedUsersModel::Name).toString();
+    const QString userName = index.data(BannedUsersModel::UserName).toString();
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     if (name.isEmpty()) {
         painter->drawText(xPos + margin, defaultCharHeight, userName);
@@ -78,27 +65,15 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
     painter->setFont(oldFont);
 }
 
-void UsersForRoomModelDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+void ShowBannedUsersDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(newRocketChatAccount);
 }
 
-QSize UsersForRoomModelDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize ShowBannedUsersDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const QSize size = QItemDelegate::sizeHint(option, index);
     return size + QSize(0, 4 * option.widget->devicePixelRatioF());
 }
 
-bool UsersForRoomModelDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &, const QModelIndex &index)
-{
-    if (helpEvent->type() == QEvent::ToolTip) {
-        const QStringList roles = index.data(UsersForRoomModel::Roles).toStringList();
-        if (!roles.isEmpty()) {
-            QToolTip::showText(helpEvent->globalPos(), roles.join(u','), view);
-            return true;
-        }
-    }
-    return false;
-}
-
-#include "moc_usersforroommodeldelegate.cpp"
+#include "moc_showbannedusersdelegate.cpp"

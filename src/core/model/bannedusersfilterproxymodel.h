@@ -16,6 +16,9 @@ public:
 
     void setFilterString(const QString &string);
 
+protected:
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
 private:
     QString mFilterString;
 };

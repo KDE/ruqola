@@ -5,6 +5,7 @@
 */
 
 #include "bannedusersmodel.h"
+#include "utils.h"
 
 BannedUsersModel::BannedUsersModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -132,6 +133,8 @@ QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
         return user.userName();
     case BannedUserRoles::Identifier:
         return user.identifier();
+    case BannedUserRoles::AvatarInfo:
+        return QVariant::fromValue(avatarInfo(user));
     }
     return {};
 }
@@ -160,6 +163,16 @@ void BannedUsersModel::setHasFullList(bool state)
 bool BannedUsersModel::hasFullList() const
 {
     return mHasFullList;
+}
+
+Utils::AvatarInfo BannedUsersModel::avatarInfo(const BannedUser &user) const
+{
+    const Utils::AvatarInfo info{
+        .etag = {},
+        .identifier = user.userName(),
+        .avatarType = Utils::AvatarType::User,
+    };
+    return info;
 }
 
 #include "moc_bannedusersmodel.cpp"

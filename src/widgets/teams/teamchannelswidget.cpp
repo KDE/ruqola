@@ -15,6 +15,7 @@
 #include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
+#include "teamchannelsdelegate.h"
 #include "teams/teamaddroomsjob.h"
 #include "teams/teamchannelscombobox.h"
 #include "teams/teamremoveroomjob.h"
@@ -65,6 +66,11 @@ TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *pare
 
     mListView->setObjectName(u"mListView"_s);
     mainLayout->addWidget(mListView);
+    if (mRocketChatAccount) {
+        auto delegate = new TeamChannelsDelegate(this);
+        delegate->setRocketChatAccount(mRocketChatAccount);
+        mListView->setItemDelegate(delegate);
+    }
 
     mListView->setModel(mTeamRoomFilterProxyModel);
     connect(mTeamChannelsCombobox, &TeamChannelsComboBox::currentIndexChanged, this, &TeamChannelsWidget::slotTypeTeamListChanged);

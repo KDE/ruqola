@@ -9,6 +9,7 @@
 #include "bannedusers/banneduser.h"
 #include "bannedusers/bannedusers.h"
 #include "libruqolacore_export.h"
+#include "utils.h"
 #include <QAbstractListModel>
 class LIBRUQOLACORE_EXPORT BannedUsersModel : public QAbstractListModel
 {
@@ -18,6 +19,7 @@ public:
         Name = Qt::UserRole + 1,
         UserName,
         Identifier,
+        AvatarInfo,
     };
     Q_ENUM(BannedUserRoles)
 
@@ -54,6 +56,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const BannedUser &user) const;
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QByteArray mRoomId;
     bool mHasFullList = false;

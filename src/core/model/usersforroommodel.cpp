@@ -176,9 +176,11 @@ void UsersForRoomModel::setTotal(int total)
 
 Utils::AvatarInfo UsersForRoomModel::avatarInfo(const User &user) const
 {
-    Utils::AvatarInfo info;
-    info.avatarType = Utils::AvatarType::User;
-    info.identifier = user.userName();
+    const Utils::AvatarInfo info{
+        .etag = {},
+        .identifier = user.userName(),
+        .avatarType = Utils::AvatarType::User,
+    };
     return info;
 }
 

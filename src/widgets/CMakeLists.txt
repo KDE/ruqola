@@ -1,12 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolawidgets
-    dialogs/unbanusersdialog.h
-    dialogs/unbanusersdialog.cpp
-    dialogs/unbanuserswidget.h
-    dialogs/unbanuserswidget.cpp
-)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
@@ -460,6 +454,12 @@ target_sources(
         dialogs/showbanneduserswidget.h
         dialogs/showbanneduserslistview.h
         dialogs/showbanneduserslistview.cpp
+        dialogs/unbanusersdialog.h
+        dialogs/unbanusersdialog.cpp
+        dialogs/unbanuserswidget.h
+        dialogs/unbanuserswidget.cpp
+        dialogs/showbannedusersdelegate.h
+        dialogs/showbannedusersdelegate.cpp
         discussions/showdiscussionsdialog.cpp
         discussions/showdiscussionsdialog.h
         discussions/showdiscussionswidget.cpp
@@ -769,6 +769,8 @@ target_sources(
         teams/teamselectdeletedroomdialog.h
         teams/teamselectdeletedroomwidget.cpp
         teams/teamselectdeletedroomwidget.h
+        teams/teamchannelsdelegate.h
+        teams/teamchannelsdelegate.cpp
         threadwidget/threadmessagedialog.cpp
         threadwidget/threadmessagedialog.h
         threadwidget/threadmessagewidget.cpp
