@@ -15,7 +15,7 @@ UnbanUsersWidget::UnbanUsersWidget(QWidget *parent)
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    auto label = new QLabel(i18nc("@label:textbox", "Some user are banned from this room. Do you want to unban and add them back ?"), this);
+    auto label = new QLabel(i18nc("@label:textbox", "Some users are banned from this room. Do you want to unban and add them back?"), this);
     label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 }
