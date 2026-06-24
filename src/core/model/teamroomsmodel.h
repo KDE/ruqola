@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include "teams/teamroom.h"
+#include "utils.h"
 #include <QAbstractListModel>
 #include <QList>
 class LIBRUQOLACORE_EXPORT TeamRoomsModel : public QAbstractListModel
@@ -18,6 +19,7 @@ public:
         Name = Qt::UserRole + 1,
         AutoJoin,
         Identifier,
+        AvatarInfo,
     };
     Q_ENUM(TeamRoomsRoles)
 
@@ -41,6 +43,7 @@ public:
     void setIsCheckable(bool isCheckable);
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoom &room) const;
     QList<TeamRoom> mTeamRooms;
     QList<QByteArray> mRoomSelected;
     bool mIsCheckable = false;

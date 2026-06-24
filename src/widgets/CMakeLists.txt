@@ -769,6 +769,8 @@ target_sources(
         teams/teamselectdeletedroomdialog.h
         teams/teamselectdeletedroomwidget.cpp
         teams/teamselectdeletedroomwidget.h
+        teams/teamchannelsdelegate.h
+        teams/teamchannelsdelegate.cpp
         threadwidget/threadmessagedialog.cpp
         threadwidget/threadmessagedialog.h
         threadwidget/threadmessagewidget.cpp
