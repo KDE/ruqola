@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:44+0000\n"
+"POT-Creation-Date: 2026-06-24 01:23+0000\n"
 "PO-Revision-Date: 2026-06-13 19:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,157 +18,147 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: apps/main.cpp:61 apps/main.cpp:70
+#: apps/main.cpp:60
 #, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
 msgstr "حقوق الطبع والنشر © 2020-2026 مُؤلفو رقولة"
 
-#: apps/main.cpp:66 core/notifications/notification.cpp:36
-#, kde-format
-msgid "Ruqola"
-msgstr "رقولة"
-
-#: apps/main.cpp:68
-#, kde-format
-msgid "Rocket Chat Client"
-msgstr "عميل روكت تشات"
-
-#: apps/main.cpp:73
+#: apps/main.cpp:64
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "لوران مونتيل"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:64
 #, kde-format
 msgid "Maintainer"
 msgstr "الصائن"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:65
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "ريكاردو ياكونيلي"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:65
 #, kde-format
 msgid "Original Author"
 msgstr "المؤلف الأصلي"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:69
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "ديفيد فور"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:69
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "إصلاح الأخطاء والمندوبين وما إلى ذلك."
 
-#: apps/main.cpp:79
+#: apps/main.cpp:70
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "كيفن فانك"
 
-#: apps/main.cpp:79 apps/main.cpp:80 apps/main.cpp:81 apps/main.cpp:83
-#: apps/main.cpp:84
+#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
+#: apps/main.cpp:75
 #, kde-format
 msgid "Bug fixing"
 msgstr "إصلاح علل"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "أوليفييه جي جي"
 
-#: apps/main.cpp:81
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "ميليان وولف"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "تال آدم"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:73
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "إصلاح الأخطاء في تجميع Windows"
 
-#: apps/main.cpp:83
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "شانتانو توشار"
 
-#: apps/main.cpp:84
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "اليساندرو أمبروسانو"
 
-#: apps/main.cpp:85
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "هانا فون ريث"
 
-#: apps/main.cpp:85
+#: apps/main.cpp:76
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "إصلاح الأخطاء لنظام التشغيل Windows/Mac"
 
-#: apps/main.cpp:86
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "ألين وينتر"
 
-#: apps/main.cpp:86
+#: apps/main.cpp:77
 #, kde-format
 msgid "Packaging"
 msgstr "التحزيم"
 
-#: apps/main.cpp:87
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "وقار أحمد"
 
-#: apps/main.cpp:87
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr "إصلاح الأخطاء (ترجمة، تعطل الشبكة...)"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "نيكولاس فيلا"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:79
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "التحسين، إصلاح التعامل مع Windows/Mac"
 
-#: apps/main.cpp:89
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "دانييلي إي دومينيشيلي"
 
-#: apps/main.cpp:89
+#: apps/main.cpp:80
 #, kde-format
 msgid "New feature"
 msgstr "ميزة جديدة"
 
-#: apps/main.cpp:116
+#: apps/main.cpp:107
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "الحسابات التالية متاحة:"
@@ -1782,6 +1772,11 @@ msgstr "مالك"
 #, kde-format
 msgid "Offline"
 msgstr "غير متّصل"
+
+#: core/notifications/notification.cpp:36
+#, kde-format
+msgid "Ruqola"
+msgstr "رقولة"
 
 #: core/notifications/notification.cpp:85
 #, kde-format
@@ -3508,20 +3503,20 @@ msgstr[4] "%1 رسالة في الغرفة"
 msgstr[5] "%1 رسالة في الغرفة"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "رسالة الإشراف على البحث…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:62
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "لم يعثر على رسالة الإشراف"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:70
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3539,7 +3534,7 @@ msgid "See messages"
 msgstr "شاهد الرسائل"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3552,14 +3547,14 @@ msgid "Delete all Messages"
 msgstr "احذف كافة الرسائل"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "ألغِ تنشيط المستخدم"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3569,7 +3564,7 @@ msgstr ""
 "ستحذف كافة الرسائل المبلغ عنها نهائيًا من الغرفة الخاصة بهم."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3608,19 +3603,19 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "احذف كافة الرسائل"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "اطلع على التقارير"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr "ستُحذف جميع التقارير ولن تتأثر الرسائل المُبلغ عنها."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -7720,7 +7715,7 @@ msgid "Username or email:"
 msgstr "اسم المستخدم أو البريد الإلكتروني:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1128
+#: widgets/ruqolamainwindow.cpp:1107
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7730,7 +7725,7 @@ msgstr ""
 "إذا لم يصلك بريد إلكتروني بعد قليل، يرجى العودة والمحاولة مرة أخرى."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1129
+#: widgets/ruqolamainwindow.cpp:1108
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7912,12 +7907,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "مكّن التكامل مع أنشطة بلازما"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:51
+#: widgets/configuredialog/configurepluginswidget.cpp:50
 #, kde-format
 msgid "Tools Plugins"
 msgstr "ملحقات الأدوات"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:58
+#: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
 msgstr "ملحقات النصوص"
@@ -9137,11 +9132,11 @@ msgstr[4] "%1 مرفقًا في الغرفة (الإجمالي: %2)"
 msgstr[5] "%1 مرفق في الغرفة (الإجمالي: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:114
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:131
+#: widgets/room/usersinroomflowwidget.cpp:136
 #: widgets/room/usersinroomwidget.cpp:167
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -9163,7 +9158,7 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "ألغِ حظر المستخدم"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:47
+#: widgets/dialogs/showbanneduserswidget.cpp:46
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Show Pinned Messages…"
@@ -9171,13 +9166,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "اعرض الرسائل المثبتة…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:107
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "لم يعثر على أي مستخدم"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:112
+#: widgets/dialogs/showbanneduserswidget.cpp:111
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9311,19 +9306,26 @@ msgid "Video: %1"
 msgstr "الفيديو: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@title:window"
+msgid "Unban Users"
+msgstr "ألغِ حظر المستخدم"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"Some user are banned from this room. Do you want to unban and add them back ?"
+msgstr ""
+
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "ارفع ملف"
-
-#: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Do you want to mute this user?"
-msgctxt "@label:textbox"
-msgid "Do you want to unban user?"
-msgstr "هل تريد كتم هذا المستخدم؟"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -9372,8 +9374,8 @@ msgid "You are not authorized to view this page."
 msgstr "غير مسموح لك بمشاهدة هذه الصفحة."
 
 #: widgets/directory/directorywidget.cpp:35
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:36
-#: widgets/teams/addteamroomcompletionlineedit.cpp:41
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:28
+#: widgets/teams/addteamroomcompletionlineedit.cpp:33
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
@@ -10772,12 +10774,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "نقّح"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "من المستحيل فتح %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
@@ -11157,37 +11159,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "خطأ المترجم"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:236
 #, kde-format
 msgid "Paste Image"
 msgstr "ألصِق صورة"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:243
 #, kde-format
 msgid "Change Text Format"
 msgstr "غيّر تنسيق النص"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Bold"
 msgstr "ثخين"
 
-#: widgets/room/messagetextedit.cpp:284
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Italic"
 msgstr "مائل"
 
-#: widgets/room/messagetextedit.cpp:285
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Strike-out"
 msgstr "مشطوب"
 
-#: widgets/room/messagetextedit.cpp:287
+#: widgets/room/messagetextedit.cpp:249
 #, kde-format
 msgid "Code Block"
 msgstr "كتلة شفرة"
 
-#: widgets/room/messagetextedit.cpp:289
+#: widgets/room/messagetextedit.cpp:251
 #, kde-format
 msgid "Markdown Url"
 msgstr "رابط مارك‌داون"
@@ -11338,45 +11340,45 @@ msgstr "الرد في سلسلة"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "رد في سلسلة المحادثات للرسالة: '%1'"
 
-#: widgets/room/roomwidget.cpp:393
+#: widgets/room/roomwidget.cpp:387
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "هل تريد إزالة التاريخ حقًا؟"
 
-#: widgets/room/roomwidget.cpp:394
+#: widgets/room/roomwidget.cpp:388
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "أزل التّاريخ"
 
-#: widgets/room/roomwidget.cpp:438
+#: widgets/room/roomwidget.cpp:432
 #, kde-format
 msgid "Export Messages"
 msgstr "صدّر الرسائل"
 
-#: widgets/room/roomwidget.cpp:439
+#: widgets/room/roomwidget.cpp:433
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "بريدُك الإلكتروني مدرج في قائمة الانتظار للإرسال."
 
-#: widgets/room/roomwidget.cpp:601
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "لا يمكن البحث في المحتوى المعمّى."
 
-#: widgets/room/roomwidget.cpp:601
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "ابحث في الرسائل"
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:614
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "يحتاج مسؤول مساحة العمل إلى تثبيت وضبط تطبيقات مكالمات جماعية."
 
-#: widgets/room/roomwidget.cpp:621
+#: widgets/room/roomwidget.cpp:615
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11415,7 +11417,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "المستخدمين"
 
-#: widgets/room/usersinroomflowwidget.cpp:137
+#: widgets/room/usersinroomflowwidget.cpp:142
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(افتح مربع حوار خارجي…)"
@@ -11586,298 +11588,298 @@ msgstr[3] "%1 مستخدمين في الغرفة (المجموع: %2)"
 msgstr[4] "%1 مستخدمًا في الغرفة (المجموع: %2)"
 msgstr[5] "%1 مستخدم في الغرفة (المجموع: %2)"
 
-#: widgets/ruqolamainwindow.cpp:251
+#: widgets/ruqolamainwindow.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "أظهر الإشعارات الجديدة"
 
-#: widgets/ruqolamainwindow.cpp:253
+#: widgets/ruqolamainwindow.cpp:239
 #, kde-format
 msgid "Show New Notifications"
 msgstr "أظهر الإشعارات الجديدة"
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "أضف خادمًا…"
 
-#: widgets/ruqolamainwindow.cpp:457
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "معلومات الخادم…"
 
-#: widgets/ruqolamainwindow.cpp:461
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "اخرج من الخادم الحالي"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "اقفز إلى القناة غير المقروءة التالية"
 
-#: widgets/ruqolamainwindow.cpp:470
+#: widgets/ruqolamainwindow.cpp:456
 #, kde-format
 msgid "Create New Channel…"
 msgstr "أنشئ قناة جديدة…"
 
-#: widgets/ruqolamainwindow.cpp:474
+#: widgets/ruqolamainwindow.cpp:460
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "أنشئ رسائل مباشرة…"
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "Create Discussion…"
 msgstr "أنشئ مناقشة…"
 
-#: widgets/ruqolamainwindow.cpp:482
+#: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgid "Create Team…"
 msgstr "أنشئ فريقًا…"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "غير المقروء في الأعلى"
 
-#: widgets/ruqolamainwindow.cpp:498
+#: widgets/ruqolamainwindow.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "حسب أخر رسالة"
 
-#: widgets/ruqolamainwindow.cpp:504
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "أبجديًا"
 
-#: widgets/ruqolamainwindow.cpp:510
+#: widgets/ruqolamainwindow.cpp:496
 #, kde-format
 msgid "Show Channel Log"
 msgstr "اعرض سجل القناة"
 
-#: widgets/ruqolamainwindow.cpp:514
+#: widgets/ruqolamainwindow.cpp:500
 #, kde-format
 msgid "Show Server Errors"
 msgstr "اعرض أخطاء الخادم"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "علّم كل القنوات على أنها مقروءة"
 
-#: widgets/ruqolamainwindow.cpp:563
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "سجّل مستخدم جديد…"
 
-#: widgets/ruqolamainwindow.cpp:567
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "حسابي…"
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:557
 #, kde-format
 msgid "administration"
 msgstr "الإدارة"
 
-#: widgets/ruqolamainwindow.cpp:572
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "إداري…"
 
-#: widgets/ruqolamainwindow.cpp:578
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "إعدادات الخادم…"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:571
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "التطبيقات…"
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:576
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "التطبيقات المطلوبة…"
 
-#: widgets/ruqolamainwindow.cpp:595
+#: widgets/ruqolamainwindow.cpp:581
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "التطبيقات المثبتة…"
 
-#: widgets/ruqolamainwindow.cpp:600
+#: widgets/ruqolamainwindow.cpp:586
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "التطبيقات الخاصة…"
 
-#: widgets/ruqolamainwindow.cpp:605
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "انضم إلى الغرفة…"
 
-#: widgets/ruqolamainwindow.cpp:609
+#: widgets/ruqolamainwindow.cpp:595
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "انضم إلى الفريق…"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "افتح محادثة خاصة…"
 
-#: widgets/ruqolamainwindow.cpp:634
+#: widgets/ruqolamainwindow.cpp:620
 #, kde-format
 msgid "&Next Server"
 msgstr "الخادم ال&تالي"
 
-#: widgets/ruqolamainwindow.cpp:639
+#: widgets/ruqolamainwindow.cpp:625
 #, kde-format
 msgid "&Previous Server"
 msgstr "الخادم ال&سابق"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:634
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "الحالة:"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:649
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "القناة المحددة السابقة"
 
-#: widgets/ruqolamainwindow.cpp:670
+#: widgets/ruqolamainwindow.cpp:656
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "القناة المحددة التالية"
 
-#: widgets/ruqolamainwindow.cpp:700
+#: widgets/ruqolamainwindow.cpp:686
 #, kde-format
 msgid "Show Notify History"
 msgstr "اعرض تاريخ الإشعار"
 
-#: widgets/ruqolamainwindow.cpp:704
+#: widgets/ruqolamainwindow.cpp:690
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "اعرض معلومات روكت تشات"
 
-#: widgets/ruqolamainwindow.cpp:708
+#: widgets/ruqolamainwindow.cpp:694
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "اعرض الصورة الرمزية للغرفة"
 
-#: widgets/ruqolamainwindow.cpp:713
+#: widgets/ruqolamainwindow.cpp:699
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "اعرض الغرفة المفضلة"
 
-#: widgets/ruqolamainwindow.cpp:730
+#: widgets/ruqolamainwindow.cpp:716
 #, kde-format
 msgid "What's new"
 msgstr "ما هو الجديد"
 
-#: widgets/ruqolamainwindow.cpp:734
+#: widgets/ruqolamainwindow.cpp:720
 #, kde-format
 msgid "Import Accounts"
 msgstr "استورد حسابات"
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:724
 #, kde-format
 msgid "Export Accounts"
 msgstr "صدّر الحسابات"
 
-#: widgets/ruqolamainwindow.cpp:755
+#: widgets/ruqolamainwindow.cpp:741
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "متوسط"
 
-#: widgets/ruqolamainwindow.cpp:763
+#: widgets/ruqolamainwindow.cpp:749
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "مكثف "
 
-#: widgets/ruqolamainwindow.cpp:772
+#: widgets/ruqolamainwindow.cpp:758
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "ممتد"
 
-#: widgets/ruqolamainwindow.cpp:780
+#: widgets/ruqolamainwindow.cpp:766
 #, kde-format
 msgid "Clear history"
 msgstr "امحُ التاريخ"
 
-#: widgets/ruqolamainwindow.cpp:831
+#: widgets/ruqolamainwindow.cpp:810
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "أنشئ فريقًا"
 
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "لا يمكن كتابة إلى ملف سجل %1"
 
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "اعرض سجل القناة"
 
-#: widgets/ruqolamainwindow.cpp:1200
+#: widgets/ruqolamainwindow.cpp:1179
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "الحالة"
 
-#: widgets/ruqolamainwindow.cpp:1287
+#: widgets/ruqolamainwindow.cpp:1266
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>سيُخفي هذا شريط القوائم بالكامل. يمكنك إظهاره ثانيةً بضغط %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1290
+#: widgets/ruqolamainwindow.cpp:1269
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "أخفِ شريط القائمة"
 
-#: widgets/ruqolamainwindow.cpp:1471
+#: widgets/ruqolamainwindow.cpp:1450
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "اعمل متّصلًا"
 
-#: widgets/ruqolamainwindow.cpp:1474
+#: widgets/ruqolamainwindow.cpp:1453
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
@@ -12155,694 +12157,448 @@ msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "أضف حسابًا…"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Improve offline Mode"
-msgstr "تحسين وضع عدم الاتّصال"
+#~ msgid "Rocket Chat Client"
+#~ msgstr "عميل روكت تشات"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:19
-msgid "Allow to open saved file."
-msgstr "اسمح بفتح ملف محفوظ."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:20
-msgid "Allow to rotate image in show image dialog."
-msgstr "اسمح بتدوير الصورة في حوار عرض الصورة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:21
-msgid "Add new room info in notification history dialog."
-msgstr "أضف معلومات الغرفة الجديدة في حوار سجل الإشعارات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:22
-msgid "Use new textmessagewidget for error notification."
-msgstr "استخدام ودجة نصية جديدة لإشعارات الأخطاء"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:23
 #, fuzzy
-#| msgid "Implement message style"
-msgid "Implement Draft message sorting channel."
-msgstr "تنفيذ نمط الرسالة"
+#~| msgid "Do you want to mute this user?"
+#~ msgctxt "@label:textbox"
+#~ msgid "Do you want to unban user?"
+#~ msgstr "هل تريد كتم هذا المستخدم؟"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:24
+#~ msgid "Improve offline Mode"
+#~ msgstr "تحسين وضع عدم الاتّصال"
+
+#~ msgid "Allow to open saved file."
+#~ msgstr "اسمح بفتح ملف محفوظ."
+
+#~ msgid "Allow to rotate image in show image dialog."
+#~ msgstr "اسمح بتدوير الصورة في حوار عرض الصورة."
+
+#~ msgid "Add new room info in notification history dialog."
+#~ msgstr "أضف معلومات الغرفة الجديدة في حوار سجل الإشعارات."
+
+#~ msgid "Use new textmessagewidget for error notification."
+#~ msgstr "استخدام ودجة نصية جديدة لإشعارات الأخطاء"
+
 #, fuzzy
-#| msgid "Implement Pending Typed database storage."
-msgid "Implement Banned Users list dialog."
-msgstr "تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة."
+#~| msgid "Implement message style"
+#~ msgid "Implement Draft message sorting channel."
+#~ msgstr "تنفيذ نمط الرسالة"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:25
 #, fuzzy
-#| msgid "Implement mute/unmute user."
-msgid "Implement Banned/Unbanned Users."
-msgstr "تنفيذ كتم/إلغاء كتم صوت المستخدم."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
-#, kde-format
-msgid "Store Message in Local Database (experimental)"
-msgstr "تخزين الرسالة في قاعدة البيانات المحلية (تجريبي)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
-#, kde-format
-msgid "Download Server Icon from Server"
-msgstr "تنزيل أيقونة الخادم من الخادم"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
-#, kde-format
-msgid "Show Server Error Info in Specific DialogBox"
-msgstr "إظهار معلومات خطأ الخادم في مربع حوار محدد"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
-#, kde-format
-msgid "Allow to Copy Image in Clipboard"
-msgstr "السماح بنسخ الصورة في الحافظة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
-#, kde-format
-msgid "Improve debug support (Allow to show current account permissions)"
-msgstr "تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
-#, kde-format
-msgid "Add support for quoted text (text which starts by '>')"
-msgstr "إضافة التعامل مع النص المقتبس (النص الذي يبدأ بـ '>')"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
-#, kde-format
-msgid "Show leader/moderator/owner in channel info."
-msgstr "إظهار القائد/المشرف/المالك في معلومات القناة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
-#, kde-format
-msgid "Video/Sound Message support (kf6 only)."
-msgstr "إتاحة الرسائل الصوتية/الفيديو (kf6 فقط)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
-#, kde-format
-msgid "Import/Export Accounts."
-msgstr "حسابات الاستيراد/التصدير."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
-#, kde-format
-msgid "Fix avatar support"
-msgstr "إصلاح الصورة الرمزية"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:46
-#, kde-format
-msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr "إصلاح الرموز التعبيرية (استخدم ktextaddons/textemoticons الجديدة)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
-#, kde-format
-msgid "Fix animated gif in reactions"
-msgstr "إصلاح الصورة المتحركة في التفاعلات"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
-#, kde-format
-msgid "Fix kf6 support"
-msgstr "إصلاح التوافق مع kf6"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
-#, kde-format
-msgid "Add Moderation Console (Administration, RC server 6.2)"
-msgstr "إضافة وحدة تحكم الإشراف (الإدارة، خادم RC 6.2)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
-#, kde-format
-msgid "Implement message style"
-msgstr "تنفيذ نمط الرسالة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
-#, kde-format
-msgid "Implement Url Preview"
-msgstr "تنفيذ معاينة عناوين الإنترنت"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
-#, kde-format
-msgid "Fix markdown support (header + check mark)"
-msgstr "إصلاح ماركدون (الترويسة ومربع الاختيار)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
-#, kde-format
-msgid "Fix mem leak"
-msgstr "إصلاح تسرب الذاكرة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
-#, kde-format
-msgid "Cache message size (optimization)"
-msgstr "حجم خبيئة الرسائل (تحسين)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:59
-#, kde-format
-msgid ""
-"Improve select room or user in message line edit (show icon, inform if user "
-"is in channel)"
-msgstr ""
-"تحسين تحديد الغرفة أو المستخدم في تحرير سطر الرسالة (إظهار الرمز، إبلاغ ما "
-"إذا كان المستخدم في القناة)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:60
-#, kde-format
-msgid ""
-"Fix show commands in message line edit (Hide action when room doesn't "
-"support it)."
-msgstr ""
-"إصلاح أوامر العرض في تحرير سطر الرسالة (إخفاء الإجراء عندما لا تتيحه الغرفة)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:61
-#, kde-format
-msgid "Fix download sound/video file when it's not in cache."
-msgstr "إصلاح مشكلة تنزيل ملف الصوت/الفيديو عندما لا يكون في خبيئة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:62
-#, kde-format
-msgid "Fix list of authentication method."
-msgstr "إصلاح قائمة طريقة الاستيثاق."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
-#, kde-format
-msgid "Fix show avatar url."
-msgstr "إصلاح رابط إظهار الصورة الرمزية."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
-#, kde-format
-msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-msgstr "السماح بزيادة/تقليل الخط (CTRL++/CTRL+-)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
-#, kde-format
-msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "إضافة نمط قائمة القنوات (مكثف/متوسط/موسع)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
-#, kde-format
-msgid "Add forward message"
-msgstr "إضافة رسالة إلى الأمام"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
-#, kde-format
-msgid "Improve mentions support."
-msgstr "تحسين الإشارات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
-#, kde-format
-msgid ""
-"Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
-"started/deep-linking\">Deep Linking</a>."
-msgstr ""
-"إضافة الارتباط العميق <a href=\"https://developer.rocket.chat/getting-"
-"started/deep-linking\">الارتباط العميق</a>."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
-#, kde-format
-msgid "Implement block actions."
-msgstr "تنفيذ إجراءات الحظر."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
-#, kde-format
-msgid ""
-"Implement personal token authentication. <a href=\"https://bugs.kde.org/"
-"show_bug.cgi?id=481400\">Bug 481400</a>"
-msgstr ""
-"تنفيذ الاستيثاق بالرمز الشخصي. <a href=\"https://bugs.kde.org/show_bug.cgi?"
-"id=481400\">Bug 481400</a>"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
-#, kde-format
-msgid "Add Plasma Activities Support"
-msgstr "إضافة التعامل مع أنشطة البلازما"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
-#, kde-format
-msgid "Add Report User Support"
-msgstr "إضافة الإبلاغ عن مستخدم"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
-#, kde-format
-msgid "Implement Channel Sound Notification."
-msgstr "تنفيذ إشعار صوت القناة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
-#, kde-format
-msgid "Implement New Room Sound Notification."
-msgstr "تنفيذ الإشعار الصوتي للغرفة الجديدة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
-#, kde-format
-msgid "Implement Sorted/Unsorted markdown list."
-msgstr "تنفيذ قائمة تخفيض الأسعار المصنفة/غير المصنفة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
-#: widgets/whatsnew/whatsnewtranslations.cpp:172
-#, kde-format
-msgid "Fix dark mode support."
-msgstr "إصلاح الوضع الداكن."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
-#, kde-format
-msgid "Fix jitsi support."
-msgstr "إصلاح التعامل مع جيتسي."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
-#, kde-format
-msgid "Fix translate message in direct channel."
-msgstr "إصلاح ترجمة الرسالة في القناة المباشرة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:88
-#, kde-format
-msgid "Don't show @here/@all as user."
-msgstr "لا تظهر @هنا/@الكل كمستخدم."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:89
-#, kde-format
-msgid "Reduce memory footprint."
-msgstr "تقليل مساحة الذاكرة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:90
-#, kde-format
-msgid "Use RESTAPI for logging."
-msgstr "استخدم RESTAPI للتسجيل."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:91
-#, kde-format
-msgid "Allow to send multi files."
-msgstr "السماح بإرسال ملفات متعددة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:92
-#, kde-format
-msgid "Fix preview url."
-msgstr "إصلاح رابط المعاينة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:100
-#, kde-format
-msgid "Implement Rocket.Chat Marketplace."
-msgstr "تنفيذ متجر روكت تشات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
-#, kde-format
-msgid "Allow to clean room history."
-msgstr "السماح بتنظيف سجل الغرفة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
-#, kde-format
-msgid "Allow to check new version."
-msgstr "السماح بالتحقق من الإصدار الجديد."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
-#, kde-format
-msgid "Implement moderation (administrator mode)."
-msgstr "تنفيذ الإشراف (وضع المسؤول)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:104
-#, kde-format
-msgid "Add welcome page."
-msgstr "إضافة صفحة الترحيب."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:105
-#, kde-format
-msgid "Implement pending users info (administrator mode)."
-msgstr "تنفيذ معلومات المستخدمين المعلقة (وضع المسؤول)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:106
-#, kde-format
-msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
-msgstr "استخدم cmark-rc (https://github.com/dfaure/cmark-rc) لتوفير ماركدون."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:107
-#, kde-format
-msgid ""
-"Delete oldest files from some cache directories (file-upload and media) so "
-"it doesn't grow forever."
-msgstr ""
-"حذف الملفات الأقدم من بعض أدلة خبيئة رفع الملفات والوسائط حتى لا تتوسع إلى "
-"الأبد."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:111
-#, kde-format
-msgid ""
-"Clean market application model after 30 minutes (reduce memory footprint)."
-msgstr "نموذج تطبيق السوق النظيف بعد 30 دقيقة (تقليل مساحة الذاكرة)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:112
-#, kde-format
-msgid "Fix show discussion name in completion."
-msgstr "إصلاح إظهار اسم المناقشة عند الاكتمال."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:113
-#, kde-format
-msgid "Fix duplicated messages in search message dialog."
-msgstr "إصلاح الرسائل المكررة في مربع حوار رسائل البحث."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:114
-#, kde-format
-msgid "Add delegate in search rooms in team dialog."
-msgstr "إضافة مندوب في غرف البحث في حوار الفريق."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
-#, kde-format
-msgid "Allow to clean up room history when room was not opened from long time."
-msgstr "السماح بتنظيف سجل الغرفة عندما لا تُفتح الغرفة منذ وقت طويل."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
-#, kde-format
-msgid "Add restore button in administrator server settings dialog."
-msgstr "إضافة زر استعادة في مربع حوار إعدادات خادم المسؤول."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, kde-format
-msgid "Improve changing password (show validation info)."
-msgstr "تحسين تغيير كلمة السر (إظهار معلومات التحقق من الصحة)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:126
-#, kde-format
-msgid "Improve register new account (Add reason support)."
-msgstr "تحسين تسجيل حساب جديد (إضافة السبب)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:127
-#, kde-format
-msgid "Implement mute/unmute user."
-msgstr "تنفيذ كتم/إلغاء كتم صوت المستخدم."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:128
-#, kde-format
-msgid "Add color to the text in the account tab"
-msgstr "أضف لون إلى النص الموجود في لسان الحساب"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:129
-#, kde-format
-msgid "Allow to show private installed applications"
-msgstr "السماح بإظهار التطبيقات الخاصة المثبتة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:134
-#, kde-format
-msgid "Fix editing message."
-msgstr "إصلاح رسالة التحرير."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:135
-#, kde-format
-msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "اعرض الأذونات في متجر روكت تشات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, kde-format
-msgid "Fix reconnect server."
-msgstr "إصلاح إعادة الاتصال بالخادم."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:137
-#, kde-format
-msgid "Fix single application on Windows/MacOs"
-msgstr "إصلاح تطبيق واحد على نظامي التشغيل Windows/MacOs"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:138
-#, kde-format
-msgid "Fix select created room/discussion/teams"
-msgstr "إصلاح تحديد الغرفة/المناقشة/الفرق المنشئة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:139
-#, kde-format
-msgid "Fix filter discussion in administrator mode"
-msgstr "إصلاح مناقشة التصفية في وضع المسؤول"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:140
-#, kde-format
-msgid "Fix message video support"
-msgstr "إصلاح رسائل الفيديو"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:141
-#, kde-format
-msgid "Fix highlight text in quoted message"
-msgstr "إصلاح تمييز النص في الرسالة المقتبسة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:142
-#, kde-format
-msgid "Fix open discussion channel"
-msgstr "إصلاح قناة المناقشة المفتوحة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:143
-#, kde-format
-msgid "Allow to show application market settings"
-msgstr "السماح بإظهار إعدادات سوق التطبيقات"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:151
-#, kde-format
-msgid "Add support for tools plugins"
-msgstr "إضافة ملحقات الأدوات"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:152
-#, kde-format
-msgid "Plugin: Add screenshot button (near send message button)"
-msgstr "ملحق: إضافة زر لقطة الشاشة (بالقرب من زر إرسال رسالة)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:153
-#, kde-format
-msgid "Implement invite RC url support"
-msgstr "إتاحة دعوة عنوان لـ RC"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:154
-#, kde-format
-msgid "Implement verify if a new Ruqola version exist"
-msgstr "تنفيذ التحقق من وجود نسخة رقولة جديدة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:155
-#, kde-format
-msgid "Allow to search threads by unread/following"
-msgstr "اسمح بالبحث عن سلاسل المحادثات حسب عدم قراءتها/متابعتها"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:156
-#, kde-format
-msgid "Show images from attachment dialog box"
-msgstr "عرض الصور من صندوق حوار المرفق"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:157
-#, kde-format
-msgid "Implement Rocket.Chat application support."
-msgstr "إتاحة دعم تطبيق روكت تشات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:158
-#, kde-format
-msgid "Implement command preview."
-msgstr "تنفيذ معاينة الأمر."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:159
-#, kde-format
-msgid "Debug: explore translation from RC server."
-msgstr "التنقيح: استكشاف الترجمة من خادم روكت تشات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:160
-#, kde-format
-msgid "Implement plugin UI support (Create dialog box for configure settings)."
-msgstr "تنفيذ واجهة المستخدم الإضافية (إنشاء مربع حوار لضبط الإعدادات)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, kde-format
-msgid "Allow to search file from username and filename."
-msgstr "السماح بالبحث في الملف من اسم المستخدم واسم الملف."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:165
-#, kde-format
-msgid "Fix copy action text when we copy a text selection."
-msgstr "إصلاح نص إجراء النسخ عندما نقوم بنسخ تحديد النص."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:166
-#, kde-format
-msgid "A command start with '/' and not /* or // "
-msgstr "أمر يبدأ بـ '/' وليس /* أو // "
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:167
-#, kde-format
-msgid "Allow to put command line in clipboard when an error occurred"
-msgstr "السماح بوضع سطر الأوامر في الحافظة عند حدوث خطأ"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:168
-#, kde-format
-msgid "Allow to activate/deactivate apps market."
-msgstr "اسمح بتنشيط/إلغاء تنشيط سوق التطبيقات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:169
-#, kde-format
-msgid "Improve list of user in room."
-msgstr "تحسين قائمة المستخدمين في الغرفة"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:170
-#, kde-format
-msgid "Search in encrypted room is not possible."
-msgstr "البحث في الغرف المعماة غير ممكن."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, kde-format
-msgid "Show roles for users in rooms."
-msgstr "عرض الأدوار للمستخدمين في الغرفة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:173
-#, kde-format
-msgid "Fix download languages apps."
-msgstr "إصلاح تنزيل تطبيقات لغات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:181
-#, kde-format
-msgid "Add AI plugin"
-msgstr "أضف ملحقة الذكاء الاصطناعي"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:182
-#, kde-format
-msgid "Allow to dnd image."
-msgstr "السماح بتحويل الصور إلى نمط سجون وتنانين."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, kde-format
-msgid "Add restore button in administration settings."
-msgstr "إضافة زر استعادة في إعدادات الإدارة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
-#, kde-format
-msgid "Allow to activate plugins."
-msgstr "اسمح بتفعيل الملحقات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, kde-format
-msgid "Add Open With button in show image."
-msgstr "إضافة زر ”افتح باستخدام“ في إظهار الصورة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
-#, kde-format
-msgid "Add Quick Text Format."
-msgstr "إضافة تنسيق سريع للنص"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
-#, kde-format
-msgid "Add Extension message line button."
-msgstr "أضف زر سطر رسالة التمديد."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
-#, kde-format
-msgid "Allow to Add WebDav Server."
-msgstr "اسمح بإضافة خادم WebDav."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, kde-format
-msgid "Show room info (italic text) when there is some pending message typed."
-msgstr "عرض معلومات الغرفة (نص مائل) عندما يكون هناك رسالة معلقة مكتوبة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, kde-format
-msgid "Allow to add emoticon from popup menu."
-msgstr "السماح بإضافة رموز تعبيرية من القائمة المنبثقة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, kde-format
-msgid "Fix show date info."
-msgstr "إصلاح عرض معلومات التاريخ"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, kde-format
-msgid "Fix save application settings."
-msgstr "إصلاح حفظ إعدادات التطبيق."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, kde-format
-msgid "Fix text selection in attachment."
-msgstr "إصلاح تحديد النصف في المرفقات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:197
-#, kde-format
-msgid "Fix display user."
-msgstr "إصلاح عرض المستخدم."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:198
-#, kde-format
-msgid "Display translate menu in thread dialog."
-msgstr "عرض قائمة الترجمة في مربع الحوار."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:199
-#, kde-format
-msgid "Add AI Rocket Chat Actions support."
-msgstr "إضافة إجراءات الذكاء الاصطناعي لروكت تشات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:200
-#, kde-format
-msgid "Fix apply, restore, cancel buttons in administration dialog."
-msgstr "إصلاح أزرار التطبيق والاستعادة والإلغاء في مربع حوار الإدارة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, kde-format
-msgid "Fix search users."
-msgstr "إصلاح البحث عن المستخدمين."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:202
-#, kde-format
-msgid "Fix extract language from code block."
-msgstr "إصلاح لغة الاستخراج من كتلة التعليمات البرمجية."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:203
-#, kde-format
-msgid "Fix attachment info in \"Show Channel Log\" dialog."
-msgstr "إصلاح معلومات المرفق في مربع الحوار أظهر سجل القناة“."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:204
-#, kde-format
-msgid "Fix icon on windows."
-msgstr "إصلاح أيقونة في ويندوز"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:205
-#, kde-format
-msgid "Fix show file attachment size."
-msgstr "إصلاح إظهار حجم المرفقات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:214
-#, kde-format
-msgid "Copy block code more easily."
-msgstr "انسخ كتلة الرمز بسهولة أكبر."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:215
-#, kde-format
-msgid "Improve Text To Speech user interface."
-msgstr "تحسين واجهة المستخدم لتحويل النص إلى كلام."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:216
-#, kde-format
-msgid "Show attachment fields."
-msgstr "أظهر حقول المرفقات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:217
-#, kde-format
-msgid "Implement Offline Mode (experimental)."
-msgstr "تنفيذ الوضع غير المتصل بالإنترنت (تجريبي)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:218
-#, kde-format
-msgid "Implement Pending Typed database storage."
-msgstr "تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
-#, kde-format
-msgid "Fix RC 8.0.0 support."
-msgstr "إصلاح دعم RC 8.0.0."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:220
-#, kde-format
-msgid "Add Attachment Actions Support."
-msgstr "إضافة إجراءات المرفقات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, kde-format
-msgid "Add TimeStamp support."
-msgstr "إضافة الختم الزمني"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:224
-#, kde-format
-msgid "Save local translation to local database."
-msgstr "حفظ الترجمة المحلية في قاعدة البيانات المحلية."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:225
-#, kde-format
-msgid "Fix remove room (in local database)."
-msgstr "إصلاح إزالة الغرفة (في قاعدة البيانات المحلية)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:226
-#, kde-format
-msgid "Fix export database."
-msgstr "إصلاح تصدير قاعدة البيانات."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:227
-#, kde-format
-msgid "Fix upload Custom Sound"
-msgstr "إصلاح تحميل الصوت المخصص"
+#~| msgid "Implement Pending Typed database storage."
+#~ msgid "Implement Banned Users list dialog."
+#~ msgstr "تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة."
+
+#, fuzzy
+#~| msgid "Implement mute/unmute user."
+#~ msgid "Implement Banned/Unbanned Users."
+#~ msgstr "تنفيذ كتم/إلغاء كتم صوت المستخدم."
+
+#~ msgid "Store Message in Local Database (experimental)"
+#~ msgstr "تخزين الرسالة في قاعدة البيانات المحلية (تجريبي)"
+
+#~ msgid "Download Server Icon from Server"
+#~ msgstr "تنزيل أيقونة الخادم من الخادم"
+
+#~ msgid "Show Server Error Info in Specific DialogBox"
+#~ msgstr "إظهار معلومات خطأ الخادم في مربع حوار محدد"
+
+#~ msgid "Allow to Copy Image in Clipboard"
+#~ msgstr "السماح بنسخ الصورة في الحافظة"
+
+#~ msgid "Improve debug support (Allow to show current account permissions)"
+#~ msgstr "تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)"
+
+#~ msgid "Add support for quoted text (text which starts by '>')"
+#~ msgstr "إضافة التعامل مع النص المقتبس (النص الذي يبدأ بـ '>')"
+
+#~ msgid "Show leader/moderator/owner in channel info."
+#~ msgstr "إظهار القائد/المشرف/المالك في معلومات القناة."
+
+#~ msgid "Video/Sound Message support (kf6 only)."
+#~ msgstr "إتاحة الرسائل الصوتية/الفيديو (kf6 فقط)."
+
+#~ msgid "Import/Export Accounts."
+#~ msgstr "حسابات الاستيراد/التصدير."
+
+#~ msgid "Fix avatar support"
+#~ msgstr "إصلاح الصورة الرمزية"
+
+#~ msgid "Fix emoji support (use new ktextaddons/textemoticons)"
+#~ msgstr "إصلاح الرموز التعبيرية (استخدم ktextaddons/textemoticons الجديدة)"
+
+#~ msgid "Fix animated gif in reactions"
+#~ msgstr "إصلاح الصورة المتحركة في التفاعلات"
+
+#~ msgid "Fix kf6 support"
+#~ msgstr "إصلاح التوافق مع kf6"
+
+#~ msgid "Add Moderation Console (Administration, RC server 6.2)"
+#~ msgstr "إضافة وحدة تحكم الإشراف (الإدارة، خادم RC 6.2)"
+
+#~ msgid "Implement message style"
+#~ msgstr "تنفيذ نمط الرسالة"
+
+#~ msgid "Implement Url Preview"
+#~ msgstr "تنفيذ معاينة عناوين الإنترنت"
+
+#~ msgid "Fix markdown support (header + check mark)"
+#~ msgstr "إصلاح ماركدون (الترويسة ومربع الاختيار)"
+
+#~ msgid "Fix mem leak"
+#~ msgstr "إصلاح تسرب الذاكرة"
+
+#~ msgid "Cache message size (optimization)"
+#~ msgstr "حجم خبيئة الرسائل (تحسين)"
+
+#~ msgid ""
+#~ "Improve select room or user in message line edit (show icon, inform if "
+#~ "user is in channel)"
+#~ msgstr ""
+#~ "تحسين تحديد الغرفة أو المستخدم في تحرير سطر الرسالة (إظهار الرمز، إبلاغ "
+#~ "ما إذا كان المستخدم في القناة)"
+
+#~ msgid ""
+#~ "Fix show commands in message line edit (Hide action when room doesn't "
+#~ "support it)."
+#~ msgstr ""
+#~ "إصلاح أوامر العرض في تحرير سطر الرسالة (إخفاء الإجراء عندما لا تتيحه "
+#~ "الغرفة)."
+
+#~ msgid "Fix download sound/video file when it's not in cache."
+#~ msgstr "إصلاح مشكلة تنزيل ملف الصوت/الفيديو عندما لا يكون في خبيئة."
+
+#~ msgid "Fix list of authentication method."
+#~ msgstr "إصلاح قائمة طريقة الاستيثاق."
+
+#~ msgid "Fix show avatar url."
+#~ msgstr "إصلاح رابط إظهار الصورة الرمزية."
+
+#~ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
+#~ msgstr "السماح بزيادة/تقليل الخط (CTRL++/CTRL+-)"
+
+#~ msgid "Add channel list style (Condensed/Medium/Extended)"
+#~ msgstr "إضافة نمط قائمة القنوات (مكثف/متوسط/موسع)"
+
+#~ msgid "Add forward message"
+#~ msgstr "إضافة رسالة إلى الأمام"
+
+#~ msgid "Improve mentions support."
+#~ msgstr "تحسين الإشارات."
+
+#~ msgid ""
+#~ "Add support for deep linking <a href=\"https://developer.rocket.chat/"
+#~ "getting-started/deep-linking\">Deep Linking</a>."
+#~ msgstr ""
+#~ "إضافة الارتباط العميق <a href=\"https://developer.rocket.chat/getting-"
+#~ "started/deep-linking\">الارتباط العميق</a>."
+
+#~ msgid "Implement block actions."
+#~ msgstr "تنفيذ إجراءات الحظر."
+
+#~ msgid ""
+#~ "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
+#~ "show_bug.cgi?id=481400\">Bug 481400</a>"
+#~ msgstr ""
+#~ "تنفيذ الاستيثاق بالرمز الشخصي. <a href=\"https://bugs.kde.org/show_bug."
+#~ "cgi?id=481400\">Bug 481400</a>"
+
+#~ msgid "Add Plasma Activities Support"
+#~ msgstr "إضافة التعامل مع أنشطة البلازما"
+
+#~ msgid "Add Report User Support"
+#~ msgstr "إضافة الإبلاغ عن مستخدم"
+
+#~ msgid "Implement Channel Sound Notification."
+#~ msgstr "تنفيذ إشعار صوت القناة."
+
+#~ msgid "Implement New Room Sound Notification."
+#~ msgstr "تنفيذ الإشعار الصوتي للغرفة الجديدة."
+
+#~ msgid "Implement Sorted/Unsorted markdown list."
+#~ msgstr "تنفيذ قائمة تخفيض الأسعار المصنفة/غير المصنفة."
+
+#~ msgid "Fix dark mode support."
+#~ msgstr "إصلاح الوضع الداكن."
+
+#~ msgid "Fix jitsi support."
+#~ msgstr "إصلاح التعامل مع جيتسي."
+
+#~ msgid "Fix translate message in direct channel."
+#~ msgstr "إصلاح ترجمة الرسالة في القناة المباشرة."
+
+#~ msgid "Don't show @here/@all as user."
+#~ msgstr "لا تظهر @هنا/@الكل كمستخدم."
+
+#~ msgid "Reduce memory footprint."
+#~ msgstr "تقليل مساحة الذاكرة."
+
+#~ msgid "Use RESTAPI for logging."
+#~ msgstr "استخدم RESTAPI للتسجيل."
+
+#~ msgid "Allow to send multi files."
+#~ msgstr "السماح بإرسال ملفات متعددة."
+
+#~ msgid "Fix preview url."
+#~ msgstr "إصلاح رابط المعاينة."
+
+#~ msgid "Implement Rocket.Chat Marketplace."
+#~ msgstr "تنفيذ متجر روكت تشات."
+
+#~ msgid "Allow to clean room history."
+#~ msgstr "السماح بتنظيف سجل الغرفة."
+
+#~ msgid "Allow to check new version."
+#~ msgstr "السماح بالتحقق من الإصدار الجديد."
+
+#~ msgid "Implement moderation (administrator mode)."
+#~ msgstr "تنفيذ الإشراف (وضع المسؤول)."
+
+#~ msgid "Add welcome page."
+#~ msgstr "إضافة صفحة الترحيب."
+
+#~ msgid "Implement pending users info (administrator mode)."
+#~ msgstr "تنفيذ معلومات المستخدمين المعلقة (وضع المسؤول)."
+
+#~ msgid ""
+#~ "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
+#~ msgstr ""
+#~ "استخدم cmark-rc (https://github.com/dfaure/cmark-rc) لتوفير ماركدون."
+
+#~ msgid ""
+#~ "Delete oldest files from some cache directories (file-upload and media) "
+#~ "so it doesn't grow forever."
+#~ msgstr ""
+#~ "حذف الملفات الأقدم من بعض أدلة خبيئة رفع الملفات والوسائط حتى لا تتوسع "
+#~ "إلى الأبد."
+
+#~ msgid ""
+#~ "Clean market application model after 30 minutes (reduce memory footprint)."
+#~ msgstr "نموذج تطبيق السوق النظيف بعد 30 دقيقة (تقليل مساحة الذاكرة)."
+
+#~ msgid "Fix show discussion name in completion."
+#~ msgstr "إصلاح إظهار اسم المناقشة عند الاكتمال."
+
+#~ msgid "Fix duplicated messages in search message dialog."
+#~ msgstr "إصلاح الرسائل المكررة في مربع حوار رسائل البحث."
+
+#~ msgid "Add delegate in search rooms in team dialog."
+#~ msgstr "إضافة مندوب في غرف البحث في حوار الفريق."
+
+#~ msgid ""
+#~ "Allow to clean up room history when room was not opened from long time."
+#~ msgstr "السماح بتنظيف سجل الغرفة عندما لا تُفتح الغرفة منذ وقت طويل."
+
+#~ msgid "Add restore button in administrator server settings dialog."
+#~ msgstr "إضافة زر استعادة في مربع حوار إعدادات خادم المسؤول."
+
+#~ msgid "Improve changing password (show validation info)."
+#~ msgstr "تحسين تغيير كلمة السر (إظهار معلومات التحقق من الصحة)."
+
+#~ msgid "Improve register new account (Add reason support)."
+#~ msgstr "تحسين تسجيل حساب جديد (إضافة السبب)."
+
+#~ msgid "Implement mute/unmute user."
+#~ msgstr "تنفيذ كتم/إلغاء كتم صوت المستخدم."
+
+#~ msgid "Add color to the text in the account tab"
+#~ msgstr "أضف لون إلى النص الموجود في لسان الحساب"
+
+#~ msgid "Allow to show private installed applications"
+#~ msgstr "السماح بإظهار التطبيقات الخاصة المثبتة"
+
+#~ msgid "Fix editing message."
+#~ msgstr "إصلاح رسالة التحرير."
+
+#~ msgid "Show permissions in Rocket.Chat Marketplace."
+#~ msgstr "اعرض الأذونات في متجر روكت تشات."
+
+#~ msgid "Fix reconnect server."
+#~ msgstr "إصلاح إعادة الاتصال بالخادم."
+
+#~ msgid "Fix single application on Windows/MacOs"
+#~ msgstr "إصلاح تطبيق واحد على نظامي التشغيل Windows/MacOs"
+
+#~ msgid "Fix select created room/discussion/teams"
+#~ msgstr "إصلاح تحديد الغرفة/المناقشة/الفرق المنشئة"
+
+#~ msgid "Fix filter discussion in administrator mode"
+#~ msgstr "إصلاح مناقشة التصفية في وضع المسؤول"
+
+#~ msgid "Fix message video support"
+#~ msgstr "إصلاح رسائل الفيديو"
+
+#~ msgid "Fix highlight text in quoted message"
+#~ msgstr "إصلاح تمييز النص في الرسالة المقتبسة"
+
+#~ msgid "Fix open discussion channel"
+#~ msgstr "إصلاح قناة المناقشة المفتوحة"
+
+#~ msgid "Allow to show application market settings"
+#~ msgstr "السماح بإظهار إعدادات سوق التطبيقات"
+
+#~ msgid "Add support for tools plugins"
+#~ msgstr "إضافة ملحقات الأدوات"
+
+#~ msgid "Plugin: Add screenshot button (near send message button)"
+#~ msgstr "ملحق: إضافة زر لقطة الشاشة (بالقرب من زر إرسال رسالة)"
+
+#~ msgid "Implement invite RC url support"
+#~ msgstr "إتاحة دعوة عنوان لـ RC"
+
+#~ msgid "Implement verify if a new Ruqola version exist"
+#~ msgstr "تنفيذ التحقق من وجود نسخة رقولة جديدة"
+
+#~ msgid "Allow to search threads by unread/following"
+#~ msgstr "اسمح بالبحث عن سلاسل المحادثات حسب عدم قراءتها/متابعتها"
+
+#~ msgid "Show images from attachment dialog box"
+#~ msgstr "عرض الصور من صندوق حوار المرفق"
+
+#~ msgid "Implement Rocket.Chat application support."
+#~ msgstr "إتاحة دعم تطبيق روكت تشات."
+
+#~ msgid "Implement command preview."
+#~ msgstr "تنفيذ معاينة الأمر."
+
+#~ msgid "Debug: explore translation from RC server."
+#~ msgstr "التنقيح: استكشاف الترجمة من خادم روكت تشات."
+
+#~ msgid ""
+#~ "Implement plugin UI support (Create dialog box for configure settings)."
+#~ msgstr "تنفيذ واجهة المستخدم الإضافية (إنشاء مربع حوار لضبط الإعدادات)."
+
+#~ msgid "Allow to search file from username and filename."
+#~ msgstr "السماح بالبحث في الملف من اسم المستخدم واسم الملف."
+
+#~ msgid "Fix copy action text when we copy a text selection."
+#~ msgstr "إصلاح نص إجراء النسخ عندما نقوم بنسخ تحديد النص."
+
+#~ msgid "A command start with '/' and not /* or // "
+#~ msgstr "أمر يبدأ بـ '/' وليس /* أو // "
+
+#~ msgid "Allow to put command line in clipboard when an error occurred"
+#~ msgstr "السماح بوضع سطر الأوامر في الحافظة عند حدوث خطأ"
+
+#~ msgid "Allow to activate/deactivate apps market."
+#~ msgstr "اسمح بتنشيط/إلغاء تنشيط سوق التطبيقات."
+
+#~ msgid "Improve list of user in room."
+#~ msgstr "تحسين قائمة المستخدمين في الغرفة"
+
+#~ msgid "Search in encrypted room is not possible."
+#~ msgstr "البحث في الغرف المعماة غير ممكن."
+
+#~ msgid "Show roles for users in rooms."
+#~ msgstr "عرض الأدوار للمستخدمين في الغرفة."
+
+#~ msgid "Fix download languages apps."
+#~ msgstr "إصلاح تنزيل تطبيقات لغات."
+
+#~ msgid "Add AI plugin"
+#~ msgstr "أضف ملحقة الذكاء الاصطناعي"
+
+#~ msgid "Allow to dnd image."
+#~ msgstr "السماح بتحويل الصور إلى نمط سجون وتنانين."
+
+#~ msgid "Add restore button in administration settings."
+#~ msgstr "إضافة زر استعادة في إعدادات الإدارة."
+
+#~ msgid "Allow to activate plugins."
+#~ msgstr "اسمح بتفعيل الملحقات."
+
+#~ msgid "Add Open With button in show image."
+#~ msgstr "إضافة زر ”افتح باستخدام“ في إظهار الصورة."
+
+#~ msgid "Add Quick Text Format."
+#~ msgstr "إضافة تنسيق سريع للنص"
+
+#~ msgid "Add Extension message line button."
+#~ msgstr "أضف زر سطر رسالة التمديد."
+
+#~ msgid "Allow to Add WebDav Server."
+#~ msgstr "اسمح بإضافة خادم WebDav."
+
+#~ msgid ""
+#~ "Show room info (italic text) when there is some pending message typed."
+#~ msgstr "عرض معلومات الغرفة (نص مائل) عندما يكون هناك رسالة معلقة مكتوبة."
+
+#~ msgid "Allow to add emoticon from popup menu."
+#~ msgstr "السماح بإضافة رموز تعبيرية من القائمة المنبثقة."
+
+#~ msgid "Fix show date info."
+#~ msgstr "إصلاح عرض معلومات التاريخ"
+
+#~ msgid "Fix save application settings."
+#~ msgstr "إصلاح حفظ إعدادات التطبيق."
+
+#~ msgid "Fix text selection in attachment."
+#~ msgstr "إصلاح تحديد النصف في المرفقات."
+
+#~ msgid "Fix display user."
+#~ msgstr "إصلاح عرض المستخدم."
+
+#~ msgid "Display translate menu in thread dialog."
+#~ msgstr "عرض قائمة الترجمة في مربع الحوار."
+
+#~ msgid "Add AI Rocket Chat Actions support."
+#~ msgstr "إضافة إجراءات الذكاء الاصطناعي لروكت تشات."
+
+#~ msgid "Fix apply, restore, cancel buttons in administration dialog."
+#~ msgstr "إصلاح أزرار التطبيق والاستعادة والإلغاء في مربع حوار الإدارة."
+
+#~ msgid "Fix search users."
+#~ msgstr "إصلاح البحث عن المستخدمين."
+
+#~ msgid "Fix extract language from code block."
+#~ msgstr "إصلاح لغة الاستخراج من كتلة التعليمات البرمجية."
+
+#~ msgid "Fix attachment info in \"Show Channel Log\" dialog."
+#~ msgstr "إصلاح معلومات المرفق في مربع الحوار أظهر سجل القناة“."
+
+#~ msgid "Fix icon on windows."
+#~ msgstr "إصلاح أيقونة في ويندوز"
+
+#~ msgid "Fix show file attachment size."
+#~ msgstr "إصلاح إظهار حجم المرفقات."
+
+#~ msgid "Copy block code more easily."
+#~ msgstr "انسخ كتلة الرمز بسهولة أكبر."
+
+#~ msgid "Improve Text To Speech user interface."
+#~ msgstr "تحسين واجهة المستخدم لتحويل النص إلى كلام."
+
+#~ msgid "Show attachment fields."
+#~ msgstr "أظهر حقول المرفقات."
+
+#~ msgid "Implement Offline Mode (experimental)."
+#~ msgstr "تنفيذ الوضع غير المتصل بالإنترنت (تجريبي)."
+
+#~ msgid "Implement Pending Typed database storage."
+#~ msgstr "تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة."
+
+#~ msgid "Fix RC 8.0.0 support."
+#~ msgstr "إصلاح دعم RC 8.0.0."
+
+#~ msgid "Add Attachment Actions Support."
+#~ msgstr "إضافة إجراءات المرفقات."
+
+#~ msgid "Add TimeStamp support."
+#~ msgstr "إضافة الختم الزمني"
+
+#~ msgid "Save local translation to local database."
+#~ msgstr "حفظ الترجمة المحلية في قاعدة البيانات المحلية."
+
+#~ msgid "Fix remove room (in local database)."
+#~ msgstr "إصلاح إزالة الغرفة (في قاعدة البيانات المحلية)."
+
+#~ msgid "Fix export database."
+#~ msgstr "إصلاح تصدير قاعدة البيانات."
+
+#~ msgid "Fix upload Custom Sound"
+#~ msgstr "إصلاح تحميل الصوت المخصص"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Use ddp api for login"

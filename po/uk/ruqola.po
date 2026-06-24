@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:44+0000\n"
-"PO-Revision-Date: 2026-06-20 12:00+0300\n"
+"POT-Creation-Date: 2026-06-24 01:23+0000\n"
+"PO-Revision-Date: 2026-06-23 09:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,159 +20,149 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: apps/main.cpp:61 apps/main.cpp:70
+#: apps/main.cpp:60
 #, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
 msgstr "© Автори Ruqola, 2020–2026"
 
-#: apps/main.cpp:66 core/notifications/notification.cpp:36
-#, kde-format
-msgid "Ruqola"
-msgstr "Ruqola"
-
-#: apps/main.cpp:68
-#, kde-format
-msgid "Rocket Chat Client"
-msgstr "Клієнт спілкування Rocket"
-
-#: apps/main.cpp:73
+#: apps/main.cpp:64
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:64
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:65
 #, kde-format
 msgctxt "@info:credit"
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:65
 #, kde-format
 msgid "Original Author"
 msgstr "Початковий автор"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:69
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:78
+#: apps/main.cpp:69
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Виправлення вад, делегування тощо."
 
-#: apps/main.cpp:79
+#: apps/main.cpp:70
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:79 apps/main.cpp:80 apps/main.cpp:81 apps/main.cpp:83
-#: apps/main.cpp:84
+#: apps/main.cpp:70 apps/main.cpp:71 apps/main.cpp:72 apps/main.cpp:74
+#: apps/main.cpp:75
 #, kde-format
 msgid "Bug fixing"
 msgstr "Виправлення вад"
 
-#: apps/main.cpp:80
+#: apps/main.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:81
+#: apps/main.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:82
+#: apps/main.cpp:73
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Виправлення вад компіляції у Windows"
 
-#: apps/main.cpp:83
+#: apps/main.cpp:74
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:84
+#: apps/main.cpp:75
 #, kde-format
 msgctxt "@info:credit"
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:85
+#: apps/main.cpp:76
 #, kde-format
 msgctxt "@info:credit"
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:85
+#: apps/main.cpp:76
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Виправлення вад у Windows/Mac"
 
-#: apps/main.cpp:86
+#: apps/main.cpp:77
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:86
+#: apps/main.cpp:77
 #, kde-format
 msgid "Packaging"
 msgstr "Пакування"
 
-#: apps/main.cpp:87
+#: apps/main.cpp:78
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:87
+#: apps/main.cpp:78
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 "Виправлення вад (компіляція, аварійне завершення роботи, пов'язане із "
 "мережею…)"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:79
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:88
+#: apps/main.cpp:79
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr "Оптимізація, виправлення підтримки Windows/Mac"
 
-#: apps/main.cpp:89
+#: apps/main.cpp:80
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
 msgstr "Daniele E. Domenichelli"
 
-#: apps/main.cpp:89
+#: apps/main.cpp:80
 #, kde-format
 msgid "New feature"
 msgstr "Нова можливість"
 
-#: apps/main.cpp:116
+#: apps/main.cpp:107
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
@@ -1775,6 +1765,11 @@ msgstr "Власник"
 #, kde-format
 msgid "Offline"
 msgstr "Поза мережею"
+
+#: core/notifications/notification.cpp:36
+#, kde-format
+msgid "Ruqola"
+msgstr "Ruqola"
 
 #: core/notifications/notification.cpp:85
 #, kde-format
@@ -3492,20 +3487,20 @@ msgstr[2] "%1 повідомлень у кімнаті"
 msgstr[3] "Одне повідомлення у кімнаті"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:38
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:41
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Шукати повідомлення для модерації…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:62
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:65
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "Не знайдено повідомлення для модерації"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:70
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3521,7 +3516,7 @@ msgid "See messages"
 msgstr "Переглянути повідомлення"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:141
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:143
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3534,14 +3529,14 @@ msgid "Delete all Messages"
 msgstr "Вилучити усі повідомлення"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:150
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:149
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Деактивувати користувача"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:162
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3552,7 +3547,7 @@ msgstr ""
 "Усі повідомлення зі скаргами буде остаточно вилучено з відповідної кімнати."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:163
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:162
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3593,13 +3588,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Вилучення усіх повідомлень"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:138
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Переглянути скарги"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3607,7 +3602,7 @@ msgstr ""
 "Усі скарги буде вилучено, а усі повідомлення зі скаргами лишаться "
 "недоторканими."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:199
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -7760,7 +7755,7 @@ msgid "Username or email:"
 msgstr "Ім'я користувача або адреса ел. пошти:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1128
+#: widgets/ruqolamainwindow.cpp:1107
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7772,7 +7767,7 @@ msgstr ""
 "поверніться сюди і повторіть спробу."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1129
+#: widgets/ruqolamainwindow.cpp:1108
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -7954,12 +7949,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Увімкнути інтеграцію із просторами дій Плазми"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:51
+#: widgets/configuredialog/configurepluginswidget.cpp:50
 #, kde-format
 msgid "Tools Plugins"
 msgstr "Додатки інструментів"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:58
+#: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
 msgstr "Додатки для роботи з текстом"
@@ -9185,11 +9180,11 @@ msgstr[2] "%1 долучень у кімнаті (загалом: %2)"
 msgstr[3] "%1 долучення у кімнаті (загалом: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:114
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:131
+#: widgets/room/usersinroomflowwidget.cpp:136
 #: widgets/room/usersinroomwidget.cpp:167
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -9202,27 +9197,23 @@ msgid "Show Banned Users - %1"
 msgstr "Показ блокованих користувачів - %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
 msgstr "Розблокувати користувача"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:47
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Banned Users…"
+#: widgets/dialogs/showbanneduserswidget.cpp:46
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Показати заблокованих користувачів…"
+msgstr "Шукати заблокованих користувачів…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:107
+#: widgets/dialogs/showbanneduserswidget.cpp:106
 #, kde-format
 msgid "No Banned Users found"
 msgstr "Не знайдено заблокованих користувачів"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:112
+#: widgets/dialogs/showbanneduserswidget.cpp:111
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9350,19 +9341,26 @@ msgid "Video: %1"
 msgstr "Відео: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@title:window"
+msgid "Unban Users"
+msgstr "Розблокувати користувача"
+
+#: widgets/dialogs/unbanuserswidget.cpp:18
+#, kde-format
+msgctxt "@label:textbox"
+msgid ""
+"Some user are banned from this room. Do you want to unban and add them back ?"
+msgstr ""
+
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Вивантаження файла"
-
-#: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Do you want to mute this user?"
-msgctxt "@label:textbox"
-msgid "Do you want to unban user?"
-msgstr "Хочете заблокувати повідомлення від цього користувача?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:33
 #, kde-format
@@ -9411,8 +9409,8 @@ msgid "You are not authorized to view this page."
 msgstr "Вас не уповноважено на перегляд цієї сторінки."
 
 #: widgets/directory/directorywidget.cpp:35
-#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:36
-#: widgets/teams/addteamroomcompletionlineedit.cpp:41
+#: widgets/misc/joinedchannelcompletionlineeditbase.cpp:28
+#: widgets/teams/addteamroomcompletionlineedit.cpp:33
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search rooms…"
@@ -10819,12 +10817,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Діагностика"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Не вдалося відкрити %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:78
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
@@ -11202,37 +11200,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Помилка під час перекладу"
 
-#: widgets/room/messagetextedit.cpp:274
+#: widgets/room/messagetextedit.cpp:236
 #, kde-format
 msgid "Paste Image"
 msgstr "Вставити зображення"
 
-#: widgets/room/messagetextedit.cpp:281
+#: widgets/room/messagetextedit.cpp:243
 #, kde-format
 msgid "Change Text Format"
 msgstr "Зміна форматування тексту"
 
-#: widgets/room/messagetextedit.cpp:283
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Bold"
 msgstr "Напівжирний"
 
-#: widgets/room/messagetextedit.cpp:284
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Italic"
 msgstr "Курсив"
 
-#: widgets/room/messagetextedit.cpp:285
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Strike-out"
 msgstr "Закреслений"
 
-#: widgets/room/messagetextedit.cpp:287
+#: widgets/room/messagetextedit.cpp:249
 #, kde-format
 msgid "Code Block"
 msgstr "Блок коду"
 
-#: widgets/room/messagetextedit.cpp:289
+#: widgets/room/messagetextedit.cpp:251
 #, kde-format
 msgid "Markdown Url"
 msgstr "Адреса Markdown"
@@ -11381,39 +11379,39 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:393
+#: widgets/room/roomwidget.cpp:387
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:394
+#: widgets/room/roomwidget.cpp:388
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Вилучення журналу"
 
-#: widgets/room/roomwidget.cpp:438
+#: widgets/room/roomwidget.cpp:432
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: widgets/room/roomwidget.cpp:439
+#: widgets/room/roomwidget.cpp:433
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
 
-#: widgets/room/roomwidget.cpp:601
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Не можна шукати у зашифрованих даних."
 
-#: widgets/room/roomwidget.cpp:601
+#: widgets/room/roomwidget.cpp:595
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Пошук повідомлення"
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:614
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11421,7 +11419,7 @@ msgstr ""
 "Адміністратор робочого простору має встановити і налаштувати програми для "
 "викликів-конференцій."
 
-#: widgets/room/roomwidget.cpp:621
+#: widgets/room/roomwidget.cpp:615
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11460,7 +11458,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Користувачі"
 
-#: widgets/room/usersinroomflowwidget.cpp:137
+#: widgets/room/usersinroomflowwidget.cpp:142
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Відкрити зовнішнє діалогове вікно…)"
@@ -11627,279 +11625,279 @@ msgstr[1] "%1 користувачі у кімнаті (загалом: %2)"
 msgstr[2] "%1 користувачів у кімнаті (загалом: %2)"
 msgstr[3] "%1 користувач у кімнаті (загалом: %2)"
 
-#: widgets/ruqolamainwindow.cpp:251
+#: widgets/ruqolamainwindow.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Показати нові сповіщення"
 
-#: widgets/ruqolamainwindow.cpp:253
+#: widgets/ruqolamainwindow.cpp:239
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Показати нові сповіщення"
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Додати сервер…"
 
-#: widgets/ruqolamainwindow.cpp:457
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Дані щодо сервера…"
 
-#: widgets/ruqolamainwindow.cpp:461
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Вийти з поточного сервера"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Перейти до наступного непрочитаного каналу"
 
-#: widgets/ruqolamainwindow.cpp:470
+#: widgets/ruqolamainwindow.cpp:456
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Створити канал…"
 
-#: widgets/ruqolamainwindow.cpp:474
+#: widgets/ruqolamainwindow.cpp:460
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Створити безпосередні повідомлення…"
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Створити обговорення…"
 
-#: widgets/ruqolamainwindow.cpp:482
+#: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgid "Create Team…"
 msgstr "Створити команду…"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Непрочитані згори"
 
-#: widgets/ruqolamainwindow.cpp:498
+#: widgets/ruqolamainwindow.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "За останнім повідомленням"
 
-#: widgets/ruqolamainwindow.cpp:504
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "За абеткою"
 
-#: widgets/ruqolamainwindow.cpp:510
+#: widgets/ruqolamainwindow.cpp:496
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Показати журнал каналу"
 
-#: widgets/ruqolamainwindow.cpp:514
+#: widgets/ruqolamainwindow.cpp:500
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Показати помилки сервера"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Позначити усі канали як прочитані"
 
-#: widgets/ruqolamainwindow.cpp:563
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Зареєструвати нового користувача…"
 
-#: widgets/ruqolamainwindow.cpp:567
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Обліковий запис…"
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:557
 #, kde-format
 msgid "administration"
 msgstr "адміністрування"
 
-#: widgets/ruqolamainwindow.cpp:572
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Адміністратор…"
 
-#: widgets/ruqolamainwindow.cpp:578
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Параметри сервера…"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:571
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Програми…"
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:576
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Потрібні програми…"
 
-#: widgets/ruqolamainwindow.cpp:595
+#: widgets/ruqolamainwindow.cpp:581
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Встановлені програми…"
 
-#: widgets/ruqolamainwindow.cpp:600
+#: widgets/ruqolamainwindow.cpp:586
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Конфіденційні програми…"
 
-#: widgets/ruqolamainwindow.cpp:605
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Приєднатися до кімнати…"
 
-#: widgets/ruqolamainwindow.cpp:609
+#: widgets/ruqolamainwindow.cpp:595
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Приєднатися до команди…"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Відкрити конфіденційне спілкування…"
 
-#: widgets/ruqolamainwindow.cpp:634
+#: widgets/ruqolamainwindow.cpp:620
 #, kde-format
 msgid "&Next Server"
 msgstr "&Наступний сервер"
 
-#: widgets/ruqolamainwindow.cpp:639
+#: widgets/ruqolamainwindow.cpp:625
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Попередній сервер"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:634
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Стан:"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:649
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Попередній вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:670
+#: widgets/ruqolamainwindow.cpp:656
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Наступний вибраний канал"
 
-#: widgets/ruqolamainwindow.cpp:700
+#: widgets/ruqolamainwindow.cpp:686
 #, kde-format
 msgid "Show Notify History"
 msgstr "Показати журнал сповіщень"
 
-#: widgets/ruqolamainwindow.cpp:704
+#: widgets/ruqolamainwindow.cpp:690
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Показати відомості щодо RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:708
+#: widgets/ruqolamainwindow.cpp:694
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Показувати аватар кімнати"
 
-#: widgets/ruqolamainwindow.cpp:713
+#: widgets/ruqolamainwindow.cpp:699
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Показувати улюблену кімнату"
 
-#: widgets/ruqolamainwindow.cpp:730
+#: widgets/ruqolamainwindow.cpp:716
 #, kde-format
 msgid "What's new"
 msgstr "Що нового?"
 
-#: widgets/ruqolamainwindow.cpp:734
+#: widgets/ruqolamainwindow.cpp:720
 #, kde-format
 msgid "Import Accounts"
 msgstr "Імпортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:738
+#: widgets/ruqolamainwindow.cpp:724
 #, kde-format
 msgid "Export Accounts"
 msgstr "Експортувати облікові записи"
 
-#: widgets/ruqolamainwindow.cpp:755
+#: widgets/ruqolamainwindow.cpp:741
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Середній"
 
-#: widgets/ruqolamainwindow.cpp:763
+#: widgets/ruqolamainwindow.cpp:749
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Стиснений"
 
-#: widgets/ruqolamainwindow.cpp:772
+#: widgets/ruqolamainwindow.cpp:758
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Розгорнутий"
 
-#: widgets/ruqolamainwindow.cpp:780
+#: widgets/ruqolamainwindow.cpp:766
 #, kde-format
 msgid "Clear history"
 msgstr "Спорожнити журнал"
 
-#: widgets/ruqolamainwindow.cpp:831
+#: widgets/ruqolamainwindow.cpp:810
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Створення команди"
 
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Не вдалося виконати запис до файла журналу %1"
 
-#: widgets/ruqolamainwindow.cpp:1029
+#: widgets/ruqolamainwindow.cpp:1008
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Показ журналу каналу"
 
-#: widgets/ruqolamainwindow.cpp:1200
+#: widgets/ruqolamainwindow.cpp:1179
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
 
-#: widgets/ruqolamainwindow.cpp:1287
+#: widgets/ruqolamainwindow.cpp:1266
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11908,19 +11906,19 @@ msgstr ""
 "<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
 "програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1290
+#: widgets/ruqolamainwindow.cpp:1269
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
 
-#: widgets/ruqolamainwindow.cpp:1471
+#: widgets/ruqolamainwindow.cpp:1450
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Працювати у мережі"
 
-#: widgets/ruqolamainwindow.cpp:1474
+#: widgets/ruqolamainwindow.cpp:1453
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
@@ -12199,713 +12197,471 @@ msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Додати обліковий запис…"
 
-#: widgets/whatsnew/whatsnewtranslations.cpp:18
-msgid "Improve offline Mode"
-msgstr "Удосконалено автономний режим"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:19
-msgid "Allow to open saved file."
-msgstr "Уможливлено відкриття збереженого файла."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:20
-msgid "Allow to rotate image in show image dialog."
-msgstr "Уможливлено обертання зображення у вікні показу зображення."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:21
-msgid "Add new room info in notification history dialog."
-msgstr "Додано відомості щодо нових кімнат до вікна журналу сповіщень"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:22
-msgid "Use new textmessagewidget for error notification."
-msgstr "Для сповіщення про помилку використано новий textmessagewidget."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:23
-msgid "Implement Draft message sorting channel."
-msgstr "Реалізовано канал упорядковування повідомлень-чернеток"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:24
-msgid "Implement Banned Users list dialog."
-msgstr "Реалізовано вікно списку заблокованих користувачів."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:25
-msgid "Implement Banned/Unbanned Users."
-msgstr "Реалізовано показ блокованих і розблокованих користувачів."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:34
-#, kde-format
-msgid "Store Message in Local Database (experimental)"
-msgstr ""
-"Зберігати повідомлення у локальній базі даних (експериментальна можливість)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:36
-#, kde-format
-msgid "Download Server Icon from Server"
-msgstr "Отримувати піктограму сервера з сервера"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:37
-#, kde-format
-msgid "Show Server Error Info in Specific DialogBox"
-msgstr "Показувати дані помилки сервера у відповідному вікні"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:38
-#, kde-format
-msgid "Allow to Copy Image in Clipboard"
-msgstr "Дозволити копіювання зображення до буфера"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:39
-#, kde-format
-msgid "Improve debug support (Allow to show current account permissions)"
-msgstr ""
-"Удосконалено підтримку діагностики (уможливлено показ поточних права доступу "
-"облікового запису)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:40
-#, kde-format
-msgid "Add support for quoted text (text which starts by '>')"
-msgstr "Додано підтримку цитованого тексту (тексту, який починається з «>»)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:41
-#, kde-format
-msgid "Show leader/moderator/owner in channel info."
-msgstr "Показувати лідера, модератора та власника у даних каналу."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:42
-#, kde-format
-msgid "Video/Sound Message support (kf6 only)."
-msgstr "Підтримка звукових та відеоповідомлень (лише kf6)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:43
-#, kde-format
-msgid "Import/Export Accounts."
-msgstr "Імпортувати/Експортувати облікові записи."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:45
-#, kde-format
-msgid "Fix avatar support"
-msgstr "Виправлено підтримку аватарів"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:46
-#, kde-format
-msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr ""
-"Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:47
-#, kde-format
-msgid "Fix animated gif in reactions"
-msgstr "Виправлено анімований gif у реакціях"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:48
-#, kde-format
-msgid "Fix kf6 support"
-msgstr "Виправлено підтримку kf6"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
-#, kde-format
-msgid "Add Moderation Console (Administration, RC server 6.2)"
-msgstr "Додано консоль модерування (адміністрування, сервер RC 6.2)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
-#, kde-format
-msgid "Implement message style"
-msgstr "Реалізовано стиль повідомлень"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:54
-#, kde-format
-msgid "Implement Url Preview"
-msgstr "Реалізовано попередній перегляд адрес"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:56
-#, kde-format
-msgid "Fix markdown support (header + check mark)"
-msgstr "Виправлено підтримку markdown (заголовок + позначка)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:57
-#, kde-format
-msgid "Fix mem leak"
-msgstr "Виправлено виток пам'яті"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:58
-#, kde-format
-msgid "Cache message size (optimization)"
-msgstr "Реалізовано кешування розміру повідомлень (оптимізація)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:59
-#, kde-format
-msgid ""
-"Improve select room or user in message line edit (show icon, inform if user "
-"is in channel)"
-msgstr ""
-"Удосконалено засіб вибору кімнати або користувача у рядку редагування "
-"повідомлення (показ піктограми, інформування про те, що користувач присутній "
-"на каналі)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:60
-#, kde-format
-msgid ""
-"Fix show commands in message line edit (Hide action when room doesn't "
-"support it)."
-msgstr ""
-"Виправлено показ команд у рядку редагування повідомлень (приховування дій, "
-"підтримки яких у кімнаті не передбачено)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:61
-#, kde-format
-msgid "Fix download sound/video file when it's not in cache."
-msgstr ""
-"Виправити отриманий файл звукових даних або відео, коли він не перебуває у "
-"кеші."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:62
-#, kde-format
-msgid "Fix list of authentication method."
-msgstr "Виправлено список способів розпізнавання."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:63
-#, kde-format
-msgid "Fix show avatar url."
-msgstr "Виправлено показ адреси аватару."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:71
-#, kde-format
-msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-msgstr "Дозволити збільшення або зменшення розміру шрифту (CTRL++/CTRL+-)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:72
-#, kde-format
-msgid "Add channel list style (Condensed/Medium/Extended)"
-msgstr "Додати стиль списку каналу (стиснений/середній/розгорнутий)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:73
-#, kde-format
-msgid "Add forward message"
-msgstr "Додати переспрямування повідомлення"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:74
-#, kde-format
-msgid "Improve mentions support."
-msgstr "Удосконалено підтримку згадок."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:75
-#, kde-format
-msgid ""
-"Add support for deep linking <a href=\"https://developer.rocket.chat/getting-"
-"started/deep-linking\">Deep Linking</a>."
-msgstr ""
-"Додано підтримку <a href=\"https://developer.rocket.chat/getting-started/"
-"deep-linking\">глибокого пов'язування</a>."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:76
-#, kde-format
-msgid "Implement block actions."
-msgstr "Реалізовано дії з блокування."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:77
-#, kde-format
-msgid ""
-"Implement personal token authentication. <a href=\"https://bugs.kde.org/"
-"show_bug.cgi?id=481400\">Bug 481400</a>"
-msgstr ""
-"Реалізовано розпізнавання за особистим жетоном. <a href=\"https://bugs.kde."
-"org/show_bug.cgi?id=481400\">Вада 481400</a>"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:78
-#, kde-format
-msgid "Add Plasma Activities Support"
-msgstr "Додано підтримку просторів дій Плазми"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:79
-#, kde-format
-msgid "Add Report User Support"
-msgstr "Додано підтримку скарг на користувача"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:80
-#, kde-format
-msgid "Implement Channel Sound Notification."
-msgstr "Реалізовано звукові сповіщення щодо дій на каналі."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:81
-#, kde-format
-msgid "Implement New Room Sound Notification."
-msgstr "Реалізовано нове звукове сповіщення щодо кімнати."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:82
-#, kde-format
-msgid "Implement Sorted/Unsorted markdown list."
-msgstr "Реалізовано упорядковані і неупорядковані списки Markdown."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:85
-#: widgets/whatsnew/whatsnewtranslations.cpp:172
-#, kde-format
-msgid "Fix dark mode support."
-msgstr "Виправлено підтримку темного режиму."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:86
-#, kde-format
-msgid "Fix jitsi support."
-msgstr "Виправлено підтримку jitsi."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:87
-#, kde-format
-msgid "Fix translate message in direct channel."
-msgstr "Виправлено переклад повідомлень у безпосередньому каналі."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:88
-#, kde-format
-msgid "Don't show @here/@all as user."
-msgstr "Вимкнено показ @here/@all як користувача."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:89
-#, kde-format
-msgid "Reduce memory footprint."
-msgstr "Зменшити споживання пам'яті."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:90
-#, kde-format
-msgid "Use RESTAPI for logging."
-msgstr "Використати RESTAPI для ведення журналу."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:91
-#, kde-format
-msgid "Allow to send multi files."
-msgstr "Уможливлено надсилання декількох файлів одночасно."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:92
-#, kde-format
-msgid "Fix preview url."
-msgstr "Виправлено адресу попереднього перегляду."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:100
-#, kde-format
-msgid "Implement Rocket.Chat Marketplace."
-msgstr "Реалізовано ринок програм Rocket.Chat."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:101
-#, kde-format
-msgid "Allow to clean room history."
-msgstr "Уможливлено очищення журналу кімнати."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:102
-#, kde-format
-msgid "Allow to check new version."
-msgstr "Уможливити пошук нової версії."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:103
-#, kde-format
-msgid "Implement moderation (administrator mode)."
-msgstr "Реалізовано модерацію (режим адміністратора)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:104
-#, kde-format
-msgid "Add welcome page."
-msgstr "Додано сторінку вітання."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:105
-#, kde-format
-msgid "Implement pending users info (administrator mode)."
-msgstr ""
-"Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:106
-#, kde-format
-msgid "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
-msgstr ""
-"Використано cmark-rc (https://github.com/dfaure/cmark-rc) для реалізації "
-"підтримки markdown."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:107
-#, kde-format
-msgid ""
-"Delete oldest files from some cache directories (file-upload and media) so "
-"it doesn't grow forever."
-msgstr ""
-"Вилучати найстаріші файли з каталогів кешу (отримання файлів і "
-"мультимедійних даних), щоб каталоги нескінченно не зростали у розмірі."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:111
-#, kde-format
-msgid ""
-"Clean market application model after 30 minutes (reduce memory footprint)."
-msgstr ""
-"Спорожнити модель ринку програм за 30 хвилин (зменшує використання пам'яті)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:112
-#, kde-format
-msgid "Fix show discussion name in completion."
-msgstr "Виправлено показ назви обговорення при доповненні."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:113
-#, kde-format
-msgid "Fix duplicated messages in search message dialog."
-msgstr "Виправлено дублювання повідомлень у вікні пошуку повідомлень."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:114
-#, kde-format
-msgid "Add delegate in search rooms in team dialog."
-msgstr "Додано делегат у кімнати пошуку у вікні команд."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:123
-#, kde-format
-msgid "Allow to clean up room history when room was not opened from long time."
-msgstr ""
-"Дозволити чищення журналу кімнати, якщо кімнату не відчиняли досить довго."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:124
-#, kde-format
-msgid "Add restore button in administrator server settings dialog."
-msgstr "Додано кнопку відновлення у вікні параметрів адміністратора сервера."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:125
-#, kde-format
-msgid "Improve changing password (show validation info)."
-msgstr "Удосконалено зміну пароля (показ даних щодо коректності)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:126
-#, kde-format
-msgid "Improve register new account (Add reason support)."
-msgstr ""
-"Удосконалено реєстрацію нового облікового запису (додано підтримку причини)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:127
-#, kde-format
-msgid "Implement mute/unmute user."
-msgstr "Реалізовано вимикання та вмикання повідомлень від користувача."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:128
-#, kde-format
-msgid "Add color to the text in the account tab"
-msgstr "Додано колір до тексту на вкладці облікових записів"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:129
-#, kde-format
-msgid "Allow to show private installed applications"
-msgstr "Дозволити показ приватно встановлених програм"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:134
-#, kde-format
-msgid "Fix editing message."
-msgstr "Виправлено редагування повідомлень."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:135
-#, kde-format
-msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "Показ прав доступу у крамниці Rocket.Chat."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:136
-#, kde-format
-msgid "Fix reconnect server."
-msgstr "Виправлено повторне з'єднання з сервером."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:137
-#, kde-format
-msgid "Fix single application on Windows/MacOs"
-msgstr "Виправлено проблему із єдиним екземпляром програми у Windows/MacOs"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:138
-#, kde-format
-msgid "Fix select created room/discussion/teams"
-msgstr "Виправлено позначення створених кімнат, обговорень та команд"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:139
-#, kde-format
-msgid "Fix filter discussion in administrator mode"
-msgstr "Виправлено фільтрування обговорень у режимі адміністратора"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:140
-#, kde-format
-msgid "Fix message video support"
-msgstr "Виправлено підтримку відео у повідомленнях"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:141
-#, kde-format
-msgid "Fix highlight text in quoted message"
-msgstr "Виправлено підсвічування тексту у цитованому повідомленні"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:142
-#, kde-format
-msgid "Fix open discussion channel"
-msgstr "Виправлено канал відкритого спілкування"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:143
-#, kde-format
-msgid "Allow to show application market settings"
-msgstr "Уможливлено показ параметрів ринку програм"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:151
-#, kde-format
-msgid "Add support for tools plugins"
-msgstr "Додано підтримку для додатків інструментів"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:152
-#, kde-format
-msgid "Plugin: Add screenshot button (near send message button)"
-msgstr ""
-"Додаток: додано кнопку знімків екрана (поряд із кнопкою надсилання "
-"повідомлення)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:153
-#, kde-format
-msgid "Implement invite RC url support"
-msgstr "Реалізовано підтримку адрес RC запрошень"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:154
-#, kde-format
-msgid "Implement verify if a new Ruqola version exist"
-msgstr "Реалізовано перевірку наявності нової версії Ruqola"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:155
-#, kde-format
-msgid "Allow to search threads by unread/following"
-msgstr "Уможливлено пошук гілок за непрочитаними/відстежуваними"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:156
-#, kde-format
-msgid "Show images from attachment dialog box"
-msgstr "Показувати зображення з панелі долучення"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:157
-#, kde-format
-msgid "Implement Rocket.Chat application support."
-msgstr "Реалізовано підтримку програм Rocket.Chat."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:158
-#, kde-format
-msgid "Implement command preview."
-msgstr "Реалізовано попередній перегляд команди."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:159
-#, kde-format
-msgid "Debug: explore translation from RC server."
-msgstr "Діагностика: вивчення перекладу з сервера RC."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:160
-#, kde-format
-msgid "Implement plugin UI support (Create dialog box for configure settings)."
-msgstr ""
-"Реалізовано підтримку додатків інтерфейсу користувача (створено панель для "
-"налаштовування параметрів)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:164
-#, kde-format
-msgid "Allow to search file from username and filename."
-msgstr "Уможливлено пошук файла за іменем користувача і назвою файла."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:165
-#, kde-format
-msgid "Fix copy action text when we copy a text selection."
-msgstr ""
-"Виправлено текст дії з копіювання, якщо копіюють позначений фрагмент тексту."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:166
-#, kde-format
-msgid "A command start with '/' and not /* or // "
-msgstr "Команда розпочинається з «/», а не з /* або // "
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:167
-#, kde-format
-msgid "Allow to put command line in clipboard when an error occurred"
-msgstr ""
-"Надано змогу копіювати рядок команди до буфера обміну даними, якщо сталася "
-"помилка"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:168
-#, kde-format
-msgid "Allow to activate/deactivate apps market."
-msgstr "Надано змогу вмикати і вимикати крамницю програм."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:169
-#, kde-format
-msgid "Improve list of user in room."
-msgstr "Удосконалено список користувачів у кімнаті."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:170
-#, kde-format
-msgid "Search in encrypted room is not possible."
-msgstr "Пошук у зашифрованій кімнаті неможливий."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:171
-#, kde-format
-msgid "Show roles for users in rooms."
-msgstr "Реалізовано показ ролей користувачів у кімнатах."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:173
-#, kde-format
-msgid "Fix download languages apps."
-msgstr "Виправлено отримання мовних програм."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:181
-#, kde-format
-msgid "Add AI plugin"
-msgstr "Додано додаток ШІ"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:182
-#, kde-format
-msgid "Allow to dnd image."
-msgstr "Дозволено зображення «Не турбувати»."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:183
-#, kde-format
-msgid "Add restore button in administration settings."
-msgstr "Додано кнопку відновлення на сторінку параметрів адміністрування."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:184
-#, kde-format
-msgid "Allow to activate plugins."
-msgstr "Дозволити активацію додатків."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:185
-#, kde-format
-msgid "Add Open With button in show image."
-msgstr "На панель показу зображення додано кнопку «Відкрити за допомогою»."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:186
-#, kde-format
-msgid "Add Quick Text Format."
-msgstr "Додано швидке форматування тексту"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:187
-#, kde-format
-msgid "Add Extension message line button."
-msgstr "Додати кнопку рядка повідомлення розширення."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:188
-#, kde-format
-msgid "Allow to Add WebDav Server."
-msgstr "Дозволити додавання сервера WebDav."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:189
-#, kde-format
-msgid "Show room info (italic text) when there is some pending message typed."
-msgstr ""
-"Реалізовано показ відомостей щодо кімнати (курсивом), якщо виконується "
-"введення якогось повідомлення з черги."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:190
-#, kde-format
-msgid "Allow to add emoticon from popup menu."
-msgstr "Уможливлено додавання емоційки з контекстного меню."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:194
-#, kde-format
-msgid "Fix show date info."
-msgstr "Виправлено показ даних щодо дати."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:195
-#, kde-format
-msgid "Fix save application settings."
-msgstr "Виправлено збереження параметрів роботи програми."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:196
-#, kde-format
-msgid "Fix text selection in attachment."
-msgstr "Виправлено позначення тексту у долученні."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:197
-#, kde-format
-msgid "Fix display user."
-msgstr "Виправлено показ користувача."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:198
-#, kde-format
-msgid "Display translate menu in thread dialog."
-msgstr "Реалізовано показ меню перекладу у вікні гілки."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:199
-#, kde-format
-msgid "Add AI Rocket Chat Actions support."
-msgstr "Додано підтримку дій Rocket Chat з ШІ."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:200
-#, kde-format
-msgid "Fix apply, restore, cancel buttons in administration dialog."
-msgstr ""
-"Виправлено кнопки застосування, відновлення та скасування у вікні "
-"адміністрування."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:201
-#, kde-format
-msgid "Fix search users."
-msgstr "Виправлено пошук користувачів."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:202
-#, kde-format
-msgid "Fix extract language from code block."
-msgstr "Виправлено видобування мови з блоку програмного коду."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:203
-#, kde-format
-msgid "Fix attachment info in \"Show Channel Log\" dialog."
-msgstr "Виправлено відомості щодо долучення у вікні «Показати журнал каналу»."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:204
-#, kde-format
-msgid "Fix icon on windows."
-msgstr "Виправлено піктограму у Windows"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:205
-#, kde-format
-msgid "Fix show file attachment size."
-msgstr "Виправлено показ розміру файлового долучення."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:214
-#, kde-format
-msgid "Copy block code more easily."
-msgstr "Полегшено копіювання блоків коду."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:215
-#, kde-format
-msgid "Improve Text To Speech user interface."
-msgstr "Удосконалено інтерфейс озвучення тексту."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:216
-#, kde-format
-msgid "Show attachment fields."
-msgstr "Реалізовано показ полів долучень."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:217
-#, kde-format
-msgid "Implement Offline Mode (experimental)."
-msgstr "Реалізовано автономний режим (експериментальна можливість)"
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:218
-#, kde-format
-msgid "Implement Pending Typed database storage."
-msgstr "Реалізовано сховище у базі даних для черги введення."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:219
-#, kde-format
-msgid "Fix RC 8.0.0 support."
-msgstr "Виправлено підтримку RC 8.0.0."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:220
-#, kde-format
-msgid "Add Attachment Actions Support."
-msgstr "Додано підтримку дій з долученнями."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, kde-format
-msgid "Add TimeStamp support."
-msgstr "Додано підтримку часових позначок."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:224
-#, kde-format
-msgid "Save local translation to local database."
-msgstr "Реалізовано збереження локального перекладу до локальної бази даних."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:225
-#, kde-format
-msgid "Fix remove room (in local database)."
-msgstr "Виправлено вилучення кімнати (у локальній базі даних)."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:226
-#, kde-format
-msgid "Fix export database."
-msgstr "Виправлено експортування бази даних."
-
-#: widgets/whatsnew/whatsnewtranslations.cpp:227
-#, kde-format
-msgid "Fix upload Custom Sound"
-msgstr "Виправлено вивантаження нетипових звуків"
+#~ msgid "Rocket Chat Client"
+#~ msgstr "Клієнт спілкування Rocket"
+
+#~| msgid "Do you want to mute this user?"
+#~ msgctxt "@label:textbox"
+#~ msgid "Do you want to unban user?"
+#~ msgstr "Хочете розблокувати користувача?"
+
+#~ msgid "Improve offline Mode"
+#~ msgstr "Удосконалено автономний режим"
+
+#~ msgid "Allow to open saved file."
+#~ msgstr "Уможливлено відкриття збереженого файла."
+
+#~ msgid "Allow to rotate image in show image dialog."
+#~ msgstr "Уможливлено обертання зображення у вікні показу зображення."
+
+#~ msgid "Add new room info in notification history dialog."
+#~ msgstr "Додано відомості щодо нових кімнат до вікна журналу сповіщень"
+
+#~ msgid "Use new textmessagewidget for error notification."
+#~ msgstr "Для сповіщення про помилку використано новий textmessagewidget."
+
+#~ msgid "Implement Draft message sorting channel."
+#~ msgstr "Реалізовано канал упорядковування повідомлень-чернеток"
+
+#~ msgid "Implement Banned Users list dialog."
+#~ msgstr "Реалізовано вікно списку заблокованих користувачів."
+
+#~ msgid "Implement Banned/Unbanned Users."
+#~ msgstr "Реалізовано показ блокованих і розблокованих користувачів."
+
+#~ msgid "Store Message in Local Database (experimental)"
+#~ msgstr ""
+#~ "Зберігати повідомлення у локальній базі даних (експериментальна "
+#~ "можливість)"
+
+#~ msgid "Download Server Icon from Server"
+#~ msgstr "Отримувати піктограму сервера з сервера"
+
+#~ msgid "Show Server Error Info in Specific DialogBox"
+#~ msgstr "Показувати дані помилки сервера у відповідному вікні"
+
+#~ msgid "Allow to Copy Image in Clipboard"
+#~ msgstr "Дозволити копіювання зображення до буфера"
+
+#~ msgid "Improve debug support (Allow to show current account permissions)"
+#~ msgstr ""
+#~ "Удосконалено підтримку діагностики (уможливлено показ поточних права "
+#~ "доступу облікового запису)"
+
+#~ msgid "Add support for quoted text (text which starts by '>')"
+#~ msgstr "Додано підтримку цитованого тексту (тексту, який починається з «>»)"
+
+#~ msgid "Show leader/moderator/owner in channel info."
+#~ msgstr "Показувати лідера, модератора та власника у даних каналу."
+
+#~ msgid "Video/Sound Message support (kf6 only)."
+#~ msgstr "Підтримка звукових та відеоповідомлень (лише kf6)."
+
+#~ msgid "Import/Export Accounts."
+#~ msgstr "Імпортувати/Експортувати облікові записи."
+
+#~ msgid "Fix avatar support"
+#~ msgstr "Виправлено підтримку аватарів"
+
+#~ msgid "Fix emoji support (use new ktextaddons/textemoticons)"
+#~ msgstr ""
+#~ "Виправлено підтримку емоційок (використано нові ktextaddons/textemoticons)"
+
+#~ msgid "Fix animated gif in reactions"
+#~ msgstr "Виправлено анімований gif у реакціях"
+
+#~ msgid "Fix kf6 support"
+#~ msgstr "Виправлено підтримку kf6"
+
+#~ msgid "Add Moderation Console (Administration, RC server 6.2)"
+#~ msgstr "Додано консоль модерування (адміністрування, сервер RC 6.2)"
+
+#~ msgid "Implement message style"
+#~ msgstr "Реалізовано стиль повідомлень"
+
+#~ msgid "Implement Url Preview"
+#~ msgstr "Реалізовано попередній перегляд адрес"
+
+#~ msgid "Fix markdown support (header + check mark)"
+#~ msgstr "Виправлено підтримку markdown (заголовок + позначка)"
+
+#~ msgid "Fix mem leak"
+#~ msgstr "Виправлено виток пам'яті"
+
+#~ msgid "Cache message size (optimization)"
+#~ msgstr "Реалізовано кешування розміру повідомлень (оптимізація)"
+
+#~ msgid ""
+#~ "Improve select room or user in message line edit (show icon, inform if "
+#~ "user is in channel)"
+#~ msgstr ""
+#~ "Удосконалено засіб вибору кімнати або користувача у рядку редагування "
+#~ "повідомлення (показ піктограми, інформування про те, що користувач "
+#~ "присутній на каналі)"
+
+#~ msgid ""
+#~ "Fix show commands in message line edit (Hide action when room doesn't "
+#~ "support it)."
+#~ msgstr ""
+#~ "Виправлено показ команд у рядку редагування повідомлень (приховування "
+#~ "дій, підтримки яких у кімнаті не передбачено)."
+
+#~ msgid "Fix download sound/video file when it's not in cache."
+#~ msgstr ""
+#~ "Виправити отриманий файл звукових даних або відео, коли він не перебуває "
+#~ "у кеші."
+
+#~ msgid "Fix list of authentication method."
+#~ msgstr "Виправлено список способів розпізнавання."
+
+#~ msgid "Fix show avatar url."
+#~ msgstr "Виправлено показ адреси аватару."
+
+#~ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
+#~ msgstr "Дозволити збільшення або зменшення розміру шрифту (CTRL++/CTRL+-)"
+
+#~ msgid "Add channel list style (Condensed/Medium/Extended)"
+#~ msgstr "Додати стиль списку каналу (стиснений/середній/розгорнутий)"
+
+#~ msgid "Add forward message"
+#~ msgstr "Додати переспрямування повідомлення"
+
+#~ msgid "Improve mentions support."
+#~ msgstr "Удосконалено підтримку згадок."
+
+#~ msgid ""
+#~ "Add support for deep linking <a href=\"https://developer.rocket.chat/"
+#~ "getting-started/deep-linking\">Deep Linking</a>."
+#~ msgstr ""
+#~ "Додано підтримку <a href=\"https://developer.rocket.chat/getting-started/"
+#~ "deep-linking\">глибокого пов'язування</a>."
+
+#~ msgid "Implement block actions."
+#~ msgstr "Реалізовано дії з блокування."
+
+#~ msgid ""
+#~ "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
+#~ "show_bug.cgi?id=481400\">Bug 481400</a>"
+#~ msgstr ""
+#~ "Реалізовано розпізнавання за особистим жетоном. <a href=\"https://bugs."
+#~ "kde.org/show_bug.cgi?id=481400\">Вада 481400</a>"
+
+#~ msgid "Add Plasma Activities Support"
+#~ msgstr "Додано підтримку просторів дій Плазми"
+
+#~ msgid "Add Report User Support"
+#~ msgstr "Додано підтримку скарг на користувача"
+
+#~ msgid "Implement Channel Sound Notification."
+#~ msgstr "Реалізовано звукові сповіщення щодо дій на каналі."
+
+#~ msgid "Implement New Room Sound Notification."
+#~ msgstr "Реалізовано нове звукове сповіщення щодо кімнати."
+
+#~ msgid "Implement Sorted/Unsorted markdown list."
+#~ msgstr "Реалізовано упорядковані і неупорядковані списки Markdown."
+
+#~ msgid "Fix dark mode support."
+#~ msgstr "Виправлено підтримку темного режиму."
+
+#~ msgid "Fix jitsi support."
+#~ msgstr "Виправлено підтримку jitsi."
+
+#~ msgid "Fix translate message in direct channel."
+#~ msgstr "Виправлено переклад повідомлень у безпосередньому каналі."
+
+#~ msgid "Don't show @here/@all as user."
+#~ msgstr "Вимкнено показ @here/@all як користувача."
+
+#~ msgid "Reduce memory footprint."
+#~ msgstr "Зменшити споживання пам'яті."
+
+#~ msgid "Use RESTAPI for logging."
+#~ msgstr "Використати RESTAPI для ведення журналу."
+
+#~ msgid "Allow to send multi files."
+#~ msgstr "Уможливлено надсилання декількох файлів одночасно."
+
+#~ msgid "Fix preview url."
+#~ msgstr "Виправлено адресу попереднього перегляду."
+
+#~ msgid "Implement Rocket.Chat Marketplace."
+#~ msgstr "Реалізовано ринок програм Rocket.Chat."
+
+#~ msgid "Allow to clean room history."
+#~ msgstr "Уможливлено очищення журналу кімнати."
+
+#~ msgid "Allow to check new version."
+#~ msgstr "Уможливити пошук нової версії."
+
+#~ msgid "Implement moderation (administrator mode)."
+#~ msgstr "Реалізовано модерацію (режим адміністратора)."
+
+#~ msgid "Add welcome page."
+#~ msgstr "Додано сторінку вітання."
+
+#~ msgid "Implement pending users info (administrator mode)."
+#~ msgstr ""
+#~ "Реалізовано показ даних щодо користувачів у черзі (режим адміністратора)."
+
+#~ msgid ""
+#~ "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
+#~ msgstr ""
+#~ "Використано cmark-rc (https://github.com/dfaure/cmark-rc) для реалізації "
+#~ "підтримки markdown."
+
+#~ msgid ""
+#~ "Delete oldest files from some cache directories (file-upload and media) "
+#~ "so it doesn't grow forever."
+#~ msgstr ""
+#~ "Вилучати найстаріші файли з каталогів кешу (отримання файлів і "
+#~ "мультимедійних даних), щоб каталоги нескінченно не зростали у розмірі."
+
+#~ msgid ""
+#~ "Clean market application model after 30 minutes (reduce memory footprint)."
+#~ msgstr ""
+#~ "Спорожнити модель ринку програм за 30 хвилин (зменшує використання "
+#~ "пам'яті)."
+
+#~ msgid "Fix show discussion name in completion."
+#~ msgstr "Виправлено показ назви обговорення при доповненні."
+
+#~ msgid "Fix duplicated messages in search message dialog."
+#~ msgstr "Виправлено дублювання повідомлень у вікні пошуку повідомлень."
+
+#~ msgid "Add delegate in search rooms in team dialog."
+#~ msgstr "Додано делегат у кімнати пошуку у вікні команд."
+
+#~ msgid ""
+#~ "Allow to clean up room history when room was not opened from long time."
+#~ msgstr ""
+#~ "Дозволити чищення журналу кімнати, якщо кімнату не відчиняли досить довго."
+
+#~ msgid "Add restore button in administrator server settings dialog."
+#~ msgstr ""
+#~ "Додано кнопку відновлення у вікні параметрів адміністратора сервера."
+
+#~ msgid "Improve changing password (show validation info)."
+#~ msgstr "Удосконалено зміну пароля (показ даних щодо коректності)."
+
+#~ msgid "Improve register new account (Add reason support)."
+#~ msgstr ""
+#~ "Удосконалено реєстрацію нового облікового запису (додано підтримку "
+#~ "причини)."
+
+#~ msgid "Implement mute/unmute user."
+#~ msgstr "Реалізовано вимикання та вмикання повідомлень від користувача."
+
+#~ msgid "Add color to the text in the account tab"
+#~ msgstr "Додано колір до тексту на вкладці облікових записів"
+
+#~ msgid "Allow to show private installed applications"
+#~ msgstr "Дозволити показ приватно встановлених програм"
+
+#~ msgid "Fix editing message."
+#~ msgstr "Виправлено редагування повідомлень."
+
+#~ msgid "Show permissions in Rocket.Chat Marketplace."
+#~ msgstr "Показ прав доступу у крамниці Rocket.Chat."
+
+#~ msgid "Fix reconnect server."
+#~ msgstr "Виправлено повторне з'єднання з сервером."
+
+#~ msgid "Fix single application on Windows/MacOs"
+#~ msgstr "Виправлено проблему із єдиним екземпляром програми у Windows/MacOs"
+
+#~ msgid "Fix select created room/discussion/teams"
+#~ msgstr "Виправлено позначення створених кімнат, обговорень та команд"
+
+#~ msgid "Fix filter discussion in administrator mode"
+#~ msgstr "Виправлено фільтрування обговорень у режимі адміністратора"
+
+#~ msgid "Fix message video support"
+#~ msgstr "Виправлено підтримку відео у повідомленнях"
+
+#~ msgid "Fix highlight text in quoted message"
+#~ msgstr "Виправлено підсвічування тексту у цитованому повідомленні"
+
+#~ msgid "Fix open discussion channel"
+#~ msgstr "Виправлено канал відкритого спілкування"
+
+#~ msgid "Allow to show application market settings"
+#~ msgstr "Уможливлено показ параметрів ринку програм"
+
+#~ msgid "Add support for tools plugins"
+#~ msgstr "Додано підтримку для додатків інструментів"
+
+#~ msgid "Plugin: Add screenshot button (near send message button)"
+#~ msgstr ""
+#~ "Додаток: додано кнопку знімків екрана (поряд із кнопкою надсилання "
+#~ "повідомлення)"
+
+#~ msgid "Implement invite RC url support"
+#~ msgstr "Реалізовано підтримку адрес RC запрошень"
+
+#~ msgid "Implement verify if a new Ruqola version exist"
+#~ msgstr "Реалізовано перевірку наявності нової версії Ruqola"
+
+#~ msgid "Allow to search threads by unread/following"
+#~ msgstr "Уможливлено пошук гілок за непрочитаними/відстежуваними"
+
+#~ msgid "Show images from attachment dialog box"
+#~ msgstr "Показувати зображення з панелі долучення"
+
+#~ msgid "Implement Rocket.Chat application support."
+#~ msgstr "Реалізовано підтримку програм Rocket.Chat."
+
+#~ msgid "Implement command preview."
+#~ msgstr "Реалізовано попередній перегляд команди."
+
+#~ msgid "Debug: explore translation from RC server."
+#~ msgstr "Діагностика: вивчення перекладу з сервера RC."
+
+#~ msgid ""
+#~ "Implement plugin UI support (Create dialog box for configure settings)."
+#~ msgstr ""
+#~ "Реалізовано підтримку додатків інтерфейсу користувача (створено панель "
+#~ "для налаштовування параметрів)."
+
+#~ msgid "Allow to search file from username and filename."
+#~ msgstr "Уможливлено пошук файла за іменем користувача і назвою файла."
+
+#~ msgid "Fix copy action text when we copy a text selection."
+#~ msgstr ""
+#~ "Виправлено текст дії з копіювання, якщо копіюють позначений фрагмент "
+#~ "тексту."
+
+#~ msgid "A command start with '/' and not /* or // "
+#~ msgstr "Команда розпочинається з «/», а не з /* або // "
+
+#~ msgid "Allow to put command line in clipboard when an error occurred"
+#~ msgstr ""
+#~ "Надано змогу копіювати рядок команди до буфера обміну даними, якщо "
+#~ "сталася помилка"
+
+#~ msgid "Allow to activate/deactivate apps market."
+#~ msgstr "Надано змогу вмикати і вимикати крамницю програм."
+
+#~ msgid "Improve list of user in room."
+#~ msgstr "Удосконалено список користувачів у кімнаті."
+
+#~ msgid "Search in encrypted room is not possible."
+#~ msgstr "Пошук у зашифрованій кімнаті неможливий."
+
+#~ msgid "Show roles for users in rooms."
+#~ msgstr "Реалізовано показ ролей користувачів у кімнатах."
+
+#~ msgid "Fix download languages apps."
+#~ msgstr "Виправлено отримання мовних програм."
+
+#~ msgid "Add AI plugin"
+#~ msgstr "Додано додаток ШІ"
+
+#~ msgid "Allow to dnd image."
+#~ msgstr "Дозволено зображення «Не турбувати»."
+
+#~ msgid "Add restore button in administration settings."
+#~ msgstr "Додано кнопку відновлення на сторінку параметрів адміністрування."
+
+#~ msgid "Allow to activate plugins."
+#~ msgstr "Дозволити активацію додатків."
+
+#~ msgid "Add Open With button in show image."
+#~ msgstr "На панель показу зображення додано кнопку «Відкрити за допомогою»."
+
+#~ msgid "Add Quick Text Format."
+#~ msgstr "Додано швидке форматування тексту"
+
+#~ msgid "Add Extension message line button."
+#~ msgstr "Додати кнопку рядка повідомлення розширення."
+
+#~ msgid "Allow to Add WebDav Server."
+#~ msgstr "Дозволити додавання сервера WebDav."
+
+#~ msgid ""
+#~ "Show room info (italic text) when there is some pending message typed."
+#~ msgstr ""
+#~ "Реалізовано показ відомостей щодо кімнати (курсивом), якщо виконується "
+#~ "введення якогось повідомлення з черги."
+
+#~ msgid "Allow to add emoticon from popup menu."
+#~ msgstr "Уможливлено додавання емоційки з контекстного меню."
+
+#~ msgid "Fix show date info."
+#~ msgstr "Виправлено показ даних щодо дати."
+
+#~ msgid "Fix save application settings."
+#~ msgstr "Виправлено збереження параметрів роботи програми."
+
+#~ msgid "Fix text selection in attachment."
+#~ msgstr "Виправлено позначення тексту у долученні."
+
+#~ msgid "Fix display user."
+#~ msgstr "Виправлено показ користувача."
+
+#~ msgid "Display translate menu in thread dialog."
+#~ msgstr "Реалізовано показ меню перекладу у вікні гілки."
+
+#~ msgid "Add AI Rocket Chat Actions support."
+#~ msgstr "Додано підтримку дій Rocket Chat з ШІ."
+
+#~ msgid "Fix apply, restore, cancel buttons in administration dialog."
+#~ msgstr ""
+#~ "Виправлено кнопки застосування, відновлення та скасування у вікні "
+#~ "адміністрування."
+
+#~ msgid "Fix search users."
+#~ msgstr "Виправлено пошук користувачів."
+
+#~ msgid "Fix extract language from code block."
+#~ msgstr "Виправлено видобування мови з блоку програмного коду."
+
+#~ msgid "Fix attachment info in \"Show Channel Log\" dialog."
+#~ msgstr ""
+#~ "Виправлено відомості щодо долучення у вікні «Показати журнал каналу»."
+
+#~ msgid "Fix icon on windows."
+#~ msgstr "Виправлено піктограму у Windows"
+
+#~ msgid "Fix show file attachment size."
+#~ msgstr "Виправлено показ розміру файлового долучення."
+
+#~ msgid "Copy block code more easily."
+#~ msgstr "Полегшено копіювання блоків коду."
+
+#~ msgid "Improve Text To Speech user interface."
+#~ msgstr "Удосконалено інтерфейс озвучення тексту."
+
+#~ msgid "Show attachment fields."
+#~ msgstr "Реалізовано показ полів долучень."
+
+#~ msgid "Implement Offline Mode (experimental)."
+#~ msgstr "Реалізовано автономний режим (експериментальна можливість)"
+
+#~ msgid "Implement Pending Typed database storage."
+#~ msgstr "Реалізовано сховище у базі даних для черги введення."
+
+#~ msgid "Fix RC 8.0.0 support."
+#~ msgstr "Виправлено підтримку RC 8.0.0."
+
+#~ msgid "Add Attachment Actions Support."
+#~ msgstr "Додано підтримку дій з долученнями."
+
+#~ msgid "Add TimeStamp support."
+#~ msgstr "Додано підтримку часових позначок."
+
+#~ msgid "Save local translation to local database."
+#~ msgstr ""
+#~ "Реалізовано збереження локального перекладу до локальної бази даних."
+
+#~ msgid "Fix remove room (in local database)."
+#~ msgstr "Виправлено вилучення кімнати (у локальній базі даних)."
+
+#~ msgid "Fix export database."
+#~ msgstr "Виправлено експортування бази даних."
+
+#~ msgid "Fix upload Custom Sound"
+#~ msgstr "Виправлено вивантаження нетипових звуків"
 
 #~ msgctxt "@info:shell"
 #~ msgid "Use ddp api for login"
