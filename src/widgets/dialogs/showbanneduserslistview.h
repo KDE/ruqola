@@ -7,7 +7,6 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QListView>
-
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowBannedUsersListView : public QListView
 {
     Q_OBJECT

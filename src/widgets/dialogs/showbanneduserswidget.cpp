@@ -13,6 +13,7 @@
 #include "rooms/roomsbannedusersjob.h"
 #include "rooms/roomsunbanuserjob.h"
 #include "ruqolawidgets_debug.h"
+#include "showbannedusersdelegate.h"
 #include "showbanneduserslistview.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
@@ -34,6 +35,12 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+
+    auto delegate = new ShowBannedUsersDelegate(this);
+    if (mCurrentRocketChatAccount) {
+        delegate->setRocketChatAccount(mCurrentRocketChatAccount);
+    }
+    mListBannedUsers->setItemDelegate(delegate);
 
     auto searchBannedUsersLayout = new QHBoxLayout;
     searchBannedUsersLayout->setObjectName(u"searchBannedUsersLayout"_s);
