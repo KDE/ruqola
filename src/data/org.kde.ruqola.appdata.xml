@@ -748,7 +748,7 @@
       <li xml:lang="pl">Dodanie obsługi wysyłania załączników</li>
       <li xml:lang="pt">Adição do suporte para o envio de ficheiros em anexo</li>
       <li xml:lang="pt-BR">Adiciona suporte para enviar arquivos anexos</li>
-      <li xml:lang="ru">Поддержка отправки файлов вложений</li>
+      <li xml:lang="ru">Добавление поддержки отправки файлов вложений</li>
       <li xml:lang="sa">संलग्नसञ्चिकानां अपलोड् कर्तुं समर्थनं योजयन्तु</li>
       <li xml:lang="sk">Podpora nahrávania príloh</li>
       <li xml:lang="sl">Dodajanje podpore za prenos priloženih datotek tja</li>
@@ -808,7 +808,7 @@
       <li xml:lang="pl">Zezwolenie na blokowanie/odblokowywanie użytkowników</li>
       <li xml:lang="pt">Permitir o bloqueio/desbloqueio de utilizadores</li>
       <li xml:lang="pt-BR">Permite bloquear/desbloquear usuários</li>
-      <li xml:lang="ru">Блокировка и разблокировка пользователей</li>
+      <li xml:lang="ru">Возможность блокировки и разблокировки пользователей</li>
       <li xml:lang="sa">उपयोक्तृन् अवरोधयितुं/अनिरोधं कर्तुं अनुमतिं ददातु</li>
       <li xml:lang="sk">Možnosť blokovania/odblokovania používateľov</li>
       <li xml:lang="sl">Dovoljuje blokado/deblokado uporabnikov</li>
@@ -1054,7 +1054,7 @@
       <li xml:lang="pl">Zezwala na bezpośrednie odpowiadanie na wiadomość z powiadomienia o niej (możliwe w KDE)</li>
       <li xml:lang="pt">Possibilidade de responder directamente à mensagem a partir da notificação (no KDE)</li>
       <li xml:lang="pt-BR">Permitir responder diretamente à mensagem a partir da notificação (funcionalidade do KDE)</li>
-      <li xml:lang="ru">Ответ на сообщение непосредственно из уведомления (возможности KDE)</li>
+      <li xml:lang="ru">Возможность ответа на сообщение непосредственно из уведомления (возможности KDE)</li>
       <li xml:lang="sa">सूचनातः सन्देशस्य प्रत्यक्षं उत्तरं दातुं अनुमन्यताम् (kde features)</li>
       <li xml:lang="sk">Možnosť priamej odpovede na správu z oznámenia (funkcie KDE)</li>
       <li xml:lang="sl">Dovoljuje, neposredne odgovore na sporočilo iz obvestila (možnosti KDE)</li>
@@ -1172,7 +1172,7 @@
       <li xml:lang="pl">Dodanie historii powiadomień</li>
       <li xml:lang="pt">Adição do histórico de notificações</li>
       <li xml:lang="pt-BR">Adicionar histórico de notificação</li>
-      <li xml:lang="ru">История уведомлений</li>
+      <li xml:lang="ru">Добавление журнала уведомлений</li>
       <li xml:lang="sa">सूचना इतिहासं योजयन्तु</li>
       <li xml:lang="sk">Pridanie histórie oznámení</li>
       <li xml:lang="sl">Dodaj zgodovino obvestil</li>
@@ -1401,6 +1401,7 @@
           <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
           <li xml:lang="nl">Offline-modus verbeteren</li>
           <li xml:lang="pt-BR">Melhorar modo desconectado</li>
+          <li xml:lang="ru">Улучшение автономного режима</li>
           <li xml:lang="sk">Vylepšenie režimu offline</li>
           <li xml:lang="sl">Izboljša način brez povezave</li>
           <li xml:lang="tr">Çevrim dışı kipini iyileştir</li>
@@ -1415,6 +1416,7 @@
           <li xml:lang="ka">შენახული ფაილის გახსნის დაშვება.</li>
           <li xml:lang="nl">Toestaan opgeslagen bestand te openen.</li>
           <li xml:lang="pt-BR">Permite abrir arquivo salvo.</li>
+          <li xml:lang="ru">Возможность открытия сохранённого файла</li>
           <li xml:lang="sk">Možnosť otvorenia uloženého súboru.</li>
           <li xml:lang="sl">Dovoli odpiranje shranjene datoteke.</li>
           <li xml:lang="tr">Kaydedilen dosyanın açılmasına izin ver.</li>
@@ -1428,6 +1430,7 @@
           <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
           <li xml:lang="nl">In dialoog voor tonen van afbeelding draaien toestaan</li>
           <li xml:lang="pt-BR">Permitir rotação da imagem na caixa de diálogo de exibição de imagem</li>
+          <li xml:lang="ru">Возможность вращения изображения в диалоге показа изображения</li>
           <li xml:lang="sk">Umožnenie otočenia obrázka v dialógu zobrazenia obrázka</li>
           <li xml:lang="sl">Dovoli vrtenje slike v pogovornem oknu za prikaz slike</li>
           <li xml:lang="tr">Görsel görüntüleme iletişim kutusunda görseli döndürmeye olanak tanı</li>
@@ -1442,6 +1445,7 @@
           <li xml:lang="ka">დაემატა ახალი ოთახის ინფორმაცია გაფრთხილებების ისტორიის დიალოგში.</li>
           <li xml:lang="nl">Voeg nieuwe roominformatie toe in de dialoog van de geschiedenis van meldingen</li>
           <li xml:lang="pt-BR">Adicionar novas informações da sala na janela do histórico de notificações.</li>
+          <li xml:lang="ru">Добавление сведений о новой комнате в диалоге журнала уведомлений</li>
           <li xml:lang="sk">Pridanie informácií o novej miestnosti v dialógu histórie oznámení.</li>
           <li xml:lang="sl">Dodaj podatke o novi sobi v pogovorno okno zgodovine obvestil.</li>
           <li xml:lang="tr">Bildirim geçmişi iletişim kutusuna yeni oda bilgisini ekle</li>
@@ -1455,6 +1459,7 @@
           <li xml:lang="ka">ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის</li>
           <li xml:lang="nl">Gebruik het nieuwe widget voor tekstberichten voor foutmeldingen</li>
           <li xml:lang="pt-BR">Usar o novo textmessagewidget para notificação de erro</li>
+          <li xml:lang="ru">Использование нового textmessagewidget для уведомлений об ошибках</li>
           <li xml:lang="sk">Použitie nového textmessagewidget na oznámenie chyby</li>
           <li xml:lang="sl">Uporabi novi gradnik textmessagewidget za obvestilo o napaki</li>
           <li xml:lang="tr">Hata bildirimleri için yeni textmessagewidget kullan</li>
@@ -1466,6 +1471,7 @@
           <li xml:lang="ka">განხორციელდა მონახაზი შეტყობინებების დალაგების არხი.</li>
           <li xml:lang="nl">Implementeer een kanaal voor het sorteren van conceptberichten.</li>
           <li xml:lang="pt-BR">Implementa canal de classificação de mensagens em rascunho.</li>
+          <li xml:lang="ru">Реализация канала сортировки черновиков сообщений</li>
           <li xml:lang="sl">Implementira kanal za sortiranje osnutkov sporočil.</li>
           <li xml:lang="tr">Taslak ileti sıralama özelliğini gerçekle</li>
           <li xml:lang="uk">Реалізовано канал упорядковування повідомлень-чернеток</li>
@@ -1476,6 +1482,7 @@
           <li xml:lang="ka">განხორციელდა დაბანილი მომხმარებლების სიის დიალოგი.</li>
           <li xml:lang="nl">Implementeer een dialoogvenster voor de lijst met geblokkeerde gebruikers.</li>
           <li xml:lang="pt-BR">Implementa o diálogo de lista de usuários banidos.</li>
+          <li xml:lang="ru">Реализация диалога списка «Забаненные пользователи»</li>
           <li xml:lang="sl">Implementira pogovorno okno s seznamom prepovedanih uporabnikov.</li>
           <li xml:lang="tr">Yasaklı kullanıcılar iletişim kutusunu gerçekle</li>
           <li xml:lang="uk">Реалізовано вікно списку заблокованих користувачів.</li>
@@ -1486,6 +1493,7 @@
           <li xml:lang="ka">განხორციელდა მომხმარებლების დაბანვა/ბანის მოხსნა.</li>
           <li xml:lang="nl">Implementeer geblokkeerde/gedeblokkeerde gebruikers.</li>
           <li xml:lang="pt-BR">Implementa usuários banidos/com banimento removido.</li>
+          <li xml:lang="ru">Реализация функции «Забаненные/Разбаненные пользователи»</li>
           <li xml:lang="sl">Implementira prepovedane/neprepovedane uporabnike.</li>
           <li xml:lang="tr">Yasaklı/yasaklı olmayan kullanıcılar özelliğini gerçekle</li>
           <li xml:lang="uk">Реалізовано показ блокованих і розблокованих користувачів.</li>
@@ -1508,6 +1516,7 @@
           <li xml:lang="ka">კოდის ბლოკის უფრო ადვილად კოპირება</li>
           <li xml:lang="nl">Blokcode gemakkelijker kopiëren</li>
           <li xml:lang="pt-BR">Copia código de bloco mais facilmente</li>
+          <li xml:lang="ru">Более удобное копирование блоков кода</li>
           <li xml:lang="sk">Jednoduchšie kopírovanie blokov kódu</li>
           <li xml:lang="sl">Lažje kopira blokovno kodo</li>
           <li xml:lang="tr">Kod bloğunu daha kolay kopyala</li>
@@ -1522,6 +1531,7 @@
           <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
           <li xml:lang="nl">Verbeter gebruikersinterface van tekst-naar-spraak</li>
           <li xml:lang="pt-BR">Melhora a interface de usuário de texto para fala</li>
+          <li xml:lang="ru">Улучшение интерфейса функции зачитывания текста</li>
           <li xml:lang="sk">Vylepšenie používateľského rozhrania prevodu textu na reč</li>
           <li xml:lang="sl">Izboljša uporabniški vmesnik za pretvorbo besedila v govor</li>
           <li xml:lang="tr">Metinden konuşmaya kullanıcı arayüzünü iyileştir</li>
@@ -1536,6 +1546,7 @@
           <li xml:lang="ka">მიმაგრებული ფაილის ველების ჩვენება</li>
           <li xml:lang="nl">Bijlagevelden tonen</li>
           <li xml:lang="pt-BR">Exibir campos de anexos</li>
+          <li xml:lang="ru">Показ полей вложений</li>
           <li xml:lang="sk">Zobrazenie polí príloh</li>
           <li xml:lang="sl">Prikaže polja za priloge</li>
           <li xml:lang="tr">Ek alanlarını göster</li>
@@ -1550,6 +1561,7 @@
           <li xml:lang="ka">ხაზგარეშე რეჟიმი (ექსპერიმენტული)</li>
           <li xml:lang="nl">Implementeert offline modus (experimenteel)</li>
           <li xml:lang="pt-BR">Modo offline implementado (experimental)</li>
+          <li xml:lang="ru">Реализация автономного режима (экспериментальная функция)</li>
           <li xml:lang="sk">Implementácia režimu offline (experimentálne)</li>
           <li xml:lang="sl">Implementacija načina brez povezave (poskusno)</li>
           <li xml:lang="tr">Çevrim dışı kipini gerçekle (deneysel)</li>
@@ -1563,6 +1575,7 @@
           <li xml:lang="ka">განხორციელდა რიგში მყოფი აკრეფილი მონაცემთა ბაზის საცავი</li>
           <li xml:lang="nl">Implementeer wachtende getypte database-opslag</li>
           <li xml:lang="pt-BR">Implementa armazenamento de banco de dados tipado pendente</li>
+          <li xml:lang="ru">Реализация хранения набранной, но ещё не отправленной информации в базе данных</li>
           <li xml:lang="sk">Implementácia databázového ukladania rozpísaných správ</li>
           <li xml:lang="sl">Implementira čakajoče shrambe tipizirane baze podatkov</li>
           <li xml:lang="tr">Bekleyen yazılan veri tabanı depolamasını gerçekle</li>
@@ -1576,6 +1589,7 @@
           <li xml:lang="ka">გასწორდა RC 8.0.0-ის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor RC 8.0.0 opgelost</li>
           <li xml:lang="pt-BR">Corrige suporte ao RC 8.0.0</li>
+          <li xml:lang="ru">Исправление поддержки RC 8.0.0</li>
           <li xml:lang="sk">Oprava podpory RC 8.0.0</li>
           <li xml:lang="sl">Popravljena podpora za RC 8.0.0</li>
           <li xml:lang="tr">RC 8.0.0 desteğini düzelt</li>
@@ -1589,6 +1603,7 @@
           <li xml:lang="ka">დაემატა ქმედებების მხარდაჭერა მიმაგრებული ფაილებისთვის</li>
           <li xml:lang="nl">Ondersteuning voor bijlageacties toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para ações de anexo</li>
+          <li xml:lang="ru">Добавление поддержки действий с вложениями</li>
           <li xml:lang="sk">Pridanie podpory akcií príloh</li>
           <li xml:lang="sl">Podpora za dejanja dodajanja prilog</li>
           <li xml:lang="tr">Ek eylemleri desteği ekle</li>
@@ -1603,6 +1618,7 @@
           <li xml:lang="ka">დაემატა დროის შტამპის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor tijdstempel toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para marca de tempo</li>
+          <li xml:lang="ru">Добавление поддержки меток времени</li>
           <li xml:lang="sk">Pridanie podpory časových značiek</li>
           <li xml:lang="sl">Doda podporo za časovni žig</li>
           <li xml:lang="tr">Zaman damgası desteği ekle</li>
@@ -1616,6 +1632,7 @@
           <li xml:lang="ka">ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში</li>
           <li xml:lang="nl">Lokale vertaling in lokale gegevensbank opslaan</li>
           <li xml:lang="pt-BR">Salvar tradução local no banco de dados local</li>
+          <li xml:lang="ru">Сохранение локального перевода в локальную базу данных</li>
           <li xml:lang="sk">Ukladanie miestneho prekladu do miestnej databázy</li>
           <li xml:lang="sl">Shrani lokalni prevod v lokalno podatkovno zbirko</li>
           <li xml:lang="tr">Yerel çeviriyi yerel veri tabanına kaydet</li>
@@ -1629,6 +1646,7 @@
           <li xml:lang="ka">გასწორდა ოთახის წაშლა (ლოკალურ მონაცემთა ბაზებში)</li>
           <li xml:lang="nl">Room verwijderen repareren (in lokale database)</li>
           <li xml:lang="pt-BR">Correção de remoção de sala (no banco de dados local)</li>
+          <li xml:lang="ru">Исправление удаления комнаты (в локальной базе данных)</li>
           <li xml:lang="sk">Oprava odstránenia miestnosti (v miestnej databáze)</li>
           <li xml:lang="sl">Popravi odstranjevanje sobe (v lokalni bazi podatkov)</li>
           <li xml:lang="tr">Odayı kaldırmayı düzelt (yerel veri tabanında)</li>
@@ -1642,6 +1660,7 @@
           <li xml:lang="ka">გასწორდა მონაცემთა ბაზის გატანა</li>
           <li xml:lang="nl">Exporteren van database repareren</li>
           <li xml:lang="pt-BR">Correção da exportação do banco de dados</li>
+          <li xml:lang="ru">Исправление экспорта базы данных</li>
           <li xml:lang="sk">Oprava exportu databázy</li>
           <li xml:lang="sl">Popravi izvoz podatkovne baze</li>
           <li xml:lang="tr">Veri tabanı dışa aktarımını düzelt</li>
@@ -1655,6 +1674,7 @@
           <li xml:lang="ka">გასწორდა მორგებული ხმების ატვირთვა</li>
           <li xml:lang="nl">Eigen geluid uploaden oplossen</li>
           <li xml:lang="pt-BR">Corrige o envio de som personalizado</li>
+          <li xml:lang="ru">Исправление отправки нестандартных звуков</li>
           <li xml:lang="sk">Oprava nahrávania vlastného zvuku</li>
           <li xml:lang="sl">Popravi prenos zvoka po meri</li>
           <li xml:lang="tr">Özel ses yüklemeyi düzelt</li>
@@ -1675,6 +1695,7 @@
           <li xml:lang="ka">დაემატა ხი-ის დამატება</li>
           <li xml:lang="nl">AI-plug-in toevoegen</li>
           <li xml:lang="pt-BR">Adicionar plugin de IA</li>
+          <li xml:lang="ru">Добавление модуля ИИ</li>
           <li xml:lang="sk">Pridanie zásuvného modulu AI</li>
           <li xml:lang="sl">Dodaj vtičnik umetne inteligence</li>
           <li xml:lang="tr">Yapay zekâ eklentisi ekle</li>
@@ -1688,6 +1709,7 @@
           <li xml:lang="ka">გამოსახულების გადათრევა-დაგდების დაშვება</li>
           <li xml:lang="nl">Dnd doen van afbeelding toestaan</li>
           <li xml:lang="pt-BR">Permitir baixar imagem</li>
+          <li xml:lang="ru">Возможность перетаскивать изображение</li>
           <li xml:lang="sk">Možnosť pretiahnutia obrázka myšou</li>
           <li xml:lang="sl">Dovoli prepoved motenja slike</li>
           <li xml:lang="tr">Görselin sürüklenip bırakılmasına izin ver</li>
@@ -1701,6 +1723,7 @@
           <li xml:lang="ka">დაემატა აღდგენის ღილაკი ადმინისტრატორის პარამეტრებში</li>
           <li xml:lang="nl">Herstelknop toevoegen in instellingen voor beheer</li>
           <li xml:lang="pt-BR">Adiciona botão de restauração na caixa de diálogo de configurações do administrador</li>
+          <li xml:lang="ru">Добавление кнопки восстановления в параметрах администрирования</li>
           <li xml:lang="sk">Pridanie tlačidla obnovenia v nastaveniach správy</li>
           <li xml:lang="sl">Doda gumb za obnovitev v administratorskih nastavitvah</li>
           <li xml:lang="tr">Yönetim ayarlarına geri yükle düğmesi ekle</li>
@@ -1714,6 +1737,7 @@
           <li xml:lang="ka">დამატებების გააქტიურების დაშვება</li>
           <li xml:lang="nl">Sta plug-ins activeren toe</li>
           <li xml:lang="pt-BR">Permitir ativar plugins</li>
+          <li xml:lang="ru">Возможность активации модулей</li>
           <li xml:lang="sk">Možnosť aktivácie zásuvných modulov</li>
           <li xml:lang="sl">Dovoljuje aktiviranje vtičnikov</li>
           <li xml:lang="tr">Eklentilerin etkinleştirilmesine izin ver</li>
@@ -1727,6 +1751,7 @@
           <li xml:lang="ka">გამოსახულების ჩვენებისას "გახსნა პროგრამით" ღილაკის დამატება</li>
           <li xml:lang="nl">Openen met knop toevoegen in tonen van afbeelding</li>
           <li xml:lang="pt-BR">Adiciona o botão Abrir com na imagem exibida</li>
+          <li xml:lang="ru">Добавление кнопки «Открыть с помощью» в просмотре изображения</li>
           <li xml:lang="sk">Pridanie tlačidla Otvoriť pomocou pri zobrazení obrázka</li>
           <li xml:lang="sl">Doda gumb Odpri z na sliki</li>
           <li xml:lang="tr">Görsel göstermeye “Birlikte Aç” düğmesi ekle</li>
@@ -1740,6 +1765,7 @@
           <li xml:lang="ka">სწრაფი ტექსტის დაფორმატების დამატება</li>
           <li xml:lang="nl">Snel tekstformaat toevoegen</li>
           <li xml:lang="pt-BR">Adiciona formato de texto rápido</li>
+          <li xml:lang="ru">Добавление формата быстрого текста</li>
           <li xml:lang="sk">Pridanie rýchleho formátovania textu</li>
           <li xml:lang="sl">Doda hitro oblikovanje besedila</li>
           <li xml:lang="tr">Hızlı metin biçimlendirmesi ekle</li>
@@ -1753,6 +1779,7 @@
           <li xml:lang="ka">დაემატა გაფართოების შეტყობინების ხაზის ღილაკი</li>
           <li xml:lang="nl">Lijnknop voor uitbreidingsbericht toevoegen</li>
           <li xml:lang="pt-BR">Adicionar extensão de botão de linha de mensagem</li>
+          <li xml:lang="ru">Добавление кнопки строки сообщения «Добавить расширение»</li>
           <li xml:lang="sk">Pridanie tlačidla rozšírenia v riadku správy</li>
           <li xml:lang="sl">Doda gumb za razširitev sporočil v vrstici</li>
           <li xml:lang="tr">Uzantı ileti satırı düğmesi ekle</li>
@@ -1766,6 +1793,7 @@
           <li xml:lang="ka">WebDav სერვერის დამატების დაშვება</li>
           <li xml:lang="nl">Toestaan WebDav-server toe te voegen</li>
           <li xml:lang="pt-BR">Permite adicionar servidor WebDav</li>
+          <li xml:lang="ru">Возможность добавления сервера WebDav</li>
           <li xml:lang="sk">Možnosť pridania servera WebDav</li>
           <li xml:lang="sl">Dovoli dodajanje strežnika WebDav</li>
           <li xml:lang="tr">WebDav sunucusu eklenmesine izin ver</li>
@@ -1779,6 +1807,7 @@
           <li xml:lang="ka">ოთახის ინფორმაციის ჩვენება (კურსივი), როცა მიმდინარეობს დარჩენილი შეტყობინებების აკრეფა</li>
           <li xml:lang="nl">Roominformatie tonen (cursieve tekst) wanneer er een wachtend bericht wordt getypt</li>
           <li xml:lang="pt-BR">Mostra informações da sala (texto em itálico) quando houver alguma mensagem pendente digitada</li>
+          <li xml:lang="ru">Показ сведений о комнате (курсивом), если сообщение набрано, но ещё не отправлено</li>
           <li xml:lang="sk">Zobrazenie informácií o miestnosti (kurzívou) pri rozpísanej správe</li>
           <li xml:lang="sl">Prikaži informacije o sobi (ležeče besedilo), ko je vneseno kakšno čakajoče sporočilo</li>
           <li xml:lang="tr">Yazılan bazı bekleyen iletiler olduğunda oda bilgisini (yatık metin) göster</li>
@@ -1792,6 +1821,7 @@
           <li xml:lang="ka">ემოციების მხტუნარა მენიუდან დამატების დაშვება</li>
           <li xml:lang="nl">Sta het toevoegen van een emoticon vanuit het pop-up-menu toe</li>
           <li xml:lang="pt-BR">Permite adicionar um emoticon a partir do menu de contexto</li>
+          <li xml:lang="ru">Возможность добавления смайликов из всплывающего меню</li>
           <li xml:lang="sk">Možnosť pridania emotikonu z kontextovej ponuky</li>
           <li xml:lang="sl">Dovoli dodajanje čustvenčka iz pojavnega menija</li>
           <li xml:lang="tr">Açılır menüden ifade eklenmesine izin ver</li>
@@ -1805,6 +1835,7 @@
           <li xml:lang="ka">გასწორდა თარიღის ინფორმაციის ჩვენება</li>
           <li xml:lang="nl">Datuminformatie tonen reparatie</li>
           <li xml:lang="pt-BR">Corrige exibição das informações de data</li>
+          <li xml:lang="ru">Исправление отображения информации о дате</li>
           <li xml:lang="sk">Oprava zobrazenia informácií o dátume</li>
           <li xml:lang="sl">Popravi prikaz informacij o datumu</li>
           <li xml:lang="tr">Tarih bilgisi göstermeyi düzelt</li>
@@ -1818,6 +1849,7 @@
           <li xml:lang="ka">გასწორდა აპლიკაციის პარამეტრების შენახვა</li>
           <li xml:lang="nl">Opslaan van instellingen van toepassingen repareren</li>
           <li xml:lang="pt-BR">Corrige o salvamento das configurações do aplicativo</li>
+          <li xml:lang="ru">Исправление сохранения параметров приложения</li>
           <li xml:lang="sk">Oprava ukladania nastavení aplikácie</li>
           <li xml:lang="sl">Popravi shranjevanje nastavitev aplikacije</li>
           <li xml:lang="tr">Uygulama ayarlarını kaydetmeyi düzelt</li>
@@ -1831,6 +1863,7 @@
           <li xml:lang="ka">გასწორდა ტექსტის მონიშვნა მიმაგრებულ ფაილში</li>
           <li xml:lang="nl">Tekstselectie in bijlage repareren</li>
           <li xml:lang="pt-BR">Corrige a seleção de texto no anexo</li>
+          <li xml:lang="ru">Исправление выбора текста во вложении</li>
           <li xml:lang="sk">Oprava výberu textu v prílohe</li>
           <li xml:lang="sl">Popravi izbiro besedila v prilogi</li>
           <li xml:lang="tr">Ekteki metin seçimini düzelt</li>
@@ -1844,6 +1877,7 @@
           <li xml:lang="ka">გასწორდა მომხმარებლის ჩვენება</li>
           <li xml:lang="nl">Oplossing gebruiker tonen</li>
           <li xml:lang="pt-BR">Corrige o usuário de exibição</li>
+          <li xml:lang="ru">Исправление отображения пользователя</li>
           <li xml:lang="sk">Oprava zobrazenia používateľa</li>
           <li xml:lang="sl">Popravi zaslon uporabnika</li>
           <li xml:lang="tr">Kullanıcı görüntülemeyi düzelt</li>
@@ -1857,6 +1891,7 @@
           <li xml:lang="ka">თარგმანის მენიუს ჩვენება დისკუსიის დიალოგში</li>
           <li xml:lang="nl">Vertaalmenu in dialoog van discussiebundeling tonen</li>
           <li xml:lang="pt-BR">Exibe menu de tradução na caixa de diálogo do tópico</li>
+          <li xml:lang="ru">Показ меню перевода в диалоге цепочки сообщений</li>
           <li xml:lang="sk">Zobrazenie ponuky prekladu v dialógu vlákna</li>
           <li xml:lang="sl">Prikaži meni za prevajanje v pogovornem oknu niti</li>
           <li xml:lang="tr">İleti dizisi penceresinde çeviri menüsünü göster</li>
@@ -1871,6 +1906,7 @@
           <li xml:lang="ka">დაემატა ხი-ით Rocket Chat-ის ქმედებების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor acties van Rocket Chat toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para ações do AI Rocket Chat</li>
+          <li xml:lang="ru">Добавление поддержки действий ИИ Rocket Chat</li>
           <li xml:lang="sk">Pridanie podpory akcií AI Rocket Chat</li>
           <li xml:lang="sl">Doda podporo za dejanja klepeta z AI Rocket</li>
           <li xml:lang="tr">Yapay zekâ Rocket.Chat eylemleri desteği ekle</li>
@@ -1884,6 +1920,7 @@
           <li xml:lang="ka">გასწორდა გადატარების, აღდგენის და გაუქმების ღილაკები ადმინისტრაციის დიალოგში</li>
           <li xml:lang="nl">Knoppen voor reparatie toepassen, herstellen en annuleren in systeembeheerdialoog</li>
           <li xml:lang="pt-BR">Corrige os botões aplicar, restaurar e cancelar na caixa de diálogo de administração</li>
+          <li xml:lang="ru">Исправление кнопок «Применить», «Восстановить» и «Отмена» в диалоге администрирования</li>
           <li xml:lang="sk">Oprava tlačidiel použiť, obnoviť a zrušiť v dialógu správy</li>
           <li xml:lang="sl">Popravljeni gumbi za uporabo, obnovitev in preklic v pogovornem oknu za skrbnike</li>
           <li xml:lang="tr">Yönetim penceresindeki uygula, geri yükle, iptal et düğmelerini düzelt</li>
@@ -1897,6 +1934,7 @@
           <li xml:lang="ka">გასწორდა მომხმარებლების ძებნა</li>
           <li xml:lang="nl">Gebruikers zoeken repareren</li>
           <li xml:lang="pt-BR">Corrige a pesquisa de usuários</li>
+          <li xml:lang="ru">Исправление поиска пользователей</li>
           <li xml:lang="sk">Oprava hľadania používateľov</li>
           <li xml:lang="sl">Popravi iskanje uporabnikov</li>
           <li xml:lang="tr">Kullanıcı aramayı düzelt</li>
@@ -1910,6 +1948,7 @@
           <li xml:lang="ka">გასწორდა ენის ამოღება კოდის ბლოკიდან</li>
           <li xml:lang="nl">Extraheren van taal uit codeblok repareren</li>
           <li xml:lang="pt-BR">Corrige a extração de linguagem do bloco de código</li>
+          <li xml:lang="ru">Исправление определения языка в блоке кода</li>
           <li xml:lang="sk">Oprava rozpoznania jazyka z bloku kódu</li>
           <li xml:lang="sl">Popravi izvleček jezika iz bloka kode</li>
           <li xml:lang="tr">Kod bloğundan dil çıkarmayı düzelt</li>
@@ -1923,6 +1962,7 @@
           <li xml:lang="ka">გასწორდა მიმაგრებული ფაილის ინფორმაციის ჩვენება დიალოგში \"არხის ჟურნალის ჩვენება\"</li>
           <li xml:lang="nl">Informatie over bijlage in dialoog van "Log van kanaal tonen" repareren</li>
           <li xml:lang="pt-BR">Corrige informações de anexo na caixa de diálogo \"Mostrar registro do canal\"</li>
+          <li xml:lang="ru">Исправление информации о вложении в диалоге «Просмотр журнала канала»</li>
           <li xml:lang="sk">Oprava informácií o prílohe v dialógu \"Zobraziť denník kanála\"</li>
           <li xml:lang="sl">Popravi podatke o prilogi v pogovornem oknu \"Prikaži dnevnik kanala\"</li>
           <li xml:lang="tr">“Kanal Günlüğünü Göster” penceresindeki ek bilgisini düzelt</li>
@@ -1936,6 +1976,7 @@
           <li xml:lang="ka">გასწორდა ხატულა Windows-ზე</li>
           <li xml:lang="nl">Pictogram op vensters repareren</li>
           <li xml:lang="pt-BR">Correção do ícone no Windows</li>
+          <li xml:lang="ru">Исправление значка в Windows</li>
           <li xml:lang="sk">Oprava ikony vo Windows</li>
           <li xml:lang="sl">Popravi ikono v oknih</li>
           <li xml:lang="tr">Windows üzerindeki simgeyi düzelt</li>
@@ -1949,6 +1990,7 @@
           <li xml:lang="ka">გასწორდა მიმაგრებული ფაილის ზომის ჩვენება</li>
           <li xml:lang="nl">Repareren van grootte van bestandsbijlage tonen</li>
           <li xml:lang="pt-BR">Corrige a exibição do tamanho de arquivo anexo</li>
+          <li xml:lang="ru">Исправление отображения размера вложенного файла</li>
           <li xml:lang="sk">Oprava zobrazenia veľkosti súborovej prílohy</li>
           <li xml:lang="sl">Popravi velikost priloge datoteke</li>
           <li xml:lang="tr">Dosya eki boyutu göstermeyi düzelt</li>
@@ -1972,6 +2014,7 @@
           <li xml:lang="ka">დაემატა ხელსაწყოს დამატებების მხადაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor plug-ins voor hulpmiddelen toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte para plugins de ferramentas</li>
+          <li xml:lang="ru">Добавление поддержки модулей инструментов</li>
           <li xml:lang="sk">Pridanie podpory zásuvných modulov nástrojov</li>
           <li xml:lang="sl">Doda podporo za vtičnike orodij</li>
           <li xml:lang="tr">Araçlar eklentileri için destek ekle</li>
@@ -1985,6 +2028,7 @@
           <li xml:lang="ka">დამატება: ეკრანის ანაბეჭდის ღილაკის დამატება (შეტყობინების გაგზავნის ღილაკთან)</li>
           <li xml:lang="nl">Plug-in: knop voor schermafdruk toevoegen (nabij knop voor verzenden van bericht)</li>
           <li xml:lang="pt-BR">Plugin: Adiciona botão de captura de tela (próximo ao botão de enviar mensagem)</li>
+          <li xml:lang="ru">Модуль: добавление кнопки снимка экрана (рядом с кнопкой отправки сообщения)</li>
           <li xml:lang="sk">Zásuvný modul: Pridanie tlačidla snímky obrazovky (vedľa tlačidla na odoslanie správy)</li>
           <li xml:lang="sl">Vtičnik: Dod gumb za posnetek zaslona (blizu gumba za pošiljanje sporočila)</li>
           <li xml:lang="tr">Eklenti: Ekran görüntüsü düğmesi ekle (ileti gönder düğmesinin yanına)</li>
@@ -1998,6 +2042,7 @@
           <li xml:lang="ka">განხორციელდა მოწვევის RC ბმულის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor uitnodiging-RC-url implementeren</li>
           <li xml:lang="pt-BR">Implementa suporte a URL de convite RC</li>
+          <li xml:lang="ru">Реализация поддержки ссылки с приглашением RC</li>
           <li xml:lang="sk">Implementácia podpory pozývacích URL adries RC</li>
           <li xml:lang="sl">Implementira podporo za URL-je za povabilo RC</li>
           <li xml:lang="tr">Davet etme RC URL desteğini gerçekle</li>
@@ -2011,6 +2056,7 @@
           <li xml:lang="ka">შემოწმება, არსებობს თუ არა Ruqola-ის ახალი ვერსია</li>
           <li xml:lang="nl">Implementeer verifiëren als een nieuwe Ruqola-versie bestaat</li>
           <li xml:lang="pt-BR">Implementa verificação se existe uma nova versão do Ruqola</li>
+          <li xml:lang="ru">Реализация проверки наличия новой версии Ruqola</li>
           <li xml:lang="sk">Implementácia kontroly dostupnosti novej verzie Ruqola</li>
           <li xml:lang="sl">Izvedite preverjanje, ali obstaja nova različica Ruqole.</li>
           <li xml:lang="tr">Yeni bir Roka sürümünün olup olmadığını doğrulamayı gerçekle</li>
@@ -2024,6 +2070,7 @@
           <li xml:lang="ka">წაუკითხავ/მიყოლილ დისკუსიებში ძებნის დაშვება</li>
           <li xml:lang="nl">Sta toe threads (discussies) te doorzoeken op ongelezen/volgen</li>
           <li xml:lang="pt-BR">Permite pesquisar tópicos por não lidos/seguintes</li>
+          <li xml:lang="ru">Возможность поиска веток по признакам «не прочитано»/«отслеживается»</li>
           <li xml:lang="sk">Možnosť hľadania vlákien podľa neprečítaných/sledovaných</li>
           <li xml:lang="sl">Dovoli iskanje niti po neprebranih/sledenih</li>
           <li xml:lang="tr">İlmeklerin okunmamış/takip edilen durumuna göre aranmasına izin ver</li>
@@ -2037,6 +2084,7 @@
           <li xml:lang="ka">გამოსახულებების ჩვენება მიმაგრებული ფაილის ფანჯრიდან</li>
           <li xml:lang="nl">Afbeeldingen uit bijlage van dialoogvak tonen</li>
           <li xml:lang="pt-BR">Mostra imagens da caixa de diálogo de anexos</li>
+          <li xml:lang="ru">Показ изображений из диалогового окна вложения</li>
           <li xml:lang="sk">Zobrazenie obrázkov z dialógu príloh</li>
           <li xml:lang="sl">Prikaži slike iz pogovornega okna priloge</li>
           <li xml:lang="tr">Ek penceresinden görselleri göster</li>
@@ -2051,6 +2099,7 @@
           <li xml:lang="ka">განხორციელდა Rocket.Chat-ის აპლიკაციის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor toepassing Rocket.Chat implementeren</li>
           <li xml:lang="pt-BR">Implementa suporte ao aplicativo Rocket.Chat</li>
+          <li xml:lang="ru">Реализация поддержки приложения Rocket.Chat</li>
           <li xml:lang="sk">Implementácia podpory aplikácií Rocket.Chat</li>
           <li xml:lang="sl">Implementirajte podporo za aplikacijo Rocket.Chat</li>
           <li xml:lang="tr">Rocket.Chat uygulama desteğini gerçekle</li>
@@ -2064,6 +2113,7 @@
           <li xml:lang="ka">განხორციელდა ბრძანების მინიატურა</li>
           <li xml:lang="nl">Voorbeeld van opdracht implementeren</li>
           <li xml:lang="pt-BR">Implementa visualização de comando</li>
+          <li xml:lang="ru">Реализация предпросмотра команды</li>
           <li xml:lang="sk">Implementácia náhľadu príkazov</li>
           <li xml:lang="sl">Implementira predogled ukaza</li>
           <li xml:lang="tr">Komut önizlemeyi gerçekle</li>
@@ -2077,6 +2127,7 @@
           <li xml:lang="ka">გამართვა: თარგმანის დათვალიერება RC სერვერიდან</li>
           <li xml:lang="nl">Debug: onderzoek vertaling uit RC-server</li>
           <li xml:lang="pt-BR">Depuração: explora a tradução do servidor RC</li>
+          <li xml:lang="ru">Отладка: обзор перевода с сервера RC</li>
           <li xml:lang="sk">Ladenie: preskúmanie prekladu zo servera RC</li>
           <li xml:lang="sl">Odpravljanje napak: raziskovanje prevoda s strežnika RC</li>
           <li xml:lang="tr">Hata ayıklama: RC sunucusundan çeviriyi keşfet</li>
@@ -2090,6 +2141,7 @@
           <li xml:lang="ka">განხორციელდა დამატების ინტერფეისის მხარდაჭერა (დიალოგი პარამეტრების მოსარგებად)</li>
           <li xml:lang="nl">Ondersteuning voor UI van plug-in implementeren (dialoogvak voor instellingen voor configureren aanmaken)</li>
           <li xml:lang="pt-BR">Implementa suporte à interface de usuário do plugin (criar caixa de diálogo para configurar definições)</li>
+          <li xml:lang="ru">Реализация поддержки интерфейса пользователя модулей (создание диалогового окна для настройки параметров)</li>
           <li xml:lang="sk">Implementácia podpory používateľského rozhrania zásuvných modulov (vytvorenie dialógu na konfiguráciu nastavení)</li>
           <li xml:lang="sl">Implementira podporo za uporabniški vmesnik vtičnikov (ustvari pogovorno okno za konfiguracijo nastavitev)</li>
           <li xml:lang="tr">Eklenti kullanıcı arayüzü desteğini gerçekle (ayarları yapılandırmak için pencere oluştur)</li>
@@ -2103,6 +2155,7 @@
           <li xml:lang="ka">ფაილის ძებნის დაშვება მომხმარებლის სახელიდან და ფაილის სახელიდან</li>
           <li xml:lang="nl">Zoeken van bestand bieden met gebruikersnaam en bestandsnaam</li>
           <li xml:lang="pt-BR">Permite pesquisar arquivos a partir do nome de usuário e nome do arquivo</li>
+          <li xml:lang="ru">Возможность поиска файла по имени пользователя и по имени файла</li>
           <li xml:lang="sk">Možnosť hľadania súboru podľa mena používateľa a názvu súboru</li>
           <li xml:lang="sl">Dovoli iskanje datoteke po uporabniškem imenu in imenu datoteke</li>
           <li xml:lang="tr">Kullanıcı adı ve dosya adına göre dosya aranmasına izin ver</li>
@@ -2116,6 +2169,7 @@
           <li xml:lang="ka">გასწორდა კოპირების ქმედების ტექსტი, როცა მონიშნულ ტექსტს ვაკოპირებთ</li>
           <li xml:lang="nl">Kopie-actietekst wanneer we een tekstselectie kopiëren</li>
           <li xml:lang="pt-BR">Corrige texto de ação de cópia quando copiamos uma seleção de texto</li>
+          <li xml:lang="ru">Исправление текста для действия копирования при копировании выбранного текста</li>
           <li xml:lang="sk">Oprava textu akcie kopírovania pri kopírovaní výberu textu</li>
           <li xml:lang="sl">Popravi besedilo dejanja kopiranja, kadar kopiramo izbrano besedilo</li>
           <li xml:lang="tr">Bir metin seçimi kopyalandığında kopyalama eylemi metnini düzelt</li>
@@ -2129,6 +2183,7 @@
           <li xml:lang="ka">ბრძანება იწყება '/'-ით და არა /*-ით ან //-ით</li>
           <li xml:lang="nl">Een opdracht begint met '/' en niet met /* of //</li>
           <li xml:lang="pt-BR">Um comando começa com '/' e não com /* ou //</li>
+          <li xml:lang="ru">Начало команды с «/», а не /* или //</li>
           <li xml:lang="sk">Príkaz začína znakom '/', nie /* ani //</li>
           <li xml:lang="sl">Ukaz se začne z '/' in ne z /* ali //</li>
           <li xml:lang="tr">Bir komut “/” ile başlar; /* veya // ile değil</li>
@@ -2142,6 +2197,7 @@
           <li xml:lang="ka">საშუალებას გაძლევთ, შეცდომის შემთხვევაში ბრძანების სტრიქონი ბუფერში დააკოპიროთ</li>
           <li xml:lang="nl">Sta toe om opdrachtregel in het klembord te stoppen wanneer een fout optreedt</li>
           <li xml:lang="pt-BR">Permite colocar a linha de comando na área de transferência quando ocorrer um erro</li>
+          <li xml:lang="ru">Возможность поместить содержимое командной строки в буфер обмена при возникновении ошибки</li>
           <li xml:lang="sk">Možnosť vloženia príkazového riadka do schránky pri výskyte chyby</li>
           <li xml:lang="sl">Dovoli shranjevanje ukazne vrstice na odložišče, kadar pride do napake</li>
           <li xml:lang="tr">Bir hata oluştuğunda komut satırının panoya alınmasına izin ver</li>
@@ -2155,6 +2211,7 @@
           <li xml:lang="ka">აპების მაღაზიის გააქტიურება/დეაქტივაციის დაშვება</li>
           <li xml:lang="nl">Sta toe activeren/deactiveren van apps-markt</li>
           <li xml:lang="pt-BR">Permite ativar/desativar o mercado de aplicativos</li>
+          <li xml:lang="ru">Возможность активировать и деактивировать магазин приложений</li>
           <li xml:lang="sk">Možnosť aktivácie/deaktivácie obchodu s aplikáciami</li>
           <li xml:lang="sl">Dovoli aktiviranje/deaktiviranje tržnice aplikacij</li>
           <li xml:lang="tr">Uygulama pazarının etkinleştirilmesine/devre dışı bırakılmasına izin ver</li>
@@ -2168,6 +2225,7 @@
           <li xml:lang="ka">გაუმჯობესდა ოთახში მომხმარებლების სია</li>
           <li xml:lang="nl">Lijst van gebruikers in room</li>
           <li xml:lang="pt-BR">Melhora a lista de usuários na sala</li>
+          <li xml:lang="ru">Улучшение списка пользователей в комнате</li>
           <li xml:lang="sk">Vylepšenie zoznamu používateľov v miestnosti</li>
           <li xml:lang="sl">Izboljša seznam uporabnika v sobi</li>
           <li xml:lang="tr">Odadaki kullanıcı listesini iyileştir</li>
@@ -2181,6 +2239,7 @@
           <li xml:lang="ka">დაშიფრულ ოთახებში ძებნა შეუძლებელია</li>
           <li xml:lang="nl">Zoeken in versleuteld room is niet mogelijk</li>
           <li xml:lang="pt-BR">Não é possível pesquisar em sala criptografada</li>
+          <li xml:lang="ru">Поиск в зашифрованной комнате невозможен</li>
           <li xml:lang="sk">Vyhľadávanie v šifrovanej miestnosti nie je možné</li>
           <li xml:lang="sl">Iskanje v šifrirani sobi ni mogoče</li>
           <li xml:lang="tr">Şifrelenmiş odada arama yapmak mümkün değildir</li>
@@ -2194,6 +2253,7 @@
           <li xml:lang="ka">როლების ჩვენება ოთახის მომხმარებლებისთვის</li>
           <li xml:lang="nl">Rollen voor gebruikers in room tonen</li>
           <li xml:lang="pt-BR">Mostra funções para usuários em salas</li>
+          <li xml:lang="ru">Показ ролей для пользователей в комнатах</li>
           <li xml:lang="sk">Zobrazenie rolí používateľov v miestnostiach</li>
           <li xml:lang="sl">Prikaži vloge uporabnikov v sobah</li>
           <li xml:lang="tr">Odalardaki kullanıcılar için rolleri göster</li>
@@ -2208,6 +2268,7 @@
           <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
+          <li xml:lang="ru">Исправление поддержки тёмного режима</li>
           <li xml:lang="sk">Oprava podpory tmavého režimu</li>
           <li xml:lang="sl">Popravljena podpora za temni način</li>
           <li xml:lang="tr">Koyu kip desteğini düzelt</li>
@@ -2221,6 +2282,7 @@
           <li xml:lang="ka">გასწორდა აპების ენის გადმოწერა</li>
           <li xml:lang="nl">Downloaden van talentoepassingen repareren</li>
           <li xml:lang="pt-BR">Corrige download de aplicativos de idiomas</li>
+          <li xml:lang="ru">Исправление загрузки языковых приложений</li>
           <li xml:lang="sk">Oprava sťahovania jazykov aplikácií</li>
           <li xml:lang="sl">Popravi prenos jezikovnih aplikacij</li>
           <li xml:lang="tr">Dil uygulamalarını indirmeyi düzelt</li>
@@ -2240,6 +2302,7 @@
           <li xml:lang="ka">ოთახის ისტორიის გასუფთავებს დაშვება, როცა ოთახი დიდი ხნის განმავლობაში არ გაიხსნება</li>
           <li xml:lang="nl">Toestaan de geschiedenis van de room wissen wanneer de room lange tijd niet is geopend</li>
           <li xml:lang="pt-BR">Permite limpar o histórico do sala quando ele não foi aberto por muito tempo</li>
+          <li xml:lang="ru">Возможность очистки журнала комнаты, если в неё долго не заходили</li>
           <li xml:lang="sk">Možnosť vyčistenia histórie miestnosti, ktorá nebola dlho otvorená</li>
           <li xml:lang="sl">Dovoli čiščenje zgodovine sobe, če soba ni bila odprta že dlje časa</li>
           <li xml:lang="tr">Oda uzun süre açılmadığında oda geçmişinin temizlenmesine izin ver</li>
@@ -2253,6 +2316,7 @@
           <li xml:lang="ka">აღდგენის ღილაკის დამატება ადმინისტრატორის სერვერის მორგების დიალოგში</li>
           <li xml:lang="nl">Herstelknop toevoegen in de dialoog voor de instellingen van de server van de systeembeheerder</li>
           <li xml:lang="pt-BR">Adiciona botão de restauração na caixa de diálogo de configurações do servidor do administrador</li>
+          <li xml:lang="ru">Добавление кнопки восстановления параметров в диалоге параметров администратора сервера</li>
           <li xml:lang="sk">Pridanie tlačidla obnovenia v dialógu nastavení servera pre správcu</li>
           <li xml:lang="sl">Doda gumb za obnovo v pogovorno okno z nastavitvami skrbniškega strežnika</li>
           <li xml:lang="tr">Yönetici sunucu ayarları penceresine geri yükle düğmesi ekle</li>
@@ -2266,6 +2330,7 @@
           <li xml:lang="ka">პაროლის შეცვლის გაუმჯობესება (გადამოწმების ინფორმაციის ჩვენება)</li>
           <li xml:lang="nl">Wijzigen van wachtwoord verbeteren (informatie over validatie tonen)</li>
           <li xml:lang="pt-BR">Melhora a alteração de senha (mostra informações de validação)</li>
+          <li xml:lang="ru">Улучшение изменения пароля (показ сведений о корректности)</li>
           <li xml:lang="sk">Vylepšenie zmeny hesla (zobrazenie informácií o overení)</li>
           <li xml:lang="sl">Izboljšano spreminjanje gesla (prikazuje podatke za preverjanje)</li>
           <li xml:lang="tr">Parola değiştirmeyi iyileştir (doğrulama bilgisini göster)</li>
@@ -2279,6 +2344,7 @@
           <li xml:lang="ka">ახალი ანგარიშის რეგისტრაციის გაუმჯობესება (მიზეზის მხარდაჭერის დამატება)</li>
           <li xml:lang="nl">Registreren van nieuw account verbeteren (Ondersteunen van reden toevoegen)</li>
           <li xml:lang="pt-BR">Melhora o registro de nova conta (adiciona suporte ao motivo)</li>
+          <li xml:lang="ru">Улучшение регистрации новой учётной записи (добавление поддержки причины)</li>
           <li xml:lang="sk">Vylepšenie registrácie nového účtu (pridanie podpory dôvodu)</li>
           <li xml:lang="sl">Izboljša registracijo novega računa (doda podporo za razlog)</li>
           <li xml:lang="tr">Yeni hesap kaydetmeyi iyileştir (gerekçe desteği ekle)</li>
@@ -2292,6 +2358,7 @@
           <li xml:lang="ka">მომხმარებლის დადუმება/დადუმების მოხსნის განხორციელება</li>
           <li xml:lang="nl">Dempen/dempen ongedaan maken van gebruiker implementeren</li>
           <li xml:lang="pt-BR">Implementa silenciar/ativar som do usuário</li>
+          <li xml:lang="ru">Реализация запрета и разрешения говорить для пользователя</li>
           <li xml:lang="sk">Implementácia stíšenia/zrušenia stíšenia používateľa</li>
           <li xml:lang="sl">Implementiraj utišanje/vklop zvoka uporabnika</li>
           <li xml:lang="tr">Kullanıcıyı sessize almayı/sesini açmayı gerçekle</li>
@@ -2305,6 +2372,7 @@
           <li xml:lang="ka">ანგარიშის ჩანართის ტექსტზე ფერის დამატება</li>
           <li xml:lang="nl">Kleur toevoegen aan de tekst in het tabblad account</li>
           <li xml:lang="pt-BR">Adiciona cor ao texto na aba da conta</li>
+          <li xml:lang="ru">Добавление цвета для текста на вкладке учётных записей</li>
           <li xml:lang="sk">Pridanie farby textu na karte účtu</li>
           <li xml:lang="sl">Doda barvo besedilu na zavihku računa</li>
           <li xml:lang="tr">Hesap sekmesindeki metne renk ekle</li>
@@ -2318,6 +2386,7 @@
           <li xml:lang="ka">პირადი დაყენებული აპლიკაციების ჩვენების დაშვება</li>
           <li xml:lang="nl">Bied het tonen van privé geïnstalleerde toepassingen</li>
           <li xml:lang="pt-BR">Permite mostrar aplicativos privados instalados</li>
+          <li xml:lang="ru">Возможность показа приватно установленных приложений</li>
           <li xml:lang="sk">Možnosť zobrazenia súkromne nainštalovaných aplikácií</li>
           <li xml:lang="sl">Dovoli prikaz zasebno nameščenih aplikacij</li>
           <li xml:lang="tr">Özel kurulu uygulamaların gösterilmesine izin ver</li>
@@ -2332,6 +2401,7 @@
           <li xml:lang="ka">გასწორდა შეტყობინების ჩასწორება</li>
           <li xml:lang="nl">Bewerken van bericht repareren</li>
           <li xml:lang="pt-BR">Corrige edição de mensagem</li>
+          <li xml:lang="ru">Исправление редактирования сообщения</li>
           <li xml:lang="sk">Oprava úpravy správ</li>
           <li xml:lang="sl">Popravi urejanje sporočila</li>
           <li xml:lang="tr">İletiyi düzenlemeyi düzelt</li>
@@ -2345,6 +2415,7 @@
           <li xml:lang="ka">წვდომების ჩვენება Rocket.Chat-ის მაღაზიაში</li>
           <li xml:lang="nl">Rechten van Marktplein van Rocket.Chat tonen</li>
           <li xml:lang="pt-BR">Mostra permissões no Marketplace do Rocket.Chat</li>
+          <li xml:lang="ru">Показ прав доступа на рынке программ RocketChat (Rocket.Chat Marketplace)</li>
           <li xml:lang="sk">Zobrazenie oprávnení v Rocket.Chat Marketplace</li>
           <li xml:lang="sl">Prikazuje dovoljenja v Rocket.Chat Marketplace</li>
           <li xml:lang="tr">Rocket.Chat Mağazası’ndaki izinleri göster</li>
@@ -2358,6 +2429,7 @@
           <li xml:lang="ka">გასწორდა სერვერთან თავიდან დაკავშირება</li>
           <li xml:lang="nl">Server voor opnieuw verbinden repareren</li>
           <li xml:lang="pt-BR">Corrige reconexão ao servidor</li>
+          <li xml:lang="ru">Исправление переподключения к серверу</li>
           <li xml:lang="sk">Oprava opätovného pripojenia k serveru</li>
           <li xml:lang="sl">Popravi strežnik za ponovno povezavo</li>
           <li xml:lang="tr">Sunucuya yeniden bağlanmayı düzelt</li>
@@ -2371,6 +2443,7 @@
           <li xml:lang="ka">ერთი აპლიკაციის გასწორება Windows/MacOS-ებზე</li>
           <li xml:lang="nl">Enkele toepassing op Windows/MacOs repareren</li>
           <li xml:lang="pt-BR">Corrige aplicativos simples no Windows/MacOs</li>
+          <li xml:lang="ru">Исправление проблемы с одиночным экземпляром программы в Windows/MacOs</li>
           <li xml:lang="sk">Oprava jednej inštancie aplikácie vo Windows/MacOs</li>
           <li xml:lang="sl">Popravi posamezno aplikacijo na sistemih Windows/MacOs</li>
           <li xml:lang="tr">Windows/macOS üzerinde tek uygulama çalıştırmayı düzelt</li>
@@ -2384,6 +2457,7 @@
           <li xml:lang="ka">გასწორდა შექმნილი ოთახის/კამათის/გუნდების მონიშვნა</li>
           <li xml:lang="nl">Reparatie van selecteer aangemaakte room/discussie/teams</li>
           <li xml:lang="pt-BR">Corrige seleção de sala/discussão/equipes criadas</li>
+          <li xml:lang="ru">Исправление выбора созданных комнат/обсуждений/команд</li>
           <li xml:lang="sk">Oprava výberu vytvorenej miestnosti/diskusie/tímu</li>
           <li xml:lang="sl">Popravi izbiro ustvarjene sobe/razprave/ekip</li>
           <li xml:lang="tr">Oluşturulan oda/tartışma/takımları seçmeyi düzelt</li>
@@ -2397,6 +2471,7 @@
           <li xml:lang="ka">გასწორდა დისკუსიის ფილტრი ადმინისტრატორის რეჟიმში</li>
           <li xml:lang="nl">Reparatie van filter discussie in modus beheerder</li>
           <li xml:lang="pt-BR">Corrige discussão de filtro no modo administrador</li>
+          <li xml:lang="ru">Исправление фильтрации обсуждений в режиме администратора</li>
           <li xml:lang="sk">Oprava filtrovania diskusií v režime správcu</li>
           <li xml:lang="sl">Popravi filter razprave v skrbniškem načinu</li>
           <li xml:lang="tr">Yönetici kipinde tartışma filtrelemeyi düzelt</li>
@@ -2411,6 +2486,7 @@
           <li xml:lang="ka">გასწორდა შეტყობინების ვიდეოს მხარდაჭერა</li>
           <li xml:lang="nl">Reparatie van bericht ondersteuning van video</li>
           <li xml:lang="pt-BR">Corrige suporte a mensagens de vídeo</li>
+          <li xml:lang="ru">Исправление поддержки видео в сообщениях</li>
           <li xml:lang="sk">Oprava podpory videa v správach</li>
           <li xml:lang="sl">Popravi podporo za video sporočila</li>
           <li xml:lang="tr">İleti video desteğini düzelt</li>
@@ -2424,6 +2500,7 @@
           <li xml:lang="ka">გასწორდა ტექსტის გამოკვეთა ციტირებულ შეტყობინებებში</li>
           <li xml:lang="nl">Geaccentueerde tekst in aangehaald bericht repareren</li>
           <li xml:lang="pt-BR">Corrige texto destacado em mensagem citada</li>
+          <li xml:lang="ru">Исправление подсветки текста в цитате</li>
           <li xml:lang="sk">Oprava zvýraznenia textu v citovanej správe</li>
           <li xml:lang="sl">Popravi označeno besedilo v citiranem sporočilu</li>
           <li xml:lang="tr">Alıntılanan iletideki metin vurgulamayı düzelt</li>
@@ -2437,6 +2514,7 @@
           <li xml:lang="ka">გასწორდა კამათის არხის გახსნა</li>
           <li xml:lang="nl">Open discussiekanaal repareren</li>
           <li xml:lang="pt-BR">Corrige canal de discussão aberto</li>
+          <li xml:lang="ru">Исправление открытия канала обсуждения</li>
           <li xml:lang="sk">Oprava otvorenia diskusného kanála</li>
           <li xml:lang="sl">Popravi odprt kanal za razpravo</li>
           <li xml:lang="tr">Tartışma kanalını açmayı düzelt</li>
@@ -2450,6 +2528,7 @@
           <li xml:lang="ka">აპლიკაციის მარკეტის პარამეტრების ჩვენების დაშვება</li>
           <li xml:lang="nl">Sta het tonen van instellingen van toepassingenmarkt toe</li>
           <li xml:lang="pt-BR">Permite mostrar as configurações do mercado de aplicativos</li>
+          <li xml:lang="ru">Возможность показа параметров рынка программ</li>
           <li xml:lang="sk">Možnosť zobrazenia nastavení obchodu s aplikáciami</li>
           <li xml:lang="sl">Dovoli prikaz nastavitev tržnice aplikacij</li>
           <li xml:lang="tr">Uygulama pazarı ayarlarının gösterilmesine izin ver</li>
@@ -2470,6 +2549,7 @@
           <li xml:lang="ka">განხორციელდა Rocket.Chat-ის მაღაზია</li>
           <li xml:lang="nl">Marktplein van Rocket.Chat implementeren</li>
           <li xml:lang="pt-BR">Implementa o Marketplace do Rocket.Chat</li>
+          <li xml:lang="ru">Реализация рынка программ Rocket.Chat (Rocket.Chat Marketplace)</li>
           <li xml:lang="sk">Implementácia Rocket.Chat Marketplace</li>
           <li xml:lang="sl">Implementira Rocket.Chat Marketplace</li>
           <li xml:lang="tr">Rocket.Chat Mağazası’nı gerçekle</li>
@@ -2483,6 +2563,7 @@
           <li xml:lang="ka">ოთახის ისტორიის გასუფთავების დაშვება</li>
           <li xml:lang="nl">Toestaan de geschiedenis van de room te wissen</li>
           <li xml:lang="pt-BR">Permite limpar o histórico da sala</li>
+          <li xml:lang="ru">Возможность очистки журнала комнаты</li>
           <li xml:lang="sk">Možnosť vyčistenia histórie miestnosti</li>
           <li xml:lang="sl">Dovoli brisanje zgodovine sobe</li>
           <li xml:lang="tr">Oda geçmişinin temizlenmesine izin ver</li>
@@ -2496,6 +2577,7 @@
           <li xml:lang="ka">ახალი ვერსიის შემოწმების დაშვება</li>
           <li xml:lang="nl">Toestaan op nieuwe versie te controleren</li>
           <li xml:lang="pt-BR">Permite verificar por nova versão</li>
+          <li xml:lang="ru">Возможность проверки наличия новой версии</li>
           <li xml:lang="sk">Možnosť kontroly novej verzie</li>
           <li xml:lang="sl">Dovoli preverjanje nove različice</li>
           <li xml:lang="tr">Yeni sürümün denetlenmesine izin ver</li>
@@ -2509,6 +2591,7 @@
           <li xml:lang="ka">მოდერაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)</li>
           <li xml:lang="nl">Moderatie implementeren (modus systeembeheerder)</li>
           <li xml:lang="pt-BR">Implementa a moderação (modo de administrador)</li>
+          <li xml:lang="ru">Реализация модерации (режим администратора)</li>
           <li xml:lang="sk">Implementácia moderovania (režim správcu)</li>
           <li xml:lang="sl">Implementira moderiranje (skrbniški način)</li>
           <li xml:lang="tr">Moderasyonu gerçekle (yönetici kipi)</li>
@@ -2522,6 +2605,7 @@
           <li xml:lang="ka">დაემატა მისალმების გვერდი</li>
           <li xml:lang="nl">Welkomstpagina toevoegen</li>
           <li xml:lang="pt-BR">Adiciona a página de boas-vindas</li>
+          <li xml:lang="ru">Добавление приветственной страницы</li>
           <li xml:lang="sk">Pridanie uvítacej stránky</li>
           <li xml:lang="sl">Doda pozdravno stran</li>
           <li xml:lang="tr">Karşılama sayfası ekle</li>
@@ -2535,6 +2619,7 @@
           <li xml:lang="ka">განხორციელდა დარჩენილი მომხმარებლების ინფორმაციის მიღება(ადმინისტრატორის რეჟიმი).</li>
           <li xml:lang="nl">Informatie van wachtende gebruikers implementeren (modus systeembeheerder)</li>
           <li xml:lang="pt-BR">Implementa informações de usuários pendentes (modo de administrador)</li>
+          <li xml:lang="ru">Реализация показа сведений о пользователях в очереди (режим администратора)</li>
           <li xml:lang="sk">Implementácia informácií o čakajúcich používateľoch (režim správcu)</li>
           <li xml:lang="sl">Implementira podatke o čakajočih uporabnikih (skrbniški način)</li>
           <li xml:lang="tr">Bekleyen kullanıcılar bilgisini gerçekle (yönetici kipi)</li>
@@ -2548,6 +2633,7 @@
           <li xml:lang="ka">მარკდაუნისთვის cmark-rc-ის გამოყენება</li>
           <li xml:lang="nl">Cmark-rc gebruiken voor ondersteuning van markdown</li>
           <li xml:lang="pt-BR">Usar cmark-rc para suporte a Markdown</li>
+          <li xml:lang="ru">Использование cmark-rc для поддержки Markdown</li>
           <li xml:lang="sk">Použitie cmark-rc na podporu markdown</li>
           <li xml:lang="sl">Uporabi cmark-rc za podporo markdowna</li>
           <li xml:lang="tr">Markdown desteği için cmark-rc kullan</li>
@@ -2561,6 +2647,7 @@
           <li xml:lang="ka">კეშის საქაღალდეებიდან (file-upload და media) უძველესი ფაილების წაშლა, რომ ისინი უსასრულოდ არ გაიზარდოს</li>
           <li xml:lang="nl">Oudste bestanden uit enige cachemappen verwijderen (bestanden uploaden en media) zodat het niet oneindig groeit</li>
           <li xml:lang="pt-BR">Exclui os arquivos mais antigos de alguns diretórios de cache (upload de arquivos e mídia) para que eles não cresçam para sempre</li>
+          <li xml:lang="ru">Удаление самых старых файлов из некоторых каталогов кэша (отправка файлов и мультимедийные файлы), чтобы предотвратить бесконечное увеличение их размера</li>
           <li xml:lang="sk">Odstránenie najstarších súborov z niektorých adresárov vyrovnávacej pamäte (file-upload a media), aby nerástli donekonečna</li>
           <li xml:lang="sl">Izbriše najstarejše datoteke iz nekaterih imenikov predpomnilnika (prenos datotek tja in mediji), da se ne bi večno povečevali</li>
           <li xml:lang="tr">Sonsuza kadar büyümemesi için bazı önbellek dizinlerindeki (dosya yükleme ve ortam) en eski dosyaları sil</li>
@@ -2574,6 +2661,7 @@
           <li xml:lang="ka">მარკეტის აპლიკაციის მოდელის გასუფთავება 30 წუთის შემდეგ (ამცირებს დახარჯული მეხსიერების სიდიდეს)</li>
           <li xml:lang="nl">Toepassingsmodel voor markt wissen na 30 minuten (voetafdruk op geheugen verminderen)</li>
           <li xml:lang="pt-BR">Limpa o modelo de aplicativo do mercado após 30 minutos (reduz o consumo de memória)</li>
+          <li xml:lang="ru">Очистка модели рынка программ через 30 минут (используется меньше памяти)</li>
           <li xml:lang="sk">Vyčistenie modelu aplikácií obchodu po 30 minútach (zníženie spotreby pamäte)</li>
           <li xml:lang="sl">Očisti model tržne aplikacije po 30 minutah (zmanjšanje porabe pomnilnika)</li>
           <li xml:lang="tr">30 dakika sonra mağaza uygulama modelini temizle (bellek ayak izini azaltır)</li>
@@ -2587,6 +2675,7 @@
           <li xml:lang="ka">გასწორდა დასრულებისას კამათის სახელის ჩვენება</li>
           <li xml:lang="nl">Naam van discussie bij voltooien tonen repareren</li>
           <li xml:lang="pt-BR">Corrige nome da discussão exibida na conclusão</li>
+          <li xml:lang="ru">Исправление показа названия обсуждения при дополнении</li>
           <li xml:lang="sk">Oprava zobrazenia názvu diskusie pri dopĺňaní</li>
           <li xml:lang="sl">Popravi prikaz imena razprave v zaključku</li>
           <li xml:lang="tr">Tamamlamada tartışma adı göstermeyi düzelt</li>
@@ -2600,6 +2689,7 @@
           <li xml:lang="ka">გასწორდა გამეორებული შეტყობინებები ძებნის შეტყობინების დიალოგში</li>
           <li xml:lang="nl">Dubbele meldingen repareren in dialoog van zoekmelding</li>
           <li xml:lang="pt-BR">Corrige mensagens duplicadas na caixa de diálogo de pesquisa de mensagens</li>
+          <li xml:lang="ru">Исправление дублирования сообщений в диалоге поиска сообщений</li>
           <li xml:lang="sk">Oprava duplicitných správ v dialógu hľadania správ</li>
           <li xml:lang="sl">Popravi podvojena sporočila v pogovornem oknu za iskanje sporočil</li>
           <li xml:lang="tr">İleti arama penceresindeki yinelenen iletileri düzelt</li>
@@ -2613,6 +2703,7 @@
           <li xml:lang="ka">დაემატა დელეგატი ოთახების ძებნაში გუნდის დიალოგში</li>
           <li xml:lang="nl">Afgevaardigde toevoegen in zoekrooms in teamdialoog</li>
           <li xml:lang="pt-BR">Adiciona delegado em salas de pesquisa na caixa de diálogo da equipe</li>
+          <li xml:lang="ru">Добавление делегирования в диалоге поиска комнат в команде</li>
           <li xml:lang="sk">Pridanie delegáta pri hľadaní miestností v dialógu tímu</li>
           <li xml:lang="sl">Doda delegata v iskalne sobe v pogovornem oknu ekipe</li>
           <li xml:lang="tr">Takım penceresinde oda arama kısmına delege ekle</li>
@@ -2632,6 +2723,7 @@
           <li xml:lang="ka">ფონტის გადიდება/დაპატარავების (CTRL++/CTRL+-) დაშვება</li>
           <li xml:lang="nl">Bied het vergroten/verkleinen van het lettertype (CTRL++/CTRL+-)</li>
           <li xml:lang="pt-BR">Permite aumentar/diminuir a fonte (CTRL c/CTRL-)</li>
+          <li xml:lang="ru">Возможность увеличения или уменьшения шрифта (соответственно, CTRL++ или CTRL+-)</li>
           <li xml:lang="sk">Možnosť zväčšenia/zmenšenia písma (CTRL++/CTRL+-)</li>
           <li xml:lang="sl">Dovoli povečanje/zmanjšanje pisave (CTRL++/CTRL+-)</li>
           <li xml:lang="tr">Yazıtipini büyütmeye/küçültmeye izin ver (CTRL++ / CTRL+−)</li>
@@ -2645,6 +2737,7 @@
           <li xml:lang="ka">არხების სიის სტილის დამატება (შესქელებული/საშაუალო/გაფართოებული)</li>
           <li xml:lang="nl">Stijl van kanaallijst toevoegen (Slank/Medium/Uitgebreid)</li>
           <li xml:lang="pt-BR">Adiciona estilo de lista de canais (Condensado/Médio/Estendido)</li>
+          <li xml:lang="ru">Добавление стиля списка каналов («Компактный», «Обычный», «Расширенный»)</li>
           <li xml:lang="sk">Pridanie štýlu zoznamu kanálov (zhustený/stredný/rozšírený)</li>
           <li xml:lang="sl">Dodaj slog seznama kanalov (zgoščen/srednji/razširjen)</li>
           <li xml:lang="tr">Kanal listesi stili ekle (Sıkışık/Orta/Genişletilmiş)</li>
@@ -2658,6 +2751,7 @@
           <li xml:lang="ka">შეტყობინების გადაგზავნის დამატება</li>
           <li xml:lang="nl">Door te sturen bericht toevoegen</li>
           <li xml:lang="pt-BR">Adiciona encaminhamento de mensagem</li>
+          <li xml:lang="ru">Добавление пересылки сообщения</li>
           <li xml:lang="sk">Pridanie preposlania správy</li>
           <li xml:lang="sl">Doda posredovanje sporočila</li>
           <li xml:lang="tr">İletiyi yönlendirme ekle</li>
@@ -2672,6 +2766,7 @@
           <li xml:lang="ka">გაუმჯობესდა ხსენებების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning van vermeldingen verbeteren</li>
           <li xml:lang="pt-BR">Melhora o suporte a menções</li>
+          <li xml:lang="ru">Улучшение поддержки упоминаний</li>
           <li xml:lang="sk">Vylepšenie podpory zmienok</li>
           <li xml:lang="sl">Izboljša podporo za omembe</li>
           <li xml:lang="tr">Söz etme desteğini iyileştir</li>
@@ -2686,6 +2781,7 @@
           <li xml:lang="ka">დაემატა ღრმა ბმულების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
           <li xml:lang="pt-BR">Adiciona suporte para links diretos (deep linking)</li>
+          <li xml:lang="ru">Добавление поддержки диплинков</li>
           <li xml:lang="sk">Pridanie podpory hĺbkových odkazov</li>
           <li xml:lang="sl">Doda podporo za globoko povezovanje</li>
           <li xml:lang="tr">Derin bağlantı (deep linking) için destek ekle</li>
@@ -2699,6 +2795,7 @@
           <li xml:lang="ka">განხორციელდა დაბლოკვის ქმედებები</li>
           <li xml:lang="nl">Blokkeeracties implementeren</li>
           <li xml:lang="pt-BR">Implementa ações de bloqueio</li>
+          <li xml:lang="ru">Реализация действий блокировки</li>
           <li xml:lang="sk">Implementácia blokových akcií</li>
           <li xml:lang="sl">Implementira blokovne dejavnosti</li>
           <li xml:lang="tr">Engelleme eylemlerini gerçekle</li>
@@ -2712,6 +2809,7 @@
           <li xml:lang="ka">განხორციელდა პირადი ტოკენით ავთენტიკაცია.</li>
           <li xml:lang="nl">Implementeer authenticatie met persoonlijke tokens.</li>
           <li xml:lang="pt-BR">Implementa autenticação por token pessoal</li>
+          <li xml:lang="ru">Реализация аутентификации по личному маркеру</li>
           <li xml:lang="sk">Implementácia overenia osobným tokenom.</li>
           <li xml:lang="sl">Implementira avtentikacijo z osebnimi žetoni.</li>
           <li xml:lang="tr">Kişisel jeton kimlik doğrulamasını gerçekle.</li>
@@ -2725,6 +2823,7 @@
           <li xml:lang="ka">დაემატა Plasma-ის აქტივობების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor activiteiten van Plasma toevoegen</li>
           <li xml:lang="pt-BR">Adiciona suporte às Atividades do Plasma</li>
+          <li xml:lang="ru">Добавление поддержки комнат Plasma</li>
           <li xml:lang="sk">Pridanie podpory aktivít Plasma</li>
           <li xml:lang="sl">Doda podporo Plasma dejavnosti</li>
           <li xml:lang="tr">Plasma Etkinlikler desteği ekle</li>
@@ -2739,6 +2838,7 @@
           <li xml:lang="ka">დაემატა მომხმარებლის შესახებ ანგარიშის გაგზავნის მხარდაჭერა</li>
           <li xml:lang="nl">Rapport over gebruikersondersteuning toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte a reporte de usuário</li>
+          <li xml:lang="ru">Добавление поддержки жалоб на пользователей</li>
           <li xml:lang="sk">Pridanie podpory nahlasovania používateľov</li>
           <li xml:lang="sl">Doda podporo poročil uporabnikom</li>
           <li xml:lang="tr">Kullanıcıyı rapor etme desteği ekle</li>
@@ -2752,6 +2852,7 @@
           <li xml:lang="ka">განხორციელდა არხის ხმოვანი გაფრთხილება</li>
           <li xml:lang="nl">Melding van kanaalgeluid implementeren</li>
           <li xml:lang="pt-BR">Implementa notificação de som no canal</li>
+          <li xml:lang="ru">Реализация звукового уведомления о действиях на канале</li>
           <li xml:lang="sk">Implementácia zvukového upozornenia kanála</li>
           <li xml:lang="sl">Implementira obveščanje zvočnega kanala</li>
           <li xml:lang="tr">Kanal sesli bildirimini gerçekle</li>
@@ -2765,6 +2866,7 @@
           <li xml:lang="ka">განხორციელდა ახალი არხის ხმოვანი გაფრთხილება</li>
           <li xml:lang="nl">Geluidsmelding voor nieuwe room implementeren</li>
           <li xml:lang="pt-BR">Implementa nova notificação de som para sala</li>
+          <li xml:lang="ru">Реализация звукового уведомления о новой комнате</li>
           <li xml:lang="sk">Implementácia zvukového upozornenia na novú miestnosť</li>
           <li xml:lang="sl">Implementira zvočno obvestilo za novo sobo</li>
           <li xml:lang="tr">Yeni oda sesli bildirimini gerçekle</li>
@@ -2778,6 +2880,7 @@
           <li xml:lang="ka">განხორციელდა დალაგებული/დაულაგებელი markdown-ის ჩამონათვალი</li>
           <li xml:lang="nl">Gesorteerde/niet-gesorteerde markdown-lijst implementeren</li>
           <li xml:lang="pt-BR">Implementa lista de markdown classificada/não classificada</li>
+          <li xml:lang="ru">Реализация списка «с упорядочиванием / без упорядочивания» для Markdown</li>
           <li xml:lang="sk">Implementácia číslovaného/nečíslovaného zoznamu markdown</li>
           <li xml:lang="sl">Implementira razvrščen/nerazvrščen seznam markdown</li>
           <li xml:lang="tr">Sıralı/Sırasız Markdown listesini gerçekle</li>
@@ -2792,6 +2895,7 @@
           <li xml:lang="ka">გასწორდა ბნელი რეჟიმის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor modus Donker repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao modo escuro</li>
+          <li xml:lang="ru">Исправление поддержки тёмного режима</li>
           <li xml:lang="sk">Oprava podpory tmavého režimu</li>
           <li xml:lang="sl">Popravljena podpora za temni način</li>
           <li xml:lang="tr">Koyu kip desteğini düzelt</li>
@@ -2806,6 +2910,7 @@
           <li xml:lang="ka">გასწორდა JITSI-ის მხარდაჭერა</li>
           <li xml:lang="nl">Jitsi-ondersteuning repareren</li>
           <li xml:lang="pt-BR">Corrige suporte a jitsi</li>
+          <li xml:lang="ru">Исправление поддержки jitsi</li>
           <li xml:lang="sk">Oprava podpory Jitsi</li>
           <li xml:lang="sl">Popravi podporo za jitsi</li>
           <li xml:lang="tr">Jitsi desteğini düzelt</li>
@@ -2819,6 +2924,7 @@
           <li xml:lang="ka">გასწორდა შეტყობინების თარგმნა პირდაპირ არხში</li>
           <li xml:lang="nl">Bericht vertalen in direct kanaal repareren</li>
           <li xml:lang="pt-BR">Corrige mensagem de tradução no canal direto</li>
+          <li xml:lang="ru">Исправление перевода сообщений в прямых каналах</li>
           <li xml:lang="sk">Oprava prekladu správy v priamom kanáli</li>
           <li xml:lang="sl">Popravi prevedeno sporočilo v neposrednem kanalu</li>
           <li xml:lang="tr">Doğrudan kanaldaki ileti çevirisini düzelt</li>
@@ -2832,6 +2938,7 @@
           <li xml:lang="ka">მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება</li>
           <li xml:lang="nl">@here/@all als gebruiker niet tonen</li>
           <li xml:lang="pt-BR">Não mostra @here/@all como usuário</li>
+          <li xml:lang="ru">Отмена показа @here/@all как пользователя</li>
           <li xml:lang="sk">Nezobrazovať @here/@all ako používateľa</li>
           <li xml:lang="sl">Ne prikazuj @here/@all kot uporabnika</li>
           <li xml:lang="tr">@here/@all ögelerini kullanıcı olarak gösterme</li>
@@ -2845,6 +2952,7 @@
           <li xml:lang="ka">შემცირდა მეხსიერების გამოყენება</li>
           <li xml:lang="nl">Voetafdruk op geheugen verminderen</li>
           <li xml:lang="pt-BR">Reduz uso de memória</li>
+          <li xml:lang="ru">Снижение использования памяти</li>
           <li xml:lang="sk">Zníženie spotreby pamäte</li>
           <li xml:lang="sl">Zmanjša pomnilniški odtis</li>
           <li xml:lang="tr">Bellek ayak izini azalt</li>
@@ -2858,6 +2966,7 @@
           <li xml:lang="ka">RESTAPI-ის გამოყენება ჟურნალისთვის</li>
           <li xml:lang="nl">RESTAPI voor loggen gebruiken</li>
           <li xml:lang="pt-BR">Uso da API REST para registro</li>
+          <li xml:lang="ru">Использование RESTAPI для ведения журнала</li>
           <li xml:lang="sk">Použitie RESTAPI na prihlasovanie</li>
           <li xml:lang="sl">Uporabi REST API za beleženje</li>
           <li xml:lang="tr">Günlükleme için RESTAPI kullan</li>
@@ -2871,6 +2980,7 @@
           <li xml:lang="ka">ერთზე მეტი ფაილის გაგზავნის დაშვება</li>
           <li xml:lang="nl">Meerdere bestanden verzenden toestaan</li>
           <li xml:lang="pt-BR">Permite o envio de múltiplos arquivos</li>
+          <li xml:lang="ru">Возможность отправки нескольких файлов</li>
           <li xml:lang="sk">Možnosť odoslania viacerých súborov</li>
           <li xml:lang="sl">Dovoli pošiljanje več datotek</li>
           <li xml:lang="tr">Çoklu dosya gönderilmesine izin ver</li>
@@ -2884,6 +2994,7 @@
           <li xml:lang="ka">გასწორდა მინიატურის ბმული</li>
           <li xml:lang="nl">Voorbeeld-url repareren</li>
           <li xml:lang="pt-BR">Corrige visualização de URL</li>
+          <li xml:lang="ru">Исправление предпросмотра содержимого по ссылкам</li>
           <li xml:lang="sk">Oprava náhľadu URL adresy</li>
           <li xml:lang="sl">Popravi predogled url</li>
           <li xml:lang="tr">Önizleme URL’sini düzelt</li>
@@ -2912,6 +3023,7 @@
           <li xml:lang="ka">მოდერაცის კონსოლის დამატება (ადმინისტრაცია, RC სერვერი 6.2)</li>
           <li xml:lang="nl">Moderatieconsole toevoegen (Administratie, RC-server 6.2)</li>
           <li xml:lang="pt-BR">Adiciona Console de Moderação (Administração, servidor RC 6.2)</li>
+          <li xml:lang="ru">Добавление консоли модерации (администрирование, сервер RC 6.2)</li>
           <li xml:lang="sk">Pridanie konzoly moderovania (Správa, server RC 6.2)</li>
           <li xml:lang="sl">Doda konzolo za moderiranje (Administracija, RC strežnik 6.2)</li>
           <li xml:lang="tr">Moderasyon konsolu ekle (Yönetim, RC sunucusu 6.2)</li>
@@ -2925,6 +3037,7 @@
           <li xml:lang="ka">შეტყობინებების სტილის განხორციელება</li>
           <li xml:lang="nl">Berichtenstijl implementeren</li>
           <li xml:lang="pt-BR">Implementa estilo de mensagem</li>
+          <li xml:lang="ru">Реализация стиля сообщения</li>
           <li xml:lang="sk">Implementácia štýlu správ</li>
           <li xml:lang="sl">Implementira slog sporočila</li>
           <li xml:lang="tr">İleti biçemi gerçekle</li>
@@ -2938,6 +3051,7 @@
           <li xml:lang="ka">ბმულის მინიატურის განხორციელება</li>
           <li xml:lang="nl">Voorbeeld van Url implementeren</li>
           <li xml:lang="pt-BR">Implementa visualização de URL</li>
+          <li xml:lang="ru">Реализация предпросмотра содержимого по ссылкам</li>
           <li xml:lang="sk">Implementácia náhľadu URL adries</li>
           <li xml:lang="sl">Implementira predogled Url</li>
           <li xml:lang="tr">URL önizlemeyi gerçekle</li>
@@ -2951,6 +3065,7 @@
           <li xml:lang="ka">Markdown-ის მხარდაჭერის გაუქმება (თავსართი + თოლია)</li>
           <li xml:lang="nl">Ondersteuning van markdown repareren (kop + vinkje)</li>
           <li xml:lang="pt-BR">Corrige suporte a markdown (cabeçalho + marca de seleção)</li>
+          <li xml:lang="ru">Исправление поддержки Markdown (заголовок + отметка)</li>
           <li xml:lang="sk">Oprava podpory markdown (hlavička + zaškrtnutie)</li>
           <li xml:lang="sl">Popravi podporo za Markdown (glava + kljukica)</li>
           <li xml:lang="tr">Markdown desteğini düzelt (başlık + onay işareti)</li>
@@ -2964,6 +3079,7 @@
           <li xml:lang="ka">გასწორდა მეხსიერების გაჟონვა</li>
           <li xml:lang="nl">Geheugenlek repareren</li>
           <li xml:lang="pt-BR">Corrige vazamento de memória</li>
+          <li xml:lang="ru">Исправление утечки памяти</li>
           <li xml:lang="sk">Oprava úniku pamäte</li>
           <li xml:lang="sl">Popravi puščanje pomnilnika</li>
           <li xml:lang="tr">Bellek sızıntısını düzelt</li>
@@ -2977,6 +3093,7 @@
           <li xml:lang="ka">კეშის შეტყობინების ზომა (ოპტიმიზაცია)</li>
           <li xml:lang="nl">Grootte van cache voor berichten (optimalisatie)</li>
           <li xml:lang="pt-BR">Otimização de tamanho da mensagem em cache</li>
+          <li xml:lang="ru">Кэширование размера сообщений (оптимизация)</li>
           <li xml:lang="sk">Ukladanie veľkosti správ do vyrovnávacej pamäte (optimalizácia)</li>
           <li xml:lang="sl">Velikost predpomnilnika sporočil (optimizacija)</li>
           <li xml:lang="tr">İleti boyutunu önbelleğe al (eniyileme)</li>
@@ -2990,6 +3107,7 @@
           <li xml:lang="ka">ოთახის არჩევის ან მომხმარებლის ხაზის ჩასწორების გაუმჯობესება (ხატულის ჩვენება, მომხმარებლის შეტყობინება, თუ მომხმარებელი არხზეა)</li>
           <li xml:lang="nl">Room of gebruiker selecteren verbeteren in regelbewerking van melding (pictogram tonen, informeren of gebruiker in kanaal is)</li>
           <li xml:lang="pt-BR">Melhora a seleção de sala ou usuário na edição da linha de mensagem (mostrar ícone, informar se o usuário está no canal)</li>
+          <li xml:lang="ru">Улучшение выбора комнаты или пользователя в строке редактирования сообщения (показ значка, информация о присутствии пользователя на канале)</li>
           <li xml:lang="sk">Vylepšenie výberu miestnosti alebo používateľa v riadku správy (zobrazenie ikony, informovanie, či je používateľ v kanáli)</li>
           <li xml:lang="sl">Izboljša izbiro sobe ali uporabnika v urejanju sporočilne vrstice (prikaz ikone, obveščanje, če je uporabnik v kanalu)</li>
           <li xml:lang="tr">İleti satırı düzenlemesinde oda veya kullanıcı seçmeyi iyileştir (simge göster, kullanıcı kanaldaysa bilgilendir)</li>
@@ -3003,6 +3121,7 @@
           <li xml:lang="ka">გასწორდა ბრძანებების ჩვენება შეტყობინების ხაზის ჩასწორებისას (ქმედების დამალვა, როცა ოთახს მისი მხარდაჭერა არ აქვს)</li>
           <li xml:lang="nl">Tonen van commando's in bewerken van berichtregel (actie verbergen wanneer room het niet ondersteunt)</li>
           <li xml:lang="pt-BR">Corrige comandos de exibição na edição da linha de mensagem (Ocultar ação quando a sala não a suporta)</li>
+          <li xml:lang="ru">Исправление показа команд в строке редактирования сообщения (скрытие действий, которые не поддерживаются комнатой)</li>
           <li xml:lang="sk">Oprava zobrazenia príkazov v riadku správy (skrytie akcie, keď ju miestnosť nepodporuje)</li>
           <li xml:lang="sl">Popravi prikaz ukazov v urejanju sporočilne vrstice (Skrij dejanje, ko soba tega ne podpira)</li>
           <li xml:lang="tr">İleti satırı düzenlemesinde komutları göstermeyi düzelt (Oda desteklemediğinde eylemi gizle)</li>
@@ -3016,6 +3135,7 @@
           <li xml:lang="ka">გასწორდა ხმის/ვიდეოს ფაილის გადმოწერა, როცა ის კეშში არაა</li>
           <li xml:lang="nl">Downloaden van bestand met geluid/video wanneer het niet in de cache is</li>
           <li xml:lang="pt-BR">Corrige arquivo de som/vídeo para download quando não estiver no cache</li>
+          <li xml:lang="ru">Исправление загрузки файлов звука и видео, которые не находятся в кэше</li>
           <li xml:lang="sk">Oprava sťahovania zvukového/video súboru, keď nie je vo vyrovnávacej pamäti</li>
           <li xml:lang="sl">Popravi prenos zvočne/video datoteke, kadar ni v predpomnilniku</li>
           <li xml:lang="tr">Önbellekte olmadığında ses/video dosyasını indirmeyi düzelt</li>
@@ -3030,6 +3150,7 @@
           <li xml:lang="ka">გასწორდა ავთენტიკაციის მეთოდების ჩამონათვალი</li>
           <li xml:lang="nl">Lijst met authenticatiemethode repareren</li>
           <li xml:lang="pt-BR">Corrige lista de métodos de autenticação</li>
+          <li xml:lang="ru">Исправление списка способов аутентификации</li>
           <li xml:lang="sk">Oprava zoznamu metód overenia</li>
           <li xml:lang="sl">Popravi seznam metod avtentikacije</li>
           <li xml:lang="tr">Kimlik doğrulama yöntemleri listesini düzelt</li>
@@ -3044,6 +3165,7 @@
           <li xml:lang="ka">გასწორდა საჩვენებელი ავატარის ბმული</li>
           <li xml:lang="nl">Tonen van url van avatar repareren</li>
           <li xml:lang="pt-BR">Corrige exibição do URL do avatar</li>
+          <li xml:lang="ru">Исправление показа адреса аватара</li>
           <li xml:lang="sk">Oprava zobrazenia URL adresy avatara</li>
           <li xml:lang="sl">Popravi prikaz avatarjevega url</li>
           <li xml:lang="tr">Profil resmi URL’si göstermeyi düzelt</li>
@@ -3065,6 +3187,7 @@
           <li xml:lang="ka">შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)</li>
           <li xml:lang="nl">Berichten in lokale database opslaan (experimenteel)</li>
           <li xml:lang="pt-BR">Armazena mensagem no banco de dados local (experimental)</li>
+          <li xml:lang="ru">Хранение сообщения в локальной базе данных (экспериментальная возможность)</li>
           <li xml:lang="sk">Ukladanie správ do miestnej databázy (experimentálne)</li>
           <li xml:lang="sl">Shrani sporočilo v lokalno zbirko podatkov (poskusno)</li>
           <li xml:lang="tr">İletiyi yerel veri tabanında depola (deneysel)</li>
@@ -3080,6 +3203,7 @@
           <li xml:lang="ka">სერვერის ხატულის სერვერიდან გადმოწერა</li>
           <li xml:lang="nl">Pictogram van server downloaden van server</li>
           <li xml:lang="pt-BR">Baixa ícone do servidor a partir do servidor</li>
+          <li xml:lang="ru">Загрузка значка сервера с сервера</li>
           <li xml:lang="sk">Stiahnutie ikony servera zo servera</li>
           <li xml:lang="sl">Prenesi ikono strežnika s strežnika</li>
           <li xml:lang="tr">Sunucu simgesini sunucudan indir</li>
@@ -3094,6 +3218,7 @@
           <li xml:lang="ka">სერვერის შეცდომის ინფორმაციის ჩვენება მითითებულ ფანჯარაში</li>
           <li xml:lang="nl">Informatie over serverfout tonen in specifiek dialoogvak </li>
           <li xml:lang="pt-BR">Mostra informações de erro do servidor em caixa de diálogo específica</li>
+          <li xml:lang="ru">Показ сведений об ошибке сервера в соответствующем окне</li>
           <li xml:lang="sk">Zobrazenie informácií o chybe servera v osobitnom dialógu</li>
           <li xml:lang="sl">Prikaže informacije o napaki strežnika v določenem pogovornem oknu</li>
           <li xml:lang="tr">Sunucu hatası bilgisini belirli bir iletişim kutusunda göster</li>
@@ -3109,6 +3234,7 @@
           <li xml:lang="ka">გამოსახულების ბუფერში კოპირების დაშვება</li>
           <li xml:lang="nl">Afbeelding naar klembord kopiëren toestaan</li>
           <li xml:lang="pt-BR">Permite copiar imagem para a área de transferência</li>
+          <li xml:lang="ru">Возможность копирования изображения в буфер обмена</li>
           <li xml:lang="sk">Možnosť kopírovania obrázka do schránky</li>
           <li xml:lang="sl">Dovoli kopiranje slike na odložišče</li>
           <li xml:lang="tr">Görselin panoya kopyalanmasına izin ver</li>
@@ -3123,6 +3249,7 @@
           <li xml:lang="ka">გამართვის მხარდაჭერის გაუმჯობესება (მიმდინარე ანგარიშის წვდომების ჩვენების დაშვება)</li>
           <li xml:lang="nl">Ondersteunt voor debuggen verbeteren (sta toe de huidige toegangsrechten te bekijken)</li>
           <li xml:lang="pt-BR">Melhoria no suporte à depuração (permitir mostrar as permissões da conta atual)</li>
+          <li xml:lang="ru">Улучшение поддержки отладки (показ текущих прав учётной записи)</li>
           <li xml:lang="sk">Vylepšenie podpory ladenia (možnosť zobrazenia oprávnení aktuálneho účtu)</li>
           <li xml:lang="sl">Izboljša podporo za odpravljanje napak (Omogoča prikaz trenutnih dovoljenj računa)</li>
           <li xml:lang="tr">Hata ayıklama desteğini iyileştir (geçerli hesap izinlerinin gösterilmesine izin ver)</li>
@@ -3137,6 +3264,7 @@
           <li xml:lang="ka">დაემატა ციტირებული ტექსტის (ტექსტის, რომელიც \'&gt;\'-ით იწყება) მხარდაჭერა</li>
           <li xml:lang="nl">Voeg ondersteuning toe voor geciteerde tekst (tekst die begint met \'&gt;\').</li>
           <li xml:lang="pt-BR">Adiciona suporte para texto citado (texto que começa com \'&gt;\')</li>
+          <li xml:lang="ru">Добавление поддержки цитат (текст, начинающийся с символа \'&gt;\')</li>
           <li xml:lang="sk">Pridanie podpory citovaného textu (text, ktorý začína znakom \'&gt;\')</li>
           <li xml:lang="sl">Doda podporo za citirano besedilo (besedilo, ki se začne z \'&gt;\')</li>
           <li xml:lang="tr">Alıntılanan metin için destek ekle (“&gt;” ile başlayan metinler)</li>
@@ -3150,6 +3278,7 @@
           <li xml:lang="ka">არხის ინფორმაციაში ლიდერის/მოდერატორის/მფლობელის ჩვენება</li>
           <li xml:lang="nl">Leider/moderator/eigenaar tonen in kanaalinformatie</li>
           <li xml:lang="pt-BR">Mostra líder/moderador/proprietário nas informações do canal</li>
+          <li xml:lang="ru">Показ лидера/модератора/владельца в сведениях о канале</li>
           <li xml:lang="sk">Zobrazenie vedúceho/moderátora/vlastníka v informáciách o kanáli</li>
           <li xml:lang="sl">Prikazuje vodjo/moderatorja/lastnika v informacijah o kanalu</li>
           <li xml:lang="tr">Kanal bilgisinde lideri/denetçiyi/sahibini göster</li>
@@ -3164,6 +3293,7 @@
           <li xml:lang="ka">ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)</li>
           <li xml:lang="nl">Ondersteuning voor video/geluidsbericht (alleen kf6)</li>
           <li xml:lang="pt-BR">Suporte para mensagens de vídeo/som (somente kf6)</li>
+          <li xml:lang="ru">Поддержка видео- и аудиосообщений (только kf6)</li>
           <li xml:lang="sk">Podpora video/zvukových správ (iba kf6)</li>
           <li xml:lang="sl">Podpora za video/zvočna sporočila (samo kf6)</li>
           <li xml:lang="tr">Video/Sesli ileti desteği (yalnızca kf6)</li>
@@ -3178,6 +3308,7 @@
           <li xml:lang="ka">ანგარიშების გატანა/შემოტანა</li>
           <li xml:lang="nl">Accounts im-/exporteren</li>
           <li xml:lang="pt-BR">Importação/Exportação de contas</li>
+          <li xml:lang="ru">Импорт/экспорт учётных записей</li>
           <li xml:lang="sk">Import/export účtov</li>
           <li xml:lang="sl">Uvoz/izvoz računov</li>
           <li xml:lang="tr">Hesapları içe/dışa aktar</li>
@@ -3192,6 +3323,7 @@
           <li xml:lang="ka">ავატარის მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Ondersteuning voor avatar repareren</li>
           <li xml:lang="pt-BR">Corrige o suporte a avatar</li>
+          <li xml:lang="ru">Исправление поддержки аватаров</li>
           <li xml:lang="sk">Oprava podpory avatarov</li>
           <li xml:lang="sl">Popravi podporo za avatarje</li>
           <li xml:lang="tr">Profil resmi desteğini düzelt</li>
@@ -3206,6 +3338,7 @@
           <li xml:lang="ka">ემოჯის მხარდაჭერის გასწორება (იყენებს ახალ ktextaddon/textemoticon)</li>
           <li xml:lang="nl">Ondersteuning voor emoji repareren (nieuwe ktextaddons/textemoticons gebruiken)</li>
           <li xml:lang="pt-BR">Corrige o suporte a emojis (usa os novos ktextaddons/textemoticons)</li>
+          <li xml:lang="ru">Исправление поддержки смайликов (использование нового ktextaddons/textemoticons)</li>
           <li xml:lang="sk">Oprava podpory emoji (použitie nového ktextaddons/textemoticons)</li>
           <li xml:lang="sl">Popravi podporo za čustvenčke (uporabi nove dodatke ktext/textemoticons)</li>
           <li xml:lang="tr">Emoji desteğini düzelt (yeni ktextaddons/textemoticons kullan)</li>
@@ -3220,6 +3353,7 @@
           <li xml:lang="ka">რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Geanimeerde gif in reacties repareren</li>
           <li xml:lang="pt-BR">Corrige gif animados em reações</li>
+          <li xml:lang="ru">Исправление анимации GIF-изображений в реакциях</li>
           <li xml:lang="sk">Oprava animovaných GIF v reakciách</li>
           <li xml:lang="sl">Popravi animirani gif v reakcijah</li>
           <li xml:lang="tr">Tepkilerdeki hareketli GIF desteğini düzelt</li>
@@ -3235,6 +3369,7 @@
           <li xml:lang="ka">KF6-ის მხარდაჭერის გასწორება</li>
           <li xml:lang="nl">Ondersteuning voor kf6 repareren</li>
           <li xml:lang="pt-BR">Corrige suporte ao kf6</li>
+          <li xml:lang="ru">Исправление поддержки kf6</li>
           <li xml:lang="sk">Oprava podpory kf6</li>
           <li xml:lang="sl">Popravi podporo za kf6</li>
           <li xml:lang="tr">kf6 desteğini düzelt</li>
