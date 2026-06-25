@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-24 01:23+0000\n"
+"POT-Creation-Date: 2026-06-25 00:44+0000\n"
 "PO-Revision-Date: 2025-12-29 17:10+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1611,7 +1611,7 @@ msgstr ""
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Nežinoma"
@@ -1815,12 +1815,12 @@ msgstr "Šifruota žinutė"
 msgid "Joined this Team"
 msgstr "Šalinti iš kambario"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:38
 #, kde-format
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Savininkas"
@@ -9370,7 +9370,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:120
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9394,20 +9394,20 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Atblokuoti naudotoją"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:46
+#: widgets/dialogs/showbanneduserswidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Šifruota žinutė"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No Banned Users found"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:111
+#: widgets/dialogs/showbanneduserswidget.cpp:118
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9551,7 +9551,7 @@ msgstr "Atblokuoti naudotoją"
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
-"Some user are banned from this room. Do you want to unban and add them back ?"
+"Some users are banned from this room. Do you want to unban and add them back?"
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
@@ -12355,7 +12355,7 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "Išeiti iš kanalo"
 
-#: widgets/teams/teamchannelswidget.cpp:62
+#: widgets/teams/teamchannelswidget.cpp:63
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
@@ -12363,45 +12363,45 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Ieškoti žinučių..."
 
-#: widgets/teams/teamchannelswidget.cpp:121
+#: widgets/teams/teamchannelswidget.cpp:127
 #, kde-format
 msgid "Add Existing Room"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Sukurti kambarį"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Šalinti iš kambario"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Pridėti paskyrą"
 
-#: widgets/teams/teamchannelswidget.cpp:136
+#: widgets/teams/teamchannelswidget.cpp:142
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/teams/teamchannelswidget.cpp:171
+#: widgets/teams/teamchannelswidget.cpp:177
 #, fuzzy, kde-format
 #| msgid "Do you want to leave this channel?"
 msgid "Would you like to remove this Channel from team?"
 msgstr "Ar norite išeiti iš šio kanalo?"
 
-#: widgets/teams/teamchannelswidget.cpp:172
+#: widgets/teams/teamchannelswidget.cpp:178
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title"

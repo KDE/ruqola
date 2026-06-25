@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-24 01:23+0000\n"
-"PO-Revision-Date: 2026-05-25 17:23+0200\n"
+"POT-Creation-Date: 2026-06-25 00:44+0000\n"
+"PO-Revision-Date: 2026-06-24 17:43+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
-"Language-Team: Interlingua <kde-i18n-it@kde.org>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,7 +176,7 @@ msgstr ""
 #: core/apps/appsmarketplaceinfo.cpp:113
 #, kde-format
 msgid "per %1"
-msgstr ""
+msgstr "per %1"
 
 #: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
@@ -1006,16 +1006,14 @@ msgid "%1 has requested key refresh."
 msgstr "%1 Ha requirite refrescar clave."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 e %2"
+msgstr "%1 excludeva %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 e %2"
+msgstr "%1cessava de excluder (ban) %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1546,9 +1544,9 @@ msgstr "Messages private"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Version provisori"
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Incognite"
@@ -1738,12 +1736,12 @@ msgstr "Cela messages de \"Description de sala cambiate\""
 msgid "Joined this Team"
 msgstr "Unite a iste Equipa"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:38
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Autouni)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Proprietario"
@@ -1973,7 +1971,7 @@ msgstr ""
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Nunc"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
 #, kde-format
@@ -1986,22 +1984,22 @@ msgstr[1] "%1 secundas"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minuta"
+msgstr[1] "%1 minutas"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 hora"
+msgstr[1] "%1 horas"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 die"
+msgstr[1] "%1 dies"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
@@ -2206,10 +2204,9 @@ msgid "Invalid Parameters"
 msgstr "Parametros invalide"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "Usator non es in iste sala"
+msgstr "Usator es excludite ex iste sala"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3279,12 +3276,10 @@ msgid "Cancel"
 msgstr "Cancella"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Salveguarda file"
+msgstr "Salveguarda"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3307,11 +3302,10 @@ msgstr "Timbro de tempore in messages"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Messages private"
+msgstr "Messages de esbosso"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -7711,7 +7705,7 @@ msgstr "Plugins de instrumentos"
 #: widgets/configuredialog/configurepluginswidget.cpp:57
 #, kde-format
 msgid "Text Plugins"
-msgstr ""
+msgstr "Plugins de Texto"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
@@ -8905,7 +8899,7 @@ msgstr[0] "%1 Attachamento in sala (Total: %2)"
 msgstr[1] "%1 Attachamentos in sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:120
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -8916,43 +8910,34 @@ msgid "(Click here for Loading more…)"
 msgstr "(Pulsa hic per cargar plus ...)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Monstra Messages appunctate - %1"
+msgstr "Monstra usatores excludite (banned) - %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Disbloca usator"
+msgstr "Cessa a excluder  usator"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#: widgets/dialogs/showbanneduserswidget.cpp:53
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Monstra Messages appunctate..."
+msgstr "Cerca Usatores Excludite (banned) ..."
 
-#: widgets/dialogs/showbanneduserswidget.cpp:106
-#, fuzzy, kde-format
-#| msgid "No User found"
+#: widgets/dialogs/showbanneduserswidget.cpp:113
+#, kde-format
 msgid "No Banned Users found"
-msgstr "Nulle  Usator trovate"
+msgstr "Nulle  Usator excludite  trovate"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:111
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#: widgets/dialogs/showbanneduserswidget.cpp:118
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
 msgstr[0] "%1 Usator in sala (Total: %2)"
-msgstr[1] "%1 Usatores in sala (Total: %2)"
+msgstr[1] "%1 Usatores Excludite  in sala (Total: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9005,17 +8990,16 @@ msgid "Fit to View"
 msgstr "Adapta a Vista"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Limitator de rata"
+msgstr "Rota a sinistra"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Rota a dextera"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9072,18 +9056,16 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "Disbloca usator"
+msgstr "Cessa excluder usatores"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
-"Some user are banned from this room. Do you want to unban and add them back ?"
+"Some users are banned from this room. Do you want to unban and add them back?"
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
@@ -10150,7 +10132,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "Volumine principal:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:196
 #, kde-format
@@ -10494,12 +10476,10 @@ msgid "Encrypt Messages"
 msgstr "Crypta messages"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Monstra Messages appunctate..."
+msgstr "Monstra usatores excludite (banned) ..."
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11291,12 +11271,10 @@ msgid "Report User"
 msgstr "Reporta Usator"
 
 #: widgets/room/usersinroommenu.cpp:209
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Adde Usatores in Sala"
+msgstr "Exclude Usatores ex Sala"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -11679,48 +11657,48 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "Canales de Equipa"
 
-#: widgets/teams/teamchannelswidget.cpp:62
+#: widgets/teams/teamchannelswidget.cpp:63
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Cerca Sala..."
 
-#: widgets/teams/teamchannelswidget.cpp:121
+#: widgets/teams/teamchannelswidget.cpp:127
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Adde sala existente"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Crea sala"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Remove autouni"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Adde autouni"
 
-#: widgets/teams/teamchannelswidget.cpp:136
+#: widgets/teams/teamchannelswidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Remove ex Equipa"
 
-#: widgets/teams/teamchannelswidget.cpp:171
+#: widgets/teams/teamchannelswidget.cpp:177
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Tu volerea remover iste Canal ex le equipa?"
 
-#: widgets/teams/teamchannelswidget.cpp:172
+#: widgets/teams/teamchannelswidget.cpp:178
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
@@ -11923,7 +11901,7 @@ msgstr "Adde conto…"
 #~ msgstr "Grandor de message de cache (optimisation)"
 
 #~ msgid "Fix list of authentication method."
-#~ msgstr "Corroge lista de Methodo de authentication"
+#~ msgstr "Corrige lista de Methodo de authentication"
 
 #~ msgid "Fix show avatar url."
 #~ msgstr "Corrige url de avatar a monstrar"

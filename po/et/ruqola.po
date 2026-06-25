@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-24 01:23+0000\n"
+"POT-Creation-Date: 2026-06-25 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1655,7 +1655,7 @@ msgstr "Privaatsõnumid"
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
@@ -1881,12 +1881,12 @@ msgstr "Videosõnum"
 msgid "Joined this Team"
 msgstr "%2 lisas %1 vestlusse"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:38
 #, kde-format
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Omanik"
@@ -9602,7 +9602,7 @@ msgstr[0] "%1 manus toas (kokku: %2)"
 msgstr[1] "%1 manust toas (kokku: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:120
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9628,20 +9628,20 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Tühista kasutaja blokeerimine"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:46
+#: widgets/dialogs/showbanneduserswidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Show Pinned Messages..."
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Näita kinnistatud sõnumeid ..."
 
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No Banned Users found"
 msgstr "Ühtegi sõnumit ei leitud"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:111
+#: widgets/dialogs/showbanneduserswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
 #| msgid_plural "%1 Messages in room (Total: %2)"
@@ -9789,7 +9789,7 @@ msgstr "Tühista kasutaja blokeerimine"
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
-"Some user are banned from this room. Do you want to unban and add them back ?"
+"Some users are banned from this room. Do you want to unban and add them back?"
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
@@ -12684,7 +12684,7 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "Välju kanalilt"
 
-#: widgets/teams/teamchannelswidget.cpp:62
+#: widgets/teams/teamchannelswidget.cpp:63
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search Rooms"
@@ -12692,48 +12692,48 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Toa otsimine"
 
-#: widgets/teams/teamchannelswidget.cpp:121
+#: widgets/teams/teamchannelswidget.cpp:127
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
 msgid "Add Existing Room"
 msgstr "Kasutajate lisamine tuppa"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Privaattuba:"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Eemalda toast"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Konto lisamine"
 
-#: widgets/teams/teamchannelswidget.cpp:136
+#: widgets/teams/teamchannelswidget.cpp:142
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Eemalda toast"
 
-#: widgets/teams/teamchannelswidget.cpp:171
+#: widgets/teams/teamchannelswidget.cpp:177
 #, fuzzy, kde-format
 #| msgid "Do you want to leave this channel?"
 msgid "Would you like to remove this Channel from team?"
 msgstr "Kas tõesti lahkuda sellelt kanalilt?"
 
-#: widgets/teams/teamchannelswidget.cpp:172
+#: widgets/teams/teamchannelswidget.cpp:178
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title"
