@@ -413,9 +413,10 @@ void RuqolaServerConfig::assignSettingValue(bool value, ServerConfigFeatureType 
 
 RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDefaultValue(const QJsonObject &o)
 {
-    RuqolaServerConfig::ConfigWithDefaultValue value;
-    value.defaultUrl = o["defaultUrl"_L1].toString();
-    value.url = o["url"_L1].toString();
+    const RuqolaServerConfig::ConfigWithDefaultValue value{
+        .url = o["url"_L1].toString(),
+        .defaultUrl = o["defaultUrl"_L1].toString(),
+    };
     return value;
 }
 

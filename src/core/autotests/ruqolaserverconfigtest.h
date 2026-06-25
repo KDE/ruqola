@@ -33,4 +33,6 @@ private Q_SLOTS:
 
     void shouldCheckPassword_data();
     void shouldCheckPassword();
+
+    void shouldConfigWithDefaultValue();
 };

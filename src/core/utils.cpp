@@ -379,7 +379,7 @@ QString Utils::AvatarInfo::generateAvatarIdentifier() const
 QIcon Utils::iconFromAccount(RocketChatAccount *account)
 {
     QIcon icon;
-    const QString iconFaviconUrl{account->attachmentUrlFromLocalCache(account->ruqolaServerConfig()->faviconUrl().url).toLocalFile()};
+    const QString iconFaviconUrl{account->attachmentUrlFromLocalCache(account->ruqolaServerConfig()->faviconUrl().value()).toLocalFile()};
     if (!iconFaviconUrl.isEmpty()) {
         const QIcon iconFavicon{iconFaviconUrl};
         if (!iconFavicon.isNull()) {

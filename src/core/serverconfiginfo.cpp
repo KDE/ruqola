@@ -66,7 +66,7 @@ QString ServerConfigInfo::logoUrl() const
 QString ServerConfigInfo::faviconUrl() const
 {
     if (mAccount) {
-        const QString faviconUrl = mAccount->ruqolaServerConfig()->faviconUrl().url;
+        const QString faviconUrl = mAccount->ruqolaServerConfig()->faviconUrl().value();
         if (faviconUrl.isEmpty()) {
             return {};
         }

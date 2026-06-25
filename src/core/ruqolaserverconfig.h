@@ -22,6 +22,14 @@ public:
             return url.isEmpty() || defaultUrl.isEmpty();
         }
         [[nodiscard]] bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const;
+
+        [[nodiscard]] QString value() const
+        {
+            if (url.isEmpty()) {
+                return defaultUrl;
+            }
+            return url;
+        }
     };
 
     struct LIBRUQOLACORE_EXPORT PasswordSettings {
