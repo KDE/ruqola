@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-24 03:44+0000\n"
+"POT-Creation-Date: 2026-06-25 02:44+0000\n"
 "PO-Revision-Date: 2026-04-06 22:18+0200\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1566,7 +1566,7 @@ msgstr "Missatges privats"
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Desconegut"
@@ -1756,12 +1756,12 @@ msgstr "Oculta els missatges «Ha canviat la descripció de la sala»"
 msgid "Joined this Team"
 msgstr "S'ha unit a este equip"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:38
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Unió automàtica)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Propietari"
@@ -9125,7 +9125,7 @@ msgstr[0] "%1 adjunt a la sala (Total: %2)"
 msgstr[1] "%1 adjunts a la sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:120
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9151,7 +9151,7 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Desbloca l'usuari"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:46
+#: widgets/dialogs/showbanneduserswidget.cpp:53
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search users…"
@@ -9159,13 +9159,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Busca usuaris…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "No s'ha trobat cap usuari"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:111
+#: widgets/dialogs/showbanneduserswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -11944,48 +11944,48 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/teams/teamchannelswidget.cpp:62
+#: widgets/teams/teamchannelswidget.cpp:63
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Busca una sala…"
 
-#: widgets/teams/teamchannelswidget.cpp:121
+#: widgets/teams/teamchannelswidget.cpp:127
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Afig una sala existent"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Crea una sala"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Elimina la unió automàtica"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Afig la unió automàtica"
 
-#: widgets/teams/teamchannelswidget.cpp:136
+#: widgets/teams/teamchannelswidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Elimina de l'equip"
 
-#: widgets/teams/teamchannelswidget.cpp:171
+#: widgets/teams/teamchannelswidget.cpp:177
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Voleu eliminar este canal de l'equip?"
 
-#: widgets/teams/teamchannelswidget.cpp:172
+#: widgets/teams/teamchannelswidget.cpp:178
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

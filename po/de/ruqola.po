@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-24 03:44+0000\n"
+"POT-Creation-Date: 2026-06-25 02:44+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1649,7 +1649,7 @@ msgstr "Private Nachrichten"
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
@@ -1861,12 +1861,12 @@ msgstr "Video-Nachricht aufnehmen"
 msgid "Joined this Team"
 msgstr "Umwandeln in Team"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:38
 #, kde-format
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Eigentümer"
@@ -9527,7 +9527,7 @@ msgstr[0] "%1 Anhang im Raum (Gesamt: %2)"
 msgstr[1] "%1 Anhänge im Raum (Gesamt: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:120
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9551,20 +9551,20 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Blockierung des Benutzers aufheben"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:46
+#: widgets/dialogs/showbanneduserswidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Search Users"
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Benutzer suchen"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Kein Benutzer gefunden"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:111
+#: widgets/dialogs/showbanneduserswidget.cpp:118
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -12579,7 +12579,7 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "Team-Kanäle"
 
-#: widgets/teams/teamchannelswidget.cpp:62
+#: widgets/teams/teamchannelswidget.cpp:63
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Search Rooms"
@@ -12587,45 +12587,45 @@ msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Räume suchen"
 
-#: widgets/teams/teamchannelswidget.cpp:121
+#: widgets/teams/teamchannelswidget.cpp:127
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Vorhandenen Raum hinzufügen"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:129
 #, fuzzy, kde-format
 #| msgid "Create Room"
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Raum erstellen"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Entfernen"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Zugang hinzufügen"
 
-#: widgets/teams/teamchannelswidget.cpp:136
+#: widgets/teams/teamchannelswidget.cpp:142
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Vom Team entfernen"
 
-#: widgets/teams/teamchannelswidget.cpp:171
+#: widgets/teams/teamchannelswidget.cpp:177
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Möchten Sie diesen Kanal vom Team entfernen?"
 
-#: widgets/teams/teamchannelswidget.cpp:172
+#: widgets/teams/teamchannelswidget.cpp:178
 #, fuzzy, kde-format
 #| msgid "Remove Channel from Team"
 msgctxt "@title"

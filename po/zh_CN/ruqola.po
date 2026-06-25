@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-24 03:44+0000\n"
+"POT-Creation-Date: 2026-06-25 02:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1548,7 +1548,7 @@ msgstr ""
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr ""
@@ -1738,12 +1738,12 @@ msgstr ""
 msgid "Joined this Team"
 msgstr ""
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:38
 #, kde-format
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr ""
@@ -8834,7 +8834,7 @@ msgid_plural "%1 Attachments in room (Total: %2)"
 msgstr[0] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:120
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -8856,18 +8856,18 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr ""
 
-#: widgets/dialogs/showbanneduserswidget.cpp:46
+#: widgets/dialogs/showbanneduserswidget.cpp:53
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr ""
 
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
 msgid "No Banned Users found"
 msgstr ""
 
-#: widgets/dialogs/showbanneduserswidget.cpp:111
+#: widgets/dialogs/showbanneduserswidget.cpp:118
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -11554,48 +11554,48 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:62
+#: widgets/teams/teamchannelswidget.cpp:63
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:121
+#: widgets/teams/teamchannelswidget.cpp:127
 #, kde-format
 msgid "Add Existing Room"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:136
+#: widgets/teams/teamchannelswidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:171
+#: widgets/teams/teamchannelswidget.cpp:177
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr ""
 
-#: widgets/teams/teamchannelswidget.cpp:172
+#: widgets/teams/teamchannelswidget.cpp:178
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"

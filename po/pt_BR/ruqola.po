@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-24 03:44+0000\n"
-"PO-Revision-Date: 2026-06-23 06:46-0300\n"
+"POT-Creation-Date: 2026-06-25 02:44+0000\n"
+"PO-Revision-Date: 2026-06-24 08:08-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -1559,7 +1559,7 @@ msgstr "Mensagens privadas"
 msgid "Draft"
 msgstr "Rascunho"
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:315
+#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -1749,12 +1749,12 @@ msgstr "Ocultar mensagens de \"Tipo Descrição da sala mudou\""
 msgid "Joined this Team"
 msgstr "Juntou-se a esta equipe"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:38
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Entrada automática)"
 
-#: core/model/usersforroommodel.cpp:305 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Proprietário"
@@ -9107,7 +9107,7 @@ msgstr[0] "%1 anexo na sala (total: %2)"
 msgstr[1] "%1 anexos na sala (total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:120
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9129,18 +9129,18 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Remover banimento do usuário"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:46
+#: widgets/dialogs/showbanneduserswidget.cpp:53
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Pesquisar usuários banidos…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:106
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
 msgid "No Banned Users found"
 msgstr "Nenhuma usuário banido encontrado"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:111
+#: widgets/dialogs/showbanneduserswidget.cpp:118
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9264,12 +9264,10 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unban User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "Remover banimento do usuário"
+msgstr "Remover banimento dos usuários"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
@@ -9277,6 +9275,8 @@ msgctxt "@label:textbox"
 msgid ""
 "Some user are banned from this room. Do you want to unban and add them back ?"
 msgstr ""
+"Alguns usuários estão banidos desta sala. Você deseja remover o banimento e "
+"adicioná-los novamente?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
@@ -11900,48 +11900,48 @@ msgctxt "@title:window"
 msgid "Team Channels"
 msgstr "Canais da equipe"
 
-#: widgets/teams/teamchannelswidget.cpp:62
+#: widgets/teams/teamchannelswidget.cpp:63
 #: widgets/teams/teamselectdeletedroomwidget.cpp:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search room…"
 msgstr "Pesquisar salas…"
 
-#: widgets/teams/teamchannelswidget.cpp:121
+#: widgets/teams/teamchannelswidget.cpp:127
 #, kde-format
 msgid "Add Existing Room"
 msgstr "Adicionar sala existente"
 
-#: widgets/teams/teamchannelswidget.cpp:123
+#: widgets/teams/teamchannelswidget.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "Create Room"
 msgstr "Criar sala"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Remover entrada automática"
 
-#: widgets/teams/teamchannelswidget.cpp:129
+#: widgets/teams/teamchannelswidget.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Adicionar entrada automática"
 
-#: widgets/teams/teamchannelswidget.cpp:136
+#: widgets/teams/teamchannelswidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
 msgstr "Excluir da equipe"
 
-#: widgets/teams/teamchannelswidget.cpp:171
+#: widgets/teams/teamchannelswidget.cpp:177
 #, kde-format
 msgid "Would you like to remove this Channel from team?"
 msgstr "Deseja excluir este canal da equipe?"
 
-#: widgets/teams/teamchannelswidget.cpp:172
+#: widgets/teams/teamchannelswidget.cpp:178
 #, kde-format
 msgctxt "@title"
 msgid "Remove Channel from Team"
