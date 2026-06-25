@@ -2892,7 +2892,7 @@ bool RocketChatAccount::hasPermission(const QString &permissionId, const QByteAr
     const QStringList permissionRoles{mPermissionManager.roles(permissionId)};
     if (permissionRoles.isEmpty()) { // Check if we don't have stored permissionId in permission manager
         if (!mPermissionManager.contains(permissionId)) {
-            qCWarning(RUQOLA_LOG) << "permissionId not loaded during setup:" << permissionId;
+            qCWarning(RUQOLA_LOG) << "account name" << accountName() << "permissionId not loaded during setup:" << permissionId;
         }
     }
     for (const QString &role : permissionRoles) {
@@ -3353,7 +3353,7 @@ void RocketChatAccount::displayLogInfo(const QByteArray &ba, const QJsonObject &
     if (mRuqolaLogger) {
         mRuqolaLogger->dataReceived(ba + ": " + QJsonDocument(obj).toJson());
     } else {
-        qCWarning(RUQOLA_LOG) << ba << ": " << obj;
+        qCWarning(RUQOLA_LOG) << "account Name " << accountName() << ba << ": " << obj;
     }
 }
 
