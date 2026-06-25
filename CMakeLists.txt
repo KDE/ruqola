@@ -4,10 +4,10 @@
 cmake_minimum_required(VERSION 3.29)
 set(RUQOLA_VERSION "2.7.90")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "26.08.30") # yy.MM.dd
+set(RUQOLA_RELEASE_VERSION "26.07.10") # yy.MM.dd
 
 # Use true if stable version => we will check specific version
-set(RUQOLA_STABLE_VERSION false)
+set(RUQOLA_STABLE_VERSION true)
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.9.0")
