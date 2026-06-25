@@ -622,6 +622,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void customUserStatus();
     LIBRUQOLACORE_NO_EXPORT void connectOfflineMode();
     LIBRUQOLACORE_NO_EXPORT void loadRoomsFromDatabase();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString debugCategoryAccountName() const;
 
     AccountRoomSettings *const mAccountRoomSettings;
 
