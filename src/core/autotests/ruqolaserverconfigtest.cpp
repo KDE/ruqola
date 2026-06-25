@@ -18,6 +18,25 @@ RuqolaServerConfigTest::RuqolaServerConfigTest(QObject *parent)
 {
 }
 
+void RuqolaServerConfigTest::shouldConfigWithDefaultValue()
+{
+    RuqolaServerConfig::ConfigWithDefaultValue defaultValue;
+    QVERIFY(defaultValue.value().isEmpty());
+
+    defaultValue.url = u"foo"_s;
+    QCOMPARE(defaultValue.value(), u"foo"_s);
+
+    defaultValue.url.clear();
+
+    // Use default;
+    defaultValue.defaultUrl = u"foo1"_s;
+    QCOMPARE(defaultValue.value(), u"foo1"_s);
+
+    QVERIFY(!defaultValue.defaultUrl.isEmpty());
+    defaultValue.url = u"foo"_s;
+    QCOMPARE(defaultValue.value(), u"foo"_s);
+}
+
 void RuqolaServerConfigTest::shouldHaveDefaultValues()
 {
     RuqolaServerConfig config;
