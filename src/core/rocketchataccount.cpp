@@ -1487,8 +1487,8 @@ void RocketChatAccount::parsePublicSettings()
 
     fillAuthenticationModel();
     // Download logo/favicon if possible
-    (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->logoUrl().url);
-    (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->faviconUrl().url);
+    (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->logoUrl().value());
+    (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->faviconUrl().value());
 
     Q_EMIT publicSettingChanged();
 }
