@@ -57,6 +57,7 @@ void ServerMenu::slotUpdateAccountMenu()
                 const QString accountName = account->settings()->accountName();
                 const QString displayName = account->settings()->displayName();
                 auto action = new QAction(displayName, this);
+                action->setIcon(Utils::iconFromAccount(account));
                 action->setCheckable(true);
                 group->addAction(action);
                 if (currentAccountName == accountName) {
