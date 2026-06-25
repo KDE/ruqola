@@ -215,6 +215,14 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 
 void UsersInRoomMenu::slotBanUserFromRoomAction()
 {
+    if (KMessageBox::ButtonCode::SecondaryAction
+        == KMessageBox::questionTwoActions(mParentWidget,
+                                           i18n("Do you want to ban this user?"),
+                                           i18nc("@title", "Ban User"),
+                                           KGuiItem(i18nc("@action:button", "Ban User"), u"dialog-ok"_s),
+                                           KStandardGuiItem::cancel())) {
+        return;
+    }
     auto job = new RocketChatRestApi::RoomsBanUserJob(this);
     Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
     job->setRoomId(mRoom->roomId());
