@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 02:44+0000\n"
-"PO-Revision-Date: 2026-06-24 04:16+0200\n"
+"POT-Creation-Date: 2026-06-26 02:41+0000\n"
+"PO-Revision-Date: 2026-06-25 05:35+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1832,7 +1832,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს…"
 
-#: core/rocketchataccount.cpp:703
+#: core/rocketchataccount.cpp:704
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1841,12 +1841,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:712 core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected"
 msgstr "არაა დაკავშირებული"
 
-#: core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected yet"
 msgstr "ჯერ დაკავშირებული არაა"
@@ -9223,12 +9223,10 @@ msgid "Video: %1"
 msgstr "ვიდეო: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unban User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "მომხმარებლისთვის ბანის მოხსნა"
+msgstr "მომხმარებლებისთვის ბანის მოხსნა"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
@@ -9236,6 +9234,8 @@ msgctxt "@label:textbox"
 msgid ""
 "Some user are banned from this room. Do you want to unban and add them back ?"
 msgstr ""
+"ზოგიერთ მომხმარებელს ამ ოთახიდან ბანი ადევს. გნებავთ მათზე ბანის მოხსნა და "
+"ისევ დამატება?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
@@ -11475,6 +11475,28 @@ msgstr "მომხმარებლის დარეპორტება"
 msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "ამ მომხმარებლის ბანი ოთახიდან"
+
+#: widgets/room/usersinroommenu.cpp:220
+#, fuzzy, kde-format
+#| msgid "Do you want to block this user?"
+msgid "Do you want to ban this user?"
+msgstr "გნებავთ, დაბლოკოთ ეს მომხმარებელი?"
+
+#: widgets/room/usersinroommenu.cpp:221
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@title"
+msgid "Ban User"
+msgstr "მომხმარებლისთვის ბანის მოხსნა"
+
+#: widgets/room/usersinroommenu.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@action:button"
+msgid "Ban User"
+msgstr "მომხმარებლისთვის ბანის მოხსნა"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
