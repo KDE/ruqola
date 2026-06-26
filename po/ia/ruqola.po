@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:44+0000\n"
+"POT-Creation-Date: 2026-06-26 00:45+0000\n"
 "PO-Revision-Date: 2026-06-24 17:43+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1827,19 +1827,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> es typante..."
 
-#: core/rocketchataccount.cpp:703
+#: core/rocketchataccount.cpp:704
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:712 core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected"
 msgstr "Non connectite"
 
-#: core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ancora non connectite"
@@ -11275,6 +11275,28 @@ msgstr "Reporta Usator"
 msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Exclude Usatores ex Sala"
+
+#: widgets/room/usersinroommenu.cpp:220
+#, fuzzy, kde-format
+#| msgid "Do you want to block this user?"
+msgid "Do you want to ban this user?"
+msgstr "Tu vole blocar iste usator?"
+
+#: widgets/room/usersinroommenu.cpp:221
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@title"
+msgid "Ban User"
+msgstr "Cessa a excluder  usator"
+
+#: widgets/room/usersinroommenu.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@action:button"
+msgid "Ban User"
+msgstr "Cessa a excluder  usator"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format

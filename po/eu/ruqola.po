@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:44+0000\n"
+"POT-Creation-Date: 2026-06-26 00:45+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1847,7 +1847,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira…"
 
-#: core/rocketchataccount.cpp:703
+#: core/rocketchataccount.cpp:704
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1856,12 +1856,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:712 core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
-#: core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected yet"
 msgstr "Oraindik konektatu gabe"
@@ -11567,6 +11567,28 @@ msgstr "Eman erabiltzailearen berri"
 msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Gehitu erabiltzaileak gelara"
+
+#: widgets/room/usersinroommenu.cpp:220
+#, fuzzy, kde-format
+#| msgid "Do you want to block this user?"
+msgid "Do you want to ban this user?"
+msgstr "Erabiltzaile hori oztopatu nahi duzu?"
+
+#: widgets/room/usersinroommenu.cpp:221
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@title"
+msgid "Ban User"
+msgstr "Oztopoa kendu Erabiltzailea"
+
+#: widgets/room/usersinroommenu.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unblock User"
+msgctxt "@action:button"
+msgid "Ban User"
+msgstr "Oztopoa kendu Erabiltzailea"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format

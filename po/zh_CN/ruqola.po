@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:44+0000\n"
+"POT-Creation-Date: 2026-06-26 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1819,19 +1819,19 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:703
+#: core/rocketchataccount.cpp:704
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:712 core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected"
 msgstr ""
 
-#: core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected yet"
 msgstr ""
@@ -11169,6 +11169,23 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
+msgstr ""
+
+#: widgets/room/usersinroommenu.cpp:220
+#, kde-format
+msgid "Do you want to ban this user?"
+msgstr ""
+
+#: widgets/room/usersinroommenu.cpp:221
+#, kde-format
+msgctxt "@title"
+msgid "Ban User"
+msgstr ""
+
+#: widgets/room/usersinroommenu.cpp:222
+#, kde-format
+msgctxt "@action:button"
+msgid "Ban User"
 msgstr ""
 
 #: widgets/room/usersinroomwidget.cpp:165

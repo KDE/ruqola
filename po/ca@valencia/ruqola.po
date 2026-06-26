@@ -4,13 +4,13 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2019, 2020, 2022, 2023, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2019-2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:44+0000\n"
-"PO-Revision-Date: 2026-06-20 10:09+0200\n"
+"POT-Creation-Date: 2026-06-26 00:45+0000\n"
+"PO-Revision-Date: 2026-06-25 09:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -1835,7 +1835,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:703
+#: core/rocketchataccount.cpp:704
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1844,12 +1844,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:711 core/rocketchataccount.cpp:724
+#: core/rocketchataccount.cpp:712 core/rocketchataccount.cpp:725
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:718
+#: core/rocketchataccount.cpp:719
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
@@ -9131,20 +9131,16 @@ msgid "Show Banned Users - %1"
 msgstr "Mostra els usuaris bandejats – %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Desbloca l'usuari"
+msgstr "Desbandeja l'usuari"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Banned Users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Mostra els missatges bandejats…"
+msgstr "Busca usuaris bandejats…"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
@@ -9275,12 +9271,10 @@ msgid "Video: %1"
 msgstr "Vídeo: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "Desbloca l'usuari"
+msgstr "Desbandeig d'usuaris"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
@@ -9288,6 +9282,8 @@ msgctxt "@label:textbox"
 msgid ""
 "Some users are banned from this room. Do you want to unban and add them back?"
 msgstr ""
+"Alguns usuaris estan bandejats d'esta sala. Els voleu desbandejar i tornar a "
+"afegir?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
@@ -11540,6 +11536,28 @@ msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Bandeja un usuari de la sala"
 
+#: widgets/room/usersinroommenu.cpp:220
+#, fuzzy, kde-format
+#| msgid "Do you want to block this user?"
+msgid "Do you want to ban this user?"
+msgstr "Voleu blocar este usuari?"
+
+#: widgets/room/usersinroommenu.cpp:221
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@title"
+msgid "Ban User"
+msgstr "Desbandeja l'usuari"
+
+#: widgets/room/usersinroommenu.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Unban User"
+msgctxt "@action:button"
+msgid "Ban User"
+msgstr "Desbandeja l'usuari"
+
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
 msgid "%1 User in room (Total: %2)"
@@ -12118,470 +12136,3 @@ msgstr "Nom d'usuari:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Afig un compte…"
-
-#~ msgid "Rocket Chat Client"
-#~ msgstr "Client de xat de Rocket"
-
-#, fuzzy
-#~| msgid "Do you want to mute this user?"
-#~ msgctxt "@label:textbox"
-#~ msgid "Do you want to unban user?"
-#~ msgstr "Voleu silenciar este usuari?"
-
-#~ msgid "Improve offline Mode"
-#~ msgstr "Millora el mode desconnectat"
-
-#~ msgid "Allow to open saved file."
-#~ msgstr "Permet obrir un fitxer guardat."
-
-#~ msgid "Allow to rotate image in show image dialog."
-#~ msgstr "Permet girar una imatge en el diàleg de mostrar imatges."
-
-#~ msgid "Add new room info in notification history dialog."
-#~ msgstr ""
-#~ "Afig informació nova de sala al diàleg de l'historial de notificacions."
-
-#~ msgid "Use new textmessagewidget for error notification."
-#~ msgstr "Utilitza el «textmessagewidget» nou per a notificacions d'error."
-
-#~ msgid "Implement Draft message sorting channel."
-#~ msgstr "Implementa el canal d'ordenació dels esborranys."
-
-#~ msgid "Implement Banned Users list dialog."
-#~ msgstr "Implementa el diàleg de llista d'usuaris bandejats."
-
-#~ msgid "Implement Banned/Unbanned Users."
-#~ msgstr "Implementa usuaris bandejats/desbandejats."
-
-#~ msgid "Store Message in Local Database (experimental)"
-#~ msgstr "Emmagatzema els missatges en la base de dades local (experimental)"
-
-#~ msgid "Download Server Icon from Server"
-#~ msgstr "Baixa la icona del servidor des del servidor"
-
-#~ msgid "Show Server Error Info in Specific DialogBox"
-#~ msgstr "Mostra la informació d'error del servidor en un diàleg específic"
-
-#~ msgid "Allow to Copy Image in Clipboard"
-#~ msgstr "Permet copiar la imatge a dins del porta-retalls"
-
-#~ msgid "Improve debug support (Allow to show current account permissions)"
-#~ msgstr ""
-#~ "Millora la implementació de la depuració (permet mostrar els permisos "
-#~ "actuals dels comptes)"
-
-#~ msgid "Add support for quoted text (text which starts by '>')"
-#~ msgstr "Afig la implementació per al text citat (text que comença amb «>»)"
-
-#~ msgid "Show leader/moderator/owner in channel info."
-#~ msgstr "Mostra el líder/moderador/propietari en la informació del canal."
-
-#~ msgid "Video/Sound Message support (kf6 only)."
-#~ msgstr "Implementació de missatges de vídeo i so (només KF6)."
-
-#~ msgid "Import/Export Accounts."
-#~ msgstr "Importació/exportació de comptes."
-
-#~ msgid "Fix avatar support"
-#~ msgstr "Corregix la implementació dels avatars"
-
-#~ msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-#~ msgstr ""
-#~ "Corregix la implementació dels emoji (utilitza el ktextaddons/"
-#~ "textemoticons nou)"
-
-#~ msgid "Fix animated gif in reactions"
-#~ msgstr "Corregix els GIF animats en les reaccions"
-
-#~ msgid "Fix kf6 support"
-#~ msgstr "Corregix la implementació dels KF6"
-
-#~ msgid "Add Moderation Console (Administration, RC server 6.2)"
-#~ msgstr "Afig la consola de moderació (Administració, RC servidor 6.2)"
-
-#~ msgid "Implement message style"
-#~ msgstr "Implementa els estils dels missatges"
-
-#~ msgid "Implement Url Preview"
-#~ msgstr "Implementa la previsualització dels URL"
-
-#~ msgid "Fix markdown support (header + check mark)"
-#~ msgstr ""
-#~ "Corregix la implementació de Markdown (capçalera + marca de selecció)"
-
-#~ msgid "Fix mem leak"
-#~ msgstr "Corregix una fuita de memòria"
-
-#~ msgid "Cache message size (optimization)"
-#~ msgstr "Mida de la memòria cau dels missatges (optimització)"
-
-#~ msgid ""
-#~ "Improve select room or user in message line edit (show icon, inform if "
-#~ "user is in channel)"
-#~ msgstr ""
-#~ "Millora la selecció de la sala o l'usuari en editar la línia del missatge "
-#~ "(mostra la icona, informa si l'usuari està en el canal)"
-
-#~ msgid ""
-#~ "Fix show commands in message line edit (Hide action when room doesn't "
-#~ "support it)."
-#~ msgstr ""
-#~ "Corregix la visualització d'ordres en l'edició de la línia de missatges "
-#~ "(oculta l'acció quan la sala no ho admet)."
-
-#~ msgid "Fix download sound/video file when it's not in cache."
-#~ msgstr ""
-#~ "Corregix la baixada del fitxer de so/vídeo quan no està en la memòria cau."
-
-#~ msgid "Fix list of authentication method."
-#~ msgstr "Corregix la llista de mètodes d'autenticació."
-
-#~ msgid "Fix show avatar url."
-#~ msgstr "Corregix la visualització dels URL dels avatars."
-
-#~ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-#~ msgstr "Permet augmentar o disminuir la lletra («Ctrl++» o «Ctrl+-»)"
-
-#~ msgid "Add channel list style (Condensed/Medium/Extended)"
-#~ msgstr "Afig un estil de llista de canals (condensada, mitjana o ampliada)"
-
-#~ msgid "Add forward message"
-#~ msgstr "Afig els missatges reenviats"
-
-#~ msgid "Improve mentions support."
-#~ msgstr "Millora la implementació de les mencions."
-
-#~ msgid ""
-#~ "Add support for deep linking <a href=\"https://developer.rocket.chat/"
-#~ "getting-started/deep-linking\">Deep Linking</a>."
-#~ msgstr ""
-#~ "Afig la implementació per a l'enllaçat profund <a href=\"https://"
-#~ "developer.rocket.chat/getting-started/deep-linking\">Deep Linking</a>."
-
-#~ msgid "Implement block actions."
-#~ msgstr "Implementa les accions de bloqueig."
-
-#~ msgid ""
-#~ "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
-#~ "show_bug.cgi?id=481400\">Bug 481400</a>"
-#~ msgstr ""
-#~ "Implementa l'autenticació de testimonis personals. Error <a href="
-#~ "\"https://bugs.kde.org/show_bug.cgi?id=481400\">481400</a>"
-
-#~ msgid "Add Plasma Activities Support"
-#~ msgstr "Afig el suport d'activitats de Plasma"
-
-#~ msgid "Add Report User Support"
-#~ msgstr "Afig el suport d'informació d'un usuari"
-
-#~ msgid "Implement Channel Sound Notification."
-#~ msgstr "Implementa la notificació de so de canal."
-
-#~ msgid "Implement New Room Sound Notification."
-#~ msgstr "Implementa la notificació de so de sala nova."
-
-#~ msgid "Implement Sorted/Unsorted markdown list."
-#~ msgstr "Implementa la llista ordenada/desordenada en Markdown."
-
-#~ msgid "Fix dark mode support."
-#~ msgstr "Corregix la implementació del mode fosc."
-
-#~ msgid "Fix jitsi support."
-#~ msgstr "Corregix la implementació de Jitsi."
-
-#~ msgid "Fix translate message in direct channel."
-#~ msgstr "Corregix el missatge de traducció en el canal directe."
-
-#~ msgid "Don't show @here/@all as user."
-#~ msgstr "No mostra @here/@all com a usuari."
-
-#~ msgid "Reduce memory footprint."
-#~ msgstr "Reduïx el consum de memòria."
-
-#~ msgid "Use RESTAPI for logging."
-#~ msgstr "Utilitza RESTAPI per al registre."
-
-#~ msgid "Allow to send multi files."
-#~ msgstr "Permet enviar múltiples fitxers."
-
-#~ msgid "Fix preview url."
-#~ msgstr "Corregix l'URL de la vista prèvia."
-
-#~ msgid "Implement Rocket.Chat Marketplace."
-#~ msgstr "Implementa el mercat d'aplicacions Rocket.Chat."
-
-#~ msgid "Allow to clean room history."
-#~ msgstr "Permet netejar l'historial de les sales."
-
-#~ msgid "Allow to check new version."
-#~ msgstr "Permet comprovar si hi ha una versió nova."
-
-#~ msgid "Implement moderation (administrator mode)."
-#~ msgstr "Implementa la moderació (mode administrador)."
-
-#~ msgid "Add welcome page."
-#~ msgstr "Afig la pàgina de benvinguda."
-
-#~ msgid "Implement pending users info (administrator mode)."
-#~ msgstr ""
-#~ "Implementa la informació sobre els usuaris pendents (mode administrador)."
-
-#~ msgid ""
-#~ "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
-#~ msgstr ""
-#~ "Utilitza «cmark-rc» (https://github.com/dfaure/cmark-rc) per a "
-#~ "implementar Markdown."
-
-#~ msgid ""
-#~ "Delete oldest files from some cache directories (file-upload and media) "
-#~ "so it doesn't grow forever."
-#~ msgstr ""
-#~ "Suprimix els fitxers més antics d'algunes carpetes de la memòria cau "
-#~ "(«file-upload» i «media») perquè no cresca per sempre."
-
-#~ msgid ""
-#~ "Clean market application model after 30 minutes (reduce memory footprint)."
-#~ msgstr ""
-#~ "Neteja el model d'aplicacions del mercat després de 30 minuts (reduïx la "
-#~ "petjada de memòria)."
-
-#~ msgid "Fix show discussion name in completion."
-#~ msgstr "Corregix la visualització del nom del debat a la compleció."
-
-#~ msgid "Fix duplicated messages in search message dialog."
-#~ msgstr ""
-#~ "Corregix els missatges duplicats en el diàleg de busca de missatges."
-
-#~ msgid "Add delegate in search rooms in team dialog."
-#~ msgstr "Afig un delegat a la busca de sales en el diàleg d'equip."
-
-#~ msgid ""
-#~ "Allow to clean up room history when room was not opened from long time."
-#~ msgstr ""
-#~ "Permet netejar l'historial de les sales quan la sala no s'ha obert des de "
-#~ "fa temps."
-
-#~ msgid "Add restore button in administrator server settings dialog."
-#~ msgstr ""
-#~ "Afig el botó de restauració en el diàleg de configuració d'administració "
-#~ "del servidor."
-
-#~ msgid "Improve changing password (show validation info)."
-#~ msgstr ""
-#~ "Millora el canvi de contrasenya (mostra la informació de validació)."
-
-#~ msgid "Improve register new account (Add reason support)."
-#~ msgstr ""
-#~ "Millora el registre d'un compte nou (afegir la implementació del motiu)."
-
-#~ msgid "Implement mute/unmute user."
-#~ msgstr "Implementa silenciar/deixar de silenciar un usuari."
-
-#~ msgid "Add color to the text in the account tab"
-#~ msgstr "Afig color al text en la pestanya dels comptes"
-
-#~ msgid "Allow to show private installed applications"
-#~ msgstr "Permet mostrar les aplicacions privades instal·lades"
-
-#~ msgid "Fix editing message."
-#~ msgstr "Corregix l'edició de missatges."
-
-#~ msgid "Show permissions in Rocket.Chat Marketplace."
-#~ msgstr "Mostra els permisos al mercat d'aplicacions Rocket.Chat."
-
-#~ msgid "Fix reconnect server."
-#~ msgstr "Corregix tornar a connectar del servidor."
-
-#~ msgid "Fix single application on Windows/MacOs"
-#~ msgstr "Corregix l'aplicació individual a Windows/MacOs"
-
-#~ msgid "Fix select created room/discussion/teams"
-#~ msgstr "Corregix la selecció de sales/debats/equips creats"
-
-#~ msgid "Fix filter discussion in administrator mode"
-#~ msgstr "Corregix el filtre de debats en mode administrador"
-
-#~ msgid "Fix message video support"
-#~ msgstr "Corregix la implementació dels missatges de vídeo"
-
-#~ msgid "Fix highlight text in quoted message"
-#~ msgstr "Corregix el text ressaltat en un missatge citat"
-
-#~ msgid "Fix open discussion channel"
-#~ msgstr "Corregix l'obertura d'un canal de debat"
-
-#~ msgid "Allow to show application market settings"
-#~ msgstr "Permet mostrar la configuració del mercat d'aplicacions"
-
-#~ msgid "Add support for tools plugins"
-#~ msgstr "Afig la implementació dels connectors d'eines"
-
-#~ msgid "Plugin: Add screenshot button (near send message button)"
-#~ msgstr ""
-#~ "Connector: afig un botó de captura de pantalla (prop del botó d'enviament "
-#~ "de missatge)"
-
-#~ msgid "Implement invite RC url support"
-#~ msgstr "Implementa el suport d'URL d'invitació RC"
-
-#~ msgid "Implement verify if a new Ruqola version exist"
-#~ msgstr "Implementa la verificació de si existix una versió nova de Ruqola"
-
-#~ msgid "Allow to search threads by unread/following"
-#~ msgstr "Permet buscar fils per seguits/no llegits"
-
-#~ msgid "Show images from attachment dialog box"
-#~ msgstr "Mostra les imatges del diàleg de l'adjunt"
-
-#~ msgid "Implement Rocket.Chat application support."
-#~ msgstr "Implementa el suport d'aplicacions Rocket.Chat."
-
-#~ msgid "Implement command preview."
-#~ msgstr "Implementa la previsualització d'odres."
-
-#~ msgid "Debug: explore translation from RC server."
-#~ msgstr "Depuració: explora la traducció des del servidor RC."
-
-#~ msgid ""
-#~ "Implement plugin UI support (Create dialog box for configure settings)."
-#~ msgstr ""
-#~ "Implementa el suport de la IU de connectors (crea el diàleg per a "
-#~ "configurar les opcions)."
-
-#~ msgid "Allow to search file from username and filename."
-#~ msgstr "Permet buscar fitxers a partir del nom d'usuari i el nom de fitxer."
-
-#~ msgid "Fix copy action text when we copy a text selection."
-#~ msgstr ""
-#~ "Corregix el text de l'acció de còpia quan es copia una selecció de text."
-
-#~ msgid "A command start with '/' and not /* or // "
-#~ msgstr "Una ordre comença per «/» i no /* ni // "
-
-#~ msgid "Allow to put command line in clipboard when an error occurred"
-#~ msgstr ""
-#~ "Permet posar la línia d'ordres al porta-retalls quan s'ha produït un error"
-
-#~ msgid "Allow to activate/deactivate apps market."
-#~ msgstr "Permet activar/desactivar el mercat d'aplicacions."
-
-#~ msgid "Improve list of user in room."
-#~ msgstr "Millora la llista d'usuaris de la sala."
-
-#~ msgid "Search in encrypted room is not possible."
-#~ msgstr "No és possible la busca en una sala encriptada."
-
-#~ msgid "Show roles for users in rooms."
-#~ msgstr "Mostra els rols del d'usuaris de les sales."
-
-#~ msgid "Fix download languages apps."
-#~ msgstr "Corregix les aplicacions de baixada d'idiomes."
-
-#~ msgid "Add AI plugin"
-#~ msgstr "Afig un connector d'IA"
-
-#~ msgid "Allow to dnd image."
-#~ msgstr "Permet «dnd» una imatge."
-
-#~ msgid "Add restore button in administration settings."
-#~ msgstr "Afig el botó de restauració a la configuració d'administració."
-
-#~ msgid "Allow to activate plugins."
-#~ msgstr "Permet activar els connectors."
-
-#~ msgid "Add Open With button in show image."
-#~ msgstr "Afig el botó «Obri amb» en mostrar una imatge."
-
-#~ msgid "Add Quick Text Format."
-#~ msgstr "Afig el format ràpid del text."
-
-#~ msgid "Add Extension message line button."
-#~ msgstr "Afig l'extensió de botó de línia de missatge."
-
-#~ msgid "Allow to Add WebDav Server."
-#~ msgstr "Permet afegir un servidor WebDAV."
-
-#~ msgid ""
-#~ "Show room info (italic text) when there is some pending message typed."
-#~ msgstr ""
-#~ "Mostra la informació de la sala (text en cursiva) quan hi ha algun "
-#~ "missatge escrit pendent."
-
-#~ msgid "Allow to add emoticon from popup menu."
-#~ msgstr "Permet afegir emoticones des d'un menú emergent."
-
-#~ msgid "Fix show date info."
-#~ msgstr "Corregix la visualització de la informació de la data."
-
-#~ msgid "Fix save application settings."
-#~ msgstr "Corregix la guardada de la configuració de l'aplicació."
-
-#~ msgid "Fix text selection in attachment."
-#~ msgstr "Corregix la selecció de text de l'adjunt."
-
-#~ msgid "Fix display user."
-#~ msgstr "Corregix la visualització de l'usuari."
-
-#~ msgid "Display translate menu in thread dialog."
-#~ msgstr "Mostra el menú de traducció en el diàleg dels fils."
-
-#~ msgid "Add AI Rocket Chat Actions support."
-#~ msgstr "Afig la implementació d'accions d'IA de Rocket Chat."
-
-#~ msgid "Fix apply, restore, cancel buttons in administration dialog."
-#~ msgstr ""
-#~ "Corregix els botons «aplica», «restaura», «cancel·la» en el diàleg "
-#~ "d'administració."
-
-#~ msgid "Fix search users."
-#~ msgstr "Corregix la busca d'usuaris."
-
-#~ msgid "Fix extract language from code block."
-#~ msgstr "Corregix el llenguatge d'extracció a partir del bloc de codi."
-
-#~ msgid "Fix attachment info in \"Show Channel Log\" dialog."
-#~ msgstr ""
-#~ "Corregix la informació dels adjunts al diàleg «Mostra el registre del "
-#~ "canal»."
-
-#~ msgid "Fix icon on windows."
-#~ msgstr "Corregix una icona en Windows."
-
-#~ msgid "Fix show file attachment size."
-#~ msgstr "Corregix la visualització de la mida del fitxer adjunt."
-
-#~ msgid "Copy block code more easily."
-#~ msgstr "Copia blocs de codi amb més facilitat."
-
-#~ msgid "Improve Text To Speech user interface."
-#~ msgstr "Millora la interfície d'usuari del text a veu."
-
-#~ msgid "Show attachment fields."
-#~ msgstr "Mostra els camps dels adjunts."
-
-#~ msgid "Implement Offline Mode (experimental)."
-#~ msgstr "Implementa el mode desconnectat (experimental)."
-
-#~ msgid "Implement Pending Typed database storage."
-#~ msgstr "Implementa l'emmagatzematge a la base de dades del tecleig pendent."
-
-#~ msgid "Fix RC 8.0.0 support."
-#~ msgstr "Corregix la implementació del RC 8.0.0."
-
-#~ msgid "Add Attachment Actions Support."
-#~ msgstr "Afig la implementació d'accions d'adjunts."
-
-#~ msgid "Add TimeStamp support."
-#~ msgstr "Afig la implementació de marques de temps."
-
-#~ msgid "Save local translation to local database."
-#~ msgstr "Guarda la traducció local a la base de dades local."
-
-#~ msgid "Fix remove room (in local database)."
-#~ msgstr "Corregix l'eliminació de sala (a la base de dades local)."
-
-#~ msgid "Fix export database."
-#~ msgstr "Corregix l'exportació de la base de dades."
-
-#~ msgid "Fix upload Custom Sound"
-#~ msgstr "Corregix la pujada de sons personalitzats"
