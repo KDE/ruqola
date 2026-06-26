@@ -99,6 +99,14 @@ void UsersInRoomMenu::slotIgnoreUser()
 
 void UsersInRoomMenu::slotRemoveFromRoom()
 {
+    if (KMessageBox::ButtonCode::SecondaryAction
+        == KMessageBox::questionTwoActions(mParentWidget,
+                                           i18n("Do you want to remove this user from Channel?"),
+                                           i18nc("@title", "Remove User"),
+                                           KGuiItem(i18nc("@action:button", "Remove User"), u"dialog-ok"_s),
+                                           KStandardGuiItem::cancel())) {
+        return;
+    }
     Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
 }
 
