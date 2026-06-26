@@ -99,6 +99,14 @@ void UsersInRoomMenu::slotIgnoreUser()
 
 void UsersInRoomMenu::slotRemoveFromRoom()
 {
+    if (KMessageBox::ButtonCode::SecondaryAction
+        == KMessageBox::questionTwoActions(mParentWidget,
+                                           i18n("Do you want to remove this user from Channel?"),
+                                           i18nc("@title", "Remove User"),
+                                           KGuiItem(i18nc("@action:button", "Remove User"), u"dialog-ok"_s),
+                                           KStandardGuiItem::cancel())) {
+        return;
+    }
     Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
 }
 
@@ -205,10 +213,12 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
         menu.addAction(reportUserAction);
 
-        menu.addSeparator();
-        auto banUserFromRoomAction = new QAction(QIcon::fromTheme("im-ban-user"_L1), i18nc("@action", "Ban User From Room"), &menu);
-        connect(banUserFromRoomAction, &QAction::triggered, this, &UsersInRoomMenu::slotBanUserFromRoomAction);
-        menu.addAction(banUserFromRoomAction);
+        if (mRoom->hasPermission(u"ban-user"_s)) {
+            menu.addSeparator();
+            auto banUserFromRoomAction = new QAction(QIcon::fromTheme("im-ban-user"_L1), i18nc("@action", "Ban User From Room"), &menu);
+            connect(banUserFromRoomAction, &QAction::triggered, this, &UsersInRoomMenu::slotBanUserFromRoomAction);
+            menu.addAction(banUserFromRoomAction);
+        }
     }
     menu.exec(mParentWidget->mapToGlobal(pos));
 }

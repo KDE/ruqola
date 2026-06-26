@@ -136,8 +136,8 @@ void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
         const QString userName = index.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
         mMenu->setUserId(userId);
         mMenu->setUserName(userName);
+        mMenu->slotCustomContextMenuRequested(pos);
     }
-    mMenu->slotCustomContextMenuRequested(pos);
 }
 
 void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
