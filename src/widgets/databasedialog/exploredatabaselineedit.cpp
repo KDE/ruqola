@@ -18,7 +18,7 @@ void ExploreDatabaseLineEdit::slotJoinedChannelFound(const JoinedChannelCompleti
 {
     disconnect(this, &QLineEdit::textChanged, this, &ExploreDatabaseLineEdit::slotSearchTextEdited);
     setText(info.name);
-    mChannelId = info.channelId;
+    setChannelId(info.channelId);
     connect(this, &QLineEdit::textChanged, this, &ExploreDatabaseLineEdit::slotSearchTextEdited);
 }
 
@@ -30,6 +30,7 @@ QByteArray ExploreDatabaseLineEdit::channelId() const
 void ExploreDatabaseLineEdit::setChannelId(const QByteArray &newChannelId)
 {
     mChannelId = newChannelId;
+    Q_EMIT channedIdDefined(!mChannelId.isEmpty());
 }
 
 #include "moc_exploredatabaselineedit.cpp"

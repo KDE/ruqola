@@ -6,7 +6,6 @@
 
 #include "exploredatabaseviewmessageswidget.h"
 #include "localdatabase/localdatabasemanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exploredatabaselineedit.h"
 #include "model/messagesmodel.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSpinBox>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 // debug dialogbox => don't translate it
 ExploreDatabaseViewMessagesWidget::ExploreDatabaseViewMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
@@ -84,6 +84,10 @@ ExploreDatabaseViewMessagesWidget::ExploreDatabaseViewMessagesWidget(RocketChatA
     connect(pushButton, &QPushButton::clicked, this, &ExploreDatabaseViewMessagesWidget::slotLoad);
     connect(mRoomName, &QLineEdit::returnPressed, this, &ExploreDatabaseViewMessagesWidget::slotLoad);
 
+    connect(mRoomName, &ExploreDatabaseLineEdit::channedIdDefined, this, [pushButton](bool enabled) {
+        pushButton->setEnabled(enabled);
+    });
+    pushButton->setEnabled(false);
     mMessageListView->setModel(mMessageModel);
     mainLayout->addWidget(mMessageListView);
 }
@@ -93,8 +97,8 @@ ExploreDatabaseViewMessagesWidget::~ExploreDatabaseViewMessagesWidget() = defaul
 void ExploreDatabaseViewMessagesWidget::slotLoad()
 {
     const QByteArray roomId = mRoomName->channelId();
-    const QString roomName = mRoomName->text();
     if (!roomId.isEmpty()) {
+        const QString roomName = mRoomName->text();
         qint64 startId = -1;
         qint64 endId = -1;
         if (mUseStartDateTime->isChecked()) {
