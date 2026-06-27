@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 02:41+0000\n"
+"POT-Creation-Date: 2026-06-27 02:43+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -11056,7 +11056,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopírovat URL"
 
-#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:129
+#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11445,82 +11445,104 @@ msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignorovat uživatele"
 
-#: widgets/room/usersinroommenu.cpp:121
+#: widgets/room/usersinroommenu.cpp:104
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this sound?"
+msgid "Do you want to remove this user from Channel?"
+msgstr "Chcete odstranit tento zvuk?"
+
+#: widgets/room/usersinroommenu.cpp:105
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove User"
+msgctxt "@title"
+msgid "Remove User"
+msgstr "Odstranit uživatele"
+
+#: widgets/room/usersinroommenu.cpp:106
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove User"
+msgctxt "@action:button"
+msgid "Remove User"
+msgstr "Odstranit uživatele"
+
+#: widgets/room/usersinroommenu.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Zahájit rozhovor"
 
-#: widgets/room/usersinroommenu.cpp:138
+#: widgets/room/usersinroommenu.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Odebrat jako vlastníka"
 
-#: widgets/room/usersinroommenu.cpp:138
+#: widgets/room/usersinroommenu.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Přidat jako vlastníka"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Odebrat jako vedoucího"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Přidat jako vedoucího"
 
-#: widgets/room/usersinroommenu.cpp:163
+#: widgets/room/usersinroommenu.cpp:171
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Odebrat jako moderátora"
 
-#: widgets/room/usersinroommenu.cpp:163
+#: widgets/room/usersinroommenu.cpp:171
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Přidat jako moderátora"
 
-#: widgets/room/usersinroommenu.cpp:174
+#: widgets/room/usersinroommenu.cpp:182
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:193
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Odblokovat uživatele"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:193
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Zablokovat uživatele"
 
-#: widgets/room/usersinroommenu.cpp:190
+#: widgets/room/usersinroommenu.cpp:198
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Zrušit ignorování"
 
-#: widgets/room/usersinroommenu.cpp:190
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: widgets/room/usersinroommenu.cpp:196
+#: widgets/room/usersinroommenu.cpp:204
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Invite Users"
@@ -11528,7 +11550,7 @@ msgctxt "@action"
 msgid "Unmute User"
 msgstr "Pozvat uživatele"
 
-#: widgets/room/usersinroommenu.cpp:196
+#: widgets/room/usersinroommenu.cpp:204
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Invite Users"
@@ -11536,13 +11558,13 @@ msgctxt "@action"
 msgid "Mute User"
 msgstr "Pozvat uživatele"
 
-#: widgets/room/usersinroommenu.cpp:204
+#: widgets/room/usersinroommenu.cpp:212
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "Nahlásit uživatele"
 
-#: widgets/room/usersinroommenu.cpp:209
+#: widgets/room/usersinroommenu.cpp:218
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
@@ -11550,20 +11572,20 @@ msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Přidat uživatele do místnosti"
 
-#: widgets/room/usersinroommenu.cpp:220
+#: widgets/room/usersinroommenu.cpp:230
 #, fuzzy, kde-format
 #| msgid "Do you want to block this user?"
 msgid "Do you want to ban this user?"
 msgstr "Chcete zablokovat tohoto uživatele?"
 
-#: widgets/room/usersinroommenu.cpp:221
+#: widgets/room/usersinroommenu.cpp:231
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Odblokovat uživatele"
 
-#: widgets/room/usersinroommenu.cpp:222
+#: widgets/room/usersinroommenu.cpp:232
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action:button"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 02:41+0000\n"
-"PO-Revision-Date: 2026-03-07 15:14+0100\n"
+"POT-Creation-Date: 2026-06-27 02:43+0000\n"
+"PO-Revision-Date: 2026-06-25 15:04+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1019,16 +1019,14 @@ msgid "%1 has requested key refresh."
 msgstr "%1 ha richiesto l'aggiornamento della chiave."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 e %2"
+msgstr "%1 ha bandito %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 e %2"
+msgstr "%1 ha rimosso il bando per %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1431,7 +1429,7 @@ msgstr[1] "%1 secondi"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "La stanza «%1» è stata aggiunta"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -1559,7 +1557,7 @@ msgstr "Messaggi privati"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Bozza"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
@@ -2217,10 +2215,9 @@ msgid "Invalid Parameters"
 msgstr "Parametri non validi"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "L'utente non è in questa stanza"
+msgstr "L'utente è bandito da questa stanza"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3291,12 +3288,10 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Salva file"
+msgstr "Salva"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3319,11 +3314,10 @@ msgstr "Marca temporale nei messaggi"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Messaggi privati"
+msgstr "Bozze di messaggi"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -8609,8 +8603,7 @@ msgid "Discussion Name"
 msgstr "Nome della discussione"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Argomento"
@@ -9140,43 +9133,34 @@ msgid "(Click here for Loading more…)"
 msgstr "(Fai clic qui per caricare altro...)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Mostra messaggi appuntati - %1"
+msgstr "Mostra utenti banditi - %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "Sblocca utente"
+msgstr "Rimuovi bando utente"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Cerca utenti…"
+msgstr "Cerca utenti banditi…"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Banned Users found"
-msgstr "Nessun utente trovato"
+msgstr "Nessun utente bandito trovato"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:118
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "Un utente nella stanza (totale: %2)"
-msgstr[1] "%1 utenti nella stanza (totali: %2)"
+msgstr[0] "%1 utente bandito nella stanza (totale: %2)"
+msgstr[1] "%1 utenti banditi nella stanza (totale: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9229,17 +9213,16 @@ msgid "Fit to View"
 msgstr "Adatta alla vista"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Limitatore di frequenza"
+msgstr "Ruota a sinistra"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Ruota a destra"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9296,12 +9279,10 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "Sblocca utente"
+msgstr "Rimuovi bando utenti"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
@@ -9309,6 +9290,8 @@ msgctxt "@label:textbox"
 msgid ""
 "Some user are banned from this room. Do you want to unban and add them back ?"
 msgstr ""
+"Alcuni utenti sono stati banditi da questa stanza. Vuoi sbloccarli e "
+"riammetterli?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
@@ -9825,17 +9808,15 @@ msgstr ""
 "l'accesso."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No network"
+#, kde-format
 msgid "Not network found."
-msgstr "Rete non disponibile"
+msgstr "Nessuna rete trovata."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "La rete è in modalità non in linea."
+msgstr "Attiva la modalità non in linea"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -10555,7 +10536,7 @@ msgstr "Pulisci"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Passa alla nuova stanza"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:734
@@ -10759,12 +10740,10 @@ msgid "Encrypt Messages"
 msgstr "Cifra messaggi"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Mostra messaggi appuntati…"
+msgstr "Mostra utenti banditi…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11096,7 +11075,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copia URL"
 
-#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:129
+#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11467,111 +11446,131 @@ msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignora utente"
 
-#: widgets/room/usersinroommenu.cpp:121
+#: widgets/room/usersinroommenu.cpp:104
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user?"
+msgid "Do you want to remove this user from Channel?"
+msgstr "Vuoi rimuovere questo utente?"
+
+#: widgets/room/usersinroommenu.cpp:105
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove User"
+msgctxt "@title"
+msgid "Remove User"
+msgstr "Rimuovi utente"
+
+#: widgets/room/usersinroommenu.cpp:106
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove User"
+msgctxt "@action:button"
+msgid "Remove User"
+msgstr "Rimuovi utente"
+
+#: widgets/room/usersinroommenu.cpp:129
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Inizia conversazione"
 
-#: widgets/room/usersinroommenu.cpp:138
+#: widgets/room/usersinroommenu.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Rimuovi da proprietario"
 
-#: widgets/room/usersinroommenu.cpp:138
+#: widgets/room/usersinroommenu.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Aggiungi come proprietario"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Rimuovi da leader"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Aggiungi come leader"
 
-#: widgets/room/usersinroommenu.cpp:163
+#: widgets/room/usersinroommenu.cpp:171
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Rimuovi da moderatore"
 
-#: widgets/room/usersinroommenu.cpp:163
+#: widgets/room/usersinroommenu.cpp:171
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Aggiungi come moderatore"
 
-#: widgets/room/usersinroommenu.cpp:174
+#: widgets/room/usersinroommenu.cpp:182
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Rimuovi dalla stanza"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:193
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Sblocca utente"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:193
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Blocca utente"
 
-#: widgets/room/usersinroommenu.cpp:190
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Non ignorare"
 
-#: widgets/room/usersinroommenu.cpp:190
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: widgets/room/usersinroommenu.cpp:196
+#: widgets/room/usersinroommenu.cpp:204
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Riabilita utente"
 
-#: widgets/room/usersinroommenu.cpp:196
+#: widgets/room/usersinroommenu.cpp:204
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Silenzia utente"
 
-#: widgets/room/usersinroommenu.cpp:204
+#: widgets/room/usersinroommenu.cpp:212
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "Segnala utente"
 
-#: widgets/room/usersinroommenu.cpp:209
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#: widgets/room/usersinroommenu.cpp:218
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Aggiungi utente alla stanza"
+msgstr "Bandisci utente dalla stanza"
 
-#: widgets/room/usersinroommenu.cpp:220
+#: widgets/room/usersinroommenu.cpp:230
 #, fuzzy, kde-format
 #| msgid "Do you want to block this user?"
 msgid "Do you want to ban this user?"
 msgstr "Vuoi bloccare questo utente?"
 
-#: widgets/room/usersinroommenu.cpp:221
+#: widgets/room/usersinroommenu.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Unblock User"
@@ -11579,7 +11578,7 @@ msgctxt "@title"
 msgid "Ban User"
 msgstr "Sblocca utente"
 
-#: widgets/room/usersinroommenu.cpp:222
+#: widgets/room/usersinroommenu.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Unblock User"
@@ -12168,47 +12167,39 @@ msgstr "Aggiungi account…"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr ""
+msgstr "Migliora la modalità non in linea"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Consente di inviare più file."
+msgstr "Consenti l'apertura del file salvato."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "Corregge i messaggi duplicati nella finestra di ricerca dei messaggi."
+msgstr "Consenti di ruotare l'immagine nella finestra «Mostra immagine».."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
 msgstr ""
+"Aggiungi le informazioni sulla nuova stanza nella finestra della cronologia "
+"delle notifiche."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
 msgstr ""
+"Utilizza il nuovo oggetto per i messaggi di testo per la notifica degli "
+"errori."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Implementa lo stile del messaggio"
+msgstr "Implementa il canale di smistamento delle bozze dei messaggi."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr ""
-"Implementa l'archiviazione della banca di dati per le informazioni in attesa "
-"di digitazione."
+msgstr "Implementa la finestra con l'elenco degli utenti banditi."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Implementa silenzia/riabilita utente."
+msgstr "Implementa gli utenti banditi/riabilitati."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 02:41+0000\n"
+"POT-Creation-Date: 2026-06-27 02:43+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -11630,7 +11630,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Adresse (URL) kopieren"
 
-#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:129
+#: widgets/room/messagelistview.cpp:467 widgets/room/usersinroommenu.cpp:137
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
@@ -12037,112 +12037,132 @@ msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Benutzer ignorieren"
 
-#: widgets/room/usersinroommenu.cpp:121
+#: widgets/room/usersinroommenu.cpp:104
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user?"
+msgid "Do you want to remove this user from Channel?"
+msgstr "Möchten Sie diesen Benutzer entfernen?"
+
+#: widgets/room/usersinroommenu.cpp:105
+#, fuzzy, kde-format
+#| msgid "Remove User"
+msgctxt "@title"
+msgid "Remove User"
+msgstr "Benutzer entfernen"
+
+#: widgets/room/usersinroommenu.cpp:106
+#, fuzzy, kde-format
+#| msgid "Remove User"
+msgctxt "@action:button"
+msgid "Remove User"
+msgstr "Benutzer entfernen"
+
+#: widgets/room/usersinroommenu.cpp:129
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Serverversion: %1"
 
-#: widgets/room/usersinroommenu.cpp:138
+#: widgets/room/usersinroommenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "Remove User"
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Benutzer entfernen"
 
-#: widgets/room/usersinroommenu.cpp:138
+#: widgets/room/usersinroommenu.cpp:146
 #, fuzzy, kde-format
 #| msgid "Add password"
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Passwort hinzufügen"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:159
 #, fuzzy, kde-format
 #| msgid "Remove as Moderator"
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Als Moderator entfernen"
 
-#: widgets/room/usersinroommenu.cpp:151
+#: widgets/room/usersinroommenu.cpp:159
 #, fuzzy, kde-format
 #| msgid "Add as Moderator"
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Als Moderator hinzufügen"
 
-#: widgets/room/usersinroommenu.cpp:163
+#: widgets/room/usersinroommenu.cpp:171
 #, fuzzy, kde-format
 #| msgid "Remove as Moderator"
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Als Moderator entfernen"
 
-#: widgets/room/usersinroommenu.cpp:163
+#: widgets/room/usersinroommenu.cpp:171
 #, fuzzy, kde-format
 #| msgid "Add as Moderator"
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Als Moderator hinzufügen"
 
-#: widgets/room/usersinroommenu.cpp:174
+#: widgets/room/usersinroommenu.cpp:182
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Aus Raum entfernen"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:193
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Blockierung des Benutzers aufheben"
 
-#: widgets/room/usersinroommenu.cpp:185
+#: widgets/room/usersinroommenu.cpp:193
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Benutzer blockieren"
 
-#: widgets/room/usersinroommenu.cpp:190
+#: widgets/room/usersinroommenu.cpp:198
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Nicht mehr ignorieren"
 
-#: widgets/room/usersinroommenu.cpp:190
+#: widgets/room/usersinroommenu.cpp:198
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorieren"
 
-#: widgets/room/usersinroommenu.cpp:196
+#: widgets/room/usersinroommenu.cpp:204
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Benutzer einladen"
 
-#: widgets/room/usersinroommenu.cpp:196
+#: widgets/room/usersinroommenu.cpp:204
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Benutzer einladen"
 
-#: widgets/room/usersinroommenu.cpp:204
+#: widgets/room/usersinroommenu.cpp:212
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@action"
 msgid "Report User"
 msgstr "Nachricht"
 
-#: widgets/room/usersinroommenu.cpp:209
+#: widgets/room/usersinroommenu.cpp:218
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
@@ -12150,20 +12170,20 @@ msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Benutzer zum Raum hinzufügen"
 
-#: widgets/room/usersinroommenu.cpp:220
+#: widgets/room/usersinroommenu.cpp:230
 #, fuzzy, kde-format
 #| msgid "Do you want to block this user?"
 msgid "Do you want to ban this user?"
 msgstr "Möchten Sie diesen Benutzer blockieren?"
 
-#: widgets/room/usersinroommenu.cpp:221
+#: widgets/room/usersinroommenu.cpp:231
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Blockierung des Benutzers aufheben"
 
-#: widgets/room/usersinroommenu.cpp:222
+#: widgets/room/usersinroommenu.cpp:232
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action:button"
