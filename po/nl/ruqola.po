@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-27 00:44+0000\n"
-"PO-Revision-Date: 2026-06-25 13:40+0200\n"
+"PO-Revision-Date: 2026-06-27 09:22+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -11436,23 +11436,18 @@ msgid "Ignore User"
 msgstr "Gebruiker negeren"
 
 #: widgets/room/usersinroommenu.cpp:104
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to remove this user from Channel?"
-msgstr "Wilt u deze gebruiker verwijderen?"
+msgstr "Wilt u deze gebruiker uit het kanaal verwijderen?"
 
 #: widgets/room/usersinroommenu.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title"
 msgid "Remove User"
 msgstr "Gebruiker verwijderen"
 
 #: widgets/room/usersinroommenu.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Gebruiker verwijderen"
@@ -11554,26 +11549,21 @@ msgid "Ban User From Room"
 msgstr "Gebruiker in room blokkeren"
 
 #: widgets/room/usersinroommenu.cpp:230
-#, fuzzy, kde-format
-#| msgid "Do you want to block this user?"
+#, kde-format
 msgid "Do you want to ban this user?"
 msgstr "Wilt u deze gebruiker blokkeren?"
 
 #: widgets/room/usersinroommenu.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unban User"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Gebruiker deblokkeren"
+msgstr "Gebruiker blokkeren"
 
 #: widgets/room/usersinroommenu.cpp:232
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unban User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
-msgstr "Gebruiker deblokkeren"
+msgstr "Gebruiker blokkeren"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
