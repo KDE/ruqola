@@ -1388,7 +1388,7 @@
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
-    <release version="2.8.0" type="snapshot">
+    <release version="2.8.0" date="2026-06-28">
       <description>
         <ul>
           <li>Improve offline Mode</li>
@@ -1397,6 +1397,7 @@
           <li xml:lang="ca-valencia">Millora el mode desconnectat</li>
           <li xml:lang="es">Mejoras en modo desconectado</li>
           <li xml:lang="fr">Améliorer le mode déconnecté</li>
+          <li xml:lang="ia">Meliora Modo foras de linea</li>
           <li xml:lang="it">Migliora la modalità non in linea</li>
           <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
           <li xml:lang="nl">Offline-modus verbeteren</li>
