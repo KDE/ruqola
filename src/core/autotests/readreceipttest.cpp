@@ -17,6 +17,8 @@ void ReadReceiptTest::shouldHaveDefaultValues()
 {
     const ReadReceipt w;
     QVERIFY(w.userId().isEmpty());
+    QCOMPARE(w.timeStamp(), -1);
+    QCOMPARE(w.updatedAt(), -1);
     // TODO
 }
 #include "moc_readreceipttest.cpp"

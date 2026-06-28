@@ -16,8 +16,16 @@ public:
     [[nodiscard]] QByteArray userId() const;
     void setUserId(const QByteArray &newUserId);
 
+    [[nodiscard]] qint64 timeStamp() const;
+    void setTimeStamp(qint64 newTimeStamp);
+
+    [[nodiscard]] qint64 updatedAt() const;
+    void setUpdatedAt(qint64 newUpdatedAt);
+
 private:
     QByteArray mUserId;
+    qint64 mTimeStamp = -1;
+    qint64 mUpdatedAt = -1;
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(ReadReceipt, Ruqola_ReadReceipt, LIBRUQOLACORE_EXPORT)
