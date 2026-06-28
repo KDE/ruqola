@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-27 02:43+0000\n"
-"PO-Revision-Date: 2026-06-24 00:17+0100\n"
+"PO-Revision-Date: 2026-06-27 12:09+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -9281,12 +9281,10 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unban User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "Reincorporar usuario"
+msgstr "Reincorporar usuarios"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
@@ -9294,6 +9292,7 @@ msgctxt "@label:textbox"
 msgid ""
 "Some user are banned from this room. Do you want to unban and add them back ?"
 msgstr ""
+"Algunos usuarios han sido expulsados de esta sala. ¿Quiere readmitirlos?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
@@ -11452,23 +11451,18 @@ msgid "Ignore User"
 msgstr "Ignorar usuario"
 
 #: widgets/room/usersinroommenu.cpp:104
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to remove this user from Channel?"
-msgstr "¿Quiere eliminar este usuario?"
+msgstr "¿Quiere eliminar a este usuario de este canal?"
 
 #: widgets/room/usersinroommenu.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title"
 msgid "Remove User"
 msgstr "Eliminar usuario"
 
 #: widgets/room/usersinroommenu.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Eliminar usuario"
@@ -11570,26 +11564,21 @@ msgid "Ban User From Room"
 msgstr "Expulsar usuario de la sala"
 
 #: widgets/room/usersinroommenu.cpp:230
-#, fuzzy, kde-format
-#| msgid "Do you want to block this user?"
+#, kde-format
 msgid "Do you want to ban this user?"
-msgstr "¿Desea bloquear a este usuario?"
+msgstr "¿Desea expulsar a este usuario?"
 
 #: widgets/room/usersinroommenu.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unban User"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Reincorporar usuario"
+msgstr "Expulsar usuario"
 
 #: widgets/room/usersinroommenu.cpp:232
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unban User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
-msgstr "Reincorporar usuario"
+msgstr "Expulsar usuario"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12885,8 +12874,3 @@ msgstr "Corrección al exportar la base de datos."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Mejora en la subida de sonidos personalizados"
-
-#~| msgid "Do you want to mute this user?"
-#~ msgctxt "@label:textbox"
-#~ msgid "Do you want to unban user?"
-#~ msgstr "¿Quiere reincorporar el usuario?"
