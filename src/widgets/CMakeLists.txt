@@ -1022,6 +1022,8 @@ target_sources(
         timestampinmessages/timestampinmessagesformatcombobox.cpp
         timestampinmessages/timestampinmessagestimezonecombobox.h
         timestampinmessages/timestampinmessagestimezonecombobox.cpp
+        notifications/notificationmanager.h
+        notifications/notificationmanager.cpp
 )
 
 if(NOT HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT)

@@ -44,6 +44,7 @@
 #include "myaccount/myaccountconfiguredialog.h"
 #include "notificationhistory/notificationhistorydialog.h"
 #include "notifications/notification.h"
+#include "notifications/notificationmanager.h"
 #include "ownuser/ownuserpreferences.h"
 #include "receivetypingnotificationmanager.h"
 #include "registeruser/registeruserdialog.h"
@@ -129,6 +130,7 @@ RuqolaMainWindow::RuqolaMainWindow(
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     , mVerifyNewVersionWidget(new TextAddonsWidgets::VerifyNewVersionWidget(this))
 #endif
+    , mNotificationManager(new NotificationManager(actionCollection(), this))
 {
     Ruqola::self()->setParentWidget(mMainWidget);
     mMainWidget->setObjectName(u"mMainWidget"_s);
@@ -139,7 +141,10 @@ RuqolaMainWindow::RuqolaMainWindow(
     setupStatusBar();
     setupGUI(/*u":/kxmlgui5/ruqola/ruqolaui.rc"_s*/);
     readConfig();
-    createSystemTray();
+    mNotificationManager->createSystemTray();
+    connect(mNotificationManager, &NotificationManager::alert, this, [this]() {
+        QApplication::alert(this, 0);
+    });
     mSwitchChannelTreeManager->setParentWidget(mMainWidget);
     connect(mSwitchChannelTreeManager, &SwitchChannelTreeViewManager::switchToChannel, this, &RuqolaMainWindow::slotHistorySwitchChannel);
     mAccountManager = Ruqola::self()->accountManager();
@@ -216,23 +221,17 @@ void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, [[may
 
 void RuqolaMainWindow::slotRoomNeedAttention()
 {
-    if (mNotification) {
-        mNotification->roomNeedAttention();
-    }
+    mNotificationManager->roomNeedAttention();
 }
 
 void RuqolaMainWindow::logout(const QString &accountName)
 {
-    if (mNotification) {
-        mNotification->clearNotification(accountName);
-    }
+    mNotificationManager->logout(accountName);
 }
 
 void RuqolaMainWindow::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
 {
-    if (mNotification) {
-        mNotification->updateNotification(hasAlert, nbUnread, accountName);
-    }
+    mNotificationManager->updateNotification(hasAlert, nbUnread, accountName);
 }
 
 void RuqolaMainWindow::setupStatusBar()
@@ -931,7 +930,7 @@ void RuqolaMainWindow::slotConfigure()
         }
 
         mAccountOverviewWidget->updateButtons();
-        createSystemTray();
+        mNotificationManager->createSystemTray();
         Q_EMIT Ruqola::self()->translatorMenuChanged();
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     }
@@ -1075,8 +1074,8 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     mInstalledApplications->setEnabled(!loginPageActivated && !offline);
 
     mRoomFavorite->setEnabled(!loginPageActivated);
-    if (mContextStatusMenu) {
-        mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);
+    if (auto contextStatusMenu = mNotificationManager->contextStatusMenu()) {
+        contextStatusMenu->menuAction()->setVisible(!loginPageActivated);
     }
     if (mShowDatabaseMessages) {
         mShowDatabaseMessages->setEnabled(!loginPageActivated);
@@ -1170,7 +1169,7 @@ void RuqolaMainWindow::slotOpenPrivateChannel()
 
 bool RuqolaMainWindow::queryClose()
 {
-    if (qApp->isSavingSession() || mReallyClose || !mNotification) {
+    if (qApp->isSavingSession() || mReallyClose || !mNotificationManager->notificationActivated()) {
         return true;
     }
     hide();
@@ -1183,30 +1182,6 @@ void RuqolaMainWindow::slotClose()
     RuqolaGlobalConfig::self()->setInternalVersion(ruqolaVersion);
     RuqolaGlobalConfig::self()->save();
     close();
-}
-
-void RuqolaMainWindow::createSystemTray()
-{
-#if !defined(Q_OS_IOS)
-    if (!RuqolaGlobalConfig::self()->enableSystemTray()) {
-        delete mNotification;
-        mNotification = nullptr;
-        return;
-    }
-    if (!mNotification) {
-        mNotification = new Notification(this);
-        auto trayMenu = mNotification->contextMenu();
-
-        mContextStatusMenu = mNotification->contextMenu()->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
-        mContextStatusMenu->menuAction()->setVisible(false);
-        trayMenu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Preferences)));
-        trayMenu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::ConfigureNotifications)));
-        // Create systray to show notifications on Desktop
-        connect(mNotification, &Notification::alert, this, [this]() {
-            QApplication::alert(this, 0);
-        });
-    }
-#endif
 }
 
 void RuqolaMainWindow::slotStatusChanged()
@@ -1234,10 +1209,10 @@ void RuqolaMainWindow::slotStatusChanged()
 
 void RuqolaMainWindow::slotUpdateStatusMenu()
 {
-    if (mContextStatusMenu) {
+    if (auto contextStatusMenu = mNotificationManager->contextStatusMenu()) {
         const User::PresenceStatus status = mStatusComboBox->status();
-        mContextStatusMenu->setTitle(Utils::displaytextFromPresenceStatus(status));
-        mContextStatusMenu->setIcon(QIcon::fromTheme(Utils::iconFromPresenceStatus(status)));
+        contextStatusMenu->setTitle(Utils::displaytextFromPresenceStatus(status));
+        contextStatusMenu->setIcon(QIcon::fromTheme(Utils::iconFromPresenceStatus(status)));
     }
 }
 
@@ -1245,13 +1220,13 @@ void RuqolaMainWindow::slotUpdateCustomUserStatus()
 {
     mStatusProxyModel->sort(0);
 
-    if (mContextStatusMenu) {
+    if (auto contextStatusMenu = mNotificationManager->contextStatusMenu()) {
         // mContextStatusMenu->menuAction()->setVisible(true);
-        mContextStatusMenu->clear();
+        contextStatusMenu->clear();
 
         for (int i = 0; i < mStatusProxyModel->rowCount(); i++) {
             const QModelIndex index = mStatusProxyModel->index(i, 0);
-            QAction *action = mContextStatusMenu->addAction(index.data(Qt::DecorationRole).value<QIcon>(), index.data(Qt::DisplayRole).toString());
+            QAction *action = contextStatusMenu->addAction(index.data(Qt::DecorationRole).value<QIcon>(), index.data(Qt::DisplayRole).toString());
 
             connect(action, &QAction::triggered, this, [this, index] {
                 mStatusComboBox->setStatus(index.data(StatusModel::StatusRoles::Status).value<User::PresenceStatus>());
