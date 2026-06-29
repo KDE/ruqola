@@ -22,12 +22,7 @@ NotificationManager::NotificationManager(KActionCollection *actionCollection, QO
 {
 }
 
-NotificationManager::~NotificationManager()
-{
-#if HAVE_UNITY_SUPPORT
-    delete mUnityServiceManager;
-#endif
-}
+NotificationManager::~NotificationManager() = default;
 
 void NotificationManager::updateUnityService([[maybe_unused]] int unreadMessage)
 {
@@ -40,11 +35,10 @@ void NotificationManager::updateUnityService([[maybe_unused]] int unreadMessage)
 UnityServiceManager *NotificationManager::unityServiceManager()
 {
     if (!mUnityServiceManager) {
-        mUnityServiceManager = new UnityServiceManager();
+        mUnityServiceManager = new UnityServiceManager(this);
     }
     return mUnityServiceManager;
 }
-
 #endif
 
 QMenu *NotificationManager::contextStatusMenu() const
