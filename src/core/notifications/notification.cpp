@@ -10,9 +10,6 @@
 #include "notification.h"
 
 #include "ruqola_notification_debug.h"
-#if HAVE_UNITY_SUPPORT
-#include "unityservicemanager.h"
-#endif
 
 #include <KLocalizedString>
 #include <QIcon>
@@ -24,12 +21,7 @@ Notification::Notification(QObject *parent)
     createTrayIcon();
 }
 
-Notification::~Notification()
-{
-#if HAVE_UNITY_SUPPORT
-    delete mUnityServiceManager;
-#endif
-}
+Notification::~Notification() = default;
 
 void Notification::createTrayIcon()
 {
@@ -87,30 +79,12 @@ void Notification::createToolTip()
         }
     }
     setToolTipSubTitle(str);
-    updateUnityService(unreadMessage);
+    // TODO updateUnityService(unreadMessage);
     if (status() == KStatusNotifierItem::Passive && (!str.isEmpty() || hasAlert)) {
         setStatus(KStatusNotifierItem::Active);
     } else if (status() == KStatusNotifierItem::Active && (str.isEmpty() && !hasAlert)) {
         setStatus(KStatusNotifierItem::Passive);
     }
 }
-
-void Notification::updateUnityService([[maybe_unused]] int unreadMessage)
-{
-#if HAVE_UNITY_SUPPORT
-    unityServiceManager()->setCount(unreadMessage);
-#endif
-}
-
-#if HAVE_UNITY_SUPPORT
-UnityServiceManager *Notification::unityServiceManager()
-{
-    if (!mUnityServiceManager) {
-        mUnityServiceManager = new UnityServiceManager();
-    }
-    return mUnityServiceManager;
-}
-
-#endif
 
 #include "moc_notification.cpp"

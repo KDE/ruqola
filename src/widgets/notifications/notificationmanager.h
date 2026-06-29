@@ -5,10 +5,14 @@
 */
 
 #pragma once
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 class Notification;
 class QMenu;
 class KActionCollection;
+#if HAVE_UNITY_SUPPORT
+class UnityServiceManager;
+#endif
 class LIBRUQOLACORE_EXPORT NotificationManager : public QObject
 {
     Q_OBJECT
@@ -22,11 +26,19 @@ public:
     void logout(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     [[nodiscard]] bool notificationActivated() const;
+
+#if HAVE_UNITY_SUPPORT
+    [[nodiscard]] UnityServiceManager *unityServiceManager();
+#endif
 Q_SIGNALS:
     void alert();
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void updateUnityService(int unreadMessage);
     KActionCollection *const mActionCollection;
     Notification *mNotification = nullptr;
     QMenu *mContextStatusMenu = nullptr;
+#if HAVE_UNITY_SUPPORT
+    UnityServiceManager *mUnityServiceManager = nullptr;
+#endif
 };

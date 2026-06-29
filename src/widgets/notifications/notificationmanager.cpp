@@ -12,13 +12,40 @@
 #include <QApplication>
 #include <QMenu>
 
+#if HAVE_UNITY_SUPPORT
+#include "unityservicemanager.h"
+#endif
+
 NotificationManager::NotificationManager(KActionCollection *actionCollection, QObject *parent)
     : QObject(parent)
     , mActionCollection(actionCollection)
 {
 }
 
-NotificationManager::~NotificationManager() = default;
+NotificationManager::~NotificationManager()
+{
+#if HAVE_UNITY_SUPPORT
+    delete mUnityServiceManager;
+#endif
+}
+
+void NotificationManager::updateUnityService([[maybe_unused]] int unreadMessage)
+{
+#if HAVE_UNITY_SUPPORT
+    unityServiceManager()->setCount(unreadMessage);
+#endif
+}
+
+#if HAVE_UNITY_SUPPORT
+UnityServiceManager *NotificationManager::unityServiceManager()
+{
+    if (!mUnityServiceManager) {
+        mUnityServiceManager = new UnityServiceManager();
+    }
+    return mUnityServiceManager;
+}
+
+#endif
 
 QMenu *NotificationManager::contextStatusMenu() const
 {
