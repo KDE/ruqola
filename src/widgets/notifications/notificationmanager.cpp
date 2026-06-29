@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "notificationmanager.h"
-#include "ruqola_notification_debug.h"
+#include "ruqola_notification_manager_widget_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -22,12 +22,7 @@ NotificationManager::NotificationManager(KActionCollection *actionCollection, QO
 {
 }
 
-NotificationManager::~NotificationManager()
-{
-#if HAVE_UNITY_SUPPORT
-    delete mUnityServiceManager;
-#endif
-}
+NotificationManager::~NotificationManager() = default;
 
 void NotificationManager::updateUnityService([[maybe_unused]] int unreadMessage)
 {
@@ -40,11 +35,10 @@ void NotificationManager::updateUnityService([[maybe_unused]] int unreadMessage)
 UnityServiceManager *NotificationManager::unityServiceManager()
 {
     if (!mUnityServiceManager) {
-        mUnityServiceManager = new UnityServiceManager();
+        mUnityServiceManager = new UnityServiceManager(this);
     }
     return mUnityServiceManager;
 }
-
 #endif
 
 QMenu *NotificationManager::contextStatusMenu() const
@@ -90,7 +84,7 @@ void NotificationManager::logout(const QString &accountName)
 
 void NotificationManager::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
 {
-    // TODO qCDebug(RUQOLA_NOTIFICATION_LOG) << " hasAlert " << hasAlert << " unreadNumber " << nbUnread << " account" << accountName;
+    qCDebug(RUQOLA_NOTIFICATION_MANAGER_WIDGETS_LOG) << " hasAlert " << hasAlert << " unreadNumber " << nbUnread << " account" << accountName;
     const Notification::TrayInfo info(nbUnread, hasAlert);
     if (info.hasNotification()) {
         mListTrayIcon.insert(accountName, info);
@@ -112,8 +106,10 @@ void NotificationManager::createSystrayToolTip()
     int unreadMessage = 0;
     for (const auto &[key, value] : mListTrayIcon.asKeyValueRange()) {
         const Notification::TrayInfo trayInfo = value;
-        if (trayInfo.hasAlert) {
-            hasAlert = trayInfo.hasAlert;
+        if (mNotification) {
+            if (trayInfo.hasAlert) {
+                hasAlert = trayInfo.hasAlert;
+            }
         }
         if (trayInfo.unreadMessage != 0) {
             if (mNotification) {
