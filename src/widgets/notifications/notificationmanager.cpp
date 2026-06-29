@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "notificationmanager.h"
-#include "notifications/notification.h"
+#include "ruqola_notification_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -84,20 +84,51 @@ void NotificationManager::roomNeedAttention()
 
 void NotificationManager::logout(const QString &accountName)
 {
-    if (mNotification) {
-        mNotification->clearNotification(accountName);
-    }
+    mListTrayIcon.remove(accountName);
+    createSystrayToolTip();
 }
 
 void NotificationManager::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
 {
-    if (mNotification) {
-        mNotification->updateNotification(hasAlert, nbUnread, accountName);
+    // TODO qCDebug(RUQOLA_NOTIFICATION_LOG) << " hasAlert " << hasAlert << " unreadNumber " << nbUnread << " account" << accountName;
+    const Notification::TrayInfo info(nbUnread, hasAlert);
+    if (info.hasNotification()) {
+        mListTrayIcon.insert(accountName, info);
+    } else {
+        mListTrayIcon.remove(accountName);
     }
+    createSystrayToolTip();
 }
 
 bool NotificationManager::notificationActivated() const
 {
     return mNotification != nullptr;
 }
+
+void NotificationManager::createSystrayToolTip()
+{
+    QString str;
+    bool hasAlert = false;
+    int unreadMessage = 0;
+    for (const auto &[key, value] : mListTrayIcon.asKeyValueRange()) {
+        const Notification::TrayInfo trayInfo = value;
+        if (trayInfo.hasAlert) {
+            hasAlert = trayInfo.hasAlert;
+        }
+        if (trayInfo.unreadMessage != 0) {
+            if (mNotification) {
+                if (!str.isEmpty()) {
+                    str += u'\n';
+                }
+                str += i18n("%1 has %2 Unread Message", key, trayInfo.unreadMessage);
+            }
+            unreadMessage += trayInfo.unreadMessage;
+        }
+    }
+    updateUnityService(unreadMessage);
+    if (mNotification) {
+        mNotification->updateToolTip(str, hasAlert);
+    }
+}
+
 #include "moc_notificationmanager.cpp"
