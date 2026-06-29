@@ -112,8 +112,10 @@ void NotificationManager::createSystrayToolTip()
     int unreadMessage = 0;
     for (const auto &[key, value] : mListTrayIcon.asKeyValueRange()) {
         const Notification::TrayInfo trayInfo = value;
-        if (trayInfo.hasAlert) {
-            hasAlert = trayInfo.hasAlert;
+        if (mNotification) {
+            if (trayInfo.hasAlert) {
+                hasAlert = trayInfo.hasAlert;
+            }
         }
         if (trayInfo.unreadMessage != 0) {
             if (mNotification) {
