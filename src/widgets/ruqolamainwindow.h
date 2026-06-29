@@ -19,7 +19,6 @@ class ServerMenu;
 class RocketChatAccount;
 class QLabel;
 class AccountsOverviewWidget;
-class Notification;
 class StatusModelFilterProxyModel;
 class QCommandLineParser;
 class SwitchChannelTreeViewManager;
@@ -30,6 +29,7 @@ class QToolButton;
 class KActionMenu;
 class MessageStyleLayoutMenu;
 class ChangeFontSizeMenu;
+class NotificationManager;
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
 namespace TextAddonsWidgets
 {
@@ -89,7 +89,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClose();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotStatusChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateStatusMenu();
-    LIBRUQOLAWIDGETS_NO_EXPORT void createSystemTray();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateCustomUserStatus();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateDiscussion();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateTeam();
@@ -169,8 +168,6 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QLabel *mStatusBarTypingMessage = nullptr;
     AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
-    Notification *mNotification = nullptr;
-    QMenu *mContextStatusMenu = nullptr;
     StatusCombobox *mStatusComboBox = nullptr;
     StatusModelFilterProxyModel *mStatusProxyModel = nullptr;
     SwitchChannelTreeViewManager *const mSwitchChannelTreeManager;
@@ -210,4 +207,5 @@ private:
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     TextAddonsWidgets::VerifyNewVersionWidget *const mVerifyNewVersionWidget;
 #endif
+    NotificationManager *const mNotificationManager;
 };

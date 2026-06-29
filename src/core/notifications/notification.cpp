@@ -10,9 +10,6 @@
 #include "notification.h"
 
 #include "ruqola_notification_debug.h"
-#if HAVE_UNITY_SUPPORT
-#include "unityservicemanager.h"
-#endif
 
 #include <KLocalizedString>
 #include <QIcon>
@@ -24,12 +21,7 @@ Notification::Notification(QObject *parent)
     createTrayIcon();
 }
 
-Notification::~Notification()
-{
-#if HAVE_UNITY_SUPPORT
-    delete mUnityServiceManager;
-#endif
-}
+Notification::~Notification() = default;
 
 void Notification::createTrayIcon()
 {
@@ -44,73 +36,20 @@ void Notification::createTrayIcon()
     setCategory(KStatusNotifierItem::Communications);
 }
 
-void Notification::clearNotification(const QString &account)
-{
-    mListTrayIcon.remove(account);
-    createToolTip();
-}
-
 void Notification::roomNeedAttention()
 {
     qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert";
     Q_EMIT alert();
 }
 
-void Notification::updateNotification(bool hasAlert, int unreadNumber, const QString &account)
+void Notification::updateToolTip(const QString &str, bool hasAlert)
 {
-    qCDebug(RUQOLA_NOTIFICATION_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
-    const TrayInfo info(unreadNumber, hasAlert);
-    if (info.hasNotification()) {
-        mListTrayIcon.insert(account, info);
-    } else {
-        mListTrayIcon.remove(account);
-    }
-    createToolTip();
-}
-
-void Notification::createToolTip()
-{
-    QString str;
-    bool hasAlert = false;
-    int unreadMessage = 0;
-    for (const auto &[key, value] : mListTrayIcon.asKeyValueRange()) {
-        const TrayInfo trayInfo = value;
-        if (trayInfo.hasAlert) {
-            hasAlert = trayInfo.hasAlert;
-        }
-        if (trayInfo.unreadMessage != 0) {
-            if (!str.isEmpty()) {
-                str += u'\n';
-            }
-            str += i18n("%1 has %2 Unread Message", key, trayInfo.unreadMessage);
-            unreadMessage += trayInfo.unreadMessage;
-        }
-    }
     setToolTipSubTitle(str);
-    updateUnityService(unreadMessage);
     if (status() == KStatusNotifierItem::Passive && (!str.isEmpty() || hasAlert)) {
         setStatus(KStatusNotifierItem::Active);
     } else if (status() == KStatusNotifierItem::Active && (str.isEmpty() && !hasAlert)) {
         setStatus(KStatusNotifierItem::Passive);
     }
 }
-
-void Notification::updateUnityService([[maybe_unused]] int unreadMessage)
-{
-#if HAVE_UNITY_SUPPORT
-    unityServiceManager()->setCount(unreadMessage);
-#endif
-}
-
-#if HAVE_UNITY_SUPPORT
-UnityServiceManager *Notification::unityServiceManager()
-{
-    if (!mUnityServiceManager) {
-        mUnityServiceManager = new UnityServiceManager();
-    }
-    return mUnityServiceManager;
-}
-
-#endif
 
 #include "moc_notification.cpp"

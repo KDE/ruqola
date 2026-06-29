@@ -1020,6 +1020,8 @@ target_sources(
         timestampinmessages/timestampinmessagesformatcombobox.cpp
         timestampinmessages/timestampinmessagestimezonecombobox.h
         timestampinmessages/timestampinmessagestimezonecombobox.cpp
+        notifications/notificationmanager.h
+        notifications/notificationmanager.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)

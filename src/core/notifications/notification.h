@@ -8,7 +8,6 @@
 
 #pragma once
 
-#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include <KStatusNotifierItem>
 #include <QMap>
@@ -18,20 +17,6 @@ class LIBRUQOLACORE_EXPORT Notification : public KStatusNotifierItem
 {
     Q_OBJECT
 public:
-    explicit Notification(QObject *parent = nullptr);
-    ~Notification() override;
-
-    void roomNeedAttention();
-    void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
-    void clearNotification(const QString &account);
-#if HAVE_UNITY_SUPPORT
-    UnityServiceManager *unityServiceManager();
-#endif
-
-Q_SIGNALS:
-    void alert();
-
-private:
     struct TrayInfo {
         TrayInfo(int unread, bool alert)
             : unreadMessage(unread)
@@ -47,15 +32,20 @@ private:
         int unreadMessage = 0;
         bool hasAlert = false;
     };
+
+    explicit Notification(QObject *parent = nullptr);
+    ~Notification() override;
+
+    void roomNeedAttention();
+
+    void updateToolTip(const QString &str, bool hasAlert);
+
+Q_SIGNALS:
+    void alert();
+
+private:
     /**
      * @brief Creates tray icon consisting of actions
      */
     LIBRUQOLACORE_NO_EXPORT void createTrayIcon();
-    LIBRUQOLACORE_NO_EXPORT void createToolTip();
-    LIBRUQOLACORE_NO_EXPORT void updateUnityService(int unreadMessage);
-
-    QMap<QString, TrayInfo> mListTrayIcon;
-#if HAVE_UNITY_SUPPORT
-    UnityServiceManager *mUnityServiceManager = nullptr;
-#endif
 };
