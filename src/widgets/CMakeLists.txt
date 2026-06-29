@@ -1135,6 +1135,10 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_databa
     CATEGORY_NAME org.kde.ruqola.database.widgets DESCRIPTION "ruqola database widgets support" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_notification_manager_widget_debug.h IDENTIFIER RUQOLA_NOTIFICATION_MANAGER_WIDGETS_LOG
+    CATEGORY_NAME org.kde.ruqola.notification.manager.widgets DESCRIPTION "ruqola notification manager widgets support" EXPORT RUQOLA
+)
+
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
