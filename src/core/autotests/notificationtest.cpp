@@ -25,25 +25,21 @@ void NotificationTest::shouldHaveDefaultValue()
 void NotificationTest::shouldChangeStatus()
 {
     Notification w;
-#if 0 // TODO
     // Notification
-    w.updateNotification(true, 3, u"foo"_s);
+    w.updateToolTip(u"foo"_s, true);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
     // Clear it.
-    w.updateNotification(false, 0, u"foo"_s);
+    w.updateToolTip(QString(), false);
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
 
-    w.updateNotification(false, 0, u"Bla"_s);
-    QCOMPARE(w.status(), KStatusNotifierItem::Passive);
-    w.updateNotification(true, 0, u"Bla"_s);
+    w.updateToolTip(u"Bla"_s, false);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
-    w.updateNotification(true, 3, u"Bla"_s);
+    w.updateToolTip(u"Bla"_s, true);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
-    w.updateNotification(false, 3, u"Bla"_s);
+    w.updateToolTip(u"Bla"_s, true);
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
-    w.updateNotification(false, 0, u"Bla"_s);
-    QCOMPARE(w.status(), KStatusNotifierItem::Passive);
-#endif
+    w.updateToolTip(u"Bla"_s, false);
+    QCOMPARE(w.status(), KStatusNotifierItem::Active);
 }
 
 #include "moc_notificationtest.cpp"
