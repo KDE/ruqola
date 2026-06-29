@@ -22,6 +22,8 @@ public:
     [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 newUpdatedAt);
 
+    [[nodiscard]] bool operator==(const ReadReceipt &other) const;
+
 private:
     QByteArray mUserId;
     qint64 mTimeStamp = -1;

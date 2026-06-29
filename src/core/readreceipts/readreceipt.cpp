@@ -49,3 +49,5 @@ QDebug operator<<(QDebug d, const ReadReceipt &t)
     d.space() << "timeStamp:" << t.timeStamp();
     return d;
 }
+
+bool ReadReceipt::operator==(const ReadReceipt &other) const = default;

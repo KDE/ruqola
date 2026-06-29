@@ -568,6 +568,8 @@ target_sources(
         bannedusers/bannedusers.cpp
         readreceipts/readreceipt.h
         readreceipts/readreceipt.cpp
+        readreceipts/readreceipts.h
+        readreceipts/readreceipts.cpp
         emoji.qrc
 )
 
