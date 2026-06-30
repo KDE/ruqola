@@ -47,15 +47,9 @@ ListMessagesFilterProxyModel::FilteringByType ListMessagesFilterProxyModel::getF
 void ListMessagesFilterProxyModel::setFilteringByType(FilteringByType newFilteringByType)
 {
     if (mFilteringByType != newFilteringByType) {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         beginFilterChange();
-#endif
         mFilteringByType = newFilteringByType;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
-#else
-        invalidateFilter();
-#endif
     }
 }
 

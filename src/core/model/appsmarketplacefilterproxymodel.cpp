@@ -156,15 +156,9 @@ bool AppsMarketPlaceFilterProxyModel::isPrivate() const
 void AppsMarketPlaceFilterProxyModel::setIsPrivate(bool newPrivate)
 {
     if (mPrivate != newPrivate) {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         beginFilterChange();
-#endif
         mPrivate = newPrivate;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
-#else
-        invalidateFilter();
-#endif
     }
 }
 
@@ -176,15 +170,9 @@ bool AppsMarketPlaceFilterProxyModel::installed() const
 void AppsMarketPlaceFilterProxyModel::setInstalled(bool newInstalled)
 {
     if (mInstalled != newInstalled) {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         beginFilterChange();
-#endif
         mInstalled = newInstalled;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
-#else
-        invalidateFilter();
-#endif
     }
 }
 
@@ -196,15 +184,9 @@ bool AppsMarketPlaceFilterProxyModel::requested() const
 void AppsMarketPlaceFilterProxyModel::setRequested(bool newRequested)
 {
     if (mRequested != newRequested) {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         beginFilterChange();
-#endif
         mRequested = newRequested;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
-#else
-        invalidateFilter();
-#endif
     }
 }
 
@@ -229,15 +211,9 @@ AppsMarketPlaceFilterProxyModel::FilterInfo AppsMarketPlaceFilterProxyModel::fil
 void AppsMarketPlaceFilterProxyModel::setFilterInfo(const FilterInfo &newFilterInfo)
 {
     if (mFilterInfo != newFilterInfo) {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         beginFilterChange();
-#endif
         mFilterInfo = newFilterInfo;
-#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
-#else
-        invalidateFilter();
-#endif
     }
 }
 
