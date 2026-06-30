@@ -32,22 +32,19 @@ QVariant ReadReceiptsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const ReadReceipt receiptInfo = mReadReceipts.at(index.row());
-#if 0 // TODO
     switch (role) {
     case Qt::DisplayRole:
-    case StatusI18n:
-        return statusInfo.displayText;
-    case Status:
-        return QVariant::fromValue(statusInfo.status);
-    case Order:
-        return statusInfo.order;
-    case Qt::DecorationRole:
-    case Icon:
-        return statusInfo.icon;
+    case ReadReceiptsModel::ReadReceiptsInfo::UserName:
+        return receiptInfo.userName();
+    case ReadReceiptsModel::ReadReceiptsInfo::UserId:
+        return receiptInfo.userId();
+    case ReadReceiptsModel::ReadReceiptsInfo::Name:
+        return receiptInfo.name();
+    case ReadReceiptsModel::ReadReceiptsInfo::TimeStamp:
+        return receiptInfo.timeStamp();
     default:
         break;
     }
-#endif
     return {};
 }
 

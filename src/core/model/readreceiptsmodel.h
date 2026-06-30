@@ -15,7 +15,7 @@ class LIBRUQOLACORE_EXPORT ReadReceiptsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum class ReadReceiptsInfo : uint16_t {
+    enum ReadReceiptsInfo : uint16_t {
         UserId = Qt::UserRole + 1,
         UserName,
         Name,
