@@ -5,9 +5,6 @@
 */
 
 #include "readreceiptsmodel.h"
-
-#include "roles/roleinfo.h"
-#include "ruqola_debug.h"
 #include <KLocalizedString>
 
 using namespace Qt::Literals::StringLiterals;
