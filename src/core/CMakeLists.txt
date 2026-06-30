@@ -329,6 +329,8 @@ target_sources(
         model/bannedusersfilterproxymodel.cpp
         model/readreceiptsmodel.cpp
         model/readreceiptsmodel.h
+        model/readreceiptsfilterproxymodel.cpp
+        model/readreceiptsfilterproxymodel.h
         notificationinfo.cpp
         notificationinfo.h
         notifications/notification.cpp
