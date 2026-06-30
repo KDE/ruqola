@@ -42,17 +42,12 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     }
     mListBannedUsers->setItemDelegate(delegate);
 
-    auto searchBannedUsersLayout = new QHBoxLayout;
-    searchBannedUsersLayout->setObjectName(u"searchBannedUsersLayout"_s);
-    searchBannedUsersLayout->setContentsMargins({});
-    mainLayout->addLayout(searchBannedUsersLayout);
-
     mSearchBannedUserLineEdit->setObjectName(u"mSearchBannedUserLineEdit"_s);
     mSearchBannedUserLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchBannedUserLineEdit);
     mSearchBannedUserLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Banned Users…"));
     connect(mSearchBannedUserLineEdit, &QLineEdit::textChanged, this, &ShowBannedUsersWidget::slotSearchBannedUsersChanged);
-    searchBannedUsersLayout->addWidget(mSearchBannedUserLineEdit);
+    mainLayout->addWidget(mSearchBannedUserLineEdit);
 
     mInfo->setObjectName(u"mInfo"_s);
     mInfo->setTextFormat(Qt::RichText);
