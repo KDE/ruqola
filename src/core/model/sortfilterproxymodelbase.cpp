@@ -29,4 +29,15 @@ void SortFilterProxyModelBase::setFilterString(const QString &string)
     invalidate();
 }
 
+bool SortFilterProxyModelBase::constains(const QString &string)
+{
+#if HAVE_TEXT_UTILS
+    const QString str = TextUtils::ConvertText::normalize(string);
+    return str.contains(mFilterString, Qt::CaseInsensitive);
+#else
+    const QString str = string;
+    return str.contains(mFilterString, Qt::CaseInsensitive);
+#endif
+}
+
 #include "moc_sortfilterproxymodelbase.cpp"
