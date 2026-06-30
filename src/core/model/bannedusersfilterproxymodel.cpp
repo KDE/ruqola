@@ -5,10 +5,6 @@
 */
 #include "bannedusersfilterproxymodel.h"
 #include "bannedusersmodel.h"
-#include "config-ruqola.h"
-#if HAVE_TEXT_UTILS
-#include <TextUtils/ConvertText>
-#endif
 BannedUsersFilterProxyModel::BannedUsersFilterProxyModel(QObject *parent)
     : SortFilterProxyModelBase{parent}
 {
@@ -24,13 +20,7 @@ bool BannedUsersFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
 
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     auto match = [&](int role) {
-#if HAVE_TEXT_UTILS
-        const QString str = TextUtils::ConvertText::normalize(modelIndex.data(role).toString());
-        return str.contains(mFilterString, Qt::CaseInsensitive);
-#else
-        const QString str = modelIndex.data(role).toString();
-        return str.contains(mFilterString, Qt::CaseInsensitive);
-#endif
+        return contains(modelIndex.data(role).toString());
     };
     if (!match(BannedUsersModel::UserName) && !match(BannedUsersModel::Name)) {
         return false;

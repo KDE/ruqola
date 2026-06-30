@@ -5,11 +5,10 @@
 */
 
 #include "servererrorinfohistoryfilterproxymodel.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "config-ruqola.h"
 #include "servererrorinfohistorymodel.h"
 
+using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoHistoryFilterProxyModel::ServerErrorInfoHistoryFilterProxyModel(QObject *parent)
     : SortFilterProxyModelBase{parent}
 {
@@ -27,7 +26,7 @@ bool ServerErrorInfoHistoryFilterProxyModel::filterAcceptsRow(int source_row, co
         }
     }
     auto match = [&](int role) {
-        return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+        return mFilterString.isEmpty() || contains(modelIndex.data(role).toString());
     };
     if (!match(ServerErrorInfoHistoryModel::AccountName) && !match(ServerErrorInfoHistoryModel::MessageStr)) {
         return false;

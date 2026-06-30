@@ -29,7 +29,7 @@ void SortFilterProxyModelBase::setFilterString(const QString &string)
     invalidate();
 }
 
-bool SortFilterProxyModelBase::constains(const QString &string)
+bool SortFilterProxyModelBase::contains(const QString &string) const
 {
 #if HAVE_TEXT_UTILS
     const QString str = TextUtils::ConvertText::normalize(string);

@@ -7,11 +7,6 @@
 #include "notificationhistorymodelfilterproxymodel.h"
 #include "notificationhistorymodel.h"
 
-#include "config-ruqola.h"
-#if HAVE_TEXT_UTILS
-#include <TextUtils/ConvertText>
-#endif
-
 NotificationHistoryModelFilterProxyModel::NotificationHistoryModelFilterProxyModel(QObject *parent)
     : SortFilterProxyModelBase{parent}
 {
@@ -32,13 +27,7 @@ bool NotificationHistoryModelFilterProxyModel::filterAcceptsRow(int source_row, 
         if (mFilterString.isEmpty()) {
             return true;
         };
-#if HAVE_TEXT_UTILS
-        const QString str = TextUtils::ConvertText::normalize(modelIndex.data(role).toString());
-        return str.contains(mFilterString, Qt::CaseInsensitive);
-#else
-        const QString str = modelIndex.data(role).toString();
-        return str.contains(mFilterString, Qt::CaseInsensitive);
-#endif
+        return contains(modelIndex.data(role).toString());
     };
     if (!match(NotificationHistoryModel::RoomName) && !match(NotificationHistoryModel::AccountName) && !match(NotificationHistoryModel::SenderName)
         && !match(NotificationHistoryModel::MessageStr)) {

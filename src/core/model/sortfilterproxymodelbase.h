@@ -16,7 +16,7 @@ public:
     ~SortFilterProxyModelBase() override;
 
     void setFilterString(const QString &string);
-    [[nodiscard]] bool constains(const QString &string);
+    [[nodiscard]] bool contains(const QString &string) const;
 
 protected:
     QString mFilterString;

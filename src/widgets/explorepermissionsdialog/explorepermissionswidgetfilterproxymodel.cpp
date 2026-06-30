@@ -22,7 +22,7 @@ bool ExplorePermissionsWidgetFilterProxyModel::filterAcceptsRow(int source_row, 
     }
     auto match = [&](int role) {
         const QModelIndex modelIndex = sourceModel()->index(source_row, role, source_parent);
-        return modelIndex.data(0).toString().contains(mFilterString, Qt::CaseInsensitive);
+        return contains(modelIndex.data(0).toString());
     };
     if (match(PermissionsModel::RolesStr) || match(PermissionsModel::Identifier)) {
         return true;
