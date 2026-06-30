@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "readreceipts/readreceipts.h"
 #include <QList>
 #include <QStandardItemModel>
 class RoleInfo;
@@ -27,4 +28,10 @@ public:
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    [[nodiscard]] ReadReceipts readReceipts() const;
+    void setReadReceipts(const ReadReceipts &newReadReceipts);
+
+private:
+    ReadReceipts mReadReceipts;
 };

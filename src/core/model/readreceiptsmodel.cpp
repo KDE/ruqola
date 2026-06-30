@@ -23,17 +23,16 @@ int ReadReceiptsModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) { // flat model
         return 0;
     }
-    // TODO
-    return {};
+    return mReadReceipts.count();
 }
 
 QVariant ReadReceiptsModel::data(const QModelIndex &index, int role) const
 {
-#if 0 // TODO
-    if (index.row() < 0 || index.row() >= mStatusList.count()) {
+    if (index.row() < 0 || index.row() >= mReadReceipts.count()) {
         return {};
     }
-    const DisplayStatusInfo statusInfo = mStatusList.at(index.row());
+    const ReadReceipt receiptInfo = mReadReceipts.at(index.row());
+#if 0 // TODO
     switch (role) {
     case Qt::DisplayRole:
     case StatusI18n:
@@ -50,6 +49,18 @@ QVariant ReadReceiptsModel::data(const QModelIndex &index, int role) const
     }
 #endif
     return {};
+}
+
+ReadReceipts ReadReceiptsModel::readReceipts() const
+{
+    return mReadReceipts;
+}
+
+void ReadReceiptsModel::setReadReceipts(const ReadReceipts &newReadReceipts)
+{
+    beginInsertRows(QModelIndex(), 0, mReadReceipts.count() - 1);
+    mReadReceipts = newReadReceipts;
+    endInsertRows();
 }
 
 #include "moc_readreceiptsmodel.cpp"
