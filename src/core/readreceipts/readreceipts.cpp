@@ -53,23 +53,20 @@ void ReadReceipts::setReadReceipts(const QList<ReadReceipt> &readReceptsInfos)
     mReadReceipts = readReceptsInfos;
 }
 
-void ReadReceipts::parseReadReceipts(const QJsonObject &obj)
+void ReadReceipts::parseReadReceipts(const QJsonArray &array)
 {
     mReadReceipts.clear();
-#if 0
-    const QJsonArray tokensArray = obj["tokens"_L1].toArray();
-    const auto tokensArrayCount = tokensArray.count();
-    mReadReceipts.reserve(tokensArrayCount);
-    for (auto i = 0; i < tokensArrayCount; ++i) {
-        PersonalAccessTokenInfo r;
-        r.parsePersonalAccessTokenInfo(tokensArray.at(i).toObject());
+    const auto readReceiptsArrayCount = array.count();
+    mReadReceipts.reserve(readReceiptsArrayCount);
+    for (auto i = 0; i < readReceiptsArrayCount; ++i) {
+        ReadReceipt r;
+        r.parseReadReceiptInfo(array.at(i).toObject());
         if (r.isValid()) {
             mReadReceipts.append(std::move(r));
         } else {
-            qCWarning(RUQOLA_LOG) << "Invalid personal Access Token Info: " << tokensArray.at(i).toObject();
+            qCWarning(RUQOLA_LOG) << "Invalid Read Receipt Info: " << array.at(i).toObject();
         }
     }
-#endif
 }
 
 QDebug operator<<(QDebug d, const ReadReceipts &t)

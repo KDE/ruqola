@@ -9,6 +9,7 @@
 #include "readreceipt.h"
 #include <QList>
 class QDebug;
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT ReadReceipts
 {
 public:
@@ -17,7 +18,7 @@ public:
     [[nodiscard]] QList<ReadReceipt> readReceopts() const;
     void setReadReceipts(const QList<ReadReceipt> &tokenInfos);
 
-    void parseReadReceipts(const QJsonObject &obj);
+    void parseReadReceipts(const QJsonArray &array);
     [[nodiscard]] bool isEmpty() const;
 
     [[nodiscard]] int count() const;

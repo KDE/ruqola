@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "readreceipt.h"
-
+#include "utils.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(ReadReceipt, Ruqola_ReadReceipt)
 using namespace Qt::Literals::StringLiterals;
 
@@ -51,3 +51,15 @@ QDebug operator<<(QDebug d, const ReadReceipt &t)
 }
 
 bool ReadReceipt::operator==(const ReadReceipt &other) const = default;
+
+void ReadReceipt::parseReadReceiptInfo(const QJsonObject &obj)
+{
+    mUserId = obj["userId"_L1].toString().toLatin1();
+    mTimeStamp = Utils::parseDate(u"ts"_s, obj);
+    mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, obj);
+}
+
+bool ReadReceipt::isValid() const
+{
+    return !mUserId.isEmpty();
+}

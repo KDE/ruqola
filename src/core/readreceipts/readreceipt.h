@@ -6,6 +6,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+class QJsonObject;
 class QDebug;
 class LIBRUQOLACORE_EXPORT ReadReceipt
 {
@@ -23,6 +24,10 @@ public:
     void setUpdatedAt(qint64 newUpdatedAt);
 
     [[nodiscard]] bool operator==(const ReadReceipt &other) const;
+
+    void parseReadReceiptInfo(const QJsonObject &obj);
+
+    [[nodiscard]] bool isValid() const;
 
 private:
     QByteArray mUserId;
