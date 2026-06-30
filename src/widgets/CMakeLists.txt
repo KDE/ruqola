@@ -1026,6 +1026,8 @@ target_sources(
         dialogs/showreadreceiptsdialog.h
         dialogs/showreadreceiptswidget.h
         dialogs/showreadreceiptswidget.cpp
+        dialogs/showreadreceiptsdelegate.cpp
+        dialogs/showreadreceiptsdelegate.h
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)

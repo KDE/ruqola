@@ -12,7 +12,7 @@
 #include "rocketchataccount.h"
 #include "rooms/roomsbannedusersjob.h"
 #include "ruqolawidgets_debug.h"
-#include "showbannedusersdelegate.h"
+#include "showreadreceiptsdelegate.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
@@ -34,7 +34,7 @@ ShowReadReceiptsWidget::ShowReadReceiptsWidget(RocketChatAccount *account, QWidg
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    auto delegate = new ShowBannedUsersDelegate(this);
+    auto delegate = new ShowReadReceiptsDelegate(this);
     if (mCurrentRocketChatAccount) {
         delegate->setRocketChatAccount(mCurrentRocketChatAccount);
     }
