@@ -5,12 +5,12 @@
 */
 
 #include "statusmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "customusers/customuserstatus.h"
 #include "utils.h"
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 StatusModel::StatusModel(QObject *parent)
     : QAbstractListModel(parent)
 {
