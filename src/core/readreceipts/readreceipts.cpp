@@ -14,7 +14,7 @@
 using namespace Qt::Literals::StringLiterals;
 ReadReceipts::ReadReceipts() = default;
 
-QList<ReadReceipt> ReadReceipts::readReceopts() const
+QList<ReadReceipt> ReadReceipts::readReceipts() const
 {
     return mReadReceipts;
 }
@@ -71,13 +71,13 @@ void ReadReceipts::parseReadReceipts(const QJsonArray &array)
 
 QDebug operator<<(QDebug d, const ReadReceipts &t)
 {
-    for (int i = 0, total = t.readReceopts().count(); i < total; ++i) {
-        d.space() << t.readReceopts().at(i) << "\n";
+    for (int i = 0, total = t.readReceipts().count(); i < total; ++i) {
+        d.space() << t.readReceipts().at(i) << "\n";
     }
     return d;
 }
 
 bool ReadReceipts::operator==(const ReadReceipts &other) const
 {
-    return readReceopts() == other.readReceopts();
+    return readReceipts() == other.readReceipts();
 }

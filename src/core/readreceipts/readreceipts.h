@@ -15,7 +15,7 @@ class LIBRUQOLACORE_EXPORT ReadReceipts
 public:
     ReadReceipts();
 
-    [[nodiscard]] QList<ReadReceipt> readReceopts() const;
+    [[nodiscard]] QList<ReadReceipt> readReceipts() const;
     void setReadReceipts(const QList<ReadReceipt> &tokenInfos);
 
     void parseReadReceipts(const QJsonArray &array);
