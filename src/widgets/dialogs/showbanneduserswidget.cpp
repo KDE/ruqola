@@ -51,7 +51,7 @@ ShowBannedUsersWidget::ShowBannedUsersWidget(RocketChatAccount *account, QWidget
     mSearchBannedUserLineEdit->setClearButtonEnabled(true);
     KLineEditEventHandler::catchReturnKey(mSearchBannedUserLineEdit);
     mSearchBannedUserLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search Banned Users…"));
-    connect(mSearchBannedUserLineEdit, &QLineEdit::textChanged, this, &ShowBannedUsersWidget::slotSearchMessageTextChanged);
+    connect(mSearchBannedUserLineEdit, &QLineEdit::textChanged, this, &ShowBannedUsersWidget::slotSearchBannedUsersChanged);
     searchBannedUsersLayout->addWidget(mSearchBannedUserLineEdit);
 
     mInfo->setObjectName(u"mInfo"_s);
@@ -103,7 +103,7 @@ void ShowBannedUsersWidget::slotUnBanUsersDone(const QString &userName)
     updateLabel();
 }
 
-void ShowBannedUsersWidget::slotSearchMessageTextChanged(const QString &str)
+void ShowBannedUsersWidget::slotSearchBannedUsersChanged(const QString &str)
 {
     mBannedUsersFilterProxyModel->setFilterString(str);
 }

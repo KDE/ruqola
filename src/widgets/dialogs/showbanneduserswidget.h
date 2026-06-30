@@ -25,7 +25,7 @@ public:
     void setRoomId(const QByteArray &roomId);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchMessageTextChanged(const QString &str);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchBannedUsersChanged(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateLabel();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadBannedUsers();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
