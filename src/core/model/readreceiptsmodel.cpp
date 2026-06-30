@@ -39,6 +39,8 @@ QVariant ReadReceiptsModel::data(const QModelIndex &index, int role) const
         return receiptInfo.name();
     case ReadReceiptsModel::ReadReceiptsInfo::TimeStamp:
         return receiptInfo.timeStamp();
+    case ReadReceiptsModel::AvatarInfo:
+        return QVariant::fromValue(avatarInfo(receiptInfo));
     default:
         break;
     }
@@ -55,6 +57,16 @@ void ReadReceiptsModel::setReadReceipts(const ReadReceipts &newReadReceipts)
     beginInsertRows(QModelIndex(), 0, mReadReceipts.count() - 1);
     mReadReceipts = newReadReceipts;
     endInsertRows();
+}
+
+Utils::AvatarInfo ReadReceiptsModel::avatarInfo(const ReadReceipt &user) const
+{
+    const Utils::AvatarInfo info{
+        .etag = {},
+        .identifier = user.userName(),
+        .avatarType = Utils::AvatarType::User,
+    };
+    return info;
 }
 
 #include "moc_readreceiptsmodel.cpp"

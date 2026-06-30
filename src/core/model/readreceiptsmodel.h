@@ -8,9 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include "readreceipts/readreceipts.h"
-#include <QList>
-#include <QStandardItemModel>
-class RoleInfo;
+#include "utils.h"
+#include <QAbstractListModel>
 class LIBRUQOLACORE_EXPORT ReadReceiptsModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -20,6 +19,7 @@ public:
         UserName,
         Name,
         TimeStamp,
+        AvatarInfo,
     };
     Q_ENUM(ReadReceiptsInfo)
 
@@ -33,5 +33,7 @@ public:
     void setReadReceipts(const ReadReceipts &newReadReceipts);
 
 private:
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const ReadReceipt &user) const;
+
     ReadReceipts mReadReceipts;
 };

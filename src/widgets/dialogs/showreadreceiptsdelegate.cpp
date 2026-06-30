@@ -6,7 +6,7 @@
 #include "showreadreceiptsdelegate.h"
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
-#include "model/bannedusersmodel.h"
+#include "model/readreceiptsmodel.h"
 #include "utils.h"
 #include <QPainter>
 
@@ -21,6 +21,7 @@ ShowReadReceiptsDelegate::~ShowReadReceiptsDelegate() = default;
 
 void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    // TODO add date
     // [M] icon ? name (username)
     drawBackground(painter, option, index);
 
@@ -36,7 +37,7 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     painter->setFont(boldFont);
 
     int xPos = -1;
-    const Utils::AvatarInfo info = index.data(BannedUsersModel::AvatarInfo).value<Utils::AvatarInfo>();
+    const Utils::AvatarInfo info = index.data(ReadReceiptsModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
         const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
@@ -48,8 +49,8 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     }
 
     const QFontMetrics fontMetrics(boldFont);
-    const QString name = index.data(BannedUsersModel::Name).toString();
-    const QString userName = index.data(BannedUsersModel::UserName).toString();
+    const QString name = index.data(ReadReceiptsModel::Name).toString();
+    const QString userName = index.data(ReadReceiptsModel::UserName).toString();
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     if (name.isEmpty()) {
         painter->drawText(xPos + margin, defaultCharHeight, userName);
