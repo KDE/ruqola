@@ -1022,6 +1022,10 @@ target_sources(
         timestampinmessages/timestampinmessagestimezonecombobox.cpp
         notifications/notificationmanager.h
         notifications/notificationmanager.cpp
+        dialogs/showreadreceiptsdialog.cpp
+        dialogs/showreadreceiptsdialog.h
+        dialogs/showreadreceiptswidget.h
+        dialogs/showreadreceiptswidget.cpp
 )
 
 if(HAVE_TEXT_AUTOCORRECTION_WIDGETS)
