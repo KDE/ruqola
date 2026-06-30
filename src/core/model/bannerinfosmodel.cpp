@@ -5,10 +5,10 @@
 */
 
 #include "bannerinfosmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 BannerInfosModel::BannerInfosModel(QObject *parent)
     : QAbstractListModel{parent}
 {
