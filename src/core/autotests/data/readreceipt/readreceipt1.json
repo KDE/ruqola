@@ -1,0 +1,17 @@
+{
+    "_id": "rYopTLfNJpLGngmAM9zqF4Dpv5GJJgppWM",
+    "roomId": "hykdYWZQEZ825dpgX",
+    "userId": "9zqF4Dpv5GJJgppWM",
+    "messageId": "rYopTLfNJpLGngmAM",
+    "ts": {
+        "$date": 1781013434870
+    },
+    "_updatedAt": {
+        "$date": 1781013434870
+    },
+    "user": {
+        "_id": "9zqF4Dpv5GJJgppWM",
+        "name": "Gardahadi",
+        "username": "gardahadi"
+    }
+}
