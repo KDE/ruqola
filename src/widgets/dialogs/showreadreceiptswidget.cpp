@@ -7,8 +7,8 @@
 #include "showreadreceiptswidget.h"
 
 #include "connection.h"
-#include "model/bannedusersfilterproxymodel.h"
-#include "model/bannedusersmodel.h"
+#include "model/readreceiptsfilterproxymodel.h"
+#include "model/readreceiptsmodel.h"
 #include "rocketchataccount.h"
 #include "rooms/roomsbannedusersjob.h"
 #include "ruqolawidgets_debug.h"
@@ -27,8 +27,8 @@ ShowReadReceiptsWidget::ShowReadReceiptsWidget(RocketChatAccount *account, QWidg
     , mCurrentRocketChatAccount(account)
     , mShowReadReceiptsLineEdit(new QLineEdit(this))
     , mListReadReceipts(new QListView(this))
-    , mModel(new BannedUsersModel(this))
-    , mReadReceiptsFilterProxyModel(new BannedUsersFilterProxyModel(this))
+    , mModel(new ReadReceiptsModel(this))
+    , mReadReceiptsFilterProxyModel(new ReadReceiptsFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -62,7 +62,7 @@ void ShowReadReceiptsWidget::slotSearchReadReceiptsChanged(const QString &str)
 
 void ShowReadReceiptsWidget::setRoomId(const QByteArray &roomId)
 {
-    mModel->setRoomId(roomId);
+    // TODO mModel->setRoomId(roomId);
     // loadBannedUsers();
 }
 

@@ -9,9 +9,9 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLineEdit;
-class BannedUsersModel;
+class ReadReceiptsModel;
 class RocketChatAccount;
-class BannedUsersFilterProxyModel;
+class ReadReceiptsFilterProxyModel;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowReadReceiptsWidget : public QWidget
 {
@@ -27,6 +27,6 @@ private:
     RocketChatAccount *const mCurrentRocketChatAccount;
     QLineEdit *const mShowReadReceiptsLineEdit;
     QListView *const mListReadReceipts;
-    BannedUsersModel *const mModel;
-    BannedUsersFilterProxyModel *const mReadReceiptsFilterProxyModel;
+    ReadReceiptsModel *const mModel;
+    ReadReceiptsFilterProxyModel *const mReadReceiptsFilterProxyModel;
 };

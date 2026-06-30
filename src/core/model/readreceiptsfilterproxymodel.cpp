@@ -4,10 +4,10 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "readreceiptsfilterproxymodel.h"
-#include "bannerinfosmodel.h"
+#include "readreceiptsmodel.h"
 
 ReadReceiptsFilterProxyModel::ReadReceiptsFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel{parent}
+    : SortFilterProxyModelBase{parent}
 {
 }
 
@@ -15,29 +15,19 @@ ReadReceiptsFilterProxyModel::~ReadReceiptsFilterProxyModel() = default;
 
 bool ReadReceiptsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (!mShowUnread) {
-        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+    if (mFilterString.isEmpty()) {
+        return true;
     }
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const bool isRead = sourceIndex.data(BannerInfosModel::Read).toBool();
-    if (!isRead) {
-        return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-    }
-    return false;
-}
 
-bool ReadReceiptsFilterProxyModel::showUnread() const
-{
-    return mShowUnread;
-}
-
-void ReadReceiptsFilterProxyModel::setShowUnread(bool newShowUnread)
-{
-    if (mShowUnread != newShowUnread) {
-        beginFilterChange();
-        mShowUnread = newShowUnread;
-        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+    const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
+    auto match = [&](int role) {
+        return contains(modelIndex.data(role).toString());
+    };
+    if (!match(ReadReceiptsModel::UserName) && !match(ReadReceiptsModel::Name)) {
+        return false;
     }
+
+    return true;
 }
 
 #include "moc_readreceiptsfilterproxymodel.cpp"
