@@ -47,6 +47,8 @@ QDebug operator<<(QDebug d, const ReadReceipt &t)
     d.space() << "UserId:" << t.userId();
     d.space() << "updatedAt:" << t.updatedAt();
     d.space() << "timeStamp:" << t.timeStamp();
+    d.space() << "userName:" << t.userName();
+    d.space() << "name:" << t.name();
     return d;
 }
 
@@ -57,9 +59,32 @@ void ReadReceipt::parseReadReceiptInfo(const QJsonObject &obj)
     mUserId = obj["userId"_L1].toString().toLatin1();
     mTimeStamp = Utils::parseDate(u"ts"_s, obj);
     mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, obj);
+    const QJsonObject userObj = obj["user"_L1].toObject();
+    mUserName = userObj["username"_L1].toString();
+    mName = userObj["name"_L1].toString();
 }
 
 bool ReadReceipt::isValid() const
 {
     return !mUserId.isEmpty();
+}
+
+QString ReadReceipt::userName() const
+{
+    return mUserName;
+}
+
+void ReadReceipt::setUserName(const QString &newUserName)
+{
+    mUserName = newUserName;
+}
+
+QString ReadReceipt::name() const
+{
+    return mName;
+}
+
+void ReadReceipt::setName(const QString &newName)
+{
+    mName = newName;
 }

@@ -29,7 +29,15 @@ public:
 
     [[nodiscard]] bool isValid() const;
 
+    [[nodiscard]] QString userName() const;
+    void setUserName(const QString &newUserName);
+
+    [[nodiscard]] QString name() const;
+    void setName(const QString &newName);
+
 private:
+    QString mUserName;
+    QString mName;
     QByteArray mUserId;
     qint64 mTimeStamp = -1;
     qint64 mUpdatedAt = -1;

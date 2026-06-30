@@ -22,6 +22,8 @@ void ReadReceiptTest::shouldHaveDefaultValues()
     QCOMPARE(w.timeStamp(), -1);
     QCOMPARE(w.updatedAt(), -1);
     QVERIFY(!w.isValid());
+    QVERIFY(w.name().isEmpty());
+    QVERIFY(w.userName().isEmpty());
 }
 
 void ReadReceiptTest::shouldLoadReadReceipt_data()
@@ -34,6 +36,8 @@ void ReadReceiptTest::shouldLoadReadReceipt_data()
         p.setUserId("9zqF4Dpv5GJJgppWM"_ba);
         p.setUpdatedAt(1781013434870);
         p.setTimeStamp(1781013434870);
+        p.setName(u"Gardahadi"_s);
+        p.setUserName(u"gardahadi"_s);
         QTest::addRow("readreceipt1") << u"readreceipt1"_s << p;
     }
 }
