@@ -5,20 +5,15 @@
 */
 #pragma once
 #include "libruqolacore_export.h"
-#include <QSortFilterProxyModel>
+#include "model/sortfilterproxymodelbase.h"
 
-class LIBRUQOLACORE_EXPORT BannedUsersFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT BannedUsersFilterProxyModel : public SortFilterProxyModelBase
 {
     Q_OBJECT
 public:
     explicit BannedUsersFilterProxyModel(QObject *parent = nullptr);
     ~BannedUsersFilterProxyModel() override;
 
-    void setFilterString(const QString &string);
-
 protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-
-private:
-    QString mFilterString;
 };

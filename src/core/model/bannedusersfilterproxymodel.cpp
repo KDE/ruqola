@@ -5,20 +5,16 @@
 */
 #include "bannedusersfilterproxymodel.h"
 #include "bannedusersmodel.h"
+#include "config-ruqola.h"
+#if HAVE_TEXT_UTILS
+#include <TextUtils/ConvertText>
+#endif
 BannedUsersFilterProxyModel::BannedUsersFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel{parent}
+    : SortFilterProxyModelBase{parent}
 {
 }
 
 BannedUsersFilterProxyModel::~BannedUsersFilterProxyModel() = default;
-
-void BannedUsersFilterProxyModel::setFilterString(const QString &string)
-{
-    if (mFilterString != string) {
-        mFilterString = string;
-        invalidate();
-    }
-}
 
 bool BannedUsersFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
@@ -28,7 +24,13 @@ bool BannedUsersFilterProxyModel::filterAcceptsRow(int source_row, const QModelI
 
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     auto match = [&](int role) {
-        return modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+#if HAVE_TEXT_UTILS
+        const QString str = TextUtils::ConvertText::normalize(modelIndex.data(role).toString());
+        return str.contains(mFilterString, Qt::CaseInsensitive);
+#else
+        const QString str = modelIndex.data(role).toString();
+        return str.contains(mFilterString, Qt::CaseInsensitive);
+#endif
     };
     if (!match(BannedUsersModel::UserName) && !match(BannedUsersModel::Name)) {
         return false;
