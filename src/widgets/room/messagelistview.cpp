@@ -17,6 +17,7 @@
 #include "chat/starmessagejob.h"
 #include "chat/unfollowmessagejob.h"
 
+#include "dialogs/showreadreceiptsdialog.h"
 #include "forwardmessage/forwardmessagedialog.h"
 #include "misc/emoticonmenuwidget.h"
 #include "moderation/moderationdismissreportsjob.h"
@@ -404,6 +405,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     auto quoteAction = new QAction(QIcon::fromTheme(u"format-text-blockquote"_s), i18nc("@action", "Quote"), &menu);
     connect(quoteAction, &QAction::triggered, this, [this, index]() {
         slotQuoteMessage(index);
+    });
+
+    auto readReceiptAction = new QAction(i18nc("@action", "Read Receipts"), &menu);
+    connect(readReceiptAction, &QAction::triggered, this, [this, index]() {
+        slotReadReceiptsMessage(index);
     });
 
     auto copyLinkToMessageAction = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy Link To Message"), &menu);
@@ -919,6 +925,17 @@ QString MessageListView::generatePermalink(const QString &messageId) const
         permalink.prepend(u"https://"_s);
     }
     return permalink;
+}
+
+void MessageListView::slotReadReceiptsMessage(const QModelIndex &index)
+{
+    if (!mCurrentRocketChatAccount) {
+        return;
+    }
+    const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    ShowReadReceiptsDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setMessageId(messageId);
+    dlg.exec();
 }
 
 void MessageListView::slotQuoteMessage(const QModelIndex &index)
