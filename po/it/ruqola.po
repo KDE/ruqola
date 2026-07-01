@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-30 00:43+0000\n"
+"POT-Creation-Date: 2026-07-01 00:45+0000\n"
 "PO-Revision-Date: 2026-06-25 15:04+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -9112,7 +9112,7 @@ msgstr[0] "Un allegato nella stanza (totale: %2)"
 msgstr[1] "%1 allegati nella stanza (totale: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:120
+#: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9123,6 +9123,7 @@ msgid "(Click here for Loading more…)"
 msgstr "(Fai clic qui per caricare altro...)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
@@ -9134,18 +9135,18 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Rimuovi bando utente"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:53
+#: widgets/dialogs/showbanneduserswidget.cpp:48
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Cerca utenti banditi…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:108
 #, kde-format
 msgid "No Banned Users found"
 msgstr "Nessun utente bandito trovato"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:118
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9238,6 +9239,13 @@ msgstr "Mostra messaggi di menzioni - %1"
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Mostra messaggi appuntati - %1"
+
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#, fuzzy, kde-format
+#| msgid "Read Receipts"
+msgctxt "@info:placeholder"
+msgid "Search Read Receipts…"
+msgstr "Richieste di conferma di lettura"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format

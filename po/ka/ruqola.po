@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-30 00:43+0000\n"
+"POT-Creation-Date: 2026-07-01 00:45+0000\n"
 "PO-Revision-Date: 2026-06-28 06:33+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -9057,7 +9057,7 @@ msgstr[0] "ოთახში %1 მიბმული ფაილია (ს�
 msgstr[1] "ოთახში %1 მიბმული ფაილია (სულ %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:120
+#: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9068,6 +9068,7 @@ msgid "(Click here for Loading more…)"
 msgstr "(მეტის ჩასატვირთად დააწკაპუნეთ…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
@@ -9079,18 +9080,18 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "მომხმარებლისთვის ბანის მოხსნა"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:53
+#: widgets/dialogs/showbanneduserswidget.cpp:48
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "ბანის მქონე მომხმარებლების ძებნა…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:108
 #, kde-format
 msgid "No Banned Users found"
 msgstr "ბანის მქონე მომხმარებლები აღმოჩენილი არაა"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:118
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9183,6 +9184,13 @@ msgstr "ხსენების შეტყობინებების ჩ�
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "მიმაგრებული შეტყობინებების ჩვენება - %1"
+
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#, fuzzy, kde-format
+#| msgid "Read Receipts"
+msgctxt "@info:placeholder"
+msgid "Search Read Receipts…"
+msgstr "წაკითხულობის ანგარიშები"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format

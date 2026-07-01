@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-30 00:43+0000\n"
+"POT-Creation-Date: 2026-07-01 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -9076,7 +9076,7 @@ msgstr[1] "%1 príloha v miestnosti (Celkovo: %2)"
 msgstr[2] "%1 prílohy v miestnosti (Celkovo: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:120
+#: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9087,6 +9087,7 @@ msgid "(Click here for Loading more…)"
 msgstr "(Kliknite sem for Loading more…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:28
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Pinned Messages - %1"
@@ -9102,7 +9103,7 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Odblokovať používateľa"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:53
+#: widgets/dialogs/showbanneduserswidget.cpp:48
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Show Pinned Messages…"
@@ -9110,13 +9111,13 @@ msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Hľadať súbor..."
 
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:108
 #, fuzzy, kde-format
 #| msgid "No User found"
 msgid "No Banned Users found"
 msgstr "Súkromné adresy"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:118
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
 #| msgid_plural "%1 Users in room (Total: %2)"
@@ -9213,6 +9214,13 @@ msgstr "Show Mentions Messages - %1"
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Show Pinned Messages - %1"
+
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#, fuzzy, kde-format
+#| msgid "Read Receipts"
+msgctxt "@info:placeholder"
+msgid "Search Read Receipts…"
+msgstr "Read Receipts"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format

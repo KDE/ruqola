@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-30 00:43+0000\n"
+"POT-Creation-Date: 2026-07-01 00:45+0000\n"
 "PO-Revision-Date: 2026-06-27 06:08+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -9105,7 +9105,7 @@ msgstr[2] "%1 priponke v sobi (skupaj: %2)"
 msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:120
+#: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9116,6 +9116,7 @@ msgid "(Click here for Loading more…)"
 msgstr "(Kliknite tukaj za nalaganje dodatnih…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
@@ -9127,18 +9128,18 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Umakni prepoved uporabniku"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:53
+#: widgets/dialogs/showbanneduserswidget.cpp:48
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Išči prepovedane uporabnike…"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:108
 #, kde-format
 msgid "No Banned Users found"
 msgstr "Ni najdenih prepovedanih uporabnikov"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:118
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9235,6 +9236,13 @@ msgstr "Pokaži sporočila z omembami - %1"
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Pokaži pripeta sporočila - %1"
+
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#, fuzzy, kde-format
+#| msgid "Read Receipts"
+msgctxt "@info:placeholder"
+msgid "Search Read Receipts…"
+msgstr "Beri prejemke"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format

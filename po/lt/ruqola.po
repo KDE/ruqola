@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-30 00:43+0000\n"
+"POT-Creation-Date: 2026-07-01 00:45+0000\n"
 "PO-Revision-Date: 2025-12-29 17:10+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -9365,7 +9365,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
-#: widgets/dialogs/showbanneduserswidget.cpp:120
+#: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
@@ -9376,6 +9376,7 @@ msgid "(Click here for Loading more…)"
 msgstr ""
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@title:window"
@@ -9389,20 +9390,20 @@ msgctxt "@action"
 msgid "Unban User"
 msgstr "Atblokuoti naudotoją"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:53
+#: widgets/dialogs/showbanneduserswidget.cpp:48
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
 msgstr "Šifruota žinutė"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:113
+#: widgets/dialogs/showbanneduserswidget.cpp:108
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No Banned Users found"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/dialogs/showbanneduserswidget.cpp:118
+#: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
@@ -9503,6 +9504,13 @@ msgstr "Rodyti diskusijas..."
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Šifruota žinutė"
+
+#: widgets/dialogs/showreadreceiptswidget.cpp:46
+#, fuzzy, kde-format
+#| msgid "Search User..."
+msgctxt "@info:placeholder"
+msgid "Search Read Receipts…"
+msgstr "Ieškoti naudotojo..."
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, fuzzy, kde-format
