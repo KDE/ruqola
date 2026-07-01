@@ -25,7 +25,7 @@ ShowReadReceiptsDialog::ShowReadReceiptsDialog(RocketChatAccount *account, QWidg
     , mShowReadReceiptsWidget(new ShowReadReceiptsWidget(account, this))
     , mRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Show Banned Users - %1", account ? account->accountName() : u"account"_s));
+    setWindowTitle(i18nc("@title:window", "Show Read Receipts"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 
