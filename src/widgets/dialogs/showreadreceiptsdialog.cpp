@@ -32,7 +32,6 @@ ShowReadReceiptsDialog::ShowReadReceiptsDialog(RocketChatAccount *account, QWidg
     mShowReadReceiptsWidget->setObjectName(u"mShowReadReceiptsWidget"_s);
     mainLayout->addWidget(mShowReadReceiptsWidget);
 
-    setAttribute(Qt::WA_DeleteOnClose);
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
