@@ -16,7 +16,7 @@ public:
     explicit ShowReadReceiptsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowReadReceiptsDialog() override;
 
-    void setRoomId(const QByteArray &roomId);
+    void setMessageId(const QByteArray &roomId);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

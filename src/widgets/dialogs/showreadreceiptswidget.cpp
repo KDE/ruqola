@@ -7,6 +7,7 @@
 #include "showreadreceiptswidget.h"
 
 #include "connection.h"
+#include "misc/methodcalljob.h"
 #include "model/readreceiptsfilterproxymodel.h"
 #include "model/readreceiptsmodel.h"
 #include "rocketchataccount.h"
@@ -15,11 +16,11 @@
 #include "showreadreceiptsdelegate.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
+#include <QJsonArray>
 #include <QLabel>
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
-constexpr ushort numberOfElment = 20;
 
 using namespace Qt::Literals::StringLiterals;
 ShowReadReceiptsWidget::ShowReadReceiptsWidget(RocketChatAccount *account, QWidget *parent)
@@ -60,10 +61,27 @@ void ShowReadReceiptsWidget::slotSearchReadReceiptsChanged(const QString &str)
     mReadReceiptsFilterProxyModel->setFilterString(str);
 }
 
-void ShowReadReceiptsWidget::setRoomId(const QByteArray &roomId)
+void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
 {
-    // TODO mModel->setRoomId(roomId);
-    // loadBannedUsers();
+    auto job = new RocketChatRestApi::MethodCallJob(this);
+    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+    info.methodName = u"getReadReceipts"_s;
+    info.anonymous = false;
+
+    //[{\"name\":\"test1\",\"serverURL\":\"http://www.kde.org\",\"username\":\"A\",\"password\":\"A\"}]}
+    QJsonObject obj;
+    obj["messageId"_L1] = QString::fromLatin1(messageId);
+    const QJsonArray params{obj};
+    info.messageObj = mCurrentRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+    job->setMethodCallJobInfo(info);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
+        qDebug() << " replyObject " << replyObject;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getReadReceipts job";
+    }
 }
 
 #include "moc_showreadreceiptswidget.cpp"

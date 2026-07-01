@@ -61,9 +61,9 @@ void ShowReadReceiptsDialog::writeConfig()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-void ShowReadReceiptsDialog::setRoomId(const QByteArray &roomId)
+void ShowReadReceiptsDialog::setMessageId(const QByteArray &roomId)
 {
-    mShowReadReceiptsWidget->setRoomId(roomId);
+    mShowReadReceiptsWidget->setMessageId(roomId);
 }
 
 #include "moc_showreadreceiptsdialog.cpp"
