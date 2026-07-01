@@ -54,9 +54,9 @@ ReadReceipts ReadReceiptsModel::readReceipts() const
 
 void ReadReceiptsModel::setReadReceipts(const ReadReceipts &newReadReceipts)
 {
-    beginInsertRows(QModelIndex(), 0, mReadReceipts.count() - 1);
+    beginResetModel();
     mReadReceipts = newReadReceipts;
-    endInsertRows();
+    endResetModel();
 }
 
 Utils::AvatarInfo ReadReceiptsModel::avatarInfo(const ReadReceipt &user) const
