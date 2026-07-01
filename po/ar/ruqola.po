@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-30 02:34+0000\n"
-"PO-Revision-Date: 2026-06-13 19:41+0400\n"
+"PO-Revision-Date: 2026-06-30 22:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1016,16 +1016,14 @@ msgid "%1 has requested key refresh."
 msgstr "طلب %1 تحديث المفتاح"
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 و%2"
+msgstr "%1 حظر %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 و%2"
+msgstr "%1 رفع الحظر عن %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -2256,10 +2254,9 @@ msgid "Invalid Parameters"
 msgstr "معلمات غير صالحة"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "المستخدم غير موجود في هذه الغرفة"
+msgstr "المستخدم محظور من هذه الغرفة"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3323,12 +3320,10 @@ msgid "Cancel"
 msgstr "ألغِ"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save File"
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "احفظ الملف"
+msgstr "احفظ"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -9143,47 +9138,38 @@ msgid "(Click here for Loading more…)"
 msgstr "(انقر هنا لتحميل المزيد…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "اعرض الرسائل المثبتة - %1"
+msgstr "أظهر المستخدمين المحظورين - %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
-msgstr "ألغِ حظر المستخدم"
+msgstr "ارفع الحظر عن المستخدم"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "ابحث في المستخدمين…"
+msgstr "ابحث عن المستخدمين المحظورين…"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Banned Users found"
-msgstr "لم يعثر على أي مستخدم"
+msgstr "لم يُعثر على أي مستخدمين محظورين"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:118
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 مستخدم في الغرفة (المجموع: %2)"
-msgstr[1] "مستخدم واحد في الغرفة (المجموع: %2)"
-msgstr[2] "مستخدمان في الغرفة (المجموع: %2)"
-msgstr[3] "%1 مستخدمين في الغرفة (المجموع: %2)"
-msgstr[4] "%1 مستخدمًا في الغرفة (المجموع: %2)"
-msgstr[5] "%1 مستخدم في الغرفة (المجموع: %2)"
+msgstr[0] "%1 مستخدم محظور في الغرفة (المجموع: %2)"
+msgstr[1] "مستخدم محظور واحد في الغرفة (المجموع: %2)"
+msgstr[2] "مستخدمان محظوران في الغرفة (المجموع: %2)"
+msgstr[3] "%1 مستخدمين محظورين في الغرفة (المجموع: %2)"
+msgstr[4] "%1 مستخدمًا محظورًا في الغرفة (المجموع: %2)"
+msgstr[5] "%1 مستخدم محظور في الغرفة (المجموع: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9306,19 +9292,17 @@ msgid "Video: %1"
 msgstr "الفيديو: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "ألغِ حظر المستخدم"
+msgstr "ارفع الحظر عن المستخدمين"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "Some user are banned from this room. Do you want to unban and add them back ?"
-msgstr ""
+msgstr "بعض المستخدمين محظورون من هذه الغرفة. أتريد رفع الحظر عنهم وإعادتهم؟"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
@@ -10772,12 +10756,10 @@ msgid "Encrypt Messages"
 msgstr "عمّي الرسائل"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "اعرض الرسائل المثبتة…"
+msgstr "أظهر المستخدمين المحظورين…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11491,26 +11473,21 @@ msgid "Ignore User"
 msgstr "تجاهل المستخدم"
 
 #: widgets/room/usersinroommenu.cpp:104
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to remove this user from Channel?"
-msgstr "هل تريد إزالة هذا المستخدم؟"
+msgstr "أتريد إزالة هذا المستخدم من القناة؟"
 
 #: widgets/room/usersinroommenu.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title"
 msgid "Remove User"
-msgstr "أزِل مستخدم"
+msgstr "أزل المستخدم"
 
 #: widgets/room/usersinroommenu.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
-msgstr "أزِل مستخدم"
+msgstr "أزل المستخدم"
 
 #: widgets/room/usersinroommenu.cpp:129
 #, kde-format
@@ -11603,34 +11580,27 @@ msgid "Report User"
 msgstr "بلّغ عن المستخدم"
 
 #: widgets/room/usersinroommenu.cpp:218
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "أضف مستخدمين في الغرفة"
+msgstr "احظر المستخدم من الغرفة"
 
 #: widgets/room/usersinroommenu.cpp:230
-#, fuzzy, kde-format
-#| msgid "Do you want to block this user?"
+#, kde-format
 msgid "Do you want to ban this user?"
-msgstr "هل تريد حظر هذا المستخدم؟"
+msgstr "أتريد حظر هذا المستخدم؟"
 
 #: widgets/room/usersinroommenu.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "ألغِ حظر المستخدم"
+msgstr "احظر المستخدم"
 
 #: widgets/room/usersinroommenu.cpp:232
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
-msgstr "ألغِ حظر المستخدم"
+msgstr "احظر المستخدم"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12227,22 +12197,16 @@ msgid "Use new textmessagewidget for error notification."
 msgstr "استخدام ودجة نصية جديدة لإشعارات الأخطاء"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "تنفيذ نمط الرسالة"
+msgstr "نفذ قناة فرز الرسائل المسودة."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr "تنفيذ تخزين قاعدة البيانات المكتوبة المعلقة."
+msgstr "نفذ حوار قائمة المستخدمين المحظورين."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "تنفيذ كتم/إلغاء كتم صوت المستخدم."
+msgstr "نفذ المستخدمين المحظورين/المرفوع عنهم الحظر."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
