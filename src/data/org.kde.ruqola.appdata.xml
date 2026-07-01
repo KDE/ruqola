@@ -1388,6 +1388,13 @@
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
+    <release version="2.9.0" type="snapshot">
+      <description>
+        <ul>
+          <li>Add Read Receipts Support</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.8.0" date="2026-06-28">
       <description>
         <ul>
