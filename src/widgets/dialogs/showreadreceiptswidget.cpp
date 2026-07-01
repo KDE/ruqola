@@ -68,7 +68,6 @@ void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
     info.methodName = u"getReadReceipts"_s;
     info.anonymous = false;
 
-    //[{\"name\":\"test1\",\"serverURL\":\"http://www.kde.org\",\"username\":\"A\",\"password\":\"A\"}]}
     QJsonObject obj;
     obj["messageId"_L1] = QString::fromLatin1(messageId);
     const QJsonArray params{obj};
@@ -76,8 +75,11 @@ void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
     job->setMethodCallJobInfo(info);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
         qDebug() << " replyObject " << replyObject;
+        ReadReceipts receipts;
+        receipts.parseReadReceipts(replyObject["result"_L1].toArray());
+        mModel->setReadReceipts(receipts);
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getReadReceipts job";
