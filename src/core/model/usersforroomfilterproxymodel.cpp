@@ -5,10 +5,10 @@
 */
 
 #include "usersforroomfilterproxymodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "usersforroommodel.h"
 
+using namespace Qt::Literals::StringLiterals;
 UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {

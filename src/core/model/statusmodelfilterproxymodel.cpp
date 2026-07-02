@@ -5,10 +5,10 @@
 */
 
 #include "statusmodelfilterproxymodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "statusmodel.h"
 
+using namespace Qt::Literals::StringLiterals;
 StatusModelFilterProxyModel::StatusModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
