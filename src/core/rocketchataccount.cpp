@@ -3011,7 +3011,7 @@ void RocketChatAccount::totpVerify(const QJsonObject &obj)
     }
 }
 
-bool RocketChatAccount::hasLicense(LicensesManager::ActiveModule activeModule)
+bool RocketChatAccount::hasLicense(LicensesManager::ActiveModule activeModule) const
 {
     return mLicensesManager.hasLicense(activeModule);
 }
@@ -3668,6 +3668,11 @@ void RocketChatAccount::processUpdatePublicsettings(const QJsonObject &obj)
     parsePublicSettings(obj, true);
 
     displayLogInfo("Update Public Settings"_ba, obj);
+}
+
+bool RocketChatAccount::hasMessageReadReceiptActiveModule() const
+{
+    return ruqolaServerConfig()->hasEnterpriseSupport() && hasLicense(LicensesManager::ActiveModule::MessageReadReceipt);
 }
 
 #include "moc_rocketchataccount.cpp"

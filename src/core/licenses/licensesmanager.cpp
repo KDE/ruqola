@@ -16,7 +16,7 @@ LicensesManager::LicensesManager() = default;
 
 LicensesManager::~LicensesManager() = default;
 
-bool LicensesManager::hasLicense(LicensesManager::ActiveModule activeModule)
+bool LicensesManager::hasLicense(LicensesManager::ActiveModule activeModule) const
 {
     return mActiveModules.contains(activeModule);
 }

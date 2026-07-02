@@ -42,7 +42,7 @@ public:
     LicensesManager();
     ~LicensesManager();
 
-    [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule);
+    [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule) const;
 
     void parseLicenses(const QJsonObject &root);
 

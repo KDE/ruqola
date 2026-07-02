@@ -362,7 +362,7 @@ public:
 
     [[nodiscard]] const BannerInfos &bannerInfos() const;
 
-    [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule);
+    [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule) const;
     // Only for test
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
@@ -448,6 +448,9 @@ public:
     void deleteRoomSubscription(const QByteArray &subscriptionId);
 
     void addNewRoomNotification(Room *r);
+
+    [[nodiscard]] bool hasMessageReadReceiptActiveModule() const;
+
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

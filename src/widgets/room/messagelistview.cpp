@@ -766,12 +766,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(action);
         }
     }
-#if 0 // TODO reactivate it when we have support
-    if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport()) {
+    if (mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasMessageReadReceiptActiveModule()) {
         createSeparator(menu);
         menu.addAction(readReceiptAction);
     }
-#endif
     if (Ruqola::self()->debug()) {
         addDebugMenu(menu, index);
     }
