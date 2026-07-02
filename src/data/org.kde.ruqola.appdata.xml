@@ -1475,6 +1475,7 @@
           <li xml:lang="tr">Hata bildirimleri için yeni textmessagewidget kullan</li>
           <li xml:lang="uk">Для сповіщення про помилку використано новий textmessagewidget</li>
           <li>Implement Draft message sorting channel.</li>
+          <li xml:lang="ar">نفّذ ترتيب قناة الرسائل المسودة.</li>
           <li xml:lang="ca">Implementa el canal d'ordenació dels esborranys.</li>
           <li xml:lang="ca-valencia">Implementa el canal d'ordenació dels esborranys.</li>
           <li xml:lang="es">Implementado el canal ordenado de borradores. </li>
@@ -1488,6 +1489,7 @@
           <li xml:lang="tr">Taslak ileti sıralama özelliğini gerçekle</li>
           <li xml:lang="uk">Реалізовано канал упорядковування повідомлень-чернеток</li>
           <li>Implement Banned Users list dialog.</li>
+          <li xml:lang="ar">نفّذ حوار قائمة المستخدمين المحظورين.</li>
           <li xml:lang="ca">Implementa el diàleg de llista d'usuaris bandejats.</li>
           <li xml:lang="ca-valencia">Implementa el diàleg de llista d'usuaris bandejats.</li>
           <li xml:lang="es">Implementado el diálogo con la lista de usuarios expulsados.</li>
@@ -1500,6 +1502,7 @@
           <li xml:lang="tr">Yasaklı kullanıcılar iletişim kutusunu gerçekle</li>
           <li xml:lang="uk">Реалізовано вікно списку заблокованих користувачів.</li>
           <li>Implement Banned/Unbanned Users.</li>
+          <li xml:lang="ar">نفّذ المستخدمين المحظورين/غير المحظورين.</li>
           <li xml:lang="ca">Implementa usuaris bandejats/desbandejats.</li>
           <li xml:lang="ca-valencia">Implementa usuaris bandejats/desbandejats.</li>
           <li xml:lang="es">Implementada la expulsión de usuarios.</li>
