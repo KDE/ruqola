@@ -8,7 +8,7 @@
 #include "roommodel.h"
 
 RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+    : SortFilterProxyModelBase(parent)
 {
     sort(0);
     setRecursiveFilteringEnabled(true);
@@ -58,12 +58,6 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
     return left.row() < right.row();
 }
 
-void RoomFilterProxyModel::setFilterString(const QString &string)
-{
-    mFilterString = string;
-    invalidate();
-}
-
 void RoomFilterProxyModel::setSortOrder(OwnUserPreferences::RoomListSortOrder sortOrder)
 {
     mSortOrder = sortOrder;
@@ -80,7 +74,7 @@ bool RoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &s
 
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     auto match = [&](int role) {
-        return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+        return mFilterString.isEmpty() || contains(modelIndex.data(role).toString());
     };
     if (!match(RoomModel::RoomName) && !match(RoomModel::RoomFName)) {
         return false;
