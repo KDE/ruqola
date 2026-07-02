@@ -420,6 +420,26 @@ RuqolaServerConfig::ConfigWithDefaultValue RuqolaServerConfig::parseConfigWithDe
     return value;
 }
 
+bool RuqolaServerConfig::messageReadReceiptStoreUsers() const
+{
+    return mMessageReadReceiptStoreUsers;
+}
+
+void RuqolaServerConfig::setMessageReadReceiptStoreUsers(bool newMessageReadReceiptStoreUsers)
+{
+    mMessageReadReceiptStoreUsers = newMessageReadReceiptStoreUsers;
+}
+
+bool RuqolaServerConfig::messageReadReceiptEnabled() const
+{
+    return mMessageReadReceiptEnabled;
+}
+
+void RuqolaServerConfig::setMessageReadReceiptEnabled(bool newMessageReadReceiptEnabled)
+{
+    mMessageReadReceiptEnabled = newMessageReadReceiptEnabled;
+}
+
 bool RuqolaServerConfig::webDavEnabled() const
 {
     return mWebDavEnabled;
@@ -672,6 +692,10 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setWebDavEnabled(value.toBool());
     } else if (!mPasswordSettings.loadSettings(id, value)) {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
+    } else if (id == "Message_Read_Receipt_Enabled"_L1) {
+        setMessageReadReceiptEnabled(value.toBool());
+    } else if (id == "Message_Read_Receipt_Store_Users"_L1) {
+        setMessageReadReceiptStoreUsers(value.toBool());
     }
 }
 

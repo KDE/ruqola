@@ -93,6 +93,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.allowEmailVerification());
     QVERIFY(!config.federationEnabled());
     QVERIFY(!config.accountsManuallyApproveNewUsers());
+    QVERIFY(!config.messageReadReceiptEnabled());
+    QVERIFY(!config.messageReadReceiptStoreUsers());
 
     RuqolaServerConfig::PasswordSettings passwordSetting;
     QVERIFY(!passwordSetting.accountsPasswordPolicyEnabled);

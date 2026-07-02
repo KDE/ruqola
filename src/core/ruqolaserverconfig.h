@@ -287,6 +287,12 @@ public:
     [[nodiscard]] bool webDavEnabled() const;
     void setWebDavEnabled(bool newWebDavEnabled);
 
+    [[nodiscard]] bool messageReadReceiptEnabled() const;
+    void setMessageReadReceiptEnabled(bool newMessageReadReceiptEnabled);
+
+    [[nodiscard]] bool messageReadReceiptStoreUsers() const;
+    void setMessageReadReceiptStoreUsers(bool newMessageReadReceiptStoreUsers);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
@@ -350,6 +356,8 @@ private:
     bool mFederationEnabled = false;
     bool mAccountsManuallyApproveNewUsers = false;
     bool mWebDavEnabled = false;
+    bool mMessageReadReceiptEnabled = false;
+    bool mMessageReadReceiptStoreUsers = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig::ConfigWithDefaultValue &t);

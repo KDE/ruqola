@@ -3672,7 +3672,8 @@ void RocketChatAccount::processUpdatePublicsettings(const QJsonObject &obj)
 
 bool RocketChatAccount::hasMessageReadReceiptActiveModule() const
 {
-    return ruqolaServerConfig()->hasEnterpriseSupport() && hasLicense(LicensesManager::ActiveModule::MessageReadReceipt);
+    return ruqolaServerConfig()->messageReadReceiptEnabled() && ruqolaServerConfig()->messageReadReceiptStoreUsers()
+        && ruqolaServerConfig()->hasEnterpriseSupport() && hasLicense(LicensesManager::ActiveModule::MessageReadReceipt);
 }
 
 #include "moc_rocketchataccount.cpp"
