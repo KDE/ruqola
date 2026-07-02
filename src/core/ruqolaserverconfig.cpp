@@ -399,6 +399,9 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d.space() << "mPasswordSettings " << t.passwordSettings();
     d.space() << "mFederationEnabled " << t.federationEnabled();
     d.space() << "mWebDavEnabled " << t.webDavEnabled();
+    d.space() << "messageReadReceiptEnabled " << t.messageReadReceiptEnabled();
+    d.space() << "messageReadReceiptStoreUsers " << t.messageReadReceiptStoreUsers();
+
     return d;
 }
 
@@ -846,6 +849,8 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
         createJsonObject(u"Accounts_Password_Policy_ForbidRepeatingCharactersCount"_s, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount));
     array.append(createJsonObject(u"Accounts_ManuallyApproveNewUsers"_s, mAccountsManuallyApproveNewUsers));
     array.append(createJsonObject(u"Webdav_Integration_Enabled"_s, mWebDavEnabled));
+    array.append(createJsonObject(u"Message_Read_Receipt_Enabled"_s, mMessageReadReceiptEnabled));
+    array.append(createJsonObject(u"Message_Read_Receipt_Store_Users"_s, mMessageReadReceiptStoreUsers));
 
     o["result"_L1] = array;
 
