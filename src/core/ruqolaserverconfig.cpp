@@ -545,7 +545,6 @@ void RuqolaServerConfig::setPreviewEmbed(bool newPreviewEmbed)
 
 void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
 {
-    // qDebug() << " currentConfObject " << currentConfObject;
     const QString id = currentConfObject["_id"_L1].toString();
     const QVariant value = currentConfObject["value"_L1].toVariant();
     static const QRegularExpression regularExpressionOAuth(u"^Accounts_OAuth_\\w+"_s);
@@ -693,12 +692,12 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setAccountsManuallyApproveNewUsers(value.toBool());
     } else if (id == "Webdav_Integration_Enabled"_L1) {
         setWebDavEnabled(value.toBool());
-    } else if (!mPasswordSettings.loadSettings(id, value)) {
-        qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     } else if (id == "Message_Read_Receipt_Enabled"_L1) {
         setMessageReadReceiptEnabled(value.toBool());
     } else if (id == "Message_Read_Receipt_Store_Users"_L1) {
         setMessageReadReceiptStoreUsers(value.toBool());
+    } else if (!mPasswordSettings.loadSettings(id, value)) { // Last one !!!!
+        qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
 }
 
