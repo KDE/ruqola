@@ -19,4 +19,7 @@ private Q_SLOTS:
 
     void shouldParseLicenses_data();
     void shouldParseLicenses();
+
+    void shouldConvertFromString();
+    void shouldConvertToString();
 };

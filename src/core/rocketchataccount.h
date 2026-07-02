@@ -362,7 +362,7 @@ public:
 
     [[nodiscard]] const BannerInfos &bannerInfos() const;
 
-    [[nodiscard]] bool hasLicense(const QString &name);
+    [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule);
     // Only for test
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 

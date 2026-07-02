@@ -103,17 +103,17 @@ void AdministratorServerInfoWidget::slotLicensesListDone(const QJsonObject &obj)
 {
     LicensesManager m;
     m.parseLicenses(obj);
-    const QStringList listLicences = m.licenses();
+    const auto listLicences = m.activeModules();
     auto licenseItem = new QTreeWidgetItem(mTreeWidget);
     licenseItem->setText(0, i18n("Licenses"));
     QFont f = licenseItem->font(0);
     f.setBold(true);
     licenseItem->setFont(0, f);
-    createItemFromLicense(licenseItem, i18n("Omnichannel"), listLicences.contains("livechat-enterprise"_L1));
-    createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(u"auditing"_s));
-    createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(u"canned-responses"_s));
-    createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(u"engagement-dashboard"_s));
-    createItemFromLicense(licenseItem, i18n("Read Receipts"), listLicences.contains(u"message-read-receipt"_s));
+    createItemFromLicense(licenseItem, i18n("Omnichannel"), listLicences.contains(LicensesManager::ActiveModule::LivechatEnterprise));
+    createItemFromLicense(licenseItem, i18n("Auditing"), listLicences.contains(LicensesManager::ActiveModule::Auditing));
+    createItemFromLicense(licenseItem, i18n("Canned Responses"), listLicences.contains(LicensesManager::ActiveModule::CannedResponses));
+    createItemFromLicense(licenseItem, i18n("Engagement Dashboard"), listLicences.contains(LicensesManager::ActiveModule::EngagementDashboard));
+    createItemFromLicense(licenseItem, i18n("Read Receipts"), listLicences.contains(LicensesManager::ActiveModule::MessageReadReceipt));
     // Load Statistic after loading licenses info
     loadStatisticInfo(false);
 }

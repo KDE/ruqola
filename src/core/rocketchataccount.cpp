@@ -3011,9 +3011,9 @@ void RocketChatAccount::totpVerify(const QJsonObject &obj)
     }
 }
 
-bool RocketChatAccount::hasLicense(const QString &name)
+bool RocketChatAccount::hasLicense(LicensesManager::ActiveModule activeModule)
 {
-    return mLicensesManager.hasLicense(name);
+    return mLicensesManager.hasLicense(activeModule);
 }
 
 void RocketChatAccount::addMessageToDataBase(const QByteArray &roomId, const Message &message)

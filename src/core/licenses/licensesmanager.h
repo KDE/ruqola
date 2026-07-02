@@ -11,47 +11,47 @@
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT LicensesManager
 {
+    Q_GADGET
 public:
     enum class ActiveModule : uint8_t {
+        Unknown = 0,
         Auditing,
         DeviceManagement,
         MessageReadReceipt,
-        /*
-
-                "auditing",
-                "canned-responses",
-                "ldap-enterprise",
-                "livechat-enterprise",
-                "voip-enterprise",
-                "omnichannel-mobile-enterprise",
-                "engagement-dashboard",
-                "push-privacy",
-                "scalability",
-                "teams-mention",
-                "saml-enterprise",
-                "oauth-enterprise",
-                "device-management",
-                "federation",
-                "videoconference-enterprise",
-                "message-read-receipt",
-                "outlook-calendar",
-                "hide-watermark",
-                "custom-roles",
-                "accessibility-certification",
-                "abac"
-          */
+        CannedResponses,
+        LdapEnterprise,
+        LivechatEnterprise,
+        VoipEnterprise,
+        OmnichannelMobileEnterprise,
+        EngagementDashboard,
+        PushPrivacy,
+        Scalability,
+        TeamsMention,
+        SamlEnterprise,
+        OauthEnterprise,
+        Federation,
+        VideoconferenceEnterprise,
+        OutlookCalendar,
+        HideWatermark,
+        CustomRoles,
+        AccessibilityCertification,
+        Abac
     };
+    Q_ENUM(ActiveModule)
 
     LicensesManager();
     ~LicensesManager();
 
-    [[nodiscard]] const QStringList &licenses() const;
-    void setLicenses(const QStringList &newLicenses);
-
-    [[nodiscard]] bool hasLicense(const QString &name);
+    [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule);
 
     void parseLicenses(const QJsonObject &root);
 
+    [[nodiscard]] static LicensesManager::ActiveModule convertStringToActiveModule(const QString &str);
+    [[nodiscard]] static QString convertActiveModuleToString(LicensesManager::ActiveModule module);
+
+    [[nodiscard]] QList<ActiveModule> activeModules() const;
+    void setActiveModules(const QList<ActiveModule> &newActiveModules);
+
 private:
-    QStringList mLicenses;
+    QList<ActiveModule> mActiveModules;
 };

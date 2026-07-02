@@ -755,7 +755,7 @@ bool SettingsWidgetBase::hasNecessaryLicense(const QStringList &lst) const
 {
     bool hasModules = false;
     for (const QString &m : lst) {
-        if (mAccount->hasLicense(m)) {
+        if (mAccount->hasLicense(LicensesManager::convertStringToActiveModule(m))) {
             hasModules = true;
         } else {
             hasModules = false;

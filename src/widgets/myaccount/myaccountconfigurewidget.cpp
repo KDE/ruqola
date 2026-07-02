@@ -58,7 +58,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     if (account && !account->ruqolaServerConfig()->encryptionEnabled()) {
         tabWidget->setTabVisible(index2e2Page, false);
     }
-    if (account && account->hasLicense(u"device-management"_s)) {
+    if (account && account->hasLicense(LicensesManager::ActiveModule::DeviceManagement)) {
         auto manageDeviceWidget = new MyAccountManageDeviceConfigureWidget(mRocketChatAccount, this);
         tabWidget->addTab(manageDeviceWidget, i18n("Manage Device"));
         if (!account->offlineMode()) {

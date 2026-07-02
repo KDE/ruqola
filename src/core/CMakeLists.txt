@@ -818,6 +818,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_unity_man
     CATEGORY_NAME org.kde.ruqola.unity_manager DESCRIPTION "ruqola unity manager" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_license_debug.h IDENTIFIER RUQOLA_LICENSE_LOG
+    CATEGORY_NAME org.kde.ruqola.license DESCRIPTION "ruqola license" EXPORT RUQOLA
+)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
