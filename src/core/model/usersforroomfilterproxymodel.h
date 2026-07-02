@@ -21,7 +21,7 @@ public:
         Busy,
         Owners,
     };
-    Q_ENUM(FilterUserType);
+    Q_ENUM(FilterUserType)
 
     explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
     ~UsersForRoomFilterProxyModel() override;
