@@ -27,10 +27,17 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 public:
     enum MigrateDatabaseType : qint8 {
         None = 0,
-        All = 1,
-        DatabaseWithoutLogger = 2,
+        DatabaseRooms = 1,
+        DatabaseAccounts = 2,
+        DatabaseGlobal = 4,
+        DatabaseE2E = 8,
+        DatabaseRoomPendingTypedInfo = 16,
+        DatabaseRoomSubscriptions = 32,
+        DatabaseWithoutLogger = 64,
+        All = DatabaseRooms | DatabaseAccounts | DatabaseGlobal | DatabaseE2E | DatabaseRoomPendingTypedInfo | DatabaseRoomSubscriptions,
     };
-    Q_ENUM(MigrateDatabaseType)
+    Q_DECLARE_FLAGS(MigrateDatabaseTypes, MigrateDatabaseType)
+    Q_FLAG(MigrateDatabaseTypes)
 
     struct LIBRUQOLACORE_EXPORT ActivitySettings {
         QStringList activities;
