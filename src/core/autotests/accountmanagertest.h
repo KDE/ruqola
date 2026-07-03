@@ -19,4 +19,6 @@ private Q_SLOTS:
     void shouldAddAccount();
     void shouldReturnAccountFromAccountName();
     void shouldClearCurrentAccountWhenRemovingLastAccount();
+    void shouldCheckPathsToRemoved_data();
+    void shouldCheckPathsToRemoved();
 };

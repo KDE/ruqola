@@ -25,7 +25,7 @@ class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
 public:
-    enum MigrateDatabaseType : qint8 {
+    enum MigrateDatabaseType : qint16 {
         None = 0,
         DatabaseRooms = 1,
         DatabaseAccounts = 2,
@@ -33,8 +33,11 @@ public:
         DatabaseE2E = 8,
         DatabaseRoomPendingTypedInfo = 16,
         DatabaseRoomSubscriptions = 32,
-        DatabaseWithoutLogger = 64,
-        All = DatabaseRooms | DatabaseAccounts | DatabaseGlobal | DatabaseE2E | DatabaseRoomPendingTypedInfo | DatabaseRoomSubscriptions,
+        DatabaseMessages = 64,
+        DatabaseLogger = 128,
+        DatabaseWithoutLogger =
+            DatabaseMessages | DatabaseRooms | DatabaseAccounts | DatabaseGlobal | DatabaseE2E | DatabaseRoomPendingTypedInfo | DatabaseRoomSubscriptions,
+        All = DatabaseLogger | DatabaseWithoutLogger,
     };
     Q_DECLARE_FLAGS(MigrateDatabaseTypes, MigrateDatabaseType)
     Q_FLAG(MigrateDatabaseTypes)
@@ -114,12 +117,15 @@ public:
 
     [[nodiscard]] QList<AccountDisplayInfo> accountDisplayInfoSorted() const;
 #if HAVE_ACTIVITY_SUPPORT
-    ActivitiesManager *activitiesManager() const;
+    [[nodiscard]] ActivitiesManager *activitiesManager() const;
 #endif
 
     void addInvitedAccount(const AccountManagerInfo &info);
 
     [[nodiscard]] TextToSpeechEnqueueManager *textToSpeechEnqueueManager() const;
+
+    [[nodiscard]] static QStringList databasePathsToRemoved(AccountManager::MigrateDatabaseTypes types);
+
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

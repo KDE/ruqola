@@ -217,6 +217,36 @@ void AccountManager::slotAboutToSynthesizeChanged(qsizetype previousId, qsizetyp
     }
 }
 
+QStringList AccountManager::databasePathsToRemoved(AccountManager::MigrateDatabaseTypes types)
+{
+    QStringList lst;
+    if (types & AccountManager::MigrateDatabaseType::DatabaseRooms) {
+        lst.append(LocalDatabaseUtils::localRoomsDatabasePath());
+    }
+    if (types & AccountManager::MigrateDatabaseType::DatabaseAccounts) {
+        lst.append(LocalDatabaseUtils::localAccountsDatabasePath());
+    }
+    if (types & AccountManager::MigrateDatabaseType::DatabaseE2E) {
+        lst.append(LocalDatabaseUtils::localE2EDatabasePath());
+    }
+    if (types & AccountManager::MigrateDatabaseType::DatabaseRoomPendingTypedInfo) {
+        lst.append(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath());
+    }
+    if (types & AccountManager::MigrateDatabaseType::DatabaseRoomSubscriptions) {
+        lst.append(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath());
+    }
+    if (types & AccountManager::MigrateDatabaseType::DatabaseMessages) {
+        lst.append(LocalDatabaseUtils::localMessagesDatabasePath());
+    }
+    if (types & AccountManager::MigrateDatabaseType::DatabaseLogger) {
+        lst.append(LocalDatabaseUtils::localMessageLoggerPath());
+    }
+    if (types & AccountManager::MigrateDatabaseType::DatabaseGlobal) {
+        lst.append(LocalDatabaseUtils::localGlobalDatabasePath());
+    }
+    return lst;
+}
+
 void AccountManager::loadAccount()
 {
     const AccountManager::MigrateDatabaseType needDatabaseMigration = needToHandleDataMigration();
