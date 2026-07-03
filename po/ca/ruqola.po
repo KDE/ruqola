@@ -12867,12 +12867,3 @@ msgstr "Corregeix l'exportació de la base de dades."
 #, kde-format
 msgid "Fix upload Custom Sound"
 msgstr "Corregeix la pujada de sons personalitzats"
-
-#~| msgid "Do you want to mute this user?"
-#~ msgctxt "@label:textbox"
-#~ msgid "Do you want to unban user?"
-#~ msgstr "Voleu desbandejar aquest usuari?"
-
-#~ msgctxt "@info:shell"
-#~ msgid "Use ddp api for login"
-#~ msgstr "Fa servir l'API DDP per a iniciar sessió"

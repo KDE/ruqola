@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-30 02:34+0000\n"
-"PO-Revision-Date: 2026-06-27 09:24+0200\n"
+"PO-Revision-Date: 2026-07-01 09:31+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, kde-format
@@ -4023,7 +4023,7 @@ msgstr "Tauler de participació"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:116
 #, kde-format
 msgid "Read Receipts"
-msgstr "Llig les confirmacions"
+msgstr "Confirmacions de lectura"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
 #, kde-format
