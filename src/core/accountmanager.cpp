@@ -42,7 +42,8 @@ namespace
 // constexpr int currentDataBaseVersion = 1;
 // Version 2 we need to delete local database as before we never supported remove room => we have some invalid rooms
 // Version 3 Fix delete room. We need subscription database support
-constexpr int currentDataBaseVersion = 3;
+// Version 4 Fix account settings support
+constexpr int currentDataBaseVersion = 4;
 }
 
 AccountManager::AccountManager(QObject *parent)
@@ -170,7 +171,7 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
     }
 }
 
-AccountManager::MigrateDatabaseType AccountManager::needToHandleDataMigration() const
+AccountManager::MigrateDatabaseTypes AccountManager::needToHandleDataMigration() const
 {
     if (RuqolaGlobalConfig::self()->databaseVersion() == 0 && currentDataBaseVersion == 1) {
         return MigrateDatabaseType::All;
@@ -178,6 +179,10 @@ AccountManager::MigrateDatabaseType AccountManager::needToHandleDataMigration() 
         return MigrateDatabaseType::DatabaseWithoutLogger;
     } else if (RuqolaGlobalConfig::self()->databaseVersion() == 2 && currentDataBaseVersion == 3) {
         return MigrateDatabaseType::DatabaseWithoutLogger;
+    } else if (RuqolaGlobalConfig::self()->databaseVersion() < 3 && currentDataBaseVersion == 4) {
+        return MigrateDatabaseType::DatabaseWithoutLogger;
+    } else if (RuqolaGlobalConfig::self()->databaseVersion() == 3 && currentDataBaseVersion == 4) {
+        return MigrateDatabaseType::DatabaseAccounts;
     }
     return MigrateDatabaseType::None;
 }
@@ -249,17 +254,14 @@ QStringList AccountManager::databasePathsToRemoved(AccountManager::MigrateDataba
 
 void AccountManager::loadAccount()
 {
-    const AccountManager::MigrateDatabaseType needDatabaseMigration = needToHandleDataMigration();
+    const AccountManager::MigrateDatabaseTypes needDatabaseMigration = needToHandleDataMigration();
     if (needDatabaseMigration != AccountManager::MigrateDatabaseType::None) {
         RuqolaGlobalConfig::self()->setDatabaseVersion(currentDataBaseVersion);
         RuqolaGlobalConfig::self()->save();
 
-        QStringList lst = {LocalDatabaseUtils::localDatabasePath()};
-        if (needDatabaseMigration == AccountManager::MigrateDatabaseType::All) {
-            lst += LocalDatabaseUtils::localMessageLoggerPath();
-        }
+        const QStringList lst = databasePathsToRemoved(needDatabaseMigration);
         qCDebug(RUQOLA_LOG) << " Delete database : " << lst;
-        for (const QString &path : std::as_const(lst)) {
+        for (const QString &path : lst) {
             QDir dir(path);
             if (dir.exists()) {
                 if (!dir.removeRecursively()) {

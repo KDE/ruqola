@@ -144,7 +144,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void changeEnableState(RocketChatAccount *account, bool enabled);
     LIBRUQOLACORE_NO_EXPORT void disconnectAccount(RocketChatAccount *account);
     LIBRUQOLACORE_NO_EXPORT void slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AccountManager::MigrateDatabaseType needToHandleDataMigration() const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT MigrateDatabaseTypes needToHandleDataMigration() const;
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
