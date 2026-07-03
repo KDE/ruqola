@@ -63,6 +63,13 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
             DelegatePaintUtil::drawLighterText(painter, u"(%1)"_s.arg(userName), QPoint(xPos + margin * 2, defaultCharHeight));
         }
     }
+
+    const qint64 timeStamp = index.data(ReadReceiptsModel::TimeStamp).toLongLong();
+    const QString timeStampStr = QLocale().toString(QDateTime::fromMSecsSinceEpoch(timeStamp), QLocale::ShortFormat);
+    const QSize timeSize{option.fontMetrics.horizontalAdvance(timeStampStr), option.fontMetrics.height()};
+
+    DelegatePaintUtil::drawLighterText(painter, timeStampStr, QPoint(option.rect.right() - timeSize.width() - margin, defaultCharHeight));
+
     painter->setFont(oldFont);
 }
 
