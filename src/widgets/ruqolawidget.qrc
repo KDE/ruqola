@@ -2,10 +2,12 @@
     SPDX-FileCopyrightText: Laurent Montel <montel@kde.org>
     SPDX-License-Identifier: CC0-1.0
 -->
-
-<!DOCTYPE RCC>
-<RCC version="1.0">
+<RCC>
     <qresource prefix="/kxmlgui5/ruqola">
         <file>ruqolaui.rc</file>
+    </qresource>
+    <qresource prefix="/messages_icons">
+        <file>icons/single-check.svg</file>
+        <file>icons/double-check.svg</file>
     </qresource>
 </RCC>

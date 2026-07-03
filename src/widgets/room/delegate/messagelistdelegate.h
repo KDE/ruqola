@@ -151,6 +151,8 @@ private:
     const QIcon mReplyInThreadIcon;
     const QIcon mEncryptedIcon;
     const QIcon mTextToSpeechIcon;
+    const QIcon mSingleCheckIcon;
+    const QIcon mDoubleCheckIcon;
     QColor mTranslatedMessageColor;
     QColor mEditColorMode;
     QColor mThreadedMessageBackgroundColor;
