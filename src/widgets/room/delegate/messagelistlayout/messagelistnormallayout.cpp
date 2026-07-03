@@ -228,6 +228,8 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();
 
+    layout.readReceiptIconRect = QRect(layout.timeStampRect.left() - margin - iconSize, layout.baseLine, iconSize, iconSize);
+
     // Replies
     layout.repliesY = layout.reactionsY + layout.reactionsHeight;
     if (message->threadCount() > 0) {

@@ -63,6 +63,7 @@ public:
 
         QRect textToSpeechIconRect;
 
+        // ReadReceipt icon indicator
         QRect readReceiptIconRect;
 
         QString timeStampText;

@@ -618,6 +618,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
+    if (message->unread()) {
+        mSingleCheckIcon.paint(painter, layout.readReceiptIconRect);
+    } else {
+        mDoubleCheckIcon.paint(painter, layout.readReceiptIconRect);
+    }
+
     // Draw encrypted icon
     // TODO implement encrypted message
     if (message->isEncryptedMessage()) {
