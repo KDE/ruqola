@@ -63,6 +63,8 @@ public:
 
         QRect textToSpeechIconRect;
 
+        QRect readReceiptIconRect;
+
         QString timeStampText;
         QPoint timeStampPos;
         QRect timeStampRect;
