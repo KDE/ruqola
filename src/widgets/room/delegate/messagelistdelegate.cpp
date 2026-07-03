@@ -7,7 +7,6 @@
 
 #include "messagelistdelegate.h"
 #include "room/delegate/messageattachmentdelegatehelperactions.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
@@ -35,6 +34,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
 #include "room/roomutil.h"
+#include "ruqola_delegate_lastunseedline_debug.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
@@ -58,6 +58,7 @@ using namespace Qt::Literals::StringLiterals;
 
 // #define DEBUG_PAINTING
 
+using namespace Qt::Literals::StringLiterals;
 MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *view)
     : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(u"document-edit"_s))
@@ -242,6 +243,7 @@ void MessageListDelegate::setSearchText(const QString &newSearchText)
 
 void MessageListDelegate::drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const
 {
+    qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG) << "Draw last unseed line";
     const QPen origPen = painter->pen();
     const int lineY = displayLastSeenY;
     painter->setPen(Qt::red);
@@ -288,6 +290,7 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
     painter->drawText(dateTextRect, dateStr);
     const int lineY = (dateAreaRect.top() + dateAreaRect.bottom()) / 2;
     if (drawLastSeenLine) {
+        qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG) << "Draw last unseed line on date" << dateStr;
         painter->setPen(Qt::red);
     } else {
         QColor lightColor(painter->pen().color());
@@ -539,8 +542,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (message->moderationMessage() && !message->moderationMessage()->isEmpty()) {
         drawModerationDate(painter, index, option, message->moderationMessage()->roomName());
     } else if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
+        if (displayLastSeenMessage) {
+            qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG)
+                << "Draw last unseed line displayLastSeenMessage (displayLastSeenMessage): " << message->text();
+        }
         drawDate(painter, index, option, displayLastSeenMessage);
     } else if (displayLastSeenMessage) {
+        qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG) << "Draw last unseed line displayLastSeenMessage: " << message->text();
         drawLastSeenLine(painter, layout.displayLastSeenMessageY, option);
     }
 

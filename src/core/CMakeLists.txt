@@ -822,6 +822,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_license_d
     CATEGORY_NAME org.kde.ruqola.license DESCRIPTION "ruqola license" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_model_lastseendate_debug.h IDENTIFIER RUQOLA_LAST_SEENDATE_LOG
+    CATEGORY_NAME org.kde.ruqola.model_lastseendate DESCRIPTION "ruqola model last seen date" EXPORT RUQOLA
+)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)

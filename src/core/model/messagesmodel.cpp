@@ -17,6 +17,7 @@
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_messages_model_debug.h"
+#include "ruqola_model_lastseendate_debug.h"
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
 #include "utils.h"
@@ -194,7 +195,7 @@ void MessagesModel::addMessagesSyncAfterLoadingFromDatabase(QList<Message> messa
         mAllMessages = reducedMessageList;
         endResetModel();
     } else {
-        // TODO optimize this case as well?
+        // TODO optimize this case as well?RUQOLA_LAST_SEENDATE_LOG
         for (const Message &message : messages) {
             addMessage(message);
         }
@@ -368,11 +369,14 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
             if (mRoom) {
                 const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::utc());
                 const QDateTime lastSeenDate = QDateTime::fromMSecsSinceEpoch(mRoom->lastSeenAt(), QTimeZone::utc());
-                // qDebug() << " lastSeeDate" << lastSeeDate;
                 if (currentDate > lastSeenDate) {
                     const Message &previousMessage = mAllMessages.at(idx - 1);
                     const QDateTime previewMessageDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), QTimeZone::utc());
                     const bool result = (previewMessageDate <= lastSeenDate);
+                    if (result) {
+                        qCDebug(RUQOLA_LAST_SEENDATE_LOG) << " lastSeeDate: " << lastSeenDate;
+                        qCDebug(RUQOLA_LAST_SEENDATE_LOG) << " previewMessageDate:" << previewMessageDate;
+                    }
                     return result;
                 }
             }
