@@ -1391,6 +1391,8 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Adapt to RC 8.6.0 new API</li>
+          <li>Show Read receipts info in message</li>
           <li>Add Read Receipts Support</li>
           <li xml:lang="ca">Afegeix el suport de confirmacions de lectura</li>
           <li xml:lang="ca-valencia">Afig el suport de confirmacions de lectura</li>
