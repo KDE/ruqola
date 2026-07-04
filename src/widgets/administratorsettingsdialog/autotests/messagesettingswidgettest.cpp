@@ -158,7 +158,7 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mAutoTranslateServiceProvider = w.findChild<QComboBox *>(u"mAutoTranslateServiceProvider"_s);
     QVERIFY(mAutoTranslateServiceProvider);
-    QCOMPARE(mAutoTranslateServiceProvider->count(), 3);
+    QCOMPARE(mAutoTranslateServiceProvider->count(), 4);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateServiceProvider), u"AutoTranslate_ServiceProvider"_s);
 
     auto mDeeplApiKey = w.findChild<QLineEdit *>(u"mDeeplApiKey"_s);
