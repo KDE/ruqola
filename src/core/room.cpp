@@ -660,7 +660,10 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setThreadUnread(extractStringList(json, "tunread"_L1));
     }
     setUpdatedAt(Utils::parseDate(u"_updatedAt"_s, json));
-    setLastSeenAt(Utils::parseDate(u"ls"_s, json));
+    // Don't overwrite a known lastSeenAt with -1 when "ls" is absent/unparsable in this payload.
+    if (const qint64 ls = Utils::parseDate(u"ls"_s, json); ls != -1) {
+        setLastSeenAt(ls);
+    }
     setLastMessageAt(Utils::parseDate(u"lm"_s, json));
     setUnread(json["unread"_L1].toInt());
     setOpen(json["open"_L1].toBool());
@@ -736,7 +739,10 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setReadOnly(json["ro"_L1].toBool());
 
     setUpdatedAt(Utils::parseDate(u"_updatedAt"_s, json));
-    setLastSeenAt(Utils::parseDate(u"ls"_s, json));
+    // Don't overwrite a known lastSeenAt with -1 when "ls" is absent/unparsable in this payload.
+    if (const qint64 ls = Utils::parseDate(u"ls"_s, json); ls != -1) {
+        setLastSeenAt(ls);
+    }
     setUnread(json["unread"_L1].toInt());
     setUserMentions(json["userMentions"_L1].toInt());
     setGroupMentions(json["groupMentions"_L1].toInt());

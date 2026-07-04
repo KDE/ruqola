@@ -161,7 +161,17 @@ QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId
 
 qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
 {
-    return o.value(key).toObject().value("$date"_L1).toDouble(-1);
+    const QJsonValue value = o.value(key);
+    // EJSON form used by DDP method results: { "$date": <ms since epoch> }
+    if (value.isObject()) {
+        return value.toObject().value("$date"_L1).toDouble(-1);
+    }
+    // ISO-8601 string form used by REST and stream-notify-user events, e.g. "2026-06-16T14:24:39.849Z"
+    if (value.isString()) {
+        const QDateTime dt = QDateTime::fromString(value.toString(), Qt::ISODate);
+        return dt.isValid() ? dt.toMSecsSinceEpoch() : -1;
+    }
+    return -1;
 }
 
 qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)

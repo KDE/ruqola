@@ -9,6 +9,7 @@
 #include "utils.h"
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UtilsTest)
@@ -279,6 +280,26 @@ void UtilsTest::shouldTestUserActivity_data()
         const QJsonArray array = doc.array();
         QTest::newRow("test3") << array << true;
     }
+}
+
+void UtilsTest::shouldParseDate()
+{
+    QFETCH(QByteArray, json);
+    QFETCH(qint64, expected);
+    const QJsonObject o = QJsonDocument::fromJson(json).object();
+    QCOMPARE(Utils::parseDate(u"ls"_s, o), expected);
+}
+
+void UtilsTest::shouldParseDate_data()
+{
+    QTest::addColumn<QByteArray>("json");
+    QTest::addColumn<qint64>("expected");
+    QTest::newRow("missing") << QByteArray("{}") << qint64(-1);
+    // EJSON object form (DDP method results)
+    QTest::newRow("ejson-object") << QByteArray(R"({"ls":{"$date":1781619879849}})") << qint64(1781619879849);
+    // ISO-8601 string form (REST / stream-notify-user events) - used to return -1 and wiped lastSeenAt
+    QTest::newRow("iso-string") << QByteArray(R"({"ls":"2026-06-16T14:24:39.849Z"})") << qint64(1781619879849);
+    QTest::newRow("invalid-string") << QByteArray(R"({"ls":"not-a-date"})") << qint64(-1);
 }
 
 #include "moc_utilstest.cpp"

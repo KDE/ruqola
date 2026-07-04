@@ -37,4 +37,7 @@ private Q_SLOTS:
 
     void shouldTestUserActivity();
     void shouldTestUserActivity_data();
+
+    void shouldParseDate();
+    void shouldParseDate_data();
 };
