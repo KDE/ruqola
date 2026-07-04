@@ -653,6 +653,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"rooms.unbanUser"_s;
     case RestApiUtil::RestApiUrlType::CustomSoundsDelete:
         return u"custom-sounds.delete"_s;
+    case RestApiUtil::RestApiUrlType::ImBlockUser:
+        return u"im.blockUser"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

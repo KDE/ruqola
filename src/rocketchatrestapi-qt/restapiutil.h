@@ -407,6 +407,7 @@ enum class RestApiUrlType {
 
     // Since 8.6.0
     CustomSoundsDelete,
+    ImBlockUser,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
