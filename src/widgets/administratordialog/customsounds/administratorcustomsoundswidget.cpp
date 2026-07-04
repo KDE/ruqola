@@ -286,23 +286,25 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
                                        KStandardGuiItem::remove(),
                                        KStandardGuiItem::cancel())
         == KMessageBox::PrimaryAction) {
-        const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
-        const QByteArray soundIdentifier = modelIndex.data().toByteArray();
-        auto job = new RocketChatRestApi::MethodCallJob(this);
-        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-        info.methodName = u"deleteCustomSound"_s;
-        info.anonymous = false;
-        const QJsonArray params{{QString::fromLatin1(soundIdentifier)}};
-        info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
-        job->setMethodCallJobInfo(std::move(info));
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
-            qDebug() << " replyObject " << replyObject;
-            // TODO update list
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start MethodCallJob deleteCustomSound job";
+        if (mRocketChatAccount->hasAtLeastVersion(8, 6, 0)) {
+        } else {
+            const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
+            const QByteArray soundIdentifier = modelIndex.data().toByteArray();
+            auto job = new RocketChatRestApi::MethodCallJob(this);
+            RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+            info.methodName = u"deleteCustomSound"_s;
+            info.anonymous = false;
+            const QJsonArray params{{QString::fromLatin1(soundIdentifier)}};
+            info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+            job->setMethodCallJobInfo(std::move(info));
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
+                qDebug() << " replyObject " << replyObject;
+                // TODO update list
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start MethodCallJob deleteCustomSound job";
+            }
         }
     }
 }
