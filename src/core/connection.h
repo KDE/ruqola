@@ -133,6 +133,7 @@ public:
 
     void muteUser(const QByteArray &roomId, const QString &userName, bool mute);
     void membersInRoomByRole(const QByteArray &roomId, const QString &filter = {}, int offset = 0, int count = 50);
+    void blockUser(const QString &roomId, bool block);
 Q_SIGNALS:
     void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
     void serverInfoDone(const QString &version);

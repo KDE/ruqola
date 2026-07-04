@@ -7,6 +7,7 @@
 #include "connection.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"
+#include "im/imblockuserjob.h"
 #include "privateutils.h"
 #include "restapimethod.h"
 #include "rooms/roomsmembersorderedbyrolejob.h"
@@ -694,6 +695,17 @@ void Connection::ignoreUser(const QByteArray &roomId, const QByteArray &userId, 
     job->setIgnore(ignore);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start ignoreUser job";
+    }
+}
+
+void Connection::blockUser(const QString &roomId, bool block)
+{
+    auto job = new ImBlockUserJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId.toLatin1());
+    job->setBlockUser(block);
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start ImBlockUserJob job";
     }
 }
 

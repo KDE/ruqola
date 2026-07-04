@@ -14,6 +14,7 @@
 #include "apps/appsmarketplaceinstalledinfo.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
+#include "im/imblockuserjob.h"
 #include "memorymanager/memorymanager.h"
 #include "misc/methodcalljob.h"
 #include "model/appscategoriesmodel.h"
@@ -2158,13 +2159,16 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     if (rid.isEmpty()) {
         qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << " void RocketChatAccount::blockUser EMPTY rid ! block " << block;
     } else {
-        // qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
-
-        const QString userIdFromDirectChannel = Utils::userIdFromDirectChannel(rid, QString::fromLatin1(userId()));
-        if (block) {
-            ddp()->blockUser(rid, userIdFromDirectChannel);
+        if (hasAtLeastVersion(8, 6, 0)) {
+            restApi()->blockUser(rid, block);
         } else {
-            ddp()->unBlockUser(rid, userIdFromDirectChannel);
+            // qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
+            const QString userIdFromDirectChannel = Utils::userIdFromDirectChannel(rid, QString::fromLatin1(userId()));
+            if (block) {
+                ddp()->blockUser(rid, userIdFromDirectChannel);
+            } else {
+                ddp()->unBlockUser(rid, userIdFromDirectChannel);
+            }
         }
     }
 }
