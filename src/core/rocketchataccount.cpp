@@ -30,6 +30,7 @@
 #include "authenticationmanager/ddpauthenticationmanager.h"
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "commands/listcommandsjob.h"
+#include "custom/customsoundslistjob.h"
 #include "customemojiiconmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
@@ -2363,7 +2364,7 @@ void RocketChatAccount::initializeAccount()
     }
     // Initialize sounds
     mCustomSoundManager->initializeDefaultSounds();
-    ddp()->listCustomSounds();
+    listCustomSounds();
     customUserStatus();
     loadRoles();
     checkLicenses();
@@ -2373,6 +2374,16 @@ void RocketChatAccount::initializeAccount()
     }
 
     Q_EMIT accountInitialized();
+}
+
+void RocketChatAccount::listCustomSounds()
+{
+    auto job = new RocketChatRestApi::CustomSoundsListJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::CustomSoundsListJob::customSoundsListDone, this, &RocketChatAccount::slotListCustomSounds);
+    if (!job->start()) {
+        qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start CustomUserStatusJob";
+    }
 }
 
 void RocketChatAccount::customUserStatus()
@@ -3312,9 +3323,6 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
     case DDPClient::MethodRequestedType::AdminStatus:
         displayLogInfo("Admin Status"_ba, obj);
         break;
-    case DDPClient::MethodRequestedType::ListCustomSounds:
-        listCustomSounds(obj);
-        break;
     case DDPClient::MethodRequestedType::BannerDismiss:
         displayLogInfo("Banner Dismiss"_ba, obj);
         break;
@@ -3573,7 +3581,7 @@ qint64 RocketChatAccount::globalRoomsTimeStamp() const
     return mLocalDatabaseManager->timeStamp(accountName(), {}, GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp);
 }
 
-void RocketChatAccount::listCustomSounds(const QJsonObject &root)
+void RocketChatAccount::slotListCustomSounds(const QJsonObject &root)
 {
     displayLogInfo("list custom sounds"_ba, root);
     const QJsonArray obj = root.value("result"_L1).toArray();

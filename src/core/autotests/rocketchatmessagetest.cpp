@@ -155,22 +155,6 @@ void RocketChatMessageTest::streamNotifyUserOtrAcknowledge()
     compareFile(r.result, u"streamNotifyUserOtrAcknowledge"_s);
 }
 
-void RocketChatMessageTest::listCustomSounds()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.listCustomSounds(43);
-    compareFile(r.result, u"listCustomSounds"_s);
-}
-
-void RocketChatMessageTest::deleteCustomSound()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.deleteCustomSound("identifier"_ba, 43);
-    compareFile(r.result, u"deleteCustomSound"_s);
-}
-
 void RocketChatMessageTest::enable2fa()
 {
     RocketChatMessage m;

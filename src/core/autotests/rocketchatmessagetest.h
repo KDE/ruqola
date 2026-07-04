@@ -42,9 +42,6 @@ private Q_SLOTS:
     void streamNotifyUserOtrHandshake();
     void streamNotifyUserOtrAcknowledge();
 
-    void deleteCustomSound();
-    void listCustomSounds();
-
     void enable2fa();
     void disable2fa();
     void validateTempToken2fa();

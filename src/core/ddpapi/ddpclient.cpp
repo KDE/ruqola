@@ -211,18 +211,6 @@ quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
     return method(result, DDPClient::MethodRequestedType::UnBlockUser, DDPClient::MessageType::Persistent);
 }
 
-quint64 DDPClient::listCustomSounds()
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listCustomSounds(mUid);
-    return method(result, DDPClient::MethodRequestedType::ListCustomSounds, DDPClient::MessageType::Persistent);
-}
-
-quint64 DDPClient::deleteCustomSound(const QByteArray &identifier)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteCustomSound(identifier, mUid);
-    return method(result, DDPClient::MethodRequestedType::DeleteCustomSound, DDPClient::MessageType::Persistent);
-}
-
 quint64 DDPClient::uploadCustomSound(const QByteArray &sound)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->uploadCustomSound(sound, mUid);

@@ -611,7 +611,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void regenerateCodes2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void disable2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void validateTempToken2fa(const QJsonObject &root);
-    LIBRUQOLACORE_NO_EXPORT void listCustomSounds(const QJsonObject &root);
+    LIBRUQOLACORE_NO_EXPORT void slotListCustomSounds(const QJsonObject &root);
 
     LIBRUQOLACORE_NO_EXPORT void processPublicsettingsAdministrator(const QJsonObject &obj);
     LIBRUQOLACORE_NO_EXPORT void processPrivatesettingsAdministrator(const QJsonObject &obj);
@@ -626,6 +626,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void connectOfflineMode();
     LIBRUQOLACORE_NO_EXPORT void loadRoomsFromDatabase();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString debugCategoryAccountName() const;
+    LIBRUQOLACORE_NO_EXPORT void listCustomSounds();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

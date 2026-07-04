@@ -105,20 +105,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound(
     return generateMethod(u"uploadCustomSound"_s, params, id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteCustomSound(const QByteArray &identifier, quint64 id)
-{
-    const QJsonArray params{{QString::fromLatin1(identifier)}};
-
-    return generateMethod(u"deleteCustomSound"_s, params, id);
-}
-
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::listCustomSounds(quint64 id)
-{
-    const QJsonArray params{{}};
-
-    return generateMethod(u"listCustomSounds"_s, params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
     const QJsonObject obj{

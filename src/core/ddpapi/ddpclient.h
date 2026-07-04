@@ -37,7 +37,6 @@ public:
         Unknown,
         PublicSettings,
         UpdatePublicsettings,
-        ListCustomSounds,
         BlockUser,
         UnBlockUser,
         UpdateCustomSound,
@@ -175,10 +174,8 @@ public:
     quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
     quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
     quint64 streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKey);
-    quint64 deleteCustomSound(const QByteArray &identifier);
     quint64 uploadCustomSound(const QByteArray &sound);
     void unsubscribe(quint64 registerId);
-    quint64 listCustomSounds();
     quint64 enable2fa();
     quint64 disable2fa(const QString &code);
     quint64 validateTempToken2fa(const QString &code);

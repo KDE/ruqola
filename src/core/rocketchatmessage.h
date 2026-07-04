@@ -50,11 +50,7 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKeys, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult deleteCustomSound(const QByteArray &identifier, quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult uploadCustomSound(const QByteArray &sound, quint64 id);
-
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult listCustomSounds(quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult enable2fa(quint64 id);
 
