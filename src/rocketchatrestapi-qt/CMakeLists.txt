@@ -151,8 +151,6 @@ target_sources(
         createchannelteaminfo.h
         createupdateuserinfo.cpp
         createupdateuserinfo.h
-        custom/customsoundslistjob.cpp
-        custom/customsoundslistjob.h
         custom/customuserstatuscreatejob.cpp
         custom/customuserstatuscreatejob.h
         custom/customuserstatusdeletejob.cpp
@@ -167,6 +165,10 @@ target_sources(
         custom/customsoundsupdatejob.cpp
         custom/customsoundscreatejob.h
         custom/customsoundscreatejob.cpp
+        custom/customsoundslistjob.cpp
+        custom/customsoundslistjob.h
+        custom/customsoundsdeletejob.h
+        custom/customsoundsdeletejob.cpp
         directmessage/createdmjob.cpp
         directmessage/createdmjob.h
         directmessage/deletedmjob.cpp
