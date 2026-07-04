@@ -402,6 +402,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsUnbanUser), QUrl(u"http://www.kde.org/api/v1/rooms.unbanUser"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsDelete), QUrl(u"http://www.kde.org/api/v1/custom-sounds.delete"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImBlockUser), QUrl(u"http://www.kde.org/api/v1/im.blockUser"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsJoin), QUrl(u"http://www.kde.org/api/v1/rooms.join"_s));
 }
 
 #include "moc_restapimethodtest.cpp"
