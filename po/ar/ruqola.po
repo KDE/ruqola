@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-03 00:45+0000\n"
+"POT-Creation-Date: 2026-07-04 00:43+0000\n"
 "PO-Revision-Date: 2026-07-01 18:02+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -163,12 +163,12 @@ msgstr "ميزة جديدة"
 msgid "The following accounts are available:"
 msgstr "الحسابات التالية متاحة:"
 
-#: core/accountmanager.cpp:310
+#: core/accountmanager.cpp:342
 #, kde-format
 msgid "Invalid invite token"
 msgstr "رمز الدعوة غير صالح"
 
-#: core/accountmanager.cpp:311
+#: core/accountmanager.cpp:343
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "رمز الدعوة غير صالح. ألغي إنشاء الحساب."
@@ -1362,17 +1362,17 @@ msgstr "لا يوجد نتائج."
 msgid "Notify all in this room"
 msgstr "أعلم كل من في هذه الغرفة"
 
-#: core/model/messagesmodel.cpp:268
+#: core/model/messagesmodel.cpp:269
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "حُررت في %1 من قبل %2"
 
-#: core/model/messagesmodel.cpp:432
+#: core/model/messagesmodel.cpp:436
 #, kde-format
 msgid "Ignored Message"
 msgstr "الرسالة المتجاهلة"
 
-#: core/model/messagesmodel.cpp:443
+#: core/model/messagesmodel.cpp:447
 #, kde-format
 msgid "Only you can see this message"
 msgstr "أنت الوحيد الذي يمكنه رؤية هذه الرسالة"
@@ -10797,33 +10797,33 @@ msgstr "انضم"
 msgid "Link Preview"
 msgstr "معاينة الوصلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:426
+#: widgets/room/delegate/messagelistdelegate.cpp:431
 #, kde-format
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:436
+#: widgets/room/delegate/messagelistdelegate.cpp:441
 #: widgets/room/messagelistview.cpp:482
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:452
+#: widgets/room/delegate/messagelistdelegate.cpp:457
 #: widgets/room/messagelistview.cpp:590 widgets/room/messagelistview.cpp:650
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:452
+#: widgets/room/delegate/messagelistdelegate.cpp:457
 #: widgets/room/messagelistview.cpp:590 widgets/room/messagelistview.cpp:650
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "رسالة الترجمة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:690
+#: widgets/room/delegate/messagelistdelegate.cpp:706
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10834,7 +10834,7 @@ msgstr[3] "%1 ردود"
 msgstr[4] "%1 ردًّا"
 msgstr[5] "%1 ردّ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:700
+#: widgets/room/delegate/messagelistdelegate.cpp:716
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10845,54 +10845,54 @@ msgstr[3] "%1 رسائل"
 msgstr[4] "%1 رسالة"
 msgstr[5] "%1 رسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:700
+#: widgets/room/delegate/messagelistdelegate.cpp:716
 #, kde-format
 msgid "No message yet"
 msgstr "لا يوجد رسائل بعد"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1019
+#: widgets/room/delegate/messagelistdelegate.cpp:1035
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "متابعة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1023
+#: widgets/room/delegate/messagelistdelegate.cpp:1039
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "لقد ثُبتت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1027
+#: widgets/room/delegate/messagelistdelegate.cpp:1043
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "لقد عُلّمت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1031
+#: widgets/room/delegate/messagelistdelegate.cpp:1047
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "الرسالة تحتوي على نص مترجم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1035
+#: widgets/room/delegate/messagelistdelegate.cpp:1051
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1039
+#: widgets/room/delegate/messagelistdelegate.cpp:1055
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "أضف تفاعل"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1045
+#: widgets/room/delegate/messagelistdelegate.cpp:1061
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "أوقف"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1045
+#: widgets/room/delegate/messagelistdelegate.cpp:1061
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
