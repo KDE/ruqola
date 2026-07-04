@@ -1392,6 +1392,14 @@
       <description>
         <ul>
           <li>Add Read Receipts Support</li>
+          <li xml:lang="ca">Afegeix el suport de confirmacions de lectura</li>
+          <li xml:lang="ca-valencia">Afig el suport de confirmacions de lectura</li>
+          <li xml:lang="ka">დაემატა წაკითხვის ანგარიშის მხარდაჭერა</li>
+          <li xml:lang="nl">Ondersteuning voor gelezen-berichten toevoegen</li>
+          <li xml:lang="pt-BR">Adicionar suporte a recibos de leitura</li>
+          <li xml:lang="sl">Doda podporo za potrdila o branju</li>
+          <li xml:lang="tr">Okundu makbuzları desteği ekle</li>
+          <li xml:lang="uk">Додано підтримку підтвердження прочитання</li>
         </ul>
       </description>
     </release>
