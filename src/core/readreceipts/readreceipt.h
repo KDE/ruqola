@@ -6,6 +6,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QByteArray>
+#include <QMetaType>
 class QJsonObject;
 class QDebug;
 class LIBRUQOLACORE_EXPORT ReadReceipt
