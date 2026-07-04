@@ -9,6 +9,7 @@
 #include "administratorcustomsoundscreatedialog.h"
 #include "connection.h"
 #include "custom/customsoundscreatejob.h"
+#include "custom/customsoundsdeletejob.h"
 #include "custom/customsoundslistjob.h"
 #include "custom/customsoundsupdatejob.h"
 #include "ddpapi/ddpclient.h"
@@ -286,10 +287,19 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
                                        KStandardGuiItem::remove(),
                                        KStandardGuiItem::cancel())
         == KMessageBox::PrimaryAction) {
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
+        const QByteArray soundIdentifier = modelIndex.data().toByteArray();
         if (mRocketChatAccount->hasAtLeastVersion(8, 6, 0)) {
+            auto job = new RocketChatRestApi::CustomSoundsDeleteJob(this);
+            job->setCustomSoundId(soundIdentifier);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::CustomSoundsDeleteJob::userCustomSoundDeletedDone, this, []() {
+                // Nothing
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CustomSoundsDeleteJob job";
+            }
         } else {
-            const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
-            const QByteArray soundIdentifier = modelIndex.data().toByteArray();
             auto job = new RocketChatRestApi::MethodCallJob(this);
             RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
             info.methodName = u"deleteCustomSound"_s;
