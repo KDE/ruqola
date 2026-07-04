@@ -6,7 +6,7 @@
 
 #pragma once
 #include "config-ruqola.h"
-#include "libruqolacore_export.h"
+#include "libruqolawidgets_private_export.h"
 #include "notifications/notification.h"
 class Notification;
 class QMenu;
@@ -14,7 +14,7 @@ class KActionCollection;
 #if HAVE_UNITY_SUPPORT
 class UnityServiceManager;
 #endif
-class LIBRUQOLACORE_EXPORT NotificationManager : public QObject
+class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationManager : public QObject
 {
     Q_OBJECT
 public:
