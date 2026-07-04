@@ -3584,7 +3584,7 @@ qint64 RocketChatAccount::globalRoomsTimeStamp() const
 void RocketChatAccount::slotListCustomSounds(const QJsonObject &root)
 {
     displayLogInfo("list custom sounds"_ba, root);
-    const QJsonArray obj = root.value("result"_L1).toArray();
+    const QJsonArray obj = root.value("sounds"_L1).toArray();
     mCustomSoundManager->parseCustomSounds(obj);
 }
 
