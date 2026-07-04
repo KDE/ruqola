@@ -160,6 +160,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
         {u"google-translate"_s, i18n("Google")},
         {u"deepl-translate"_s, i18n("Deepl")},
         {u"microsoft-translate"_s, i18n("Microsoft")},
+        {u"libre-translate"_s, i18n("LibreTranslate")},
     };
     addComboBox(i18n("Service Provider"), maps, mAutoTranslateServiceProvider, u"AutoTranslate_ServiceProvider"_s);
 
