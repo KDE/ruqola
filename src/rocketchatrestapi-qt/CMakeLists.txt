@@ -534,6 +534,8 @@ target_sources(
         apps/appupdateinfojob.h
         queryparameters.h
         queryparameters.cpp
+        im/imblockuserjob.cpp
+        im/imblockuserjob.h
 )
 
 # precompiled headers support
