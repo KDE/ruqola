@@ -5,8 +5,8 @@
 */
 
 #include "updateadminsettingsjob.h"
-
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <KLocalizedString>
 
@@ -86,6 +86,7 @@ QJsonDocument UpdateAdminSettingsJob::json() const
     QJsonObject jsonObj;
     switch (mInfo.valueType) {
     case UpdateAdminSettingsInfo::ValueType::Unknown:
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Value type is unknown. It's a bug";
         break;
     case UpdateAdminSettingsInfo::ValueType::Boolean:
         jsonObj["value"_L1] = mInfo.settingsValue.toBool();
