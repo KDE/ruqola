@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-04 00:43+0000\n"
+"POT-Creation-Date: 2026-07-05 00:44+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1842,7 +1842,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> tekleatzen ari dira…"
 
-#: core/rocketchataccount.cpp:704
+#: core/rocketchataccount.cpp:706
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1851,12 +1851,12 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:712 core/rocketchataccount.cpp:725
+#: core/rocketchataccount.cpp:714 core/rocketchataccount.cpp:727
 #, kde-format
 msgid "Not connected"
 msgstr "Konektatu gabe"
 
-#: core/rocketchataccount.cpp:719
+#: core/rocketchataccount.cpp:721
 #, kde-format
 msgid "Not connected yet"
 msgstr "Oraindik konektatu gabe"
@@ -3168,7 +3168,7 @@ msgid "Remove Emoji"
 msgstr "Kendu Emojia"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:314
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:326
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
@@ -3181,7 +3181,7 @@ msgid "Add…"
 msgstr "Gehitu…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:316
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:328
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
@@ -3194,7 +3194,7 @@ msgid "Modify…"
 msgstr "Aldatu…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:320
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:332
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
@@ -3220,30 +3220,30 @@ msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
 msgstr ""
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:38
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:39
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Custom Sounds"
 msgstr "Bilatu neurrira ipinitako emojiak"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:70
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:71
 #, kde-format
 msgid "No custom sound found"
 msgstr "Ez da neurrira ipinitako soinurik aurkitu"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:75
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:76
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
 msgstr[0] "Neurrira ipinitako soinu %1 (Guztira: %2)"
 msgstr[1] "Neurrira ipinitako %1 soinu (Guztira: %2)"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:284
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:285
 #, kde-format
 msgid "Do you want to remove this sound?"
 msgstr "Soinu hori kendu nahi duzu?"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:285
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:286
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
@@ -6275,27 +6275,33 @@ msgstr "DeepL"
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:164
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
+#, fuzzy, kde-format
+#| msgid "Libre Translate"
+msgid "LibreTranslate"
+msgstr "Libre Translate"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
 #, kde-format
 msgid "Service Provider"
 msgstr "Zerbitzu hornitzailea"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
 #, kde-format
 msgid "DeepL API Key"
 msgstr "DeepL API gakoa"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
 #, kde-format
 msgid "Google API Key"
 msgstr "Google API gakoa"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Microsoft API gakoa"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:176
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:177
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6305,7 +6311,7 @@ msgstr ""
 "Erabiltzaile batek webgune baterako estekaren posta bidaltzen duenean "
 "txertatutako esteken aurreikuspegiak gaituta dauden edo ez."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
 #, kde-format
 msgid "Embed Cache Expiration Days"
 msgstr "Txertatutako cachea iraungitzeko egunak"
@@ -13563,9 +13569,6 @@ msgstr "Gehitu kontua…"
 
 #~ msgid "DeepL"
 #~ msgstr "DeepL"
-
-#~ msgid "Libre Translate"
-#~ msgstr "Libre Translate"
 
 #, fuzzy
 #~| msgid "Server not found: %1"
