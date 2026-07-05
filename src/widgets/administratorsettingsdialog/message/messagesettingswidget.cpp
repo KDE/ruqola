@@ -4,8 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagesettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
-
+#include "rocketchataccount.h"
 #include <QCheckBox>
 #include <QFormLayout>
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
+using namespace Qt::Literals::StringLiterals;
 
 MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
@@ -180,6 +180,11 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mLibreTranslateApiKey->setObjectName(u"mLibreTranslateApiKey"_s);
     addLineEdit(i18n("LibreTranslate API Key"), mLibreTranslateApiKey, u"AutoTranslate_LibreTranslateAPIKey"_s);
+
+    if (mAccount && !mAccount->hasAtLeastVersion(8, 6, 0)) {
+        mLibreTranslateApiKey->setEnabled(false);
+        mLibreTranslateUrl->setEnabled(false);
+    }
 
     mApiEmbed->setObjectName(u"mApiEmbed"_s);
     mApiEmbed->setToolTip(i18nc("@info:tooltip", "Whether embedded link previews are enabled or not when a user posts a link to a website."));
