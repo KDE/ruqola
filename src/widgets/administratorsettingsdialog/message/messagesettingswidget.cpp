@@ -46,6 +46,8 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mMessageErasureType(new QComboBox(this))
     , mApiEmbed(new QCheckBox(i18nc("@option:check", "Embed Link Previews"), this))
     , mEmbedCacheExpirationDays(new QSpinBox(this))
+    , mLibreTranslateUrl(new QLineEdit(this))
+    , mLibreTranslateApiKey(new QLineEdit(this))
 {
     mAllowMessageEditing->setObjectName(u"mAllowMessageEditing"_s);
     addCheckBox(mAllowMessageEditing, u"Message_AllowEditing"_s);
@@ -173,6 +175,12 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mMicrosoftApiKey->setObjectName(u"mMicrosoftApiKey"_s);
     addLineEdit(i18n("Microsoft API Key"), mMicrosoftApiKey, u"AutoTranslate_MicrosoftAPIKey"_s);
 
+    mLibreTranslateUrl->setObjectName(u"mLibreTranslateUrl"_s);
+    addLineEdit(i18n("LibreTranslate URL"), mLibreTranslateUrl, u"AutoTranslate_LibreTranslateAPIURL"_s);
+
+    mLibreTranslateApiKey->setObjectName(u"mLibreTranslateApiKey"_s);
+    addLineEdit(i18n("LibreTranslate API Key"), mLibreTranslateApiKey, u"AutoTranslate_LibreTranslateAPIKey"_s);
+
     mApiEmbed->setObjectName(u"mApiEmbed"_s);
     mApiEmbed->setToolTip(i18nc("@info:tooltip", "Whether embedded link previews are enabled or not when a user posts a link to a website."));
     mMainLayout->addWidget(mApiEmbed);
@@ -209,6 +217,8 @@ void MessageSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mDeeplApiKey, mapSettings, {});
     initializeWidget(mGoogleApiKey, mapSettings, {});
     initializeWidget(mMicrosoftApiKey, mapSettings, {});
+    initializeWidget(mLibreTranslateUrl, mapSettings, {});
+    initializeWidget(mLibreTranslateApiKey, mapSettings, {});
     initializeWidget(mGroupingPeriod, mapSettings, 300);
     initializeWidget(mDirectMessageMaxUsers, mapSettings, 8);
     initializeWidget(mMaximumNumberChainedQuotes, mapSettings, 2);

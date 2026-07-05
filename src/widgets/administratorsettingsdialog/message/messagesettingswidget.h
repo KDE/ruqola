@@ -50,4 +50,6 @@ private:
     QComboBox *const mMessageErasureType;
     QCheckBox *const mApiEmbed;
     QSpinBox *const mEmbedCacheExpirationDays;
+    QLineEdit *const mLibreTranslateUrl;
+    QLineEdit *const mLibreTranslateApiKey;
 };

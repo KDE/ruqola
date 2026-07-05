@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagesettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "settingswidgetshelper.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSpinBox>
 QTEST_MAIN(MessageSettingsWidgetTest)
 
+using namespace Qt::Literals::StringLiterals;
 MessageSettingsWidgetTest::MessageSettingsWidgetTest(QObject *parent)
     : QObject{parent}
 {
@@ -175,6 +175,16 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMicrosoftApiKey);
     QVERIFY(mMicrosoftApiKey->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMicrosoftApiKey), u"AutoTranslate_MicrosoftAPIKey"_s);
+
+    auto mLibreTranslateUrl = w.findChild<QLineEdit *>(u"mLibreTranslateUrl"_s);
+    QVERIFY(mLibreTranslateUrl);
+    QVERIFY(mLibreTranslateUrl->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLibreTranslateUrl), u"AutoTranslate_LibreTranslateAPIURL"_s);
+
+    auto mLibreTranslateApiKey = w.findChild<QLineEdit *>(u"mLibreTranslateApiKey"_s);
+    QVERIFY(mLibreTranslateApiKey);
+    QVERIFY(mLibreTranslateApiKey->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLibreTranslateApiKey), u"AutoTranslate_LibreTranslateAPIKey"_s);
 
     auto mGroupingPeriod = w.findChild<QSpinBox *>(u"mGroupingPeriod"_s);
     QVERIFY(mGroupingPeriod);
