@@ -7,6 +7,7 @@
 #include "showattachmentdialog.h"
 
 #include "attachments/fileattachments.h"
+#include "chat/deletemessagefilejob.h"
 #include "connection.h"
 #include "dialogs/showimagedialog.h"
 #include "misc/methodcalljob.h"
@@ -67,21 +68,33 @@ void ShowAttachmentDialog::slotShowImage(const QByteArray &fileId)
 
 void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
 {
-    auto job = new RocketChatRestApi::MethodCallJob(this);
-    const QJsonArray params{{QString::fromLatin1(fileId)}};
-    const QString methodName{u"deleteFileMessage"_s};
-    const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
-        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
-        .methodName = methodName,
-        .anonymous = false,
-    };
-    job->setMethodCallJobInfo(std::move(info));
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
-        mRocketChatAccount->roomFiles(mRoomId, mRoomType);
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getRoomByTypeAndName job";
+    if (mRocketChatAccount && mRocketChatAccount->hasAtLeastVersion(8, 6, 0)) {
+        auto job = new RocketChatRestApi::DeleteMessageFileJob(this);
+        job->setFileId(fileId);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::DeleteMessageFileJob::deleteMessageFileDone, this, [this]() {
+            mRocketChatAccount->roomFiles(mRoomId, mRoomType);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start DeleteMessageFileJob job";
+        }
+    } else {
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        const QJsonArray params{{QString::fromLatin1(fileId)}};
+        const QString methodName{u"deleteFileMessage"_s};
+        const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
+            .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+            .methodName = methodName,
+            .anonymous = false,
+        };
+        job->setMethodCallJobInfo(std::move(info));
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
+            mRocketChatAccount->roomFiles(mRoomId, mRoomType);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getRoomByTypeAndName job";
+        }
     }
 }
 
