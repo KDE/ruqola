@@ -228,12 +228,12 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
             const QJsonObject result = response["result"_L1].toObject();
             mAuthToken = result["token"_L1].toString();
             mUserId = result["id"_L1].toString();
-            mTokenExpires = result["tokenExpires"_L1].toObject()[sl("$date")].toDouble();
+            mTokenExpires = result["tokenExpires"_L1].toObject().value(sl("$date")).toDouble();
             setLoginStatus(AuthenticationManager::LoggedIn);
         }
 
         if (response.contains("error"_L1)) {
-            const QJsonValue errorCode = response["error"_L1].toObject()[sl("error")];
+            const QJsonValue errorCode = response["error"_L1].toObject().value(sl("error"));
             qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Login Error: " << response;
             // TODO: to be more user friendly, there would need to be more context
             // in case of a 403 error, as it may be received in different cases:
