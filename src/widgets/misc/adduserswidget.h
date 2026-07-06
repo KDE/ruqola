@@ -13,6 +13,7 @@
 class FlowLayout;
 class ClickableWidget;
 class RocketChatAccount;
+class AvatarCacheManager;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -40,4 +41,5 @@ private:
     AddUsersCompletionLineEdit *const mSearchUserLineEdit;
     FlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
+    AvatarCacheManager *const mAvatarCacheManager;
 };

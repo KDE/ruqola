@@ -36,6 +36,8 @@ public:
     [[nodiscard]] QByteArray identifier() const;
     void setIdentifier(const QByteArray &userId);
 
+    void setPixmap(const QPixmap &pix);
+
 Q_SIGNALS:
     void removeClickableWidget(const QString &username);
 
@@ -45,4 +47,5 @@ private:
     QByteArray mIdentifier;
     QLabel *const mLabel;
     ClickableLabel *const mClickableLabel;
+    QLabel *const mUserPixmap;
 };

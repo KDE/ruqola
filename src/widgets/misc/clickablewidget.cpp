@@ -17,10 +17,14 @@ ClickableWidget::ClickableWidget(const QString &userName, QWidget *parent)
     , mName(userName)
     , mLabel(new QLabel(mName, this))
     , mClickableLabel(new ClickableLabel(this))
+    , mUserPixmap(new QLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+
+    mUserPixmap->setObjectName(u"mUserPixmap"_s);
+    mainLayout->addWidget(mUserPixmap);
 
     mLabel->setObjectName(u"mUserLabel"_s);
     mainLayout->addWidget(mLabel);
@@ -31,6 +35,15 @@ ClickableWidget::ClickableWidget(const QString &userName, QWidget *parent)
 }
 
 ClickableWidget::~ClickableWidget() = default;
+
+void ClickableWidget::setPixmap(const QPixmap &pix)
+{
+    if (pix.isNull()) {
+        mUserPixmap->hide();
+    } else {
+        mUserPixmap->setPixmap(pix);
+    }
+}
 
 void ClickableWidget::slotRemove()
 {

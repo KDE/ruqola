@@ -7,7 +7,9 @@
 #include "adduserswidget.h"
 
 #include "common/flowlayout.h"
+#include "misc/avatarcachemanager.h"
 #include "misc/clickablewidget.h"
+#include "utils.h"
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -15,6 +17,7 @@ AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchUserLineEdit(new AddUsersCompletionLineEdit(account, this))
     , mFlowLayout(new FlowLayout)
+    , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -26,6 +29,7 @@ AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
 
     mFlowLayout->setObjectName(u"mFlowLayout"_s);
     mainLayout->addLayout(mFlowLayout);
+    mAvatarCacheManager->setCurrentRocketChatAccount(account);
 }
 
 AddUsersWidget::~AddUsersWidget()
@@ -41,6 +45,14 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
     }
     auto clickableUserWidget = new ClickableWidget(userName, this);
     clickableUserWidget->setIdentifier(info.userId);
+    const Utils::AvatarInfo avatarInfo{
+        .etag = {},
+        .identifier = QString::fromLatin1(info.userId),
+        .avatarType = Utils::AvatarType::User,
+    };
+    const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(clickableUserWidget, avatarInfo, 22);
+    clickableUserWidget->setPixmap(pix);
+
     connect(clickableUserWidget, &ClickableWidget::removeClickableWidget, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
     mMap.insert(userName, clickableUserWidget);
