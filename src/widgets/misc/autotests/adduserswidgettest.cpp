@@ -5,7 +5,6 @@
 */
 
 #include "adduserswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/flowlayout.h"
 #include "dialogs/adduserscompletionlineedit.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AddUsersWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 AddUsersWidgetTest::AddUsersWidgetTest(QObject *parent)
     : QObject(parent)
 {
