@@ -99,6 +99,8 @@ target_sources(
         channels/setjoincodechanneljob.h
         chat/deletemessagejob.cpp
         chat/deletemessagejob.h
+        chat/deletemessagefilejob.cpp
+        chat/deletemessagefilejob.h
         chat/followmessagejob.cpp
         chat/followmessagejob.h
         chat/getmentionedmessagesjob.cpp
