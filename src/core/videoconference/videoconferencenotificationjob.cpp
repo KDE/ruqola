@@ -5,13 +5,13 @@
 */
 
 #include "videoconferencenotificationjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "ruqola_videoconference_core_debug.h"
 #include <KLocalizedString>
 #include <KNotification>
 
+using namespace Qt::Literals::StringLiterals;
 VideoConferenceNotificationJob::VideoConferenceNotificationJob(QObject *parent)
     : QObject{parent}
 {
