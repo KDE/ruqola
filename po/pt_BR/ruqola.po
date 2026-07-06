@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-05 00:44+0000\n"
-"PO-Revision-Date: 2026-07-02 08:19-0300\n"
+"POT-Creation-Date: 2026-07-06 00:45+0000\n"
+"PO-Revision-Date: 2026-07-05 07:00-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -2093,7 +2093,7 @@ msgid "GitLab"
 msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:162
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:207
 #, kde-format
 msgid "Google"
@@ -6065,29 +6065,29 @@ msgctxt "@option:check"
 msgid "Embed Link Previews"
 msgstr "Embutir visualizações de link"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:56
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enter 0 to disable blocking."
 msgstr "Digite 0 para desabilitar o bloquio."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Bloquear edição de mensagem após (n) minutos"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:63
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Bloquear exclusão de mensagem após (n) minutos."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Bloquear exclusão de mensagem após (n) minutos"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6097,13 +6097,13 @@ msgstr ""
 "Este é um recurso obsoleto. Pode não funcionar como esperado e não receberá "
 "novas atualizações."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:74
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow Message Pinning"
 msgstr "Permitir fixar mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6113,37 +6113,37 @@ msgstr ""
 "Requer que os arquivos 'vídeo/webm' sejam um tipo de mídia aceito nas "
 "configurações de 'Envio de arquivo'."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:89
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "Máximo de caracteres permitidos por mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:92
 #, kde-format
 msgid "Safe Ports"
 msgstr "Portas seguras"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
 msgid "Maximum Number of Chained Quotes"
 msgstr "Número máximo de citações encadeadas"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, kde-format
 msgid "Keep Messages and User Name"
 msgstr "Manter mensagens e nome do usuário"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
 #, kde-format
 msgid "Delete All Messages"
 msgstr "Excluir todas as mensagens"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:101
 #, kde-format
 msgid "Remove Link Between User and Messages"
 msgstr "Remover ligação entre usuário e mensagens"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
 #, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
@@ -6163,12 +6163,12 @@ msgstr ""
 "as mensagens e arquivos do usuário ao bot Rocket.Chat e as mensagens diretas "
 "serão excluídas."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
 msgid "Message Erasure Type"
 msgstr "Tipo de apagamento de mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
@@ -6177,22 +6177,22 @@ msgstr ""
 "As mensagens serão agrupadas com a mensagem anterior se ambas forem do mesmo "
 "usuário e o tempo decorrido for menor que o tempo informado em segundos."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:113
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr "Período de agrupamento (em segundos)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid "Direct Message Maximum Users"
 msgstr "Máximo de usuários em mensagem direta"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:119
 #, kde-format
 msgid "Message Attachments"
 msgstr "Anexos de mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6203,7 +6203,7 @@ msgstr ""
 "configuração não é retroativa, portanto, os arquivos enviados enquanto a "
 "opção não estava ativa terão dados EXIF."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6215,69 +6215,79 @@ msgstr ""
 "largura de banda. Imagens na resolução original podem ser baixadas usando o "
 "ícone ao lado do nome do anexo."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:137
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "Largura máxima da miniatura (em pixels)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:140
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "Altura máxima da miniatura (em pixels)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
 #, kde-format
 msgid "Audio Message"
 msgstr "Mensagem de áudio"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:149
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Taxa de bits da mensagem de áudio"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:153
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Tradução automática"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
 #, kde-format
 msgid "Deepl"
 msgstr "DeepL"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:162
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:164
 #, kde-format
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
-msgid "LibreTranslate"
-msgstr "Configurar a tradução automática"
-
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
+#, kde-format
+msgid "LibreTranslate"
+msgstr "LibreTranslate"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
 msgid "Service Provider"
 msgstr "Provedor de serviço"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
 msgid "DeepL API Key"
 msgstr "Chave API do DeepL"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:173
 #, kde-format
 msgid "Google API Key"
 msgstr "Chave API do Google"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:176
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Chave API da Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:177
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
+#, fuzzy, kde-format
+#| msgid "LibreTranslate"
+msgid "LibreTranslate URL"
+msgstr "LibreTranslate"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
+#, fuzzy, kde-format
+#| msgid "LibreTranslate"
+msgid "LibreTranslate API Key"
+msgstr "LibreTranslate"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6287,7 +6297,7 @@ msgstr ""
 "Se as visualizações de links incorporados estão habilitadas ou não quando um "
 "usuário publica um link para um site."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:195
 #, kde-format
 msgid "Embed Cache Expiration Days"
 msgstr "Dias de expiração do cache de incorporação"

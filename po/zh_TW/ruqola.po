@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-05 00:44+0000\n"
+"POT-Creation-Date: 2026-07-06 00:45+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2089,7 +2089,7 @@ msgid "GitLab"
 msgstr "GitLab"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:162
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:207
 #, kde-format
 msgid "Google"
@@ -5939,29 +5939,29 @@ msgctxt "@option:check"
 msgid "Embed Link Previews"
 msgstr "嵌入連結預覽"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:56
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enter 0 to disable blocking."
 msgstr "輸入 0 來停用阻擋。"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "超過 (n) 分鐘後阻擋訊息編輯"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:63
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "超過 (n) 分鐘後阻擋訊息刪除。"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "超過 (n) 分鐘後阻擋訊息刪除"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5969,13 +5969,13 @@ msgid ""
 "new updates."
 msgstr "這是已棄用的功能。它可能不會依預期運作，並且不會再有更新。"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:74
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Allow Message Pinning"
 msgstr "允許置頂訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5983,37 +5983,37 @@ msgid ""
 "Upload' settings."
 msgstr "需要在「檔案上傳」設定中接受 'video/webm' 檔案媒體類型"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:89
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "每訊息最大字元數"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:92
 #, kde-format
 msgid "Safe Ports"
 msgstr "安全連接埠"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
 msgid "Maximum Number of Chained Quotes"
 msgstr "引用串最大深度"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, kde-format
 msgid "Keep Messages and User Name"
 msgstr "保留訊息和使用者名稱"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
 #, kde-format
 msgid "Delete All Messages"
 msgstr "刪除所有訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:101
 #, kde-format
 msgid "Remove Link Between User and Messages"
 msgstr "移除使用者和訊息之間的連結"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
 #, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
@@ -6030,34 +6030,34 @@ msgstr ""
 "之間的連結」：這個選項會讓該使用者的訊息和檔案指派為 Rocket.Chat 機器人名下的"
 "訊息或檔案，而私訊則會刪除。"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
 msgid "Message Erasure Type"
 msgstr "訊息抹除類型"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:113
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr "群組化時長（秒）"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid "Direct Message Maximum Users"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:119
 #, kde-format
 msgid "Message Attachments"
 msgstr "訊息附件"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6065,7 +6065,7 @@ msgid ""
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6074,68 +6074,80 @@ msgid ""
 "to the attachment's name."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:137
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:140
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
 #, kde-format
 msgid "Audio Message"
 msgstr "語音訊息"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:149
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "語音訊息位元率"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:153
 #, kde-format
 msgid "Auto-Translate"
 msgstr "自動翻譯"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
 #, kde-format
 msgid "Deepl"
 msgstr "DeepL"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:162
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:164
 #, kde-format
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "LibreTranslate"
 msgstr "自動翻譯"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
 msgid "Service Provider"
 msgstr "服務提供者"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
 msgid "DeepL API Key"
 msgstr "DeepL API 金鑰"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:171
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:173
 #, kde-format
 msgid "Google API Key"
 msgstr "Google API 金鑰"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:174
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:176
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Microsoft API 金鑰"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:177
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
+#, fuzzy, kde-format
+#| msgid "Auto-Translate"
+msgid "LibreTranslate URL"
+msgstr "自動翻譯"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
+#, fuzzy, kde-format
+#| msgid "Auto-Translate"
+msgid "LibreTranslate API Key"
+msgstr "自動翻譯"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6143,7 +6155,7 @@ msgid ""
 "to a website."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:195
 #, kde-format
 msgid "Embed Cache Expiration Days"
 msgstr ""
