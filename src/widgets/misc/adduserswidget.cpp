@@ -47,7 +47,7 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
     clickableUserWidget->setIdentifier(info.userId);
     const Utils::AvatarInfo avatarInfo{
         .etag = {},
-        .identifier = QString::fromLatin1(info.userId),
+        .identifier = userName,
         .avatarType = Utils::AvatarType::User,
     };
     const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(clickableUserWidget, avatarInfo, 22);
