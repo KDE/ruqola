@@ -50,7 +50,7 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
         .identifier = userName,
         .avatarType = Utils::AvatarType::User,
     };
-    const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(clickableUserWidget, avatarInfo, 22);
+    const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(clickableUserWidget, avatarInfo, 22);
     clickableUserWidget->setPixmap(pix);
 
     connect(clickableUserWidget, &ClickableWidget::removeClickableWidget, this, &AddUsersWidget::slotRemoveUser);
