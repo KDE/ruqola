@@ -7,7 +7,7 @@
 
 #include "abstractusercheck.h"
 
-class MarkAsFavoriteRoomCheck : public AbstractUserCheck
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MarkAsFavoriteRoomCheck : public AbstractUserCheck
 {
     Q_OBJECT
 public:
@@ -18,4 +18,8 @@ public:
 protected:
     void doStart() override;
     void checkState() override;
+
+private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void changeFavorite(bool state);
+    bool mOriginalFavoriteState = false;
 };
