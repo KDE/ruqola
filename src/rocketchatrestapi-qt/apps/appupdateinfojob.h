@@ -61,6 +61,9 @@ Q_SIGNALS:
     void appUpdateInfoDone(const QJsonObject &obj);
     void fetchActionButtonsDone(const QJsonArray &obj);
 
+protected:
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
+
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onDeleteRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

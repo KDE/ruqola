@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -191,6 +192,14 @@ bool AppUpdateInfoJob::AppUpdateInfo::isValid() const
         return false;
     }
     return true;
+}
+
+QString AppUpdateInfoJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == "license-prevented"_L1) {
+        return i18n("License not authorized it.");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 #include "moc_appupdateinfojob.cpp"
