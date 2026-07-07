@@ -106,6 +106,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNotifyMessage(const QString &accountName, const QByteArray &messageId, const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAdministratorServerSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRocketChatInformation();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotServerCheckList();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasBannerInfo() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowRoomAvatar(bool checked);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateSettingsChanged();
@@ -179,6 +180,7 @@ private:
     KActionMenu *mAdministrationMenu = nullptr;
     AccountManager *mAccountManager = nullptr;
     QAction *mShowRocketChatServerInfo = nullptr;
+    QAction *mServerCheckList = nullptr;
     QAction *mRoomAvatar = nullptr;
     QAction *mRoomFavorite = nullptr;
     QAction *mShowDatabaseMessages = nullptr;

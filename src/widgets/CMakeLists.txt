@@ -792,6 +792,44 @@ target_sources(
         conferencecalldialog/conferenceinfodialog.cpp
         conferencecalldialog/conferenceinfowidget.h
         conferencecalldialog/conferenceinfowidget.cpp
+        serverchecks/abstractservercheck.h
+        serverchecks/abstractservercheck.cpp
+        serverchecks/sendmessagecheck.h
+        serverchecks/sendmessagecheck.cpp
+        serverchecks/editmessagecheck.h
+        serverchecks/editmessagecheck.cpp
+        serverchecks/deletemessagecheck.h
+        serverchecks/deletemessagecheck.cpp
+        serverchecks/threadreplycheck.h
+        serverchecks/threadreplycheck.cpp
+        serverchecks/reactioncheck.h
+        serverchecks/reactioncheck.cpp
+        serverchecks/quotemessagecheck.h
+        serverchecks/quotemessagecheck.cpp
+        serverchecks/favoritemessagecheck.h
+        serverchecks/favoritemessagecheck.cpp
+        serverchecks/imagedescriptioncheck.h
+        serverchecks/imagedescriptioncheck.cpp
+        serverchecks/pinmessagecheck.h
+        serverchecks/pinmessagecheck.cpp
+        serverchecks/linkpreviewcheck.h
+        serverchecks/linkpreviewcheck.cpp
+        serverchecks/searchmessagecheck.h
+        serverchecks/searchmessagecheck.cpp
+        serverchecks/fileuploadcheck.h
+        serverchecks/fileuploadcheck.cpp
+        serverchecks/topicchangecheck.h
+        serverchecks/topicchangecheck.cpp
+        serverchecks/abstractusercheck.h
+        serverchecks/abstractusercheck.cpp
+        serverchecks/adduserscheck.h
+        serverchecks/adduserscheck.cpp
+        serverchecks/removeuserscheck.h
+        serverchecks/removeuserscheck.cpp
+        serverchecks/serverchecklistmanager.h
+        serverchecks/serverchecklistmanager.cpp
+        serverchecks/serverchecklistdialog.h
+        serverchecks/serverchecklistdialog.cpp
         servererrorinfohistory/servererrorinfomessagewidget.h
         servererrorinfohistory/servererrorinfomessagewidget.cpp
         servererrorinfohistory/servererrorinfomessagehistorydialog.h
