@@ -142,3 +142,5 @@ void LicensesManager::setActiveModules(const QList<ActiveModule> &newActiveModul
 {
     mActiveModules = newActiveModules;
 }
+
+#include "moc_licensesmanager.cpp"
