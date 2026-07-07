@@ -46,7 +46,7 @@ QMenu *NotificationManager::contextStatusMenu() const
     return mContextStatusMenu;
 }
 
-void NotificationManager::createSystemTray()
+void NotificationManager::createSystemTray(QObject *parent)
 {
 #if !defined(Q_OS_IOS)
     if (!RuqolaGlobalConfig::self()->enableSystemTray()) {
@@ -56,7 +56,7 @@ void NotificationManager::createSystemTray()
         return;
     }
     if (!mNotification) {
-        mNotification = new Notification(this);
+        mNotification = new Notification(parent);
         auto trayMenu = mNotification->contextMenu();
 
         mContextStatusMenu = mNotification->contextMenu()->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
