@@ -84,7 +84,13 @@ ServerCheckListDialog::ServerCheckListDialog(RocketChatAccount *account, const Q
         explanation->setText(i18n("Open a channel first: the checks need a room to send their test messages to."));
         mRunButton->setEnabled(false);
     }
-
+    if (mAccount) {
+        auto room = mAccount->room(roomId);
+        if (room->channelType() == Room::RoomType::Direct) {
+            explanation->setText(i18n("Check can not executed in direct channel."));
+            mRunButton->setEnabled(false);
+        }
+    }
     readConfig();
 }
 
