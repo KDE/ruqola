@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-30 02:34+0000\n"
-"PO-Revision-Date: 2026-06-27 04:49+0200\n"
+"PO-Revision-Date: 2026-07-06 12:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -9225,11 +9225,7 @@ msgid "Unban Users"
 msgstr "მომხმარებლებისთვის ბანის მოხსნა"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid ""
-#| "Some users are banned from this room. Do you want to unban and add them "
-#| "back?"
+#, kde-format
 msgctxt "@label:textbox"
 msgid ""
 "Some user are banned from this room. Do you want to unban and add them back ?"
