@@ -1391,6 +1391,7 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Add a Server Checklist tool to verify a server after an upgrade.</li>
           <li>Adapt to RC 8.6.0 new API</li>
           <li xml:lang="ar">التكيف مع واجهة برمجة التطبيقات الجديدة RC 8.6.0</li>
           <li xml:lang="ca">Adapta a l'API nova RC 8.6.0</li>
