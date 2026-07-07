@@ -14,9 +14,11 @@
 #include "blockelement/autogenerateinteractionuiviewsectionblock.h"
 #include "ruqola_autogenerateui_debug.h"
 
+#include <QBoxLayout>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QLayout>
+#include <QScrollArea>
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
@@ -94,12 +96,24 @@ void AutoGenerateInteractionUiViewBlocks::setBlockElements(const QList<AutoGener
 
 void AutoGenerateInteractionUiViewBlocks::generateWidget(QWidget *parent)
 {
-    auto widget = new QWidget(parent);
-    parent->layout()->addWidget(widget);
+    auto area = new QScrollArea(parent);
+    area->setFrameShape(QFrame::NoFrame);
+    area->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    area->setWidgetResizable(true);
 
-    auto vboxLayout = new QVBoxLayout;
+    auto widget = new QWidget;
+    widget->setAutoFillBackground(true);
+    widget->setBackgroundRole(area->viewport()->backgroundRole());
+    area->setWidget(widget);
+
+    if (auto boxLayout = qobject_cast<QBoxLayout *>(parent->layout())) {
+        boxLayout->addWidget(area, 1);
+    } else {
+        parent->layout()->addWidget(area);
+    }
+
+    auto vboxLayout = new QVBoxLayout(widget);
     vboxLayout->setContentsMargins({});
-    widget->setLayout(vboxLayout);
     for (const auto &e : std::as_const(mBlockElements)) {
         connect(e, &AutoGenerateInteractionUiViewBlockBase::actionChanged, this, &AutoGenerateInteractionUiViewBlocks::actionChanged);
         vboxLayout->addWidget(e->generateWidget(widget));

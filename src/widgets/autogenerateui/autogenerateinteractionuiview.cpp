@@ -194,7 +194,6 @@ void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)
                 Q_EMIT submitButtonClicked(payload, appId);
             });
         }
-        mainLayout->addStretch(1);
         mainLayout->addWidget(buttonDialog);
     }
 }
