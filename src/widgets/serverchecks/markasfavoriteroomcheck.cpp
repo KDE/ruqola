@@ -25,3 +25,5 @@ void MarkAsFavoriteRoomCheck::checkState()
 {
     // TODO
 }
+
+#include "moc_markasfavoriteroomcheck.cpp"
