@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-06 00:45+0000\n"
-"PO-Revision-Date: 2026-07-02 08:22+0200\n"
+"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"PO-Revision-Date: 2026-07-05 09:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1749,12 +1749,12 @@ msgstr "S'ha unit a este equip"
 msgid "(Autojoin)"
 msgstr "(Unió automàtica)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
 #, kde-format
 msgid "Owner"
 msgstr "Propietari"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "Desconnectat"
@@ -1859,27 +1859,27 @@ msgstr "S'ha afegit un compte"
 msgid "A new account was added."
 msgstr "S'ha afegit un compte nou."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1176
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1179
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1567
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel is read only."
 msgstr "El canal només és de lectura."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1576
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Heu blocat este canal."
 
-#: core/room.cpp:1573
+#: core/room.cpp:1579
 #, kde-format
 msgid "Channel was blocked."
 msgstr "El canal està blocat."
@@ -2041,17 +2041,17 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:92 core/utils.cpp:357
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "Connectat"
 
-#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Ocupat"
 
-#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Absent"
@@ -6266,10 +6266,9 @@ msgid "Microsoft"
 msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "LibreTranslate"
-msgstr "Traducció automàtica"
+msgstr "LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
@@ -6293,15 +6292,15 @@ msgstr "Clau de l'API de Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
 #, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#| msgid "LibreTranslate"
 msgid "LibreTranslate URL"
-msgstr "Traducció automàtica"
+msgstr "LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
 #, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#| msgid "LibreTranslate"
 msgid "LibreTranslate API Key"
-msgstr "Traducció automàtica"
+msgstr "LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -9102,7 +9101,7 @@ msgstr "Textos"
 msgid "Files"
 msgstr "Fitxers"
 
-#: widgets/dialogs/showattachmentdialog.cpp:37
+#: widgets/dialogs/showattachmentdialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9872,7 +9871,7 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Disminuïx la mida de la lletra"
 
-#: widgets/misc/clickablewidget.cpp:63
+#: widgets/misc/clickablewidget.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"

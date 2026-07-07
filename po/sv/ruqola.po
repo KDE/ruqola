@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-06 00:45+0000\n"
+"POT-Creation-Date: 2026-07-07 00:43+0000\n"
 "PO-Revision-Date: 2025-10-10 21:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1748,12 +1748,12 @@ msgstr "Gick med i laget"
 msgid "(Autojoin)"
 msgstr "(automatiskt anslutning)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
 #, kde-format
 msgid "Owner"
 msgstr "Ägare"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "Nerkopplad"
@@ -1858,27 +1858,27 @@ msgstr "Konto tillagt"
 msgid "A new account was added."
 msgstr "Ett nytt konto har lagts till."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1176
 #, kde-format
 msgid "Leader"
 msgstr "Ledare"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1179
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1567
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalen är skrivskyddad."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1576
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Du har blockerat kanalen."
 
-#: core/room.cpp:1573
+#: core/room.cpp:1579
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalen har blockerats."
@@ -2047,17 +2047,17 @@ msgstr "Administratör"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:92 core/utils.cpp:357
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "Uppkopplad"
 
-#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Upptagen"
 
-#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Borta"
@@ -9092,7 +9092,7 @@ msgstr "Texter"
 msgid "Files"
 msgstr "Filer"
 
-#: widgets/dialogs/showattachmentdialog.cpp:37
+#: widgets/dialogs/showattachmentdialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9874,7 +9874,7 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Minska teckenstorlek"
 
-#: widgets/misc/clickablewidget.cpp:63
+#: widgets/misc/clickablewidget.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"

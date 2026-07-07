@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-06 00:45+0000\n"
-"PO-Revision-Date: 2026-07-05 19:06+0300\n"
+"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"PO-Revision-Date: 2026-07-06 20:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1743,12 +1743,12 @@ msgstr "Bu takıma katıldı"
 msgid "(Autojoin)"
 msgstr "(Otomatik Katılma)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
 #, kde-format
 msgid "Owner"
 msgstr "Sahip"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "Çevrim dışı"
@@ -1853,27 +1853,27 @@ msgstr "Hesap Eklendi"
 msgid "A new account was added."
 msgstr "Yeni bir hesap eklendi."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1176
 #, kde-format
 msgid "Leader"
 msgstr "Lider"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1179
 #, kde-format
 msgid "Moderator"
 msgstr "Moderatör"
 
-#: core/room.cpp:1567
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal, saltokunur."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1576
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Bu kanalı engellediniz."
 
-#: core/room.cpp:1573
+#: core/room.cpp:1579
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal engellenmiş."
@@ -2035,17 +2035,17 @@ msgstr "Yönetici"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:92 core/utils.cpp:357
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "Çevrim içi"
 
-#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Meşgul"
 
-#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Uzakta"
@@ -6243,16 +6243,14 @@ msgid "Microsoft API Key"
 msgstr "Microsoft API Anahtarı"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "LibreTranslate"
+#, kde-format
 msgid "LibreTranslate URL"
-msgstr "LibreTranslate"
+msgstr "LibreTranslate URL’si"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
-#, fuzzy, kde-format
-#| msgid "LibreTranslate"
+#, kde-format
 msgid "LibreTranslate API Key"
-msgstr "LibreTranslate"
+msgstr "LibreTranslate API anahtarı"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -9040,7 +9038,7 @@ msgstr "Metinler"
 msgid "Files"
 msgstr "Dosyalar"
 
-#: widgets/dialogs/showattachmentdialog.cpp:37
+#: widgets/dialogs/showattachmentdialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9805,7 +9803,7 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Yazıtipi Büyüklüğünü Azalt"
 
-#: widgets/misc/clickablewidget.cpp:63
+#: widgets/misc/clickablewidget.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"

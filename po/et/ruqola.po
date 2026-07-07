@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-06 00:45+0000\n"
+"POT-Creation-Date: 2026-07-07 00:43+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1886,12 +1886,12 @@ msgstr "%2 lisas %1 vestlusse"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
 #, kde-format
 msgid "Owner"
 msgstr "Omanik"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "Pole võrgus"
@@ -2000,27 +2000,27 @@ msgstr "Konto nimi:"
 msgid "A new account was added."
 msgstr "Konto nimi"
 
-#: core/room.cpp:1170
+#: core/room.cpp:1176
 #, kde-format
 msgid "Leader"
 msgstr "Juht"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1179
 #, kde-format
 msgid "Moderator"
 msgstr "Moderaator"
 
-#: core/room.cpp:1567
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal on kirjutuskaitstud."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1576
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Oled selle kanali blokkinud."
 
-#: core/room.cpp:1573
+#: core/room.cpp:1579
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal on blokitud."
@@ -2198,17 +2198,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:92 core/utils.cpp:357
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "Võrgus"
 
-#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Hõivatud"
 
-#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Eemal"
@@ -9590,7 +9590,7 @@ msgstr "Tekst:"
 msgid "Files"
 msgstr "Fail:"
 
-#: widgets/dialogs/showattachmentdialog.cpp:37
+#: widgets/dialogs/showattachmentdialog.cpp:38
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Attachments"
@@ -10415,7 +10415,7 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr ""
 
-#: widgets/misc/clickablewidget.cpp:63
+#: widgets/misc/clickablewidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@info:tooltip"

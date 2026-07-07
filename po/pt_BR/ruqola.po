@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-06 00:45+0000\n"
-"PO-Revision-Date: 2026-07-05 07:00-0300\n"
+"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"PO-Revision-Date: 2026-07-06 08:34-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -1744,12 +1744,12 @@ msgstr "Juntou-se a esta equipe"
 msgid "(Autojoin)"
 msgstr "(Entrada automática)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
 #, kde-format
 msgid "Owner"
 msgstr "Proprietário"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "Desconectado"
@@ -1854,27 +1854,27 @@ msgstr "Conta adicionada"
 msgid "A new account was added."
 msgstr "Uma nova conta foi adicionada."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1176
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1179
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1567
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel is read only."
 msgstr "O canal é somente leitura."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1576
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Você bloqueou este canal."
 
-#: core/room.cpp:1573
+#: core/room.cpp:1579
 #, kde-format
 msgid "Channel was blocked."
 msgstr "O canal foi bloqueado."
@@ -2036,17 +2036,17 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:92 core/utils.cpp:357
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "Conectado"
 
-#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Ocupado"
 
-#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Ausente"
@@ -6276,16 +6276,14 @@ msgid "Microsoft API Key"
 msgstr "Chave API da Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "LibreTranslate"
+#, kde-format
 msgid "LibreTranslate URL"
-msgstr "LibreTranslate"
+msgstr "URL do LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
-#, fuzzy, kde-format
-#| msgid "LibreTranslate"
+#, kde-format
 msgid "LibreTranslate API Key"
-msgstr "LibreTranslate"
+msgstr "Chave da API do LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -9089,7 +9087,7 @@ msgstr "Textos"
 msgid "Files"
 msgstr "Arquivos"
 
-#: widgets/dialogs/showattachmentdialog.cpp:37
+#: widgets/dialogs/showattachmentdialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9851,7 +9849,7 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Diminuir tamanho da fonte"
 
-#: widgets/misc/clickablewidget.cpp:63
+#: widgets/misc/clickablewidget.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-06 00:45+0000\n"
-"PO-Revision-Date: 2026-07-05 12:51+0300\n"
+"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"PO-Revision-Date: 2026-07-06 09:03+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1756,12 +1756,12 @@ msgstr "Долучено до цієї команди"
 msgid "(Autojoin)"
 msgstr "(Автодолучення)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
 #, kde-format
 msgid "Owner"
 msgstr "Власник"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "Поза мережею"
@@ -1866,27 +1866,27 @@ msgstr "Додано обліковий запис"
 msgid "A new account was added."
 msgstr "Було додано новий обліковий запис."
 
-#: core/room.cpp:1170
+#: core/room.cpp:1176
 #, kde-format
 msgid "Leader"
 msgstr "Лідер"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1179
 #, kde-format
 msgid "Moderator"
 msgstr "Модератор"
 
-#: core/room.cpp:1567
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel is read only."
 msgstr "Канал призначено лише для читання."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1576
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Вас заблоковано на цьому каналі."
 
-#: core/room.cpp:1573
+#: core/room.cpp:1579
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Канал заблоковано."
@@ -2060,17 +2060,17 @@ msgstr "Адміністратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/utils.cpp:92 core/utils.cpp:357
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "У мережі"
 
-#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Зайнято"
 
-#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Відсутність"
@@ -6326,16 +6326,14 @@ msgid "Microsoft API Key"
 msgstr "Ключ API Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "LibreTranslate"
+#, kde-format
 msgid "LibreTranslate URL"
-msgstr "LibreTranslate"
+msgstr "Адреса LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
-#, fuzzy, kde-format
-#| msgid "LibreTranslate"
+#, kde-format
 msgid "LibreTranslate API Key"
-msgstr "LibreTranslate"
+msgstr "Ключ до програмного інтерфейсу LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -9165,7 +9163,7 @@ msgstr "Текст"
 msgid "Files"
 msgstr "Файли"
 
-#: widgets/dialogs/showattachmentdialog.cpp:37
+#: widgets/dialogs/showattachmentdialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9940,7 +9938,7 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "Зменшити розмір шрифту"
 
-#: widgets/misc/clickablewidget.cpp:63
+#: widgets/misc/clickablewidget.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"

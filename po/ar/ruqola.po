@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-06 00:45+0000\n"
-"PO-Revision-Date: 2026-07-04 21:09+0400\n"
+"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"PO-Revision-Date: 2026-07-06 18:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1761,12 +1761,12 @@ msgstr "انضمّ  إلى هذا الفريق"
 msgid "(Autojoin)"
 msgstr "(انضمام آليّ)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
 #, kde-format
 msgid "Owner"
 msgstr "مالك"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:363
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "غير متّصل"
@@ -1871,27 +1871,27 @@ msgstr "أضيف حساب"
 msgid "A new account was added."
 msgstr "أضيف حساب جديد"
 
-#: core/room.cpp:1170
+#: core/room.cpp:1176
 #, kde-format
 msgid "Leader"
 msgstr "قائد"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1179
 #, kde-format
 msgid "Moderator"
 msgstr "وسيط"
 
-#: core/room.cpp:1567
+#: core/room.cpp:1573
 #, kde-format
 msgid "Channel is read only."
 msgstr "القناة للقراءة فقط."
 
-#: core/room.cpp:1570
+#: core/room.cpp:1576
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "لقد حظرت هذه القناة."
 
-#: core/room.cpp:1573
+#: core/room.cpp:1579
 #, kde-format
 msgid "Channel was blocked."
 msgstr "حُظرت القناة."
@@ -2077,17 +2077,17 @@ msgstr "إداري"
 msgid "Bot"
 msgstr "آليّ"
 
-#: core/utils.cpp:92 core/utils.cpp:357
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "متصل"
 
-#: core/utils.cpp:94 core/utils.cpp:359 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "مشغول"
 
-#: core/utils.cpp:96 core/utils.cpp:361 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "بالخارج"
@@ -6278,10 +6278,9 @@ msgid "Microsoft"
 msgstr "مايكروسوفت"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "LibreTranslate"
-msgstr "ترجمة آليّة"
+msgstr "LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
@@ -6304,16 +6303,14 @@ msgid "Microsoft API Key"
 msgstr "مفتاح واجهة برمجة تطبيقات Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "LibreTranslate URL"
-msgstr "ترجمة آليّة"
+msgstr "عنوان LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "LibreTranslate API Key"
-msgstr "ترجمة آليّة"
+msgstr "مفتاح واجهة برمجة تطبيقات LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -9111,7 +9108,7 @@ msgstr "النصوص"
 msgid "Files"
 msgstr "الملفات"
 
-#: widgets/dialogs/showattachmentdialog.cpp:37
+#: widgets/dialogs/showattachmentdialog.cpp:38
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9887,7 +9884,7 @@ msgctxt "@action"
 msgid "Decrease Font"
 msgstr "انقص حجم الخط"
 
-#: widgets/misc/clickablewidget.cpp:63
+#: widgets/misc/clickablewidget.cpp:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove"
