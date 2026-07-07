@@ -61,6 +61,7 @@ QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *pare
     if (mText && !mText->isEmpty()) {
         auto label = new QLabel(parent);
         label->setWordWrap(true);
+        label->setTextInteractionFlags(Qt::TextSelectableByMouse);
         label->setOpenExternalLinks(true);
         label->setText(mText->generateText());
         hboxLayout->addWidget(label);
