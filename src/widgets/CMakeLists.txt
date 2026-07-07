@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolawidgets
-    serverchecks/markasfavoriteroomcheck.h
-    serverchecks/markasfavoriteroomcheck.cpp
-)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
@@ -834,6 +830,10 @@ target_sources(
         serverchecks/serverchecklistmanager.cpp
         serverchecks/serverchecklistdialog.h
         serverchecks/serverchecklistdialog.cpp
+        serverchecks/markasfavoriteroomcheck.h
+        serverchecks/markasfavoriteroomcheck.cpp
+        serverchecks/descriptionchangecheck.cpp
+        serverchecks/descriptionchangecheck.h
         servererrorinfohistory/servererrorinfomessagewidget.h
         servererrorinfohistory/servererrorinfomessagewidget.cpp
         servererrorinfohistory/servererrorinfomessagehistorydialog.h
