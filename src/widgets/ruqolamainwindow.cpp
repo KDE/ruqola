@@ -128,7 +128,7 @@ RuqolaMainWindow::RuqolaMainWindow(const QList<KAboutRelease> &releases, QWidget
     setupStatusBar();
     setupGUI(/*u":/kxmlgui5/ruqola/ruqolaui.rc"_s*/);
     readConfig();
-    mNotificationManager->createSystemTray();
+    mNotificationManager->createSystemTray(this);
     connect(mNotificationManager, &NotificationManager::alert, this, [this]() {
         QApplication::alert(this, 0);
     });
@@ -914,7 +914,7 @@ void RuqolaMainWindow::slotConfigure()
         }
 
         mAccountOverviewWidget->updateButtons();
-        mNotificationManager->createSystemTray();
+        mNotificationManager->createSystemTray(this);
         Q_EMIT Ruqola::self()->translatorMenuChanged();
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     }

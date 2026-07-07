@@ -22,7 +22,7 @@ public:
     ~NotificationManager() override;
 
     [[nodiscard]] QMenu *contextStatusMenu() const;
-    void createSystemTray();
+    void createSystemTray(QObject *parent);
     void roomNeedAttention();
     void logout(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
