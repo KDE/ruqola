@@ -18,6 +18,7 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolalogger.h"
 #include "ruqolawidgets_debug.h"
+#include "serverchecks/serverchecklistdialog.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 
 #include "bannerinfodialog/bannerinfodialog.h"
@@ -690,6 +691,10 @@ void RuqolaMainWindow::setupActions()
     connect(mShowRocketChatServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotRocketChatInformation);
     ac->addAction(u"show_rocketchat_information"_s, mShowRocketChatServerInfo);
 
+    mServerCheckList = new QAction(QIcon::fromTheme(u"checkmark"_s), i18nc("@action", "Server Checklist…"), this);
+    connect(mServerCheckList, &QAction::triggered, this, &RuqolaMainWindow::slotServerCheckList);
+    ac->addAction(u"server_check_list"_s, mServerCheckList);
+
     mRoomAvatar = new QAction(i18nc("@action", "Show Room Avatar"), this);
     mRoomAvatar->setCheckable(true);
     connect(mRoomAvatar, &QAction::triggered, this, &RuqolaMainWindow::slotShowRoomAvatar);
@@ -1312,6 +1317,12 @@ void RuqolaMainWindow::slotOpenNotificationHistory()
 void RuqolaMainWindow::slotRocketChatInformation()
 {
     BannerInfoDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.exec();
+}
+
+void RuqolaMainWindow::slotServerCheckList()
+{
+    ServerCheckListDialog dlg(mCurrentRocketChatAccount, mMainWidget->roomId(), this);
     dlg.exec();
 }
 

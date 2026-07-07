@@ -3,7 +3,7 @@
   SPDX-License-Identifier: CC0-1.0
   SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 -->
-<gui name="ruqola" version="55">
+<gui name="ruqola" version="56">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -56,6 +56,8 @@
    <Action name="export_accounts" />
    <Separator/>
    <Action name="show_rocketchat_information" />
+   <Separator/>
+   <Action name="server_check_list" />
    <Separator/>
    <Action name="debug_menu" />
   </Menu>
