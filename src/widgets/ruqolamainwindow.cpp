@@ -1056,6 +1056,7 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     mApplications->setEnabled(!loginPageActivated && !offline);
     mRequestedApplications->setEnabled(!loginPageActivated && !offline);
     mInstalledApplications->setEnabled(!loginPageActivated && !offline);
+    mServerCheckList->setEnabled(!loginPageActivated && !offline);
 
     mRoomFavorite->setEnabled(!loginPageActivated);
     if (auto contextStatusMenu = mNotificationManager->contextStatusMenu()) {
