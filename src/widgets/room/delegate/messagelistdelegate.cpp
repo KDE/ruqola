@@ -102,7 +102,6 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateMessageStyle, this, &MessageListDelegate::switchMessageLayout);
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needUpdateFontSize, this, &MessageListDelegate::clearAvatarSizeHintCache);
     slotUpdateColors();
-    mSizeHintCache.setMaxEntries(32); // Enough ?
 }
 
 MessageListDelegate::~MessageListDelegate()
@@ -746,9 +745,9 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    auto it = mSizeHintCache.find(identifier);
-    if (it != mSizeHintCache.end()) {
-        const QSize result = it->value;
+    const auto it = mSizeHintCache.constFind(identifier);
+    if (it != mSizeHintCache.cend()) {
+        const QSize result = it.value();
         qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "MessageListDelegate: SizeHint found in cache: " << result;
         return result;
     }
