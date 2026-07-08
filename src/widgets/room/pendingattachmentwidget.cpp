@@ -26,31 +26,39 @@ PendingAttachmentWidget::PendingAttachmentWidget(QWidget *parent)
 
 PendingAttachmentWidget::~PendingAttachmentWidget() = default;
 
-void PendingAttachmentWidget::setAttachments(const QStringList &fileNames)
+void PendingAttachmentWidget::setAttachments(const QList<QUrl> &urls)
 {
     mFlowLayout->clearAndDeleteWidgets();
 
-    for (const QString &fileName : fileNames) {
-        if (mMap.contains(fileName)) {
+    for (const QUrl &url : urls) {
+        if (mMap.contains(url)) {
             continue;
         }
-        auto clickableWidget = new PendingAttachmentClickableWidget(fileName, this);
+        auto clickableWidget = new PendingAttachmentClickableWidget(url, this);
         connect(clickableWidget, &PendingAttachmentClickableWidget::removeAttachment, this, &PendingAttachmentWidget::slotRemoveAttachment);
         mFlowLayout->addWidget(clickableWidget);
-        mMap.insert(fileName, clickableWidget);
+        mMap.insert(url, clickableWidget);
     }
-    setVisible(!mMap.isEmpty());
+    updateAttachments();
 }
 
-void PendingAttachmentWidget::slotRemoveAttachment(const QString &fileName)
+void PendingAttachmentWidget::updateAttachments()
 {
-    PendingAttachmentClickableWidget *clickableWidget = mMap.value(fileName);
+    const bool result = hasAttachments();
+    setVisible(result);
+    Q_EMIT attachmentsChanged(result);
+}
+
+void PendingAttachmentWidget::slotRemoveAttachment(const QUrl &url)
+{
+    PendingAttachmentClickableWidget *clickableWidget = mMap.value(url);
     if (clickableWidget) {
         const int index = mFlowLayout->indexOf(clickableWidget);
         if (index != -1) {
-            mFlowLayout->deleteLater();
+            clickableWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
-            mMap.remove(fileName);
+            mMap.remove(url);
+            updateAttachments();
         }
     }
 }
@@ -64,6 +72,16 @@ void PendingAttachmentWidget::clear()
 {
     mFlowLayout->clearAndDeleteWidgets();
     mMap.clear();
+    hide();
+}
+
+QList<PendingAttachmentClickableWidget::PendingAttachmentInfo> PendingAttachmentWidget::attachmentsInfo() const
+{
+    QList<PendingAttachmentClickableWidget::PendingAttachmentInfo> lst;
+    for (auto i = mMap.cbegin(), end = mMap.cend(); i != end; ++i) {
+        lst += i.value()->pendingAttachmentInfo();
+    }
+    return lst;
 }
 
 #include "moc_pendingattachmentwidget.cpp"

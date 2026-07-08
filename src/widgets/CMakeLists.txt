@@ -1223,6 +1223,7 @@ target_link_libraries(
     KF6::KIOFileWidgets
     KF6::Archive
     KF6::Codecs
+    KF6::IconThemes
     librocketchatrestapi-qt
     libruqolacore
 )

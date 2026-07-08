@@ -83,7 +83,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendMessage(const QString &msg);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextEditing(bool clearNotification);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSendFile();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAttachFiles();
     LIBRUQOLAWIDGETS_NO_EXPORT void keyPressedInLineEdit(QKeyEvent *ev);
     LIBRUQOLAWIDGETS_NO_EXPORT void textEditClicked();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessagesModel *messageModel() const;
@@ -97,6 +97,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasCommandPreview(const QString &msg, const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void insertTimeStamp();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAttachmentsChanged(bool state);
 
     QList<PluginToolInterface *> mPluginToolInterface;
     QByteArray mThreadMessageId;

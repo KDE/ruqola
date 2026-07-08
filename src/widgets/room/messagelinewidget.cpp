@@ -68,6 +68,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mPendingAttachmentWidget->setObjectName(u"mPendingAttachmentWidget"_s);
     mPendingAttachmentWidget->hide();
     mainLayout->addWidget(mPendingAttachmentWidget);
+    connect(mPendingAttachmentWidget, &PendingAttachmentWidget::attachmentsChanged, this, &MessageLineWidget::slotAttachmentsChanged);
 
     auto rowWidget = new QWidget(this);
     auto rowLayout = new QHBoxLayout(rowWidget);
@@ -91,7 +92,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 #endif
 
     mSendFileButton->setIcon(QIcon::fromTheme(u"mail-attachment-symbolic"_s));
-    connect(mSendFileButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
+    connect(mSendFileButton, &QToolButton::clicked, this, &MessageLineWidget::slotAttachFiles);
 
     mVideoMessageButton->setAutoRaise(true);
     mVideoMessageButton->setObjectName(u"mVideoMessageButton"_s);
@@ -346,6 +347,21 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
         }
         setMode(MessageLineWidget::EditingMode::NewMessage);
     }
+    if (mPendingAttachmentWidget->hasAttachments()) {
+        const auto attachments = mPendingAttachmentWidget->attachmentsInfo();
+        for (const auto &att : attachments) {
+            RocketChatRestApi::UploadFileJob::UploadFileInfo info;
+            info.messageText = QString();
+            info.filenameUrl = att.fileUrl;
+            info.roomId = roomId();
+            info.threadMessageId = mThreadMessageId;
+            info.fileName = att.fileName;
+            info.deleteTemporaryFile = false;
+            info.rc80Server = mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0);
+            Q_EMIT createUploadJob(std::move(info));
+        }
+        mPendingAttachmentWidget->clear();
+    }
 }
 
 void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
@@ -515,7 +531,7 @@ void MessageLineWidget::slotSendVideoMessage()
     delete dlg;
 }
 
-void MessageLineWidget::slotSendFile()
+void MessageLineWidget::slotAttachFiles()
 {
     const QList<QUrl> urls = QFileDialog::getOpenFileUrls(this, i18nc("@title:window", "Upload File"));
     if (urls.isEmpty()) {
@@ -528,48 +544,41 @@ void MessageLineWidget::slotSendFile()
             whiteList.removeAll(mediaType);
         }
     }
+    QList<QUrl> result;
     for (const auto &url : urls) {
-        QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
-        dlg->setFileUrl(url);
-        // Disable for the moment dlg->setAuthorizedMediaTypes(whiteList);
-        // qDebug() << " whiteList " << whiteList << " blackList " << blackList;
-        if (dlg->exec()) {
-            const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
-            if (result.fileUrl.isLocalFile()) {
-                const QFileInfo info(result.fileUrl.toLocalFile());
-                const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
-                if (info.size() > maximumFileSize) {
-                    KMessageBox::error(this,
-                                       i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)),
-                                       i18nc("@title:window", "File upload"));
-                    delete dlg;
-                    return;
-                }
-                auto invalidMedia = [this, dlg]() {
-                    KMessageBox::error(this, i18n("Server doesn't authorized this file (invalid mimetype)"));
-                    delete dlg;
-                };
+        if (url.isLocalFile()) {
+            const QFileInfo info(url.toLocalFile());
+            const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
+            if (info.size() > maximumFileSize) {
+                KMessageBox::error(this,
+                                   i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)),
+                                   i18nc("@title:window", "File upload"));
+                continue;
+            }
+            auto invalidMedia = [this]() {
+                KMessageBox::error(this, i18n("Server doesn't authorized this file (invalid mimetype)"));
+            };
 
-                QMimeDatabase mimeDatabase;
-                const QString mimeTypeName = mimeDatabase.mimeTypeForFile(result.fileUrl.toLocalFile()).name();
+            QMimeDatabase mimeDatabase;
+            const QString mimeTypeName = mimeDatabase.mimeTypeForFile(url.toLocalFile()).name();
 #if 0 // Disable for the moment "image/*" is not a valid MIME type for example
-                qDebug() << " mimeTypeName" << mimeTypeName << " whiteList " << whiteList;
-                if (!whiteList.isEmpty()) {
-                    if (!whiteList.contains(mimeTypeName)) {
-                        invalidMedia();
-                        return;
-                    }
-                }
-#endif
-                if (blackList.contains(mimeTypeName)) {
+            qDebug() << " mimeTypeName" << mimeTypeName << " whiteList " << whiteList;
+            if (!whiteList.isEmpty()) {
+                if (!whiteList.contains(mimeTypeName)) {
                     invalidMedia();
                     return;
                 }
             }
-
-            sendFile(result);
+#endif
+            if (blackList.contains(mimeTypeName)) {
+                invalidMedia();
+                continue;
+            }
         }
-        delete dlg;
+        result.append(url);
+    }
+    if (!result.isEmpty()) {
+        mPendingAttachmentWidget->setAttachments(result);
     }
 }
 
@@ -612,7 +621,7 @@ void MessageLineWidget::setMode(EditingMode mode)
 
 void MessageLineWidget::slotTextEditing(bool clearNotification)
 {
-    mSendMessageButton->setEnabled(!clearNotification);
+    mSendMessageButton->setEnabled(!clearNotification || mPendingAttachmentWidget->hasAttachments());
     mCurrentRocketChatAccount->textEditing(roomId(), clearNotification);
 }
 
@@ -726,6 +735,11 @@ void MessageLineWidget::slotOfflineModeChanged()
 #if ADD_OFFLINE_SUPPORT
     setEnabled(!mCurrentRocketChatAccount->offlineMode());
 #endif
+}
+
+void MessageLineWidget::slotAttachmentsChanged(bool state)
+{
+    mSendMessageButton->setEnabled(state || !mMessageTextEdit->document()->isEmpty());
 }
 
 #include "moc_messagelinewidget.cpp"

@@ -6,37 +6,30 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "pendingattachmentclickablewidget.h"
 #include <QMap>
 #include <QUrl>
 #include <QWidget>
 class FlowLayout;
-class PendingAttachmentClickableWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PendingAttachmentWidget : public QWidget
 {
     Q_OBJECT
 public:
-    struct PendingAttachmentInfo {
-        QUrl fileUrl;
-        QString fileName;
-        QString name;
-        QString alternativeText;
-        [[nodiscard]] bool isValid() const
-        {
-            return fileUrl.isValid() && fileUrl.isLocalFile();
-        }
-    };
-
     explicit PendingAttachmentWidget(QWidget *parent = nullptr);
     ~PendingAttachmentWidget() override;
 
-    void setAttachments(const QStringList &fileNames);
+    void setAttachments(const QList<QUrl> &urls);
     [[nodiscard]] bool hasAttachments() const;
 
     void clear();
+    [[nodiscard]] QList<PendingAttachmentClickableWidget::PendingAttachmentInfo> attachmentsInfo() const;
+
+Q_SIGNALS:
+    void attachmentsChanged(bool state);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveAttachment(const QString &fileName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveAttachment(const QUrl &url);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateAttachments();
     FlowLayout *const mFlowLayout;
-    QMap<QString, PendingAttachmentClickableWidget *> mMap;
+    QMap<QUrl, PendingAttachmentClickableWidget *> mMap;
 };
-Q_DECLARE_TYPEINFO(PendingAttachmentWidget::PendingAttachmentInfo, Q_RELOCATABLE_TYPE);
