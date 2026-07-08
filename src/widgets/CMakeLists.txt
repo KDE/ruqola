@@ -834,6 +834,8 @@ target_sources(
         serverchecks/markasfavoriteroomcheck.cpp
         serverchecks/descriptionchangecheck.cpp
         serverchecks/descriptionchangecheck.h
+        serverchecks/announcementchangecheck.cpp
+        serverchecks/announcementchangecheck.h
         servererrorinfohistory/servererrorinfomessagewidget.h
         servererrorinfohistory/servererrorinfomessagewidget.cpp
         servererrorinfohistory/servererrorinfomessagehistorydialog.h
