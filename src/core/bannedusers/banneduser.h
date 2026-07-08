@@ -5,7 +5,10 @@
 */
 #pragma once
 #include "libruqolacore_export.h"
+#include <QMetaType>
+#include <QString>
 class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT BannedUser
 {
 public:
