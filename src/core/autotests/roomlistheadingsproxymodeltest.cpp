@@ -220,7 +220,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnUnreadChanges()
     QVERIFY(account.sortUnreadOnTop());
 
     RoomModel sourceModel(&account);
-    auto *room = new Room(&account);
+    auto room = new Room(&account);
     room->setRoomId("room1");
     room->setName(u"Room 1"_s);
     room->setChannelType(Room::RoomType::Channel);
@@ -248,7 +248,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnAlertChanges()
     account.setOwnUserPreferences(ownUserPreferences);
 
     RoomModel sourceModel(&account);
-    auto *room = new Room(&account);
+    auto room = new Room(&account);
     room->setRoomId("room1");
     room->setName(u"Room 1"_s);
     room->setChannelType(Room::RoomType::Channel);
@@ -277,7 +277,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnFavoriteChanges()
     account.setOwnUserPreferences(ownUserPreferences);
 
     RoomModel sourceModel(&account);
-    auto *room = new Room(&account);
+    auto room = new Room(&account);
     room->setRoomId("room1");
     room->setName(u"Room 1"_s);
     room->setChannelType(Room::RoomType::Channel);
@@ -305,7 +305,7 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnHideUnreadStatusChanges()
     account.setOwnUserPreferences(ownUserPreferences);
 
     RoomModel sourceModel(&account);
-    auto *room = new Room(&account);
+    auto room = new Room(&account);
     room->setRoomId("room1");
     room->setName(u"Room 1"_s);
     room->setChannelType(Room::RoomType::Channel);

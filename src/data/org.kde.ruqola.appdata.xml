@@ -1490,6 +1490,7 @@
           <li xml:lang="sk">Pridanie informácií o novej miestnosti v dialógu histórie oznámení.</li>
           <li xml:lang="sl">Dodaj podatke o novi sobi v pogovorno okno zgodovine obvestil.</li>
           <li xml:lang="tr">Bildirim geçmişi iletişim kutusuna yeni oda bilgisini ekle</li>
+          <li xml:lang="sv">Lägg till ny rumsinformation i dialogrutan med underrättelsehistorik.</li>
           <li xml:lang="uk">Додано відомості щодо нових кімнат до вікна журналу сповіщень</li>
           <li>Use new textmessagewidget for error notification</li>
           <li xml:lang="ar">استخدام ودجة رسالة نصية جديدة للإشعارات الأخطاء</li>
@@ -1674,6 +1675,7 @@
           <li xml:lang="sk">Pridanie podpory časových značiek</li>
           <li xml:lang="sl">Doda podporo za časovni žig</li>
           <li xml:lang="tr">Zaman damgası desteği ekle</li>
+          <li xml:lang="sv">Tillägg av stöd för tidsstämpel</li>
           <li xml:lang="uk">Додано підтримку часових позначок</li>
           <li>Save local translation to local database</li>
           <li xml:lang="ar">حفظ الترجمة المحلية في قاعدة البيانات المحلية</li>
@@ -1973,6 +1975,7 @@
           <li xml:lang="sk">Pridanie podpory akcií AI Rocket Chat</li>
           <li xml:lang="sl">Doda podporo za dejanja klepeta z AI Rocket</li>
           <li xml:lang="tr">Yapay zekâ Rocket.Chat eylemleri desteği ekle</li>
+          <li xml:lang="sv">Lägg till stöd för AI Rocket Chat-åtgärder</li>
           <li xml:lang="uk">Додано підтримку дій Rocket Chat з ШІ</li>
           <li>Fix apply, restore, cancel buttons in administration dialog</li>
           <li xml:lang="ar">إصلاح أزرار التطبيق والاستعادة والإلغاء في مربع حوار الإدارة</li>
@@ -2085,6 +2088,7 @@
           <li xml:lang="sk">Pridanie podpory zásuvných modulov nástrojov</li>
           <li xml:lang="sl">Doda podporo za vtičnike orodij</li>
           <li xml:lang="tr">Araçlar eklentileri için destek ekle</li>
+          <li xml:lang="sv">Lägg stöd för verktygsinsticksprogram</li>
           <li xml:lang="uk">Додано підтримку для додатків інструментів</li>
           <li>Plugin: Add screenshot button (near send message button)</li>
           <li xml:lang="ar">ملحق: إضافة زر لقطة الشاشة (بالقرب من زر إرسال رسالة)</li>
@@ -2171,6 +2175,7 @@
           <li xml:lang="sk">Implementácia podpory aplikácií Rocket.Chat</li>
           <li xml:lang="sl">Implementirajte podporo za aplikacijo Rocket.Chat</li>
           <li xml:lang="tr">Rocket.Chat uygulama desteğini gerçekle</li>
+          <li xml:lang="sv">Implementera Rocket Chat programstöd</li>
           <li xml:lang="uk">Реалізовано підтримку програм Rocket.Chat</li>
           <li>Implement command preview</li>
           <li xml:lang="ar">تنفيذ معاينة الأمر</li>
@@ -2342,6 +2347,7 @@
           <li xml:lang="sk">Oprava podpory tmavého režimu</li>
           <li xml:lang="sl">Popravljena podpora za temni način</li>
           <li xml:lang="tr">Koyu kip desteğini düzelt</li>
+          <li xml:lang="sv">Rätta stöd för mörkt läge</li>
           <li xml:lang="uk">Виправлено підтримку темного режиму</li>
           <li>Fix download languages apps</li>
           <li xml:lang="ar">إصلاح تنزيل تطبيقات لغات</li>
@@ -2479,6 +2485,7 @@
           <li xml:lang="sk">Oprava úpravy správ</li>
           <li xml:lang="sl">Popravi urejanje sporočila</li>
           <li xml:lang="tr">İletiyi düzenlemeyi düzelt</li>
+          <li xml:lang="sv">Rätta redigering av meddelanden</li>
           <li xml:lang="uk">Виправлено редагування повідомлень</li>
           <li>Show permissions in Rocket.Chat Marketplace</li>
           <li xml:lang="ar">اعرض الأذونات في متجر روكت تشات</li>
@@ -2565,6 +2572,7 @@
           <li xml:lang="sk">Oprava podpory videa v správach</li>
           <li xml:lang="sl">Popravi podporo za video sporočila</li>
           <li xml:lang="tr">İleti video desteğini düzelt</li>
+          <li xml:lang="sv">Rätta stöd för meddelandevideo</li>
           <li xml:lang="uk">Виправлено підтримку відео у повідомленнях</li>
           <li>Fix highlight text in quoted message</li>
           <li xml:lang="ar">إصلاح تمييز النص في الرسالة المقتبسة</li>
@@ -2852,6 +2860,7 @@
           <li xml:lang="sk">Vylepšenie podpory zmienok</li>
           <li xml:lang="sl">Izboljša podporo za omembe</li>
           <li xml:lang="tr">Söz etme desteğini iyileştir</li>
+          <li xml:lang="sv">Förbättra stöd för omnämnanden</li>
           <li xml:lang="uk">Удосконалено підтримку згадок</li>
           <li>Add support for deep linking</li>
           <li xml:lang="ar">إضافة الارتباط العميق الارتباط العميق</li>
@@ -2868,6 +2877,7 @@
           <li xml:lang="sk">Pridanie podpory hĺbkových odkazov</li>
           <li xml:lang="sl">Doda podporo za globoko povezovanje</li>
           <li xml:lang="tr">Derin bağlantı (deep linking) için destek ekle</li>
+          <li xml:lang="sv">Lägg till stöds för djup länkning</li>
           <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
           <li>Implement block actions</li>
           <li xml:lang="ar">تنفيذ إجراءات الحظر</li>
@@ -2926,6 +2936,7 @@
           <li xml:lang="sk">Pridanie podpory nahlasovania používateľov</li>
           <li xml:lang="sl">Doda podporo poročil uporabnikom</li>
           <li xml:lang="tr">Kullanıcıyı rapor etme desteği ekle</li>
+          <li xml:lang="sv">Lägg till stöd för rapportera användare</li>
           <li xml:lang="uk">Додано підтримку скарг на користувача</li>
           <li>Implement Channel Sound Notification</li>
           <li xml:lang="ar">تنفيذ إشعار صوت القناة</li>
@@ -2985,6 +2996,7 @@
           <li xml:lang="sk">Oprava podpory tmavého režimu</li>
           <li xml:lang="sl">Popravljena podpora za temni način</li>
           <li xml:lang="tr">Koyu kip desteğini düzelt</li>
+          <li xml:lang="sv">Rätta stöd för mörkt läge</li>
           <li xml:lang="uk">Виправлено підтримку темного режиму</li>
           <li>Fix jitsi support</li>
           <li xml:lang="ar">إصلاح التعامل مع جيتسي</li>
@@ -3001,6 +3013,7 @@
           <li xml:lang="sk">Oprava podpory Jitsi</li>
           <li xml:lang="sl">Popravi podporo za jitsi</li>
           <li xml:lang="tr">Jitsi desteğini düzelt</li>
+          <li xml:lang="sv">Rätta stöd för jitsi</li>
           <li xml:lang="uk">Виправлено підтримку jitsi</li>
           <li>Fix translate message in direct channel</li>
           <li xml:lang="ar">إصلاح ترجمة الرسالة في القناة المباشرة</li>
@@ -3285,6 +3298,7 @@
           <li xml:lang="sk">Ukladanie správ do miestnej databázy (experimentálne)</li>
           <li xml:lang="sl">Shrani sporočilo v lokalno zbirko podatkov (poskusno)</li>
           <li xml:lang="tr">İletiyi yerel veri tabanında depola (deneysel)</li>
+          <li xml:lang="sv">Lagra meddelanden i lokal databas (experimentellt)</li>
           <li xml:lang="uk">Зберігати повідомлення у локальній базі даних (експериментальна можливість)</li>
           <li>Download Server Icon from Server</li>
           <li xml:lang="ar">تنزيل أيقونة الخادم من الخادم</li>
@@ -3471,6 +3485,7 @@
           <li xml:lang="sk">Oprava podpory kf6</li>
           <li xml:lang="sl">Popravi podporo za kf6</li>
           <li xml:lang="tr">kf6 desteğini düzelt</li>
+          <li xml:lang="sv">Rätta stöd för kf6</li>
           <li xml:lang="uk">Виправлено підтримку kf6</li>
         </ul>
       </description>
