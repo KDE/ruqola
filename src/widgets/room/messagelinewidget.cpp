@@ -86,7 +86,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendFileButton->setAutoRaise(true);
     mSendFileButton->setObjectName(u"mSendFileButton"_s);
     mSendFileButton->setToolTip(i18nc("@info:tooltip", "Attach a file…"));
-    mainLayout->addWidget(mSendFileButton);
+    rowLayout->addWidget(mSendFileButton);
 #ifndef QT_NO_ACCESSIBILITY
     mSendFileButton->setAccessibleName(i18n("Attach File"));
 #endif
@@ -101,7 +101,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mVideoMessageButton->setAccessibleName(i18n("Video Message"));
 #endif
 
-    mainLayout->addWidget(mVideoMessageButton);
+    rowLayout->addWidget(mVideoMessageButton);
     mVideoMessageButton->setIcon(QIcon::fromTheme(u"camera-video"_s));
     connect(mVideoMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendVideoMessage);
 
@@ -112,7 +112,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSoundMessageButton->setAccessibleName(i18n("Sound Message"));
 #endif
 
-    mainLayout->addWidget(mSoundMessageButton);
+    rowLayout->addWidget(mSoundMessageButton);
     mSoundMessageButton->setIcon(QIcon::fromTheme(u"audio-input-microphone"_s));
     mSoundMessageButton->setToolTip(i18nc("@info:tooltip", "Send a sound message…"));
     connect(mSoundMessageButton, &QToolButton::clicked, this, &MessageLineWidget::slotSendSoundMessage);
@@ -125,7 +125,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 #ifndef QT_NO_ACCESSIBILITY
     mEmoticonButton->setAccessibleName(i18n("Add Emoticon"));
 #endif
-    mainLayout->addWidget(mEmoticonButton);
+    rowLayout->addWidget(mEmoticonButton);
 
     mSendMessageButton->setAutoRaise(true);
     mSendMessageButton->setObjectName(u"mSendMessageButton"_s);
@@ -134,7 +134,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 #ifndef QT_NO_ACCESSIBILITY
     mSendMessageButton->setAccessibleName(i18n("Send Message"));
 #endif
-    mainLayout->addWidget(mSendMessageButton);
+    rowLayout->addWidget(mSendMessageButton);
     mSendMessageButton->setEnabled(false);
     connect(mSendMessageButton, &QToolButton::clicked, this, [this]() {
         slotSendMessage(mMessageTextEdit->text());
@@ -182,12 +182,12 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
                 } else {
                     connect(pluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
                 }
-                mainLayout->addWidget(pluginButton);
+                rowLayout->addWidget(pluginButton);
             }
         }
     }
     mMessageLineExtraToolButton->setObjectName(u"mMessageLineExtraToolButton"_s);
-    mainLayout->addWidget(mMessageLineExtraToolButton);
+    rowLayout->addWidget(mMessageLineExtraToolButton);
     connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::uiInteractionRequested, this, &MessageLineWidget::uiInteractionRequested);
     connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::addWebDavServer, this, &MessageLineWidget::addWebDavServer);
     connect(mMessageLineExtraToolButton, &MessageLineExtraToolButton::insertTimeStamp, this, &MessageLineWidget::insertTimeStamp);
@@ -727,6 +727,12 @@ void MessageLineWidget::slotOfflineModeChanged()
 #if ADD_OFFLINE_SUPPORT
     setEnabled(!mCurrentRocketChatAccount->offlineMode());
 #endif
+}
+
+void MessageLineWidget::slotRemovePendingAttachment(const QString &fileName)
+{
+    mPendingAttachmentWidget->slotRemoveAttachment(fileName);
+    // TODO
 }
 
 #include "moc_messagelinewidget.cpp"

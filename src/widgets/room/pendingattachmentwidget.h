@@ -5,12 +5,12 @@
 */
 
 #pragma once
-
+#include "libruqolawidgets_private_export.h"
 #include <QMap>
 #include <QWidget>
 class FlowLayout;
 class PendingAttachmentClickableWidget;
-class PendingAttachmentWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT PendingAttachmentWidget : public QWidget
 {
     Q_OBJECT
 public:

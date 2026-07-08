@@ -5,9 +5,9 @@
 */
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class PendingAttachmentClickableWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT PendingAttachmentClickableWidget : public QWidget
 {
     Q_OBJECT
 public:
