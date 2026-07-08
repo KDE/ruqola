@@ -30,7 +30,7 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.mode(), MessageLineWidget::EditingMode::NewMessage);
     QVERIFY(w.threadMessageId().isEmpty());
 
-    auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
+    auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     QCOMPARE(mainLayout->spacing(), 0);

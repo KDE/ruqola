@@ -22,16 +22,19 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QString
     chipLayout->setSpacing(3);
 
     auto iconLabel = new QLabel(chip);
+    iconLabel->setObjectName(u"iconLabel"_s);
     iconLabel->setPixmap(QIcon::fromTheme(u"mail-attachment-symbolic"_s).pixmap(14, 14));
     chipLayout->addWidget(iconLabel);
 
     auto nameLabel = new QLabel(chip);
+    nameLabel->setObjectName(u"nameLabel"_s);
     const QString elided = nameLabel->fontMetrics().elidedText(fileName, Qt::ElideMiddle, 120);
     nameLabel->setText(elided);
     nameLabel->setToolTip(fileName);
     chipLayout->addWidget(nameLabel);
 
     auto removeBtn = new QToolButton(chip);
+    removeBtn->setObjectName(u"removeBtn"_s);
     removeBtn->setAutoRaise(true);
     removeBtn->setIcon(QIcon::fromTheme(u"edit-delete-remove"_s));
     removeBtn->setFixedSize(18, 18);
@@ -44,3 +47,5 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QString
 }
 
 PendingAttachmentClickableWidget::~PendingAttachmentClickableWidget() = default;
+
+#include "moc_pendingattachmentclickablewidget.cpp"
