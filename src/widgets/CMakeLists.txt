@@ -836,6 +836,8 @@ target_sources(
         serverchecks/descriptionchangecheck.h
         serverchecks/announcementchangecheck.cpp
         serverchecks/announcementchangecheck.h
+        serverchecks/addownerusercheck.cpp
+        serverchecks/addownerusercheck.h
         servererrorinfohistory/servererrorinfomessagewidget.h
         servererrorinfohistory/servererrorinfomessagewidget.cpp
         servererrorinfohistory/servererrorinfomessagehistorydialog.h
