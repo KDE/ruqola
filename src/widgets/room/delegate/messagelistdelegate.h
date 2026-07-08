@@ -10,7 +10,7 @@
 #include "messagelistlayout/messagelistlayoutbase.h"
 #include "room.h"
 
-#include "lrucache.h"
+#include <QHash>
 #include <QItemDelegate>
 #include <QScopedPointer>
 
@@ -137,9 +137,10 @@ private:
 
     friend class MessageListDelegateTest;
 
-    // Cache SizeHint value
-    // We need to clear it when we resize widget.
-    mutable LRUCache<QByteArray, QSize> mSizeHintCache;
+    // Cache SizeHint value, keyed by messageId. One entry per loaded message in the current room
+    // (cleared on room switch). Entries are invalidated individually when a message's height changes.
+    // We also need to clear it when we resize the widget.
+    mutable QHash<QByteArray, QSize> mSizeHintCache;
 
     const QIcon mEditedIcon;
     const QIcon mRolesIcon;
