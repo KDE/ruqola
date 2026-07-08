@@ -1055,6 +1055,7 @@ void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
     mClearRoomHistory->setEnabled(!loginPageActivated);
 
     mApplications->setEnabled(!loginPageActivated && !offline);
+    mPrivateApplications->setEnabled(!loginPageActivated && !offline);
     mRequestedApplications->setEnabled(!loginPageActivated && !offline);
     mInstalledApplications->setEnabled(!loginPageActivated && !offline);
     mServerCheckList->setEnabled(!loginPageActivated && !offline);
