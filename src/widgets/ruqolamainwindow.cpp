@@ -381,6 +381,7 @@ void RuqolaMainWindow::updateActions()
     mStatusComboBox->setEnabled(!offlineMode);
     mClearAlerts->setEnabled(!offlineMode);
     mAddServer->setEnabled(!offlineMode);
+    mServerCheckList->setEnabled(!offlineMode);
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
