@@ -166,7 +166,7 @@ void MessagesModel::addMessage(const Message &message)
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update first message";
-        emitChanged(0);
+        emitChanged(0, {OriginalMessageOrAttachmentDescription});
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update message: " << message.text();
         if (message.pendingMessage()) {
@@ -616,9 +616,10 @@ void MessagesModel::clear()
 
 void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
-    // The download of an attachment preview changes the message height, so we need to tell the view to
-    // recompute its size hint (via the Attachments role below). Avatars and emojis have a fixed size.
+    // The download of an attachment or url-preview image changes the message height, so we need to tell the
+    // view to recompute its size hint (via the role emitted below). Avatars and emojis have a fixed size.
     bool matchedAttachment = false;
+    bool matchedUrlPreview = false;
     auto matchesFilePath = [&](const QList<MessageAttachment> &msgAttachments) {
         return std::find_if(msgAttachments.begin(),
                             msgAttachments.end(),
@@ -633,6 +634,16 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
             if (matchesFilePath(msg.attachments()->messageAttachments())) {
                 matchedAttachment = true;
                 return true;
+            }
+        }
+        if (auto urls = msg.urls()) {
+            const auto messageUrls = urls->messageUrls();
+            for (const MessageUrl &url : messageUrls) {
+                const QString imageUrl = url.buildImageUrl();
+                if (!imageUrl.isEmpty() && mRocketChatAccount->urlForLink(imageUrl).path() == filePath) {
+                    matchedUrlPreview = true;
+                    return true;
+                }
             }
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();
@@ -656,7 +667,13 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
     });
     if (it != mAllMessages.end()) {
         const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
-        Q_EMIT dataChanged(idx, idx, matchedAttachment ? QList<int>{MessagesModel::Attachments} : QList<int>{});
+        QList<int> roles;
+        if (matchedAttachment) {
+            roles = {MessagesModel::Attachments};
+        } else if (matchedUrlPreview) {
+            roles = {MessagesModel::Urls};
+        }
+        Q_EMIT dataChanged(idx, idx, roles);
     } else {
         // Not necessarily a problem. The signal is emitted for CustomSounds or avatars, not just for attachments.
         // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Attachment not found:" << filePath << "in" << mRoom->name() << "which has" << mAllMessages.count() <<
