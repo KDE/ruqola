@@ -9,6 +9,7 @@
 #include "room/messagelineextratoolbutton.h"
 #include "room/messagelinewidget.h"
 #include "room/messagetextedit.h"
+#include "room/pendingattachmentwidget.h"
 #include <QHBoxLayout>
 #include <QStandardPaths>
 #include <QTest>
@@ -76,6 +77,9 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
 
     auto mMessageLineExtraToolButton = w.findChild<MessageLineExtraToolButton *>(u"mMessageLineExtraToolButton"_s);
     QVERIFY(mMessageLineExtraToolButton);
+
+    auto mPendingAttachmentWidget = w.findChild<PendingAttachmentWidget *>(u"mPendingAttachmentWidget"_s);
+    QVERIFY(mPendingAttachmentWidget);
 }
 
 #include "moc_messagelinewidgettest.cpp"
