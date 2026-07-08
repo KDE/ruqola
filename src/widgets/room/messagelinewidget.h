@@ -14,6 +14,7 @@
 #include <QPointer>
 
 class MessageTextEdit;
+class PendingAttachmentWidget;
 class QToolButton;
 class EmoticonMenuWidget;
 class RocketChatAccount;
@@ -110,6 +111,7 @@ private:
     QToolButton *const mEmoticonButton;
     QToolButton *const mSendMessageButton;
     MessageLineExtraToolButton *const mMessageLineExtraToolButton;
+    PendingAttachmentWidget *const mPendingAttachmentWidget;
     EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mReplyInThreadDialogBox = false;

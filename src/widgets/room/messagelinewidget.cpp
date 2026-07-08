@@ -13,6 +13,7 @@
 #include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
 #include "ownuser/ownuserpreferences.h"
+#include "pendingattachmentwidget.h"
 #include "rocketchataccount.h"
 #include "room/messagelineextratoolbutton.h"
 #include "room/plugins/plugintextinterface.h"
@@ -50,6 +51,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     , mEmoticonButton(new QToolButton(this))
     , mSendMessageButton(new QToolButton(this))
     , mMessageLineExtraToolButton(new MessageLineExtraToolButton(this))
+    , mPendingAttachmentWidget(new PendingAttachmentWidget(this))
 {
     QList<PluginTool *> plugins = ToolsPluginManager::self()->pluginsList();
     if (plugins.count() > 1) {
@@ -58,13 +60,24 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
         });
     }
 
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
+    mPendingAttachmentWidget->setObjectName(u"mPendingAttachmentWidget"_s);
+    mPendingAttachmentWidget->hide();
+    mainLayout->addWidget(mPendingAttachmentWidget);
+    connect(mPendingAttachmentWidget, &PendingAttachmentWidget::removeAttachment, this, &MessageLineWidget::slotRemovePendingAttachment);
+
+    auto rowWidget = new QWidget(this);
+    auto rowLayout = new QHBoxLayout(rowWidget);
+    rowLayout->setContentsMargins({});
+    rowLayout->setSpacing(0);
+    mainLayout->addWidget(rowWidget);
+
     mMessageTextEdit->setObjectName(u"mMessageTextEdit"_s);
-    mainLayout->addWidget(mMessageTextEdit);
+    rowLayout->addWidget(mMessageTextEdit);
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
     connect(mMessageTextEdit, &MessageTextEdit::keyPressed, this, &MessageLineWidget::keyPressedInLineEdit);
     connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
