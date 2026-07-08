@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"POT-Creation-Date: 2026-07-08 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2221,6 +2221,12 @@ msgid "%v second"
 msgid_plural "%v seconds"
 msgstr[0] "१ द्वितीयः"
 msgstr[1] "%1 सेकण्ड्"
+
+#: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:200
+#, fuzzy, kde-format
+#| msgid "Unread message not authorized."
+msgid "License not authorized it."
+msgstr "अपठितः सन्देशः अधिकृतः नास्ति।"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -7690,7 +7696,7 @@ msgid "Username or email:"
 msgstr "उपयोक्तृनाम अथवा ईमेल :"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1106
+#: widgets/ruqolamainwindow.cpp:1111
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7700,7 +7706,7 @@ msgstr ""
 "यदि भवान् शीघ्रमेव ईमेल न प्राप्नोति तर्हि कृपया पुनः आगत्य पुनः प्रयासं कुर्वन्तु।"
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1107
+#: widgets/ruqolamainwindow.cpp:1112
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -11664,273 +11670,281 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 कक्षे उपयोक्ता (कुलम्: %2)"
 msgstr[1] "%1 कक्षे उपयोक्तारः (कुलम्: %2)"
 
-#: widgets/ruqolamainwindow.cpp:236
+#: widgets/ruqolamainwindow.cpp:237
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "नवीनसूचनाः दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:238
+#: widgets/ruqolamainwindow.cpp:239
 #, kde-format
 msgid "Show New Notifications"
 msgstr "नवीनसूचनाः दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:437
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "सर्वरं योजयतु..."
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "सर्वर सूचना..."
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "वर्तमान सर्वरं लॉगआउट् कुर्वन्तु"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Next Unread Channel इत्यत्र कूदन्तु"
 
-#: widgets/ruqolamainwindow.cpp:455
+#: widgets/ruqolamainwindow.cpp:456
 #, kde-format
 msgid "Create New Channel…"
 msgstr "नूतनं चैनलं रचयन्तु..."
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:460
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "प्रत्यक्षसन्देशाः रचयन्तु..."
 
-#: widgets/ruqolamainwindow.cpp:463
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "Create Discussion…"
 msgstr "चर्चा रचयन्तु..."
 
-#: widgets/ruqolamainwindow.cpp:467
+#: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgid "Create Team…"
 msgstr "दलं रचयन्तु..."
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "उपरि अपठितम्"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "अन्तिमसन्देशेन"
 
-#: widgets/ruqolamainwindow.cpp:489
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "वर्णमालानुसारम्"
 
-#: widgets/ruqolamainwindow.cpp:495
+#: widgets/ruqolamainwindow.cpp:496
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Channel Log दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:500
 #, kde-format
 msgid "Show Server Errors"
 msgstr "सर्वर त्रुटिः दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "सर्वाणि चैनल्स् Read इति चिह्नं कुर्वन्तु"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "एकं नूतनं उपयोक्तारं पञ्जीकरणं कुर्वन्तु..."
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "मम खाता..."
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:557
 #, kde-format
 msgid "administration"
 msgstr "प्रशासनम्"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "प्रशासक..."
 
-#: widgets/ruqolamainwindow.cpp:563
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "सर्वर सेटिंग्स्..."
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:571
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "आवेदनम्..."
 
-#: widgets/ruqolamainwindow.cpp:575
+#: widgets/ruqolamainwindow.cpp:576
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "अनुरोधित आवेदनम्..."
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:581
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "संस्थापिताः अनुप्रयोगाः..."
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:586
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "निजी अनुप्रयोग..."
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Join Room..."
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:595
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "दलेन सम्मिलितं भवतु..."
 
-#: widgets/ruqolamainwindow.cpp:598
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "खुला निजी वार्तालाप..."
 
-#: widgets/ruqolamainwindow.cpp:619
+#: widgets/ruqolamainwindow.cpp:620
 #, kde-format
 msgid "&Next Server"
 msgstr "&अगला सर्वरः"
 
-#: widgets/ruqolamainwindow.cpp:624
+#: widgets/ruqolamainwindow.cpp:625
 #, kde-format
 msgid "&Previous Server"
 msgstr "&पूर्वसर्वर"
 
-#: widgets/ruqolamainwindow.cpp:633
+#: widgets/ruqolamainwindow.cpp:634
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "स्थितिः:"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:649
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "पूर्व चयनित चैनल"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:656
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "अग्रिमः चयनितः चैनलः"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:686
 #, kde-format
 msgid "Show Notify History"
 msgstr "इतिहासं सूचयतु इति दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:690
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "RocketChat सूचनां दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:694
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Server Settings…"
+msgctxt "@action"
+msgid "Server Checklist…"
+msgstr "सर्वर सेटिंग्स्..."
+
+#: widgets/ruqolamainwindow.cpp:698
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "कक्ष अवतार दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:703
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "प्रियं कक्षं दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:715
+#: widgets/ruqolamainwindow.cpp:720
 #, kde-format
 msgid "What's new"
 msgstr "किं नवीनम्"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:724
 #, kde-format
 msgid "Import Accounts"
 msgstr "आयात लेखा"
 
-#: widgets/ruqolamainwindow.cpp:723
+#: widgets/ruqolamainwindow.cpp:728
 #, kde-format
 msgid "Export Accounts"
 msgstr "निर्यात लेखा"
 
-#: widgets/ruqolamainwindow.cpp:740
+#: widgets/ruqolamainwindow.cpp:745
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "मध्यम"
 
-#: widgets/ruqolamainwindow.cpp:748
+#: widgets/ruqolamainwindow.cpp:753
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "सघनितम्"
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:762
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "विस्तृत"
 
-#: widgets/ruqolamainwindow.cpp:765
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid "Clear history"
 msgstr "इतिहासं स्पष्टं कुरुत"
 
-#: widgets/ruqolamainwindow.cpp:809
+#: widgets/ruqolamainwindow.cpp:814
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "दल रचयतु"
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1012
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "%1 लॉग् सञ्चिकायां लिखितुं न शक्यते"
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1012
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Channel Log दर्शयतु"
 
-#: widgets/ruqolamainwindow.cpp:1241
+#: widgets/ruqolamainwindow.cpp:1246
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11938,20 +11952,20 @@ msgid ""
 msgstr ""
 "<qt>एतेन मेनू-पट्टिका पूर्णतया गोप्यते । %1.</qt> इति टङ्कयित्वा पुनः दर्शयितुं शक्नुवन्ति"
 
-#: widgets/ruqolamainwindow.cpp:1244
+#: widgets/ruqolamainwindow.cpp:1249
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "मेनू-पट्टिकां गोपयन्तु"
 
-#: widgets/ruqolamainwindow.cpp:1425
+#: widgets/ruqolamainwindow.cpp:1436
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "अफलाइन"
 
-#: widgets/ruqolamainwindow.cpp:1428
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -11971,28 +11985,396 @@ msgid "Tools"
 msgstr "उपकरणाः"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:63
+#: widgets/ruqolaui.rc:65
 #, kde-format
 msgid "&Settings"
 msgstr "&सेटिंग्स"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:67
+#: widgets/ruqolaui.rc:69
 #, kde-format
 msgid "View"
 msgstr "दृश्यं"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:88
+#: widgets/ruqolaui.rc:90
 #, kde-format
 msgid "&Help"
 msgstr "&साहाय्यम्‌"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:95
+#: widgets/ruqolaui.rc:97
 #, kde-format
 msgid "Main Toolbar"
 msgstr "मुख्य साधनपट्टी"
+
+#: widgets/serverchecks/abstractservercheck.cpp:46
+#, kde-format
+msgid "Timed out waiting for the server to answer."
+msgstr ""
+
+#: widgets/serverchecks/abstractusercheck.cpp:81
+#: widgets/serverchecks/abstractusercheck.cpp:96
+#, kde-format
+msgid "Could not start the invite request."
+msgstr ""
+
+#: widgets/serverchecks/abstractusercheck.cpp:117
+#: widgets/serverchecks/abstractusercheck.cpp:129
+#, kde-format
+msgid "Could not start the kick request."
+msgstr ""
+
+#: widgets/serverchecks/adduserscheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Users in Room"
+msgid "Add user to room"
+msgstr "कक्षे उपयोक्तारः योजयन्तु"
+
+#: widgets/serverchecks/adduserscheck.cpp:19
+#: widgets/serverchecks/deletemessagecheck.cpp:22
+#: widgets/serverchecks/editmessagecheck.cpp:22
+#: widgets/serverchecks/favoritemessagecheck.cpp:24
+#: widgets/serverchecks/fileuploadcheck.cpp:31
+#: widgets/serverchecks/imagedescriptioncheck.cpp:37
+#: widgets/serverchecks/linkpreviewcheck.cpp:32
+#: widgets/serverchecks/pinmessagecheck.cpp:28
+#: widgets/serverchecks/quotemessagecheck.cpp:26
+#: widgets/serverchecks/reactioncheck.cpp:25
+#: widgets/serverchecks/removeuserscheck.cpp:19
+#: widgets/serverchecks/searchmessagecheck.cpp:36
+#: widgets/serverchecks/sendmessagecheck.cpp:21
+#: widgets/serverchecks/threadreplycheck.cpp:22
+#, fuzzy, kde-format
+#| msgid "My Account"
+msgid "No account."
+msgstr "मम खाता"
+
+#: widgets/serverchecks/adduserscheck.cpp:26
+#: widgets/serverchecks/removeuserscheck.cpp:25
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user \"%1\"?"
+msgid "Could not resolve user \"%1\"."
+msgstr "किं भवान् एतत् उपयोक्तारं \"%1\" अपसारयितुम् इच्छति?"
+
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr ""
+
+#: widgets/serverchecks/deletemessagecheck.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgid "Delete message"
+msgstr "सन्देशं विलोपयन्तु"
+
+#: widgets/serverchecks/descriptionchangecheck.cpp:21
+#, fuzzy, kde-format
+#| msgid "Invalid description"
+msgid "Change channel description"
+msgstr "असिद्धं वर्णनम्"
+
+#: widgets/serverchecks/descriptionchangecheck.cpp:39
+#: widgets/serverchecks/markasfavoriteroomcheck.cpp:34
+#: widgets/serverchecks/quotemessagecheck.cpp:51
+#: widgets/serverchecks/topicchangecheck.cpp:39
+#, fuzzy, kde-format
+#| msgid "You are not in the room `%s`"
+msgid "Could not find the room."
+msgstr "त्वं `%s` कक्षे न असि"
+
+#: widgets/serverchecks/editmessagecheck.cpp:16
+#, fuzzy, kde-format
+#| msgid "Direct message"
+msgid "Edit message"
+msgstr "प्रत्यक्षः सन्देशः"
+
+#: widgets/serverchecks/editmessagecheck.cpp:26
+#, kde-format
+msgid " (edited)"
+msgstr ""
+
+#: widgets/serverchecks/editmessagecheck.cpp:57
+#, kde-format
+msgid "Edited text arrived but the message is not flagged as edited."
+msgstr ""
+
+#: widgets/serverchecks/favoritemessagecheck.cpp:18
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Forward Message"
+msgid "Favorite (star) message"
+msgstr "अग्रे सन्देशः"
+
+#: widgets/serverchecks/favoritemessagecheck.cpp:50
+#, kde-format
+msgid "Could not start the star-message request."
+msgstr ""
+
+#: widgets/serverchecks/fileuploadcheck.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "File upload"
+msgid "File attachment upload"
+msgstr "सञ्चिका अपलोड्"
+
+#: widgets/serverchecks/fileuploadcheck.cpp:39
+#, fuzzy, kde-format
+#| msgid "Cannot write to log file %1"
+msgid "Cannot create a temporary file."
+msgstr "%1 लॉग् सञ्चिकायां लिखितुं न शक्यते"
+
+#: widgets/serverchecks/fileuploadcheck.cpp:80
+#, kde-format
+msgid "The file arrived but was not recognized as a file attachment."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:31
+#, fuzzy, kde-format
+#| msgid "Invalid description"
+msgid "Image description"
+msgstr "असिद्धं वर्णनम्"
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:47
+#, fuzzy, kde-format
+#| msgid "Cannot write to log file %1"
+msgid "Cannot create a temporary image file."
+msgstr "%1 लॉग् सञ्चिकायां लिखितुं न शक्यते"
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#, kde-format
+msgid "The image arrived but its description was dropped by the server."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#, kde-format
+msgid "The image arrived with a wrong description: \"%1\"."
+msgstr ""
+
+#: widgets/serverchecks/linkpreviewcheck.cpp:20
+#, fuzzy, kde-format
+#| msgid "Fix preview url."
+msgid "Link preview (URL unfurl)"
+msgstr "पूर्वावलोकन url निवारयन्तु।"
+
+#: widgets/serverchecks/markasfavoriteroomcheck.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Show Favorite Room"
+msgid "Change Favorite Room State"
+msgstr "प्रियं कक्षं दर्शयतु"
+
+#: widgets/serverchecks/pinmessagecheck.cpp:22
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin message"
+msgstr "पिन सन्देश"
+
+#: widgets/serverchecks/pinmessagecheck.cpp:63
+#, kde-format
+msgid "Could not start the pin-message request."
+msgstr ""
+
+#: widgets/serverchecks/pinmessagecheck.cpp:85
+#, kde-format
+msgid "The message was not found among the server's pinned messages."
+msgstr ""
+
+#: widgets/serverchecks/pinmessagecheck.cpp:92
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the pinned-messages request."
+msgstr "पिनयुक्तसन्देशान् न छंटाई कुर्वन्तु"
+
+#: widgets/serverchecks/quotemessagecheck.cpp:20
+#, fuzzy, kde-format
+#| msgid "Reported message"
+msgid "Quote message"
+msgstr "रिपोर्ट् कृतः सन्देशः"
+
+#: widgets/serverchecks/quotemessagecheck.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Quote"
+msgid " (quote)"
+msgstr "उद्धरण"
+
+#: widgets/serverchecks/reactioncheck.cpp:19
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Add reaction"
+msgid "Emoji reaction"
+msgstr "प्रतिक्रियां योजयन्तु"
+
+#: widgets/serverchecks/removeuserscheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove from Room"
+msgid "Remove user from room"
+msgstr "कक्षतः निष्कासयन्तु"
+
+#: widgets/serverchecks/removeuserscheck.cpp:34
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not remove \"%1\": %2"
+msgstr "किं भवान् \"%1\" अपसारयितुम् इच्छति?"
+
+#: widgets/serverchecks/searchmessagecheck.cpp:24
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Messages"
+msgid "Message search"
+msgstr "सन्देशाः"
+
+#: widgets/serverchecks/searchmessagecheck.cpp:86
+#, kde-format
+msgid "Could not start the search request."
+msgstr ""
+
+#: widgets/serverchecks/sendmessagecheck.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Send message"
+msgid "Send message"
+msgstr "सन्देशं प्रेषयन्तु"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:41
+#, kde-format
+msgctxt "@title:window"
+msgid "Server Checklist"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:45
+#, kde-format
+msgid ""
+"Runs a series of checks against the current server and reports whether each "
+"feature behaves as expected. Temporary test messages are sent to the "
+"selected channel and removed afterwards, so pick a scratch channel first."
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#, kde-format
+msgctxt "@title:column"
+msgid "Check"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#, kde-format
+msgctxt "@title:column"
+msgid "Result"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Run Checks"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:67
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Convert to Channel"
+msgctxt "@action:button"
+msgid "Post Results to Channel"
+msgstr "Channel मध्ये परिवर्तयन्तु"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:70
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Post the checklist results as a message in the current channel."
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:84
+#, kde-format
+msgid ""
+"<b>Open a channel first: the checks need a room to send their test messages "
+"to.</b>"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:90
+#, kde-format
+msgid "<b>Check can not executed in direct channel.</b>"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:110
+#, kde-format
+msgctxt "@info:status not run yet"
+msgid "Not run"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:122
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@info:status"
+msgid "Waiting…"
+msgstr "लोडिंग..."
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:132
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@info:status"
+msgid "Running…"
+msgstr "लोडिंग..."
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "OK"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Video: %1"
+msgctxt "@info:status"
+msgid "Failed: %1"
+msgstr "विडियो: %1"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:162
+#, fuzzy, kde-format
+#| msgid "Unknown"
+msgctxt "Unknown server version"
+msgid "unknown"
+msgstr "अज्ञात"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:165
+#, kde-format
+msgid ""
+"RC %1\n"
+"Automated check list from ruqola:\n"
+msgstr ""
+
+#: widgets/serverchecks/threadreplycheck.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Thread"
+msgid "Thread reply"
+msgstr "सूत्र"
+
+#: widgets/serverchecks/threadreplycheck.cpp:26
+#, kde-format
+msgid " (thread reply)"
+msgstr ""
+
+#: widgets/serverchecks/threadreplycheck.cpp:62
+#, kde-format
+msgid "The reply arrived but is not linked to the parent thread."
+msgstr ""
+
+#: widgets/serverchecks/topicchangecheck.cpp:21
+#, kde-format
+msgid "Change channel topic"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
 #, kde-format
@@ -12423,9 +12805,6 @@ msgstr "खाता योजयतु..."
 
 #~ msgid "Allow to send multi files."
 #~ msgstr "बहुसञ्चिकाः प्रेषयितुं अनुमतिं ददातु।"
-
-#~ msgid "Fix preview url."
-#~ msgstr "पूर्वावलोकन url निवारयन्तु।"
 
 #~ msgid "Implement Rocket.Chat Marketplace."
 #~ msgstr "Rocket.Chat Marketplace कार्यान्वितम्।"

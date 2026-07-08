@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"POT-Creation-Date: 2026-07-08 00:44+0000\n"
 "PO-Revision-Date: 2025-12-29 17:10+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2302,6 +2302,12 @@ msgstr[0] "%v sekundė"
 msgstr[1] "%v sekundės"
 msgstr[2] "%v sekundžių"
 msgstr[3] "%v sekundė"
+
+#: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:200
+#, fuzzy, kde-format
+#| msgid "User is not in this room"
+msgid "License not authorized it."
+msgstr "Naudotojo nėra šiame kambaryje"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -7895,7 +7901,7 @@ msgid "Username or email:"
 msgstr "Naudotojo vardas ar el. paštas:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1106
+#: widgets/ruqolamainwindow.cpp:1111
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7903,7 +7909,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1107
+#: widgets/ruqolamainwindow.cpp:1112
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgctxt "@title:window"
@@ -12035,25 +12041,25 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/ruqolamainwindow.cpp:236
+#: widgets/ruqolamainwindow.cpp:237
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Tapatybės nustatymo metodas"
 
-#: widgets/ruqolamainwindow.cpp:238
+#: widgets/ruqolamainwindow.cpp:239
 #, kde-format
 msgid "Show New Notifications"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:437
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Pridėti serverį…"
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:443
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Server Info"
@@ -12061,45 +12067,45 @@ msgctxt "@action"
 msgid "Server Info…"
 msgstr "Informacija apie serverį"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:447
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Sukurti paskyrą"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:451
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:455
+#: widgets/ruqolamainwindow.cpp:456
 #, fuzzy, kde-format
 #| msgid "Create a New Channel"
 msgid "Create New Channel…"
 msgstr "Sukurti naują kanalą"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:460
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Create Direct Messages…"
 msgstr "Ištrinti žinutę"
 
-#: widgets/ruqolamainwindow.cpp:463
+#: widgets/ruqolamainwindow.cpp:464
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
 msgid "Create Discussion…"
 msgstr "Sukurti diskusiją"
 
-#: widgets/ruqolamainwindow.cpp:467
+#: widgets/ruqolamainwindow.cpp:468
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgid "Create Team…"
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:476
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
@@ -12107,252 +12113,260 @@ msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Gijos"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:484
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "(Paskutinė žinutė: %1)"
 
-#: widgets/ruqolamainwindow.cpp:489
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:495
+#: widgets/ruqolamainwindow.cpp:496
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Show Channel Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:500
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Show Server Errors"
 msgstr "Informacija apie kanalą"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:544
 #, fuzzy, kde-format
 #| msgid "Mark all channels read"
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Žymėti visus kanalus kaip skaitytus"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:549
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Naudotojų sąrašas"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Mano paskyra…"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:557
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgid "administration"
 msgstr "Naudotojų sąrašas"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:563
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Serverio nuostatos…"
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:571
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Programa nerasta"
 
-#: widgets/ruqolamainwindow.cpp:575
+#: widgets/ruqolamainwindow.cpp:576
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Programa nerasta"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:581
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Programa nerasta"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:586
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Programa nerasta"
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:595
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Šalinti iš kambario"
 
-#: widgets/ruqolamainwindow.cpp:598
+#: widgets/ruqolamainwindow.cpp:599
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Šifruotas pokalbis"
 
-#: widgets/ruqolamainwindow.cpp:619
+#: widgets/ruqolamainwindow.cpp:620
 #, kde-format
 msgid "&Next Server"
 msgstr "&Kitas serveris"
 
-#: widgets/ruqolamainwindow.cpp:624
+#: widgets/ruqolamainwindow.cpp:625
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Ankstesnis serveris"
 
-#: widgets/ruqolamainwindow.cpp:633
+#: widgets/ruqolamainwindow.cpp:634
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Būsena:"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:649
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:656
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:686
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:690
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat prisijungimas"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:694
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Server Settings…"
+msgctxt "@action"
+msgid "Server Checklist…"
+msgstr "Serverio nuostatos…"
+
+#: widgets/ruqolamainwindow.cpp:698
 #, fuzzy, kde-format
 #| msgid "Password"
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Slaptažodis"
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:703
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Ištrinti kambarį"
 
-#: widgets/ruqolamainwindow.cpp:715
+#: widgets/ruqolamainwindow.cpp:720
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:724
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importuoti paskyras"
 
-#: widgets/ruqolamainwindow.cpp:723
+#: widgets/ruqolamainwindow.cpp:728
 #, kde-format
 msgid "Export Accounts"
 msgstr "Eksportuoti paskyras"
 
-#: widgets/ruqolamainwindow.cpp:740
+#: widgets/ruqolamainwindow.cpp:745
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:748
+#: widgets/ruqolamainwindow.cpp:753
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:762
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:765
+#: widgets/ruqolamainwindow.cpp:770
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Password"
 msgid "Clear history"
 msgstr "Pridėti slaptažodį"
 
-#: widgets/ruqolamainwindow.cpp:809
+#: widgets/ruqolamainwindow.cpp:814
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1012
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1012
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:1241
+#: widgets/ruqolamainwindow.cpp:1246
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1244
+#: widgets/ruqolamainwindow.cpp:1249
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Slėpti meniu juosta"
 
-#: widgets/ruqolamainwindow.cpp:1425
+#: widgets/ruqolamainwindow.cpp:1436
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1428
+#: widgets/ruqolamainwindow.cpp:1439
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
@@ -12371,28 +12385,383 @@ msgid "Tools"
 msgstr "Įrankiai"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:63
+#: widgets/ruqolaui.rc:65
 #, kde-format
 msgid "&Settings"
 msgstr "&Nuostatos"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:67
+#: widgets/ruqolaui.rc:69
 #, kde-format
 msgid "View"
 msgstr "Rodinys"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:88
+#: widgets/ruqolaui.rc:90
 #, kde-format
 msgid "&Help"
 msgstr "&Pagalba"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:95
+#: widgets/ruqolaui.rc:97
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Pagrindinė įrankių juosta"
+
+#: widgets/serverchecks/abstractservercheck.cpp:46
+#, kde-format
+msgid "Timed out waiting for the server to answer."
+msgstr ""
+
+#: widgets/serverchecks/abstractusercheck.cpp:81
+#: widgets/serverchecks/abstractusercheck.cpp:96
+#, kde-format
+msgid "Could not start the invite request."
+msgstr ""
+
+#: widgets/serverchecks/abstractusercheck.cpp:117
+#: widgets/serverchecks/abstractusercheck.cpp:129
+#, kde-format
+msgid "Could not start the kick request."
+msgstr ""
+
+#: widgets/serverchecks/adduserscheck.cpp:13
+#, fuzzy, kde-format
+#| msgid "Server Info..."
+msgid "Add user to room"
+msgstr "Informacija apie serverį..."
+
+#: widgets/serverchecks/adduserscheck.cpp:19
+#: widgets/serverchecks/deletemessagecheck.cpp:22
+#: widgets/serverchecks/editmessagecheck.cpp:22
+#: widgets/serverchecks/favoritemessagecheck.cpp:24
+#: widgets/serverchecks/fileuploadcheck.cpp:31
+#: widgets/serverchecks/imagedescriptioncheck.cpp:37
+#: widgets/serverchecks/linkpreviewcheck.cpp:32
+#: widgets/serverchecks/pinmessagecheck.cpp:28
+#: widgets/serverchecks/quotemessagecheck.cpp:26
+#: widgets/serverchecks/reactioncheck.cpp:25
+#: widgets/serverchecks/removeuserscheck.cpp:19
+#: widgets/serverchecks/searchmessagecheck.cpp:36
+#: widgets/serverchecks/sendmessagecheck.cpp:21
+#: widgets/serverchecks/threadreplycheck.cpp:22
+#, fuzzy, kde-format
+#| msgid "My Account"
+msgid "No account."
+msgstr "Mano paskyra"
+
+#: widgets/serverchecks/adduserscheck.cpp:26
+#: widgets/serverchecks/removeuserscheck.cpp:25
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user \"%1\"?"
+msgid "Could not resolve user \"%1\"."
+msgstr "Ar norite pašalinti šį naudotoją „%1“?"
+
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr ""
+
+#: widgets/serverchecks/deletemessagecheck.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgid "Delete message"
+msgstr "Ištrinti žinutę"
+
+#: widgets/serverchecks/descriptionchangecheck.cpp:21
+#, kde-format
+msgid "Change channel description"
+msgstr ""
+
+#: widgets/serverchecks/descriptionchangecheck.cpp:39
+#: widgets/serverchecks/markasfavoriteroomcheck.cpp:34
+#: widgets/serverchecks/quotemessagecheck.cpp:51
+#: widgets/serverchecks/topicchangecheck.cpp:39
+#, fuzzy, kde-format
+#| msgid "You are not in the room `%s`"
+msgid "Could not find the room."
+msgstr "Jūs nesate kambaryje \"%s\""
+
+#: widgets/serverchecks/editmessagecheck.cpp:16
+#, fuzzy, kde-format
+#| msgid "Direct message"
+msgid "Edit message"
+msgstr "Tiesioginė žinutė"
+
+#: widgets/serverchecks/editmessagecheck.cpp:26
+#, kde-format
+msgid " (edited)"
+msgstr ""
+
+#: widgets/serverchecks/editmessagecheck.cpp:57
+#, kde-format
+msgid "Edited text arrived but the message is not flagged as edited."
+msgstr ""
+
+#: widgets/serverchecks/favoritemessagecheck.cpp:18
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Favorite (star) message"
+msgstr "Šifruota žinutė"
+
+#: widgets/serverchecks/favoritemessagecheck.cpp:50
+#, kde-format
+msgid "Could not start the star-message request."
+msgstr ""
+
+#: widgets/serverchecks/fileuploadcheck.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Show Attachments - %1"
+msgid "File attachment upload"
+msgstr "Rodyti priedus – %1"
+
+#: widgets/serverchecks/fileuploadcheck.cpp:39
+#, kde-format
+msgid "Cannot create a temporary file."
+msgstr ""
+
+#: widgets/serverchecks/fileuploadcheck.cpp:80
+#, kde-format
+msgid "The file arrived but was not recognized as a file attachment."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:31
+#, fuzzy, kde-format
+#| msgid "Description"
+msgid "Image description"
+msgstr "Aprašas"
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:47
+#, kde-format
+msgid "Cannot create a temporary image file."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#, kde-format
+msgid "The image arrived but its description was dropped by the server."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#, kde-format
+msgid "The image arrived with a wrong description: \"%1\"."
+msgstr ""
+
+#: widgets/serverchecks/linkpreviewcheck.cpp:20
+#, kde-format
+msgid "Link preview (URL unfurl)"
+msgstr ""
+
+#: widgets/serverchecks/markasfavoriteroomcheck.cpp:16
+#, fuzzy, kde-format
+#| msgid "Delete Room"
+msgid "Change Favorite Room State"
+msgstr "Ištrinti kambarį"
+
+#: widgets/serverchecks/pinmessagecheck.cpp:22
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin message"
+msgstr "Prisegti žinutę"
+
+#: widgets/serverchecks/pinmessagecheck.cpp:63
+#, kde-format
+msgid "Could not start the pin-message request."
+msgstr ""
+
+#: widgets/serverchecks/pinmessagecheck.cpp:85
+#, kde-format
+msgid "The message was not found among the server's pinned messages."
+msgstr ""
+
+#: widgets/serverchecks/pinmessagecheck.cpp:92
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Could not start the pinned-messages request."
+msgstr "Šifruota žinutė"
+
+#: widgets/serverchecks/quotemessagecheck.cpp:20
+#, fuzzy, kde-format
+#| msgid "1 message"
+#| msgid_plural "%1 messages"
+msgid "Quote message"
+msgstr "1 žinutė"
+
+#: widgets/serverchecks/quotemessagecheck.cpp:30
+#, kde-format
+msgid " (quote)"
+msgstr ""
+
+#: widgets/serverchecks/reactioncheck.cpp:19
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Account"
+msgid "Emoji reaction"
+msgstr "Pridėti paskyrą"
+
+#: widgets/serverchecks/removeuserscheck.cpp:13
+#, fuzzy, kde-format
+#| msgid "Remove from Room"
+msgid "Remove user from room"
+msgstr "Šalinti iš kambario"
+
+#: widgets/serverchecks/removeuserscheck.cpp:34
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not remove \"%1\": %2"
+msgstr "Ar norite pašalinti „%1“?"
+
+#: widgets/serverchecks/searchmessagecheck.cpp:24
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Message search"
+msgstr "Šifruota žinutė"
+
+#: widgets/serverchecks/searchmessagecheck.cpp:86
+#, kde-format
+msgid "Could not start the search request."
+msgstr ""
+
+#: widgets/serverchecks/sendmessagecheck.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Send message"
+msgid "Send message"
+msgstr "Siųsti žinutę"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:41
+#, kde-format
+msgctxt "@title:window"
+msgid "Server Checklist"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:45
+#, kde-format
+msgid ""
+"Runs a series of checks against the current server and reports whether each "
+"feature behaves as expected. Temporary test messages are sent to the "
+"selected channel and removed afterwards, so pick a scratch channel first."
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#, kde-format
+msgctxt "@title:column"
+msgid "Check"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#, kde-format
+msgctxt "@title:column"
+msgid "Result"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Run Checks"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:67
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Channel"
+msgctxt "@action:button"
+msgid "Post Results to Channel"
+msgstr "Sukurti kanalą"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:70
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Post the checklist results as a message in the current channel."
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:84
+#, kde-format
+msgid ""
+"<b>Open a channel first: the checks need a room to send their test messages "
+"to.</b>"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:90
+#, kde-format
+msgid "<b>Check can not executed in direct channel.</b>"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:110
+#, kde-format
+msgctxt "@info:status not run yet"
+msgid "Not run"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:122
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@info:status"
+msgid "Waiting…"
+msgstr "Įkeliama…"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:132
+#, fuzzy, kde-format
+#| msgid "Loading…"
+msgctxt "@info:status"
+msgid "Running…"
+msgstr "Įkeliama…"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "OK"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#, kde-format
+msgctxt "@info:status"
+msgid "Failed: %1"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:162
+#, fuzzy, kde-format
+#| msgid "Unknown"
+msgctxt "Unknown server version"
+msgid "unknown"
+msgstr "Nežinoma"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:165
+#, kde-format
+msgid ""
+"RC %1\n"
+"Automated check list from ruqola:\n"
+msgstr ""
+
+#: widgets/serverchecks/threadreplycheck.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Threads"
+msgid "Thread reply"
+msgstr "Gijos"
+
+#: widgets/serverchecks/threadreplycheck.cpp:26
+#, kde-format
+msgid " (thread reply)"
+msgstr ""
+
+#: widgets/serverchecks/threadreplycheck.cpp:62
+#, kde-format
+msgid "The reply arrived but is not linked to the parent thread."
+msgstr ""
+
+#: widgets/serverchecks/topicchangecheck.cpp:21
+#, kde-format
+msgid "Change channel topic"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
 #, fuzzy, kde-format
@@ -12827,12 +13196,6 @@ msgstr "Pridėti paskyrą…"
 #~| msgid "Delete Attachment"
 #~ msgid "Fix show file attachment size."
 #~ msgstr "Ištrinti priedą"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Show Attachments - %1"
-#~ msgid "Show attachment fields."
-#~ msgstr "Rodyti priedus – %1"
 
 #, fuzzy
 #~| msgid "Android support"
@@ -13342,12 +13705,6 @@ msgstr "Pridėti paskyrą…"
 
 #~ msgid "Encrypted message: %1"
 #~ msgstr "Šifruota žinutė: %1"
-
-#, fuzzy
-#~| msgid "Server Info..."
-#~ msgctxt "@title:window"
-#~ msgid "Add User in Role"
-#~ msgstr "Informacija apie serverį..."
 
 #, fuzzy
 #~| msgid "Password"

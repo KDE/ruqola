@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-07 00:43+0000\n"
+"POT-Creation-Date: 2026-07-08 00:44+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2343,6 +2343,12 @@ msgid "%v second"
 msgid_plural "%v seconds"
 msgstr[0] "1 Sekunde"
 msgstr[1] "%1 Sekunden"
+
+#: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:200
+#, fuzzy, kde-format
+#| msgid "Not authorized"
+msgid "License not authorized it."
+msgstr "Nicht autorisiert"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, fuzzy, kde-format
@@ -8037,7 +8043,7 @@ msgid "Username or email:"
 msgstr "Benutzername"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1106
+#: widgets/ruqolamainwindow.cpp:1111
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8045,7 +8051,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1107
+#: widgets/ruqolamainwindow.cpp:1112
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -12245,20 +12251,20 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 Benutzer in Raum (Gesamt: %2)"
 msgstr[1] "%1 Benutzer in Raum (Gesamt: %2)"
 
-#: widgets/ruqolamainwindow.cpp:236
+#: widgets/ruqolamainwindow.cpp:237
 #, fuzzy, kde-format
 #| msgid "Mobile Notification:"
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Mobil-Benachrichtigung:"
 
-#: widgets/ruqolamainwindow.cpp:238
+#: widgets/ruqolamainwindow.cpp:239
 #, fuzzy, kde-format
 #| msgid "Mobile Notification:"
 msgid "Show New Notifications"
 msgstr "Mobil-Benachrichtigung:"
 
-#: widgets/ruqolamainwindow.cpp:437
+#: widgets/ruqolamainwindow.cpp:438
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Server"
@@ -12266,228 +12272,235 @@ msgctxt "@action"
 msgid "Add Server…"
 msgstr "Server hinzufügen"
 
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:443
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Serverinfo"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:447
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Zugang erstellen"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:451
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Kanal erstellen"
 
-#: widgets/ruqolamainwindow.cpp:455
+#: widgets/ruqolamainwindow.cpp:456
 #, fuzzy, kde-format
 #| msgid "Create New Channel"
 msgid "Create New Channel…"
 msgstr "Neuen Kanal erstellen"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:460
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
 msgid "Create Direct Messages…"
 msgstr "Video-Nachricht aufnehmen"
 
-#: widgets/ruqolamainwindow.cpp:463
+#: widgets/ruqolamainwindow.cpp:464
 #, fuzzy, kde-format
 #| msgid "Create Discussion..."
 msgid "Create Discussion…"
 msgstr "Diskussion erstellen ..."
 
-#: widgets/ruqolamainwindow.cpp:467
+#: widgets/ruqolamainwindow.cpp:468
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Team"
 msgid "Create Team…"
 msgstr "Team erstellen"
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:476
 #, fuzzy, kde-format
 #| msgid "Unread"
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Ungelesen"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:484
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "(Letzte Nachricht: %1)"
 
-#: widgets/ruqolamainwindow.cpp:489
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:495
+#: widgets/ruqolamainwindow.cpp:496
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgid "Show Channel Log"
 msgstr "Kein Kanal gefunden"
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:500
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgid "Show Server Errors"
 msgstr "Kanalinformation"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:544
 #, fuzzy, kde-format
 #| msgid "Mark all channels read"
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Alle Kanäle als gelesen markieren"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:549
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Neuen Benutzer registrieren"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:553
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Zugang hinzufügen"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:557
 #, fuzzy, kde-format
 #| msgid "Administrator"
 msgid "administration"
 msgstr "Administrator"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:558
 #, fuzzy, kde-format
 #| msgid "Administrator"
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administrator"
 
-#: widgets/ruqolamainwindow.cpp:563
+#: widgets/ruqolamainwindow.cpp:564
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Server-Information ..."
 
-#: widgets/ruqolamainwindow.cpp:570
+#: widgets/ruqolamainwindow.cpp:571
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Programm nicht gefunden"
 
-#: widgets/ruqolamainwindow.cpp:575
+#: widgets/ruqolamainwindow.cpp:576
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Programm nicht gefunden"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:581
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Programm nicht gefunden"
 
-#: widgets/ruqolamainwindow.cpp:585
+#: widgets/ruqolamainwindow.cpp:586
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Programm nicht gefunden"
 
-#: widgets/ruqolamainwindow.cpp:590
+#: widgets/ruqolamainwindow.cpp:591
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:594
+#: widgets/ruqolamainwindow.cpp:595
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Umwandeln in Team"
 
-#: widgets/ruqolamainwindow.cpp:598
+#: widgets/ruqolamainwindow.cpp:599
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Serverversion: %1"
 
-#: widgets/ruqolamainwindow.cpp:619
+#: widgets/ruqolamainwindow.cpp:620
 #, fuzzy, kde-format
 #| msgid "Server"
 msgid "&Next Server"
 msgstr "Server"
 
-#: widgets/ruqolamainwindow.cpp:624
+#: widgets/ruqolamainwindow.cpp:625
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "&Previous Server"
 msgstr "Kanal verlassen"
 
-#: widgets/ruqolamainwindow.cpp:633
+#: widgets/ruqolamainwindow.cpp:634
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Status:"
 
-#: widgets/ruqolamainwindow.cpp:648
+#: widgets/ruqolamainwindow.cpp:649
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Kanal verlassen"
 
-#: widgets/ruqolamainwindow.cpp:655
+#: widgets/ruqolamainwindow.cpp:656
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Kanal erstellen"
 
-#: widgets/ruqolamainwindow.cpp:685
+#: widgets/ruqolamainwindow.cpp:686
 #, fuzzy, kde-format
 #| msgid "Mobile Notification:"
 msgid "Show Notify History"
 msgstr "Mobil-Benachrichtigung:"
 
-#: widgets/ruqolamainwindow.cpp:689
+#: widgets/ruqolamainwindow.cpp:690
 #, fuzzy, kde-format
 #| msgid "Rocket Chat Client"
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket-Chat-Client"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:694
+#, fuzzy, kde-format
+#| msgid "Server Info..."
+msgctxt "@action"
+msgid "Server Checklist…"
+msgstr "Server-Information ..."
+
+#: widgets/ruqolamainwindow.cpp:698
 #, fuzzy, kde-format
 #| msgid "Show Room Avatar"
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Raum-Avatar anzeigen"
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:703
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Delete Rooms"
@@ -12495,86 +12508,86 @@ msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Räume löschen"
 
-#: widgets/ruqolamainwindow.cpp:715
+#: widgets/ruqolamainwindow.cpp:720
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:724
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Import Accounts"
 msgstr "Zugang"
 
-#: widgets/ruqolamainwindow.cpp:723
+#: widgets/ruqolamainwindow.cpp:728
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Export Accounts"
 msgstr "Zugang"
 
-#: widgets/ruqolamainwindow.cpp:740
+#: widgets/ruqolamainwindow.cpp:745
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:748
+#: widgets/ruqolamainwindow.cpp:753
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:762
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:765
+#: widgets/ruqolamainwindow.cpp:770
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Clear history"
 msgstr "Ungültiges Passwort"
 
-#: widgets/ruqolamainwindow.cpp:809
+#: widgets/ruqolamainwindow.cpp:814
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Team erstellen"
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1012
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1007
+#: widgets/ruqolamainwindow.cpp:1012
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kein Kanal gefunden"
 
-#: widgets/ruqolamainwindow.cpp:1241
+#: widgets/ruqolamainwindow.cpp:1246
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1244
+#: widgets/ruqolamainwindow.cpp:1249
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1425
+#: widgets/ruqolamainwindow.cpp:1436
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Offline"
 
-#: widgets/ruqolamainwindow.cpp:1428
+#: widgets/ruqolamainwindow.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12594,29 +12607,385 @@ msgid "Tools"
 msgstr ""
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:63
+#: widgets/ruqolaui.rc:65
 #, kde-format
 msgid "&Settings"
 msgstr ""
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:67
+#: widgets/ruqolaui.rc:69
 #, fuzzy, kde-format
 #| msgid "View Log"
 msgid "View"
 msgstr "Protokoll anzeigen"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:88
+#: widgets/ruqolaui.rc:90
 #, kde-format
 msgid "&Help"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:95
+#: widgets/ruqolaui.rc:97
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Haupt-Werkzeugleiste"
+
+#: widgets/serverchecks/abstractservercheck.cpp:46
+#, kde-format
+msgid "Timed out waiting for the server to answer."
+msgstr ""
+
+#: widgets/serverchecks/abstractusercheck.cpp:81
+#: widgets/serverchecks/abstractusercheck.cpp:96
+#, kde-format
+msgid "Could not start the invite request."
+msgstr ""
+
+#: widgets/serverchecks/abstractusercheck.cpp:117
+#: widgets/serverchecks/abstractusercheck.cpp:129
+#, kde-format
+msgid "Could not start the kick request."
+msgstr ""
+
+#: widgets/serverchecks/adduserscheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Users in Room"
+msgid "Add user to room"
+msgstr "Benutzer zum Raum hinzufügen"
+
+#: widgets/serverchecks/adduserscheck.cpp:19
+#: widgets/serverchecks/deletemessagecheck.cpp:22
+#: widgets/serverchecks/editmessagecheck.cpp:22
+#: widgets/serverchecks/favoritemessagecheck.cpp:24
+#: widgets/serverchecks/fileuploadcheck.cpp:31
+#: widgets/serverchecks/imagedescriptioncheck.cpp:37
+#: widgets/serverchecks/linkpreviewcheck.cpp:32
+#: widgets/serverchecks/pinmessagecheck.cpp:28
+#: widgets/serverchecks/quotemessagecheck.cpp:26
+#: widgets/serverchecks/reactioncheck.cpp:25
+#: widgets/serverchecks/removeuserscheck.cpp:19
+#: widgets/serverchecks/searchmessagecheck.cpp:36
+#: widgets/serverchecks/sendmessagecheck.cpp:21
+#: widgets/serverchecks/threadreplycheck.cpp:22
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgid "No account."
+msgstr "Zugang hinzufügen"
+
+#: widgets/serverchecks/adduserscheck.cpp:26
+#: widgets/serverchecks/removeuserscheck.cpp:25
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user?"
+msgid "Could not resolve user \"%1\"."
+msgstr "Möchten Sie diesen Benutzer entfernen?"
+
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr ""
+
+#: widgets/serverchecks/deletemessagecheck.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgid "Delete message"
+msgstr "Nachricht löschen"
+
+#: widgets/serverchecks/descriptionchangecheck.cpp:21
+#, fuzzy, kde-format
+#| msgid "Invalid description"
+msgid "Change channel description"
+msgstr "Ungültige Beschreibung"
+
+#: widgets/serverchecks/descriptionchangecheck.cpp:39
+#: widgets/serverchecks/markasfavoriteroomcheck.cpp:34
+#: widgets/serverchecks/quotemessagecheck.cpp:51
+#: widgets/serverchecks/topicchangecheck.cpp:39
+#, fuzzy, kde-format
+#| msgid "You are not in the room `%s`"
+msgid "Could not find the room."
+msgstr "Sie sind nicht im Raum „%s“"
+
+#: widgets/serverchecks/editmessagecheck.cpp:16
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Edit message"
+msgstr "Direktnachricht an jemanden senden"
+
+#: widgets/serverchecks/editmessagecheck.cpp:26
+#, kde-format
+msgid " (edited)"
+msgstr ""
+
+#: widgets/serverchecks/editmessagecheck.cpp:57
+#, kde-format
+msgid "Edited text arrived but the message is not flagged as edited."
+msgstr ""
+
+#: widgets/serverchecks/favoritemessagecheck.cpp:18
+#, fuzzy, kde-format
+#| msgid "All Messages"
+msgid "Favorite (star) message"
+msgstr "Alle Nachrichten"
+
+#: widgets/serverchecks/favoritemessagecheck.cpp:50
+#, kde-format
+msgid "Could not start the star-message request."
+msgstr ""
+
+#: widgets/serverchecks/fileuploadcheck.cpp:25
+#, fuzzy, kde-format
+#| msgid "File Uploaded:"
+msgid "File attachment upload"
+msgstr "Datei hochgeladen:"
+
+#: widgets/serverchecks/fileuploadcheck.cpp:39
+#, kde-format
+msgid "Cannot create a temporary file."
+msgstr ""
+
+#: widgets/serverchecks/fileuploadcheck.cpp:80
+#, kde-format
+msgid "The file arrived but was not recognized as a file attachment."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:31
+#, fuzzy, kde-format
+#| msgid "Invalid description"
+msgid "Image description"
+msgstr "Ungültige Beschreibung"
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:47
+#, kde-format
+msgid "Cannot create a temporary image file."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#, kde-format
+msgid "The image arrived but its description was dropped by the server."
+msgstr ""
+
+#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#, kde-format
+msgid "The image arrived with a wrong description: \"%1\"."
+msgstr ""
+
+#: widgets/serverchecks/linkpreviewcheck.cpp:20
+#, kde-format
+msgid "Link preview (URL unfurl)"
+msgstr ""
+
+#: widgets/serverchecks/markasfavoriteroomcheck.cpp:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Delete Rooms"
+msgid "Change Favorite Room State"
+msgstr "Räume löschen"
+
+#: widgets/serverchecks/pinmessagecheck.cpp:22
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "Pin message"
+msgstr "Private Nachrichten"
+
+#: widgets/serverchecks/pinmessagecheck.cpp:63
+#, kde-format
+msgid "Could not start the pin-message request."
+msgstr ""
+
+#: widgets/serverchecks/pinmessagecheck.cpp:85
+#, kde-format
+msgid "The message was not found among the server's pinned messages."
+msgstr ""
+
+#: widgets/serverchecks/pinmessagecheck.cpp:92
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "Could not start the pinned-messages request."
+msgstr "Private Nachrichten"
+
+#: widgets/serverchecks/quotemessagecheck.cpp:20
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Quote message"
+msgstr "Nachricht"
+
+#: widgets/serverchecks/quotemessagecheck.cpp:30
+#, fuzzy, kde-format
+#| msgid "Quote"
+msgid " (quote)"
+msgstr "Zitat"
+
+#: widgets/serverchecks/reactioncheck.cpp:19
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Account"
+msgid "Emoji reaction"
+msgstr "Zugang hinzufügen"
+
+#: widgets/serverchecks/removeuserscheck.cpp:13
+#, fuzzy, kde-format
+#| msgid "Remove from Room"
+msgid "Remove user from room"
+msgstr "Aus Raum entfernen"
+
+#: widgets/serverchecks/removeuserscheck.cpp:34
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not remove \"%1\": %2"
+msgstr "Möchten Sie „%1“ entfernen?"
+
+#: widgets/serverchecks/searchmessagecheck.cpp:24
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Message search"
+msgstr "Nachricht"
+
+#: widgets/serverchecks/searchmessagecheck.cpp:86
+#, kde-format
+msgid "Could not start the search request."
+msgstr ""
+
+#: widgets/serverchecks/sendmessagecheck.cpp:15
+#, fuzzy, kde-format
+#| msgid "Send Message"
+msgid "Send message"
+msgstr "Nachricht senden"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:41
+#, kde-format
+msgctxt "@title:window"
+msgid "Server Checklist"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:45
+#, kde-format
+msgid ""
+"Runs a series of checks against the current server and reports whether each "
+"feature behaves as expected. Temporary test messages are sent to the "
+"selected channel and removed afterwards, so pick a scratch channel first."
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#, kde-format
+msgctxt "@title:column"
+msgid "Check"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#, kde-format
+msgctxt "@title:column"
+msgid "Result"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:62
+#, kde-format
+msgctxt "@action:button"
+msgid "Run Checks"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:67
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create Channel"
+msgctxt "@action:button"
+msgid "Post Results to Channel"
+msgstr "Kanal erstellen"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:70
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Post the checklist results as a message in the current channel."
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:84
+#, kde-format
+msgid ""
+"<b>Open a channel first: the checks need a room to send their test messages "
+"to.</b>"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:90
+#, kde-format
+msgid "<b>Check can not executed in direct channel.</b>"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:110
+#, kde-format
+msgctxt "@info:status not run yet"
+msgid "Not run"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:122
+#, fuzzy, kde-format
+#| msgid "Loading..."
+msgctxt "@info:status"
+msgid "Waiting…"
+msgstr "Wird geladen ..."
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:132
+#, fuzzy, kde-format
+#| msgid "Loading..."
+msgctxt "@info:status"
+msgid "Running…"
+msgstr "Wird geladen ..."
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:141
+#, kde-format
+msgctxt "@info:status"
+msgid "OK"
+msgstr ""
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#, fuzzy, kde-format
+#| msgid "Job Failed"
+msgctxt "@info:status"
+msgid "Failed"
+msgstr "Vorgang fehlgeschlagen"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#, fuzzy, kde-format
+#| msgid "File Uploaded: %1"
+msgctxt "@info:status"
+msgid "Failed: %1"
+msgstr "Datei hochgeladen: %1"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:162
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgctxt "Unknown server version"
+msgid "unknown"
+msgstr "Unbekannter Status"
+
+#: widgets/serverchecks/serverchecklistdialog.cpp:165
+#, kde-format
+msgid ""
+"RC %1\n"
+"Automated check list from ruqola:\n"
+msgstr ""
+
+#: widgets/serverchecks/threadreplycheck.cpp:16
+#, fuzzy, kde-format
+#| msgid "Mentions"
+msgid "Thread reply"
+msgstr "Nennungen"
+
+#: widgets/serverchecks/threadreplycheck.cpp:26
+#, kde-format
+msgid " (thread reply)"
+msgstr ""
+
+#: widgets/serverchecks/threadreplycheck.cpp:62
+#, kde-format
+msgid "The reply arrived but is not linked to the parent thread."
+msgstr ""
+
+#: widgets/serverchecks/topicchangecheck.cpp:21
+#, kde-format
+msgid "Change channel topic"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
 #, fuzzy, kde-format
@@ -13589,9 +13958,6 @@ msgstr "Zugang hinzufügen"
 #~ msgid "File Uploaded:"
 #~ msgstr "Datei hochgeladen:"
 
-#~ msgid "File Uploaded: %1"
-#~ msgstr "Datei hochgeladen: %1"
-
 #~ msgid "Authentication Method"
 #~ msgstr "Anmeldeverfahren"
 
@@ -13952,9 +14318,6 @@ msgstr "Zugang hinzufügen"
 
 #~ msgid "Add Account..."
 #~ msgstr "Zugang hinzufügen ..."
-
-#~ msgid "Job Failed"
-#~ msgstr "Vorgang fehlgeschlagen"
 
 #, fuzzy
 #~| msgid "Ruqola"
