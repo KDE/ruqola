@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QMap>
+#include <QUrl>
 #include <QWidget>
 class FlowLayout;
 class PendingAttachmentClickableWidget;
@@ -14,6 +15,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PendingAttachmentWidget : public QWidget
 {
     Q_OBJECT
 public:
+    struct PendingAttachmentInfo {
+        QUrl fileUrl;
+        QString fileName;
+        QString name;
+        QString alternativeText;
+        [[nodiscard]] bool isValid() const
+        {
+            return fileUrl.isValid() && fileUrl.isLocalFile();
+        }
+    };
+
     explicit PendingAttachmentWidget(QWidget *parent = nullptr);
     ~PendingAttachmentWidget() override;
 
@@ -27,3 +39,4 @@ private:
     FlowLayout *const mFlowLayout;
     QMap<QString, PendingAttachmentClickableWidget *> mMap;
 };
+Q_DECLARE_TYPEINFO(PendingAttachmentWidget::PendingAttachmentInfo, Q_RELOCATABLE_TYPE);
