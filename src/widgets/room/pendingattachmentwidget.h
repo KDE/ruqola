@@ -1,0 +1,31 @@
+/*
+   SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+
+#include <QMap>
+#include <QWidget>
+class FlowLayout;
+class PendingAttachmentClickableWidget;
+class PendingAttachmentWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit PendingAttachmentWidget(QWidget *parent = nullptr);
+    ~PendingAttachmentWidget() override;
+
+    void setAttachments(const QStringList &fileNames);
+    [[nodiscard]] bool hasAttachments() const;
+
+    void slotRemoveAttachment(const QString &fileName);
+    void clear();
+Q_SIGNALS:
+    void removeAttachment(const QString &fileName);
+
+private:
+    FlowLayout *const mFlowLayout;
+    QMap<QString, PendingAttachmentClickableWidget *> mMap;
+};
