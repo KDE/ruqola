@@ -1395,6 +1395,7 @@
           <li>Adapt to RC 8.6.0 new API</li>
           <li xml:lang="ar">التكيف مع واجهة برمجة التطبيقات الجديدة RC 8.6.0</li>
           <li xml:lang="ca">Adapta a l'API nova RC 8.6.0</li>
+          <li xml:lang="ca-valencia">Adapta a l'API nova RC 8.6.0</li>
           <li xml:lang="ka">მორგება RC 8.6.0-ის ახალ API-ისთან</li>
           <li xml:lang="nl">Nieuwe API aanpassen aan RC 8.6.0</li>
           <li xml:lang="pt-BR">Adaptar à nova API do RC 8.6.0</li>
@@ -1404,6 +1405,7 @@
           <li>Show Read receipts info in message</li>
           <li xml:lang="ar">إظهار معلومات إيصالات القراءة في الرسالة</li>
           <li xml:lang="ca">Mostra la informació de les confirmacions de lectura en el missatge</li>
+          <li xml:lang="ca-valencia">Mostra la informació de les confirmacions de lectura en el missatge</li>
           <li xml:lang="ka">წაკითხულობის სტატუსის ჩვენება შეტყობინებაში</li>
           <li xml:lang="nl">Informatie over gelezen-berichten tonen in bericht</li>
           <li xml:lang="pt-BR">Mostrar informações de confirmação de leitura na mensagem</li>
