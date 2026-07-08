@@ -68,7 +68,6 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mPendingAttachmentWidget->setObjectName(u"mPendingAttachmentWidget"_s);
     mPendingAttachmentWidget->hide();
     mainLayout->addWidget(mPendingAttachmentWidget);
-    connect(mPendingAttachmentWidget, &PendingAttachmentWidget::removeAttachment, this, &MessageLineWidget::slotRemovePendingAttachment);
 
     auto rowWidget = new QWidget(this);
     auto rowLayout = new QHBoxLayout(rowWidget);
@@ -727,12 +726,6 @@ void MessageLineWidget::slotOfflineModeChanged()
 #if ADD_OFFLINE_SUPPORT
     setEnabled(!mCurrentRocketChatAccount->offlineMode());
 #endif
-}
-
-void MessageLineWidget::slotRemovePendingAttachment(const QString &fileName)
-{
-    mPendingAttachmentWidget->slotRemoveAttachment(fileName);
-    // TODO
 }
 
 #include "moc_messagelinewidget.cpp"

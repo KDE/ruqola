@@ -20,12 +20,10 @@ public:
     void setAttachments(const QStringList &fileNames);
     [[nodiscard]] bool hasAttachments() const;
 
-    void slotRemoveAttachment(const QString &fileName);
     void clear();
-Q_SIGNALS:
-    void removeAttachment(const QString &fileName);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveAttachment(const QString &fileName);
     FlowLayout *const mFlowLayout;
     QMap<QString, PendingAttachmentClickableWidget *> mMap;
 };

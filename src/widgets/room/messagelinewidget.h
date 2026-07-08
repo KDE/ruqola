@@ -97,7 +97,6 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasCommandPreview(const QString &msg, const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void insertTimeStamp();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemovePendingAttachment(const QString &fileName);
 
     QList<PluginToolInterface *> mPluginToolInterface;
     QByteArray mThreadMessageId;

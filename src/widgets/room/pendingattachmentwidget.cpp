@@ -35,7 +35,7 @@ void PendingAttachmentWidget::setAttachments(const QStringList &fileNames)
             continue;
         }
         auto clickableWidget = new PendingAttachmentClickableWidget(fileName, this);
-        connect(clickableWidget, &PendingAttachmentClickableWidget::removeAttachment, this, &PendingAttachmentWidget::removeAttachment);
+        connect(clickableWidget, &PendingAttachmentClickableWidget::removeAttachment, this, &PendingAttachmentWidget::slotRemoveAttachment);
         mFlowLayout->addWidget(clickableWidget);
         mMap.insert(fileName, clickableWidget);
     }
