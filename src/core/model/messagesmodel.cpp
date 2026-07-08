@@ -616,6 +616,9 @@ void MessagesModel::clear()
 
 void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
+    // The download of an attachment preview changes the message height, so we need to tell the view to
+    // recompute its size hint (via the Attachments role below). Avatars and emojis have a fixed size.
+    bool matchedAttachment = false;
     auto matchesFilePath = [&](const QList<MessageAttachment> &msgAttachments) {
         return std::find_if(msgAttachments.begin(),
                             msgAttachments.end(),
@@ -627,7 +630,10 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
     };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
         if (msg.attachments() && !msg.attachments()->messageAttachments().isEmpty()) {
-            return matchesFilePath(msg.attachments()->messageAttachments());
+            if (matchesFilePath(msg.attachments()->messageAttachments())) {
+                matchedAttachment = true;
+                return true;
+            }
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();
         if (auto reactionsMessages = msg.reactions()) {
@@ -650,7 +656,7 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
     });
     if (it != mAllMessages.end()) {
         const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
-        Q_EMIT dataChanged(idx, idx);
+        Q_EMIT dataChanged(idx, idx, matchedAttachment ? QList<int>{MessagesModel::Attachments} : QList<int>{});
     } else {
         // Not necessarily a problem. The signal is emitted for CustomSounds or avatars, not just for attachments.
         // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Attachment not found:" << filePath << "in" << mRoom->name() << "which has" << mAllMessages.count() <<

@@ -238,6 +238,13 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
                 mMessageListDelegate->removeSizeHintCache(message->messageId());
                 mCurrentRocketChatAccount->addMessageToDataBase(mRoom->roomId(), *message);
             }
+        } else if (roles.contains(MessagesModel::Attachments)) {
+            // An attachment preview was downloaded asynchronously: its size is now known, so the cached
+            // size hint (computed while the image was still downloading) is stale and must be dropped.
+            const Message *message = topLeft.data(MessagesModel::MessagePointer).value<Message *>();
+            if (message) {
+                mMessageListDelegate->removeSizeHintCache(message->messageId());
+            }
         }
     });
 
