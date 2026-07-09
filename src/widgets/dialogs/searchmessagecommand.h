@@ -5,7 +5,8 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
-
+#include <QMetaType>
+class QString;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageCommand
 {
     Q_GADGET
