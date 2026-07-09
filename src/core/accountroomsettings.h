@@ -9,11 +9,23 @@
 #include "libruqolacore_export.h"
 #include <QMap>
 #include <QString>
+#include <QUrl>
 class QJsonObject;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT AccountRoomSettings
 {
 public:
+    struct LIBRUQOLACORE_EXPORT PendingAttachmentInfo {
+        QUrl fileUrl;
+        QString fileName;
+        QString name;
+        QString alternativeText;
+        [[nodiscard]] bool isValid() const
+        {
+            return fileUrl.isValid() && fileUrl.isLocalFile();
+        }
+    };
+
     struct LIBRUQOLACORE_EXPORT PendingTypedInfo {
         QString text;
         QByteArray messageIdBeingEdited;
@@ -21,6 +33,7 @@ public:
         QString quotePermalink;
         QString quoteText;
         int scrollbarPosition = -1;
+        QList<AccountRoomSettings::PendingAttachmentInfo> mPendingAttachmentInfos;
         [[nodiscard]] bool isValid() const;
         [[nodiscard]] bool hasPendingMessageTyped() const;
         [[nodiscard]] static QJsonObject serialize(const PendingTypedInfo &url);
@@ -49,3 +62,5 @@ private:
 };
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingAttachmentInfo &t);
+Q_DECLARE_TYPEINFO(AccountRoomSettings::PendingAttachmentInfo, Q_RELOCATABLE_TYPE);

@@ -737,6 +737,7 @@ void RoomWidget::storeRoomSettings()
                 .quotePermalink = mRoomWidgetBase->messageLineWidget()->quotePermalink(),
                 .quoteText = mRoomWidgetBase->messageLineWidget()->quoteText(),
                 .scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value(),
+                .mPendingAttachmentInfos = {},
             };
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
             if (mRoom) {

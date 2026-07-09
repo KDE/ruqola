@@ -109,7 +109,7 @@ AccountRoomSettings::PendingTypedInfo AccountRoomSettings::PendingTypedInfo::des
 bool AccountRoomSettings::PendingTypedInfo::isValid() const
 {
     return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1) || !threadMessageId.isEmpty() || !quotePermalink.isEmpty()
-        || !quoteText.isEmpty();
+        || !quoteText.isEmpty() || !mPendingAttachmentInfos.isEmpty();
 }
 
 QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t)
@@ -120,5 +120,14 @@ QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t)
     d.space() << "threadMessageId" << t.threadMessageId;
     d.space() << "quotePermalink" << t.quotePermalink;
     d.space() << "quoteText" << t.quoteText;
+    return d;
+}
+
+QDebug operator<<(QDebug d, const AccountRoomSettings::PendingAttachmentInfo &t)
+{
+    d.space() << "fileUrl" << t.fileUrl;
+    d.space() << "fileName" << t.fileName;
+    d.space() << "name" << t.name;
+    d.space() << "alternativeText" << t.alternativeText;
     return d;
 }

@@ -25,8 +25,15 @@ void AccountRoomSettingsTest::shouldHaveDefaultValues()
     QVERIFY(info.messageIdBeingEdited.isEmpty());
     QVERIFY(info.threadMessageId.isEmpty());
     QCOMPARE(info.scrollbarPosition, -1);
+    QVERIFY(info.mPendingAttachmentInfos.isEmpty());
     QVERIFY(!info.isValid());
     QVERIFY(!info.hasPendingMessageTyped());
+
+    const AccountRoomSettings::PendingAttachmentInfo attachmentInfo;
+    QVERIFY(attachmentInfo.fileName.isEmpty());
+    QVERIFY(attachmentInfo.name.isEmpty());
+    QVERIFY(attachmentInfo.alternativeText.isEmpty());
+    QVERIFY(attachmentInfo.fileUrl.isEmpty());
 }
 
 void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
