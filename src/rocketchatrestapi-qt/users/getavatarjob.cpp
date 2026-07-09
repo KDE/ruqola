@@ -72,7 +72,7 @@ QNetworkRequest GetAvatarJob::request() const
 
 bool GetAvatarJob::requireHttpAuthentication() const
 {
-    return false;
+    return true;
 }
 
 QString GetAvatarJob::jobName() const

@@ -5,12 +5,12 @@
 */
 
 #include "getavatarjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "users/getavatarjob.h"
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(GetAvatarJobTest)
 using namespace RocketChatRestApi;
 GetAvatarJobTest::GetAvatarJobTest(QObject *parent)
@@ -24,7 +24,7 @@ void GetAvatarJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
-    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasUserIdentifier());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
