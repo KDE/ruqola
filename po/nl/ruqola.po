@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-08 00:44+0000\n"
-"PO-Revision-Date: 2026-07-06 10:13+0200\n"
+"POT-Creation-Date: 2026-07-09 00:44+0000\n"
+"PO-Revision-Date: 2026-07-08 16:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2202,10 +2202,9 @@ msgstr[0] "%v seconde"
 msgstr[1] "%v seconden"
 
 #: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:200
-#, fuzzy, kde-format
-#| msgid "Unread message not authorized."
+#, kde-format
 msgid "License not authorized it."
-msgstr "Ongelezen bericht niet geautoriseerd."
+msgstr "De licentie staat dit niet toe."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -3580,7 +3579,7 @@ msgstr "Alle rapporten verwerpen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:350
+#: widgets/room/messagelistview.cpp:357
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3589,7 +3588,7 @@ msgstr "Selectie kopiëren"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:352
+#: widgets/room/messagelistview.cpp:359
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3610,7 +3609,7 @@ msgstr "Tekst uitspreken"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:115
-#: widgets/room/messagelistview.cpp:383
+#: widgets/room/messagelistview.cpp:390
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7591,7 +7590,7 @@ msgid "Mark as Unread"
 msgstr "Als ongelezen markeren"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:370
+#: widgets/room/messagelistview.cpp:377
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -7725,7 +7724,7 @@ msgid "Username or email:"
 msgstr "Gebruikersnaam of e-mailadres:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1111
+#: widgets/ruqolamainwindow.cpp:1114
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7736,7 +7735,7 @@ msgstr ""
 "opnieuw."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1112
+#: widgets/ruqolamainwindow.cpp:1115
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -9314,7 +9313,7 @@ msgstr ""
 "weer toevoegen?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:508
+#: widgets/room/messagelinewidget.cpp:536
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10556,7 +10555,7 @@ msgid "Switch To New Room"
 msgstr "Schakel om naar nieuwe room"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:740
+#: widgets/room/messagelistview.cpp:747
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10801,94 +10800,94 @@ msgstr "Deelnemen"
 msgid "Link Preview"
 msgstr "Koppelingsvoorbeeld"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:431
+#: widgets/room/delegate/messagelistdelegate.cpp:430
 #, kde-format
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:441
-#: widgets/room/messagelistview.cpp:482
+#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/messagelistview.cpp:489
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Een privé conversatie beginnen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:457
-#: widgets/room/messagelistview.cpp:590 widgets/room/messagelistview.cpp:650
+#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/messagelistview.cpp:597 widgets/room/messagelistview.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Oorspronkelijke bericht tonen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:457
-#: widgets/room/messagelistview.cpp:590 widgets/room/messagelistview.cpp:650
+#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/messagelistview.cpp:597 widgets/room/messagelistview.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Bericht vertalen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:706
+#: widgets/room/delegate/messagelistdelegate.cpp:705
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 antwoord"
 msgstr[1] "%1 antwoorden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:716
+#: widgets/room/delegate/messagelistdelegate.cpp:715
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 bericht"
 msgstr[1] "%1 berichten"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:716
+#: widgets/room/delegate/messagelistdelegate.cpp:715
 #, kde-format
 msgid "No message yet"
 msgstr "Nog geen bericht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1035
+#: widgets/room/delegate/messagelistdelegate.cpp:1034
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Bezig met volgen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1039
+#: widgets/room/delegate/messagelistdelegate.cpp:1038
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Bericht is vastgepind"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1043
+#: widgets/room/delegate/messagelistdelegate.cpp:1042
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Bericht heeft een ster gekregen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1047
+#: widgets/room/delegate/messagelistdelegate.cpp:1046
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Melding heeft een vertaalde tekst"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1051
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1055
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Reactie toevoegen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1061
+#: widgets/room/delegate/messagelistdelegate.cpp:1060
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Stoppen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1061
+#: widgets/room/delegate/messagelistdelegate.cpp:1060
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -10912,105 +10911,106 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Meer acties"
 
-#: widgets/room/messagelinewidget.cpp:75
+#: widgets/room/messagelinewidget.cpp:88
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Een bestand bijvoegen…"
 
-#: widgets/room/messagelinewidget.cpp:78
+#: widgets/room/messagelinewidget.cpp:91
 #, kde-format
 msgid "Attach File"
 msgstr "Bestand bijvoegen"
 
-#: widgets/room/messagelinewidget.cpp:86
+#: widgets/room/messagelinewidget.cpp:99
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Een videobericht verzenden…"
 
-#: widgets/room/messagelinewidget.cpp:88
+#: widgets/room/messagelinewidget.cpp:101
 #, kde-format
 msgid "Video Message"
 msgstr "Videobericht"
 
-#: widgets/room/messagelinewidget.cpp:97 widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:110
+#: widgets/room/messagelinewidget.cpp:117
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Een geluidsbericht verzenden…"
 
-#: widgets/room/messagelinewidget.cpp:99
+#: widgets/room/messagelinewidget.cpp:112
 #, kde-format
 msgid "Sound Message"
 msgstr "Geluidsbericht"
 
-#: widgets/room/messagelinewidget.cpp:111
+#: widgets/room/messagelinewidget.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Emoticon toevoegen…"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:126
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Emoticon toevoegen"
 
-#: widgets/room/messagelinewidget.cpp:120
+#: widgets/room/messagelinewidget.cpp:133
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Bericht verzenden"
 
-#: widgets/room/messagelinewidget.cpp:122
+#: widgets/room/messagelinewidget.cpp:135
 #, kde-format
 msgid "Send Message"
 msgstr "Bericht verzenden"
 
-#: widgets/room/messagelinewidget.cpp:218
+#: widgets/room/messagelinewidget.cpp:231
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Opdracht is mislukt. Wilt u de opdracht naar het klembord kopiëren?"
 
-#: widgets/room/messagelinewidget.cpp:219
+#: widgets/room/messagelinewidget.cpp:232
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Opdrachtfout"
 
-#: widgets/room/messagelinewidget.cpp:276
+#: widgets/room/messagelinewidget.cpp:289
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Wilt u deze lange tekst als bijlage converteren?"
 
-#: widgets/room/messagelinewidget.cpp:277
+#: widgets/room/messagelinewidget.cpp:290
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Bericht is te lang"
 
-#: widgets/room/messagelinewidget.cpp:381
+#: widgets/room/messagelinewidget.cpp:409
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Bericht %1 in discussie"
 
-#: widgets/room/messagelinewidget.cpp:381
+#: widgets/room/messagelinewidget.cpp:409
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Een bericht verzenden in %1…"
 
-#: widgets/room/messagelinewidget.cpp:531
+#: widgets/room/messagelinewidget.cpp:554
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Geselecteerde bestand is te groot (maximale grootte %1)"
 
-#: widgets/room/messagelinewidget.cpp:532
+#: widgets/room/messagelinewidget.cpp:555
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Bestand uploaden"
 
-#: widgets/room/messagelinewidget.cpp:537
+#: widgets/room/messagelinewidget.cpp:559
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Server autoriseert dit bestand niet (ongeldig mime-type)"
@@ -11025,138 +11025,138 @@ msgstr "U doet mee met een nieuw direct bericht"
 msgid "Start of conversation"
 msgstr "Begin van conversatie"
 
-#: widgets/room/messagelistview.cpp:361
+#: widgets/room/messagelistview.cpp:368
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Bericht losmaken"
 
-#: widgets/room/messagelistview.cpp:361
+#: widgets/room/messagelistview.cpp:368
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Bericht vastpinnen"
 
-#: widgets/room/messagelistview.cpp:370
+#: widgets/room/messagelistview.cpp:377
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Als favoriet verwijderen"
 
-#: widgets/room/messagelistview.cpp:377
+#: widgets/room/messagelistview.cpp:384
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: widgets/room/messagelistview.cpp:390
+#: widgets/room/messagelistview.cpp:397
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Bericht markeren als ongelezen"
 
-#: widgets/room/messagelistview.cpp:395
+#: widgets/room/messagelistview.cpp:402
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Volledige thread tonen"
 
-#: widgets/room/messagelistview.cpp:400
+#: widgets/room/messagelistview.cpp:407
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Bewerken"
 
-#: widgets/room/messagelistview.cpp:405
+#: widgets/room/messagelistview.cpp:412
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citaat"
 
-#: widgets/room/messagelistview.cpp:410
+#: widgets/room/messagelistview.cpp:417
 #, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Gelezen-berichten"
 
-#: widgets/room/messagelistview.cpp:415
+#: widgets/room/messagelistview.cpp:422
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Koppeling naar bericht kopiëren"
 
-#: widgets/room/messagelistview.cpp:420
+#: widgets/room/messagelistview.cpp:427
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Bericht doorsturen"
 
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Bericht niet volgen"
 
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:443
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Bericht volgen"
 
-#: widgets/room/messagelistview.cpp:450
+#: widgets/room/messagelistview.cpp:457
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL kopiëren"
 
-#: widgets/room/messagelistview.cpp:473 widgets/room/usersinroommenu.cpp:137
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
-#: widgets/room/messagelistview.cpp:520
+#: widgets/room/messagelistview.cpp:527
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Een discussie starten"
 
-#: widgets/room/messagelistview.cpp:526
+#: widgets/room/messagelistview.cpp:533
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
 
-#: widgets/room/messagelistview.cpp:660
+#: widgets/room/messagelistview.cpp:667
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Rapporten bekijken"
 
-#: widgets/room/messagelistview.cpp:683
+#: widgets/room/messagelistview.cpp:690
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Rapporten verwerpen"
 
-#: widgets/room/messagelistview.cpp:757
+#: widgets/room/messagelistview.cpp:764
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Bericht rapporteren"
 
-#: widgets/room/messagelistview.cpp:1011
+#: widgets/room/messagelistview.cpp:1018
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Wilt u dit bericht verwijderen?"
 
-#: widgets/room/messagelistview.cpp:1012
+#: widgets/room/messagelistview.cpp:1019
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Bericht verwijderen"
 
-#: widgets/room/messagelistview.cpp:1206
+#: widgets/room/messagelistview.cpp:1213
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11201,6 +11201,14 @@ msgstr "Url in markdown"
 #, kde-format
 msgid "New Message"
 msgstr "Nieuw bericht"
+
+#: widgets/room/pendingattachmentclickablewidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save Attachment"
+msgctxt "@info:tooltip"
+msgid "Remove attachment"
+msgstr "Bijlage opslaan"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11628,270 +11636,268 @@ msgstr "Nieuwe meldingen tonen"
 msgid "Show New Notifications"
 msgstr "Nieuwe meldingen tonen"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:439
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Server toevoegen…"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:444
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Serverinformatie…"
 
-#: widgets/ruqolamainwindow.cpp:447
+#: widgets/ruqolamainwindow.cpp:448
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Afmelden uit huidige server"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Naar volgende ongelezen kanaal gaan"
 
-#: widgets/ruqolamainwindow.cpp:456
+#: widgets/ruqolamainwindow.cpp:457
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Nieuw kanaal aanmaken…"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:461
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Directe berichten aanmaken…"
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:465
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Discussie aanmaken…"
 
-#: widgets/ruqolamainwindow.cpp:468
+#: widgets/ruqolamainwindow.cpp:469
 #, kde-format
 msgid "Create Team…"
 msgstr "Team aanmaken…"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Ongelezen bovenaan"
 
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Op laatste bericht"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alfabetisch"
 
-#: widgets/ruqolamainwindow.cpp:496
+#: widgets/ruqolamainwindow.cpp:497
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Kanaallog tonen"
 
-#: widgets/ruqolamainwindow.cpp:500
+#: widgets/ruqolamainwindow.cpp:501
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Serverfouten tonen"
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:545
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Alle kanalen markeren als gelezen"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:550
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Nieuwe gebruiker registreren…"
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:554
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Mijn account…"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:558
 #, kde-format
 msgid "administration"
 msgstr "systeembeheer"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:559
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Systeembeheerder…"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:565
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Serverinstellingen…"
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:572
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Toepassingen…"
 
-#: widgets/ruqolamainwindow.cpp:576
+#: widgets/ruqolamainwindow.cpp:577
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Gevraagde toepassingen…"
 
-#: widgets/ruqolamainwindow.cpp:581
+#: widgets/ruqolamainwindow.cpp:582
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Geïnstalleerde toepassingen…"
 
-#: widgets/ruqolamainwindow.cpp:586
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Private toepassingen…"
 
-#: widgets/ruqolamainwindow.cpp:591
+#: widgets/ruqolamainwindow.cpp:592
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Deelnemen aan chatroom…"
 
-#: widgets/ruqolamainwindow.cpp:595
+#: widgets/ruqolamainwindow.cpp:596
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Doet mee aan dit team…"
 
-#: widgets/ruqolamainwindow.cpp:599
+#: widgets/ruqolamainwindow.cpp:600
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Privé conversatie openen"
 
-#: widgets/ruqolamainwindow.cpp:620
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgid "&Next Server"
 msgstr "&Volgende server"
 
-#: widgets/ruqolamainwindow.cpp:625
+#: widgets/ruqolamainwindow.cpp:626
 #, kde-format
 msgid "&Previous Server"
 msgstr "Vo&rige server"
 
-#: widgets/ruqolamainwindow.cpp:634
+#: widgets/ruqolamainwindow.cpp:635
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Status:"
 
-#: widgets/ruqolamainwindow.cpp:649
+#: widgets/ruqolamainwindow.cpp:650
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Vorig geselecteerd kanaal"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:657
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Volgend geselecteerd kanaal"
 
-#: widgets/ruqolamainwindow.cpp:686
+#: widgets/ruqolamainwindow.cpp:687
 #, kde-format
 msgid "Show Notify History"
 msgstr "Geschiedenis van meldingen tonen"
 
-#: widgets/ruqolamainwindow.cpp:690
+#: widgets/ruqolamainwindow.cpp:691
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "RocketChat-informatie tonen"
 
-#: widgets/ruqolamainwindow.cpp:694
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Server Settings…"
+#: widgets/ruqolamainwindow.cpp:695
+#, kde-format
 msgctxt "@action"
 msgid "Server Checklist…"
-msgstr "Serverinstellingen…"
+msgstr "Servercontrolelijst…"
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:699
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Room-avatar tonen"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:704
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Favoriete room tonen"
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:721
 #, kde-format
 msgid "What's new"
 msgstr "Wat is nieuw"
 
-#: widgets/ruqolamainwindow.cpp:724
+#: widgets/ruqolamainwindow.cpp:725
 #, kde-format
 msgid "Import Accounts"
 msgstr "Accounts importeren"
 
-#: widgets/ruqolamainwindow.cpp:728
+#: widgets/ruqolamainwindow.cpp:729
 #, kde-format
 msgid "Export Accounts"
 msgstr "Accounts exporteren"
 
-#: widgets/ruqolamainwindow.cpp:745
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Medium"
 
-#: widgets/ruqolamainwindow.cpp:753
+#: widgets/ruqolamainwindow.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Slank"
 
-#: widgets/ruqolamainwindow.cpp:762
+#: widgets/ruqolamainwindow.cpp:763
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Uitgebreid"
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:771
 #, kde-format
 msgid "Clear history"
 msgstr "Geschiedenis wissen"
 
-#: widgets/ruqolamainwindow.cpp:814
+#: widgets/ruqolamainwindow.cpp:815
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Team aanmaken"
 
-#: widgets/ruqolamainwindow.cpp:1012
+#: widgets/ruqolamainwindow.cpp:1013
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Kan niet naar logbestand %1 schrijven"
 
-#: widgets/ruqolamainwindow.cpp:1012
+#: widgets/ruqolamainwindow.cpp:1013
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kanaallog tonen"
 
-#: widgets/ruqolamainwindow.cpp:1246
+#: widgets/ruqolamainwindow.cpp:1249
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11900,19 +11906,19 @@ msgstr ""
 "<qt>Hierdoor wordt de menubalk geheel verborgen. U kunt die weer zichtbaar "
 "maken door %1 te typen.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1252
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menubalk verbergen"
 
-#: widgets/ruqolamainwindow.cpp:1436
+#: widgets/ruqolamainwindow.cpp:1439
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Online werken"
 
-#: widgets/ruqolamainwindow.cpp:1439
+#: widgets/ruqolamainwindow.cpp:1442
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
@@ -11957,27 +11963,28 @@ msgstr "Hoofdwerkbalk"
 #: widgets/serverchecks/abstractservercheck.cpp:46
 #, kde-format
 msgid "Timed out waiting for the server to answer."
-msgstr ""
+msgstr "Wachttijd verstreken bij het wachten op antwoord van de server."
 
 #: widgets/serverchecks/abstractusercheck.cpp:81
 #: widgets/serverchecks/abstractusercheck.cpp:96
 #, kde-format
 msgid "Could not start the invite request."
-msgstr ""
+msgstr "Kon het uitnodigingsverzoek niet starten."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
 #: widgets/serverchecks/abstractusercheck.cpp:129
 #, kde-format
 msgid "Could not start the kick request."
-msgstr ""
+msgstr "Kon het kickverzoek niet starten."
 
-#: widgets/serverchecks/adduserscheck.cpp:13
+#: widgets/serverchecks/addownerusercheck.cpp:13
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Add Users in Room"
-msgid "Add user to room"
-msgstr "Gebruikers aan room toevoegen"
+#| msgid "Change Url"
+msgid "Change Owner User"
+msgstr "URL wijzigen"
 
+#: widgets/serverchecks/addownerusercheck.cpp:19
 #: widgets/serverchecks/adduserscheck.cpp:19
 #: widgets/serverchecks/deletemessagecheck.cpp:22
 #: widgets/serverchecks/editmessagecheck.cpp:22
@@ -11992,198 +11999,185 @@ msgstr "Gebruikers aan room toevoegen"
 #: widgets/serverchecks/searchmessagecheck.cpp:36
 #: widgets/serverchecks/sendmessagecheck.cpp:21
 #: widgets/serverchecks/threadreplycheck.cpp:22
-#, fuzzy, kde-format
-#| msgid "My Account"
+#, kde-format
 msgid "No account."
-msgstr "Mijn account"
+msgstr "Geen account."
 
+#: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#, kde-format
 msgid "Could not resolve user \"%1\"."
-msgstr "Wilt u deze gebruiker \"%1\" verwijderen?"
+msgstr "Kon gebruiker \"%1\" niet vinden."
 
+#: widgets/serverchecks/addownerusercheck.cpp:34
 #: widgets/serverchecks/adduserscheck.cpp:34
 #, kde-format
 msgid "Could not add \"%1\": %2"
-msgstr ""
+msgstr "Kon \"%1\" niet toevoegen: %2"
 
-#: widgets/serverchecks/deletemessagecheck.cpp:16
+#: widgets/serverchecks/adduserscheck.cpp:13
+#, kde-format
+msgid "Add user to room"
+msgstr "Gebruikers aan room toevoegen"
+
+#: widgets/serverchecks/announcementchangecheck.cpp:21
 #, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
-msgid "Delete message"
-msgstr "Bericht verwijderen"
+#| msgid "Change channel topic"
+msgid "Change channel announcement"
+msgstr "Onderwerp van kanaal wijzigen"
 
-#: widgets/serverchecks/descriptionchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
-msgid "Change channel description"
-msgstr "Ongeldige beschrijving"
-
+#: widgets/serverchecks/announcementchangecheck.cpp:39
 #: widgets/serverchecks/descriptionchangecheck.cpp:39
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:34
 #: widgets/serverchecks/quotemessagecheck.cpp:51
 #: widgets/serverchecks/topicchangecheck.cpp:39
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "Could not find the room."
-msgstr "U bent niet in de room `%s`"
+msgstr "Kon de room niet vinden."
+
+#: widgets/serverchecks/deletemessagecheck.cpp:16
+#, kde-format
+msgid "Delete message"
+msgstr "Bericht verwijderen"
+
+#: widgets/serverchecks/descriptionchangecheck.cpp:21
+#, kde-format
+msgid "Change channel description"
+msgstr "Kanaalbeschrijving wijzigen"
 
 #: widgets/serverchecks/editmessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Edit message"
-msgstr "Direct bericht"
+msgstr "Bericht bewerken"
 
 #: widgets/serverchecks/editmessagecheck.cpp:26
 #, kde-format
 msgid " (edited)"
-msgstr ""
+msgstr " (bewerkt)"
 
 #: widgets/serverchecks/editmessagecheck.cpp:57
 #, kde-format
 msgid "Edited text arrived but the message is not flagged as edited."
 msgstr ""
+"De bewerkte tekst is aangekomen, maar het bericht is niet gemarkeerd als "
+"bewerkt."
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Forward Message"
+#, kde-format
 msgid "Favorite (star) message"
-msgstr "Bericht doorsturen"
+msgstr "Favoriet (met ster) bericht"
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:50
 #, kde-format
 msgid "Could not start the star-message request."
-msgstr ""
+msgstr "Het verzoek voor het sterbericht kon niet worden gestart."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "File upload"
+#, kde-format
 msgid "File attachment upload"
-msgstr "Bestand uploaden"
+msgstr "Uploaden van bestandsbijlage"
 
 #: widgets/serverchecks/fileuploadcheck.cpp:39
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary file."
-msgstr "Kan niet naar logbestand %1 schrijven"
+msgstr "Kan geen tijdelijk bestand aanmaken."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:80
 #, kde-format
 msgid "The file arrived but was not recognized as a file attachment."
-msgstr ""
+msgstr "Het bestand is aangekomen, maar werd niet herkend als bijlage."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:31
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Image description"
-msgstr "Ongeldige beschrijving"
+msgstr "Beschrijving van afbeelding"
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:47
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary image file."
-msgstr "Kan niet naar logbestand %1 schrijven"
+msgstr "Kan geen tijdelijk afbeeldingsbestand aanmaken."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:91
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr ""
+"De afbeelding is aangekomen, maar de beschrijving ervan is door de server "
+"weggelaten."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:93
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
-msgstr ""
+msgstr "De afbeelding is aangekomen met een onjuiste beschrijving: \"%1\"."
 
 #: widgets/serverchecks/linkpreviewcheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Fix preview url."
+#, kde-format
 msgid "Link preview (URL unfurl)"
-msgstr "Voorbeeld-url repareren."
+msgstr "Koppelingsvoorbeeld (URL unfurl)"
 
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Favorite Room"
+#, kde-format
 msgid "Change Favorite Room State"
-msgstr "Favoriete room tonen"
+msgstr "Status van favoriete room wijzigen"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin message"
-msgstr "Bericht vastpinnen"
+msgstr "Bericht vastzetten"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:63
 #, kde-format
 msgid "Could not start the pin-message request."
-msgstr ""
+msgstr "Het verzoek voor het vastzetbericht kon niet worden gestart."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:85
 #, kde-format
 msgid "The message was not found among the server's pinned messages."
 msgstr ""
+"Het bericht is niet gevonden tussen de vastgezette berichten van de server."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the pinned-messages request."
-msgstr "Vastgepinde berichten niet opschonen"
+msgstr "Kon het verzoek om bericht vast te zetten niet starten."
 
 #: widgets/serverchecks/quotemessagecheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Quote message"
-msgstr "Gerapporteerd bericht"
+msgstr "Bericht aanhalen"
 
 #: widgets/serverchecks/quotemessagecheck.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgid " (quote)"
-msgstr "Citaat"
+msgstr " (aanhaling)"
 
 #: widgets/serverchecks/reactioncheck.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Add reaction"
+#, kde-format
 msgid "Emoji reaction"
-msgstr "Reactie toevoegen"
+msgstr "Emoji-reactie"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove from Room"
+#, kde-format
 msgid "Remove user from room"
-msgstr "Uit room verwijderen"
+msgstr "Gebruiker uit room verwijderen"
 
 #: widgets/serverchecks/removeuserscheck.cpp:34
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove \"%1\": %2"
-msgstr "Wilt u \"%1\" verwijderen?"
+msgstr "Kon \"%1\" niet verwijderen: %2"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:24
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgid "Message search"
-msgstr "Berichten"
+msgstr "Zoeken naar berichten"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:86
 #, kde-format
 msgid "Could not start the search request."
-msgstr ""
+msgstr "Kon het zoekverzoek niet starten."
 
 #: widgets/serverchecks/sendmessagecheck.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Send message"
+#, kde-format
 msgid "Send message"
 msgstr "Bericht verzenden"
 
@@ -12191,7 +12185,7 @@ msgstr "Bericht verzenden"
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
-msgstr ""
+msgstr "Servercontrolelijst"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:45
 #, kde-format
@@ -12200,38 +12194,41 @@ msgid ""
 "feature behaves as expected. Temporary test messages are sent to the "
 "selected channel and removed afterwards, so pick a scratch channel first."
 msgstr ""
+"Voert een reeks controles uit op de huidige server en rapporteert of elke "
+"functie zich naar verwachting gedraagt. Er worden tijdelijke testberichten "
+"naar het geselecteerde kanaal gestuurd die naderhand weer worden verwijderd; "
+"kies daarom eerst een kanaal dat hiervoor gebruikt mag worden."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:56
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
-msgstr ""
+msgstr "Controle"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:56
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
-msgstr ""
+msgstr "Resultaat"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
-msgstr ""
+msgstr "Controles uitvoeren"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:67
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post Results to Channel"
-msgstr "Naar kanaal converteren"
+msgstr "Post resultaten naar kanaal"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:70
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
 msgstr ""
+"Plaats de resultaten van de controlelijst als bericht in het huidige kanaal."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:84
 #, kde-format
@@ -12239,58 +12236,55 @@ msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
 "to.</b>"
 msgstr ""
+"<b>Open eerst een kanaal: de controles hebben een room nodig om hun "
+"testberichten naartoe te sturen.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:90
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
-msgstr ""
+msgstr "<b>De controle kan niet in het directe kanaal worden uitgevoerd.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:110
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
-msgstr ""
+msgstr "Niet uitvoeren"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:122
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Waiting…"
-msgstr "Bezig met laden…"
+msgstr "Aan het wachten…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:132
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Running…"
-msgstr "Bezig met laden…"
+msgstr "Aan het uitvoeren…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:141
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:144
-#, fuzzy, kde-format
-#| msgid "Job Failed"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed"
-msgstr "Taak mislukt"
+msgstr "Mislukt"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:144
-#, fuzzy, kde-format
-#| msgid "File Uploaded: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed: %1"
-msgstr "Bestand geüpload: %1"
+msgstr "Mislukt: %1"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:162
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown server version"
 msgid "unknown"
-msgstr "Onbekend"
+msgstr "onbekend"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:165
 #, kde-format
@@ -12298,28 +12292,30 @@ msgid ""
 "RC %1\n"
 "Automated check list from ruqola:\n"
 msgstr ""
+"RC %1\n"
+"Geautomatiseerde controlelijst van ruqola:\n"
 
 #: widgets/serverchecks/threadreplycheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Thread"
+#, kde-format
 msgid "Thread reply"
-msgstr "Thread"
+msgstr "Antwoord in discussie"
 
 #: widgets/serverchecks/threadreplycheck.cpp:26
 #, kde-format
 msgid " (thread reply)"
-msgstr ""
+msgstr " (antwoord in discussie)"
 
 #: widgets/serverchecks/threadreplycheck.cpp:62
 #, kde-format
 msgid "The reply arrived but is not linked to the parent thread."
 msgstr ""
+"Het antwoord is binnengekomen, maar is niet gekoppeld aan de oorspronkelijke "
+"discussie."
 
 #: widgets/serverchecks/topicchangecheck.cpp:21
 #, kde-format
 msgid "Change channel topic"
-msgstr ""
+msgstr "Onderwerp van kanaal wijzigen"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
 #, kde-format
