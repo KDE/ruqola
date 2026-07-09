@@ -660,16 +660,6 @@ endif()
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 install(FILES settings/ruqolaglobalconfig.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
-if(UNITY_SUPPORT)
-    target_sources(
-        libruqolacore
-        PRIVATE
-            unityservicemanager.cpp
-            unityservicemanager.h
-    )
-    target_link_libraries(libruqolacore PUBLIC Qt::DBus)
-endif()
-
 if(USE_E2E_SUPPORT)
     target_link_libraries(libruqolacore PUBLIC OpenSSL::Crypto)
 endif()
