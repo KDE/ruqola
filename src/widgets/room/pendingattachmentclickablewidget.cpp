@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "pendingattachmentclickablewidget.h"
+#include <KFormat>
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <QFileInfo>
@@ -32,14 +33,24 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &u
     iconLabel->setObjectName(u"iconLabel"_s);
     const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::Small);
     iconLabel->setPixmap(QPixmap(mimeTypeIconPath));
-    mainLayout->addWidget(iconLabel);
+    mainLayout->addWidget(iconLabel, 0, Qt::AlignTop);
+
+    auto vboxLayout = new QVBoxLayout;
+    vboxLayout->setContentsMargins({});
+    vboxLayout->setSpacing(0);
+    mainLayout->addLayout(vboxLayout);
 
     auto nameLabel = new QLabel(this);
     nameLabel->setObjectName(u"nameLabel"_s);
     const QString elided = nameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
     nameLabel->setText(elided);
     nameLabel->setToolTip(url.toString());
-    mainLayout->addWidget(nameLabel);
+    vboxLayout->addWidget(nameLabel);
+
+    auto sizeLabel = new QLabel(this);
+    sizeLabel->setObjectName(u"sizeLabel"_s);
+    sizeLabel->setText(KFormat().formatByteSize(info.size()));
+    vboxLayout->addWidget(sizeLabel);
 
     auto removeBtn = new QToolButton(this);
     removeBtn->setObjectName(u"removeBtn"_s);
@@ -51,7 +62,7 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &u
     connect(removeBtn, &QToolButton::clicked, this, [this, url]() {
         Q_EMIT removeAttachment(url);
     });
-    mainLayout->addWidget(removeBtn);
+    mainLayout->addWidget(removeBtn, 0, Qt::AlignTop);
 }
 
 PendingAttachmentClickableWidget::~PendingAttachmentClickableWidget() = default;
