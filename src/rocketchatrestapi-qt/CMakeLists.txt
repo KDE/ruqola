@@ -444,8 +444,6 @@ target_sources(
         users/deleteuserjob.h
         users/forgotpasswordjob.cpp
         users/forgotpasswordjob.h
-        users/getavatarjob.cpp
-        users/getavatarjob.h
         users/getpresencejob.cpp
         users/getpresencejob.h
         users/getusernamesuggestionjob.cpp
