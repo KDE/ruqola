@@ -67,7 +67,7 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &u
 
 PendingAttachmentClickableWidget::~PendingAttachmentClickableWidget() = default;
 
-PendingAttachmentClickableWidget::PendingAttachmentInfo PendingAttachmentClickableWidget::pendingAttachmentInfo() const
+AccountRoomSettings::PendingAttachmentInfo PendingAttachmentClickableWidget::pendingAttachmentInfo() const
 {
     return mPendingAttachmentInfo;
 }

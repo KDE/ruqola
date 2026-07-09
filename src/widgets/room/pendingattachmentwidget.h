@@ -23,7 +23,7 @@ public:
     [[nodiscard]] bool hasAttachments() const;
 
     void clear();
-    [[nodiscard]] QList<PendingAttachmentClickableWidget::PendingAttachmentInfo> attachmentsInfo() const;
+    [[nodiscard]] QList<AccountRoomSettings::PendingAttachmentInfo> attachmentsInfo() const;
 
 Q_SIGNALS:
     void attachmentsChanged(bool state);

@@ -80,9 +80,9 @@ void PendingAttachmentWidget::clear()
     hide();
 }
 
-QList<PendingAttachmentClickableWidget::PendingAttachmentInfo> PendingAttachmentWidget::attachmentsInfo() const
+QList<AccountRoomSettings::PendingAttachmentInfo> PendingAttachmentWidget::attachmentsInfo() const
 {
-    QList<PendingAttachmentClickableWidget::PendingAttachmentInfo> lst;
+    QList<AccountRoomSettings::PendingAttachmentInfo> lst;
     for (auto i = mMap.cbegin(), end = mMap.cend(); i != end; ++i) {
         lst += i.value()->pendingAttachmentInfo();
     }
