@@ -7,7 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-
+#include <QByteArray>
+#include <QString>
 class QJsonArray;
 class QJsonObject;
 struct CryptoSettings {

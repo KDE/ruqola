@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QList>
+#include <QMetaType>
 #include <QSharedData>
 class QJsonArray;
 class LIBRUQOLACORE_EXPORT Replies : public QSharedData

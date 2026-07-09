@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMap>
 class QJsonArray;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT MessageTranslations : public QSharedData
 {
 public:

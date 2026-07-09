@@ -7,6 +7,8 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QByteArray>
+#include <QString>
 class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT TeamRoomCompleter

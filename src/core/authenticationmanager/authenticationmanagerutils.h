@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
+class QString;
 
 class QJsonArray;
 class QJsonObject;

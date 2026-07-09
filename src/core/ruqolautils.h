@@ -10,7 +10,7 @@
 
 #include "libruqolacore_export.h"
 class QString;
-class Url;
+class QUrl;
 class LIBRUQOLACORE_EXPORT RuqolaUtils
 {
 public:
