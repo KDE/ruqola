@@ -59,6 +59,21 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
         QVERIFY(info.isValid());
         QVERIFY(!info.hasPendingMessageTyped());
     }
+
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        QVERIFY(!info.isValid());
+        QList<AccountRoomSettings::PendingAttachmentInfo> lst;
+        lst.append({
+            .fileName = u"ba"_s,
+        });
+        lst.append({
+            .fileName = u"ba"_s,
+        });
+        info.pendingAttachmentInfos = lst;
+        QVERIFY(info.isValid());
+        QVERIFY(!info.hasPendingMessageTyped());
+    }
 }
 
 void AccountRoomSettingsTest::shouldSerializeDeserialize()
@@ -86,6 +101,33 @@ void AccountRoomSettingsTest::shouldSerializeDeserialize()
         info.threadMessageId = "you"_ba;
         info.quotePermalink = u"ddd"_s;
         info.quoteText = u"kde5"_s;
+
+        QCOMPARE(AccountRoomSettings::PendingTypedInfo::deserialize(AccountRoomSettings::PendingTypedInfo::serialize(info)), info);
+    }
+
+    {
+        AccountRoomSettings::PendingTypedInfo info;
+        info.messageIdBeingEdited = "foo"_ba;
+        info.text = u"bla"_s;
+        info.scrollbarPosition = 90;
+        info.threadMessageId = "you"_ba;
+        info.quotePermalink = u"ddd"_s;
+        info.quoteText = u"kde5"_s;
+
+        QList<AccountRoomSettings::PendingAttachmentInfo> lst;
+        lst.append({
+            .fileUrl = QUrl(u"ba"_s),
+            .fileName = u"foo"_s,
+            .name = u"gg"_s,
+            .alternativeText = u"kde"_s,
+        });
+        lst.append({
+            .fileUrl = QUrl(u"ba2"_s),
+            .fileName = u"foo2"_s,
+            .name = u"gg2"_s,
+            .alternativeText = u"kde2"_s,
+        });
+        info.pendingAttachmentInfos = lst;
 
         QCOMPARE(AccountRoomSettings::PendingTypedInfo::deserialize(AccountRoomSettings::PendingTypedInfo::serialize(info)), info);
     }

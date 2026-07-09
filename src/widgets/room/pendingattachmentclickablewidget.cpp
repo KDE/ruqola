@@ -15,42 +15,41 @@
 #include <QMimeType>
 #include <QToolButton>
 using namespace Qt::Literals::StringLiterals;
-PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &url, QWidget *parent)
-    : QWidget{parent}
-{
-    const QMimeDatabase db;
-    const QFileInfo info(url.toLocalFile());
-    const QMimeType mimeType = db.mimeTypeForFile(info);
-    const QString mimeTypeIconName = mimeType.iconName();
 
+PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &url, QWidget *parent)
+    : PendingAttachmentClickableWidget(parent)
+{
+    setUrl(url);
+}
+
+PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const AccountRoomSettings::PendingAttachmentInfo &info, QWidget *parent)
+    : PendingAttachmentClickableWidget(parent)
+{
+    setPendingAttachmentInfo(info);
+}
+
+PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(QWidget *parent)
+    : QWidget{parent}
+    , mIconLabel(new QLabel(this))
+    , mNameLabel(new QLabel(this))
+    , mSizeLabel(new QLabel(this))
+{
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
 
-    mPendingAttachmentInfo.fileUrl = url;
-    mPendingAttachmentInfo.fileName = info.fileName();
-
-    auto iconLabel = new QLabel(this);
-    iconLabel->setObjectName(u"iconLabel"_s);
-    const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::Small);
-    iconLabel->setPixmap(QPixmap(mimeTypeIconPath));
-    mainLayout->addWidget(iconLabel, 0, Qt::AlignTop);
+    mIconLabel->setObjectName(u"iconLabel"_s);
+    mainLayout->addWidget(mIconLabel, 0, Qt::AlignTop);
 
     auto vboxLayout = new QVBoxLayout;
     vboxLayout->setContentsMargins({});
     vboxLayout->setSpacing(0);
     mainLayout->addLayout(vboxLayout);
 
-    auto nameLabel = new QLabel(this);
-    nameLabel->setObjectName(u"nameLabel"_s);
-    const QString elided = nameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
-    nameLabel->setText(elided);
-    nameLabel->setToolTip(url.toString());
-    vboxLayout->addWidget(nameLabel);
+    mNameLabel->setObjectName(u"nameLabel"_s);
+    vboxLayout->addWidget(mNameLabel);
 
-    auto sizeLabel = new QLabel(this);
-    sizeLabel->setObjectName(u"sizeLabel"_s);
-    sizeLabel->setText(KFormat().formatByteSize(info.size()));
-    vboxLayout->addWidget(sizeLabel);
+    mSizeLabel->setObjectName(u"sizeLabel"_s);
+    vboxLayout->addWidget(mSizeLabel);
 
     auto removeBtn = new QToolButton(this);
     removeBtn->setObjectName(u"removeBtn"_s);
@@ -59,13 +58,44 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &u
     removeBtn->setFixedSize(18, 18);
     removeBtn->setIconSize(QSize(12, 12));
     removeBtn->setToolTip(i18nc("@info:tooltip", "Remove attachment"));
-    connect(removeBtn, &QToolButton::clicked, this, [this, url]() {
-        Q_EMIT removeAttachment(url);
+    connect(removeBtn, &QToolButton::clicked, this, [this]() {
+        Q_EMIT removeAttachment(mPendingAttachmentInfo.fileUrl);
     });
     mainLayout->addWidget(removeBtn, 0, Qt::AlignTop);
 }
 
 PendingAttachmentClickableWidget::~PendingAttachmentClickableWidget() = default;
+
+void PendingAttachmentClickableWidget::setPendingAttachmentInfo(const AccountRoomSettings::PendingAttachmentInfo &pendingAttachment)
+{
+    mPendingAttachmentInfo = pendingAttachment;
+    const QMimeDatabase db;
+    const QFileInfo info(mPendingAttachmentInfo.fileUrl.toLocalFile());
+    const QMimeType mimeType = db.mimeTypeForFile(info);
+    const QString mimeTypeIconName = mimeType.iconName();
+    const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::Small);
+    mIconLabel->setPixmap(QPixmap(mimeTypeIconPath));
+    const QString elided = mNameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
+    mNameLabel->setText(elided);
+    mNameLabel->setToolTip(mPendingAttachmentInfo.fileUrl.toString());
+    mSizeLabel->setText(KFormat().formatByteSize(info.size()));
+}
+
+void PendingAttachmentClickableWidget::setUrl(const QUrl &url)
+{
+    const QMimeDatabase db;
+    const QFileInfo info(url.toLocalFile());
+    const QMimeType mimeType = db.mimeTypeForFile(info);
+    const QString mimeTypeIconName = mimeType.iconName();
+    mPendingAttachmentInfo.fileUrl = url;
+    mPendingAttachmentInfo.fileName = info.fileName();
+    const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::Small);
+    mIconLabel->setPixmap(QPixmap(mimeTypeIconPath));
+    const QString elided = mNameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
+    mNameLabel->setText(elided);
+    mNameLabel->setToolTip(url.toString());
+    mSizeLabel->setText(KFormat().formatByteSize(info.size()));
+}
 
 AccountRoomSettings::PendingAttachmentInfo PendingAttachmentClickableWidget::pendingAttachmentInfo() const
 {

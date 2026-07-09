@@ -38,6 +38,19 @@ void PendingAttachmentWidget::addAttachment(const QUrl &url)
     updateAttachments();
 }
 
+void PendingAttachmentWidget::addAttachment(const AccountRoomSettings::PendingAttachmentInfo &info)
+{
+    QUrl url = info.fileUrl;
+    if (mMap.contains(url)) {
+        return;
+    }
+    auto clickableWidget = new PendingAttachmentClickableWidget(info, this);
+    connect(clickableWidget, &PendingAttachmentClickableWidget::removeAttachment, this, &PendingAttachmentWidget::slotRemoveAttachment);
+    mFlowLayout->addWidget(clickableWidget);
+    mMap.insert(url, clickableWidget);
+    updateAttachments();
+}
+
 void PendingAttachmentWidget::setAttachments(const QList<QUrl> &urls)
 {
     mFlowLayout->clearAndDeleteWidgets();
@@ -78,6 +91,15 @@ void PendingAttachmentWidget::clear()
     mFlowLayout->clearAndDeleteWidgets();
     mMap.clear();
     hide();
+}
+
+void PendingAttachmentWidget::setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos)
+{
+    mFlowLayout->clearAndDeleteWidgets();
+
+    for (const AccountRoomSettings::PendingAttachmentInfo &info : infos) {
+        addAttachment(info);
+    }
 }
 
 QList<AccountRoomSettings::PendingAttachmentInfo> PendingAttachmentWidget::attachmentsInfo() const

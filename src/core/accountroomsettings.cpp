@@ -145,7 +145,9 @@ AccountRoomSettings::PendingTypedInfo AccountRoomSettings::PendingTypedInfo::des
     if (o.contains("pendingAttachmentInfos"_L1)) {
         const QJsonArray array = o.value("pendingAttachmentInfos"_L1).toArray();
         QList<AccountRoomSettings::PendingAttachmentInfo> lst;
-        for (int i = 0; i < array.size(); ++i) {
+        const int arraySize = array.size();
+        lst.reserve(arraySize);
+        for (int i = 0; i < arraySize; ++i) {
             lst.append(AccountRoomSettings::PendingAttachmentInfo::deserialize(array.at(i).toObject()));
         }
         pendingTypedInfo.pendingAttachmentInfos = lst;

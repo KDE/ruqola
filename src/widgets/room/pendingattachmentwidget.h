@@ -20,11 +20,13 @@ public:
 
     void setAttachments(const QList<QUrl> &urls);
     void addAttachment(const QUrl &url);
+    void addAttachment(const AccountRoomSettings::PendingAttachmentInfo &info);
     [[nodiscard]] bool hasAttachments() const;
 
     void clear();
     [[nodiscard]] QList<AccountRoomSettings::PendingAttachmentInfo> attachmentsInfo() const;
 
+    void setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos);
 Q_SIGNALS:
     void attachmentsChanged(bool state);
 

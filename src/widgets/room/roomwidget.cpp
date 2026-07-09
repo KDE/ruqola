@@ -737,7 +737,7 @@ void RoomWidget::storeRoomSettings()
                 .quotePermalink = mRoomWidgetBase->messageLineWidget()->quotePermalink(),
                 .quoteText = mRoomWidgetBase->messageLineWidget()->quoteText(),
                 .scrollbarPosition = mRoomWidgetBase->messageListView()->verticalScrollBar()->value(),
-                //.mPendingAttachmentInfos = {},
+                .pendingAttachmentInfos = mRoomWidgetBase->messageLineWidget()->pendingAttachmentInfos(),
             };
             mCurrentRocketChatAccount->accountRoomSettings()->add(mRoomWidgetBase->roomId(), info);
             if (mRoom) {
@@ -773,6 +773,7 @@ void RoomWidget::setChannelSelected(const QByteArray &roomId, Room::RoomType roo
         if (currentPendingInfo.scrollbarPosition != -1) {
             mRoomWidgetBase->messageListView()->verticalScrollBar()->setValue(currentPendingInfo.scrollbarPosition);
         }
+        mRoomWidgetBase->messageLineWidget()->setPendingAttachmentInfos(currentPendingInfo.pendingAttachmentInfos);
     } else {
         mRoomWidgetBase->messageLineWidget()->setText(QString());
     }

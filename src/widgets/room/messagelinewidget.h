@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "accountroomsettings.h"
 #include "commands/previewscommandjob.h"
 #include "commands/runcommandjob.h"
 #include "dialogs/uploadfiledialog.h"
@@ -72,6 +73,8 @@ public:
 
     void setSendPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
     [[nodiscard]] bool hasAttachments() const;
+    [[nodiscard]] QList<AccountRoomSettings::PendingAttachmentInfo> pendingAttachmentInfos() const;
+    void setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos);
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
     void threadMessageIdChanged(const QByteArray &threadMessageId, const QString &text);

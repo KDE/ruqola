@@ -363,9 +363,19 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
     }
 }
 
+void MessageLineWidget::setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos)
+{
+    mPendingAttachmentWidget->setPendingAttachmentInfos(infos);
+}
+
 bool MessageLineWidget::hasAttachments() const
 {
     return mPendingAttachmentWidget->hasAttachments();
+}
+
+QList<AccountRoomSettings::PendingAttachmentInfo> MessageLineWidget::pendingAttachmentInfos() const
+{
+    return mPendingAttachmentWidget->attachmentsInfo();
 }
 
 void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
