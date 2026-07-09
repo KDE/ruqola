@@ -424,6 +424,7 @@ void MessageLineWidget::clearMessageIdBeingEdited()
     }
     mQuotePermalink.clear();
     mQuoteText.clear();
+    mPendingAttachmentWidget->clear();
     setText(QString());
     setMode(MessageLineWidget::EditingMode::NewMessage);
 }
