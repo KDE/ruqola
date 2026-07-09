@@ -8,5 +8,8 @@
 
 QByteArray MessageUtils::generateUniqueId(const QByteArray &messageId, int index)
 {
-    return messageId + QByteArray("_") + QByteArray::number(index);
+    QByteArray result = messageId;
+    result.append('_');
+    result.append(QByteArray::number(index));
+    return result;
 }

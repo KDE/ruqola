@@ -11,6 +11,7 @@
 #include <QIODevice>
 #include <QMimeData>
 #include <QUrl>
+#include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;
 ShowImageGraphicsPixmapItem::ShowImageGraphicsPixmapItem(QGraphicsItem *parent)

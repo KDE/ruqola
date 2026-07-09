@@ -8,7 +8,11 @@
 
 #include "autogenerateinteractionuiviewelement.h"
 #include "libruqolawidgets_private_export.h"
+#include <QMetaType>
+#include <QString>
 class QJsonObject;
+class QDebug;
+
 // ./packages/ui-kit/src/blocks/elements/ImageElement.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewImage : public AutoGenerateInteractionUiViewElement
 {
