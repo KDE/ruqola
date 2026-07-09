@@ -1729,10 +1729,7 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
     if (link.startsWith("https:"_L1) || link.startsWith("http:"_L1)) {
         return QUrl(link);
     }
-    QString tmpUrl = mSettings->serverUrl();
-    if (!tmpUrl.startsWith("https://"_L1)) {
-        tmpUrl = "https://"_L1 + tmpUrl;
-    }
+    QString tmpUrl = mSettings->serverUrl(); // always scheme-qualified, see normalizeServerUrl
     if (!link.startsWith(u'/')) {
         tmpUrl += u'/';
     }

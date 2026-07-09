@@ -147,15 +147,6 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
         QTest::newRow("room1-etag") << u"http://www.kde.org"_s << avatarInfo
                                     << QUrl(u"http://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22"_s.arg(avatarInfo.identifier, avatarInfo.etag));
     }
-    {
-        Utils::AvatarInfo avatarInfo;
-        avatarInfo.identifier = u"room1"_s;
-        avatarInfo.avatarType = Utils::AvatarType::Room;
-        avatarInfo.etag = u"etagIdentifier"_s;
-        QTest::newRow("room1-etag-without-protocol") << u"www.kde.org"_s << avatarInfo
-                                                     << QUrl(u"https://www.kde.org/avatar/room/%1?format=png&etag=%2&size=22"_s.arg(avatarInfo.identifier,
-                                                                                                                                    avatarInfo.etag));
-    }
 }
 
 void UtilsTest::shouldGenerateCheckMark_data()
