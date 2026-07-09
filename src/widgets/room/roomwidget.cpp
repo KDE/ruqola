@@ -714,7 +714,7 @@ void RoomWidget::dropEvent(QDropEvent *event)
 void RoomWidget::storeRoomSettings()
 {
     if (mCurrentRocketChatAccount) {
-        if (mRoomWidgetBase->messageLineWidget()->text().isEmpty()) {
+        if (mRoomWidgetBase->messageLineWidget()->text().isEmpty() && !mRoomWidgetBase->messageLineWidget()->hasAttachments()) {
             auto *vbar = mRoomWidgetBase->messageListView()->verticalScrollBar();
             if (vbar->value() != vbar->maximum()) {
                 AccountRoomSettings::PendingTypedInfo info;

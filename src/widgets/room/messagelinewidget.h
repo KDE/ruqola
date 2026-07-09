@@ -71,6 +71,7 @@ public:
     void setRoomName(const QString &roomName, bool thread = false);
 
     void setSendPreviewCommandInfo(const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &info);
+    [[nodiscard]] bool hasAttachments() const;
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
     void threadMessageIdChanged(const QByteArray &threadMessageId, const QString &text);

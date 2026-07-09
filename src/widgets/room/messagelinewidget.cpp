@@ -363,6 +363,11 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
     }
 }
 
+bool MessageLineWidget::hasAttachments() const
+{
+    return mPendingAttachmentWidget->hasAttachments();
+}
+
 void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
 {
     RocketChatRestApi::UploadFileJob::UploadFileInfo info;
