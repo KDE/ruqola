@@ -18,6 +18,15 @@
 using namespace QKeychain;
 using namespace Qt::Literals::StringLiterals;
 
+static QString normalizeServerUrl(const QString &serverUrl)
+{
+    // Store a scheme-qualified URL so that QUrl can parse the host later on (e.g. for the auth cookies).
+    if (!serverUrl.isEmpty() && !serverUrl.startsWith("http://"_L1) && !serverUrl.startsWith("https://"_L1)) {
+        return "https://"_L1 + serverUrl;
+    }
+    return serverUrl;
+}
+
 RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
@@ -48,7 +57,12 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mSetting = new QSettings(accountFileName, QSettings::IniFormat);
     qCDebug(RUQOLA_LOG) << "accountFileName " << accountFileName;
 
-    mServerUrl = mSetting->value("serverURL"_L1, "open.rocket.chat"_L1).toString();
+    const QString storedServerUrl = mSetting->value("serverURL"_L1, "open.rocket.chat"_L1).toString();
+    mServerUrl = normalizeServerUrl(storedServerUrl);
+    if (mServerUrl != storedServerUrl && mSetting->contains("serverURL"_L1)) {
+        // Migrate a legacy scheme-less value on disk.
+        mSetting->setValue("serverURL"_L1, mServerUrl);
+    }
     mUserName = mSetting->value("username"_L1).toString();
     mUserId = mSetting->value("userID"_L1).toByteArray();
     mAuthToken = mSetting->value("authToken"_L1).toString();
@@ -357,13 +371,14 @@ QString RocketChatAccountSettings::serverUrl() const
 
 void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
 {
-    if (mServerUrl == serverUrl) {
+    const QString normalizedUrl = normalizeServerUrl(serverUrl);
+    if (mServerUrl == normalizedUrl) {
         return;
     }
 
-    mSetting->setValue("serverURL"_L1, serverUrl);
+    mSetting->setValue("serverURL"_L1, normalizedUrl);
     mSetting->sync();
-    mServerUrl = serverUrl;
+    mServerUrl = normalizedUrl;
     Q_EMIT serverURLChanged();
 }
 
