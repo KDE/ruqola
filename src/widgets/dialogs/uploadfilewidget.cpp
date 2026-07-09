@@ -22,7 +22,6 @@ using namespace Qt::Literals::StringLiterals;
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
     , mFileName(new QLineEdit(this))
-    , mDescription(new QLineEdit(this))
     , mImagePreview(new ResizablePixmapLabel(this))
     , mFileNameInfo(new QLabel(this))
     , mMimeTypeLabel(new QLabel(this))
@@ -50,20 +49,9 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mFileName->setClearButtonEnabled(true);
     layout->addRow(i18n("File Name:"), mFileName);
     KLineEditEventHandler::catchReturnKey(mFileName);
-
-    mDescription->setObjectName(u"mDescription"_s);
-    mDescription->setClearButtonEnabled(true);
-    mDescription->setFocus();
-    layout->addRow(i18n("Description:"), mDescription);
-    KLineEditEventHandler::catchReturnKey(mDescription);
 }
 
 UploadFileWidget::~UploadFileWidget() = default;
-
-QString UploadFileWidget::description() const
-{
-    return mDescription->text();
-}
 
 QString UploadFileWidget::fileName() const
 {

@@ -5,7 +5,6 @@
 */
 
 #include "uploadfilewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/uploadfilewidget.h"
 #include <QFormLayout>
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 QTEST_MAIN(UploadFileWidgetTest)
 
+using namespace Qt::Literals::StringLiterals;
 UploadFileWidgetTest::UploadFileWidgetTest(QObject *parent)
     : QObject(parent)
 {
@@ -31,10 +31,6 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
     auto layout = w.findChild<QFormLayout *>(u"layout"_s);
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});
-
-    auto mDescription = w.findChild<QLineEdit *>(u"mDescription"_s);
-    QVERIFY(mDescription);
-    QVERIFY(mDescription->isClearButtonEnabled());
 
     auto mFileName = w.findChild<QLineEdit *>(u"mFileName"_s);
     QVERIFY(mFileName);
@@ -56,7 +52,7 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
 void UploadFileWidgetTest::shouldReturnEmptyResult()
 {
     UploadFileWidget w;
-    QVERIFY(w.description().isEmpty());
+    QVERIFY(w.fileName().isEmpty());
     QVERIFY(w.fileUrl().isEmpty());
 }
 

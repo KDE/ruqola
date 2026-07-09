@@ -304,7 +304,6 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                                     qCWarning(RUQOLAWIDGETS_LOG) << "Rename file failed" << tempFile.fileName() << " dlg->fileName()" << dlg->fileName();
                                 }
                                 UploadFileDialog::UploadFileInfo uploadFileInfo;
-                                uploadFileInfo.description = dlg->description();
                                 uploadFileInfo.fileUrl = QUrl::fromLocalFile(f.fileName());
                                 uploadFileInfo.deleteTemporaryFile = true;
                                 sendFile(uploadFileInfo);
@@ -504,7 +503,6 @@ void MessageLineWidget::slotSendSoundMessage()
     if (dlg->exec()) {
         const CreateSoundMessageWizard::CreateSoundMessageInfo info = dlg->soundMessageInfo();
         UploadFileDialog::UploadFileInfo result;
-        result.description = info.mDescription;
         result.fileUrl = info.mFileUrl;
         result.fileName = info.mFileName;
         result.deleteTemporaryFile = true;
@@ -520,7 +518,6 @@ void MessageLineWidget::slotSendVideoMessage()
         const CreateVideoMessageWizard::CreateVideoMessageInfo info = dlg->videoMessageInfo();
         if (info.isValid()) {
             UploadFileDialog::UploadFileInfo result;
-            result.description = info.mDescription;
             result.fileUrl = info.mFileUrl;
             result.deleteTemporaryFile = true;
             result.fileName = info.mFileName;

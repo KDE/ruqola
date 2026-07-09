@@ -19,7 +19,6 @@ public:
     explicit UploadFileWidget(QWidget *parent = nullptr);
     ~UploadFileWidget() override;
 
-    [[nodiscard]] QString description() const;
     [[nodiscard]] QUrl fileUrl() const;
     [[nodiscard]] QString fileName() const;
     void setFileUrl(const QUrl &url);
@@ -30,7 +29,6 @@ Q_SIGNALS:
 
 private:
     QLineEdit *const mFileName;
-    QLineEdit *const mDescription;
     ResizablePixmapLabel *const mImagePreview;
     QLabel *const mFileNameInfo;
     QLabel *const mMimeTypeLabel;
