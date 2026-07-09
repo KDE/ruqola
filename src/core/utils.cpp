@@ -324,7 +324,6 @@ QUrl Utils::AvatarInfo::avatarUrl(const QString &serverRcUrl) const
     if (serverRcUrl.isEmpty()) {
         return {};
     }
-    QString serverUrl = serverRcUrl;
     QString subFolder;
     switch (avatarType) {
     case AvatarType::Room:
@@ -341,10 +340,8 @@ QUrl Utils::AvatarInfo::avatarUrl(const QString &serverRcUrl) const
         subFolder += u"&etag=%1"_s.arg(etag);
     }
     subFolder += u"&size=22"_s;
-    if (!serverUrl.startsWith(QStringView(u"https://")) && !serverUrl.startsWith(QStringView(u"http://"))) {
-        serverUrl.prepend(u"https://"_s);
-    }
-    return QUrl(serverUrl + u"/avatar"_s + subFolder);
+    // serverRcUrl is scheme-qualified (see RocketChatAccountSettings normalization).
+    return QUrl(serverRcUrl + u"/avatar"_s + subFolder);
 }
 
 QDebug operator<<(QDebug d, const Utils::AvatarInfo &t)
