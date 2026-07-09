@@ -5,6 +5,8 @@
 */
 
 #include "banneduser.h"
+#include <QDebug>
+#include <QJsonObject>
 QT_IMPL_METATYPE_EXTERN_TAGGED(BannedUser, Ruqola_BannedUser)
 using namespace Qt::Literals::StringLiterals;
 BannedUser::BannedUser() = default;
