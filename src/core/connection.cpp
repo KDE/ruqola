@@ -119,8 +119,12 @@ void Connection::setRestApiLogger(RocketChatRestApi::AbstractLogger *logger)
 
 void Connection::initializeCookies()
 {
-    const QString url = serverUrl();
+    QString url = serverUrl();
     if (!url.isEmpty()) {
+        // serverUrl() is stored without a scheme; QUrl needs one to parse the host.
+        if (!url.startsWith("http://"_L1) && !url.startsWith("https://"_L1)) {
+            url.prepend("https://"_L1);
+        }
         const QString host = QUrl(url).host();
 
         if (!mUserId.isEmpty()) {
