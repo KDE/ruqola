@@ -156,4 +156,9 @@ QDebug operator<<(QDebug d, const CreateSoundMessageWizard::CreateSoundMessageIn
     return d;
 }
 
+bool CreateSoundMessageWizard::CreateSoundMessageInfo::isValid() const
+{
+    return mFileUrl.isValid();
+}
+
 #include "moc_createsoundmessagewizard.cpp"

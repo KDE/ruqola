@@ -502,11 +502,13 @@ void MessageLineWidget::slotSendSoundMessage()
     QPointer<CreateSoundMessageWizard> dlg = new CreateSoundMessageWizard(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const CreateSoundMessageWizard::CreateSoundMessageInfo info = dlg->soundMessageInfo();
-        UploadFileDialog::UploadFileInfo result;
-        result.fileUrl = info.mFileUrl;
-        result.fileName = info.mFileName;
-        result.deleteTemporaryFile = true;
-        sendFile(result);
+        if (info.isValid()) {
+            UploadFileDialog::UploadFileInfo result;
+            result.fileUrl = info.mFileUrl;
+            result.fileName = info.mFileName;
+            result.deleteTemporaryFile = true;
+            sendFile(result);
+        }
     }
     delete dlg;
 }
