@@ -26,20 +26,25 @@ PendingAttachmentWidget::PendingAttachmentWidget(QWidget *parent)
 
 PendingAttachmentWidget::~PendingAttachmentWidget() = default;
 
+void PendingAttachmentWidget::addAttachment(const QUrl &url)
+{
+    if (mMap.contains(url)) {
+        return;
+    }
+    auto clickableWidget = new PendingAttachmentClickableWidget(url, this);
+    connect(clickableWidget, &PendingAttachmentClickableWidget::removeAttachment, this, &PendingAttachmentWidget::slotRemoveAttachment);
+    mFlowLayout->addWidget(clickableWidget);
+    mMap.insert(url, clickableWidget);
+    updateAttachments();
+}
+
 void PendingAttachmentWidget::setAttachments(const QList<QUrl> &urls)
 {
     mFlowLayout->clearAndDeleteWidgets();
 
     for (const QUrl &url : urls) {
-        if (mMap.contains(url)) {
-            continue;
-        }
-        auto clickableWidget = new PendingAttachmentClickableWidget(url, this);
-        connect(clickableWidget, &PendingAttachmentClickableWidget::removeAttachment, this, &PendingAttachmentWidget::slotRemoveAttachment);
-        mFlowLayout->addWidget(clickableWidget);
-        mMap.insert(url, clickableWidget);
+        addAttachment(url);
     }
-    updateAttachments();
 }
 
 void PendingAttachmentWidget::updateAttachments()

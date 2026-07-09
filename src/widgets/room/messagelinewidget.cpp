@@ -543,7 +543,6 @@ void MessageLineWidget::slotAttachFiles()
             whiteList.removeAll(mediaType);
         }
     }
-    QList<QUrl> result;
     for (const auto &url : urls) {
         if (url.isLocalFile()) {
             const QFileInfo info(url.toLocalFile());
@@ -574,10 +573,7 @@ void MessageLineWidget::slotAttachFiles()
                 continue;
             }
         }
-        result.append(url);
-    }
-    if (!result.isEmpty()) {
-        mPendingAttachmentWidget->setAttachments(result);
+        mPendingAttachmentWidget->addAttachment(url);
     }
 }
 

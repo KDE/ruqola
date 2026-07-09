@@ -22,35 +22,26 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &u
     const QMimeType mimeType = db.mimeTypeForFile(info);
     const QString mimeTypeIconName = mimeType.iconName();
 
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
 
     mPendingAttachmentInfo.fileUrl = url;
     mPendingAttachmentInfo.fileName = info.fileName();
 
-    auto chip = new QFrame(this);
-    chip->setFrameShape(QFrame::StyledPanel);
-    chip->setFrameShadow(QFrame::Raised);
-    mainLayout->addWidget(chip);
-
-    auto chipLayout = new QHBoxLayout(chip);
-    chipLayout->setContentsMargins(4, 1, 2, 1);
-    chipLayout->setSpacing(3);
-
-    auto iconLabel = new QLabel(chip);
+    auto iconLabel = new QLabel(this);
     iconLabel->setObjectName(u"iconLabel"_s);
     const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::Small);
     iconLabel->setPixmap(QPixmap(mimeTypeIconPath));
-    chipLayout->addWidget(iconLabel);
+    mainLayout->addWidget(iconLabel);
 
-    auto nameLabel = new QLabel(chip);
+    auto nameLabel = new QLabel(this);
     nameLabel->setObjectName(u"nameLabel"_s);
     const QString elided = nameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
     nameLabel->setText(elided);
     nameLabel->setToolTip(url.toString());
-    chipLayout->addWidget(nameLabel);
+    mainLayout->addWidget(nameLabel);
 
-    auto removeBtn = new QToolButton(chip);
+    auto removeBtn = new QToolButton(this);
     removeBtn->setObjectName(u"removeBtn"_s);
     removeBtn->setAutoRaise(true);
     removeBtn->setIcon(QIcon::fromTheme(u"edit-delete-remove"_s));
@@ -60,7 +51,7 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(const QUrl &u
     connect(removeBtn, &QToolButton::clicked, this, [this, url]() {
         Q_EMIT removeAttachment(url);
     });
-    chipLayout->addWidget(removeBtn);
+    mainLayout->addWidget(removeBtn);
 }
 
 PendingAttachmentClickableWidget::~PendingAttachmentClickableWidget() = default;

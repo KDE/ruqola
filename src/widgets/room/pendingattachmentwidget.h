@@ -19,6 +19,7 @@ public:
     ~PendingAttachmentWidget() override;
 
     void setAttachments(const QList<QUrl> &urls);
+    void addAttachment(const QUrl &url);
     [[nodiscard]] bool hasAttachments() const;
 
     void clear();
