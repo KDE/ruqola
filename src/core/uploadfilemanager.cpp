@@ -59,8 +59,9 @@ void UploadFileManager::confirmMedia(const RocketChatRestApi::UploadFileJob::Con
     const auto job = new RocketChatRestApi::RoomsMediaConfirmJob(this);
     job->setFileId(info.fileId);
     job->setRoomId(info.roomId);
-    job->setDescription(info.description);
     job->setTmid(info.threadMessageId);
+    job->setMessage(info.messageText);
+    job->setFileName(info.fileName);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsMediaConfirmJob::roomsMediaConfirmDone, this, []() {
         qCDebug(RUQOLA_LOG) << " Confirm Media Done!";

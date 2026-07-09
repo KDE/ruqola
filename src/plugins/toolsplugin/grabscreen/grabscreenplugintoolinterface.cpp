@@ -61,7 +61,6 @@ void GrabScreenPluginToolInterface::activateTool()
 void GrabScreenPluginToolInterface::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
 {
     RocketChatRestApi::UploadFileJob::UploadFileInfo info;
-    info.description = uploadFileInfo.description;
     info.messageText = QString();
     info.filenameUrl = uploadFileInfo.fileUrl;
     info.roomId = mInfo.roomId;

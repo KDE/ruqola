@@ -25,11 +25,11 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     UploadFileJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(!job.uploadFileInfo().isValid());
-    QVERIFY(job.uploadFileInfo().description.isEmpty());
     QVERIFY(job.uploadFileInfo().messageText.isEmpty());
     QVERIFY(job.uploadFileInfo().roomId.isEmpty());
     QVERIFY(!job.uploadFileInfo().filenameUrl.isValid());
     QVERIFY(job.uploadFileInfo().threadMessageId.isEmpty());
+    QVERIFY(job.uploadFileInfo().fileName.isEmpty());
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.authCode().isEmpty());
     QVERIFY(job.authMethod().isEmpty());
@@ -40,7 +40,6 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     const UploadFileJob::UploadFileInfo info;
     QVERIFY(info.filenameUrl.isEmpty());
     QVERIFY(info.roomId.isEmpty());
-    QVERIFY(info.description.isEmpty());
     QVERIFY(info.messageText.isEmpty());
     QVERIFY(info.threadMessageId.isEmpty());
     QVERIFY(!info.deleteTemporaryFile);
@@ -49,7 +48,7 @@ void UploadFileJobTest::shouldHaveDefaultValue()
 
     const UploadFileJob::ConfirmMediaInfo confirmInfo;
     QVERIFY(confirmInfo.fileId.isEmpty());
-    QVERIFY(confirmInfo.description.isEmpty());
+    QVERIFY(confirmInfo.fileName.isEmpty());
     QVERIFY(confirmInfo.messageText.isEmpty());
     QVERIFY(confirmInfo.roomId.isEmpty());
 }

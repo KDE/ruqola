@@ -367,7 +367,6 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
 void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
 {
     RocketChatRestApi::UploadFileJob::UploadFileInfo info;
-    info.description = uploadFileInfo.description;
     info.messageText = QString();
     info.filenameUrl = uploadFileInfo.fileUrl;
     info.roomId = roomId();

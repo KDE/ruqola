@@ -19,15 +19,14 @@ public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT ConfirmMediaInfo {
         QByteArray roomId;
         QByteArray fileId;
-        QString description;
         QString messageText;
+        QString fileName;
         QByteArray threadMessageId;
         void parse(const QJsonObject &obj);
     };
 
     struct LIBROCKETCHATRESTAPI_QT_EXPORT UploadFileInfo {
         QByteArray roomId;
-        QString description;
         QString messageText;
         QByteArray threadMessageId;
         QUrl filenameUrl;

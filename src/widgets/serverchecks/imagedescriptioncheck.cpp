@@ -54,7 +54,6 @@ void ImageDescriptionCheck::doStart()
 
     RocketChatRestApi::UploadFileJob::UploadFileInfo info;
     info.roomId = mRoomId;
-    info.description = mDescription;
     info.messageText = QString();
     info.filenameUrl = QUrl::fromLocalFile(tempFile->fileName());
     info.fileName = mFileName;

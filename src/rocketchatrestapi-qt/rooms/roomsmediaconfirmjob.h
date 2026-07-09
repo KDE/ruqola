@@ -31,11 +31,14 @@ public:
     [[nodiscard]] QByteArray fileId() const;
     void setFileId(const QByteArray &newFileId);
 
-    [[nodiscard]] QString description() const;
-    void setDescription(const QString &newDescription);
-
     [[nodiscard]] QByteArray tmid() const;
     void setTmid(const QByteArray &newTmid);
+
+    [[nodiscard]] QString message() const;
+    void setMessage(const QString &newMessage);
+
+    [[nodiscard]] QString fileName() const;
+    void setFileName(const QString &newFileName);
 
 Q_SIGNALS:
     void roomsMediaConfirmDone();
@@ -45,6 +48,7 @@ private:
     QByteArray mRoomId;
     QByteArray mFileId;
     QByteArray mTmid;
-    QString mDescription;
+    QString mFileName;
+    QString mMessage;
 };
 }

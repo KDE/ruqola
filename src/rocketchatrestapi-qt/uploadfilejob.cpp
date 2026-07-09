@@ -87,10 +87,6 @@ bool UploadFileJob::start()
         multiPart->append(msgThreadPart);
     }
 
-    QHttpPart descriptionPart;
-    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"description\""_L1));
-    descriptionPart.setBody(mUploadFileInfo.description.toUtf8());
-    multiPart->append(descriptionPart);
     mReply = networkAccessManager()->post(request(), multiPart);
     connect(mReply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
     connect(mReply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
@@ -146,8 +142,8 @@ void UploadFileJob::slotUploadFinished()
                 UploadFileJob::ConfirmMediaInfo confirmInfo;
                 confirmInfo.parse(replyObject.value("file"_L1).toObject());
                 confirmInfo.roomId = mUploadFileInfo.roomId;
-                confirmInfo.description = mUploadFileInfo.description;
                 confirmInfo.messageText = mUploadFileInfo.messageText;
+                confirmInfo.fileName = mUploadFileInfo.fileName;
                 confirmInfo.threadMessageId = mUploadFileInfo.threadMessageId;
                 Q_EMIT confirmMediaRequested(confirmInfo);
             }
@@ -199,12 +195,12 @@ bool UploadFileJob::UploadFileInfo::isValid() const
 QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::UploadFileInfo &t)
 {
     d.space() << "roomId:" << t.roomId;
-    d.space() << "description:" << t.description;
     d.space() << "messageText:" << t.messageText;
     d.space() << "filenameUrl:" << t.filenameUrl;
     d.space() << "fileName:" << t.fileName;
     d.space() << "threadMessageId:" << t.threadMessageId;
     d.space() << "deleteTemporaryFile:" << t.deleteTemporaryFile;
+    d.space() << "rc80Server:" << t.rc80Server;
     return d;
 }
 
@@ -212,8 +208,9 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UploadFileJob::ConfirmMedia
 {
     d.space() << "roomId:" << t.roomId;
     d.space() << "fileId:" << t.fileId;
-    d.space() << "description:" << t.description;
+    d.space() << "fileName:" << t.fileName;
     d.space() << "messageText:" << t.messageText;
+    d.space() << "threadMessageId:" << t.threadMessageId;
     return d;
 }
 

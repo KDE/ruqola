@@ -46,6 +46,26 @@ void RoomsMediaConfirmJob::onPostRequestResponse(const QString &replyErrorString
     }
 }
 
+QString RoomsMediaConfirmJob::fileName() const
+{
+    return mFileName;
+}
+
+void RoomsMediaConfirmJob::setFileName(const QString &newFileName)
+{
+    mFileName = newFileName;
+}
+
+QString RoomsMediaConfirmJob::message() const
+{
+    return mMessage;
+}
+
+void RoomsMediaConfirmJob::setMessage(const QString &newMessage)
+{
+    mMessage = newMessage;
+}
+
 QByteArray RoomsMediaConfirmJob::tmid() const
 {
     return mTmid;
@@ -54,16 +74,6 @@ QByteArray RoomsMediaConfirmJob::tmid() const
 void RoomsMediaConfirmJob::setTmid(const QByteArray &newTmid)
 {
     mTmid = newTmid;
-}
-
-QString RoomsMediaConfirmJob::description() const
-{
-    return mDescription;
-}
-
-void RoomsMediaConfirmJob::setDescription(const QString &newDescription)
-{
-    mDescription = newDescription;
 }
 
 QByteArray RoomsMediaConfirmJob::fileId() const
@@ -107,11 +117,13 @@ bool RoomsMediaConfirmJob::canStart() const
 QJsonDocument RoomsMediaConfirmJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["description"_L1] = mDescription;
     if (!mTmid.isEmpty()) {
         jsonObj["tmid"_L1] = QString::fromLatin1(mTmid);
     }
-    // TODO jsonObj["msg"_L1] = QString::fromLatin1(mFileId);
+    jsonObj["msg"_L1] = mMessage;
+    if (!mFileName.isEmpty()) {
+        jsonObj["fileName"_L1] = mFileName;
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData**************** " << postData;
     return postData;

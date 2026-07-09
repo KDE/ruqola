@@ -27,7 +27,8 @@ void RoomsMediaConfirmJobTest::shouldHaveDefaultValue()
     QVERIFY(job.fileId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.tmid().isEmpty());
-    QVERIFY(job.description().isEmpty());
+    QVERIFY(job.fileName().isEmpty());
+    QVERIFY(job.message().isEmpty());
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -68,21 +69,30 @@ void RoomsMediaConfirmJobTest::shouldGenerateJson()
     {
         RoomsMediaConfirmJob job;
 
-        const QString description(u"descr"_s);
-        job.setDescription(description);
+        const QString message(u"descr"_s);
+        job.setMessage(message);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"description":"%1"})").arg(description).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msg":"%1"})").arg(message).toLatin1());
     }
     {
         RoomsMediaConfirmJob job;
 
-        const QString description(u"descr"_s);
-        job.setDescription(description);
+        const QString message(u"descr"_s);
+        job.setMessage(message);
+        const QString fileName(u"ff"_s);
+        job.setFileName(fileName);
+
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"fileName":"%2","msg":"%1"})").arg(message, fileName).toLatin1());
+    }
+    {
+        RoomsMediaConfirmJob job;
+
+        const QString message(u"descr"_s);
+        job.setMessage(message);
         const QByteArray tmid = "tmid3"_ba;
         job.setTmid(tmid);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"description":"%1","tmid":"%2"})").arg(description, QString::fromLatin1(tmid)).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msg":"%1","tmid":"%2"})").arg(message, QString::fromLatin1(tmid)).toLatin1());
     }
 }
 
