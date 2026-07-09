@@ -25,7 +25,7 @@ void AccountRoomSettingsTest::shouldHaveDefaultValues()
     QVERIFY(info.messageIdBeingEdited.isEmpty());
     QVERIFY(info.threadMessageId.isEmpty());
     QCOMPARE(info.scrollbarPosition, -1);
-    QVERIFY(info.mPendingAttachmentInfos.isEmpty());
+    QVERIFY(info.pendingAttachmentInfos.isEmpty());
     QVERIFY(!info.isValid());
     QVERIFY(!info.hasPendingMessageTyped());
 

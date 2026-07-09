@@ -24,6 +24,9 @@ public:
         {
             return fileUrl.isValid() && fileUrl.isLocalFile();
         }
+        [[nodiscard]] static QJsonObject serialize(const PendingAttachmentInfo &url);
+        [[nodiscard]] static PendingAttachmentInfo deserialize(const QJsonObject &o);
+        [[nodiscard]] bool operator==(const PendingAttachmentInfo &other) const;
     };
 
     struct LIBRUQOLACORE_EXPORT PendingTypedInfo {
@@ -33,7 +36,7 @@ public:
         QString quotePermalink;
         QString quoteText;
         int scrollbarPosition = -1;
-        QList<AccountRoomSettings::PendingAttachmentInfo> mPendingAttachmentInfos;
+        QList<AccountRoomSettings::PendingAttachmentInfo> pendingAttachmentInfos;
         [[nodiscard]] bool isValid() const;
         [[nodiscard]] bool hasPendingMessageTyped() const;
         [[nodiscard]] static QJsonObject serialize(const PendingTypedInfo &url);

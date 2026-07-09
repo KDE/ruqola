@@ -7,6 +7,7 @@
 #include "accountroomsettings.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
+#include <QJsonArray>
 
 using namespace Qt::Literals::StringLiterals;
 AccountRoomSettings::AccountRoomSettings(RocketChatAccount *account)
@@ -66,8 +67,39 @@ bool AccountRoomSettings::PendingTypedInfo::hasPendingMessageTyped() const
 bool AccountRoomSettings::PendingTypedInfo::operator==(const AccountRoomSettings::PendingTypedInfo &other) const
 {
     return text == other.text && messageIdBeingEdited == other.messageIdBeingEdited && threadMessageId == other.threadMessageId
-        && quotePermalink == other.quotePermalink && quoteText == other.quoteText && scrollbarPosition == other.scrollbarPosition;
+        && quotePermalink == other.quotePermalink && quoteText == other.quoteText && scrollbarPosition == other.scrollbarPosition
+        && pendingAttachmentInfos == other.pendingAttachmentInfos;
 }
+
+QJsonObject AccountRoomSettings::PendingAttachmentInfo::serialize(const AccountRoomSettings::PendingAttachmentInfo &att)
+{
+    QJsonObject obj;
+    if (!att.fileUrl.isEmpty()) {
+        obj["fileUrl"_L1] = att.fileUrl.toString();
+    }
+    if (!att.fileName.isEmpty()) {
+        obj["fileName"_L1] = att.fileName;
+    }
+    if (!att.name.isEmpty()) {
+        obj["name"_L1] = att.name;
+    }
+    if (!att.alternativeText.isEmpty()) {
+        obj["alternativeText"_L1] = att.alternativeText;
+    }
+    return obj;
+}
+
+AccountRoomSettings::PendingAttachmentInfo AccountRoomSettings::PendingAttachmentInfo::deserialize(const QJsonObject &o)
+{
+    AccountRoomSettings::PendingAttachmentInfo att;
+    att.fileUrl = QUrl(o["fileUrl"_L1].toString());
+    att.fileName = o["fileName"_L1].toString();
+    att.name = o["name"_L1].toString();
+    att.alternativeText = o["alternativeText"_L1].toString();
+    return att;
+}
+
+bool AccountRoomSettings::PendingAttachmentInfo::operator==(const PendingAttachmentInfo &other) const = default;
 
 QJsonObject AccountRoomSettings::PendingTypedInfo::serialize(const PendingTypedInfo &pendingTypedInfo)
 {
@@ -90,6 +122,13 @@ QJsonObject AccountRoomSettings::PendingTypedInfo::serialize(const PendingTypedI
     if (pendingTypedInfo.scrollbarPosition != -1) {
         obj["scrollbarPosition"_L1] = pendingTypedInfo.scrollbarPosition;
     }
+    if (!pendingTypedInfo.pendingAttachmentInfos.isEmpty()) {
+        QJsonArray array;
+        for (const auto &att : std::as_const(pendingTypedInfo.pendingAttachmentInfos)) {
+            array += AccountRoomSettings::PendingAttachmentInfo::serialize(att);
+        }
+        obj["pendingAttachmentInfos"_L1] = array;
+    }
 
     return obj;
 }
@@ -103,13 +142,21 @@ AccountRoomSettings::PendingTypedInfo AccountRoomSettings::PendingTypedInfo::des
     pendingTypedInfo.quotePermalink = o.value("quotePermalink"_L1).toString();
     pendingTypedInfo.quoteText = o.value("quoteText"_L1).toString();
     pendingTypedInfo.scrollbarPosition = o.value("scrollbarPosition"_L1).toInt(-1);
+    if (o.contains("pendingAttachmentInfos"_L1)) {
+        const QJsonArray array = o.value("pendingAttachmentInfos"_L1).toArray();
+        QList<AccountRoomSettings::PendingAttachmentInfo> lst;
+        for (int i = 0; i < array.size(); ++i) {
+            lst.append(AccountRoomSettings::PendingAttachmentInfo::deserialize(array.at(i).toObject()));
+        }
+        pendingTypedInfo.pendingAttachmentInfos = lst;
+    }
     return pendingTypedInfo;
 }
 
 bool AccountRoomSettings::PendingTypedInfo::isValid() const
 {
     return !text.isEmpty() || !messageIdBeingEdited.isEmpty() || (scrollbarPosition != -1) || !threadMessageId.isEmpty() || !quotePermalink.isEmpty()
-        || !quoteText.isEmpty() || !mPendingAttachmentInfos.isEmpty();
+        || !quoteText.isEmpty() || !pendingAttachmentInfos.isEmpty();
 }
 
 QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t)
@@ -120,6 +167,7 @@ QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t)
     d.space() << "threadMessageId" << t.threadMessageId;
     d.space() << "quotePermalink" << t.quotePermalink;
     d.space() << "quoteText" << t.quoteText;
+    d.space() << "pendingAttachmentInfos" << t.pendingAttachmentInfos;
     return d;
 }
 
