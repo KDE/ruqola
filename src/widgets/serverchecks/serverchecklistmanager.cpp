@@ -6,6 +6,7 @@
 
 #include "serverchecklistmanager.h"
 
+#include "addownerusercheck.h"
 #include "adduserscheck.h"
 #include "announcementchangecheck.h"
 #include "deletemessagecheck.h"
@@ -33,24 +34,16 @@ ServerCheckListManager::ServerCheckListManager(RocketChatAccount *account, const
 {
     // Add new checks here to grow the checklist.
     mChecks = {
-        new SendMessageCheck(account, roomId, this),
-        new EditMessageCheck(account, roomId, this),
-        new DeleteMessageCheck(account, roomId, this),
-        new ThreadReplyCheck(account, roomId, this),
-        new ReactionCheck(account, roomId, this),
-        new QuoteMessageCheck(account, roomId, this),
-        new FavoriteMessageCheck(account, roomId, this),
-        new PinMessageCheck(account, roomId, this),
-        new LinkPreviewCheck(account, roomId, this),
-        new SearchMessageCheck(account, roomId, this),
-        new ImageDescriptionCheck(account, roomId, this),
-        new FileUploadCheck(account, roomId, this),
-        new TopicChangeCheck(account, roomId, this),
-        new AddUsersCheck(account, roomId, this),
-        new RemoveUsersCheck(account, roomId, this),
-        new MarkAsFavoriteRoomCheck(account, roomId, this),
-        new DescriptionChangeCheck(account, roomId, this),
-        new AnnouncementChangeCheck(account, roomId, this),
+        new SendMessageCheck(account, roomId, this),       new EditMessageCheck(account, roomId, this),
+        new DeleteMessageCheck(account, roomId, this),     new ThreadReplyCheck(account, roomId, this),
+        new ReactionCheck(account, roomId, this),          new QuoteMessageCheck(account, roomId, this),
+        new FavoriteMessageCheck(account, roomId, this),   new PinMessageCheck(account, roomId, this),
+        new LinkPreviewCheck(account, roomId, this),       new SearchMessageCheck(account, roomId, this),
+        new ImageDescriptionCheck(account, roomId, this),  new FileUploadCheck(account, roomId, this),
+        new TopicChangeCheck(account, roomId, this),       new AddUsersCheck(account, roomId, this),
+        new RemoveUsersCheck(account, roomId, this),       new MarkAsFavoriteRoomCheck(account, roomId, this),
+        new DescriptionChangeCheck(account, roomId, this), new AnnouncementChangeCheck(account, roomId, this),
+        new AddOwnerUserCheck(account, roomId, this),
     };
 }
 

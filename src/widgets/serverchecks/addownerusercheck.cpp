@@ -27,12 +27,17 @@ void AddOwnerUserCheck::doStart()
             return;
         }
         kick(userId, [this, user, userId](bool, const QString &) {
-            invite(userId, [this, user](bool ok, const QString &error) {
-                if (ok) {
-                    reportPassed();
-                } else {
-                    reportFailed(i18n("Could not add \"%1\": %2", user, error));
-                }
+            invite(userId, [this, user, userId](bool, const QString &) {
+                changeChannelOwnerUser(
+                    userId,
+                    [this, user](bool ok, const QString &error) {
+                        if (ok) {
+                            reportPassed();
+                        } else {
+                            reportFailed(i18n("Could not add owner \"%1\": %2", user, error));
+                        }
+                    },
+                    true);
             });
         });
     });

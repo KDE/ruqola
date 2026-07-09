@@ -6,6 +6,7 @@
 
 #include "abstractusercheck.h"
 
+#include "channels/channeladdownerjob.h"
 #include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"
 #include "connection.h"
@@ -58,6 +59,25 @@ void AbstractUserCheck::resolveUserId(const QString &userName, const std::functi
     });
     if (!job->start()) {
         callback(false, {});
+    }
+}
+
+void AbstractUserCheck::changeChannelOwnerUser(const QByteArray &userId, const JobCallback &callback, bool add)
+{
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo roomInfo;
+    roomInfo.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
+    roomInfo.identifier = QString::fromLatin1(mRoomId);
+
+    auto job = new RocketChatRestApi::ChannelAddOwnerJob(this);
+    job->setChannelGroupInfo(roomInfo);
+    mAccount->restApi()->initializeRestApiJob(job);
+    job->setAddownerUserId(QString::fromLatin1(userId));
+    connect(job, &RocketChatRestApi::ChannelAddOwnerJob::addOwnerDone, this, [callback]() {
+        callback(true, {});
+    });
+    connectFailure(job, callback);
+    if (!job->start()) {
+        callback(false, i18n("Could not start the change owner request."));
     }
 }
 

@@ -40,6 +40,7 @@ protected:
     void resolveUserId(const QString &userName, const std::function<void(bool ok, const QByteArray &userId)> &callback);
     void invite(const QByteArray &userId, const JobCallback &callback);
     void kick(const QByteArray &userId, const JobCallback &callback);
+    void changeChannelOwnerUser(const QByteArray &userId, const JobCallback &callback, bool add);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void connectFailure(RocketChatRestApi::RestApiAbstractJob *job, const JobCallback &callback);
