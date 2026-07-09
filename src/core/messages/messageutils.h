@@ -10,4 +10,4 @@
 namespace MessageUtils
 {
 [[nodiscard]] QByteArray generateUniqueId(const QByteArray &messageId, int index);
-};
+}

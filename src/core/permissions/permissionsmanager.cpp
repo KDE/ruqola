@@ -32,7 +32,7 @@ const Permission PermissionsManager::permission(const QString &permissionId) con
 
 QList<Permission> PermissionsManager::permissions() const
 {
-    return mMapPermissions.values().toVector();
+    return mMapPermissions.values();
 }
 
 bool PermissionsManager::contains(const QString &permissionId) const

@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QObject>
 class QDBusServiceWatcher;
-class LIBRUQOLACORE_TESTS_EXPORT UnityServiceManager : public QObject
+class LIBRUQOLACORE_EXPORT UnityServiceManager : public QObject
 {
     Q_OBJECT
 public:
