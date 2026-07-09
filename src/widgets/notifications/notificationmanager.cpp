@@ -12,10 +12,6 @@
 #include <QApplication>
 #include <QMenu>
 
-#if HAVE_UNITY_SUPPORT
-#include "unityservicemanager.h"
-#endif
-
 NotificationManager::NotificationManager(KActionCollection *actionCollection, QObject *parent)
     : QObject(parent)
     , mActionCollection(actionCollection)
@@ -23,23 +19,6 @@ NotificationManager::NotificationManager(KActionCollection *actionCollection, QO
 }
 
 NotificationManager::~NotificationManager() = default;
-
-void NotificationManager::updateUnityService([[maybe_unused]] int unreadMessage)
-{
-#if HAVE_UNITY_SUPPORT
-    unityServiceManager()->setCount(unreadMessage);
-#endif
-}
-
-#if HAVE_UNITY_SUPPORT
-UnityServiceManager *NotificationManager::unityServiceManager()
-{
-    if (!mUnityServiceManager) {
-        mUnityServiceManager = new UnityServiceManager(this);
-    }
-    return mUnityServiceManager;
-}
-#endif
 
 QMenu *NotificationManager::contextStatusMenu() const
 {
@@ -121,7 +100,7 @@ void NotificationManager::createSystrayToolTip()
             unreadMessage += trayInfo.unreadMessage;
         }
     }
-    updateUnityService(unreadMessage);
+    qGuiApp->setBadgeNumber(unreadMessage);
     if (mNotification) {
         mNotification->updateToolTip(str, hasAlert);
     }

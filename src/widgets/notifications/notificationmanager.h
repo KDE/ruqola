@@ -11,9 +11,6 @@
 class Notification;
 class QMenu;
 class KActionCollection;
-#if HAVE_UNITY_SUPPORT
-class UnityServiceManager;
-#endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationManager : public QObject
 {
     Q_OBJECT
@@ -28,9 +25,6 @@ public:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     [[nodiscard]] bool notificationActivated() const;
 
-#if HAVE_UNITY_SUPPORT
-    [[nodiscard]] UnityServiceManager *unityServiceManager();
-#endif
 Q_SIGNALS:
     void alert();
 
@@ -42,7 +36,4 @@ private:
     KActionCollection *const mActionCollection;
     Notification *mNotification = nullptr;
     QMenu *mContextStatusMenu = nullptr;
-#if HAVE_UNITY_SUPPORT
-    UnityServiceManager *mUnityServiceManager = nullptr;
-#endif
 };

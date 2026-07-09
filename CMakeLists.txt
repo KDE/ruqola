@@ -159,15 +159,6 @@ if(USE_UNITY_CMAKE_SUPPORT)
 endif()
 
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" OFF)
-if(NOT WIN32 AND NOT APPLE)
-    option(UNITY_SUPPORT "Build unity support" ON)
-else()
-    set(UNITY_SUPPORT OFF)
-endif()
-
-if(UNITY_SUPPORT)
-    set(HAVE_UNITY_SUPPORT true)
-endif()
 
 set(KTEXTADDONS_MIN_VERSION "2.0.2")
 set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "${KTEXTADDONS_MIN_VERSION}")
