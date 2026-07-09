@@ -161,7 +161,8 @@ void RocketChatAccountSettingsTest::shouldSetServerUrl()
     const QString val = u"my.fancy.url"_s;
     sampleChat.setServerUrl(val);
 
-    QCOMPARE(val, sampleChat.serverUrl());
+    // setServerUrl prepends a scheme when none is given.
+    QCOMPARE(sampleChat.serverUrl(), u"https://my.fancy.url"_s);
 }
 
 void RocketChatAccountSettingsTest::shouldSetUserID()
@@ -197,7 +198,7 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.userId().isEmpty());
     QVERIFY(chat.userName().isEmpty());
     QVERIFY(chat.authToken().isEmpty());
-    QCOMPARE(chat.serverUrl(), u"open.rocket.chat"_s);
+    QCOMPARE(chat.serverUrl(), u"https://open.rocket.chat"_s);
     QVERIFY(chat.twoFactorAuthenticationCode().isEmpty());
     QVERIFY(!chat.accountEnabled()); // Not valid => false
     QVERIFY(chat.displayName().isEmpty());
