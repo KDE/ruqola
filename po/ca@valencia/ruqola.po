@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 00:44+0000\n"
-"PO-Revision-Date: 2026-07-08 10:35+0200\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
+"PO-Revision-Date: 2026-07-09 08:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3782,7 +3782,6 @@ msgstr "Utilitza una autenticació de dos factors"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -9313,7 +9312,7 @@ msgstr ""
 "afegir?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:536
+#: widgets/room/messagelinewidget.cpp:550
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9325,7 +9324,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Pujada d'imatge"
 
-#: widgets/dialogs/uploadfilewidget.cpp:51
+#: widgets/dialogs/uploadfilewidget.cpp:50
 #, kde-format
 msgid "File Name:"
 msgstr "Nom del fitxer:"
@@ -10566,13 +10565,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Ves fins al missatge"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Estat"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 té %2 missatges sense llegir"
@@ -10994,28 +10993,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Missatge massa llarg"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Missatge %1 del fil"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Envia un missatge en %1…"
 
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:567
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El fitxer seleccionat és massa gran (la mida màxima és %1)"
 
-#: widgets/room/messagelinewidget.cpp:555
+#: widgets/room/messagelinewidget.cpp:568
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Pujada de fitxer"
 
-#: widgets/room/messagelinewidget.cpp:559
+#: widgets/room/messagelinewidget.cpp:572
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no ha autoritzat este fitxer (tipus MIME no vàlid)"
@@ -11207,13 +11206,11 @@ msgstr "URL en Markdown"
 msgid "New Message"
 msgstr "Missatge nou"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Attachment"
+#: widgets/room/pendingattachmentclickablewidget.cpp:60
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
-msgstr "Guarda l'adjunt"
+msgstr "Elimina l'adjunt"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11970,24 +11967,28 @@ msgstr "Barra d'eines principal"
 msgid "Timed out waiting for the server to answer."
 msgstr "Ha excedit el temps esperant que contesti el servidor."
 
-#: widgets/serverchecks/abstractusercheck.cpp:81
-#: widgets/serverchecks/abstractusercheck.cpp:96
+#: widgets/serverchecks/abstractusercheck.cpp:80
+#, fuzzy, kde-format
+#| msgid "Could not start the invite request."
+msgid "Could not start the change owner request."
+msgstr "No s'ha pogut iniciar la sol·licitud d'invitació."
+
+#: widgets/serverchecks/abstractusercheck.cpp:101
+#: widgets/serverchecks/abstractusercheck.cpp:116
 #, kde-format
 msgid "Could not start the invite request."
 msgstr "No s'ha pogut iniciar la sol·licitud d'invitació."
 
-#: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:137
+#: widgets/serverchecks/abstractusercheck.cpp:149
 #, kde-format
 msgid "Could not start the kick request."
 msgstr "No s'ha pogut iniciar la sol·licitud d'expulsió."
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change Url"
+#, kde-format
 msgid "Change Owner User"
-msgstr "Canvia l'URL"
+msgstr "Canvia l'usuari propietari"
 
 #: widgets/serverchecks/addownerusercheck.cpp:19
 #: widgets/serverchecks/adduserscheck.cpp:19
@@ -12015,10 +12016,10 @@ msgstr "Sense compte."
 msgid "Could not resolve user \"%1\"."
 msgstr "No s'ha pogut resoldre l'usuari «%1»."
 
-#: widgets/serverchecks/addownerusercheck.cpp:34
-#: widgets/serverchecks/adduserscheck.cpp:34
-#, kde-format
-msgid "Could not add \"%1\": %2"
+#: widgets/serverchecks/addownerusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Could not add \"%1\": %2"
+msgid "Could not add owner \"%1\": %2"
 msgstr "No s'ha pogut afegir «%1»: %2"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
@@ -12026,11 +12027,15 @@ msgstr "No s'ha pogut afegir «%1»: %2"
 msgid "Add user to room"
 msgstr "Afig un usuari a la sala"
 
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr "No s'ha pogut afegir «%1»: %2"
+
 #: widgets/serverchecks/announcementchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Change channel topic"
+#, kde-format
 msgid "Change channel announcement"
-msgstr "Canvia el tema del canal"
+msgstr "Canvia l'anunci del canal"
 
 # skip-rule: rst-link0italic,rst-italic2
 #: widgets/serverchecks/announcementchangecheck.cpp:39
@@ -12103,12 +12108,12 @@ msgstr "Descripció de la imatge"
 msgid "Cannot create a temporary image file."
 msgstr "No s'ha pogut crear un fitxer temporal d'imatge."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#: widgets/serverchecks/imagedescriptioncheck.cpp:90
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr "La imatge ha arribat però el servidor ha exclòs la seua descripció."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#: widgets/serverchecks/imagedescriptioncheck.cpp:92
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
 msgstr "La imatge ha arribat amb una descripció errònia: «%1»."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 00:44+0000\n"
-"PO-Revision-Date: 2026-07-08 09:50+0300\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
+"PO-Revision-Date: 2026-07-09 11:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3811,7 +3811,6 @@ msgstr "Двофакторне розпізнавання"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -9383,7 +9382,7 @@ msgstr ""
 "знову додати до кімнати?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:536
+#: widgets/room/messagelinewidget.cpp:550
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9395,7 +9394,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Вивантаження зображення"
 
-#: widgets/dialogs/uploadfilewidget.cpp:51
+#: widgets/dialogs/uploadfilewidget.cpp:50
 #, kde-format
 msgid "File Name:"
 msgstr "Назва файла:"
@@ -10638,13 +10637,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Перейти до повідомлення"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Стан"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 має %2 непрочитане повідомлення"
@@ -11072,28 +11071,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Надто велике повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Повідомлення %1 у гілці"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Надіслати повідомлення у %1…"
 
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:567
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Вибраний файл є надто великим (максимальний розмір — %1)"
 
-#: widgets/room/messagelinewidget.cpp:555
+#: widgets/room/messagelinewidget.cpp:568
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Вивантаження файла"
 
-#: widgets/room/messagelinewidget.cpp:559
+#: widgets/room/messagelinewidget.cpp:572
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"
@@ -11285,13 +11284,11 @@ msgstr "Адреса Markdown"
 msgid "New Message"
 msgstr "Нове повідомлення"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Attachment"
+#: widgets/room/pendingattachmentclickablewidget.cpp:60
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
-msgstr "Зберегти долучення"
+msgstr "Вилучити долучення"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -12052,24 +12049,28 @@ msgstr "Головна панель"
 msgid "Timed out waiting for the server to answer."
 msgstr "Перевищено час очікування на відповідь від сервера."
 
-#: widgets/serverchecks/abstractusercheck.cpp:81
-#: widgets/serverchecks/abstractusercheck.cpp:96
+#: widgets/serverchecks/abstractusercheck.cpp:80
+#, fuzzy, kde-format
+#| msgid "Could not start the invite request."
+msgid "Could not start the change owner request."
+msgstr "Не вдалося започаткувати запит щодо запрошення."
+
+#: widgets/serverchecks/abstractusercheck.cpp:101
+#: widgets/serverchecks/abstractusercheck.cpp:116
 #, kde-format
 msgid "Could not start the invite request."
 msgstr "Не вдалося започаткувати запит щодо запрошення."
 
-#: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:137
+#: widgets/serverchecks/abstractusercheck.cpp:149
 #, kde-format
 msgid "Could not start the kick request."
 msgstr "Не вдалося започаткувати запит щодо викидання."
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change Url"
+#, kde-format
 msgid "Change Owner User"
-msgstr "Змінити адресу"
+msgstr "Змінити користувача-власника"
 
 #: widgets/serverchecks/addownerusercheck.cpp:19
 #: widgets/serverchecks/adduserscheck.cpp:19
@@ -12097,10 +12098,10 @@ msgstr "Немає облікового запису."
 msgid "Could not resolve user \"%1\"."
 msgstr "Не вдалося розв'язати дані користувача «%1»."
 
-#: widgets/serverchecks/addownerusercheck.cpp:34
-#: widgets/serverchecks/adduserscheck.cpp:34
-#, kde-format
-msgid "Could not add \"%1\": %2"
+#: widgets/serverchecks/addownerusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Could not add \"%1\": %2"
+msgid "Could not add owner \"%1\": %2"
 msgstr "Не вдалося додати «%1»: %2"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
@@ -12108,11 +12109,15 @@ msgstr "Не вдалося додати «%1»: %2"
 msgid "Add user to room"
 msgstr "Додати користувача у кімнату"
 
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr "Не вдалося додати «%1»: %2"
+
 #: widgets/serverchecks/announcementchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Change channel topic"
+#, kde-format
 msgid "Change channel announcement"
-msgstr "Змінити тему каналу"
+msgstr "Змінити оголошення каналу"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:39
 #: widgets/serverchecks/descriptionchangecheck.cpp:39
@@ -12183,12 +12188,12 @@ msgstr "Опис зображення"
 msgid "Cannot create a temporary image file."
 msgstr "Не вдалося створити тимчасовий файл зображення."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#: widgets/serverchecks/imagedescriptioncheck.cpp:90
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr "Подано зображення, але його опис відкинуто сервером."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#: widgets/serverchecks/imagedescriptioncheck.cpp:92
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
 msgstr "Подано зображення з помилковим описом: «%1»."

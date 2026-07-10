@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 00:44+0000\n"
-"PO-Revision-Date: 2026-07-08 09:48+0200\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
+"PO-Revision-Date: 2026-07-09 06:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3794,7 +3794,6 @@ msgstr "Uporabi dvofaktorsko avtentikacijo"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -9312,7 +9311,7 @@ msgstr ""
 "Nekaj uporabnikom je ta soba prepovedana. Ali jim želite umakniti prepoved?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:536
+#: widgets/room/messagelinewidget.cpp:550
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9324,7 +9323,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Prenesi sliko"
 
-#: widgets/dialogs/uploadfilewidget.cpp:51
+#: widgets/dialogs/uploadfilewidget.cpp:50
 #, kde-format
 msgid "File Name:"
 msgstr "Ime datoteke:"
@@ -10558,13 +10557,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Pojdi na sporočilo"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Stanje"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ima %2 neprebrano sporočilo"
@@ -10990,28 +10989,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sporočilo je preveliko"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Sporočilo %1 v niti"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Pošlji sporočilo v %1…"
 
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:567
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Izbrana datoteka je prevelika (največja velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:555
+#: widgets/room/messagelinewidget.cpp:568
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Prenos datoteke tja"
 
-#: widgets/room/messagelinewidget.cpp:559
+#: widgets/room/messagelinewidget.cpp:572
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
@@ -11203,13 +11202,11 @@ msgstr "Url markdowna"
 msgid "New Message"
 msgstr "Novo sporočilo"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Attachment"
+#: widgets/room/pendingattachmentclickablewidget.cpp:60
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
-msgstr "Shrani prilogo"
+msgstr "Odstrani prilogo"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11970,24 +11967,28 @@ msgstr "Glavna orodna vrstica"
 msgid "Timed out waiting for the server to answer."
 msgstr "Časovna omejitev za odgovor strežnika je potekla."
 
-#: widgets/serverchecks/abstractusercheck.cpp:81
-#: widgets/serverchecks/abstractusercheck.cpp:96
+#: widgets/serverchecks/abstractusercheck.cpp:80
+#, fuzzy, kde-format
+#| msgid "Could not start the invite request."
+msgid "Could not start the change owner request."
+msgstr "Ni bilo mogoče začeti zahteve za povabilo."
+
+#: widgets/serverchecks/abstractusercheck.cpp:101
+#: widgets/serverchecks/abstractusercheck.cpp:116
 #, kde-format
 msgid "Could not start the invite request."
 msgstr "Ni bilo mogoče začeti zahteve za povabilo."
 
-#: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:137
+#: widgets/serverchecks/abstractusercheck.cpp:149
 #, kde-format
 msgid "Could not start the kick request."
 msgstr "Ni bilo mogoče začeti zahteve za izločitev."
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change Url"
+#, kde-format
 msgid "Change Owner User"
-msgstr "Spremeni URL"
+msgstr "Spremeni lastnika uporabnika"
 
 #: widgets/serverchecks/addownerusercheck.cpp:19
 #: widgets/serverchecks/adduserscheck.cpp:19
@@ -12015,10 +12016,10 @@ msgstr "Ni računa."
 msgid "Could not resolve user \"%1\"."
 msgstr "Ni bilo mogoče razrešiti uporabnika \"%1\"."
 
-#: widgets/serverchecks/addownerusercheck.cpp:34
-#: widgets/serverchecks/adduserscheck.cpp:34
-#, kde-format
-msgid "Could not add \"%1\": %2"
+#: widgets/serverchecks/addownerusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Could not add \"%1\": %2"
+msgid "Could not add owner \"%1\": %2"
 msgstr "Ni bilo mogoče dodati \"%1\": %2"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
@@ -12026,11 +12027,15 @@ msgstr "Ni bilo mogoče dodati \"%1\": %2"
 msgid "Add user to room"
 msgstr "Dodaj uporabnika v sobo"
 
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr "Ni bilo mogoče dodati \"%1\": %2"
+
 #: widgets/serverchecks/announcementchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Change channel topic"
+#, kde-format
 msgid "Change channel announcement"
-msgstr "Spremeni temo kanala"
+msgstr "Spremeni obvestilo kanala"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:39
 #: widgets/serverchecks/descriptionchangecheck.cpp:39
@@ -12103,12 +12108,12 @@ msgstr "Opis slike"
 msgid "Cannot create a temporary image file."
 msgstr "Ni mogoče ustvariti začasne slikovne datoteke."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#: widgets/serverchecks/imagedescriptioncheck.cpp:90
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr "Slika je prispela, vendar je strežnik izpustil njen opis."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#: widgets/serverchecks/imagedescriptioncheck.cpp:92
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
 msgstr "Slika je prispela z napačnim opisom: \"%1\"."

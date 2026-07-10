@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 00:44+0000\n"
-"PO-Revision-Date: 2026-07-06 18:21+0400\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
+"PO-Revision-Date: 2026-07-09 14:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2244,10 +2244,9 @@ msgstr[4] "%v ثانية"
 msgstr[5] "%v ثانية"
 
 #: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:200
-#, fuzzy, kde-format
-#| msgid "Unread message not authorized."
+#, kde-format
 msgid "License not authorized it."
-msgstr "الرسالة غير المقروءة غير مسموح بها."
+msgstr "الترخيص غير مصرح به."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -3820,7 +3819,6 @@ msgstr "استخدم الاستيثاق الثنائي"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -9333,7 +9331,7 @@ msgid ""
 msgstr "بعض المستخدمين محظورون من هذه الغرفة. أتريد رفع الحظر عنهم وإعادتهم؟"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:536
+#: widgets/room/messagelinewidget.cpp:550
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9345,7 +9343,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "افتح صورة"
 
-#: widgets/dialogs/uploadfilewidget.cpp:51
+#: widgets/dialogs/uploadfilewidget.cpp:50
 #, kde-format
 msgid "File Name:"
 msgstr "اسم الملف:"
@@ -10580,13 +10578,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "انتقل إلى الرسالة"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "الحالة"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%2 رسالة غير مقروءة في %1"
@@ -11014,28 +11012,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "الرسالة طويلة جداً"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "%1 رسالة في سلسلة"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "أرسل رسالة في %1…"
 
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:567
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "الملف المحدد كبير جدًا (الحجم الأقصى %1)"
 
-#: widgets/room/messagelinewidget.cpp:555
+#: widgets/room/messagelinewidget.cpp:568
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "رفع الملف"
 
-#: widgets/room/messagelinewidget.cpp:559
+#: widgets/room/messagelinewidget.cpp:572
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "الخادم لا يسمح بهذا الملف (نوع mime غير صالح)"
@@ -11227,7 +11225,7 @@ msgstr "رابط مارك‌داون"
 msgid "New Message"
 msgstr "رسالة جديدة"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:59
+#: widgets/room/pendingattachmentclickablewidget.cpp:60
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Save Attachment"
@@ -11856,12 +11854,10 @@ msgid "Show RocketChat Information"
 msgstr "اعرض معلومات روكت تشات"
 
 #: widgets/ruqolamainwindow.cpp:695
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Server Settings…"
+#, kde-format
 msgctxt "@action"
 msgid "Server Checklist…"
-msgstr "إعدادات الخادم…"
+msgstr "قائمة تدقيق الخادم…"
 
 #: widgets/ruqolamainwindow.cpp:699
 #, kde-format
@@ -11994,19 +11990,25 @@ msgstr "شريط الأدوات الرئيسي"
 #: widgets/serverchecks/abstractservercheck.cpp:46
 #, kde-format
 msgid "Timed out waiting for the server to answer."
-msgstr ""
+msgstr "انتهت المهلة بانتظار رد الخادم."
 
-#: widgets/serverchecks/abstractusercheck.cpp:81
-#: widgets/serverchecks/abstractusercheck.cpp:96
+#: widgets/serverchecks/abstractusercheck.cpp:80
+#, fuzzy, kde-format
+#| msgid "Could not start the invite request."
+msgid "Could not start the change owner request."
+msgstr "تعذّر بدء طلب الدعوة."
+
+#: widgets/serverchecks/abstractusercheck.cpp:101
+#: widgets/serverchecks/abstractusercheck.cpp:116
 #, kde-format
 msgid "Could not start the invite request."
-msgstr ""
+msgstr "تعذّر بدء طلب الدعوة."
 
-#: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:137
+#: widgets/serverchecks/abstractusercheck.cpp:149
 #, kde-format
 msgid "Could not start the kick request."
-msgstr ""
+msgstr "تعذّر بدء طرد المستخدم."
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
 #, fuzzy, kde-format
@@ -12030,31 +12032,32 @@ msgstr "غيّر المسار"
 #: widgets/serverchecks/searchmessagecheck.cpp:36
 #: widgets/serverchecks/sendmessagecheck.cpp:21
 #: widgets/serverchecks/threadreplycheck.cpp:22
-#, fuzzy, kde-format
-#| msgid "My Account"
+#, kde-format
 msgid "No account."
-msgstr "حسابي"
+msgstr "لا حساب."
 
 #: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#, kde-format
 msgid "Could not resolve user \"%1\"."
-msgstr "هل تريد إزالة هذا المستخدم \"%1\"؟"
+msgstr "تعذّر حل المستخدم \"%1\"."
 
-#: widgets/serverchecks/addownerusercheck.cpp:34
+#: widgets/serverchecks/addownerusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Could not add \"%1\": %2"
+msgid "Could not add owner \"%1\": %2"
+msgstr "تعذّرت إضافة \"%1\": %2"
+
+#: widgets/serverchecks/adduserscheck.cpp:13
+#, kde-format
+msgid "Add user to room"
+msgstr "أضف مستخدمًا إلى الغرفة"
+
 #: widgets/serverchecks/adduserscheck.cpp:34
 #, kde-format
 msgid "Could not add \"%1\": %2"
-msgstr ""
-
-#: widgets/serverchecks/adduserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
-msgid "Add user to room"
-msgstr "أضف مستخدمين في الغرفة"
+msgstr "تعذّرت إضافة \"%1\": %2"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:21
 #, fuzzy, kde-format
@@ -12067,177 +12070,147 @@ msgstr "وصف غير صالح"
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:34
 #: widgets/serverchecks/quotemessagecheck.cpp:51
 #: widgets/serverchecks/topicchangecheck.cpp:39
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "Could not find the room."
-msgstr "أنت لست في الغرفة `%s`"
+msgstr "تعذّر العثور على الغرفة."
 
 #: widgets/serverchecks/deletemessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete message"
 msgstr "احذف الرّسالة"
 
 #: widgets/serverchecks/descriptionchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Change channel description"
-msgstr "وصف غير صالح"
+msgstr "غيّر وصف القناة"
 
 #: widgets/serverchecks/editmessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Edit message"
-msgstr "رسالة مباشرة"
+msgstr "حرر الرسالة"
 
 #: widgets/serverchecks/editmessagecheck.cpp:26
 #, kde-format
 msgid " (edited)"
-msgstr ""
+msgstr " (مُعدَّل)"
 
 #: widgets/serverchecks/editmessagecheck.cpp:57
 #, kde-format
 msgid "Edited text arrived but the message is not flagged as edited."
-msgstr ""
+msgstr "وصل النص المُعدَّل لكن الرسالة غير موسومة كمُعدَّلة."
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Forward Message"
+#, kde-format
 msgid "Favorite (star) message"
-msgstr "تمرير الرسالة"
+msgstr "رسالة مفضلة (نجمة)"
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:50
 #, kde-format
 msgid "Could not start the star-message request."
-msgstr ""
+msgstr "تعذّر بدء طلب تفضيل الرسالة."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "File upload"
+#, kde-format
 msgid "File attachment upload"
-msgstr "رفع الملف"
+msgstr "رفع مرفق ملف"
 
 #: widgets/serverchecks/fileuploadcheck.cpp:39
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary file."
-msgstr "لا يمكن كتابة إلى ملف سجل %1"
+msgstr "لا يمكن إنشاء ملف مؤقت."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:80
 #, kde-format
 msgid "The file arrived but was not recognized as a file attachment."
-msgstr ""
+msgstr "وصل الملف لكنه لم يُعرف كمرفق ملف."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:31
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Image description"
-msgstr "وصف غير صالح"
+msgstr "وصف الصورة"
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:47
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary image file."
-msgstr "لا يمكن كتابة إلى ملف سجل %1"
+msgstr "لا يمكن إنشاء ملف صورة مؤقت."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#: widgets/serverchecks/imagedescriptioncheck.cpp:90
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
-msgstr ""
+msgstr "وصلت الصورة لكن الخادم أسقط وصفها."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#: widgets/serverchecks/imagedescriptioncheck.cpp:92
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
-msgstr ""
+msgstr "وصلت الصورة بوصف خاطئ: \"%1\"."
 
 #: widgets/serverchecks/linkpreviewcheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Fix preview url."
+#, kde-format
 msgid "Link preview (URL unfurl)"
-msgstr "إصلاح رابط المعاينة."
+msgstr "معاينة الرابط (كشف عنوان URL)"
 
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Favorite Room"
+#, kde-format
 msgid "Change Favorite Room State"
-msgstr "اعرض الغرفة المفضلة"
+msgstr "غيّر حالة الغرفة المفضلة"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin message"
 msgstr "ثبّت الرّسالة"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:63
 #, kde-format
 msgid "Could not start the pin-message request."
-msgstr ""
+msgstr "تعذّر بدء طلب تثبيت الرسالة."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:85
 #, kde-format
 msgid "The message was not found among the server's pinned messages."
-msgstr ""
+msgstr "لم تُعثر على الرسالة بين رسائل الخادم المثبتة."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the pinned-messages request."
-msgstr "لا تقلِّم الرسائل المثبتة"
+msgstr "تعذّر بدء طلب الرسائل المثبتة."
 
 #: widgets/serverchecks/quotemessagecheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Quote message"
-msgstr "الرسائل المبلغ عنها"
+msgstr "اقتبس رسالة"
 
 #: widgets/serverchecks/quotemessagecheck.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgid " (quote)"
-msgstr "اقتبس"
+msgstr " (اقتبس)"
 
 #: widgets/serverchecks/reactioncheck.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Add reaction"
+#, kde-format
 msgid "Emoji reaction"
-msgstr "أضف تفاعل"
+msgstr "رد فعل إيموجي"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove from Room"
+#, kde-format
 msgid "Remove user from room"
-msgstr "أزل من الغرفة"
+msgstr "أزل مستخدمًا من الغرفة"
 
 #: widgets/serverchecks/removeuserscheck.cpp:34
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove \"%1\": %2"
-msgstr "أتريد إزالة \"%1\"؟"
+msgstr "تعذّر إزالة: \"%1\": %2"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:24
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgid "Message search"
-msgstr "الرسائل"
+msgstr "بحث في الرسائل"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:86
 #, kde-format
 msgid "Could not start the search request."
-msgstr ""
+msgstr "تعذّر بدء طلب البحث."
 
 #: widgets/serverchecks/sendmessagecheck.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Send message"
+#, kde-format
 msgid "Send message"
 msgstr "أرسل رسالة"
 
@@ -12245,7 +12218,7 @@ msgstr "أرسل رسالة"
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
-msgstr ""
+msgstr "قائمة التحقق من الخادم"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:45
 #, kde-format
@@ -12254,38 +12227,39 @@ msgid ""
 "feature behaves as expected. Temporary test messages are sent to the "
 "selected channel and removed afterwards, so pick a scratch channel first."
 msgstr ""
+"تُجري سلسلة من الفحوصات على الخادم الحالي وتُبلغ عما إذا كانت كل ميزة تعمل كما "
+"هو متوقع. تُرسل رسائل اختبار مؤقتة إلى القناة المحددة وتُحذف بعد ذلك، لذا اختر "
+"قناة اختبار أولًا."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:56
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
-msgstr ""
+msgstr "تحقق"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:56
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
-msgstr ""
+msgstr "النتيجة"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
-msgstr ""
+msgstr "شغّل الفحوصات"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:67
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post Results to Channel"
-msgstr "حوّل إلى قناة"
+msgstr "انشر النتائج إلى القناة"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:70
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
-msgstr ""
+msgstr "انشر نتائج قائمة التحقق كرسالة في القناة الحالية."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:84
 #, kde-format
@@ -12293,55 +12267,51 @@ msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
 "to.</b>"
 msgstr ""
+"<b>افتح قناة أولًا: تحتاج الفحوصات إلى غرفة لإرسال رسائل اختبارها إليها.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:90
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
-msgstr ""
+msgstr "<b>لا يمكن تنفيذ التحقق في قناة مباشرة.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:110
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
-msgstr ""
+msgstr "لم يُشغّل"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:122
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Waiting…"
-msgstr "يحمل…"
+msgstr "ينتظر…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:132
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Running…"
-msgstr "يحمل…"
+msgstr "يعمل…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:141
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
-msgstr ""
+msgstr "حسنًا"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:144
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed"
-msgstr ""
+msgstr "فشل"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:144
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Video: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed: %1"
-msgstr "الفيديو: %1"
+msgstr "فشل: %1"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:162
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown server version"
 msgid "unknown"
 msgstr "مجهول"
@@ -12352,28 +12322,28 @@ msgid ""
 "RC %1\n"
 "Automated check list from ruqola:\n"
 msgstr ""
+"RC %1\n"
+"قائمة تحقق آلية من ruqola:\n"
 
 #: widgets/serverchecks/threadreplycheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Thread"
+#, kde-format
 msgid "Thread reply"
-msgstr "السلسلة المحادثة"
+msgstr "رد في السلسلة"
 
 #: widgets/serverchecks/threadreplycheck.cpp:26
 #, kde-format
 msgid " (thread reply)"
-msgstr ""
+msgstr " (رد في السلسلة)"
 
 #: widgets/serverchecks/threadreplycheck.cpp:62
 #, kde-format
 msgid "The reply arrived but is not linked to the parent thread."
-msgstr ""
+msgstr "وصل الرد لكنه غير مرتبط بالسلسلة الأم."
 
 #: widgets/serverchecks/topicchangecheck.cpp:21
 #, kde-format
 msgid "Change channel topic"
-msgstr ""
+msgstr "غيّر موضوع القناة"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3990,7 +3990,6 @@ msgstr "Anmeldeverfahren"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -9750,7 +9749,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:536
+#: widgets/room/messagelinewidget.cpp:550
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9764,7 +9763,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "Bild anzeigen"
 
-#: widgets/dialogs/uploadfilewidget.cpp:51
+#: widgets/dialogs/uploadfilewidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "File:"
 msgid "File Name:"
@@ -11061,14 +11060,14 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Nachricht"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, fuzzy, kde-format
 #| msgid "Status"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 hat %2 ungelesene Nachrichten"
@@ -11545,31 +11544,31 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Nachricht"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message %1 in thread"
 msgstr "Nachricht angeheftet"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Send a message in %1…"
 msgstr "Nachrichten suchen ..."
 
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:567
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:555
+#: widgets/room/messagelinewidget.cpp:568
 #, fuzzy, kde-format
 #| msgid "File Uploaded:"
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Datei hochgeladen:"
 
-#: widgets/room/messagelinewidget.cpp:559
+#: widgets/room/messagelinewidget.cpp:572
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
@@ -11787,7 +11786,7 @@ msgstr ""
 msgid "New Message"
 msgstr "Nachricht senden"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:59
+#: widgets/room/pendingattachmentclickablewidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Save Attachment"
 msgctxt "@info:tooltip"
@@ -12644,14 +12643,20 @@ msgstr "Haupt-Werkzeugleiste"
 msgid "Timed out waiting for the server to answer."
 msgstr ""
 
-#: widgets/serverchecks/abstractusercheck.cpp:81
-#: widgets/serverchecks/abstractusercheck.cpp:96
+#: widgets/serverchecks/abstractusercheck.cpp:80
+#, fuzzy, kde-format
+#| msgid "Private Messages"
+msgid "Could not start the change owner request."
+msgstr "Private Nachrichten"
+
+#: widgets/serverchecks/abstractusercheck.cpp:101
+#: widgets/serverchecks/abstractusercheck.cpp:116
 #, kde-format
 msgid "Could not start the invite request."
 msgstr ""
 
-#: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:137
+#: widgets/serverchecks/abstractusercheck.cpp:149
 #, kde-format
 msgid "Could not start the kick request."
 msgstr ""
@@ -12690,11 +12695,11 @@ msgstr "Zugang hinzufügen"
 msgid "Could not resolve user \"%1\"."
 msgstr "Möchten Sie diesen Benutzer entfernen?"
 
-#: widgets/serverchecks/addownerusercheck.cpp:34
-#: widgets/serverchecks/adduserscheck.cpp:34
-#, kde-format
-msgid "Could not add \"%1\": %2"
-msgstr ""
+#: widgets/serverchecks/addownerusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not add owner \"%1\": %2"
+msgstr "Möchten Sie „%1“ entfernen?"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
 #, fuzzy, kde-format
@@ -12702,6 +12707,11 @@ msgstr ""
 #| msgid "Add Users in Room"
 msgid "Add user to room"
 msgstr "Benutzer zum Raum hinzufügen"
+
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr ""
 
 #: widgets/serverchecks/announcementchangecheck.cpp:21
 #, fuzzy, kde-format
@@ -12786,12 +12796,12 @@ msgstr "Ungültige Beschreibung"
 msgid "Cannot create a temporary image file."
 msgstr ""
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#: widgets/serverchecks/imagedescriptioncheck.cpp:90
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr ""
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#: widgets/serverchecks/imagedescriptioncheck.cpp:92
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
 msgstr ""

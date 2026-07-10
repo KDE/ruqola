@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 00:44+0000\n"
+"POT-Creation-Date: 2026-07-10 00:44+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3734,7 +3734,6 @@ msgstr "使用兩步驟驗證"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:55
 #: widgets/dialogs/channelinfoeditablewidget.cpp:71
 #: widgets/dialogs/channelinforeadonlywidget.cpp:49
-#: widgets/dialogs/uploadfilewidget.cpp:57
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:29
 #, kde-format
 msgid "Description:"
@@ -9130,7 +9129,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:536
+#: widgets/room/messagelinewidget.cpp:550
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9142,7 +9141,7 @@ msgctxt "@title:window"
 msgid "Upload Image"
 msgstr "上傳影像"
 
-#: widgets/dialogs/uploadfilewidget.cpp:51
+#: widgets/dialogs/uploadfilewidget.cpp:50
 #, kde-format
 msgid "File Name:"
 msgstr "檔案名稱："
@@ -10338,13 +10337,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "跳到訊息"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 有 %2 個未讀訊息"
@@ -10765,28 +10764,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "訊息太大"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "對話串中的訊息 %1"
 
-#: widgets/room/messagelinewidget.cpp:409
+#: widgets/room/messagelinewidget.cpp:422
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "在 %1 中傳送訊息…"
 
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:567
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "所選檔案太大（上限 %1）"
 
-#: widgets/room/messagelinewidget.cpp:555
+#: widgets/room/messagelinewidget.cpp:568
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "檔案上傳"
 
-#: widgets/room/messagelinewidget.cpp:559
+#: widgets/room/messagelinewidget.cpp:572
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "伺服器未授權此檔案（無效的 MIME 類型）"
@@ -10980,7 +10979,7 @@ msgstr "Markdown 網址"
 msgid "New Message"
 msgstr "新訊息"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:59
+#: widgets/room/pendingattachmentclickablewidget.cpp:60
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Save Attachment"
@@ -11749,14 +11748,21 @@ msgstr "主工具列"
 msgid "Timed out waiting for the server to answer."
 msgstr ""
 
-#: widgets/serverchecks/abstractusercheck.cpp:81
-#: widgets/serverchecks/abstractusercheck.cpp:96
+#: widgets/serverchecks/abstractusercheck.cpp:80
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the change owner request."
+msgstr "不要剪除置頂訊息"
+
+#: widgets/serverchecks/abstractusercheck.cpp:101
+#: widgets/serverchecks/abstractusercheck.cpp:116
 #, kde-format
 msgid "Could not start the invite request."
 msgstr ""
 
-#: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:137
+#: widgets/serverchecks/abstractusercheck.cpp:149
 #, kde-format
 msgid "Could not start the kick request."
 msgstr ""
@@ -11796,17 +11802,22 @@ msgstr "我的帳戶"
 msgid "Could not resolve user \"%1\"."
 msgstr "您確定要將這個使用者「%1」移除嗎？"
 
-#: widgets/serverchecks/addownerusercheck.cpp:34
-#: widgets/serverchecks/adduserscheck.cpp:34
-#, kde-format
-msgid "Could not add \"%1\": %2"
-msgstr ""
+#: widgets/serverchecks/addownerusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not add owner \"%1\": %2"
+msgstr "您確定要移除「%1」嗎？"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Add user to room"
 msgstr "自訂使用者狀態"
+
+#: widgets/serverchecks/adduserscheck.cpp:34
+#, kde-format
+msgid "Could not add \"%1\": %2"
+msgstr ""
 
 #: widgets/serverchecks/announcementchangecheck.cpp:21
 #, fuzzy, kde-format
@@ -11895,12 +11906,12 @@ msgstr "無效的描述"
 msgid "Cannot create a temporary image file."
 msgstr "無法寫入紀錄檔 %1"
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:91
+#: widgets/serverchecks/imagedescriptioncheck.cpp:90
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr ""
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:93
+#: widgets/serverchecks/imagedescriptioncheck.cpp:92
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
 msgstr ""
