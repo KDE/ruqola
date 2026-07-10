@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 02:39+0000\n"
+"POT-Creation-Date: 2026-07-10 02:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -10181,13 +10181,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr ""
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr ""
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr ""

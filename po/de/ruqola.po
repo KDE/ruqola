@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 02:39+0000\n"
+"POT-Creation-Date: 2026-07-10 02:37+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -11022,14 +11022,14 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Nachricht"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, fuzzy, kde-format
 #| msgid "Status"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 hat %2 ungelesene Nachrichten"

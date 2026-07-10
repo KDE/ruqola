@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 02:39+0000\n"
+"POT-Creation-Date: 2026-07-10 02:37+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -10348,13 +10348,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "跳到訊息"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "狀態"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 有 %2 個未讀訊息"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-09 02:39+0000\n"
+"POT-Creation-Date: 2026-07-10 02:37+0000\n"
 "PO-Revision-Date: 2026-06-29 16:49+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -10610,13 +10610,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Перейти к сообщению"
 
-#: widgets/notifications/notificationmanager.cpp:62
+#: widgets/notifications/notificationmanager.cpp:41
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Статус"
 
-#: widgets/notifications/notificationmanager.cpp:119
+#: widgets/notifications/notificationmanager.cpp:98
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 — имеются непрочитанные сообщения (%2)"
