@@ -42,6 +42,7 @@ protected:
     void kick(const QByteArray &userId, const JobCallback &callback);
     void changeChannelOwnerUser(const QByteArray &userId, const JobCallback &callback, bool add);
     void changeChannelModeratorUser(const QByteArray &userId, const JobCallback &callback, bool add);
+    void changeChannelLeaderUser(const QByteArray &userId, const JobCallback &callback, bool add);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void connectFailure(RocketChatRestApi::RestApiAbstractJob *job, const JobCallback &callback);

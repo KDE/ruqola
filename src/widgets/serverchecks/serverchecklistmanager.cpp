@@ -6,6 +6,7 @@
 
 #include "serverchecklistmanager.h"
 
+#include "addleaderusercheck.h"
 #include "addmoderatorusercheck.h"
 #include "addownerusercheck.h"
 #include "adduserscheck.h"
@@ -45,6 +46,7 @@ ServerCheckListManager::ServerCheckListManager(RocketChatAccount *account, const
         new RemoveUsersCheck(account, roomId, this),       new MarkAsFavoriteRoomCheck(account, roomId, this),
         new DescriptionChangeCheck(account, roomId, this), new AnnouncementChangeCheck(account, roomId, this),
         new AddOwnerUserCheck(account, roomId, this),      new AddModeratorUserCheck(account, roomId, this),
+        new AddLeaderUserCheck(account, roomId, this),
     };
 }
 

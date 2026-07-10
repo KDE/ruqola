@@ -6,10 +6,12 @@
 
 #include "abstractusercheck.h"
 
+#include "channels/channeladdleaderjob.h"
 #include "channels/channeladdmoderatorjob.h"
 #include "channels/channeladdownerjob.h"
 #include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"
+#include "channels/channelremoveleaderjob.h"
 #include "channels/channelremovemoderatorjob.h"
 #include "channels/channelremoveownerjob.h"
 #include "connection.h"
@@ -120,6 +122,38 @@ void AbstractUserCheck::changeChannelModeratorUser(const QByteArray &userId, con
         mAccount->restApi()->initializeRestApiJob(job);
         job->setRemoveUserId(QString::fromLatin1(userId));
         connect(job, &RocketChatRestApi::ChannelRemoveModeratorJob::removeModeratorDone, this, [callback]() {
+            callback(true, {});
+        });
+        connectFailure(job, callback);
+        if (!job->start()) {
+            callback(false, i18n("Could not start the remove moderator request."));
+        }
+    }
+}
+
+void AbstractUserCheck::changeChannelLeaderUser(const QByteArray &userId, const JobCallback &callback, bool add)
+{
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo roomInfo;
+    roomInfo.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
+    roomInfo.identifier = QString::fromLatin1(mRoomId);
+    if (add) {
+        auto job = new RocketChatRestApi::ChannelAddLeaderJob(this);
+        job->setChannelGroupInfo(roomInfo);
+        mAccount->restApi()->initializeRestApiJob(job);
+        job->setAddLeaderUserId(QString::fromLatin1(userId));
+        connect(job, &RocketChatRestApi::ChannelAddLeaderJob::addLeaderDone, this, [callback]() {
+            callback(true, {});
+        });
+        connectFailure(job, callback);
+        if (!job->start()) {
+            callback(false, i18n("Could not start the add moderator request."));
+        }
+    } else {
+        auto job = new RocketChatRestApi::ChannelRemoveLeaderJob(this);
+        job->setChannelGroupInfo(roomInfo);
+        mAccount->restApi()->initializeRestApiJob(job);
+        job->setRemoveUserId(QString::fromLatin1(userId));
+        connect(job, &RocketChatRestApi::ChannelRemoveLeaderJob::removeLeaderDone, this, [callback]() {
             callback(true, {});
         });
         connectFailure(job, callback);
