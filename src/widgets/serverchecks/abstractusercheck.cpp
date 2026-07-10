@@ -6,9 +6,12 @@
 
 #include "abstractusercheck.h"
 
+#include "channels/channeladdmoderatorjob.h"
 #include "channels/channeladdownerjob.h"
 #include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"
+#include "channels/channelremovemoderatorjob.h"
+#include "channels/channelremoveownerjob.h"
 #include "connection.h"
 #include "groups/groupsinvitejob.h"
 #include "groups/groupskickjob.h"
@@ -67,17 +70,62 @@ void AbstractUserCheck::changeChannelOwnerUser(const QByteArray &userId, const J
     RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo roomInfo;
     roomInfo.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     roomInfo.identifier = QString::fromLatin1(mRoomId);
+    if (add) {
+        auto job = new RocketChatRestApi::ChannelAddOwnerJob(this);
+        job->setChannelGroupInfo(roomInfo);
+        mAccount->restApi()->initializeRestApiJob(job);
+        job->setAddownerUserId(QString::fromLatin1(userId));
+        connect(job, &RocketChatRestApi::ChannelAddOwnerJob::addOwnerDone, this, [callback]() {
+            callback(true, {});
+        });
+        connectFailure(job, callback);
+        if (!job->start()) {
+            callback(false, i18n("Could not start the add owner request."));
+        }
+    } else {
+        auto job = new RocketChatRestApi::ChannelRemoveOwnerJob(this);
+        job->setChannelGroupInfo(roomInfo);
+        mAccount->restApi()->initializeRestApiJob(job);
+        job->setRemoveUserId(QString::fromLatin1(userId));
+        connect(job, &RocketChatRestApi::ChannelRemoveOwnerJob::channelRemoveOwnerDone, this, [callback]() {
+            callback(true, {});
+        });
+        connectFailure(job, callback);
+        if (!job->start()) {
+            callback(false, i18n("Could not start the remove owner request."));
+        }
+    }
+}
 
-    auto job = new RocketChatRestApi::ChannelAddOwnerJob(this);
-    job->setChannelGroupInfo(roomInfo);
-    mAccount->restApi()->initializeRestApiJob(job);
-    job->setAddownerUserId(QString::fromLatin1(userId));
-    connect(job, &RocketChatRestApi::ChannelAddOwnerJob::addOwnerDone, this, [callback]() {
-        callback(true, {});
-    });
-    connectFailure(job, callback);
-    if (!job->start()) {
-        callback(false, i18n("Could not start the change owner request."));
+void AbstractUserCheck::changeChannelModeratorUser(const QByteArray &userId, const JobCallback &callback, bool add)
+{
+    RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo roomInfo;
+    roomInfo.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
+    roomInfo.identifier = QString::fromLatin1(mRoomId);
+    if (add) {
+        auto job = new RocketChatRestApi::ChannelAddModeratorJob(this);
+        job->setChannelGroupInfo(roomInfo);
+        mAccount->restApi()->initializeRestApiJob(job);
+        job->setAddModeratorUserId(QString::fromLatin1(userId));
+        connect(job, &RocketChatRestApi::ChannelAddModeratorJob::addModeratorDone, this, [callback]() {
+            callback(true, {});
+        });
+        connectFailure(job, callback);
+        if (!job->start()) {
+            callback(false, i18n("Could not start the add moderator request."));
+        }
+    } else {
+        auto job = new RocketChatRestApi::ChannelRemoveModeratorJob(this);
+        job->setChannelGroupInfo(roomInfo);
+        mAccount->restApi()->initializeRestApiJob(job);
+        job->setRemoveUserId(QString::fromLatin1(userId));
+        connect(job, &RocketChatRestApi::ChannelRemoveModeratorJob::removeModeratorDone, this, [callback]() {
+            callback(true, {});
+        });
+        connectFailure(job, callback);
+        if (!job->start()) {
+            callback(false, i18n("Could not start the remove moderator request."));
+        }
     }
 }
 

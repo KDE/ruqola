@@ -4,16 +4,16 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "addownerusercheck.h"
+#include "addmoderatorusercheck.h"
 
 #include <KLocalizedString>
 
-QString AddOwnerUserCheck::name() const
+QString AddModeratorUserCheck::name() const
 {
-    return i18n("Add Owner User");
+    return i18n("Add Moderator User");
 }
 
-void AddOwnerUserCheck::doStart()
+void AddModeratorUserCheck::doStart()
 {
     if (!mAccount) {
         reportFailed(i18n("No account."));
@@ -28,13 +28,13 @@ void AddOwnerUserCheck::doStart()
         }
         kick(userId, [this, user, userId](bool, const QString &) {
             invite(userId, [this, user, userId](bool, const QString &) {
-                changeChannelOwnerUser(
+                changeChannelModeratorUser(
                     userId,
                     [this, user](bool ok, const QString &error) {
                         if (ok) {
                             reportPassed();
                         } else {
-                            reportFailed(i18n("Could not add owner \"%1\": %2", user, error));
+                            reportFailed(i18n("Could not add moderator \"%1\": %2", user, error));
                         }
                     },
                     true);
@@ -43,4 +43,4 @@ void AddOwnerUserCheck::doStart()
     });
 }
 
-#include "moc_addownerusercheck.cpp"
+#include "moc_addmoderatorusercheck.cpp"

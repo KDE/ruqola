@@ -8,8 +8,7 @@
 
 #include "abstractusercheck.h"
 
-/** Adds (invites) a user to the room and verifies the server accepts it. */
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AddOwnerUserCheck : public AbstractUserCheck
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AddModeratorUserCheck : public AbstractUserCheck
 {
     Q_OBJECT
 public:
