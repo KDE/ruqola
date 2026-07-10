@@ -1391,6 +1391,7 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Rewrite attachment file support</li>
           <li>Add support task badge on windows/macos</li>
           <li>Add a Server Checklist tool to verify a server after an upgrade.</li>
           <li xml:lang="ca">Afegeix una eina de llista de comprovació del servidor per verificar un servidor després d'una actualització.</li>
