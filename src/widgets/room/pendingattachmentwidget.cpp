@@ -8,6 +8,7 @@
 #include "common/flowlayout.h"
 #include "pendingattachmentclickablewidget.h"
 #include <KLocalizedString>
+#include <QFileInfo>
 #include <QFrame>
 #include <QHBoxLayout>
 #include <QIcon>
@@ -98,8 +99,19 @@ void PendingAttachmentWidget::setPendingAttachmentInfos(const QList<AccountRoomS
     mFlowLayout->clearAndDeleteWidgets();
 
     for (const AccountRoomSettings::PendingAttachmentInfo &info : infos) {
-        addAttachment(info);
+        if (verifyExistingFile(info.fileUrl)) {
+            addAttachment(info);
+        }
     }
+}
+
+bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl) const
+{
+    if (fileUrl.isLocalFile()) {
+        const QFileInfo f(fileUrl.toLocalFile());
+        return f.exists();
+    }
+    return true;
 }
 
 QList<AccountRoomSettings::PendingAttachmentInfo> PendingAttachmentWidget::attachmentsInfo() const

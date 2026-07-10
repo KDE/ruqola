@@ -32,6 +32,7 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveAttachment(const QUrl &url);
+    LIBRUQOLAWIDGETS_NO_EXPORT bool verifyExistingFile(const QUrl &fileUrl) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void updateAttachments();
     FlowLayout *const mFlowLayout;
     QMap<QUrl, PendingAttachmentClickableWidget *> mMap;
