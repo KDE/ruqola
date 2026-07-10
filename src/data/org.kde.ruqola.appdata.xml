@@ -1393,6 +1393,14 @@
         <ul>
           <li>Add support task badge on windows/macos</li>
           <li>Add a Server Checklist tool to verify a server after an upgrade.</li>
+          <li xml:lang="ca">Afegeix una eina de llista de comprovació del servidor per verificar un servidor després d'una actualització.</li>
+          <li xml:lang="ca-valencia">Afig una eina de llista de comprovació del servidor per a verificar un servidor després d'una actualització.</li>
+          <li xml:lang="ka">დაემატა სერვერის საკონტროლო სიის ხელსაწყო სერვერის შესამოწმებლად ვერსიის აწევის შემდეგ.</li>
+          <li xml:lang="nl">Voeg een servercontrolelijst toe om een ​​server na een upgrade te verifiëren.</li>
+          <li xml:lang="pt-BR">Adiciona uma ferramenta de checklist de servidor para verificar um servidor após uma atualização.</li>
+          <li xml:lang="sl">Dodajte orodje za preverjanje strežnika, da preverite strežnik po nadgradnji.</li>
+          <li xml:lang="tr">Yükseltme sonrası sunucuyu doğrulamak için bir sunucu kontrol listesi ekle</li>
+          <li xml:lang="uk">Додано інструмент списку перевірки сервера для перевірки сервера після оновлення.</li>
           <li>Adapt to RC 8.6.0 new API</li>
           <li xml:lang="ar">التكيف مع واجهة برمجة التطبيقات الجديدة RC 8.6.0</li>
           <li xml:lang="ca">Adapta a l'API nova RC 8.6.0</li>
