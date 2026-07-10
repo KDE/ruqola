@@ -66,9 +66,9 @@ Extra features:
 
 You can get ruqola from:
 
-- <https://github.com/KDE/ruqola>[https://github.com/KDE/ruqola]
 - [git clone git@invent.kde.org](git@invent.kde.org:network/ruqola.git)
 - [git clone https://invent.kde.org/network/ruqola.git](https://invent.kde.org/network/ruqola.git)
+- [GitHub Mirror https://github.com/KDE/ruqola](https://github.com/KDE/ruqola)
 
 ## Requirements
 
