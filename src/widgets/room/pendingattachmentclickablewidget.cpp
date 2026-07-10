@@ -89,7 +89,7 @@ void PendingAttachmentClickableWidget::setUrl(const QUrl &url)
     const QString mimeTypeIconName = mimeType.iconName();
     mPendingAttachmentInfo.fileUrl = url;
     mPendingAttachmentInfo.fileName = info.fileName();
-    const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::Small);
+    const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::MainToolbar);
     mIconLabel->setPixmap(QPixmap(mimeTypeIconPath));
     const QString elided = mNameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
     mNameLabel->setText(elided);
