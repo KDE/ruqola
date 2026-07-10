@@ -37,6 +37,7 @@
 #include <QImageWriter>
 #include <QMenu>
 #include <QMimeData>
+#include <QMimeType>
 #include <QTemporaryFile>
 #include <QToolButton>
 #include <QWidgetAction>
@@ -553,11 +554,24 @@ void MessageLineWidget::slotAttachFiles()
     }
     QStringList whiteList = mCurrentRocketChatAccount->ruqolaServerConfig()->mediaWhiteList();
     const QStringList blackList = mCurrentRocketChatAccount->ruqolaServerConfig()->mediaBlackList();
+    const auto matchesMimeType = [](const QStringList &patterns, const QMimeType &mimeType) {
+        const QString mimeTypeName = mimeType.name();
+        for (const QString &pattern : patterns) {
+            if (pattern == mimeTypeName) {
+                return true;
+            }
+            if (pattern.endsWith(u"/*"_s) && mimeTypeName.startsWith(pattern.chopped(1))) {
+                return true;
+            }
+        }
+        return false;
+    };
     for (const auto &mediaType : blackList) {
         if (whiteList.contains(mediaType)) {
             whiteList.removeAll(mediaType);
         }
     }
+    // qDebug() << " whiteList " << whiteList << " blackList " << blackList;
     for (const auto &url : urls) {
         if (url.isLocalFile()) {
             const QFileInfo info(url.toLocalFile());
@@ -568,23 +582,21 @@ void MessageLineWidget::slotAttachFiles()
                                    i18nc("@title:window", "File upload"));
                 continue;
             }
-            auto invalidMedia = [this]() {
-                KMessageBox::error(this, i18n("Server doesn't authorized this file (invalid mimetype)"));
+            auto invalidMedia = [this](const QString &mimeTypeName) {
+                KMessageBox::error(this, i18n("Server doesn't authorized this file (invalid mimetype %1)", mimeTypeName));
             };
 
             QMimeDatabase mimeDatabase;
-            const QString mimeTypeName = mimeDatabase.mimeTypeForFile(url.toLocalFile()).name();
-#if 0 // Disable for the moment "image/*" is not a valid MIME type for example
-            qDebug() << " mimeTypeName" << mimeTypeName << " whiteList " << whiteList;
+            const QMimeType mimeType = mimeDatabase.mimeTypeForFile(url.toLocalFile());
+            // qDebug() << " mimeTypeName" << mimeType.name() << " whiteList " << whiteList;
             if (!whiteList.isEmpty()) {
-                if (!whiteList.contains(mimeTypeName)) {
-                    invalidMedia();
+                if (!matchesMimeType(whiteList, mimeType)) {
+                    invalidMedia(mimeType.name());
                     return;
                 }
             }
-#endif
-            if (blackList.contains(mimeTypeName)) {
-                invalidMedia();
+            if (matchesMimeType(blackList, mimeType)) {
+                invalidMedia(mimeType.name());
                 continue;
             }
         }
