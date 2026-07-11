@@ -258,7 +258,7 @@ QString generateRichTextCMark(const QString &str,
 
         const QByteArray userIdentifier = mentions.value(word.toString());
         QString wordFromUserIdentifier = QString::fromLatin1(userIdentifier);
-        if (userIdentifier.isEmpty()) {
+        if (/*userIdentifier.isEmpty()*/ 1) {
             wordFromUserIdentifier = word.toString();
         }
         const int capturedStart = match.capturedStart(2) - 1;

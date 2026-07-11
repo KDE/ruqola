@@ -29,6 +29,7 @@ public:
     void channelJoin(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo, const QString &joinCode);
     void delaySelectChannelRequested(const QByteArray &rid);
     void verifyNeedSelectChannel(const QByteArray &rid);
+    void createDirectChannel(const QStringList &names);
 Q_SIGNALS:
     // TODO ?
     void selectRoomByRoomIdRequested(const QByteArray &identifier, const QByteArray &messageId = QByteArray());

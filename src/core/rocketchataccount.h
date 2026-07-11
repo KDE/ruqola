@@ -448,6 +448,8 @@ public:
     void deleteRoomSubscription(const QByteArray &subscriptionId);
 
     void addNewRoomNotification(Room *r);
+
+    void createDirectChannel(const QStringList &names);
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

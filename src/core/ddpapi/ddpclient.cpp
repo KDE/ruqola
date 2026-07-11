@@ -156,12 +156,6 @@ void DDPClient::subscribeRoomMessage(const QByteArray &roomId)
     }
 }
 
-quint64 DDPClient::openDirectChannel(const QString &userId)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openDirectChannel(userId, mUid);
-    return method(result, DDPClient::MethodRequestedType::OpenDirectRoom, DDPClient::MessageType::Persistent);
-}
-
 quint64 DDPClient::openRoom(const QByteArray &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, mUid);
