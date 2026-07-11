@@ -1394,6 +1394,7 @@
           <li>Rewrite attachment file support</li>
           <li>Add support task badge on windows/macos</li>
           <li>Add a Server Checklist tool to verify a server after an upgrade.</li>
+          <li xml:lang="ar">إضافة أداة قائمة تدقيق الخادم للتحقق من الخادم بعد الترقية.</li>
           <li xml:lang="ca">Afegeix una eina de llista de comprovació del servidor per verificar un servidor després d'una actualització.</li>
           <li xml:lang="ca-valencia">Afig una eina de llista de comprovació del servidor per a verificar un servidor després d'una actualització.</li>
           <li xml:lang="ka">დაემატა სერვერის საკონტროლო სიის ხელსაწყო სერვერის შესამოწმებლად ვერსიის აწევის შემდეგ.</li>
