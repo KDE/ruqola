@@ -451,6 +451,7 @@ public:
 
     [[nodiscard]] bool hasMessageReadReceiptActiveModule() const;
 
+    void createDirectChannel(const QStringList &names);
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

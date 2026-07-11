@@ -29,7 +29,6 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult generateMethod(const QString &method, const QJsonObject &params, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult informTypingStatus(const QByteArray &roomId, const QString &userId, bool typingStatus, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult openDirectChannel(const QString &username, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QByteArray &roomId, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unsubscribe(quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult blockUser(const QString &rid, const QString &userId, quint64 id);

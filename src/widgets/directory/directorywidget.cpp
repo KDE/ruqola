@@ -114,8 +114,7 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
         const QString userName = modelIndex.data().toString();
         //  Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
         // qDebug() << " DirectoryType::User " << userName;
-
-        mRocketChatAccount->ddp()->openDirectChannel(userName);
+        mRocketChatAccount->createDirectChannel({userName});
         break;
     }
     case DirectoryType::Team: {

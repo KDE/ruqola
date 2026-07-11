@@ -552,7 +552,7 @@ void TextConverterTest::shouldShowUsers_data()
         info.identifier = "idd"_ba;
         lst.append(info);
         QTest::newRow("channel-user1") << QStringLiteral("#foo @kde")
-                                       << QStringLiteral("<p><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/bb'>@kde</a></p>\n") << mentions << lst;
+                                       << QStringLiteral("<p><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></p>\n") << mentions << lst;
     }
 
     {
@@ -574,7 +574,7 @@ void TextConverterTest::shouldShowUsers_data()
         mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
         QList<Channels::ChannelInfo> lst;
         QTest::newRow("quasi same name") << QStringLiteral("@nico foo @nico.bla")
-                                         << QStringLiteral("<p><a href='ruqola:/user/bb'>@nico</a> foo <a href='ruqola:/user/bb_new'>@nico.bla</a></p>\n")
+                                         << QStringLiteral("<p><a href='ruqola:/user/nico'>@nico</a> foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n")
                                          << mentions << lst;
     }
 
@@ -583,7 +583,7 @@ void TextConverterTest::shouldShowUsers_data()
         mentions.insert(QStringLiteral("nico"), "bb"_ba);
         mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
         QList<Channels::ChannelInfo> lst;
-        QTest::newRow("quasi same name-2") << QStringLiteral("foo @nico.bla") << QStringLiteral("<p>foo <a href='ruqola:/user/bb_new'>@nico.bla</a></p>\n")
+        QTest::newRow("quasi same name-2") << QStringLiteral("foo @nico.bla") << QStringLiteral("<p>foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n")
                                            << mentions << lst;
     }
 
@@ -592,7 +592,7 @@ void TextConverterTest::shouldShowUsers_data()
         mentions.insert(QStringLiteral("nico"), "bb"_ba);
         mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
         QList<Channels::ChannelInfo> lst;
-        QTest::newRow("quasi same name-1") << QStringLiteral("@nico foo") << QStringLiteral("<p><a href='ruqola:/user/bb'>@nico</a> foo</p>\n") << mentions
+        QTest::newRow("quasi same name-1") << QStringLiteral("@nico foo") << QStringLiteral("<p><a href='ruqola:/user/nico'>@nico</a> foo</p>\n") << mentions
                                            << lst;
     }
 }

@@ -220,7 +220,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QByteArray &messageId,
                     // TODO add support for roomId or roomName
                     // mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomId*/);
                     // Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
-                    mCurrentRocketChatAccount->ddp()->openDirectChannel(roomId);
+                    mCurrentRocketChatAccount->createDirectChannel({roomId});
                     // TODO implement scroll to message
                 } else {
                     selectMessageId(messageId);
@@ -306,7 +306,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
                 if (roomOrUserId != mCurrentRocketChatAccount->userName()) {
                     if (mCurrentRocketChatAccount->hasPermission(u"create-d"_s)) {
                         // Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
-                        mCurrentRocketChatAccount->ddp()->openDirectChannel(roomOrUserId);
+                        mCurrentRocketChatAccount->createDirectChannel({roomOrUserId});
                     }
 
                     // mCurrentRocketChatAccount->openDirectChannel(roomOrUserId);

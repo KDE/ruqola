@@ -821,6 +821,12 @@ void RocketChatAccount::openPrivateGroup(const QString &roomId, ChannelTypeInfo 
     mManageChannels->openPrivateGroup(roomId, typeInfo);
 }
 
+void RocketChatAccount::createDirectChannel(const QStringList &names)
+{
+    qDebug() << " void RocketChatAccount::createDirectChannel(const QStringList &names) " << names;
+    mManageChannels->createDirectChannel(names);
+}
+
 void RocketChatAccount::openChannel(const QString &roomId, ChannelTypeInfo typeInfo)
 {
     mManageChannels->openChannel(roomId, typeInfo);

@@ -10,6 +10,7 @@
 #include "channels/channelopenjob.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
+#include "directmessage/createdmjob.h"
 #include "groups/groupopenjob.h"
 #include "model/roommodel.h"
 #include "ruqola.h"
@@ -127,6 +128,23 @@ void ManageChannels::openPrivateGroup(const QString &roomId, RocketChatAccount::
         }
         break;
     }
+    }
+}
+
+void ManageChannels::createDirectChannel(const QStringList &names)
+{
+    auto job = new RocketChatRestApi::CreateDmJob(this);
+    job->setUserNames(names);
+    mAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::CreateDmJob::createDmDone, this, [this](const QJsonObject &reply) {
+        const QJsonObject roomObj = reply["room"_L1].toObject();
+        const QString roomId = roomObj["rid"_L1].toString();
+        qDebug() << " RocketChatRestApi::CreateDmJob " << reply << " room ID " << roomId;
+
+        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_CHANNEL_MANAGEMENT_LOG) << "Impossible to start CreateDmJob job";
     }
 }
 

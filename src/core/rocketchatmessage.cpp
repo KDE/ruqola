@@ -19,12 +19,6 @@ void RocketChatMessage::setJsonFormat(QJsonDocument::JsonFormat jsonFormat)
     mJsonFormat = jsonFormat;
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(const QString &username, quint64 id)
-{
-    const QJsonArray params{QJsonValue(username)};
-    return generateMethod(u"createDirectMessage"_s, params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
