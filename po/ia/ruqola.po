@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:44+0000\n"
+"POT-Creation-Date: 2026-07-11 00:43+0000\n"
 "PO-Revision-Date: 2026-07-01 15:45+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1746,7 +1746,7 @@ msgstr "(Autouni)"
 msgid "Owner"
 msgstr "Proprietario"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:370
 #, kde-format
 msgid "Offline"
 msgstr "Foras de linea"
@@ -2031,17 +2031,17 @@ msgstr "Administrator"
 msgid "Bot"
 msgstr "Bot(Robot)"
 
-#: core/utils.cpp:92 core/utils.cpp:367
+#: core/utils.cpp:92 core/utils.cpp:364
 #, kde-format
 msgid "Online"
 msgstr "In linea"
 
-#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:366 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Occupate"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:368 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Absente"
@@ -9100,7 +9100,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:550
+#: widgets/room/messagelinewidget.cpp:551
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10662,108 +10662,108 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Ulterior Actiones"
 
-#: widgets/room/messagelinewidget.cpp:88
+#: widgets/room/messagelinewidget.cpp:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Attacha un file…"
 
-#: widgets/room/messagelinewidget.cpp:91
+#: widgets/room/messagelinewidget.cpp:92
 #, kde-format
 msgid "Attach File"
 msgstr "Attacha File"
 
-#: widgets/room/messagelinewidget.cpp:99
+#: widgets/room/messagelinewidget.cpp:100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Invia un message video…"
 
-#: widgets/room/messagelinewidget.cpp:101
+#: widgets/room/messagelinewidget.cpp:102
 #, kde-format
 msgid "Video Message"
 msgstr "Message video"
 
-#: widgets/room/messagelinewidget.cpp:110
-#: widgets/room/messagelinewidget.cpp:117
+#: widgets/room/messagelinewidget.cpp:111
+#: widgets/room/messagelinewidget.cpp:118
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Invia un message  de sono…"
 
-#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:113
 #, kde-format
 msgid "Sound Message"
 msgstr "Message  de sono"
 
-#: widgets/room/messagelinewidget.cpp:124
+#: widgets/room/messagelinewidget.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Adde emoticon…"
 
-#: widgets/room/messagelinewidget.cpp:126
+#: widgets/room/messagelinewidget.cpp:127
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Adde emoticon"
 
-#: widgets/room/messagelinewidget.cpp:133
+#: widgets/room/messagelinewidget.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Invia message"
 
-#: widgets/room/messagelinewidget.cpp:135
+#: widgets/room/messagelinewidget.cpp:136
 #, kde-format
 msgid "Send Message"
 msgstr "Invia Message"
 
-#: widgets/room/messagelinewidget.cpp:231
+#: widgets/room/messagelinewidget.cpp:232
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:232
+#: widgets/room/messagelinewidget.cpp:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Error de commando"
 
-#: widgets/room/messagelinewidget.cpp:289
+#: widgets/room/messagelinewidget.cpp:290
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Tu vole converter iste texto grande a attachamento?"
 
-#: widgets/room/messagelinewidget.cpp:290
+#: widgets/room/messagelinewidget.cpp:291
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Message troppo grande"
 
-#: widgets/room/messagelinewidget.cpp:422
+#: widgets/room/messagelinewidget.cpp:423
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Message %1 in topico"
 
-#: widgets/room/messagelinewidget.cpp:422
+#: widgets/room/messagelinewidget.cpp:423
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Invia un message in %1..."
 
-#: widgets/room/messagelinewidget.cpp:567
+#: widgets/room/messagelinewidget.cpp:581
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "File seligite es troppo grande (Grandor Maxime %1)"
 
-#: widgets/room/messagelinewidget.cpp:568
+#: widgets/room/messagelinewidget.cpp:582
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Incargamento de file"
 
-#: widgets/room/messagelinewidget.cpp:572
+#: widgets/room/messagelinewidget.cpp:586
 #, kde-format
-msgid "Server doesn't authorized this file (invalid mimetype)"
+msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:132
@@ -11717,32 +11717,57 @@ msgstr "Barra de instrumento principal"
 msgid "Timed out waiting for the server to answer."
 msgstr ""
 
-#: widgets/serverchecks/abstractusercheck.cpp:80
+#: widgets/serverchecks/abstractusercheck.cpp:85
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Do not prune pinned messages"
-msgid "Could not start the change owner request."
+msgid "Could not start the add owner request."
 msgstr "Non puta Messages appunctate"
 
-#: widgets/serverchecks/abstractusercheck.cpp:101
-#: widgets/serverchecks/abstractusercheck.cpp:116
+#: widgets/serverchecks/abstractusercheck.cpp:97
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the remove owner request."
+msgstr "Non puta Messages appunctate"
+
+#: widgets/serverchecks/abstractusercheck.cpp:117
+#: widgets/serverchecks/abstractusercheck.cpp:149
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the add moderator request."
+msgstr "Non puta Messages appunctate"
+
+#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:161
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the remove moderator request."
+msgstr "Non puta Messages appunctate"
+
+#: widgets/serverchecks/abstractusercheck.cpp:183
+#: widgets/serverchecks/abstractusercheck.cpp:198
 #, kde-format
 msgid "Could not start the invite request."
 msgstr ""
 
-#: widgets/serverchecks/abstractusercheck.cpp:137
-#: widgets/serverchecks/abstractusercheck.cpp:149
+#: widgets/serverchecks/abstractusercheck.cpp:219
+#: widgets/serverchecks/abstractusercheck.cpp:231
 #, kde-format
 msgid "Could not start the kick request."
 msgstr ""
 
-#: widgets/serverchecks/addownerusercheck.cpp:13
+#: widgets/serverchecks/addleaderusercheck.cpp:13
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change Url"
-msgid "Change Owner User"
-msgstr "Cambia URL "
+#| msgctxt "@action"
+#| msgid "Add as Leader"
+msgid "Add Leader User"
+msgstr "Adde como Chef"
 
+#: widgets/serverchecks/addleaderusercheck.cpp:19
+#: widgets/serverchecks/addmoderatorusercheck.cpp:19
 #: widgets/serverchecks/addownerusercheck.cpp:19
 #: widgets/serverchecks/adduserscheck.cpp:19
 #: widgets/serverchecks/deletemessagecheck.cpp:22
@@ -11763,6 +11788,8 @@ msgstr "Cambia URL "
 msgid "No account."
 msgstr "Mi conto "
 
+#: widgets/serverchecks/addleaderusercheck.cpp:26
+#: widgets/serverchecks/addmoderatorusercheck.cpp:26
 #: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
@@ -11770,6 +11797,32 @@ msgstr "Mi conto "
 #| msgid "Do you want to remove this user \"%1\"?"
 msgid "Could not resolve user \"%1\"."
 msgstr "Tu vole remover iste usator \"%1\"?"
+
+#: widgets/serverchecks/addleaderusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not add leader \"%1\": %2"
+msgstr "Tu vole remover  \"%1\" ?"
+
+#: widgets/serverchecks/addmoderatorusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Add as Moderator"
+msgid "Add Moderator User"
+msgstr "Adde como Moderator"
+
+#: widgets/serverchecks/addmoderatorusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not add moderator \"%1\": %2"
+msgstr "Tu vole remover  \"%1\" ?"
+
+#: widgets/serverchecks/addownerusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Change Url"
+msgid "Add Owner User"
+msgstr "Cambia URL "
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
 #, fuzzy, kde-format

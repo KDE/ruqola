@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-10 00:44+0000\n"
-"PO-Revision-Date: 2026-07-09 06:50+0200\n"
+"POT-Creation-Date: 2026-07-11 00:43+0000\n"
+"PO-Revision-Date: 2026-07-10 07:02+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1758,7 +1758,7 @@ msgstr "(Samodejno pridruži)"
 msgid "Owner"
 msgstr "Lastnik"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:370
 #, kde-format
 msgid "Offline"
 msgstr "Brez povezave"
@@ -2057,17 +2057,17 @@ msgstr "Skrbnik"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:92 core/utils.cpp:367
+#: core/utils.cpp:92 core/utils.cpp:364
 #, kde-format
 msgid "Online"
 msgstr "Povezan"
 
-#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:366 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Zaseden"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:368 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Odsoten"
@@ -9311,7 +9311,7 @@ msgstr ""
 "Nekaj uporabnikom je ta soba prepovedana. Ali jim želite umakniti prepoved?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:550
+#: widgets/room/messagelinewidget.cpp:551
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10911,108 +10911,109 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Več dejavnosti"
 
-#: widgets/room/messagelinewidget.cpp:88
+#: widgets/room/messagelinewidget.cpp:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Pripni datoteko…"
 
-#: widgets/room/messagelinewidget.cpp:91
+#: widgets/room/messagelinewidget.cpp:92
 #, kde-format
 msgid "Attach File"
 msgstr "Pripni datoteko"
 
-#: widgets/room/messagelinewidget.cpp:99
+#: widgets/room/messagelinewidget.cpp:100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Pošlji video sporočilo…"
 
-#: widgets/room/messagelinewidget.cpp:101
+#: widgets/room/messagelinewidget.cpp:102
 #, kde-format
 msgid "Video Message"
 msgstr "Video sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:110
-#: widgets/room/messagelinewidget.cpp:117
+#: widgets/room/messagelinewidget.cpp:111
+#: widgets/room/messagelinewidget.cpp:118
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Pošlji zvočno sporočilo…"
 
-#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:113
 #, kde-format
 msgid "Sound Message"
 msgstr "Zvočno sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:124
+#: widgets/room/messagelinewidget.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Dodaj čustvenčka…"
 
-#: widgets/room/messagelinewidget.cpp:126
+#: widgets/room/messagelinewidget.cpp:127
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Poišči čustvenčka"
 
-#: widgets/room/messagelinewidget.cpp:133
+#: widgets/room/messagelinewidget.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Pošlji sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:135
+#: widgets/room/messagelinewidget.cpp:136
 #, kde-format
 msgid "Send Message"
 msgstr "Pošlji sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:231
+#: widgets/room/messagelinewidget.cpp:232
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Ukaz ni uspel. Ali želite kopirati ukaz na odložišče?"
 
-#: widgets/room/messagelinewidget.cpp:232
+#: widgets/room/messagelinewidget.cpp:233
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Napaka ukaza"
 
-#: widgets/room/messagelinewidget.cpp:289
+#: widgets/room/messagelinewidget.cpp:290
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Ali želite pretvoriti to obširno besedilo kot prilogo?"
 
-#: widgets/room/messagelinewidget.cpp:290
+#: widgets/room/messagelinewidget.cpp:291
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sporočilo je preveliko"
 
-#: widgets/room/messagelinewidget.cpp:422
+#: widgets/room/messagelinewidget.cpp:423
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Sporočilo %1 v niti"
 
-#: widgets/room/messagelinewidget.cpp:422
+#: widgets/room/messagelinewidget.cpp:423
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Pošlji sporočilo v %1…"
 
-#: widgets/room/messagelinewidget.cpp:567
+#: widgets/room/messagelinewidget.cpp:581
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Izbrana datoteka je prevelika (največja velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:568
+#: widgets/room/messagelinewidget.cpp:582
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Prenos datoteke tja"
 
-#: widgets/room/messagelinewidget.cpp:572
-#, kde-format
-msgid "Server doesn't authorized this file (invalid mimetype)"
+#: widgets/room/messagelinewidget.cpp:586
+#, fuzzy, kde-format
+#| msgid "Server doesn't authorized this file (invalid mimetype)"
+msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
 
 #: widgets/room/messagelistview.cpp:132
@@ -11967,29 +11968,53 @@ msgstr "Glavna orodna vrstica"
 msgid "Timed out waiting for the server to answer."
 msgstr "Časovna omejitev za odgovor strežnika je potekla."
 
-#: widgets/serverchecks/abstractusercheck.cpp:80
+#: widgets/serverchecks/abstractusercheck.cpp:85
 #, fuzzy, kde-format
-#| msgid "Could not start the invite request."
-msgid "Could not start the change owner request."
-msgstr "Ni bilo mogoče začeti zahteve za povabilo."
+#| msgid "Could not start the change owner request."
+msgid "Could not start the add owner request."
+msgstr "Ni bilo mogoče začeti zahteve za spremembo lastnika."
 
-#: widgets/serverchecks/abstractusercheck.cpp:101
-#: widgets/serverchecks/abstractusercheck.cpp:116
+#: widgets/serverchecks/abstractusercheck.cpp:97
+#, fuzzy, kde-format
+#| msgid "Could not start the change owner request."
+msgid "Could not start the remove owner request."
+msgstr "Ni bilo mogoče začeti zahteve za spremembo lastnika."
+
+#: widgets/serverchecks/abstractusercheck.cpp:117
+#: widgets/serverchecks/abstractusercheck.cpp:149
+#, fuzzy, kde-format
+#| msgid "Could not start the search request."
+msgid "Could not start the add moderator request."
+msgstr "Ni bilo mogoče začeti iskalne zahteve."
+
+#: widgets/serverchecks/abstractusercheck.cpp:129
+#: widgets/serverchecks/abstractusercheck.cpp:161
+#, fuzzy, kde-format
+#| msgid "Could not start the search request."
+msgid "Could not start the remove moderator request."
+msgstr "Ni bilo mogoče začeti iskalne zahteve."
+
+#: widgets/serverchecks/abstractusercheck.cpp:183
+#: widgets/serverchecks/abstractusercheck.cpp:198
 #, kde-format
 msgid "Could not start the invite request."
 msgstr "Ni bilo mogoče začeti zahteve za povabilo."
 
-#: widgets/serverchecks/abstractusercheck.cpp:137
-#: widgets/serverchecks/abstractusercheck.cpp:149
+#: widgets/serverchecks/abstractusercheck.cpp:219
+#: widgets/serverchecks/abstractusercheck.cpp:231
 #, kde-format
 msgid "Could not start the kick request."
 msgstr "Ni bilo mogoče začeti zahteve za izločitev."
 
-#: widgets/serverchecks/addownerusercheck.cpp:13
-#, kde-format
-msgid "Change Owner User"
-msgstr "Spremeni lastnika uporabnika"
+#: widgets/serverchecks/addleaderusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Add as Leader"
+msgid "Add Leader User"
+msgstr "Dodaj kot vodjo"
 
+#: widgets/serverchecks/addleaderusercheck.cpp:19
+#: widgets/serverchecks/addmoderatorusercheck.cpp:19
 #: widgets/serverchecks/addownerusercheck.cpp:19
 #: widgets/serverchecks/adduserscheck.cpp:19
 #: widgets/serverchecks/deletemessagecheck.cpp:22
@@ -12009,6 +12034,8 @@ msgstr "Spremeni lastnika uporabnika"
 msgid "No account."
 msgstr "Ni računa."
 
+#: widgets/serverchecks/addleaderusercheck.cpp:26
+#: widgets/serverchecks/addmoderatorusercheck.cpp:26
 #: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
@@ -12016,11 +12043,35 @@ msgstr "Ni računa."
 msgid "Could not resolve user \"%1\"."
 msgstr "Ni bilo mogoče razrešiti uporabnika \"%1\"."
 
-#: widgets/serverchecks/addownerusercheck.cpp:37
+#: widgets/serverchecks/addleaderusercheck.cpp:37
 #, fuzzy, kde-format
-#| msgid "Could not add \"%1\": %2"
+#| msgid "Could not add owner \"%1\": %2"
+msgid "Could not add leader \"%1\": %2"
+msgstr "Ni bilo mogoče dodati lastnika \"%1\": %2"
+
+#: widgets/serverchecks/addmoderatorusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Add as Moderator"
+msgid "Add Moderator User"
+msgstr "Dodaj kot moderatorja"
+
+#: widgets/serverchecks/addmoderatorusercheck.cpp:37
+#, fuzzy, kde-format
+#| msgid "Could not add owner \"%1\": %2"
+msgid "Could not add moderator \"%1\": %2"
+msgstr "Ni bilo mogoče dodati lastnika \"%1\": %2"
+
+#: widgets/serverchecks/addownerusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgid "Change Owner User"
+msgid "Add Owner User"
+msgstr "Spremeni lastnika uporabnika"
+
+#: widgets/serverchecks/addownerusercheck.cpp:37
+#, kde-format
 msgid "Could not add owner \"%1\": %2"
-msgstr "Ni bilo mogoče dodati \"%1\": %2"
+msgstr "Ni bilo mogoče dodati lastnika \"%1\": %2"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
 #, kde-format
