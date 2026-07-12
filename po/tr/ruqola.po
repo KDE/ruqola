@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 02:38+0000\n"
+"POT-Creation-Date: 2026-07-12 02:37+0000\n"
 "PO-Revision-Date: 2026-07-08 19:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3831,7 +3831,7 @@ msgstr "Bulunan kullanıcı yok"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3964,7 +3964,7 @@ msgid "No room found"
 msgstr "Oda bulunamadı"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -9349,22 +9349,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Özel İletiyi Aç…"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:197
 #, kde-format
 msgid "No Room found"
 msgstr "Oda bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No User found"
 msgstr "Bulunan kullanıcı yok"
 
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:201
 #, kde-format
 msgid "No Team found"
 msgstr "Takım bulunamadı"
 
-#: widgets/directory/directorywidget.cpp:220
+#: widgets/directory/directorywidget.cpp:219
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"

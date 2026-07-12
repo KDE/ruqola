@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 02:38+0000\n"
+"POT-Creation-Date: 2026-07-12 02:37+0000\n"
 "PO-Revision-Date: 2026-07-01 09:31+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3841,7 +3841,7 @@ msgstr "No s'ha trobat cap usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3974,7 +3974,7 @@ msgid "No room found"
 msgstr "No s'ha trobat cap sala"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -9365,22 +9365,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Obri un missatge privat…"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:197
 #, kde-format
 msgid "No Room found"
 msgstr "No s'ha trobat cap sala"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No User found"
 msgstr "No s'ha trobat cap usuari"
 
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:201
 #, kde-format
 msgid "No Team found"
 msgstr "No s'ha trobat cap equip"
 
-#: widgets/directory/directorywidget.cpp:220
+#: widgets/directory/directorywidget.cpp:219
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
