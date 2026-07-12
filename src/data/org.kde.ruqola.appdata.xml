@@ -1393,6 +1393,14 @@
         <ul>
           <li>Rewrite attachment file support</li>
           <li>Add support task badge on windows/macos</li>
+          <li xml:lang="ca">Afegeix la implementació d'insígnia de tasques al Windows/macOS</li>
+          <li xml:lang="ca-valencia">Afig la implementació d'insígnia de tasques a Windows/macOS</li>
+          <li xml:lang="ka">დაემატა მხარდაჭერის ამოცანის ნიშანი Windows-ზე/macos-ზე</li>
+          <li xml:lang="nl">Voeg een badge voor ondersteuningstaken toe op Windows/macOS</li>
+          <li xml:lang="pt-BR">Adicionar selo de tarefa de suporte no Windows/macOS</li>
+          <li xml:lang="sl">Dodaj značko za podporno nalogo v windows/macos</li>
+          <li xml:lang="tr">Windows/macOS üzerinde görev rozeti desteği</li>
+          <li xml:lang="uk">Додано підтримку значка завдання у windows/macos</li>
           <li>Add a Server Checklist tool to verify a server after an upgrade.</li>
           <li xml:lang="ar">إضافة أداة قائمة تدقيق الخادم للتحقق من الخادم بعد الترقية.</li>
           <li xml:lang="ca">Afegeix una eina de llista de comprovació del servidor per verificar un servidor després d'una actualització.</li>
