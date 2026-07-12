@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:43+0000\n"
-"PO-Revision-Date: 2026-07-10 10:33+0300\n"
+"POT-Creation-Date: 2026-07-12 00:44+0000\n"
+"PO-Revision-Date: 2026-07-11 13:52+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3868,7 +3868,7 @@ msgstr "Користувача не знайдено"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -4003,7 +4003,7 @@ msgid "No room found"
 msgstr "Кімнати не знайдено"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -9460,22 +9460,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Відкрити конфіденційне повідомлення…"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:197
 #, kde-format
 msgid "No Room found"
 msgstr "Кімнати не знайдено"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No User found"
 msgstr "Користувача не знайдено"
 
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:201
 #, kde-format
 msgid "No Team found"
 msgstr "Команди не знайдено"
 
-#: widgets/directory/directorywidget.cpp:220
+#: widgets/directory/directorywidget.cpp:219
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -11093,10 +11093,9 @@ msgid "File upload"
 msgstr "Вивантаження файла"
 
 #: widgets/room/messagelinewidget.cpp:586
-#, fuzzy, kde-format
-#| msgid "Server doesn't authorized this file (invalid mimetype)"
+#, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
-msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"
+msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME %1)"
 
 #: widgets/room/messagelistview.cpp:132
 #, kde-format
@@ -12051,30 +12050,26 @@ msgid "Timed out waiting for the server to answer."
 msgstr "Перевищено час очікування на відповідь від сервера."
 
 #: widgets/serverchecks/abstractusercheck.cpp:85
-#, fuzzy, kde-format
-#| msgid "Could not start the change owner request."
+#, kde-format
 msgid "Could not start the add owner request."
-msgstr "Не вдалося започаткувати запит щодо зміни власника."
+msgstr "Не вдалося започаткувати запит щодо додавання власника."
 
 #: widgets/serverchecks/abstractusercheck.cpp:97
-#, fuzzy, kde-format
-#| msgid "Could not start the change owner request."
+#, kde-format
 msgid "Could not start the remove owner request."
-msgstr "Не вдалося започаткувати запит щодо зміни власника."
+msgstr "Не вдалося започаткувати запит щодо вилучення запису власника."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
 #: widgets/serverchecks/abstractusercheck.cpp:149
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the add moderator request."
-msgstr "Не вдалося започаткувати запит щодо пошуку."
+msgstr "Не вдалося започаткувати запит щодо додавання модератора."
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
 #: widgets/serverchecks/abstractusercheck.cpp:161
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the remove moderator request."
-msgstr "Не вдалося започаткувати запит щодо пошуку."
+msgstr "Не вдалося започаткувати запит щодо вилучення модератора."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198
@@ -12089,11 +12084,9 @@ msgid "Could not start the kick request."
 msgstr "Не вдалося започаткувати запит щодо викидання."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Leader"
+#, kde-format
 msgid "Add Leader User"
-msgstr "Додати як лідера"
+msgstr "Додати користувача-лідера"
 
 #: widgets/serverchecks/addleaderusercheck.cpp:19
 #: widgets/serverchecks/addmoderatorusercheck.cpp:19
@@ -12126,29 +12119,24 @@ msgid "Could not resolve user \"%1\"."
 msgstr "Не вдалося розв'язати дані користувача «%1»."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add owner \"%1\": %2"
+#, kde-format
 msgid "Could not add leader \"%1\": %2"
-msgstr "Не вдалося додати власника «%1»: %2"
+msgstr "Не вдалося додати лідера «%1»: %2"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Moderator"
+#, kde-format
 msgid "Add Moderator User"
-msgstr "Додати як модератора"
+msgstr "Додати користувача-модератора"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add owner \"%1\": %2"
+#, kde-format
 msgid "Could not add moderator \"%1\": %2"
-msgstr "Не вдалося додати власника «%1»: %2"
+msgstr "Не вдалося додати модератора «%1»: %2"
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgid "Change Owner User"
+#, kde-format
 msgid "Add Owner User"
-msgstr "Змінити користувача-власника"
+msgstr "Додати користувача-власника"
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
 #, kde-format

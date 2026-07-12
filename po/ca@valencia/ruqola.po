@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:43+0000\n"
-"PO-Revision-Date: 2026-07-10 09:16+0200\n"
+"POT-Creation-Date: 2026-07-12 00:44+0000\n"
+"PO-Revision-Date: 2026-07-11 13:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -3839,7 +3839,7 @@ msgstr "No s'ha trobat cap usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3972,7 +3972,7 @@ msgid "No room found"
 msgstr "No s'ha trobat cap sala"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -9390,22 +9390,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Obri un missatge privat…"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:197
 #, kde-format
 msgid "No Room found"
 msgstr "No s'ha trobat cap sala"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No User found"
 msgstr "No s'ha trobat cap usuari"
 
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:201
 #, kde-format
 msgid "No Team found"
 msgstr "No s'ha trobat cap equip"
 
-#: widgets/directory/directorywidget.cpp:220
+#: widgets/directory/directorywidget.cpp:219
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -11015,10 +11015,9 @@ msgid "File upload"
 msgstr "Pujada de fitxer"
 
 #: widgets/room/messagelinewidget.cpp:586
-#, fuzzy, kde-format
-#| msgid "Server doesn't authorized this file (invalid mimetype)"
+#, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
-msgstr "El servidor no ha autoritzat este fitxer (tipus MIME no vàlid)"
+msgstr "El servidor no ha autoritzat este fitxer (tipus MIME %1 no vàlid)"
 
 #: widgets/room/messagelistview.cpp:132
 #, kde-format
@@ -11969,30 +11968,26 @@ msgid "Timed out waiting for the server to answer."
 msgstr "Ha excedit el temps esperant que contesti el servidor."
 
 #: widgets/serverchecks/abstractusercheck.cpp:85
-#, fuzzy, kde-format
-#| msgid "Could not start the change owner request."
+#, kde-format
 msgid "Could not start the add owner request."
-msgstr "No s'ha pogut iniciar la sol·licitud de canvi de propietari."
+msgstr "No s'ha pogut iniciar la sol·licitud d'addició de propietari."
 
 #: widgets/serverchecks/abstractusercheck.cpp:97
-#, fuzzy, kde-format
-#| msgid "Could not start the change owner request."
+#, kde-format
 msgid "Could not start the remove owner request."
-msgstr "No s'ha pogut iniciar la sol·licitud de canvi de propietari."
+msgstr "No s'ha pogut iniciar la sol·licitud d'eliminació de propietari."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
 #: widgets/serverchecks/abstractusercheck.cpp:149
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the add moderator request."
-msgstr "No s'ha pogut iniciar la sol·licitud de busca."
+msgstr "No s'ha pogut iniciar la sol·licitud d'addició de moderador."
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
 #: widgets/serverchecks/abstractusercheck.cpp:161
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the remove moderator request."
-msgstr "No s'ha pogut iniciar la sol·licitud de busca."
+msgstr "No s'ha pogut iniciar la sol·licitud d'eliminació de moderador."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198
@@ -12007,11 +12002,9 @@ msgid "Could not start the kick request."
 msgstr "No s'ha pogut iniciar la sol·licitud d'expulsió."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Leader"
+#, kde-format
 msgid "Add Leader User"
-msgstr "Afig com a líder"
+msgstr "Afig com a usuari líder"
 
 #: widgets/serverchecks/addleaderusercheck.cpp:19
 #: widgets/serverchecks/addmoderatorusercheck.cpp:19
@@ -12044,29 +12037,24 @@ msgid "Could not resolve user \"%1\"."
 msgstr "No s'ha pogut resoldre l'usuari «%1»."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add owner \"%1\": %2"
+#, kde-format
 msgid "Could not add leader \"%1\": %2"
-msgstr "No s'ha pogut afegir el propietari «%1»: %2"
+msgstr "No s'ha pogut afegir el líder «%1»: %2"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Moderator"
+#, kde-format
 msgid "Add Moderator User"
-msgstr "Afig com a moderador"
+msgstr "Afig com a usuari moderador"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add owner \"%1\": %2"
+#, kde-format
 msgid "Could not add moderator \"%1\": %2"
-msgstr "No s'ha pogut afegir el propietari «%1»: %2"
+msgstr "No s'ha pogut afegir el moderador «%1»: %2"
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgid "Change Owner User"
+#, kde-format
 msgid "Add Owner User"
-msgstr "Canvia l'usuari propietari"
+msgstr "Afig un usuari propietari"
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:43+0000\n"
-"PO-Revision-Date: 2026-07-10 05:30+0200\n"
+"POT-Creation-Date: 2026-07-12 00:44+0000\n"
+"PO-Revision-Date: 2026-07-11 05:26+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3822,7 +3822,7 @@ msgstr "ვერ ვიპოვე მომხმარებელი"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:216
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3955,7 +3955,7 @@ msgid "No room found"
 msgstr "ოთახი ვერ ვიპოვე"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:213
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -9338,22 +9338,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "პირადი შეტყობინებების გახსნა…"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:197
 #, kde-format
 msgid "No Room found"
 msgstr "ოთახი ვერ ვიპოვე"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No User found"
 msgstr "მომხმარებელი ვერ ვიპოვე"
 
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:201
 #, kde-format
 msgid "No Team found"
 msgstr "გუნდივერ ვიპოვე"
 
-#: widgets/directory/directorywidget.cpp:220
+#: widgets/directory/directorywidget.cpp:219
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -10951,10 +10951,9 @@ msgid "File upload"
 msgstr "ფაილის ატვირთვა"
 
 #: widgets/room/messagelinewidget.cpp:586
-#, fuzzy, kde-format
-#| msgid "Server doesn't authorized this file (invalid mimetype)"
+#, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
-msgstr "სერვერმა ამ ფაილს ავტორიზაცია არ მიანიჭა (არასწორი mimetype)"
+msgstr "სერვერმა ამ ფაილს ავტორიზაცია არ მიანიჭა (არასწორი mimetype %1)"
 
 #: widgets/room/messagelistview.cpp:132
 #, kde-format
@@ -11905,30 +11904,26 @@ msgid "Timed out waiting for the server to answer."
 msgstr "სერვერის პასუხის მოლოდინის ვადა ამოიწურა."
 
 #: widgets/serverchecks/abstractusercheck.cpp:85
-#, fuzzy, kde-format
-#| msgid "Could not start the change owner request."
+#, kde-format
 msgid "Could not start the add owner request."
 msgstr "მფლობელის შეცვლის მოთხოვნის გაშვება შეუძლებელია."
 
 #: widgets/serverchecks/abstractusercheck.cpp:97
-#, fuzzy, kde-format
-#| msgid "Could not start the change owner request."
+#, kde-format
 msgid "Could not start the remove owner request."
-msgstr "მფლობელის შეცვლის მოთხოვნის გაშვება შეუძლებელია."
+msgstr "მფლობელის წაშლის მოთხოვნის გაშვება შეუძლებელია."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
 #: widgets/serverchecks/abstractusercheck.cpp:149
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the add moderator request."
-msgstr "ძებნის მოთხოვნის გაშვება შეუძლებელია."
+msgstr "მოდერატორის დამატების მთხოვნის გაშვება შეუძლებელია."
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
 #: widgets/serverchecks/abstractusercheck.cpp:161
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the remove moderator request."
-msgstr "ძებნის მოთხოვნის გაშვება შეუძლებელია."
+msgstr "მოდერატორის წაშლის მოთხოვნის გაშვება შეუძლებელია."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198
@@ -11943,11 +11938,9 @@ msgid "Could not start the kick request."
 msgstr "გაგდების მოთხოვნის გაშვება შეუძლებელია."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Leader"
+#, kde-format
 msgid "Add Leader User"
-msgstr "ლიდერად დამატება"
+msgstr "ლიდერის მომხმარებლის დამატება"
 
 #: widgets/serverchecks/addleaderusercheck.cpp:19
 #: widgets/serverchecks/addmoderatorusercheck.cpp:19
@@ -11980,29 +11973,24 @@ msgid "Could not resolve user \"%1\"."
 msgstr "ვერ ამოვხსენი მომხმარებელი \"%1\"."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add owner \"%1\": %2"
+#, kde-format
 msgid "Could not add leader \"%1\": %2"
-msgstr "მფლობელის \"%1\" დამატება შეუძლებელია: %2"
+msgstr "ვერ დავამატე ლიდერი \"%1\": %2"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Moderator"
+#, kde-format
 msgid "Add Moderator User"
-msgstr "მოდერატორად დამატება"
+msgstr "მოდერატორის მომხმარებლის დამატება"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add owner \"%1\": %2"
+#, kde-format
 msgid "Could not add moderator \"%1\": %2"
-msgstr "მფლობელის \"%1\" დამატება შეუძლებელია: %2"
+msgstr "ვერ დავამატე მოდერატორი \"%1\": %2"
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgid "Change Owner User"
+#, kde-format
 msgid "Add Owner User"
-msgstr "მფლობელი მომხმარებლის შეცვლა"
+msgstr "მფლობელის მომხმარებლის დამატება"
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
 #, kde-format
