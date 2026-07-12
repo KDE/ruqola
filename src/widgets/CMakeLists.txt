@@ -850,6 +850,10 @@ target_sources(
         serverchecks/addleaderusercheck.cpp
         serverchecks/removeleaderusercheck.cpp
         serverchecks/removeleaderusercheck.h
+        serverchecks/removeownerusercheck.h
+        serverchecks/removeownerusercheck.cpp
+        serverchecks/removemoderatorusercheck.cpp
+        serverchecks/removemoderatorusercheck.h
         servererrorinfohistory/servererrorinfomessagewidget.h
         servererrorinfohistory/servererrorinfomessagewidget.cpp
         servererrorinfohistory/servererrorinfomessagehistorydialog.h

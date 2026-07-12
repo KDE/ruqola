@@ -23,6 +23,8 @@
 #include "quotemessagecheck.h"
 #include "reactioncheck.h"
 #include "removeleaderusercheck.h"
+#include "removemoderatorusercheck.h"
+#include "removeownerusercheck.h"
 #include "removeuserscheck.h"
 #include "rocketchataccount.h"
 #include "searchmessagecheck.h"
@@ -48,6 +50,7 @@ ServerCheckListManager::ServerCheckListManager(RocketChatAccount *account, const
         new DescriptionChangeCheck(account, roomId, this), new AnnouncementChangeCheck(account, roomId, this),
         new AddOwnerUserCheck(account, roomId, this),      new AddModeratorUserCheck(account, roomId, this),
         new AddLeaderUserCheck(account, roomId, this),     new RemoveLeaderUserCheck(account, roomId, this),
+        new RemoveOwnerUserCheck(account, roomId, this),   new RemoveModeratorUserCheck(account, roomId, this),
     };
 }
 
