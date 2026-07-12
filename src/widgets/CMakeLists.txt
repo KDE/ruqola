@@ -848,6 +848,8 @@ target_sources(
         serverchecks/addmoderatorusercheck.h
         serverchecks/addleaderusercheck.h
         serverchecks/addleaderusercheck.cpp
+        serverchecks/removeleaderusercheck.cpp
+        serverchecks/removeleaderusercheck.h
         servererrorinfohistory/servererrorinfomessagewidget.h
         servererrorinfohistory/servererrorinfomessagewidget.cpp
         servererrorinfohistory/servererrorinfomessagehistorydialog.h
