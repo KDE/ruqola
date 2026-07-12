@@ -193,6 +193,8 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mEmbedCacheExpirationDays->setObjectName(u"mEmbedCacheExpirationDays"_s);
     addSpinbox(i18n("Embed Cache Expiration Days"), mEmbedCacheExpirationDays, u"API_EmbedCacheExpirationDays"_s);
+
+    // Add Read Receipt
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
