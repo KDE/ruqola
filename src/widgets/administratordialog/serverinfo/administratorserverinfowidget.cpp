@@ -141,6 +141,8 @@ void AdministratorServerInfoWidget::parseServerInfo(QTreeWidgetItem *serverInfoI
 {
     createItemFromStringValue(serverInfoItem, obj, i18n("Version"), u"version"_s);
     createItemFromStringValue(serverInfoItem, obj, i18n("Deployment ID"), u"uniqueId"_s);
+    createItemFromStringValue(serverInfoItem, obj, i18n("Mongo Version"), u"mongoVersion"_s);
+    createItemFromStringValue(serverInfoItem, obj, i18n("Mongo Storage Engine"), u"mongoStorageEngine"_s);
 }
 
 void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *parentItem,
