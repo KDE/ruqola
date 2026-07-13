@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 00:44+0000\n"
+"POT-Creation-Date: 2026-07-13 00:43+0000\n"
 "PO-Revision-Date: 2026-07-09 14:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -12051,6 +12051,9 @@ msgstr "أضف كقائد"
 #: widgets/serverchecks/pinmessagecheck.cpp:28
 #: widgets/serverchecks/quotemessagecheck.cpp:26
 #: widgets/serverchecks/reactioncheck.cpp:25
+#: widgets/serverchecks/removeleaderusercheck.cpp:19
+#: widgets/serverchecks/removemoderatorusercheck.cpp:19
+#: widgets/serverchecks/removeownerusercheck.cpp:19
 #: widgets/serverchecks/removeuserscheck.cpp:19
 #: widgets/serverchecks/searchmessagecheck.cpp:36
 #: widgets/serverchecks/sendmessagecheck.cpp:21
@@ -12063,6 +12066,9 @@ msgstr "لا حساب."
 #: widgets/serverchecks/addmoderatorusercheck.cpp:26
 #: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
+#: widgets/serverchecks/removeleaderusercheck.cpp:26
+#: widgets/serverchecks/removemoderatorusercheck.cpp:26
+#: widgets/serverchecks/removeownerusercheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
 #, kde-format
 msgid "Could not resolve user \"%1\"."
@@ -12239,6 +12245,45 @@ msgstr " (اقتبس)"
 #, kde-format
 msgid "Emoji reaction"
 msgstr "رد فعل إيموجي"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove as Leader"
+msgid "Remove Leader User"
+msgstr "أزل دور القائد"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Could not remove \"%1\": %2"
+msgid "Could not remove leader \"%1\": %2"
+msgstr "تعذّر إزالة: \"%1\": %2"
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove as Moderator"
+msgid "Remove Moderator User"
+msgstr "أزل دور المشرف"
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Could not add \"%1\": %2"
+msgid "Could not remove moderator \"%1\": %2"
+msgstr "تعذّرت إضافة \"%1\": %2"
+
+#: widgets/serverchecks/removeownerusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove User"
+msgid "Remove Owner User"
+msgstr "أزِل مستخدم"
+
+#: widgets/serverchecks/removeownerusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Could not remove \"%1\": %2"
+msgid "Could not remove owner \"%1\": %2"
+msgstr "تعذّر إزالة: \"%1\": %2"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
 #, kde-format

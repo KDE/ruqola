@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 00:44+0000\n"
+"POT-Creation-Date: 2026-07-13 00:43+0000\n"
 "PO-Revision-Date: 2026-06-27 15:38+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -12117,6 +12117,9 @@ msgstr "Добавить как лидера"
 #: widgets/serverchecks/pinmessagecheck.cpp:28
 #: widgets/serverchecks/quotemessagecheck.cpp:26
 #: widgets/serverchecks/reactioncheck.cpp:25
+#: widgets/serverchecks/removeleaderusercheck.cpp:19
+#: widgets/serverchecks/removemoderatorusercheck.cpp:19
+#: widgets/serverchecks/removeownerusercheck.cpp:19
 #: widgets/serverchecks/removeuserscheck.cpp:19
 #: widgets/serverchecks/searchmessagecheck.cpp:36
 #: widgets/serverchecks/sendmessagecheck.cpp:21
@@ -12130,6 +12133,9 @@ msgstr "Моя учётная запись"
 #: widgets/serverchecks/addmoderatorusercheck.cpp:26
 #: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
+#: widgets/serverchecks/removeleaderusercheck.cpp:26
+#: widgets/serverchecks/removemoderatorusercheck.cpp:26
+#: widgets/serverchecks/removeownerusercheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this user \"%1\"?"
@@ -12333,6 +12339,45 @@ msgstr "Цитировать"
 #| msgid "Add reaction"
 msgid "Emoji reaction"
 msgstr "Добавить реакцию"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove as Leader"
+msgid "Remove Leader User"
+msgstr "Удалить как лидера"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not remove leader \"%1\": %2"
+msgstr "Удалить «%1»?"
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove as Moderator"
+msgid "Remove Moderator User"
+msgstr "Удалить как модератора"
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not remove moderator \"%1\": %2"
+msgstr "Удалить «%1»?"
+
+#: widgets/serverchecks/removeownerusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove User"
+msgid "Remove Owner User"
+msgstr "Удаление пользователя"
+
+#: widgets/serverchecks/removeownerusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Do you want to remove \"%1\"?"
+msgid "Could not remove owner \"%1\": %2"
+msgstr "Удалить «%1»?"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
 #, fuzzy, kde-format

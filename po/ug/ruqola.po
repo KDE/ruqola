@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 00:44+0000\n"
+"POT-Creation-Date: 2026-07-13 00:43+0000\n"
 "PO-Revision-Date: 2026-06-01 18:41-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -11664,6 +11664,9 @@ msgstr "مۇلازىمېتىر قوش"
 #: widgets/serverchecks/pinmessagecheck.cpp:28
 #: widgets/serverchecks/quotemessagecheck.cpp:26
 #: widgets/serverchecks/reactioncheck.cpp:25
+#: widgets/serverchecks/removeleaderusercheck.cpp:19
+#: widgets/serverchecks/removemoderatorusercheck.cpp:19
+#: widgets/serverchecks/removeownerusercheck.cpp:19
 #: widgets/serverchecks/removeuserscheck.cpp:19
 #: widgets/serverchecks/searchmessagecheck.cpp:36
 #: widgets/serverchecks/sendmessagecheck.cpp:21
@@ -11677,6 +11680,9 @@ msgstr "ھېساب"
 #: widgets/serverchecks/addmoderatorusercheck.cpp:26
 #: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
+#: widgets/serverchecks/removeleaderusercheck.cpp:26
+#: widgets/serverchecks/removemoderatorusercheck.cpp:26
+#: widgets/serverchecks/removeownerusercheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
 #, kde-format
 msgid "Could not resolve user \"%1\"."
@@ -11857,6 +11863,39 @@ msgstr "نەقىل"
 #| msgid "More Actions"
 msgid "Emoji reaction"
 msgstr "تېخىمۇ كۆپ مەشغۇلات"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Leader User"
+msgstr "چىقىرىۋەت"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:40
+#, kde-format
+msgid "Could not remove leader \"%1\": %2"
+msgstr ""
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Moderator User"
+msgstr "چىقىرىۋەت"
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:40
+#, kde-format
+msgid "Could not remove moderator \"%1\": %2"
+msgstr ""
+
+#: widgets/serverchecks/removeownerusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Owner User"
+msgstr "چىقىرىۋەت"
+
+#: widgets/serverchecks/removeownerusercheck.cpp:40
+#, kde-format
+msgid "Could not remove owner \"%1\": %2"
+msgstr ""
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
 #, fuzzy, kde-format

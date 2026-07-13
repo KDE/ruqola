@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 00:44+0000\n"
+"POT-Creation-Date: 2026-07-13 00:43+0000\n"
 "PO-Revision-Date: 2026-07-11 06:35-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -11997,6 +11997,9 @@ msgstr "Adicionar usuário líder"
 #: widgets/serverchecks/pinmessagecheck.cpp:28
 #: widgets/serverchecks/quotemessagecheck.cpp:26
 #: widgets/serverchecks/reactioncheck.cpp:25
+#: widgets/serverchecks/removeleaderusercheck.cpp:19
+#: widgets/serverchecks/removemoderatorusercheck.cpp:19
+#: widgets/serverchecks/removeownerusercheck.cpp:19
 #: widgets/serverchecks/removeuserscheck.cpp:19
 #: widgets/serverchecks/searchmessagecheck.cpp:36
 #: widgets/serverchecks/sendmessagecheck.cpp:21
@@ -12009,6 +12012,9 @@ msgstr "Nenhuma conta."
 #: widgets/serverchecks/addmoderatorusercheck.cpp:26
 #: widgets/serverchecks/addownerusercheck.cpp:26
 #: widgets/serverchecks/adduserscheck.cpp:26
+#: widgets/serverchecks/removeleaderusercheck.cpp:26
+#: widgets/serverchecks/removemoderatorusercheck.cpp:26
+#: widgets/serverchecks/removeownerusercheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
 #, kde-format
 msgid "Could not resolve user \"%1\"."
@@ -12177,6 +12183,45 @@ msgstr " (citação)"
 #, kde-format
 msgid "Emoji reaction"
 msgstr "Emoji de reação"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove as Leader"
+msgid "Remove Leader User"
+msgstr "Excluir como líder"
+
+#: widgets/serverchecks/removeleaderusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Could not remove \"%1\": %2"
+msgid "Could not remove leader \"%1\": %2"
+msgstr "Não foi possível remover \"%1\": %2"
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Remove as Moderator"
+msgid "Remove Moderator User"
+msgstr "Excluir como moderador"
+
+#: widgets/serverchecks/removemoderatorusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Could not add moderator \"%1\": %2"
+msgid "Could not remove moderator \"%1\": %2"
+msgstr "Não foi possível adicionar moderador \"%1\": %2"
+
+#: widgets/serverchecks/removeownerusercheck.cpp:13
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove User"
+msgid "Remove Owner User"
+msgstr "Excluir usuário"
+
+#: widgets/serverchecks/removeownerusercheck.cpp:40
+#, fuzzy, kde-format
+#| msgid "Could not remove \"%1\": %2"
+msgid "Could not remove owner \"%1\": %2"
+msgstr "Não foi possível remover \"%1\": %2"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
 #, kde-format
