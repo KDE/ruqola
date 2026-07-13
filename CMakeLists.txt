@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 cmake_minimum_required(VERSION 3.29)
-set(RUQOLA_VERSION "2.8.0")
+set(RUQOLA_VERSION "2.8.1")
 # TODO: update it in each release version
-set(RUQOLA_RELEASE_VERSION "26.06.28") # yy.MM.dd
+set(RUQOLA_RELEASE_VERSION "26.07.13") # yy.MM.dd
 
 # Use true if stable version => we will check specific version
 set(RUQOLA_STABLE_VERSION true)
