@@ -55,6 +55,12 @@ AccountManager::AccountManager(QObject *parent)
 #endif
     , mTextToSpeechEnqueueManager(new TextToSpeechEnqueueManager(this))
 {
+    // migrate account state to new location
+    QSettings settings;
+    auto config = KSharedConfig::openStateConfig();
+    config->group(u"General"_s).writeEntry("currentAccount", settings.value("currentAccount"));
+    settings.remove("currentAccount");
+
 #if HAVE_ACTIVITY_SUPPORT
     mRocketChatAccountProxyModel->setActivitiesManager(mActivitiesManager);
     // TODO disable/enable account
@@ -293,8 +299,9 @@ void AccountManager::loadAccount()
 
     mRocketChatAccountModel->setAccounts(lstAccounts);
 
-    const QSettings settings;
-    const QString currentAccount = settings.value("currentAccount"_L1, QString()).toString();
+    const auto config = KSharedConfig::openStateConfig();
+    const QString currentAccount = config->group(u"General"_s).readEntry("currentAccount");
+
     if (currentAccount.isEmpty()) {
         auto account = mRocketChatAccountModel->account(0);
         if (account && account->accountEnabled()) {
@@ -449,9 +456,8 @@ void AccountManager::setCurrentAccount(const QString &accountName)
     RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
     if (account) {
         if (mCurrentAccount != account) {
-            QSettings settings;
-            settings.setValue("currentAccount"_L1, accountName);
-            settings.sync();
+            auto config = KSharedConfig::openStateConfig();
+            config->group(u"General"_s).writeEntry("currentAccount", accountName);
             mCurrentAccount = account;
             Q_EMIT currentAccountChanged();
         }
@@ -530,20 +536,17 @@ void AccountManager::removeAccount(const QString &accountName, bool removeLogFil
     if (mRocketChatAccountModel->accountNumber() > 0) {
         auto fallbackAccount = mRocketChatAccountModel->account(0);
         if (fallbackAccount && fallbackAccount->accountEnabled()) {
-            QSettings settings;
-            settings.setValue("currentAccount"_L1, fallbackAccount->accountName());
-            settings.sync();
+            auto config = KSharedConfig::openStateConfig();
+            config->group(u"General"_s).writeEntry("currentAccount", fallbackAccount->accountName());
             mCurrentAccount = fallbackAccount;
         } else {
-            QSettings settings;
-            settings.remove("currentAccount"_L1);
-            settings.sync();
+            auto config = KSharedConfig::openStateConfig();
+            config->group(u"General"_s).deleteEntry("currentAccount");
             mCurrentAccount = nullptr;
         }
     } else {
-        QSettings settings;
-        settings.remove("currentAccount"_L1);
-        settings.sync();
+        auto config = KSharedConfig::openStateConfig();
+        config->group(u"General"_s).deleteEntry("currentAccount");
         mCurrentAccount = nullptr;
     }
     Q_EMIT currentAccountChanged();
