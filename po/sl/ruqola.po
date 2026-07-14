@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-13 00:43+0000\n"
-"PO-Revision-Date: 2026-07-11 12:32+0200\n"
+"POT-Creation-Date: 2026-07-14 00:43+0000\n"
+"PO-Revision-Date: 2026-07-13 06:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3039,7 +3039,7 @@ msgid "Administrator"
 msgstr "Skrbnik"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
 #, kde-format
 msgid "Server Info"
 msgstr "Podatki o strežniku"
@@ -4044,152 +4044,163 @@ msgstr "Beri prejemke"
 msgid "Deployment ID"
 msgstr "ID uvajanja"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "Mongo Version"
+msgstr "Različica"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
+#, kde-format
+msgid "Mongo Storage Engine"
+msgstr ""
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Uporabniki programa Rocket.Chat"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "Skupna velikost nalaganj"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Total Uploads"
 msgstr "Skupaj nalaganj"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
 #, kde-format
 msgid "Online Users"
 msgstr "Povezani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
 #, kde-format
 msgid "Away Users"
 msgstr "Odsotni uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
 #, kde-format
 msgid "Offline Users"
 msgstr "Nepovezani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, kde-format
 msgid "Busy Users"
 msgstr "Zaposleni uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, kde-format
 msgid "Activated Users"
 msgstr "Aktivirani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, kde-format
 msgid "Activated Guests"
 msgstr "Aktivirani gostje"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Deactivated Users"
 msgstr "Deaktivirani uporabniki"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Total Channels"
 msgstr "Skupaj kanalov"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Total Rooms"
 msgstr "Skupaj sob"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Private Groups"
 msgstr "Skupaj zasebnih skupin"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "Skupaj sob z neposrednimi sporočili"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Threads"
 msgstr "Skupaj niti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Total Users"
 msgstr "Skupaj uporabnilov"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Total Discussions"
 msgstr "Skupaj razprav"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Skupaj omnikanalnih sob"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Total Messages"
 msgstr "Skupaj sporočila"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Skupaj sporočil v kanalih"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Skupaj sporočil v zasebnih skupinah"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Skupaj sporočil v neposrednih sporočilih"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Skupaj povezanih uporabnikov"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
 #, kde-format
 msgid "OS Release"
 msgstr "Izdaja OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:224
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
 #, kde-format
 msgid "OS Type"
 msgstr "Vrsta OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
 #, kde-format
 msgid "OS Platform"
 msgstr "Platforma OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
 #, kde-format
 msgid "OS Total Memory"
 msgstr "Skupaj pomnilnika OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
 #, kde-format
 msgid "OS Free Memory"
 msgstr "Prosti pomnilnik OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:242
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "Usage"
 msgstr "Raba"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:250
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Izvajalno okolje"
@@ -12209,43 +12220,34 @@ msgid "Emoji reaction"
 msgstr "Čustvena reakcija"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Leader"
+#, kde-format
 msgid "Remove Leader User"
-msgstr "Odstrani kot vodjo"
+msgstr "Odstrani vodilnega uporabnika"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not remove \"%1\": %2"
+#, kde-format
 msgid "Could not remove leader \"%1\": %2"
-msgstr "Ni bilo mogoče odstraniti \"%1\": %2"
+msgstr "Ni bilo mogoče odstraniti voditelja \"%1\": %2"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Moderator"
+#, kde-format
 msgid "Remove Moderator User"
-msgstr "Odstrani kot moderatorja"
+msgstr "Odstrani uporabnika moderatorja"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not add moderator \"%1\": %2"
+#, kde-format
 msgid "Could not remove moderator \"%1\": %2"
-msgstr "Ni bilo mogoče dodati moderatorja \"%1\": %2"
+msgstr "Ni bilo mogoče odstraniti moderatorja \"%1\": %2"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgid "Remove Owner User"
-msgstr "Odstrani uporabnika"
+msgstr "Odstrani uporabnika lastnika"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not remove \"%1\": %2"
+#, kde-format
 msgid "Could not remove owner \"%1\": %2"
-msgstr "Ni bilo mogoče odstraniti \"%1\": %2"
+msgstr "Ni bilo mogoče odstraniti lastnika \"%1\": %2"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
 #, kde-format

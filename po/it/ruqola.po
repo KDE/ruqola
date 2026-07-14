@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-13 00:43+0000\n"
-"PO-Revision-Date: 2026-06-25 15:04+0200\n"
+"POT-Creation-Date: 2026-07-14 00:43+0000\n"
+"PO-Revision-Date: 2026-07-13 16:15+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -2200,10 +2200,9 @@ msgstr[0] "%v secondo"
 msgstr[1] "%v secondi"
 
 #: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:200
-#, fuzzy, kde-format
-#| msgid "Unread message not authorized."
+#, kde-format
 msgid "License not authorized it."
-msgstr "I messaggi non letti non sono autorizzati."
+msgstr "Licenza non autorizzata."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -3030,7 +3029,7 @@ msgid "Administrator"
 msgstr "Amministratore"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
 #, kde-format
 msgid "Server Info"
 msgstr "Informazioni sul server"
@@ -4025,152 +4024,163 @@ msgstr "Richieste di conferma di lettura"
 msgid "Deployment ID"
 msgstr "ID di distribuzione"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "Mongo Version"
+msgstr "Versione"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
+#, kde-format
+msgid "Mongo Storage Engine"
+msgstr ""
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Utenti applicazione Rocket.Chat"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "Dimensione totale dei caricamenti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Total Uploads"
 msgstr "Caricamenti totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
 #, kde-format
 msgid "Online Users"
 msgstr "Utenti in linea"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:168
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
 #, kde-format
 msgid "Away Users"
 msgstr "Qualsiasi utente"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
 #, kde-format
 msgid "Offline Users"
 msgstr "Utenti non in linea"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, kde-format
 msgid "Busy Users"
 msgstr "Utenti occupati"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, kde-format
 msgid "Activated Users"
 msgstr "Utenti attivati"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, kde-format
 msgid "Activated Guests"
 msgstr "Ospiti attivati"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Deactivated Users"
 msgstr "Utenti disattivati"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Total Channels"
 msgstr "Canali totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Total Rooms"
 msgstr "Stanze totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Private Groups"
 msgstr "Gruppi privati totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "Totale stanze di messaggistica diretta"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Threads"
 msgstr "Conversazioni totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Total Users"
 msgstr "Utenti totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Total Discussions"
 msgstr "Discussioni totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Totale camere omnicanale"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Total Messages"
 msgstr "Messaggi totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Messaggi totali nei canali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Messaggi totali nei gruppi privati"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Messaggi totali nei messaggi diretti"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Utenti connessi totali"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:223
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
 #, kde-format
 msgid "OS Release"
 msgstr "Versione SO"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:224
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
 #, kde-format
 msgid "OS Type"
 msgstr "Tipo di SO"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
 #, kde-format
 msgid "OS Platform"
 msgstr "Piattaforma SO"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
 #, kde-format
 msgid "OS Total Memory"
 msgstr "Memoria totale del SO"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
 #, kde-format
 msgid "OS Free Memory"
 msgstr "Memoria libera del SO"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:242
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "Usage"
 msgstr "Uso"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:250
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Ambiente di esecuzione"
@@ -6274,10 +6284,9 @@ msgid "Microsoft"
 msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
-#, fuzzy, kde-format
-#| msgid "Libre Translate"
+#, kde-format
 msgid "LibreTranslate"
-msgstr "Libre Translate"
+msgstr "LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
@@ -6300,16 +6309,14 @@ msgid "Microsoft API Key"
 msgstr "Chiave API di Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "Libre Translate"
+#, kde-format
 msgid "LibreTranslate URL"
-msgstr "Libre Translate"
+msgstr "URL LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
-#, fuzzy, kde-format
-#| msgid "Libre Translate"
+#, kde-format
 msgid "LibreTranslate API Key"
-msgstr "Libre Translate"
+msgstr "Chiave API LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -9263,18 +9270,16 @@ msgid "Show Pinned Messages - %1"
 msgstr "Mostra messaggi appuntati - %1"
 
 #: widgets/dialogs/showreadreceiptsdialog.cpp:28
-#, fuzzy, kde-format
-#| msgid "Read Receipts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Read Receipts"
-msgstr "Richieste di conferma di lettura"
+msgstr "Mostra le conferme di lettura"
 
 #: widgets/dialogs/showreadreceiptswidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Read Receipts"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
-msgstr "Richieste di conferma di lettura"
+msgstr "Cerca le conferme di lettura…"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:24
 #, kde-format
@@ -11022,10 +11027,9 @@ msgid "File upload"
 msgstr "File caricato"
 
 #: widgets/room/messagelinewidget.cpp:586
-#, fuzzy, kde-format
-#| msgid "Server doesn't authorized this file (invalid mimetype)"
+#, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
-msgstr "Il server non ha autorizzato questo file (tipo MIME non valido)"
+msgstr "Il server non autorizza questo file (tipo MIME non valido %1)"
 
 #: widgets/room/messagelistview.cpp:132
 #, kde-format
@@ -11086,11 +11090,10 @@ msgid "Quote"
 msgstr "Cita"
 
 #: widgets/room/messagelistview.cpp:417
-#, fuzzy, kde-format
-#| msgid "Read Receipts"
+#, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
-msgstr "Richieste di conferma di lettura"
+msgstr "Conferma di lettura"
 
 #: widgets/room/messagelistview.cpp:422
 #, kde-format
@@ -11216,12 +11219,10 @@ msgid "New Message"
 msgstr "Nuovo messaggio"
 
 #: widgets/room/pendingattachmentclickablewidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Attachment"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
-msgstr "Salva allegato"
+msgstr "Rimuovi allegato"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11502,23 +11503,18 @@ msgid "Ignore User"
 msgstr "Ignora utente"
 
 #: widgets/room/usersinroommenu.cpp:104
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to remove this user from Channel?"
-msgstr "Vuoi rimuovere questo utente?"
+msgstr "Vuoi rimuovere questo utente dal canale?"
 
 #: widgets/room/usersinroommenu.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title"
 msgid "Remove User"
 msgstr "Rimuovi utente"
 
 #: widgets/room/usersinroommenu.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Rimuovi utente"
@@ -11620,26 +11616,21 @@ msgid "Ban User From Room"
 msgstr "Bandisci utente dalla stanza"
 
 #: widgets/room/usersinroommenu.cpp:230
-#, fuzzy, kde-format
-#| msgid "Do you want to block this user?"
+#, kde-format
 msgid "Do you want to ban this user?"
-msgstr "Vuoi bloccare questo utente?"
+msgstr "Vuoi bandire questo utente?"
 
 #: widgets/room/usersinroommenu.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Sblocca utente"
+msgstr "Bandisci utente"
 
 #: widgets/room/usersinroommenu.cpp:232
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
-msgstr "Sblocca utente"
+msgstr "Bandisci utente"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -11848,12 +11839,10 @@ msgid "Show RocketChat Information"
 msgstr "Mostra informazioni Rocket.Chat"
 
 #: widgets/ruqolamainwindow.cpp:695
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Server Settings…"
+#, kde-format
 msgctxt "@action"
 msgid "Server Checklist…"
-msgstr "Impostazioni server…"
+msgstr "Lista di controllo del server..."
 
 #: widgets/ruqolamainwindow.cpp:699
 #, kde-format
@@ -11988,56 +11977,46 @@ msgstr "Barra degli strumenti principale"
 #: widgets/serverchecks/abstractservercheck.cpp:46
 #, kde-format
 msgid "Timed out waiting for the server to answer."
-msgstr ""
+msgstr "Tempo scaduto in attesa della risposta del server."
 
 #: widgets/serverchecks/abstractusercheck.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the add owner request."
-msgstr "Non eliminare i messaggi appuntati"
+msgstr "Impossibile avviare la richiesta di aggiunta del proprietario."
 
 #: widgets/serverchecks/abstractusercheck.cpp:97
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the remove owner request."
-msgstr "Non eliminare i messaggi appuntati"
+msgstr "Impossibile avviare la richiesta di rimozione del proprietario."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
 #: widgets/serverchecks/abstractusercheck.cpp:149
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the add moderator request."
-msgstr "Non eliminare i messaggi appuntati"
+msgstr "Impossibile avviare la richiesta di aggiunta del moderatore."
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
 #: widgets/serverchecks/abstractusercheck.cpp:161
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the remove moderator request."
-msgstr "Non eliminare i messaggi appuntati"
+msgstr "Impossibile avviare la richiesta di rimozione del moderatore."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198
 #, kde-format
 msgid "Could not start the invite request."
-msgstr ""
+msgstr "Impossibile avviare la richiesta di invito."
 
 #: widgets/serverchecks/abstractusercheck.cpp:219
 #: widgets/serverchecks/abstractusercheck.cpp:231
 #, kde-format
 msgid "Could not start the kick request."
-msgstr ""
+msgstr "Impossibile avviare la richiesta di espulsione."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Leader"
+#, kde-format
 msgid "Add Leader User"
-msgstr "Aggiungi come leader"
+msgstr "Aggiungi utente leader"
 
 #: widgets/serverchecks/addleaderusercheck.cpp:19
 #: widgets/serverchecks/addmoderatorusercheck.cpp:19
@@ -12059,10 +12038,9 @@ msgstr "Aggiungi come leader"
 #: widgets/serverchecks/searchmessagecheck.cpp:36
 #: widgets/serverchecks/sendmessagecheck.cpp:21
 #: widgets/serverchecks/threadreplycheck.cpp:22
-#, fuzzy, kde-format
-#| msgid "My Account"
+#, kde-format
 msgid "No account."
-msgstr "Il mio account"
+msgstr "Nessun account."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:26
 #: widgets/serverchecks/addmoderatorusercheck.cpp:26
@@ -12072,284 +12050,237 @@ msgstr "Il mio account"
 #: widgets/serverchecks/removemoderatorusercheck.cpp:26
 #: widgets/serverchecks/removeownerusercheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#, kde-format
 msgid "Could not resolve user \"%1\"."
-msgstr "Vuoi rimuovere l'utente «%1»?"
+msgstr "Impossibile risolvere l'utente «%1»."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not add leader \"%1\": %2"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Impossibile aggiungere il leader «%1»: %2"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Moderator"
+#, kde-format
 msgid "Add Moderator User"
-msgstr "Aggiungi come moderatore"
+msgstr "Aggiungi utente moderatore"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not add moderator \"%1\": %2"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Impossibile aggiungere il moderatore «%1»: %2"
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change Url"
+#, kde-format
 msgid "Add Owner User"
-msgstr "Modifica URL"
+msgstr "Aggiungi utente proprietario"
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not add owner \"%1\": %2"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Impossibile aggiungere il proprietario «%1»: %2"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgid "Add user to room"
-msgstr "Aggiungi utente alla stanza"
+msgstr "Aggiungi l'utente alla stanza"
 
 #: widgets/serverchecks/adduserscheck.cpp:34
 #, kde-format
 msgid "Could not add \"%1\": %2"
-msgstr ""
+msgstr "Impossibile aggiungere il progetto «%1»: %2"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Change channel announcement"
-msgstr "Descrizione non valida"
+msgstr "Cambia annuncio del canale"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:39
 #: widgets/serverchecks/descriptionchangecheck.cpp:39
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:34
 #: widgets/serverchecks/quotemessagecheck.cpp:51
 #: widgets/serverchecks/topicchangecheck.cpp:39
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "Could not find the room."
-msgstr "Non sei nella stanza «%s»"
+msgstr "Impossibile trovare la stanza."
 
 #: widgets/serverchecks/deletemessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete message"
-msgstr "Elimina messaggio"
+msgstr "Elimina il messaggio"
 
 #: widgets/serverchecks/descriptionchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Change channel description"
-msgstr "Descrizione non valida"
+msgstr "Modifica la descrizione del canale"
 
 #: widgets/serverchecks/editmessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Edit message"
-msgstr "Messaggio diretto"
+msgstr "Modifica il messaggio"
 
 #: widgets/serverchecks/editmessagecheck.cpp:26
 #, kde-format
 msgid " (edited)"
-msgstr ""
+msgstr " (modificato)"
 
 #: widgets/serverchecks/editmessagecheck.cpp:57
 #, kde-format
 msgid "Edited text arrived but the message is not flagged as edited."
 msgstr ""
+"Il testo modificato è arrivato, ma il messaggio non è stato contrassegnato "
+"come modificato."
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Forward Message"
+#, kde-format
 msgid "Favorite (star) message"
-msgstr "Inoltra messaggio"
+msgstr "Messaggio preferito (stella)"
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:50
 #, kde-format
 msgid "Could not start the star-message request."
-msgstr ""
+msgstr "Impossibile avviare la richiesta di messaggio stella."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "File upload"
+#, kde-format
 msgid "File attachment upload"
-msgstr "File caricato"
+msgstr "Caricamento dell'allegato"
 
 #: widgets/serverchecks/fileuploadcheck.cpp:39
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary file."
-msgstr "Impossibile scrivere nel file di registro %1"
+msgstr "Impossibile creare un file temporaneo."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:80
 #, kde-format
 msgid "The file arrived but was not recognized as a file attachment."
-msgstr ""
+msgstr "Il file è arrivato, ma non è stato riconosciuto come allegato."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:31
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Image description"
-msgstr "Descrizione non valida"
+msgstr "Descrizione dell'immagine"
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:47
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary image file."
-msgstr "Impossibile scrivere nel file di registro %1"
+msgstr "Impossibile creare un file immagine temporaneo."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:90
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr ""
+"L'immagine è arrivata, ma la sua descrizione è stata ignorata dal server."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:92
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
-msgstr ""
+msgstr "L'immagine è arrivata con una descrizione errata: «%1»."
 
 #: widgets/serverchecks/linkpreviewcheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Fix preview url."
+#, kde-format
 msgid "Link preview (URL unfurl)"
-msgstr "Corregge l'URL di anteprima."
+msgstr "Anteprima del link (espandi URL)"
 
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Favorite Room"
+#, kde-format
 msgid "Change Favorite Room State"
-msgstr "Mostra la stanza preferita"
+msgstr "Cambia lo stato della stanza preferita"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin message"
-msgstr "Appunta messaggio"
+msgstr "Appunta il messaggio"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:63
 #, kde-format
 msgid "Could not start the pin-message request."
-msgstr ""
+msgstr "Impossibile avviare la richiesta del messaggio PIN."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:85
 #, kde-format
 msgid "The message was not found among the server's pinned messages."
-msgstr ""
+msgstr "Il messaggio non è stato trovato tra i messaggi fissati sul server."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the pinned-messages request."
-msgstr "Non eliminare i messaggi appuntati"
+msgstr "Impossibile avviare la richiesta dei messaggi appuntati."
 
 #: widgets/serverchecks/quotemessagecheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Quote message"
-msgstr "Messaggio segnalato"
+msgstr "Cita messaggio"
 
 #: widgets/serverchecks/quotemessagecheck.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgid " (quote)"
-msgstr "Cita"
+msgstr " (citazione)"
 
 #: widgets/serverchecks/reactioncheck.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Add reaction"
+#, kde-format
 msgid "Emoji reaction"
-msgstr "Aggiungi reazione"
+msgstr "Reazione con emoji"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Leader"
+#, kde-format
 msgid "Remove Leader User"
-msgstr "Rimuovi da leader"
+msgstr "Rimuovi utente leader"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove leader \"%1\": %2"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Impossibile rimuovere il leader: «%1»: %2"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Moderator"
+#, kde-format
 msgid "Remove Moderator User"
-msgstr "Rimuovi da moderatore"
+msgstr "Rimuovi utente moderatore"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove moderator \"%1\": %2"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Impossibile rimuovere il moderatore «%1»: %2"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgid "Remove Owner User"
-msgstr "Rimuovi utente"
+msgstr "Rimuovi utente proprietario"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove owner \"%1\": %2"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Impossibile rimuovere il proprietario «%1»: %2"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove from Room"
+#, kde-format
 msgid "Remove user from room"
-msgstr "Rimuovi dalla stanza"
+msgstr "Rimuovi l'utente dalla stanza"
 
 #: widgets/serverchecks/removeuserscheck.cpp:34
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove \"%1\": %2"
-msgstr "Vuoi rimuovere «%1»?"
+msgstr "Impossibile rimuovere: «%1»: %2"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:24
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgid "Message search"
-msgstr "Messaggi"
+msgstr "Ricerca dei messaggi"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:86
 #, kde-format
 msgid "Could not start the search request."
-msgstr ""
+msgstr "Impossibile avviare la richiesta di ricerca."
 
 #: widgets/serverchecks/sendmessagecheck.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Send message"
+#, kde-format
 msgid "Send message"
-msgstr "Invia messaggio"
+msgstr "Invia il messaggio"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
-msgstr ""
+msgstr "Lista di controllo del server"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:45
 #, kde-format
@@ -12358,38 +12289,42 @@ msgid ""
 "feature behaves as expected. Temporary test messages are sent to the "
 "selected channel and removed afterwards, so pick a scratch channel first."
 msgstr ""
+"Esegue una serie di controlli sul server attuale e segnala se ogni "
+"funzionalità si comporta come previsto. Messaggi di prova temporanei vengono "
+"inviati al canale selezionato e rimossi successivamente, quindi scegli prima "
+"un canale di prova."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:56
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
-msgstr ""
+msgstr "Verifica"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:56
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
-msgstr ""
+msgstr "Risultato"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
-msgstr ""
+msgstr "Esegui controlli"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:67
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post Results to Channel"
-msgstr "Convert in canale"
+msgstr "Pubblica i risultati sul canale"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:70
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
 msgstr ""
+"Pubblica i risultati della lista di controllo come messaggio nel canale "
+"corrente."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:84
 #, kde-format
@@ -12397,58 +12332,55 @@ msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
 "to.</b>"
 msgstr ""
+"<b>Prima di tutto, apri un canale: i controlli hanno bisogno di una stanza a "
+"cui inviare i loro messaggi di prova.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:90
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
-msgstr ""
+msgstr "<b>Il controllo non può essere eseguito nel canale diretto.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:110
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
-msgstr ""
+msgstr "Non eseguire"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:122
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Waiting…"
-msgstr "Caricamento…"
+msgstr "In attesa…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:132
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Running…"
-msgstr "Caricamento…"
+msgstr "In esecuzione…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:141
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:144
-#, fuzzy, kde-format
-#| msgid "Job Failed"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed"
-msgstr "Operazione non riuscita"
+msgstr "Non riuscito"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:144
-#, fuzzy, kde-format
-#| msgid "File Uploaded: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed: %1"
-msgstr "File caricato: %1"
+msgstr "Non riuscito: %1"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:162
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown server version"
 msgid "unknown"
-msgstr "Sconosciuto"
+msgstr "sconosciuta"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:165
 #, kde-format
@@ -12456,28 +12388,29 @@ msgid ""
 "RC %1\n"
 "Automated check list from ruqola:\n"
 msgstr ""
+"RC %1\n"
+"Lista di controllo automatizzata da ruqola:\n"
 
 #: widgets/serverchecks/threadreplycheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Thread"
+#, kde-format
 msgid "Thread reply"
-msgstr "Conversazione"
+msgstr "Risposta alla conversazione"
 
 #: widgets/serverchecks/threadreplycheck.cpp:26
 #, kde-format
 msgid " (thread reply)"
-msgstr ""
+msgstr " (risposta alla conversazione)"
 
 #: widgets/serverchecks/threadreplycheck.cpp:62
 #, kde-format
 msgid "The reply arrived but is not linked to the parent thread."
 msgstr ""
+"La risposta è arrivata, ma non è collegata alla discussione principale."
 
 #: widgets/serverchecks/topicchangecheck.cpp:21
 #, kde-format
 msgid "Change channel topic"
-msgstr ""
+msgstr "Cambia l'argomento del canale"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
 #, kde-format
