@@ -155,8 +155,16 @@ void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *p
         auto item = new QTreeWidgetItem(parentItem);
         item->setText(0, label);
         item->setText(1, objValue.toString());
-        item->addChild(item);
     }
+}
+
+void AdministratorServerInfoWidget::parseUsersInfo(QTreeWidgetItem *userInfoItem, const QJsonObject &obj)
+{
+    createItemFromIntValue(userInfoItem, obj, i18n("Online Users"), u"onlineUsers"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Away Users"), u"awayUsers"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Offline Users"), u"offlineUsers"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Busy Users"), u"busyUsers"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Total Users"), u"totalUsers"_s);
 }
 
 void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj)
@@ -165,11 +173,6 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
     createItemFromIntValue(usageInfoItem, obj, i18n("Rocket.Chat App Users"), u"appUsers"_s);
     createItemDisplayFormat(usageInfoItem, obj, i18n("Total Uploads Size"), u"uploadsTotalSize"_s);
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Uploads"), u"uploadsTotal"_s);
-
-    createItemFromIntValue(usageInfoItem, obj, i18n("Online Users"), u"onlineUsers"_s);
-    createItemFromIntValue(usageInfoItem, obj, i18n("Away Users"), u"awayUsers"_s);
-    createItemFromIntValue(usageInfoItem, obj, i18n("Offline Users"), u"offlineUsers"_s);
-    createItemFromIntValue(usageInfoItem, obj, i18n("Busy Users"), u"busyUsers"_s);
 
     createItemFromIntValue(usageInfoItem, obj, i18n("Activated Users"), u"activeUsers"_s);
     createItemFromIntValue(usageInfoItem, obj, i18n("Activated Guests"), u"activeGuests"_s);
@@ -180,7 +183,6 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Private Groups"), u"totalPrivateGroups"_s);
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Direct Message Rooms"), u"totalDirect"_s);
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Threads"), u"totalThreads"_s);
-    createItemFromIntValue(usageInfoItem, obj, i18n("Total Users"), u"totalUsers"_s);
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Discussions"), u"totalDiscussions"_s);
     createItemFromIntValue(usageInfoItem, obj, i18n("Total Omnichannel Rooms"), u"totalLivechat"_s);
 
@@ -215,7 +217,6 @@ void AdministratorServerInfoWidget::createItemDisplayFormat(QTreeWidgetItem *par
         auto item = new QTreeWidgetItem(parentItem);
         item->setText(0, label);
         item->setText(1, KIO::convertSize(objValue.toDouble()));
-        item->addChild(item);
     }
 }
 
@@ -240,10 +241,17 @@ void AdministratorServerInfoWidget::slotStatisticDone(const QJsonObject &obj)
     parseServerInfo(mServerInfoItem, obj);
 
     delete mUsageInfoItem;
+    // mUsersInfoItem is owned by mUsageInfoItem and is deleted with it.
+    mUsersInfoItem = nullptr;
     mUsageInfoItem = new QTreeWidgetItem(mTreeWidget);
     mUsageInfoItem->setText(0, i18n("Usage"));
     mUsageInfoItem->setFont(0, f);
     parseUsageInfo(mUsageInfoItem, obj);
+
+    mUsersInfoItem = new QTreeWidgetItem(mUsageInfoItem);
+    mUsersInfoItem->setText(0, i18n("Users"));
+    mUsersInfoItem->setFont(0, f);
+    parseUsersInfo(mUsersInfoItem, obj);
 
     delete mRuntimeInfoItem;
     mRuntimeInfoItem = new QTreeWidgetItem(mTreeWidget);

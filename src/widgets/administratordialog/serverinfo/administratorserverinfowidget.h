@@ -39,11 +39,13 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void loadLicensesInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotContextMenu(const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void createItemFromLicense(QTreeWidgetItem *licenseInfoItem, const QString &name, bool valid);
+    LIBRUQOLAWIDGETS_NO_EXPORT void parseUsersInfo(QTreeWidgetItem *userInfoItem, const QJsonObject &obj);
     QTreeWidget *const mTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
     QPushButton *const mRefreshButton;
     QTreeWidgetItem *mServerInfoItem = nullptr;
     QTreeWidgetItem *mUsageInfoItem = nullptr;
     QTreeWidgetItem *mRuntimeInfoItem = nullptr;
+    QTreeWidgetItem *mUsersInfoItem = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };
