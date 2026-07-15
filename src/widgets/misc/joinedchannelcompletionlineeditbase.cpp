@@ -6,7 +6,7 @@
 
 #include "joinedchannelcompletionlineeditbase.h"
 
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 #include <TextAddonsWidgets/CompletionListView>
 #else
 #include "common/completionlistview.h"
@@ -25,7 +25,7 @@ using namespace Qt::Literals::StringLiterals;
 
 JoinedChannelCompletionLineEditBase::JoinedChannelCompletionLineEditBase(RocketChatAccount *account, QWidget *parent)
     :
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
     TextAddonsWidgets::
 #endif
         CompletionLineEdit(parent)

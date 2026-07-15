@@ -6,7 +6,7 @@
 
 #pragma once
 #include "config-ruqola.h"
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 #include <TextAddonsWidgets/CompletionLineEdit>
 #else
 #include "common/completionlineedit.h"
@@ -15,7 +15,7 @@
 #include "multistaticselectlineeditmodel.h"
 class MultiStaticSelectLineEditProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MultiStaticSelectLineEdit : public
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
                                                                 TextAddonsWidgets::
 #endif
                                                                     CompletionLineEdit

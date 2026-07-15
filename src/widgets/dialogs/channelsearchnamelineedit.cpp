@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "channelsearchnamelineedit.h"
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 #include <TextAddonsWidgets/CompletionListView>
 #else
 #include "common/completionlistview.h"
@@ -20,7 +20,7 @@
 
 ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent)
     :
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
     TextAddonsWidgets::
 #endif
         CompletionLineEdit(parent)

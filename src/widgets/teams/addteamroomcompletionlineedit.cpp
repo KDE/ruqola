@@ -7,7 +7,7 @@
 #include "addteamroomcompletionlineedit.h"
 #include "common/teamroomcompletiondelegate.h"
 
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 #include <TextAddonsWidgets/CompletionListView>
 #else
 #include "common/completionlistview.h"
@@ -30,7 +30,7 @@ using namespace std::chrono_literals;
 
 AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     :
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
     TextAddonsWidgets::
 #endif
         CompletionLineEdit(parent)

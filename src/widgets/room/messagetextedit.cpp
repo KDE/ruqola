@@ -8,7 +8,7 @@
 #include "config-ruqola.h"
 
 #include "common/commandcompletiondelegate.h"
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 #include <TextAddonsWidgets/CompletionListView>
 #else
 #include "common/completionlistview.h"
@@ -40,17 +40,17 @@ using namespace Qt::Literals::StringLiterals;
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
     , mUserAndChannelCompletionListView(new
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
                                         TextAddonsWidgets::
 #endif
                                             CompletionListView)
     , mEmojiCompletionListView(new
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
                                TextAddonsWidgets::
 #endif
                                    CompletionListView)
     , mCommandCompletionListView(new
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
                                  TextAddonsWidgets::
 #endif
                                      CompletionListView)
@@ -66,7 +66,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     mUserAndChannelCompletionListView->setTextWidget(this);
     connect(mUserAndChannelCompletionListView,
             &
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
             TextAddonsWidgets::
 #endif
                 CompletionListView::complete,
@@ -77,7 +77,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     mEmojiCompletionListView->setTextWidget(this);
     connect(mEmojiCompletionListView,
             &
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
             TextAddonsWidgets::
 #endif
                 CompletionListView::complete,
@@ -88,7 +88,7 @@ MessageTextEdit::MessageTextEdit(QWidget *parent)
     mCommandCompletionListView->setTextWidget(this);
     connect(mCommandCompletionListView,
             &
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
             TextAddonsWidgets::
 #endif
                 CompletionListView::complete,

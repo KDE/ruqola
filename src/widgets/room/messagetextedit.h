@@ -13,7 +13,7 @@
 #include <QPointer>
 
 class RocketChatAccount;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 namespace TextAddonsWidgets
 {
 class CompletionListView;
@@ -82,15 +82,15 @@ private:
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
     TextAddonsWidgets::
 #endif
         CompletionListView *const mUserAndChannelCompletionListView;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
     TextAddonsWidgets::
 #endif
         CompletionListView *const mEmojiCompletionListView;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
     TextAddonsWidgets::
 #endif
         CompletionListView *const mCommandCompletionListView;

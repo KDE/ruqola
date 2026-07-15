@@ -5,7 +5,7 @@
 */
 
 #include "completionlineedit.h"
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 #include <TextAddonsWidgets/CompletionListView>
 #else
 #include "completionlistview.h"
@@ -15,7 +15,7 @@
 CompletionLineEdit::CompletionLineEdit(QWidget *parent)
     : QLineEdit(parent)
     , mCompletionListView(new
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
                           TextAddonsWidgets::
 #endif
                               CompletionListView)
@@ -27,7 +27,7 @@ CompletionLineEdit::CompletionLineEdit(QWidget *parent)
 
     connect(mCompletionListView,
             &
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
             TextAddonsWidgets::
 #endif
                 CompletionListView::complete,

@@ -11,7 +11,7 @@
 #include "libruqolawidgets_private_export.h"
 
 class QAbstractItemModel;
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
 namespace TextAddonsWidgets
 {
 class CompletionListView;
@@ -33,7 +33,7 @@ Q_SIGNALS:
     void complete(const QModelIndex &index);
 
 protected:
-#ifdef HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
+#if HAVE_TEXTADDONSWIDGETS_COMPLETIONLINEEDIT
     TextAddonsWidgets::
 #endif
         CompletionListView *const mCompletionListView;
