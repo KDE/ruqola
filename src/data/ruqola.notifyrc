@@ -314,6 +314,11 @@ Name[zh_TW]=無效的邀請權杖
 Action=Popup
 Urgency=Normal
 
+[Event/NewRoom-Added]
+Name=New Room Added
+Action=Popup
+Urgency=Normal
+
 [Event/Account-Added]
 Name=New Account Added
 Name[ar]=أضيف حساب جديد

@@ -117,6 +117,7 @@
 #include "model/switchchannelhistorymodel.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
+#include <KNotification>
 #include <QUrl>
 
 using namespace Qt::Literals::StringLiterals;
@@ -3083,6 +3084,10 @@ void RocketChatAccount::addNewRoomNotification(Room *r)
     info.setRoomId(r->roomId());
     info.setChannelType(Room::roomFromRoomType(r->channelType()));
     NotificationHistoryManager::self()->addNotification(info);
+    auto notification = new KNotification(u"NewRoom-Added"_s, KNotification::CloseOnTimeout);
+    notification->setTitle(i18n("Room Added"));
+    notification->setText(i18n("A new room was added in \'%1\'.", accountName()));
+    notification->sendEvent();
 }
 
 // Only for debugging permissions. (debug mode)
