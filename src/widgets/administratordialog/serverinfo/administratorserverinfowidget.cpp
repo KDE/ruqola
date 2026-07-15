@@ -123,7 +123,6 @@ void AdministratorServerInfoWidget::createItemFromLicense(QTreeWidgetItem *licen
     auto item = new QTreeWidgetItem(licenseInfoItem);
     item->setText(0, name);
     item->setIcon(0, valid ? QIcon::fromTheme(u"dialog-ok-apply"_s) : QIcon::fromTheme(u"dialog-cancel"_s));
-    licenseInfoItem->addChild(item);
 }
 
 void AdministratorServerInfoWidget::loadStatisticInfo(bool refresh)
@@ -203,7 +202,6 @@ void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usag
         auto item = new QTreeWidgetItem(usageInfoItem);
         item->setText(0, label);
         item->setText(1, QString::number(totalDirectMessages.toInt()));
-        usageInfoItem->addChild(item);
     }
 }
 
