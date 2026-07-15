@@ -159,10 +159,10 @@ void AdministratorServerInfoWidget::createItemFromStringValue(QTreeWidgetItem *p
 
 void AdministratorServerInfoWidget::parseUsersInfo(QTreeWidgetItem *userInfoItem, const QJsonObject &obj)
 {
-    createItemFromIntValue(userInfoItem, obj, i18n("Online Users"), u"onlineUsers"_s);
-    createItemFromIntValue(userInfoItem, obj, i18n("Away Users"), u"awayUsers"_s);
-    createItemFromIntValue(userInfoItem, obj, i18n("Offline Users"), u"offlineUsers"_s);
-    createItemFromIntValue(userInfoItem, obj, i18n("Busy Users"), u"busyUsers"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Online Users"), u"onlineUsers"_s, u"user-online"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Away Users"), u"awayUsers"_s, u"user-away"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Offline Users"), u"offlineUsers"_s, u"user-offline"_s);
+    createItemFromIntValue(userInfoItem, obj, i18n("Busy Users"), u"busyUsers"_s, u"user-busy"_s);
     createItemFromIntValue(userInfoItem, obj, i18n("Total Users"), u"totalUsers"_s);
 }
 
@@ -195,12 +195,16 @@ void AdministratorServerInfoWidget::parseUsageInfo(QTreeWidgetItem *usageInfoIte
 void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usageInfoItem,
                                                            const QJsonObject &obj,
                                                            const QString &label,
-                                                           const QString &identifier)
+                                                           const QString &identifier,
+                                                           const QString &iconName)
 {
     const QJsonValue totalDirectMessages = obj.value(identifier);
     if (!totalDirectMessages.isUndefined()) {
         auto item = new QTreeWidgetItem(usageInfoItem);
         item->setText(0, label);
+        if (!iconName.isEmpty()) {
+            item->setIcon(0, QIcon::fromTheme(iconName));
+        }
         item->setText(1, QString::number(totalDirectMessages.toInt()));
     }
 }

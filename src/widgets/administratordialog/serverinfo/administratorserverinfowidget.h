@@ -26,8 +26,11 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj);
-    LIBRUQOLAWIDGETS_NO_EXPORT void
-    createItemFromIntValue(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj, const QString &label, const QString &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void createItemFromIntValue(QTreeWidgetItem *usageInfoItem,
+                                                           const QJsonObject &obj,
+                                                           const QString &label,
+                                                           const QString &identifier,
+                                                           const QString &iconName = {});
     LIBRUQOLAWIDGETS_NO_EXPORT void
     createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void
