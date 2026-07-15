@@ -1391,6 +1391,7 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Add notify info when adding a new room</li>
           <li>Rewrite attachment file support</li>
           <li xml:lang="ca">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="ca-valencia">Reescriptura de la implementació d'adjunció de fitxers</li>
