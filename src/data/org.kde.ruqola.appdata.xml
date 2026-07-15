@@ -1395,6 +1395,7 @@
           <li xml:lang="ca">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="ca-valencia">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="es">Rescrito el soporte de archivos adjuntos</li>
+          <li xml:lang="it">Riscritto il supporto degli allegati</li>
           <li xml:lang="ka">მიმაგრებული ფაილის მხარდაჭერის გადაწერა</li>
           <li xml:lang="nl">Ondersteuning voor bijlagebestanden herschrijven</li>
           <li xml:lang="pt-BR">Reescrita do suporte a arquivo anexo</li>
@@ -1406,6 +1407,7 @@
           <li xml:lang="ca">Afegeix la implementació d'insígnia de tasques al Windows/macOS</li>
           <li xml:lang="ca-valencia">Afig la implementació d'insígnia de tasques a Windows/macOS</li>
           <li xml:lang="es">Añadido soporte para tarjetas de tareas en windows/macos</li>
+          <li xml:lang="it">Aggiunge il badge dell'attività di supporto su windows/macos</li>
           <li xml:lang="ka">დაემატა მხარდაჭერის ამოცანის ნიშანი Windows-ზე/macos-ზე</li>
           <li xml:lang="nl">Voeg een badge voor ondersteuningstaken toe op Windows/macOS</li>
           <li xml:lang="pt-BR">Adicionar selo de tarefa de suporte no Windows/macOS</li>
@@ -1418,6 +1420,7 @@
           <li xml:lang="ca">Afegeix una eina de llista de comprovació del servidor per verificar un servidor després d'una actualització.</li>
           <li xml:lang="ca-valencia">Afig una eina de llista de comprovació del servidor per a verificar un servidor després d'una actualització.</li>
           <li xml:lang="es">Añadida herramienta para comprobar servidor tras una actualización.</li>
+          <li xml:lang="it">Aggiungi uno strumento con una lista di controllo per verificare lo stato di un server dopo un aggiornamento.</li>
           <li xml:lang="ka">დაემატა სერვერის საკონტროლო სიის ხელსაწყო სერვერის შესამოწმებლად ვერსიის აწევის შემდეგ.</li>
           <li xml:lang="nl">Voeg een servercontrolelijst toe om een ​​server na een upgrade te verifiëren.</li>
           <li xml:lang="pt-BR">Adiciona uma ferramenta de checklist de servidor para verificar um servidor após uma atualização.</li>
@@ -1430,6 +1433,7 @@
           <li xml:lang="ca">Adapta a l'API nova RC 8.6.0</li>
           <li xml:lang="ca-valencia">Adapta a l'API nova RC 8.6.0</li>
           <li xml:lang="es">Adaptado a la nueva API de RC 8.6.0</li>
+          <li xml:lang="it">Adattamento alla nuova API di RC 8.6.0</li>
           <li xml:lang="ka">მორგება RC 8.6.0-ის ახალ API-ისთან</li>
           <li xml:lang="nl">Nieuwe API aanpassen aan RC 8.6.0</li>
           <li xml:lang="pt-BR">Adaptar à nova API do RC 8.6.0</li>
@@ -1442,6 +1446,7 @@
           <li xml:lang="ca">Mostra la informació de les confirmacions de lectura en el missatge</li>
           <li xml:lang="ca-valencia">Mostra la informació de les confirmacions de lectura en el missatge</li>
           <li xml:lang="es">Mostrar acuses de recibo leídos en mensaje</li>
+          <li xml:lang="it">Mostra le conferme di lettura nel messaggio</li>
           <li xml:lang="ka">წაკითხულობის სტატუსის ჩვენება შეტყობინებაში</li>
           <li xml:lang="nl">Informatie over gelezen-berichten tonen in bericht</li>
           <li xml:lang="pt-BR">Mostrar informações de confirmação de leitura na mensagem</li>
@@ -1454,6 +1459,7 @@
           <li xml:lang="ca">Afegeix el suport de confirmacions de lectura</li>
           <li xml:lang="ca-valencia">Afig el suport de confirmacions de lectura</li>
           <li xml:lang="es">Añadido soporte para acuse de recibo</li>
+          <li xml:lang="it">Aggiunge il supporto per le conferme di lettura</li>
           <li xml:lang="ka">დაემატა წაკითხვის ანგარიშის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor gelezen-berichten toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte a recibos de leitura</li>
