@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-14 00:43+0000\n"
-"PO-Revision-Date: 2026-07-13 20:57+0300\n"
+"POT-Creation-Date: 2026-07-15 00:45+0000\n"
+"PO-Revision-Date: 2026-07-14 08:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3053,7 +3053,7 @@ msgid "Administrator"
 msgstr "Адміністратор"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
 #, kde-format
 msgid "Server Info"
 msgstr "Дані щодо сервера"
@@ -3074,6 +3074,7 @@ msgid "Custom Emojis"
 msgstr "Нетипові емодзі"
 
 #: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:252
 #, kde-format
 msgid "Users"
 msgstr "Користувачі"
@@ -4062,162 +4063,161 @@ msgid "Deployment ID"
 msgstr "Ід. розгортання"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Mongo Version"
-msgstr "Версія"
+msgstr "Версія Mongo"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
 #, kde-format
 msgid "Mongo Storage Engine"
-msgstr ""
+msgstr "Рушій зберігання Mongo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
-#, kde-format
-msgid "Rocket.Chat App Users"
-msgstr "Користувачів програми Rocket.Chat"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
-#, kde-format
-msgid "Total Uploads Size"
-msgstr "Загальний розмір вивантажень"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
-#, kde-format
-msgid "Total Uploads"
-msgstr "Загалом вивантажень"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:169
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Online Users"
 msgstr "Користувачів у мережі"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:170
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Away Users"
 msgstr "Відсутніх користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, kde-format
 msgid "Offline Users"
 msgstr "Користувачів поза мережею"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, kde-format
 msgid "Busy Users"
 msgstr "Зайнятих користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
-#, kde-format
-msgid "Activated Users"
-msgstr "Активованих користувачів"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
-#, kde-format
-msgid "Activated Guests"
-msgstr "Активованих гостьових"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
-#, kde-format
-msgid "Deactivated Users"
-msgstr "Деактивованих користувачів"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
-#, kde-format
-msgid "Total Channels"
-msgstr "Загалом каналів"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
-#, kde-format
-msgid "Total Rooms"
-msgstr "Загалом кімнат"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
-#, kde-format
-msgid "Total Private Groups"
-msgstr "Загалом приватних груп"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
-#, kde-format
-msgid "Total Direct Message Rooms"
-msgstr "Загалом кімнат безпосередніх повідомлень"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
-#, kde-format
-msgid "Total Threads"
-msgstr "Загалом потоків"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Total Users"
 msgstr "Загалом користувачів"
 
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#, kde-format
+msgid "Rocket.Chat App Users"
+msgstr "Користувачів програми Rocket.Chat"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
+#, kde-format
+msgid "Total Uploads Size"
+msgstr "Загальний розмір вивантажень"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#, kde-format
+msgid "Total Uploads"
+msgstr "Загалом вивантажень"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#, kde-format
+msgid "Activated Users"
+msgstr "Активованих користувачів"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#, kde-format
+msgid "Activated Guests"
+msgstr "Активованих гостьових"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#, kde-format
+msgid "Deactivated Users"
+msgstr "Деактивованих користувачів"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#, kde-format
+msgid "Total Channels"
+msgstr "Загалом каналів"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#, kde-format
+msgid "Total Rooms"
+msgstr "Загалом кімнат"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#, kde-format
+msgid "Total Private Groups"
+msgstr "Загалом приватних груп"
+
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#, kde-format
+msgid "Total Direct Message Rooms"
+msgstr "Загалом кімнат безпосередніх повідомлень"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#, kde-format
+msgid "Total Threads"
+msgstr "Загалом потоків"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Discussions"
 msgstr "Загалом обговорень"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Загалом загальноканальних кімнат"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Messages"
 msgstr "Загалом повідомлень"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Загалом повідомлень на каналах"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Загалом повідомлень у приватних групах"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Загалом повідомлень у безпосередніх повідомленнях"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Загалом з'єднаних користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:225
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
 #, kde-format
 msgid "OS Release"
 msgstr "Випуск ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
 #, kde-format
 msgid "OS Type"
 msgstr "Тип ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
 #, kde-format
 msgid "OS Platform"
 msgstr "Платформа ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
 #, kde-format
 msgid "OS Total Memory"
 msgstr "Загалом пам'яті в ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
 #, kde-format
 msgid "OS Free Memory"
 msgstr "Вільна пам'ять в ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
 #, kde-format
 msgid "Usage"
 msgstr "Користування"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:250
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Середовище виконання"
