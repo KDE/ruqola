@@ -5,6 +5,7 @@
 */
 #include "pendingattachmentclickablewidgettest.h"
 #include "room/pendingattachmentclickablewidget.h"
+#include <QLabel>
 #include <QTest>
 #include <QToolButton>
 QTEST_MAIN(PendingAttachmentClickableWidgetTest)
@@ -21,6 +22,17 @@ void PendingAttachmentClickableWidgetTest::shouldHaveDefaultValues()
     QVERIFY(removeBtn);
     QVERIFY(removeBtn->autoRaise());
     QVERIFY(!removeBtn->toolTip().isEmpty());
-    // TODO
+
+    auto mNameLabel = w.findChild<QLabel *>(u"nameLabel"_s);
+    QVERIFY(mNameLabel);
+    QVERIFY(mNameLabel->text().isEmpty());
+
+    auto mSizeLabel = w.findChild<QLabel *>(u"sizeLabel"_s);
+    QVERIFY(mSizeLabel);
+    QVERIFY(mSizeLabel->text().isEmpty());
+
+    auto mIconLabel = w.findChild<QLabel *>(u"iconLabel"_s);
+    QVERIFY(mIconLabel);
+    QVERIFY(mIconLabel->text().isEmpty());
 }
 #include "moc_pendingattachmentclickablewidgettest.cpp"
