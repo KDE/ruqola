@@ -92,6 +92,7 @@ void PendingAttachmentWidget::clear()
     mFlowLayout->clearAndDeleteWidgets();
     mMap.clear();
     hide();
+    updateAttachments();
 }
 
 void PendingAttachmentWidget::setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos)
