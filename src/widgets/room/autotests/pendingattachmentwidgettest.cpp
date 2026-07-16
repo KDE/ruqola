@@ -20,3 +20,5 @@ void PendingAttachmentWidgetTest::shouldHaveDefaultValues()
     const PendingAttachmentWidget w;
     // TODO
 }
+
+#include "moc_pendingattachmentwidgettest.cpp"
