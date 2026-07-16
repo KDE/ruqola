@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolawidgets
-    room/pendingattachmentclickablewidget.h
-    room/pendingattachmentclickablewidget.cpp
-)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
@@ -727,6 +723,8 @@ target_sources(
         room/debugdialog/showdebugwidget.cpp
         room/newmessageindicator.h
         room/newmessageindicator.cpp
+        room/pendingattachmentclickablewidget.h
+        room/pendingattachmentclickablewidget.cpp
         loginwidget/ruqolaloginwidget.cpp
         loginwidget/ruqolaloginwidget.h
         loginwidget/ruqolaloginstackwidget.h
