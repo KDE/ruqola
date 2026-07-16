@@ -10,6 +10,7 @@
 #include <QUrl>
 #include <QWidget>
 class QLabel;
+class QFileInfo;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PendingAttachmentClickableWidget : public QWidget
 {
     Q_OBJECT
@@ -28,6 +29,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void setPendingAttachmentInfo(const AccountRoomSettings::PendingAttachmentInfo &pendingAttachment);
     LIBRUQOLAWIDGETS_NO_EXPORT void setUrl(const QUrl &url);
     AccountRoomSettings::PendingAttachmentInfo mPendingAttachmentInfo;
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateInfo(const QFileInfo &info);
     QLabel *const mIconLabel;
     QLabel *const mNameLabel;
     QLabel *const mSizeLabel;

@@ -71,29 +71,27 @@ void PendingAttachmentClickableWidget::setPendingAttachmentInfo(const AccountRoo
     mPendingAttachmentInfo = pendingAttachment;
     const QMimeDatabase db;
     const QFileInfo info(mPendingAttachmentInfo.fileUrl.toLocalFile());
-    const QMimeType mimeType = db.mimeTypeForFile(info);
-    const QString mimeTypeIconName = mimeType.iconName();
-    const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::Small);
-    mIconLabel->setPixmap(QPixmap(mimeTypeIconPath));
-    const QString elided = mNameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
-    mNameLabel->setText(elided);
-    mNameLabel->setToolTip(mPendingAttachmentInfo.fileUrl.toString());
-    mSizeLabel->setText(KFormat().formatByteSize(info.size()));
+    updateInfo(info);
 }
 
 void PendingAttachmentClickableWidget::setUrl(const QUrl &url)
 {
-    const QMimeDatabase db;
     const QFileInfo info(url.toLocalFile());
-    const QMimeType mimeType = db.mimeTypeForFile(info);
-    const QString mimeTypeIconName = mimeType.iconName();
     mPendingAttachmentInfo.fileUrl = url;
     mPendingAttachmentInfo.fileName = info.fileName();
+    updateInfo(info);
+}
+
+void PendingAttachmentClickableWidget::updateInfo(const QFileInfo &info)
+{
+    const QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForFile(info);
+    const QString mimeTypeIconName = mimeType.iconName();
     const QString mimeTypeIconPath = KIconLoader::global()->iconPath(mimeTypeIconName, KIconLoader::MainToolbar);
     mIconLabel->setPixmap(QPixmap(mimeTypeIconPath));
     const QString elided = mNameLabel->fontMetrics().elidedText(mPendingAttachmentInfo.fileName, Qt::ElideMiddle, 120);
     mNameLabel->setText(elided);
-    mNameLabel->setToolTip(url.toString());
+    mNameLabel->setToolTip(mPendingAttachmentInfo.fileUrl.toString());
     mSizeLabel->setText(KFormat().formatByteSize(info.size()));
 }
 
