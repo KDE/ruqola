@@ -18,7 +18,8 @@ PendingAttachmentWidgetTest::PendingAttachmentWidgetTest(QObject *parent)
 void PendingAttachmentWidgetTest::shouldHaveDefaultValues()
 {
     const PendingAttachmentWidget w;
-    // TODO
+    QVERIFY(!w.hasAttachments());
+    QVERIFY(w.attachmentsInfo().isEmpty());
 }
 
 #include "moc_pendingattachmentwidgettest.cpp"
