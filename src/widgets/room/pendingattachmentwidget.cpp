@@ -41,7 +41,7 @@ void PendingAttachmentWidget::addAttachment(const QUrl &url)
 
 void PendingAttachmentWidget::addAttachment(const AccountRoomSettings::PendingAttachmentInfo &info)
 {
-    QUrl url = info.fileUrl;
+    const QUrl url = info.fileUrl;
     if (mMap.contains(url)) {
         return;
     }
