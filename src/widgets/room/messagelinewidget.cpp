@@ -592,7 +592,7 @@ void MessageLineWidget::slotAttachFiles()
             if (!whiteList.isEmpty()) {
                 if (!matchesMimeType(whiteList, mimeType)) {
                     invalidMedia(mimeType.name());
-                    return;
+                    continue;
                 }
             }
             if (matchesMimeType(blackList, mimeType)) {
