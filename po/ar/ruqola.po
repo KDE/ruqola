@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-15 00:45+0000\n"
-"PO-Revision-Date: 2026-07-09 14:17+0400\n"
+"POT-Creation-Date: 2026-07-16 00:43+0000\n"
+"PO-Revision-Date: 2026-07-15 20:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -196,7 +196,7 @@ msgid "Description"
 msgstr "الوصف"
 
 #: core/apps/appsmarketplaceinfo.cpp:419
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
 #, kde-format
 msgid "Version"
 msgstr "الإصدارة"
@@ -1842,7 +1842,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> يكتبون…"
 
-#: core/rocketchataccount.cpp:706
+#: core/rocketchataccount.cpp:707
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1851,15 +1851,27 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:714 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:728
 #, kde-format
 msgid "Not connected"
 msgstr "غير متّصل"
 
-#: core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected yet"
 msgstr "غير متّصل حتى الآن"
+
+#: core/rocketchataccount.cpp:3088
+#, fuzzy, kde-format
+#| msgid "Room \"%1\" was added"
+msgid "Room Added"
+msgstr "أُضيفت الغرفة \"%1\""
+
+#: core/rocketchataccount.cpp:3089
+#, fuzzy, kde-format
+#| msgid "A new account was added."
+msgid "A new room was added in '%1'."
+msgstr "أضيف حساب جديد"
 
 #: core/rocketchaturlutils.cpp:43
 #, kde-format
@@ -3059,7 +3071,7 @@ msgid "Administrator"
 msgstr "إداري"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:242
 #, kde-format
 msgid "Server Info"
 msgstr "معلومات الخادم"
@@ -3080,7 +3092,7 @@ msgid "Custom Emojis"
 msgstr "صورة تعبيرية مخصصة"
 
 #: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:252
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:254
 #, kde-format
 msgid "Users"
 msgstr "المستخدمين"
@@ -4069,168 +4081,167 @@ msgstr "لوحة معلومات المشاركة"
 msgid "Read Receipts"
 msgstr "اقرأ الإيصالات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
 #, kde-format
 msgid "Deployment ID"
 msgstr "معرف النشر"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
-#, fuzzy, kde-format
-#| msgid "Version"
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
+#, kde-format
 msgid "Mongo Version"
-msgstr "الإصدارة"
+msgstr "إصدارة Mongo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
 #, kde-format
 msgid "Mongo Storage Engine"
-msgstr ""
+msgstr "محرك تخزين Mongo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
 #, kde-format
 msgid "Online Users"
 msgstr "مستخدمين متصلين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Away Users"
 msgstr "مستخدمين بعيدين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Offline Users"
 msgstr "مستخدمين غير متصلين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, kde-format
 msgid "Busy Users"
 msgstr "مستخدمين مشغولين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, kde-format
 msgid "Total Users"
 msgstr "إجمالي المستخدمين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "مستخدمي تطبيق روكت تشات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "حجم الرفع الكلي"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, kde-format
 msgid "Total Uploads"
 msgstr "عدد المرفوعات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Activated Users"
 msgstr "مستخدمين نشيطين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
 msgid "Activated Guests"
 msgstr "ضيوف مفعلين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Deactivated Users"
 msgstr "المستخدمين غير النشيطين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Channels"
 msgstr "إجمالي القنوات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Rooms"
 msgstr "إجمالي الغرف"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Private Groups"
 msgstr "مجموع المجموعات الخاصة"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "إجمالي غرف الرسائل المباشرة"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Total Threads"
 msgstr "مجموع السلاسل المحادثات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Discussions"
 msgstr "إجمالي المناقشات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "إجمالي غرف متعددة القنوات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Total Messages"
 msgstr "إجمالي الرسائل"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "إجمالي الرسائل في القنوات"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "إجمالي الرسائل في المجموعات الخاصة"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "إجمالي الرسائل في الرسائل المباشرة"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Connected Users"
 msgstr "إجمالي المستخدمين المتصلين"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
 #, kde-format
 msgid "OS Release"
 msgstr "إصدار نظام التشغيل"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
 #, kde-format
 msgid "OS Type"
 msgstr "نوع النظام"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
 #, kde-format
 msgid "OS Platform"
 msgstr "منصة نظام التشغيل"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:231
 #, kde-format
 msgid "OS Total Memory"
 msgstr "إجمالي ذاكرة النظام"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:232
 #, kde-format
 msgid "OS Free Memory"
 msgstr "إجمالي ذاكرة النظام الحرة"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:249
 #, kde-format
 msgid "Usage"
 msgstr "الاستخدام"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:260
 #, kde-format
 msgid "Runtime Environment"
 msgstr "بيئة وقت التشغيل"
@@ -11046,10 +11057,9 @@ msgid "File upload"
 msgstr "رفع الملف"
 
 #: widgets/room/messagelinewidget.cpp:586
-#, fuzzy, kde-format
-#| msgid "Server doesn't authorized this file (invalid mimetype)"
+#, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
-msgstr "الخادم لا يسمح بهذا الملف (نوع mime غير صالح)"
+msgstr "الخادم لا يسمح بهذا الملف (%1 نوع mime غير صالح)"
 
 #: widgets/room/messagelistview.cpp:132
 #, kde-format
@@ -11239,12 +11249,10 @@ msgid "New Message"
 msgstr "رسالة جديدة"
 
 #: widgets/room/pendingattachmentclickablewidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Attachment"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
-msgstr "احفظ المرفق"
+msgstr "أزل المرفق"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -12006,30 +12014,26 @@ msgid "Timed out waiting for the server to answer."
 msgstr "انتهت المهلة بانتظار رد الخادم."
 
 #: widgets/serverchecks/abstractusercheck.cpp:85
-#, fuzzy, kde-format
-#| msgid "Could not start the invite request."
+#, kde-format
 msgid "Could not start the add owner request."
-msgstr "تعذّر بدء طلب الدعوة."
+msgstr "تعذّر بدء طلب إضافة مالك."
 
 #: widgets/serverchecks/abstractusercheck.cpp:97
-#, fuzzy, kde-format
-#| msgid "Could not start the invite request."
+#, kde-format
 msgid "Could not start the remove owner request."
-msgstr "تعذّر بدء طلب الدعوة."
+msgstr "تعذّر بدء طلب إزالة مالك."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
 #: widgets/serverchecks/abstractusercheck.cpp:149
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the add moderator request."
-msgstr "تعذّر بدء طلب البحث."
+msgstr "تعذّر بدء طلب إضافة مشرف."
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
 #: widgets/serverchecks/abstractusercheck.cpp:161
-#, fuzzy, kde-format
-#| msgid "Could not start the search request."
+#, kde-format
 msgid "Could not start the remove moderator request."
-msgstr "تعذّر بدء طلب البحث."
+msgstr "تعذّر بدء طلب إزالة مشرف."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198
@@ -12044,11 +12048,9 @@ msgid "Could not start the kick request."
 msgstr "تعذّر بدء طرد المستخدم."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Leader"
+#, kde-format
 msgid "Add Leader User"
-msgstr "أضف كقائد"
+msgstr "أضف مستخدم قائد"
 
 #: widgets/serverchecks/addleaderusercheck.cpp:19
 #: widgets/serverchecks/addmoderatorusercheck.cpp:19
@@ -12087,36 +12089,29 @@ msgid "Could not resolve user \"%1\"."
 msgstr "تعذّر حل المستخدم \"%1\"."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add \"%1\": %2"
+#, kde-format
 msgid "Could not add leader \"%1\": %2"
-msgstr "تعذّرت إضافة \"%1\": %2"
+msgstr "تعذّرت إضافة القائد \"%1\": %2"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Moderator"
+#, kde-format
 msgid "Add Moderator User"
-msgstr "أضف كمشرف"
+msgstr "أضف مستخدم مشرف"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add \"%1\": %2"
+#, kde-format
 msgid "Could not add moderator \"%1\": %2"
-msgstr "تعذّرت إضافة \"%1\": %2"
+msgstr "تعذّرت إضافة المشرف \"%1\": %2"
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change Url"
+#, kde-format
 msgid "Add Owner User"
-msgstr "غيّر المسار"
+msgstr "أضف مستخدم مالك"
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Could not add \"%1\": %2"
+#, kde-format
 msgid "Could not add owner \"%1\": %2"
-msgstr "تعذّرت إضافة \"%1\": %2"
+msgstr "تعذّرت إضافة المستخدم المالك \"%1\": %2"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
 #, kde-format
@@ -12129,10 +12124,9 @@ msgid "Could not add \"%1\": %2"
 msgstr "تعذّرت إضافة \"%1\": %2"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Change channel announcement"
-msgstr "وصف غير صالح"
+msgstr "غيّر إعلان القناة"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:39
 #: widgets/serverchecks/descriptionchangecheck.cpp:39
@@ -12259,43 +12253,34 @@ msgid "Emoji reaction"
 msgstr "رد فعل إيموجي"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Leader"
+#, kde-format
 msgid "Remove Leader User"
-msgstr "أزل دور القائد"
+msgstr "أزل مستخدم قائد"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not remove \"%1\": %2"
+#, kde-format
 msgid "Could not remove leader \"%1\": %2"
-msgstr "تعذّر إزالة: \"%1\": %2"
+msgstr "تعذّر إزالة مستخدم قائد: \"%1\": %2"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Moderator"
+#, kde-format
 msgid "Remove Moderator User"
-msgstr "أزل دور المشرف"
+msgstr "أزل مستخدم مشرف"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not add \"%1\": %2"
+#, kde-format
 msgid "Could not remove moderator \"%1\": %2"
-msgstr "تعذّرت إضافة \"%1\": %2"
+msgstr "تعذّر إزالة المشرف \"%1\": %2"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgid "Remove Owner User"
-msgstr "أزِل مستخدم"
+msgstr "أزِل مستخدم مالك"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not remove \"%1\": %2"
+#, kde-format
 msgid "Could not remove owner \"%1\": %2"
-msgstr "تعذّر إزالة: \"%1\": %2"
+msgstr "تعذّر إزالة المالك \"%1\": %2"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
 #, kde-format

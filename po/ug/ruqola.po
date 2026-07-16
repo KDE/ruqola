@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-15 00:45+0000\n"
+"POT-Creation-Date: 2026-07-16 00:43+0000\n"
 "PO-Revision-Date: 2026-06-01 18:41-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -196,7 +196,7 @@ msgid "Description"
 msgstr "چۈشەندۈرۈش"
 
 #: core/apps/appsmarketplaceinfo.cpp:419
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
 #, kde-format
 msgid "Version"
 msgstr "نەشرى"
@@ -1817,21 +1817,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:706
+#: core/rocketchataccount.cpp:707
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:714 core/rocketchataccount.cpp:727
+#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:728
 #, kde-format
 msgid "Not connected"
 msgstr "باغلانمىغان"
 
-#: core/rocketchataccount.cpp:721
+#: core/rocketchataccount.cpp:722
 #, kde-format
 msgid "Not connected yet"
+msgstr ""
+
+#: core/rocketchataccount.cpp:3088
+#, kde-format
+msgid "Room Added"
+msgstr ""
+
+#: core/rocketchataccount.cpp:3089
+#, kde-format
+msgid "A new room was added in '%1'."
 msgstr ""
 
 #: core/rocketchaturlutils.cpp:43
@@ -2981,7 +2991,7 @@ msgid "Administrator"
 msgstr "باشقۇرغۇچى"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:242
 #, kde-format
 msgid "Server Info"
 msgstr "مۇلازىمېتىر ئۇچۇرى"
@@ -3002,7 +3012,7 @@ msgid "Custom Emojis"
 msgstr ""
 
 #: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:252
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:254
 #, kde-format
 msgid "Users"
 msgstr "ئىشلەتكۈچى"
@@ -3956,168 +3966,168 @@ msgstr ""
 msgid "Read Receipts"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
 #, kde-format
 msgid "Deployment ID"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
 #, fuzzy, kde-format
 #| msgid "Version"
 msgid "Mongo Version"
 msgstr "نەشرى"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
 #, kde-format
 msgid "Mongo Storage Engine"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
 #, kde-format
 msgid "Online Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Away Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Offline Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, kde-format
 msgid "Busy Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, kde-format
 msgid "Total Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
 #, kde-format
 msgid "Total Uploads Size"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, kde-format
 msgid "Total Uploads"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Activated Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
 msgid "Activated Guests"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Deactivated Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Channels"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Rooms"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Total Threads"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Discussions"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Total Messages"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Connected Users"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:226
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
 #, kde-format
 msgid "OS Release"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
 #, kde-format
 msgid "OS Type"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
 #, kde-format
 msgid "OS Platform"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:231
 #, kde-format
 msgid "OS Total Memory"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:232
 #, kde-format
 msgid "OS Free Memory"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:249
 #, kde-format
 msgid "Usage"
 msgstr "ئىشلىتىلىشى"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:260
 #, kde-format
 msgid "Runtime Environment"
 msgstr ""
