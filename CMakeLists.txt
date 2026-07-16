@@ -422,6 +422,14 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     string(APPEND CMAKE_CXX_FLAGS " -Wshadow")
 endif()
 
+option(CI_DISABLE_AUTOTEST "Disable autotest on CI" FALSE)
+
+if(CI_DISABLE_AUTOTEST)
+    if(WIN32 OR APPLE OR ${CMAKE_HOST_SYSTEM_NAME} MATCHES "FreeBSD")
+        set(BUILD_TESTING FALSE)
+    endif()
+endif()
+
 if(BUILD_TESTING)
     find_package(Qt6 ${QT_REQUIRED_VERSION} REQUIRED COMPONENTS Test)
     add_definitions(-DBUILD_TESTING)

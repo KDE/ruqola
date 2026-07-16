@@ -47,3 +47,4 @@ Options:
  use-ccache: True
  cppcheck-arguments: '--enable=warning,performance,portability,style,unusedFunction --suppress-xml=cppcheck-suppressions.xml'
  enable-lsan: True
+ cmake-options: "-DCI_DISABLE_AUTOTEST=TRUE"
