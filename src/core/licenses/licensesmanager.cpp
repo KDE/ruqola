@@ -75,6 +75,16 @@ LicensesManager::ActiveModule LicensesManager::convertStringToActiveModule(const
         return LicensesManager::ActiveModule::AccessibilityCertification;
     } else if (str == "abac"_L1) {
         return LicensesManager::ActiveModule::Abac;
+    } else if (str == "teams-voip"_L1) {
+        return LicensesManager::ActiveModule::TeamsVoip;
+    } else if (str == "contact-id-verification"_L1) {
+        return LicensesManager::ActiveModule::ContactIdVerification;
+    } else if (str == "chat.rocket.rc-ai"_L1) {
+        return LicensesManager::ActiveModule::RCAi;
+    } else if (str == "chat.rocket.360-dialog"_L1) {
+        return LicensesManager::ActiveModule::RC360Dialog;
+    } else if (str == "outbound-messaging"_L1) {
+        return LicensesManager::ActiveModule::OutboundMessaging;
     } else {
         qCWarning(RUQOLA_LICENSE_LOG) << "Unknown license module type " << str;
         return LicensesManager::ActiveModule::Unknown;
@@ -126,6 +136,16 @@ QString LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModu
         return u"accessibility-certification"_s;
     case LicensesManager::ActiveModule::Abac:
         return u"abac"_s;
+    case LicensesManager::ActiveModule::TeamsVoip:
+        return u"teams-voip"_s;
+    case LicensesManager::ActiveModule::ContactIdVerification:
+        return u"contact-id-verification"_s;
+    case LicensesManager::ActiveModule::RCAi:
+        return u"chat.rocket.rc-ai"_s;
+    case LicensesManager::ActiveModule::RC360Dialog:
+        return u"chat.rocket.360-dialog"_s;
+    case LicensesManager::ActiveModule::OutboundMessaging:
+        return u"outbound-messaging"_s;
     case LicensesManager::ActiveModule::Unknown:
     default:
         qCWarning(RUQOLA_LICENSE_LOG) << "Unknown license module type";

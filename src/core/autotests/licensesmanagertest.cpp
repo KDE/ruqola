@@ -94,6 +94,11 @@ void LicensesManagerTest::shouldConvertFromString()
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"custom-roles"_s), LicensesManager::ActiveModule::CustomRoles);
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"accessibility-certification"_s), LicensesManager::ActiveModule::AccessibilityCertification);
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"abac"_s), LicensesManager::ActiveModule::Abac);
+    QCOMPARE(LicensesManager::convertStringToActiveModule(u"teams-voip"_s), LicensesManager::ActiveModule::TeamsVoip);
+    QCOMPARE(LicensesManager::convertStringToActiveModule(u"contact-id-verification"_s), LicensesManager::ActiveModule::ContactIdVerification);
+    QCOMPARE(LicensesManager::convertStringToActiveModule(u"chat.rocket.rc-ai"_s), LicensesManager::ActiveModule::RCAi);
+    QCOMPARE(LicensesManager::convertStringToActiveModule(u"chat.rocket.360-dialog"_s), LicensesManager::ActiveModule::RC360Dialog);
+    QCOMPARE(LicensesManager::convertStringToActiveModule(u"outbound-messaging"_s), LicensesManager::ActiveModule::OutboundMessaging);
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"foo"_s), LicensesManager::ActiveModule::Unknown);
     QCOMPARE(LicensesManager::convertStringToActiveModule(QString()), LicensesManager::ActiveModule::Unknown);
 }
@@ -121,7 +126,11 @@ void LicensesManagerTest::shouldConvertToString()
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::CustomRoles), u"custom-roles"_s);
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::AccessibilityCertification), u"accessibility-certification"_s);
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::Abac), u"abac"_s);
-
+    QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::TeamsVoip), u"teams-voip"_s);
+    QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::ContactIdVerification), u"contact-id-verification"_s);
+    QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::RCAi), u"chat.rocket.rc-ai"_s);
+    QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::RC360Dialog), u"chat.rocket.360-dialog"_s);
+    QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::OutboundMessaging), u"outbound-messaging"_s);
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::Unknown), QString());
 }
 

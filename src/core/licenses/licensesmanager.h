@@ -35,7 +35,12 @@ public:
         HideWatermark,
         CustomRoles,
         AccessibilityCertification,
-        Abac
+        Abac,
+        TeamsVoip,
+        ContactIdVerification,
+        RCAi,
+        RC360Dialog,
+        OutboundMessaging,
     };
     Q_ENUM(ActiveModule)
 
