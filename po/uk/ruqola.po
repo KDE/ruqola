@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Yuri Chornoivan <yurchor@ukr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 00:43+0000\n"
-"PO-Revision-Date: 2026-07-14 08:41+0300\n"
+"PO-Revision-Date: 2026-07-16 19:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -1857,16 +1857,14 @@ msgid "Not connected yet"
 msgstr "Ще не з'єднано"
 
 #: core/rocketchataccount.cpp:3088
-#, fuzzy, kde-format
-#| msgid "Room \"%1\" was added"
+#, kde-format
 msgid "Room Added"
-msgstr "Додано кімнату «%1»"
+msgstr "Додано кімнату"
 
 #: core/rocketchataccount.cpp:3089
-#, fuzzy, kde-format
-#| msgid "A new account was added."
+#, kde-format
 msgid "A new room was added in '%1'."
-msgstr "Було додано новий обліковий запис."
+msgstr "У «%1» додано нову кімнату."
 
 #: core/rocketchaturlutils.cpp:43
 #, kde-format

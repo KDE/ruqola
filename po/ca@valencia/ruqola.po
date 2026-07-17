@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 00:43+0000\n"
-"PO-Revision-Date: 2026-07-13 09:31+0200\n"
+"PO-Revision-Date: 2026-07-16 10:57+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1850,16 +1850,14 @@ msgid "Not connected yet"
 msgstr "Encara no connectat"
 
 #: core/rocketchataccount.cpp:3088
-#, fuzzy, kde-format
-#| msgid "Room \"%1\" was added"
+#, kde-format
 msgid "Room Added"
-msgstr "S'ha afegit la sala «%1»"
+msgstr "S'ha afegit una sala"
 
 #: core/rocketchataccount.cpp:3089
-#, fuzzy, kde-format
-#| msgid "A new account was added."
+#, kde-format
 msgid "A new room was added in '%1'."
-msgstr "S'ha afegit un compte nou."
+msgstr "S'ha afegit una sala nova a «%1»."
 
 #: core/rocketchaturlutils.cpp:43
 #, kde-format
@@ -4042,15 +4040,14 @@ msgid "Deployment ID"
 msgstr "ID del desplegament"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Mongo Version"
-msgstr "Versió"
+msgstr "Versió del Mongo"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
 #, kde-format
 msgid "Mongo Storage Engine"
-msgstr ""
+msgstr "Motor d'emmagatzematge Mongo"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
 #, kde-format
