@@ -316,6 +316,15 @@ Urgency=Normal
 
 [Event/NewRoom-Added]
 Name=New Room Added
+Name[ca]=S'ha afegit una sala nova
+Name[ca@valencia]=S'ha afegit una sala nova
+Name[ka]=დაემატა ახალი ოთახი
+Name[nl]=Nieuwe rooms toegevoegd
+Name[pt_BR]=Nova sala adicionada
+Name[sl]=Nova soba dodana
+Name[sv]=Nytt rum tillagt
+Name[tr]=Yeni Oda Eklendi
+Name[uk]=Додано нову кімнату
 Action=Popup
 Urgency=Normal
 
