@@ -1393,6 +1393,7 @@
         <ul>
           <li>Add notify info when adding a new room</li>
           <li>Rewrite attachment file support</li>
+          <li xml:lang="ar">إعادة كتابة دعم ملفات المرفقات</li>
           <li xml:lang="ca">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="ca-valencia">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="es">Rescrito el soporte de archivos adjuntos</li>
@@ -1405,6 +1406,7 @@
           <li xml:lang="tr">Dosya ek desteğini yeniden yaz</li>
           <li xml:lang="uk">Переписано засоби підтримки файлів долучень</li>
           <li>Add support task badge on windows/macos</li>
+          <li xml:lang="ar">إضافة شارة مهام الدعم على أنظمة ويندوز وماك أو إس</li>
           <li xml:lang="ca">Afegeix la implementació d'insígnia de tasques al Windows/macOS</li>
           <li xml:lang="ca-valencia">Afig la implementació d'insígnia de tasques a Windows/macOS</li>
           <li xml:lang="es">Añadido soporte para tarjetas de tareas en windows/macos</li>
