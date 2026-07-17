@@ -9,6 +9,17 @@
 #include <QStyle>
 #include <QWidget>
 
+#if HAVE_TEXTADDONSWIDGETS_FLOWLAYOUT
+FlowLayout::FlowLayout(QWidget *parent)
+    : TextAddonsWidgets::TextAddonsWidgetFlowLayout(parent)
+{
+}
+
+FlowLayout::~FlowLayout()
+{
+    clearAndDeleteWidgets();
+}
+#else
 static int smartSpacing(QObject *parent, QStyle::PixelMetric pm)
 {
     if (!parent) {
@@ -196,5 +207,5 @@ int FlowLayout::doFlow(QRect rect, bool effective) const
 
     return y + highest - rect.y() + margins.bottom();
 }
-
+#endif
 #include "moc_flowlayout.cpp"

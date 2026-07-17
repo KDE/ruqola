@@ -322,6 +322,9 @@ set_package_properties(
         TYPE
             REQUIRED
 )
+if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 2.1.41)
+    set(HAVE_TEXTADDONSWIDGETS_FLOWLAYOUT TRUE)
+endif()
 
 # shall we use DBus?
 # enabled per default on Linux & BSD systems

@@ -4,10 +4,23 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
+#include "config-ruqola.h"
 #include "libruqolawidgets_export.h"
 #include <QLayout>
 #include <QList>
+// TODO remove when we depend against ktextaddons 2.1.2
+#if HAVE_TEXTADDONSWIDGETS_FLOWLAYOUT
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
+class LIBRUQOLAWIDGETS_EXPORT FlowLayout : public TextAddonsWidgets::TextAddonsWidgetFlowLayout
+{
+    Q_OBJECT
 
+public:
+    explicit FlowLayout(QWidget *parent = nullptr);
+    ~FlowLayout() override;
+};
+
+#else
 class LIBRUQOLAWIDGETS_EXPORT FlowLayout : public QLayout
 {
     Q_OBJECT
@@ -45,3 +58,4 @@ private:
     int mHorizontalSpacing = -1;
     int mVerticalSpacing = -1;
 };
+#endif
