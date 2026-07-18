@@ -35,6 +35,7 @@ PendingAttachmentClickableWidget::PendingAttachmentClickableWidget(QWidget *pare
     , mSizeLabel(new QLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     mIconLabel->setObjectName(u"iconLabel"_s);
