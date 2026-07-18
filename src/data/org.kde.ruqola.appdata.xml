@@ -48,8 +48,8 @@
   <name xml:lang="zh-TW">Ruqola</name>
   <summary>Rocket Chat Client</summary>
   <summary xml:lang="ar">عميل روكت تشات</summary>
-  <summary xml:lang="ca">Client de xat del Rocket</summary>
-  <summary xml:lang="ca-valencia">Client de xat de Rocket</summary>
+  <summary xml:lang="ca">Client de Rocket Chat</summary>
+  <summary xml:lang="ca-valencia">Client de Rocket Chat</summary>
   <summary xml:lang="cs">Klient pro Rocket Chat</summary>
   <summary xml:lang="de">Rocket-Chat-Programm</summary>
   <summary xml:lang="en-GB">Rocket Chat Client</summary>
@@ -1392,6 +1392,15 @@
       <description>
         <ul>
           <li>Add notify info when adding a new room</li>
+          <li xml:lang="ca">Afegeix informació de notificacions en afegir una sala nova</li>
+          <li xml:lang="ca-valencia">Afig informació de notificacions en afegir una sala nova</li>
+          <li xml:lang="ka">დაემატა გაფრთხილება ახალი ოთახის დამატებისას</li>
+          <li xml:lang="nl">Voeg meldingsgegevens toe bij het toevoegen van een nieuwe room.</li>
+          <li xml:lang="pt-BR">Adicionada informações de notificação ao adicionar uma nova sala</li>
+          <li xml:lang="sl">Doda informacije v obvestilu pri dodajanju nove sobe</li>
+          <li xml:lang="sv">Tillägg av underrättelseinformation när ett nytt rum läggs till.</li>
+          <li xml:lang="tr">Yeni bir oda eklerken ihbar bilgisi ekle</li>
+          <li xml:lang="uk">Додано відомості сповіщення при додаванні нової кімнати</li>
           <li>Rewrite attachment file support</li>
           <li xml:lang="ar">إعادة كتابة دعم ملفات المرفقات</li>
           <li xml:lang="ca">Reescriptura de la implementació d'adjunció de fitxers</li>
