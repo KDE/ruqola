@@ -221,7 +221,8 @@ void DirectChannelInfoWidget::setUser(const User &user)
         label->setFont(f);
         mFormLayout->addRow(label, emailsInfoLabel);
     }
-    mDirectChannelActionWidget->setVisible(user.userId() != mRocketChatAccount->userId());
+    // mDirectChannelActionWidget->setVisible(user.userId() != mRocketChatAccount->userId());
+    mDirectChannelActionWidget->setVisible(false); // TODO
 }
 
 DirectChannelActionWidget::DirectChannelActionWidget(QWidget *parent)
