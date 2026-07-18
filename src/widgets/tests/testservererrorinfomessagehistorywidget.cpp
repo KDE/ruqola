@@ -5,13 +5,13 @@
 */
 
 #include "testservererrorinfomessagehistorywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "servererrorinfohistorymanager.h"
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 TestServerErrorInfoMessageHistoryWidget::TestServerErrorInfoMessageHistoryWidget(QWidget *parent)
     : QWidget{parent}
 {

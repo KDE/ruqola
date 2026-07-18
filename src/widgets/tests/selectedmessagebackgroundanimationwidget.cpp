@@ -5,13 +5,13 @@
 */
 
 #include "selectedmessagebackgroundanimationwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/selectedmessagebackgroundanimation.h"
 #include <QPaintEvent>
 #include <QPainter>
 #include <QPushButton>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 SelectedMessageBackgroundAnimationWidget::SelectedMessageBackgroundAnimationWidget(QWidget *parent)
     : QWidget{parent}
     , mLabel(new SelectedMessageBackgroundAnimationLabel(this))

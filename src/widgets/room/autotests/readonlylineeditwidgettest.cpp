@@ -5,13 +5,13 @@
 */
 
 #include "readonlylineeditwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/readonlylineeditwidget.h"
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ReadOnlyLineEditWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 ReadOnlyLineEditWidgetTest::ReadOnlyLineEditWidgetTest(QObject *parent)
     : QObject(parent)
 {

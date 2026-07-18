@@ -5,11 +5,11 @@
 */
 
 #include "switchchanneltreeviewtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "switchchannelhistory/switchchanneltreeview.h"
 #include <QTest>
 QTEST_MAIN(SwitchChannelTreeViewTest)
+using namespace Qt::Literals::StringLiterals;
 SwitchChannelTreeViewTest::SwitchChannelTreeViewTest(QObject *parent)
     : QObject{parent}
 {

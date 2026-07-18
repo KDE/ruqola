@@ -5,7 +5,6 @@
 */
 
 #include "unicodeemoticongui.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KListWidgetSearchLine>
 #include <QApplication>
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 #include <TextEmoticonsCore/UnicodeEmoticonParser>
 
+using namespace Qt::Literals::StringLiterals;
 UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     : QWidget(parent)
     , mSearchEmoticon(new KListWidgetSearchLine(this))

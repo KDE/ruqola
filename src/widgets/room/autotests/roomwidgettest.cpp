@@ -5,7 +5,6 @@
 */
 
 #include "roomwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
@@ -29,6 +28,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
     : QObject(parent)

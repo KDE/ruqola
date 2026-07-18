@@ -5,7 +5,6 @@
 */
 
 #include "teamconverttochanneldialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamconverttochanneldialog.h"
 #include "teams/teamconverttochannelwidget.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(TeamConvertToChannelDialogTest)
 TeamConvertToChannelDialogTest::TeamConvertToChannelDialogTest(QObject *parent)
     : QObject(parent)

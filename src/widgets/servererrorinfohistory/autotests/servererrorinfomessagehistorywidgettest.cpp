@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "servererrorinfomessagehistorywidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/serverscombobox.h"
 #include "servererrorinfohistory/servererrorinfohistorydelegate.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ServerErrorInfoMessageHistoryWidgetTest)
 ServerErrorInfoMessageHistoryWidgetTest::ServerErrorInfoMessageHistoryWidgetTest(QObject *parent)
     : QObject{parent}

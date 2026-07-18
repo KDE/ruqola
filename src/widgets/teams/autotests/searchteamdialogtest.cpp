@@ -5,7 +5,6 @@
 */
 
 #include "searchteamdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/searchteamdialog.h"
 #include "teams/searchteamwidget.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(SearchTeamDialogTest)
+using namespace Qt::Literals::StringLiterals;
 SearchTeamDialogTest::SearchTeamDialogTest(QObject *parent)
     : QObject(parent)
 {

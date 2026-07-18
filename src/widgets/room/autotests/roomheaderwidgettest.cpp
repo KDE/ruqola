@@ -5,7 +5,6 @@
 */
 
 #include "roomheaderwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/roomheaderlabel.h"
 #include "room/roomheaderwidget.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 #include <qtestmouse.h>
 QTEST_MAIN(RoomHeaderWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
     : QObject(parent)
 {

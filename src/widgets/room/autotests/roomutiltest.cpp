@@ -5,12 +5,12 @@
 */
 
 #include "roomutiltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/roomutil.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RoomUtilTest)
 
+using namespace Qt::Literals::StringLiterals;
 RoomUtilTest::RoomUtilTest(QObject *parent)
     : QObject(parent)
 {

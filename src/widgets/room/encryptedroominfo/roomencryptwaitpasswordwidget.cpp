@@ -4,11 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "roomencryptwaitpasswordwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RoomEncryptWaitPasswordWidget::RoomEncryptWaitPasswordWidget(QWidget *parent)
     : QWidget{parent}
 {

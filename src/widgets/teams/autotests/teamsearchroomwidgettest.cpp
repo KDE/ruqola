@@ -5,12 +5,12 @@
 */
 
 #include "teamsearchroomwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamsearchroomforteamwidget.h"
 #include "teams/teamsearchroomwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(TeamSearchRoomWidgetTest)
 TeamSearchRoomWidgetTest::TeamSearchRoomWidgetTest(QObject *parent)
     : QObject(parent)

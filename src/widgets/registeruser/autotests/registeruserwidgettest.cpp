@@ -5,7 +5,6 @@
 */
 
 #include "registeruserwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordconfirmwidget.h"
 #include "registeruser/registeruserwidget.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(RegisterUserWidgetTest)
 RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
     : QObject(parent)

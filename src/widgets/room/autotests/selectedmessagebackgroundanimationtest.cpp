@@ -5,11 +5,11 @@
 */
 
 #include "selectedmessagebackgroundanimationtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/selectedmessagebackgroundanimation.h"
 #include <QSignalSpy>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(SelectedMessageBackgroundAnimationTest)
 SelectedMessageBackgroundAnimationTest::SelectedMessageBackgroundAnimationTest(QObject *parent)
     : QObject{parent}

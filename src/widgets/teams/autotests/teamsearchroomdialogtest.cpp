@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "teamsearchroomdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamsearchroomdialog.h"
 #include "teams/teamsearchroomwidget.h"
@@ -12,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(TeamSearchRoomDialogTest)
 
 TeamSearchRoomDialogTest::TeamSearchRoomDialogTest(QObject *parent)

@@ -5,11 +5,11 @@
 */
 
 #include "notificationhistorydelegatetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "notificationhistory/notificationhistorydelegate.h"
 
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(NotificationHistoryDelegateTest)
 
 NotificationHistoryDelegateTest::NotificationHistoryDelegateTest(QObject *parent)

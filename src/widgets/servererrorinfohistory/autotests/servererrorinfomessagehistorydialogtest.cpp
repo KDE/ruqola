@@ -5,7 +5,6 @@
 */
 
 #include "servererrorinfomessagehistorydialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorywidget.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(ServerErrorInfoMessageHistoryDialogTest)
 ServerErrorInfoMessageHistoryDialogTest::ServerErrorInfoMessageHistoryDialogTest(QObject *parent)
     : QObject{parent}

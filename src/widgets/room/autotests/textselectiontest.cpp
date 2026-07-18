@@ -5,7 +5,6 @@
 */
 
 #include "textselectiontest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "delegateutils/textselection.h"
 #include "model/messagesmodel.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(TextSelectionTest)
 
+using namespace Qt::Literals::StringLiterals;
 TextSelectionTest::TextSelectionTest(QObject *parent)
     : QObject(parent)
 {

@@ -5,11 +5,11 @@
 */
 
 #include "otrwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QAction>
 
+using namespace Qt::Literals::StringLiterals;
 OtrWidget::OtrWidget(QWidget *parent)
     : KMessageWidget(parent)
 {

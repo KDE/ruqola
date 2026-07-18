@@ -5,7 +5,6 @@
 */
 
 #include "registeruserdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "registeruser/registeruserdialog.h"
 #include "registeruser/registeruserwidget.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(RegisterUserDialogTest)
 
+using namespace Qt::Literals::StringLiterals;
 RegisterUserDialogTest::RegisterUserDialogTest(QObject *parent)
     : QObject(parent)
 {

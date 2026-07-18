@@ -5,7 +5,6 @@
 */
 
 #include "roomwidgetbasetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/messagelinewidget.h"
 #include "room/readonlylineeditwidget.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(RoomWidgetBaseTest)
+using namespace Qt::Literals::StringLiterals;
 
 RoomWidgetBaseTest::RoomWidgetBaseTest(QObject *parent)
     : QObject(parent)

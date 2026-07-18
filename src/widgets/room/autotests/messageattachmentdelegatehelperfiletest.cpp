@@ -5,13 +5,13 @@
 */
 
 #include "messageattachmentdelegatehelperfiletest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QStyleOptionViewItem>
 #include <QTest>
 
 QTEST_MAIN(MessageDelegateHelperFileTest)
 
+using namespace Qt::Literals::StringLiterals;
 MessageDelegateHelperFileTest::MessageDelegateHelperFileTest(QObject *parent)
     : QObject(parent)
 {

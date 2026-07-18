@@ -5,10 +5,10 @@
 */
 
 #include "readonlylineeditwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QLabel>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
     : QWidget(parent)
     , mLabel(new QLabel(this))

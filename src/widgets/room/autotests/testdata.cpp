@@ -5,7 +5,6 @@
 */
 
 #include "testdata.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "managerdatapaths.h"
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 void initTestAccount()
 {
     QStandardPaths::setTestModeEnabled(true);

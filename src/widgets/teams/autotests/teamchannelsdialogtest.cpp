@@ -5,7 +5,6 @@
 */
 
 #include "teamchannelsdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamchannelsdialog.h"
 #include "teams/teamchannelswidget.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 QTEST_MAIN(TeamChannelsDialogTest)
 
+using namespace Qt::Literals::StringLiterals;
 TeamChannelsDialogTest::TeamChannelsDialogTest(QObject *parent)
     : QObject(parent)
 {

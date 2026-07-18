@@ -5,7 +5,6 @@
 */
 
 #include "searchteamwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/searchteamwidget.h"
 #include <QHBoxLayout>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(SearchTeamWidgetTest)
+using namespace Qt::Literals::StringLiterals;
 
 SearchTeamWidgetTest::SearchTeamWidgetTest(QObject *parent)
     : QObject(parent)

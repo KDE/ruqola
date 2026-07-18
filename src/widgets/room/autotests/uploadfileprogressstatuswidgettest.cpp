@@ -5,7 +5,6 @@
 */
 
 #include "uploadfileprogressstatuswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/uploadfileprogressstatuswidget.h"
 #include <QHBoxLayout>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QProgressBar>
 #include <QTest>
 #include <QToolButton>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(UploadFileProgressStatusWidgetTest)
 UploadFileProgressStatusWidgetTest::UploadFileProgressStatusWidgetTest(QObject *parent)
     : QObject(parent)

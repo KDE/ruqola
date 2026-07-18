@@ -5,10 +5,10 @@
 */
 
 #include "systemmessagescomboboxtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/systemmessagescombobox.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(SystemMessagesComboBoxTest)
 
 SystemMessagesComboBoxTest::SystemMessagesComboBoxTest(QObject *parent)

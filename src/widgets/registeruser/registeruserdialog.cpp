@@ -5,7 +5,6 @@
 */
 
 #include "registeruserdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "registeruserwidget.h"
 #include <KConfigGroup>
@@ -22,6 +21,7 @@ namespace
 const char myRegisterUserDialogConfigGroupName[] = "RegisterUserDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     : QDialog(parent)
     , mRegisterUserWidget(new RegisterUserWidget(this))

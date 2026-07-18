@@ -5,11 +5,11 @@
 */
 
 #include "otrwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "otr/otrwidget.h"
 #include <QAction>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(OtrWidgetTest)
 OtrWidgetTest::OtrWidgetTest(QObject *parent)
     : QObject{parent}

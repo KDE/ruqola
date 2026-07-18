@@ -5,7 +5,6 @@
 */
 
 #include "myaccount2faconfigurewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include "myaccount/myaccount2fadisabletotpwidget.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(MyAccount2FaConfigureWidgetTest)
 MyAccount2FaConfigureWidgetTest::MyAccount2FaConfigureWidgetTest(QObject *parent)
     : QObject(parent)

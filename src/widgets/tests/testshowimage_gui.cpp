@@ -5,13 +5,13 @@
 */
 
 #include "dialogs/showimagedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QPixmap>
 
+using namespace Qt::Literals::StringLiterals;
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);

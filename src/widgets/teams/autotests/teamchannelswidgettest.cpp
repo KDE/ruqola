@@ -5,7 +5,6 @@
 */
 
 #include "teamchannelswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamchannelscombobox.h"
 #include "teams/teamchannelswidget.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(TeamChannelsWidgetTest)
 TeamChannelsWidgetTest::TeamChannelsWidgetTest(QObject *parent)
     : QObject(parent)

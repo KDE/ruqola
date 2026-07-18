@@ -5,7 +5,6 @@
 */
 
 #include "registeruserwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordconfirmwidget.h"
 
@@ -17,6 +16,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPlainTextEdit>
 #include <QPushButton>
 
+using namespace Qt::Literals::StringLiterals;
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     : QWidget(parent)
     , mRegisterButton(new QPushButton(i18nc("@action:button", "Register"), this))

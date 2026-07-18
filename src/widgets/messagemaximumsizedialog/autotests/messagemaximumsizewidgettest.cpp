@@ -5,13 +5,13 @@
 */
 
 #include "messagemaximumsizewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messagemaximumsizedialog/messagemaximumsizewidget.h"
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QSignalSpy>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(MessageMaximumSizeWidgetTest)
 MessageMaximumSizeWidgetTest::MessageMaximumSizeWidgetTest(QObject *parent)
     : QObject{parent}

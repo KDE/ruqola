@@ -5,7 +5,6 @@
 */
 
 #include "prunemessageswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/adduserswidget.h"
 #include "prunemessages/prunemessageswidget.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QVBoxLayout>
 QTEST_MAIN(PruneMessagesWidgetTest)
 
+using namespace Qt::Literals::StringLiterals;
 PruneMessagesWidgetTest::PruneMessagesWidgetTest(QObject *parent)
     : QObject(parent)
 {

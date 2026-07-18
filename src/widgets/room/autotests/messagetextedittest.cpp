@@ -5,7 +5,6 @@
 */
 
 #include "messagetextedittest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "room/messagetextedit.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(MessageTextEditTest)
 
+using namespace Qt::Literals::StringLiterals;
 MessageTextEditTest::MessageTextEditTest(QObject *parent)
     : QObject(parent)
 {

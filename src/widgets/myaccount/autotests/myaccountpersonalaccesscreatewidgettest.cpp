@@ -5,7 +5,6 @@
 */
 
 #include "myaccountpersonalaccesscreatewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccountpersonalaccesscreatewidget.h"
 #include <QCheckBox>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(MyAccountPersonalAccessCreateWidgetTest)
 MyAccountPersonalAccessCreateWidgetTest::MyAccountPersonalAccessCreateWidgetTest(QObject *parent)
     : QObject{parent}

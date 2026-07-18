@@ -5,12 +5,12 @@
 */
 
 #include "teamconverttochannelwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamconverttochannelwidget.h"
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(TeamConvertToChannelWidgetTest)
 TeamConvertToChannelWidgetTest::TeamConvertToChannelWidgetTest(QObject *parent)
     : QObject(parent)

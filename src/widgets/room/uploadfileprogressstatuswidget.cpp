@@ -5,7 +5,6 @@
 */
 
 #include "uploadfileprogressstatuswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QProgressBar>
 #include <QToolButton>
 
+using namespace Qt::Literals::StringLiterals;
 UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
     : QWidget(parent)
     , mFileName(new QLabel(this))

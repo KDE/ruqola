@@ -5,7 +5,6 @@
 */
 
 #include "messagelistdelegatetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messages/message.h"
 #include "messages/messageattachment.h"
@@ -21,6 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(MessageListDelegateTest)
 
+using namespace Qt::Literals::StringLiterals;
 MessageListDelegateTest::MessageListDelegateTest(QObject *parent)
     : QObject(parent)
 {

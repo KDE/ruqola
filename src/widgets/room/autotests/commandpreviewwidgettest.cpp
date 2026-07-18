@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "commandpreviewwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "commands/previewcommand.h"
 #include "model/previewcommandmodel.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 QTEST_MAIN(CommandPreviewWidgetTest)
 
+using namespace Qt::Literals::StringLiterals;
 CommandPreviewWidgetTest::CommandPreviewWidgetTest(QObject *parent)
     : QObject{parent}
 {
