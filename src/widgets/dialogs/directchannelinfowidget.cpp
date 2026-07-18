@@ -38,9 +38,21 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
 
     mDirectChannelActionWidget->setObjectName(u"mDirectChannelActionWidget"_s);
     mainLayout->addWidget(mDirectChannelActionWidget);
+    connect(mDirectChannelActionWidget, &DirectChannelActionWidget::ignoreUser, this, &DirectChannelInfoWidget::slotIgnoreUser);
+    connect(mDirectChannelActionWidget, &DirectChannelActionWidget::reportUser, this, &DirectChannelInfoWidget::slotReportUser);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget() = default;
+
+void DirectChannelInfoWidget::slotIgnoreUser()
+{
+    // TODO
+}
+
+void DirectChannelInfoWidget::slotReportUser()
+{
+    // TODO
+}
 
 void DirectChannelInfoWidget::setUserName(const QString &userName)
 {

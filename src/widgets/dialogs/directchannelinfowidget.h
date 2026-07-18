@@ -39,6 +39,8 @@ public:
     void setRoles(const QList<RoleInfo> &newRoles);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotIgnoreUser();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotReportUser();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUserInfoDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void fetchUserInfo(const QString &userName);
     LIBRUQOLAWIDGETS_NO_EXPORT void setUser(const User &user);
