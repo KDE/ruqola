@@ -15,11 +15,14 @@
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
+#include <QPushButton>
+
 using namespace Qt::Literals::StringLiterals;
 DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAvatar(new ResizablePixmapLabel(this))
     , mFormLayout(new QFormLayout)
+    , mDirectChannelActionWidget(new DirectChannelActionWidget(this))
     , mRocketChatAccount(account)
 {
     mFormLayout->setObjectName(u"mFormLayout"_s);
@@ -32,6 +35,9 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
     mAvatar->setObjectName(u"mAvatar"_s);
     mainLayout->addWidget(mAvatar);
     mainLayout->addLayout(mFormLayout);
+
+    mDirectChannelActionWidget->setObjectName(u"mDirectChannelActionWidget"_s);
+    mainLayout->addWidget(mDirectChannelActionWidget);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget() = default;
@@ -204,5 +210,15 @@ void DirectChannelInfoWidget::setUser(const User &user)
         mFormLayout->addRow(label, emailsInfoLabel);
     }
 }
+
+DirectChannelActionWidget::DirectChannelActionWidget(QWidget *parent)
+    : QWidget(parent)
+{
+    auto actionLayout = new QHBoxLayout;
+    actionLayout->setObjectName(u"mainLayout"_s);
+    actionLayout->setContentsMargins({});
+}
+
+DirectChannelActionWidget::~DirectChannelActionWidget() = default;
 
 #include "moc_directchannelinfowidget.cpp"

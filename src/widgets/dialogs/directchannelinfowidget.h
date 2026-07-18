@@ -15,6 +15,15 @@ class User;
 class QFormLayout;
 class RocketChatAccount;
 class ResizablePixmapLabel;
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelActionWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit DirectChannelActionWidget(QWidget *parent = nullptr);
+    ~DirectChannelActionWidget() override;
+};
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -33,5 +42,6 @@ private:
     QList<RoleInfo> mListRoleInfos;
     ResizablePixmapLabel *const mAvatar;
     QFormLayout *const mFormLayout;
+    DirectChannelActionWidget *const mDirectChannelActionWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
