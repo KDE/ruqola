@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-12 02:37+0000\n"
-"PO-Revision-Date: 2026-07-01 15:31+0200\n"
+"PO-Revision-Date: 2026-07-17 17:06+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -10271,7 +10271,7 @@ msgstr "Netta"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Commuta a nove sala"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:741
@@ -10294,7 +10294,7 @@ msgstr "%1 ha %2 Message non legite"
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
+msgstr "Rete es in modo de foras de linea"
 
 #: widgets/otr/otrwidget.cpp:20
 #, kde-format
@@ -10622,7 +10622,7 @@ msgstr "Adde Servitor de WebDav"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "Inserta marcator de tempore"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11798,7 +11798,7 @@ msgstr "Non Seque message..."
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr ""
+msgstr "Adde Marcator de tempore"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
@@ -11828,12 +11828,12 @@ msgstr "Data e Tempore Complete (%1)"
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr ""
+msgstr "Date e tempore complete (longe) (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr ""
+msgstr "Tempore relative (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
 #, kde-format
