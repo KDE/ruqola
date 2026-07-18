@@ -209,14 +209,25 @@ void DirectChannelInfoWidget::setUser(const User &user)
         label->setFont(f);
         mFormLayout->addRow(label, emailsInfoLabel);
     }
+    mDirectChannelActionWidget->setVisible(user.userId() != mRocketChatAccount->userId());
 }
 
 DirectChannelActionWidget::DirectChannelActionWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto actionLayout = new QHBoxLayout;
+    auto actionLayout = new QHBoxLayout(this);
     actionLayout->setObjectName(u"mainLayout"_s);
     actionLayout->setContentsMargins({});
+
+    auto ignoreButton = new QPushButton(i18nc("@action:button", "Ignore"), this);
+    ignoreButton->setObjectName(u"ignoreButton"_s);
+    actionLayout->addWidget(ignoreButton);
+    connect(ignoreButton, &QPushButton::clicked, this, &DirectChannelActionWidget::ignoreUser);
+
+    auto reportButton = new QPushButton(i18nc("@action:button", "Report"), this);
+    reportButton->setObjectName(u"reportButton"_s);
+    actionLayout->addWidget(reportButton);
+    connect(reportButton, &QPushButton::clicked, this, &DirectChannelActionWidget::reportUser);
 }
 
 DirectChannelActionWidget::~DirectChannelActionWidget() = default;

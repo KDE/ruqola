@@ -22,6 +22,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelActionWidget : public QWidget
 public:
     explicit DirectChannelActionWidget(QWidget *parent = nullptr);
     ~DirectChannelActionWidget() override;
+Q_SIGNALS:
+    void ignoreUser();
+    void reportUser();
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
