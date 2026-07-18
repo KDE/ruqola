@@ -316,8 +316,10 @@ Urgency=Normal
 
 [Event/NewRoom-Added]
 Name=New Room Added
+Name[ar]=أُضيفت غرفة جديدة
 Name[ca]=S'ha afegit una sala nova
 Name[ca@valencia]=S'ha afegit una sala nova
+Name[ia]=Nove sala addite
 Name[ka]=დაემატა ახალი ოთახი
 Name[nl]=Nieuwe rooms toegevoegd
 Name[pt_BR]=Nova sala adicionada
