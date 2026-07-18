@@ -122,17 +122,17 @@ void DirectChannelInfoWidget::setUser(const User &user)
     if (!statusText.isEmpty()) {
         auto customStatusLabel = new QLabel(statusText, this);
         customStatusLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        auto label = new QLabel(i18n("Custom Status:"), this);
-        label->setFont(f);
-        mFormLayout->addRow(label, customStatusLabel);
+        auto customStatuslabel = new QLabel(i18n("Custom Status:"), this);
+        customStatuslabel->setFont(f);
+        mFormLayout->addRow(customStatuslabel, customStatusLabel);
     }
 
     if (!user.bio().isEmpty()) {
-        auto bioLabel = new QLabel(user.bio(), this);
-        bioLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
-        auto label = new QLabel(i18n("Bio:"), this);
-        label->setFont(f);
-        mFormLayout->addRow(label, bioLabel);
+        auto bioUserLabel = new QLabel(user.bio(), this);
+        bioUserLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        auto bioLabel = new QLabel(i18n("Bio:"), this);
+        bioLabel->setFont(f);
+        mFormLayout->addRow(bioLabel, bioUserLabel);
     }
 
     auto timeZoneLabel = new QLabel(this);
