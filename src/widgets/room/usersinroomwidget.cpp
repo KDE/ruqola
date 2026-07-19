@@ -126,7 +126,7 @@ void UsersInRoomWidget::setRoom(Room *room)
 void UsersInRoomWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     if (!mMenu) {
-        mMenu = new UsersInRoomMenu(this);
+        mMenu = new UsersInRoomMenu(mRocketChatAccount, this);
         mMenu->setParentWidget(mListView);
         mMenu->setRoom(mRoom);
     }

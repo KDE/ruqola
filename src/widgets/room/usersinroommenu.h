@@ -11,11 +11,12 @@
 
 #include "libruqolawidgets_private_export.h"
 class Room;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomMenu : public QObject
 {
     Q_OBJECT
 public:
-    explicit UsersInRoomMenu(QObject *parent = nullptr);
+    explicit UsersInRoomMenu(RocketChatAccount *account, QObject *parent = nullptr);
     ~UsersInRoomMenu() override;
 
     void slotCustomContextMenuRequested(const QPoint &pos);
@@ -39,4 +40,5 @@ private:
     QString mUserName;
     QPointer<Room> mRoom;
     QWidget *mParentWidget = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };

@@ -13,7 +13,6 @@
 #include "rocketchataccount.h"
 #include "rooms/roomsbanuserjob.h"
 #include "roomutil.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -21,8 +20,9 @@
 #include <QMenu>
 
 using namespace Qt::Literals::StringLiterals;
-UsersInRoomMenu::UsersInRoomMenu(QObject *parent)
+UsersInRoomMenu::UsersInRoomMenu(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -30,7 +30,7 @@ UsersInRoomMenu::~UsersInRoomMenu() = default;
 
 void UsersInRoomMenu::slotOpenConversation()
 {
-    Q_EMIT Ruqola::self()->rocketChatAccount()->openLinkRequested(RoomUtil::generateUserLink(mUserName));
+    Q_EMIT mRocketChatAccount->openLinkRequested(RoomUtil::generateUserLink(mUserName));
 }
 
 void UsersInRoomMenu::slotBlockUser()
@@ -46,7 +46,7 @@ void UsersInRoomMenu::slotBlockUser()
             return;
         }
     }
-    Ruqola::self()->rocketChatAccount()->blockUser(QString::fromLatin1(mRoom->roomId()), !userIsBlocked);
+    mRocketChatAccount->blockUser(QString::fromLatin1(mRoom->roomId()), !userIsBlocked);
 }
 
 void UsersInRoomMenu::slotReportUser()
@@ -55,7 +55,7 @@ void UsersInRoomMenu::slotReportUser()
     dlg.setUserName(mUserName);
     if (dlg.exec()) {
         auto job = new RocketChatRestApi::ModerationReportUserJob(this);
-        Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         job->setDescription(dlg.message());
         job->setReportedUserId(mUserId);
         if (!job->start()) {
@@ -77,8 +77,7 @@ void UsersInRoomMenu::slotMuteUser()
             return;
         }
     }
-    // Fix remove Ruqola::self()
-    Ruqola::self()->rocketChatAccount()->muteUser(mRoom->roomId(), mUserName, !userIsMuted);
+    mRocketChatAccount->muteUser(mRoom->roomId(), mUserName, !userIsMuted);
 }
 
 void UsersInRoomMenu::slotIgnoreUser()
@@ -94,7 +93,7 @@ void UsersInRoomMenu::slotIgnoreUser()
             return;
         }
     }
-    Ruqola::self()->rocketChatAccount()->ignoreUser(mRoom->roomId(), mUserId, !userIsIgnored);
+    mRocketChatAccount->ignoreUser(mRoom->roomId(), mUserId, !userIsIgnored);
 }
 
 void UsersInRoomMenu::slotRemoveFromRoom()
@@ -107,20 +106,19 @@ void UsersInRoomMenu::slotRemoveFromRoom()
                                            KStandardGuiItem::cancel())) {
         return;
     }
-    Ruqola::self()->rocketChatAccount()->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
+    mRocketChatAccount->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
 }
 
 QMenu *UsersInRoomMenu::createMenu()
 {
-    auto account = Ruqola::self()->rocketChatAccount();
     const bool canManageUsersInRoom = mRoom->canChangeRoles();
-    const bool isAdministrator = account->ownUser().isAdministrator();
-    const QByteArray ownUserId = account->userId();
+    const bool isAdministrator = mRocketChatAccount->ownUser().isAdministrator();
+    const QByteArray ownUserId = mRocketChatAccount->userId();
     const bool isAdirectChannel = mRoom->channelType() == Room::RoomType::Direct;
     const bool isNotMe = mUserId != ownUserId;
     QMenu *menu = new QMenu(mParentWidget);
 
-    if (account->hasPermission(u"create-d"_s)) {
+    if (mRocketChatAccount->hasPermission(u"create-d"_s)) {
         if (isNotMe && !isAdirectChannel) {
             auto conversationAction = new QAction(i18nc("@action", "Start Conversation"), menu);
             connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
@@ -140,11 +138,11 @@ QMenu *UsersInRoomMenu::createMenu()
         if (isAdministrator || mRoom->hasPermission(u"set-owner"_s)) {
             const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
             auto removeAsOwner = new QAction(hasOwnerRole ? i18nc("@action", "Remove as Owner") : i18nc("@action", "Add as Owner"), menu);
-            connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole, account]() {
-                account->changeRoles(mRoom->roomId(),
-                                     QString::fromLatin1(mUserId),
-                                     mRoom->channelType(),
-                                     hasOwnerRole ? RocketChatAccount::RoleType::RemoveOwner : RocketChatAccount::RoleType::AddOwner);
+            connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole]() {
+                mRocketChatAccount->changeRoles(mRoom->roomId(),
+                                                QString::fromLatin1(mUserId),
+                                                mRoom->channelType(),
+                                                hasOwnerRole ? RocketChatAccount::RoleType::RemoveOwner : RocketChatAccount::RoleType::AddOwner);
             });
 
             menu->addAction(removeAsOwner);
@@ -153,11 +151,11 @@ QMenu *UsersInRoomMenu::createMenu()
         if (isAdministrator || mRoom->hasPermission(u"set-leader"_s)) {
             const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
             auto removeAsLeader = new QAction(hasLeaderRole ? i18nc("@action", "Remove as Leader") : i18nc("@action", "Add as Leader"), menu);
-            connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole, account]() {
-                account->changeRoles(mRoom->roomId(),
-                                     QString::fromLatin1(mUserId),
-                                     mRoom->channelType(),
-                                     hasLeaderRole ? RocketChatAccount::RoleType::RemoveLeader : RocketChatAccount::RoleType::AddLeader);
+            connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole]() {
+                mRocketChatAccount->changeRoles(mRoom->roomId(),
+                                                QString::fromLatin1(mUserId),
+                                                mRoom->channelType(),
+                                                hasLeaderRole ? RocketChatAccount::RoleType::RemoveLeader : RocketChatAccount::RoleType::AddLeader);
             });
             menu->addAction(removeAsLeader);
         }
@@ -165,11 +163,11 @@ QMenu *UsersInRoomMenu::createMenu()
         if (isAdministrator || mRoom->hasPermission(u"set-moderator"_s)) {
             const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
             auto removeAsModerator = new QAction(hasModeratorRole ? i18nc("@action", "Remove as Moderator") : i18nc("@action", "Add as Moderator"), menu);
-            connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole, account]() {
-                account->changeRoles(mRoom->roomId(),
-                                     QString::fromLatin1(mUserId),
-                                     mRoom->channelType(),
-                                     hasModeratorRole ? RocketChatAccount::RoleType::RemoveModerator : RocketChatAccount::RoleType::AddModerator);
+            connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole]() {
+                mRocketChatAccount->changeRoles(mRoom->roomId(),
+                                                QString::fromLatin1(mUserId),
+                                                mRoom->channelType(),
+                                                hasModeratorRole ? RocketChatAccount::RoleType::RemoveModerator : RocketChatAccount::RoleType::AddModerator);
             });
             menu->addAction(removeAsModerator);
         }
@@ -221,8 +219,7 @@ QMenu *UsersInRoomMenu::createMenu()
 
 void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    auto account = Ruqola::self()->rocketChatAccount();
-    const bool offline = account->offlineMode();
+    const bool offline = mRocketChatAccount->offlineMode();
     if (offline) {
         return;
     }
@@ -243,7 +240,7 @@ void UsersInRoomMenu::slotBanUserFromRoomAction()
         return;
     }
     auto job = new RocketChatRestApi::RoomsBanUserJob(this);
-    Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     job->setRoomId(mRoom->roomId());
     job->setUserName(mUserName);
     if (!job->start()) {
@@ -253,10 +250,9 @@ void UsersInRoomMenu::slotBanUserFromRoomAction()
 
 void UsersInRoomMenu::slotUserInfo()
 {
-    auto rcAccount = Ruqola::self()->rocketChatAccount();
-    DirectChannelInfoDialog dlg(rcAccount, mParentWidget);
+    DirectChannelInfoDialog dlg(mRocketChatAccount, mParentWidget);
     dlg.setUserName(mUserName);
-    dlg.setRoles(rcAccount->roleInfo());
+    dlg.setRoles(mRocketChatAccount->roleInfo());
     dlg.exec();
 }
 

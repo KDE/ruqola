@@ -89,7 +89,7 @@ void UserLabel::slotOpenConversation()
 void UserLabel::slotCustomContextMenuRequested(const QPoint &pos)
 {
     if (!mMenu) {
-        mMenu = new UsersInRoomMenu(this);
+        mMenu = new UsersInRoomMenu(Ruqola::self()->rocketChatAccount(), this);
         mMenu->setParentWidget(this);
         mMenu->setRoom(mRoom);
         mMenu->setUserId(mUserId);
