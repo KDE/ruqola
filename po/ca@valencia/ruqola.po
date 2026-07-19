@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:43+0000\n"
+"POT-Creation-Date: 2026-07-19 00:44+0000\n"
 "PO-Revision-Date: 2026-07-16 10:57+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3121,7 +3121,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:95
+#: widgets/dialogs/directchannelinfowidget.cpp:113
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3265,7 +3265,7 @@ msgstr "Edita l'estat de l'usuari"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:111
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3648,7 +3648,7 @@ msgstr "Mostra la moderació d'usuaris"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:202
+#: widgets/dialogs/directchannelinfowidget.cpp:220
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3657,7 +3657,7 @@ msgstr "Correu electrònic:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:170
+#: widgets/dialogs/directchannelinfowidget.cpp:188
 #, kde-format
 msgid "Roles:"
 msgstr "Rols:"
@@ -4236,7 +4236,7 @@ msgid "Mark email as verified"
 msgstr "Marca el correu electrònic com a verificat"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:104
+#: widgets/dialogs/directchannelinfowidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4258,7 +4258,7 @@ msgid "Password:"
 msgstr "Contrasenya:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:127
+#: widgets/dialogs/directchannelinfowidget.cpp:145
 #, kde-format
 msgid "Bio:"
 msgstr "Biografia:"
@@ -8703,45 +8703,61 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:137
 #, kde-format
 msgid "Custom Status:"
 msgstr "Estat personalitzat:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:141
+#: widgets/dialogs/directchannelinfowidget.cpp:159
 #, kde-format
 msgid "Timezone:"
 msgstr "Fus horari:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:151
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Local Time:"
 msgstr "Hora local:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:180
+#: widgets/dialogs/directchannelinfowidget.cpp:198
 #, kde-format
 msgid "Created At:"
 msgstr "Creat:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:189
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #, kde-format
 msgid "Last Login:"
 msgstr "Últim inici de sessió:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Verified"
 msgstr "Verificat"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Not verified"
 msgstr "No verificat"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
+
+#: widgets/dialogs/directchannelinfowidget.cpp:235
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Ignore"
+msgctxt "@action:button"
+msgid "Ignore"
+msgstr "Ignora"
+
+#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Report"
+msgstr "Informa"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -8838,13 +8854,6 @@ msgstr "S'ha produït un error: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Informació del missatge"
-
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Report"
-msgstr "Informa"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -11227,7 +11236,7 @@ msgstr "URL en Markdown"
 msgid "New Message"
 msgstr "Missatge nou"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:60
+#: widgets/room/pendingattachmentclickablewidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"

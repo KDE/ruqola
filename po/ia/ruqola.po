@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:43+0000\n"
+"POT-Creation-Date: 2026-07-19 00:44+0000\n"
 "PO-Revision-Date: 2026-07-17 16:42+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3110,7 +3110,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:95
+#: widgets/dialogs/directchannelinfowidget.cpp:113
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3254,7 +3254,7 @@ msgstr "Modifica stato de usator"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:111
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3626,7 +3626,7 @@ msgstr "Monstra Usatores de Moderation"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:202
+#: widgets/dialogs/directchannelinfowidget.cpp:220
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3635,7 +3635,7 @@ msgstr "E-posta:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:170
+#: widgets/dialogs/directchannelinfowidget.cpp:188
 #, kde-format
 msgid "Roles:"
 msgstr "Rolos:"
@@ -4214,7 +4214,7 @@ msgid "Mark email as verified"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:104
+#: widgets/dialogs/directchannelinfowidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4236,7 +4236,7 @@ msgid "Password:"
 msgstr "Contrasigno:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:127
+#: widgets/dialogs/directchannelinfowidget.cpp:145
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
@@ -8492,45 +8492,61 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Information de usator"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:137
 #, kde-format
 msgid "Custom Status:"
 msgstr "Stato personalisate:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:141
+#: widgets/dialogs/directchannelinfowidget.cpp:159
 #, kde-format
 msgid "Timezone:"
 msgstr "Fuso horari:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:151
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Local Time:"
 msgstr "Tempore Local:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:180
+#: widgets/dialogs/directchannelinfowidget.cpp:198
 #, kde-format
 msgid "Created At:"
 msgstr "Create a:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:189
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #, kde-format
 msgid "Last Login:"
 msgstr "Ultime accesso:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Verified"
 msgstr "Verificate"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Not verified"
 msgstr "Non Verificate"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
+
+#: widgets/dialogs/directchannelinfowidget.cpp:235
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Ignore"
+msgctxt "@action:button"
+msgid "Ignore"
+msgstr "Ignora"
+
+#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Report"
+msgstr "Reporta"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -8627,13 +8643,6 @@ msgstr "Error: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Reporta Message"
-
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Report"
-msgstr "Reporta"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -10969,7 +10978,7 @@ msgstr ""
 msgid "New Message"
 msgstr "Nove message"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:60
+#: widgets/room/pendingattachmentclickablewidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:43+0000\n"
+"POT-Creation-Date: 2026-07-19 00:44+0000\n"
 "PO-Revision-Date: 2026-07-16 06:22+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3106,7 +3106,7 @@ msgstr "ემოჯის სახელი და მისი მეტს�
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:95
+#: widgets/dialogs/directchannelinfowidget.cpp:113
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3250,7 +3250,7 @@ msgstr "მომხმარებლის სტატუსის ჩას�
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:111
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3631,7 +3631,7 @@ msgstr "მოდერაციის მომხმარებლები�
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:202
+#: widgets/dialogs/directchannelinfowidget.cpp:220
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3640,7 +3640,7 @@ msgstr "ელფოტა:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:170
+#: widgets/dialogs/directchannelinfowidget.cpp:188
 #, kde-format
 msgid "Roles:"
 msgstr "როლები:"
@@ -4219,7 +4219,7 @@ msgid "Mark email as verified"
 msgstr "ელფოსტის გადამოწმებულად მონიშვნა"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:104
+#: widgets/dialogs/directchannelinfowidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4241,7 +4241,7 @@ msgid "Password:"
 msgstr "პაროლი:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:127
+#: widgets/dialogs/directchannelinfowidget.cpp:145
 #, kde-format
 msgid "Bio:"
 msgstr "ბიოგრაფია:"
@@ -8651,45 +8651,61 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "ინფორმაცია მომხმარებელზე"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:137
 #, kde-format
 msgid "Custom Status:"
 msgstr "მორგებული სტატუსი:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:141
+#: widgets/dialogs/directchannelinfowidget.cpp:159
 #, kde-format
 msgid "Timezone:"
 msgstr "დროის სარტყელი:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:151
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Local Time:"
 msgstr "ლოკალური დრო:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:180
+#: widgets/dialogs/directchannelinfowidget.cpp:198
 #, kde-format
 msgid "Created At:"
 msgstr "შექმნის დრო:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:189
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #, kde-format
 msgid "Last Login:"
 msgstr "ბოლო შესვლა:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Verified"
 msgstr "დამოწმებულია"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Not verified"
 msgstr "შემოწმებული არა"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:197
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
+
+#: widgets/dialogs/directchannelinfowidget.cpp:235
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Ignore"
+msgctxt "@action:button"
+msgid "Ignore"
+msgstr "გამოტოვება"
+
+#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Report"
+msgstr "ანგარიში"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -8786,13 +8802,6 @@ msgstr "შეცდომა: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
-
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Report"
-msgstr "ანგარიში"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -11163,7 +11172,7 @@ msgstr "Markdown -ის ბმული"
 msgid "New Message"
 msgstr "ახალი შეტყობინება"
 
-#: widgets/room/pendingattachmentclickablewidget.cpp:60
+#: widgets/room/pendingattachmentclickablewidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
