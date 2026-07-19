@@ -15,16 +15,22 @@ class User;
 class QFormLayout;
 class RocketChatAccount;
 class ResizablePixmapLabel;
-
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelActionWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DirectChannelActionWidget(QWidget *parent = nullptr);
+    explicit DirectChannelActionWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelActionWidget() override;
+    void setUser(const User &user);
+
 Q_SIGNALS:
     void ignoreUser();
     void reportUser();
+
+private:
+    QToolButton *const mToolButton;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget

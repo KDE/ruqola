@@ -8,6 +8,7 @@
 #include "common/resizablepixmaplabel.h"
 #include "connection.h"
 #include "rocketchataccount.h"
+#include "room/usersinroommenu.h"
 #include "ruqolawidgets_debug.h"
 #include "user.h"
 #include "users/userinfojob.h"
@@ -16,13 +17,14 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QToolButton>
 
 using namespace Qt::Literals::StringLiterals;
 DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAvatar(new ResizablePixmapLabel(this))
     , mFormLayout(new QFormLayout)
-    , mDirectChannelActionWidget(new DirectChannelActionWidget(this))
+    , mDirectChannelActionWidget(new DirectChannelActionWidget(account, this))
     , mRocketChatAccount(account)
 {
     mFormLayout->setObjectName(u"mFormLayout"_s);
@@ -223,10 +225,13 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
     // mDirectChannelActionWidget->setVisible(user.userId() != mRocketChatAccount->userId());
     mDirectChannelActionWidget->setVisible(false); // TODO
+    mDirectChannelActionWidget->setUser(user);
 }
 
-DirectChannelActionWidget::DirectChannelActionWidget(QWidget *parent)
+DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
+    , mToolButton(new QToolButton(this))
+    , mRocketChatAccount(account)
 {
     auto actionLayout = new QHBoxLayout(this);
     actionLayout->setObjectName(u"mainLayout"_s);
@@ -241,8 +246,21 @@ DirectChannelActionWidget::DirectChannelActionWidget(QWidget *parent)
     reportButton->setObjectName(u"reportButton"_s);
     actionLayout->addWidget(reportButton);
     connect(reportButton, &QPushButton::clicked, this, &DirectChannelActionWidget::reportUser);
+
+    mToolButton->setObjectName(u"mToolButton"_s);
+    mToolButton->setPopupMode(QToolButton::InstantPopup);
 }
 
 DirectChannelActionWidget::~DirectChannelActionWidget() = default;
+
+void DirectChannelActionWidget::setUser(const User &user)
+{
+    auto menu = new UsersInRoomMenu(mRocketChatAccount, this);
+    menu->setParentWidget(this);
+    menu->setUserId(user.userId());
+    menu->setUserName(user.userName());
+    // TODO add room
+    mToolButton->setMenu(menu->createMenu());
+}
 
 #include "moc_directchannelinfowidget.cpp"
