@@ -1392,6 +1392,7 @@
       <description>
         <ul>
           <li>Add notify info when adding a new room</li>
+          <li xml:lang="ar">إضافة إشعار عند إضافة غرفة جديدة</li>
           <li xml:lang="ca">Afegeix informació de notificacions en afegir una sala nova</li>
           <li xml:lang="ca-valencia">Afig informació de notificacions en afegir una sala nova</li>
           <li xml:lang="ka">დაემატა გაფრთხილება ახალი ოთახის დამატებისას</li>
@@ -1406,6 +1407,7 @@
           <li xml:lang="ca">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="ca-valencia">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="es">Rescrito el soporte de archivos adjuntos</li>
+          <li xml:lang="ia">Rescribe supporto de file de attachamento.</li>
           <li xml:lang="it">Riscritto il supporto degli allegati</li>
           <li xml:lang="ka">მიმაგრებული ფაილის მხარდაჭერის გადაწერა</li>
           <li xml:lang="nl">Ondersteuning voor bijlagebestanden herschrijven</li>
@@ -1471,6 +1473,7 @@
           <li xml:lang="ca">Afegeix el suport de confirmacions de lectura</li>
           <li xml:lang="ca-valencia">Afig el suport de confirmacions de lectura</li>
           <li xml:lang="es">Añadido soporte para acuse de recibo</li>
+          <li xml:lang="ia">Adde supporto pro confirmationes de lectura</li>
           <li xml:lang="it">Aggiunge il supporto per le conferme di lettura</li>
           <li xml:lang="ka">დაემატა წაკითხვის ანგარიშის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor gelezen-berichten toevoegen</li>
@@ -1492,6 +1495,7 @@
           <li xml:lang="ca-valencia">Millora el mode desconnectat</li>
           <li xml:lang="es">Mejoras en modo desconectado</li>
           <li xml:lang="fr">Améliorer le mode déconnecté</li>
+          <li xml:lang="ia">Meliora Modo foras de linea</li>
           <li xml:lang="it">Migliora la modalità non in linea</li>
           <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
           <li xml:lang="nl">Offline-modus verbeteren</li>
