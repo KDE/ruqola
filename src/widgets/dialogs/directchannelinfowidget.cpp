@@ -10,7 +10,7 @@
 #include "rocketchataccount.h"
 #include "room/usersinroommenu.h"
 #include "ruqolawidgets_debug.h"
-#include "user.h"
+
 #include "users/userinfojob.h"
 
 #include <KLocalizedString>
@@ -46,6 +46,13 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget() = default;
 
+void DirectChannelInfoWidget::setDirectChannelInfo(const DirectChannelInfo &info)
+{
+    mListRoleInfos = info.roles;
+    fetchUserInfo(info.userName);
+    mDirectChannelActionWidget->setRoom(info.room);
+}
+
 void DirectChannelInfoWidget::slotIgnoreUser()
 {
     // TODO
@@ -54,16 +61,6 @@ void DirectChannelInfoWidget::slotIgnoreUser()
 void DirectChannelInfoWidget::slotReportUser()
 {
     // TODO
-}
-
-void DirectChannelInfoWidget::setUserName(const QString &userName)
-{
-    fetchUserInfo(userName);
-}
-
-void DirectChannelInfoWidget::setRoles(const QList<RoleInfo> &newRoles)
-{
-    mListRoleInfos = newRoles;
 }
 
 void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
@@ -225,12 +222,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
     // mDirectChannelActionWidget->setVisible(user.userId() != mRocketChatAccount->userId());
     mDirectChannelActionWidget->setVisible(false); // TODO
-    mDirectChannelActionWidget->setUser(user);
-}
-
-void DirectChannelInfoWidget::setRoom(Room *room)
-{
-    mDirectChannelActionWidget->setRoom(room);
+    mDirectChannelActionWidget->generateRoomMenu(user);
 }
 
 DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account, QWidget *parent)
@@ -258,7 +250,12 @@ DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account,
 
 DirectChannelActionWidget::~DirectChannelActionWidget() = default;
 
-void DirectChannelActionWidget::setUser(const User &user)
+void DirectChannelActionWidget::setRoom(Room *room)
+{
+    mRoom = room;
+}
+
+void DirectChannelActionWidget::generateRoomMenu(const User &user)
 {
     auto menu = new UsersInRoomMenu(mRocketChatAccount, this);
     menu->setParentWidget(this);
@@ -266,11 +263,6 @@ void DirectChannelActionWidget::setUser(const User &user)
     menu->setUserName(user.userName());
     menu->setRoom(mRoom);
     mToolButton->setMenu(menu->createMenu());
-}
-
-void DirectChannelActionWidget::setRoom(Room *room)
-{
-    mRoom = room;
 }
 
 #include "moc_directchannelinfowidget.cpp"

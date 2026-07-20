@@ -8,6 +8,7 @@
 #include <QDialog>
 #include <QList>
 
+#include "directchannelinfowidget.h"
 #include "libruqolawidgets_private_export.h"
 class DirectChannelInfoWidget;
 class User;
@@ -20,9 +21,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
 public:
     explicit DirectChannelInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelInfoDialog() override;
-    void setUserName(const QString &userName);
-    void setRoles(const QList<RoleInfo> &newRoles);
-    void setRoom(Room *room);
+
+    void setDirectChannelInfo(const DirectChannelInfoWidget::DirectChannelInfo &info);
 
 private:
     DirectChannelInfoWidget *const mDirectChannelInfoWidget;

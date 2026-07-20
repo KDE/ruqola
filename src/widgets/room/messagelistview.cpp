@@ -1180,9 +1180,12 @@ void MessageListView::slotReplyInThread(const QModelIndex &index)
 void MessageListView::slotShowUserInfo(const QString &userName)
 {
     DirectChannelInfoDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setUserName(userName);
-    dlg.setRoles(mCurrentRocketChatAccount->roleInfo());
-    dlg.setRoom(mRoom);
+    const DirectChannelInfoWidget::DirectChannelInfo info{
+        .userName = userName,
+        .roles = mCurrentRocketChatAccount->roleInfo(),
+        .room = mRoom,
+    };
+    dlg.setDirectChannelInfo(info);
     dlg.exec();
 }
 

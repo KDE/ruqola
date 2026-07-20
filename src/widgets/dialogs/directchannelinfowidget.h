@@ -5,13 +5,12 @@
 */
 
 #pragma once
-
 #include "roles/roleinfo.h"
+#include "user.h"
 #include <QList>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class User;
 class QFormLayout;
 class RocketChatAccount;
 class ResizablePixmapLabel;
@@ -23,7 +22,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelActionWidget : public QWidget
 public:
     explicit DirectChannelActionWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelActionWidget() override;
-    void setUser(const User &user);
+    void generateRoomMenu(const User &user);
     void setRoom(Room *room);
 Q_SIGNALS:
     void ignoreUser();
@@ -39,13 +38,16 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
+    struct DirectChannelInfo {
+        QString userName;
+        QList<RoleInfo> roles;
+        Room *room = nullptr;
+    };
+
     explicit DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelInfoWidget() override;
 
-    void setUserName(const QString &userName);
-
-    void setRoles(const QList<RoleInfo> &newRoles);
-    void setRoom(Room *room);
+    void setDirectChannelInfo(const DirectChannelInfo &info);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotIgnoreUser();

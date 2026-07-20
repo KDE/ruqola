@@ -251,9 +251,12 @@ void UsersInRoomMenu::slotBanUserFromRoomAction()
 void UsersInRoomMenu::slotUserInfo()
 {
     DirectChannelInfoDialog dlg(mRocketChatAccount, mParentWidget);
-    dlg.setUserName(mUserName);
-    dlg.setRoles(mRocketChatAccount->roleInfo());
-    dlg.setRoom(mRoom);
+    const DirectChannelInfoWidget::DirectChannelInfo info{
+        .userName = mUserName,
+        .roles = mRocketChatAccount->roleInfo(),
+        .room = mRoom,
+    };
+    dlg.setDirectChannelInfo(info);
     dlg.exec();
 }
 

@@ -33,19 +33,9 @@ DirectChannelInfoDialog::DirectChannelInfoDialog(RocketChatAccount *account, QWi
 
 DirectChannelInfoDialog::~DirectChannelInfoDialog() = default;
 
-void DirectChannelInfoDialog::setUserName(const QString &userName)
+void DirectChannelInfoDialog::setDirectChannelInfo(const DirectChannelInfoWidget::DirectChannelInfo &info)
 {
-    mDirectChannelInfoWidget->setUserName(userName);
-}
-
-void DirectChannelInfoDialog::setRoles(const QList<RoleInfo> &newRoles)
-{
-    mDirectChannelInfoWidget->setRoles(newRoles);
-}
-
-void DirectChannelInfoDialog::setRoom(Room *room)
-{
-    mDirectChannelInfoWidget->setRoom(room);
+    mDirectChannelInfoWidget->setDirectChannelInfo(info);
 }
 
 #include "moc_directchannelinfodialog.cpp"
