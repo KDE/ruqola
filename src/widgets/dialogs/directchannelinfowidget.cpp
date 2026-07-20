@@ -220,9 +220,11 @@ void DirectChannelInfoWidget::setUser(const User &user)
         label->setFont(f);
         mFormLayout->addRow(label, emailsInfoLabel);
     }
-    // mDirectChannelActionWidget->setVisible(user.userId() != mRocketChatAccount->userId());
-    mDirectChannelActionWidget->setVisible(false); // TODO
-    mDirectChannelActionWidget->generateRoomMenu(user);
+    const bool isNotMe = user.userId() != mRocketChatAccount->userId();
+    mDirectChannelActionWidget->setVisible(isNotMe);
+    if (isNotMe) {
+        mDirectChannelActionWidget->generateRoomMenu(user);
+    }
 }
 
 DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account, QWidget *parent)
