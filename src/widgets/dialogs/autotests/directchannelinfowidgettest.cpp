@@ -33,6 +33,9 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
     auto mAvatar = w.findChild<QLabel *>(u"mAvatar"_s);
     QVERIFY(mAvatar);
     QVERIFY(mAvatar->text().isEmpty());
+
+    auto mDirectChannelActionWidget = w.findChild<DirectChannelActionWidget *>(u"mDirectChannelActionWidget"_s);
+    QVERIFY(mDirectChannelActionWidget);
 }
 
 #include "moc_directchannelinfowidgettest.cpp"
