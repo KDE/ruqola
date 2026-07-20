@@ -6,7 +6,7 @@
 #include "e2edatabasetest.h"
 #include "encryption/encryptionutils.h"
 #include "localdatabase/e2edatabase.h"
-#include <QtTest>
+#include <QTest>
 
 QTEST_GUILESS_MAIN(E2EDataBaseTest)
 
