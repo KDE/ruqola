@@ -246,6 +246,7 @@ DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account,
 
     mToolButton->setObjectName(u"mToolButton"_s);
     mToolButton->setPopupMode(QToolButton::InstantPopup);
+    actionLayout->addWidget(mToolButton);
 }
 
 DirectChannelActionWidget::~DirectChannelActionWidget() = default;
