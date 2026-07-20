@@ -262,6 +262,7 @@ void DirectChannelActionWidget::setRoom(Room *room)
 
 void DirectChannelActionWidget::generateRoomMenu(const User &user)
 {
+    // We need to update it when we change element
     auto menu = new UsersInRoomMenu(mRocketChatAccount, this);
     menu->setParentWidget(this);
     menu->setUserId(user.userId());
