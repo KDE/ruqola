@@ -233,6 +233,7 @@ DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account,
     auto actionLayout = new QHBoxLayout(this);
     actionLayout->setObjectName(u"mainLayout"_s);
     actionLayout->setContentsMargins({});
+    actionLayout->setSpacing(0);
 
     auto ignoreButton = new QPushButton(i18nc("@action:button", "Ignore"), this);
     ignoreButton->setObjectName(u"ignoreButton"_s);
