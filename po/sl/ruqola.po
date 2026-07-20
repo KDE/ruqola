@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
-"PO-Revision-Date: 2026-07-16 06:31+0200\n"
+"POT-Creation-Date: 2026-07-20 00:43+0000\n"
+"PO-Revision-Date: 2026-07-19 07:14+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3126,7 +3126,7 @@ msgstr "Ime čustvenčka po meri in njegovi vzdevki morajo biti različni."
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:115
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3274,7 +3274,7 @@ msgstr "Uredi stanje uporabnika"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:131
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3660,7 +3660,7 @@ msgstr "Pokaži uporabnike moderatorje"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:220
+#: widgets/dialogs/directchannelinfowidget.cpp:222
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3669,7 +3669,7 @@ msgstr "E-naslov:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:188
+#: widgets/dialogs/directchannelinfowidget.cpp:190
 #, kde-format
 msgid "Roles:"
 msgstr "Vloge:"
@@ -4252,7 +4252,7 @@ msgid "Mark email as verified"
 msgstr "Označi e-pošto kot preverjeno"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:122
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4274,7 +4274,7 @@ msgid "Password:"
 msgstr "Geslo:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:145
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
@@ -8695,55 +8695,53 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:137
+#: widgets/dialogs/directchannelinfowidget.cpp:139
 #, kde-format
 msgid "Custom Status:"
 msgstr "Stanje po meri:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:159
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Timezone:"
 msgstr "Časovni pas:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:171
 #, kde-format
 msgid "Local Time:"
 msgstr "Lokalni čas:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:198
+#: widgets/dialogs/directchannelinfowidget.cpp:200
 #, kde-format
 msgid "Created At:"
 msgstr "Ustvarjeno:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:209
 #, kde-format
 msgid "Last Login:"
 msgstr "Zadnja prijava:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:217
 #, kde-format
 msgid "Verified"
 msgstr "Preverjeno"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:217
 #, kde-format
 msgid "Not verified"
 msgstr "Nepreverjeno"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:217
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Ignore"
+#: widgets/dialogs/directchannelinfowidget.cpp:240
+#, kde-format
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/directchannelinfowidget.cpp:245
 #: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
@@ -11139,7 +11137,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiraj URL"
 
-#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:137
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11501,148 +11499,148 @@ msgctxt "@action:button"
 msgid "Mute User"
 msgstr "Utišaj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:90
+#: widgets/room/usersinroommenu.cpp:89
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Ali želite prezreti tega uporabnika?"
 
-#: widgets/room/usersinroommenu.cpp:91
+#: widgets/room/usersinroommenu.cpp:90
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Prezri uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:92
+#: widgets/room/usersinroommenu.cpp:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Prezri uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:104
+#: widgets/room/usersinroommenu.cpp:103
 #, kde-format
 msgid "Do you want to remove this user from Channel?"
 msgstr "Ali želite odstraniti tega uporabnika iz kanala?"
 
-#: widgets/room/usersinroommenu.cpp:105
+#: widgets/room/usersinroommenu.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid "Remove User"
 msgstr "Odstrani uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:106
+#: widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Odstrani uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:129
+#: widgets/room/usersinroommenu.cpp:123
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Začni pogovor"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Odstrani kot lastnika"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Dodaj kot lastnika"
 
-#: widgets/room/usersinroommenu.cpp:159
+#: widgets/room/usersinroommenu.cpp:153
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Odstrani kot vodjo"
 
-#: widgets/room/usersinroommenu.cpp:159
+#: widgets/room/usersinroommenu.cpp:153
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Dodaj kot vodjo"
 
-#: widgets/room/usersinroommenu.cpp:171
+#: widgets/room/usersinroommenu.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Odstrani kot moderatorja"
 
-#: widgets/room/usersinroommenu.cpp:171
+#: widgets/room/usersinroommenu.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Dodaj kot moderatorja"
 
-#: widgets/room/usersinroommenu.cpp:182
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Odstrani iz sobe"
 
-#: widgets/room/usersinroommenu.cpp:193
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Odblokiraj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:193
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Blokiraj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:192
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Prenehaj prezreti"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:192
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Prezri"
 
-#: widgets/room/usersinroommenu.cpp:204
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Odutišaj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:204
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Odutišaj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:212
+#: widgets/room/usersinroommenu.cpp:206
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "Poročaj uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:218
+#: widgets/room/usersinroommenu.cpp:212
 #, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Prepovej uporabnika iz sobe"
 
-#: widgets/room/usersinroommenu.cpp:230
+#: widgets/room/usersinroommenu.cpp:236
 #, kde-format
 msgid "Do you want to ban this user?"
 msgstr "Ali želite prepovedati tega uporabnika?"
 
-#: widgets/room/usersinroommenu.cpp:231
+#: widgets/room/usersinroommenu.cpp:237
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Prepovej uporabnika"
 
-#: widgets/room/usersinroommenu.cpp:232
+#: widgets/room/usersinroommenu.cpp:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Ban User"

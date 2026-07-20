@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-19 00:44+0000\n"
+"POT-Creation-Date: 2026-07-20 00:43+0000\n"
 "PO-Revision-Date: 2026-07-14 15:39+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3119,7 +3119,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:115
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3263,7 +3263,7 @@ msgstr "Modifica stato utente"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:131
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3646,7 +3646,7 @@ msgstr "Mostra utenti moderati"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:220
+#: widgets/dialogs/directchannelinfowidget.cpp:222
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3655,7 +3655,7 @@ msgstr "Posta elettronica:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:188
+#: widgets/dialogs/directchannelinfowidget.cpp:190
 #, kde-format
 msgid "Roles:"
 msgstr "Ruoli:"
@@ -4234,7 +4234,7 @@ msgid "Mark email as verified"
 msgstr "Contrassegna il messaggio di posta come verificato"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:122
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4256,7 +4256,7 @@ msgid "Password:"
 msgstr "Password:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:145
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Bio:"
 msgstr "Biografia:"
@@ -8707,47 +8707,47 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informazioni utente"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:137
+#: widgets/dialogs/directchannelinfowidget.cpp:139
 #, kde-format
 msgid "Custom Status:"
 msgstr "Stato personalizzato:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:159
+#: widgets/dialogs/directchannelinfowidget.cpp:161
 #, kde-format
 msgid "Timezone:"
 msgstr "Fuso orario:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:171
 #, kde-format
 msgid "Local Time:"
 msgstr "Ora locale:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:198
+#: widgets/dialogs/directchannelinfowidget.cpp:200
 #, kde-format
 msgid "Created At:"
 msgstr "Creato il:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:209
 #, kde-format
 msgid "Last Login:"
 msgstr "Ultimo accesso:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:217
 #, kde-format
 msgid "Verified"
 msgstr "Verificato"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:217
 #, kde-format
 msgid "Not verified"
 msgstr "Non verificato"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:217
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:235
+#: widgets/dialogs/directchannelinfowidget.cpp:240
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Ignore"
@@ -8755,7 +8755,7 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/directchannelinfowidget.cpp:245
 #: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
@@ -11146,7 +11146,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copia URL"
 
-#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:137
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11506,148 +11506,148 @@ msgctxt "@action:button"
 msgid "Mute User"
 msgstr "Silenzia utente"
 
-#: widgets/room/usersinroommenu.cpp:90
+#: widgets/room/usersinroommenu.cpp:89
 #, kde-format
 msgid "Do you want to ignore this user?"
 msgstr "Vuoi ignorare questo utente?"
 
-#: widgets/room/usersinroommenu.cpp:91
+#: widgets/room/usersinroommenu.cpp:90
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
 msgstr "Ignora utente"
 
-#: widgets/room/usersinroommenu.cpp:92
+#: widgets/room/usersinroommenu.cpp:91
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
 msgstr "Ignora utente"
 
-#: widgets/room/usersinroommenu.cpp:104
+#: widgets/room/usersinroommenu.cpp:103
 #, kde-format
 msgid "Do you want to remove this user from Channel?"
 msgstr "Vuoi rimuovere questo utente dal canale?"
 
-#: widgets/room/usersinroommenu.cpp:105
+#: widgets/room/usersinroommenu.cpp:104
 #, kde-format
 msgctxt "@title"
 msgid "Remove User"
 msgstr "Rimuovi utente"
 
-#: widgets/room/usersinroommenu.cpp:106
+#: widgets/room/usersinroommenu.cpp:105
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Rimuovi utente"
 
-#: widgets/room/usersinroommenu.cpp:129
+#: widgets/room/usersinroommenu.cpp:123
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Inizia conversazione"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Rimuovi da proprietario"
 
-#: widgets/room/usersinroommenu.cpp:146
+#: widgets/room/usersinroommenu.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Aggiungi come proprietario"
 
-#: widgets/room/usersinroommenu.cpp:159
+#: widgets/room/usersinroommenu.cpp:153
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Rimuovi da leader"
 
-#: widgets/room/usersinroommenu.cpp:159
+#: widgets/room/usersinroommenu.cpp:153
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Aggiungi come leader"
 
-#: widgets/room/usersinroommenu.cpp:171
+#: widgets/room/usersinroommenu.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Rimuovi da moderatore"
 
-#: widgets/room/usersinroommenu.cpp:171
+#: widgets/room/usersinroommenu.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Aggiungi come moderatore"
 
-#: widgets/room/usersinroommenu.cpp:182
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Rimuovi dalla stanza"
 
-#: widgets/room/usersinroommenu.cpp:193
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Sblocca utente"
 
-#: widgets/room/usersinroommenu.cpp:193
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Blocca utente"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:192
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Non ignorare"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:192
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: widgets/room/usersinroommenu.cpp:204
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Riabilita utente"
 
-#: widgets/room/usersinroommenu.cpp:204
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Silenzia utente"
 
-#: widgets/room/usersinroommenu.cpp:212
+#: widgets/room/usersinroommenu.cpp:206
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "Segnala utente"
 
-#: widgets/room/usersinroommenu.cpp:218
+#: widgets/room/usersinroommenu.cpp:212
 #, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Bandisci utente dalla stanza"
 
-#: widgets/room/usersinroommenu.cpp:230
+#: widgets/room/usersinroommenu.cpp:236
 #, kde-format
 msgid "Do you want to ban this user?"
 msgstr "Vuoi bandire questo utente?"
 
-#: widgets/room/usersinroommenu.cpp:231
+#: widgets/room/usersinroommenu.cpp:237
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Bandisci utente"
 
-#: widgets/room/usersinroommenu.cpp:232
+#: widgets/room/usersinroommenu.cpp:238
 #, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
