@@ -245,6 +245,7 @@ DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account,
     connect(reportButton, &QPushButton::clicked, this, &DirectChannelActionWidget::reportUser);
 
     mToolButton->setObjectName(u"mToolButton"_s);
+    mToolButton->setIcon(QIcon::fromTheme(u"preferences-other"_s));
     mToolButton->setPopupMode(QToolButton::InstantPopup);
     actionLayout->addWidget(mToolButton);
 }
