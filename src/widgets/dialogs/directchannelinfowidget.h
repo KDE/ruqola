@@ -16,6 +16,7 @@ class QFormLayout;
 class RocketChatAccount;
 class ResizablePixmapLabel;
 class QToolButton;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelActionWidget : public QWidget
 {
     Q_OBJECT
@@ -23,7 +24,7 @@ public:
     explicit DirectChannelActionWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelActionWidget() override;
     void setUser(const User &user);
-
+    void setRoom(Room *room);
 Q_SIGNALS:
     void ignoreUser();
     void reportUser();
@@ -31,6 +32,7 @@ Q_SIGNALS:
 private:
     QToolButton *const mToolButton;
     RocketChatAccount *const mRocketChatAccount;
+    Room *mRoom = nullptr;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
@@ -43,6 +45,7 @@ public:
     void setUserName(const QString &userName);
 
     void setRoles(const QList<RoleInfo> &newRoles);
+    void setRoom(Room *room);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotIgnoreUser();

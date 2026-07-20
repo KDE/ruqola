@@ -1182,6 +1182,7 @@ void MessageListView::slotShowUserInfo(const QString &userName)
     DirectChannelInfoDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setUserName(userName);
     dlg.setRoles(mCurrentRocketChatAccount->roleInfo());
+    dlg.setRoom(mRoom);
     dlg.exec();
 }
 

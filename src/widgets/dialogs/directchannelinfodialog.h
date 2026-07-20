@@ -13,6 +13,7 @@ class DirectChannelInfoWidget;
 class User;
 class RocketChatAccount;
 class RoleInfo;
+class Room;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
 {
     Q_OBJECT
@@ -21,6 +22,7 @@ public:
     ~DirectChannelInfoDialog() override;
     void setUserName(const QString &userName);
     void setRoles(const QList<RoleInfo> &newRoles);
+    void setRoom(Room *room);
 
 private:
     DirectChannelInfoWidget *const mDirectChannelInfoWidget;

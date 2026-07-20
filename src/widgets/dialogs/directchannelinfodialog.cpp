@@ -7,6 +7,7 @@
 #include "directchannelinfodialog.h"
 
 #include "directchannelinfowidget.h"
+#include "room.h"
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
@@ -40,6 +41,11 @@ void DirectChannelInfoDialog::setUserName(const QString &userName)
 void DirectChannelInfoDialog::setRoles(const QList<RoleInfo> &newRoles)
 {
     mDirectChannelInfoWidget->setRoles(newRoles);
+}
+
+void DirectChannelInfoDialog::setRoom(Room *room)
+{
+    mDirectChannelInfoWidget->setRoom(room);
 }
 
 #include "moc_directchannelinfodialog.cpp"

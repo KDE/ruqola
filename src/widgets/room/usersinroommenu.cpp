@@ -253,6 +253,7 @@ void UsersInRoomMenu::slotUserInfo()
     DirectChannelInfoDialog dlg(mRocketChatAccount, mParentWidget);
     dlg.setUserName(mUserName);
     dlg.setRoles(mRocketChatAccount->roleInfo());
+    dlg.setRoom(mRoom);
     dlg.exec();
 }
 
