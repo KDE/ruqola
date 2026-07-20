@@ -109,7 +109,7 @@ void UsersInRoomMenu::slotRemoveFromRoom()
     mRocketChatAccount->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
 }
 
-QMenu *UsersInRoomMenu::createMenu()
+QMenu *UsersInRoomMenu::createMenu() const
 {
     const bool canManageUsersInRoom = mRoom->canChangeRoles();
     const bool isAdministrator = mRocketChatAccount->ownUser().isAdministrator();

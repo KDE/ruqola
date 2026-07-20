@@ -25,7 +25,7 @@ public:
     void setUserId(const QByteArray &userId);
     void setParentWidget(QWidget *parentWidget);
 
-    [[nodiscard]] QMenu *createMenu();
+    [[nodiscard]] QMenu *createMenu() const;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenConversation();
