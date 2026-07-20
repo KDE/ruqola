@@ -16,6 +16,7 @@
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
+#include <QMenu>
 #include <QPushButton>
 #include <QToolButton>
 
@@ -269,6 +270,9 @@ void DirectChannelActionWidget::generateRoomMenu(const User &user)
     menu->setUserName(user.userName());
     menu->setRoom(mRoom);
     mToolButton->setMenu(menu->createMenu());
+    connect(mToolButton->menu(), &QMenu::aboutToShow, this, [menu]() {
+        // TODO
+    });
 }
 
 #include "moc_directchannelinfowidget.cpp"
