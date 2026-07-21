@@ -11,6 +11,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class Room;
+class QMenu;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomMenu : public QObject
 {
