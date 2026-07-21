@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-20 00:43+0000\n"
+"POT-Creation-Date: 2026-07-21 00:43+0000\n"
 "PO-Revision-Date: 2026-07-17 15:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3146,7 +3146,7 @@ msgstr "يجب أن يكون اسم الرموز التعبيرية المخصص
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:115
+#: widgets/dialogs/directchannelinfowidget.cpp:113
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3298,7 +3298,7 @@ msgstr "حرر حالة المستخدم"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:131
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3483,7 +3483,7 @@ msgstr "أظهر رسائل الإشراف"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:161
-#: widgets/room/usersinroomwidget.cpp:156
+#: widgets/room/usersinroomwidget.cpp:161
 #, kde-format
 msgid "Loading…"
 msgstr "يحمل…"
@@ -3491,7 +3491,7 @@ msgstr "يحمل…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/room/usersinroomwidget.cpp:158
+#: widgets/room/usersinroomwidget.cpp:163
 #, kde-format
 msgid "No Message found"
 msgstr "لم يُعثر على رسالة"
@@ -3685,7 +3685,7 @@ msgstr "أظهر مستخدمي الإشراف"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:222
+#: widgets/dialogs/directchannelinfowidget.cpp:220
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3694,7 +3694,7 @@ msgstr "البريد الإلكترونيّ:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:190
+#: widgets/dialogs/directchannelinfowidget.cpp:188
 #, kde-format
 msgid "Roles:"
 msgstr "الأدوار:"
@@ -4281,7 +4281,7 @@ msgid "Mark email as verified"
 msgstr "علّم البريد الإلكتروني أنه مُتحقق منه"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:124
+#: widgets/dialogs/directchannelinfowidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4303,7 +4303,7 @@ msgid "Password:"
 msgstr "كلمة السر:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:147
+#: widgets/dialogs/directchannelinfowidget.cpp:145
 #, kde-format
 msgid "Bio:"
 msgstr "السيرة الذاتية:"
@@ -8703,53 +8703,53 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "أنشئ رسالة فيديو"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:20
+#: widgets/dialogs/directchannelinfodialog.cpp:21
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:139
+#: widgets/dialogs/directchannelinfowidget.cpp:137
 #, kde-format
 msgid "Custom Status:"
 msgstr "الحالة المخصصة:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:161
+#: widgets/dialogs/directchannelinfowidget.cpp:159
 #, kde-format
 msgid "Timezone:"
 msgstr "المنطقة الزمنية:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Local Time:"
 msgstr "التوقيت المحلي:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:200
+#: widgets/dialogs/directchannelinfowidget.cpp:198
 #, kde-format
 msgid "Created At:"
 msgstr "أُنشئ في:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:209
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #, kde-format
 msgid "Last Login:"
 msgstr "آخر ولوج:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Verified"
 msgstr "متحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Not verified"
 msgstr "لم يُتحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/directchannelinfowidget.cpp:241
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Ignore"
@@ -8757,7 +8757,7 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:245
+#: widgets/dialogs/directchannelinfowidget.cpp:246
 #: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
@@ -9176,7 +9176,7 @@ msgstr[5] "%1 مرفق في الغرفة (الإجمالي: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:136
-#: widgets/room/usersinroomwidget.cpp:167
+#: widgets/room/usersinroomwidget.cpp:172
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(انقر هنا لتحميل المزيد…)"
@@ -11209,7 +11209,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "احذف الرّسالة"
 
-#: widgets/room/messagelistview.cpp:1213
+#: widgets/room/messagelistview.cpp:1217
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11402,45 +11402,45 @@ msgstr "الرد في سلسلة"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "رد في سلسلة المحادثات للرسالة: '%1'"
 
-#: widgets/room/roomwidget.cpp:387
+#: widgets/room/roomwidget.cpp:392
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "هل تريد إزالة التاريخ حقًا؟"
 
-#: widgets/room/roomwidget.cpp:388
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "أزل التّاريخ"
 
-#: widgets/room/roomwidget.cpp:432
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Export Messages"
 msgstr "صدّر الرسائل"
 
-#: widgets/room/roomwidget.cpp:433
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "بريدُك الإلكتروني مدرج في قائمة الانتظار للإرسال."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "لا يمكن البحث في المحتوى المعمّى."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "ابحث في الرسائل"
 
-#: widgets/room/roomwidget.cpp:614
+#: widgets/room/roomwidget.cpp:619
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "يحتاج مسؤول مساحة العمل إلى تثبيت وضبط تطبيقات مكالمات جماعية."
 
-#: widgets/room/roomwidget.cpp:615
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11671,7 +11671,7 @@ msgctxt "@action:button"
 msgid "Ban User"
 msgstr "احظر المستخدم"
 
-#: widgets/room/usersinroomwidget.cpp:165
+#: widgets/room/usersinroomwidget.cpp:170
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"

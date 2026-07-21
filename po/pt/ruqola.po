@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-20 00:43+0000\n"
+"POT-Creation-Date: 2026-07-21 00:43+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3247,7 +3247,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:115
+#: widgets/dialogs/directchannelinfowidget.cpp:113
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3395,7 +3395,7 @@ msgstr "Editar o Estado do Utilizador"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:131
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3601,7 +3601,7 @@ msgstr "Mostrar as Mensagens de Menção - %1"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:161
-#: widgets/room/usersinroomwidget.cpp:156
+#: widgets/room/usersinroomwidget.cpp:161
 #, fuzzy, kde-format
 #| msgid "Loading..."
 msgid "Loading…"
@@ -3610,7 +3610,7 @@ msgstr "A carregar..."
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/room/usersinroomwidget.cpp:158
+#: widgets/room/usersinroomwidget.cpp:163
 #, kde-format
 msgid "No Message found"
 msgstr "Não foi encontrada nenhuma mensagem"
@@ -3808,7 +3808,7 @@ msgstr "Mostrar as Mensagens de Menção - %1"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:222
+#: widgets/dialogs/directchannelinfowidget.cpp:220
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3817,7 +3817,7 @@ msgstr "E-mail:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:190
+#: widgets/dialogs/directchannelinfowidget.cpp:188
 #, kde-format
 msgid "Roles:"
 msgstr "Papéis:"
@@ -4434,7 +4434,7 @@ msgid "Mark email as verified"
 msgstr "Marcar como Verificado o E-Mail das Contas Externas"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:124
+#: widgets/dialogs/directchannelinfowidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4456,7 +4456,7 @@ msgid "Password:"
 msgstr "Senha:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:147
+#: widgets/dialogs/directchannelinfowidget.cpp:145
 #, kde-format
 msgid "Bio:"
 msgstr "Biografia:"
@@ -9322,60 +9322,60 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Criar uma Mensagem de Vídeo"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:20
+#: widgets/dialogs/directchannelinfodialog.cpp:21
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informação do Utilizador"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:139
+#: widgets/dialogs/directchannelinfowidget.cpp:137
 #, kde-format
 msgid "Custom Status:"
 msgstr "Estado Personalizado:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:161
+#: widgets/dialogs/directchannelinfowidget.cpp:159
 #, kde-format
 msgid "Timezone:"
 msgstr "Fuso-horário:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:200
+#: widgets/dialogs/directchannelinfowidget.cpp:198
 #, kde-format
 msgid "Created At:"
 msgstr "Criado em:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:209
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #, kde-format
 msgid "Last Login:"
 msgstr "Última Autenticação:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Verified"
 msgstr "Verificado"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Not verified"
 msgstr "Não verificado"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/directchannelinfowidget.cpp:241
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:245
+#: widgets/dialogs/directchannelinfowidget.cpp:246
 #: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, fuzzy, kde-format
@@ -9815,7 +9815,7 @@ msgstr[1] "%1 Anexos na Sala (Total: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:136
-#: widgets/room/usersinroomwidget.cpp:167
+#: widgets/room/usersinroomwidget.cpp:172
 #, fuzzy, kde-format
 #| msgid "(Click here for Loading more...)"
 msgid "(Click here for Loading more…)"
@@ -12047,7 +12047,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Remover a Mensagem"
 
-#: widgets/room/messagelistview.cpp:1213
+#: widgets/room/messagelistview.cpp:1217
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"
@@ -12256,35 +12256,35 @@ msgstr "A responder num tópico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta no Tópico à Mensagem: '%1'"
 
-#: widgets/room/roomwidget.cpp:387
+#: widgets/room/roomwidget.cpp:392
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Deseja realmente remover o histórico?"
 
-#: widgets/room/roomwidget.cpp:388
+#: widgets/room/roomwidget.cpp:393
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remover o Histórico"
 
-#: widgets/room/roomwidget.cpp:432
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: widgets/room/roomwidget.cpp:433
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "As Mensagens Directas não podem ser arquivadas"
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -12292,7 +12292,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Procurar por Mensagens"
 
-#: widgets/room/roomwidget.cpp:614
+#: widgets/room/roomwidget.cpp:619
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -12300,7 +12300,7 @@ msgstr ""
 "É preciso um administrador da área de trabalho para instalar e configurar "
 "uma aplicação de chamadas em conferência."
 
-#: widgets/room/roomwidget.cpp:615
+#: widgets/room/roomwidget.cpp:620
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"
@@ -12562,7 +12562,7 @@ msgctxt "@action:button"
 msgid "Ban User"
 msgstr "Desbloquear Utilizador"
 
-#: widgets/room/usersinroomwidget.cpp:165
+#: widgets/room/usersinroomwidget.cpp:170
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"

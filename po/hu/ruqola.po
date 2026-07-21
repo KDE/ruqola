@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-20 00:43+0000\n"
+"POT-Creation-Date: 2026-07-21 00:43+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3153,7 +3153,7 @@ msgstr "Az egyéni emodzsi nevének és álneveinek különbözőnek kell lenni�
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:115
+#: widgets/dialogs/directchannelinfowidget.cpp:113
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3297,7 +3297,7 @@ msgstr "Felhasználói állapot szerkesztése"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:131
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3489,7 +3489,7 @@ msgstr "Moderációs üzenetek megjelenítése"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:161
-#: widgets/room/usersinroomwidget.cpp:156
+#: widgets/room/usersinroomwidget.cpp:161
 #, kde-format
 msgid "Loading…"
 msgstr "Betöltés…"
@@ -3497,7 +3497,7 @@ msgstr "Betöltés…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/room/usersinroomwidget.cpp:158
+#: widgets/room/usersinroomwidget.cpp:163
 #, kde-format
 msgid "No Message found"
 msgstr "Nem található üzenet"
@@ -3684,7 +3684,7 @@ msgstr "Moderációs üzenetek megjelenítése"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:222
+#: widgets/dialogs/directchannelinfowidget.cpp:220
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3693,7 +3693,7 @@ msgstr "E-mail:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:190
+#: widgets/dialogs/directchannelinfowidget.cpp:188
 #, kde-format
 msgid "Roles:"
 msgstr "Szerepek:"
@@ -4273,7 +4273,7 @@ msgid "Mark email as verified"
 msgstr "E-mail-cím megjelölése ellenőrzöttként"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:124
+#: widgets/dialogs/directchannelinfowidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4295,7 +4295,7 @@ msgid "Password:"
 msgstr "Jelszó:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:147
+#: widgets/dialogs/directchannelinfowidget.cpp:145
 #, kde-format
 msgid "Bio:"
 msgstr "Életrajz:"
@@ -8805,53 +8805,53 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Videoüzenet létrehozása"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:20
+#: widgets/dialogs/directchannelinfodialog.cpp:21
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "Felhasználó-információk"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:139
+#: widgets/dialogs/directchannelinfowidget.cpp:137
 #, kde-format
 msgid "Custom Status:"
 msgstr "Egyéni állapot:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:161
+#: widgets/dialogs/directchannelinfowidget.cpp:159
 #, kde-format
 msgid "Timezone:"
 msgstr "Időzóna:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:200
+#: widgets/dialogs/directchannelinfowidget.cpp:198
 #, kde-format
 msgid "Created At:"
 msgstr "Létrehozva:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:209
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #, kde-format
 msgid "Last Login:"
 msgstr "Utolsó bejelentkezés:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Verified"
 msgstr "Ellenőrizve"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Not verified"
 msgstr "Nem ellenőrzött"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/directchannelinfowidget.cpp:241
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Ignore"
@@ -8859,7 +8859,7 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:245
+#: widgets/dialogs/directchannelinfowidget.cpp:246
 #: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
@@ -9285,7 +9285,7 @@ msgstr[1] "%1 melléklet a szobában (Összesen: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:136
-#: widgets/room/usersinroomwidget.cpp:167
+#: widgets/room/usersinroomwidget.cpp:172
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(Kattintson ide továbbiak betöltéséhez…)"
@@ -11377,7 +11377,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Üzenet törlése"
 
-#: widgets/room/messagelistview.cpp:1213
+#: widgets/room/messagelistview.cpp:1217
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11574,40 +11574,40 @@ msgstr "Válasz egy szálban"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Válasz szálban az üzenetre: „%1”"
 
-#: widgets/room/roomwidget.cpp:387
+#: widgets/room/roomwidget.cpp:392
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Biztosan el szeretné távolítani az előzményeket?"
 
-#: widgets/room/roomwidget.cpp:388
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Előzmények eltávolítása"
 
-#: widgets/room/roomwidget.cpp:432
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Export Messages"
 msgstr "Üzenetek exportálása"
 
-#: widgets/room/roomwidget.cpp:433
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Az e-maile sorba lett állítva a küldéshez."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "Közvetlen üzenetek nem archiválhatók"
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Üzenet keresése"
 
-#: widgets/room/roomwidget.cpp:614
+#: widgets/room/roomwidget.cpp:619
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11615,7 +11615,7 @@ msgstr ""
 "A munkaterület adminisztrátorának telepítenie kell és be kell állítania egy "
 "konferenciahívás-alkalmazást."
 
-#: widgets/room/roomwidget.cpp:615
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11859,7 +11859,7 @@ msgctxt "@action:button"
 msgid "Ban User"
 msgstr "Felhasználó tiltásának feloldása"
 
-#: widgets/room/usersinroomwidget.cpp:165
+#: widgets/room/usersinroomwidget.cpp:170
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"

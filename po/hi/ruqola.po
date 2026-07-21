@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-20 00:43+0000\n"
+"POT-Creation-Date: 2026-07-21 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -3124,7 +3124,7 @@ msgstr "कस्टम इमोजी का नाम और उनके उ
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:115
+#: widgets/dialogs/directchannelinfowidget.cpp:113
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3268,7 +3268,7 @@ msgstr "उपयोगकर्ता स्थिति संपादित 
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:131
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3460,7 +3460,7 @@ msgstr "मॉडरेशन संदेश दिखाएं"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:161
-#: widgets/room/usersinroomwidget.cpp:156
+#: widgets/room/usersinroomwidget.cpp:161
 #, kde-format
 msgid "Loading…"
 msgstr "लोड हो रहा है…"
@@ -3468,7 +3468,7 @@ msgstr "लोड हो रहा है…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/room/usersinroomwidget.cpp:158
+#: widgets/room/usersinroomwidget.cpp:163
 #, kde-format
 msgid "No Message found"
 msgstr "कोई संदेश नहीं मिला"
@@ -3656,7 +3656,7 @@ msgstr "मॉडरेशन उपयोगकर्ता दिखाएं"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:222
+#: widgets/dialogs/directchannelinfowidget.cpp:220
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3665,7 +3665,7 @@ msgstr "ईमेल:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:190
+#: widgets/dialogs/directchannelinfowidget.cpp:188
 #, kde-format
 msgid "Roles:"
 msgstr "भूमिकाएँ:"
@@ -4245,7 +4245,7 @@ msgid "Mark email as verified"
 msgstr "ईमेल को सत्यापित के रूप में चिह्नित करें"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:124
+#: widgets/dialogs/directchannelinfowidget.cpp:122
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4267,7 +4267,7 @@ msgid "Password:"
 msgstr "पासवर्ड:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:147
+#: widgets/dialogs/directchannelinfowidget.cpp:145
 #, kde-format
 msgid "Bio:"
 msgstr "था:"
@@ -8704,53 +8704,53 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "वीडियो संदेश बनाएं"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:20
+#: widgets/dialogs/directchannelinfodialog.cpp:21
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "उपयोगकर्ता जानकारी"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:139
+#: widgets/dialogs/directchannelinfowidget.cpp:137
 #, kde-format
 msgid "Custom Status:"
 msgstr "कस्टम स्थिति:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:161
+#: widgets/dialogs/directchannelinfowidget.cpp:159
 #, kde-format
 msgid "Timezone:"
 msgstr "समयक्षेत्र:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:169
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:200
+#: widgets/dialogs/directchannelinfowidget.cpp:198
 #, kde-format
 msgid "Created At:"
 msgstr "निर्मित स्थान:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:209
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #, kde-format
 msgid "Last Login:"
 msgstr "आखरी लॉगइन:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Verified"
 msgstr "सत्यापित"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "Not verified"
 msgstr "सत्यापित नहीं है"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:215
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:240
+#: widgets/dialogs/directchannelinfowidget.cpp:241
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Ignore"
@@ -8758,7 +8758,7 @@ msgctxt "@action:button"
 msgid "Ignore"
 msgstr "अनदेखा करना"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:245
+#: widgets/dialogs/directchannelinfowidget.cpp:246
 #: widgets/dialogs/reportmessagedialog.cpp:44
 #: widgets/dialogs/reportuserdialog.cpp:45
 #, kde-format
@@ -9185,7 +9185,7 @@ msgstr[1] "कमरे में %1 अटैचमेंट (कुल: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:136
-#: widgets/room/usersinroomwidget.cpp:167
+#: widgets/room/usersinroomwidget.cpp:172
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(अधिक जानकारी के लिए यहां क्लिक करें…)"
@@ -11242,7 +11242,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "संदेश को हटाएं"
 
-#: widgets/room/messagelistview.cpp:1213
+#: widgets/room/messagelistview.cpp:1217
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11436,34 +11436,34 @@ msgstr "किसी थ्रेड में उत्तर देना"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "संदेश के लिए थ्रेड में उत्तर दें: '%1'"
 
-#: widgets/room/roomwidget.cpp:387
+#: widgets/room/roomwidget.cpp:392
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "क्या आप सचमुच इतिहास हटाना चाहते हैं?"
 
-#: widgets/room/roomwidget.cpp:388
+#: widgets/room/roomwidget.cpp:393
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहास हटाएँ"
 
-#: widgets/room/roomwidget.cpp:432
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Export Messages"
 msgstr "संदेश निर्यात करें"
 
-#: widgets/room/roomwidget.cpp:433
+#: widgets/room/roomwidget.cpp:438
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "आपका ईमेल भेजने के लिए कतारबद्ध कर दिया गया है."
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्ष संदेश संग्रहीत नहीं किए जा सकते"
 
-#: widgets/room/roomwidget.cpp:595
+#: widgets/room/roomwidget.cpp:600
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11471,7 +11471,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "संदेश खोजें"
 
-#: widgets/room/roomwidget.cpp:614
+#: widgets/room/roomwidget.cpp:619
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11479,7 +11479,7 @@ msgstr ""
 "कार्यस्थान व्यवस्थापक को कॉन्फ़्रेंस कॉल एप्लिकेशन इंस्टॉल और कॉन्फ़िगर करने की आवश्यकता होती "
 "है।"
 
-#: widgets/room/roomwidget.cpp:615
+#: widgets/room/roomwidget.cpp:620
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11724,7 +11724,7 @@ msgctxt "@action:button"
 msgid "Ban User"
 msgstr "उपयोगकर्ता को अनब्लॉक करें"
 
-#: widgets/room/usersinroomwidget.cpp:165
+#: widgets/room/usersinroomwidget.cpp:170
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
