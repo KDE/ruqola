@@ -25,7 +25,9 @@ public:
     void setUserId(const QByteArray &userId);
     void setParentWidget(QWidget *parentWidget);
 
-    [[nodiscard]] QMenu *createMenu() const;
+    void updateUserInRoomMenu();
+
+    [[nodiscard]] QMenu *createUserInRoomMenu();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenConversation();
@@ -41,4 +43,5 @@ private:
     QPointer<Room> mRoom;
     QWidget *mParentWidget = nullptr;
     RocketChatAccount *const mRocketChatAccount;
+    QMenu *mMenu = nullptr;
 };

@@ -109,35 +109,46 @@ void UsersInRoomMenu::slotRemoveFromRoom()
     mRocketChatAccount->kickUser(mRoom->roomId(), mUserId, mRoom->channelType());
 }
 
-QMenu *UsersInRoomMenu::createMenu() const
+QMenu *UsersInRoomMenu::createUserInRoomMenu()
 {
+    mMenu = new QMenu(mParentWidget);
+    return mMenu;
+}
+
+void UsersInRoomMenu::updateUserInRoomMenu()
+{
+    if (!mMenu) {
+        mMenu = new QMenu(mParentWidget);
+    } else {
+        mMenu->clear();
+    }
+
     const bool canManageUsersInRoom = mRoom->canChangeRoles();
     const bool isAdministrator = mRocketChatAccount->ownUser().isAdministrator();
     const QByteArray ownUserId = mRocketChatAccount->userId();
     const bool isAdirectChannel = mRoom->channelType() == Room::RoomType::Direct;
     const bool isNotMe = mUserId != ownUserId;
-    QMenu *menu = new QMenu(mParentWidget);
 
     if (mRocketChatAccount->hasPermission(u"create-d"_s)) {
         if (isNotMe && !isAdirectChannel) {
-            auto conversationAction = new QAction(i18nc("@action", "Start Conversation"), menu);
+            auto conversationAction = new QAction(i18nc("@action", "Start Conversation"), mMenu);
             connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
-            menu->addAction(conversationAction);
+            mMenu->addAction(conversationAction);
         }
     }
-    if (!menu->isEmpty()) {
-        menu->addSeparator();
+    if (!mMenu->isEmpty()) {
+        mMenu->addSeparator();
     }
-    auto userInfoAction = new QAction(QIcon::fromTheme(u"documentinfo"_s), i18nc("@action", "User Info"), menu);
+    auto userInfoAction = new QAction(QIcon::fromTheme(u"documentinfo"_s), i18nc("@action", "User Info"), mMenu);
     connect(userInfoAction, &QAction::triggered, this, &UsersInRoomMenu::slotUserInfo);
-    menu->addAction(userInfoAction);
+    mMenu->addAction(userInfoAction);
     if ((isAdministrator || canManageUsersInRoom) && !isAdirectChannel) {
-        if (!menu->isEmpty()) {
-            menu->addSeparator();
+        if (!mMenu->isEmpty()) {
+            mMenu->addSeparator();
         }
         if (isAdministrator || mRoom->hasPermission(u"set-owner"_s)) {
             const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
-            auto removeAsOwner = new QAction(hasOwnerRole ? i18nc("@action", "Remove as Owner") : i18nc("@action", "Add as Owner"), menu);
+            auto removeAsOwner = new QAction(hasOwnerRole ? i18nc("@action", "Remove as Owner") : i18nc("@action", "Add as Owner"), mMenu);
             connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole]() {
                 mRocketChatAccount->changeRoles(mRoom->roomId(),
                                                 QString::fromLatin1(mUserId),
@@ -145,76 +156,75 @@ QMenu *UsersInRoomMenu::createMenu() const
                                                 hasOwnerRole ? RocketChatAccount::RoleType::RemoveOwner : RocketChatAccount::RoleType::AddOwner);
             });
 
-            menu->addAction(removeAsOwner);
+            mMenu->addAction(removeAsOwner);
         }
 
         if (isAdministrator || mRoom->hasPermission(u"set-leader"_s)) {
             const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
-            auto removeAsLeader = new QAction(hasLeaderRole ? i18nc("@action", "Remove as Leader") : i18nc("@action", "Add as Leader"), menu);
+            auto removeAsLeader = new QAction(hasLeaderRole ? i18nc("@action", "Remove as Leader") : i18nc("@action", "Add as Leader"), mMenu);
             connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole]() {
                 mRocketChatAccount->changeRoles(mRoom->roomId(),
                                                 QString::fromLatin1(mUserId),
                                                 mRoom->channelType(),
                                                 hasLeaderRole ? RocketChatAccount::RoleType::RemoveLeader : RocketChatAccount::RoleType::AddLeader);
             });
-            menu->addAction(removeAsLeader);
+            mMenu->addAction(removeAsLeader);
         }
 
         if (isAdministrator || mRoom->hasPermission(u"set-moderator"_s)) {
             const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
-            auto removeAsModerator = new QAction(hasModeratorRole ? i18nc("@action", "Remove as Moderator") : i18nc("@action", "Add as Moderator"), menu);
+            auto removeAsModerator = new QAction(hasModeratorRole ? i18nc("@action", "Remove as Moderator") : i18nc("@action", "Add as Moderator"), mMenu);
             connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole]() {
                 mRocketChatAccount->changeRoles(mRoom->roomId(),
                                                 QString::fromLatin1(mUserId),
                                                 mRoom->channelType(),
                                                 hasModeratorRole ? RocketChatAccount::RoleType::RemoveModerator : RocketChatAccount::RoleType::AddModerator);
             });
-            menu->addAction(removeAsModerator);
+            mMenu->addAction(removeAsModerator);
         }
         if (isAdministrator || mRoom->hasPermission(u"remove-user"_s)) {
-            menu->addSeparator();
-            auto removeFromRoom = new QAction(i18nc("@action", "Remove from Room"), menu);
+            mMenu->addSeparator();
+            auto removeFromRoom = new QAction(i18nc("@action", "Remove from Room"), mMenu);
             connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
-            menu->addAction(removeFromRoom);
+            mMenu->addAction(removeFromRoom);
         }
     }
     if (isNotMe) {
-        if (!menu->isEmpty()) {
-            menu->addSeparator();
+        if (!mMenu->isEmpty()) {
+            mMenu->addSeparator();
         }
         if (isAdirectChannel) {
             const bool userIsBlocked = mRoom->blocker();
-            auto blockAction = new QAction(userIsBlocked ? i18nc("@action", "Unblock User") : i18nc("@action", "Block User"), menu);
+            auto blockAction = new QAction(userIsBlocked ? i18nc("@action", "Unblock User") : i18nc("@action", "Block User"), mMenu);
             connect(blockAction, &QAction::triggered, this, &UsersInRoomMenu::slotBlockUser);
-            menu->addAction(blockAction);
+            mMenu->addAction(blockAction);
         } else {
             const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
-            auto ignoreAction = new QAction(userIsIgnored ? i18nc("@action", "Unignore") : i18nc("@action", "Ignore"), menu);
+            auto ignoreAction = new QAction(userIsIgnored ? i18nc("@action", "Unignore") : i18nc("@action", "Ignore"), mMenu);
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
-            menu->addAction(ignoreAction);
-            menu->addSeparator();
+            mMenu->addAction(ignoreAction);
+            mMenu->addSeparator();
             if (mRoom->hasPermission(u"mute-user"_s)) {
                 const bool userIsMuted = mRoom->userIsMuted(mUserName);
-                auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), menu);
+                auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), mMenu);
                 muteAction->setIcon(userIsMuted ? QIcon::fromTheme("mic-on"_L1) : QIcon::fromTheme("mic-off"_L1));
                 connect(muteAction, &QAction::triggered, this, &UsersInRoomMenu::slotMuteUser);
-                menu->addAction(muteAction);
+                mMenu->addAction(muteAction);
             }
         }
 
-        menu->addSeparator();
-        auto reportUserAction = new QAction(QIcon::fromTheme("emblem-warning"_L1), i18nc("@action", "Report User"), menu);
+        mMenu->addSeparator();
+        auto reportUserAction = new QAction(QIcon::fromTheme("emblem-warning"_L1), i18nc("@action", "Report User"), mMenu);
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
-        menu->addAction(reportUserAction);
+        mMenu->addAction(reportUserAction);
 
         if (mRoom->hasPermission(u"ban-user"_s)) {
-            menu->addSeparator();
-            auto banUserFromRoomAction = new QAction(QIcon::fromTheme("im-ban-user"_L1), i18nc("@action", "Ban User From Room"), menu);
+            mMenu->addSeparator();
+            auto banUserFromRoomAction = new QAction(QIcon::fromTheme("im-ban-user"_L1), i18nc("@action", "Ban User From Room"), mMenu);
             connect(banUserFromRoomAction, &QAction::triggered, this, &UsersInRoomMenu::slotBanUserFromRoomAction);
-            menu->addAction(banUserFromRoomAction);
+            mMenu->addAction(banUserFromRoomAction);
         }
     }
-    return menu;
 }
 
 void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
@@ -223,10 +233,9 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
     if (offline) {
         return;
     }
-    auto menu = createMenu();
+    updateUserInRoomMenu();
 
-    menu->exec(mParentWidget->mapToGlobal(pos));
-    delete menu;
+    mMenu->exec(mParentWidget->mapToGlobal(pos));
 }
 
 void UsersInRoomMenu::slotBanUserFromRoomAction()

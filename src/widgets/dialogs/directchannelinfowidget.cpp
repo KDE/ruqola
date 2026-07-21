@@ -269,9 +269,9 @@ void DirectChannelActionWidget::generateRoomMenu(const User &user)
     menu->setUserId(user.userId());
     menu->setUserName(user.userName());
     menu->setRoom(mRoom);
-    mToolButton->setMenu(menu->createMenu());
+    mToolButton->setMenu(menu->createUserInRoomMenu());
     connect(mToolButton->menu(), &QMenu::aboutToShow, this, [menu]() {
-        // TODO
+        menu->updateUserInRoomMenu();
     });
 }
 
