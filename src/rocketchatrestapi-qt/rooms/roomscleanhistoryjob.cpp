@@ -79,22 +79,11 @@ QJsonDocument RoomsCleanHistoryJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj["roomId"_L1] = QLatin1StringView(mCleanHistoryInfo.roomId);
-    if (mCleanHistoryInfo.inclusive) {
-        jsonObj["inclusive"_L1] = true;
-    }
-    if (mCleanHistoryInfo.ignoreThreads) {
-        jsonObj["ignoreThreads"_L1] = true;
-    }
-    if (mCleanHistoryInfo.filesOnly) {
-        jsonObj["filesOnly"_L1] = true;
-    }
-    if (mCleanHistoryInfo.excludePinned) {
-        jsonObj["excludePinned"_L1] = true;
-    }
-    if (mCleanHistoryInfo.ignoreDiscussion) {
-        jsonObj["ignoreDiscussion"_L1] = true;
-    }
-
+    jsonObj["inclusive"_L1] = mCleanHistoryInfo.inclusive;
+    jsonObj["ignoreThreads"_L1] = mCleanHistoryInfo.ignoreThreads;
+    jsonObj["filesOnly"_L1] = mCleanHistoryInfo.filesOnly;
+    jsonObj["excludePinned"_L1] = mCleanHistoryInfo.excludePinned;
+    jsonObj["ignoreDiscussion"_L1] = mCleanHistoryInfo.ignoreDiscussion;
     jsonObj["latest"_L1] = mCleanHistoryInfo.latest.toString(Qt::ISODateWithMs);
     jsonObj["oldest"_L1] = mCleanHistoryInfo.oldest.toString(Qt::ISODateWithMs);
     if (!mCleanHistoryInfo.users.isEmpty()) {
