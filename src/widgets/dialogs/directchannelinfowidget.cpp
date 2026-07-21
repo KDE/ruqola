@@ -41,8 +41,6 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
 
     mDirectChannelActionWidget->setObjectName(u"mDirectChannelActionWidget"_s);
     mainLayout->addWidget(mDirectChannelActionWidget);
-    connect(mDirectChannelActionWidget, &DirectChannelActionWidget::ignoreUser, this, &DirectChannelInfoWidget::slotIgnoreUser);
-    connect(mDirectChannelActionWidget, &DirectChannelActionWidget::reportUser, this, &DirectChannelInfoWidget::slotReportUser);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget() = default;
@@ -238,20 +236,11 @@ DirectChannelActionWidget::DirectChannelActionWidget(RocketChatAccount *account,
     actionLayout->setContentsMargins({});
     actionLayout->setSpacing(0);
 
-    auto ignoreButton = new QPushButton(i18nc("@action:button", "Ignore"), this);
-    ignoreButton->setObjectName(u"ignoreButton"_s);
-    actionLayout->addWidget(ignoreButton);
-    connect(ignoreButton, &QPushButton::clicked, this, &DirectChannelActionWidget::ignoreUser);
-
-    auto reportButton = new QPushButton(i18nc("@action:button", "Report"), this);
-    reportButton->setObjectName(u"reportButton"_s);
-    actionLayout->addWidget(reportButton);
-    connect(reportButton, &QPushButton::clicked, this, &DirectChannelActionWidget::reportUser);
-
     mToolButton->setObjectName(u"mToolButton"_s);
     mToolButton->setIcon(QIcon::fromTheme(u"preferences-other"_s));
     mToolButton->setPopupMode(QToolButton::InstantPopup);
     actionLayout->addWidget(mToolButton);
+    actionLayout->addStretch(1);
 }
 
 DirectChannelActionWidget::~DirectChannelActionWidget() = default;

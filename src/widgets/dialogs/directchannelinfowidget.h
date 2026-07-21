@@ -24,9 +24,6 @@ public:
     ~DirectChannelActionWidget() override;
     void generateRoomMenu(const User &user);
     void setRoom(Room *room);
-Q_SIGNALS:
-    void ignoreUser();
-    void reportUser();
 
 private:
     QToolButton *const mToolButton;
