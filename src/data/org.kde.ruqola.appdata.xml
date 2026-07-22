@@ -1392,6 +1392,15 @@
       <description>
         <ul>
           <li>Improve user info</li>
+          <li xml:lang="ca">Millora la informació d'usuaris</li>
+          <li xml:lang="ca-valencia">Millora la informació d'usuaris</li>
+          <li xml:lang="ka">გაუმჯობესდა მომხმარებლის ინფორმაცია</li>
+          <li xml:lang="nl">Gebruikersinformatie verbeteren</li>
+          <li xml:lang="pt-BR">Melhoria das informações de usuários</li>
+          <li xml:lang="sl">Izboljša informacije o uporabniku</li>
+          <li xml:lang="sv">Förbättra användarinformation</li>
+          <li xml:lang="tr">Kullanıcı bilgisini iyileştir</li>
+          <li xml:lang="uk">Удосконалено відомості щодо користувача</li>
           <li>Add notify info when adding a new room</li>
           <li xml:lang="ar">إضافة إشعار عند إضافة غرفة جديدة</li>
           <li xml:lang="ca">Afegeix informació de notificacions en afegir una sala nova</li>
@@ -1500,7 +1509,7 @@
           <li xml:lang="it">Migliora la modalità non in linea</li>
           <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
           <li xml:lang="nl">Offline-modus verbeteren</li>
-          <li xml:lang="pt-BR">Melhorar modo desconectado</li>
+          <li xml:lang="pt-BR">Melhoria do modo desconectado</li>
           <li xml:lang="ru">Улучшение автономного режима</li>
           <li xml:lang="sk">Vylepšenie režimu offline</li>
           <li xml:lang="sl">Izboljša način brez povezave</li>
@@ -1650,7 +1659,7 @@
           <li xml:lang="it">Migliorare l'interfaccia utente della sintesi vocale</li>
           <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
           <li xml:lang="nl">Verbeter gebruikersinterface van tekst-naar-spraak</li>
-          <li xml:lang="pt-BR">Melhora a interface de usuário de texto para fala</li>
+          <li xml:lang="pt-BR">Melhoria da interface de usuário de texto para fala</li>
           <li xml:lang="ru">Улучшение интерфейса функции зачитывания текста</li>
           <li xml:lang="sk">Vylepšenie používateľského rozhrania prevodu textu na reč</li>
           <li xml:lang="sl">Izboljša uporabniški vmesnik za pretvorbo besedila v govor</li>
@@ -2412,7 +2421,7 @@
           <li xml:lang="it">Migliora l'elenco degli utenti nella stanza</li>
           <li xml:lang="ka">გაუმჯობესდა ოთახში მომხმარებლების სია</li>
           <li xml:lang="nl">Lijst van gebruikers in room</li>
-          <li xml:lang="pt-BR">Melhora a lista de usuários na sala</li>
+          <li xml:lang="pt-BR">Melhoria da lista de usuários na sala</li>
           <li xml:lang="ru">Улучшение списка пользователей в комнате</li>
           <li xml:lang="sk">Vylepšenie zoznamu používateľov v miestnosti</li>
           <li xml:lang="sl">Izboljša seznam uporabnika v sobi</li>
@@ -2526,7 +2535,7 @@
           <li xml:lang="it">Migliora la modifica della password (mostra le informazioni di convalida)</li>
           <li xml:lang="ka">პაროლის შეცვლის გაუმჯობესება (გადამოწმების ინფორმაციის ჩვენება)</li>
           <li xml:lang="nl">Wijzigen van wachtwoord verbeteren (informatie over validatie tonen)</li>
-          <li xml:lang="pt-BR">Melhora a alteração de senha (mostra informações de validação)</li>
+          <li xml:lang="pt-BR">Melhoria da alteração de senha (mostra informações de validação)</li>
           <li xml:lang="ru">Улучшение изменения пароля (показ сведений о корректности)</li>
           <li xml:lang="sk">Vylepšenie zmeny hesla (zobrazenie informácií o overení)</li>
           <li xml:lang="sl">Izboljšano spreminjanje gesla (prikazuje podatke za preverjanje)</li>
@@ -2541,7 +2550,7 @@
           <li xml:lang="it">Migliora la registrazione di un nuovo account (supporto per l'aggiunta di un motivo)</li>
           <li xml:lang="ka">ახალი ანგარიშის რეგისტრაციის გაუმჯობესება (მიზეზის მხარდაჭერის დამატება)</li>
           <li xml:lang="nl">Registreren van nieuw account verbeteren (Ondersteunen van reden toevoegen)</li>
-          <li xml:lang="pt-BR">Melhora o registro de nova conta (adiciona suporte ao motivo)</li>
+          <li xml:lang="pt-BR">Melhoria do registro de nova conta (adiciona suporte ao motivo)</li>
           <li xml:lang="ru">Улучшение регистрации новой учётной записи (добавление поддержки причины)</li>
           <li xml:lang="sk">Vylepšenie registrácie nového účtu (pridanie podpory dôvodu)</li>
           <li xml:lang="sl">Izboljša registracijo novega računa (doda podporo za razlog)</li>
@@ -3003,7 +3012,7 @@
           <li xml:lang="it">Migliora il supporto delle menzioni</li>
           <li xml:lang="ka">გაუმჯობესდა ხსენებების მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning van vermeldingen verbeteren</li>
-          <li xml:lang="pt-BR">Melhora o suporte a menções</li>
+          <li xml:lang="pt-BR">Melhoria do suporte a menções</li>
           <li xml:lang="ru">Улучшение поддержки упоминаний</li>
           <li xml:lang="sk">Vylepšenie podpory zmienok</li>
           <li xml:lang="sl">Izboljša podporo za omembe</li>
@@ -3376,7 +3385,7 @@
           <li xml:lang="it">Migliora la selezione della stanza o di un utente nella riga della riga dei messaggi (mostra l'icona, informa se l'utente è nel canale)</li>
           <li xml:lang="ka">ოთახის არჩევის ან მომხმარებლის ხაზის ჩასწორების გაუმჯობესება (ხატულის ჩვენება, მომხმარებლის შეტყობინება, თუ მომხმარებელი არხზეა)</li>
           <li xml:lang="nl">Room of gebruiker selecteren verbeteren in regelbewerking van melding (pictogram tonen, informeren of gebruiker in kanaal is)</li>
-          <li xml:lang="pt-BR">Melhora a seleção de sala ou usuário na edição da linha de mensagem (mostrar ícone, informar se o usuário está no canal)</li>
+          <li xml:lang="pt-BR">Melhoria da seleção de sala ou usuário na edição da linha de mensagem (mostrar ícone, informar se o usuário está no canal)</li>
           <li xml:lang="ru">Улучшение выбора комнаты или пользователя в строке редактирования сообщения (показ значка, информация о присутствии пользователя на канале)</li>
           <li xml:lang="sk">Vylepšenie výberu miestnosti alebo používateľa v riadku správy (zobrazenie ikony, informovanie, či je používateľ v kanáli)</li>
           <li xml:lang="sl">Izboljša izbiro sobe ali uporabnika v urejanju sporočilne vrstice (prikaz ikone, obveščanje, če je uporabnik v kanalu)</li>
