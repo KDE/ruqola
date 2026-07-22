@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:43+0000\n"
+"POT-Creation-Date: 2026-07-22 00:44+0000\n"
 "PO-Revision-Date: 2026-07-17 15:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3146,7 +3146,7 @@ msgstr "يجب أن يكون اسم الرموز التعبيرية المخصص
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3298,7 +3298,7 @@ msgstr "حرر حالة المستخدم"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3685,7 +3685,7 @@ msgstr "أظهر مستخدمي الإشراف"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:220
+#: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3694,7 +3694,7 @@ msgstr "البريد الإلكترونيّ:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:188
+#: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
 msgid "Roles:"
 msgstr "الأدوار:"
@@ -4281,7 +4281,7 @@ msgid "Mark email as verified"
 msgstr "علّم البريد الإلكتروني أنه مُتحقق منه"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:122
+#: widgets/dialogs/directchannelinfowidget.cpp:120
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4303,7 +4303,7 @@ msgid "Password:"
 msgstr "كلمة السر:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:145
+#: widgets/dialogs/directchannelinfowidget.cpp:143
 #, kde-format
 msgid "Bio:"
 msgstr "السيرة الذاتية:"
@@ -8709,61 +8709,45 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:137
+#: widgets/dialogs/directchannelinfowidget.cpp:135
 #, kde-format
 msgid "Custom Status:"
 msgstr "الحالة المخصصة:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:159
+#: widgets/dialogs/directchannelinfowidget.cpp:157
 #, kde-format
 msgid "Timezone:"
 msgstr "المنطقة الزمنية:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:167
 #, kde-format
 msgid "Local Time:"
 msgstr "التوقيت المحلي:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:198
+#: widgets/dialogs/directchannelinfowidget.cpp:196
 #, kde-format
 msgid "Created At:"
 msgstr "أُنشئ في:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:205
 #, kde-format
 msgid "Last Login:"
 msgstr "آخر ولوج:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Verified"
 msgstr "متحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Not verified"
 msgstr "لم يُتحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:241
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Ignore"
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "تجاهل"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:246
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Report"
-msgstr "بلّغ"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -8864,6 +8848,13 @@ msgstr "خطأ: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
+
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Report"
+msgstr "بلّغ"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -11162,7 +11153,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "انسخ المسار"
 
-#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:131
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11558,114 +11549,114 @@ msgctxt "@action:button"
 msgid "Remove User"
 msgstr "أزل المستخدم"
 
-#: widgets/room/usersinroommenu.cpp:123
+#: widgets/room/usersinroommenu.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "ابدأ المحادثة"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "أزل دور المالك"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "أضف كمالك"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "أزل دور القائد"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "أضف كقائد"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "أزل دور المشرف"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "أضف كمشرف"
 
-#: widgets/room/usersinroommenu.cpp:176
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "أزل من الغرفة"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "ألغِ حظر المستخدم"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "احظر المستخدم"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "أزل التجاهل"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "ألغ كتم المستخدم"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "اكتم المستخدم"
 
-#: widgets/room/usersinroommenu.cpp:206
+#: widgets/room/usersinroommenu.cpp:217
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "بلّغ عن المستخدم"
 
-#: widgets/room/usersinroommenu.cpp:212
+#: widgets/room/usersinroommenu.cpp:223
 #, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "احظر المستخدم من الغرفة"
 
-#: widgets/room/usersinroommenu.cpp:236
+#: widgets/room/usersinroommenu.cpp:245
 #, kde-format
 msgid "Do you want to ban this user?"
 msgstr "أتريد حظر هذا المستخدم؟"
 
-#: widgets/room/usersinroommenu.cpp:237
+#: widgets/room/usersinroommenu.cpp:246
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "احظر المستخدم"
 
-#: widgets/room/usersinroommenu.cpp:238
+#: widgets/room/usersinroommenu.cpp:247
 #, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
@@ -12680,6 +12671,13 @@ msgstr "اسم المستخدم:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "أضف حسابًا…"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Ignore"
+#~ msgctxt "@action:button"
+#~ msgid "Ignore"
+#~ msgstr "تجاهل"
 
 #~ msgid "Rocket Chat Client"
 #~ msgstr "عميل روكت تشات"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:43+0000\n"
+"POT-Creation-Date: 2026-07-22 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3123,7 +3123,7 @@ msgstr "कस्टम् इमोजी नाम तेषां उपन�
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3267,7 +3267,7 @@ msgstr "उपयोक्तृस्थिति सम्पादयतु"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3655,7 +3655,7 @@ msgstr "मॉडरेशन उपयोक्तारः दर्शयत�
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:220
+#: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3664,7 +3664,7 @@ msgstr "ईमेल :"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:188
+#: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
 msgid "Roles:"
 msgstr "भूमिकाः :"
@@ -4244,7 +4244,7 @@ msgid "Mark email as verified"
 msgstr "ईमेलं सत्यापितं इति चिह्नं कुर्वन्तु"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:122
+#: widgets/dialogs/directchannelinfowidget.cpp:120
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4266,7 +4266,7 @@ msgid "Password:"
 msgstr "समाभाष्:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:145
+#: widgets/dialogs/directchannelinfowidget.cpp:143
 #, kde-format
 msgid "Bio:"
 msgstr "आसीत्‌:"
@@ -8694,61 +8694,45 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:137
+#: widgets/dialogs/directchannelinfowidget.cpp:135
 #, kde-format
 msgid "Custom Status:"
 msgstr "कस्टम् स्थितिः :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:159
+#: widgets/dialogs/directchannelinfowidget.cpp:157
 #, kde-format
 msgid "Timezone:"
 msgstr "समयक्षेत्रम् :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:167
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:198
+#: widgets/dialogs/directchannelinfowidget.cpp:196
 #, kde-format
 msgid "Created At:"
 msgstr "Created At:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:205
 #, kde-format
 msgid "Last Login:"
 msgstr "अन्तिमप्रवेशः :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Verified"
 msgstr "सत्यापित"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Not verified"
 msgstr "न सत्यापितम्"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:241
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Ignore"
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "उपेक्षा"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:246
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Report"
-msgstr "वृत्तान्तः"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -8845,6 +8829,13 @@ msgstr "त्रुटि: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
+
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Report"
+msgstr "वृत्तान्तः"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -11178,7 +11169,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL प्रतिलिपिं कुर्वन्तु"
 
-#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:131
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11585,97 +11576,97 @@ msgctxt "@action:button"
 msgid "Remove User"
 msgstr "उपयोक्तारं निष्कासयन्तु"
 
-#: widgets/room/usersinroommenu.cpp:123
+#: widgets/room/usersinroommenu.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "वार्तालापं आरभत"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "स्वामित्वेन निष्कासयन्तु"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Owner इति योजयतु"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "नेता इति निष्कासयन्तु"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "लीडर इति योजयतु"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Moderator इति रूपेण निष्कासयन्तु"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Moderator इति योजयतु"
 
-#: widgets/room/usersinroommenu.cpp:176
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "कक्षतः निष्कासयन्तु"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "उपयोक्तारं अनब्लॉकं कुर्वन्तु"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "अवरुद्ध उपयोक्ता"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "अवहेलना"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "उपेक्षा"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "उपयोक्तारं म्यूटं कुर्वन्तु"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Mute User"
 
-#: widgets/room/usersinroommenu.cpp:206
+#: widgets/room/usersinroommenu.cpp:217
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "उपयोक्तारं प्रतिवेदयतु"
 
-#: widgets/room/usersinroommenu.cpp:212
+#: widgets/room/usersinroommenu.cpp:223
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
@@ -11683,13 +11674,13 @@ msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "कक्षे उपयोक्तारः योजयन्तु"
 
-#: widgets/room/usersinroommenu.cpp:236
+#: widgets/room/usersinroommenu.cpp:245
 #, fuzzy, kde-format
 #| msgid "Do you want to block this user?"
 msgid "Do you want to ban this user?"
 msgstr "किं भवान् एतत् उपयोक्तारं अवरुद्धं कर्तुम् इच्छति ?"
 
-#: widgets/room/usersinroommenu.cpp:237
+#: widgets/room/usersinroommenu.cpp:246
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Unblock User"
@@ -11697,7 +11688,7 @@ msgctxt "@title"
 msgid "Ban User"
 msgstr "उपयोक्तारं अनब्लॉकं कुर्वन्तु"
 
-#: widgets/room/usersinroommenu.cpp:238
+#: widgets/room/usersinroommenu.cpp:247
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Unblock User"
@@ -12793,6 +12784,13 @@ msgstr "उपयोक्तृनाम"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "खाता योजयतु..."
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Ignore"
+#~ msgctxt "@action:button"
+#~ msgid "Ignore"
+#~ msgstr "उपेक्षा"
 
 #~ msgid "Rocket Chat Client"
 #~ msgstr "रॉकेट चैट क्लाइंट"

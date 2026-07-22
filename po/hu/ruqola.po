@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:43+0000\n"
+"POT-Creation-Date: 2026-07-22 00:44+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3153,7 +3153,7 @@ msgstr "Az egyéni emodzsi nevének és álneveinek különbözőnek kell lenni�
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3297,7 +3297,7 @@ msgstr "Felhasználói állapot szerkesztése"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3684,7 +3684,7 @@ msgstr "Moderációs üzenetek megjelenítése"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:220
+#: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3693,7 +3693,7 @@ msgstr "E-mail:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:188
+#: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
 msgid "Roles:"
 msgstr "Szerepek:"
@@ -4273,7 +4273,7 @@ msgid "Mark email as verified"
 msgstr "E-mail-cím megjelölése ellenőrzöttként"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:122
+#: widgets/dialogs/directchannelinfowidget.cpp:120
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4295,7 +4295,7 @@ msgid "Password:"
 msgstr "Jelszó:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:145
+#: widgets/dialogs/directchannelinfowidget.cpp:143
 #, kde-format
 msgid "Bio:"
 msgstr "Életrajz:"
@@ -8811,61 +8811,45 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Felhasználó-információk"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:137
+#: widgets/dialogs/directchannelinfowidget.cpp:135
 #, kde-format
 msgid "Custom Status:"
 msgstr "Egyéni állapot:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:159
+#: widgets/dialogs/directchannelinfowidget.cpp:157
 #, kde-format
 msgid "Timezone:"
 msgstr "Időzóna:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:167
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:198
+#: widgets/dialogs/directchannelinfowidget.cpp:196
 #, kde-format
 msgid "Created At:"
 msgstr "Létrehozva:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:205
 #, kde-format
 msgid "Last Login:"
 msgstr "Utolsó bejelentkezés:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Verified"
 msgstr "Ellenőrizve"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Not verified"
 msgstr "Nem ellenőrzött"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:241
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Ignore"
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "Mellőzés"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:246
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Report"
-msgstr "Jelentés"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -8962,6 +8946,13 @@ msgstr "Hiba: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Üzenet jelentése"
+
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Report"
+msgstr "Jelentés"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -11330,7 +11321,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL másolása"
 
-#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:131
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11739,97 +11730,97 @@ msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Felhasználó eltávolítása"
 
-#: widgets/room/usersinroommenu.cpp:123
+#: widgets/room/usersinroommenu.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Beszélgetés indítása"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Eltávolítás tulajdonosként"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Hozzáadás tulajdonosként"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Eltávolítás vezetőként"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Hozzáadás vezetőként"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Eltávolítás moderátorként"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Hozzáadás moderátorként"
 
-#: widgets/room/usersinroommenu.cpp:176
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Eltávolítás a szobából"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Felhasználó tiltásának feloldása"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr "Felhasználó tiltása"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Mellőzés feloldása"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Mellőzés"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Felhasználó némításának megszüntetése"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Felhasználó némítása"
 
-#: widgets/room/usersinroommenu.cpp:206
+#: widgets/room/usersinroommenu.cpp:217
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "Felhasználó jelentése"
 
-#: widgets/room/usersinroommenu.cpp:212
+#: widgets/room/usersinroommenu.cpp:223
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
@@ -11837,13 +11828,13 @@ msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Felhasználók hozzáadása a szobához"
 
-#: widgets/room/usersinroommenu.cpp:236
+#: widgets/room/usersinroommenu.cpp:245
 #, fuzzy, kde-format
 #| msgid "Do you want to block this user?"
 msgid "Do you want to ban this user?"
 msgstr "Szeretné tiltani ezt a felhasználót?"
 
-#: widgets/room/usersinroommenu.cpp:237
+#: widgets/room/usersinroommenu.cpp:246
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Unblock User"
@@ -11851,7 +11842,7 @@ msgctxt "@title"
 msgid "Ban User"
 msgstr "Felhasználó tiltásának feloldása"
 
-#: widgets/room/usersinroommenu.cpp:238
+#: widgets/room/usersinroommenu.cpp:247
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Unblock User"
@@ -12948,6 +12939,13 @@ msgstr "Felhasználónév"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Fiók hozzáadása…"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Ignore"
+#~ msgctxt "@action:button"
+#~ msgid "Ignore"
+#~ msgstr "Mellőzés"
 
 #~ msgid "Rocket Chat Client"
 #~ msgstr "Rocket.Chat kliens"

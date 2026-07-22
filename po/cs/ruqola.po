@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:43+0000\n"
+"POT-Creation-Date: 2026-07-22 00:44+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -3116,7 +3116,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3262,7 +3262,7 @@ msgstr "Upravit stav uživatele"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3639,7 +3639,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:220
+#: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, kde-format
@@ -3648,7 +3648,7 @@ msgstr "E-mail:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:188
+#: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
 msgid "Roles:"
 msgstr "Úlohy:"
@@ -4230,7 +4230,7 @@ msgid "Mark email as verified"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:122
+#: widgets/dialogs/directchannelinfowidget.cpp:120
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4252,7 +4252,7 @@ msgid "Password:"
 msgstr "Heslo:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:145
+#: widgets/dialogs/directchannelinfowidget.cpp:143
 #, kde-format
 msgid "Bio:"
 msgstr ""
@@ -8496,59 +8496,45 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informace o uživateli"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:137
+#: widgets/dialogs/directchannelinfowidget.cpp:135
 #, kde-format
 msgid "Custom Status:"
 msgstr "Vlastní stav:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:159
+#: widgets/dialogs/directchannelinfowidget.cpp:157
 #, kde-format
 msgid "Timezone:"
 msgstr "Časové pásmo:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:167
 #, kde-format
 msgid "Local Time:"
 msgstr "Místní čas:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:198
+#: widgets/dialogs/directchannelinfowidget.cpp:196
 #, kde-format
 msgid "Created At:"
 msgstr "Vytvořen v:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:205
 #, kde-format
 msgid "Last Login:"
 msgstr "Poslední přihlášení:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Verified"
 msgstr "Ověřeno"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Not verified"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:241
-#, kde-format
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "Ignorovat"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:246
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, kde-format
-msgctxt "@action:button"
-msgid "Report"
-msgstr "Nahlásit"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -8646,6 +8632,13 @@ msgstr "Chyba: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Nahlásit zprávu"
+
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, kde-format
+msgctxt "@action:button"
+msgid "Report"
+msgstr "Nahlásit"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -10904,7 +10897,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopírovat URL"
 
-#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:131
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
@@ -11305,97 +11298,97 @@ msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Odstranit uživatele"
 
-#: widgets/room/usersinroommenu.cpp:123
+#: widgets/room/usersinroommenu.cpp:134
 #, kde-format
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Zahájit rozhovor"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Odebrat jako vlastníka"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, kde-format
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Přidat jako vlastníka"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Odebrat jako vedoucího"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, kde-format
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Přidat jako vedoucího"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Odebrat jako moderátora"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Přidat jako moderátora"
 
-#: widgets/room/usersinroommenu.cpp:176
+#: widgets/room/usersinroommenu.cpp:187
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Unblock User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Block User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Unignore"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Unmute User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, kde-format
 msgctxt "@action"
 msgid "Mute User"
 msgstr ""
 
-#: widgets/room/usersinroommenu.cpp:206
+#: widgets/room/usersinroommenu.cpp:217
 #, kde-format
 msgctxt "@action"
 msgid "Report User"
 msgstr "Nahlásit uživatele"
 
-#: widgets/room/usersinroommenu.cpp:212
+#: widgets/room/usersinroommenu.cpp:223
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
@@ -11403,20 +11396,20 @@ msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Přidat uživatele do místnosti"
 
-#: widgets/room/usersinroommenu.cpp:236
+#: widgets/room/usersinroommenu.cpp:245
 #, fuzzy, kde-format
 #| msgid "Do you want to block this user?"
 msgid "Do you want to ban this user?"
 msgstr "Chcete zablokovat tohoto uživatele?"
 
-#: widgets/room/usersinroommenu.cpp:237
+#: widgets/room/usersinroommenu.cpp:246
 #, fuzzy, kde-format
 #| msgid "Total Users"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Celkem uživatelů"
 
-#: widgets/room/usersinroommenu.cpp:238
+#: widgets/room/usersinroommenu.cpp:247
 #, fuzzy, kde-format
 #| msgid "Total Users"
 msgctxt "@action:button"
@@ -12487,6 +12480,10 @@ msgstr "Uživatelské jméno:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Přidat účet…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Ignore"
+#~ msgstr "Ignorovat"
 
 #~ msgid "Rocket Chat Client"
 #~ msgstr "Klient pro Rocket Chat"

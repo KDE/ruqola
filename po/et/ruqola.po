@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:43+0000\n"
+"POT-Creation-Date: 2026-07-22 00:44+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3323,7 +3323,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:37
-#: widgets/dialogs/directchannelinfowidget.cpp:113
+#: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3485,7 +3485,7 @@ msgstr "Kasutaja kohandatud olek"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:30
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:129
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3899,7 +3899,7 @@ msgstr "Mainitud sõnumite näitamine"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:220
+#: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:40
 #, fuzzy, kde-format
@@ -3909,7 +3909,7 @@ msgstr "E-post"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:188
+#: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
 msgid "Roles:"
 msgstr ""
@@ -4568,7 +4568,7 @@ msgid "Mark email as verified"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:122
+#: widgets/dialogs/directchannelinfowidget.cpp:120
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4591,7 +4591,7 @@ msgid "Password:"
 msgstr "Parool:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:145
+#: widgets/dialogs/directchannelinfowidget.cpp:143
 #, kde-format
 msgid "Bio:"
 msgstr ""
@@ -9166,65 +9166,49 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:137
+#: widgets/dialogs/directchannelinfowidget.cpp:135
 #, kde-format
 msgid "Custom Status:"
 msgstr "Kohandatud olek:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:159
+#: widgets/dialogs/directchannelinfowidget.cpp:157
 #, fuzzy, kde-format
 #| msgid "TimeZone:"
 msgid "Timezone:"
 msgstr "Ajavöönd:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:169
+#: widgets/dialogs/directchannelinfowidget.cpp:167
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:198
+#: widgets/dialogs/directchannelinfowidget.cpp:196
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Created At:"
 msgstr "Konto loomine"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:205
 #, fuzzy, kde-format
 #| msgid "Login"
 msgid "Last Login:"
 msgstr "Logi sisse"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "Verified"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, fuzzy, kde-format
 #| msgid "Not authorized"
 msgid "Not verified"
 msgstr "Pole autoriseeritud"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:215
+#: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "%1 [%2]"
 msgstr ""
-
-#: widgets/dialogs/directchannelinfowidget.cpp:241
-#, fuzzy, kde-format
-#| msgid "Ignore"
-msgctxt "@action:button"
-msgid "Ignore"
-msgstr "Eira"
-
-#: widgets/dialogs/directchannelinfowidget.cpp:246
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
-#, fuzzy, kde-format
-#| msgid "Report a Bug"
-msgctxt "@action:button"
-msgid "Report"
-msgstr "Veast teatamine"
 
 #: widgets/dialogs/inviteusersdialog.cpp:28
 #, kde-format
@@ -9325,6 +9309,14 @@ msgstr "Tõrge: "
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Sõnumist teatamine"
+
+#: widgets/dialogs/reportmessagedialog.cpp:44
+#: widgets/dialogs/reportuserdialog.cpp:45
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgctxt "@action:button"
+msgid "Report"
+msgstr "Veast teatamine"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
 #: widgets/dialogs/reportuserwidget.cpp:38
@@ -11810,7 +11802,7 @@ msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopeeri link"
 
-#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:131
+#: widgets/room/messagelistview.cpp:480 widgets/room/usersinroommenu.cpp:142
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
@@ -12255,112 +12247,112 @@ msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Eemalda omaniku staatus"
 
-#: widgets/room/usersinroommenu.cpp:123
+#: widgets/room/usersinroommenu.cpp:134
 #, fuzzy, kde-format
 #| msgid "Start Conversation"
 msgctxt "@action"
 msgid "Start Conversation"
 msgstr "Alusta vestlust"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, fuzzy, kde-format
 #| msgid "Remove as Owner"
 msgctxt "@action"
 msgid "Remove as Owner"
 msgstr "Eemalda omaniku staatus"
 
-#: widgets/room/usersinroommenu.cpp:140
+#: widgets/room/usersinroommenu.cpp:151
 #, fuzzy, kde-format
 #| msgid "Add as Owner"
 msgctxt "@action"
 msgid "Add as Owner"
 msgstr "Lisa omanikuna"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, fuzzy, kde-format
 #| msgid "Remove as Leader"
 msgctxt "@action"
 msgid "Remove as Leader"
 msgstr "Eemalda juhi staatus"
 
-#: widgets/room/usersinroommenu.cpp:153
+#: widgets/room/usersinroommenu.cpp:164
 #, fuzzy, kde-format
 #| msgid "Add as Leader"
 msgctxt "@action"
 msgid "Add as Leader"
 msgstr "Lisa juhina"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, fuzzy, kde-format
 #| msgid "Remove as Moderator"
 msgctxt "@action"
 msgid "Remove as Moderator"
 msgstr "Eemalda moderaatori staatus"
 
-#: widgets/room/usersinroommenu.cpp:165
+#: widgets/room/usersinroommenu.cpp:176
 #, fuzzy, kde-format
 #| msgid "Add as Moderator"
 msgctxt "@action"
 msgid "Add as Moderator"
 msgstr "Lisa moderaatorina"
 
-#: widgets/room/usersinroommenu.cpp:176
+#: widgets/room/usersinroommenu.cpp:187
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@action"
 msgid "Remove from Room"
 msgstr "Eemalda toast"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action"
 msgid "Unblock User"
 msgstr "Tühista kasutaja blokeerimine"
 
-#: widgets/room/usersinroommenu.cpp:187
+#: widgets/room/usersinroommenu.cpp:198
 #, fuzzy, kde-format
 #| msgid "Block User"
 msgctxt "@action"
 msgid "Block User"
 msgstr "Blokeeri kasutaja"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, fuzzy, kde-format
 #| msgid "Unignore"
 msgctxt "@action"
 msgid "Unignore"
 msgstr "Tühista eiramine"
 
-#: widgets/room/usersinroommenu.cpp:192
+#: widgets/room/usersinroommenu.cpp:203
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgctxt "@action"
 msgid "Ignore"
 msgstr "Eira"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@action"
 msgid "Unmute User"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/room/usersinroommenu.cpp:198
+#: widgets/room/usersinroommenu.cpp:209
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@action"
 msgid "Mute User"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/room/usersinroommenu.cpp:206
+#: widgets/room/usersinroommenu.cpp:217
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report User"
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/usersinroommenu.cpp:212
+#: widgets/room/usersinroommenu.cpp:223
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Users in Room"
@@ -12368,20 +12360,20 @@ msgctxt "@action"
 msgid "Ban User From Room"
 msgstr "Kasutajate lisamine tuppa"
 
-#: widgets/room/usersinroommenu.cpp:236
+#: widgets/room/usersinroommenu.cpp:245
 #, fuzzy, kde-format
 #| msgid "Do you want to block this user?"
 msgid "Do you want to ban this user?"
 msgstr "Kas blokkida see kasutaja?"
 
-#: widgets/room/usersinroommenu.cpp:237
+#: widgets/room/usersinroommenu.cpp:246
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Tühista kasutaja blokeerimine"
 
-#: widgets/room/usersinroommenu.cpp:238
+#: widgets/room/usersinroommenu.cpp:247
 #, fuzzy, kde-format
 #| msgid "Unblock User"
 msgctxt "@action:button"
@@ -13515,6 +13507,12 @@ msgstr "Kasutajanimi:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Lisa konto ..."
+
+#, fuzzy
+#~| msgid "Ignore"
+#~ msgctxt "@action:button"
+#~ msgid "Ignore"
+#~ msgstr "Eira"
 
 #~ msgid "Rocket Chat Client"
 #~ msgstr "Rocket Chati klient"
