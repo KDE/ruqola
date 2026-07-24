@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-22 00:44+0000\n"
-"PO-Revision-Date: 2026-07-14 15:39+0200\n"
+"PO-Revision-Date: 2026-07-20 07:47+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1845,16 +1845,14 @@ msgid "Not connected yet"
 msgstr "Non ancora connesso"
 
 #: core/rocketchataccount.cpp:3088
-#, fuzzy, kde-format
-#| msgid "Room \"%1\" was added"
+#, kde-format
 msgid "Room Added"
-msgstr "La stanza «%1» è stata aggiunta"
+msgstr "Stanza aggiunta"
 
 #: core/rocketchataccount.cpp:3089
-#, fuzzy, kde-format
-#| msgid "A new account was added."
+#, kde-format
 msgid "A new room was added in '%1'."
-msgstr "Un nuovo account è stato aggiunto."
+msgstr "Una nuova stanza è stata aggiunta in «%1»."
 
 #: core/rocketchaturlutils.cpp:43
 #, kde-format
