@@ -1394,6 +1394,7 @@
           <li>Improve user info</li>
           <li xml:lang="ca">Millora la informació d'usuaris</li>
           <li xml:lang="ca-valencia">Millora la informació d'usuaris</li>
+          <li xml:lang="it">Migliora le informazioni degli utenti</li>
           <li xml:lang="ka">გაუმჯობესდა მომხმარებლის ინფორმაცია</li>
           <li xml:lang="nl">Gebruikersinformatie verbeteren</li>
           <li xml:lang="pt-BR">Melhoria das informações de usuários</li>
@@ -1405,6 +1406,7 @@
           <li xml:lang="ar">إضافة إشعار عند إضافة غرفة جديدة</li>
           <li xml:lang="ca">Afegeix informació de notificacions en afegir una sala nova</li>
           <li xml:lang="ca-valencia">Afig informació de notificacions en afegir una sala nova</li>
+          <li xml:lang="it">Aggiungi le informazioni di notifica quando aggiungi una nuova stanza</li>
           <li xml:lang="ka">დაემატა გაფრთხილება ახალი ოთახის დამატებისას</li>
           <li xml:lang="nl">Voeg meldingsgegevens toe bij het toevoegen van een nieuwe room.</li>
           <li xml:lang="pt-BR">Adicionada informações de notificação ao adicionar uma nova sala</li>
