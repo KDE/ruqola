@@ -141,10 +141,15 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     layout.senderRect =
         QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : senderTextSize.height()));
     if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
-        layout.baseLine += option.fontMetrics.height() - 4; // TODO fix -4 !
-        const auto height = layout.senderRect.height();
-        layout.senderRect.setTop(layout.senderRect.top() + senderAscent);
-        layout.senderRect.setHeight(height);
+        // A date header occupies the row's top line (drawn by drawDate), and usableRect
+        // already pushed the message text down by that line's height. Shift the whole
+        // author line — the name baseline, its rect, and therefore the avatar — down by
+        // the same height, so a date row is exactly a regular new-sender row plus one
+        // header line. (Replaces an "- 4" fudge that moved only the baseline, leaving the
+        // author line looser above its text than a normal new-sender row.)
+        const int headerHeight = option.fontMetrics.height();
+        layout.baseLine += headerHeight;
+        layout.senderRect.moveTop(layout.senderRect.top() + headerHeight);
     }
     // Align top of avatar with top of sender rect
     const double senderRectY{layout.senderRect.y()};
