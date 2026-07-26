@@ -23,6 +23,10 @@ private Q_SLOTS:
     void testSelectWordUnderCursor();
     void shouldHaveDefaultValues();
     void testSelectAll();
+    void testSelectionForIndexDoesNotIncludeUrlPreviewByDefault();
+    void testSelectionExtendingToUrlPreviewKeepsTextSelection();
+    void testSelectionStartingInUrlPreviewAndMovingToText();
+    void testSelectionStartingInUrlPreviewAndMovingToPreviousMessage();
     void textClear();
 
 private:

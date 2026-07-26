@@ -5,7 +5,6 @@
 */
 
 #include "textselection.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messages/message.h"
 #include "model/messagesmodel.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTextDocument>
 #include <QTextDocumentFragment>
 
+using namespace Qt::Literals::StringLiterals;
 TextSelection::TextSelection() = default;
 
 DocumentFactoryInterface::~DocumentFactoryInterface() = default;
@@ -159,10 +159,24 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     if (!hasSelection()) {
         return {};
     }
+    if (!doc) {
+        return {};
+    }
     Q_ASSERT(index.model() == mStartIndex.model());
     Q_ASSERT(index.model() == mEndIndex.model());
 
-    if (att.isValid() && mAttachmentSelection.isEmpty() && mMessageUrlSelection.isEmpty() && !msgUrl.hasHtmlDescription()) {
+    const bool selectionStartedOutsideText = mStartPos < 0;
+
+    if (att.isValid()) {
+        if (mAttachmentSelection.isEmpty()) {
+            return {};
+        }
+    } else if (msgUrl.hasHtmlDescription()) {
+        if (mMessageUrlSelection.isEmpty()) {
+            return {};
+        }
+    } else if (mEndPos < 0) {
+        // Selection endpoint is still in attachment/url preview, so main message text is not selected.
         return {};
     }
     const OrderedPositions ordered = orderedPositions();
@@ -170,38 +184,60 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     int toCharPos = ordered.toCharPos;
     // qDebug() << "BEFORE toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
     QTextCursor cursor(doc);
+    const int maxCharPos = qMax(0, doc->characterCount() - 1);
+
+    if (selectionStartedOutsideText && !att.isValid() && !msgUrl.hasHtmlDescription() && fromCharPos < 0) {
+        // Selection started below/above text (attachment or URL preview): entering text from outside
+        // should anchor from the closest edge of the text document (the end for reverse drag-up).
+        fromCharPos = maxCharPos;
+    }
+    if (selectionStartedOutsideText && !att.isValid() && !msgUrl.hasHtmlDescription() && toCharPos < 0) {
+        // If the opposite text endpoint is invalid (still represented by the original URL/attachment start),
+        // keep the full text side selected instead of collapsing to position 0.
+        toCharPos = maxCharPos;
+    }
 
     if (att.isValid()) {
+        bool foundAttachmentSelection = false;
         for (const AttachmentSelection &attSelection : std::as_const(mAttachmentSelection)) {
             if (attSelection.attachment == att) {
                 fromCharPos = attSelection.fromCharPos;
                 toCharPos = attSelection.toCharPos;
+                foundAttachmentSelection = true;
                 // qDebug() << "ATTACHMENT toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
                 break;
             }
         }
+        if (!foundAttachmentSelection) {
+            return {};
+        }
     }
     if (msgUrl.hasHtmlDescription()) {
+        bool foundMessageUrlSelection = false;
         for (const MessageUrlSelection &messageUrlSelection : std::as_const(mMessageUrlSelection)) {
             if (messageUrlSelection.messageUrl == msgUrl) {
                 fromCharPos = messageUrlSelection.fromCharPos;
                 toCharPos = messageUrlSelection.toCharPos;
+                foundMessageUrlSelection = true;
                 // qDebug() << "MessageUrl toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
                 break;
             }
+        }
+        if (!foundMessageUrlSelection) {
+            return {};
         }
     }
 
     // qDebug() << "AFTER toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
     const int row = index.row();
     if (row == ordered.fromRow)
-        cursor.setPosition(qMax(fromCharPos, 0));
+        cursor.setPosition(qBound(0, fromCharPos, maxCharPos));
     else if (row > ordered.fromRow)
         cursor.setPosition(0);
     else
         return {};
     if (row == ordered.toRow)
-        cursor.setPosition(qMax(toCharPos, 0), QTextCursor::KeepAnchor);
+        cursor.setPosition(qBound(0, toCharPos, maxCharPos), QTextCursor::KeepAnchor);
     else if (row < ordered.toRow)
         cursor.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
     else
@@ -247,6 +283,7 @@ void TextSelection::setAttachmentTextSelectionStart(const QModelIndex &index, in
     if (msgAttach.isValid()) {
         AttachmentSelection selection;
         selection.fromCharPos = charPos;
+        selection.toCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(std::move(selection));
         // qDebug() << " start selection is in attachment ";
@@ -260,6 +297,7 @@ void TextSelection::setPreviewUrlTextSelectionStart(const QModelIndex &index, in
     if (msgUrl.hasHtmlDescription()) {
         MessageUrlSelection selection;
         selection.fromCharPos = charPos;
+        selection.toCharPos = charPos;
         selection.messageUrl = msgUrl;
         mMessageUrlSelection.append(std::move(selection));
         mStartPos = -1;
@@ -293,7 +331,15 @@ void TextSelection::setTextSelectionEnd(const QModelIndex &index, int charPos)
 
 void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
 {
+    const bool keepTextSelectionEndPos = (mStartPos >= 0) && (mEndPos >= 0);
+    const int previousEndPos = mEndPos;
     setTextSelectionEnd(index, charPos);
+    if (keepTextSelectionEndPos) {
+        mEndPos = previousEndPos;
+    } else if (mStartPos < 0) {
+        // The drag endpoint is currently in attachment text; main text must stay unselected.
+        mEndPos = -1;
+    }
     if (msgAttach.isValid()) {
         const auto countAtt{mAttachmentSelection.count()};
         for (int i = 0; i < countAtt; ++i) {
@@ -301,7 +347,6 @@ void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int 
                 AttachmentSelection attachmentSelectFound = mAttachmentSelection.takeAt(i);
                 attachmentSelectFound.toCharPos = charPos;
                 mAttachmentSelection.append(std::move(attachmentSelectFound));
-                mEndPos = -1;
                 return;
             }
         }
@@ -310,13 +355,20 @@ void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int 
         selection.toCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(std::move(selection));
-        mEndPos = -1;
     }
 }
 
 void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int charPos, const MessageUrl &msgUrl)
 {
+    const bool keepTextSelectionEndPos = (mStartPos >= 0) && (mEndPos >= 0);
+    const int previousEndPos = mEndPos;
     setTextSelectionEnd(index, charPos);
+    if (keepTextSelectionEndPos) {
+        mEndPos = previousEndPos;
+    } else if (mStartPos < 0) {
+        // The drag endpoint is currently in URL preview text; main text must stay unselected.
+        mEndPos = -1;
+    }
     if (msgUrl.hasHtmlDescription()) {
         const auto countMessageUrl{mMessageUrlSelection.count()};
         for (int i = 0; i < countMessageUrl; ++i) {
@@ -324,7 +376,6 @@ void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int 
                 MessageUrlSelection messageUrlSelectFound = mMessageUrlSelection.takeAt(i);
                 messageUrlSelectFound.toCharPos = charPos;
                 mMessageUrlSelection.append(std::move(messageUrlSelectFound));
-                mEndPos = -1;
                 return;
             }
         }
@@ -333,7 +384,6 @@ void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int 
         selection.toCharPos = charPos;
         selection.messageUrl = msgUrl;
         mMessageUrlSelection.append(std::move(selection));
-        mEndPos = -1;
     }
 }
 

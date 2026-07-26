@@ -7,6 +7,7 @@
 #include "textselectiontest.h"
 
 #include "delegateutils/textselection.h"
+#include "messages/messageurl.h"
 #include "model/messagesmodel.h"
 
 #include <QSignalSpy>
@@ -220,6 +221,127 @@ void TextSelectionTest::testSelectAll()
     selection.selectMessage(index1);
     QVERIFY(selection.hasSelection());
     QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"Line 1 bold"_s);
+}
+
+void TextSelectionTest::testSelectionForIndexDoesNotIncludeUrlPreviewByDefault()
+{
+    const QModelIndex index1 = model.index(1, 0);
+    TestFactory factory(model.rowCount());
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+
+    selection.setTextSelectionStart(index1, 0);
+    selection.setTextSelectionEnd(index1, 4);
+
+    MessageUrl messageUrl;
+    messageUrl.setUrl(u"https://kde.org"_s);
+    messageUrl.setPageTitle(u"KDE"_s);
+    messageUrl.setDescription(u"Community"_s);
+    messageUrl.generateMessageUrlInfo();
+    QVERIFY(messageUrl.hasHtmlDescription());
+
+    QTextDocument urlPreviewDoc;
+    urlPreviewDoc.setHtml(messageUrl.htmlDescription());
+
+    const QTextCursor cursor = selection.selectionForIndex(index1, &urlPreviewDoc, {}, messageUrl);
+    QVERIFY(cursor.isNull());
+}
+
+void TextSelectionTest::testSelectionExtendingToUrlPreviewKeepsTextSelection()
+{
+    const QModelIndex index1 = model.index(1, 0);
+    TestFactory factory(model.rowCount());
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+
+    selection.setTextSelectionStart(index1, 0);
+    selection.setTextSelectionEnd(index1, 4);
+
+    MessageUrl messageUrl;
+    messageUrl.setUrl(u"https://kde.org"_s);
+    messageUrl.setPageTitle(u"KDE"_s);
+    messageUrl.setDescription(u"Community"_s);
+    messageUrl.generateMessageUrlInfo();
+    QVERIFY(messageUrl.hasHtmlDescription());
+
+    selection.setPreviewUrlTextSelectionEnd(index1, 366, messageUrl);
+
+    QTextDocument urlPreviewDoc;
+    urlPreviewDoc.setHtml(messageUrl.htmlDescription());
+
+    const QTextCursor messageCursor = selection.selectionForIndex(index1, factory.documentForIndex(index1));
+    QVERIFY(!messageCursor.isNull());
+    QCOMPARE(messageCursor.selection().toPlainText(), u"Line"_s);
+
+    const QTextCursor urlCursor = selection.selectionForIndex(index1, &urlPreviewDoc, {}, messageUrl);
+    QVERIFY(!urlCursor.isNull());
+}
+
+void TextSelectionTest::testSelectionStartingInUrlPreviewAndMovingToText()
+{
+    const QModelIndex index1 = model.index(1, 0);
+    TestFactory factory(model.rowCount());
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+
+    MessageUrl messageUrl;
+    messageUrl.setUrl(u"https://kde.org"_s);
+    messageUrl.setPageTitle(u"KDE"_s);
+    messageUrl.setDescription(u"Community"_s);
+    messageUrl.generateMessageUrlInfo();
+    QVERIFY(messageUrl.hasHtmlDescription());
+
+    QTextDocument urlPreviewDoc;
+    urlPreviewDoc.setHtml(messageUrl.htmlDescription());
+
+    selection.setPreviewUrlTextSelectionStart(index1, 366, messageUrl);
+
+    // Move the selection endpoint to the main message text (drag up).
+    selection.setTextSelectionEnd(index1, 4);
+
+    const QTextCursor messageCursor = selection.selectionForIndex(index1, factory.documentForIndex(index1));
+    QVERIFY(!messageCursor.isNull());
+    QCOMPARE(messageCursor.selection().toPlainText(), u" 1 bold"_s);
+
+    const QTextCursor urlCursor = selection.selectionForIndex(index1, &urlPreviewDoc, {}, messageUrl);
+    QVERIFY(!urlCursor.isNull());
+    // Starting in URL preview and immediately dragging to message text can keep a zero-length URL cursor.
+    QCOMPARE(urlCursor.position(), urlCursor.anchor());
+}
+
+void TextSelectionTest::testSelectionStartingInUrlPreviewAndMovingToPreviousMessage()
+{
+    const QModelIndex index0 = model.index(0, 0);
+    const QModelIndex index1 = model.index(1, 0);
+    TestFactory factory(model.rowCount());
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+
+    MessageUrl messageUrl;
+    messageUrl.setUrl(u"https://kde.org"_s);
+    messageUrl.setPageTitle(u"KDE"_s);
+    messageUrl.setDescription(u"Community"_s);
+    messageUrl.generateMessageUrlInfo();
+    QVERIFY(messageUrl.hasHtmlDescription());
+
+    selection.setPreviewUrlTextSelectionStart(index1, 366, messageUrl);
+
+    // Move the selection endpoint to the previous message row.
+    selection.setTextSelectionEnd(index0, 4);
+
+    const QTextCursor row0Cursor = selection.selectionForIndex(index0, factory.documentForIndex(index0));
+    QVERIFY(!row0Cursor.isNull());
+    QCOMPARE(row0Cursor.selection().toPlainText(), u" 0"_s);
+
+    const QTextCursor row1Cursor = selection.selectionForIndex(index1, factory.documentForIndex(index1));
+    QVERIFY(!row1Cursor.isNull());
+    QCOMPARE(row1Cursor.selection().toPlainText(), u"Line 1 bold"_s);
+
+    QTextDocument urlPreviewDoc;
+    urlPreviewDoc.setHtml(messageUrl.htmlDescription());
+    const QTextCursor urlCursor = selection.selectionForIndex(index1, &urlPreviewDoc, {}, messageUrl);
+    QVERIFY(!urlCursor.isNull());
+    QVERIFY(!urlCursor.selection().toPlainText().isEmpty());
 }
 
 void TextSelectionTest::textClear()
