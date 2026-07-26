@@ -48,8 +48,8 @@ private:
         // Logical-pixel geometry of the compact card. textLeftOffset is where the
         // description document starts (to the right of the thumbnail); docWidth is
         // the text width it is laid out at; contentWidth/Height is the whole card.
-        // The layout round-trips between sizeHint() and draw() (see the assert in
-        // draw()).
+        // sizeHint() reports contentWidth/Height as the slot size; draw() re-derives the
+        // rest from the rect it is handed, which is that slot (see draw()).
         int textLeftOffset = 0;
         int docWidth = 0;
         int contentWidth = 0;

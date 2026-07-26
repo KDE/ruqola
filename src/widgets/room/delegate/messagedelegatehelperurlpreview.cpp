@@ -54,22 +54,21 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
                                            const QStyleOptionViewItem &option) const
 {
     const PreviewLayout layout = layoutPreview(messageUrl, option, previewRect.width(), previewRect.height());
-    // The card geometry must round-trip: re-entering layoutPreview() here with the
-    // rect width the delegate got from sizeHint() has to reproduce the same docWidth
-    // (see the contentWidth computation in layoutPreview()). If this fires, that
-    // invariant broke and the text/thumbnail/toggle will be misplaced.
-    Q_ASSERT(previewRect.width() == layout.contentWidth);
 
     // A subtle rounded background sets the preview apart as embedded, secondary
     // content (the job the old "Link Preview" label did, without the chrome).
     // Colours come from the palette so it themes itself for light and dark.
+    // The card fills the rect the delegate allocated from sizeHint(), not the freshly
+    // recomputed contentWidth: re-running layoutPreview() here can differ by a pixel
+    // (QTextDocument::idealWidth() is not perfectly stable across text widths), so using
+    // the allocated rect keeps the card within its slot instead of aborting on that drift.
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing, true);
     QColor borderColor = option.palette.color(QPalette::WindowText);
     borderColor.setAlpha(30);
     painter->setPen(borderColor);
     painter->setBrush(option.palette.color(QPalette::AlternateBase));
-    const QRectF cardRect(previewRect.x() + 0.5, previewRect.y() + PreviewTopGap + 0.5, layout.contentWidth - 1, layout.contentHeight - PreviewTopGap - 1);
+    const QRectF cardRect(previewRect.x() + 0.5, previewRect.y() + PreviewTopGap + 0.5, previewRect.width() - 1, previewRect.height() - PreviewTopGap - 1);
     painter->drawRoundedRect(cardRect, PreviewCornerRadius, PreviewCornerRadius);
     painter->restore();
 
@@ -160,9 +159,9 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     layout.docWidth = qMax(0, urlsPreviewWidth - 2 * PreviewPadding - leftReserve - rightReserve);
     layout.descriptionSize = documentTypeForIndexSize(convertMessageUrlToDocumentDescriptionInfo(messageUrl, layout.docWidth));
 
-    // contentWidth adds the padding and reserves back onto docWidth, so it is the
-    // exact inverse of the docWidth computation above (see the round-trip assert in
-    // draw()).
+    // contentWidth adds the padding and reserves back onto docWidth, so it is the exact
+    // inverse of the docWidth computation above. sizeHint() reports it as the slot width;
+    // draw() then works from the slot rect it is handed rather than re-deriving it.
     const int innerWidth = leftReserve + layout.descriptionSize.width() + rightReserve;
     const int innerHeight = qMax(qMax(thumbLogical.height(), layout.descriptionSize.height()), iconSize);
     layout.contentWidth = innerWidth + 2 * PreviewPadding;
