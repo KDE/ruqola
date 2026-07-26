@@ -553,8 +553,14 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         drawLastSeenLine(painter, layout.displayLastSeenMessageY, option);
     }
 
-    // Timestamp
-    DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
+    // Timestamp. Normally drawn at its laid-out position; only the Normal layout's
+    // grouped rows mark it gutter/hover-only, in which case it appears while the row is
+    // hovered. Gate on the actual hover state (not the background-highlight preference,
+    // which only controls the row fill), so the time still appears when that is off.
+    const bool showTimestamp = !layout.timeStampHoverOnly || message->hoverHighlight();
+    if (showTimestamp) {
+        DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
+    }
 
     // Message
     if (layout.textRect.isValid()) {
@@ -617,10 +623,14 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
-    if (message->unread()) {
-        mSingleCheckIcon.paint(painter, layout.readReceiptIconRect);
-    } else {
-        mDoubleCheckIcon.paint(painter, layout.readReceiptIconRect);
+    // The read receipt follows the timestamp: on the author line for a new sender,
+    // and suppressed for grouped rows (null rect) where the timestamp is gutter-only.
+    if (showTimestamp && layout.readReceiptIconRect.isValid()) {
+        if (message->unread()) {
+            mSingleCheckIcon.paint(painter, layout.readReceiptIconRect);
+        } else {
+            mDoubleCheckIcon.paint(painter, layout.readReceiptIconRect);
+        }
     }
 
     // Draw encrypted icon

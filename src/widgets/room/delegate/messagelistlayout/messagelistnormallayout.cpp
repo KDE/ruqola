@@ -125,8 +125,25 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     layout.timeStampText = index.data(MessagesModel::Timestamp).toString();
     const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
 
-    // Message (using the rest of the available width)
-    const int widthAfterMessage = iconSizeMargin + timeSize.width() + margin / 2;
+    // A grouped row shows its hover timestamp in the avatar gutter, but falls back to the
+    // right edge when there is no gutter (avatars off) or the gutter is already taken by
+    // status icons (edited/starred/…). Compute that here since the width reservation below
+    // depends on it, and the status icons are only laid out further down (mirror them).
+    const bool groupedStatusIconsInGutter = layout.sameSenderAsPreviousMessage
+        && (message->wasEdited() || message->isStarred() || message->isPinned() || layout.messageIsFollowing || message->isEncryptedMessage()
+            || message->isAutoTranslated() || !message->localTranslation().isEmpty());
+    const bool timeStampUsesRightEdge = layout.sameSenderAsPreviousMessage && (avatarWidth < timeSize.width() || groupedStatusIconsInGutter);
+
+    // Message (using the rest of the available width). Reserve room after the text for the
+    // trailing hover-action icons (add-reaction, reply-in-thread, and text-to-speech when
+    // built) so they stay on the row; the timestamp itself moved to the author line and no
+    // longer needs right-edge space, except for a grouped row that uses the right-edge
+    // fallback, where its width is reserved so it cannot overprint a long line.
+    qreal hoverActionsWidth = 2 * iconSizeMargin; // add-reaction + reply-in-thread
+#if HAVE_TEXT_TO_SPEECH
+    hoverActionsWidth += iconSizeMargin; // text-to-speech
+#endif
+    const int widthAfterMessage = hoverActionsWidth + margin / 2 + (timeStampUsesRightEdge ? timeSize.width() + margin : 0);
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
     layout.baseLine = 0;
     const QSize textSize = mDelegate->helperText()->sizeHint(index, maxWidth, option, &layout.baseLine);
@@ -235,14 +252,47 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, layout.textRect.y(), iconSize, iconSize);
 #endif
 
-    layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
-    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), senderRectY), timeSize);
+    // Right edge available to laid-out content (a half-margin gutter is kept clear).
+    const int rightEdge = option.rect.width() - margin / 2;
+    if (!layout.sameSenderAsPreviousMessage) {
+        // Group the time with the author line, right after the sender name (and any
+        // author-line icons): "Alice Martin · 12:34 ✓✓". The old far-right placement
+        // stranded it ~a column width from the text it belonged to.
+        const QString separator = QStringLiteral("·  "); // middot
+        layout.timeStampText = separator + layout.timeStampText;
+        const QSize authorTimeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
+        // Start just after the sender name and its author-line icons. The ignored-message
+        // icon advances textLeft rather than positionIcon, so step past it explicitly.
+        int timeX = positionIcon;
+        if (ignoreMessage) {
+            timeX += iconSizeMargin;
+        }
+        // Keep the time and its read receipt inside the row: a very long display name or a
+        // pile of author-line icons could otherwise push them past the right edge (the old
+        // fixed-right placement was always visible). Clamp so both stay on screen.
+        const int rightLimit = rightEdge - iconSize - margin - authorTimeSize.width();
+        timeX = qMin(timeX, rightLimit);
+        layout.timeStampPos = QPoint(timeX, layout.baseLine);
+        layout.timeStampRect = QRect(QPoint(timeX, senderRectY), authorTimeSize);
+        layout.readReceiptIconRect = QRect(layout.timeStampRect.right() + margin, senderRectY, iconSize, iconSize);
+    } else {
+        // Grouped consecutive message: no author line, so the delegate draws the time on
+        // hover only (see paint()), aligned to the first content line. Preferred spot is
+        // the empty avatar gutter (Slack-style); when that gutter is unavailable or already
+        // holds status icons, fall back to the right edge (maxWidth reserves its width).
+        layout.timeStampHoverOnly = true;
+        const int contentTop = layout.textRect.isValid() ? layout.textRect.y() : attachmentsY;
+        const int gutterRight = textLeft - margin;
+        const int timeX = timeStampUsesRightEdge ? rightEdge - timeSize.width() // right edge fallback
+                                                 : gutterRight - timeSize.width(); // right-aligned in the avatar gutter
+        layout.timeStampPos = QPoint(timeX, contentTop + option.fontMetrics.ascent());
+        layout.timeStampRect = QRect(timeX, contentTop, timeSize.width(), option.fontMetrics.height());
+        // No per-message read receipt on grouped rows (it would strand a tiny check next
+        // to the hover time); the receipt stays with the author line above.
+        layout.readReceiptIconRect = QRect();
+    }
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();
-
-    // Center the read-receipt icon on the timestamp text; the old baseLine anchor put
-    // the icon's top at the text baseline, dropping it a full icon-height below the time.
-    layout.readReceiptIconRect = QRect(layout.timeStampRect.left() - margin - iconSize, senderRectY + (timeSize.height() - iconSize) / 2, iconSize, iconSize);
 
     // Replies
     layout.repliesY = layout.reactionsY + layout.reactionsHeight;
