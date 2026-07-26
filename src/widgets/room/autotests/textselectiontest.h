@@ -25,6 +25,7 @@ private Q_SLOTS:
     void testSelectAll();
     void testSelectionForIndexDoesNotIncludeUrlPreviewByDefault();
     void testSelectionExtendingToUrlPreviewKeepsTextSelection();
+    void testSelectionFromTextToUrlDoesNotSelectUrlRowTextUntilTextIsHit();
     void testSelectionStartingInUrlPreviewAndMovingToText();
     void testSelectionStartingInUrlPreviewAndMovingToPreviousMessage();
     void textClear();

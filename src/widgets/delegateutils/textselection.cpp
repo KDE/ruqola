@@ -228,6 +228,35 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
         }
     }
 
+    if ((att.isValid() || msgUrl.hasHtmlDescription()) && mStartPos >= 0 && ordered.fromRow != ordered.toRow && fromCharPos == toCharPos) {
+        // If selection started in message text and now spans multiple rows,
+        // keep URL/attachment block visibly selected instead of a collapsed point.
+        fromCharPos = 0;
+        toCharPos = maxCharPos;
+    }
+
+    if (att.isValid() || msgUrl.hasHtmlDescription()) {
+        // Attachment/URL preview selection is always local to that document;
+        // don't reinterpret it through multi-row text boundaries.
+        cursor.setPosition(qBound(0, fromCharPos, maxCharPos));
+        cursor.setPosition(qBound(0, toCharPos, maxCharPos), QTextCursor::KeepAnchor);
+        return cursor;
+    }
+
+    if (mStartPos >= 0 && mEndSelectionArea != EndSelectionArea::Text && mStartIndex.isValid() && mEndIndex.isValid() && mStartIndex.row() != mEndIndex.row()
+        && index.row() == mStartIndex.row()) {
+        // Keep the original text-side selection on the start row while the endpoint is in URL/attachment.
+        cursor.setPosition(qBound(0, mStartPos, maxCharPos));
+        cursor.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
+        return cursor;
+    }
+
+    if (ordered.fromRow != ordered.toRow && mEndIndex.isValid() && index.row() == mEndIndex.row() && mEndSelectionArea != EndSelectionArea::Text) {
+        // Mouse endpoint is currently in attachment/URL preview on this row;
+        // don't select this row's main message text until endpoint enters text.
+        return {};
+    }
+
     // qDebug() << "AFTER toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
     const int row = index.row();
     if (row == ordered.fromRow)
@@ -254,6 +283,7 @@ void TextSelection::clear()
     mEndIndex = QPersistentModelIndex{};
     mStartPos = -1;
     mEndPos = -1;
+    mEndSelectionArea = EndSelectionArea::Text;
     mAttachmentSelection.clear();
     mMessageUrlSelection.clear();
 
@@ -327,6 +357,7 @@ void TextSelection::setTextSelectionEnd(const QModelIndex &index, int charPos)
     Q_ASSERT(index.isValid());
     mEndIndex = index;
     mEndPos = charPos;
+    mEndSelectionArea = EndSelectionArea::Text;
 }
 
 void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
@@ -340,6 +371,7 @@ void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int 
         // The drag endpoint is currently in attachment text; main text must stay unselected.
         mEndPos = -1;
     }
+    mEndSelectionArea = EndSelectionArea::Attachment;
     if (msgAttach.isValid()) {
         const auto countAtt{mAttachmentSelection.count()};
         for (int i = 0; i < countAtt; ++i) {
@@ -352,6 +384,7 @@ void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int 
         }
 
         AttachmentSelection selection;
+        selection.fromCharPos = keepTextSelectionEndPos ? charPos : 0;
         selection.toCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(std::move(selection));
@@ -369,6 +402,7 @@ void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int 
         // The drag endpoint is currently in URL preview text; main text must stay unselected.
         mEndPos = -1;
     }
+    mEndSelectionArea = EndSelectionArea::MessageUrl;
     if (msgUrl.hasHtmlDescription()) {
         const auto countMessageUrl{mMessageUrlSelection.count()};
         for (int i = 0; i < countMessageUrl; ++i) {
@@ -381,6 +415,7 @@ void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int 
         }
 
         MessageUrlSelection selection;
+        selection.fromCharPos = keepTextSelectionEndPos ? charPos : 0;
         selection.toCharPos = charPos;
         selection.messageUrl = msgUrl;
         mMessageUrlSelection.append(std::move(selection));

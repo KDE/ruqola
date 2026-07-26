@@ -113,6 +113,12 @@ private:
         int toCharPos = 0;
     };
 
+    enum class EndSelectionArea : uint8_t {
+        Text,
+        Attachment,
+        MessageUrl,
+    };
+
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT OrderedPositions orderedPositions() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void selectionText(const OrderedPositions ordered,
                                                   Format format,
@@ -129,6 +135,7 @@ private:
     QList<MessageUrlSelection> mMessageUrlSelection;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
+    EndSelectionArea mEndSelectionArea = EndSelectionArea::Text;
 
     DocumentFactoryInterface *mTextHelperFactory = nullptr;
     DocumentFactoryInterface *mMessageUrlHelperFactory = nullptr;

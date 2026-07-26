@@ -275,6 +275,45 @@ void TextSelectionTest::testSelectionExtendingToUrlPreviewKeepsTextSelection()
 
     const QTextCursor urlCursor = selection.selectionForIndex(index1, &urlPreviewDoc, {}, messageUrl);
     QVERIFY(!urlCursor.isNull());
+    QCOMPARE(urlCursor.position(), urlCursor.anchor());
+}
+
+void TextSelectionTest::testSelectionFromTextToUrlDoesNotSelectUrlRowTextUntilTextIsHit()
+{
+    const QModelIndex index1 = model.index(1, 0);
+    const QModelIndex index2 = model.index(2, 0);
+    TestFactory factory(model.rowCount());
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+
+    MessageUrl messageUrl;
+    messageUrl.setUrl(u"https://kde.org"_s);
+    messageUrl.setPageTitle(u"KDE"_s);
+    messageUrl.setDescription(u"Community"_s);
+    messageUrl.generateMessageUrlInfo();
+    QVERIFY(messageUrl.hasHtmlDescription());
+
+    // Start from message text in a lower row.
+    selection.setTextSelectionStart(index2, 0);
+    selection.setTextSelectionEnd(index2, 11);
+
+    // Move endpoint up into URL preview (same row as index1 message).
+    selection.setPreviewUrlTextSelectionEnd(index1, 2, messageUrl);
+    selection.setPreviewUrlTextSelectionEnd(index1, 12, messageUrl);
+
+    const QTextCursor row2Cursor = selection.selectionForIndex(index2, factory.documentForIndex(index2));
+    QVERIFY(!row2Cursor.isNull());
+    QCOMPARE(row2Cursor.selection().toPlainText(), u"Line 2 bold"_s);
+
+    // While endpoint is in URL preview on row 1, row 1 message text must stay unselected.
+    const QTextCursor row1Cursor = selection.selectionForIndex(index1, factory.documentForIndex(index1));
+    QVERIFY(row1Cursor.isNull() || row1Cursor.selection().toPlainText().isEmpty());
+
+    QTextDocument urlPreviewDoc;
+    urlPreviewDoc.setHtml(messageUrl.htmlDescription());
+    const QTextCursor urlCursor = selection.selectionForIndex(index1, &urlPreviewDoc, {}, messageUrl);
+    QVERIFY(!urlCursor.isNull());
+    QVERIFY(!urlCursor.selection().toPlainText().isEmpty());
 }
 
 void TextSelectionTest::testSelectionStartingInUrlPreviewAndMovingToText()
@@ -312,7 +351,7 @@ void TextSelectionTest::testSelectionStartingInUrlPreviewAndMovingToText()
 void TextSelectionTest::testSelectionStartingInUrlPreviewAndMovingToPreviousMessage()
 {
     const QModelIndex index0 = model.index(0, 0);
-    const QModelIndex index1 = model.index(1, 0);
+    const QModelIndex index2 = model.index(2, 0);
     TestFactory factory(model.rowCount());
     TextSelection selection;
     selection.setTextHelperFactory(&factory);
@@ -324,22 +363,23 @@ void TextSelectionTest::testSelectionStartingInUrlPreviewAndMovingToPreviousMess
     messageUrl.generateMessageUrlInfo();
     QVERIFY(messageUrl.hasHtmlDescription());
 
-    selection.setPreviewUrlTextSelectionStart(index1, 366, messageUrl);
+    selection.setPreviewUrlTextSelectionStart(index2, 2, messageUrl);
+    selection.setPreviewUrlTextSelectionEnd(index2, 12, messageUrl);
 
-    // Move the selection endpoint to the previous message row.
+    // Move the selection endpoint two rows up.
     selection.setTextSelectionEnd(index0, 4);
 
     const QTextCursor row0Cursor = selection.selectionForIndex(index0, factory.documentForIndex(index0));
     QVERIFY(!row0Cursor.isNull());
     QCOMPARE(row0Cursor.selection().toPlainText(), u" 0"_s);
 
-    const QTextCursor row1Cursor = selection.selectionForIndex(index1, factory.documentForIndex(index1));
-    QVERIFY(!row1Cursor.isNull());
-    QCOMPARE(row1Cursor.selection().toPlainText(), u"Line 1 bold"_s);
+    const QTextCursor row2Cursor = selection.selectionForIndex(index2, factory.documentForIndex(index2));
+    QVERIFY(!row2Cursor.isNull());
+    QCOMPARE(row2Cursor.selection().toPlainText(), u"Line 2 bold"_s);
 
     QTextDocument urlPreviewDoc;
     urlPreviewDoc.setHtml(messageUrl.htmlDescription());
-    const QTextCursor urlCursor = selection.selectionForIndex(index1, &urlPreviewDoc, {}, messageUrl);
+    const QTextCursor urlCursor = selection.selectionForIndex(index2, &urlPreviewDoc, {}, messageUrl);
     QVERIFY(!urlCursor.isNull());
     QVERIFY(!urlCursor.selection().toPlainText().isEmpty());
 }
