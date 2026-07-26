@@ -686,7 +686,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             const QList<MessageUrl> messageUrls = message->urls()->messageUrls();
             int messageUrlIndex = 0;
             for (const MessageUrl &messageUrl : messageUrls) {
-                if (messageUrl.hasPreviewUrl()) {
+                if (messageUrl.hasRichPreview()) {
                     // qDebug() << "messageUrl  " << messageUrl;
                     mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
                 }

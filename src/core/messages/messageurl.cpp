@@ -79,9 +79,9 @@ void MessageUrl::generateHtmlDescription()
     if (!mDescription.isEmpty()) {
         mHtmlDescription += u"\n%1"_s.arg(MessageUrl::cleanText(mDescription));
     }
-    if (!mSiteName.isEmpty()) {
-        mHtmlDescription += u"\n[%1](%2)"_s.arg(mSiteName, mSiteUrl);
-    }
+    // Note: the site name is intentionally not repeated here. It duplicates
+    // information already carried by the page title (and the link itself), and
+    // made the preview card needlessly tall. See MessageDelegateHelperUrlPreview.
 }
 
 bool MessageUrl::hasHtmlDescription() const
@@ -106,6 +106,17 @@ bool MessageUrl::hasPreviewUrl() const
         return true;
     }
     return false;
+}
+
+bool MessageUrl::hasRichPreview() const
+{
+    if (!mDescription.isEmpty()) {
+        return true;
+    }
+    if (!mImageUrl.isEmpty()) {
+        return true;
+    }
+    return hasPreviewContentType();
 }
 
 QByteArray MessageUrl::urlId() const

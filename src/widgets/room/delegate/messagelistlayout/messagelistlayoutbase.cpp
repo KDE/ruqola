@@ -153,7 +153,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                 QSize urlsPreviewSize;
                 int topUrlPreview = topBlock;
                 for (const MessageUrl &url : urls) {
-                    if (url.hasPreviewUrl()) {
+                    if (url.hasRichPreview()) {
                         const MessageDelegateHelperUrlPreview *helperUrlPreview = delegate->helperUrlPreview();
                         if (urlsPreviewSize.isEmpty()) {
                             urlsPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);

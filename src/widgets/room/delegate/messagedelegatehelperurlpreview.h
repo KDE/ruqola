@@ -37,12 +37,23 @@ private:
     struct PreviewLayout {
         QPixmap pixmap;
         QString imageUrl;
-        QString previewTitle;
+        // Elided page title, drawn as clickable text when the preview is collapsed.
+        QString collapsedTitle;
         QRect hideShowButtonRect;
-        QSize previewTitleSize;
+        QRect collapsedTitleRect;
+        QSize collapsedTitleSize;
         QSize descriptionSize;
+        // Thumbnail size in device pixels (the pixmap carries the device pixel ratio).
         QSize imageSize;
-        bool hasDescription = false;
+        // Logical-pixel geometry of the compact card. textLeftOffset is where the
+        // description document starts (to the right of the thumbnail); docWidth is
+        // the text width it is laid out at; contentWidth/Height is the whole card.
+        // The layout round-trips between sizeHint() and draw() (see the assert in
+        // draw()).
+        int textLeftOffset = 0;
+        int docWidth = 0;
+        int contentWidth = 0;
+        int contentHeight = 0;
         bool isShown = true;
     };
     LIBRUQOLAWIDGETS_NO_EXPORT void dump(const PreviewLayout &layout);
@@ -50,18 +61,13 @@ private:
     layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option, int urlsPreviewWidth, int urlsPreviewHeight) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
     convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT int
-    charPosition(const QTextDocument *doc, const MessageUrl &messageUrl, QRect previewRect, const QPoint &pos, const QStyleOptionViewItem &option);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos,
-                                                                       const MessageUrl &messageUrl,
-                                                                       QRect previewRect,
-                                                                       const QStyleOptionViewItem &option);
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT int charPosition(const QTextDocument *doc, const PreviewLayout &layout, QRect previewRect, const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void drawDescription(const MessageUrl &messageUrl,
                                                     QRect previewRect,
                                                     QPainter *painter,
-                                                    int topPos,
                                                     const QModelIndex &index,
-                                                    const QStyleOptionViewItem &option) const;
+                                                    const QStyleOptionViewItem &option,
+                                                    const PreviewLayout &layout) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect) const;
 

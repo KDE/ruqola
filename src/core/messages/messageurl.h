@@ -70,6 +70,11 @@ public:
 
     [[nodiscard]] bool hasPreviewUrl() const;
 
+    // Whether the preview shows more than the bare link: an image, a description,
+    // or media content. A title-only preview just restates the link, so it is
+    // not rendered as a card.
+    [[nodiscard]] bool hasRichPreview() const;
+
     [[nodiscard]] QString htmlDescription() const;
 
     [[nodiscard]] bool hasHtmlDescription() const;

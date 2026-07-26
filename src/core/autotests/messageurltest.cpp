@@ -157,6 +157,32 @@ void MessageUrlTest::shouldTestPreviewUrl()
     QVERIFY(url.hasPreviewUrl());
 }
 
+void MessageUrlTest::shouldTestRichPreview()
+{
+    // A bare title is not enough for a preview card: it just restates the link.
+    MessageUrl url;
+    url.setPageTitle(u"Index of /ci-builds/network/ruqola"_s);
+    url.setUrl(u"https://origin.cdn.kde.org/ci-builds/network/ruqola/"_s);
+    QVERIFY(url.hasPreviewUrl());
+    QVERIFY(!url.hasRichPreview());
+
+    // A description makes it worth showing.
+    url.setDescription(u"bla"_s);
+    QVERIFY(url.hasRichPreview());
+    url.setDescription(QString());
+    QVERIFY(!url.hasRichPreview());
+
+    // An image makes it worth showing.
+    url.setImageUrl(u"https://example.com/image.png"_s);
+    QVERIFY(url.hasRichPreview());
+    url.setImageUrl(QString());
+    QVERIFY(!url.hasRichPreview());
+
+    // Media content (a directly-linked image/video) is worth showing.
+    url.setContentType(MessageUrl::ContentType::Image);
+    QVERIFY(url.hasRichPreview());
+}
+
 void MessageUrlTest::shouldGenerateHtmlDescription()
 {
     QFETCH(MessageUrl, messageUrl);
@@ -180,7 +206,7 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
         url.setSiteName(u"SiteName"_s);
         url.setSiteUrl(u"SiteUrl"_s);
 
-        QTest::newRow("generateHtmlDescription-test1") << url << u"[Title](Title_url)\nDescription\n[SiteName](SiteUrl)"_s;
+        QTest::newRow("generateHtmlDescription-test1") << url << u"[Title](Title_url)\nDescription"_s;
     }
 
     {
@@ -220,7 +246,7 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
             << QStringLiteral(
                    "[ Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all. . . #shanhadden #queenshanhadden #egirl "
                    "#minecraft\"](https://www.instagram.com/p/C0vwctGuxnI/)\n19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video "
-                   "that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\"\n[Instagram](https://www.instagram.com/reel/C0vwctGuxnI/)");
+                   "that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\"");
     }
     {
         MessageUrl url;
