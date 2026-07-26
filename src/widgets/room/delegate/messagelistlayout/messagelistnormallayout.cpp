@@ -233,7 +233,9 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();
 
-    layout.readReceiptIconRect = QRect(layout.timeStampRect.left() - margin - iconSize, layout.baseLine, iconSize, iconSize);
+    // Center the read-receipt icon on the timestamp text; the old baseLine anchor put
+    // the icon's top at the text baseline, dropping it a full icon-height below the time.
+    layout.readReceiptIconRect = QRect(layout.timeStampRect.left() - margin - iconSize, senderRectY + (timeSize.height() - iconSize) / 2, iconSize, iconSize);
 
     // Replies
     layout.repliesY = layout.reactionsY + layout.reactionsHeight;
