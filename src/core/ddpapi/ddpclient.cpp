@@ -573,20 +573,22 @@ void DDPClient::onSslErrors(const QList<QSslError> &errors)
 
 void DDPClient::onWSclosed()
 {
+    mConnected = false;
+    // Notify before changing the authentication state. Account cleanup disconnects
+    // this client's signals as soon as the state becomes LoggedOutAndCleanedUp.
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
     if (normalClose) {
-        qCDebug(RUQOLA_RECONNECT_LOG) << "DDP: Normal close, set status to LoggedOutAndCleanedUp, emit disconnectedByServer";
-        authenticationManager()->setLoginStatus(AuthenticationManager::LoggedOutAndCleanedUp);
+        qCDebug(RUQOLA_RECONNECT_LOG) << "DDP: Normal close, emit disconnectedByServer and set status to LoggedOutAndCleanedUp";
         Q_EMIT disconnectedByServer();
+        authenticationManager()->setLoginStatus(AuthenticationManager::LoggedOutAndCleanedUp);
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
                                      << " close code : " << mWebSocket->closeCode() << " error string " << mWebSocket->errorString() << "Protocol version"
                                      << mWebSocket->version();
-        authenticationManager()->setLoginStatus(AuthenticationManager::GenericError);
         Q_EMIT wsClosedSocketError();
+        authenticationManager()->setLoginStatus(AuthenticationManager::GenericError);
     }
 
-    mConnected = false;
     Q_EMIT connectedChanged(false);
 }
 

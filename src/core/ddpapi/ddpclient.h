@@ -24,6 +24,7 @@ class RocketChatAccountSettings;
 class DDPManager;
 class MessageQueue;
 class PluginAuthenticationInterface;
+class DDPClientTest;
 class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
@@ -274,4 +275,6 @@ private:
     std::unique_ptr<DDPClientAccountParameter> mDDPClientAccountParameter;
     QList<qint64> mSubscribeIdentifiers;
     bool mLoginEnqueued = false;
+
+    friend class DDPClientTest;
 };

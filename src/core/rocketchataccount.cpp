@@ -99,6 +99,7 @@
 #include "custom/customuserstatuslistjob.h"
 #include <KLocalizedString>
 #include <QJsonArray>
+#include <QPointer>
 #include <QTimer>
 #include <TextEmoticonsCore/EmojiModel>
 #include <TextEmoticonsCore/EmojiModelManager>
@@ -672,8 +673,31 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp.get(), &DDPClient::added, mRocketChatBackend, &RocketChatBackend::slotAdded);
         connect(mDdp.get(), &DDPClient::removed, mRocketChatBackend, &RocketChatBackend::slotRemoved);
         connect(mDdp.get(), &DDPClient::socketError, this, &RocketChatAccount::socketError);
-        connect(mDdp.get(), &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotReconnectToDdpServer);
+        const QPointer<DDPClient> ddpClient(mDdp.get());
+        const auto reconnectDdp = [this, ddpClient]() {
+            // Authentication cleanup disconnects the DDP client from the account, so queue
+            // an account-owned callback before that cleanup starts.
+            QMetaObject::invokeMethod(
+                this,
+                [this, ddpClient]() {
+                    // Ignore a delayed notification from a DDP client which has already been replaced.
+                    if (!mDdp || mDdp.get() == ddpClient.data()) {
+                        slotReconnectToDdpServer();
+                    }
+                },
+                Qt::QueuedConnection);
+        };
+        connect(mDdp.get(), &DDPClient::disconnectedByServer, this, reconnectDdp);
+        connect(mDdp.get(), &DDPClient::wsClosedSocketError, this, reconnectDdp);
         connect(mDdp.get(), &DDPClient::methodRequested, this, &RocketChatAccount::parseMethodRequested);
+        connect(mDdp.get(), &DDPClient::connectedChanged, this, [this](bool connected) {
+            if (connected) {
+                // A client is connected: cancel any pending reconnect timer. The backoff itself is
+                // only reset once DDP authentication succeeds (see slotDDpLoginStatusChanged).
+                mDdpReconnectScheduled = false;
+                ++mDdpReconnectGeneration;
+            }
+        });
 
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());
@@ -2313,13 +2337,50 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
     }
 }
 
-void RocketChatAccount::slotReconnectToDdpServer() // connected to DDPClient::disconnectedByServer
+// Advance an exponential reconnect backoff: 100ms for the first retry, then
+// 1s, doubling up to a 60s ceiling. Shared by the DDP-only and full-server
+// reconnect paths (which keep their own delay state).
+static int nextReconnectDelay(int currentDelay)
+{
+    if (currentDelay == 100) {
+        return 1000;
+    }
+    return qMin(currentDelay * 2, 60000);
+}
+
+void RocketChatAccount::resetDdp()
+{
+    if (mDdp) {
+        disconnect(mDdp.get(), nullptr, this, nullptr);
+        mDdp.release()->deleteLater();
+    }
+}
+
+void RocketChatAccount::slotReconnectToDdpServer()
 {
     mRoomModel->clear();
-    if (mRestApi && mRestApi->authenticationManager()->isLoggedIn()) {
-        qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "Reconnect only ddpclient";
-        ddp()->enqueueLogin();
+    resetDdp();
+
+    if (!mRestApi || !mRestApi->authenticationManager()->isLoggedIn() || mDdpReconnectScheduled) {
+        return;
     }
+
+    const int reconnectDelay = mDdpDelayReconnect;
+    mDdpReconnectScheduled = true;
+    const quint64 reconnectGeneration = ++mDdpReconnectGeneration;
+    qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "Reconnect DDP client in" << reconnectDelay << "ms";
+    QTimer::singleShot(reconnectDelay, this, [this, reconnectGeneration]() {
+        if (reconnectGeneration != mDdpReconnectGeneration) {
+            return;
+        }
+        mDdpReconnectScheduled = false;
+        if (!mDdp && mRestApi && mRestApi->authenticationManager()->isLoggedIn()) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "Recreating DDP client";
+            ddp();
+        }
+    });
+
+    mDdpDelayReconnect = nextReconnectDelay(mDdpDelayReconnect);
 }
 
 E2eKeyManager *RocketChatAccount::e2eKeyManager() const
@@ -2349,11 +2410,7 @@ void RocketChatAccount::autoReconnectDelayed()
     // Let's try connecting in again
     QTimer::singleShot(mDelayReconnect, this, [this]() {
         qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "Attempting to reconnect after the server disconnected us: " << accountName();
-        if (mDelayReconnect == 100) {
-            mDelayReconnect = 1000;
-        } else {
-            mDelayReconnect *= 2;
-        }
+        mDelayReconnect = nextReconnectDelay(mDelayReconnect);
         Q_EMIT displayReconnectWidget(mDelayReconnect / 1000);
         reconnectToServer();
     });
@@ -2542,10 +2599,16 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotDDpLoginStatusChanged()
 {
-    if (mDdp && mDdp->authenticationManager()->loginStatus() == AuthenticationManager::LoggedOutAndCleanedUp) {
-        qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "Logged out from DDP, resetting mDdp" << accountName();
-        disconnect(mDdp.get(), nullptr, this, nullptr);
-        mDdp.release()->deleteLater();
+    if (mDdp) {
+        const auto ddpLoginStatus = mDdp->authenticationManager()->loginStatus();
+        if (ddpLoginStatus == AuthenticationManager::LoggedOutAndCleanedUp) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "Logged out from DDP, resetting mDdp" << accountName();
+            resetDdp();
+        } else if (ddpLoginStatus == AuthenticationManager::LoggedIn) {
+            // Only reset the backoff once authentication actually succeeds: a server that accepts the
+            // handshake but drops during login would otherwise cause a tight 100ms reconnect loop.
+            mDdpDelayReconnect = 100;
+        }
     }
     Q_EMIT ddpLoginStatusChanged();
     if (!mRestApi && !mDdp) {

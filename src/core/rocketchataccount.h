@@ -593,6 +593,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void licenseGetModules();
     LIBRUQOLACORE_NO_EXPORT void loadSoundFiles();
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
+    LIBRUQOLACORE_NO_EXPORT void resetDdp();
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
     LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRESTLoginStatusChanged();
@@ -700,7 +701,10 @@ private:
     MemoryManager *const mMemoryManager;
     ActionButtonsManager *const mActionButtonsManager;
     int mDelayReconnect = 100;
+    int mDdpDelayReconnect = 100;
     qint64 mAccountTimeStamp = -1;
+    quint64 mDdpReconnectGeneration = 0;
+    bool mDdpReconnectScheduled = false;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
     bool mE2EPasswordMustBeSave = false;
     bool mE2EPasswordMustBeDecrypt = false;
