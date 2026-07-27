@@ -72,7 +72,7 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
         });
         info.pendingAttachmentInfos = lst;
         QVERIFY(info.isValid());
-        QVERIFY(!info.hasPendingMessageTyped());
+        QVERIFY(info.hasPendingMessageTyped());
     }
 }
 

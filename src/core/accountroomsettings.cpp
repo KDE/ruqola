@@ -61,7 +61,7 @@ void AccountRoomSettings::setPendingTypedTexts(const QMap<QByteArray, PendingTyp
 
 bool AccountRoomSettings::PendingTypedInfo::hasPendingMessageTyped() const
 {
-    return !text.isEmpty();
+    return !text.isEmpty() || !pendingAttachmentInfos.isEmpty();
 }
 
 bool AccountRoomSettings::PendingTypedInfo::operator==(const AccountRoomSettings::PendingTypedInfo &other) const
