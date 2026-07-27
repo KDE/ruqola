@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-22 00:44+0000\n"
+"POT-Creation-Date: 2026-07-27 00:45+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1822,7 +1822,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> 正在輸入…"
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:731
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1831,23 +1831,23 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:728
+#: core/rocketchataccount.cpp:739 core/rocketchataccount.cpp:752
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:746
 #, kde-format
 msgid "Not connected yet"
 msgstr "尚未連線"
 
-#: core/rocketchataccount.cpp:3088
+#: core/rocketchataccount.cpp:3151
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "帳戶已新增"
 
-#: core/rocketchataccount.cpp:3089
+#: core/rocketchataccount.cpp:3152
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -10596,11 +10596,6 @@ msgstr "開啟檔案時發生錯誤"
 msgid "Join"
 msgstr "加入"
 
-#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:81
-#, kde-format
-msgid "Link Preview"
-msgstr "連結預覽"
-
 #: widgets/room/delegate/messagelistdelegate.cpp:430
 #, kde-format
 msgid "User Info"
@@ -12503,6 +12498,9 @@ msgstr "使用者名稱："
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "新增帳戶…"
+
+#~ msgid "Link Preview"
+#~ msgstr "連結預覽"
 
 #, fuzzy
 #~| msgctxt "@action"

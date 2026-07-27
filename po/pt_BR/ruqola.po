@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-22 00:44+0000\n"
+"POT-Creation-Date: 2026-07-27 00:45+0000\n"
 "PO-Revision-Date: 2026-07-19 06:29-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1825,7 +1825,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão digitando..."
 
-#: core/rocketchataccount.cpp:707
+#: core/rocketchataccount.cpp:731
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1834,22 +1834,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:715 core/rocketchataccount.cpp:728
+#: core/rocketchataccount.cpp:739 core/rocketchataccount.cpp:752
 #, kde-format
 msgid "Not connected"
 msgstr "Não conectado"
 
-#: core/rocketchataccount.cpp:722
+#: core/rocketchataccount.cpp:746
 #, kde-format
 msgid "Not connected yet"
 msgstr "Não conectado ainda"
 
-#: core/rocketchataccount.cpp:3088
+#: core/rocketchataccount.cpp:3151
 #, kde-format
 msgid "Room Added"
 msgstr "Sala adicionada"
 
-#: core/rocketchataccount.cpp:3089
+#: core/rocketchataccount.cpp:3152
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Uma nova sala foi adicionada em '%1'."
@@ -10797,11 +10797,6 @@ msgstr "Erro ao abrir o arquivo"
 msgid "Join"
 msgstr "Entrar"
 
-#: widgets/room/delegate/messagedelegatehelperurlpreview.cpp:81
-#, kde-format
-msgid "Link Preview"
-msgstr "Visualização do link"
-
 #: widgets/room/delegate/messagelistdelegate.cpp:430
 #, kde-format
 msgid "User Info"
@@ -12631,6 +12626,9 @@ msgstr "Nome do usuário:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Adicionar conta…"
+
+#~ msgid "Link Preview"
+#~ msgstr "Visualização do link"
 
 #~ msgctxt "@action:button"
 #~ msgid "Ignore"
