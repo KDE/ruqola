@@ -79,12 +79,12 @@ bool FilesForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
     if (mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
         return true;
     } else {
-        const bool indexContains = fileName.contains(mSearchText) || username.contains(mSearchText);
+        const bool indexContains = fileName.contains(mSearchText, Qt::CaseInsensitive) || username.contains(mSearchText, Qt::CaseInsensitive);
         if (!mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
             return indexContains;
         }
         if (!mTypeGroup.isEmpty()) {
-            return (mTypeGroup == typegroup) && (indexContains);
+            return (mTypeGroup == typegroup) && indexContains;
         }
     }
     return false;
