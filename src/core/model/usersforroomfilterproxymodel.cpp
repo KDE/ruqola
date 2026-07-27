@@ -10,7 +10,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+    : SortFilterProxyModelBase(parent)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortRole(UsersForRoomModel::UsersForRoomRoles::UserName);
@@ -24,15 +24,6 @@ void UsersForRoomFilterProxyModel::clearFilter()
 {
     mFilterString.clear();
     mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
-}
-
-void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
-{
-    if (mFilterString != string) {
-        beginFilterChange();
-        mFilterString = string;
-        endFilterChange(QSortFilterProxyModel::Direction::Rows);
-    }
 }
 
 bool UsersForRoomFilterProxyModel::hasFullList() const
@@ -82,7 +73,7 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
 {
     const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
     auto match = [&](int role) {
-        return mFilterString.isEmpty() || sourceIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+        return mFilterString.isEmpty() || contains(sourceIndex.data(role).toString());
     };
     switch (mStatusType) {
     case UsersForRoomFilterProxyModel::FilterUserType::All:
