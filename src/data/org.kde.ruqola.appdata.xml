@@ -1391,6 +1391,7 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Allow to define topic when it's not defined</li>
           <li>Redesign link previews as compact cards</li>
           <li>Fix DDP reconnection</li>
           <li>Improve user info</li>
