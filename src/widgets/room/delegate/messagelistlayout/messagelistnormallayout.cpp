@@ -48,11 +48,19 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     QRect usableRect = option.rect;
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
-    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
-        usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+    const bool dateDiffersFromPrevious = index.data(MessagesModel::DateDiffersFromPrevious).toBool();
+    // A date header and a standalone unread-messages line each occupy a band at the top of
+    // the row. Reserve it here; the author line is shifted down by the same amount below.
+    int topBandHeight = 0;
+    if (dateDiffersFromPrevious) {
+        topBandHeight = option.fontMetrics.height();
     } else if (displayLastSeenMessage) {
-        layout.displayLastSeenMessageY = usableRect.top();
+        topBandHeight = option.fontMetrics.height();
+        // Center the line in its band so it gets symmetric padding instead of hugging the
+        // top of the next message.
+        layout.displayLastSeenMessageY = usableRect.top() + topBandHeight / 2;
     }
+    usableRect.setTop(usableRect.top() + topBandHeight);
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
     usableRect.setTop(usableRect.top() + senderAscent); // FIXME position.
@@ -140,16 +148,15 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     // Align top of sender rect so it matches the baseline of the richtext
     layout.senderRect =
         QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : senderTextSize.height()));
-    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
-        // A date header occupies the row's top line (drawn by drawDate), and usableRect
-        // already pushed the message text down by that line's height. Shift the whole
-        // author line — the name baseline, its rect, and therefore the avatar — down by
-        // the same height, so a date row is exactly a regular new-sender row plus one
-        // header line. (Replaces an "- 4" fudge that moved only the baseline, leaving the
+    if (topBandHeight > 0) {
+        // A date header (drawn by drawDate) or a standalone unread-messages line occupies the
+        // row's top band, and usableRect already pushed the message text down by that band's
+        // height. Shift the whole author line — the name baseline, its rect, and therefore the
+        // avatar — down by the same height, so such a row is exactly a regular new-sender row
+        // plus the top band. (Replaces an "- 4" fudge that moved only the baseline, leaving the
         // author line looser above its text than a normal new-sender row.)
-        const int headerHeight = option.fontMetrics.height();
-        layout.baseLine += headerHeight;
-        layout.senderRect.moveTop(layout.senderRect.top() + headerHeight);
+        layout.baseLine += topBandHeight;
+        layout.senderRect.moveTop(layout.senderRect.top() + topBandHeight);
     }
     // Align top of avatar with top of sender rect
     const double senderRectY{layout.senderRect.y()};

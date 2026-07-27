@@ -49,7 +49,11 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     } else if (displayLastSeenMessage) {
-        layout.displayLastSeenMessageY = usableRect.top();
+        // Reserve a band for the unread-messages line and center it, so the line
+        // gets symmetric padding instead of hugging the top of the next message.
+        const int lastSeenLineHeight = option.fontMetrics.height();
+        layout.displayLastSeenMessageY = usableRect.top() + lastSeenLineHeight / 2;
+        usableRect.setTop(usableRect.top() + lastSeenLineHeight);
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
