@@ -1391,6 +1391,8 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Redesign link previews as compact cards</li>
+          <li>Fix DDP reconnection</li>
           <li>Improve user info</li>
           <li xml:lang="ca">Millora la informació d'usuaris</li>
           <li xml:lang="ca-valencia">Millora la informació d'usuaris</li>
