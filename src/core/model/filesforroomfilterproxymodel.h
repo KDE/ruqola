@@ -7,16 +7,15 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QSortFilterProxyModel>
+#include "sortfilterproxymodelbase.h"
 class FilesForRoomModel;
-class LIBRUQOLACORE_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT FilesForRoomFilterProxyModel : public SortFilterProxyModelBase
 {
     Q_OBJECT
 public:
     explicit FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel = nullptr, QObject *parent = nullptr);
     ~FilesForRoomFilterProxyModel() override;
 
-    void setFilterString(const QString &string);
     [[nodiscard]] int total() const;
 
     [[nodiscard]] bool hasFullList() const;
@@ -38,6 +37,5 @@ Q_SIGNALS:
 
 private:
     QString mTypeGroup;
-    QString mSearchText;
     FilesForRoomModel *const mFilesForRoomModel;
 };
