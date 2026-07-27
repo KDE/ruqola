@@ -623,9 +623,15 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
+    // A read receipt only carries meaning for one's own messages in a direct conversation:
+    // in rooms "read by everyone" rarely resolves so the per-message flag is just noise, and
+    // the flag only tracks read state at all when the server-side feature is enabled.
+    const Room *room = mRocketChatAccount->room(message->roomId());
+    const bool ownMessageInDirectRoom = room && room->channelType() == Room::RoomType::Direct && message->userId() == mRocketChatAccount->userId();
     // The read receipt follows the timestamp: on the author line for a new sender,
     // and suppressed for grouped rows (null rect) where the timestamp is gutter-only.
-    if (showTimestamp && layout.readReceiptIconRect.isValid()) {
+    if (showTimestamp && layout.readReceiptIconRect.isValid() && ownMessageInDirectRoom
+        && mRocketChatAccount->ruqolaServerConfig()->messageReadReceiptEnabled()) {
         if (message->unread()) {
             mSingleCheckIcon.paint(painter, layout.readReceiptIconRect);
         } else {
