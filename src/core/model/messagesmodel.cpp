@@ -131,6 +131,15 @@ qint64 MessagesModel::lastTimestamp() const
     }
 }
 
+qint64 MessagesModel::lastUpdatedAtTimestamp() const
+{
+    if (!mAllMessages.isEmpty()) {
+        return mAllMessages.at(mAllMessages.count() - 1).updatedAt();
+    } else {
+        return 0;
+    }
+}
+
 qint64 MessagesModel::firstTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {

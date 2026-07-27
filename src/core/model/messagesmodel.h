@@ -121,6 +121,13 @@ public:
      */
     [[nodiscard]] qint64 lastTimestamp() const;
 
+    /**
+     * @brief Returns last updatedAt timestamp of last message in QList mAllMessages
+     *
+     * @return qint64 The last updatedAt timestamp
+     */
+    [[nodiscard]] qint64 lastUpdatedAtTimestamp() const;
+
     void deleteMessage(const QByteArray &messageId);
 
     [[nodiscard]] qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);

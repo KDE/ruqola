@@ -108,14 +108,18 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
                 return;
             }
 #endif
-            const qint64 lastDateTime = info.roomModel->lastTimestamp();
-            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "lastDateTime " << lastDateTime << "date " << QDateTime::fromMSecsSinceEpoch(lastDateTime);
-            if (lastDateTime != 0) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << lastDateTime;
-                syncMessage(info.roomId, lastDateTime);
+            // Sync from just after the last message's updatedAt to avoid reloading it if it was edited on server
+            // Use updatedAt instead of timestamp because SyncMessagesJob uses updatedAt to determine which messages to return
+            const qint64 lastUpdatedAt = info.roomModel->lastUpdatedAtTimestamp();
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "lastUpdatedAt " << lastUpdatedAt << "date " << QDateTime::fromMSecsSinceEpoch(lastUpdatedAt);
+            if (lastUpdatedAt != 0) {
+                // Add 1ms to avoid syncing the last message itself while still getting newer messages
+                const qint64 syncFromDateTime = lastUpdatedAt + 1;
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync from " << syncFromDateTime;
+                syncMessage(info.roomId, syncFromDateTime);
                 return;
             } else {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no messages in database ";
             }
 #endif
         } else if (mRocketChatAccount->offlineMode()) {
