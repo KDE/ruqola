@@ -170,6 +170,15 @@ public:
 
     void updateTextToSpeech(const QByteArray &messageId, bool inProgress);
 
+    /**
+     * @brief Clears the read-receipt "unread" flag on every message sent no later than @p until.
+     *
+     * Called in response to the server's @c messagesRead notification, whose @c until is the
+     * oldest last-seen timestamp across all room participants — i.e. the point up to which
+     * everyone has read. Repaints the affected rows so the read-receipt indicator updates live.
+     */
+    void markMessagesReadUntil(qint64 until);
+
     void generateText(const Message &message, const QString &searchText, int hightLightStringIndex);
 
 private:

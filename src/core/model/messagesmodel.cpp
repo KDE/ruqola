@@ -789,6 +789,34 @@ void MessagesModel::updateTextToSpeech(const QByteArray &messageId, bool inProgr
     setData(index, inProgress, MessagesModel::TextToSpeechInProgress);
 }
 
+void MessagesModel::markMessagesReadUntil(qint64 until)
+{
+    if (until <= 0) {
+        return;
+    }
+    // mAllMessages is sorted by ascending timestamp, so the messages read (ts <= until) form a
+    // contiguous prefix. Clear their unread flag and repaint that range in one go.
+    int firstRow = -1;
+    int lastRow = -1;
+    for (int row = 0, total = mAllMessages.count(); row < total; ++row) {
+        Message &message = mAllMessages[row];
+        if (message.timeStamp() > until) {
+            break;
+        }
+        if (message.unread()) {
+            message.setUnread(false);
+            if (firstRow == -1) {
+                firstRow = row;
+            }
+            lastRow = row;
+        }
+    }
+    if (firstRow != -1) {
+        qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "markMessagesReadUntil until=" << until << "cleared unread on rows" << firstRow << "-" << lastRow;
+        Q_EMIT dataChanged(createIndex(firstRow, 0), createIndex(lastRow, 0));
+    }
+}
+
 RuqolaQuickSearchMessageSettings *MessagesModel::quickSearchMessageSettings() const
 {
     return mQuickSearchMessageSettings;

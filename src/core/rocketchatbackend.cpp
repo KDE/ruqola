@@ -611,6 +611,25 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             roomId.remove(u"/deleteMessageBulk"_s);
             qCDebug(RUQOLA_BACKEND_LOG) << "UNIMPLEMENT!!!!!! deleteMessageBulk " << collection << " object " << object;
             // QJsonObject({"collection":"stream-notify-room","fields":{"args":[{"excludePinned":false,"ignoreDiscussion":true,"rid":"QgCf8GcnXYW5QXiHN","ts":{"$gt":{"$date":946681200000},"$lt":{"$date":1599602400000}},"users":[]}],"eventName":"QgCf8GcnXYW5QXiHN/deleteMessageBulk"},"id":"id","msg":"changed"})
+        } else if (eventname.endsWith("/messagesRead"_L1)) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-room: messagesRead:"_ba + d.toJson());
+            }
+            // Rocket.Chat emits this (only when Message_Read_Receipt_Enabled) once everyone in the
+            // room has read up to "until" — the oldest last-seen timestamp across participants. Clear
+            // the read-receipt flag on messages up to that point so the indicator updates live.
+            // Args: [{ until: Date, tmid?: string }]; a per-thread read (tmid set) is not handled here.
+            QString roomId = eventname;
+            roomId.remove(u"/messagesRead"_s);
+            const QJsonObject readInfo = contents.at(0).toObject();
+            const qint64 until = Utils::parseDate(u"until"_s, readInfo);
+            if (until > 0 && readInfo.value("tmid"_L1).toString().isEmpty()) {
+                if (MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1())) {
+                    messageModel->markMessagesReadUntil(until);
+                }
+            }
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
