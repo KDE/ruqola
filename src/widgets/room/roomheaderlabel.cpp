@@ -20,13 +20,19 @@ RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
     setVisible(false);
     connect(this, &QLabel::linkActivated, this, &RoomHeaderLabel::slotMoreInfo);
     connect(this, &QLabel::linkHovered, this, [this](const QString &url) {
-        if (url != "showlesstext"_L1 && url != "showmoretext"_L1) {
+        if (url != "showlesstext"_L1 && url != "showmoretext"_L1 && url != "add_topic"_L1) {
             setToolTip(url);
         }
     });
 }
 
 RoomHeaderLabel::~RoomHeaderLabel() = default;
+
+void RoomHeaderLabel::setIsOwner(bool isOwner)
+{
+    mIsOwner = isOwner;
+    updateHeaderText();
+}
 
 void RoomHeaderLabel::resizeEvent(QResizeEvent *ev)
 {
@@ -59,6 +65,8 @@ void RoomHeaderLabel::slotMoreInfo(const QString &content)
     } else if (content == "showlesstext"_L1) {
         mExpandTopic = false;
         updateSqueezedText();
+    } else if (content == "add_topic"_L1) {
+        Q_EMIT configureTopic();
     } else {
         RuqolaUtils::self()->openUrl(QUrl(content));
     }
@@ -79,7 +87,7 @@ QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
 
                 // On some MacOS system, maxWidth may return 0
                 if (em == 0) {
-                    for (QChar c : text) {
+                    for (const QChar c : text) {
                         em = qMax(em, fontMetrics().horizontalAdvance(c));
                     }
                 }
@@ -137,7 +145,11 @@ void RoomHeaderLabel::setRoomTopic(const QString &topic)
 void RoomHeaderLabel::updateHeaderText()
 {
     mFullText.clear();
-    if (!mTopic.isEmpty()) {
+    if (mTopic.isEmpty()) {
+        if (mIsOwner) {
+            mFullText = u"<a href=\"add_topic\">%1</a>"_s.arg(i18n("Add Topic"));
+        }
+    } else {
         mFullText = mTopic;
     }
     if (!mAnnouncement.isEmpty()) {

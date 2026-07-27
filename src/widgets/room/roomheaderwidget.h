@@ -77,6 +77,7 @@ Q_SIGNALS:
     void uiInteractionRequested(const QJsonObject &obj);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureTopic();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisabledEncryption();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();

@@ -19,8 +19,13 @@ public:
 
     [[nodiscard]] const QString &fullText() const;
 
+    void setIsOwner(bool isOwner);
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
+
+Q_SIGNALS:
+    void configureTopic();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMoreInfo(const QString &content);
@@ -32,4 +37,5 @@ private:
     QString mTopic;
     QString mAnnouncement;
     bool mExpandTopic = false;
+    bool mIsOwner = false;
 };

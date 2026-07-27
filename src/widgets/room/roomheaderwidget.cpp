@@ -245,6 +245,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mTeamName, &TeamNameLabel::openTeam, this, &RoomHeaderWidget::openTeam);
 
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &RoomHeaderWidget::uiInteractionRequested);
+    connect(mRoomHeaderLabel, &RoomHeaderLabel::configureTopic, this, &RoomHeaderWidget::slotConfigureTopic);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()
@@ -324,6 +325,8 @@ void RoomHeaderWidget::setRoom(Room *room)
     } else {
         mRoomIcon->setPixmap({});
     }
+    const bool owner = mRoom->hasPermission(u"set-owner"_s);
+    mRoomHeaderLabel->setIsOwner(owner);
 }
 
 void RoomHeaderWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
@@ -401,6 +404,11 @@ void RoomHeaderWidget::slotDisabledEncryption()
     } else {
         mEncryptedButton->setChecked(true);
     }
+}
+
+void RoomHeaderWidget::slotConfigureTopic()
+{
+    Q_EMIT channelInfoRequested();
 }
 
 #include "moc_roomheaderwidget.cpp"
