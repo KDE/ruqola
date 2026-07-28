@@ -108,6 +108,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
             mMessageType = MessageType::System;
         }
     } else {
+        mSystemMessageType = SystemMessageTypeUtil::SystemMessageType::Unknown;
         mMessageType = Message::MessageType::NormalText;
     }
     parseBlocks(o.value("blocks"_L1).toArray());
@@ -129,6 +130,8 @@ void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManag
             mReactions.reset(new Reactions);
         }
         mReactions->parseReactions(reacts, emojiManager);
+    } else {
+        mReactions.reset();
     }
 }
 
@@ -619,6 +622,8 @@ void Message::parseAttachment(const QJsonArray &attachments)
         if (mAttachments->isEmpty()) {
             mAttachments.reset();
         }
+    } else {
+        mAttachments.reset();
     }
 }
 

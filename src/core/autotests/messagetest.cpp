@@ -8,6 +8,7 @@
 #include "messages/message.h"
 #include "ruqola_autotest_helper.h"
 #include <QCborValue>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
@@ -839,6 +840,57 @@ void MessageTest::shouldUpdateJsonMessage()
         qDebug() << "fromJson " << m;
     }
     QVERIFY(compareMessage);
+}
+
+void MessageTest::shouldClearStaleDependentDataOnUpdate()
+{
+    Message message;
+
+    QJsonObject initial;
+    initial.insert("_id"_L1, "msg-id"_L1);
+    initial.insert("rid"_L1, "room-id"_L1);
+    initial.insert("msg"_L1, "initial"_L1);
+    initial.insert("t"_L1, "room_changed_topic"_L1);
+
+    QJsonObject user;
+    user.insert("username"_L1, "alice"_L1);
+    user.insert("name"_L1, "Alice"_L1);
+    user.insert("_id"_L1, "alice-id"_L1);
+    initial.insert("u"_L1, user);
+
+    QJsonArray attachments;
+    QJsonObject attachment;
+    attachment.insert("text"_L1, "attachment text"_L1);
+    attachments.append(attachment);
+    initial.insert("attachments"_L1, attachments);
+
+    QJsonObject reactions;
+    QJsonObject smileReaction;
+    QJsonArray usernames;
+    usernames.append("alice"_L1);
+    smileReaction.insert("usernames"_L1, usernames);
+    reactions.insert(":smile:"_L1, smileReaction);
+    initial.insert("reactions"_L1, reactions);
+
+    message.parseMessage(initial, false, nullptr);
+
+    QVERIFY(message.attachments());
+    QVERIFY(message.reactions());
+    QCOMPARE(message.systemMessageType(), SystemMessageTypeUtil::SystemMessageType::RoomTopicChanged);
+    QCOMPARE(message.messageType(), Message::MessageType::System);
+
+    QJsonObject updated;
+    updated.insert("_id"_L1, "msg-id"_L1);
+    updated.insert("rid"_L1, "room-id"_L1);
+    updated.insert("msg"_L1, "updated"_L1);
+    updated.insert("u"_L1, user);
+
+    message.parseMessage(updated, false, nullptr);
+
+    QVERIFY(!message.attachments());
+    QVERIFY(!message.reactions());
+    QCOMPARE(message.systemMessageType(), SystemMessageTypeUtil::SystemMessageType::Unknown);
+    QCOMPARE(message.messageType(), Message::MessageType::NormalText);
 }
 
 #include "moc_messagetest.cpp"
