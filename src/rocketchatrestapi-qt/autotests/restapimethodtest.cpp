@@ -237,10 +237,10 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EAcceptSuggestedGroupKey), QUrl(u"http://www.kde.org/api/v1/e2e.acceptSuggestedGroupKey"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ERejectSuggestedGroupKey), QUrl(u"http://www.kde.org/api/v1/e2e.rejectSuggestedGroupKey"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EProvideUsersWithSuggestedGroupKeys),
-             QUrl(u"http://www.kde.org/api/v1/e2e.provideUsersWithSuggestedGroupKeys"_s));
+             QUrl(u"http://www.kde.org/api/v1/e2e.provideUsersSuggestedGroupKeys"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EResetRoomKey), QUrl(u"http://www.kde.org/api/v1/e2e.resetRoomKey"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey),
-             QUrl(u"http://www.kde.org/api/v1/e2e.provideUsersSuggestedGroupKeys"_s));
+             QUrl(u"http://www.kde.org/api/v1/e2e.fetchUsersWaitingForGroupKey"_s));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesList), QUrl(u"http://www.kde.org/api/v1/roles.list"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesSync), QUrl(u"http://www.kde.org/api/v1/roles.sync"_s));

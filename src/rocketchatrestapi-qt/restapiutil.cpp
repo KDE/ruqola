@@ -394,11 +394,11 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::E2ERejectSuggestedGroupKey:
         return u"e2e.rejectSuggestedGroupKey"_s;
     case RestApiUtil::RestApiUrlType::E2EProvideUsersWithSuggestedGroupKeys:
-        return u"e2e.provideUsersWithSuggestedGroupKeys"_s;
+        return u"e2e.provideUsersSuggestedGroupKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EResetRoomKey:
         return u"e2e.resetRoomKey"_s;
     case RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey:
-        return u"e2e.provideUsersSuggestedGroupKeys"_s;
+        return u"e2e.fetchUsersWaitingForGroupKey"_s;
 
     case RestApiUtil::RestApiUrlType::RolesList:
         return u"roles.list"_s;
