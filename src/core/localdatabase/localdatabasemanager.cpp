@@ -63,7 +63,7 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QByte
     mMessageLogger->deleteMessage(accountName, roomId, msgId);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mMessagesDatabase->deleteMessage(accountName, roomId, msgId);
-        mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
+        // Don't remove MessageTimeStamp - it tracks when messages existed in this room
         mGlobalDatabase->insertOrReplaceTimeStamp(accountName,
                                                   {},
                                                   LocalDatabaseUtils::currentTimeStamp(),
