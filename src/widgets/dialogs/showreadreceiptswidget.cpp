@@ -63,6 +63,7 @@ void ShowReadReceiptsWidget::slotSearchReadReceiptsChanged(const QString &str)
 
 void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
 {
+    // TODO use "ChatMessageReadReceipts" enum here. Need to port method
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
     info.methodName = u"getReadReceipts"_s;
