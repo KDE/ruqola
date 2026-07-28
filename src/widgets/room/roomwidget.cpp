@@ -100,12 +100,13 @@ RoomWidget::RoomWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+    mainLayout->setSpacing(0);
 
     mRoomHeaderWidget->setObjectName(u"mRoomHeaderWidget"_s);
     mainLayout->addWidget(mRoomHeaderWidget);
 
     auto roomWidget = new QWidget(this);
-    mainLayout->addWidget(roomWidget);
+    mainLayout->addWidget(roomWidget, 1);
     mRoomWidgetLayout = new QVBoxLayout(roomWidget);
     mRoomWidgetLayout->setObjectName(u"roomWidgetLayout"_s);
     mRoomWidgetLayout->setContentsMargins({});

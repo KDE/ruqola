@@ -15,4 +15,8 @@ public:
     ~RoomHeaderLabelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldKeepShowMoreAtNormalLineSpacing();
+    void shouldCollapseWrappedSingleParagraph();
+    void shouldUseFullWidthBeforeShowMore();
+    void shouldPreserveRichTextWhenCollapsing();
 };

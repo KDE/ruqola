@@ -32,7 +32,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateSqueezedText();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateHeaderText();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString rPixelSqueeze(const QString &text, int maxPixels) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QSize textSize(const QString &text) const;
     QString mFullText;
     QString mTopic;
     QString mAnnouncement;

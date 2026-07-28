@@ -50,14 +50,26 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
             return left->order() < right->order();
         });
     }
+    // The header height depends on the width available to the wrapping topic.
+    QSizePolicy headerSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    headerSizePolicy.setHeightForWidth(true);
+    setSizePolicy(headerSizePolicy);
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto headerLayout = new QHBoxLayout;
     headerLayout->setObjectName(u"headerLayout"_s);
-    headerLayout->setContentsMargins({});
+    headerLayout->setContentsMargins(0, 4, 0, 4);
     mainLayout->addLayout(headerLayout);
+
+    // Keep the controls in a top-anchored first-row band when the topic expands below it.
+    auto leftButtonLayout = new QHBoxLayout;
+    leftButtonLayout->setObjectName(u"leftButtonLayout"_s);
+    leftButtonLayout->setContentsMargins({});
+    headerLayout->addLayout(leftButtonLayout);
+    headerLayout->setAlignment(leftButtonLayout, Qt::AlignTop);
 
     mFavoriteButton->setAutoRaise(true);
     mFavoriteButton->setObjectName(u"mFavoriteButton"_s);
@@ -67,14 +79,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 #ifndef QT_NO_ACCESSIBILITY
     mFavoriteButton->setAccessibleName(i18n("Favorite"));
 #endif
-    headerLayout->addWidget(mFavoriteButton, 0, Qt::AlignTop);
+    leftButtonLayout->addWidget(mFavoriteButton, 0, Qt::AlignVCenter);
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
     mDiscussionBackButton->setAutoRaise(true);
     mDiscussionBackButton->setObjectName(u"mDiscussionBackButton"_s);
     mDiscussionBackButton->setIcon(QIcon::fromTheme(u"draw-arrow-back"_s));
     mDiscussionBackButton->setCheckable(false);
-    headerLayout->addWidget(mDiscussionBackButton, 0, Qt::AlignTop);
+    leftButtonLayout->addWidget(mDiscussionBackButton, 0, Qt::AlignVCenter);
     connect(mDiscussionBackButton, &QToolButton::clicked, this, &RoomHeaderWidget::goBackToRoom);
     mDiscussionBackButton->setVisible(false);
 
@@ -88,7 +100,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 
     mEncryptedButton->setCheckable(true);
     mEncryptedButton->setVisible(false);
-    headerLayout->addWidget(mEncryptedButton, 0, Qt::AlignTop);
+    leftButtonLayout->addWidget(mEncryptedButton, 0, Qt::AlignVCenter);
     connect(mEncryptedButton, &QToolButton::clicked, this, [this](bool checked) {
         if (!checked) {
             slotDisabledEncryption();
@@ -97,46 +109,57 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
         }
     });
 
+    mRoomIcon->setObjectName(u"mRoomIcon"_s);
     mRoomIcon->setMargin(1);
-    headerLayout->addWidget(mRoomIcon, 0, Qt::AlignTop);
-
-    auto infoLayout = new QVBoxLayout;
-    infoLayout->setObjectName(u"infoLayout"_s);
-    infoLayout->setContentsMargins({});
-    infoLayout->setSpacing(0);
-    headerLayout->addLayout(infoLayout);
+    leftButtonLayout->addWidget(mRoomIcon, 0, Qt::AlignVCenter);
 
     auto roomNameLayout = new QHBoxLayout;
     roomNameLayout->setObjectName(u"roomNameLayout"_s);
     roomNameLayout->setContentsMargins({});
-    roomNameLayout->setSpacing(0);
-    infoLayout->addLayout(roomNameLayout);
+    roomNameLayout->setSpacing(6);
+    headerLayout->addLayout(roomNameLayout, 1);
 
     mRoomName->setObjectName(u"mRoomName"_s);
     mRoomName->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    roomNameLayout->addWidget(mRoomName);
+    // Render the name as rich text (bold, via setRoomName) so it shares the topic label's text
+    // metrics: both then carry the same rich-text document margin, so a plain top alignment
+    // lines their first lines up exactly — on a single row and when the topic wraps below.
+    mRoomName->setTextFormat(Qt::RichText);
+    mRoomName->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    roomNameLayout->addWidget(mRoomName, 0, Qt::AlignTop);
     mRoomName->setVisible(false);
+    // Centre the first text line against the button band without centring the complete topic.
+    const int nameTopMargin = qMax(0, (mFavoriteButton->sizeHint().height() - mRoomName->fontMetrics().height()) / 2);
+    roomNameLayout->setContentsMargins(0, nameTopMargin, 0, 0);
 
     mTeamName->setObjectName(u"mTeamName"_s);
-    roomNameLayout->addWidget(mTeamName);
+    roomNameLayout->addWidget(mTeamName, 0, Qt::AlignTop);
     mTeamName->setVisible(false);
-    roomNameLayout->addStretch(1);
 
+    // The topic shares the room-name row rather than taking a line of its own, reclaiming the
+    // empty space that used to sit to the right of the name. A short topic stays on that line;
+    // a long topic, an announcement, or an expanded topic wraps below as before. Reusing
+    // RoomHeaderLabel keeps its rich-text links, width squeezing and "Show More" expansion.
     mRoomHeaderLabel->setObjectName(u"mRoomHeaderLabel"_s);
-    infoLayout->addWidget(mRoomHeaderLabel);
+    // Anchor the topic text to the top of its cell (QLabel centres vertically by default): the
+    // cell can be a touch taller than the name, and centring would drop the topic below the
+    // top-aligned name. Top-anchoring both keeps their first lines level.
+    mRoomHeaderLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    roomNameLayout->addWidget(mRoomHeaderLabel, 1);
 
     auto buttonLayout = new QHBoxLayout;
     buttonLayout->setObjectName(u"buttonLayout"_s);
     buttonLayout->setContentsMargins({});
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
+    headerLayout->setAlignment(buttonLayout, Qt::AlignTop);
 
     mAIActionButton->setAutoRaise(true);
     mAIActionButton->setObjectName(u"mAIActionButton"_s);
     mAIActionButton->setToolTip(i18nc("@info:tooltip", "AI Actions"));
     mAIActionButton->setPopupMode(QToolButton::InstantPopup);
     mAIActionButton->setIcon(QIcon::fromTheme(u"irc-operator"_s));
-    buttonLayout->addWidget(mAIActionButton, 0, Qt::AlignTop);
+    buttonLayout->addWidget(mAIActionButton, 0, Qt::AlignVCenter);
     mAIActionButton->setMenu(new QMenu(mAIActionButton));
     // Disable by default
     mAIActionButton->hide();
@@ -149,7 +172,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mCallButton->setAccessibleName(i18n("Call"));
 #endif
 
-    buttonLayout->addWidget(mCallButton, 0, Qt::AlignTop);
+    buttonLayout->addWidget(mCallButton, 0, Qt::AlignVCenter);
     connect(mCallButton, &QToolButton::clicked, this, &RoomHeaderWidget::callRequested);
 
     mChannelInfoButton->setAutoRaise(true);
@@ -160,7 +183,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelInfoButton->setAccessibleName(i18n("Channel's Information"));
 #endif
 
-    buttonLayout->addWidget(mChannelInfoButton, 0, Qt::AlignTop);
+    buttonLayout->addWidget(mChannelInfoButton, 0, Qt::AlignVCenter);
     connect(mChannelInfoButton, &QToolButton::clicked, this, &RoomHeaderWidget::channelInfoRequested);
 
     mTeamChannelsButton->setAutoRaise(true);
@@ -171,7 +194,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTeamChannelsButton->setAccessibleName(i18n("Team Channels"));
 #endif
 
-    buttonLayout->addWidget(mTeamChannelsButton, 0, Qt::AlignTop);
+    buttonLayout->addWidget(mTeamChannelsButton, 0, Qt::AlignVCenter);
     connect(mTeamChannelsButton, &QToolButton::clicked, this, &RoomHeaderWidget::teamChannelsRequested);
 
     mListOfUsersButton->setAutoRaise(true);
@@ -183,7 +206,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mListOfUsersButton->setAccessibleName(i18n("Show List of Users"));
 #endif
 
-    buttonLayout->addWidget(mListOfUsersButton, 0, Qt::AlignTop);
+    buttonLayout->addWidget(mListOfUsersButton, 0, Qt::AlignVCenter);
     connect(mListOfUsersButton, &QToolButton::clicked, this, &RoomHeaderWidget::listOfUsersChanged);
 
     mSearchMessageButton->setAutoRaise(true);
@@ -195,7 +218,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 #ifndef QT_NO_ACCESSIBILITY
     mSearchMessageButton->setAccessibleName(i18n("Search Messages…"));
 #endif
-    buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
+    buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignVCenter);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);
     for (PluginTool *plugin : std::as_const(plugins)) {
         if (plugin->enabled()) {
@@ -226,7 +249,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
                 } else {
                     connect(mPluginButton, &QToolButton::clicked, interface, &PluginToolInterface::activateRequested);
                 }
-                buttonLayout->addWidget(mPluginButton, 0, Qt::AlignTop);
+                buttonLayout->addWidget(mPluginButton, 0, Qt::AlignVCenter);
             }
         }
     }
@@ -235,7 +258,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mChannelActionButton->setObjectName(u"mChannelAction"_s);
     mChannelActionButton->setPopupMode(QToolButton::InstantPopup);
     mChannelActionButton->setIcon(QIcon::fromTheme(u"irc-operator"_s));
-    buttonLayout->addWidget(mChannelActionButton, 0, Qt::AlignTop);
+    buttonLayout->addWidget(mChannelActionButton, 0, Qt::AlignVCenter);
 
     mChannelActionPopupMenu = new ChannelActionPopupMenu(mChannelActionButton);
     mChannelActionPopupMenu->setObjectName(u"mChannelActionPopupMenu"_s);
@@ -271,13 +294,16 @@ void RoomHeaderWidget::setTeamRoomInfo(const Room::TeamRoomInfo &info)
 
 void RoomHeaderWidget::setRoomName(const QString &name)
 {
-    mRoomName->setText(name);
+    mRoomNamePlain = name;
+    // Bold via markup (the label is rich text so it matches the topic's metrics); keep the
+    // plain name for roomName().
+    mRoomName->setText(name.isEmpty() ? QString() : u"<b>%1</b>"_s.arg(name.toHtmlEscaped()));
     mRoomName->setVisible(!name.isEmpty());
 }
 
 QString RoomHeaderWidget::roomName() const
 {
-    return mRoomName->text();
+    return mRoomNamePlain;
 }
 
 void RoomHeaderWidget::setRoomAnnouncement(const QString &name)

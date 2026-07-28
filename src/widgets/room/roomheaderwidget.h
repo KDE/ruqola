@@ -104,4 +104,5 @@ private:
     ActionButtonsGenerator *const mActionButtonsGenerator;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QPointer<Room> mRoom;
+    QString mRoomNamePlain;
 };

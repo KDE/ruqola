@@ -8,8 +8,48 @@
 
 #include "ruqolautils.h"
 #include <KLocalizedString>
+#include <QTextBlock>
+#include <QTextCursor>
 #include <QTextDocument>
+#include <QTextDocumentFragment>
+#include <QTextLayout>
 using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+int lineCount(const QTextDocument &document)
+{
+    int count = 0;
+    for (QTextBlock block = document.begin(); block.isValid(); block = block.next()) {
+        count += block.layout()->lineCount();
+    }
+    return count;
+}
+
+int firstVisualLineEnd(const QTextDocument &document)
+{
+    for (QTextBlock block = document.begin(); block.isValid(); block = block.next()) {
+        const QTextLayout *layout = block.layout();
+        if (layout->lineCount() > 0) {
+            const QTextLine line = layout->lineAt(0);
+            int end = block.position() + line.textStart() + line.textLength();
+            while (end > block.position() && document.characterAt(end - 1).isSpace()) {
+                --end;
+            }
+            return end;
+        }
+    }
+    return 0;
+}
+
+QString appendInfoLink(QTextDocument &document, const QString &href, const QString &linkText)
+{
+    QTextCursor cursor(&document);
+    cursor.movePosition(QTextCursor::End);
+    cursor.insertHtml(u"<br><a href=\"%1\"> %2</a>"_s.arg(href, linkText.toHtmlEscaped()));
+    return document.toHtml();
+}
+}
 
 RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
     : QLabel(parent)
@@ -51,7 +91,7 @@ void RoomHeaderLabel::updateSqueezedText()
     }
     setVisible(true);
     const QString text = rPixelSqueeze(mFullText, width() - 10);
-    QLabel::setText("<qt>"_L1 + text + "</qt>"_L1);
+    QLabel::setText(text);
     if (mFullText != text && !mExpandTopic) {
         setToolTip(mFullText);
     }
@@ -74,55 +114,31 @@ void RoomHeaderLabel::slotMoreInfo(const QString &content)
 
 QString RoomHeaderLabel::rPixelSqueeze(const QString &text, int maxPixels) const
 {
-    const auto tSize = textSize(text);
-    const int tHeight = tSize.height();
-    if (tHeight > (3 * fontMetrics().ascent() + fontMetrics().descent())) {
-        QString tmp = text;
-        if (!mExpandTopic) {
-            int tw = tSize.width();
-            const QString showMoreText = i18n("(Show More Info…)");
-            if (tw > maxPixels) {
-                int em = fontMetrics().maxWidth();
-                maxPixels -= fontMetrics().horizontalAdvance(showMoreText);
-
-                // On some MacOS system, maxWidth may return 0
-                if (em == 0) {
-                    for (const QChar c : text) {
-                        em = qMax(em, fontMetrics().horizontalAdvance(c));
-                    }
-                }
-                while ((tw > maxPixels) && !tmp.isEmpty()) {
-                    const int len = tmp.length();
-                    int delta = (em == 0) ? 0 : (tw - maxPixels) / em;
-                    delta = qBound(1, delta, len);
-
-                    tmp.remove(len - delta, delta);
-                    tw = textSize(tmp).width();
-                }
-            } else {
-                tmp = tmp.split(u"\n"_s).at(0);
-            }
-            if (!tmp.endsWith(u'\n')) {
-                tmp.append(u'\n');
-            }
-            return tmp.append(u"<a href=\"showmoretext\"> %1</a>"_s.arg(showMoreText));
-        } else {
-            if (!tmp.endsWith(u'\n')) {
-                tmp.append(u'\n');
-            }
-            return tmp.append(u"<a href=\"showlesstext\"> %1</a>"_s.arg(i18n("(Show Less Info…)")));
-        }
-    }
-    return text;
-}
-
-QSize RoomHeaderLabel::textSize(const QString &text) const
-{
     QTextDocument document;
     document.setDefaultFont(font());
-    document.setHtml("<qt>"_L1 + text + "</qt>"_L1);
+    document.setDocumentMargin(0);
+    document.setHtml(text);
+    document.setTextWidth(qMax(1, maxPixels));
+    document.size(); // Force the width-constrained layout before inspecting its lines.
 
-    return document.size().toSize();
+    if (lineCount(document) <= 3) {
+        return text;
+    }
+
+    if (mExpandTopic) {
+        return appendInfoLink(document, u"showlesstext"_s, i18n("(Show Less Info…)"));
+    }
+
+    QTextCursor selection(&document);
+    selection.setPosition(0);
+    selection.setPosition(firstVisualLineEnd(document), QTextCursor::KeepAnchor);
+
+    QTextDocument collapsedDocument;
+    collapsedDocument.setDefaultFont(font());
+    collapsedDocument.setDocumentMargin(0);
+    QTextCursor collapsedCursor(&collapsedDocument);
+    collapsedCursor.insertFragment(selection.selection());
+    return appendInfoLink(collapsedDocument, u"showmoretext"_s, i18n("(Show More Info…)"));
 }
 
 const QString &RoomHeaderLabel::fullText() const
