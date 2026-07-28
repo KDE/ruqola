@@ -21,6 +21,7 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include <QJsonArray>
+#include <algorithm>
 
 using namespace Qt::Literals::StringLiterals;
 #define USE_LOCALDATABASE
@@ -83,6 +84,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     Q_ASSERT(info.roomModel);
 
     qint64 endDateTime = info.roomModel->lastTimestamp();
+    qint64 oldestLoadedDateTime = info.roomModel->firstTimestamp();
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " ManageLocalDatabase::loadMessagesHistory endDateTime " << QDateTime::fromMSecsSinceEpoch(endDateTime);
     QJsonArray params;
     params.append(QJsonValue(QString::fromLatin1(info.roomId)));
@@ -155,30 +157,44 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
-            const QList<Message> lstMessages =
-                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, endDateTime, 50, mRocketChatAccount->emojiManager());
+            const QList<Message> lstMessages = mRocketChatAccount->localDatabaseManager()
+                                                   ->loadMessages(accountName, info.roomId, -1, oldestLoadedDateTime, 50, mRocketChatAccount->emojiManager());
+            QList<Message> messagesFromDatabase = lstMessages;
+            messagesFromDatabase.erase(std::remove_if(messagesFromDatabase.begin(),
+                                                      messagesFromDatabase.end(),
+                                                      [&info](const Message &message) {
+                                                          return info.roomModel->indexForMessage(message.messageId()).isValid();
+                                                      }),
+                                       messagesFromDatabase.end());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "startDateTime " << -1 << " accountName " << accountName << " roomID " << info.roomId << " info.roomName "
                                              << info.roomName << " number of message " << lstMessages.count();
-            if (lstMessages.count() == downloadMessage) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database: nb messages:" << lstMessages.count();
-                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+            if (messagesFromDatabase.count() != lstMessages.count()) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " database overlap with already loaded messages:" << (lstMessages.count() - messagesFromDatabase.count());
+            }
+            if (messagesFromDatabase.count() == downloadMessage) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database: nb messages:" << messagesFromDatabase.count();
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(messagesFromDatabase);
                 return;
-            } else if (!lstMessages.isEmpty()) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database list is not empty" << lstMessages.count();
-                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
-                downloadMessage -= lstMessages.count();
+            } else if (!messagesFromDatabase.isEmpty()) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database list is not empty" << messagesFromDatabase.count();
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(messagesFromDatabase);
+                downloadMessage -= messagesFromDatabase.count();
                 // Update lastTimeStamp
-                endDateTime = info.roomModel->lastTimestamp();
+                oldestLoadedDateTime = info.roomModel->firstTimestamp();
                 // TODO load diff messages => 50 - lstMessages.count()
             } else {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
+                if (!lstMessages.isEmpty()) {
+                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " database page only contains already loaded messages, load remaining history from network";
+                } else {
+                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
+                }
             }
 
 #endif
         }
         QJsonObject dateObjectEnd;
-        dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
-        const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
+        dateObjectEnd["$date"_L1] = QJsonValue(oldestLoadedDateTime);
+        const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(oldestLoadedDateTime);
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
