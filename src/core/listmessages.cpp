@@ -17,10 +17,10 @@ ListMessages::~ListMessages() = default;
 
 void ListMessages::parseListInfo(const QJsonObject &messagesObj)
 {
+    mListMessages.clear();
     mMessagesCount = messagesObj["count"_L1].toInt();
     mOffset = messagesObj["offset"_L1].toInt();
     mTotal = messagesObj["total"_L1].toInt();
-    mListMessages.clear();
 }
 
 void ListMessages::parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName)
