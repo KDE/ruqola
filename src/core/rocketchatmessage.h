@@ -35,8 +35,6 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    searchRoomUsers(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     inputChannelAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
@@ -82,10 +80,15 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType, quint64 id);
 
 private:
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
+    searchRoomUsers(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
+
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult
     generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
+
+    friend class RocketChatMessageTest;
 };
 class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t);
