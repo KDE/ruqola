@@ -5,7 +5,6 @@
 */
 
 #include "userinroleeditdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "usersinrolewidget.h"
 
@@ -22,6 +21,7 @@ namespace
 const char myUserInRoleEditDialogGroupName[] = "UserInRoleEditDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mUserInRoleEditWidget(new UsersInRoleWidget(account, this))

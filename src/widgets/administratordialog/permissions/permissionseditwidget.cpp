@@ -5,12 +5,12 @@
 */
 
 #include "permissionseditwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/rolescombobox.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
+using namespace Qt::Literals::StringLiterals;
 PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     : QWidget(parent)
     , mRolesCombobox(new RolesComboBox(this))

@@ -5,13 +5,13 @@
 */
 
 #include "administratoroautheditwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
     : QWidget{parent}
     , mActiveCheckBox(new QCheckBox(i18nc("@option:check", "Active"), this))

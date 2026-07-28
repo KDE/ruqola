@@ -5,12 +5,12 @@
 */
 
 #include "permissionseditdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "permissionseditwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+using namespace Qt::Literals::StringLiterals;
 PermissionsEditDialog::PermissionsEditDialog(QWidget *parent, const QString &permission)
     : QDialog(parent)
     , mPermissionsWidget(new PermissionsEditWidget(this))

@@ -5,7 +5,6 @@
 */
 
 #include "roleeditwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rolescopecombobox.h"
 #include <KLineEditEventHandler>
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 
+using namespace Qt::Literals::StringLiterals;
 RoleEditWidget::RoleEditWidget(QWidget *parent)
     : QWidget{parent}
     , mName(new QLineEdit(this))

@@ -5,10 +5,10 @@
 */
 
 #include "rolescopecombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 RoleScopeComboBox::RoleScopeComboBox(QWidget *parent)
     : QComboBox(parent)
 {

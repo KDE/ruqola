@@ -5,7 +5,6 @@
 */
 
 #include "permissionswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "model/permissionsmodel.h"
@@ -24,6 +23,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTreeView(new PermissionsTreeView(this))

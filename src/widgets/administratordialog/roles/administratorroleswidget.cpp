@@ -5,7 +5,6 @@
 */
 
 #include "administratorroleswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "model/adminrolesmodel.h"
@@ -31,6 +30,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTreeView(new RolesTreeView(this))

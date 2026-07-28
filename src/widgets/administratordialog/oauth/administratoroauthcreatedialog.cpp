@@ -5,7 +5,6 @@
 */
 
 #include "administratoroauthcreatedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -19,6 +18,7 @@ namespace
 {
 const char myConfigAdministratorOauthCreateDialogGroupName[] = "AdministratorOauthCreateDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
     : QDialog(parent)
     , mCreateWidget(new AdministratorOauthCreateWidget(this))
