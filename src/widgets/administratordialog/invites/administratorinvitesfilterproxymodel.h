@@ -14,5 +14,6 @@ public:
     explicit AdministratorInvitesFilterProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
     ~AdministratorInvitesFilterProxyModel() override;
 
+protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

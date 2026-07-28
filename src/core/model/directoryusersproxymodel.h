@@ -15,5 +15,6 @@ public:
     explicit DirectoryUsersProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
     ~DirectoryUsersProxyModel() override;
 
+protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

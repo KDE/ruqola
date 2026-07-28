@@ -43,8 +43,10 @@ public:
     [[nodiscard]] const ModerationReportedUserInfos &moderationInfos() const;
     void setModerationInfos(const ModerationReportedUserInfos &userInfos);
 
-private:
+protected:
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
+
+private:
     LIBRUQOLACORE_NO_EXPORT void clear();
     ModerationReportedUserInfos mModerationInfos;
 };

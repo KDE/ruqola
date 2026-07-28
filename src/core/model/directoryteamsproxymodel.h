@@ -15,5 +15,6 @@ public:
     explicit DirectoryTeamsProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
     ~DirectoryTeamsProxyModel() override;
 
+protected:
     [[nodiscard]] bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

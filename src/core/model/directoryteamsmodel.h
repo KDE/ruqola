@@ -39,9 +39,9 @@ public:
     [[nodiscard]] QList<int> hideColumns() const override;
 
 protected:
-    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
 
 private:
+    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
     RoomsInfo mRoomsInfo;
 };
