@@ -30,17 +30,18 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
 
     void parseElements(const QJsonObject &obj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
     [[nodiscard]] int total() const override;
 
-protected:
     [[nodiscard]] QList<int> hideColumns() const override;
 
-private:
+protected:
+    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;
+
+private:
     RoomsInfo mRoomsInfo;
 };
