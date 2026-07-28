@@ -140,18 +140,37 @@ void MessageListView::paintEvent(QPaintEvent *e)
 
 void MessageListView::slotUpdateView()
 {
+    // A message-style switch (Compact/Normal/Cozy) recreates the layout and clears the delegate's
+    // size-hint cache in switchMessageLayout(), but without a relayout the view keeps the previous
+    // style's row geometry until an unrelated event (scroll/resize/new message) triggers one.
+    // Remeasure here so the switch takes effect immediately. (A colour-scheme refresh also arrives
+    // via this slot and harmlessly relayouts.)
+    scheduleDelayedItemsLayout();
     viewport()->update();
+}
+
+void MessageListView::slotLastSeenChanged()
+{
+    // The "unread messages" marker reserves a band of vertical space at the top of the row it
+    // precedes, and that extra height is baked into the delegate's per-message size-hint cache
+    // (keyed by message id only). When the room is marked read the marker disappears
+    // (DisplayLastSeenMessage flips to false), but a plain repaint would keep the cached row
+    // height and leave the band as dead space — the row stays tall. Drop the now-stale sizes and
+    // relayout so the affected row shrinks back. Mark-as-read is infrequent, so clearing the
+    // whole cache (rather than hunting the single boundary row) is a fine trade-off.
+    mMessageListDelegate->clearSizeHintCache();
+    scheduleDelayedItemsLayout();
 }
 
 void MessageListView::setRoom(Room *room)
 {
     if (mRoom) {
-        disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateView);
+        disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotLastSeenChanged);
         mMessageListDelegate->clearSelection();
     }
     mRoom = room;
     if (mRoom) {
-        connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateView);
+        connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotLastSeenChanged);
     }
 }
 

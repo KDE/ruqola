@@ -94,6 +94,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generatePermalink(const QString &messageId) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowUserInfo(const QString &userName);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateView();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLastSeenChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void addDebugMenu(QMenu &menu, const QModelIndex &index);
