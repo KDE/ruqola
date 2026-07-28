@@ -24,11 +24,6 @@ void SearchTreeBaseFilterProxyModel::setFilterString(const QString &string)
     setFilterFixedString(string);
 }
 
-void SearchTreeBaseFilterProxyModel::clearFilter()
-{
-    setFilterFixedString(QString());
-}
-
 bool SearchTreeBaseFilterProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
     if (mSortFunction) {
