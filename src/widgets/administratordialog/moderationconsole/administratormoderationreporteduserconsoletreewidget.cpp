@@ -5,12 +5,12 @@
 */
 
 #include "administratormoderationreporteduserconsoletreewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderationreporteduserconsoletreewidget.h"
 
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorModerationReportedUserConsoleTreeWidget::AdministratorModerationReportedUserConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mModerationConsoleTreeWidget(new ModerationReportedUserConsoleTreeWidget(account, this))

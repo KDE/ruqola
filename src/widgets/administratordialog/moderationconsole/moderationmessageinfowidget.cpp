@@ -5,13 +5,13 @@
 */
 
 #include "moderationmessageinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderationreportinfowidget.h"
 
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 ModerationMessageInfoWidget::ModerationMessageInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mModerationReportInfoWidget(new ModerationReportInfoWidget(account, this))

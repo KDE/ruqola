@@ -5,7 +5,6 @@
 */
 
 #include "moderationmessageinfodialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderationmessageinfowidget.h"
 
@@ -21,6 +20,7 @@ namespace
 {
 const char myModerationMessageInfoDialogGroupName[] = "ModerationMessageInfoDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ModerationMessageInfoDialog::ModerationMessageInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mModerationMessageInfoWidget(new ModerationMessageInfoWidget(account, this))
