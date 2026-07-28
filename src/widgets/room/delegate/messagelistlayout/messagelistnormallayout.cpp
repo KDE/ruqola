@@ -49,6 +49,12 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     QRect usableRect = option.rect;
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
     const bool dateDiffersFromPrevious = index.data(MessagesModel::DateDiffersFromPrevious).toBool();
+    // Empty space above the message block that sets the vertical rhythm: a full gap when the
+    // author changes (so a new speaker reads as a new block) and a small one for a grouped
+    // consecutive message from the same author. Deliberately larger than the name-to-text gap
+    // (textVMargin) further down, so proximity groups each author with their own text.
+    const int blockTopSpacing = layout.sameSenderAsPreviousMessage ? MessageDelegateUtils::groupedMessageSpacing() : MessageDelegateUtils::senderBlockSpacing();
+
     // A date header and a standalone unread-messages line each occupy a band at the top of
     // the row. Reserve it here; the author line is shifted down by the same amount below.
     int topBandHeight = 0;
@@ -60,7 +66,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         // top of the next message.
         layout.displayLastSeenMessageY = usableRect.top() + topBandHeight / 2;
     }
-    usableRect.setTop(usableRect.top() + topBandHeight);
+    usableRect.setTop(usableRect.top() + topBandHeight + blockTopSpacing);
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
     usableRect.setTop(usableRect.top() + senderAscent); // FIXME position.
@@ -165,15 +171,18 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     // Align top of sender rect so it matches the baseline of the richtext
     layout.senderRect =
         QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : senderTextSize.height()));
-    if (topBandHeight > 0) {
-        // A date header (drawn by drawDate) or a standalone unread-messages line occupies the
-        // row's top band, and usableRect already pushed the message text down by that band's
-        // height. Shift the whole author line — the name baseline, its rect, and therefore the
-        // avatar — down by the same height, so such a row is exactly a regular new-sender row
-        // plus the top band. (Replaces an "- 4" fudge that moved only the baseline, leaving the
-        // author line looser above its text than a normal new-sender row.)
-        layout.baseLine += topBandHeight;
-        layout.senderRect.moveTop(layout.senderRect.top() + topBandHeight);
+    // usableRect already pushed the message text down by the top band (a date header drawn by
+    // drawDate, or a standalone unread-messages line) plus the block-top spacing. Shift the whole
+    // author line — the name baseline, its rect, and therefore the avatar — down by the same
+    // amount, so the name stays exactly one line above its own text regardless of that offset.
+    // Only the text branch needs this: it derived baseLine from option.rect.top() (unshifted).
+    // The empty-text branch (attachment/blocks/urls only) already derived baseLine from
+    // usableRect.top(), which includes both offsets, so shifting again would double-count and
+    // drop the author line below its own attachment.
+    const int authorLineShift = topBandHeight + blockTopSpacing;
+    if (textSize.isValid() && authorLineShift > 0) {
+        layout.baseLine += authorLineShift;
+        layout.senderRect.moveTop(layout.senderRect.top() + authorLineShift);
     }
     // Align top of avatar with top of sender rect
     const double senderRectY{layout.senderRect.y()};
@@ -342,7 +351,10 @@ QSize MessageListNormalLayout::sizeHint(const QStyleOptionViewItem &option, cons
     // Note: option.rect in this method is huge (as big as the viewport)
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-    int additionalHeight = 5;
+    // Most inter-message separation now lives in the block-top spacing (added in doLayout to the
+    // top of the next block), so only a small breather is needed under each row to keep the two
+    // gaps from stacking into an oversized space between messages.
+    int additionalHeight = 2;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
         additionalHeight += 10; // Add more space as cozy mode
