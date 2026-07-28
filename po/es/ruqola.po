@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:45+0000\n"
+"POT-Creation-Date: 2026-07-28 00:45+0000\n"
 "PO-Revision-Date: 2026-07-13 00:13+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1368,17 +1368,17 @@ msgstr "No se encontró ningún resultado."
 msgid "Notify all in this room"
 msgstr "Notificar a todos en esta sala"
 
-#: core/model/messagesmodel.cpp:269
+#: core/model/messagesmodel.cpp:278
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Editado el %1 por %2"
 
-#: core/model/messagesmodel.cpp:436
+#: core/model/messagesmodel.cpp:445
 #, kde-format
 msgid "Ignored Message"
 msgstr "Mensaje ignorado"
 
-#: core/model/messagesmodel.cpp:447
+#: core/model/messagesmodel.cpp:456
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Solo tú puedes ver este mensaje"
@@ -10852,68 +10852,68 @@ msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traducir mensaje"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:705
+#: widgets/room/delegate/messagelistdelegate.cpp:721
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 respuesta"
 msgstr[1] "%1 respuestas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensaje"
 msgstr[1] "%1 mensajes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "No message yet"
 msgstr "Ningún mensaje todavía"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1034
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Siguiendo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "El mensaje ha sido fijado"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1042
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "El mensaje se ha destacado"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1046
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "El mensaje tiene texto traducido"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1050
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responder en el hilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1054
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Añadir reacción"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Detener"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11264,15 +11264,21 @@ msgid_plural "%1 new messages since %2."
 msgstr[0] "%1 nuevo mensaje desde %2."
 msgstr[1] "%1 nuevos mensajes desde %2."
 
-#: widgets/room/roomheaderlabel.cpp:75
+#: widgets/room/roomheaderlabel.cpp:83
 #, kde-format
 msgid "(Show More Info…)"
 msgstr "(Mostrar más información…)"
 
-#: widgets/room/roomheaderlabel.cpp:105
+#: widgets/room/roomheaderlabel.cpp:113
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr "(Mostrar menos información…)"
+
+#: widgets/room/roomheaderlabel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Topic"
+msgid "Add Topic"
+msgstr "Tema"
 
 #: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
@@ -11314,7 +11320,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Información del canal"
 
-#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:307
 #, kde-format
 msgid "Channel's Information"
 msgstr "Información del canal"
@@ -11352,7 +11358,7 @@ msgstr "Buscar mensajes…"
 msgid "Search Messages…"
 msgstr "Buscar mensajes…"
 
-#: widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:307
 #, kde-format
 msgid "Team's Information"
 msgstr "Información del equipo"

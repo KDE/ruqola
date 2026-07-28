@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:45+0000\n"
+"POT-Creation-Date: 2026-07-28 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1450,18 +1450,18 @@ msgstr "Ühtegi lõime ei leitud"
 msgid "Notify all in this room"
 msgstr "Kasutaja ei ole selles toas"
 
-#: core/model/messagesmodel.cpp:269
+#: core/model/messagesmodel.cpp:278
 #, fuzzy, kde-format
 #| msgid "Edited by %1"
 msgid "Edited at %1 by %2"
 msgstr "Muutnud %1"
 
-#: core/model/messagesmodel.cpp:436
+#: core/model/messagesmodel.cpp:445
 #, kde-format
 msgid "Ignored Message"
 msgstr "Eiratud sõnum"
 
-#: core/model/messagesmodel.cpp:447
+#: core/model/messagesmodel.cpp:456
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgid "Only you can see this message"
@@ -11470,61 +11470,61 @@ msgctxt "@action"
 msgid "Translate Message"
 msgstr "Tõlgi sõnum"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:705
+#: widgets/room/delegate/messagelistdelegate.cpp:721
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastus"
 msgstr[1] "%1 vastust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 sõnum"
 msgstr[1] "%1 sõnumit"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "No message yet"
 msgstr "Ühtegi sõnumit pole veel"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1034
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sõnum kinnistatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1042
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sõnum kustutatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1046
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Sõnum kustutatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1050
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Vasta lõimes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1054
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
@@ -11532,13 +11532,13 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Konto lisamine"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, fuzzy, kde-format
 #| msgid "Speak Text"
 msgctxt "@info:tooltip"
@@ -11941,17 +11941,24 @@ msgid_plural "%1 new messages since %2."
 msgstr[0] "%1 sõnum toas"
 msgstr[1] "%1 sõnum toas"
 
-#: widgets/room/roomheaderlabel.cpp:75
+#: widgets/room/roomheaderlabel.cpp:83
 #, fuzzy, kde-format
 #| msgid "Show Mentions..."
 msgid "(Show More Info…)"
 msgstr "Näita mainimisi ..."
 
-#: widgets/room/roomheaderlabel.cpp:105
+#: widgets/room/roomheaderlabel.cpp:113
 #, fuzzy, kde-format
 #| msgid "Show Mentions..."
 msgid "(Show Less Info…)"
 msgstr "Näita mainimisi ..."
+
+#: widgets/room/roomheaderlabel.cpp:150
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Account"
+msgid "Add Topic"
+msgstr "Konto lisamine"
 
 #: widgets/room/roomheaderwidget.cpp:66
 #, fuzzy, kde-format
@@ -11997,7 +12004,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Kanali teave"
 
-#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:307
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Channel's Information"
@@ -12043,7 +12050,7 @@ msgstr "Sõnumite otsimine"
 msgid "Search Messages…"
 msgstr "Sõnumite otsimine"
 
-#: widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:307
 #, kde-format
 msgid "Team's Information"
 msgstr ""

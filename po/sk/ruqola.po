@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:45+0000\n"
+"POT-Creation-Date: 2026-07-28 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1361,17 +1361,17 @@ msgstr "Súkromné adresy"
 msgid "Notify all in this room"
 msgstr "Upozorniť všetkých v tejto miestnosti"
 
-#: core/model/messagesmodel.cpp:269
+#: core/model/messagesmodel.cpp:278
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Upravené o %1 používateľom %2"
 
-#: core/model/messagesmodel.cpp:436
+#: core/model/messagesmodel.cpp:445
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignored Message"
 
-#: core/model/messagesmodel.cpp:447
+#: core/model/messagesmodel.cpp:456
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Only môžete see this message"
@@ -10822,7 +10822,7 @@ msgctxt "@action"
 msgid "Translate Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:705
+#: widgets/room/delegate/messagelistdelegate.cpp:721
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10830,7 +10830,7 @@ msgstr[0] "1 odpoveď"
 msgstr[1] "%1 odpovede"
 msgstr[2] "%1 odpovedí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10838,54 +10838,54 @@ msgstr[0] "1 správa"
 msgstr[1] "%1 správy"
 msgstr[2] "%1 správ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "No message yet"
 msgstr "Zatiaľ žiadna správa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1034
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Všetky správy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1042
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1046
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1050
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Správa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1054
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Pridať reakciu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Zastaviť"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11240,15 +11240,21 @@ msgstr[0] "%1 new message since %2."
 msgstr[1] "%1 new messages since %2."
 msgstr[2] "%1 new messages since %2."
 
-#: widgets/room/roomheaderlabel.cpp:75
+#: widgets/room/roomheaderlabel.cpp:83
 #, kde-format
 msgid "(Show More Info…)"
 msgstr "(Zobraziť viac informácií…)"
 
-#: widgets/room/roomheaderlabel.cpp:105
+#: widgets/room/roomheaderlabel.cpp:113
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr "(Zobraziť menej informácií…)"
+
+#: widgets/room/roomheaderlabel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Topic"
+msgid "Add Topic"
+msgstr "Téma"
 
 #: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
@@ -11290,7 +11296,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Názov kanála"
 
-#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:307
 #, kde-format
 msgid "Channel's Information"
 msgstr "Názov kanála"
@@ -11328,7 +11334,7 @@ msgstr "Hľadať súbor..."
 msgid "Search Messages…"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:307
 #, kde-format
 msgid "Team's Information"
 msgstr "Team's Information"

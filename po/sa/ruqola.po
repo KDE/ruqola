@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-27 00:45+0000\n"
+"POT-Creation-Date: 2026-07-28 00:45+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1374,17 +1374,17 @@ msgstr "न परिणामः प्राप्तः।"
 msgid "Notify all in this room"
 msgstr "अस्मिन् कक्षे सर्वेभ्यः सूचयन्तु"
 
-#: core/model/messagesmodel.cpp:269
+#: core/model/messagesmodel.cpp:278
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 द्वारा %1 इत्यत्र सम्पादितम्"
 
-#: core/model/messagesmodel.cpp:436
+#: core/model/messagesmodel.cpp:445
 #, kde-format
 msgid "Ignored Message"
 msgstr "उपेक्षितः सन्देशः"
 
-#: core/model/messagesmodel.cpp:447
+#: core/model/messagesmodel.cpp:456
 #, kde-format
 msgid "Only you can see this message"
 msgstr "केवलं भवन्तः एव एतत् सन्देशं द्रष्टुं शक्नुवन्ति"
@@ -10871,44 +10871,44 @@ msgctxt "@action"
 msgid "Translate Message"
 msgstr "सन्देश का अनुवाद करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:705
+#: widgets/room/delegate/messagelistdelegate.cpp:721
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "१ उत्तरम्"
 msgstr[1] "%1 उत्तरं ददाति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "१ सन्देशः"
 msgstr[1] "%1 सन्देशाः"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:715
+#: widgets/room/delegate/messagelistdelegate.cpp:731
 #, kde-format
 msgid "No message yet"
 msgstr "अद्यापि कोऽपि सन्देशः नास्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1034
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अनुसरण"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1038
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "सन्देशः पिन कृतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1042
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "सन्देशः अभिनीतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1046
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -10916,25 +10916,25 @@ msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "सन्देशः अभिनीतः अस्ति"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1050
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1054
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "प्रतिक्रियां योजयन्तु"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1060
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Speak Text"
@@ -11295,15 +11295,21 @@ msgid_plural "%1 new messages since %2."
 msgstr[0] "%1 %2 तः नूतनः सन्देशः ।"
 msgstr[1] "%1 %2 तः नूतनाः सन्देशाः ।"
 
-#: widgets/room/roomheaderlabel.cpp:75
+#: widgets/room/roomheaderlabel.cpp:83
 #, kde-format
 msgid "(Show More Info…)"
 msgstr "(अधिकं सूचनां दर्शयतु...)"
 
-#: widgets/room/roomheaderlabel.cpp:105
+#: widgets/room/roomheaderlabel.cpp:113
 #, kde-format
 msgid "(Show Less Info…)"
 msgstr "(कमाधिकं सूचनां दर्शयतु...)"
+
+#: widgets/room/roomheaderlabel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Topic"
+msgid "Add Topic"
+msgstr "विषय"
 
 #: widgets/room/roomheaderwidget.cpp:66
 #, kde-format
@@ -11347,7 +11353,7 @@ msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
 
-#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:160 widgets/room/roomheaderwidget.cpp:307
 #, kde-format
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
@@ -11385,7 +11391,7 @@ msgstr "अन्वेषणसन्देशाः..."
 msgid "Search Messages…"
 msgstr "अन्वेषणसन्देशाः..."
 
-#: widgets/room/roomheaderwidget.cpp:306
+#: widgets/room/roomheaderwidget.cpp:307
 #, kde-format
 msgid "Team's Information"
 msgstr "दलस्य सूचना"
