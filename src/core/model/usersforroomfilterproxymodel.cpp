@@ -7,8 +7,31 @@
 #include "usersforroomfilterproxymodel.h"
 
 #include "usersforroommodel.h"
+#include <QAbstractProxyModel>
 
 using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+[[nodiscard]] const UsersForRoomModel *sourceUsersForRoomModel(const QAbstractItemModel *model)
+{
+    const QAbstractItemModel *currentModel = model;
+    while (currentModel) {
+        if (const auto *usersModel = qobject_cast<const UsersForRoomModel *>(currentModel)) {
+            return usersModel;
+        }
+
+        const auto *proxyModel = qobject_cast<const QAbstractProxyModel *>(currentModel);
+        if (!proxyModel) {
+            return nullptr;
+        }
+        currentModel = proxyModel->sourceModel();
+    }
+
+    return nullptr;
+}
+}
+
 UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     : SortFilterProxyModelBase(parent)
 {
@@ -28,7 +51,10 @@ void UsersForRoomFilterProxyModel::clearFilter()
 
 bool UsersForRoomFilterProxyModel::hasFullList() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->hasFullList();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->hasFullList();
+    }
+    return false;
 }
 
 bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
@@ -56,17 +82,26 @@ void UsersForRoomFilterProxyModel::setStatusType(UsersForRoomFilterProxyModel::F
 
 bool UsersForRoomFilterProxyModel::loadMoreUsersInProgress() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->loadMoreUsersInProgress();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->loadMoreUsersInProgress();
+    }
+    return false;
 }
 
 int UsersForRoomFilterProxyModel::total() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->total();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->total();
+    }
+    return 0;
 }
 
 int UsersForRoomFilterProxyModel::numberOfUsers() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->usersCount();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->usersCount();
+    }
+    return 0;
 }
 
 bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

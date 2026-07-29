@@ -23,6 +23,20 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+[[nodiscard]] UsersForRoomModel *usersForRoomModelFromTreeView(const UsersInRoomTreeView *treeView)
+{
+    if (!treeView) {
+        return nullptr;
+    }
+    auto *const roomFilterProxy = treeView->usersForRoomFilterProxy();
+    auto *const headingsProxy = qobject_cast<UsersForRoomListHeadingsProxyModel *>(roomFilterProxy ? roomFilterProxy->sourceModel() : nullptr);
+    return headingsProxy ? qobject_cast<UsersForRoomModel *>(headingsProxy->sourceModel()) : nullptr;
+}
+}
+
 UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mListView(new UsersInRoomTreeView(this))
@@ -159,20 +173,24 @@ void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
 
 void UsersInRoomWidget::updateLabel()
 {
-    auto *const roomFilterProxy = mListView->usersForRoomFilterProxy();
-    if (roomFilterProxy->loadMoreUsersInProgress()) {
+    const auto *const usersForRoomModel = usersForRoomModelFromTreeView(mListView);
+    if (usersForRoomModel && usersForRoomModel->loadMoreUsersInProgress()) {
         mMessageListInfo->setText(i18n("Loading…"));
     } else {
-        mMessageListInfo->setText(roomFilterProxy->numberOfUsers() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
+        mMessageListInfo->setText((usersForRoomModel && usersForRoomModel->usersCount() > 0) ? displayShowMessageInRoom() : i18n("No Message found"));
     }
 }
 
 QString UsersInRoomWidget::displayShowMessageInRoom() const
 {
-    auto *const roomFilterProxy = mListView->usersForRoomFilterProxy();
+    const auto *const usersForRoomModel = usersForRoomModelFromTreeView(mListView);
+    if (!usersForRoomModel) {
+        return {};
+    }
+
     QString displayMessageStr =
-        i18np("%1 User in room (Total: %2)", "%1 Users in room (Total: %2)", roomFilterProxy->numberOfUsers(), roomFilterProxy->total());
-    if (!roomFilterProxy->hasFullList()) {
+        i18np("%1 User in room (Total: %2)", "%1 Users in room (Total: %2)", usersForRoomModel->usersCount(), usersForRoomModel->total());
+    if (!usersForRoomModel->hasFullList()) {
         displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;
