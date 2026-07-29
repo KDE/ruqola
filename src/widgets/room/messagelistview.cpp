@@ -57,6 +57,7 @@
 #include <QScrollBar>
 
 #include "newmessageindicator.h"
+#include "ruqola_newmessageindicator_debug.h"
 #include "ruqolaglobalconfig.h"
 
 #include "config-ruqola.h"
@@ -205,6 +206,8 @@ void MessageListView::updateNewMessageIndicatorVisibility()
     const auto *vbar = verticalScrollBar();
     const bool notAtBottom = vbar->value() < vbar->maximum();
     const bool hasUnread = mRoom && (mRoom->unread() > 0);
+    qCDebug(RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG) << "MessageListView::updateNewMessageIndicatorVisibility" << " hasUnread " << hasUnread << " notAtBottom"
+                                                    << notAtBottom;
     const bool shouldShow = notAtBottom && hasUnread;
     if (shouldShow && !mNewMessageIndicator->isVisible()) {
         repositionNewMessageIndicator();
@@ -217,6 +220,7 @@ void MessageListView::updateNewMessageIndicatorVisibility()
 
 void MessageListView::repositionNewMessageIndicator()
 {
+    qCDebug(RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG) << "MessageListView::repositionNewMessageIndicator";
     if (!mNewMessageIndicator) {
         return;
     }

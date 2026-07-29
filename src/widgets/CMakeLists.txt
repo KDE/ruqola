@@ -1194,6 +1194,10 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_delega
     CATEGORY_NAME org.kde.ruqola.delegate.lastunseedline.widgets DESCRIPTION "ruqola delegate last unseen line" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_newmessageindicator_debug.h IDENTIFIER RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG
+    CATEGORY_NAME org.kde.ruqola.newmessageindicator.widgets DESCRIPTION "ruqola new message indicator" EXPORT RUQOLA
+)
+
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)

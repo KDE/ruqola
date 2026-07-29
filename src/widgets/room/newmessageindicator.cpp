@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "newmessageindicator.h"
+#include "ruqola_newmessageindicator_debug.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
@@ -35,6 +36,7 @@ NewMessageIndicator::~NewMessageIndicator() = default;
 
 void NewMessageIndicator::showNewMessageIndicator(bool visible)
 {
+    qCDebug(RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG) << "NewMessageIndicator::showNewMessageIndicator: " << visible;
     setVisible(visible);
 }
 
