@@ -25,14 +25,8 @@ NewMessageIndicator::NewMessageIndicator(QWidget *parent)
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
 
     mMessageWidget->show();
-    // by default, hide widgets
-    // mMessageWidget->hide();
-    // hide();
-
-    // mMessageWidget->setPosition(KMessageWidget::Inline);
     mMessageWidget->setText(i18n("New Message"));
     mMessageWidget->setWordWrap(false);
-    // TODO mMessageWidget->setIcon(QIcon::fromTheme(u""_s));
 
     mMessageWidget->setMessageType(KMessageWidget::Information);
 }
@@ -41,11 +35,7 @@ NewMessageIndicator::~NewMessageIndicator() = default;
 
 void NewMessageIndicator::showNewMessageIndicator(bool visible)
 {
-    if (visible) {
-        show();
-    } else {
-        hide();
-    }
+    setVisible(visible);
 }
 
 #include "moc_newmessageindicator.cpp"
