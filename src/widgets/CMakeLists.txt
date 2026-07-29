@@ -713,8 +713,6 @@ target_sources(
         room/actionbuttonsgenerator.cpp
         room/usersinroomtreeview.h
         room/usersinroomtreeview.cpp
-        room/usersinroomlistview.h
-        room/usersinroomlistview.cpp
         room/messagelineextratoolbutton.h
         room/messagelineextratoolbutton.cpp
         room/debugdialog/showdebugdialog.h
