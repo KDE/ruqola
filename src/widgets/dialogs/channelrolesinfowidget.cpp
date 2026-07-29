@@ -79,7 +79,7 @@ void ChannelRolesInfoWidget::generateInfo(const QString &labelStr, const QString
     label->setTextFormat(Qt::PlainText);
     label->setText(list.join(u','));
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    label->setWordWrap(true);
+    label->setWordWrap(false);
     auto labelInfo = new QLabel(this);
     labelInfo->setTextFormat(Qt::RichText);
     labelInfo->setText(u"<qt><b>%1</b></qt>"_s.arg(labelStr));
