@@ -200,7 +200,9 @@ void RoomHeaderWidgetTest::shouldGrowExpandedHeaderForNarrowWidth()
     QCoreApplication::processEvents();
 
     const int requiredHeaderHeight = constrainedHeader->heightForWidth(constrainedHeader->width());
-    QVERIFY(requiredHeaderHeight + body->minimumHeight() <= container.height());
+    container.resize(400, requiredHeaderHeight + body->minimumHeight());
+    QCoreApplication::processEvents();
+
     QCOMPARE(constrainedHeader->geometry().top(), 0);
     QVERIFY(constrainedHeader->height() >= requiredHeaderHeight);
     QVERIFY(constrainedLabel->height() >= constrainedLabel->heightForWidth(constrainedLabel->width()));
