@@ -54,16 +54,20 @@ void ChannelRolesInfoWidget::setRoom(Room *room)
                 listLeaders.append(role.userName());
             }
         }
+        bool showWidget = false;
         if (!listOwners.isEmpty()) {
+            showWidget = true;
             generateInfo(i18np("Owner:", "Owners:", listOwners.count()), listOwners);
         }
         if (!listModerators.isEmpty()) {
+            showWidget = true;
             generateInfo(i18np("Moderator:", "Moderators:", listModerators.count()), listModerators);
         }
         if (!listLeaders.isEmpty()) {
+            showWidget = true;
             generateInfo(i18np("Leader:", "Leaders:", listLeaders.count()), listLeaders);
         }
-        if (!listOwners.isEmpty() || !listModerators.isEmpty() || !listLeaders.isEmpty()) {
+        if (showWidget) {
             show();
         } else {
             hide();
