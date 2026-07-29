@@ -32,9 +32,9 @@ Q_SIGNALS:
 
 protected:
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     bool mNeedTargetLanguage = false;
 };
 }

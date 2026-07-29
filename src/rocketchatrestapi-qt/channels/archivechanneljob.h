@@ -34,8 +34,10 @@ public:
 Q_SIGNALS:
     void archiveChannelDone();
 
+protected:
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     bool mArchive = true;
 };
