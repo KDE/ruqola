@@ -693,7 +693,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             connect(job, &RocketChatRestApi::ModerationReportsJob::moderationReportsDone, this, [this](const QJsonObject &obj) {
                 ModerationReportInfos infos;
                 infos.parseModerationReportInfos(obj);
-                slotShowReportInfo(std::move(infos));
+                slotShowReportInfo(infos);
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
