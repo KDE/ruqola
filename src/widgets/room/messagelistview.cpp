@@ -56,6 +56,7 @@
 #include <QPainter>
 #include <QScrollBar>
 
+#include "newmessageindicator.h"
 #include "ruqolaglobalconfig.h"
 
 #include "config-ruqola.h"
@@ -80,6 +81,9 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
         mActionButtonsGenerator->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     }
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageListView::uiInteractionRequested);
+
+    mNewMessageIndicator = new NewMessageIndicator(viewport());
+    mNewMessageIndicator->hide();
 
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
     mMessageListDelegate->setEnableEmojiMenu(mMode != Mode::Moderation);
@@ -118,6 +122,12 @@ void MessageListView::wheelEvent(QWheelEvent *e)
         }
     }
     MessageListViewBase::wheelEvent(e);
+}
+
+void MessageListView::resizeEvent(QResizeEvent *e)
+{
+    MessageListViewBase::resizeEvent(e);
+    repositionNewMessageIndicator();
 }
 
 void MessageListView::paintEvent(QPaintEvent *e)
@@ -166,12 +176,15 @@ void MessageListView::setRoom(Room *room)
 {
     if (mRoom) {
         disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotLastSeenChanged);
+        disconnect(mRoom, &Room::unreadChanged, this, &MessageListView::updateNewMessageIndicatorVisibility);
         mMessageListDelegate->clearSelection();
     }
     mRoom = room;
     if (mRoom) {
         connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotLastSeenChanged);
+        connect(mRoom, &Room::unreadChanged, this, &MessageListView::updateNewMessageIndicatorVisibility);
     }
+    updateNewMessageIndicatorVisibility();
 }
 
 void MessageListView::slotVerticalScrollbarChanged(int value)
@@ -181,6 +194,39 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
         // Perhaps finding a better method.
         verticalScrollBar()->setValue(1); // If we are at 0 we can't continue to load history
     }
+    updateNewMessageIndicatorVisibility();
+}
+
+void MessageListView::updateNewMessageIndicatorVisibility()
+{
+    if (!mNewMessageIndicator) {
+        return;
+    }
+    const auto *vbar = verticalScrollBar();
+    const bool notAtBottom = vbar->value() < vbar->maximum();
+    const bool hasUnread = mRoom && (mRoom->unread() > 0);
+    const bool shouldShow = notAtBottom && hasUnread;
+    if (shouldShow && !mNewMessageIndicator->isVisible()) {
+        repositionNewMessageIndicator();
+        mNewMessageIndicator->showNewMessageIndicator(true);
+        mNewMessageIndicator->raise();
+    } else if (!shouldShow && mNewMessageIndicator->isVisible()) {
+        mNewMessageIndicator->showNewMessageIndicator(false);
+    }
+}
+
+void MessageListView::repositionNewMessageIndicator()
+{
+    if (!mNewMessageIndicator) {
+        return;
+    }
+    mNewMessageIndicator->adjustSize();
+    const QSize vSize = viewport()->size();
+    const QSize iSize = mNewMessageIndicator->sizeHint();
+    const int margin = 8;
+    const int x = (vSize.width() - iSize.width()) / 2;
+    const int y = vSize.height() - iSize.height() - margin;
+    mNewMessageIndicator->move(x, y);
 }
 
 void MessageListView::goToMessage(const QByteArray &messageId)

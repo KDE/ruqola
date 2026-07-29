@@ -14,6 +14,7 @@ class MessageListDelegate;
 class RocketChatAccount;
 class Room;
 class ActionButtonsGenerator;
+class NewMessageIndicator;
 namespace TextTranslator
 {
 class TranslatorMenu;
@@ -55,6 +56,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *e) override;
+    void resizeEvent(QResizeEvent *e) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
 
     bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
@@ -107,10 +109,13 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void createEmojiWidgetAction(QMenu *menu, const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowGeneratedMessage(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReadReceiptsMessage(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateNewMessageIndicatorVisibility();
+    LIBRUQOLAWIDGETS_NO_EXPORT void repositionNewMessageIndicator();
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;
     TextTranslator::TranslatorMenu *mTranslatorMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     ActionButtonsGenerator *const mActionButtonsGenerator;
+    NewMessageIndicator *mNewMessageIndicator = nullptr;
 };
