@@ -114,14 +114,14 @@ MessageTextEdit::~MessageTextEdit()
 
 void MessageTextEdit::slotSpellCheckingEnableChanged(bool b)
 {
-    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    const KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group(config, u"Spelling"_s);
     group.writeEntry("checkerEnabledByDefault", b);
 }
 
 void MessageTextEdit::slotLanguageChanged(const QString &lang)
 {
-    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    const KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group(config, u"Spelling"_s);
     group.writeEntry("Language", lang);
     switchAutoCorrectionLanguage(lang);
@@ -141,9 +141,9 @@ void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
 
 void MessageTextEdit::loadSpellCheckingSettings()
 {
-    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    const KSharedConfig::Ptr config = KSharedConfig::openConfig();
     if (config->hasGroup("Spelling"_L1)) {
-        KConfigGroup group(config, u"Spelling"_s);
+        const KConfigGroup group(config, u"Spelling"_s);
         setCheckSpellingEnabled(group.readEntry("checkerEnabledByDefault", false));
         const QString language = group.readEntry("Language", QString());
         setSpellCheckingLanguage(language);
