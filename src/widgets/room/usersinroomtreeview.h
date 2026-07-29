@@ -24,6 +24,7 @@ protected:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generalPaletteChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateSectionVisibility();
     QColor mTextColor;
     UsersForRoomListHeadingsProxyModel *const mUsersForRoomListHeadingsProxyModel;
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxy;

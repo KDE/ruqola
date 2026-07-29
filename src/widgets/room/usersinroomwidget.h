@@ -14,10 +14,9 @@ class QLineEdit;
 class Room;
 class UsersInRoomMenu;
 class QLabel;
-class UsersForRoomFilterProxyModel;
 class UsersInRoomComboBox;
 class RocketChatAccount;
-class UsersInRoomListView;
+class UsersInRoomTreeView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UsersInRoomWidget : public QWidget
 {
     Q_OBJECT
@@ -35,12 +34,11 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotChangeStatusType(int index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowUserInfo(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDoubleClick(const QModelIndex &index);
-    UsersInRoomListView *const mListView;
+    UsersInRoomTreeView *const mListView;
     QLineEdit *const mSearchLineEdit;
     QPointer<Room> mRoom;
     UsersInRoomMenu *mMenu = nullptr;
     QLabel *const mMessageListInfo;
-    UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxy;
     UsersInRoomComboBox *const mUsersInRoomComboBox;
     RocketChatAccount *const mRocketChatAccount;
 };

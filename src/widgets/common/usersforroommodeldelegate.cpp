@@ -26,6 +26,14 @@ UsersForRoomModelDelegate::~UsersForRoomModelDelegate() = default;
 
 void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    // Section rows are top-level rows in tree mode and should use default
+    // painting to show their DisplayRole title (Online, Offline, ...).
+    // We cannot rely on hasChildren() because empty sections would be missed.
+    if (!index.parent().isValid()) {
+        QItemDelegate::paint(painter, option, index);
+        return;
+    }
+
     // [M] icon ? status name (username)
     drawBackground(painter, option, index);
 
