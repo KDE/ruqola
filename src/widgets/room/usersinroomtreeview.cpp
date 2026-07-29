@@ -45,7 +45,7 @@ UsersInRoomTreeView::UsersInRoomTreeView(QWidget *parent)
 
 UsersInRoomTreeView::~UsersInRoomTreeView() = default;
 
-void UsersInRoomTreeView::paintEvent(QPaintEvent *event)
+void UsersInRoomTreeView::paintEvent(QPaintEvent *prevent)
 {
     if (model()->rowCount() == 0) {
         const QString label = i18n("No Users Found.");
@@ -62,7 +62,7 @@ void UsersInRoomTreeView::paintEvent(QPaintEvent *event)
         p.setPen(mTextColor);
         p.drawText(QRect(0, 0, width(), height()), Qt::AlignCenter, label);
     } else {
-        QTreeView::paintEvent(event);
+        QTreeView::paintEvent(prevent);
     }
 }
 

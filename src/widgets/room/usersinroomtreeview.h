@@ -19,7 +19,7 @@ public:
     [[nodiscard]] UsersForRoomFilterProxyModel *usersForRoomFilterProxy() const;
 
 protected:
-    void paintEvent(QPaintEvent *event) override;
+    void paintEvent(QPaintEvent *prevent) override;
     [[nodiscard]] bool event(QEvent *ev) override;
 
 private:
