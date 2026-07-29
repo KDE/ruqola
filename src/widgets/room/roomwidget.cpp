@@ -31,7 +31,6 @@
 #include "dialogs/showpinnedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
-#include "dialogs/unbanusersdialog.h"
 #include "discussions/showdiscussionsdialog.h"
 #include "exportmessages/exportmessagesdialog.h"
 #include "job/unbanuserinchanneljob.h"
@@ -77,7 +76,6 @@
 #include <QTimeZone>
 #include <QVBoxLayout>
 
-#include "config-ruqola.h"
 #include "video-conference/videoconferencecapabilitiesjob.h"
 
 #if HAVE_TEXT_TO_SPEECH
