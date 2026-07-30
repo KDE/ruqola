@@ -718,6 +718,13 @@ void RoomWidget::dropEvent(QDropEvent *event)
 void RoomWidget::storeRoomSettings()
 {
     if (mCurrentRocketChatAccount) {
+        // When we switch account, we clear roomId and if we call select channel
+        // it will call storeRoomSettings() method with roomId is empty
+        // It will write debug about invalid line in database.
+        // => Make sure that it's not empty.
+        if (mRoomWidgetBase->roomId().isEmpty()) {
+            return;
+        }
         if (mRoomWidgetBase->messageLineWidget()->text().isEmpty() && !mRoomWidgetBase->messageLineWidget()->hasAttachments()) {
             auto *vbar = mRoomWidgetBase->messageListView()->verticalScrollBar();
             if (vbar->value() != vbar->maximum()) {
