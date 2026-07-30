@@ -91,6 +91,7 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     setItemDelegate(mMessageListDelegate);
 
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
+    connect(mNewMessageIndicator, &NewMessageIndicator::moveToBottom, this, &MessageListView::maybeScrollToBottom);
 
     // ensure the scrolling behavior isn't jumpy
     // we always single step by roughly one line
