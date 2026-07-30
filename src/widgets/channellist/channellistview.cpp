@@ -368,18 +368,20 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
 
 void ChannelListView::channelSelected(const QModelIndex &index)
 {
-    if (!index.parent().isValid())
+    if (!index.parent().isValid()) {
         return;
+    }
 
     const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
     const QString roomName = index.data(RoomModel::RoomFName).toString();
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
     const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
-    ChannelSelectedInfo info;
-    info.avatarInfo = avatarInfo;
-    info.roomId = roomId;
-    info.roomName = roomName;
-    info.roomType = roomType;
+    const ChannelSelectedInfo info{
+        .roomId = roomId,
+        .roomName = roomName,
+        .roomType = roomType,
+        .avatarInfo = avatarInfo,
+    };
     Q_EMIT roomSelected(info);
 }
 
