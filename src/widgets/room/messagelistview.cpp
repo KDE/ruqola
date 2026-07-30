@@ -203,6 +203,8 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
 
 void MessageListView::updateNewMessageIndicatorVisibility()
 {
+    return; // TODO reactivate when all is ok
+
     const auto *vbar = verticalScrollBar();
     const bool notAtBottom = vbar->value() < vbar->maximum();
     const bool hasUnread = mRoom && (mRoom->unread() > 0);
