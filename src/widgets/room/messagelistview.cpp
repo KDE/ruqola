@@ -196,6 +196,9 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
         verticalScrollBar()->setValue(1); // If we are at 0 we can't continue to load history
     }
     updateNewMessageIndicatorVisibility();
+    if (mNewMessageIndicator->isVisible()) {
+        repositionNewMessageIndicator();
+    }
 }
 
 void MessageListView::updateNewMessageIndicatorVisibility()
