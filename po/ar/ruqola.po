@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:45+0000\n"
+"POT-Creation-Date: 2026-07-30 00:44+0000\n"
 "PO-Revision-Date: 2026-07-17 15:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3483,7 +3483,7 @@ msgstr "أظهر رسائل الإشراف"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
 #: widgets/room/commandpreviewwidget.cpp:161
-#: widgets/room/usersinroomwidget.cpp:161
+#: widgets/room/usersinroomwidget.cpp:178
 #, kde-format
 msgid "Loading…"
 msgstr "يحمل…"
@@ -3491,7 +3491,7 @@ msgstr "يحمل…"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
 #: widgets/dialogs/searchmessagewidget.cpp:221
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
-#: widgets/room/usersinroomwidget.cpp:163
+#: widgets/room/usersinroomwidget.cpp:180
 #, kde-format
 msgid "No Message found"
 msgstr "لم يُعثر على رسالة"
@@ -3629,7 +3629,7 @@ msgstr "استبعد كافة التقارير"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:376
+#: widgets/room/messagelistview.cpp:426
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3638,7 +3638,7 @@ msgstr "انسخ التحديد"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:378
+#: widgets/room/messagelistview.cpp:428
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3659,7 +3659,7 @@ msgstr "نطق النص"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:115
-#: widgets/room/messagelistview.cpp:409
+#: widgets/room/messagelistview.cpp:459
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -3855,7 +3855,7 @@ msgstr "المستخدمون في الدور"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:83
 #: widgets/dialogs/addusersinroomwidget.cpp:25
 #: widgets/directory/directorywidget.cpp:40
-#: widgets/room/usersinroomwidget.cpp:44
+#: widgets/room/usersinroomwidget.cpp:58
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search users…"
@@ -7611,7 +7611,7 @@ msgid "Mark as Unread"
 msgstr "علّم كغير مقروء"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:396
+#: widgets/room/messagelistview.cpp:446
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -8366,7 +8366,7 @@ msgctxt "@label:textbox"
 msgid "Channel Password:"
 msgstr "كلمة سر القناة:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:58
+#: widgets/dialogs/channelrolesinfowidget.cpp:60
 #, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
@@ -8377,7 +8377,7 @@ msgstr[3] "الملاك:"
 msgstr[4] "الملاك:"
 msgstr[5] "الملاك:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:61
+#: widgets/dialogs/channelrolesinfowidget.cpp:64
 #, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
@@ -8388,7 +8388,7 @@ msgstr[3] "المشرفون:"
 msgstr[4] "المشرفون:"
 msgstr[5] "المشرفون:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:64
+#: widgets/dialogs/channelrolesinfowidget.cpp:68
 #, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
@@ -9167,7 +9167,7 @@ msgstr[5] "%1 مرفق في الغرفة (الإجمالي: %2)"
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:136
-#: widgets/room/usersinroomwidget.cpp:172
+#: widgets/room/usersinroomwidget.cpp:194
 #, kde-format
 msgid "(Click here for Loading more…)"
 msgstr "(انقر هنا لتحميل المزيد…)"
@@ -10593,7 +10593,7 @@ msgid "Switch To New Room"
 msgstr "بدّل إلى غرفة جديدة"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:766
+#: widgets/room/messagelistview.cpp:817
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10837,21 +10837,21 @@ msgid "User Info"
 msgstr "معلومات المستخدم"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:508
+#: widgets/room/messagelistview.cpp:559
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:616 widgets/room/messagelistview.cpp:676
+#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:616 widgets/room/messagelistview.cpp:676
+#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -11054,189 +11054,189 @@ msgstr "رفع الملف"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "الخادم لا يسمح بهذا الملف (%1 نوع mime غير صالح)"
 
-#: widgets/room/messagelistview.cpp:132
+#: widgets/room/messagelistview.cpp:143
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "انضممت إلى رسالة مباشرة جديدة"
 
-#: widgets/room/messagelistview.cpp:134
+#: widgets/room/messagelistview.cpp:145
 #, kde-format
 msgid "Start of conversation"
 msgstr "بدء المحادثة"
 
-#: widgets/room/messagelistview.cpp:387
+#: widgets/room/messagelistview.cpp:437
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "ألغ تثبيت الرّسالة"
 
-#: widgets/room/messagelistview.cpp:387
+#: widgets/room/messagelistview.cpp:437
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "ثبّت الرّسالة"
 
-#: widgets/room/messagelistview.cpp:396
+#: widgets/room/messagelistview.cpp:446
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "أزِل من المفضّلة"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:453
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "احذف"
 
-#: widgets/room/messagelistview.cpp:416
+#: widgets/room/messagelistview.cpp:466
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "علّم الرسالة كَغَير مقروءة"
 
-#: widgets/room/messagelistview.cpp:421
+#: widgets/room/messagelistview.cpp:471
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "اعرض كامل السلسلة"
 
-#: widgets/room/messagelistview.cpp:426
+#: widgets/room/messagelistview.cpp:476
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "حرر"
 
-#: widgets/room/messagelistview.cpp:431
+#: widgets/room/messagelistview.cpp:481
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "اقتبس"
 
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:486
 #, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "إيصالات القراءة"
 
-#: widgets/room/messagelistview.cpp:441
+#: widgets/room/messagelistview.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "انسخ رابط إلى رسالة"
 
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:496
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "تمرير الرسالة"
 
-#: widgets/room/messagelistview.cpp:462
+#: widgets/room/messagelistview.cpp:512
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "لا تتبع الرسالة"
 
-#: widgets/room/messagelistview.cpp:462
+#: widgets/room/messagelistview.cpp:512
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "اتبع الرّسالة"
 
-#: widgets/room/messagelistview.cpp:476
+#: widgets/room/messagelistview.cpp:526
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "انسخ المسار"
 
-#: widgets/room/messagelistview.cpp:499 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:550 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/messagelistview.cpp:546
+#: widgets/room/messagelistview.cpp:597
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "ابدأ مناقشة"
 
-#: widgets/room/messagelistview.cpp:552
+#: widgets/room/messagelistview.cpp:603
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/messagelistview.cpp:686
+#: widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "اطلع على التقارير"
 
-#: widgets/room/messagelistview.cpp:709
+#: widgets/room/messagelistview.cpp:760
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "استبعد التقارير"
 
-#: widgets/room/messagelistview.cpp:783
+#: widgets/room/messagelistview.cpp:834
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
 
-#: widgets/room/messagelistview.cpp:1037
+#: widgets/room/messagelistview.cpp:1088
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "هل تريد حذف هذه الرسالة؟"
 
-#: widgets/room/messagelistview.cpp:1038
+#: widgets/room/messagelistview.cpp:1089
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "احذف الرّسالة"
 
-#: widgets/room/messagelistview.cpp:1236
+#: widgets/room/messagelistview.cpp:1287
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "خطأ المترجم"
 
-#: widgets/room/messagetextedit.cpp:236
+#: widgets/room/messagetextedit.cpp:235
 #, kde-format
 msgid "Paste Image"
 msgstr "ألصِق صورة"
 
-#: widgets/room/messagetextedit.cpp:243
+#: widgets/room/messagetextedit.cpp:242
 #, kde-format
 msgid "Change Text Format"
 msgstr "غيّر تنسيق النص"
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:244
 #, kde-format
 msgid "Bold"
 msgstr "ثخين"
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Italic"
 msgstr "مائل"
 
-#: widgets/room/messagetextedit.cpp:247
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Strike-out"
 msgstr "مشطوب"
 
-#: widgets/room/messagetextedit.cpp:249
+#: widgets/room/messagetextedit.cpp:248
 #, kde-format
 msgid "Code Block"
 msgstr "كتلة شفرة"
 
-#: widgets/room/messagetextedit.cpp:251
+#: widgets/room/messagetextedit.cpp:250
 #, kde-format
 msgid "Markdown Url"
 msgstr "رابط مارك‌داون"
 
-#: widgets/room/newmessageindicator.cpp:33
+#: widgets/room/newmessageindicator.cpp:29
 #, kde-format
 msgid "New Message"
 msgstr "رسالة جديدة"
@@ -11394,45 +11394,45 @@ msgstr "الرد في سلسلة"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "رد في سلسلة المحادثات للرسالة: '%1'"
 
-#: widgets/room/roomwidget.cpp:393
+#: widgets/room/roomwidget.cpp:391
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "هل تريد إزالة التاريخ حقًا؟"
 
-#: widgets/room/roomwidget.cpp:394
+#: widgets/room/roomwidget.cpp:392
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "أزل التّاريخ"
 
-#: widgets/room/roomwidget.cpp:438
+#: widgets/room/roomwidget.cpp:436
 #, kde-format
 msgid "Export Messages"
 msgstr "صدّر الرسائل"
 
-#: widgets/room/roomwidget.cpp:439
+#: widgets/room/roomwidget.cpp:437
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "بريدُك الإلكتروني مدرج في قائمة الانتظار للإرسال."
 
-#: widgets/room/roomwidget.cpp:601
+#: widgets/room/roomwidget.cpp:599
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "لا يمكن البحث في المحتوى المعمّى."
 
-#: widgets/room/roomwidget.cpp:601
+#: widgets/room/roomwidget.cpp:599
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "ابحث في الرسائل"
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:618
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "يحتاج مسؤول مساحة العمل إلى تثبيت وضبط تطبيقات مكالمات جماعية."
 
-#: widgets/room/roomwidget.cpp:621
+#: widgets/room/roomwidget.cpp:619
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11475,12 +11475,6 @@ msgstr "المستخدمين"
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(افتح مربع حوار خارجي…)"
-
-#: widgets/room/usersinroomlistview.cpp:22
-#: widgets/room/usersinroomtreeview.cpp:42
-#, kde-format
-msgid "No Users Found."
-msgstr "لم يعثر على أي مستخدم"
 
 #: widgets/room/usersinroommenu.cpp:42
 #, kde-format
@@ -11663,7 +11657,12 @@ msgctxt "@action:button"
 msgid "Ban User"
 msgstr "احظر المستخدم"
 
-#: widgets/room/usersinroomwidget.cpp:170
+#: widgets/room/usersinroomtreeview.cpp:51
+#, kde-format
+msgid "No Users Found."
+msgstr "لم يعثر على أي مستخدم"
+
+#: widgets/room/usersinroomwidget.cpp:192
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
