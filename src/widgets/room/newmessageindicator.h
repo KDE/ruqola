@@ -9,6 +9,20 @@
 #include <KMessageWidget>
 #include <QWidget>
 
+class LIBRUQOLAWIDGETS_TESTS_EXPORT NewMessageIndicatorWidget : public KMessageWidget
+{
+    Q_OBJECT
+public:
+    explicit NewMessageIndicatorWidget(QWidget *parent = nullptr);
+    ~NewMessageIndicatorWidget() override;
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
+
+Q_SIGNALS:
+    void clicked();
+};
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NewMessageIndicator : public QWidget
 {
     Q_OBJECT
@@ -18,6 +32,9 @@ public:
 
     void showNewMessageIndicator(bool visible);
 
+Q_SIGNALS:
+    void moveToBottom();
+
 private:
-    KMessageWidget *const mMessageWidget;
+    NewMessageIndicatorWidget *const mMessageWidget;
 };

@@ -6,11 +6,13 @@
 #include "newmessageindicator.h"
 #include "ruqola_newmessageindicator_debug.h"
 #include <KLocalizedString>
+#include <QMouseEvent>
 #include <QVBoxLayout>
+
 using namespace Qt::Literals::StringLiterals;
 NewMessageIndicator::NewMessageIndicator(QWidget *parent)
     : QWidget{parent}
-    , mMessageWidget(new KMessageWidget(this))
+    , mMessageWidget(new NewMessageIndicatorWidget(this))
 {
     setObjectName(u"NewMessageIndicator"_s);
     setFocusPolicy(Qt::NoFocus);
@@ -30,6 +32,7 @@ NewMessageIndicator::NewMessageIndicator(QWidget *parent)
     mMessageWidget->setWordWrap(false);
 
     mMessageWidget->setMessageType(KMessageWidget::Information);
+    connect(mMessageWidget, &NewMessageIndicatorWidget::clicked, this, &NewMessageIndicator::moveToBottom);
 }
 
 NewMessageIndicator::~NewMessageIndicator() = default;
@@ -38,6 +41,22 @@ void NewMessageIndicator::showNewMessageIndicator(bool visible)
 {
     qCDebug(RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG) << "NewMessageIndicator::showNewMessageIndicator: " << visible;
     setVisible(visible);
+}
+
+NewMessageIndicatorWidget::NewMessageIndicatorWidget(QWidget *parent)
+    : KMessageWidget(parent)
+{
+    setMouseTracking(true);
+}
+
+NewMessageIndicatorWidget::~NewMessageIndicatorWidget() = default;
+
+void NewMessageIndicatorWidget::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton) {
+        Q_EMIT clicked();
+    }
+    QFrame::mousePressEvent(event);
 }
 
 #include "moc_newmessageindicator.cpp"
