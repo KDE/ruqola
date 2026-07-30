@@ -74,6 +74,10 @@ Q_SIGNALS:
     void replyInThreadRequested(const QByteArray &messageId, const QString &text);
     void uiInteractionRequested(const QJsonObject &obj);
 
+protected:
+    [[nodiscard]] QString selectedText(const QModelIndex &index) override;
+    [[nodiscard]] bool hasSelection() const override;
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotEditMessage(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteMessage(const QModelIndex &index);
@@ -104,8 +108,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void createTranslorMenu();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowReportInfo(const ModerationReportInfos &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardMessage(const QModelIndex &index);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString selectedText(const QModelIndex &index) override;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool hasSelection() const override;
     LIBRUQOLAWIDGETS_NO_EXPORT void createEmojiWidgetAction(QMenu *menu, const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowGeneratedMessage(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReadReceiptsMessage(const QModelIndex &index);
@@ -117,5 +119,5 @@ private:
     TextTranslator::TranslatorMenu *mTranslatorMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     ActionButtonsGenerator *const mActionButtonsGenerator;
-    NewMessageIndicator *mNewMessageIndicator = nullptr;
+    NewMessageIndicator *const mNewMessageIndicator;
 };

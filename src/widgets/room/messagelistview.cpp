@@ -76,6 +76,7 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     , mMessageListDelegate(new MessageListDelegate(account, this))
     , mCurrentRocketChatAccount(account)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
+    , mNewMessageIndicator(new NewMessageIndicator(viewport()))
 {
     if (mCurrentRocketChatAccount) {
         mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
@@ -83,7 +84,6 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     }
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageListView::uiInteractionRequested);
 
-    mNewMessageIndicator = new NewMessageIndicator(viewport());
     mNewMessageIndicator->hide();
 
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
@@ -200,9 +200,6 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
 
 void MessageListView::updateNewMessageIndicatorVisibility()
 {
-    if (!mNewMessageIndicator) {
-        return;
-    }
     const auto *vbar = verticalScrollBar();
     const bool notAtBottom = vbar->value() < vbar->maximum();
     const bool hasUnread = mRoom && (mRoom->unread() > 0);
@@ -221,9 +218,6 @@ void MessageListView::updateNewMessageIndicatorVisibility()
 void MessageListView::repositionNewMessageIndicator()
 {
     qCDebug(RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG) << "MessageListView::repositionNewMessageIndicator";
-    if (!mNewMessageIndicator) {
-        return;
-    }
     mNewMessageIndicator->adjustSize();
     const QSize vSize = viewport()->size();
     const QSize iSize = mNewMessageIndicator->sizeHint();
