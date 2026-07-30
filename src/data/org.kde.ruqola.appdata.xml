@@ -1393,8 +1393,35 @@
         <ul>
           <li>Show user status in list of user in rooms</li>
           <li>Allow to define topic when it's not defined</li>
+          <li xml:lang="ca">Permetre definir un tema quan no està definit</li>
+          <li xml:lang="ca-valencia">Permetre definir un tema quan no està definit</li>
+          <li xml:lang="ka">თემის განსაზღვრის დაშვება, როცა ის განსაზღვრული არაა</li>
+          <li xml:lang="nl">Het mogelijk maken om het onderwerp te definiëren wanneer dit nog niet is vastgelegd</li>
+          <li xml:lang="pt-BR">Permitir definir o tópico quando ele não estiver definido</li>
+          <li xml:lang="sl">Dovoli definiranje teme klepeta, kadar ni definirana</li>
+          <li xml:lang="sv">Tillåt att ämnet definieras när det inte är definierat</li>
+          <li xml:lang="tr">Tanımlı değilse konu tanımlamaya olanak tanı</li>
+          <li xml:lang="uk">Уможливлено визначення теми, якщо її ще не визначено</li>
           <li>Redesign link previews as compact cards</li>
+          <li xml:lang="ca">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
+          <li xml:lang="ca-valencia">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
+          <li xml:lang="ka">შეიცვალა ბმულის მინიატურების დიზაინი კომპაქტურ ბარათებზე</li>
+          <li xml:lang="nl">Ontwerp koppelingsvoorbeelden opnieuw als compacte kaarten</li>
+          <li xml:lang="pt-BR">Redesenho das prévias de links como cartões compactos</li>
+          <li xml:lang="sl">Preoblikuj predoglede povezav kot kompaktne kartice</li>
+          <li xml:lang="sv">Konstruera om länkförhandsgranskningar som kompakta kort</li>
+          <li xml:lang="tr">Bağlantı önizlemelerini küçük kartlar olarak yeniden tasarla</li>
+          <li xml:lang="uk">Змінено дизайн попереднього перегляду посилань: тепер це компактні картки</li>
           <li>Fix DDP reconnection</li>
+          <li xml:lang="ca">Corregeix la reconnexió DDP</li>
+          <li xml:lang="ca-valencia">Corregix tornar a connectar DDP</li>
+          <li xml:lang="ka">გასწორდა DDP-სთან თავიდან დაკავშირება</li>
+          <li xml:lang="nl">Probleem met DDP-herverbinding oplossen</li>
+          <li xml:lang="pt-BR">Correção da reconexão DDP</li>
+          <li xml:lang="sl">Popravi ponovno povezavo DDP</li>
+          <li xml:lang="sv">Rätta DDP återanslutning</li>
+          <li xml:lang="tr">DDP’ye yeniden bağlanmayı onar</li>
+          <li xml:lang="uk">Виправлено повторне з'єднання DDP</li>
           <li>Improve user info</li>
           <li xml:lang="ca">Millora la informació d'usuaris</li>
           <li xml:lang="ca-valencia">Millora la informació d'usuaris</li>
