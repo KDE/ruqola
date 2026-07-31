@@ -35,17 +35,19 @@ void TeamRoomCompletionDelegate::paint(QPainter *painter, const QStyleOptionView
     boldFont.setBold(true);
     painter->setFont(boldFont);
 
-    int xPos = -1;
-    QFontMetrics fontMetrics(boldFont);
-    const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
+    const QFontMetrics fontMetrics(boldFont);
+    const int iconSize = option.rect.height() - 4;
+    const int iconY = option.rect.y() + 2;
+    const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
+
+    int xPos = 0;
     const Utils::AvatarInfo info = index.data(TeamRoomCompleterModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
+            painter->drawPixmap(margin, iconY, iconSize, iconSize, pix);
         }
-        xPos = margin + option.rect.height();
+        xPos = margin + iconSize;
     }
 
     const QString name = index.data(TeamRoomCompleterModel::TeamName).toString();
@@ -61,7 +63,7 @@ void TeamRoomCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRock
 QSize TeamRoomCompletionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const QSize size = QItemDelegate::sizeHint(option, index);
-    return size + QSize(0, 4 * option.widget->devicePixelRatioF());
+    return size + QSize(0, 4);
 }
 
 #include "moc_teamroomcompletiondelegate.cpp"

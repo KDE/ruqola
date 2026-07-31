@@ -39,29 +39,30 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
     boldFont.setBold(true);
     painter->setFont(boldFont);
 
-    int xPos = -1;
+    QFontMetrics fontMetrics(boldFont);
+    const int iconSize = option.rect.height() - 4;
+    const int iconY = option.rect.y() + 2;
+
+    int xPos = 0;
     const Utils::AvatarInfo info = index.data(InputCompleterModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
+            painter->drawPixmap(margin, iconY, iconSize, iconSize, pix);
         }
-        xPos = margin + option.rect.height();
+        xPos = margin + iconSize;
     }
 
     const QIcon iconStatus = index.data(InputCompleterModel::IconStatus).value<QIcon>();
     if (!iconStatus.isNull()) {
-        const QRect displayRect(margin + xPos, option.rect.y(), option.rect.height(), option.rect.height());
-        drawDecoration(painter, option, displayRect, iconStatus.pixmap(option.rect.height(), option.rect.height()));
-        xPos += margin + option.rect.height();
+        painter->drawPixmap(margin + xPos, iconY, iconSize, iconSize, iconStatus.pixmap(iconSize, iconSize));
+        xPos += margin + iconSize;
     }
 
-    QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(InputCompleterModel::DisplayName).toString();
     const QString userName = index.data(InputCompleterModel::UserName).toString();
     int nameWidth = -1;
-    const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
+    const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
     if (name.isEmpty()) {
         nameWidth = fontMetrics.horizontalAdvance(userName);
         painter->drawText(xPos + margin, defaultCharHeight, userName);
@@ -107,7 +108,7 @@ void UserAndChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *n
 QSize UserAndChannelCompletionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const QSize size = QItemDelegate::sizeHint(option, index);
-    return size + QSize(0, 4 * option.widget->devicePixelRatioF());
+    return size + QSize(0, 4);
 }
 
 #include "moc_userandchannelcompletiondelegate.cpp"
