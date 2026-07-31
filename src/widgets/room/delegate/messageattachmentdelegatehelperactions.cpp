@@ -40,6 +40,7 @@ void MessageAttachmentDelegateHelperActions::draw(const MessageAttachmentActions
                                                   const QStyleOptionViewItem &option) const
 {
     const ActionsLayout layout = layoutActions(act, option, messageRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     for (const auto &button : std::as_const(layout.buttonList)) {
         // Draw button
         const QPen origPen = painter->pen();

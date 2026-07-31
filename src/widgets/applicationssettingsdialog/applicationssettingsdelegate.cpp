@@ -41,7 +41,7 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
 {
     painter->save();
     drawBackground(painter, option, index);
-
+    painter->setRenderHint(QPainter::Antialiasing);
     const int margin = MessageDelegateUtils::basicMargin();
     painter->save();
     painter->setPen(Qt::NoPen);
