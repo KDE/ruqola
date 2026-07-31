@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2026-07-28 10:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -11035,12 +11035,12 @@ msgstr "Pujada de fitxer"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "El servidor no ha autoritzat aquest fitxer (tipus MIME %1 no vàlid)"
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Us heu unit a un missatge directe nou"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, kde-format
 msgid "Start of conversation"
 msgstr "Inici de la conversa"
@@ -11217,7 +11217,7 @@ msgstr "Bloc de codi"
 msgid "Markdown Url"
 msgstr "URL en Markdown"
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, kde-format
 msgid "New Message"
 msgstr "Missatge nou"

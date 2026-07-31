@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2026-07-28 21:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -10969,12 +10969,12 @@ msgstr "Dosya Karşıya Yükle"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Sunucu, bu dosya türünü yetkilendirmedi (geçersiz MIME türü %1)"
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Yeni bir doğrudan iletiye katıldınız"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, kde-format
 msgid "Start of conversation"
 msgstr "Konuşma başlangıcı"
@@ -11151,7 +11151,7 @@ msgstr "Kod Bloku"
 msgid "Markdown Url"
 msgstr "Markdown URL’si"
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, kde-format
 msgid "New Message"
 msgstr "Yeni İleti"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -11014,12 +11014,12 @@ msgstr "File upload"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Server nepovoľuje tento súbor (neplatný typ MIME)"
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Správa"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, kde-format
 msgid "Start of conversation"
 msgstr "Konverzácia"
@@ -11197,7 +11197,7 @@ msgstr "Code Block"
 msgid "Markdown Url"
 msgstr "Markdown Url"
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, kde-format
 msgid "New Message"
 msgstr "Súkromné adresy"

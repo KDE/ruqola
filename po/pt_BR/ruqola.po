@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2026-07-28 07:35-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -11013,12 +11013,12 @@ msgstr "Envio de arquivo"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "O servidor não autorizou este arquivo (tipo MIME %1 inválido)"
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Você entrou em uma nova mensagem direta"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, kde-format
 msgid "Start of conversation"
 msgstr "Início da conversa"
@@ -11195,7 +11195,7 @@ msgstr "Bloco de código"
 msgid "Markdown Url"
 msgstr "URL Markdown"
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, kde-format
 msgid "New Message"
 msgstr "Nova mensagem"

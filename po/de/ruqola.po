@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -11592,14 +11592,14 @@ msgstr "Datei hochgeladen:"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
 msgid "You have joined a new direct message"
 msgstr "Video-Nachricht aufnehmen"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgid "Start of conversation"
@@ -11799,7 +11799,7 @@ msgstr ""
 msgid "Markdown Url"
 msgstr ""
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, fuzzy, kde-format
 #| msgid "Send Message"
 msgid "New Message"

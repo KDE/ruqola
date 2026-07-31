@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -11086,12 +11086,12 @@ msgstr "फ़ाइल अपलोड"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "सर्वर इस फ़ाइल को अधिकृत नहीं करता (अमान्य mimetype)"
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "आप एक नए प्रत्यक्ष संदेश में शामिल हो गए हैं"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, kde-format
 msgid "Start of conversation"
 msgstr "बातचीत की शुरुआत"
@@ -11269,7 +11269,7 @@ msgstr "कोड ब्लॉक"
 msgid "Markdown Url"
 msgstr "मार्कडाउन यूआरएल"
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, fuzzy, kde-format
 #| msgid "Send Message"
 msgid "New Message"

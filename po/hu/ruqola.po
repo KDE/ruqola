@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -11221,12 +11221,12 @@ msgstr "Fájlfeltöltés"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "A kiszolgáló nem hitelesítette ezt a fájlt (érvénytelen MIME-típus)"
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Csatlakozott egy új közvetlen üzenethez"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, kde-format
 msgid "Start of conversation"
 msgstr "Beszélgetés kezdete"
@@ -11404,7 +11404,7 @@ msgstr "Kód"
 msgid "Markdown Url"
 msgstr "Markdown URL"
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, fuzzy, kde-format
 #| msgid "Send Message"
 msgid "New Message"

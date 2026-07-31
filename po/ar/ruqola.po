@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:44+0000\n"
+"POT-Creation-Date: 2026-07-31 00:45+0000\n"
 "PO-Revision-Date: 2026-07-17 15:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -11054,12 +11054,12 @@ msgstr "رفع الملف"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "الخادم لا يسمح بهذا الملف (%1 نوع mime غير صالح)"
 
-#: widgets/room/messagelistview.cpp:143
+#: widgets/room/messagelistview.cpp:144
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "انضممت إلى رسالة مباشرة جديدة"
 
-#: widgets/room/messagelistview.cpp:145
+#: widgets/room/messagelistview.cpp:146
 #, kde-format
 msgid "Start of conversation"
 msgstr "بدء المحادثة"
@@ -11236,7 +11236,7 @@ msgstr "كتلة شفرة"
 msgid "Markdown Url"
 msgstr "رابط مارك‌داون"
 
-#: widgets/room/newmessageindicator.cpp:29
+#: widgets/room/newmessageindicator.cpp:31
 #, kde-format
 msgid "New Message"
 msgstr "رسالة جديدة"
