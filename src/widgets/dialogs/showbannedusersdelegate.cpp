@@ -35,22 +35,24 @@ void ShowBannedUsersDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     boldFont.setBold(true);
     painter->setFont(boldFont);
 
-    int xPos = -1;
+    const QFontMetrics fontMetrics(boldFont);
+    const int iconSize = option.rect.height() - 4;
+    const int iconY = option.rect.y() + 2;
+
+    int xPos = 0;
     const Utils::AvatarInfo info = index.data(BannedUsersModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
+            painter->drawPixmap(margin, iconY, iconSize, iconSize, pix);
         }
         // Add extra size even if we don't have avatar pix
-        xPos = margin + option.rect.height();
+        xPos = margin + iconSize;
     }
 
-    const QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(BannedUsersModel::Name).toString();
     const QString userName = index.data(BannedUsersModel::UserName).toString();
-    const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
+    const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
     if (name.isEmpty()) {
         painter->drawText(xPos + margin, defaultCharHeight, userName);
     } else {
@@ -73,7 +75,7 @@ void ShowBannedUsersDelegate::setRocketChatAccount(RocketChatAccount *newRocketC
 QSize ShowBannedUsersDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const QSize size = QItemDelegate::sizeHint(option, index);
-    return size + QSize(0, 4 * option.widget->devicePixelRatioF());
+    return size + QSize(0, 4);
 }
 
 #include "moc_showbannedusersdelegate.cpp"
