@@ -228,7 +228,7 @@ QMenu *MessageTextEdit::mousePopupMenu()
 {
     QMenu *menu = KTextEdit::mousePopupMenu();
 
-    QClipboard *clip = QApplication::clipboard();
+    QClipboard *const clip = QApplication::clipboard();
     const QMimeData *mimeData = clip->mimeData();
     if (mimeData->hasImage()) {
         menu->addSeparator();
