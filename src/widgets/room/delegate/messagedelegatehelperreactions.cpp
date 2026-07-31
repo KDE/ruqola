@@ -117,6 +117,8 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
     backgroundColor.setAlpha(60);
     const QBrush buttonBrush(backgroundColor);
     const qreal smallMargin = 4;
+    painter->setRenderHint(QPainter::Antialiasing);
+
     for (const ReactionLayout &reactionLayout : layouts) {
         Q_ASSERT(!reactionLayout.emojiString.isEmpty() || !reactionLayout.emojiImagePath.isEmpty());
         const QRectF reactionRect = reactionLayout.reactionRect;

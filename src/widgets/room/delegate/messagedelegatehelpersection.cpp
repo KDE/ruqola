@@ -34,11 +34,11 @@ MessageDelegateHelperSection::~MessageDelegateHelperSection() = default;
 void MessageDelegateHelperSection::draw(const Block &block,
                                         QPainter *painter,
                                         QRect blockRect,
-                                        const QModelIndex &index,
+                                        [[maybe_unused]] const QModelIndex &index,
                                         const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const SectionLayout layout = layoutSection(block, option, blockRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     // Draw title and buttons
     const int positionY = blockRect.y() + option.fontMetrics.ascent();
     painter->drawText(blockRect.x(), positionY, layout.sectionText);

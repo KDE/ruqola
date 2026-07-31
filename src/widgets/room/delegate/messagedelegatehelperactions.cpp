@@ -37,6 +37,7 @@ void MessageDelegateHelperActions::draw(const Block &block,
 {
     Q_UNUSED(index)
     const ActionsLayout layout = layoutActions(block, option, blockRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     for (const auto &button : std::as_const(layout.buttonList)) {
         // Draw button
         const QPen origPen = painter->pen();

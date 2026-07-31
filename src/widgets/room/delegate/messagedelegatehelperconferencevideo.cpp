@@ -43,6 +43,7 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
 {
     Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     // Draw title and buttons
     const int positionY = blockRect.y() + option.fontMetrics.ascent();
     painter->drawText(blockRect.x(), positionY, layout.title);
