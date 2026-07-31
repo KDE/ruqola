@@ -104,9 +104,8 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
 MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::layoutPreview(const MessageUrl &messageUrl,
                                                                                               const QStyleOptionViewItem &option,
                                                                                               int urlsPreviewWidth,
-                                                                                              int urlsPreviewHeight) const
+                                                                                              [[maybe_unused]] int urlsPreviewHeight) const
 {
-    Q_UNUSED(urlsPreviewHeight);
     MessageDelegateHelperUrlPreview::PreviewLayout layout;
     layout.isShown = messageUrl.showPreview();
 
@@ -202,9 +201,11 @@ void MessageDelegateHelperUrlPreview::drawDescription(const MessageUrl &messageU
     MessageDelegateUtils::drawSelection(doc, textRect, textRect.top(), painter, index, option, mTextSelectionImpl->textSelection(), {}, messageUrl);
 }
 
-QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperUrlPreview::sizeHint(const MessageUrl &messageUrl,
+                                                [[maybe_unused]] const QModelIndex &index,
+                                                int maxWidth,
+                                                const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index);
     const PreviewLayout layout = layoutPreview(messageUrl, option, maxWidth, -1);
     return {layout.contentWidth, layout.contentHeight};
 }

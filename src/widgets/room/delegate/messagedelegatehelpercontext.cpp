@@ -28,10 +28,9 @@ MessageDelegateHelperContext::~MessageDelegateHelperContext() = default;
 void MessageDelegateHelperContext::draw(const Block &block,
                                         QPainter *painter,
                                         QRect blockRect,
-                                        const QModelIndex &index,
+                                        [[maybe_unused]] const QModelIndex &index,
                                         const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ContextLayout layout = layoutContext(block, option, blockRect.width());
     for (const auto &button : std::as_const(layout.textList)) {
         const QRectF textRect = button.buttonRect.translated(blockRect.topLeft());
@@ -40,9 +39,11 @@ void MessageDelegateHelperContext::draw(const Block &block,
     }
 }
 
-QSize MessageDelegateHelperContext::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperContext::sizeHint(const Block &block,
+                                             [[maybe_unused]] const QModelIndex &index,
+                                             int maxWidth,
+                                             const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ContextLayout layout = layoutContext(block, option, maxWidth);
     if (layout.textList.isEmpty()) {
         return {};
@@ -56,24 +57,18 @@ QSize MessageDelegateHelperContext::sizeHint(const Block &block, const QModelInd
     return {qMax(0, static_cast<int>(width)), height};
 }
 
-bool MessageDelegateHelperContext::handleMouseEvent(const Block &block,
-                                                    QMouseEvent *mouseEvent,
-                                                    QRect blocksRect,
-                                                    const QStyleOptionViewItem &option,
-                                                    const QModelIndex &index)
+bool MessageDelegateHelperContext::handleMouseEvent([[maybe_unused]] const Block &block,
+                                                    [[maybe_unused]] QMouseEvent *mouseEvent,
+                                                    [[maybe_unused]] QRect blocksRect,
+                                                    [[maybe_unused]] const QStyleOptionViewItem &option,
+                                                    [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(block);
-    Q_UNUSED(mouseEvent);
-    Q_UNUSED(blocksRect);
-    Q_UNUSED(option);
-    Q_UNUSED(index);
     return false;
 }
 
 MessageDelegateHelperContext::ContextLayout
-MessageDelegateHelperContext::layoutContext(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
+MessageDelegateHelperContext::layoutContext(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
 {
-    Q_UNUSED(blockRectWidth)
     ContextLayout layout;
 
     qreal x = 0;
