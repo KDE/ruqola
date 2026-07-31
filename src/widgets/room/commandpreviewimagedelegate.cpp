@@ -30,7 +30,7 @@ void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionVie
     } else {
         painter->drawText(option.rect, index.data(Qt::UserRole).toString());
     }
-};
+}
 
 QSize CommandPreviewImageDelegate::sizeHint([[maybe_unused]] const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
