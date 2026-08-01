@@ -1392,6 +1392,15 @@
       <description>
         <ul>
           <li>Show user status in list of user in rooms</li>
+          <li xml:lang="ca">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
+          <li xml:lang="ca-valencia">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
+          <li xml:lang="ka">მომხმარებლის სტატუსის ჩვენება ოთახებში მომხმარებელთა სიაში</li>
+          <li xml:lang="nl">Gebruikerstatus tonen in de lijst met gebruikers in rooms</li>
+          <li xml:lang="pt-BR">Mostrar o status dos usuários na lista de usuários nas salas</li>
+          <li xml:lang="sl">Prikaži stanje uporabnika na seznamu uporabnikov v sobah</li>
+          <li xml:lang="sv">Visa användarstatus i en lista för användare i flera rum</li>
+          <li xml:lang="tr">Odalardaki kullanıcı listelerinde kullanıcı durumlarını göster</li>
+          <li xml:lang="uk">Реалізовано показ стану користувача у списку користувачів кімнати</li>
           <li>Allow to define topic when it's not defined</li>
           <li xml:lang="ca">Permetre definir un tema quan no està definit</li>
           <li xml:lang="ca-valencia">Permetre definir un tema quan no està definit</li>
