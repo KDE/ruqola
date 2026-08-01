@@ -49,11 +49,10 @@ void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAtta
 }
 
 QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &msgAttach,
-                                                     const QModelIndex &index,
+                                                     [[maybe_unused]] const QModelIndex &index,
                                                      int maxWidth,
                                                      const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const VideoLayout layout = layoutVideo(msgAttach, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;

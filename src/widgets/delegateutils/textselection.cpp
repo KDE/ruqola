@@ -134,9 +134,8 @@ QString TextSelection::selectedText(Format format) const
     return str;
 }
 
-bool TextSelection::contains(const QModelIndex &index, int charPos, const MessageAttachment &att) const
+bool TextSelection::contains(const QModelIndex &index, int charPos, [[maybe_unused]] const MessageAttachment &att) const
 {
-    Q_UNUSED(att);
     if (!hasSelection()) {
         return false;
     }

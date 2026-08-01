@@ -15,12 +15,11 @@ MessageBlockDelegateHelperBase::MessageBlockDelegateHelperBase(RocketChatAccount
 
 MessageBlockDelegateHelperBase::~MessageBlockDelegateHelperBase() = default;
 
-bool MessageBlockDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const Block &block, const QStyleOptionViewItem &option)
+bool MessageBlockDelegateHelperBase::handleHelpEvent([[maybe_unused]] QHelpEvent *helpEvent,
+                                                     [[maybe_unused]] QRect messageRect,
+                                                     [[maybe_unused]] const Block &block,
+                                                     [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
-    Q_UNUSED(helpEvent);
-    Q_UNUSED(messageRect);
-    Q_UNUSED(block);
     return false;
 }
 

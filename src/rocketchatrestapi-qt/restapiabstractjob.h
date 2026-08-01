@@ -94,20 +94,14 @@ protected:
     QPointer<QNetworkReply> mReply;
 
 protected Q_SLOTS:
-    virtual void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+    virtual void onGetRequestResponse([[maybe_unused]] const QString &replyErrorString, [[maybe_unused]] const QJsonDocument &replyJson)
     {
-        Q_UNUSED(replyJson)
-        Q_UNUSED(replyErrorString)
     }
-    virtual void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+    virtual void onPostRequestResponse([[maybe_unused]] const QString &replyErrorString, [[maybe_unused]] const QJsonDocument &replyJson)
     {
-        Q_UNUSED(replyJson)
-        Q_UNUSED(replyErrorString)
     }
-    virtual void onDeleteRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+    virtual void onDeleteRequestResponse([[maybe_unused]] const QString &replyErrorString, [[maybe_unused]] const QJsonDocument &replyJson)
     {
-        Q_UNUSED(replyJson)
-        Q_UNUSED(replyErrorString)
     }
 
 private:

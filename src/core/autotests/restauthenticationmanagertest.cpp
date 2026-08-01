@@ -23,10 +23,8 @@ public:
     ~RESTAuthenticationManagerTestImpl() override = default;
 
 protected:
-    void callLoginImpl(const QJsonArray &params, RESTAuthenticationManagerTestImpl::Method method) override
+    void callLoginImpl([[maybe_unused]] const QJsonArray &params, [[maybe_unused]] RESTAuthenticationManagerTestImpl::Method method) override
     {
-        Q_UNUSED(params);
-        Q_UNUSED(method);
         // Nothing
     }
 };

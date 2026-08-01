@@ -51,14 +51,12 @@ void AutoGenerateInteractionUiViewImageBlock::setTitle(AutoGenerateInteractionUi
     mTitle = newText;
 }
 
-void AutoGenerateInteractionUiViewImageBlock::setErrorMessages(const QMap<QString, QString> &map)
+void AutoGenerateInteractionUiViewImageBlock::setErrorMessages([[maybe_unused]] const QMap<QString, QString> &map)
 {
-    Q_UNUSED(map);
 }
 
-void AutoGenerateInteractionUiViewImageBlock::assignState(const QList<StateInfo> &info)
+void AutoGenerateInteractionUiViewImageBlock::assignState([[maybe_unused]] const QList<StateInfo> &info)
 {
-    Q_UNUSED(info);
 }
 
 AutoGenerateInteractionUiViewImage AutoGenerateInteractionUiViewImageBlock::image() const

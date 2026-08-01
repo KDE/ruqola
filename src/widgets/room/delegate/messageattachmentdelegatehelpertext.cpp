@@ -62,11 +62,10 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
 }
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach,
-                                                    const QModelIndex &index,
+                                                    [[maybe_unused]] const QModelIndex &index,
                                                     int maxWidth,
                                                     const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const TextLayout layout = layoutText(msgAttach, option, maxWidth, -1);
     int height = layout.titleRect.height();
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
@@ -139,9 +138,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach,
                                                                                                 const QStyleOptionViewItem &option,
                                                                                                 int attachmentsWidth,
-                                                                                                int attachmentsHeight) const
+                                                                                                [[maybe_unused]] int attachmentsHeight) const
 {
-    Q_UNUSED(attachmentsHeight)
     TextLayout layout;
     layout.title = msgAttach.attachmentGeneratedTitle();
     if (!layout.title.isEmpty()) {

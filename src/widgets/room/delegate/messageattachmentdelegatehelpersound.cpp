@@ -47,11 +47,10 @@ void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAtta
 }
 
 QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &msgAttach,
-                                                     const QModelIndex &index,
+                                                     [[maybe_unused]] const QModelIndex &index,
                                                      int maxWidth,
                                                      const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const SoundLayout layout = layoutSound(msgAttach, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;

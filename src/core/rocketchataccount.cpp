@@ -2116,7 +2116,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
                 const bool loaded = pix.load(url.toLocalFile().remove(u"file://"_s), "JPEG");
                 // qDebug() << " load pixmap : " << loaded;
                 // qDebug() << " pix " << pix.isNull();
-                Q_UNUSED(loaded)
+                std::ignore = loaded;
                 info.setPixmap(pix);
             }
             break;

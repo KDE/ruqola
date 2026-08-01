@@ -74,11 +74,10 @@ QWidget *AdministratorUsersPendingActionDelegate::createEditor(QWidget *, const 
 }
 
 bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
-                                                          QAbstractItemModel *model,
+                                                          [[maybe_unused]] QAbstractItemModel *model,
                                                           const QStyleOptionViewItem &option,
                                                           const QModelIndex &index)
 {
-    Q_UNUSED(model)
     if (!index.isValid()) {
         return false;
     }

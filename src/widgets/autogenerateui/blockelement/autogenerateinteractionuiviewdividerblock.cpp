@@ -31,19 +31,16 @@ QWidget *AutoGenerateInteractionUiViewDividerBlock::generateWidget(QWidget *pare
     return new KSeparator(parent);
 }
 
-void AutoGenerateInteractionUiViewDividerBlock::setErrorMessages(const QMap<QString, QString> &map)
+void AutoGenerateInteractionUiViewDividerBlock::setErrorMessages([[maybe_unused]] const QMap<QString, QString> &map)
 {
-    Q_UNUSED(map);
 }
 
-void AutoGenerateInteractionUiViewDividerBlock::assignState(const QList<StateInfo> &info)
+void AutoGenerateInteractionUiViewDividerBlock::assignState([[maybe_unused]] const QList<StateInfo> &info)
 {
-    Q_UNUSED(info);
 }
 
-void AutoGenerateInteractionUiViewDividerBlock::serializeBlock(QJsonObject &o) const
+void AutoGenerateInteractionUiViewDividerBlock::serializeBlock([[maybe_unused]] QJsonObject &o) const
 {
-    Q_UNUSED(o)
     // Nothing
 }
 
@@ -52,9 +49,8 @@ QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> AutoGenerateInteraction
     return {};
 }
 
-void AutoGenerateInteractionUiViewDividerBlock::parseBlock(const QJsonObject &json)
+void AutoGenerateInteractionUiViewDividerBlock::parseBlock([[maybe_unused]] const QJsonObject &json)
 {
-    Q_UNUSED(json)
     // Nothing
 }
 

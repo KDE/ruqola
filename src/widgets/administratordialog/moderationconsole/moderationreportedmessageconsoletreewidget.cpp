@@ -170,8 +170,7 @@ void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QMode
         job->setActivate(false);
         job->setActivateUserId(userId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this](const QJsonObject &replyObject) {
-            Q_UNUSED(replyObject)
+        connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
             // TODO delete messages
             slotLoadElements();
         });

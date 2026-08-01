@@ -70,9 +70,11 @@ bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect mess
     return false;
 }
 
-bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent,
+                                               QRect messageRect,
+                                               [[maybe_unused]] const QStyleOptionViewItem &option,
+                                               const QModelIndex &index)
 {
-    Q_UNUSED(option)
     if (!messageRect.contains(mouseEvent->pos())) {
         return false;
     }
@@ -164,16 +166,14 @@ QTextDocument *MessageListDelegateBase::documentForIndex(const QModelIndex &inde
     return documentForModelIndex(index, -1);
 }
 
-QSize MessageListDelegateBase::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+QSize MessageListDelegateBase::textSizeHint(const QModelIndex &index, int maxWidth, [[maybe_unused]] const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
-    Q_UNUSED(option)
     auto *doc = documentForModelIndex(index, maxWidth);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
 
-void MessageListDelegateBase::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
+void MessageListDelegateBase::selectAll([[maybe_unused]] const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    Q_UNUSED(option);
     mTextSelectionImpl->textSelection()->selectMessage(index);
     mListView->update(index);
     MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());

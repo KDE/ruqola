@@ -32,10 +32,9 @@ MessageDelegateHelperActions::~MessageDelegateHelperActions() = default;
 void MessageDelegateHelperActions::draw(const Block &block,
                                         QPainter *painter,
                                         QRect blockRect,
-                                        const QModelIndex &index,
+                                        [[maybe_unused]] const QModelIndex &index,
                                         const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ActionsLayout layout = layoutActions(block, option, blockRect.width());
     painter->setRenderHint(QPainter::Antialiasing);
     for (const auto &button : std::as_const(layout.buttonList)) {

@@ -61,9 +61,8 @@ bool AutoGenerateInteractionUiViewActionable::operator==(const AutoGenerateInter
     return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == actionId() && other.type() == type();
 }
 
-ActionElementWidget *AutoGenerateInteractionUiViewActionable::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewActionable::generateWidget([[maybe_unused]] QWidget *parent)
 {
-    Q_UNUSED(parent)
     return nullptr;
 }
 

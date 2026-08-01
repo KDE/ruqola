@@ -108,9 +108,8 @@ void AutoGenerateInteractionUiViewCalloutBlock::setErrorMessages(const QMap<QStr
     }
 }
 
-void AutoGenerateInteractionUiViewCalloutBlock::assignState(const QList<StateInfo> &info)
+void AutoGenerateInteractionUiViewCalloutBlock::assignState([[maybe_unused]] const QList<StateInfo> &info)
 {
-    Q_UNUSED(info);
 }
 
 void AutoGenerateInteractionUiViewCalloutBlock::serializeBlock(QJsonObject &o) const

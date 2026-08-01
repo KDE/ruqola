@@ -154,9 +154,8 @@ void AutoGenerateInteractionUiViewSectionBlock::setErrorMessages(const QMap<QStr
     }
 }
 
-void AutoGenerateInteractionUiViewSectionBlock::assignState(const QList<StateInfo> &info)
+void AutoGenerateInteractionUiViewSectionBlock::assignState([[maybe_unused]] const QList<StateInfo> &info)
 {
-    Q_UNUSED(info);
 }
 
 AutoGenerateInteractionUiViewActionable *AutoGenerateInteractionUiViewSectionBlock::accessory() const

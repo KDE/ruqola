@@ -216,9 +216,8 @@ bool ModerationReportInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractIte
     return true;
 }
 
-QPoint ModerationReportInfoDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint ModerationReportInfoDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
@@ -253,9 +252,8 @@ bool ModerationReportInfoDelegate::maybeStartDrag(QMouseEvent *event, const QSty
     return false;
 }
 
-RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount([[maybe_unused]] const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     return mRocketChatAccount;
 }
 

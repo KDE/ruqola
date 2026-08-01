@@ -71,11 +71,10 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
 }
 
 QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach,
-                                                    const QModelIndex &index,
+                                                    [[maybe_unused]] const QModelIndex &index,
                                                     int maxWidth,
                                                     const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option, maxWidth);
     return {maxWidth, // should be qMax of all sizes, but doesn't really matter
             layout.y + layout.height + DelegatePaintUtil::margin()};

@@ -101,11 +101,10 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
 }
 
 QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach,
-                                                     const QModelIndex &index,
+                                                     [[maybe_unused]] const QModelIndex &index,
                                                      int maxWidth,
                                                      const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ImageLayout layout = layoutImage(msgAttach, option, maxWidth, -1);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
@@ -250,13 +249,12 @@ QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &po
 }
 
 bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
-                                                       const QPoint &globalPos,
+                                                       [[maybe_unused]] const QPoint &globalPos,
                                                        const MessageAttachment &msgAttach,
                                                        QRect attachmentsRect,
                                                        const QStyleOptionViewItem &option,
                                                        QMenu *menu)
 {
-    Q_UNUSED(globalPos);
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
     if (layout.isShown) {
         const QRect rectAdjusted = attachmentsRect.adjusted(0, 0, 0, -(layout.titleSize.height() + DelegatePaintUtil::margin()));

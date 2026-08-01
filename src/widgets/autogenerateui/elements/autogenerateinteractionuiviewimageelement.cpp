@@ -15,9 +15,8 @@ AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageEle
 
 AutoGenerateInteractionUiViewImageElement::~AutoGenerateInteractionUiViewImageElement() = default;
 
-ActionElementWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewImageElement::generateWidget([[maybe_unused]] QWidget *parent)
 {
-    Q_UNUSED(parent)
     // TODO generate image
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewImageElement UI";
     return nullptr;

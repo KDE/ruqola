@@ -87,12 +87,10 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::setCurrentValue(const QVa
     qWarning() << " not implemented yet" << v;
 }
 
-ActionElementWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget([[maybe_unused]] QWidget *parent)
 {
     // TODO use QRadioButton ?
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewToggleSwitchElement UI";
-
-    Q_UNUSED(parent)
     return nullptr;
 }
 

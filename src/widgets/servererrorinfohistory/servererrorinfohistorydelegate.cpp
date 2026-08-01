@@ -198,9 +198,8 @@ bool ServerErrorInfoHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractI
     return true;
 }
 
-QPoint ServerErrorInfoHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint ServerErrorInfoHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
@@ -235,9 +234,8 @@ bool ServerErrorInfoHistoryDelegate::maybeStartDrag(QMouseEvent *event, const QS
     return false;
 }
 
-RocketChatAccount *ServerErrorInfoHistoryDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *ServerErrorInfoHistoryDelegate::rocketChatAccount([[maybe_unused]] const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     return nullptr;
 }
 

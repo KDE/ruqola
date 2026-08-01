@@ -101,8 +101,7 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             job->setAppsUiInteractionJobInfo(info);
             // qDebug() << " info " << info;
-            connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
-                Q_UNUSED(replyObject);
+            connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, []([[maybe_unused]] const QJsonObject &replyObject) {
                 qDebug() << " DONE";
             });
             if (!job->start()) {
@@ -136,10 +135,12 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                         mRocketChatAccount->restApi()->initializeRestApiJob(job);
                         job->setAppsUiInteractionJobInfo(info);
                         // qDebug() << " info " << info;
-                        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
-                            Q_UNUSED(replyObject);
-                            // qDebug() << " DONE";
-                        });
+                        connect(job,
+                                &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone,
+                                this,
+                                []([[maybe_unused]] const QJsonObject &replyObject) {
+                                    // qDebug() << " DONE";
+                                });
                         if (!job->start()) {
                             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
                         }
@@ -154,9 +155,8 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
 }
 
 MessageDelegateHelperSection::SectionLayout
-MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
+MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
 {
-    Q_UNUSED(blockRectWidth)
     SectionLayout layout;
     layout.sectionText = block.sectionText();
     layout.sectionTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.sectionText);

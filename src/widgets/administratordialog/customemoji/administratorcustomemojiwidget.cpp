@@ -103,8 +103,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
         auto job = new RocketChatRestApi::EmojiCustomCreateJob(this);
         job->setEmojiInfo(emojiInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [this](const QJsonObject &replyObject) {
-            Q_UNUSED(replyObject)
+        connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
             // qDebug() << " replyObject " << replyObject;
             initialize(); // No info about updating list without reload it
         });

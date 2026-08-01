@@ -35,10 +35,8 @@ bool ReportMessageJob::start()
     return true;
 }
 
-void ReportMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void ReportMessageJob::onPostRequestResponse([[maybe_unused]] const QString &replyErrorString, [[maybe_unused]] const QJsonDocument &replyJson)
 {
-    Q_UNUSED(replyErrorString)
-    Q_UNUSED(replyJson)
     auto reply = mReply;
     if (reply) {
         const QByteArray data = reply->readAll();

@@ -312,18 +312,12 @@ QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &o
     return document->documentLayout()->anchorAt(relativePos);
 }
 
-bool MessageAttachmentDelegateHelperBase::contextMenu(const QPoint &pos,
-                                                      const QPoint &globalPos,
-                                                      const MessageAttachment &msgAttach,
-                                                      QRect attachmentsRect,
-                                                      const QStyleOptionViewItem &option,
-                                                      QMenu *menu)
+bool MessageAttachmentDelegateHelperBase::contextMenu([[maybe_unused]] const QPoint &pos,
+                                                      [[maybe_unused]] const QPoint &globalPos,
+                                                      [[maybe_unused]] const MessageAttachment &msgAttach,
+                                                      [[maybe_unused]] QRect attachmentsRect,
+                                                      [[maybe_unused]] const QStyleOptionViewItem &option,
+                                                      [[maybe_unused]] QMenu *menu)
 {
-    Q_UNUSED(msgAttach);
-    Q_UNUSED(attachmentsRect);
-    Q_UNUSED(pos);
-    Q_UNUSED(option);
-    Q_UNUSED(globalPos);
-    Q_UNUSED(menu);
     return false;
 }

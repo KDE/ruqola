@@ -48,9 +48,8 @@ QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, i
     return {};
 }
 
-int AdminOauthModel::columnCount(const QModelIndex &parent) const
+int AdminOauthModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(AdminOauthModel::LastColumn) + 1;
     return val;
 }
