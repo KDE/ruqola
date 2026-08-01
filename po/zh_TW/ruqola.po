@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 02:37+0000\n"
+"POT-Creation-Date: 2026-08-01 02:40+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -7557,7 +7557,7 @@ msgctxt "@title:window"
 msgid "Register New User"
 msgstr "註冊新使用者"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:95
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
 #, kde-format
 msgid "Not in channel"
 msgstr "不在頻道中"
@@ -10577,8 +10577,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "開啟檔案時發生錯誤"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "加入"

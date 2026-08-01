@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 02:37+0000\n"
+"POT-Creation-Date: 2026-08-01 02:40+0000\n"
 "PO-Revision-Date: 2026-07-13 19:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -7688,7 +7688,7 @@ msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Yeni Kullanıcı Kaydet"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:95
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
 #, kde-format
 msgid "Not in channel"
 msgstr "Kanalda değil"
@@ -10758,8 +10758,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Dosya Açılırken Hata"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "Katıl"

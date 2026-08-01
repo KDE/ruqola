@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-12 02:37+0000\n"
+"POT-Creation-Date: 2026-08-01 02:40+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -8250,7 +8250,7 @@ msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registar um Novo Utilizador"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:95
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
 #, fuzzy, kde-format
 #| msgid "Join the given channel"
 msgid "Not in channel"
@@ -11563,8 +11563,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Erro ao gravar o ficheiro"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "Juntar-se"
