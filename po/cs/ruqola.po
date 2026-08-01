@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-31 00:45+0000\n"
+"POT-Creation-Date: 2026-08-01 00:46+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -7566,7 +7566,7 @@ msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Registrovat nového uživatele"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:95
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
 #, kde-format
 msgid "Not in channel"
 msgstr "Není v kanále"
@@ -10573,8 +10573,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr ""
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "Připojit"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-31 00:45+0000\n"
+"POT-Creation-Date: 2026-08-01 00:46+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -7735,7 +7735,7 @@ msgctxt "@title:window"
 msgid "Register New User"
 msgstr "नवीन उपयोक्तारं पञ्जीकरणं कुर्वन्तु"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:95
+#: widgets/common/userandchannelcompletiondelegate.cpp:96
 #, kde-format
 msgid "Not in channel"
 msgstr "न तु चैनले"
@@ -10839,8 +10839,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "सञ्चिकां रक्षितुं त्रुटिः"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "आबन्धम्"
