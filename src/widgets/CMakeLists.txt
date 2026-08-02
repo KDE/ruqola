@@ -242,8 +242,6 @@ target_sources(
         common/delegatepaintutil.h
         common/emojicompletiondelegate.cpp
         common/emojicompletiondelegate.h
-        common/flowlayout.cpp
-        common/flowlayout.h
         common/usercompletiondelegate.h
         common/usercompletiondelegate.cpp
         common/userandchannelcompletiondelegate.h

@@ -10,7 +10,10 @@
 #include "multistaticselectlineeditmodel.h"
 #include <QWidget>
 class MultiStaticSelectLineEdit;
-class FlowLayout;
+namespace TextAddonsWidgets
+{
+class TextAddonsWidgetFlowLayout;
+}
 class ClickableWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MultiStaticSelectWidget : public QWidget
 {
@@ -32,7 +35,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QString &username);
     LIBRUQOLAWIDGETS_NO_EXPORT void checkMaxSelectedItems();
     MultiStaticSelectLineEdit *const mLineEdit;
-    FlowLayout *const mFlowLayout;
+    TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
     int mMaxSelectItems = -1;
 };

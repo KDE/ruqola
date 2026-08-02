@@ -6,17 +6,17 @@
 
 #include "adduserswidget.h"
 
-#include "common/flowlayout.h"
 #include "misc/avatarcachemanager.h"
 #include "misc/clickablewidget.h"
 #include "utils.h"
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchUserLineEdit(new AddUsersCompletionLineEdit(account, this))
-    , mFlowLayout(new FlowLayout)
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
     auto mainLayout = new QVBoxLayout(this);

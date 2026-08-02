@@ -10,7 +10,10 @@
 #include <QMap>
 #include <QUrl>
 #include <QWidget>
-class FlowLayout;
+namespace TextAddonsWidgets
+{
+class TextAddonsWidgetFlowLayout;
+}
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PendingAttachmentWidget : public QWidget
 {
     Q_OBJECT
@@ -34,6 +37,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveAttachment(const QUrl &url);
     LIBRUQOLAWIDGETS_NO_EXPORT bool verifyExistingFile(const QUrl &fileUrl) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void updateAttachments();
-    FlowLayout *const mFlowLayout;
+    TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
     QMap<QUrl, PendingAttachmentClickableWidget *> mMap;
 };

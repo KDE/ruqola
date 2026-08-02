@@ -6,17 +6,17 @@
 
 #include "forwardmessagewidget.h"
 
-#include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mForwardMessageAddChannelCompletionLineEdit(new ForwardMessageAddChannelCompletionLineEdit(account, this))
-    , mFlowLayout(new FlowLayout)
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);

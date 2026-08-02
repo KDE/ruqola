@@ -10,7 +10,10 @@
 #include "libruqolawidgets_private_export.h"
 #include <QMap>
 #include <QWidget>
-class FlowLayout;
+namespace TextAddonsWidgets
+{
+class TextAddonsWidgetFlowLayout;
+}
 class ClickableWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSearchRoomForTeamWidget : public QWidget
@@ -30,6 +33,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &info);
     AddTeamRoomCompletionLineEdit *const mSearchRoomLineEdit;
-    FlowLayout *const mFlowLayout;
+    TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
 };

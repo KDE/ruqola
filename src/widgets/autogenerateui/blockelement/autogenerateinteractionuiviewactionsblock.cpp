@@ -17,12 +17,12 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewuserselectelement.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
-#include "common/flowlayout.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QLayout>
 #include <QWidget>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewActionsBlock::AutoGenerateInteractionUiViewActionsBlock(QObject *parent)
     : AutoGenerateInteractionUiViewBlockBase(parent)
@@ -127,7 +127,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
-    auto hboxLayout = new FlowLayout;
+    auto hboxLayout = new TextAddonsWidgets::TextAddonsWidgetFlowLayout;
     hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {

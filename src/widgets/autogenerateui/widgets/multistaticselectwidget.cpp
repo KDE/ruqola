@@ -5,16 +5,16 @@
 */
 
 #include "multistaticselectwidget.h"
-#include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include "multistaticselectlineedit.h"
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 MultiStaticSelectWidget::MultiStaticSelectWidget(QWidget *parent)
     : QWidget{parent}
     , mLineEdit(new MultiStaticSelectLineEdit(this))
-    , mFlowLayout(new FlowLayout)
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);

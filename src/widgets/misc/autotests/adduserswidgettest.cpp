@@ -6,11 +6,11 @@
 
 #include "adduserswidgettest.h"
 
-#include "common/flowlayout.h"
 #include "dialogs/adduserscompletionlineedit.h"
 #include "misc/adduserswidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 QTEST_MAIN(AddUsersWidgetTest)
 using namespace Qt::Literals::StringLiterals;
 AddUsersWidgetTest::AddUsersWidgetTest(QObject *parent)
@@ -30,7 +30,7 @@ void AddUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchUserLineEdit);
     QVERIFY(mSearchUserLineEdit->placeholderText().isEmpty());
 
-    auto mFlowLayout = w.findChild<FlowLayout *>(u"mFlowLayout"_s);
+    auto mFlowLayout = w.findChild<TextAddonsWidgets::TextAddonsWidgetFlowLayout *>(u"mFlowLayout"_s);
     QVERIFY(mFlowLayout);
 
     QVERIFY(w.userIds().isEmpty());

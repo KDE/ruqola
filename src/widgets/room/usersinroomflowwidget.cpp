@@ -6,7 +6,6 @@
 
 #include "usersinroomflowwidget.h"
 
-#include "common/flowlayout.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
@@ -16,12 +15,13 @@
 #include "usersinroomlabel.h"
 #include <KLocalizedString>
 #include <QLabel>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 #define MAX_NUMBER_USER 70
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)
-    , mFlowLayout(new FlowLayout(this))
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout(this))
     , mUsersForRoomFilterProxyModel(new UsersForRoomFilterProxyModel(this))
 {
     mFlowLayout->setObjectName(u"mFlowLayout"_s);

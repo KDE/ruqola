@@ -9,7 +9,10 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class RocketChatAccount;
-class FlowLayout;
+namespace TextAddonsWidgets
+{
+class TextAddonsWidgetFlowLayout;
+}
 class ClickableWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ForwardMessageWidget : public QWidget
 {
@@ -27,6 +30,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
     ForwardMessageAddChannelCompletionLineEdit *const mForwardMessageAddChannelCompletionLineEdit;
-    FlowLayout *const mFlowLayout;
+    TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
 };

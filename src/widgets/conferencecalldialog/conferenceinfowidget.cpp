@@ -7,7 +7,6 @@
 #include "conferenceinfowidget.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "common/flowlayout.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -18,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QIcon>
 #include <QLabel>
 #include <QScreen>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 ConferenceInfoWidget::ConferenceInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
@@ -52,7 +52,7 @@ void ConferenceInfoWidget::initializeInfo()
         }
         const auto users = videoInfo.users();
         if (!users.isEmpty()) {
-            auto avatarLayout = new FlowLayout;
+            auto avatarLayout = new TextAddonsWidgets::TextAddonsWidgetFlowLayout;
             mFormLayout->addItem(avatarLayout);
             for (const auto &user : users) {
                 auto avatarLabel = new QLabel(this);

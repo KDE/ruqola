@@ -5,7 +5,6 @@
 */
 
 #include "pendingattachmentwidget.h"
-#include "common/flowlayout.h"
 #include "pendingattachmentclickablewidget.h"
 #include <KLocalizedString>
 #include <QFileInfo>
@@ -14,12 +13,13 @@
 #include <QIcon>
 #include <QLabel>
 #include <QToolButton>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 
 PendingAttachmentWidget::PendingAttachmentWidget(QWidget *parent)
     : QWidget(parent)
-    , mFlowLayout(new FlowLayout(this))
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout(this))
 {
     setAutoFillBackground(true);
     mFlowLayout->setSpacing(4);

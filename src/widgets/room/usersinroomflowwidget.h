@@ -10,7 +10,10 @@
 #include <QMap>
 #include <QPointer>
 #include <QWidget>
-class FlowLayout;
+namespace TextAddonsWidgets
+{
+class TextAddonsWidgetFlowLayout;
+}
 class Room;
 class UsersInRoomLabel;
 class UsersForRoomFilterProxyModel;
@@ -33,7 +36,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generateListUsersWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     LIBRUQOLAWIDGETS_NO_EXPORT void loadExternalDialog();
-    FlowLayout *const mFlowLayout;
+    TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
     QPointer<Room> mRoom;
     // userId, UsersInRoomLabel
     QMap<QByteArray, UsersInRoomLabel *> mListUsersWidget;

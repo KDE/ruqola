@@ -5,15 +5,15 @@
 */
 
 #include "searchmessagecommandbuttonwidget.h"
-#include "common/flowlayout.h"
 #include "dialogs/searchmessagecommand.h"
 #include <KLocalizedString>
 #include <QPushButton>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 using namespace Qt::Literals::StringLiterals;
 SearchMessageCommandButtonWidget::SearchMessageCommandButtonWidget(QWidget *parent)
     : QWidget{parent}
 {
-    auto flowLayout = new FlowLayout(this);
+    auto flowLayout = new TextAddonsWidgets::TextAddonsWidgetFlowLayout(this);
     flowLayout->setObjectName(u"flowLayout"_s);
     flowLayout->setContentsMargins({});
     flowLayout->setSpacing(0);

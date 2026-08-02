@@ -7,11 +7,11 @@
 #include "forwardmessagewidgettest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "common/flowlayout.h"
 #include "forwardmessage/forwardmessagewidget.h"
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 QTEST_MAIN(ForwardMessageWidgetTest)
 ForwardMessageWidgetTest::ForwardMessageWidgetTest(QObject *parent)
@@ -31,7 +31,7 @@ void ForwardMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 
-    auto mFlowLayout = w.findChild<FlowLayout *>(u"mFlowLayout"_s);
+    auto mFlowLayout = w.findChild<TextAddonsWidgets::TextAddonsWidgetFlowLayout *>(u"mFlowLayout"_s);
     QVERIFY(mFlowLayout);
 
     auto mForwardMessageAddChannelCompletionLineEdit =
