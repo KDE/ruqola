@@ -18,6 +18,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -69,10 +70,7 @@ CreateVideoMessageWizard::CreateVideoMessageInfo CreateVideoMessageWizard::video
 void CreateVideoMessageWizard::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateVideoMessageWizardGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigCreateVideoMessageWizardGroupName), 800, 600);
 }
 
 void CreateVideoMessageWizard::writeConfig()

@@ -15,6 +15,7 @@
 #include <QStyle>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -66,10 +67,7 @@ void ThreadMessageDialog::setThreadMessageInfo(const ThreadMessageWidget::Thread
 void ThreadMessageDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myThreadMessageDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myThreadMessageDialogGroupName), 800, 300);
 }
 
 void ThreadMessageDialog::writeConfig()

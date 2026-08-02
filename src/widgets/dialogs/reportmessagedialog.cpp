@@ -16,6 +16,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myReportMessageDialogGroupName[] = "ReportMessageDialog";
@@ -53,10 +54,7 @@ ReportMessageDialog::~ReportMessageDialog()
 void ReportMessageDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myReportMessageDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myReportMessageDialogGroupName), 400, 300);
 }
 
 void ReportMessageDialog::writeConfig()

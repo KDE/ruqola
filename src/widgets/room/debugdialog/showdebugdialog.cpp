@@ -12,6 +12,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowDebugDialoggGroupName[] = "ShowDebugDialog";
@@ -48,10 +49,7 @@ void ShowDebugDialog::setPlainText(const QString &text)
 void ShowDebugDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDebugDialoggGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowDebugDialoggGroupName), 400, 300);
 }
 
 void ShowDebugDialog::writeConfig()

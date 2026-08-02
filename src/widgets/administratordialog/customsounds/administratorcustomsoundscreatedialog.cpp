@@ -13,6 +13,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -57,10 +58,7 @@ AdministratorCustomSoundsCreateWidget::CustomSoundInfo AdministratorCustomSounds
 void AdministratorCustomSoundsCreateDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomSoundsCreateDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigAdministratorCustomSoundsCreateDialogGroupName), 800, 300);
 }
 
 void AdministratorCustomSoundsCreateDialog::writeConfig()

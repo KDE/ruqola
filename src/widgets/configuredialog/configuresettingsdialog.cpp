@@ -20,6 +20,7 @@
 #include <QIcon>
 #include <QPushButton>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 #include "config-ruqola.h"
 
@@ -137,10 +138,7 @@ ConfigureSettingsDialog::~ConfigureSettingsDialog()
 void ConfigureSettingsDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigGroupName), 800, 600);
 }
 
 void ConfigureSettingsDialog::writeConfig()

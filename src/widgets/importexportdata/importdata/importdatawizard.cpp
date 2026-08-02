@@ -13,6 +13,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 #include <QUrl>
 #include <QWindow>
@@ -53,10 +54,7 @@ void ImportDataWizard::slotCurrentIdChanged(int id)
 void ImportDataWizard::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigImportDataWizardGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigImportDataWizardGroupName), 800, 600);
 }
 
 void ImportDataWizard::writeConfig()

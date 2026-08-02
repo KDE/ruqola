@@ -14,6 +14,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myExploreAppsTranslationDialogConfigGroupName[] = "ExploreAppsTranslationDialog";
@@ -46,10 +47,8 @@ ExploreAppsTranslationDialog::~ExploreAppsTranslationDialog()
 void ExploreAppsTranslationDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName), 400, 300);
     const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
     mExploreAppsTranslationWidget->restoreState(group.readEntry("HeaderView", QByteArray()));
 }
 

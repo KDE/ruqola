@@ -13,6 +13,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowPinnedMessagesDialogGroupName[] = "ShowPinnedMessagesDialog";
@@ -34,10 +35,7 @@ ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
 void ShowPinnedMessagesDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowPinnedMessagesDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowPinnedMessagesDialogGroupName), 800, 600);
 }
 
 void ShowPinnedMessagesDialog::writeConfig()

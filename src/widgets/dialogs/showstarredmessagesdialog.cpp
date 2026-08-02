@@ -12,6 +12,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
@@ -33,10 +34,7 @@ ShowStarredMessagesDialog::~ShowStarredMessagesDialog()
 void ShowStarredMessagesDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowStarredMessagesDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowStarredMessagesDialogGroupName), 800, 600);
 }
 
 void ShowStarredMessagesDialog::writeConfig()

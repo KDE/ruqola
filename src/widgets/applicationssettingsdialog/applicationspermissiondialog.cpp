@@ -15,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -54,10 +55,10 @@ void ApplicationsPermissionDialog::setApplicationPermission(const QString &desc)
 void ApplicationsPermissionDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this,
+                                                                 QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName),
+                                                                 400,
+                                                                 300);
 }
 
 void ApplicationsPermissionDialog::writeConfig()

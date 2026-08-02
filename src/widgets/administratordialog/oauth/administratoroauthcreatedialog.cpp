@@ -14,6 +14,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myConfigAdministratorOauthCreateDialogGroupName[] = "AdministratorOauthCreateDialog";
@@ -60,10 +61,7 @@ void AdministratorOauthCreateDialog::setOauthInfo(const AdministratorOauthCreate
 void AdministratorOauthCreateDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName), 800, 300);
 }
 
 void AdministratorOauthCreateDialog::writeConfig()

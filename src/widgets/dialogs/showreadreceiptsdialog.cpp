@@ -14,6 +14,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowReadReceiptsDialogGroupName[] = "ShowReadReceiptsDialog";
@@ -48,10 +49,7 @@ ShowReadReceiptsDialog::~ShowReadReceiptsDialog()
 void ShowReadReceiptsDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowReadReceiptsDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowReadReceiptsDialogGroupName), 800, 600);
 }
 
 void ShowReadReceiptsDialog::writeConfig()

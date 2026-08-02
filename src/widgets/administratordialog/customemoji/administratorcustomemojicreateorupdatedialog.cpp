@@ -14,6 +14,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -70,10 +71,7 @@ void AdministratorCustomEmojiCreateOrUpdateDialog::setType(AdministratorCustomEm
 void AdministratorCustomEmojiCreateOrUpdateDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName), 800, 300);
 }
 
 void AdministratorCustomEmojiCreateOrUpdateDialog::writeConfig()

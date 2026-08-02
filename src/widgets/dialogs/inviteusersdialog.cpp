@@ -15,6 +15,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -62,10 +63,7 @@ void InviteUsersDialog::generateLink()
 void InviteUsersDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(300, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myInviteUsersDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myInviteUsersDialogGroupName), 300, 300);
 }
 
 void InviteUsersDialog::writeConfig()

@@ -14,6 +14,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myTeamConvertToChannelDialogConfigGroupName[] = "TeamConvertToChannelDialog";
@@ -61,10 +62,7 @@ void TeamConvertToChannelDialog::setTeamName(const QString &name)
 void TeamConvertToChannelDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName), 400, 300);
 }
 
 void TeamConvertToChannelDialog::writeConfig()

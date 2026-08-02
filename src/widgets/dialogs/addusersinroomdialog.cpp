@@ -15,6 +15,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialog";
@@ -60,10 +61,7 @@ QStringList AddUsersInRoomDialog::userNames() const
 void AddUsersInRoomDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAddUsersInRoomDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigAddUsersInRoomDialogGroupName), 800, 300);
 }
 
 void AddUsersInRoomDialog::writeConfig()

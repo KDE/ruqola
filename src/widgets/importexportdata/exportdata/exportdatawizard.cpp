@@ -14,6 +14,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 #include <QDirIterator>
 #include <QTimer>
@@ -53,10 +54,7 @@ ExportDataWizard::~ExportDataWizard()
 void ExportDataWizard::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigExportDataWizardGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigExportDataWizardGroupName), 800, 600);
 }
 
 void ExportDataWizard::writeConfig()

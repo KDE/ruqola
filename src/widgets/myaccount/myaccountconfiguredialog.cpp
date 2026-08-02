@@ -16,6 +16,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myMyAccountConfigureDialogConfigGroupName[] = "RegisterUserDialog";
@@ -64,10 +65,7 @@ void MyAccountConfigureDialog::slotAccept()
 void MyAccountConfigureDialog::readConfig()
 {
     create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myMyAccountConfigureDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myMyAccountConfigureDialogConfigGroupName), 400, 300);
 }
 
 void MyAccountConfigureDialog::writeConfig()
