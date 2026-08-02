@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:46+0000\n"
+"POT-Creation-Date: 2026-08-02 00:45+0000\n"
 "PO-Revision-Date: 2026-07-28 11:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3165,18 +3165,18 @@ msgstr[1] "%1 čustvenček po meri (skupaj: %2)"
 msgstr[2] "%1 čustvenčka po meri (skupaj: %2)"
 msgstr[3] "%1 čustvenčki po meri (skupaj: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:155
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:154
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "Ali želite odstraniti ta čustvenček?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:156
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:155
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Odstrani čustvenčka"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:326
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
@@ -3189,7 +3189,7 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "Dodaj…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:184
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:328
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
@@ -3202,7 +3202,7 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "Spremeni…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:189
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:332
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
@@ -3548,7 +3548,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Deaktiviraj uporabnika"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3557,13 +3557,13 @@ msgstr ""
 "Ali ste prepričani, da želite opustiti in izbrisati vsa poročila za "
 "sporočila tega uporabnika? Tega dejanja ni mogoče razveljaviti."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Odpusti"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:218
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3577,7 +3577,7 @@ msgstr ""
 "videti.\n"
 "Tega dejanja ni mogoče razveljaviti."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:221
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -8878,21 +8878,21 @@ msgid "Email:"
 msgstr "E-naslov:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:112
 #, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Spremeni sliko…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:116
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:115
 #, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Ponastavi avatar"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:79
 #, kde-format
 msgid "Image"
 msgstr "Slika"
@@ -9194,7 +9194,7 @@ msgid "Display Image"
 msgstr "Pokaži sliko"
 
 #: widgets/dialogs/showimagedialog.cpp:59
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:264
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiraj sliko na odložišče"
@@ -10477,24 +10477,24 @@ msgstr "Vsaka omemba/DM"
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Vaš skrbnik Rocket.Chat je onemogočil e-poštna obvestila"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Izberite sliko"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Spremeni URL"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:90
 #, kde-format
 msgid "Define Avatar Url:"
 msgstr "Določi Url avatarja:"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:114
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
 #, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"
@@ -10806,8 +10806,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Napaka pri odpiranju datoteke"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
 #, kde-format
 msgid "Join"
 msgstr "Pridružite se"

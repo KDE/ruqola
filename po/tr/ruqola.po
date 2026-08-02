@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:46+0000\n"
+"POT-Creation-Date: 2026-08-02 00:45+0000\n"
 "PO-Revision-Date: 2026-07-28 21:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3130,18 +3130,18 @@ msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 özel emoji (Toplam: %2)"
 msgstr[1] "%1 özel emoji (Toplam: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:155
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:154
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "Bu emojiyi kaldırmak istiyor musunz?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:156
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:155
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Emojiyi Kaldır"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:326
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
@@ -3154,7 +3154,7 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "Ekle…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:184
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:328
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
@@ -3167,7 +3167,7 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "Değiştir…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:189
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:332
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
@@ -3507,7 +3507,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Kullanıcıyı Pasifleştir"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3516,13 +3516,13 @@ msgstr ""
 "Bu kullanıcının iletilerine ilişkin tüm raporları göz ardı etmek ve silmek "
 "istediğinizden emin misiniz? Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Göz Ardı Et"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:218
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3535,7 +3535,7 @@ msgstr ""
 "İletlire, ileti geçmişinden silinecek ve hiç kimse göremeyecektir.\n"
 "Bu eylem geri alınamaz."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:221
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -8823,21 +8823,21 @@ msgid "Email:"
 msgstr "E-posta:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:112
 #, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Resmi Değiştir…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:116
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:115
 #, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Avatarı Sıfırla"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:79
 #, kde-format
 msgid "Image"
 msgstr "Görsel"
@@ -9135,7 +9135,7 @@ msgid "Display Image"
 msgstr "Görüntülenen Görsel"
 
 #: widgets/dialogs/showimagedialog.cpp:59
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:264
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Görseli Panoya Kopyala"
@@ -10418,24 +10418,24 @@ msgstr "Her Değinme/Dİ"
 msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr "Rocket.Chat yöneticiniz, e-posta bildirimlerini devre dışı bıraktı"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Görsel Seç"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "URL Değiştir"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:90
 #, kde-format
 msgid "Define Avatar Url:"
 msgstr "Avatar URL’sini tanımla:"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:114
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
 #, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"
@@ -10748,8 +10748,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Dosya Açılırken Hata"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
 #, kde-format
 msgid "Join"
 msgstr "Katıl"

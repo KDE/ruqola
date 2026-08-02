@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:46+0000\n"
+"POT-Creation-Date: 2026-08-02 00:45+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -3176,18 +3176,18 @@ msgstr[0] "%1 własny emoji (Razem: %2)"
 msgstr[1] "%1 własne emoji (Razem: %2)"
 msgstr[2] "%1 własnych emoji (Razem: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:155
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:154
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "Czy usunąć to emoji?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:156
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:155
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Usuń emoji"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:326
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:171
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:51
@@ -3200,7 +3200,7 @@ msgctxt "@action"
 msgid "Add…"
 msgstr "Dodaj…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:185
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:184
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:328
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:174
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
@@ -3213,7 +3213,7 @@ msgctxt "@action"
 msgid "Modify…"
 msgstr "Zmień…"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:190
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:189
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:332
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
 #: widgets/administratordialog/invites/invitetreeview.cpp:41
@@ -3562,7 +3562,7 @@ msgctxt "@title:window"
 msgid "Deactivate User"
 msgstr "Wyłącz użytkownika"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:196
 #, kde-format
 msgid ""
 "Are you sure you want to dismiss and delete all reports for this user's "
@@ -3571,13 +3571,13 @@ msgstr ""
 "Czy na pewno odwołać i usunąć wszystkie zgłoszenie dla wiadomości tego "
 "użytkownika? Nie będzie można wycofać tego działania."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:198
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss"
 msgstr "Odrzuć"
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:218
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:217
 #, kde-format
 msgid ""
 "Are you sure you want to delete all reported messages from this user?\n"
@@ -3590,7 +3590,7 @@ msgstr ""
 "stanie ich zobaczyć.\n"
 "Nie będzie można wycofać tego działania."
 
-#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:221
+#: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:220
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete All Messages"
@@ -8923,21 +8923,21 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:112
 #, kde-format
 msgctxt "@action"
 msgid "Change Picture…"
 msgstr "Zmień zdjęcie…"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:116
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:115
 #, kde-format
 msgctxt "@action"
 msgid "Reset Avatar"
 msgstr "Wyzeruj awatar"
 
 #: widgets/dialogs/roomavatarwidget.cpp:49
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:79
 #, kde-format
 msgid "Image"
 msgstr "Obraz"
@@ -9260,7 +9260,7 @@ msgid "Display Image"
 msgstr "Wyświetl obraz"
 
 #: widgets/dialogs/showimagedialog.cpp:59
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:264
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Skopiuj obraz do schowka"
@@ -10557,24 +10557,24 @@ msgid "Your Rocket.Chat administrator has disabled email notifications"
 msgstr ""
 "Twój administrator Rocket.Chat wyłączył możliwość powiadomień na pocztę"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:81
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:80
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Image"
 msgstr "Wybierz obraz"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:90
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Url"
 msgstr "Zmień adres URL"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:91
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:90
 #, kde-format
 msgid "Define Avatar Url:"
 msgstr "Określ adres URL awatara"
 
-#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:114
+#: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:113
 #, kde-format
 msgctxt "@action"
 msgid "Change URL for avatar…"
@@ -10888,8 +10888,8 @@ msgctxt "@title:window"
 msgid "Error Opening File"
 msgstr "Błąd otwierania pliku"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
 #, kde-format
 msgid "Join"
 msgstr "Dołącz"
