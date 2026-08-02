@@ -5,7 +5,6 @@
 */
 
 #include "twitterauthjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authentication/twitterauthjob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(TwitterAuthJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 TwitterAuthJobTest::TwitterAuthJobTest(QObject *parent)
     : QObject(parent)

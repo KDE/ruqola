@@ -5,10 +5,10 @@
 */
 
 #include "restapimethod.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchatqtrestapi_debug.h"
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 RestApiMethod::RestApiMethod() = default;
 
 QString RestApiMethod::serverUrl() const

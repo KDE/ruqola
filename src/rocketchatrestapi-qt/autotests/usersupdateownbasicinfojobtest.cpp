@@ -5,7 +5,6 @@
 */
 
 #include "usersupdateownbasicinfojobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersUpdateOwnBasicInfoJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UsersUpdateOwnBasicInfoJobTest::UsersUpdateOwnBasicInfoJobTest(QObject *parent)
     : QObject(parent)

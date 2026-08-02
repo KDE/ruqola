@@ -5,7 +5,6 @@
 */
 
 #include "teamremoveroomjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(TeamRemoveRoomJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 TeamRemoveRoomJobTest::TeamRemoveRoomJobTest(QObject *parent)
     : QObject(parent)
 {

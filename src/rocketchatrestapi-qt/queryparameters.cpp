@@ -5,10 +5,10 @@
 */
 
 #include "queryparameters.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchatqtrestapi_debug.h"
 
+using namespace Qt::Literals::StringLiterals;
 namespace RocketChatRestApi
 {
 

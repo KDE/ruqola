@@ -5,7 +5,6 @@
 */
 
 #include "updateadminsettingsjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(UpdateAdminSettingsJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 UpdateAdminSettingsJobTest::UpdateAdminSettingsJobTest(QObject *parent)
     : QObject(parent)
 {

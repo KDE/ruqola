@@ -5,7 +5,6 @@
 */
 
 #include "updategroupkeyjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/updategroupkeyjob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UpdateGroupKeyJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UpdateGroupKeyJobTest::UpdateGroupKeyJobTest(QObject *parent)
     : QObject(parent)

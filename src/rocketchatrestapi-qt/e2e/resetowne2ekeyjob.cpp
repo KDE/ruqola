@@ -5,7 +5,6 @@
 */
 
 #include "resetowne2ekeyjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ResetOwnE2eKeyJob::ResetOwnE2eKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)

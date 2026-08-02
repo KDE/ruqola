@@ -5,7 +5,6 @@
 */
 
 #include "sendinvitationemailjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "invite/sendinvitationemailjob.h"
 #include "restapimethod.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(SendInvitationEmailJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 SendInvitationEmailJobTest::SendInvitationEmailJobTest(QObject *parent)
     : QObject(parent)
 {

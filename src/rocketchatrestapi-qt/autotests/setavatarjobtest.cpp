@@ -5,7 +5,6 @@
 */
 
 #include "setavatarjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(SetAvatarJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SetAvatarJobTest::SetAvatarJobTest(QObject *parent)
     : QObject(parent)

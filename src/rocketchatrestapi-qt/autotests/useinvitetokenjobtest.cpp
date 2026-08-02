@@ -5,7 +5,6 @@
 */
 
 #include "useinvitetokenjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "invite/useinvitetokenjob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UseInviteTokenJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UseInviteTokenJobTest::UseInviteTokenJobTest(QObject *parent)
     : QObject(parent)

@@ -5,7 +5,6 @@
 */
 
 #include "unfollowmessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/unfollowmessagejob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UnFollowMessageJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UnFollowMessageJobTest::UnFollowMessageJobTest(QObject *parent)
     : QObject(parent)

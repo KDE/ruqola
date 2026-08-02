@@ -5,7 +5,6 @@
 */
 
 #include "settingsoauthjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QNetworkRequest>
 
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 SettingsOauthJob::SettingsOauthJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

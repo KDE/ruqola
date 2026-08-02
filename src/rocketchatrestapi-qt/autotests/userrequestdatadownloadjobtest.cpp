@@ -5,7 +5,6 @@
 */
 
 #include "userrequestdatadownloadjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "users/userrequestdatadownloadjob.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(UserRequestDataDownloadJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 UserRequestDataDownloadJobTest::UserRequestDataDownloadJobTest(QObject *parent)
     : QObject(parent)
 {

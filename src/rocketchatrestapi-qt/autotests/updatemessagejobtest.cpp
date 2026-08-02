@@ -5,7 +5,6 @@
 */
 
 #include "updatemessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/updatemessagejob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UpdateMessageJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UpdateMessageJobTest::UpdateMessageJobTest(QObject *parent)
     : QObject(parent)

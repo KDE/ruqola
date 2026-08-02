@@ -5,7 +5,6 @@
 */
 
 #include "user2fasendemailcodejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "2fa/user2fasendemailcodejob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(User2FASendEmailCodeJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 User2FASendEmailCodeJobTest::User2FASendEmailCodeJobTest(QObject *parent)
     : QObject(parent)

@@ -5,7 +5,6 @@
 */
 
 #include "setuserpublicandprivatekeysjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/setuserpublicandprivatekeysjob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(SetUserPublicAndPrivateKeysJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SetUserPublicAndPrivateKeysJobTest::SetUserPublicAndPrivateKeysJobTest(QObject *parent)
     : QObject(parent)

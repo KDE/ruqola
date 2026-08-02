@@ -6,7 +6,6 @@
 
 #include "rejectsuggestedgroupkeyjob.h"
 #include "rocketchatqtrestapi_debug.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 RejectSuggestedGroupKeyJob::RejectSuggestedGroupKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)

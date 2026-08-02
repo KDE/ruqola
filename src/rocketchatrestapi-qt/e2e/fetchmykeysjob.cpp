@@ -5,13 +5,13 @@
 */
 
 #include "fetchmykeysjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 FetchMyKeysJob::FetchMyKeysJob(QObject *parent)
     : RestApiAbstractJob(parent)

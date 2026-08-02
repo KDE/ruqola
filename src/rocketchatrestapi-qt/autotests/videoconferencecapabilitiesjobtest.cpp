@@ -5,7 +5,6 @@
 */
 
 #include "videoconferencecapabilitiesjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "video-conference/videoconferencecapabilitiesjob.h"
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(VideoConferenceCapabilitiesJobTest)
 using namespace RocketChatRestApi;
 VideoConferenceCapabilitiesJobTest::VideoConferenceCapabilitiesJobTest(QObject *parent)
