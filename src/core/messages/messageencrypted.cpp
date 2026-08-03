@@ -33,10 +33,49 @@ bool MessageEncrypted::isValid() const
     // return !mPinnedBy.isEmpty();
 }
 
+QByteArray MessageEncrypted::algorithm() const
+{
+    return mAlgorithm;
+}
+
+void MessageEncrypted::setAlgorithm(const QByteArray &newAlgorithm)
+{
+    mAlgorithm = newAlgorithm;
+}
+
+QString MessageEncrypted::ciphertext() const
+{
+    return mCiphertext;
+}
+
+void MessageEncrypted::setCiphertext(const QString &newCiphertext)
+{
+    mCiphertext = newCiphertext;
+}
+
+QByteArray MessageEncrypted::keyId() const
+{
+    return mKeyId;
+}
+
+void MessageEncrypted::setKeyId(const QByteArray &newKeyId)
+{
+    mKeyId = newKeyId;
+}
+
+QByteArray MessageEncrypted::iv() const
+{
+    return mIv;
+}
+
+void MessageEncrypted::setIv(const QByteArray &newIv)
+{
+    mIv = newIv;
+}
+
 bool MessageEncrypted::operator==(const MessageEncrypted &other) const
 {
-    // TODO
-    return false;
+    return mAlgorithm == other.algorithm() && mCiphertext == other.ciphertext() && mKeyId == other.keyId() && mIv == other.iv();
 }
 
 void MessageEncrypted::parse(const QJsonObject &o)
@@ -53,7 +92,10 @@ QJsonObject MessageEncrypted::serialize(const MessageEncrypted &messagePinned)
 
 QDebug operator<<(QDebug d, const MessageEncrypted &t)
 {
-    // TODO
+    d.space() << "algorithm:" << t.algorithm();
+    d.space() << "ciphertext:" << t.ciphertext();
+    d.space() << "keyId:" << t.keyId();
+    d.space() << "iv:" << t.iv();
     return d;
 }
 

@@ -25,5 +25,23 @@ public:
     [[nodiscard]] static MessageEncrypted *deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isValid() const;
+
+    [[nodiscard]] QByteArray algorithm() const;
+    void setAlgorithm(const QByteArray &newAlgorithm);
+
+    [[nodiscard]] QString ciphertext() const;
+    void setCiphertext(const QString &newCiphertext);
+
+    [[nodiscard]] QByteArray keyId() const;
+    void setKeyId(const QByteArray &newKeyId);
+
+    [[nodiscard]] QByteArray iv() const;
+    void setIv(const QByteArray &newIv);
+
+private:
+    QByteArray mAlgorithm;
+    QByteArray mKeyId;
+    QString mCiphertext; // TODO QByteArray ?
+    QByteArray mIv;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageEncrypted &t);
