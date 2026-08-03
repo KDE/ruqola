@@ -6,6 +6,7 @@
 
 #include "message.h"
 #include "ruqola_debug.h"
+#include "ruqola_encryption_debug.h"
 #include <KLocalizedString>
 #include <QCborValue>
 #include <QDateTime>
@@ -102,7 +103,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         } else if (type == "e2e"_L1) {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::EncryptedText;
-            qCDebug(RUQOLA_LOG) << " encrypted message !!!!";
+            qCDebug(RUQOLA_ENCRYPTION_LOG) << " encrypted message !!!!" << o;
         } else {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::System;
