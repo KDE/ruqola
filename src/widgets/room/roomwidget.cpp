@@ -254,11 +254,28 @@ void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
 
 void RoomWidget::slotDecodeEncryptionKey()
 {
+    if (!mCurrentRocketChatAccount) {
+        return;
+    }
+
     QPointer<E2ePasswordDecodeKeyDialog> dlg = new E2ePasswordDecodeKeyDialog(this);
     if (dlg->exec()) {
-        // TODO we saved it => don't ask it again
         const QString password = dlg->password();
-        // TODO generate private key
+        if (mCurrentRocketChatAccount->e2eKeyManager()->decodeEncryptionKey(password)) {
+            if (mE2eDecodeEncryptionKeyWidget) {
+                mE2eDecodeEncryptionKeyWidget->animatedHide();
+            }
+            if (mE2eDecodeEncryptionKeyFailedWidget) {
+                mE2eDecodeEncryptionKeyFailedWidget->animatedHide();
+            }
+        } else {
+            if (!mE2eDecodeEncryptionKeyFailedWidget) {
+                createE2eDecodeEncryptionKeyFailedWidget();
+            }
+            mE2eDecodeEncryptionKeyFailedWidget->animatedShow();
+        }
+    } else {
+        mCurrentRocketChatAccount->e2eKeyManager()->postponeDecryption();
     }
     delete dlg;
 }

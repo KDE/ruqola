@@ -595,6 +595,9 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
     LIBRUQOLACORE_NO_EXPORT void resetDdp();
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eDecodeKeyDone();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eDecodeKeyFailed();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eDecodeKeyPostponed();
     LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRESTLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRoomOpenChanged(const QByteArray &rid);

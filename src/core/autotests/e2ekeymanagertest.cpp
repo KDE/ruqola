@@ -8,6 +8,7 @@
 #include "encryption/e2ekeymanager.h"
 
 #include "config-ruqola.h"
+#include "encryption/encryptionutils.h"
 #include "localdatabase/e2edatabase.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
@@ -146,6 +147,80 @@ void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
     }
 
     QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-generation"_s));
+}
+
+void E2eKeyManagerTest::shouldDecodeEncryptionKeyWithValidPassword()
+{
+#if !USE_E2E_SUPPORT
+    QSKIP("E2E support is disabled");
+#else
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.settings()->setUserId("test-e2e-user-decode-ok"_ba);
+
+    const QString userId = u"test-e2e-user-decode-ok"_s;
+    const QString password = u"my-test-password"_s;
+    const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
+    QVERIFY(!rsaKeyPair.privateKey.isEmpty());
+
+    const QByteArray masterKey = EncryptionUtils::getMasterKey(password, userId);
+    QVERIFY(!masterKey.isEmpty());
+    const QByteArray encryptedPrivateKey = EncryptionUtils::encryptPrivateKey(rsaKeyPair.privateKey, masterKey);
+    QVERIFY(!encryptedPrivateKey.isEmpty());
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(userId, encryptedPrivateKey, rsaKeyPair.publicKey));
+
+    E2eKeyManager manager(&account);
+    manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+
+    QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
+    QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
+    QVERIFY(manager.decodeEncryptionKey(password));
+    QCOMPARE(manager.status(), E2eKeyManager::Status::KeyDecrypted);
+    QCOMPARE(doneSpy.count(), 1);
+    QCOMPARE(failedSpy.count(), 0);
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(userId));
+#endif
+}
+
+void E2eKeyManagerTest::shouldFailDecodeEncryptionKeyWithWrongPassword()
+{
+#if !USE_E2E_SUPPORT
+    QSKIP("E2E support is disabled");
+#else
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.settings()->setUserId("test-e2e-user-decode-ko"_ba);
+
+    const QString userId = u"test-e2e-user-decode-ko"_s;
+    const QString password = u"right-password"_s;
+    const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
+    QVERIFY(!rsaKeyPair.privateKey.isEmpty());
+
+    const QByteArray masterKey = EncryptionUtils::getMasterKey(password, userId);
+    QVERIFY(!masterKey.isEmpty());
+    const QByteArray encryptedPrivateKey = EncryptionUtils::encryptPrivateKey(rsaKeyPair.privateKey, masterKey);
+    QVERIFY(!encryptedPrivateKey.isEmpty());
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(userId, encryptedPrivateKey, rsaKeyPair.publicKey));
+
+    E2eKeyManager manager(&account);
+    manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+
+    QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
+    QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
+    QVERIFY(!manager.decodeEncryptionKey(u"wrong-password"_s));
+    QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToDecryptKey);
+    QCOMPARE(doneSpy.count(), 0);
+    QCOMPARE(failedSpy.count(), 1);
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(userId));
+#endif
 }
 
 #include "moc_e2ekeymanagertest.cpp"

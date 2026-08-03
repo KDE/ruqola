@@ -21,4 +21,6 @@ private Q_SLOTS:
     void shouldSetNeedToDecryptStatusFromBase64StringPayload();
     void shouldSetNeedToDecryptStatusFromBinaryObjectPayload();
     void shouldHandleMissingOrMalformedServerKeys();
+    void shouldDecodeEncryptionKeyWithValidPassword();
+    void shouldFailDecodeEncryptionKeyWithWrongPassword();
 };

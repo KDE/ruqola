@@ -40,6 +40,69 @@ void E2eKeyManager::decodeEncryptionKey()
     }
 }
 
+bool E2eKeyManager::decodeEncryptionKey(const QString &password)
+{
+#if USE_E2E_SUPPORT
+    if (!mAccount || password.isEmpty()) {
+        setStatus(Status::NeedToDecryptKey);
+        Q_EMIT failedDecodeEncryptionKey();
+        return false;
+    }
+
+    const QString userId = QString::fromLatin1(mAccount->settings()->userId());
+    if (userId.isEmpty()) {
+        setStatus(Status::NeedToDecryptKey);
+        Q_EMIT failedDecodeEncryptionKey();
+        return false;
+    }
+
+    QByteArray encryptedPrivateKey;
+    QByteArray publicKey;
+    if (!mAccount->localDatabaseManager()->e2EDatabase()->loadKey(userId, encryptedPrivateKey, publicKey)) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to decode E2E key: no local encrypted private key found";
+        setStatus(Status::NeedToDecryptKey);
+        Q_EMIT failedDecodeEncryptionKey();
+        return false;
+    }
+
+    const QByteArray masterKey = EncryptionUtils::getMasterKey(password, userId);
+    if (masterKey.isEmpty()) {
+        setStatus(Status::NeedToDecryptKey);
+        Q_EMIT failedDecodeEncryptionKey();
+        return false;
+    }
+
+    const QByteArray privateKeyPem = EncryptionUtils::decryptPrivateKey(encryptedPrivateKey, masterKey);
+    if (privateKeyPem.isEmpty()) {
+        setStatus(Status::NeedToDecryptKey);
+        Q_EMIT failedDecodeEncryptionKey();
+        return false;
+    }
+
+    RSA *privateKey = EncryptionUtils::privateKeyFromPEM(privateKeyPem);
+    if (!privateKey) {
+        setStatus(Status::NeedToDecryptKey);
+        Q_EMIT failedDecodeEncryptionKey();
+        return false;
+    }
+
+    RSA_free(privateKey);
+    mDecodedPrivateKey = privateKeyPem;
+    setStatus(Status::KeyDecrypted);
+    Q_EMIT decodeEncryptionKeyDone();
+    return true;
+#else
+    Q_UNUSED(password)
+    return false;
+#endif
+}
+
+void E2eKeyManager::postponeDecryption()
+{
+    setStatus(Status::DecryptionPostponned);
+    Q_EMIT decodeEncryptionKeyPostponed();
+}
+
 QString E2eKeyManager::generateRandomPassword() const
 {
 #if USE_E2E_SUPPORT

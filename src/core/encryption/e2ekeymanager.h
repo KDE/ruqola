@@ -25,6 +25,8 @@ public:
     ~E2eKeyManager() override;
 
     void decodeEncryptionKey();
+    [[nodiscard]] bool decodeEncryptionKey(const QString &password);
+    void postponeDecryption();
 
     void fetchMyKeys();
 
@@ -43,11 +45,14 @@ public:
 Q_SIGNALS:
     void needDecodeEncryptionKey();
     void failedDecodeEncryptionKey();
+    void decodeEncryptionKeyDone();
+    void decodeEncryptionKeyPostponed();
     void verifyKeyDone();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
     Status mStatus = Status::Unknown;
     QString mGeneratedPassword;
+    QByteArray mDecodedPrivateKey;
     RocketChatAccount *const mAccount;
 };

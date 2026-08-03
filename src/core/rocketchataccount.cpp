@@ -302,6 +302,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
+    connect(mE2eKeyManager, &E2eKeyManager::decodeEncryptionKeyDone, this, &RocketChatAccount::slotE2eDecodeKeyDone);
+    connect(mE2eKeyManager, &E2eKeyManager::failedDecodeEncryptionKey, this, &RocketChatAccount::slotE2eDecodeKeyFailed);
+    connect(mE2eKeyManager, &E2eKeyManager::decodeEncryptionKeyPostponed, this, &RocketChatAccount::slotE2eDecodeKeyPostponed);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
     connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, mRoomModel, &RoomModel::cleanRoomHistory);
 
@@ -3337,6 +3340,22 @@ void RocketChatAccount::slotVerifyKeysDone()
         break;
     }
 #endif
+}
+
+void RocketChatAccount::slotE2eDecodeKeyDone()
+{
+    setE2EPasswordMustBeDecrypt(false);
+}
+
+void RocketChatAccount::slotE2eDecodeKeyFailed()
+{
+    setE2EPasswordMustBeDecrypt(true);
+    Q_EMIT needToDecryptE2EPassword();
+}
+
+void RocketChatAccount::slotE2eDecodeKeyPostponed()
+{
+    setE2EPasswordMustBeDecrypt(true);
 }
 
 MemoryManager *RocketChatAccount::memoryManager() const
