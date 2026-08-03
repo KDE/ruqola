@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-02 00:45+0000\n"
+"POT-Creation-Date: 2026-08-03 00:42+0000\n"
 "PO-Revision-Date: 2026-07-28 10:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3033,7 +3033,7 @@ msgstr "Paràmetres no vàlids"
 msgid "Error trying to send email %1"
 msgstr "Error en intentar enviar el correu electrònic %1"
 
-#: widgets/administratordialog/administratordialog.cpp:29
+#: widgets/administratordialog/administratordialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator"
@@ -3093,7 +3093,7 @@ msgstr "Vista prèvia de característiques"
 msgid "Moderation Console"
 msgstr "Consola de moderació"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:27
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
@@ -3207,7 +3207,7 @@ msgctxt "@action"
 msgid "Remove"
 msgstr "Elimina"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:27
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Sound"
@@ -3248,13 +3248,13 @@ msgctxt "@title"
 msgid "Remove Custom Sound"
 msgstr "Elimina el so personalitzat"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:26
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New User Status"
 msgstr "Crea un estat nou d'usuari"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:72
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit User Status"
@@ -3430,13 +3430,13 @@ msgctxt "@action"
 msgid "Previous month"
 msgstr "Mes anterior"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Mostra l'informe de moderació"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:29
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -3637,7 +3637,7 @@ msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Cerca…"
 
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:29
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
@@ -3664,7 +3664,7 @@ msgstr "Rols:"
 msgid "Report #%1"
 msgstr "Informe núm. %1"
 
-#: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:26
+#: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Oauth Apps"
@@ -3683,7 +3683,7 @@ msgstr "Actiu"
 msgid "Redirect Url:"
 msgstr "URL de redirecció:"
 
-#: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:26
+#: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Oauth Apps"
@@ -3805,7 +3805,7 @@ msgstr "Àmbit:"
 msgid "Global"
 msgstr "Global"
 
-#: widgets/administratordialog/roles/userinroleeditdialog.cpp:29
+#: widgets/administratordialog/roles/userinroleeditdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Users in Role"
@@ -4702,7 +4702,7 @@ msgstr ""
 msgid "Default Roles for Users"
 msgstr "Rols predeterminats per a usuaris"
 
-#: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:32
+#: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
@@ -7341,8 +7341,8 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr "Servidors STUN/TURN"
 
-#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:28
-#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:26
+#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:29
+#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
@@ -7353,7 +7353,7 @@ msgstr "Permisos"
 msgid "No permissions information found."
 msgstr "No s'ha trobat informació dels permisos."
 
-#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:27
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
@@ -7407,7 +7407,7 @@ msgstr "Versions"
 msgid "Settings"
 msgstr "Configuració"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:29
+#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Applications"
@@ -7585,7 +7585,7 @@ msgid_plural "%1 private apps enabled"
 msgstr[0] "%1 aplicació privada activada"
 msgstr[1] "%1 aplicacions privades activades"
 
-#: widgets/bannerinfodialog/bannerinfodialog.cpp:29
+#: widgets/bannerinfodialog/bannerinfodialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Banner Information"
@@ -7947,61 +7947,61 @@ msgstr "Connectors d'eines"
 msgid "Text Plugins"
 msgstr "Connectors de text"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configura el Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:73
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "General"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:78
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Comptes"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:82
+#: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Lletra"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:88
+#: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Correcció automàtica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:94
+#: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Verificació ortogràfica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:100
+#: widgets/configuredialog/configuresettingsdialog.cpp:101
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Traducció"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:107
+#: widgets/configuredialog/configuresettingsdialog.cpp:108
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Comentaris de l'usuari"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:114
+#: widgets/configuredialog/configuresettingsdialog.cpp:115
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibilitat"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:120
+#: widgets/configuredialog/configuresettingsdialog.cpp:121
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
@@ -8041,7 +8041,7 @@ msgstr "URL del servidor:"
 msgid "Failed to connect to server: %1"
 msgstr "Ha fallat en connectar amb el servidor: %1"
 
-#: widgets/configurenewserver/configureactivitiesdialog.cpp:27
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Activities"
@@ -8065,72 +8065,72 @@ msgstr ""
 "esteu en aquestes activitats. D'altra banda, quan canvieu a una activitat "
 "que no hauria d'estar disponible, s'ocultarà automàticament."
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:31
+#: widgets/configurenewserver/createnewserverdialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Afegir un servidor"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:49
+#: widgets/configurenewserver/createnewserverdialog.cpp:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Configuració de les activitats"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:67
+#: widgets/configurenewserver/createnewserverdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modifica el compte"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:45
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informació de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:53
+#: widgets/databasedialog/exploredatabasedialog.cpp:54
 #, kde-format
 msgid "Messages"
 msgstr "Missatges"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:56
+#: widgets/databasedialog/exploredatabasedialog.cpp:57
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#: widgets/databasedialog/exploredatabasedialog.cpp:60
 #, kde-format
 msgid "DataBase Messages"
 msgstr "Missatges de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#: widgets/databasedialog/exploredatabasedialog.cpp:63
 #, kde-format
 msgid "DataBase Accounts"
 msgstr "Comptes de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:65
+#: widgets/databasedialog/exploredatabasedialog.cpp:66
 #, kde-format
 msgid "DataBase Rooms"
 msgstr "Sales de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:68
+#: widgets/databasedialog/exploredatabasedialog.cpp:69
 #, kde-format
 msgid "DataBase Global"
 msgstr "Global de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:71
+#: widgets/databasedialog/exploredatabasedialog.cpp:72
 #, kde-format
 msgid "DataBase E2E"
 msgstr "E2E de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:74
+#: widgets/databasedialog/exploredatabasedialog.cpp:75
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
 msgstr "Informació teclejada pendent de sala de la base de dades"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:77
+#: widgets/databasedialog/exploredatabasedialog.cpp:78
 #, kde-format
 msgid "DataBase Room Subscriptions"
 msgstr "Subscripcions de la base de dades de sales"
@@ -8141,14 +8141,14 @@ msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Copia"
 
-#: widgets/dialogs/addusersinroomdialog.cpp:27
+#: widgets/dialogs/addusersinroomdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Users in Room"
 msgstr "Afegeix usuaris a la sala"
 
 #: widgets/dialogs/asktwoauthenticationpassworddialog.cpp:20
-#: widgets/dialogs/channelinfodialog.cpp:32
+#: widgets/dialogs/channelinfodialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info"
@@ -8189,13 +8189,13 @@ msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "Idioma:"
 
-#: widgets/dialogs/channelinfodialog.cpp:66
+#: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Team Info about '%1'"
 msgstr "Informació de l'equip quant a «%1»"
 
-#: widgets/dialogs/channelinfodialog.cpp:66
+#: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info about '%1'"
@@ -8473,15 +8473,15 @@ msgstr ""
 "Per a la vostra seguretat, cal introduir la vostra contrasenya actual per a "
 "continuar"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:31
+#: widgets/dialogs/createdirectmessagesdialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Crea missatges directes - %1"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:46
-#: widgets/dialogs/createnewchanneldialog.cpp:42
-#: widgets/dialogs/createnewdiscussiondialog.cpp:44
+#: widgets/dialogs/createdirectmessagesdialog.cpp:47
+#: widgets/dialogs/createnewchanneldialog.cpp:43
+#: widgets/dialogs/createnewdiscussiondialog.cpp:45
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:34
 #, kde-format
 msgctxt "@action:button"
@@ -8511,7 +8511,7 @@ msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Selecciona usuaris…"
 
-#: widgets/dialogs/createnewchanneldialog.cpp:27
+#: widgets/dialogs/createnewchanneldialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Channel"
@@ -8611,7 +8611,7 @@ msgstr "Sala encriptada:"
 msgid "Federated:"
 msgstr "Federat:"
 
-#: widgets/dialogs/createnewdiscussiondialog.cpp:30
+#: widgets/dialogs/createnewdiscussiondialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
@@ -8670,27 +8670,27 @@ msgid "Create Sound Message"
 msgstr "Crea un missatge de so"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:29
-#: widgets/dialogs/createvideomessagewizard.cpp:37
+#: widgets/dialogs/createvideomessagewizard.cpp:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "Envia"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:135
+#: widgets/dialogs/createvideomessagewizard.cpp:133
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "Nom del fitxer:"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:148
+#: widgets/dialogs/createvideomessagewizard.cpp:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Descripció:"
 
-#: widgets/dialogs/createvideomessagewizard.cpp:32
+#: widgets/dialogs/createvideomessagewizard.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Video Message"
@@ -8742,7 +8742,7 @@ msgstr "No verificat"
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/inviteusersdialog.cpp:28
+#: widgets/dialogs/inviteusersdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Invite Users"
@@ -8832,14 +8832,14 @@ msgstr "So: %1"
 msgid "Error: "
 msgstr "Error: "
 
-#: widgets/dialogs/reportmessagedialog.cpp:28
+#: widgets/dialogs/reportmessagedialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Informació del missatge"
 
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportuserdialog.cpp:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Report"
@@ -8858,7 +8858,7 @@ msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
 msgstr "Per què assenyaleu aquest missatge?"
 
-#: widgets/dialogs/reportuserdialog.cpp:28
+#: widgets/dialogs/reportuserdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Report User"
@@ -9021,13 +9021,13 @@ msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
 msgstr "Mostra els missatges que heu destacat."
 
-#: widgets/dialogs/searchmessagedialog.cpp:30
+#: widgets/dialogs/searchmessagedialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
 msgstr "Cerca missatges"
 
-#: widgets/dialogs/searchmessagedialog.cpp:74
+#: widgets/dialogs/searchmessagedialog.cpp:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
@@ -9123,7 +9123,7 @@ msgstr "Textos"
 msgid "Files"
 msgstr "Fitxers"
 
-#: widgets/dialogs/showattachmentdialog.cpp:38
+#: widgets/dialogs/showattachmentdialog.cpp:39
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9158,7 +9158,7 @@ msgstr[1] "%1 adjunts a la sala (Total: %2)"
 msgid "(Click here for Loading more…)"
 msgstr "(Feu clic aquí per a carregar-ne més…)"
 
-#: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showbannedusersdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
@@ -9188,24 +9188,24 @@ msgid_plural "%1 Banned Users in room (Total: %2)"
 msgstr[0] "%1 usuari bandejat a la sala (Total: %2)"
 msgstr[1] "%1 usuaris bandejats a la sala (Total: %2)"
 
-#: widgets/dialogs/showimagedialog.cpp:39
+#: widgets/dialogs/showimagedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Display Image"
 msgstr "Mostra una imatge"
 
-#: widgets/dialogs/showimagedialog.cpp:59
+#: widgets/dialogs/showimagedialog.cpp:60
 #: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copia la imatge al porta-retalls"
 
-#: widgets/dialogs/showimagedialog.cpp:61
+#: widgets/dialogs/showimagedialog.cpp:62
 #, kde-format
 msgid "Copy Location to Clipboard"
 msgstr "Copia la ubicació al porta-retalls"
 
-#: widgets/dialogs/showimagedialog.cpp:152
+#: widgets/dialogs/showimagedialog.cpp:150
 #, kde-format
 msgid "Other Application..."
 msgstr "Una altra aplicació..."
@@ -9263,19 +9263,19 @@ msgid_plural "%1 Messages in room (Total: %2)"
 msgstr[0] "%1 missatge a la sala (Total: %2)"
 msgstr[1] "%1 missatges a la sala (Total: %2)"
 
-#: widgets/dialogs/showmentionsmessagesdialog.cpp:24
+#: widgets/dialogs/showmentionsmessagesdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Mentions Messages - %1"
 msgstr "Mostra els missatges que mencionen - %1"
 
-#: widgets/dialogs/showpinnedmessagesdialog.cpp:25
+#: widgets/dialogs/showpinnedmessagesdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Mostra els missatges fixats - %1"
 
-#: widgets/dialogs/showreadreceiptsdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Read Receipts"
@@ -9287,7 +9287,7 @@ msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
 msgstr "Cerca confirmacions de lectura…"
 
-#: widgets/dialogs/showstarredmessagesdialog.cpp:24
+#: widgets/dialogs/showstarredmessagesdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
@@ -9298,19 +9298,19 @@ msgstr "Mostra els missatges destacats - %1"
 msgid "Following"
 msgstr "S'està seguint"
 
-#: widgets/dialogs/showthreadsdialog.cpp:28
+#: widgets/dialogs/showthreadsdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"
 msgstr "Mostra els missatges en fils"
 
-#: widgets/dialogs/showvideodialog.cpp:28
+#: widgets/dialogs/showvideodialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Video"
 msgstr "Vídeo"
 
-#: widgets/dialogs/showvideodialog.cpp:50
+#: widgets/dialogs/showvideodialog.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "Video: %1"
@@ -9444,7 +9444,7 @@ msgstr[1] "%1 missatges"
 msgid "Open Discussion"
 msgstr "Obre un debat"
 
-#: widgets/discussions/showdiscussionsdialog.cpp:32
+#: widgets/discussions/showdiscussionsdialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Discussions - %1"
@@ -9626,7 +9626,7 @@ msgctxt "@action"
 msgid "Save Encryption Key"
 msgstr "Desa la clau d'encriptatge"
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:26
+#: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Application Translation"
@@ -9642,7 +9642,7 @@ msgstr "Traducció"
 msgid "Own Roles:"
 msgstr "Rols propis:"
 
-#: widgets/exportmessages/exportmessagesdialog.cpp:27
+#: widgets/exportmessages/exportmessagesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Messages"
@@ -9742,7 +9742,7 @@ msgctxt "@label:textbox"
 msgid "Select Accounts:"
 msgstr "Seleccioneu els comptes:"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:34
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
@@ -9779,7 +9779,7 @@ msgctxt "@label:textbox"
 msgid "Select Zip file:"
 msgstr "Selecció del fitxer Zip:"
 
-#: widgets/importexportdata/importdata/importdatawizard.cpp:29
+#: widgets/importexportdata/importdata/importdatawizard.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
@@ -10175,7 +10175,7 @@ msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Còpia de seguretat dels codis"
 
-#: widgets/myaccount/myaccountconfiguredialog.cpp:29
+#: widgets/myaccount/myaccountconfiguredialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure my Account"
@@ -10560,7 +10560,7 @@ msgstr "Supressió del meu compte"
 msgid "Current Password"
 msgstr "Contrasenya actual"
 
-#: widgets/notificationhistory/notificationhistorydialog.cpp:29
+#: widgets/notificationhistory/notificationhistorydialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Notification"
@@ -10619,13 +10619,13 @@ msgctxt "@action"
 msgid "Refresh Keys"
 msgstr "Actualitza les claus"
 
-#: widgets/prunemessages/prunemessagesdialog.cpp:30
+#: widgets/prunemessages/prunemessagesdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "Eliminació de missatges"
 
-#: widgets/prunemessages/prunemessagesdialog.cpp:44
+#: widgets/prunemessages/prunemessagesdialog.cpp:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Prune"
@@ -10687,7 +10687,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "Això suprimirà tots els missatges de %3 entre %1 i %2."
 
-#: widgets/registeruser/registeruserdialog.cpp:29
+#: widgets/registeruser/registeruserdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"
@@ -10797,7 +10797,7 @@ msgctxt "@action"
 msgid "Show Banned Users…"
 msgstr "Mostra els missatges bandejats…"
 
-#: widgets/room/debugdialog/showdebugdialog.cpp:24
+#: widgets/room/debugdialog/showdebugdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
@@ -11443,7 +11443,7 @@ msgstr "Desconnectat"
 msgid "Owners"
 msgstr "Propietaris"
 
-#: widgets/room/usersinroomdialog.cpp:29
+#: widgets/room/usersinroomdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Users"
@@ -12284,13 +12284,13 @@ msgstr "No s'ha pogut iniciar la sol·licitud de cerca."
 msgid "Send message"
 msgstr "Envia un missatge"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:41
+#: widgets/serverchecks/serverchecklistdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
 msgstr "Llista de comprovació del servidor"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:45
+#: widgets/serverchecks/serverchecklistdialog.cpp:46
 #, kde-format
 msgid ""
 "Runs a series of checks against the current server and reports whether each "
@@ -12302,31 +12302,31 @@ msgstr ""
 "temporals s'envien al canal seleccionat i després s'eliminen, de manera que "
 "primer escolliu un canal de prova."
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#: widgets/serverchecks/serverchecklistdialog.cpp:57
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
 msgstr "Comprova"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#: widgets/serverchecks/serverchecklistdialog.cpp:57
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
 msgstr "Resultat"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:62
+#: widgets/serverchecks/serverchecklistdialog.cpp:63
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
 msgstr "Executa les comprovacions"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:67
+#: widgets/serverchecks/serverchecklistdialog.cpp:68
 #, kde-format
 msgctxt "@action:button"
 msgid "Post Results to Channel"
 msgstr "Publica el resultat al canal"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:70
+#: widgets/serverchecks/serverchecklistdialog.cpp:71
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
@@ -12334,7 +12334,7 @@ msgstr ""
 "Publica el resultat de la llista de comprovació com a missatge al canal "
 "actual."
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:84
+#: widgets/serverchecks/serverchecklistdialog.cpp:85
 #, kde-format
 msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
@@ -12343,54 +12343,54 @@ msgstr ""
 "<b>Primer obriu un canal: les comprovacions necessiten una sala per enviar "
 "els seus missatges de prova.</b>"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:90
+#: widgets/serverchecks/serverchecklistdialog.cpp:91
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
 msgstr "<b>La comprovació no es pot executar al canal directe.</b>"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:110
+#: widgets/serverchecks/serverchecklistdialog.cpp:111
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
 msgstr "No s'executa"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:122
+#: widgets/serverchecks/serverchecklistdialog.cpp:123
 #, kde-format
 msgctxt "@info:status"
 msgid "Waiting…"
 msgstr "En espera…"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:132
+#: widgets/serverchecks/serverchecklistdialog.cpp:133
 #, kde-format
 msgctxt "@info:status"
 msgid "Running…"
 msgstr "En execució…"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:141
+#: widgets/serverchecks/serverchecklistdialog.cpp:142
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
 msgstr "Correcte"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#: widgets/serverchecks/serverchecklistdialog.cpp:145
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed"
 msgstr "Ha fallat"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#: widgets/serverchecks/serverchecklistdialog.cpp:145
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed: %1"
 msgstr "Ha fallat: %1"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:162
+#: widgets/serverchecks/serverchecklistdialog.cpp:163
 #, kde-format
 msgctxt "Unknown server version"
 msgid "unknown"
 msgstr "desconegut"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:165
+#: widgets/serverchecks/serverchecklistdialog.cpp:166
 #, kde-format
 msgid ""
 "RC %1\n"
@@ -12419,7 +12419,7 @@ msgstr "La resposta ha arribat però no està vinculada al fil pare."
 msgid "Change channel topic"
 msgstr "Canvia el tema del canal"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
@@ -12452,7 +12452,7 @@ msgstr "Nom de l'equip:"
 msgid "Autojoin"
 msgstr "Unió automàtica"
 
-#: widgets/teams/teamchannelsdialog.cpp:26
+#: widgets/teams/teamchannelsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Team Channels"
@@ -12505,13 +12505,13 @@ msgctxt "@title"
 msgid "Remove Channel from Team"
 msgstr "Eliminació de canal de l'equip"
 
-#: widgets/teams/teamconverttochanneldialog.cpp:26
+#: widgets/teams/teamconverttochanneldialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert Team to Channel"
 msgstr "Converteix un equip a un canal"
 
-#: widgets/teams/teamconverttochanneldialog.cpp:58
+#: widgets/teams/teamconverttochanneldialog.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert Team '%1' to Channel"
@@ -12529,19 +12529,19 @@ msgstr ""
 "seleccioneu es mouran a l'espai de treball. Workspace. Tingueu en compte que "
 "els canals públics seran públics i visibles per a tothom."
 
-#: widgets/teams/teamsearchroomdialog.cpp:28
+#: widgets/teams/teamsearchroomdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Rooms"
 msgstr "Cerca de sales"
 
-#: widgets/teams/teamselectdeletedroomdialog.cpp:26
+#: widgets/teams/teamselectdeletedroomdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Rooms"
 msgstr "Suprimeix sales"
 
-#: widgets/threadwidget/threadmessagedialog.cpp:29
+#: widgets/threadwidget/threadmessagedialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"

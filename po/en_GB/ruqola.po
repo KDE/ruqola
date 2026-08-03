@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-02 00:45+0000\n"
+"POT-Creation-Date: 2026-08-03 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -3053,7 +3053,7 @@ msgstr "Invalid parameters"
 msgid "Error trying to send email %1"
 msgstr "Error trying to send email %1"
 
-#: widgets/administratordialog/administratordialog.cpp:29
+#: widgets/administratordialog/administratordialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator"
@@ -3115,7 +3115,7 @@ msgstr "Allow Feature Preview"
 msgid "Moderation Console"
 msgstr "Moderation Console"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:27
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
@@ -3228,7 +3228,7 @@ msgctxt "@action"
 msgid "Remove"
 msgstr "Remove"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:27
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Sound"
@@ -3269,13 +3269,13 @@ msgctxt "@title"
 msgid "Remove Custom Sound"
 msgstr "Remove Custom Sound"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:26
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New User Status"
 msgstr "Create New User Status"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:72
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit User Status"
@@ -3458,13 +3458,13 @@ msgctxt "@action"
 msgid "Previous month"
 msgstr "Previous month"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Show Moderation Report"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:29
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
@@ -3665,7 +3665,7 @@ msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Search…"
 
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:29
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
@@ -3692,7 +3692,7 @@ msgstr "Roles:"
 msgid "Report #%1"
 msgstr "Report #%1"
 
-#: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:26
+#: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Oauth Apps"
@@ -3711,7 +3711,7 @@ msgstr "Active"
 msgid "Redirect Url:"
 msgstr "Redirect URL:"
 
-#: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:26
+#: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Oauth Apps"
@@ -3833,7 +3833,7 @@ msgstr "Scope:"
 msgid "Global"
 msgstr "Global"
 
-#: widgets/administratordialog/roles/userinroleeditdialog.cpp:29
+#: widgets/administratordialog/roles/userinroleeditdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Users in Role"
@@ -4722,7 +4722,7 @@ msgstr ""
 msgid "Default Roles for Users"
 msgstr "Default Roles for Users"
 
-#: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:32
+#: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
@@ -7347,8 +7347,8 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr "STUN/TURN Servers"
 
-#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:28
-#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:26
+#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:29
+#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
@@ -7360,7 +7360,7 @@ msgstr "Permissions"
 msgid "No permissions information found."
 msgstr "No room found"
 
-#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:27
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Ask Application"
@@ -7414,7 +7414,7 @@ msgstr "Version"
 msgid "Settings"
 msgstr "&Settings"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:29
+#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Applications"
@@ -7606,7 +7606,7 @@ msgid_plural "%1 private apps enabled"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/bannerinfodialog/bannerinfodialog.cpp:29
+#: widgets/bannerinfodialog/bannerinfodialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Banner Information"
@@ -7972,61 +7972,61 @@ msgstr ""
 msgid "Text Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configure Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:73
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "General"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:78
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:82
+#: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Font"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:88
+#: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Auto-Correction"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:94
+#: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Spell Checking"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:100
+#: widgets/configuredialog/configuresettingsdialog.cpp:101
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Translation"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:107
+#: widgets/configuredialog/configuresettingsdialog.cpp:108
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "User Feedback"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:114
+#: widgets/configuredialog/configuresettingsdialog.cpp:115
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibility"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:120
+#: widgets/configuredialog/configuresettingsdialog.cpp:121
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
@@ -8066,7 +8066,7 @@ msgstr "Server URL:"
 msgid "Failed to connect to server: %1"
 msgstr "Failed to connect to server: %1"
 
-#: widgets/configurenewserver/configureactivitiesdialog.cpp:27
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Activities"
@@ -8090,83 +8090,83 @@ msgstr ""
 "you are in those activities. Furthermore, when you switch to an activity it "
 "should not be available in, it will automatically be hidden."
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:31
+#: widgets/configurenewserver/createnewserverdialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Add Server"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:49
+#: widgets/configurenewserver/createnewserverdialog.cpp:50
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Configure Activities"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:67
+#: widgets/configurenewserver/createnewserverdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Modify Account"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:45
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Database Info"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:53
+#: widgets/databasedialog/exploredatabasedialog.cpp:54
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Messages"
 msgid "Messages"
 msgstr "Messages"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:56
+#: widgets/databasedialog/exploredatabasedialog.cpp:57
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#: widgets/databasedialog/exploredatabasedialog.cpp:60
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "Private Messages"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#: widgets/databasedialog/exploredatabasedialog.cpp:63
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Delete my Account"
 msgid "DataBase Accounts"
 msgstr "Delete my Account"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:65
+#: widgets/databasedialog/exploredatabasedialog.cpp:66
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase Rooms"
 msgstr "Database Info"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:68
+#: widgets/databasedialog/exploredatabasedialog.cpp:69
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase Global"
 msgstr "Database Info"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:71
+#: widgets/databasedialog/exploredatabasedialog.cpp:72
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase E2E"
 msgstr "Database Info"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:74
+#: widgets/databasedialog/exploredatabasedialog.cpp:75
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
 msgstr ""
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:77
+#: widgets/databasedialog/exploredatabasedialog.cpp:78
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
@@ -8181,14 +8181,14 @@ msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Copy"
 
-#: widgets/dialogs/addusersinroomdialog.cpp:27
+#: widgets/dialogs/addusersinroomdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Users in Room"
 msgstr "Add Users in Room"
 
 #: widgets/dialogs/asktwoauthenticationpassworddialog.cpp:20
-#: widgets/dialogs/channelinfodialog.cpp:32
+#: widgets/dialogs/channelinfodialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info"
@@ -8229,13 +8229,13 @@ msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "Language:"
 
-#: widgets/dialogs/channelinfodialog.cpp:66
+#: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Team Info about '%1'"
 msgstr "Team Info about '%1'"
 
-#: widgets/dialogs/channelinfodialog.cpp:66
+#: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info about '%1'"
@@ -8511,15 +8511,15 @@ msgctxt "@label:textbox"
 msgid "For your security, you must enter your current password to continue"
 msgstr "For your security, you must enter your current password to continue"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:31
+#: widgets/dialogs/createdirectmessagesdialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Create Direct Messages - %1"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:46
-#: widgets/dialogs/createnewchanneldialog.cpp:42
-#: widgets/dialogs/createnewdiscussiondialog.cpp:44
+#: widgets/dialogs/createdirectmessagesdialog.cpp:47
+#: widgets/dialogs/createnewchanneldialog.cpp:43
+#: widgets/dialogs/createnewdiscussiondialog.cpp:45
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:34
 #, kde-format
 msgctxt "@action:button"
@@ -8549,7 +8549,7 @@ msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Select users…"
 
-#: widgets/dialogs/createnewchanneldialog.cpp:27
+#: widgets/dialogs/createnewchanneldialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Channel"
@@ -8653,7 +8653,7 @@ msgstr "Encrypted Room:"
 msgid "Federated:"
 msgstr "Federated:"
 
-#: widgets/dialogs/createnewdiscussiondialog.cpp:30
+#: widgets/dialogs/createnewdiscussiondialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
@@ -8713,27 +8713,27 @@ msgid "Create Sound Message"
 msgstr "Create Sound Message"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:29
-#: widgets/dialogs/createvideomessagewizard.cpp:37
+#: widgets/dialogs/createvideomessagewizard.cpp:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr "Send"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:135
+#: widgets/dialogs/createvideomessagewizard.cpp:133
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "Filename:"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:148
+#: widgets/dialogs/createvideomessagewizard.cpp:146
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Description:"
 
-#: widgets/dialogs/createvideomessagewizard.cpp:32
+#: widgets/dialogs/createvideomessagewizard.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Video Message"
@@ -8785,7 +8785,7 @@ msgstr "Not verified"
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
 
-#: widgets/dialogs/inviteusersdialog.cpp:28
+#: widgets/dialogs/inviteusersdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Invite Users"
@@ -8875,14 +8875,14 @@ msgstr "Sound: %1"
 msgid "Error: "
 msgstr "Error: "
 
-#: widgets/dialogs/reportmessagedialog.cpp:28
+#: widgets/dialogs/reportmessagedialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Report Message"
 
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportuserdialog.cpp:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Report"
@@ -8901,7 +8901,7 @@ msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
 msgstr "Why you signal this message?"
 
-#: widgets/dialogs/reportuserdialog.cpp:28
+#: widgets/dialogs/reportuserdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Report User"
@@ -9074,13 +9074,13 @@ msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
 msgstr "Message has been starred"
 
-#: widgets/dialogs/searchmessagedialog.cpp:30
+#: widgets/dialogs/searchmessagedialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
 msgstr "Search Messages"
 
-#: widgets/dialogs/searchmessagedialog.cpp:74
+#: widgets/dialogs/searchmessagedialog.cpp:72
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
@@ -9181,7 +9181,7 @@ msgstr "Texts"
 msgid "Files"
 msgstr "Files"
 
-#: widgets/dialogs/showattachmentdialog.cpp:38
+#: widgets/dialogs/showattachmentdialog.cpp:39
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Attachments - %1"
@@ -9216,7 +9216,7 @@ msgstr[1] "%1 Attachments in room (Total: %2)"
 msgid "(Click here for Loading more…)"
 msgstr "(Click here for Loading more…)"
 
-#: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showbannedusersdialog.cpp:29
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Pinned Messages - %1"
@@ -9255,24 +9255,24 @@ msgid_plural "%1 Banned Users in room (Total: %2)"
 msgstr[0] "%1 User in room (Total: %2)"
 msgstr[1] "%1 Users in room (Total: %2)"
 
-#: widgets/dialogs/showimagedialog.cpp:39
+#: widgets/dialogs/showimagedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Display Image"
 msgstr "Display Image"
 
-#: widgets/dialogs/showimagedialog.cpp:59
+#: widgets/dialogs/showimagedialog.cpp:60
 #: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copy Image to Clipboard"
 
-#: widgets/dialogs/showimagedialog.cpp:61
+#: widgets/dialogs/showimagedialog.cpp:62
 #, kde-format
 msgid "Copy Location to Clipboard"
 msgstr "Copy Location to Clipboard"
 
-#: widgets/dialogs/showimagedialog.cpp:152
+#: widgets/dialogs/showimagedialog.cpp:150
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search Applications"
@@ -9337,19 +9337,19 @@ msgid_plural "%1 Messages in room (Total: %2)"
 msgstr[0] "%1 Message in room (Total: %2)"
 msgstr[1] "%1 Messages in room (Total: %2)"
 
-#: widgets/dialogs/showmentionsmessagesdialog.cpp:24
+#: widgets/dialogs/showmentionsmessagesdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Mentions Messages - %1"
 msgstr "Show Mentions Messages - %1"
 
-#: widgets/dialogs/showpinnedmessagesdialog.cpp:25
+#: widgets/dialogs/showpinnedmessagesdialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Show Pinned Messages - %1"
 
-#: widgets/dialogs/showreadreceiptsdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:29
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@title:window"
@@ -9363,7 +9363,7 @@ msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
 msgstr "Read Receipts"
 
-#: widgets/dialogs/showstarredmessagesdialog.cpp:24
+#: widgets/dialogs/showstarredmessagesdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
@@ -9376,19 +9376,19 @@ msgstr "Show Starred Messages - %1"
 msgid "Following"
 msgstr "Following"
 
-#: widgets/dialogs/showthreadsdialog.cpp:28
+#: widgets/dialogs/showthreadsdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"
 msgstr "Show Threads Messages"
 
-#: widgets/dialogs/showvideodialog.cpp:28
+#: widgets/dialogs/showvideodialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Video"
 msgstr "Video"
 
-#: widgets/dialogs/showvideodialog.cpp:50
+#: widgets/dialogs/showvideodialog.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "Video: %1"
@@ -9522,7 +9522,7 @@ msgstr[1] "%1 messages"
 msgid "Open Discussion"
 msgstr "Open Discussion"
 
-#: widgets/discussions/showdiscussionsdialog.cpp:32
+#: widgets/discussions/showdiscussionsdialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Discussions - %1"
@@ -9701,7 +9701,7 @@ msgctxt "@action"
 msgid "Save Encryption Key"
 msgstr "Save Encryption Key"
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:26
+#: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@title:window"
@@ -9720,7 +9720,7 @@ msgstr "Translation"
 msgid "Own Roles:"
 msgstr "Own Roles:"
 
-#: widgets/exportmessages/exportmessagesdialog.cpp:27
+#: widgets/exportmessages/exportmessagesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Messages"
@@ -9824,7 +9824,7 @@ msgctxt "@label:textbox"
 msgid "Select Accounts:"
 msgstr "Select Accounts:"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:34
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:35
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Accounts"
@@ -9861,7 +9861,7 @@ msgctxt "@label:textbox"
 msgid "Select Zip file:"
 msgstr "Select Zip file:"
 
-#: widgets/importexportdata/importdata/importdatawizard.cpp:29
+#: widgets/importexportdata/importdata/importdatawizard.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Accounts"
@@ -10254,7 +10254,7 @@ msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Backup Codes"
 
-#: widgets/myaccount/myaccountconfiguredialog.cpp:29
+#: widgets/myaccount/myaccountconfiguredialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure my Account"
@@ -10635,7 +10635,7 @@ msgstr "Delete my Account"
 msgid "Current Password"
 msgstr "Current Password"
 
-#: widgets/notificationhistory/notificationhistorydialog.cpp:29
+#: widgets/notificationhistory/notificationhistorydialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Notification"
@@ -10694,13 +10694,13 @@ msgctxt "@action"
 msgid "Refresh Keys"
 msgstr "Refresh Keys"
 
-#: widgets/prunemessages/prunemessagesdialog.cpp:30
+#: widgets/prunemessages/prunemessagesdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "Prune Messages"
 
-#: widgets/prunemessages/prunemessagesdialog.cpp:44
+#: widgets/prunemessages/prunemessagesdialog.cpp:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Prune"
@@ -10761,7 +10761,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "This will delete all messages in %3 between %1 and %2."
 
-#: widgets/registeruser/registeruserdialog.cpp:29
+#: widgets/registeruser/registeruserdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"
@@ -10873,7 +10873,7 @@ msgctxt "@action"
 msgid "Show Banned Users…"
 msgstr "Show Pinned Messages…"
 
-#: widgets/room/debugdialog/showdebugdialog.cpp:24
+#: widgets/room/debugdialog/showdebugdialog.cpp:25
 #, fuzzy, kde-format
 #| msgid "Debug"
 msgctxt "@title:window"
@@ -11542,7 +11542,7 @@ msgstr "Disconnected"
 msgid "Owners"
 msgstr "Owner"
 
-#: widgets/room/usersinroomdialog.cpp:29
+#: widgets/room/usersinroomdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Users"
@@ -12460,13 +12460,13 @@ msgstr ""
 msgid "Send message"
 msgstr "Send message"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:41
+#: widgets/serverchecks/serverchecklistdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:45
+#: widgets/serverchecks/serverchecklistdialog.cpp:46
 #, kde-format
 msgid ""
 "Runs a series of checks against the current server and reports whether each "
@@ -12474,25 +12474,25 @@ msgid ""
 "selected channel and removed afterwards, so pick a scratch channel first."
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#: widgets/serverchecks/serverchecklistdialog.cpp:57
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#: widgets/serverchecks/serverchecklistdialog.cpp:57
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:62
+#: widgets/serverchecks/serverchecklistdialog.cpp:63
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:67
+#: widgets/serverchecks/serverchecklistdialog.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Convert to Channel"
@@ -12500,72 +12500,72 @@ msgctxt "@action:button"
 msgid "Post Results to Channel"
 msgstr "Convert to Channel"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:70
+#: widgets/serverchecks/serverchecklistdialog.cpp:71
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:84
+#: widgets/serverchecks/serverchecklistdialog.cpp:85
 #, kde-format
 msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
 "to.</b>"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:90
+#: widgets/serverchecks/serverchecklistdialog.cpp:91
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:110
+#: widgets/serverchecks/serverchecklistdialog.cpp:111
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:122
+#: widgets/serverchecks/serverchecklistdialog.cpp:123
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info:status"
 msgid "Waiting…"
 msgstr "Loading…"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:132
+#: widgets/serverchecks/serverchecklistdialog.cpp:133
 #, fuzzy, kde-format
 #| msgid "Loading…"
 msgctxt "@info:status"
 msgid "Running…"
 msgstr "Loading…"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:141
+#: widgets/serverchecks/serverchecklistdialog.cpp:142
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#: widgets/serverchecks/serverchecklistdialog.cpp:145
 #, fuzzy, kde-format
 #| msgid "Job Failed"
 msgctxt "@info:status"
 msgid "Failed"
 msgstr "Job Failed"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#: widgets/serverchecks/serverchecklistdialog.cpp:145
 #, fuzzy, kde-format
 #| msgid "File Uploaded: %1"
 msgctxt "@info:status"
 msgid "Failed: %1"
 msgstr "File Uploaded: %1"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:162
+#: widgets/serverchecks/serverchecklistdialog.cpp:163
 #, fuzzy, kde-format
 #| msgid "Unknown"
 msgctxt "Unknown server version"
 msgid "unknown"
 msgstr "Unknown"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:165
+#: widgets/serverchecks/serverchecklistdialog.cpp:166
 #, kde-format
 msgid ""
 "RC %1\n"
@@ -12594,7 +12594,7 @@ msgstr ""
 msgid "Change channel topic"
 msgstr ""
 
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Error Information"
@@ -12627,7 +12627,7 @@ msgstr "Team Name:"
 msgid "Autojoin"
 msgstr "Autojoin"
 
-#: widgets/teams/teamchannelsdialog.cpp:26
+#: widgets/teams/teamchannelsdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Team Channels"
@@ -12680,13 +12680,13 @@ msgctxt "@title"
 msgid "Remove Channel from Team"
 msgstr "Remove Channel from Team"
 
-#: widgets/teams/teamconverttochanneldialog.cpp:26
+#: widgets/teams/teamconverttochanneldialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert Team to Channel"
 msgstr "Convert Team to Channel"
 
-#: widgets/teams/teamconverttochanneldialog.cpp:58
+#: widgets/teams/teamconverttochanneldialog.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert Team '%1' to Channel"
@@ -12704,19 +12704,19 @@ msgstr ""
 "select will be moved to the Workspace. Notice that public Channels will be "
 "public and visible to everyone."
 
-#: widgets/teams/teamsearchroomdialog.cpp:28
+#: widgets/teams/teamsearchroomdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Rooms"
 msgstr "Search Rooms"
 
-#: widgets/teams/teamselectdeletedroomdialog.cpp:26
+#: widgets/teams/teamselectdeletedroomdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Rooms"
 msgstr "Delete Rooms"
 
-#: widgets/threadwidget/threadmessagedialog.cpp:29
+#: widgets/threadwidget/threadmessagedialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Thread"

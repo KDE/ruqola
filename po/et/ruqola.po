@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-02 00:45+0000\n"
+"POT-Creation-Date: 2026-08-03 00:42+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3232,7 +3232,7 @@ msgstr "Vigased argumendid"
 msgid "Error trying to send email %1"
 msgstr "Tõrge e-kirja saatmisel: __message__"
 
-#: widgets/administratordialog/administratordialog.cpp:29
+#: widgets/administratordialog/administratordialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator"
@@ -3298,7 +3298,7 @@ msgstr "Sõnum kustutatud"
 msgid "Moderation Console"
 msgstr "Mainimised"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:27
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Custom Status:"
 msgctxt "@title:window"
@@ -3420,7 +3420,7 @@ msgctxt "@action"
 msgid "Remove"
 msgstr "Eemalda"
 
-#: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:27
+#: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgctxt "@title:window"
@@ -3469,14 +3469,14 @@ msgctxt "@title"
 msgid "Remove Custom Sound"
 msgstr "Konto eemaldamine"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:26
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgctxt "@title:window"
 msgid "Create New User Status"
 msgstr "Kasutaja kohandatud olek"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:72
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:70
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgctxt "@title:window"
@@ -3671,7 +3671,7 @@ msgctxt "@action"
 msgid "Previous month"
 msgstr "Eelmine kanal"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:28
+#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:29
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Mentions Messages"
@@ -3679,7 +3679,7 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Mainitud sõnumite näitamine"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:29
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:30
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Mentions Messages"
@@ -3889,7 +3889,7 @@ msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Otsing"
 
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:29
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:30
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Mentions Messages"
@@ -3920,7 +3920,7 @@ msgstr ""
 msgid "Report #%1"
 msgstr "Veast teatamine"
 
-#: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:26
+#: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Search Threads..."
 msgctxt "@title:window"
@@ -3942,7 +3942,7 @@ msgstr "Kasutaja ei ole aktiveeritud"
 msgid "Redirect Url:"
 msgstr "Serveri URL:"
 
-#: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:26
+#: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Search Threads..."
 msgctxt "@title:window"
@@ -4079,7 +4079,7 @@ msgstr ""
 msgid "Global"
 msgstr ""
 
-#: widgets/administratordialog/roles/userinroleeditdialog.cpp:29
+#: widgets/administratordialog/roles/userinroleeditdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Add User In Room"
 msgctxt "@title:window"
@@ -5052,7 +5052,7 @@ msgstr ""
 msgid "Default Roles for Users"
 msgstr "Autentimisviis"
 
-#: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:32
+#: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
@@ -7686,8 +7686,8 @@ msgstr ""
 msgid "STUN/TURN Servers"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:28
-#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:26
+#: widgets/applicationssettingsdialog/applicationspermissiondialog.cpp:29
+#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgctxt "@title:window"
@@ -7700,7 +7700,7 @@ msgstr "Versioon %1"
 msgid "No permissions information found."
 msgstr "Ühtegi mainimist ei leitud"
 
-#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:27
+#: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@title:window"
@@ -7755,7 +7755,7 @@ msgstr "Versioon %1"
 msgid "Settings"
 msgstr "Serveri teave ..."
 
-#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:29
+#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@title:window"
@@ -7949,7 +7949,7 @@ msgid_plural "%1 private apps enabled"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/bannerinfodialog/bannerinfodialog.cpp:29
+#: widgets/bannerinfodialog/bannerinfodialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgctxt "@title:window"
@@ -8351,64 +8351,64 @@ msgstr ""
 msgid "Text Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Ruqola seadistamine"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:73
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Üldine"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:78
 #, fuzzy, kde-format
 #| msgid "Account"
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Konto"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:82
+#: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:88
+#: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, fuzzy, kde-format
 #| msgid "Invalid description"
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Vigane kirjeldus"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:94
+#: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Õigekirja kontroll"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:100
+#: widgets/configuredialog/configuresettingsdialog.cpp:101
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Tõlge"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:107
+#: widgets/configuredialog/configuresettingsdialog.cpp:108
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Kasutaja tagasiside"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:114
+#: widgets/configuredialog/configuresettingsdialog.cpp:115
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:120
+#: widgets/configuredialog/configuresettingsdialog.cpp:121
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
@@ -8453,7 +8453,7 @@ msgstr "Serveri URL:"
 msgid "Failed to connect to server: %1"
 msgstr "Importfaili lahtipakkimine nurjus."
 
-#: widgets/configurenewserver/configureactivitiesdialog.cpp:27
+#: widgets/configurenewserver/configureactivitiesdialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Configure Accounts"
 msgctxt "@title:window"
@@ -8475,81 +8475,81 @@ msgid ""
 "should not be available in, it will automatically be hidden."
 msgstr ""
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:31
+#: widgets/configurenewserver/createnewserverdialog.cpp:32
 #, fuzzy, kde-format
 #| msgid "Add as Leader"
 msgctxt "@title:window"
 msgid "Add Server"
 msgstr "Lisa juhina"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:49
+#: widgets/configurenewserver/createnewserverdialog.cpp:50
 #, fuzzy, kde-format
 #| msgid "Configure Accounts"
 msgctxt "@action:button"
 msgid "Configure Activities"
 msgstr "Kontode seadistamine"
 
-#: widgets/configurenewserver/createnewserverdialog.cpp:67
+#: widgets/configurenewserver/createnewserverdialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Konto muutmine"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:44
+#: widgets/databasedialog/exploredatabasedialog.cpp:45
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Kasutaja teave"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:53
+#: widgets/databasedialog/exploredatabasedialog.cpp:54
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Messages"
 msgstr "Sõnum"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:56
+#: widgets/databasedialog/exploredatabasedialog.cpp:57
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr ""
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:59
+#: widgets/databasedialog/exploredatabasedialog.cpp:60
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "Privaatsõnumid"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:62
+#: widgets/databasedialog/exploredatabasedialog.cpp:63
 #, fuzzy, kde-format
 #| msgid "Delete Account"
 msgid "DataBase Accounts"
 msgstr "Konto kustutamine"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:65
+#: widgets/databasedialog/exploredatabasedialog.cpp:66
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgid "DataBase Rooms"
 msgstr "Kasutaja teave"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:68
+#: widgets/databasedialog/exploredatabasedialog.cpp:69
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgid "DataBase Global"
 msgstr "Kasutaja teave"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:71
+#: widgets/databasedialog/exploredatabasedialog.cpp:72
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgid "DataBase E2E"
 msgstr "Kasutaja teave"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:74
+#: widgets/databasedialog/exploredatabasedialog.cpp:75
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
 msgstr ""
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:77
+#: widgets/databasedialog/exploredatabasedialog.cpp:78
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgid "DataBase Room Subscriptions"
@@ -8562,14 +8562,14 @@ msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Kopeeri"
 
-#: widgets/dialogs/addusersinroomdialog.cpp:27
+#: widgets/dialogs/addusersinroomdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Users in Room"
 msgstr "Kasutajate lisamine tuppa"
 
 #: widgets/dialogs/asktwoauthenticationpassworddialog.cpp:20
-#: widgets/dialogs/channelinfodialog.cpp:32
+#: widgets/dialogs/channelinfodialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info"
@@ -8614,7 +8614,7 @@ msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "Keel:"
 
-#: widgets/dialogs/channelinfodialog.cpp:66
+#: widgets/dialogs/channelinfodialog.cpp:67
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info about '%1'"
@@ -8622,7 +8622,7 @@ msgctxt "@title:window"
 msgid "Team Info about '%1'"
 msgstr "Kanali teave '%1' kohta"
 
-#: widgets/dialogs/channelinfodialog.cpp:66
+#: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info about '%1'"
@@ -8923,7 +8923,7 @@ msgctxt "@label:textbox"
 msgid "For your security, you must enter your current password to continue"
 msgstr ""
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:31
+#: widgets/dialogs/createdirectmessagesdialog.cpp:32
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
@@ -8931,9 +8931,9 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Videosõnumi loomine"
 
-#: widgets/dialogs/createdirectmessagesdialog.cpp:46
-#: widgets/dialogs/createnewchanneldialog.cpp:42
-#: widgets/dialogs/createnewdiscussiondialog.cpp:44
+#: widgets/dialogs/createdirectmessagesdialog.cpp:47
+#: widgets/dialogs/createnewchanneldialog.cpp:43
+#: widgets/dialogs/createnewdiscussiondialog.cpp:45
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:34
 #, fuzzy, kde-format
 #| msgid "Create"
@@ -8963,7 +8963,7 @@ msgctxt "@info:placeholder"
 msgid "Select users…"
 msgstr "Otsi kasutajaid ..."
 
-#: widgets/dialogs/createnewchanneldialog.cpp:27
+#: widgets/dialogs/createnewchanneldialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Channel"
@@ -9066,7 +9066,7 @@ msgstr "Krüptitud tuba:"
 msgid "Federated:"
 msgstr "Moderaator"
 
-#: widgets/dialogs/createnewdiscussiondialog.cpp:30
+#: widgets/dialogs/createnewdiscussiondialog.cpp:31
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Discussion"
@@ -9131,14 +9131,14 @@ msgid "Create Sound Message"
 msgstr "Videosõnumi loomine"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:29
-#: widgets/dialogs/createvideomessagewizard.cpp:37
+#: widgets/dialogs/createvideomessagewizard.cpp:38
 #, kde-format
 msgctxt "@action:button"
 msgid "Send"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:135
+#: widgets/dialogs/createvideomessagewizard.cpp:133
 #, fuzzy, kde-format
 #| msgid "File:"
 msgctxt "@label:textbox"
@@ -9146,14 +9146,14 @@ msgid "Filename:"
 msgstr "Fail:"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:148
+#: widgets/dialogs/createvideomessagewizard.cpp:146
 #, fuzzy, kde-format
 #| msgid "Description:"
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Kirjeldus:"
 
-#: widgets/dialogs/createvideomessagewizard.cpp:32
+#: widgets/dialogs/createvideomessagewizard.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Video Message"
@@ -9210,7 +9210,7 @@ msgstr "Pole autoriseeritud"
 msgid "%1 [%2]"
 msgstr ""
 
-#: widgets/dialogs/inviteusersdialog.cpp:28
+#: widgets/dialogs/inviteusersdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Invite Users"
@@ -9304,14 +9304,14 @@ msgstr "Heli:"
 msgid "Error: "
 msgstr "Tõrge: "
 
-#: widgets/dialogs/reportmessagedialog.cpp:28
+#: widgets/dialogs/reportmessagedialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Report Message"
 msgstr "Sõnumist teatamine"
 
-#: widgets/dialogs/reportmessagedialog.cpp:44
-#: widgets/dialogs/reportuserdialog.cpp:45
+#: widgets/dialogs/reportmessagedialog.cpp:45
+#: widgets/dialogs/reportuserdialog.cpp:46
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action:button"
@@ -9333,7 +9333,7 @@ msgctxt "@info:placeholder"
 msgid "Why you signal this message?"
 msgstr "Miks sa sellest sõnumist märku annad?"
 
-#: widgets/dialogs/reportuserdialog.cpp:28
+#: widgets/dialogs/reportuserdialog.cpp:29
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@title:window"
@@ -9506,13 +9506,13 @@ msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
 msgstr "Sõnum kustutatud"
 
-#: widgets/dialogs/searchmessagedialog.cpp:30
+#: widgets/dialogs/searchmessagedialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
 msgstr "Sõnumite otsimine"
 
-#: widgets/dialogs/searchmessagedialog.cpp:74
+#: widgets/dialogs/searchmessagedialog.cpp:72
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -9619,7 +9619,7 @@ msgstr "Tekst:"
 msgid "Files"
 msgstr "Fail:"
 
-#: widgets/dialogs/showattachmentdialog.cpp:38
+#: widgets/dialogs/showattachmentdialog.cpp:39
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Attachments"
@@ -9658,7 +9658,7 @@ msgstr[1] "%1 manust toas (kokku: %2)"
 msgid "(Click here for Loading more…)"
 msgstr "(Klõpsa siia, et juurde laadida ...)"
 
-#: widgets/dialogs/showbannedusersdialog.cpp:28
+#: widgets/dialogs/showbannedusersdialog.cpp:29
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Pinned Messages"
@@ -9695,24 +9695,24 @@ msgid_plural "%1 Banned Users in room (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
 
-#: widgets/dialogs/showimagedialog.cpp:39
+#: widgets/dialogs/showimagedialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Display Image"
 msgstr "Pildi näitamine"
 
-#: widgets/dialogs/showimagedialog.cpp:59
+#: widgets/dialogs/showimagedialog.cpp:60
 #: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr ""
 
-#: widgets/dialogs/showimagedialog.cpp:61
+#: widgets/dialogs/showimagedialog.cpp:62
 #, kde-format
 msgid "Copy Location to Clipboard"
 msgstr ""
 
-#: widgets/dialogs/showimagedialog.cpp:152
+#: widgets/dialogs/showimagedialog.cpp:150
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "Other Application..."
@@ -9775,7 +9775,7 @@ msgid_plural "%1 Messages in room (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
 
-#: widgets/dialogs/showmentionsmessagesdialog.cpp:24
+#: widgets/dialogs/showmentionsmessagesdialog.cpp:25
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Mentions Messages"
@@ -9783,7 +9783,7 @@ msgctxt "@title:window"
 msgid "Show Mentions Messages - %1"
 msgstr "Mainitud sõnumite näitamine"
 
-#: widgets/dialogs/showpinnedmessagesdialog.cpp:25
+#: widgets/dialogs/showpinnedmessagesdialog.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Pinned Messages"
@@ -9791,7 +9791,7 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Kinnistatud sõnumite näitamine"
 
-#: widgets/dialogs/showreadreceiptsdialog.cpp:28
+#: widgets/dialogs/showreadreceiptsdialog.cpp:29
 #, fuzzy, kde-format
 #| msgid "Clear Recents"
 msgctxt "@title:window"
@@ -9805,7 +9805,7 @@ msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
 msgstr "Puhasta hiljutised"
 
-#: widgets/dialogs/showstarredmessagesdialog.cpp:24
+#: widgets/dialogs/showstarredmessagesdialog.cpp:25
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Starred Messages"
@@ -9819,19 +9819,19 @@ msgstr "Tärniga sõnumite näitamine"
 msgid "Following"
 msgstr "Kõik sõnumid"
 
-#: widgets/dialogs/showthreadsdialog.cpp:28
+#: widgets/dialogs/showthreadsdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Threads Messages"
 msgstr "Lõimesõnumite näitamine"
 
-#: widgets/dialogs/showvideodialog.cpp:28
+#: widgets/dialogs/showvideodialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Video"
 msgstr "Video"
 
-#: widgets/dialogs/showvideodialog.cpp:50
+#: widgets/dialogs/showvideodialog.cpp:51
 #, kde-format
 msgctxt "@title:window"
 msgid "Video: %1"
@@ -9982,7 +9982,7 @@ msgstr[1] "%1 sõnumit"
 msgid "Open Discussion"
 msgstr "Diskussiooni avamine"
 
-#: widgets/discussions/showdiscussionsdialog.cpp:32
+#: widgets/discussions/showdiscussionsdialog.cpp:33
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Discussions"
@@ -10154,7 +10154,7 @@ msgctxt "@action"
 msgid "Save Encryption Key"
 msgstr "Krüptitud:"
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:26
+#: widgets/exploreappstranlationdialog/exploreappstranslationdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@title:window"
@@ -10173,7 +10173,7 @@ msgstr "Tõlge"
 msgid "Own Roles:"
 msgstr "Peida tuba"
 
-#: widgets/exportmessages/exportmessagesdialog.cpp:27
+#: widgets/exportmessages/exportmessagesdialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@title:window"
@@ -10283,7 +10283,7 @@ msgctxt "@label:textbox"
 msgid "Select Accounts:"
 msgstr "Konto kustutamine"
 
-#: widgets/importexportdata/exportdata/exportdatawizard.cpp:34
+#: widgets/importexportdata/exportdata/exportdatawizard.cpp:35
 #, fuzzy, kde-format
 #| msgid "Account"
 msgctxt "@title:window"
@@ -10326,7 +10326,7 @@ msgctxt "@label:textbox"
 msgid "Select Zip file:"
 msgstr "Faili valimine ..."
 
-#: widgets/importexportdata/importdata/importdatawizard.cpp:29
+#: widgets/importexportdata/importdata/importdatawizard.cpp:30
 #, fuzzy, kde-format
 #| msgid "Account"
 msgctxt "@title:window"
@@ -10734,7 +10734,7 @@ msgctxt "@title:window"
 msgid "Backup Codes"
 msgstr "Blokeeri kasutaja"
 
-#: widgets/myaccount/myaccountconfiguredialog.cpp:29
+#: widgets/myaccount/myaccountconfiguredialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Configure Account"
 msgctxt "@title:window"
@@ -11153,7 +11153,7 @@ msgstr "Konto kustutamine"
 msgid "Current Password"
 msgstr "Parool"
 
-#: widgets/notificationhistory/notificationhistorydialog.cpp:29
+#: widgets/notificationhistory/notificationhistorydialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "@title:window"
@@ -11216,14 +11216,14 @@ msgctxt "@action"
 msgid "Refresh Keys"
 msgstr ""
 
-#: widgets/prunemessages/prunemessagesdialog.cpp:30
+#: widgets/prunemessages/prunemessagesdialog.cpp:31
 #, fuzzy, kde-format
 #| msgid "Pinned Messages"
 msgctxt "@title:window"
 msgid "Prune Messages"
 msgstr "Kinnistatud sõnumid"
 
-#: widgets/prunemessages/prunemessagesdialog.cpp:44
+#: widgets/prunemessages/prunemessagesdialog.cpp:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Prune"
@@ -11288,7 +11288,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr ""
 
-#: widgets/registeruser/registeruserdialog.cpp:29
+#: widgets/registeruser/registeruserdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@title:window"
@@ -11416,7 +11416,7 @@ msgctxt "@action"
 msgid "Show Banned Users…"
 msgstr "Näita kinnistatud sõnumeid ..."
 
-#: widgets/room/debugdialog/showdebugdialog.cpp:24
+#: widgets/room/debugdialog/showdebugdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Debug"
@@ -12152,7 +12152,7 @@ msgstr "Pole ühendatud"
 msgid "Owners"
 msgstr "Omanik"
 
-#: widgets/room/usersinroomdialog.cpp:29
+#: widgets/room/usersinroomdialog.cpp:30
 #, fuzzy, kde-format
 #| msgid "Users:"
 msgctxt "@title:window"
@@ -13108,13 +13108,13 @@ msgstr ""
 msgid "Send message"
 msgstr "Tärniga sõnumid"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:41
+#: widgets/serverchecks/serverchecklistdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:45
+#: widgets/serverchecks/serverchecklistdialog.cpp:46
 #, kde-format
 msgid ""
 "Runs a series of checks against the current server and reports whether each "
@@ -13122,25 +13122,25 @@ msgid ""
 "selected channel and removed afterwards, so pick a scratch channel first."
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#: widgets/serverchecks/serverchecklistdialog.cpp:57
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:56
+#: widgets/serverchecks/serverchecklistdialog.cpp:57
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:62
+#: widgets/serverchecks/serverchecklistdialog.cpp:63
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:67
+#: widgets/serverchecks/serverchecklistdialog.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
@@ -13148,72 +13148,72 @@ msgctxt "@action:button"
 msgid "Post Results to Channel"
 msgstr "Kanali loomine"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:70
+#: widgets/serverchecks/serverchecklistdialog.cpp:71
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:84
+#: widgets/serverchecks/serverchecklistdialog.cpp:85
 #, kde-format
 msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
 "to.</b>"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:90
+#: widgets/serverchecks/serverchecklistdialog.cpp:91
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:110
+#: widgets/serverchecks/serverchecklistdialog.cpp:111
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:122
+#: widgets/serverchecks/serverchecklistdialog.cpp:123
 #, fuzzy, kde-format
 #| msgid "Loading..."
 msgctxt "@info:status"
 msgid "Waiting…"
 msgstr "Laadimine ..."
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:132
+#: widgets/serverchecks/serverchecklistdialog.cpp:133
 #, fuzzy, kde-format
 #| msgid "Loading..."
 msgctxt "@info:status"
 msgid "Running…"
 msgstr "Laadimine ..."
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:141
+#: widgets/serverchecks/serverchecklistdialog.cpp:142
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
 msgstr ""
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#: widgets/serverchecks/serverchecklistdialog.cpp:145
 #, fuzzy, kde-format
 #| msgid "Job Failed"
 msgctxt "@info:status"
 msgid "Failed"
 msgstr "Töö nurjus"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:144
+#: widgets/serverchecks/serverchecklistdialog.cpp:145
 #, fuzzy, kde-format
 #| msgid "File Uploaded: %1"
 msgctxt "@info:status"
 msgid "Failed: %1"
 msgstr "Fail üles laaditud: %1"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:162
+#: widgets/serverchecks/serverchecklistdialog.cpp:163
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgctxt "Unknown server version"
 msgid "unknown"
 msgstr "Teadmata olek"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:165
+#: widgets/serverchecks/serverchecklistdialog.cpp:166
 #, kde-format
 msgid ""
 "RC %1\n"
@@ -13242,7 +13242,7 @@ msgstr ""
 msgid "Change channel topic"
 msgstr ""
 
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:27
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgctxt "@title:window"
@@ -13280,7 +13280,7 @@ msgstr "Kasutajanimi:"
 msgid "Autojoin"
 msgstr ""
 
-#: widgets/teams/teamchannelsdialog.cpp:26
+#: widgets/teams/teamchannelsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@title:window"
@@ -13343,7 +13343,7 @@ msgctxt "@title"
 msgid "Remove Channel from Team"
 msgstr "Eemalda toast"
 
-#: widgets/teams/teamconverttochanneldialog.cpp:26
+#: widgets/teams/teamconverttochanneldialog.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
@@ -13351,7 +13351,7 @@ msgctxt "@title:window"
 msgid "Convert Team to Channel"
 msgstr "Kanali loomine"
 
-#: widgets/teams/teamconverttochanneldialog.cpp:58
+#: widgets/teams/teamconverttochanneldialog.cpp:59
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
@@ -13368,21 +13368,21 @@ msgid ""
 "public and visible to everyone."
 msgstr ""
 
-#: widgets/teams/teamsearchroomdialog.cpp:28
+#: widgets/teams/teamsearchroomdialog.cpp:29
 #, fuzzy, kde-format
 #| msgid "Search Rooms"
 msgctxt "@title:window"
 msgid "Search Rooms"
 msgstr "Toa otsimine"
 
-#: widgets/teams/teamselectdeletedroomdialog.cpp:26
+#: widgets/teams/teamselectdeletedroomdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@title:window"
 msgid "Delete Rooms"
 msgstr "Toa kustutamine"
 
-#: widgets/threadwidget/threadmessagedialog.cpp:29
+#: widgets/threadwidget/threadmessagedialog.cpp:30
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
