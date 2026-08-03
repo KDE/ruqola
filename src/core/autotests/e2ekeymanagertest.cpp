@@ -149,6 +149,38 @@ void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
     QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-generation"_s));
 }
 
+void E2eKeyManagerTest::shouldKeepGenerationStateAndAllowRetryWhenUploadFails()
+{
+#if !USE_E2E_SUPPORT
+    QSKIP("E2E support is disabled");
+#else
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.settings()->setAccountName(u"e2e-test-account"_s);
+    account.settings()->setServerUrl(u"http://localhost:3000"_s);
+    account.settings()->setUserName(u"e2e-test-user"_s);
+    account.settings()->setUserId("test-e2e-user-upload-retry"_ba);
+    account.settings()->setAuthToken(u"token"_s);
+
+    E2eKeyManager manager(&account);
+    QSignalSpy uploadFailedSpy(&manager, &E2eKeyManager::uploadEncryptionKeyFailed);
+
+    // Empty server payload triggers local key generation and upload attempt.
+    manager.verifyExistingKeyForTest(QJsonObject{});
+    QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToGenerateKey);
+    QCOMPARE(uploadFailedSpy.count(), 1);
+
+    // Retry should attempt another upload with the same pending generated key data.
+    QVERIFY(!manager.retryUploadGeneratedKey());
+    QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToGenerateKey);
+    QCOMPARE(uploadFailedSpy.count(), 2);
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-upload-retry"_s));
+#endif
+}
+
 void E2eKeyManagerTest::shouldPostponeDecryption()
 {
     E2eKeyManager manager(nullptr);

@@ -27,6 +27,7 @@ public:
     void decodeEncryptionKey();
     [[nodiscard]] bool decodeEncryptionKey(const QString &password);
     void postponeDecryption();
+    [[nodiscard]] bool retryUploadGeneratedKey();
 
     void fetchMyKeys();
 
@@ -47,12 +48,17 @@ Q_SIGNALS:
     void failedDecodeEncryptionKey();
     void decodeEncryptionKeyDone();
     void decodeEncryptionKeyPostponed();
+    void uploadEncryptionKeyFailed();
+    void uploadEncryptionKeyDone();
     void verifyKeyDone();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
+    LIBRUQOLACORE_NO_EXPORT bool startUploadGeneratedKey(const QByteArray &publicKey, const QByteArray &encryptedPrivateKey);
     Status mStatus = Status::Unknown;
     QString mGeneratedPassword;
     QByteArray mDecodedPrivateKey;
+    QByteArray mPendingUploadPublicKey;
+    QByteArray mPendingUploadPrivateKey;
     RocketChatAccount *const mAccount;
 };

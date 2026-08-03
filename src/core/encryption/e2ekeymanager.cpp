@@ -103,6 +103,20 @@ void E2eKeyManager::postponeDecryption()
     Q_EMIT decodeEncryptionKeyPostponed();
 }
 
+bool E2eKeyManager::retryUploadGeneratedKey()
+{
+#if USE_E2E_SUPPORT
+    if (!mAccount || mPendingUploadPublicKey.isEmpty() || mPendingUploadPrivateKey.isEmpty()) {
+        return false;
+    }
+
+    setStatus(Status::NeedToGenerateKey);
+    return startUploadGeneratedKey(mPendingUploadPublicKey, mPendingUploadPrivateKey);
+#else
+    return false;
+#endif
+}
+
 QString E2eKeyManager::generateRandomPassword() const
 {
 #if USE_E2E_SUPPORT
@@ -206,24 +220,47 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
 
     (void)mAccount->localDatabaseManager()->e2EDatabase()->saveKey(userId, encryptedGeneratedPrivateKey, rsaKeyPair.publicKey);
 
+    // Local key material is ready at this point, so keep generation state even if upload cannot start.
+    setStatus(Status::NeedToGenerateKey);
+    startUploadGeneratedKey(rsaKeyPair.publicKey, encryptedGeneratedPrivateKey);
+#else
+    setStatus(Status::Unknown);
+#endif
+}
+
+bool E2eKeyManager::startUploadGeneratedKey(const QByteArray &publicKey, const QByteArray &encryptedPrivateKey)
+{
+    if (!mAccount || publicKey.isEmpty() || encryptedPrivateKey.isEmpty()) {
+        return false;
+    }
+
+    mPendingUploadPublicKey = publicKey;
+    mPendingUploadPrivateKey = encryptedPrivateKey;
+
     auto setJob = new RocketChatRestApi::SetUserPublicAndPrivateKeysJob(this);
     mAccount->restApi()->initializeRestApiJob(setJob);
 
     RocketChatRestApi::SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
-    info.rsaPublicKey = QString::fromUtf8(rsaKeyPair.publicKey);
-    info.rsaPrivateKey = QString::fromLatin1(encryptedGeneratedPrivateKey.toBase64());
+    info.rsaPublicKey = QString::fromUtf8(publicKey);
+    info.rsaPrivateKey = QString::fromLatin1(encryptedPrivateKey.toBase64());
     setJob->setSetUserPublicAndPrivateKeysInfo(info);
 
-    // Local key material is ready at this point, so keep generation state even if upload cannot start.
-    setStatus(Status::NeedToGenerateKey);
+    connect(setJob, &RocketChatRestApi::SetUserPublicAndPrivateKeysJob::setUserPublicAndPrivateKeysDone, this, [this]() {
+        Q_EMIT uploadEncryptionKeyDone();
+    });
+    connect(setJob, &RocketChatRestApi::RestApiAbstractJob::failed, this, [this](const QString &, const QString &) {
+        setStatus(Status::NeedToGenerateKey);
+        Q_EMIT uploadEncryptionKeyFailed();
+    });
 
     if (!setJob->start()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to upload generated E2E keypair";
-        return;
+        setStatus(Status::NeedToGenerateKey);
+        Q_EMIT uploadEncryptionKeyFailed();
+        return false;
     }
-#else
-    setStatus(Status::Unknown);
-#endif
+
+    return true;
 }
 
 void E2eKeyManager::verifyExistingKeyForTest(const QJsonObject &json)
