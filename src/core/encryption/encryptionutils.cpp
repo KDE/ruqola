@@ -82,7 +82,7 @@ QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
     jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("encrypt");
     jwkObj[QStringLiteral("ext")] = true;
 
-    QJsonDocument doc(jwkObj);
+    const QJsonDocument doc(jwkObj);
     return doc.toJson(QJsonDocument::Compact);
 }
 
