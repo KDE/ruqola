@@ -29,8 +29,7 @@ MessageEncrypted::~MessageEncrypted()
 
 bool MessageEncrypted::isValid() const
 {
-    return false;
-    // return !mPinnedBy.isEmpty();
+    return !mAlgorithm.isEmpty() && !mKeyId.isEmpty() && !mCiphertext.isEmpty() && !mIv.isEmpty();
 }
 
 QByteArray MessageEncrypted::algorithm() const
