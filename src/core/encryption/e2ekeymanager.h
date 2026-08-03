@@ -42,7 +42,7 @@ public:
     [[nodiscard]] bool keySaved() const;
     void setKeySaved(bool newKeySaved);
 
-    LIBRUQOLACORE_EXPORT void verifyExistingKeyForTest(const QJsonObject &json);
+    void verifyExistingKeyForTest(const QJsonObject &json);
 
 Q_SIGNALS:
     void needDecodeEncryptionKey();
