@@ -3318,13 +3318,24 @@ void RocketChatAccount::loadAppMarketPlace()
 
 void RocketChatAccount::slotVerifyKeysDone()
 {
-    // TODO reactivate it when we will have full support
 #if USE_E2E_SUPPORT
-    Q_EMIT needToSaveE2EPassword();
-    Q_EMIT needToDecryptE2EPassword();
-    // TODO verify it!!!!!
-    setE2EPasswordMustBeDecrypt(true);
-    // TODO verify if we must decode it
+    setE2EPasswordMustBeSave(false);
+    setE2EPasswordMustBeDecrypt(false);
+
+    switch (mE2eKeyManager->status()) {
+    case E2eKeyManager::Status::NeedToGenerateKey:
+        setE2EPasswordMustBeSave(true);
+        Q_EMIT needToSaveE2EPassword();
+        break;
+    case E2eKeyManager::Status::NeedToDecryptKey:
+    case E2eKeyManager::Status::DecryptionPostponned:
+        setE2EPasswordMustBeDecrypt(true);
+        Q_EMIT needToDecryptE2EPassword();
+        break;
+    case E2eKeyManager::Status::KeyDecrypted:
+    case E2eKeyManager::Status::Unknown:
+        break;
+    }
 #endif
 }
 

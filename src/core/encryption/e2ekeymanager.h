@@ -46,5 +46,6 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
     Status mStatus = Status::Unknown;
+    QString mGeneratedPassword;
     RocketChatAccount *const mAccount;
 };

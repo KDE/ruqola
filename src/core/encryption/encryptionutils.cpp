@@ -454,11 +454,7 @@ QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QB
     const QByteArray iv = encrypted.left(16);
     const QByteArray cipherText = encrypted.mid(16);
 
-    qDebug() << cipherText << "QByteArray cipherText = encrypted.mid(16)";
-
     const QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);
-
-    qDebug() << plainText << "QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);";
 
     if (plainText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, message decryption failed, plain text is empty";
@@ -825,10 +821,9 @@ qDebug() << "Decrypted Text:" << decryptedText;
 EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
 {
     EncryptionUtils::EncryptionInfo info;
-    if (!cipherText.isEmpty()) {
-        // TODO add more check
+    if (cipherText.size() > 16) {
         info.vector = cipherText.left(16);
-        info.encryptedData = cipherText.last(16);
+        info.encryptedData = cipherText.mid(16);
     }
     return info;
 }
@@ -907,14 +902,17 @@ bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::Encrypti
 QString EncryptionUtils::generateRandomPassword()
 {
     const int numberChar = 30;
+    const QByteArray charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?";
+    const QByteArray randomBytes = generateRandomIV(numberChar);
+    if (randomBytes.isEmpty()) {
+        return {};
+    }
+
     QString randomStr;
-    for (int i = 0; i < numberChar; i++) {
-        const int d = rand() % 200; // Generate a random ASCII value between 0 and 199
-        if (d >= 33 && d <= 123) {
-            randomStr.append(QLatin1Char(static_cast<char>(d))); // Convert the ASCII value to a character for valid range
-        } else {
-            randomStr.append(QString::number(d % 10)); // Keep the last digit for numbers outside the valid range
-        }
+    randomStr.reserve(numberChar);
+    for (int i = 0; i < numberChar; ++i) {
+        const int index = static_cast<unsigned char>(randomBytes.at(i)) % charset.size();
+        randomStr.append(QLatin1Char(charset.at(index)));
     }
     return randomStr;
 }

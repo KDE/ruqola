@@ -8,13 +8,21 @@
 #include "config-ruqola.h"
 #include "connection.h"
 #include "e2e/fetchmykeysjob.h"
+#include "e2e/setuserpublicandprivatekeysjob.h"
 #if USE_E2E_SUPPORT
 #include "encryptionutils.h"
 #endif
+#include "localdatabase/e2edatabase.h"
+#include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_encryption_debug.h"
 #include "ruqolaserverconfig.h"
+
+#include <QByteArray>
+#include <QJsonValue>
+
+using namespace Qt::Literals::StringLiterals;
 
 // https://docs.rocket.chat/docs/end-to-end-encryption-specifications
 E2eKeyManager::E2eKeyManager(RocketChatAccount *account, QObject *parent)
@@ -27,12 +35,17 @@ E2eKeyManager::~E2eKeyManager() = default;
 
 void E2eKeyManager::decodeEncryptionKey()
 {
-    // TODO
+    if (mStatus == Status::NeedToDecryptKey || mStatus == Status::DecryptionPostponned) {
+        Q_EMIT needDecodeEncryptionKey();
+    }
 }
 
 QString E2eKeyManager::generateRandomPassword() const
 {
 #if USE_E2E_SUPPORT
+    if (!mGeneratedPassword.isEmpty()) {
+        return mGeneratedPassword;
+    }
     return EncryptionUtils::generateRandomPassword();
 #else
     return {};
@@ -65,8 +78,89 @@ void E2eKeyManager::fetchMyKeys()
 
 void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
 {
-    // TODO
-    // return status value
+    const auto decodeEncryptedPrivateKey = [](const QJsonValue &privateKeyValue) -> QByteArray {
+        if (privateKeyValue.isString()) {
+            const QByteArray privateKey = privateKeyValue.toString().toUtf8();
+            const QByteArray decoded = QByteArray::fromBase64(privateKey);
+            // Some server payloads can already be raw bytes serialized as UTF-8.
+            return decoded.isEmpty() ? privateKey : decoded;
+        }
+        if (privateKeyValue.isObject()) {
+            const QString binaryValue = privateKeyValue.toObject().value(QStringLiteral("$binary")).toString();
+            if (!binaryValue.isEmpty()) {
+                return QByteArray::fromBase64(binaryValue.toUtf8());
+            }
+        }
+        return {};
+    };
+
+    if (!mAccount) {
+        setStatus(Status::Unknown);
+        return;
+    }
+
+    const QString publicKey = json.value("public_key"_L1).toString();
+    const QByteArray encryptedPrivateKey = decodeEncryptedPrivateKey(json.value("private_key"_L1));
+
+    if (!publicKey.isEmpty() && !encryptedPrivateKey.isEmpty()) {
+        const QString userId = QString::fromLatin1(mAccount->settings()->userId());
+        if (!userId.isEmpty()) {
+            (void)mAccount->localDatabaseManager()->e2EDatabase()->saveKey(userId, encryptedPrivateKey, publicKey.toUtf8());
+        }
+        setStatus(Status::NeedToDecryptKey);
+        return;
+    }
+
+#if USE_E2E_SUPPORT
+    const QString userId = QString::fromLatin1(mAccount->settings()->userId());
+    if (userId.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: user id is empty";
+        setStatus(Status::Unknown);
+        return;
+    }
+
+    mGeneratedPassword = EncryptionUtils::generateRandomPassword();
+    if (mGeneratedPassword.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: random password generation failed";
+        setStatus(Status::Unknown);
+        return;
+    }
+
+    const QByteArray masterKey = EncryptionUtils::getMasterKey(mGeneratedPassword, userId);
+    const EncryptionUtils::RSAKeyPair rsaKeyPair = EncryptionUtils::generateRSAKey();
+    if (masterKey.isEmpty() || rsaKeyPair.privateKey.isEmpty() || rsaKeyPair.publicKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: prerequisite generation failed";
+        setStatus(Status::Unknown);
+        return;
+    }
+
+    const QByteArray encryptedGeneratedPrivateKey = EncryptionUtils::encryptPrivateKey(rsaKeyPair.privateKey, masterKey);
+    if (encryptedGeneratedPrivateKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: private key encryption failed";
+        setStatus(Status::Unknown);
+        return;
+    }
+
+    (void)mAccount->localDatabaseManager()->e2EDatabase()->saveKey(userId, encryptedGeneratedPrivateKey, rsaKeyPair.publicKey);
+
+    auto setJob = new RocketChatRestApi::SetUserPublicAndPrivateKeysJob(this);
+    mAccount->restApi()->initializeRestApiJob(setJob);
+
+    RocketChatRestApi::SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
+    info.rsaPublicKey = QString::fromUtf8(rsaKeyPair.publicKey);
+    info.rsaPrivateKey = QString::fromLatin1(encryptedGeneratedPrivateKey.toBase64());
+    setJob->setSetUserPublicAndPrivateKeysInfo(info);
+
+    if (!setJob->start()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to upload generated E2E keypair";
+        setStatus(Status::Unknown);
+        return;
+    }
+
+    setStatus(Status::NeedToGenerateKey);
+#else
+    setStatus(Status::Unknown);
+#endif
 }
 
 bool E2eKeyManager::keySaved() const
@@ -90,11 +184,9 @@ E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
         return Status::Unknown;
     }
     if (mAccount->ruqolaServerConfig()->encryptionEnabled()) {
-        // TODO check if we have decoded key stored.
-        // TODO check NeedToDecryptKey
-        return Status::NeedToGenerateKey;
+        return mStatus;
     }
-    return mStatus;
+    return Status::Unknown;
 }
 
 #include "moc_e2ekeymanager.cpp"
