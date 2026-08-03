@@ -262,8 +262,9 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
                 const QJsonDocument doc = QJsonDocument::fromJson(strBytes);
                 if (!doc.isNull() && doc.isObject()) {
                     const QByteArray result = decodeObject(doc.object());
-                    if (!result.isEmpty())
+                    if (!result.isEmpty()) {
                         return result;
+                    }
                 }
             }
 
