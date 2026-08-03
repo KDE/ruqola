@@ -55,6 +55,11 @@ using namespace Qt::Literals::StringLiterals;
  */
 QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
 {
+    if (!rsaKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "RSA key is null";
+        return {};
+    }
+
     const BIGNUM *n;
     const BIGNUM *e;
     const BIGNUM *d;
@@ -305,6 +310,11 @@ QByteArray EncryptionUtils::generateSessionKey()
  */
 RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
 {
+    if (pem.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyFromPEM: pem is empty";
+        return nullptr;
+    }
+
     BIO *bio = BIO_new_mem_buf(pem.constData(), pem.size());
     if (!bio) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "BIO_new_mem_buf failed!";
@@ -329,6 +339,11 @@ RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
  */
 RSA *EncryptionUtils::privateKeyFromPEM(const QByteArray &pem)
 {
+    if (pem.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyFromPEM: pem is empty";
+        return nullptr;
+    }
+
     BIO *bio = BIO_new_mem_buf(pem.constData(), pem.size());
     if (!bio) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "BIO_new_mem_buf failed!";
@@ -348,6 +363,11 @@ RSA *EncryptionUtils::privateKeyFromPEM(const QByteArray &pem)
 
 QByteArray EncryptionUtils::encryptSessionKey(const QByteArray &sessionKey, RSA *publicKey)
 {
+    if (sessionKey.isEmpty() || !publicKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key encryption failed: invalid input";
+        return {};
+    }
+
     QByteArray encryptedSessionKey(RSA_size(publicKey), 0);
     const int bytes = RSA_public_encrypt(sessionKey.size(),
                                          reinterpret_cast<const unsigned char *>(sessionKey.constData()),
@@ -364,6 +384,11 @@ QByteArray EncryptionUtils::encryptSessionKey(const QByteArray &sessionKey, RSA 
 
 QByteArray EncryptionUtils::decryptSessionKey(const QByteArray &encryptedSessionKey, RSA *privateKey)
 {
+    if (encryptedSessionKey.isEmpty() || !privateKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed: invalid input";
+        return {};
+    }
+
     QByteArray decryptedSessionKey(RSA_size(privateKey), 0);
     const int bytes = RSA_private_decrypt(encryptedSessionKey.size(),
                                           reinterpret_cast<const unsigned char *>(encryptedSessionKey.constData()),
