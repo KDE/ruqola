@@ -149,6 +149,19 @@ void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
     QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-generation"_s));
 }
 
+void E2eKeyManagerTest::shouldPostponeDecryption()
+{
+    E2eKeyManager manager(nullptr);
+    manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+
+    QSignalSpy postponedSpy(&manager, &E2eKeyManager::decodeEncryptionKeyPostponed);
+
+    manager.postponeDecryption();
+
+    QCOMPARE(manager.status(), E2eKeyManager::Status::DecryptionPostponned);
+    QCOMPARE(postponedSpy.count(), 1);
+}
+
 void E2eKeyManagerTest::shouldDecodeEncryptionKeyWithValidPassword()
 {
 #if !USE_E2E_SUPPORT
