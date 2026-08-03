@@ -86,10 +86,13 @@ void MessageEncrypted::parse(const QJsonObject &o)
     mKeyId = o["kid"_L1].toString().toLatin1();
 }
 
-QJsonObject MessageEncrypted::serialize(const MessageEncrypted &messagePinned)
+QJsonObject MessageEncrypted::serialize(const MessageEncrypted &encrypted)
 {
     QJsonObject o;
-    // TODO
+    o["algorithm"_L1] = QString::fromLatin1(encrypted.algorithm());
+    o["ciphertext"_L1] = encrypted.ciphertext();
+    o["iv"_L1] = QString::fromLatin1(encrypted.iv());
+    o["kid"_L1] = QString::fromLatin1(encrypted.keyId());
     return o;
 }
 
@@ -105,6 +108,10 @@ QDebug operator<<(QDebug d, const MessageEncrypted &t)
 MessageEncrypted *MessageEncrypted::deserialize(const QJsonObject &o)
 {
     MessageEncrypted *encrypted = new MessageEncrypted;
-    // TODO
+    encrypted->setAlgorithm(o["algorithm"_L1].toString().toLatin1());
+    encrypted->setCiphertext(o["ciphertext"_L1].toString());
+    encrypted->setCiphertext(o["ciphertext"_L1].toString());
+    encrypted->setIv(o["iv"_L1].toString().toLatin1());
+    encrypted->setKeyId(o["kid"_L1].toString().toLatin1());
     return encrypted;
 }
