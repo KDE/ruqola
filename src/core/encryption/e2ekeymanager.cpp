@@ -106,7 +106,7 @@ void E2eKeyManager::postponeDecryption()
 bool E2eKeyManager::retryUploadGeneratedKey()
 {
 #if USE_E2E_SUPPORT
-    if (!mAccount || mPendingUploadPublicKey.isEmpty() || mPendingUploadPrivateKey.isEmpty()) {
+    if (!mAccount || !mPendingUploadFailed || mPendingUploadPublicKey.isEmpty() || mPendingUploadPrivateKey.isEmpty()) {
         return false;
     }
 
@@ -115,6 +115,11 @@ bool E2eKeyManager::retryUploadGeneratedKey()
 #else
     return false;
 #endif
+}
+
+bool E2eKeyManager::hasPendingUploadFailure() const
+{
+    return mPendingUploadFailed;
 }
 
 QString E2eKeyManager::generateRandomPassword() const
@@ -236,6 +241,7 @@ bool E2eKeyManager::startUploadGeneratedKey(const QByteArray &publicKey, const Q
 
     mPendingUploadPublicKey = publicKey;
     mPendingUploadPrivateKey = encryptedPrivateKey;
+    mPendingUploadFailed = false;
 
     auto setJob = new RocketChatRestApi::SetUserPublicAndPrivateKeysJob(this);
     mAccount->restApi()->initializeRestApiJob(setJob);
@@ -246,15 +252,18 @@ bool E2eKeyManager::startUploadGeneratedKey(const QByteArray &publicKey, const Q
     setJob->setSetUserPublicAndPrivateKeysInfo(info);
 
     connect(setJob, &RocketChatRestApi::SetUserPublicAndPrivateKeysJob::setUserPublicAndPrivateKeysDone, this, [this]() {
+        mPendingUploadFailed = false;
         Q_EMIT uploadEncryptionKeyDone();
     });
     connect(setJob, &RocketChatRestApi::RestApiAbstractJob::failed, this, [this](const QString &, const QString &) {
+        mPendingUploadFailed = true;
         setStatus(Status::NeedToGenerateKey);
         Q_EMIT uploadEncryptionKeyFailed();
     });
 
     if (!setJob->start()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to upload generated E2E keypair";
+        mPendingUploadFailed = true;
         setStatus(Status::NeedToGenerateKey);
         Q_EMIT uploadEncryptionKeyFailed();
         return false;

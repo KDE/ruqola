@@ -28,6 +28,7 @@ public:
     [[nodiscard]] bool decodeEncryptionKey(const QString &password);
     void postponeDecryption();
     [[nodiscard]] bool retryUploadGeneratedKey();
+    [[nodiscard]] bool hasPendingUploadFailure() const;
 
     void fetchMyKeys();
 
@@ -60,5 +61,6 @@ private:
     QByteArray mDecodedPrivateKey;
     QByteArray mPendingUploadPublicKey;
     QByteArray mPendingUploadPrivateKey;
+    bool mPendingUploadFailed = false;
     RocketChatAccount *const mAccount;
 };

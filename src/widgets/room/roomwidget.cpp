@@ -294,9 +294,9 @@ void RoomWidget::slotGenerateNewPassword()
     QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         mCurrentRocketChatAccount->settings()->setKeySaved(true);
-        // Retry upload in case the initial key publication failed (e.g. temporary network/server issue).
-        if (!mCurrentRocketChatAccount->e2eKeyManager()->retryUploadGeneratedKey()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Unable to retry uploading generated E2E key";
+        // Retry only after an actual upload failure, otherwise this is a no-op that creates noise.
+        if (mCurrentRocketChatAccount->e2eKeyManager()->hasPendingUploadFailure() && !mCurrentRocketChatAccount->e2eKeyManager()->retryUploadGeneratedKey()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Unable to retry failed upload of generated E2E key";
         }
         // TODO save it in kwalletmanagers ?
     }

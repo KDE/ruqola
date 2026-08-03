@@ -305,6 +305,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mE2eKeyManager, &E2eKeyManager::decodeEncryptionKeyDone, this, &RocketChatAccount::slotE2eDecodeKeyDone);
     connect(mE2eKeyManager, &E2eKeyManager::failedDecodeEncryptionKey, this, &RocketChatAccount::slotE2eDecodeKeyFailed);
     connect(mE2eKeyManager, &E2eKeyManager::decodeEncryptionKeyPostponed, this, &RocketChatAccount::slotE2eDecodeKeyPostponed);
+    connect(mE2eKeyManager, &E2eKeyManager::uploadEncryptionKeyDone, this, &RocketChatAccount::slotE2eUploadKeyDone);
+    connect(mE2eKeyManager, &E2eKeyManager::uploadEncryptionKeyFailed, this, &RocketChatAccount::slotE2eUploadKeyFailed);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
     connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, mRoomModel, &RoomModel::cleanRoomHistory);
 
@@ -3356,6 +3358,17 @@ void RocketChatAccount::slotE2eDecodeKeyFailed()
 void RocketChatAccount::slotE2eDecodeKeyPostponed()
 {
     setE2EPasswordMustBeDecrypt(true);
+}
+
+void RocketChatAccount::slotE2eUploadKeyDone()
+{
+    setE2EPasswordMustBeSave(false);
+}
+
+void RocketChatAccount::slotE2eUploadKeyFailed()
+{
+    setE2EPasswordMustBeSave(true);
+    Q_EMIT needToSaveE2EPassword();
 }
 
 MemoryManager *RocketChatAccount::memoryManager() const

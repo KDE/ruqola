@@ -32,6 +32,7 @@ void E2eKeyManagerTest::shouldHaveDefaultValues()
     E2eKeyManager m(nullptr);
     QCOMPARE(m.status(), E2eKeyManager::Status::Unknown);
     QVERIFY(!m.keySaved());
+    QVERIFY(!m.hasPendingUploadFailure());
 }
 
 void E2eKeyManagerTest::shouldEmitDecodeSignalOnlyWhenNeeded()
@@ -171,11 +172,13 @@ void E2eKeyManagerTest::shouldKeepGenerationStateAndAllowRetryWhenUploadFails()
     manager.verifyExistingKeyForTest(QJsonObject{});
     QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToGenerateKey);
     QCOMPARE(uploadFailedSpy.count(), 1);
+    QVERIFY(manager.hasPendingUploadFailure());
 
     // Retry should attempt another upload with the same pending generated key data.
     QVERIFY(!manager.retryUploadGeneratedKey());
     QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToGenerateKey);
     QCOMPARE(uploadFailedSpy.count(), 2);
+    QVERIFY(manager.hasPendingUploadFailure());
 
     QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-upload-retry"_s));
 #endif
