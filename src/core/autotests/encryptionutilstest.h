@@ -22,4 +22,5 @@ private Q_SLOTS:
     void shouldSplitVectorAndEcryptedData();
     void shouldJoinVectorAndEcryptedData_data();
     void shouldJoinVectorAndEcryptedData();
+    void shouldGenerateRandomPassword();
 };

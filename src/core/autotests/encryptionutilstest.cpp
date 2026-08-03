@@ -23,8 +23,20 @@ void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData_data()
     QTest::addColumn<QByteArray>("encryptedData");
     QTest::addColumn<EncryptionUtils::EncryptionInfo>("encryptionInfo");
 
-    EncryptionUtils::EncryptionInfo info;
-    QTest::addRow("empty") << QByteArray() << info;
+    {
+        EncryptionUtils::EncryptionInfo info;
+        QTest::addRow("empty") << QByteArray() << info;
+    }
+    {
+        EncryptionUtils::EncryptionInfo info;
+        QTest::addRow("too-short") << QByteArray("1234567890123456") << info;
+    }
+    {
+        EncryptionUtils::EncryptionInfo info;
+        info.vector = QByteArray("1234567890abcdef");
+        info.encryptedData = QByteArray("cipher-payload");
+        QTest::addRow("iv-and-payload") << QByteArray(info.vector + info.encryptedData) << info;
+    }
 }
 
 void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData()
@@ -56,6 +68,16 @@ void EncryptionUtilsTest::shouldJoinVectorAndEcryptedData()
     QFETCH(EncryptionUtils::EncryptionInfo, encryptionInfo);
     QFETCH(QByteArray, encryptedData);
     QCOMPARE(EncryptionUtils::joinVectorAndEcryptedData(encryptionInfo), encryptedData);
+}
+
+void EncryptionUtilsTest::shouldGenerateRandomPassword()
+{
+    const QString password1 = EncryptionUtils::generateRandomPassword();
+    const QString password2 = EncryptionUtils::generateRandomPassword();
+
+    QCOMPARE(password1.size(), 30);
+    QCOMPARE(password2.size(), 30);
+    QVERIFY(password1 != password2);
 }
 
 #include "moc_encryptionutilstest.cpp"
