@@ -17,4 +17,8 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitDecodeSignalOnlyWhenNeeded();
+    void shouldSetNeedToDecryptStatusFromBase64StringPayload();
+    void shouldSetNeedToDecryptStatusFromBinaryObjectPayload();
+    void shouldHandleMissingOrMalformedServerKeys();
 };

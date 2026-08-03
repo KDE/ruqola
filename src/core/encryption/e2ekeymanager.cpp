@@ -151,16 +151,21 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
     info.rsaPrivateKey = QString::fromLatin1(encryptedGeneratedPrivateKey.toBase64());
     setJob->setSetUserPublicAndPrivateKeysInfo(info);
 
+    // Local key material is ready at this point, so keep generation state even if upload cannot start.
+    setStatus(Status::NeedToGenerateKey);
+
     if (!setJob->start()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to upload generated E2E keypair";
-        setStatus(Status::Unknown);
         return;
     }
-
-    setStatus(Status::NeedToGenerateKey);
 #else
     setStatus(Status::Unknown);
 #endif
+}
+
+void E2eKeyManager::verifyExistingKeyForTest(const QJsonObject &json)
+{
+    verifyExistingKey(json);
 }
 
 bool E2eKeyManager::keySaved() const

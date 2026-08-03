@@ -6,7 +6,20 @@
 
 #include "e2ekeymanagertest.h"
 #include "encryption/e2ekeymanager.h"
+
+#include "config-ruqola.h"
+#include "localdatabase/e2edatabase.h"
+#include "localdatabase/localdatabasemanager.h"
+#include "rocketchataccount.h"
+#include "rocketchataccountsettings.h"
+
+#include <QJsonObject>
+#include <QSignalSpy>
+#include <QTemporaryDir>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(E2eKeyManagerTest)
 E2eKeyManagerTest::E2eKeyManagerTest(QObject *parent)
     : QObject{parent}
@@ -18,6 +31,121 @@ void E2eKeyManagerTest::shouldHaveDefaultValues()
     E2eKeyManager m(nullptr);
     QCOMPARE(m.status(), E2eKeyManager::Status::Unknown);
     QVERIFY(!m.keySaved());
+}
+
+void E2eKeyManagerTest::shouldEmitDecodeSignalOnlyWhenNeeded()
+{
+    E2eKeyManager manager(nullptr);
+    QSignalSpy spy(&manager, &E2eKeyManager::needDecodeEncryptionKey);
+
+    manager.setStatus(E2eKeyManager::Status::Unknown);
+    manager.decodeEncryptionKey();
+    QCOMPARE(spy.count(), 0);
+
+    manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+    manager.decodeEncryptionKey();
+    QCOMPARE(spy.count(), 1);
+
+    manager.setStatus(E2eKeyManager::Status::DecryptionPostponned);
+    manager.decodeEncryptionKey();
+    QCOMPARE(spy.count(), 2);
+}
+
+void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBase64StringPayload()
+{
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.settings()->setUserId("test-e2e-user-string"_ba);
+
+    E2eKeyManager manager(&account);
+    const QByteArray encryptedPrivateKey = "encrypted-private-key-data";
+    const QByteArray encryptedPrivateKeyBase64 = encryptedPrivateKey.toBase64();
+
+    QJsonObject json;
+    json["public_key"_L1] = u"-----BEGIN PUBLIC KEY-----abc-----END PUBLIC KEY-----"_s;
+    json["private_key"_L1] = QString::fromLatin1(encryptedPrivateKeyBase64);
+
+    manager.verifyExistingKeyForTest(json);
+    QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToDecryptKey);
+
+    QByteArray storedEncryptedPrivateKey;
+    QByteArray storedPublicKey;
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->loadKey(u"test-e2e-user-string"_s, storedEncryptedPrivateKey, storedPublicKey));
+    QCOMPARE(storedEncryptedPrivateKey, encryptedPrivateKey);
+    QCOMPARE(storedPublicKey, json["public_key"_L1].toString().toUtf8());
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-string"_s));
+}
+
+void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBinaryObjectPayload()
+{
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.settings()->setUserId("test-e2e-user-binary"_ba);
+
+    E2eKeyManager manager(&account);
+    const QByteArray encryptedPrivateKey = "binary-private-key-data";
+
+    QJsonObject privateKeyObject;
+    privateKeyObject["$binary"_L1] = QString::fromLatin1(encryptedPrivateKey.toBase64());
+
+    QJsonObject json;
+    json["public_key"_L1] = u"-----BEGIN PUBLIC KEY-----xyz-----END PUBLIC KEY-----"_s;
+    json["private_key"_L1] = privateKeyObject;
+
+    manager.verifyExistingKeyForTest(json);
+    QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToDecryptKey);
+
+    QByteArray storedEncryptedPrivateKey;
+    QByteArray storedPublicKey;
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->loadKey(u"test-e2e-user-binary"_s, storedEncryptedPrivateKey, storedPublicKey));
+    QCOMPARE(storedEncryptedPrivateKey, encryptedPrivateKey);
+    QCOMPARE(storedPublicKey, json["public_key"_L1].toString().toUtf8());
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-binary"_s));
+}
+
+void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
+{
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.settings()->setAccountName(u"e2e-test-account"_s);
+    account.settings()->setServerUrl(u"http://localhost:3000"_s);
+    account.settings()->setUserName(u"e2e-test-user"_s);
+    account.settings()->setUserId("test-e2e-user-generation"_ba);
+    account.settings()->setAuthToken(u"token"_s);
+
+    E2eKeyManager manager(&account);
+
+    {
+        const QJsonObject emptyJson;
+        manager.verifyExistingKeyForTest(emptyJson);
+#if USE_E2E_SUPPORT
+        QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToGenerateKey);
+#else
+        QCOMPARE(manager.status(), E2eKeyManager::Status::Unknown);
+#endif
+    }
+
+    {
+        QJsonObject malformedJson;
+        malformedJson["public_key"_L1] = u"present-public-key"_s;
+        malformedJson["private_key"_L1] = QJsonObject{};
+        manager.verifyExistingKeyForTest(malformedJson);
+#if USE_E2E_SUPPORT
+        QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToGenerateKey);
+#else
+        QCOMPARE(manager.status(), E2eKeyManager::Status::Unknown);
+#endif
+    }
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-generation"_s));
 }
 
 #include "moc_e2ekeymanagertest.cpp"
