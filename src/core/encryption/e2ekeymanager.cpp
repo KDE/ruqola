@@ -20,6 +20,8 @@
 #include "ruqolaserverconfig.h"
 
 #include <QByteArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QJsonValue>
 
 using namespace Qt::Literals::StringLiterals;
@@ -65,15 +67,76 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
         return false;
     }
 
-    const QByteArray masterKey = EncryptionUtils::getMasterKey(password, userId);
-    if (masterKey.isEmpty()) {
+    // Decrypt the stored private key.  Two storage layouts are possible:
+    //
+    //  V2 JSON  – starts with '{'; contains its own PBKDF2 salt/iterations
+    //             and was encrypted with AES-GCM.
+    //  Binary   – raw bytes: iv[16] + AES-CBC-256 ciphertext; PBKDF2 uses
+    //             the userId as salt with 1 000 iterations.
+    //
+    // After decryption, the plaintext may be:
+    //   • JWK JSON  (starts with '{') – produced by Rocket.Chat web/mobile
+    //   • PEM       – produced by Ruqola itself
+    QByteArray decryptedPrivateKey;
+    if (encryptedPrivateKey.startsWith('{')) {
+        // ── V2 format (AES-GCM) ─────────────────────────────────────────────
+        const QJsonDocument doc = QJsonDocument::fromJson(encryptedPrivateKey);
+        if (doc.isNull() || !doc.isObject()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to parse V2 encrypted private key JSON";
+            setStatus(Status::NeedToDecryptKey);
+            Q_EMIT failedDecodeEncryptionKey();
+            return false;
+        }
+        const QJsonObject v2 = doc.object();
+        const QString v2Salt = v2.value(QStringLiteral("salt")).toString();
+        const int v2Iterations = v2.value(QStringLiteral("iterations")).toInt();
+        const QByteArray v2Iv = QByteArray::fromBase64(v2.value(QStringLiteral("iv")).toString().toUtf8());
+        const QByteArray v2Ciphertext = QByteArray::fromBase64(v2.value(QStringLiteral("ciphertext")).toString().toUtf8());
+
+        if (v2Salt.isEmpty() || v2Iterations <= 0 || v2Iv.isEmpty() || v2Ciphertext.isEmpty()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "V2 encrypted private key has missing fields";
+            setStatus(Status::NeedToDecryptKey);
+            Q_EMIT failedDecodeEncryptionKey();
+            return false;
+        }
+
+        const QByteArray v2MasterKey = EncryptionUtils::deriveKey(v2Salt.toUtf8(), password.toUtf8(), v2Iterations, 32);
+        if (v2MasterKey.isEmpty()) {
+            setStatus(Status::NeedToDecryptKey);
+            Q_EMIT failedDecodeEncryptionKey();
+            return false;
+        }
+
+        decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, v2MasterKey, v2Iv);
+    } else {
+        // ── V1 / oldest format (AES-CBC) ────────────────────────────────────
+        const QByteArray masterKey = EncryptionUtils::getMasterKey(password, userId);
+        if (masterKey.isEmpty()) {
+            setStatus(Status::NeedToDecryptKey);
+            Q_EMIT failedDecodeEncryptionKey();
+            return false;
+        }
+        decryptedPrivateKey = EncryptionUtils::decryptPrivateKey(encryptedPrivateKey, masterKey);
+    }
+
+    if (decryptedPrivateKey.isEmpty()) {
         setStatus(Status::NeedToDecryptKey);
         Q_EMIT failedDecodeEncryptionKey();
         return false;
     }
 
-    const QByteArray privateKeyPem = EncryptionUtils::decryptPrivateKey(encryptedPrivateKey, masterKey);
+    // Convert decrypted bytes to PEM.
+    // Rocket.Chat web/mobile encrypts the private key serialised as JWK JSON;
+    // Ruqola-generated keys are already PEM.
+    QByteArray privateKeyPem;
+    if (decryptedPrivateKey.startsWith('{')) {
+        privateKeyPem = EncryptionUtils::privateKeyJWKToPEM(decryptedPrivateKey);
+    } else {
+        privateKeyPem = decryptedPrivateKey;
+    }
+
     if (privateKeyPem.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to obtain PEM from decrypted private key";
         setStatus(Status::NeedToDecryptKey);
         Q_EMIT failedDecodeEncryptionKey();
         return false;
@@ -160,19 +223,55 @@ void E2eKeyManager::fetchMyKeys()
 
 void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
 {
+    // Decode the server's private_key field into the bytes we store locally.
+    //
+    // The field can arrive in several formats depending on the server version:
+    //
+    //  Oldest : plain base64 string  →  binary (iv[16] + AES-CBC ciphertext)
+    //  V1     : JSON object { "$binary": "<base64>" }  →  same binary layout
+    //  V2     : JSON object { "iv":"…", "ciphertext":"…", "salt":"…",
+    //                         "iterations": N }  →  stored as compact JSON bytes
+    //
+    // We also handle the unusual case where the server serialises V1/V2 as a
+    // JSON *string* (i.e. the value is already JSON-stringified).
     const auto decodeEncryptedPrivateKey = [](const QJsonValue &privateKeyValue) -> QByteArray {
-        if (privateKeyValue.isString()) {
-            const QByteArray privateKey = privateKeyValue.toString().toUtf8();
-            const QByteArray decoded = QByteArray::fromBase64(privateKey);
-            // Some server payloads can already be raw bytes serialized as UTF-8.
-            return decoded.isEmpty() ? privateKey : decoded;
-        }
-        if (privateKeyValue.isObject()) {
-            const QString binaryValue = privateKeyValue.toObject().value(QStringLiteral("$binary")).toString();
+        // Helper: process a QJsonObject for V1 ($binary) or V2 (iv/ciphertext)
+        const auto decodeObject = [](const QJsonObject &obj) -> QByteArray {
+            // V1: {"$binary": "<base64>"}
+            const QString binaryValue = obj.value(QStringLiteral("$binary")).toString();
             if (!binaryValue.isEmpty()) {
                 return QByteArray::fromBase64(binaryValue.toUtf8());
             }
+            // V2: {"iv":…, "ciphertext":…, "salt":…, "iterations":…}
+            if (obj.contains(QStringLiteral("iv")) && obj.contains(QStringLiteral("ciphertext")) && obj.contains(QStringLiteral("salt"))) {
+                return QJsonDocument(obj).toJson(QJsonDocument::Compact);
+            }
+            return {};
+        };
+
+        if (privateKeyValue.isObject()) {
+            return decodeObject(privateKeyValue.toObject());
         }
+
+        if (privateKeyValue.isString()) {
+            const QString str = privateKeyValue.toString();
+            const QByteArray strBytes = str.toUtf8();
+
+            // Check whether the string is itself a JSON object (server stringified it)
+            if (str.startsWith(QLatin1Char('{'))) {
+                const QJsonDocument doc = QJsonDocument::fromJson(strBytes);
+                if (!doc.isNull() && doc.isObject()) {
+                    const QByteArray result = decodeObject(doc.object());
+                    if (!result.isEmpty())
+                        return result;
+                }
+            }
+
+            // Oldest format: plain base64 string → binary (iv + ciphertext)
+            const QByteArray decoded = QByteArray::fromBase64(strBytes);
+            return decoded.isEmpty() ? strBytes : decoded;
+        }
+
         return {};
     };
 

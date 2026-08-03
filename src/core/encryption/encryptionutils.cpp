@@ -13,6 +13,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonParseError>
 #include <QRandomGenerator>
 
 using namespace Qt::Literals::StringLiterals;
@@ -203,6 +204,7 @@ QByteArray EncryptionUtils::encryptPrivateKey(const QByteArray &privateKey, cons
 
 QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivateKey, const QByteArray &masterKey)
 {
+    qDebug() << " encryptedPrivateKey " << encryptedPrivateKey << " masterKey " << masterKey;
     if (encryptedPrivateKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Encrypted private key is empty";
         return {};
@@ -216,6 +218,7 @@ QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivate
     const QByteArray iv = encryptedPrivateKey.left(16);
     const QByteArray cipherText = encryptedPrivateKey.mid(16);
 
+    qDebug() << " iv " << iv << " cipherText " << cipherText;
     if (iv.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Decryption of the private key failed, 'iv' is empty";
         return {};
@@ -462,6 +465,150 @@ QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QB
     }
 
     return plainText;
+}
+
+QByteArray EncryptionUtils::decryptAES_GCM_256(const QByteArray &ciphertext, const QByteArray &key, const QByteArray &iv)
+{
+    // AES-GCM: Web Crypto appends the 16-byte authentication tag after the ciphertext.
+    constexpr int tagLen = 16;
+    if (ciphertext.size() <= tagLen) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: ciphertext too short";
+        return {};
+    }
+
+    const QByteArray data = ciphertext.left(ciphertext.size() - tagLen);
+    const QByteArray tag = ciphertext.right(tagLen);
+
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        return {};
+    }
+
+    if (1 != EVP_DecryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, iv.size(), nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1
+        != EVP_DecryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char *>(key.data()), reinterpret_cast<const unsigned char *>(iv.data()))) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    QByteArray plaintext(data.size(), 0);
+    int len = 0;
+    if (1
+        != EVP_DecryptUpdate(ctx,
+                             reinterpret_cast<unsigned char *>(plaintext.data()),
+                             &len,
+                             reinterpret_cast<const unsigned char *>(data.data()),
+                             data.size())) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    int plaintextLen = len;
+
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_TAG, tagLen, const_cast<char *>(tag.data()))) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char *>(plaintext.data()) + plaintextLen, &len) <= 0) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: authentication tag verification failed";
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    plaintextLen += len;
+    plaintext.resize(plaintextLen);
+
+    EVP_CIPHER_CTX_free(ctx);
+    return plaintext;
+}
+
+/**
+ * @brief Converts a JWK RSA private key JSON to PEM format.
+ *
+ * Rocket.Chat encrypts the private key as JWK JSON (not PEM). This function
+ * reconstructs the OpenSSL RSA key from the JWK components and serialises it
+ * as a PKCS#1 PEM string so that the rest of the code can use it uniformly.
+ *
+ * @param jwkJson UTF-8 encoded JSON containing at minimum the keys:
+ *        kty, n, e, d, p, q, dp, dq, qi (all base64url-encoded BIGNUMs).
+ * @return PEM-encoded private key, or empty on error.
+ */
+QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
+{
+    const QJsonDocument doc = QJsonDocument::fromJson(jwkJson);
+    if (doc.isNull() || !doc.isObject()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: invalid JSON";
+        return {};
+    }
+    const QJsonObject obj = doc.object();
+    if (obj.value(QStringLiteral("kty")).toString() != QLatin1String("RSA")) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: not an RSA key";
+        return {};
+    }
+
+    // Helper: base64url → BIGNUM
+    const auto b64urlToBN = [](const QString &b64url) -> BIGNUM * {
+        // Normalise: base64url → standard base64 with padding
+        QString b64 = b64url;
+        b64.replace(QLatin1Char('-'), QLatin1Char('+')).replace(QLatin1Char('_'), QLatin1Char('/'));
+        while (b64.size() % 4 != 0)
+            b64.append(QLatin1Char('='));
+        const QByteArray bytes = QByteArray::fromBase64(b64.toLatin1());
+        if (bytes.isEmpty())
+            return nullptr;
+        return BN_bin2bn(reinterpret_cast<const unsigned char *>(bytes.constData()), bytes.size(), nullptr);
+    };
+
+    BIGNUM *n = b64urlToBN(obj.value(QStringLiteral("n")).toString());
+    BIGNUM *e = b64urlToBN(obj.value(QStringLiteral("e")).toString());
+    BIGNUM *d = b64urlToBN(obj.value(QStringLiteral("d")).toString());
+    BIGNUM *p = b64urlToBN(obj.value(QStringLiteral("p")).toString());
+    BIGNUM *q = b64urlToBN(obj.value(QStringLiteral("q")).toString());
+    BIGNUM *dp = b64urlToBN(obj.value(QStringLiteral("dp")).toString());
+    BIGNUM *dq = b64urlToBN(obj.value(QStringLiteral("dq")).toString());
+    BIGNUM *qi = b64urlToBN(obj.value(QStringLiteral("qi")).toString());
+
+    if (!n || !e || !d) {
+        BN_free(n);
+        BN_free(e);
+        BN_free(d);
+        BN_free(p);
+        BN_free(q);
+        BN_free(dp);
+        BN_free(dq);
+        BN_free(qi);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: missing required key components";
+        return {};
+    }
+
+    RSA *rsa = RSA_new();
+    // RSA_set0_* transfers ownership of the BIGNUMs to rsa
+    RSA_set0_key(rsa, n, e, d);
+    if (p && q)
+        RSA_set0_factors(rsa, p, q);
+    if (dp && dq && qi)
+        RSA_set0_crt_params(rsa, dp, dq, qi);
+
+    BIO *bio = BIO_new(BIO_s_mem());
+    if (!bio) {
+        RSA_free(rsa);
+        return {};
+    }
+    PEM_write_bio_RSAPrivateKey(bio, rsa, nullptr, nullptr, 0, nullptr, nullptr);
+
+    BUF_MEM *buf = nullptr;
+    BIO_get_mem_ptr(bio, &buf);
+    const QByteArray pem(buf->data, static_cast<qsizetype>(buf->length));
+
+    BIO_free(bio);
+    RSA_free(rsa);
+    return pem;
 }
 
 QByteArray EncryptionUtils::decryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
