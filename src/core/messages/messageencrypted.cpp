@@ -80,7 +80,10 @@ bool MessageEncrypted::operator==(const MessageEncrypted &other) const
 
 void MessageEncrypted::parse(const QJsonObject &o)
 {
-    // TODO
+    mAlgorithm = o["algorithm"_L1].toString().toLatin1();
+    mCiphertext = o["ciphertext"_L1].toString();
+    mIv = o["iv"_L1].toString().toLatin1();
+    mKeyId = o["kid"_L1].toString().toLatin1();
 }
 
 QJsonObject MessageEncrypted::serialize(const MessageEncrypted &messagePinned)
