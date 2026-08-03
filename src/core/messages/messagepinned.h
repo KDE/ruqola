@@ -10,6 +10,7 @@
 #include <QSharedData>
 class QJsonObject;
 
+class QDebug;
 class LIBRUQOLACORE_EXPORT MessagePinned : public QSharedData
 {
 public:
@@ -35,5 +36,4 @@ private:
     QString mPinnedBy;
     bool mPinned = false;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessagePinned &t);
