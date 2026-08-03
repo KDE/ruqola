@@ -388,7 +388,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"e2e.requestSubscriptionKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey:
         return u"e2e.resetOwnE2EKey"_s;
-
     case RestApiUtil::RestApiUrlType::E2EAcceptSuggestedGroupKey:
         return u"e2e.acceptSuggestedGroupKey"_s;
     case RestApiUtil::RestApiUrlType::E2ERejectSuggestedGroupKey:
@@ -399,7 +398,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"e2e.resetRoomKey"_s;
     case RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey:
         return u"e2e.fetchUsersWaitingForGroupKey"_s;
-
     case RestApiUtil::RestApiUrlType::RolesList:
         return u"roles.list"_s;
     case RestApiUtil::RestApiUrlType::RolesCreate:
@@ -414,13 +412,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"roles.addUserToRole"_s;
     case RestApiUtil::RestApiUrlType::RolesRemoveUserFromRole:
         return u"roles.removeUserFromRole"_s;
-
     case RestApiUtil::RestApiUrlType::RolesDelete:
         return u"roles.delete"_s;
-
     case RestApiUtil::RestApiUrlType::VideoConfJitsi:
         return u"video-conference/jitsi.update-timeout"_s;
-
     case RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages:
         return u"autotranslate.getSupportedLanguages"_s;
     case RestApiUtil::RestApiUrlType::AutoTranslateSaveSettings:

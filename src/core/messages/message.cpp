@@ -120,6 +120,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     parseReactions(o.value("reactions"_L1).toObject(), emojiManager);
     parseChannels(o.value("channels"_L1).toArray());
     parseReplies(o.value("replies"_L1).toArray());
+    parseEncrypted(o.value("content"_L1).toObject());
 }
 
 void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
@@ -510,6 +511,20 @@ void Message::parseReplies(const QJsonArray &replies)
     }
 }
 
+void Message::parseEncrypted(const QJsonObject &encrypted)
+{
+    if (!encrypted.isEmpty()) {
+        if (!mMessageEncrypted) {
+            mMessageEncrypted = new MessageEncrypted;
+        } else {
+            mMessageEncrypted.reset(new MessageEncrypted);
+        }
+        mMessageEncrypted->parse(encrypted);
+    } else {
+        mMessageEncrypted.reset();
+    }
+}
+
 void Message::parseBlocks(const QJsonArray &blocks)
 {
     if (!blocks.isEmpty()) {
@@ -775,6 +790,20 @@ bool Message::operator==(const Message &other) const
     } else {
         return false;
     }
+
+    // compare blocks
+    if (messageEncrypted() && other.messageEncrypted()) {
+        if (*messageEncrypted() == (*other.messageEncrypted())) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!messageEncrypted() && !other.messageEncrypted()) {
+        result = true;
+    } else {
+        return false;
+    }
+
     return result;
 }
 
@@ -1223,6 +1252,13 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
         delete translation;
     }
 
+    if (o.contains("content"_L1)) {
+        const QJsonObject contentObj = o.value("content"_L1).toObject();
+        const MessageEncrypted *const encrypted = MessageEncrypted::deserialize(contentObj);
+        message.setMessageEncrypted(*encrypted);
+        delete encrypted;
+    }
+
     return message;
 }
 
@@ -1353,6 +1389,10 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["private"_L1] = true;
     }
 
+    if (message.messageEncrypted()) {
+        o["content"_L1] = MessageEncrypted::serialize(*message.messageEncrypted());
+    }
+
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
@@ -1424,6 +1464,9 @@ QDebug operator<<(QDebug d, const Message &t)
 
     if (t.blocks()) {
         d.space() << "block" << *t.blocks();
+    }
+    if (t.messageEncrypted()) {
+        d.space() << "mMessageEncrypted" << *t.messageEncrypted();
     }
 
     d.space() << "mPrivateMessage" << t.privateMessage();

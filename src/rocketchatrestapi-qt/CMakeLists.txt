@@ -199,6 +199,8 @@ target_sources(
         e2e/provideuserswithsuggestedgroupkeysjob.h
         e2e/getusersofroomwithoutkey.h
         e2e/getusersofroomwithoutkey.cpp
+        e2e/fetchuserswaitingforgroupkeyjob.h
+        e2e/fetchuserswaitingforgroupkeyjob.cpp
         emoji/emojicustomalljob.cpp
         emoji/emojicustomalljob.h
         emoji/emojicustomcreatejob.cpp
