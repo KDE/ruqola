@@ -109,7 +109,6 @@ MessageEncrypted *MessageEncrypted::deserialize(const QJsonObject &o)
     MessageEncrypted *encrypted = new MessageEncrypted;
     encrypted->setAlgorithm(o["algorithm"_L1].toString().toLatin1());
     encrypted->setCiphertext(o["ciphertext"_L1].toString());
-    encrypted->setCiphertext(o["ciphertext"_L1].toString());
     encrypted->setIv(o["iv"_L1].toString().toLatin1());
     encrypted->setKeyId(o["kid"_L1].toString().toLatin1());
     return encrypted;
