@@ -314,6 +314,7 @@ RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
     RSA *rsa = PEM_read_bio_RSA_PUBKEY(bio, nullptr, nullptr, nullptr);
     if (!rsa) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "PEM_read_bio_RSA_PUBKEY failed!";
+        BIO_free(bio);
         return nullptr;
     }
 
