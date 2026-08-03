@@ -10,6 +10,7 @@
 #include "channels.h"
 #include "libruqolacore_export.h"
 #include "messageattachments.h"
+#include "messageencrypted.h"
 #include "messageextra.h"
 #include "messagepinned.h"
 #include "messagestarred.h"
@@ -241,6 +242,9 @@ public:
     [[nodiscard]] bool textToSpeechInProgress() const;
     void setTextToSpeechInProgress(bool newTextToSpeechInProgress);
 
+    [[nodiscard]] const MessageEncrypted *messageEncrypted() const;
+    void setMessageEncrypted(const MessageEncrypted &messageEncrypted);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
@@ -286,6 +290,9 @@ private:
 
     // Users which replies to thread
     QSharedDataPointer<Replies> mReplies;
+
+    // Encrypted message
+    QSharedDataPointer<MessageEncrypted> mMessageEncrypted;
 
     // role used when we add/remove role. It will displaying in messagesystem
     QString mRole;

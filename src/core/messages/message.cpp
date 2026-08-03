@@ -345,6 +345,23 @@ const MessagePinned *Message::messagePinned() const
     return nullptr;
 }
 
+void Message::setMessageEncrypted(const MessageEncrypted &messageEncrypted)
+{
+    if (!mMessageEncrypted) {
+        mMessageEncrypted = new MessageEncrypted(messageEncrypted);
+    } else {
+        mMessageEncrypted.reset(new MessageEncrypted(messageEncrypted));
+    }
+}
+
+const MessageEncrypted *Message::messageEncrypted() const
+{
+    if (mMessageEncrypted) {
+        return mMessageEncrypted.data();
+    }
+    return nullptr;
+}
+
 void Message::setMessagePinned(const MessagePinned &messagePinned)
 {
     if (!mMessagePinned) {
