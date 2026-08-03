@@ -5,7 +5,7 @@
 */
 
 #include "messageencrypted.h"
-#include "ruqola_message_memory_debug.h"
+#include "ruqola_encryption_debug.h"
 
 #include <QJsonObject>
 
@@ -13,18 +13,18 @@ using namespace Qt::Literals::StringLiterals;
 MessageEncrypted::MessageEncrypted()
 
 {
-    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageEncrypted created " << this;
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << " MessageEncrypted created " << this;
 }
 
 MessageEncrypted::MessageEncrypted(const MessageEncrypted &other)
     : QSharedData(other)
 {
-    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageEncrypted created " << this;
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << " MessageEncrypted created " << this;
 }
 
 MessageEncrypted::~MessageEncrypted()
 {
-    qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageEncrypted deleted " << this;
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << " MessageEncrypted deleted " << this;
 }
 
 bool MessageEncrypted::isValid() const
@@ -59,7 +59,7 @@ QDebug operator<<(QDebug d, const MessageEncrypted &t)
 
 MessageEncrypted *MessageEncrypted::deserialize(const QJsonObject &o)
 {
-    MessageEncrypted *pinned = new MessageEncrypted;
+    MessageEncrypted *encrypted = new MessageEncrypted;
     // TODO
-    return pinned;
+    return encrypted;
 }

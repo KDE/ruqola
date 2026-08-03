@@ -18,12 +18,6 @@ public:
     ~MessageEncrypted();
     explicit MessageEncrypted(const MessageEncrypted &other);
 
-    [[nodiscard]] bool pinned() const;
-    void setPinned(bool pinned);
-
-    [[nodiscard]] QString pinnedBy() const;
-    void setPinnedBy(const QString &pinnedBy);
-
     [[nodiscard]] bool operator==(const MessageEncrypted &other) const;
     void parse(const QJsonObject &o);
 
@@ -31,9 +25,5 @@ public:
     [[nodiscard]] static MessageEncrypted *deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isValid() const;
-
-private:
-    QString mPinnedBy;
-    bool mPinned = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageEncrypted &t);
