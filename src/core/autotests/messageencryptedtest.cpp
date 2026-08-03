@@ -22,3 +22,5 @@ void MessageEncryptedTest::shouldHaveDefaultValues()
     QVERIFY(w.iv().isEmpty());
     QVERIFY(!w.isValid());
 }
+
+#include "moc_messageencryptedtest.cpp"
