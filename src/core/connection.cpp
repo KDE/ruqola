@@ -1140,6 +1140,8 @@ void Connection::sendMessage(const QByteArray &roomId, const QString &text, cons
         .roomId = QString::fromLatin1(roomId),
         .threadMessageId = QString::fromLatin1(threadMessageId),
         .message = text,
+        .encrypted = false,
+        .info = SendMessageJob::EncryptedInfo(),
     };
     job->setSendMessageArguments(args);
     if (!job->start()) {
