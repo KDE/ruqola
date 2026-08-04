@@ -9,15 +9,19 @@
 #include <QTest>
 
 QTEST_GUILESS_MAIN(E2EDataBaseTest)
-
+using namespace Qt::Literals::StringLiterals;
 const auto testUser = QStringLiteral("testuser");
 const auto otherUser = QStringLiteral("otheruser");
+static QString accountName()
+{
+    return u"myAccount"_s;
+}
 using namespace Qt::Literals::StringLiterals;
 void E2EDataBaseTest::initTestCase()
 {
     E2EDataBase store;
-    QVERIFY(store.deleteKey(testUser));
-    QVERIFY(store.deleteKey(otherUser));
+    QVERIFY(store.deleteKey(accountName(), testUser));
+    QVERIFY(store.deleteKey(accountName(), otherUser));
 }
 
 void E2EDataBaseTest::shouldDefaultValues()
@@ -34,16 +38,17 @@ void E2EDataBaseTest::testSaveLoadDelete()
     const auto priv = rsaKeyPair.publicKey;
     const auto pub = rsaKeyPair.privateKey;
 
-    QVERIFY(store.saveKey(userId, priv, pub));
-    QVERIFY(store.hasKey(userId));
+    QVERIFY(store.saveKey(accountName(), userId, priv, pub));
+    QVERIFY(store.hasKey(accountName(), userId));
 
-    QByteArray loadedPriv, loadedPub;
-    QVERIFY(store.loadKey(userId, loadedPriv, loadedPub));
+    QByteArray loadedPriv;
+    QByteArray loadedPub;
+    QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
     QCOMPARE(loadedPriv, priv);
     QCOMPARE(loadedPub, pub);
 
-    QVERIFY(store.deleteKey(userId));
-    QVERIFY(!store.hasKey(userId));
+    QVERIFY(store.deleteKey(accountName(), userId));
+    QVERIFY(!store.hasKey(accountName(), userId));
 }
 
 void E2EDataBaseTest::testOverwrite()
@@ -58,22 +63,22 @@ void E2EDataBaseTest::testOverwrite()
     const auto priv2 = rsaKeyPair2.privateKey;
     const auto pub2 = rsaKeyPair2.publicKey;
 
-    QVERIFY(store.saveKey(userId, priv1, pub1));
+    QVERIFY(store.saveKey(accountName(), userId, priv1, pub1));
     {
         QByteArray loadedPriv, loadedPub;
-        QVERIFY(store.loadKey(userId, loadedPriv, loadedPub));
+        QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
         QCOMPARE(loadedPriv, priv1);
         QCOMPARE(loadedPub, pub1);
     }
 
-    QVERIFY(store.saveKey(userId, priv2, pub2));
+    QVERIFY(store.saveKey(accountName(), userId, priv2, pub2));
     {
         QByteArray loadedPriv, loadedPub;
-        QVERIFY(store.loadKey(userId, loadedPriv, loadedPub));
+        QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
         QCOMPARE(loadedPriv, priv2);
         QCOMPARE(loadedPub, pub2);
     }
-    QVERIFY(store.deleteKey(userId));
+    QVERIFY(store.deleteKey(accountName(), userId));
 }
 
 void E2EDataBaseTest::testNonExistentKey()
@@ -81,9 +86,9 @@ void E2EDataBaseTest::testNonExistentKey()
     E2EDataBase store;
     const auto userId = otherUser;
     QByteArray priv, pub;
-    QVERIFY(!store.hasKey(userId));
-    QVERIFY(!store.loadKey(userId, priv, pub));
-    QVERIFY(store.deleteKey(userId));
+    QVERIFY(!store.hasKey(accountName(), userId));
+    QVERIFY(!store.loadKey(accountName(), userId, priv, pub));
+    QVERIFY(store.deleteKey(accountName(), userId));
 }
 
 #include "moc_e2edatabasetest.cpp"

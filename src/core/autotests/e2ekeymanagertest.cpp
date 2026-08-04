@@ -16,6 +16,7 @@
 
 #include <QJsonObject>
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
 
@@ -25,6 +26,7 @@ QTEST_GUILESS_MAIN(E2eKeyManagerTest)
 E2eKeyManagerTest::E2eKeyManagerTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void E2eKeyManagerTest::shouldHaveDefaultValues()
@@ -59,6 +61,7 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBase64StringPayload()
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.setAccountName(u"test-e2ekeymanager"_s);
     account.settings()->setUserId("test-e2e-user-string"_ba);
 
     E2eKeyManager manager(&account);
@@ -74,11 +77,12 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBase64StringPayload()
 
     QByteArray storedEncryptedPrivateKey;
     QByteArray storedPublicKey;
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->loadKey(u"test-e2e-user-string"_s, storedEncryptedPrivateKey, storedPublicKey));
+    QVERIFY(
+        account.localDatabaseManager()->e2EDatabase()->loadKey(account.accountName(), u"test-e2e-user-string"_s, storedEncryptedPrivateKey, storedPublicKey));
     QCOMPARE(storedEncryptedPrivateKey, encryptedPrivateKey);
     QCOMPARE(storedPublicKey, json["public_key"_L1].toString().toUtf8());
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-string"_s));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), u"test-e2e-user-string"_s));
 }
 
 void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBinaryObjectPayload()
@@ -87,6 +91,7 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBinaryObjectPayload()
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.setAccountName(u"test-e2ekeymanager"_s);
     account.settings()->setUserId("test-e2e-user-binary"_ba);
 
     E2eKeyManager manager(&account);
@@ -104,11 +109,12 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBinaryObjectPayload()
 
     QByteArray storedEncryptedPrivateKey;
     QByteArray storedPublicKey;
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->loadKey(u"test-e2e-user-binary"_s, storedEncryptedPrivateKey, storedPublicKey));
+    QVERIFY(
+        account.localDatabaseManager()->e2EDatabase()->loadKey(account.accountName(), u"test-e2e-user-binary"_s, storedEncryptedPrivateKey, storedPublicKey));
     QCOMPARE(storedEncryptedPrivateKey, encryptedPrivateKey);
     QCOMPARE(storedPublicKey, json["public_key"_L1].toString().toUtf8());
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-binary"_s));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), u"test-e2e-user-binary"_s));
 }
 
 void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
@@ -147,7 +153,7 @@ void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
 #endif
     }
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-generation"_s));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), u"test-e2e-user-generation"_s));
 }
 
 void E2eKeyManagerTest::shouldKeepGenerationStateAndAllowRetryWhenUploadFails()
@@ -180,7 +186,7 @@ void E2eKeyManagerTest::shouldKeepGenerationStateAndAllowRetryWhenUploadFails()
     QCOMPARE(uploadFailedSpy.count(), 2);
     QVERIFY(manager.hasPendingUploadFailure());
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(u"test-e2e-user-upload-retry"_s));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), u"test-e2e-user-upload-retry"_s));
 #endif
 }
 
@@ -206,9 +212,10 @@ void E2eKeyManagerTest::shouldDecodeEncryptionKeyWithValidPassword()
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
-    account.settings()->setUserId("test-e2e-user-decode-ok"_ba);
-
+    account.setAccountName(u"test-e2ekeymanager"_s);
     const QString userId = u"test-e2e-user-decode-ok"_s;
+    account.settings()->setUserId(userId.toLatin1());
+
     const QString password = u"my-test-password"_s;
     const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
     QVERIFY(!rsaKeyPair.privateKey.isEmpty());
@@ -218,7 +225,7 @@ void E2eKeyManagerTest::shouldDecodeEncryptionKeyWithValidPassword()
     const QByteArray encryptedPrivateKey = EncryptionUtils::encryptPrivateKey(rsaKeyPair.privateKey, masterKey);
     QVERIFY(!encryptedPrivateKey.isEmpty());
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(userId, encryptedPrivateKey, rsaKeyPair.publicKey));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(account.accountName(), userId, encryptedPrivateKey, rsaKeyPair.publicKey));
 
     E2eKeyManager manager(&account);
     manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
@@ -230,7 +237,7 @@ void E2eKeyManagerTest::shouldDecodeEncryptionKeyWithValidPassword()
     QCOMPARE(doneSpy.count(), 1);
     QCOMPARE(failedSpy.count(), 0);
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(userId));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), userId));
 #endif
 }
 
@@ -244,6 +251,7 @@ void E2eKeyManagerTest::shouldFailDecodeEncryptionKeyWithWrongPassword()
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
     account.settings()->setUserId("test-e2e-user-decode-ko"_ba);
+    account.setAccountName(u"test-e2ekeymanager"_s);
 
     const QString userId = u"test-e2e-user-decode-ko"_s;
     const QString password = u"right-password"_s;
@@ -255,7 +263,7 @@ void E2eKeyManagerTest::shouldFailDecodeEncryptionKeyWithWrongPassword()
     const QByteArray encryptedPrivateKey = EncryptionUtils::encryptPrivateKey(rsaKeyPair.privateKey, masterKey);
     QVERIFY(!encryptedPrivateKey.isEmpty());
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(userId, encryptedPrivateKey, rsaKeyPair.publicKey));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(account.accountName(), userId, encryptedPrivateKey, rsaKeyPair.publicKey));
 
     E2eKeyManager manager(&account);
     manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
@@ -267,7 +275,7 @@ void E2eKeyManagerTest::shouldFailDecodeEncryptionKeyWithWrongPassword()
     QCOMPARE(doneSpy.count(), 0);
     QCOMPARE(failedSpy.count(), 1);
 
-    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(userId));
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), userId));
 #endif
 }
 
