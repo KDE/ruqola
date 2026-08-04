@@ -5,6 +5,8 @@
 */
 
 #include "messageencrypted.h"
+#include "config-ruqola.h"
+#include "encryption/encryptionutils.h"
 #include "ruqola_encryption_debug.h"
 
 #include <QJsonObject>
@@ -76,6 +78,38 @@ void MessageEncrypted::setIv(const QByteArray &newIv)
     mIv = newIv;
 }
 
+QByteArray MessageEncrypted::decrypt(const QByteArray &sessionKey) const
+{
+#if USE_E2E_SUPPORT
+    if (sessionKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: session key is empty";
+        return {};
+    }
+
+    if (mAlgorithm != "rc.v2.aes-sha2") {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: unsupported algorithm" << mAlgorithm;
+        return {};
+    }
+
+    const QByteArray decodedIv = QByteArray::fromBase64(mIv);
+    if (decodedIv.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: iv is invalid";
+        return {};
+    }
+
+    const QByteArray decodedCiphertext = QByteArray::fromBase64(mCiphertext.toLatin1());
+    if (decodedCiphertext.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: ciphertext is invalid";
+        return {};
+    }
+
+    return EncryptionUtils::decryptAES_GCM_256(decodedCiphertext, sessionKey, decodedIv);
+#else
+    Q_UNUSED(sessionKey)
+    return {};
+#endif
+}
+
 bool MessageEncrypted::operator==(const MessageEncrypted &other) const
 {
     return mAlgorithm == other.algorithm() && mCiphertext == other.ciphertext() && mKeyId == other.keyId() && mIv == other.iv();
@@ -89,13 +123,13 @@ void MessageEncrypted::parse(const QJsonObject &o)
     mKeyId = o["kid"_L1].toString().toLatin1();
 }
 
-QJsonObject MessageEncrypted::serialize(const MessageEncrypted &encrypted)
+QJsonObject MessageEncrypted::serialize(const MessageEncrypted &message)
 {
     QJsonObject o;
-    o["algorithm"_L1] = QString::fromLatin1(encrypted.algorithm());
-    o["ciphertext"_L1] = encrypted.ciphertext();
-    o["iv"_L1] = QString::fromLatin1(encrypted.iv());
-    o["kid"_L1] = QString::fromLatin1(encrypted.keyId());
+    o["algorithm"_L1] = QString::fromLatin1(message.algorithm());
+    o["ciphertext"_L1] = message.ciphertext();
+    o["iv"_L1] = QString::fromLatin1(message.iv());
+    o["kid"_L1] = QString::fromLatin1(message.keyId());
     return o;
 }
 

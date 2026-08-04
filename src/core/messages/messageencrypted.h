@@ -38,6 +38,8 @@ public:
     [[nodiscard]] QByteArray iv() const;
     void setIv(const QByteArray &newIv);
 
+    [[nodiscard]] QByteArray decrypt(const QByteArray &sessionKey) const;
+
 private:
     QByteArray mAlgorithm;
     QByteArray mKeyId;
