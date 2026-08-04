@@ -5,7 +5,6 @@
 */
 
 #include "sendmessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/sendmessagejob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(SendMessageJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SendMessageJobTest::SendMessageJobTest(QObject *parent)
     : QObject(parent)
@@ -26,11 +26,12 @@ void SendMessageJobTest::shouldHaveDefaultValue()
     SendMessageJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    SendMessageJob::SendMessageArguments args = job.sendMessageArguments();
+    const SendMessageJob::SendMessageArguments args = job.sendMessageArguments();
     QVERIFY(args.roomId.isEmpty());
     QVERIFY(args.message.isEmpty());
     QVERIFY(args.threadMessageId.isEmpty());
     QVERIFY(args.messageId.isEmpty());
+    QVERIFY(!args.encrypted);
     QVERIFY(!job.hasQueryParameterSupport());
 }
 

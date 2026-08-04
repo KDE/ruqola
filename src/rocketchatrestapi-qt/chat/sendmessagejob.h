@@ -16,11 +16,13 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT SendMessageJob : public RestApiAbstractJob
 public:
     explicit SendMessageJob(QObject *parent = nullptr);
     ~SendMessageJob() override;
+
     struct SendMessageArguments {
         QString messageId;
         QString roomId;
         QString threadMessageId;
         QString message;
+        bool encrypted = false;
     };
 
     [[nodiscard]] bool start() override;
