@@ -52,12 +52,6 @@ void setClipboardSelection(TextSelection *selection);
 [[nodiscard]] QSizeF dprAwareSize(const QPixmap &pixmap);
 
 [[nodiscard]] qreal basicMargin();
-// Vertical spacing scale for the message list. Empty space is placed above each message block:
-// senderBlockSpacing() when the author changes (so a new speaker reads as a new block) and the
-// smaller groupedMessageSpacing() for a consecutive message from the same author. Both are
-// deliberately larger than the name-to-text gap, so proximity groups each author with their text.
-[[nodiscard]] int senderBlockSpacing();
-[[nodiscard]] int groupedMessageSpacing();
 [[nodiscard]] QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option);
 [[nodiscard]] QSize textSizeHint(QTextDocument *doc, qreal *pBaseLine);
 [[nodiscard]] bool showIgnoreMessages(const QModelIndex &index);

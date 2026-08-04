@@ -159,16 +159,6 @@ qreal MessageDelegateUtils::basicMargin()
     return 8;
 }
 
-int MessageDelegateUtils::senderBlockSpacing()
-{
-    return 10;
-}
-
-int MessageDelegateUtils::groupedMessageSpacing()
-{
-    return 1;
-}
-
 QSize MessageDelegateUtils::timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
 {
     // This gives incorrect results (too small bounding rect), no idea why!

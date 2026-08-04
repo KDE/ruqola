@@ -40,6 +40,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = layout.sameSenderAsPreviousMessage ? 0 : senderFontMetrics.ascent();
+    const int senderLineHeight = layout.sameSenderAsPreviousMessage ? 0 : qCeil(senderFontMetrics.height());
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
     if (mRocketChatAccount && mRocketChatAccount->displayAvatars()) {
@@ -49,12 +50,6 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     QRect usableRect = option.rect;
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
     const bool dateDiffersFromPrevious = index.data(MessagesModel::DateDiffersFromPrevious).toBool();
-    // Empty space above the message block that sets the vertical rhythm: a full gap when the
-    // author changes (so a new speaker reads as a new block) and a small one for a grouped
-    // consecutive message from the same author. Deliberately larger than the name-to-text gap
-    // (textVMargin) further down, so proximity groups each author with their own text.
-    const int blockTopSpacing = layout.sameSenderAsPreviousMessage ? MessageDelegateUtils::groupedMessageSpacing() : MessageDelegateUtils::senderBlockSpacing();
-
     // A date header and a standalone unread-messages line each occupy a band at the top of
     // the row. Reserve it here; the author line is shifted down by the same amount below.
     int topBandHeight = 0;
@@ -66,10 +61,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         // top of the next message.
         layout.displayLastSeenMessageY = usableRect.top() + topBandHeight / 2;
     }
-    usableRect.setTop(usableRect.top() + topBandHeight + blockTopSpacing);
+    usableRect.setTop(usableRect.top() + topBandHeight);
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-    usableRect.setTop(usableRect.top() + senderAscent); // FIXME position.
+    usableRect.setTop(usableRect.top() + senderLineHeight);
     const qreal margin = MessageDelegateUtils::basicMargin();
     const int avatarWidth = MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width();
     const int senderX = option.rect.x() + avatarWidth + 2 * margin;
@@ -151,39 +146,25 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 #endif
     const int widthAfterMessage = hoverActionsWidth + margin / 2 + (timeStampUsesRightEdge ? timeSize.width() + margin : 0);
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
-    layout.baseLine = 0;
-    const QSize textSize = mDelegate->helperText()->sizeHint(index, maxWidth, option, &layout.baseLine);
+    qreal textBaseLine = 0;
+    const QSize textSize = mDelegate->helperText()->sizeHint(index, maxWidth, option, &textBaseLine);
     int attachmentsY;
-    const int textVMargin = 3; // adjust this for "compactness"
+    // This margin is included both above and below the message text. Together with the row's
+    // two-pixel bottom breather, it keeps the sender-to-text and inter-message gaps in balance.
+    const int textVMargin = 5;
     if (textSize.isValid()) {
-        layout.textRect = QRect(textLeft,
-                                usableRect.top() + textVMargin + (layout.sameSenderAsPreviousMessage ? 0 : layout.senderRect.height()),
-                                maxWidth,
-                                textSize.height() + textVMargin);
+        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
         attachmentsY = layout.textRect.y() + layout.textRect.height();
-        layout.baseLine += option.rect.top(); // make it absolute
     } else {
         attachmentsY = usableRect.top() + textVMargin;
-        layout.baseLine = attachmentsY + option.fontMetrics.ascent();
     }
     layout.usableRect.setLeft(textLeft);
 
-    // Align top of sender rect so it matches the baseline of the richtext
-    layout.senderRect =
-        QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : senderTextSize.height()));
-    // usableRect already pushed the message text down by the top band (a date header drawn by
-    // drawDate, or a standalone unread-messages line) plus the block-top spacing. Shift the whole
-    // author line — the name baseline, its rect, and therefore the avatar — down by the same
-    // amount, so the name stays exactly one line above its own text regardless of that offset.
-    // Only the text branch needs this: it derived baseLine from option.rect.top() (unshifted).
-    // The empty-text branch (attachment/blocks/urls only) already derived baseLine from
-    // usableRect.top(), which includes both offsets, so shifting again would double-count and
-    // drop the author line below its own attachment.
-    const int authorLineShift = topBandHeight + blockTopSpacing;
-    if (textSize.isValid() && authorLineShift > 0) {
-        layout.baseLine += authorLineShift;
-        layout.senderRect.moveTop(layout.senderRect.top() + authorLineShift);
-    }
+    // Keep the author in its own fixed-height line. Deriving this baseline from the first
+    // message line would let tall inline content (such as an emoji) push the author downward
+    // into the message text.
+    layout.baseLine = layout.usableRect.top() + senderAscent;
+    layout.senderRect = QRectF(senderX, layout.usableRect.top(), senderTextSize.width(), senderLineHeight);
     // Align top of avatar with top of sender rect
     const double senderRectY{layout.senderRect.y()};
     layout.avatarPos = QPointF(option.rect.x() + margin, senderRectY);
@@ -351,9 +332,8 @@ QSize MessageListNormalLayout::sizeHint(const QStyleOptionViewItem &option, cons
     // Note: option.rect in this method is huge (as big as the viewport)
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-    // Most inter-message separation now lives in the block-top spacing (added in doLayout to the
-    // top of the next block), so only a small breather is needed under each row to keep the two
-    // gaps from stacking into an oversized space between messages.
+    // textVMargin already provides most of the inter-message separation, so only a small
+    // breather is needed under each row.
     int additionalHeight = 2;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
