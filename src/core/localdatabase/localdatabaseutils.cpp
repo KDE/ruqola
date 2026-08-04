@@ -62,6 +62,11 @@ QString LocalDatabaseUtils::localRoomSubscriptionsDatabasePath()
     return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions);
 }
 
+QString LocalDatabaseUtils::localE2ERoomsDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2ERooms);
+}
+
 QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathType)
 {
     switch (pathType) {
@@ -75,6 +80,8 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
         return u"global/"_s;
     case LocalDatabaseUtils::DatabasePath::E2E:
         return u"e2e/"_s;
+    case LocalDatabaseUtils::DatabasePath::E2ERooms:
+        return u"e2e-rooms/"_s;
     case LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo:
         return u"roompendingtypedinfo/"_s;
     case LocalDatabaseUtils::DatabasePath::RoomSubscriptions:
