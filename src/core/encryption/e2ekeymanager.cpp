@@ -18,12 +18,13 @@
 #include "rocketchataccountsettings.h"
 #include "ruqola_encryption_debug.h"
 #include "ruqolaserverconfig.h"
+#include <qt6keychain/keychain.h>
 
 #include <QByteArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
-
+using namespace QKeychain;
 using namespace Qt::Literals::StringLiterals;
 
 // https://docs.rocket.chat/docs/end-to-end-encryption-specifications
@@ -154,11 +155,33 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     mDecodedPrivateKey = privateKeyPem;
     setStatus(Status::KeyDecrypted);
     Q_EMIT decodeEncryptionKeyDone();
+    storePassword(password);
     return true;
 #else
     Q_UNUSED(password)
     return false;
 #endif
+}
+
+QString E2eKeyManager::passwordKeyIdentifier() const
+{
+    return mAccount->accountName() + u"-encrypted"_s;
+}
+
+void E2eKeyManager::storePassword(const QString &password)
+{
+    auto writeJob = new WritePasswordJob(u"Ruqola"_s);
+    connect(writeJob, &Job::finished, this, &E2eKeyManager::slotPasswordWritten);
+    writeJob->setKey(passwordKeyIdentifier());
+    writeJob->setTextData(password);
+    writeJob->start();
+}
+
+void E2eKeyManager::slotPasswordWritten(QKeychain::Job *baseJob)
+{
+    if (baseJob->error()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
+    }
 }
 
 void E2eKeyManager::postponeDecryption()

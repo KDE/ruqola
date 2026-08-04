@@ -9,6 +9,10 @@
 
 #include <QObject>
 class RocketChatAccount;
+namespace QKeychain
+{
+class Job;
+}
 class LIBRUQOLACORE_EXPORT E2eKeyManager : public QObject
 {
     Q_OBJECT
@@ -56,6 +60,9 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT bool startUploadGeneratedKey(const QByteArray &publicKey, const QByteArray &encryptedPrivateKey);
+    LIBRUQOLACORE_NO_EXPORT void storePassword(const QString &password);
+    LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *baseJob);
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString passwordKeyIdentifier() const;
     Status mStatus = Status::Unknown;
     QString mGeneratedPassword;
     QByteArray mDecodedPrivateKey;
