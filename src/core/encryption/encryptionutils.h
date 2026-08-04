@@ -46,7 +46,9 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray generateSessionKey();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptSessionKey(const QByteArray &sessionKey, RSA *publicKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptSessionKey(const QByteArray &encryptedSessionKey, RSA *privateKey);
+// Caller owns the returned RSA object and must release it with RSA_free().
 [[nodiscard]] LIBRUQOLACORE_EXPORT RSA *publicKeyFromPEM(const QByteArray &pem);
+// Caller owns the returned RSA object and must release it with RSA_free().
 [[nodiscard]] LIBRUQOLACORE_EXPORT RSA *privateKeyFromPEM(const QByteArray &pem);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString generateRandomText(int size);
 [[nodiscard]] LIBRUQOLACORE_EXPORT EncryptionUtils::EncryptionInfo splitVectorAndEcryptedData(const QByteArray &cipherText);

@@ -7,6 +7,7 @@
 #include "sessionkeytest.h"
 #include "encryption/encryptionutils.h"
 #include <QTest>
+#include <memory>
 
 QTEST_GUILESS_MAIN(SessionKeyTest)
 SessionKeyTest::SessionKeyTest(QObject *parent)
@@ -34,8 +35,13 @@ void SessionKeyTest::sessionKeyEncryptionDecryptionTest()
 
     for (int i = 0; i <= 10; i++) {
         const QByteArray sessionKey = EncryptionUtils::generateSessionKey();
-        const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, EncryptionUtils::publicKeyFromPEM(publicKey));
-        const QByteArray decryptedSessionKey = EncryptionUtils::decryptSessionKey(encryptedSessionKey, EncryptionUtils::privateKeyFromPEM(privateKey));
+        std::unique_ptr<RSA, decltype(&RSA_free)> publicRsaKey(EncryptionUtils::publicKeyFromPEM(publicKey), &RSA_free);
+        QVERIFY(publicRsaKey);
+        const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, publicRsaKey.get());
+
+        std::unique_ptr<RSA, decltype(&RSA_free)> privateRsaKey(EncryptionUtils::privateKeyFromPEM(privateKey), &RSA_free);
+        QVERIFY(privateRsaKey);
+        const QByteArray decryptedSessionKey = EncryptionUtils::decryptSessionKey(encryptedSessionKey, privateRsaKey.get());
         QCOMPARE(sessionKey, decryptedSessionKey);
     }
 }
