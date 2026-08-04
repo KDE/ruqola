@@ -65,6 +65,8 @@ void TextConverterTest::shouldConvertText_data()
                                     "<p><a href=\"http://www.kde.org\">http://www.kde.org</a> <a href=\"http://www.kde.org\">http://www.kde.org</a></p>\n");
     QTest::newRow("named-url") << QStringLiteral("[example.com](http://example.com)")
                                << QStringLiteral("<p><a href=\"http://example.com\">example.com</a></p>\n");
+    QTest::newRow("unresolved quoted message") << QStringLiteral("[ ](https://example.com/channel/general?msg=quotedMessageId)\nVisible message")
+                                               << QStringLiteral("<p>Visible message</p>\n");
     QTest::newRow("bold") << QStringLiteral("*bla*") << QStringLiteral("<p><strong>bla</strong></p>\n");
     QTest::newRow("multi star") << QStringLiteral("**bla**") << QStringLiteral("<p><strong>bla</strong></p>\n");
     QTest::newRow("multi star2") << QStringLiteral("***bla***") << QStringLiteral("<p><strong><strong>bla</strong></strong></p>\n");

@@ -37,13 +37,23 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
     QString str = settings.str;
 
     // TODO we need to look at room name too as we can have it when we use "direct reply"
-    if (str.contains("[ ](http"_L1)
+    const qsizetype quoteMarkerStart = str.indexOf("[ ](http"_L1);
+    QString quoteUrl;
+    if (quoteMarkerStart >= 0) {
+        const qsizetype startPos = str.indexOf(u'(', quoteMarkerStart);
+        const qsizetype endPos = str.indexOf(u')', startPos);
+        quoteUrl = str.mid(startPos + 1, endPos - startPos - 1);
+        // The empty Markdown link is metadata used to identify a quoted message, not visible
+        // message content. Remove it even when the referenced message is unavailable or the
+        // configured recursion limit prevents rendering the quote; otherwise it becomes an
+        // empty first QTextDocument block and leaves a full blank line above the message.
+        str.remove(quoteMarkerStart, endPos - quoteMarkerStart + 1);
+    }
+
+    if (!quoteUrl.isEmpty()
         && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
-        const int startPos = str.indexOf(u'(');
-        const int endPos = str.indexOf(u')');
-        const QString url = str.mid(startPos + 1, endPos - startPos - 1);
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
-        const QByteArray messageId = url.mid(url.indexOf("msg="_L1) + 4).toLatin1();
+        const QByteArray messageId = quoteUrl.mid(quoteUrl.indexOf("msg="_L1) + 4).toLatin1();
         // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
         auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
             return msg.messageId() == messageId;
@@ -63,11 +73,10 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
             recusiveIndex++;
             const QString text = TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex, numberOfTextSearched, hightLightStringIndex);
             Utils::QuotedRichTextInfo info;
-            info.url = url;
+            info.url = quoteUrl;
             info.richText = text;
             info.displayTime = (*it).dateTime();
 
-            str = str.left(startPos - 3) + str.mid(endPos + 1);
             auto newsettings = new TextConverter::ConvertMessageTextSettings{
                 str.toHtmlEscaped(),
                 settings.userName,
@@ -104,7 +113,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
                     const QString text =
                         TextConverter::convertMessageText(newSetting, needUpdateMessageId, recusiveIndex, numberOfTextSearched, hightLightStringIndex);
                     Utils::QuotedRichTextInfo info;
-                    info.url = url;
+                    info.url = quoteUrl;
                     info.richText = text;
                     info.displayTime = msg->dateTime();
                     auto newsettings = new TextConverter::ConvertMessageTextSettings{
