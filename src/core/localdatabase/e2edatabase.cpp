@@ -30,10 +30,10 @@ QString E2EDataBase::schemaDataBase() const
     return QString::fromLatin1(s_schemaE2EKeyStore);
 }
 
-bool E2EDataBase::saveKey(const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey)
+bool E2EDataBase::saveKey(const QString &accountName, const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
@@ -48,10 +48,10 @@ bool E2EDataBase::saveKey(const QString &userId, const QByteArray &encryptedPriv
     return true;
 }
 
-bool E2EDataBase::loadKey(const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
+bool E2EDataBase::loadKey(const QString &accountName, const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
@@ -65,10 +65,10 @@ bool E2EDataBase::loadKey(const QString &userId, QByteArray &encryptedPrivateKey
     return false;
 }
 
-bool E2EDataBase::deleteKey(const QString &userId)
+bool E2EDataBase::deleteKey(const QString &accountName, const QString &userId)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
@@ -81,10 +81,10 @@ bool E2EDataBase::deleteKey(const QString &userId)
     return true;
 }
 
-bool E2EDataBase::hasKey(const QString &userId)
+bool E2EDataBase::hasKey(const QString &accountName, const QString &userId)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
@@ -93,7 +93,7 @@ bool E2EDataBase::hasKey(const QString &userId)
     return query.exec() && query.first();
 }
 
-std::unique_ptr<QSqlTableModel> E2EDataBase::createAccountsModel(const QString &accountName) const
+std::unique_ptr<QSqlTableModel> E2EDataBase::createE2eModel(const QString &accountName) const
 {
     const QString dbName = databaseName(accountName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
