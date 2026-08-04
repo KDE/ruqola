@@ -467,6 +467,73 @@ QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QB
     return plainText;
 }
 
+QByteArray EncryptionUtils::encryptAES_GCM_256(const QByteArray &plainText, const QByteArray &key, const QByteArray &iv)
+{
+    if (plainText.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: plaintext is empty";
+        return {};
+    }
+
+    if (key.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: key is empty";
+        return {};
+    }
+
+    if (iv.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: iv is empty";
+        return {};
+    }
+
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        return {};
+    }
+
+    if (1 != EVP_EncryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, iv.size(), nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1
+        != EVP_EncryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char *>(key.data()), reinterpret_cast<const unsigned char *>(iv.data()))) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    QByteArray ciphertext(plainText.size(), 0);
+    int len = 0;
+    if (1
+        != EVP_EncryptUpdate(ctx,
+                             reinterpret_cast<unsigned char *>(ciphertext.data()),
+                             &len,
+                             reinterpret_cast<const unsigned char *>(plainText.constData()),
+                             plainText.size())) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    int ciphertextLen = len;
+
+    if (1 != EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char *>(ciphertext.data()) + ciphertextLen, &len)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    ciphertextLen += len;
+    ciphertext.resize(ciphertextLen);
+
+    constexpr int tagLen = 16;
+    QByteArray tag(tagLen, 0);
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_GET_TAG, tagLen, tag.data())) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    EVP_CIPHER_CTX_free(ctx);
+    return ciphertext + tag;
+}
+
 QByteArray EncryptionUtils::decryptAES_GCM_256(const QByteArray &ciphertext, const QByteArray &key, const QByteArray &iv)
 {
     // AES-GCM: Web Crypto appends the 16-byte authentication tag after the ciphertext.
@@ -557,11 +624,13 @@ QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
         // Normalise: base64url → standard base64 with padding
         QString b64 = b64url;
         b64.replace(QLatin1Char('-'), QLatin1Char('+')).replace(QLatin1Char('_'), QLatin1Char('/'));
-        while (b64.size() % 4 != 0)
+        while (b64.size() % 4 != 0) {
             b64.append(QLatin1Char('='));
+        }
         const QByteArray bytes = QByteArray::fromBase64(b64.toLatin1());
-        if (bytes.isEmpty())
+        if (bytes.isEmpty()) {
             return nullptr;
+        }
         return BN_bin2bn(reinterpret_cast<const unsigned char *>(bytes.constData()), bytes.size(), nullptr);
     };
 
@@ -851,120 +920,6 @@ QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &
     return derivedKey;
 }
 
-/* QJsonObject EncryptionUtils::exportPublicKeyJWK(const RSA *rsaKey)
-{
-    const BIGNUM *n, *e;
-    RSA_get0_key(rsaKey, &n, &e, nullptr);
-
-    auto b64url = [](const BIGNUM *bn) {
-        QByteArray bytes(BN_num_bytes(bn), 0);
-        BN_bn2bin(bn, reinterpret_cast<unsigned char *>(bytes.data()));
-        return QString::fromLatin1(bytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    };
-
-    QJsonObject jwk;
-    jwk["kty"] = "RSA";
-    jwk["n"] = b64url(n);
-    jwk["e"] = b64url(e);
-    jwk["alg"] = "RSA-OAEP-256";
-    jwk["key_ops"] = QJsonArray{"encrypt"};
-    jwk["ext"] = true;
-    return jwk;
-} */
-
-/* QJsonObject EncryptionUtils::exportEncryptedPrivateKeyJWK(const QByteArray &encryptedPrivateKey)
-{
-    QJsonObject jwk;
-    jwk["kty"] = "oct"; // "oct" for a symmetric (opaque) blob
-    jwk["alg"] = "A256CBC"; // or whatever encryption you used
-    jwk["ciphertext"] = QString::fromLatin1(encryptedPrivateKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    jwk["ext"] = true;
-    return jwk;
-}
-
-QJsonObject EncryptionUtils::exportKeyPairJWK(RSA *rsaKey, const QByteArray &encryptedPrivateKey)
-{
-    QJsonObject bundle;
-    bundle["public_key"] = exportPublicKeyJWK(rsaKey);
-    bundle["encrypted_private_key"] = exportEncryptedPrivateKeyJWK(encryptedPrivateKey);
-    return bundle;
-} */
-
-#if 0
-QByteArray aesEncrypt(const QByteArray& plaintext, const QByteArray& key, const QByteArray& iv) {
-    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
-    int len;
-    QByteArray ciphertext(plaintext.size() + AES_BLOCK_SIZE, 0);  // Ciphertext buffer
-
-    if (1 != EVP_EncryptInit_ex(ctx, EVP_aes_256_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(iv.data()))) {
-        qWarning() << "Encryption init failed";
-        return QByteArray();
-    }
-
-    if (1 != EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(ciphertext.data()), &len, reinterpret_cast<const unsigned char*>(plaintext.data()), plaintext.size())) {
-        qWarning() << "Encryption update failed";
-        return QByteArray();
-    }
-
-    int ciphertext_len = len;
-
-    if (1 != EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(ciphertext.data()) + len, &len)) {
-        qWarning() << "Encryption final failed";
-        return QByteArray();
-    }
-
-    ciphertext_len += len;
-    ciphertext.resize(ciphertext_len);
-
-    EVP_CIPHER_CTX_free(ctx);
-    return ciphertext;
-}
-
-QByteArray aesDecrypt(const QByteArray& ciphertext, const QByteArray& key, const QByteArray& iv) {
-    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
-    int len;
-    QByteArray plaintext(ciphertext.size(), 0);  // Plaintext buffer
-
-    if (1 != EVP_DecryptInit_ex(ctx, EVP_aes_256_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(iv.data()))) {
-        qWarning() << "Decryption init failed";
-        return QByteArray();
-    }
-
-    if (1 != EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(plaintext.data()), &len, reinterpret_cast<const unsigned char*>(ciphertext.data()), ciphertext.size())) {
-        qWarning() << "Decryption update failed";
-        return QByteArray();
-    }
-
-    int plaintext_len = len;
-
-    if (1 != EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(plaintext.data()) + len, &len)) {
-        qWarning() << "Decryption final failed";
-        return QByteArray();
-    }
-
-    plaintext_len += len;
-    plaintext.resize(plaintext_len);
-
-    EVP_CIPHER_CTX_free(ctx);
-    return plaintext;
-}
-
-/// TEST
-void aesExample() {
-QByteArray key = deriveKey("mysalt", "mypassword", 1000, 32);  // Derive a key
-QByteArray iv = QByteArray::fromHex("00112233445566778899aabbccddeeff");  // Example IV (16 bytes for AES)
-
-QByteArray plaintext = "Hello, AES CBC Encryption!";
-
-QByteArray ciphertext = aesEncrypt(plaintext, key, iv);
-qDebug() << "Ciphertext:" << ciphertext.toHex();
-
-QByteArray decryptedText = aesDecrypt(ciphertext, key, iv);
-qDebug() << "Decrypted Text:" << decryptedText;
-}
-
-#endif
-
 EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
 {
     EncryptionUtils::EncryptionInfo info;
@@ -984,36 +939,6 @@ QVector<uint8_t> EncryptionUtils::toArrayBuffer(const QByteArray &ba)
 {
     const QVector<uint8_t> byteVector(ba.constBegin(), ba.constEnd());
     return byteVector;
-}
-
-// return crypto.subtle.importKey(
-//         'jwk',
-//         keyData,
-//         {
-//                 name: 'RSA-OAEP',
-//                 modulusLength: 2048,
-//                 publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-//                 hash: { name: 'SHA-256' },
-//         },
-//         true,
-//         keyUsages,
-// );
-void EncryptionUtils::importRSAKey()
-{
-    // TODO
-}
-
-// return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
-void EncryptionUtils::importAESKey()
-{
-#if 0
-    export async function importAESKey(keyData, keyUsages = ['encrypt', 'decrypt']) {
-            return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
-    }
-
-#endif
-
-    // TODO
 }
 
 // crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);

@@ -15,5 +15,6 @@ public:
     ~MessageEncryptedTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEncryptV2Payload();
     void shouldDecryptV2Payload();
 };

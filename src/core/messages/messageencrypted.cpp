@@ -110,6 +110,50 @@ QByteArray MessageEncrypted::decrypt(const QByteArray &sessionKey) const
 #endif
 }
 
+bool MessageEncrypted::encrypt(const QByteArray &plainText, const QByteArray &sessionKey, const QByteArray &keyId)
+{
+#if USE_E2E_SUPPORT
+    if (plainText.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: plaintext is empty";
+        return false;
+    }
+
+    if (sessionKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: session key is empty";
+        return false;
+    }
+
+    const QByteArray effectiveKeyId = keyId.isEmpty() ? mKeyId : keyId;
+    if (effectiveKeyId.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: key id is empty";
+        return false;
+    }
+
+    const QByteArray generatedIv = EncryptionUtils::generateRandomIV(12);
+    if (generatedIv.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: failed to generate iv";
+        return false;
+    }
+
+    const QByteArray encryptedPayload = EncryptionUtils::encryptAES_GCM_256(plainText, sessionKey, generatedIv);
+    if (encryptedPayload.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: encryption failed";
+        return false;
+    }
+
+    mAlgorithm = "rc.v2.aes-sha2";
+    mKeyId = effectiveKeyId;
+    mIv = generatedIv.toBase64();
+    mCiphertext = QString::fromLatin1(encryptedPayload.toBase64());
+    return true;
+#else
+    Q_UNUSED(plainText)
+    Q_UNUSED(sessionKey)
+    Q_UNUSED(keyId)
+    return false;
+#endif
+}
+
 bool MessageEncrypted::operator==(const MessageEncrypted &other) const
 {
     return mAlgorithm == other.algorithm() && mCiphertext == other.ciphertext() && mKeyId == other.keyId() && mIv == other.iv();

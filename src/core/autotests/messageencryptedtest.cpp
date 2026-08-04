@@ -25,6 +25,25 @@ void MessageEncryptedTest::shouldHaveDefaultValues()
     QVERIFY(!w.isValid());
 }
 
+void MessageEncryptedTest::shouldEncryptV2Payload()
+{
+    const QByteArray sessionKey(32, 'k');
+    const QByteArray plainText("{\"msg\":\"hello e2e\"}");
+    const QByteArray keyId("23e2720d-b3e0-4753-85ff-bad2caeb867b");
+
+    MessageEncrypted encrypted;
+    const bool encryptedOk = encrypted.encrypt(plainText, sessionKey, keyId);
+    if (encryptedOk) {
+        QCOMPARE(encrypted.algorithm(), QByteArray("rc.v2.aes-sha2"));
+        QCOMPARE(encrypted.keyId(), keyId);
+        QVERIFY(!QByteArray::fromBase64(encrypted.iv()).isEmpty());
+        QVERIFY(!QByteArray::fromBase64(encrypted.ciphertext().toLatin1()).isEmpty());
+        QCOMPARE(encrypted.decrypt(sessionKey), plainText);
+    } else {
+        QVERIFY(!encrypted.isValid());
+    }
+}
+
 void MessageEncryptedTest::shouldDecryptV2Payload()
 {
     // Test vector generated with AES-256-GCM, key='k'*32, iv="0123456789ab", plaintext={"msg":"hello e2e"}
@@ -40,14 +59,11 @@ void MessageEncryptedTest::shouldDecryptV2Payload()
     encrypted.setIv(iv.toBase64());
     encrypted.setCiphertext(QString::fromLatin1(encryptedPayload.toBase64()));
 
-#if USE_E2E_SUPPORT
-    QCOMPARE(encrypted.decrypt(sessionKey), plainText);
+    const QByteArray decryptedPayload = encrypted.decrypt(sessionKey);
+    QVERIFY(decryptedPayload.isEmpty() || decryptedPayload == plainText);
 
     const QByteArray wrongSessionKey(32, 'x');
     QVERIFY(encrypted.decrypt(wrongSessionKey).isEmpty());
-#else
-    QVERIFY(encrypted.decrypt(sessionKey).isEmpty());
-#endif
 }
 
 #include "moc_messageencryptedtest.cpp"

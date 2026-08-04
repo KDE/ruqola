@@ -39,6 +39,7 @@ public:
     void setIv(const QByteArray &newIv);
 
     [[nodiscard]] QByteArray decrypt(const QByteArray &sessionKey) const;
+    [[nodiscard]] bool encrypt(const QByteArray &plainText, const QByteArray &sessionKey, const QByteArray &keyId = {});
 
 private:
     QByteArray mAlgorithm;

@@ -38,6 +38,7 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptAES_CBC_128(const QByteArray &data, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptAES_CBC_128(const QByteArray &data, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptAES_GCM_256(const QByteArray &ciphertext, const QByteArray &key, const QByteArray &iv);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptAES_GCM_256(const QByteArray &plainText, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray privateKeyJWKToPEM(const QByteArray &jwkJson);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptMessage(const QByteArray &plainText, const QByteArray &sessionKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptMessage(const QByteArray &plainText, const QByteArray &sessionKey);
@@ -55,8 +56,6 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray joinVectorAndEcryptedData(const EncryptionUtils::EncryptionInfo &info);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QVector<uint8_t> toArrayBuffer(const QByteArray &ba);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations);
-LIBRUQOLACORE_EXPORT void importRSAKey();
-LIBRUQOLACORE_EXPORT void importAESKey();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString generateRandomPassword();
 };
 Q_DECLARE_TYPEINFO(EncryptionUtils::EncryptionInfo, Q_RELOCATABLE_TYPE);
