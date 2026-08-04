@@ -68,6 +68,19 @@ void SendMessageJobTest::shouldGenerateJson()
              QStringLiteral(R"({"message":{"_id":"%4","msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId, messageId).toLatin1());
 }
 
+void SendMessageJobTest::shouldGenerateJsonEncrypted()
+{
+    SendMessageJob job;
+    const QString roomId = u"foo1"_s;
+    const QString text = u"topic1"_s;
+    SendMessageJob::SendMessageArguments args;
+    args.roomId = roomId;
+    args.encrypted = true;
+    job.setSendMessageArguments(args);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral(R"({"content":{"algorithm":"","ciphertext":"","iv":"","kid":""},"message":{"rid":"foo1"},"t":"e2e"})").toLatin1());
+}
+
 void SendMessageJobTest::shouldNotStarting()
 {
     SendMessageJob job;

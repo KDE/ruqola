@@ -97,10 +97,25 @@ QJsonDocument SendMessageJob::json() const
         jsonObj["tmid"_L1] = mSendMessageArguments.threadMessageId;
     }
     jsonObj["rid"_L1] = mSendMessageArguments.roomId;
-    jsonObj["msg"_L1] = mSendMessageArguments.message;
+    if (mSendMessageArguments.encrypted) {
+        message["content"_L1] = mSendMessageArguments.info.generateJson();
+        message["t"_L1] = u"e2e"_s;
+    } else {
+        jsonObj["msg"_L1] = mSendMessageArguments.message;
+    }
     message["message"_L1] = jsonObj;
     const QJsonDocument postData = QJsonDocument(message);
     return postData;
+}
+
+QJsonObject SendMessageJob::EncryptedInfo::generateJson() const
+{
+    QJsonObject o;
+    o["algorithm"_L1] = QString::fromLatin1(algorithm);
+    o["ciphertext"_L1] = ciphertext;
+    o["iv"_L1] = QString::fromLatin1(iv);
+    o["kid"_L1] = QString::fromLatin1(keyId);
+    return o;
 }
 
 #include "moc_sendmessagejob.cpp"
