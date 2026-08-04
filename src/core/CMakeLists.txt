@@ -492,6 +492,8 @@ target_sources(
         localdatabase/localaccountsdatabase.cpp
         localdatabase/e2edatabase.h
         localdatabase/e2edatabase.cpp
+        localdatabase/e2eroomsdatabase.cpp
+        localdatabase/e2eroomsdatabase.h
         localdatabase/globaldatabase.h
         localdatabase/globaldatabase.cpp
         localdatabase/localroompendingtypedinfodatabase.h
