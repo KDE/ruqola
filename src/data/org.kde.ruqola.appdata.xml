@@ -1395,6 +1395,7 @@
           <li xml:lang="ca">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
           <li xml:lang="ca-valencia">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
           <li xml:lang="ia">Monstra stato de usator in un lista de usator in salas</li>
+          <li xml:lang="it">Mostra lo stato degli utenti nell'elenco degli utenti nelle stanze</li>
           <li xml:lang="ka">მომხმარებლის სტატუსის ჩვენება ოთახებში მომხმარებელთა სიაში</li>
           <li xml:lang="nl">Gebruikerstatus tonen in de lijst met gebruikers in rooms</li>
           <li xml:lang="pt-BR">Mostrar o status dos usuários na lista de usuários nas salas</li>
@@ -1406,6 +1407,7 @@
           <li xml:lang="ca">Permetre definir un tema quan no està definit</li>
           <li xml:lang="ca-valencia">Permetre definir un tema quan no està definit</li>
           <li xml:lang="ia">Permitte definirtopico quando il non es definite</li>
+          <li xml:lang="it">Consente di definire l'argomento quando non è definito</li>
           <li xml:lang="ka">თემის განსაზღვრის დაშვება, როცა ის განსაზღვრული არაა</li>
           <li xml:lang="nl">Het mogelijk maken om het onderwerp te definiëren wanneer dit nog niet is vastgelegd</li>
           <li xml:lang="pt-BR">Permitir definir o tópico quando ele não estiver definido</li>
@@ -1417,6 +1419,7 @@
           <li xml:lang="ca">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
           <li xml:lang="ca-valencia">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
           <li xml:lang="ia">Redesigna vista preliminar de ligamine como cartas compacte</li>
+          <li xml:lang="it">Riprogettate le anteprime dei collegamenti come schede compatte</li>
           <li xml:lang="ka">შეიცვალა ბმულის მინიატურების დიზაინი კომპაქტურ ბარათებზე</li>
           <li xml:lang="nl">Ontwerp koppelingsvoorbeelden opnieuw als compacte kaarten</li>
           <li xml:lang="pt-BR">Redesenho das prévias de links como cartões compactos</li>
@@ -1428,6 +1431,7 @@
           <li xml:lang="ca">Corregeix la reconnexió DDP</li>
           <li xml:lang="ca-valencia">Corregix tornar a connectar DDP</li>
           <li xml:lang="ia">Corrige reconnexion DDP</li>
+          <li xml:lang="it">Corregge la riconnessione DDP</li>
           <li xml:lang="ka">გასწორდა DDP-სთან თავიდან დაკავშირება</li>
           <li xml:lang="nl">Probleem met DDP-herverbinding oplossen</li>
           <li xml:lang="pt-BR">Correção da reconexão DDP</li>
