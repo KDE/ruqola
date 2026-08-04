@@ -5,9 +5,11 @@
 */
 
 #include "exploredatabasee2estoragewidget.h"
+#include "databasedialog/exploredatabasetooltipdelegate.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
+#include <QTableView>
 using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseE2EStorageWidget::ExploreDatabaseE2EStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
@@ -16,20 +18,19 @@ ExploreDatabaseE2EStorageWidget::ExploreDatabaseE2EStorageWidget(RocketChatAccou
     if (account) {
         slotLoadModelFromDataBase(account->accountName());
     }
+    mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTooltipDelegate(this));
 }
 
 ExploreDatabaseE2EStorageWidget::~ExploreDatabaseE2EStorageWidget() = default;
 
 void ExploreDatabaseE2EStorageWidget::slotLoadModelFromDataBase(const QString &accountName)
 {
-    /*
-    mModel = mLocalRoomsDatabase->createRoomsModel(accountName);
+    mModel = mLocalE2EDatabase->createE2eModel(accountName);
     if (mModel) {
         setModel(mModel.get());
     } else {
         qCDebug(RUQOLA_DATABASE_WIDGETS_LOG) << "e2e model is nullptr" << accountName;
     }
-    */
 }
 
 #include "moc_exploredatabasee2estoragewidget.cpp"
