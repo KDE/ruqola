@@ -54,6 +54,7 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     const QString userId = QString::fromLatin1(mAccount->settings()->userId());
     if (userId.isEmpty()) {
         setStatus(Status::NeedToDecryptKey);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to decode E2E key: no userId found";
         Q_EMIT failedDecodeEncryptionKey();
         return false;
     }
