@@ -20,6 +20,10 @@ MessageEncrypted::MessageEncrypted(const MessageEncrypted &other)
     : QSharedData(other)
 {
     qCDebug(RUQOLA_ENCRYPTION_LOG) << " MessageEncrypted created " << this;
+    mAlgorithm = other.algorithm();
+    mKeyId = other.keyId();
+    mCiphertext = other.ciphertext();
+    mIv = other.iv();
 }
 
 MessageEncrypted::~MessageEncrypted()
