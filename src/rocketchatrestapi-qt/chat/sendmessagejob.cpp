@@ -98,8 +98,8 @@ QJsonDocument SendMessageJob::json() const
     }
     jsonObj["rid"_L1] = mSendMessageArguments.roomId;
     if (mSendMessageArguments.encrypted) {
-        message["content"_L1] = mSendMessageArguments.info.generateJson();
-        message["t"_L1] = u"e2e"_s;
+        jsonObj["content"_L1] = mSendMessageArguments.info.generateJson();
+        jsonObj["t"_L1] = u"e2e"_s;
     } else {
         jsonObj["msg"_L1] = mSendMessageArguments.message;
     }

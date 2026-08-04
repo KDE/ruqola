@@ -78,7 +78,7 @@ void SendMessageJobTest::shouldGenerateJsonEncrypted()
     args.encrypted = true;
     job.setSendMessageArguments(args);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"content":{"algorithm":"","ciphertext":"","iv":"","kid":""},"message":{"rid":"foo1"},"t":"e2e"})").toLatin1());
+             QStringLiteral(R"({"message":{"content":{"algorithm":"","ciphertext":"","iv":"","kid":""},"rid":"foo1","t":"e2e"}})").toLatin1());
 }
 
 void SendMessageJobTest::shouldNotStarting()
