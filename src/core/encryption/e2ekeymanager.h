@@ -58,11 +58,13 @@ Q_SIGNALS:
     void verifyKeyDone();
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void readPassword();
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT bool startUploadGeneratedKey(const QByteArray &publicKey, const QByteArray &encryptedPrivateKey);
     LIBRUQOLACORE_NO_EXPORT void storePassword(const QString &password);
     LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *baseJob);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString passwordKeyIdentifier() const;
+    LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *baseJob);
     Status mStatus = Status::Unknown;
     QString mGeneratedPassword;
     QByteArray mDecodedPrivateKey;

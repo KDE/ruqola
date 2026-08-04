@@ -184,6 +184,27 @@ void E2eKeyManager::slotPasswordWritten(QKeychain::Job *baseJob)
     }
 }
 
+void E2eKeyManager::readPassword()
+{
+    auto readJob = new ReadPasswordJob(u"Ruqola"_s);
+    connect(readJob, &Job::finished, this, &E2eKeyManager::slotPasswordRead);
+    readJob->setKey(passwordKeyIdentifier());
+    readJob->start();
+}
+
+void E2eKeyManager::slotPasswordRead(QKeychain::Job *baseJob)
+{
+    auto job = qobject_cast<ReadPasswordJob *>(baseJob);
+    Q_ASSERT(job);
+    if (!job->error()) {
+        // TODO mPassword = job->textData();
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "OK, we have the password now";
+        // TODO Q_EMIT passwordAvailable();
+    } else {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "We have an error during reading password " << job->errorString() << " Account name " << mAccount->accountName();
+    }
+}
+
 void E2eKeyManager::postponeDecryption()
 {
     setStatus(Status::DecryptionPostponned);
