@@ -46,6 +46,16 @@ void FetchUsersWaitingForGroupKeyJob::onGetRequestResponse(const QString &replyE
     }
 }
 
+QByteArray FetchUsersWaitingForGroupKeyJob::getRoomId() const
+{
+    return roomId;
+}
+
+void FetchUsersWaitingForGroupKeyJob::setRoomId(const QByteArray &newRoomId)
+{
+    roomId = newRoomId;
+}
+
 QNetworkRequest FetchUsersWaitingForGroupKeyJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey);

@@ -23,10 +23,16 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
+    [[nodiscard]] QByteArray getRoomId() const;
+    void setRoomId(const QByteArray &newRoomId);
+
 Q_SIGNALS:
     void fetchUsersWaitingForGroupKeyDone(const QJsonObject &replyObject);
 
+protected:
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    QByteArray roomId;
 };
 }
