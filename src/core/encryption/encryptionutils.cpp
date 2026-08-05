@@ -268,33 +268,6 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
     }
 
     return masterKey;
-
-#if 0
-    async getMasterKey(password: string): Promise<void | CryptoKey> {
-            if (password == null) {
-                    alert('You should provide a password');
-            }
-
-            // First, create a PBKDF2 "key" containing the password
-            let baseKey;
-            try {
-                    baseKey = await importRawKey(toArrayBuffer(password));
-            } catch (error) {
-                    this.setState(E2EEState.ERROR);
-                    return this.error('Error creating a key based on user password: ', error);
-            }
-
-            // Derive a key from the password
-            try {
-                    return await deriveKey(toArrayBuffer(Meteor.userId()), baseKey);
-            } catch (error) {
-                    this.setState(E2EEState.ERROR);
-                    return this.error('Error deriving baseKey: ', error);
-            }
-    }
-    // TODO
-    return {};
-#endif
 }
 
 /**

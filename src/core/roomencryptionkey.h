@@ -4,9 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include <QSharedData>
-
+#if USE_E2E_SUPPORT
+extern "C" {
+#include <openssl/rsa.h>
+}
+#endif
 class LIBRUQOLACORE_EXPORT RoomEncryptionKey : public QSharedData
 {
 public:
@@ -22,10 +27,16 @@ public:
 
     [[nodiscard]] QByteArray sessionKey() const;
 
+#if USE_E2E_SUPPORT
+    // Decrypt the session key using the provided RSA private key
+    // This is called after E2EKey is received from DDP
+    void decryptWithPrivateKey(RSA *privateKey);
+#endif
 private:
     LIBRUQOLACORE_NO_EXPORT void parseSessionKey();
     // Encryption Key
     QString mE2EKey;
     QString mE2eKeyId;
+    QString mEncryptedKeyBase64; // Base64-encoded RSA-encrypted session key
     QByteArray mSessionKey;
 };
