@@ -21,7 +21,7 @@ public:
     [[nodiscard]] bool deleteKey(const QString &accountName, const QString &userId);
     [[nodiscard]] bool hasKey(const QString &accountName, const QString &userId);
 
-    [[nodiscard]] std::unique_ptr<QSqlTableModel> createE2eModel(const QString &accountName) const;
+    [[nodiscard]] std::unique_ptr<QSqlTableModel> createE2eRoomsModel(const QString &accountName) const;
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;

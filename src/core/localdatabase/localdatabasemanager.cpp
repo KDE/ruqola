@@ -7,6 +7,7 @@
 #include "localdatabasemanager.h"
 #include "e2edatabase.h"
 #include "localaccountsdatabase.h"
+#include "localdatabase/e2eroomsdatabase.h"
 #include "localdatabaseutils.h"
 #include "localmessagelogger.h"
 #include "localmessagesdatabase.h"
@@ -26,6 +27,7 @@ LocalDatabaseManager::LocalDatabaseManager()
     , mAccountDatabase(std::make_unique<LocalAccountsDatabase>())
     , mGlobalDatabase(std::make_unique<GlobalDatabase>())
     , mE2EDatabase(std::make_unique<E2EDataBase>())
+    , mE2ERoomsDataBase(std::make_unique<E2ERoomsDataBase>())
     , mRoomPendingTypedInfoDatabase(std::make_unique<LocalRoomPendingTypedInfoDatabase>())
     , mRoomSubscriptionsDatabase(std::make_unique<LocalRoomSubscriptionsDatabase>())
 {
@@ -120,6 +122,7 @@ void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *
     mE2EDatabase->setDatabaseLogger(logger);
     mRoomPendingTypedInfoDatabase->setDatabaseLogger(logger);
     mRoomSubscriptionsDatabase->setDatabaseLogger(logger);
+    mE2ERoomsDataBase->setDatabaseLogger(logger);
 }
 
 LocalMessagesDatabase *LocalDatabaseManager::messagesDatabase() const
@@ -161,6 +164,11 @@ QByteArray LocalDatabaseManager::roomId(const QString &accountName, const QByteA
     return mRoomSubscriptionsDatabase->roomId(accountName, subscriptionId);
 }
 
+E2ERoomsDataBase *LocalDatabaseManager::e2ERoomsDataBase() const
+{
+    return mE2ERoomsDataBase.get();
+}
+
 void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArray &roomId)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
@@ -168,6 +176,7 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArr
         mMessagesDatabase->deleteDatabaseFromRoomId(accountName, roomId);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::RoomTimeStamp);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
+        // TODO remove rooms from mE2ERoomsDataBase
     }
 }
 

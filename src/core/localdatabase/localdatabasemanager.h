@@ -23,6 +23,7 @@ class LocalRoomSubscriptionsDatabase;
 class Message;
 class Room;
 class LocalRoomPendingTypedInfoDatabase;
+class E2ERoomsDataBase;
 namespace RocketChatRestApi
 {
 class AbstractLogger;
@@ -61,6 +62,8 @@ public:
 
     [[nodiscard]] E2EDataBase *e2EDatabase() const;
 
+    [[nodiscard]] E2ERoomsDataBase *e2ERoomsDataBase() const;
+
     [[nodiscard]] LocalRoomPendingTypedInfoDatabase *roomPendingTypedInfoDatabase() const;
 
     [[nodiscard]] LocalRoomSubscriptionsDatabase *roomSubscriptionsDatabase() const;
@@ -84,6 +87,7 @@ private:
     std::unique_ptr<LocalAccountsDatabase> mAccountDatabase;
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
     std::unique_ptr<E2EDataBase> mE2EDatabase;
+    std::unique_ptr<E2ERoomsDataBase> mE2ERoomsDataBase;
     std::unique_ptr<LocalRoomPendingTypedInfoDatabase> mRoomPendingTypedInfoDatabase;
     std::unique_ptr<LocalRoomSubscriptionsDatabase> mRoomSubscriptionsDatabase;
 };

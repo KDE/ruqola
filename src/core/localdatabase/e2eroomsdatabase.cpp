@@ -95,7 +95,7 @@ bool E2ERoomsDataBase::hasKey(const QString &accountName, const QString &userId)
     return query.exec() && query.first();
 }
 
-std::unique_ptr<QSqlTableModel> E2ERoomsDataBase::createE2eModel(const QString &accountName) const
+std::unique_ptr<QSqlTableModel> E2ERoomsDataBase::createE2eRoomsModel(const QString &accountName) const
 {
     const QString dbName = databaseName(accountName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
