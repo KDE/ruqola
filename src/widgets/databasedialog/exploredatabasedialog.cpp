@@ -5,15 +5,15 @@
 */
 
 #include "exploredatabasedialog.h"
-#include "databasedialog/exploredatabasee2eroomsstoragewidget.h"
-#include "databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h"
-#include "databasedialog/exploredatabaseroomsubscriptionswidget.h"
 #include "exploredatabaseaccountstoragewidget.h"
+#include "exploredatabasee2eroomsstoragewidget.h"
 #include "exploredatabasee2estoragewidget.h"
 #include "exploredatabaseglobalstoragewidget.h"
 #include "exploredatabasejsonwidget.h"
 #include "exploredatabasemessagesstoragewidget.h"
+#include "exploredatabaseroomspendingtypedinfostoragewidget.h"
 #include "exploredatabaseroomsstoragewidget.h"
+#include "exploredatabaseroomsubscriptionswidget.h"
 
 #include "exploredatabaseviewmessageswidget.h"
 #include <KConfigGroup>
