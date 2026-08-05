@@ -37,10 +37,10 @@ bool SetRoomKeyIDJob::start()
 void SetRoomKeyIDJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-
+    qDebug() << " replyObject " << replyObject;
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("SetRoomKeyIDJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT setUserPublicAndPrivateKeysDone();
+        Q_EMIT setRoomKeyIdDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("SetRoomKeyIDJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
@@ -89,6 +89,7 @@ QJsonDocument SetRoomKeyIDJob::json() const
     jsonObj["rid"_L1] = QString::fromLatin1(mSetRoomKeyIDInfo.roomId);
     jsonObj["keyID"_L1] = QString::fromLatin1(mSetRoomKeyIDInfo.keyId);
 
+    qDebug() << " SetRoomKeyIDJob::json " << jsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
