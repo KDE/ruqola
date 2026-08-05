@@ -27,7 +27,7 @@ void SetRoomKeyIDJobTest::shouldHaveDefaultValue()
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
 
-    QVERIFY(!job.setUserPublicAndPrivateKeysInfo().isValid());
+    QVERIFY(!job.roomKeyIDInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -36,26 +36,21 @@ void SetRoomKeyIDJobTest::shouldGenerateRequest()
     SetRoomKeyIDJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     RuqolaRestApiHelper::verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.setUserPublicAndPrivateKeys"_s));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.setRoomKeyID"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
 }
 
 void SetRoomKeyIDJobTest::shouldGenerateJson()
 {
     SetRoomKeyIDJob job;
-    SetRoomKeyIDJob::SetUserPublicAndPrivateKeysInfo info;
-    const QString rsapublic = u"foo1"_s;
-    const QString rsaprivate = u"private"_s;
-    info.rsaPrivateKey = rsaprivate;
-    info.rsaPublicKey = rsapublic;
-    job.setSetUserPublicAndPrivateKeysInfo(info);
+    SetRoomKeyIDJob::RoomKeyIDInfo info;
+    const QByteArray roomId = "foo1"_ba;
+    const QByteArray keyId = "key1"_ba;
+    info.roomId = roomId;
+    info.keyId = keyId;
+    job.setRoomKeyIDInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"force":false,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
-
-    info.force = true;
-    job.setSetUserPublicAndPrivateKeysInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"force":true,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+             QStringLiteral(R"({"keyID":"%2","rid":"%1"})").arg(QString::fromLatin1(roomId), QString::fromLatin1(keyId)).toLatin1());
 }
 
 void SetRoomKeyIDJobTest::shouldNotStarting()
@@ -76,14 +71,14 @@ void SetRoomKeyIDJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
-    SetRoomKeyIDJob::SetUserPublicAndPrivateKeysInfo info;
-    const QString rsapublic = u"foo1"_s;
-    const QString rsaprivate = u"private"_s;
-    info.rsaPrivateKey = rsaprivate;
-    job.setSetUserPublicAndPrivateKeysInfo(info);
+    SetRoomKeyIDJob::RoomKeyIDInfo info;
+    const QByteArray roomId = "foo1"_ba;
+    const QByteArray keyId = "key1"_ba;
+    info.roomId = roomId;
+    job.setRoomKeyIDInfo(info);
     QVERIFY(!job.canStart());
-    info.rsaPublicKey = rsapublic;
-    job.setSetUserPublicAndPrivateKeysInfo(info);
+    info.keyId = keyId;
+    job.setRoomKeyIDInfo(info);
     QVERIFY(job.canStart());
 }
 

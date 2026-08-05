@@ -14,12 +14,10 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT SetRoomKeyIDJob : public RestApiAbstractJob
 {
     Q_OBJECT
 
-    // Since rocketchat 0.70
 public:
-    struct LIBROCKETCHATRESTAPI_QT_EXPORT SetUserPublicAndPrivateKeysInfo {
-        QString rsaPublicKey;
-        QString rsaPrivateKey;
-        bool force = false;
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT RoomKeyIDInfo {
+        QByteArray roomId;
+        QByteArray keyId;
         [[nodiscard]] bool isValid() const;
     };
 
@@ -33,14 +31,14 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] SetUserPublicAndPrivateKeysInfo setUserPublicAndPrivateKeysInfo() const;
-    void setSetUserPublicAndPrivateKeysInfo(const SetUserPublicAndPrivateKeysInfo &newSetUserPublicAndPrivateKeysInfo);
+    [[nodiscard]] RoomKeyIDInfo roomKeyIDInfo() const;
+    void setRoomKeyIDInfo(const RoomKeyIDInfo &newSetRoomKeyIDInfo);
 
 Q_SIGNALS:
     void setUserPublicAndPrivateKeysDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    SetUserPublicAndPrivateKeysInfo mSetUserPublicAndPrivateKeysInfo;
+    RoomKeyIDInfo mSetRoomKeyIDInfo;
 };
 }

@@ -47,14 +47,14 @@ void SetRoomKeyIDJob::onPostRequestResponse(const QString &replyErrorString, con
     }
 }
 
-SetRoomKeyIDJob::SetUserPublicAndPrivateKeysInfo SetRoomKeyIDJob::setUserPublicAndPrivateKeysInfo() const
+SetRoomKeyIDJob::RoomKeyIDInfo SetRoomKeyIDJob::roomKeyIDInfo() const
 {
-    return mSetUserPublicAndPrivateKeysInfo;
+    return mSetRoomKeyIDInfo;
 }
 
-void SetRoomKeyIDJob::setSetUserPublicAndPrivateKeysInfo(const SetUserPublicAndPrivateKeysInfo &newSetUserPublicAndPrivateKeysInfo)
+void SetRoomKeyIDJob::setRoomKeyIDInfo(const RoomKeyIDInfo &newSetRoomKeyIDInfo)
 {
-    mSetUserPublicAndPrivateKeysInfo = newSetUserPublicAndPrivateKeysInfo;
+    mSetRoomKeyIDInfo = newSetRoomKeyIDInfo;
 }
 
 bool SetRoomKeyIDJob::requireHttpAuthentication() const
@@ -67,8 +67,8 @@ bool SetRoomKeyIDJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!mSetUserPublicAndPrivateKeysInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetRoomKeyIDJob: mSetUserPublicAndPrivateKeysInfo is invalid";
+    if (!mSetRoomKeyIDInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetRoomKeyIDJob: mSetRoomKeyIDInfo is invalid";
         return false;
     }
     return true;
@@ -76,7 +76,7 @@ bool SetRoomKeyIDJob::canStart() const
 
 QNetworkRequest SetRoomKeyIDJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2ESetUserPublicAndPrivateKeys);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2ESetRoomKeyID);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -86,17 +86,16 @@ QNetworkRequest SetRoomKeyIDJob::request() const
 QJsonDocument SetRoomKeyIDJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["public_key"_L1] = mSetUserPublicAndPrivateKeysInfo.rsaPublicKey;
-    jsonObj["private_key"_L1] = mSetUserPublicAndPrivateKeysInfo.rsaPrivateKey;
-    jsonObj["force"_L1] = mSetUserPublicAndPrivateKeysInfo.force;
+    jsonObj["rid"_L1] = QString::fromLatin1(mSetRoomKeyIDInfo.roomId);
+    jsonObj["keyID"_L1] = QString::fromLatin1(mSetRoomKeyIDInfo.keyId);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-bool SetRoomKeyIDJob::SetUserPublicAndPrivateKeysInfo::isValid() const
+bool SetRoomKeyIDJob::RoomKeyIDInfo::isValid() const
 {
-    return !rsaPublicKey.isEmpty() && !rsaPrivateKey.isEmpty();
+    return !roomId.isEmpty() && !keyId.isEmpty();
 }
 
 #include "moc_setroomkeyidjob.cpp"
