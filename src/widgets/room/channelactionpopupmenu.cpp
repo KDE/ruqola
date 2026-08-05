@@ -213,9 +213,8 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->ruqolaServerConfig()->otrEnabled()
                                           && mRoom->channelType() == Room::RoomType::Direct);
 
-        // FIXME Disable for the moment
-        // TODO
-        mEncryptMessages->setVisible(false);
+        mEncryptMessages->setVisible(mRoom->encryptedEnabled()); // Hide when not private channels or not direct
+        mEncryptMessages->setChecked(mRoom->encrypted());
 
         const bool hasPermissionToBan = mRoom && mRoom->hasPermission(u"ban-user"_s)
             && (mRoom->channelType() == Room::RoomType::Channel || mRoom->channelType() == Room::RoomType::Private);
