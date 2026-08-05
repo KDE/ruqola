@@ -19,6 +19,7 @@ ExploreDatabaseE2ERoomsStorageWidget::ExploreDatabaseE2ERoomsStorageWidget(Rocke
         slotLoadModelFromDataBase(account->accountName());
     }
     mTableView->setItemDelegateForColumn(1, new ExploreDatabaseTooltipDelegate(this));
+    mTableView->setItemDelegateForColumn(2, new ExploreDatabaseTooltipDelegate(this));
 }
 
 ExploreDatabaseE2ERoomsStorageWidget::~ExploreDatabaseE2ERoomsStorageWidget() = default;
