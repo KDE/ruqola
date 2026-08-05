@@ -1391,6 +1391,7 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Encryption support</li>
           <li>Show user status in list of user in rooms</li>
           <li xml:lang="ca">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
           <li xml:lang="ca-valencia">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
