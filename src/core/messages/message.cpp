@@ -1179,7 +1179,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mMessageStarred.setIsStarred(o["starred"_L1].toBool());
 
     if (o.contains("pinnedMessage"_L1)) {
-        MessagePinned *pinned = MessagePinned::deserialize(o["pinnedMessage"_L1].toObject());
+        const MessagePinned *const pinned = MessagePinned::deserialize(o["pinnedMessage"_L1].toObject());
         message.setMessagePinned(*pinned);
         delete pinned;
     }
