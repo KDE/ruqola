@@ -23,4 +23,5 @@ private Q_SLOTS:
     void shouldJoinVectorAndEcryptedData_data();
     void shouldJoinVectorAndEcryptedData();
     void shouldGenerateRandomPassword();
+    void shouldGenerateRoomKeyId();
 };

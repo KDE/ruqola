@@ -57,5 +57,6 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QVector<uint8_t> toArrayBuffer(const QByteArray &ba);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString generateRandomPassword();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QString generateRoomKeyId();
 };
 Q_DECLARE_TYPEINFO(EncryptionUtils::EncryptionInfo, Q_RELOCATABLE_TYPE);

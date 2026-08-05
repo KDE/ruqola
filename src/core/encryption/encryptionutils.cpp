@@ -15,6 +15,7 @@
 #include <QJsonObject>
 #include <QJsonParseError>
 #include <QRandomGenerator>
+#include <QUuid>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -304,6 +305,23 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
 QByteArray EncryptionUtils::generateSessionKey()
 {
     return generateRandomIV(16);
+}
+
+/**
+ * @brief Generates a room-specific key identifier (keyId).
+ *
+ * Matches Rocket.Chat's e2e.room implementation:
+ *   this.keyID = crypto.randomUUID()
+ *
+ * The keyId is sent to the server via e2e.setRoomKeyID and is prepended to
+ * every encrypted session key shared with room participants. During decryption
+ * the keyId is used to look up the correct room key (current or from oldRoomKeys).
+ *
+ * @return A UUID string without braces, e.g. "550e8400-e29b-41d4-a716-446655440000".
+ */
+QString EncryptionUtils::generateRoomKeyId()
+{
+    return QUuid::createUuid().toString(QUuid::WithoutBraces);
 }
 
 /**

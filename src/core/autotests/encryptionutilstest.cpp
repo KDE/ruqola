@@ -80,4 +80,24 @@ void EncryptionUtilsTest::shouldGenerateRandomPassword()
     QVERIFY(password1 != password2);
 }
 
+void EncryptionUtilsTest::shouldGenerateRoomKeyId()
+{
+    // Must produce a non-empty UUID string.
+    const QString keyId1 = EncryptionUtils::generateRoomKeyId();
+    QVERIFY(!keyId1.isEmpty());
+
+    // UUID without braces is 36 chars: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    QCOMPARE(keyId1.size(), 36);
+
+    // Must look like a UUID (contains four hyphens at the right positions).
+    QCOMPARE(keyId1[8], QChar(u'-'));
+    QCOMPARE(keyId1[13], QChar(u'-'));
+    QCOMPARE(keyId1[18], QChar(u'-'));
+    QCOMPARE(keyId1[23], QChar(u'-'));
+
+    // Each call must produce a unique value.
+    const QString keyId2 = EncryptionUtils::generateRoomKeyId();
+    QVERIFY(keyId1 != keyId2);
+}
+
 #include "moc_encryptionutilstest.cpp"
