@@ -17,8 +17,10 @@
 #include "localdatabase/e2edatabase.h"
 #include "localdatabase/e2eroomsdatabase.h"
 #include "localdatabase/localdatabasemanager.h"
+#include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
+#include "room.h"
 #include "ruqola_encryption_debug.h"
 #include "ruqolaserverconfig.h"
 #include <qt6keychain/keychain.h>
@@ -157,6 +159,9 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     RSA_free(privateKey);
     mDecodedPrivateKey = privateKeyPem;
     setStatus(Status::KeyDecrypted);
+    if (decryptRoomsSessionKeys()) {
+        Q_EMIT needRefreshView();
+    }
     Q_EMIT decodeEncryptionKeyDone();
     storePassword(password);
     return true;
@@ -566,6 +571,31 @@ E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
         return mStatus;
     }
     return Status::Unknown;
+}
+
+bool E2eKeyManager::decryptRoomsSessionKeys()
+{
+#if USE_E2E_SUPPORT
+    if (mDecodedPrivateKey.isEmpty()) {
+        return false;
+    }
+
+    RSA *privateKey = EncryptionUtils::privateKeyFromPEM(mDecodedPrivateKey);
+    if (!privateKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptRoomsSessionKeys: failed to load private key from PEM";
+        return false;
+    }
+
+    RoomModel *model = mAccount->roomModel();
+    for (Room *room : model->rooms()) {
+        if (!room->e2EKey().isEmpty()) {
+            room->decryptSessionKeyWithPrivateKey(privateKey);
+        }
+    }
+
+    RSA_free(privateKey);
+#endif
+    return true;
 }
 
 #include "moc_e2ekeymanager.cpp"

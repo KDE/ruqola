@@ -308,6 +308,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mE2eKeyManager, &E2eKeyManager::decodeEncryptionKeyPostponed, this, &RocketChatAccount::slotE2eDecodeKeyPostponed);
     connect(mE2eKeyManager, &E2eKeyManager::uploadEncryptionKeyDone, this, &RocketChatAccount::slotE2eUploadKeyDone);
     connect(mE2eKeyManager, &E2eKeyManager::uploadEncryptionKeyFailed, this, &RocketChatAccount::slotE2eUploadKeyFailed);
+    connect(mE2eKeyManager, &E2eKeyManager::needRefreshView, this, &RocketChatAccount::needUpdateMessageView);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
     connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, mRoomModel, &RoomModel::cleanRoomHistory);
 

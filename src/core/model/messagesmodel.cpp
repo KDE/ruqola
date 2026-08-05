@@ -21,6 +21,8 @@
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
 #include "utils.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 
 #include <KLocalizedString>
 
@@ -435,12 +437,16 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
     } else if (message.messageType() == Message::EncryptedText) {
-        // TODO allow to decrypt message
-#if 0
-        qDebug() << "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD" << *message.messageEncrypted();
-        qDebug() << " xxxxxxxxxx " << message.messageEncrypted()->decrypt("a2e332e5-0b27-4d8f-82e8-66c833ae7860");
-#endif
-        // message.messageEncrypted()->decrypt()
+        // TODO move in messageEncrypted
+        const QByteArray content = message.messageEncrypted()->decrypt(mRoom->sessionKey());
+        qDebug() << " cxontent " << content;
+        if (!content.isEmpty()) {
+            const QJsonDocument doc = QJsonDocument::fromJson(content);
+            const QJsonObject obj = doc.object();
+            if (obj.contains("msg"_L1)) {
+                return obj["msg"_L1].toString();
+            }
+        }
         return message.systemMessageText();
     } else {
         QStringList highlightWords;

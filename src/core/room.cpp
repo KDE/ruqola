@@ -12,6 +12,7 @@
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include "ruqola_encryption_debug.h"
 #include "ruqola_memory_management_debug.h"
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
@@ -1205,6 +1206,14 @@ void Room::setJoinCodeRequired(bool joinCodeRequired)
     }
 }
 
+QByteArray Room::sessionKey() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->sessionKey();
+    }
+    return {};
+}
+
 QString Room::e2eKeyId() const
 {
     if (mRoomEncryptionKey) {
@@ -1248,6 +1257,19 @@ void Room::setE2EKey(const QString &e2EKey)
         Q_EMIT encryptionKeyChanged();
     }
 }
+
+#if USE_E2E_SUPPORT
+void Room::decryptSessionKeyWithPrivateKey(RSA *privateKey)
+{
+    if (!mRoomEncryptionKey) {
+        return;
+    }
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << "Room::decryptSessionKeyWithPrivateKey"
+                                   << "roomName=" << name() << "roomId=" << roomId() << "e2eKeyId=" << mRoomEncryptionKey->e2eKeyId()
+                                   << "e2eKeyLen=" << mRoomEncryptionKey->e2EKey().size() << "hasPrivateKey=" << (privateKey != nullptr);
+    mRoomEncryptionKey->decryptWithPrivateKey(privateKey);
+}
+#endif
 
 bool Room::encrypted() const
 {

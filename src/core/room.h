@@ -14,6 +14,7 @@
 #include <QPointer>
 
 #include "channelcounterinfo.h"
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include "retentioninfo.h"
 #include "roomencryptionkey.h"
@@ -201,6 +202,10 @@ public:
     [[nodiscard]] QString e2eKeyId() const;
     void setE2eKeyId(const QString &e2eKeyId);
 
+#if USE_E2E_SUPPORT
+    void decryptSessionKeyWithPrivateKey(RSA *privateKey);
+#endif
+
     [[nodiscard]] bool joinCodeRequired() const;
     void setJoinCodeRequired(bool joinCodeRequired);
 
@@ -302,6 +307,7 @@ public:
 
     [[nodiscard]] bool userIsMuted(const QString &username);
 
+    [[nodiscard]] QByteArray sessionKey() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();

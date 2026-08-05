@@ -16,6 +16,7 @@
 #include <QJsonParseError>
 #include <QRandomGenerator>
 #include <QUuid>
+#include <openssl/evp.h>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -362,16 +363,32 @@ QByteArray EncryptionUtils::encryptSessionKey(const QByteArray &sessionKey, RSA 
         return {};
     }
 
-    QByteArray encryptedSessionKey(RSA_size(publicKey), 0);
-    const int bytes = RSA_public_encrypt(sessionKey.size(),
-                                         reinterpret_cast<const unsigned char *>(sessionKey.constData()),
+    const int rsaSize = RSA_size(publicKey);
+    QByteArray padded(rsaSize, 0);
+    if (RSA_padding_add_PKCS1_OAEP_mgf1(reinterpret_cast<unsigned char *>(padded.data()),
+                                        rsaSize,
+                                        reinterpret_cast<const unsigned char *>(sessionKey.constData()),
+                                        sessionKey.size(),
+                                        nullptr,
+                                        0,
+                                        EVP_sha256(),
+                                        EVP_sha256())
+        != 1) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key encryption failed: OAEP-SHA256 padding failed";
+        return {};
+    }
+
+    QByteArray encryptedSessionKey(rsaSize, 0);
+    const int bytes = RSA_public_encrypt(rsaSize,
+                                         reinterpret_cast<const unsigned char *>(padded.constData()),
                                          reinterpret_cast<unsigned char *>(encryptedSessionKey.data()),
                                          publicKey,
-                                         RSA_PKCS1_OAEP_PADDING);
-    if (bytes == -1) {
+                                         RSA_NO_PADDING);
+    if (bytes != rsaSize) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key encryption failed!";
         return {};
     }
+
     encryptedSessionKey.resize(bytes);
     return encryptedSessionKey;
 }
@@ -379,21 +396,62 @@ QByteArray EncryptionUtils::encryptSessionKey(const QByteArray &sessionKey, RSA 
 QByteArray EncryptionUtils::decryptSessionKey(const QByteArray &encryptedSessionKey, RSA *privateKey)
 {
     if (encryptedSessionKey.isEmpty() || !privateKey) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed: invalid input";
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed: invalid input" << encryptedSessionKey << " privateKey " << privateKey;
         return {};
     }
 
-    QByteArray decryptedSessionKey(RSA_size(privateKey), 0);
-    const int bytes = RSA_private_decrypt(encryptedSessionKey.size(),
-                                          reinterpret_cast<const unsigned char *>(encryptedSessionKey.constData()),
-                                          reinterpret_cast<unsigned char *>(decryptedSessionKey.data()),
-                                          privateKey,
-                                          RSA_PKCS1_OAEP_PADDING);
-    if (bytes == -1) {
+    const int rsaSize = RSA_size(privateKey);
+    if (encryptedSessionKey.size() != rsaSize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed: encrypted key size" << encryptedSessionKey.size() << "does not match RSA size"
+                                         << rsaSize;
+        return {};
+    }
+
+    QByteArray encoded(rsaSize, 0);
+    const int encodedLen = RSA_private_decrypt(encryptedSessionKey.size(),
+                                               reinterpret_cast<const unsigned char *>(encryptedSessionKey.constData()),
+                                               reinterpret_cast<unsigned char *>(encoded.data()),
+                                               privateKey,
+                                               RSA_NO_PADDING);
+    if (encodedLen != rsaSize) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed!";
         return {};
     }
-    decryptedSessionKey.resize(bytes);
+
+    auto decryptWithHash = [&](const EVP_MD *oaepMd, const EVP_MD *mgf1Md, const char *label) -> QByteArray {
+        QByteArray out(rsaSize, 0);
+        const int decodedLen = RSA_padding_check_PKCS1_OAEP_mgf1(reinterpret_cast<unsigned char *>(out.data()),
+                                                                 out.size(),
+                                                                 reinterpret_cast<const unsigned char *>(encoded.constData()),
+                                                                 encodedLen,
+                                                                 rsaSize,
+                                                                 nullptr,
+                                                                 0,
+                                                                 oaepMd,
+                                                                 mgf1Md);
+        if (decodedLen < 0) {
+            qCDebug(RUQOLA_ENCRYPTION_LOG) << "Session key OAEP decode failed with" << label;
+            return {};
+        }
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "Session key OAEP decode succeeded with" << label << "decodedLen=" << decodedLen;
+        out.resize(decodedLen);
+        return out;
+    };
+
+    // Rocket.Chat uses RSA-OAEP with SHA-256. Some environments encode MGF1
+    // with SHA-1 while keeping OAEP hash at SHA-256, so try both first.
+    QByteArray decryptedSessionKey = decryptWithHash(EVP_sha256(), EVP_sha256(), "oaep=sha256 mgf1=sha256");
+    if (decryptedSessionKey.isEmpty()) {
+        decryptedSessionKey = decryptWithHash(EVP_sha256(), EVP_sha1(), "oaep=sha256 mgf1=sha1");
+    }
+    if (decryptedSessionKey.isEmpty()) {
+        // Backward compatibility for previously stored OAEP-SHA1 ciphertexts.
+        decryptedSessionKey = decryptWithHash(EVP_sha1(), EVP_sha1(), "oaep=sha1 mgf1=sha1");
+    }
+
+    if (decryptedSessionKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed!";
+    }
     return decryptedSessionKey;
 }
 

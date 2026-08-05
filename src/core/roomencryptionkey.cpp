@@ -5,10 +5,150 @@
 */
 
 #include "roomencryptionkey.h"
+#include "ruqola_encryption_debug.h"
 #include "ruqola_room_memory_debug.h"
+#include <QCryptographicHash>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QUuid>
+#include <QVector>
 #if USE_E2E_SUPPORT
 #include "encryption/encryptionutils.h"
 #endif
+
+namespace
+{
+QByteArray decodeBase64Variants(const QByteArray &text)
+{
+    if (text.isEmpty()) {
+        return {};
+    }
+
+    // Prefer URL-safe decoding when URL-safe alphabet is present.
+    const bool looksBase64Url = text.contains('-') || text.contains('_');
+    const QByteArray first = QByteArray::fromBase64(text, looksBase64Url ? QByteArray::Base64UrlEncoding : QByteArray::Base64Encoding);
+    const QByteArray second = QByteArray::fromBase64(text, looksBase64Url ? QByteArray::Base64Encoding : QByteArray::Base64UrlEncoding);
+
+    if (!first.isEmpty() && !second.isEmpty()) {
+        // Keep the longest candidate to avoid truncated decodes.
+        return (first.size() >= second.size()) ? first : second;
+    }
+    if (!first.isEmpty()) {
+        return first;
+    }
+    return second;
+}
+
+#if USE_E2E_SUPPORT
+QVector<QByteArray> decodeAllBase64Variants(const QString &text)
+{
+    QVector<QByteArray> out;
+    const QByteArray bytes = text.toLatin1();
+
+    const QByteArray plain = QByteArray::fromBase64(bytes, QByteArray::Base64Encoding);
+    if (!plain.isEmpty()) {
+        out.append(plain);
+    }
+
+    const QByteArray url = QByteArray::fromBase64(bytes, QByteArray::Base64UrlEncoding);
+    if (!url.isEmpty() && !out.contains(url)) {
+        out.append(url);
+    }
+    return out;
+}
+
+QVector<QByteArray> encryptedKeyCandidates(const QString &fullE2EKey, const QString &selectedPayload, const QString &knownKeyId)
+{
+    QVector<QByteArray> out;
+
+    auto appendDecoded = [&](const QString &candidateText) {
+        if (candidateText.isEmpty()) {
+            return;
+        }
+        const auto decoded = decodeAllBase64Variants(candidateText);
+        for (const QByteArray &d : decoded) {
+            if (!out.contains(d)) {
+                out.append(d);
+            }
+        }
+    };
+
+    appendDecoded(selectedPayload);
+    appendDecoded(fullE2EKey);
+
+    // Some payloads are keyId(36) + ciphertext even when keyId is not UUID-shaped
+    // or not yet known in this object. Try fixed-length splits as fallbacks.
+    if (fullE2EKey.size() > 36) {
+        appendDecoded(fullE2EKey.mid(36));
+        const QChar possibleSeparator = fullE2EKey.at(36);
+        if (possibleSeparator == QLatin1Char(':') || possibleSeparator == QLatin1Char('|') || possibleSeparator == QLatin1Char('.')) {
+            appendDecoded(fullE2EKey.mid(37));
+        }
+    }
+
+    if (!knownKeyId.isEmpty() && fullE2EKey.startsWith(knownKeyId)) {
+        const QString suffix = fullE2EKey.mid(knownKeyId.size());
+        appendDecoded(suffix);
+        if (!suffix.isEmpty() && (suffix.at(0) == QLatin1Char(':') || suffix.at(0) == QLatin1Char('|') || suffix.at(0) == QLatin1Char('.'))) {
+            appendDecoded(suffix.mid(1));
+        }
+    }
+
+    if (fullE2EKey.size() > 36) {
+        const QString possibleKeyId = fullE2EKey.left(36);
+        if (!QUuid(possibleKeyId).isNull()) {
+            appendDecoded(fullE2EKey.mid(36));
+        }
+    }
+
+    return out;
+}
+
+QByteArray normalizeSessionKeyPayload(const QByteArray &decryptedPayload)
+{
+    if (decryptedPayload.size() == 32) {
+        return decryptedPayload;
+    }
+
+    const QByteArray trimmed = decryptedPayload.trimmed();
+    if (trimmed.isEmpty()) {
+        return {};
+    }
+
+    // Some payloads are base64/base64url text of the raw 32-byte key.
+    if (const QByteArray decoded = decodeBase64Variants(trimmed); decoded.size() == 32) {
+        return decoded;
+    }
+
+    // Some Rocket.Chat payloads are JSON (JWK-like), containing the key in "k".
+    const QJsonDocument doc = QJsonDocument::fromJson(trimmed);
+    if (!doc.isNull()) {
+        if (doc.isObject()) {
+            const QJsonObject obj = doc.object();
+            if (const QString k = obj.value(QStringLiteral("k")).toString(); !k.isEmpty()) {
+                const QByteArray decodedK = QByteArray::fromBase64(k.toLatin1(), QByteArray::Base64UrlEncoding);
+                if (decodedK.size() == 32) {
+                    return decodedK;
+                }
+            }
+            if (const QString key = obj.value(QStringLiteral("key")).toString(); !key.isEmpty()) {
+                if (const QByteArray decodedKey = decodeBase64Variants(key.toLatin1()); decodedKey.size() == 32) {
+                    return decodedKey;
+                }
+            }
+            if (const QString binary = obj.value(QStringLiteral("$binary")).toString(); !binary.isEmpty()) {
+                const QByteArray decodedBinary = QByteArray::fromBase64(binary.toLatin1());
+                if (decodedBinary.size() == 32) {
+                    return decodedBinary;
+                }
+            }
+        }
+    }
+
+    return {};
+}
+#endif
+}
 
 RoomEncryptionKey::RoomEncryptionKey()
 {
@@ -40,40 +180,64 @@ void RoomEncryptionKey::parseSessionKey()
         mE2eKeyId.clear();
         return;
     }
+    // Rocket.Chat payloads may be either:
+    // 1) keyId(36 UUID) + encryptedKey(base64/base64url)
+    // 2) encryptedKey(base64/base64url) only, with keyId in a separate field.
+    const QByteArray fullCandidate = decodeBase64Variants(mE2EKey.toLatin1());
+    QByteArray tailCandidate;
+    QString prefixedKeyId;
+    QString prefixedCipherText;
 
-    // Format E2EKey: keyId(36) + encryptedKey(base64)
-    if (mE2EKey.size() < 36) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "E2EKey too short:" << mE2EKey.size();
+    if (!mE2eKeyId.isEmpty() && mE2EKey.startsWith(mE2eKeyId)) {
+        prefixedKeyId = mE2eKeyId;
+        prefixedCipherText = mE2EKey.mid(mE2eKeyId.size());
+        if (!prefixedCipherText.isEmpty()
+            && (prefixedCipherText.at(0) == QLatin1Char(':') || prefixedCipherText.at(0) == QLatin1Char('|') || prefixedCipherText.at(0) == QLatin1Char('.'))) {
+            prefixedCipherText = prefixedCipherText.mid(1);
+        }
+        tailCandidate = decodeBase64Variants(prefixedCipherText.toLatin1());
+    } else if (mE2EKey.size() > 36) {
+        const QString possibleKeyId = mE2EKey.left(36);
+        if (!QUuid(possibleKeyId).isNull()) {
+            prefixedKeyId = possibleKeyId;
+            prefixedCipherText = mE2EKey.mid(36);
+            tailCandidate = decodeBase64Variants(prefixedCipherText.toLatin1());
+        }
+    }
+
+    bool useFullPayload = false;
+    if (!tailCandidate.isEmpty()) {
+        // When a prefixed form is detected, it is usually the canonical payload.
+        useFullPayload = false;
+    } else if (!fullCandidate.isEmpty()) {
+        useFullPayload = true;
+    } else {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Failed to decode E2EKey from base64/base64url";
         mSessionKey.clear();
         return;
     }
-
-    mE2eKeyId = mE2EKey.left(36); // ← UUID
-
-    // Extraire encryptedKey (base64)
-    mEncryptedKeyBase64 = mE2EKey.mid(36);
-
-    if (mEncryptedKeyBase64.isEmpty()) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "E2EKey encryptedKey part is empty";
-        mSessionKey.clear();
-        return;
+    if (useFullPayload) {
+        mEncryptedKeyBase64 = mE2EKey;
+    } else {
+        if (mE2eKeyId.isEmpty()) {
+            mE2eKeyId = prefixedKeyId;
+        }
+        mEncryptedKeyBase64 = prefixedCipherText;
     }
 
-    // Validate base64 can be decoded
-    const QByteArray encryptedKey = QByteArray::fromBase64(mEncryptedKeyBase64.toLatin1());
+    // Validate encoded payload can be decoded as base64/base64url.
+    const QByteArray encryptedKey = decodeBase64Variants(mEncryptedKeyBase64.toLatin1());
     if (encryptedKey.isEmpty()) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "Failed to decode E2EKey from base64";
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Failed to decode E2EKey from base64/base64url";
         mSessionKey.clear();
         return;
     }
+    const QByteArray keyFingerprint = QCryptographicHash::hash(encryptedKey, QCryptographicHash::Sha256).toHex().left(16);
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << "E2EKey parsed candidate" << "keyId=" << mE2eKeyId << "base64Len=" << mEncryptedKeyBase64.size()
+                                   << "decodedLen=" << encryptedKey.size() << "format=" << (useFullPayload ? "full" : "prefixed")
+                                   << "sha256[:16]=" << keyFingerprint;
 
-    if (encryptedKey.size() != 256) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "Invalid encryptedKey size:" << encryptedKey.size() << "(expected 256 for RSA-2048)";
-        mSessionKey.clear();
-        return;
-    }
-
-    qDebug() << "E2EKey parsed - keyId:" << mE2eKeyId << "encryptedKey size:" << encryptedKey.size();
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << "E2EKey parsed - keyId:" << mE2eKeyId << "encryptedKey size:" << encryptedKey.size();
     // Waiting for RSA private key to decrypt session key
 }
 
@@ -89,42 +253,68 @@ void RoomEncryptionKey::setE2eKeyId(const QString &newE2eKeyId)
 #if USE_E2E_SUPPORT
 void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)
 {
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << "RoomEncryptionKey::decryptWithPrivateKey start" << "keyId=" << mE2eKeyId;
     if (!privateKey) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "Private key is null, cannot decrypt session key";
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Private key is null, cannot decrypt session key";
         mSessionKey.clear();
         return;
     }
 
     if (mEncryptedKeyBase64.isEmpty()) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "No encrypted key available for decryption";
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "No encrypted key available for decryption";
         mSessionKey.clear();
         return;
     }
 
-    // Decode base64 to binary
-    const QByteArray encryptedKey = QByteArray::fromBase64(mEncryptedKeyBase64.toLatin1());
-
-    if (encryptedKey.size() != 256) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "Invalid encryptedKey size for decryption:" << encryptedKey.size();
+    const int rsaSize = RSA_size(privateKey);
+    const QVector<QByteArray> keyCandidates = encryptedKeyCandidates(mE2EKey, mEncryptedKeyBase64, mE2eKeyId);
+    if (keyCandidates.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Failed to decode encrypted key from base64/base64url";
         mSessionKey.clear();
         return;
     }
 
-    // Decrypt using RSA private key
-    mSessionKey = EncryptionUtils::decryptSessionKey(encryptedKey, privateKey);
+    QByteArray lastDecryptedPayload;
+    QVector<int> candidateSizes;
+    candidateSizes.reserve(keyCandidates.size());
 
-    if (mSessionKey.isEmpty()) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "Failed to decrypt session key with private key";
-        return;
+    for (int i = 0; i < keyCandidates.size(); ++i) {
+        const QByteArray &encryptedKey = keyCandidates.at(i);
+        candidateSizes.append(encryptedKey.size());
+
+        const QByteArray keyFingerprint = QCryptographicHash::hash(encryptedKey, QCryptographicHash::Sha256).toHex().left(16);
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "Decrypting room session key"
+                                       << "keyId=" << mE2eKeyId << "candidate=" << i << "candidateCount=" << keyCandidates.size()
+                                       << "base64Len=" << mEncryptedKeyBase64.size() << "decodedLen=" << encryptedKey.size() << "rsaSize=" << rsaSize
+                                       << "sha256[:16]=" << keyFingerprint;
+
+        if (encryptedKey.size() != rsaSize) {
+            continue;
+        }
+
+        // Decrypt using RSA private key.
+        const QByteArray decryptedPayload = EncryptionUtils::decryptSessionKey(encryptedKey, privateKey);
+        if (decryptedPayload.isEmpty()) {
+            continue;
+        }
+
+        lastDecryptedPayload = decryptedPayload;
+        mSessionKey = normalizeSessionKeyPayload(decryptedPayload);
+        if (mSessionKey.size() == 32) {
+            qCDebug(RUQOLA_ENCRYPTION_LOG) << "Session key successfully decrypted for keyId:" << mE2eKeyId;
+            return;
+        }
     }
 
-    if (mSessionKey.size() != 32) {
-        qCWarning(RUQOLA_ROOM_MEMORY_LOG) << "Invalid decrypted session key size:" << mSessionKey.size() << "(expected 32)";
-        mSessionKey.clear();
-        return;
+    if (lastDecryptedPayload.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Invalid encryptedKey size candidates:" << candidateSizes << "(expected" << rsaSize
+                                         << "for current RSA private key)";
+    } else {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Invalid decrypted session key size:" << mSessionKey.size()
+                                         << "(expected 32), payloadLen=" << lastDecryptedPayload.size()
+                                         << "payloadPreview=" << QString::fromLatin1(lastDecryptedPayload.left(48));
     }
-
-    qDebug() << "Session key successfully decrypted for keyId:" << mE2eKeyId;
+    mSessionKey.clear();
 }
 #endif
 

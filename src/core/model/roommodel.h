@@ -124,6 +124,7 @@ public:
     [[nodiscard]] QList<Room *> findRoomNameConstains(const QString &str) const;
     void cleanRoomHistory();
     void deserializeRoom(const QJsonObject &room);
+    [[nodiscard]] const QList<Room *> &rooms() const;
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();

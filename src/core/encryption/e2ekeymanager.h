@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 
 #include <QObject>
@@ -48,6 +49,7 @@ public:
     void setKeySaved(bool newKeySaved);
 
     void verifyExistingKeyForTest(const QJsonObject &json);
+    [[nodiscard]] bool decryptRoomsSessionKeys();
 
 Q_SIGNALS:
     void needDecodeEncryptionKey();
@@ -57,6 +59,7 @@ Q_SIGNALS:
     void uploadEncryptionKeyFailed();
     void uploadEncryptionKeyDone();
     void verifyKeyDone();
+    void needRefreshView();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void readPassword();

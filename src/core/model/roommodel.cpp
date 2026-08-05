@@ -683,4 +683,9 @@ QString RoomModel::sectionName(Section sectionId)
     return u"ERROR"_s;
 }
 
+const QList<Room *> &RoomModel::rooms() const
+{
+    return mRoomsList;
+}
+
 #include "moc_roommodel.cpp"
