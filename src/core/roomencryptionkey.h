@@ -20,8 +20,12 @@ public:
 
     [[nodiscard]] bool operator==(const RoomEncryptionKey &other) const;
 
+    [[nodiscard]] QByteArray sessionKey() const;
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void parseSessionKey();
     // Encryption Key
     QString mE2EKey;
     QString mE2eKeyId;
+    QByteArray mSessionKey;
 };
