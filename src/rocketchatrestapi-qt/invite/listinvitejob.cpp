@@ -9,7 +9,7 @@
 #include <QJsonDocument>
 #include <QNetworkRequest>
 #include <QUrlQuery>
-
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ListInviteJob::ListInviteJob(QObject *parent)
     : RestApiAbstractJob(parent)
