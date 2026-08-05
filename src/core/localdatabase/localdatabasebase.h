@@ -21,6 +21,7 @@ public:
         Logger,
         Global,
         E2E,
+        E2ERooms,
         PendingTypedInfo,
         RoomSubscriptions,
     };

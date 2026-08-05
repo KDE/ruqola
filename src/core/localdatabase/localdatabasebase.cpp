@@ -79,6 +79,9 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::RoomSubscriptions:
         prefix = u"roomsubscriptions-"_s;
         break;
+    case DatabaseType::E2ERooms:
+        prefix = u"e2e-rooms-"_s;
+        break;
     case DatabaseType::Logger:
         break;
     }
