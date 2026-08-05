@@ -14,7 +14,7 @@
 #include <QSqlTableModel>
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaE2EKeyStore[] = "CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
-enum class E2EFields {
+enum class E2ERoomsFields {
     UserId,
     EncryptedPrivateKey,
     PublicKey
@@ -118,7 +118,7 @@ std::unique_ptr<QSqlTableModel> E2EDataBase::createE2eModel(const QString &accou
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"E2EKEYS"_s);
-    model->setSort(int(E2EFields::UserId), Qt::AscendingOrder);
+    model->setSort(int(E2ERoomsFields::UserId), Qt::AscendingOrder);
     model->select();
     return model;
 }

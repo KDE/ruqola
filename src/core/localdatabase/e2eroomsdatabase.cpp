@@ -13,9 +13,9 @@
 #include <QSqlQuery>
 #include <QSqlTableModel>
 using namespace Qt::Literals::StringLiterals;
-static const char s_schemaE2ERoomsKeysStore[] = "CREATE TABLE E2EROOMSKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
-enum class E2EFields {
-    UserId,
+static const char s_schemaE2ERoomsKeysStore[] = "CREATE TABLE E2EROOMSKEYS (roomKeyId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
+enum class E2ERoomsFields {
+    RoomKeyId,
     EncryptedPrivateKey,
     PublicKey
 }; // in the same order as the table
@@ -39,7 +39,7 @@ bool E2ERoomsDataBase::saveKey(const QString &accountName, const QString &userId
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("INSERT OR REPLACE INTO E2EROOMSKEYS (userId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"));
+    query.prepare(QStringLiteral("INSERT OR REPLACE INTO E2EROOMSKEYS (roomKeyId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"));
     query.addBindValue(userId);
     query.addBindValue(encryptedPrivateKey);
     query.addBindValue(publicKey);
@@ -57,7 +57,7 @@ bool E2ERoomsDataBase::loadKey(const QString &accountName, const QString &userId
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT encryptedPrivateKey, publicKey FROM E2EROOMSKEYS WHERE userId = ?"));
+    query.prepare(QStringLiteral("SELECT encryptedPrivateKey, publicKey FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
     query.addBindValue(userId);
     if (query.exec() && query.first()) {
         encryptedPrivateKey = query.value(0).toByteArray();
@@ -74,10 +74,10 @@ bool E2ERoomsDataBase::deleteKey(const QString &accountName, const QString &user
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("DELETE FROM E2EROOMSKEYS WHERE userId = ?"));
+    query.prepare(QStringLiteral("DELETE FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
     query.addBindValue(userId);
     if (!query.exec()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EKEYS table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EROOMSKEYS table" << db.databaseName() << query.lastError();
         return false;
     }
     return true;
@@ -90,7 +90,7 @@ bool E2ERoomsDataBase::hasKey(const QString &accountName, const QString &userId)
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT 1 FROM E2EROOMSKEYS WHERE userId = ?"));
+    query.prepare(QStringLiteral("SELECT 1 FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
     query.addBindValue(userId);
     return query.exec() && query.first();
 }
@@ -118,7 +118,7 @@ std::unique_ptr<QSqlTableModel> E2ERoomsDataBase::createE2eRoomsModel(const QStr
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"E2EROOMSKEYS"_s);
-    model->setSort(int(E2EFields::UserId), Qt::AscendingOrder);
+    model->setSort(int(E2ERoomsFields::RoomKeyId), Qt::AscendingOrder);
     model->select();
     return model;
 }

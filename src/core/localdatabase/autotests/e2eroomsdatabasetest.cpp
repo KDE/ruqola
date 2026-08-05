@@ -27,7 +27,8 @@ void E2ERoomsDataBaseTest::initTestCase()
 void E2ERoomsDataBaseTest::shouldDefaultValues()
 {
     E2ERoomsDataBase E2ERoomsDataBase;
-    QCOMPARE(E2ERoomsDataBase.schemaDatabaseStr(), u"CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)"_s);
+    QCOMPARE(E2ERoomsDataBase.schemaDatabaseStr(),
+             u"CREATE TABLE E2EROOMSKEYS (roomKeyId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)"_s);
 }
 
 void E2ERoomsDataBaseTest::testSaveLoadDelete()
