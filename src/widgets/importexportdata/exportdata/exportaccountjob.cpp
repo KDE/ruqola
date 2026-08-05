@@ -138,6 +138,8 @@ void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExpo
                    localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global));
     storeDirectory(LocalDatabaseUtils::localE2EDatabasePath() + info.accountName,
                    localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E));
+    storeDirectory(LocalDatabaseUtils::localE2ERoomsDatabasePath() + info.accountName,
+                   localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2ERooms));
     storeDirectory(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath() + info.accountName,
                    localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomPendingTypedInfo));
     storeDirectory(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath() + info.accountName,

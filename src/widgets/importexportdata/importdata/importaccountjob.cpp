@@ -218,6 +218,12 @@ void ImportAccountJob::importAccount(QString accountName)
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E),
                          LocalDatabaseUtils::localE2EDatabasePath(),
                          true); // TODO verify this one in the future as not implemented yet
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2ERooms),
+                         LocalDatabaseUtils::localE2ERoomsDatabasePath(),
+                         true); // TODO verify this one in the future as not implemented yet
         }
     }
 

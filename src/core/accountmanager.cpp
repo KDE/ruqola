@@ -233,6 +233,7 @@ QStringList AccountManager::databasePathsToRemoved(AccountManager::MigrateDataba
     }
     if (types & AccountManager::MigrateDatabaseType::DatabaseE2E) {
         lst.append(LocalDatabaseUtils::localE2EDatabasePath());
+        lst.append(LocalDatabaseUtils::localE2ERoomsDatabasePath());
     }
     if (types & AccountManager::MigrateDatabaseType::DatabaseRoomPendingTypedInfo) {
         lst.append(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath());
