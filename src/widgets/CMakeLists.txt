@@ -888,6 +888,8 @@ target_sources(
         databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h
         databasedialog/exploredatabaseroomsubscriptionswidget.h
         databasedialog/exploredatabaseroomsubscriptionswidget.cpp
+        databasedialog/exploredatabasee2eroomsstoragewidget.cpp
+        databasedialog/exploredatabasee2eroomsstoragewidget.h
         explorepermissionsdialog/explorepermissionsdialog.h
         explorepermissionsdialog/explorepermissionsdialog.cpp
         explorepermissionsdialog/explorepermissionswidget.h

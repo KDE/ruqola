@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabasedialog.h"
+#include "databasedialog/exploredatabasee2eroomsstoragewidget.h"
 #include "databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h"
 #include "databasedialog/exploredatabaseroomsubscriptionswidget.h"
 #include "exploredatabaseaccountstoragewidget.h"
@@ -38,6 +39,7 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     , mExploreDatabaseAccountStorageWidget(new ExploreDatabaseAccountStorageWidget(account, this))
     , mExploreDatabaseRoomsStorageWidget(new ExploreDatabaseRoomsStorageWidget(account, this))
     , mExploreDatabaseGlobalStorageWidget(new ExploreDatabaseGlobalStorageWidget(account, this))
+    , mExploreDatabaseE2ERoomsStorageWidget(new ExploreDatabaseE2ERoomsStorageWidget(account, this))
     , mExploreDatabaseE2EStorageWidget(new ExploreDatabaseE2EStorageWidget(account, this))
     , mExploreDatabaseRoomsPendingTypedInfoStorageWidget(new ExploreDatabaseRoomsPendingTypedInfoStorageWidget(account, this))
     , mExploreDatabaseRoomSubscriptionsWidget(new ExploreDatabaseRoomSubscriptionsWidget(account, this))
@@ -70,6 +72,9 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
 
     mExploreDatabaseE2EStorageWidget->setObjectName(u"mExploreDatabaseE2EStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseE2EStorageWidget, i18n("DataBase E2E"));
+
+    mExploreDatabaseE2ERoomsStorageWidget->setObjectName(u"mExploreDatabaseE2ERoomsStorageWidget"_s);
+    tabWidget->addTab(mExploreDatabaseE2ERoomsStorageWidget, i18n("DataBase E2E Rooms"));
 
     mExploreDatabaseRoomsPendingTypedInfoStorageWidget->setObjectName(u"mExploreDatabaseRoomsPendingTypedInfoStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseRoomsPendingTypedInfoStorageWidget, i18n("DataBase Room Pending Typed Info"));
