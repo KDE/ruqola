@@ -32,7 +32,20 @@ QString E2ERoomsDataBase::schemaDataBase() const
     return QString::fromLatin1(s_schemaE2ERoomsKeysStore);
 }
 
-bool E2ERoomsDataBase::saveKey(const QString &accountName, const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey)
+QString E2ERoomsDataBase::generateRoomKeyId(const QString &roomId, const QString &keyId) const
+{
+    if (roomId.isEmpty() || keyId.isEmpty()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to generate identifier";
+        return {};
+    }
+    return u"%1-%2"_s.arg(roomId, keyId);
+}
+
+bool E2ERoomsDataBase::saveKey(const QString &accountName,
+                               const QString &roomId,
+                               const QString &keyId,
+                               const QByteArray &encryptedPrivateKey,
+                               const QByteArray &publicKey)
 {
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
@@ -40,7 +53,7 @@ bool E2ERoomsDataBase::saveKey(const QString &accountName, const QString &userId
     }
     QSqlQuery query(db);
     query.prepare(QStringLiteral("INSERT OR REPLACE INTO E2EROOMSKEYS (roomKeyId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"));
-    query.addBindValue(userId);
+    query.addBindValue(generateRoomKeyId(roomId, keyId));
     query.addBindValue(encryptedPrivateKey);
     query.addBindValue(publicKey);
     if (!query.exec()) {
@@ -50,7 +63,7 @@ bool E2ERoomsDataBase::saveKey(const QString &accountName, const QString &userId
     return true;
 }
 
-bool E2ERoomsDataBase::loadKey(const QString &accountName, const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
+bool E2ERoomsDataBase::loadKey(const QString &accountName, const QString &roomId, const QString &keyId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
 {
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
@@ -58,7 +71,7 @@ bool E2ERoomsDataBase::loadKey(const QString &accountName, const QString &userId
     }
     QSqlQuery query(db);
     query.prepare(QStringLiteral("SELECT encryptedPrivateKey, publicKey FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
-    query.addBindValue(userId);
+    query.addBindValue(generateRoomKeyId(roomId, keyId));
     if (query.exec() && query.first()) {
         encryptedPrivateKey = query.value(0).toByteArray();
         publicKey = query.value(1).toByteArray();
@@ -67,7 +80,7 @@ bool E2ERoomsDataBase::loadKey(const QString &accountName, const QString &userId
     return false;
 }
 
-bool E2ERoomsDataBase::deleteKey(const QString &accountName, const QString &userId)
+bool E2ERoomsDataBase::deleteKey(const QString &accountName, const QString &roomId, const QString &keyId)
 {
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
@@ -75,7 +88,7 @@ bool E2ERoomsDataBase::deleteKey(const QString &accountName, const QString &user
     }
     QSqlQuery query(db);
     query.prepare(QStringLiteral("DELETE FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
-    query.addBindValue(userId);
+    query.addBindValue(generateRoomKeyId(roomId, keyId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EROOMSKEYS table" << db.databaseName() << query.lastError();
         return false;
@@ -83,7 +96,7 @@ bool E2ERoomsDataBase::deleteKey(const QString &accountName, const QString &user
     return true;
 }
 
-bool E2ERoomsDataBase::hasKey(const QString &accountName, const QString &userId)
+bool E2ERoomsDataBase::hasKey(const QString &accountName, const QString &roomId, const QString &keyId)
 {
     QSqlDatabase db;
     if (!initializeDataBase(accountName, db)) {
@@ -91,7 +104,7 @@ bool E2ERoomsDataBase::hasKey(const QString &accountName, const QString &userId)
     }
     QSqlQuery query(db);
     query.prepare(QStringLiteral("SELECT 1 FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
-    query.addBindValue(userId);
+    query.addBindValue(generateRoomKeyId(roomId, keyId));
     return query.exec() && query.first();
 }
 

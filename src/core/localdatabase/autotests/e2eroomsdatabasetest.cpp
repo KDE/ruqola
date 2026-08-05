@@ -10,8 +10,10 @@
 
 QTEST_GUILESS_MAIN(E2ERoomsDataBaseTest)
 using namespace Qt::Literals::StringLiterals;
-const auto testUser = QStringLiteral("testuser");
-const auto otherUser = QStringLiteral("otheruser");
+const auto testRoom = QStringLiteral("testRoom");
+const auto testKey = QStringLiteral("testKey");
+const auto testOtherRoom = QStringLiteral("testOtherRoom");
+const auto testOtherKey = QStringLiteral("testOtherKey");
 static QString accountName()
 {
     return u"myAccount"_s;
@@ -20,8 +22,8 @@ using namespace Qt::Literals::StringLiterals;
 void E2ERoomsDataBaseTest::initTestCase()
 {
     E2ERoomsDataBase store;
-    QVERIFY(store.deleteKey(accountName(), testUser));
-    QVERIFY(store.deleteKey(accountName(), otherUser));
+    QVERIFY(store.deleteKey(accountName(), testRoom, testKey));
+    QVERIFY(store.deleteKey(accountName(), testOtherRoom, testOtherKey));
 }
 
 void E2ERoomsDataBaseTest::shouldDefaultValues()
@@ -34,28 +36,28 @@ void E2ERoomsDataBaseTest::shouldDefaultValues()
 void E2ERoomsDataBaseTest::testSaveLoadDelete()
 {
     E2ERoomsDataBase store;
-    const auto userId = testUser;
+    const auto userId = testRoom;
     const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
     const auto priv = rsaKeyPair.publicKey;
     const auto pub = rsaKeyPair.privateKey;
 
-    QVERIFY(store.saveKey(accountName(), userId, priv, pub));
-    QVERIFY(store.hasKey(accountName(), userId));
+    QVERIFY(store.saveKey(accountName(), testRoom, testKey, priv, pub));
+    QVERIFY(store.hasKey(accountName(), testRoom, testKey));
 
     QByteArray loadedPriv;
     QByteArray loadedPub;
-    QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
+    QVERIFY(store.loadKey(accountName(), testRoom, testKey, loadedPriv, loadedPub));
     QCOMPARE(loadedPriv, priv);
     QCOMPARE(loadedPub, pub);
 
-    QVERIFY(store.deleteKey(accountName(), userId));
-    QVERIFY(!store.hasKey(accountName(), userId));
+    QVERIFY(store.deleteKey(accountName(), testRoom, testKey));
+    QVERIFY(!store.hasKey(accountName(), testRoom, testKey));
 }
 
 void E2ERoomsDataBaseTest::testOverwrite()
 {
     E2ERoomsDataBase store;
-    const auto userId = testUser;
+    const auto userId = testRoom;
     const auto rsaKeyPair1 = EncryptionUtils::generateRSAKey();
     const auto rsaKeyPair2 = EncryptionUtils::generateRSAKey();
 
@@ -64,32 +66,32 @@ void E2ERoomsDataBaseTest::testOverwrite()
     const auto priv2 = rsaKeyPair2.privateKey;
     const auto pub2 = rsaKeyPair2.publicKey;
 
-    QVERIFY(store.saveKey(accountName(), userId, priv1, pub1));
+    QVERIFY(store.saveKey(accountName(), testRoom, testKey, priv1, pub1));
     {
         QByteArray loadedPriv, loadedPub;
-        QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
+        QVERIFY(store.loadKey(accountName(), testRoom, testKey, loadedPriv, loadedPub));
         QCOMPARE(loadedPriv, priv1);
         QCOMPARE(loadedPub, pub1);
     }
 
-    QVERIFY(store.saveKey(accountName(), userId, priv2, pub2));
+    QVERIFY(store.saveKey(accountName(), testRoom, testKey, priv2, pub2));
     {
         QByteArray loadedPriv, loadedPub;
-        QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
+        QVERIFY(store.loadKey(accountName(), testRoom, testKey, loadedPriv, loadedPub));
         QCOMPARE(loadedPriv, priv2);
         QCOMPARE(loadedPub, pub2);
     }
-    QVERIFY(store.deleteKey(accountName(), userId));
+    QVERIFY(store.deleteKey(accountName(), testRoom, testKey));
 }
 
 void E2ERoomsDataBaseTest::testNonExistentKey()
 {
     E2ERoomsDataBase store;
-    const auto userId = otherUser;
+    const auto userId = testOtherRoom;
     QByteArray priv, pub;
-    QVERIFY(!store.hasKey(accountName(), userId));
-    QVERIFY(!store.loadKey(accountName(), userId, priv, pub));
-    QVERIFY(store.deleteKey(accountName(), userId));
+    QVERIFY(!store.hasKey(accountName(), testRoom, testKey));
+    QVERIFY(!store.loadKey(accountName(), testRoom, testKey, priv, pub));
+    QVERIFY(store.deleteKey(accountName(), testRoom, testKey));
 }
 
 #include "moc_e2eroomsdatabasetest.cpp"
