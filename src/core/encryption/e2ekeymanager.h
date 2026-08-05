@@ -35,6 +35,7 @@ public:
     [[nodiscard]] bool hasPendingUploadFailure() const;
 
     void fetchMyKeys();
+    [[nodiscard]] bool initializeRoomE2EKey(const QByteArray &roomId, const QString &existingKeyId = {});
 
     [[nodiscard]] E2eKeyManager::Status needToDecodeEncryptionKey() const;
 
@@ -65,6 +66,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *baseJob);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString passwordKeyIdentifier() const;
     LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *baseJob);
+    LIBRUQOLACORE_NO_EXPORT void distributeRoomSessionKey(const QByteArray &roomId, const QByteArray &sessionKey, const QString &keyId);
     Status mStatus = Status::Unknown;
     QString mGeneratedPassword;
     QByteArray mDecodedPrivateKey;

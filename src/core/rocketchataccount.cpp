@@ -22,6 +22,7 @@
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_database_debug.h"
+#include "ruqola_encryption_debug.h"
 #include "ruqola_subscription_parsing_debug.h"
 #include "ruqolautils.h"
 #include "subscriptions/subscriptiongetonejob.h"
@@ -2758,12 +2759,32 @@ void RocketChatAccount::extractIdentifier(const QJsonObject &replyObject, const 
 
 void RocketChatAccount::slotCreateGroupDone(const QJsonObject &replyObject)
 {
-    extractIdentifier(replyObject, "group"_L1, "_id"_L1);
+    const QJsonObject group = replyObject["group"_L1].toObject();
+    const QString roomId = group["_id"_L1].toString();
+    if (!roomId.isEmpty()) {
+        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+        if (group["encrypted"_L1].toBool()) {
+            const QString existingKeyId = group["e2eKeyId"_L1].toString();
+            if (!mE2eKeyManager->initializeRoomE2EKey(roomId.toLatin1(), existingKeyId)) {
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << "Impossible to initialize e2e for room " << roomId;
+            }
+        }
+    }
 }
 
 void RocketChatAccount::slotCreateChannelDone(const QJsonObject &replyObject)
 {
-    extractIdentifier(replyObject, "channel"_L1, "_id"_L1);
+    const QJsonObject channel = replyObject["channel"_L1].toObject();
+    const QString roomId = channel["_id"_L1].toString();
+    if (!roomId.isEmpty()) {
+        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+        if (channel["encrypted"_L1].toBool()) {
+            const QString existingKeyId = channel["e2eKeyId"_L1].toString();
+            if (!mE2eKeyManager->initializeRoomE2EKey(roomId.toLatin1(), existingKeyId)) {
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << "Impossible to initialize e2e for room " << roomId;
+            }
+        }
+    }
 }
 
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)

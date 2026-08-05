@@ -36,9 +36,9 @@ Q_SIGNALS:
 protected:
     [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QList<QByteArray> mRoomIds;
     QString mText;
 };

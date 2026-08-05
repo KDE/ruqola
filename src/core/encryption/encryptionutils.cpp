@@ -304,7 +304,7 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
  */
 QByteArray EncryptionUtils::generateSessionKey()
 {
-    return generateRandomIV(16);
+    return generateRandomIV(32);
 }
 
 /**
@@ -695,6 +695,70 @@ QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
 
     BIO_free(bio);
     RSA_free(rsa);
+    return pem;
+}
+
+/**
+ * @brief Converts a JWK RSA public key JSON to PEM format.
+ *
+ * Rocket.Chat stores public keys as JWK JSON (kty=RSA, with base64url-encoded
+ * n and e fields). This function reconstructs the OpenSSL RSA public key and
+ * serialises it as a SubjectPublicKeyInfo PEM so that publicKeyFromPEM() can
+ * consume it uniformly.
+ *
+ * @param jwkJson UTF-8 encoded JSON containing at minimum: kty, n, e.
+ * @return PEM-encoded public key, or empty on error.
+ */
+QByteArray EncryptionUtils::publicKeyJWKToPEM(const QByteArray &jwkJson)
+{
+    const QJsonDocument doc = QJsonDocument::fromJson(jwkJson);
+    if (doc.isNull() || !doc.isObject()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: invalid JSON";
+        return {};
+    }
+    const QJsonObject obj = doc.object();
+    if (obj.value(QStringLiteral("kty")).toString() != QLatin1String("RSA")) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: not an RSA key";
+        return {};
+    }
+
+    const auto b64urlToBN = [](const QString &b64url) -> BIGNUM * {
+        QString b64 = b64url;
+        b64.replace(QLatin1Char('-'), QLatin1Char('+')).replace(QLatin1Char('_'), QLatin1Char('/'));
+        while (b64.size() % 4 != 0) {
+            b64.append(QLatin1Char('='));
+        }
+        const QByteArray bytes = QByteArray::fromBase64(b64.toLatin1());
+        if (bytes.isEmpty()) {
+            return nullptr;
+        }
+        return BN_bin2bn(reinterpret_cast<const unsigned char *>(bytes.constData()), bytes.size(), nullptr);
+    };
+
+    BIGNUM *n = b64urlToBN(obj.value(QStringLiteral("n")).toString());
+    BIGNUM *e = b64urlToBN(obj.value(QStringLiteral("e")).toString());
+    if (!n || !e) {
+        BN_free(n);
+        BN_free(e);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: missing n or e components";
+        return {};
+    }
+
+    RSA *rsa = RSA_new();
+    RSA_set0_key(rsa, n, e, nullptr); // transfers ownership
+
+    // Wrap in EVP_PKEY and write as SubjectPublicKeyInfo PEM (BEGIN PUBLIC KEY)
+    EVP_PKEY *pkey = EVP_PKEY_new();
+    EVP_PKEY_assign_RSA(pkey, rsa); // pkey owns rsa from here
+    BIO *bio = BIO_new(BIO_s_mem());
+    PEM_write_bio_PUBKEY(bio, pkey);
+
+    BUF_MEM *buf = nullptr;
+    BIO_get_mem_ptr(bio, &buf);
+    const QByteArray pem(buf->data, static_cast<qsizetype>(buf->length));
+
+    BIO_free(bio);
+    EVP_PKEY_free(pkey);
     return pem;
 }
 

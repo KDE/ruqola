@@ -21,7 +21,7 @@ enum class E2ERoomsFields {
 }; // in the same order as the table
 
 E2ERoomsDataBase::E2ERoomsDataBase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localE2EDatabasePath(), LocalDatabaseBase::DatabaseType::E2ERooms)
+    : LocalDatabaseBase(LocalDatabaseUtils::localE2ERoomsDatabasePath(), LocalDatabaseBase::DatabaseType::E2ERooms)
 {
 }
 
@@ -115,7 +115,7 @@ std::unique_ptr<QSqlTableModel> E2ERoomsDataBase::createE2eRoomsModel(const QStr
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
         const QString fileName = dbFileName(accountName);
-        // qDebug() << " fileName " << fileName;
+        qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             return {};
         }

@@ -436,6 +436,11 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
         return message.systemMessageText();
     } else if (message.messageType() == Message::EncryptedText) {
         // TODO allow to decrypt message
+#if 0
+        qDebug() << "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD" << *message.messageEncrypted();
+        qDebug() << " xxxxxxxxxx " << message.messageEncrypted()->decrypt("a2e332e5-0b27-4d8f-82e8-66c833ae7860");
+#endif
+        // message.messageEncrypted()->decrypt()
         return message.systemMessageText();
     } else {
         QStringList highlightWords;

@@ -40,6 +40,7 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptAES_GCM_256(const QByteArray &ciphertext, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptAES_GCM_256(const QByteArray &plainText, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray privateKeyJWKToPEM(const QByteArray &jwkJson);
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray publicKeyJWKToPEM(const QByteArray &jwkJson);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptMessage(const QByteArray &plainText, const QByteArray &sessionKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptMessage(const QByteArray &plainText, const QByteArray &sessionKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray deriveKey(const QByteArray &salt, const QByteArray &baseKey, int iterations = 1000, int keyLength = 32);
