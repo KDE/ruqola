@@ -439,7 +439,6 @@ void MessagesModel::generateText(const Message &message, const QString &searchTe
 
 void MessagesModel::decryptMessages(const QByteArray &sessionKey)
 {
-    qDebug() << " void MessagesModel::decryptMessages(const QByteArray &sessionKey)" << mAllMessages.count();
     for (auto &msg : std::as_const(mAllMessages)) {
         if (auto f = msg.messageEncrypted()) {
             f->decryptContent(sessionKey);
@@ -454,7 +453,6 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
     } else if (message.messageType() == Message::EncryptedText) {
         if (message.messageEncrypted()) {
             const QString text = message.messageEncrypted()->descriptedText();
-            qDebug() << " text " << text;
             if (!text.isEmpty()) {
                 return text;
             }
