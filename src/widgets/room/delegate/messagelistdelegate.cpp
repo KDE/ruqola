@@ -797,9 +797,9 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 bool MessageListDelegate::isSystemMessage(const Message *message) const
 {
     const Message::MessageType messageType = message->messageType();
-    const bool isSystemMessage = (messageType == Message::EncryptedText) || (messageType == Message::System)
-        || (messageType == Message::Information) /* || (messageType == Message::VideoConference)*/;
-    return isSystemMessage || message->privateMessage();
+    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) /* || (messageType == Message::VideoConference)*/;
+    const bool isEncrypted = messageType == Message::EncryptedText && !message->hasDescriptedContent();
+    return isEncrypted || isSystemMessage || message->privateMessage();
 }
 
 bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

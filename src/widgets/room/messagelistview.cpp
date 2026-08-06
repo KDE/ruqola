@@ -401,8 +401,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (mMessageListDelegate->contextMenu(options, index, info)) {
         return;
     }
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
-    const bool isSystemMessage = (messageType == Message::EncryptedText) || (messageType == Message::System) || (messageType == Message::Information);
+    const bool isSystemMessage = (messageType == Message::EncryptedText && !message->hasDescriptedContent()) || (messageType == Message::System)
+        || (messageType == Message::Information);
     QMenu menu(this);
     if (isSystemMessage) {
         if (Ruqola::self()->debug()) {
@@ -498,7 +501,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotForwardMessage(index);
     });
 
-    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     if (!message || !mCurrentRocketChatAccount) {
         return;
     }

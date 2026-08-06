@@ -68,12 +68,13 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
 
 bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
 {
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = messageType == Message::System
         && index.data(MessagesModel::SystemMessageType).value<SystemMessageTypeUtil::SystemMessageType>()
             != SystemMessageTypeUtil::SystemMessageType::JitsiCallStarted;
-    const bool isEncrypted = messageType == Message::EncryptedText;
-    return isEncrypted || isSystemMessage || index.data(MessagesModel::PrivateMessage).toBool();
+    const bool isEncrypted = messageType == Message::EncryptedText && !message->hasDescriptedContent();
+    return isEncrypted || isSystemMessage || message->privateMessage();
 }
 
 bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)
