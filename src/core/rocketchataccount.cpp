@@ -78,7 +78,6 @@
 #include "messagecache.h"
 #include "messages/message.h"
 #include "misc/roleslistjob.h"
-#include "otr/otrmanager.h"
 #include "receivetypingnotificationmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
@@ -132,7 +131,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mRuqolaServerConfig(new RuqolaServerConfig)
     , mUserCompleterModel(new UserCompleterModel(this))
     , mStatusModel(new StatusModel(this))
-    , mOtrManager(new OtrManager(this, this))
     , mInputTextManager(new InputTextManager(this, this))
     , mInputThreadMessageTextManager(new InputTextManager(this, this))
     , mReceiveTypingNotificationManager(new ReceiveTypingNotificationManager(this))
@@ -2137,13 +2135,6 @@ void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
     mVideoConferenceManager->parseVideoConference(contents);
 }
 
-void RocketChatAccount::parseOtr(const QJsonArray &contents)
-{
-    qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)" << contents << " account name"
-                        << accountName();
-    mOtrManager->parseOtr(contents);
-}
-
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
 {
     // Conference call
@@ -3446,11 +3437,6 @@ MemoryManager *RocketChatAccount::memoryManager() const
     return mMemoryManager;
 }
 
-void RocketChatAccount::streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId)
-{
-    ddp()->streamNotifyUserOtrEnd(QString::fromLatin1(roomId), QString::fromLatin1(userId));
-}
-
 void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::MethodRequestedType type)
 {
     switch (type) {
@@ -3480,9 +3466,6 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
         break;
     case DDPClient::MethodRequestedType::InputUserChannelAutocomplete:
         inputUserChannelAutocomplete(obj);
-        break;
-    case DDPClient::MethodRequestedType::OtrEnd:
-        otrEnd(obj);
         break;
     case DDPClient::MethodRequestedType::Enable2fa:
         enable2fa(obj);
@@ -3803,12 +3786,6 @@ void RocketChatAccount::enable2fa(const QJsonObject &root)
 
     const QJsonObject obj = root.value("result"_L1).toObject();
     generate2FaTotp(obj);
-}
-
-void RocketChatAccount::otrEnd(const QJsonObject &root)
-{
-    qDebug() << "otr_end  " << root;
-    displayLogInfo("Otr End"_ba, root);
 }
 
 void RocketChatAccount::inputUserChannelAutocomplete(const QJsonObject &root)

@@ -53,7 +53,6 @@ public:
         CreateJitsiConfCall,
         InputUserChannelAutocompleteThread,
         InputUserChannelAutocomplete,
-        OtrEnd,
         AdminStatus,
         VideoConferenceCall,
         VideoConferenceRejected,
@@ -171,9 +170,6 @@ public:
     quint64 inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
-    quint64 streamNotifyUserOtrEnd(const QString &roomId, const QString &userId);
-    quint64 streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey);
-    quint64 streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKey);
     quint64 uploadCustomSound(const QByteArray &sound);
     void unsubscribe(quint64 registerId);
     quint64 enable2fa();

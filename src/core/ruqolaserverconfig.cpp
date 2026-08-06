@@ -568,8 +568,6 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setBlockEditingMessageInMinutes(value.toInt());
     } else if (id == "Message_AllowDeleting_BlockDeleteInMinutes"_L1) {
         setBlockDeletingMessageInMinutes(value.toInt());
-    } else if (id == "OTR_Enable"_L1) {
-        assignSettingValue(value.toBool(), ServerConfigFeatureType::OtrEnabled);
     } else if (id.contains(regularExpressionOAuth)) {
         if (value.toBool()) {
             addOauthService(id);
@@ -768,7 +766,6 @@ QByteArray RuqolaServerConfig::serialize(bool toBinary)
     array.append(createJsonObject(u"Message_AllowEditing"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::AllowEditingMessage)));
     array.append(createJsonObject(u"Message_AllowEditing_BlockEditInMinutes"_s, blockEditingMessageInMinutes()));
     array.append(createJsonObject(u"Message_AllowDeleting_BlockDeleteInMinutes"_s, blockDeletingMessageInMinutes()));
-    array.append(createJsonObject(u"OTR_Enable"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::OtrEnabled)));
     array.append(createJsonObject(u"Site_Url"_s, mSiteUrl));
     array.append(createJsonObject(u"Site_Name"_s, siteName()));
     array.append(createJsonObject(u"E2E_Enable"_s, static_cast<bool>(serverConfigFeatureTypes() & ServerConfigFeatureType::EncryptionEnabled)));
@@ -1197,11 +1194,6 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig::PasswordSettings &t)
     d.space() << "accountsPasswordPolicyAtLeastOneNumber" << t.accountsPasswordPolicyAtLeastOneNumber;
     d.space() << "accountsPasswordPolicyAtLeastOneSpecialCharacter" << t.accountsPasswordPolicyAtLeastOneSpecialCharacter;
     return d;
-}
-
-bool RuqolaServerConfig::otrEnabled() const
-{
-    return mServerConfigFeatureTypes & RuqolaServerConfig::ServerConfigFeatureType::OtrEnabled;
 }
 
 bool RuqolaServerConfig::allowProfileChange() const

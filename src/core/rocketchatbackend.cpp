@@ -478,16 +478,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_BACKEND_LOG) << "WEBRTC CHANGED: " << object;
             }
             qCWarning(RUQOLA_LOG) << "stream-notify-user : WEBRTC ? " << eventname << " contents " << contents;
-        } else if (eventname.endsWith("/otr"_L1)) {
-            if (mRocketChatAccount->ruqolaLogger()) {
-                QJsonDocument d;
-                d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: otr: "_ba + d.toJson());
-            } else {
-                qCDebug(RUQOLA_BACKEND_LOG) << "OTR CHANGED: " << object;
-            }
-            mRocketChatAccount->parseOtr(contents);
-            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
         } else if (eventname.endsWith("/message"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -739,7 +729,6 @@ void RocketChatBackend::subscribeRegistration()
         u"rooms-changed"_s,
         u"subscriptions-changed"_s,
         u"message"_s,
-        u"otr"_s,
         u"webrtc"_s,
         u"video-conference"_s,
         u"userData"_s,

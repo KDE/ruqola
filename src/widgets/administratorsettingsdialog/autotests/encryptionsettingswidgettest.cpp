@@ -58,13 +58,6 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowUnencryptedMessages->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowUnencryptedMessages), u"E2E_Allow_Unencrypted_Messages"_s);
 
-    auto mEnableOtr = w.findChild<QCheckBox *>(u"mEnableOtr"_s);
-    QVERIFY(mEnableOtr);
-    QVERIFY(!mEnableOtr->isChecked());
-    QVERIFY(!mEnableOtr->text().isEmpty());
-    QVERIFY(!mEnableOtr->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableOtr), u"OTR_Enabled"_s);
-
     auto mEnableMentions = w.findChild<QCheckBox *>(u"mEnableMentions"_s);
     QVERIFY(mEnableMentions);
     QVERIFY(!mEnableMentions->isChecked());

@@ -46,7 +46,6 @@ class UserCompleterFilterProxyModel;
 class StatusModel;
 class RocketChatCache;
 class EmojiManager;
-class OtrManager;
 class FilesForRoomFilterProxyModel;
 class FilesForRoomModel;
 class InputTextManager;
@@ -253,7 +252,6 @@ public:
     void setServerUrl(const QString &serverUrl);
 
     void sendNotification(const QJsonArray &contents);
-    void parseOtr(const QJsonArray &contents);
 
     void setServerVersion(const QString &version);
 
@@ -409,8 +407,6 @@ public:
     [[nodiscard]] bool e2EPasswordMustBeDecrypt() const;
 
     void setLastSelectedRoom(const QByteArray &roomId);
-
-    void streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId);
 
     void muteUser(const QByteArray &rid, const QString &userId, bool mute);
     void initializeDirectChannel(const QByteArray &rid);
@@ -613,7 +609,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void createJitsiConfCall(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocompleteThread(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocomplete(const QJsonObject &root);
-    LIBRUQOLACORE_NO_EXPORT void otrEnd(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void enable2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void regenerateCodes2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void disable2fa(const QJsonObject &root);
@@ -658,7 +653,6 @@ private:
     UserCompleterFilterProxyModel *mUserCompleterFilterModelProxy = nullptr;
     StatusModel *const mStatusModel;
     RocketChatCache *mCache = nullptr;
-    OtrManager *const mOtrManager;
     InputTextManager *const mInputTextManager;
 
     InputTextManager *const mInputThreadMessageTextManager;

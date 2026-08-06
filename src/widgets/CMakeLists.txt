@@ -579,8 +579,6 @@ target_sources(
         notificationhistory/notificationhistorydelegate.cpp
         notificationhistory/notificationhistorylistview.h
         notificationhistory/notificationhistorylistview.cpp
-        otr/otrwidget.cpp
-        otr/otrwidget.h
         prunemessages/prunemessagesdialog.cpp
         prunemessages/prunemessagesdialog.h
         prunemessages/prunemessageswidget.cpp
@@ -1296,7 +1294,6 @@ if(BUILD_TESTING)
     add_subdirectory(exportmessages/autotests)
     add_subdirectory(teams/autotests)
     add_subdirectory(directory/autotests)
-    add_subdirectory(otr/autotests)
     add_subdirectory(switchchannelhistory/autotests)
     add_subdirectory(messagemaximumsizedialog/autotests)
     add_subdirectory(notificationhistory/autotests)

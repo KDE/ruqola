@@ -46,7 +46,6 @@
 
 #include "offlinewidget/offlinewidget.h"
 
-#include "otr/otrwidget.h"
 #include "reconnectinfowidget.h"
 #include "rocketchataccountsettings.h"
 #include "roomcounterinfowidget.h"
@@ -220,17 +219,6 @@ void RoomWidget::createOffLineWidget()
     mRoomWidgetLayout->insertWidget(1, mOffLineWidget);
 }
 
-// TODO using it.
-void RoomWidget::createOtrWidget()
-{
-    mOtrWidget = new OtrWidget(this);
-    mOtrWidget->setObjectName(u"mOtrWidget"_s);
-    connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
-    connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
-    // After mUsersInRoomFlowWidget
-    mRoomWidgetLayout->insertWidget(1, mOtrWidget);
-}
-
 void RoomWidget::createE2eSaveEncryptionKeyWidget()
 {
     if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
@@ -384,9 +372,6 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
         break;
     case RoomHeaderWidget::ExportMessages:
         slotExportMessages();
-        break;
-    case RoomHeaderWidget::OtrMessages:
-        // TODO
         break;
     case RoomHeaderWidget::EncryptMessages:
         slotEncryptedChanged(true);
@@ -1248,16 +1233,6 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
         }
         mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
     }
-}
-
-void RoomWidget::slotCloseOtr()
-{
-    mCurrentRocketChatAccount->streamNotifyUserOtrEnd(roomId(), mCurrentRocketChatAccount->userId());
-}
-
-void RoomWidget::slotRefreshOtrKeys()
-{
-    // TODO
 }
 
 void RoomWidget::slotOfflineModeChanged()

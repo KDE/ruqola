@@ -22,7 +22,6 @@ class UsersInRoomFlowWidget;
 class RoomCounterInfoWidget;
 class RoomWidgetBase;
 class ReconnectInfoWidget;
-class OtrWidget;
 class OffLineWidget;
 class PluginTextMessageWidget;
 class E2eSaveEncryptionKeyWidget;
@@ -108,10 +107,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTryReconnect();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisplayReconnectWidget(int seconds);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginStatusChanged();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotCloseOtr();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRefreshOtrKeys();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCallRequested();
-    LIBRUQOLAWIDGETS_NO_EXPORT void createOtrWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createOffLineWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createRoomReconnectInfoWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void createPluginTextMessageWidget();
@@ -140,7 +136,6 @@ private:
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     ReconnectInfoWidget *mRoomReconnectInfoWidget = nullptr;
     PluginTextMessageWidget *mPluginTextMessageWidget = nullptr;
-    OtrWidget *mOtrWidget = nullptr;
     OffLineWidget *mOffLineWidget = nullptr;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;

@@ -349,12 +349,6 @@ target_sources(
         servererrorinfohistorymanager.h
         oauth/oauthinfo.cpp
         oauth/oauthinfo.h
-        otr/otr.cpp
-        otr/otr.h
-        otr/otrmanager.cpp
-        otr/otrmanager.h
-        otr/otrnotificationjob.cpp
-        otr/otrnotificationjob.h
         ownuser/ownuser.cpp
         ownuser/ownuser.h
         ownuser/ownuserpreferences.cpp

@@ -124,13 +124,6 @@ void ChannelActionPopupMenu::createMenu()
     });
 
     mMenu->addSeparator();
-    mOffTheRecordMessages = new QAction(i18nc("@action", "OTR"), this);
-    mOffTheRecordMessages->setCheckable(true);
-    mMenu->addAction(mOffTheRecordMessages);
-    connect(mOffTheRecordMessages, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(RoomHeaderWidget::OtrMessages);
-    });
-    mMenu->addSeparator();
     mEncryptMessages = new QAction(i18nc("@action", "Encrypt Messages"), this);
     mEncryptMessages->setCheckable(true);
     mMenu->addAction(mEncryptMessages);
@@ -208,10 +201,6 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         mPruneMessagesSeparator->setVisible(showPruneMessage);
 
         mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(u"mail-messages"_s));
-
-        // FIXME Disable for the moment
-        mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->ruqolaServerConfig()->otrEnabled()
-                                          && mRoom->channelType() == Room::RoomType::Direct);
 
         mEncryptMessages->setVisible(mRoom->encryptedEnabled()); // Hide when not private channels or not direct
         mEncryptMessages->setChecked(mRoom->encrypted());

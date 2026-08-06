@@ -38,10 +38,9 @@ public:
         VideoChat = 11,
         PruneMessages = 12,
         ExportMessages = 13,
-        OtrMessages = 14,
-        EncryptMessages = 15,
-        UnEncryptMessages = 16,
-        ShowBannedUsers = 17,
+        EncryptMessages = 14,
+        UnEncryptMessages = 15,
+        ShowBannedUsers = 16,
     };
     Q_ENUM(ChannelActionType)
 

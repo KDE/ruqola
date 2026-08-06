@@ -5,13 +5,13 @@
 */
 
 #include "encryptionsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QCheckBox>
 #include <QFormLayout>
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
     , mEnableE2E(new QCheckBox(i18nc("@option:check", "Enabled E2E encryption"), this))
@@ -20,7 +20,6 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     , mEnableEncryptFiles(new QCheckBox(i18nc("@option:check", "Encrypt files"), this))
     , mAllowUnencryptedMessages(new QCheckBox(i18nc("@option:check", "Access unencrypted content in encrypted rooms"), this))
     , mEnableMentions(new QCheckBox(i18nc("@option:check", "Mentions"), this))
-    , mEnableOtr(new QCheckBox(i18nc("@option:check", "Enable OTR"), this))
 {
     mEnableE2E->setObjectName(u"mEnableE2E"_s);
     mEnableE2E->setToolTip(
@@ -45,12 +44,6 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     mEnableMentions->setObjectName(u"mEnableMentions"_s);
     mEnableMentions->setToolTip(i18nc("@info:tooltip", "Notify people, and highlight user, channel, and team mentions in encrypted content."));
     addCheckBox(mEnableMentions, u"E2E_Enabled_Mentions"_s);
-
-    mEnableOtr->setObjectName(u"mEnableOtr"_s);
-    mEnableOtr->setToolTip(
-        i18n("Enable option to use off-the-record (OTR) messages in direct messages between 2 users. OTR messages are not recorded on the server and exchanged "
-             "directly and encrypted between the 2 users."));
-    addCheckBox(mEnableOtr, u"OTR_Enabled"_s);
 }
 
 EncryptionSettingsWidget::~EncryptionSettingsWidget() = default;
@@ -63,7 +56,6 @@ void EncryptionSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase
     initializeWidget(mEnableEncryptFiles, mapSettings, true);
     initializeWidget(mAllowUnencryptedMessages, mapSettings, true);
     initializeWidget(mEnableMentions, mapSettings, true);
-    initializeWidget(mEnableOtr, mapSettings);
 }
 
 #include "moc_encryptionsettingswidget.cpp"

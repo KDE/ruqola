@@ -51,7 +51,6 @@ private:
     QAction *mPruneMessages = nullptr;
     QAction *mPruneMessagesSeparator = nullptr;
     QAction *mExportMessages = nullptr;
-    QAction *mOffTheRecordMessages = nullptr;
     QAction *mEncryptMessages = nullptr;
     QAction *mShowBannedUsers = nullptr;
 

@@ -68,7 +68,6 @@ public:
     enum ServerConfigFeatureType {
         None = 0,
         AllowEditingMessage = 1,
-        OtrEnabled = 2,
         // NeedAdaptNewSubscriptionRC60 = 4,
         EncryptionEnabled = 8,
         AllowMessagePinning = 0x10,
@@ -274,7 +273,6 @@ public:
     [[nodiscard]] bool allowMessageStarringEnabled() const;
     [[nodiscard]] bool allowMessagePinningEnabled() const;
     [[nodiscard]] bool allowProfileChange() const;
-    [[nodiscard]] bool otrEnabled() const;
     [[nodiscard]] bool allowEditingMessages() const;
     [[nodiscard]] bool uploadFileEnabled() const;
     [[nodiscard]] bool jitsiEnabled() const;
