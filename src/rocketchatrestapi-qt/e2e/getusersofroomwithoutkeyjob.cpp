@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "getusersofroomwithoutkey.h"
+#include "getusersofroomwithoutkeyjob.h"
 
 #include "restapimethod.h"
 #include <QJsonDocument>
@@ -14,14 +14,14 @@
 
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
-GetUsersOfRoomWithoutKey::GetUsersOfRoomWithoutKey(QObject *parent)
+GetUsersOfRoomWithoutKeyJob::GetUsersOfRoomWithoutKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-GetUsersOfRoomWithoutKey::~GetUsersOfRoomWithoutKey() = default;
+GetUsersOfRoomWithoutKeyJob::~GetUsersOfRoomWithoutKeyJob() = default;
 
-bool GetUsersOfRoomWithoutKey::start()
+bool GetUsersOfRoomWithoutKeyJob::start()
 {
     if (!canStart()) {
         deleteLater();
@@ -34,7 +34,7 @@ bool GetUsersOfRoomWithoutKey::start()
     return true;
 }
 
-void GetUsersOfRoomWithoutKey::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void GetUsersOfRoomWithoutKeyJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -47,21 +47,21 @@ void GetUsersOfRoomWithoutKey::onGetRequestResponse(const QString &replyErrorStr
     }
 }
 
-QByteArray GetUsersOfRoomWithoutKey::roomId() const
+QByteArray GetUsersOfRoomWithoutKeyJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetUsersOfRoomWithoutKey::setRoomId(const QByteArray &newRoomId)
+void GetUsersOfRoomWithoutKeyJob::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }
 
-QNetworkRequest GetUsersOfRoomWithoutKey::request() const
+QNetworkRequest GetUsersOfRoomWithoutKeyJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EGetUsersOfRoomWithoutKey);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"roomId"_s, QLatin1StringView(mRoomId));
+    queryUrl.addQueryItem(u"rid"_s, QLatin1StringView(mRoomId));
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
@@ -71,9 +71,9 @@ QNetworkRequest GetUsersOfRoomWithoutKey::request() const
     return request;
 }
 
-bool GetUsersOfRoomWithoutKey::requireHttpAuthentication() const
+bool GetUsersOfRoomWithoutKeyJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-#include "moc_getusersofroomwithoutkey.cpp"
+#include "moc_getusersofroomwithoutkeyjob.cpp"

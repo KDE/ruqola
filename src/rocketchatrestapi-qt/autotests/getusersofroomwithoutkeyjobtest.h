@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class GetUsersOfRoomWithoutKeyTest : public QObject
+class GetUsersOfRoomWithoutKeyJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit GetUsersOfRoomWithoutKeyTest(QObject *parent = nullptr);
-    ~GetUsersOfRoomWithoutKeyTest() override = default;
+    explicit GetUsersOfRoomWithoutKeyJobTest(QObject *parent = nullptr);
+    ~GetUsersOfRoomWithoutKeyJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

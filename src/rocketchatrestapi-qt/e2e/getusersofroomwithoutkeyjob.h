@@ -11,12 +11,12 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT GetUsersOfRoomWithoutKey : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GetUsersOfRoomWithoutKeyJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit GetUsersOfRoomWithoutKey(QObject *parent = nullptr);
-    ~GetUsersOfRoomWithoutKey() override;
+    explicit GetUsersOfRoomWithoutKeyJob(QObject *parent = nullptr);
+    ~GetUsersOfRoomWithoutKeyJob() override;
 
     [[nodiscard]] bool start() override;
     [[nodiscard]] bool requireHttpAuthentication() const override;
