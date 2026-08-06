@@ -8,6 +8,7 @@
 
 #include "channelgroupbasejob.h"
 #include "channels/channelhistoryjob.h"
+#include "chat/encryptedinfo.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "job/adduserinchanneljob.h"
@@ -65,7 +66,7 @@ public:
     void getOwnInfo();
     RocketChatRestApi::DownloadFileJob *
     downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType = "text/plain", bool requiredAuthentication = true);
-    void postMessage(const QByteArray &roomId, const QString &text);
+    void postMessage(const QByteArray &roomId, const QString &text, const RocketChatRestApi::EncryptedInfo &encryptedInfo = {});
     void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void leaveChannel(const QByteArray &roomId);
@@ -121,7 +122,11 @@ public:
     void getMentionedMessages(Utils::ListMessagesInfo &&info);
 
     void getThreadMessages(const QByteArray &threadMessageId);
-    void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
+    void sendMessage(const QByteArray &roomId,
+                     const QString &text,
+                     const QString &messageId = QString(),
+                     const QByteArray &threadMessageId = QByteArray(),
+                     const RocketChatRestApi::EncryptedInfo &encryptedInfo = {});
     void setUserStatus(const QString &userId, RocketChatRestApi::SetStatusJob::StatusType status, const QString &message = QString());
     void usersPresence();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);

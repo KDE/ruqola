@@ -300,13 +300,14 @@ void Connection::serverInfo()
     }
 }
 
-void Connection::postMessage(const QByteArray &roomId, const QString &text)
+void Connection::postMessage(const QByteArray &roomId, const QString &text, const RocketChatRestApi::EncryptedInfo &encryptedInfo)
 {
     auto job = new PostMessageJob(this);
     connect(job, &PostMessageJob::postMessageDone, this, &Connection::postMessageDone);
     initializeRestApiJob(job);
     job->setRoomIds({roomId});
     job->setText(text);
+    job->setEncryptedInfo(encryptedInfo);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start PostMessageJob job";
     }
@@ -1132,7 +1133,11 @@ void Connection::getThreadMessages(const QByteArray &threadMessageId)
     }
 }
 
-void Connection::sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId, const QByteArray &threadMessageId)
+void Connection::sendMessage(const QByteArray &roomId,
+                             const QString &text,
+                             const QString &messageId,
+                             const QByteArray &threadMessageId,
+                             const RocketChatRestApi::EncryptedInfo &encryptedInfo)
 {
     auto job = new SendMessageJob(this);
     initializeRestApiJob(job);
@@ -1141,7 +1146,7 @@ void Connection::sendMessage(const QByteArray &roomId, const QString &text, cons
         .roomId = QString::fromLatin1(roomId),
         .threadMessageId = QString::fromLatin1(threadMessageId),
         .message = text,
-        .info = EncryptedInfo(),
+        .info = encryptedInfo,
     };
     job->setSendMessageArguments(args);
     if (!job->start()) {

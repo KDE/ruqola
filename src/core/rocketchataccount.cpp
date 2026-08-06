@@ -39,6 +39,7 @@
 #include "encryption/e2ekeymanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
+#include "messages/messageencrypted.h"
 #include "notificationhistorymanager.h"
 #include "previewurlcachemanager.h"
 #include "serverconfiginfo.h"
@@ -539,9 +540,37 @@ void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &mes
     Room *const room = mRoomModel->findRoom(roomID);
     if (room && room->encrypted()) {
         const QByteArray sessionKey = room->sessionKey();
-        if (!sessionKey.isEmpty()) {
-            // TODO mE2eKeyManager->cr
+        if (sessionKey.isEmpty()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to send encrypted message: missing room session key for" << roomID;
+            mE2eKeyManager->decodeEncryptionKey();
+            return;
         }
+
+        const QByteArray keyId = room->e2eKeyId().toLatin1();
+        if (keyId.isEmpty()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to send encrypted message: missing room key id for" << roomID;
+            return;
+        }
+
+        QJsonObject payload;
+        payload.insert(u"msg"_s, message);
+
+        MessageEncrypted encryptedMessage;
+        const bool ok = encryptedMessage.encrypt(QJsonDocument(payload).toJson(QJsonDocument::Compact), sessionKey, keyId);
+        if (!ok) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to encrypt message for" << roomID;
+            return;
+        }
+
+        const RocketChatRestApi::EncryptedInfo info{
+            .algorithm = encryptedMessage.algorithm(),
+            .keyId = encryptedMessage.keyId(),
+            .ciphertext = encryptedMessage.ciphertext(),
+            .iv = encryptedMessage.iv(),
+        };
+        restApi()->sendMessage(roomID, message, {}, {}, info);
+        markRoomAsRead(roomID);
+        return;
     }
     restApi()->postMessage(roomID, message);
     markRoomAsRead(roomID);
