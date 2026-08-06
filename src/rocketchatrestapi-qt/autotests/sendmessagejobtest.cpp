@@ -31,7 +31,7 @@ void SendMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(args.message.isEmpty());
     QVERIFY(args.threadMessageId.isEmpty());
     QVERIFY(args.messageId.isEmpty());
-    QVERIFY(!args.encrypted);
+    QVERIFY(!args.info.isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -75,10 +75,16 @@ void SendMessageJobTest::shouldGenerateJsonEncrypted()
     const QString text = u"topic1"_s;
     SendMessageJob::SendMessageArguments args;
     args.roomId = roomId;
-    args.encrypted = true;
+    const EncryptedInfo info{
+        .algorithm = "bla",
+        .keyId = "blo",
+        .ciphertext = u"foo"_s,
+        .iv = "kde",
+    };
+    args.info = info;
     job.setSendMessageArguments(args);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"message":{"content":{"algorithm":"","ciphertext":"","iv":"","kid":""},"rid":"foo1","t":"e2e"}})").toLatin1());
+             QStringLiteral(R"({"message":{"content":{"algorithm":"bla","ciphertext":"foo","iv":"kde","kid":"blo"},"rid":"foo1","t":"e2e"}})").toLatin1());
 }
 
 void SendMessageJobTest::shouldNotStarting()

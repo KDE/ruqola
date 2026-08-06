@@ -53,6 +53,16 @@ void PostMessageJob::onPostRequestResponse(const QString &replyErrorString, cons
     }
 }
 
+EncryptedInfo PostMessageJob::encryptedInfo() const
+{
+    return mEncryptedInfo;
+}
+
+void PostMessageJob::setEncryptedInfo(const EncryptedInfo &newEncryptedInfo)
+{
+    mEncryptedInfo = newEncryptedInfo;
+}
+
 QNetworkRequest PostMessageJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatPostMessage);
@@ -113,7 +123,12 @@ QJsonDocument PostMessageJob::json() const
         }
         jsonObj["roomId"_L1] = QJsonArray::fromStringList(lst);
     }
-    jsonObj["text"_L1] = mText;
+    if (mEncryptedInfo.isValid()) {
+        jsonObj["content"_L1] = mEncryptedInfo.generateJson();
+        jsonObj["t"_L1] = u"e2e"_s;
+    } else {
+        jsonObj["text"_L1] = mText;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData " << postData;

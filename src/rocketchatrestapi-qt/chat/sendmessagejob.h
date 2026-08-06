@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "encryptedinfo.h"
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
@@ -17,20 +18,11 @@ public:
     explicit SendMessageJob(QObject *parent = nullptr);
     ~SendMessageJob() override;
 
-    struct EncryptedInfo {
-        QByteArray algorithm;
-        QByteArray keyId;
-        QString ciphertext; // TODO QByteArray ?
-        QByteArray iv;
-        [[nodiscard]] QJsonObject generateJson() const;
-    };
-
     struct SendMessageArguments {
         QString messageId;
         QString roomId;
         QString threadMessageId;
         QString message;
-        bool encrypted = false;
         EncryptedInfo info;
     };
 
@@ -52,7 +44,5 @@ private:
     SendMessageArguments mSendMessageArguments;
 };
 }
-Q_DECLARE_METATYPE(RocketChatRestApi::SendMessageJob::EncryptedInfo)
-Q_DECLARE_TYPEINFO(RocketChatRestApi::SendMessageJob::EncryptedInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_METATYPE(RocketChatRestApi::SendMessageJob::SendMessageArguments)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::SendMessageJob::SendMessageArguments, Q_RELOCATABLE_TYPE);
