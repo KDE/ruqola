@@ -220,3 +220,8 @@ MessageEncrypted *MessageEncrypted::deserialize(const QJsonObject &o)
     encrypted->setKeyId(o["kid"_L1].toString().toLatin1());
     return encrypted;
 }
+
+bool MessageEncrypted::hasDescriptedContent() const
+{
+    return !mDecryptedContent.isEmpty();
+}

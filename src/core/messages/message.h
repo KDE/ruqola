@@ -245,6 +245,8 @@ public:
     [[nodiscard]] const MessageEncrypted *messageEncrypted() const;
     void setMessageEncrypted(const MessageEncrypted &messageEncrypted);
 
+    [[nodiscard]] bool hasDescriptedContent() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);

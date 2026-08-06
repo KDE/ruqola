@@ -46,6 +46,8 @@ public:
 
     [[nodiscard]] QString descriptedText() const;
 
+    [[nodiscard]] bool hasDescriptedContent() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseDecryptedContent() const;
     QByteArray mAlgorithm;

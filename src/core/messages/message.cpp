@@ -1503,4 +1503,12 @@ void Message::assignMessageStateValue(MessageState type, bool status)
     }
 }
 
+bool Message::hasDescriptedContent() const
+{
+    if (mMessageEncrypted) {
+        return mMessageEncrypted->hasDescriptedContent();
+    }
+    return false;
+}
+
 #include "moc_message.cpp"
