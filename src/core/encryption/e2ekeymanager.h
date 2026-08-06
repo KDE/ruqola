@@ -14,6 +14,7 @@ namespace QKeychain
 {
 class Job;
 }
+class Room;
 class LIBRUQOLACORE_EXPORT E2eKeyManager : public QObject
 {
     Q_OBJECT
@@ -50,6 +51,7 @@ public:
 
     void verifyExistingKeyForTest(const QJsonObject &json);
     [[nodiscard]] bool decryptRoomsSessionKeys() const;
+    [[nodiscard]] bool decryptRoomSessionKeys(Room *r) const;
 
 Q_SIGNALS:
     void needDecodeEncryptionKey();

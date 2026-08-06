@@ -587,12 +587,33 @@ bool E2eKeyManager::decryptRoomsSessionKeys() const
     }
 
     RoomModel *model = mAccount->roomModel();
-    for (Room *room : model->rooms()) {
-        if (!room->e2EKey().isEmpty()) {
-            room->decryptSessionKeyWithPrivateKey(privateKey);
+    for (Room *r : model->rooms()) {
+        if (!r->e2EKey().isEmpty()) {
+            r->decryptSessionKeyWithPrivateKey(privateKey);
         }
     }
 
+    RSA_free(privateKey);
+#endif
+    return true;
+}
+
+bool E2eKeyManager::decryptRoomSessionKeys(Room *r) const
+{
+#if USE_E2E_SUPPORT
+    if (mDecodedPrivateKey.isEmpty()) {
+        return false;
+    }
+
+    RSA *privateKey = EncryptionUtils::privateKeyFromPEM(mDecodedPrivateKey);
+    if (!privateKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptRoomsSessionKeys: failed to load private key from PEM";
+        return false;
+    }
+
+    if (!r->e2EKey().isEmpty()) {
+        r->decryptSessionKeyWithPrivateKey(privateKey);
+    }
     RSA_free(privateKey);
 #endif
     return true;
