@@ -141,6 +141,8 @@ target_sources(
         chat/updatemessagejob.h
         chat/syncmessagesjob.h
         chat/syncmessagesjob.cpp
+        chat/encryptedinfo.h
+        chat/encryptedinfo.cpp
         commands/getcommandsjob.cpp
         commands/getcommandsjob.h
         commands/listcommandsjob.cpp
