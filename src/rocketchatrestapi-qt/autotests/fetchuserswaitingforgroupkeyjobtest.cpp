@@ -34,9 +34,11 @@ void FetchUsersWaitingForGroupKeyJobTest::shouldGenerateRequest()
     FetchUsersWaitingForGroupKeyJob job;
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
+    const QByteArray roomId = "foo"_ba;
+    job.setRoomId(roomId);
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.fetchUsersWaitingForGroupKey"_s));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.fetchUsersWaitingForGroupKey?roomIds[]=foo"_s));
 }
 
 #include "moc_fetchuserswaitingforgroupkeyjobtest.cpp"

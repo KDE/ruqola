@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QUrlQuery>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
@@ -46,19 +47,24 @@ void FetchUsersWaitingForGroupKeyJob::onGetRequestResponse(const QString &replyE
     }
 }
 
-QByteArray FetchUsersWaitingForGroupKeyJob::getRoomId() const
+QByteArray FetchUsersWaitingForGroupKeyJob::roomId() const
 {
-    return roomId;
+    return mRoomId;
 }
 
 void FetchUsersWaitingForGroupKeyJob::setRoomId(const QByteArray &newRoomId)
 {
-    roomId = newRoomId;
+    mRoomId = newRoomId;
 }
 
 QNetworkRequest FetchUsersWaitingForGroupKeyJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(u"roomIds[]"_s, QLatin1StringView(mRoomId));
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     return request;

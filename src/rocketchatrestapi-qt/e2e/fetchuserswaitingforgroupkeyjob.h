@@ -23,7 +23,7 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QByteArray getRoomId() const;
+    [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &newRoomId);
 
 Q_SIGNALS:
@@ -33,6 +33,6 @@ protected:
     void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    QByteArray roomId;
+    QByteArray mRoomId;
 };
 }
