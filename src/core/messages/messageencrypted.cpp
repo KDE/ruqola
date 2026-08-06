@@ -81,11 +81,28 @@ void MessageEncrypted::setIv(const QByteArray &newIv)
 void MessageEncrypted::decryptContent(const QByteArray &sessionKey) const
 {
     mDecryptedContent = decrypt(sessionKey);
+    parseDecryptedContent();
 }
 
 QByteArray MessageEncrypted::decryptedContent() const
 {
     return mDecryptedContent;
+}
+
+void MessageEncrypted::parseDecryptedContent() const
+{
+    if (!mDecryptedContent.isEmpty()) {
+        const QJsonDocument doc = QJsonDocument::fromJson(mDecryptedContent);
+        const QJsonObject obj = doc.object();
+        if (obj.contains("msg"_L1)) {
+            mDescriptedText = obj["msg"_L1].toString();
+        }
+    }
+}
+
+QString MessageEncrypted::descriptedText() const
+{
+    return mDescriptedText;
 }
 
 QByteArray MessageEncrypted::decrypt([[maybe_unused]] const QByteArray &sessionKey) const

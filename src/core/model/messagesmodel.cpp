@@ -452,15 +452,10 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
     } else if (message.messageType() == Message::EncryptedText) {
-        // TODO move in messageEncrypted
-        const QByteArray content = message.messageEncrypted()->decryptedContent();
-        qDebug() << " content " << content;
-        if (!content.isEmpty()) {
-            const QJsonDocument doc = QJsonDocument::fromJson(content);
-            const QJsonObject obj = doc.object();
-            if (obj.contains("msg"_L1)) {
-                return obj["msg"_L1].toString();
-            }
+        const QString text = message.messageEncrypted()->descriptedText();
+        qDebug() << " text " << text;
+        if (!text.isEmpty()) {
+            return text;
         }
         return message.systemMessageText();
     } else {

@@ -44,11 +44,15 @@ public:
     void decryptContent(const QByteArray &sessionKey) const;
     [[nodiscard]] QByteArray decryptedContent() const;
 
+    [[nodiscard]] QString descriptedText() const;
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void parseDecryptedContent() const;
     QByteArray mAlgorithm;
     QByteArray mKeyId;
     QString mCiphertext; // TODO QByteArray ?
     QByteArray mIv;
     mutable QByteArray mDecryptedContent;
+    mutable QString mDescriptedText;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageEncrypted &t);
