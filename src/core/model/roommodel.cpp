@@ -8,6 +8,7 @@
 
 #include "roommodel.h"
 #include "accountroomsettings.h"
+#include "encryption/e2ekeymanager.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_rooms_debug.h"
@@ -283,6 +284,9 @@ QByteArray RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
             if (room->roomId() == rId) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateSubscriptionRoom(const QJsonArray &array) room found:" << room->roomId();
                 room->updateSubscriptionRoom(roomData);
+                if (mRocketChatAccount) {
+                    (void)mRocketChatAccount->e2eKeyManager()->decryptRoomSessionKeys(room);
+                }
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 
                 break;
@@ -487,6 +491,9 @@ QByteArray RoomModel::updateRoom(const QJsonObject &roomData)
             if (room->roomId() == rId) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found:" << rId;
                 room->parseUpdateRoom(roomData);
+                if (mRocketChatAccount) {
+                    (void)mRocketChatAccount->e2eKeyManager()->decryptRoomSessionKeys(room);
+                }
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
                 roomFound = true;
                 break;

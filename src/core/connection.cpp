@@ -515,6 +515,7 @@ void Connection::addUserInChannel(const QByteArray &roomId, const QByteArray &us
     };
     job->setInfo(info);
     connect(job, &AddUserInChannelJob::userNeedUnbanned, this, &Connection::userNeedUnbanned);
+    connect(job, &AddUserInChannelJob::addUserInChannelDone, this, &Connection::addUserInChannelDone);
     job->start();
 }
 
@@ -528,6 +529,9 @@ void Connection::addUserInGroup(const QByteArray &roomId, const QByteArray &user
     job->setChannelGroupInfo(info);
 
     job->setInviteUserId(QString::fromLatin1(userId));
+    connect(job, &GroupsInviteJob::inviteGroupsDone, this, [this, roomId, userId]() {
+        Q_EMIT addUserInGroupDone(roomId, userId);
+    });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInGroup job";
     }

@@ -41,7 +41,10 @@ void AddUserInChannelJob::start()
     };
     job->setChannelInviteInfo(inviteInfo);
     connect(job, &ChannelInviteJob::needUnbanned, this, &AddUserInChannelJob::slotNeedUnbanned);
-    connect(job, &ChannelInviteJob::inviteDone, this, &AddUserInChannelJob::deleteLater);
+    connect(job, &ChannelInviteJob::inviteDone, this, [this]() {
+        Q_EMIT addUserInChannelDone(mInfo.roomId, mInfo.userId);
+        deleteLater();
+    });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
         deleteLater();

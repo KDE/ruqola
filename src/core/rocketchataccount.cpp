@@ -639,6 +639,18 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi.get(), &Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         connect(mRestApi.get(), &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi.get(), &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
+        const auto redistributeRoomKeyIfEncrypted = [this](const QByteArray &roomId, const QByteArray &userId) {
+            Q_UNUSED(userId)
+            Room *const r = room(roomId);
+            if (!r || !r->encrypted()) {
+                return;
+            }
+            if (!mE2eKeyManager->distributeExistingRoomE2EKey(roomId)) {
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Failed to redistribute E2E key for room" << roomId;
+            }
+        };
+        connect(mRestApi.get(), &Connection::addUserInChannelDone, this, redistributeRoomKeyIfEncrypted);
+        connect(mRestApi.get(), &Connection::addUserInGroupDone, this, redistributeRoomKeyIfEncrypted);
         connect(mRestApi.get(), &Connection::networkError, this, [this]() {
             // Transient error, try again, with an increasing delay
             qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "networkError" << accountName();

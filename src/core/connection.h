@@ -176,6 +176,8 @@ Q_SIGNALS:
     void createChannelDone(const QJsonObject &replyObject);
     void createGroupDone(const QJsonObject &replyObject);
     void userNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
+    void addUserInChannelDone(const QByteArray &roomId, const QByteArray &userId);
+    void addUserInGroupDone(const QByteArray &roomId, const QByteArray &userId);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();

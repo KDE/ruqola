@@ -8,6 +8,8 @@
 #include "config-ruqola.h"
 #include "connection.h"
 #include "e2e/fetchmykeysjob.h"
+#include "e2e/getusersofroomwithoutkeyjob.h"
+#include "e2e/provideuserswithsuggestedgroupkeysjob.h"
 #include "e2e/setroomkeyidjob.h"
 #include "e2e/setuserpublicandprivatekeysjob.h"
 #include "e2e/updategroupkeyjob.h"
@@ -26,9 +28,11 @@
 #include <qt6keychain/keychain.h>
 
 #include <QByteArray>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QTimer>
 using namespace QKeychain;
 using namespace Qt::Literals::StringLiterals;
 
@@ -291,6 +295,30 @@ bool E2eKeyManager::initializeRoomE2EKey([[maybe_unused]] const QByteArray &room
         connect(setKeyIdJob, &RocketChatRestApi::SetRoomKeyIDJob::setRoomKeyIdDone, this, [sessionKey, keyId, roomId, this]() {
             distributeRoomSessionKey(roomId, sessionKey, keyId);
         });
+        connect(setKeyIdJob, &RocketChatRestApi::SetRoomKeyIDJob::roomKeyIdAlreadyExists, this, [sessionKey, roomId, this]() {
+            const auto tryDistributeUsingServerKeyId = [this, roomId, sessionKey](int delayMs) {
+                QTimer::singleShot(delayMs, this, [this, roomId, sessionKey]() {
+                    Room *const room = mAccount->room(roomId);
+                    if (!room) {
+                        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: unable to recover from key-id race, room not found" << roomId;
+                        return;
+                    }
+
+                    const QString serverKeyId = room->e2eKeyId();
+                    if (serverKeyId.isEmpty()) {
+                        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: waiting for server key-id update after race" << roomId;
+                        return;
+                    }
+
+                    qCDebug(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: recovered room key-id after race" << serverKeyId << "for" << roomId;
+                    distributeRoomSessionKey(roomId, sessionKey, serverKeyId);
+                });
+            };
+
+            // Room updates are asynchronous; try shortly after the conflict to reuse server key id.
+            tryDistributeUsingServerKeyId(250);
+            tryDistributeUsingServerKeyId(1000);
+        });
         if (!setKeyIdJob->start()) {
             qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: failed to start SetRoomKeyIDJob";
             return false;
@@ -305,6 +333,45 @@ bool E2eKeyManager::initializeRoomE2EKey([[maybe_unused]] const QByteArray &room
     return false;
 #endif
 }
+
+bool E2eKeyManager::distributeExistingRoomE2EKey(const QByteArray &roomId)
+{
+#if USE_E2E_SUPPORT
+    if (!mAccount || roomId.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "distributeExistingRoomE2EKey: invalid arguments";
+        return false;
+    }
+
+    if (mStatus != Status::KeyDecrypted || mDecodedPrivateKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "distributeExistingRoomE2EKey: E2E key not yet decrypted";
+        return false;
+    }
+
+    Room *const room = mAccount->room(roomId);
+    if (!room || !room->encrypted()) {
+        return false;
+    }
+
+    const QByteArray sessionKey = room->sessionKey();
+    if (sessionKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "distributeExistingRoomE2EKey: missing room session key for" << roomId;
+        return false;
+    }
+
+    const QString keyId = room->e2eKeyId();
+    if (keyId.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "distributeExistingRoomE2EKey: missing room key id for" << roomId;
+        return false;
+    }
+
+    distributeRoomSessionKey(roomId, sessionKey, keyId);
+    return true;
+#else
+    Q_UNUSED(roomId)
+    return false;
+#endif
+}
+
 void E2eKeyManager::distributeRoomSessionKey([[maybe_unused]] const QByteArray &roomId,
                                              [[maybe_unused]] const QByteArray &sessionKey,
                                              [[maybe_unused]] const QString &keyId)
@@ -343,6 +410,16 @@ void E2eKeyManager::distributeRoomSessionKey([[maybe_unused]] const QByteArray &
         return;
     }
 
+    // Prime the local room state immediately so the sender can encrypt outgoing
+    // messages without waiting for asynchronous server subscription updates.
+    if (Room *const room = mAccount->room(roomId)) {
+        room->setE2eKeyId(keyId);
+        room->setE2EKey(keyId + QString::fromLatin1(encryptedSessionKey.toBase64()));
+        if (!decryptRoomSessionKeys(room)) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: unable to decrypt local room session key immediately for" << roomId;
+        }
+    }
+
     // Store the encrypted session key in the user's subscription on the server.
     auto updateKeyJob = new RocketChatRestApi::UpdateGroupKeyJob(this);
     mAccount->restApi()->initializeRestApiJob(updateKeyJob);
@@ -354,6 +431,80 @@ void E2eKeyManager::distributeRoomSessionKey([[maybe_unused]] const QByteArray &
     if (!updateKeyJob->start()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: failed to start UpdateGroupKeyJob";
         return;
+    }
+
+    // Share this room key with users that do not have a key yet.
+    auto usersWithoutKeyJob = new RocketChatRestApi::GetUsersOfRoomWithoutKeyJob(this);
+    mAccount->restApi()->initializeRestApiJob(usersWithoutKeyJob);
+    usersWithoutKeyJob->setRoomId(roomId);
+    connect(usersWithoutKeyJob,
+            &RocketChatRestApi::GetUsersOfRoomWithoutKeyJob::getUsersOfRoomWithoutKeyDone,
+            this,
+            [this, roomId, sessionKey, keyId](const QJsonObject &obj) {
+                const QJsonArray users = obj.value("users"_L1).toArray();
+                if (users.isEmpty()) {
+                    return;
+                }
+
+                const QString ownUserId = QString::fromLatin1(mAccount->settings()->userId());
+                QVector<RocketChatRestApi::SuggestedGroupKey> suggestedKeys;
+                suggestedKeys.reserve(users.size());
+
+                for (const QJsonValue &userValue : users) {
+                    const QJsonObject userObj = userValue.toObject();
+                    const QString targetUserId = userObj.value("_id"_L1).toString();
+                    if (targetUserId.isEmpty() || targetUserId == ownUserId) {
+                        continue;
+                    }
+
+                    const QString publicKey = userObj.value("e2e"_L1).toObject().value("public_key"_L1).toString();
+                    if (publicKey.isEmpty()) {
+                        continue;
+                    }
+
+                    QByteArray publicKeyPem = publicKey.toUtf8();
+                    if (publicKeyPem.trimmed().startsWith('{')) {
+                        publicKeyPem = EncryptionUtils::publicKeyJWKToPEM(publicKeyPem);
+                    }
+                    if (publicKeyPem.isEmpty()) {
+                        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: unable to resolve recipient public key for" << targetUserId;
+                        continue;
+                    }
+
+                    RSA *targetRsaPublicKey = EncryptionUtils::publicKeyFromPEM(publicKeyPem);
+                    if (!targetRsaPublicKey) {
+                        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: unable to parse recipient public key for" << targetUserId;
+                        continue;
+                    }
+
+                    const QByteArray encryptedRecipientSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, targetRsaPublicKey);
+                    RSA_free(targetRsaPublicKey);
+                    if (encryptedRecipientSessionKey.isEmpty()) {
+                        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: unable to encrypt room key for" << targetUserId;
+                        continue;
+                    }
+
+                    suggestedKeys.append({
+                        targetUserId,
+                        keyId + QString::fromLatin1(encryptedRecipientSessionKey.toBase64()),
+                    });
+                }
+
+                if (suggestedKeys.isEmpty()) {
+                    return;
+                }
+
+                auto provideJob = new RocketChatRestApi::ProvideUsersWithSuggestedGroupKeysJob(this);
+                mAccount->restApi()->initializeRestApiJob(provideJob);
+                provideJob->setRoomId(QString::fromLatin1(roomId));
+                provideJob->setKeys(suggestedKeys);
+                if (!provideJob->start()) {
+                    qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: failed to start ProvideUsersWithSuggestedGroupKeysJob for room" << roomId;
+                }
+            });
+
+    if (!usersWithoutKeyJob->start()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: failed to start GetUsersOfRoomWithoutKeyJob for room" << roomId;
     }
 
     // Persist the encrypted session key locally so we can decrypt messages without a server round-trip.

@@ -36,6 +36,7 @@ public:
 
 Q_SIGNALS:
     void setRoomKeyIdDone();
+    void roomKeyIdAlreadyExists();
 
 protected:
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

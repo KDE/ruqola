@@ -37,10 +37,14 @@ bool SetRoomKeyIDJob::start()
 void SetRoomKeyIDJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
-    qDebug() << " replyObject " << replyObject;
+
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("SetRoomKeyIDJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setRoomKeyIdDone();
+    } else if (replyObject["errorType"_L1].toString() == "error-room-e2e-key-already-exists"_L1) {
+        // Another client won the room key race. Let callers recover using the server key id.
+        addLoggerInfo("SetRoomKeyIDJob: room key already exists, recovery path will be used"_ba);
+        Q_EMIT roomKeyIdAlreadyExists();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("SetRoomKeyIDJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));

@@ -38,6 +38,7 @@ public:
 
     void fetchMyKeys();
     [[nodiscard]] bool initializeRoomE2EKey(const QByteArray &roomId, const QString &existingKeyId = {});
+    [[nodiscard]] bool distributeExistingRoomE2EKey(const QByteArray &roomId);
 
     [[nodiscard]] E2eKeyManager::Status needToDecodeEncryptionKey() const;
 
