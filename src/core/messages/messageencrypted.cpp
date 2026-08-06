@@ -78,7 +78,7 @@ void MessageEncrypted::setIv(const QByteArray &newIv)
     mIv = newIv;
 }
 
-QByteArray MessageEncrypted::decrypt(const QByteArray &sessionKey) const
+QByteArray MessageEncrypted::decrypt([[maybe_unused]] const QByteArray &sessionKey) const
 {
 #if USE_E2E_SUPPORT
     if (sessionKey.isEmpty()) {
@@ -105,12 +105,13 @@ QByteArray MessageEncrypted::decrypt(const QByteArray &sessionKey) const
 
     return EncryptionUtils::decryptAES_GCM_256(decodedCiphertext, sessionKey, decodedIv);
 #else
-    Q_UNUSED(sessionKey)
     return {};
 #endif
 }
 
-bool MessageEncrypted::encrypt(const QByteArray &plainText, const QByteArray &sessionKey, const QByteArray &keyId)
+bool MessageEncrypted::encrypt([[maybe_unused]] const QByteArray &plainText,
+                               [[maybe_unused]] const QByteArray &sessionKey,
+                               [[maybe_unused]] const QByteArray &keyId)
 {
 #if USE_E2E_SUPPORT
     if (plainText.isEmpty()) {
@@ -147,9 +148,6 @@ bool MessageEncrypted::encrypt(const QByteArray &plainText, const QByteArray &se
     mCiphertext = QString::fromLatin1(encryptedPayload.toBase64());
     return true;
 #else
-    Q_UNUSED(plainText)
-    Q_UNUSED(sessionKey)
-    Q_UNUSED(keyId)
     return false;
 #endif
 }
