@@ -869,8 +869,6 @@ QString Message::systemMessageText() const
         return i18n("Message Deleted");
     case SystemMessageTypeUtil::SystemMessageType::Pinned:
         return i18n("Message Pinned");
-    case SystemMessageTypeUtil::SystemMessageType::EncryptedMessage:
-        return i18n("Encrypted Message");
     case SystemMessageTypeUtil::SystemMessageType::UserUnmuted:
         return i18n("%1 was unmuted by %2", mText, mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserMuted:
@@ -928,12 +926,8 @@ QString Message::systemMessageText() const
         return i18n("Room disallowed reacting by %1", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserJoinedTeam:
         return i18n("%1 joined this Team", mUsername);
-    case SystemMessageTypeUtil::SystemMessageType::UserJoinedOtr:
-        return i18n("%1 has joined OTR chat.", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserKeyRefreshedSuccessfully:
         return i18n("%1 key refreshed successfully", mUsername);
-    case SystemMessageTypeUtil::SystemMessageType::UserRequesterOtrKeyRefresh:
-        return i18n("%1 has requested key refresh.", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::VideoConf:
         return i18n("Conference Call");
     case SystemMessageTypeUtil::SystemMessageType::UserBanned:

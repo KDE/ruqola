@@ -131,30 +131,6 @@ void RocketChatMessageTest::unBlockUser()
     compareFile(r.result, u"unBlockUser"_s);
 }
 
-void RocketChatMessageTest::streamNotifyUserOtrEnd()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.streamNotifyUserOtrEnd(u"userFrom"_s, u"userTo"_s, 43);
-    compareFile(r.result, u"streamNotifyUserOtrEnd"_s);
-}
-
-void RocketChatMessageTest::streamNotifyUserOtrHandshake()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.streamNotifyUserOtrHandshake(u"userFrom"_s, u"userTo"_s, u"publickeys"_s, 43);
-    compareFile(r.result, u"streamNotifyUserOtrHandshake"_s);
-}
-
-void RocketChatMessageTest::streamNotifyUserOtrAcknowledge()
-{
-    RocketChatMessage m;
-    m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.streamNotifyUserOtrAcknowledge(QByteArrayLiteral("userFrom"), "userTo"_ba, u"publickeys"_s, 43);
-    compareFile(r.result, u"streamNotifyUserOtrAcknowledge"_s);
-}
-
 void RocketChatMessageTest::enable2fa()
 {
     RocketChatMessage m;

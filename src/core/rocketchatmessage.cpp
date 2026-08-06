@@ -230,15 +230,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(con
     return result;
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId, quint64 id)
-{
-    const QJsonObject endObject{{u"roomId"_s, roomId}, {u"userId"_s, userId}};
-    QString otrId = roomId;
-    otrId = otrId.remove(userId);
-    const QJsonArray params{u"%1/otr"_s.arg(otrId), u"end"_s, endObject};
-    return generateMethod(u"stream-notify-user"_s, params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::enable2fa(quint64 id)
 {
     const QJsonArray params;
@@ -261,29 +252,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::validateTempToken2
 {
     const QJsonArray params{code};
     return generateMethod(u"2fa:validateTempToken"_s, params, id);
-}
-
-RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id)
-{
-    const QJsonObject endObject{{u"roomId"_s, u"%1%2"_s.arg(userTo, userFrom)}, {u"userId"_s, userTo}, {u"publicKey"_s, publicKeys}};
-    const QJsonArray params{u"%1/otr"_s.arg(userFrom), u"handshake"_s, endObject};
-    return generateMethod(u"stream-notify-user"_s, params, id);
-}
-
-RocketChatMessage::RocketChatMessageResult
-RocketChatMessage::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKeys, quint64 id)
-{
-    const QJsonObject acknowledgeObject{{u"roomId"_s, QString::fromLatin1(roomId)}, {u"userId"_s, QString::fromLatin1(userId)}, {u"publicKey"_s, publicKeys}};
-    QString otrId = QString::fromLatin1(roomId);
-    otrId = otrId.remove(QString::fromLatin1(userId));
-    const QJsonArray params{u"%1/otr"_s.arg(otrId), u"acknowledge"_s, acknowledgeObject};
-    return generateMethod(u"stream-notify-user"_s, params, id);
-#if 0
-    {\"id\":\"30\",\"method\":\"stream-notify-user\",\"msg\":\"method\",\"params\":[\"4faACeGzSvG7xMcTy/otr\",\"acknowledge\",{\"publicKey\":\"{\\\"crv\\\":\\\"P-256\\\",\\\"ext\\\":true,\\\"key_ops\\\":[],\\\"kty\\\":\\\"EC\\\",\\\"x\\\":\\\"Jg7HgVygchsJSpGc1N36I7-4xlIF2Y4kBB0cKoT5rW8\\\",\\\"y\\\":\\\"rhdmHfXGihoZI0eBL1lADOm3FGrQ3qO6y2rXuV9YNC8\\\"}\",\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\"}]}"
-    {\"id\":\"30\",\"method\":\"stream-notify-user\",\"msg\":\"method\",\"params\":[\"4faACeGzSvG7xMcTy/otr\",\"acknowledge\",{\"publicKey\":\"{}\",\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB4faACeGzSvG7xMcTy\",\"userId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\"}]}
-    {\"msg\":\"method\",\"id\":\"22\",\"method\":\"stream-notify-user\",\"params\":[\"YbwG4T2uB3wZSZSKB/otr\",\"acknowledge\",{\"roomId\":\"4faACeGzSvG7xMcTyYbwG4T2uB3wZSZSKB\",\"userId\":\"4faACeGzSvG7xMcTy\",\"publicKey\":\"{
-#endif
 }
 
 QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t)

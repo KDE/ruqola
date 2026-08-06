@@ -161,9 +161,6 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomIcon:
     case Qt::DecorationRole:
         return r->icon();
-    case RoomModel::RoomOtr:
-        // TODO implement it.
-        return {};
     case RoomModel::RoomUserMentions:
         return r->userMentions();
     case RoomModel::RoomIgnoredUsers:

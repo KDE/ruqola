@@ -37,7 +37,6 @@ public:
         RoomFavorite,
         RoomSection,
         RoomIcon,
-        RoomOtr,
         RoomUserMentions,
         RoomIgnoredUsers,
         RoomAutotranslateLanguage,

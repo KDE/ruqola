@@ -39,14 +39,6 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo, quint64 id);
-
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id);
-
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKeys, quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult uploadCustomSound(const QByteArray &sound, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult enable2fa(quint64 id);

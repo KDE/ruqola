@@ -41,8 +41,6 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
         return MessageDeleted;
     } else if (str == "message_pinned"_L1) {
         return Pinned;
-    } else if (str == "otr"_L1) {
-        return EncryptedMessage;
     } else if (str == "user-unmuted"_L1) {
         return UserUnmuted;
     } else if (str == "user-muted"_L1) {
@@ -95,12 +93,8 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
         return RoomDisallowedReacting;
     } else if (str == "ujt"_L1) {
         return UserJoinedTeam;
-    } else if (str == "user_joined_otr"_L1) {
-        return UserJoinedOtr;
     } else if (str == "user_key_refreshed_successfully"_L1) {
         return UserKeyRefreshedSuccessfully;
-    } else if (str == "user_requested_otr_key_refresh"_L1) {
-        return UserRequesterOtrKeyRefresh;
     } else if (str == "videoconf"_L1) {
         return VideoConf;
     } else if (str == "user-unbanned"_L1) {
@@ -142,8 +136,6 @@ QString SystemMessageTypeUtil::systemMessageTypeStringFromEnum(SystemMessageType
         return "rm"_L1;
     case Pinned:
         return "message_pinned"_L1;
-    case EncryptedMessage:
-        return "otr"_L1;
     case UserUnmuted:
         return "user-unmuted"_L1;
     case UserMuted:
@@ -196,12 +188,8 @@ QString SystemMessageTypeUtil::systemMessageTypeStringFromEnum(SystemMessageType
         return "room-disallowed-reacting"_L1;
     case UserJoinedTeam:
         return "ujt"_L1;
-    case UserJoinedOtr:
-        return "user_joined_otr"_L1;
     case UserKeyRefreshedSuccessfully:
         return "user_key_refreshed_successfully"_L1;
-    case UserRequesterOtrKeyRefresh:
-        return "user_requested_otr_key_refresh"_L1;
     case VideoConf:
         return "videoconf"_L1;
     case UserBanned:
