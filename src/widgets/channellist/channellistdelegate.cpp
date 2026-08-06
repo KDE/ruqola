@@ -52,6 +52,7 @@ void ChannelListDelegate::setListDisplay(OwnUserPreferences::RoomListDisplay dis
     if (mRoomListDisplay != display) {
         mRoomListDisplay = display;
         clearAvatarCache();
+        Q_EMIT sizeHintChanged(QModelIndex());
     }
 }
 
