@@ -92,9 +92,6 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUploadFileProgressStatusListWidget->isVisible());
 
 #if 0 // Load on demand
-    auto mOtrWidget = w.findChild<OtrWidget *>(u"mOtrWidget"_s);
-    QVERIFY(mOtrWidget);
-
     auto mOffLineWidget = w.findChild<OffLineWidget *>(u"mOffLineWidget"_s);
     QVERIFY(mOffLineWidget);
 
