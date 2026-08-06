@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-04 00:44+0000\n"
+"POT-Creation-Date: 2026-08-06 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -165,13 +165,13 @@ msgstr "नई सुविधा"
 msgid "The following accounts are available:"
 msgstr "निम्नलिखित खाते उपलब्ध हैं:"
 
-#: core/accountmanager.cpp:342
+#: core/accountmanager.cpp:343
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "अमान्य टोकन"
 
-#: core/accountmanager.cpp:343
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1374,17 +1374,17 @@ msgstr "कोई परिणाम नहीं मिला."
 msgid "Notify all in this room"
 msgstr "इस कमरे में सभी को सूचित करें"
 
-#: core/model/messagesmodel.cpp:278
+#: core/model/messagesmodel.cpp:280
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%1 पर %2 द्वारा संपादित"
 
-#: core/model/messagesmodel.cpp:445
+#: core/model/messagesmodel.cpp:456
 #, kde-format
 msgid "Ignored Message"
 msgstr "अनदेखा किया गया संदेश"
 
-#: core/model/messagesmodel.cpp:456
+#: core/model/messagesmodel.cpp:467
 #, kde-format
 msgid "Only you can see this message"
 msgstr "यह संदेश केवल आप ही देख सकते हैं"
@@ -1753,7 +1753,7 @@ msgstr "इस टीम में शामिल हुए"
 msgid "(Autojoin)"
 msgstr "(ऑटोज्वाइन)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
 #, kde-format
 msgid "Owner"
 msgstr "मालिक"
@@ -1834,7 +1834,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:736
+#: core/rocketchataccount.cpp:738
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1843,23 +1843,23 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:744 core/rocketchataccount.cpp:757
+#: core/rocketchataccount.cpp:746 core/rocketchataccount.cpp:759
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:751
+#: core/rocketchataccount.cpp:753
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
 
-#: core/rocketchataccount.cpp:3156
+#: core/rocketchataccount.cpp:3178
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "खाता जोड़ा गया"
 
-#: core/rocketchataccount.cpp:3157
+#: core/rocketchataccount.cpp:3179
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -1875,27 +1875,27 @@ msgstr "खाता जोड़ा गया"
 msgid "A new account was added."
 msgstr "एक नया खाता जोड़ा गया."
 
-#: core/room.cpp:1176
+#: core/room.cpp:1177
 #, kde-format
 msgid "Leader"
 msgstr "नेता"
 
-#: core/room.cpp:1179
+#: core/room.cpp:1180
 #, kde-format
 msgid "Moderator"
 msgstr "मध्यस्थ"
 
-#: core/room.cpp:1573
+#: core/room.cpp:1595
 #, kde-format
 msgid "Channel is read only."
 msgstr "चैनल केवल पढ़ने के लिए है."
 
-#: core/room.cpp:1576
+#: core/room.cpp:1598
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "आपने इस चैनल को ब्लॉक कर दिया है।"
 
-#: core/room.cpp:1579
+#: core/room.cpp:1601
 #, kde-format
 msgid "Channel was blocked."
 msgstr "चैनल अवरुद्ध कर दिया गया."
@@ -8077,65 +8077,72 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "खाता संशोधित करें"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:45
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "डेटाबेस जानकारी"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:54
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Messages"
 msgid "Messages"
 msgstr "संदेशों"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:57
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "जेसन"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:60
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "DataBase Messages"
 msgstr "निजी संदेश"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:63
+#: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Delete my Account"
 msgid "DataBase Accounts"
 msgstr "मेरा एकाउंट हटा दो"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:66
+#: widgets/databasedialog/exploredatabasedialog.cpp:68
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase Rooms"
 msgstr "डेटाबेस जानकारी"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:69
+#: widgets/databasedialog/exploredatabasedialog.cpp:71
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase Global"
 msgstr "डेटाबेस जानकारी"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:72
+#: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
 msgid "DataBase E2E"
 msgstr "डेटाबेस जानकारी"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:75
+#: widgets/databasedialog/exploredatabasedialog.cpp:77
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Database Info"
+msgid "DataBase E2E Rooms"
+msgstr "डेटाबेस जानकारी"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
 msgstr ""
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:78
+#: widgets/databasedialog/exploredatabasedialog.cpp:83
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Database Info"
@@ -9761,13 +9768,13 @@ msgstr "खाता %1: कैश निर्यात पूर्ण हु�
 msgid "<b>Account %1:</b> export logs done."
 msgstr "खाता %1: लॉग निर्यात किया गया."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
 #, fuzzy, kde-format
 #| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export database done."
 msgstr "खाता %1: कैश निर्यात पूर्ण हुआ."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:169
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "निर्देशिका \"%1\" को बैकअप फ़ाइल में नहीं जोड़ा जा सकता."

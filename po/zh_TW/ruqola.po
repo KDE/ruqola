@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-04 00:44+0000\n"
+"POT-Creation-Date: 2026-08-06 00:44+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -167,12 +167,12 @@ msgstr "新功能"
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/accountmanager.cpp:342
+#: core/accountmanager.cpp:343
 #, kde-format
 msgid "Invalid invite token"
 msgstr "無效的邀請權杖"
 
-#: core/accountmanager.cpp:343
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "邀請權杖無效。已取消建立帳戶。"
@@ -1367,17 +1367,17 @@ msgstr "找不到結果。"
 msgid "Notify all in this room"
 msgstr "通知聊天室中所有人"
 
-#: core/model/messagesmodel.cpp:278
+#: core/model/messagesmodel.cpp:280
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "由 %2 於 %1 編輯"
 
-#: core/model/messagesmodel.cpp:445
+#: core/model/messagesmodel.cpp:456
 #, kde-format
 msgid "Ignored Message"
 msgstr "已忽略的訊息"
 
-#: core/model/messagesmodel.cpp:456
+#: core/model/messagesmodel.cpp:467
 #, kde-format
 msgid "Only you can see this message"
 msgstr "只有您能看到這則訊息"
@@ -1741,7 +1741,7 @@ msgstr "已加入此團隊"
 msgid "(Autojoin)"
 msgstr "（自動加入）"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
 #, kde-format
 msgid "Owner"
 msgstr "擁有者"
@@ -1822,7 +1822,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> 正在輸入…"
 
-#: core/rocketchataccount.cpp:736
+#: core/rocketchataccount.cpp:738
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1831,23 +1831,23 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:744 core/rocketchataccount.cpp:757
+#: core/rocketchataccount.cpp:746 core/rocketchataccount.cpp:759
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:751
+#: core/rocketchataccount.cpp:753
 #, kde-format
 msgid "Not connected yet"
 msgstr "尚未連線"
 
-#: core/rocketchataccount.cpp:3156
+#: core/rocketchataccount.cpp:3178
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "帳戶已新增"
 
-#: core/rocketchataccount.cpp:3157
+#: core/rocketchataccount.cpp:3179
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -1863,27 +1863,27 @@ msgstr "帳戶已新增"
 msgid "A new account was added."
 msgstr "帳戶已新增。"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1177
 #, kde-format
 msgid "Leader"
 msgstr "領導者"
 
-#: core/room.cpp:1179
+#: core/room.cpp:1180
 #, kde-format
 msgid "Moderator"
 msgstr "Mod"
 
-#: core/room.cpp:1573
+#: core/room.cpp:1595
 #, kde-format
 msgid "Channel is read only."
 msgstr "頻道是唯讀的。"
 
-#: core/room.cpp:1576
+#: core/room.cpp:1598
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "您已封鎖此頻道。"
 
-#: core/room.cpp:1579
+#: core/room.cpp:1601
 #, kde-format
 msgid "Channel was blocked."
 msgstr "頻道已封鎖。"
@@ -7895,54 +7895,60 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "修改帳戶"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:45
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "資料庫資訊"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:54
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, kde-format
 msgid "Messages"
 msgstr "訊息"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:57
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "JSON"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:60
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
 #, kde-format
 msgid "DataBase Messages"
 msgstr "資料庫訊息"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:63
+#: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, kde-format
 msgid "DataBase Accounts"
 msgstr "資料庫帳戶"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:66
+#: widgets/databasedialog/exploredatabasedialog.cpp:68
 #, kde-format
 msgid "DataBase Rooms"
 msgstr "資料庫聊天室"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:69
+#: widgets/databasedialog/exploredatabasedialog.cpp:71
 #, kde-format
 msgid "DataBase Global"
 msgstr "資料庫全域"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:72
+#: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase E2E"
 msgstr "資料庫點對點加密"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:75
+#: widgets/databasedialog/exploredatabasedialog.cpp:77
+#, fuzzy, kde-format
+#| msgid "DataBase Rooms"
+msgid "DataBase E2E Rooms"
+msgstr "資料庫聊天室"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
 msgstr "資料庫聊天室待處理輸入資訊"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:78
+#: widgets/databasedialog/exploredatabasedialog.cpp:83
 #, fuzzy, kde-format
 #| msgid "DataBase Rooms"
 msgid "DataBase Room Subscriptions"
@@ -9513,13 +9519,13 @@ msgstr "帳戶 %1：已匯出快取。"
 msgid "<b>Account %1:</b> export logs done."
 msgstr "帳戶 %1：已匯出紀錄。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
 #, fuzzy, kde-format
 #| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export database done."
 msgstr "帳戶 %1：已匯出快取。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:169
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "目錄 \"%1\" 無法加入備份檔。"

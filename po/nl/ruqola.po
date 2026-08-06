@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-04 00:44+0000\n"
+"POT-Creation-Date: 2026-08-06 00:44+0000\n"
 "PO-Revision-Date: 2026-07-28 10:55+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -162,12 +162,12 @@ msgstr "Nieuwe mogelijkheid"
 msgid "The following accounts are available:"
 msgstr "De volgende accounts zijn beschikbaar:"
 
-#: core/accountmanager.cpp:342
+#: core/accountmanager.cpp:343
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Ongeldig uitnodigingstoken"
 
-#: core/accountmanager.cpp:343
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Uitnodigingstoken is ongeldig. Aanmaken account geannuleerd."
@@ -1365,17 +1365,17 @@ msgstr "Geen resultaat gevonden."
 msgid "Notify all in this room"
 msgstr "Allen in deze room berichten"
 
-#: core/model/messagesmodel.cpp:278
+#: core/model/messagesmodel.cpp:280
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Bewerkt op %1 door %2"
 
-#: core/model/messagesmodel.cpp:445
+#: core/model/messagesmodel.cpp:456
 #, kde-format
 msgid "Ignored Message"
 msgstr "Genegeerd bericht"
 
-#: core/model/messagesmodel.cpp:456
+#: core/model/messagesmodel.cpp:467
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Alleen u kunt dit bericht zien"
@@ -1746,7 +1746,7 @@ msgstr "Doet mee aan dit team"
 msgid "(Autojoin)"
 msgstr "(Auto-meedoen)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1173
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
 #, kde-format
 msgid "Owner"
 msgstr "Eigenaar"
@@ -1827,7 +1827,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:736
+#: core/rocketchataccount.cpp:738
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1836,22 +1836,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:744 core/rocketchataccount.cpp:757
+#: core/rocketchataccount.cpp:746 core/rocketchataccount.cpp:759
 #, kde-format
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#: core/rocketchataccount.cpp:751
+#: core/rocketchataccount.cpp:753
 #, kde-format
 msgid "Not connected yet"
 msgstr "Nog niet verbonden"
 
-#: core/rocketchataccount.cpp:3156
+#: core/rocketchataccount.cpp:3178
 #, kde-format
 msgid "Room Added"
 msgstr "Room toegevoegd"
 
-#: core/rocketchataccount.cpp:3157
+#: core/rocketchataccount.cpp:3179
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Een nieuw room is toegevoegd in '%1'."
@@ -1866,27 +1866,27 @@ msgstr "Account toegevoegd"
 msgid "A new account was added."
 msgstr "Een nieuw account is ingevoerd."
 
-#: core/room.cpp:1176
+#: core/room.cpp:1177
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1179
+#: core/room.cpp:1180
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1573
+#: core/room.cpp:1595
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanaal is alleen-lezen."
 
-#: core/room.cpp:1576
+#: core/room.cpp:1598
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "U hebt dit kanaal geblokkeerd."
 
-#: core/room.cpp:1579
+#: core/room.cpp:1601
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanaal was geblokkeerd."
@@ -8084,54 +8084,60 @@ msgctxt "@title:window"
 msgid "Modify Account"
 msgstr "Account wijzigen"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:45
+#: widgets/databasedialog/exploredatabasedialog.cpp:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Database-informatie"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:54
+#: widgets/databasedialog/exploredatabasedialog.cpp:56
 #, kde-format
 msgid "Messages"
 msgstr "Berichten"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:57
+#: widgets/databasedialog/exploredatabasedialog.cpp:59
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
 msgid "Json"
 msgstr "Json"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:60
+#: widgets/databasedialog/exploredatabasedialog.cpp:62
 #, kde-format
 msgid "DataBase Messages"
 msgstr "DataBase-berichten"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:63
+#: widgets/databasedialog/exploredatabasedialog.cpp:65
 #, kde-format
 msgid "DataBase Accounts"
 msgstr "DataBase-accounts"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:66
+#: widgets/databasedialog/exploredatabasedialog.cpp:68
 #, kde-format
 msgid "DataBase Rooms"
 msgstr "DataBase-rooms"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:69
+#: widgets/databasedialog/exploredatabasedialog.cpp:71
 #, kde-format
 msgid "DataBase Global"
 msgstr "DataBase-globaal"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:72
+#: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase E2E"
 msgstr "DataBase-E2E"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:75
+#: widgets/databasedialog/exploredatabasedialog.cpp:77
+#, fuzzy, kde-format
+#| msgid "DataBase Rooms"
+msgid "DataBase E2E Rooms"
+msgstr "DataBase-rooms"
+
+#: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
 msgid "DataBase Room Pending Typed Info"
 msgstr "Database van in room hangende getypte informatie"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:78
+#: widgets/databasedialog/exploredatabasedialog.cpp:83
 #, kde-format
 msgid "DataBase Room Subscriptions"
 msgstr "DataBase-rooms-inschrijvingen"
@@ -9715,12 +9721,12 @@ msgstr "<b>Account %1:</b> exporteren van cache gedaan."
 msgid "<b>Account %1:</b> export logs done."
 msgstr "<b>Account %1:</b> exporteren van logs gedaan."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
 #, kde-format
 msgid "<b>Account %1:</b> export database done."
 msgstr "<b>Account %1:</b> exporteren van database is gedaan."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:169
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Map \"%1\" kan niet worden toegevoegd aan bestand met reservekopie."
