@@ -1268,6 +1268,9 @@ void Room::decryptSessionKeyWithPrivateKey(RSA *privateKey)
                                    << "roomName=" << name() << "roomId=" << roomId() << "e2eKeyId=" << mRoomEncryptionKey->e2eKeyId()
                                    << "e2eKeyLen=" << mRoomEncryptionKey->e2EKey().size() << "hasPrivateKey=" << (privateKey != nullptr);
     mRoomEncryptionKey->decryptWithPrivateKey(privateKey);
+    if (!mRoomEncryptionKey->sessionKey().isEmpty()) {
+        mMessageModel->decryptMessages(mRoomEncryptionKey->sessionKey());
+    }
 }
 #endif
 

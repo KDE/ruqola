@@ -41,10 +41,14 @@ public:
     [[nodiscard]] QByteArray decrypt(const QByteArray &sessionKey) const;
     [[nodiscard]] bool encrypt(const QByteArray &plainText, const QByteArray &sessionKey, const QByteArray &keyId = {});
 
+    void decryptContent(const QByteArray &sessionKey) const;
+    [[nodiscard]] QByteArray decryptedContent() const;
+
 private:
     QByteArray mAlgorithm;
     QByteArray mKeyId;
     QString mCiphertext; // TODO QByteArray ?
     QByteArray mIv;
+    mutable QByteArray mDecryptedContent;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageEncrypted &t);

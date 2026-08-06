@@ -78,6 +78,16 @@ void MessageEncrypted::setIv(const QByteArray &newIv)
     mIv = newIv;
 }
 
+void MessageEncrypted::decryptContent(const QByteArray &sessionKey) const
+{
+    mDecryptedContent = decrypt(sessionKey);
+}
+
+QByteArray MessageEncrypted::decryptedContent() const
+{
+    return mDecryptedContent;
+}
+
 QByteArray MessageEncrypted::decrypt([[maybe_unused]] const QByteArray &sessionKey) const
 {
 #if USE_E2E_SUPPORT

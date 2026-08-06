@@ -173,13 +173,18 @@ void MessagesModel::addMessage(const Message &message)
         const QModelIndex index = createIndex(rowNumber, 0);
         Q_EMIT dataChanged(index, index, roles);
     };
+    if (mRoom && !mRoom->sessionKey().isEmpty()) {
+        if (auto f = message.messageEncrypted()) {
+            f->decryptContent(mRoom->sessionKey());
+        }
+    }
 
     // When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update first message";
         emitChanged(0, {OriginalMessageOrAttachmentDescription});
-    } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
+    } else if ((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId()) {
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update message: " << message.text();
         if (message.pendingMessage()) {
             // If we already have a message and we must add pending message it's that server
@@ -432,13 +437,23 @@ void MessagesModel::generateText(const Message &message, const QString &searchTe
     // mNumberOfTextSearched = numberOfTextSearched;
 }
 
+void MessagesModel::decryptMessages(const QByteArray &sessionKey)
+{
+    qDebug() << " void MessagesModel::decryptMessages(const QByteArray &sessionKey)" << mAllMessages.count();
+    for (auto &msg : std::as_const(mAllMessages)) {
+        if (auto f = msg.messageEncrypted()) {
+            f->decryptContent(sessionKey);
+        }
+    }
+}
+
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
     } else if (message.messageType() == Message::EncryptedText) {
         // TODO move in messageEncrypted
-        const QByteArray content = message.messageEncrypted()->decrypt(mRoom->sessionKey());
+        const QByteArray content = message.messageEncrypted()->decryptedContent();
         qDebug() << " content " << content;
         if (!content.isEmpty()) {
             const QJsonDocument doc = QJsonDocument::fromJson(content);
