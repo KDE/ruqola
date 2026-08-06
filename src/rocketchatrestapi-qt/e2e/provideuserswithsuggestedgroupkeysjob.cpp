@@ -83,15 +83,16 @@ QNetworkRequest ProvideUsersWithSuggestedGroupKeysJob::request() const
 QJsonDocument ProvideUsersWithSuggestedGroupKeysJob::json() const
 {
     QJsonObject obj;
-    obj["rid"_L1] = mRoomId;
+    QJsonObject usersSuggestedGroupKeys;
     QJsonArray keysArr;
     for (const auto &k : mSuggestedGroupKeys) {
         QJsonObject keyObj;
-        keyObj["userId"_L1] = k.userId;
+        keyObj["_id"_L1] = k.userId;
         keyObj["key"_L1] = k.encryptedKey;
         keysArr.append(keyObj);
     }
-    obj["keys"_L1] = keysArr;
+    usersSuggestedGroupKeys.insert(mRoomId, keysArr);
+    obj["usersSuggestedGroupKeys"_L1] = usersSuggestedGroupKeys;
     return QJsonDocument(obj);
 }
 
