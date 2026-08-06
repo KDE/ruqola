@@ -70,7 +70,7 @@ QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject 
         if (detailActionStr == "Change_Room_Encrypted"_L1) {
             return i18n("Only groups or direct channels can enable encryption");
         } else if (detailActionStr == "Editing_room"_L1) {
-            return i18n("Room does not have retention policy");
+            return i18n("Editing room is not allowed");
         }
     }
     return RestApiAbstractJob::errorMessage(str, detail);
