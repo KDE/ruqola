@@ -536,6 +536,13 @@ void RocketChatAccount::reactOnMessage(const QByteArray &messageId, const QStrin
 
 void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &message)
 {
+    Room *const room = mRoomModel->findRoom(roomID);
+    if (room && room->encrypted()) {
+        const QByteArray sessionKey = room->sessionKey();
+        if (!sessionKey.isEmpty()) {
+            // TODO mE2eKeyManager->cr
+        }
+    }
     restApi()->postMessage(roomID, message);
     markRoomAsRead(roomID);
 }
