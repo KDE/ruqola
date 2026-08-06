@@ -263,7 +263,7 @@ void E2eKeyManager::setStatus(Status newStatus)
     mStatus = newStatus;
 }
 
-bool E2eKeyManager::initializeRoomE2EKey(const QByteArray &roomId, const QString &existingKeyId)
+bool E2eKeyManager::initializeRoomE2EKey([[maybe_unused]] const QByteArray &roomId, [[maybe_unused]] const QString &existingKeyId)
 {
 #if USE_E2E_SUPPORT
     if (!mAccount || roomId.isEmpty()) {
@@ -302,12 +302,12 @@ bool E2eKeyManager::initializeRoomE2EKey(const QByteArray &roomId, const QString
     }
     return true;
 #else
-    Q_UNUSED(roomId)
-    Q_UNUSED(existingKeyId)
     return false;
 #endif
 }
-void E2eKeyManager::distributeRoomSessionKey(const QByteArray &roomId, const QByteArray &sessionKey, const QString &keyId)
+void E2eKeyManager::distributeRoomSessionKey([[maybe_unused]] const QByteArray &roomId,
+                                             [[maybe_unused]] const QByteArray &sessionKey,
+                                             [[maybe_unused]] const QString &keyId)
 {
 #if USE_E2E_SUPPORT
     // Retrieve own RSA public key from local database.
@@ -364,10 +364,6 @@ void E2eKeyManager::distributeRoomSessionKey(const QByteArray &roomId, const QBy
                                                                         ownPublicKeyPem);
 
     qCDebug(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: E2E session key initialised for room" << roomId << "keyId" << keyId;
-#else
-    Q_UNUSED(roomId)
-    Q_UNUSED(sessionKey)
-    Q_UNUSED(keyId)
 #endif
 }
 
