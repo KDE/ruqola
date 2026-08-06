@@ -452,10 +452,12 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
     } else if (message.messageType() == Message::EncryptedText) {
-        const QString text = message.messageEncrypted()->descriptedText();
-        qDebug() << " text " << text;
-        if (!text.isEmpty()) {
-            return text;
+        if (message.messageEncrypted()) {
+            const QString text = message.messageEncrypted()->descriptedText();
+            qDebug() << " text " << text;
+            if (!text.isEmpty()) {
+                return text;
+            }
         }
         return message.systemMessageText();
     } else {
