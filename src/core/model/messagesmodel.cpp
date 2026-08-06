@@ -439,7 +439,7 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
     } else if (message.messageType() == Message::EncryptedText) {
         // TODO move in messageEncrypted
         const QByteArray content = message.messageEncrypted()->decrypt(mRoom->sessionKey());
-        qDebug() << " cxontent " << content;
+        qDebug() << " content " << content;
         if (!content.isEmpty()) {
             const QJsonDocument doc = QJsonDocument::fromJson(content);
             const QJsonObject obj = doc.object();
