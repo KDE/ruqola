@@ -46,6 +46,7 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray deriveKey(const QByteArray &salt, const QByteArray &baseKey, int iterations = 1000, int keyLength = 32);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray generateRandomIV(int size);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray generateSessionKey();
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray sessionKeyToJWK(const QByteArray &rawKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptSessionKey(const QByteArray &sessionKey, RSA *publicKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptSessionKey(const QByteArray &encryptedSessionKey, RSA *privateKey);
 // Caller owns the returned RSA object and must release it with RSA_free().

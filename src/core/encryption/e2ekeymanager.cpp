@@ -403,7 +403,15 @@ void E2eKeyManager::distributeRoomSessionKey([[maybe_unused]] const QByteArray &
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: failed to parse own public key";
         return;
     }
-    const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, rsaPublicKey);
+    // Rocket.Chat expects the RSA-encrypted payload to be the JWK JSON bytes of
+    // the session key (not raw bytes).  Wrap before encrypting.
+    const QByteArray sessionKeyJwk = EncryptionUtils::sessionKeyToJWK(sessionKey);
+    if (sessionKeyJwk.isEmpty()) {
+        RSA_free(rsaPublicKey);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: failed to encode session key as JWK";
+        return;
+    }
+    const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKeyJwk, rsaPublicKey);
     RSA_free(rsaPublicKey);
     if (encryptedSessionKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: session key encryption failed";
@@ -477,7 +485,14 @@ void E2eKeyManager::distributeRoomSessionKey([[maybe_unused]] const QByteArray &
                         continue;
                     }
 
-                    const QByteArray encryptedRecipientSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, targetRsaPublicKey);
+                    // Encode session key as JWK before RSA-encrypting (Rocket.Chat format).
+                    const QByteArray recipientSessionKeyJwk = EncryptionUtils::sessionKeyToJWK(sessionKey);
+                    if (recipientSessionKeyJwk.isEmpty()) {
+                        RSA_free(targetRsaPublicKey);
+                        qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: unable to encode session key as JWK for" << targetUserId;
+                        continue;
+                    }
+                    const QByteArray encryptedRecipientSessionKey = EncryptionUtils::encryptSessionKey(recipientSessionKeyJwk, targetRsaPublicKey);
                     RSA_free(targetRsaPublicKey);
                     if (encryptedRecipientSessionKey.isEmpty()) {
                         qCWarning(RUQOLA_ENCRYPTION_LOG) << "initializeRoomE2EKey: unable to encrypt room key for" << targetUserId;

@@ -282,6 +282,33 @@ QByteArray EncryptionUtils::generateSessionKey()
 }
 
 /**
+ * @brief Converts a raw 32-byte AES-256-GCM session key to JWK JSON format.
+ *
+ * Rocket.Chat distributes session keys as the RSA-OAEP-encrypted bytes of a JWK
+ * JSON string (not raw key bytes). This function produces the JSON payload that
+ * must be encrypted before sharing with other participants so that both Ruqola
+ * and Rocket.Chat web/mobile clients can import it.
+ *
+ * @param rawKey The 32-byte raw AES key.
+ * @return JWK JSON bytes, e.g.
+ *   {"k":"<base64url>","alg":"A256GCM","ext":true,"key_ops":["encrypt","decrypt"],"kty":"oct"}
+ */
+QByteArray EncryptionUtils::sessionKeyToJWK(const QByteArray &rawKey)
+{
+    if (rawKey.size() != 32) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "sessionKeyToJWK: expected 32-byte key, got" << rawKey.size();
+        return {};
+    }
+    QJsonObject jwk;
+    jwk[QStringLiteral("k")] = QString::fromLatin1(rawKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    jwk[QStringLiteral("alg")] = QStringLiteral("A256GCM");
+    jwk[QStringLiteral("ext")] = true;
+    jwk[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("encrypt") << QStringLiteral("decrypt");
+    jwk[QStringLiteral("kty")] = QStringLiteral("oct");
+    return QJsonDocument(jwk).toJson(QJsonDocument::Compact);
+}
+
+/**
  * @brief Generates a room-specific key identifier (keyId).
  *
  * Matches Rocket.Chat's e2e.room implementation:
