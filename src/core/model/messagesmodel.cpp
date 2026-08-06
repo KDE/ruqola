@@ -184,7 +184,7 @@ void MessagesModel::addMessage(const Message &message)
         (*mAllMessages.begin()) = message;
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update first message";
         emitChanged(0, {OriginalMessageOrAttachmentDescription});
-    } else if ((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId()) {
+    } else if (it != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId()) {
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update message: " << message.text();
         if (message.pendingMessage()) {
             // If we already have a message and we must add pending message it's that server
