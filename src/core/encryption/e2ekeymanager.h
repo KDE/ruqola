@@ -49,7 +49,7 @@ public:
     void setKeySaved(bool newKeySaved);
 
     void verifyExistingKeyForTest(const QJsonObject &json);
-    [[nodiscard]] bool decryptRoomsSessionKeys();
+    [[nodiscard]] bool decryptRoomsSessionKeys() const;
 
 Q_SIGNALS:
     void needDecodeEncryptionKey();

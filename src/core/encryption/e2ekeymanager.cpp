@@ -573,7 +573,7 @@ E2eKeyManager::Status E2eKeyManager::needToDecodeEncryptionKey() const
     return Status::Unknown;
 }
 
-bool E2eKeyManager::decryptRoomsSessionKeys()
+bool E2eKeyManager::decryptRoomsSessionKeys() const
 {
 #if USE_E2E_SUPPORT
     if (mDecodedPrivateKey.isEmpty()) {
