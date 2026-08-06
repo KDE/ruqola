@@ -415,6 +415,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
         return i18n("Role name is required");
     } else if (str == "error-room-is-not-closed"_L1) {
         return i18n("Room is not closed");
+    } else if (str == "error-room-e2e-key-already-exists"_L1) {
+        return i18n("The room already has an end-to-end encryption key ID");
     } else if (str == "error-the-field-is-required"_L1) {
         const QString field = details["field"_L1].toString();
         return i18n("The field '%1' is required.", field);
