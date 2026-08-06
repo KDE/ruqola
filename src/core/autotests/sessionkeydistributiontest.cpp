@@ -150,10 +150,10 @@ void SessionKeyDistributionTest::testJsonPayload()
 
     const QJsonDocument doc = job.json();
     const QJsonObject obj = doc.object();
-    QCOMPARE(obj[QStringLiteral("rid")].toString(), QStringLiteral("123"));
-    QJsonArray arr = obj[QStringLiteral("keys")].toArray();
+    const QJsonObject usersSuggestedGroupKeys = obj[QStringLiteral("usersSuggestedGroupKeys")].toObject();
+    QJsonArray arr = usersSuggestedGroupKeys[QStringLiteral("123")].toArray();
     QCOMPARE(arr.size(), 2);
-    QCOMPARE(arr[0].toObject()[QStringLiteral("userId")].toString(), QStringLiteral("users"));
+    QCOMPARE(arr[0].toObject()[QStringLiteral("_id")].toString(), QStringLiteral("users"));
     QCOMPARE(arr[0].toObject()[QStringLiteral("key")].toString(), QStringLiteral("base64keyA"));
 }
 
