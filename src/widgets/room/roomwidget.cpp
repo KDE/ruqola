@@ -389,7 +389,10 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
         // TODO
         break;
     case RoomHeaderWidget::EncryptMessages:
-        // TODO
+        slotEncryptedChanged(true);
+        break;
+    case RoomHeaderWidget::UnEncryptMessages:
+        slotEncryptedChanged(false);
         break;
     case RoomHeaderWidget::ShowBannedUsers:
         slotShowBannedUsers();

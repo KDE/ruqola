@@ -134,8 +134,8 @@ void ChannelActionPopupMenu::createMenu()
     mEncryptMessages = new QAction(i18nc("@action", "Encrypt Messages"), this);
     mEncryptMessages->setCheckable(true);
     mMenu->addAction(mEncryptMessages);
-    connect(mEncryptMessages, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(RoomHeaderWidget::EncryptMessages);
+    connect(mEncryptMessages, &QAction::triggered, this, [this](bool state) {
+        Q_EMIT actionRequested(state ? RoomHeaderWidget::EncryptMessages : RoomHeaderWidget::UnEncryptMessages);
     });
     mShowBannedUsers = new QAction(i18nc("@action", "Show Banned Users…"), this);
     mMenu->addAction(mShowBannedUsers);
