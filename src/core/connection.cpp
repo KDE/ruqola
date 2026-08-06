@@ -28,6 +28,7 @@
 #include "authentication/logoutjob.h"
 #include "job/adduserinchanneljob.h"
 
+#include "chat/encryptedinfo.h"
 #include "chat/getmentionedmessagesjob.h"
 #include "chat/getpinnedmessagesjob.h"
 #include "chat/getsnippetedmessagesjob.h"
@@ -1140,8 +1141,7 @@ void Connection::sendMessage(const QByteArray &roomId, const QString &text, cons
         .roomId = QString::fromLatin1(roomId),
         .threadMessageId = QString::fromLatin1(threadMessageId),
         .message = text,
-        .encrypted = false,
-        .info = SendMessageJob::EncryptedInfo(),
+        .info = EncryptedInfo(),
     };
     job->setSendMessageArguments(args);
     if (!job->start()) {
