@@ -9,5 +9,6 @@
     <qresource prefix="/messages_icons">
         <file>icons/single-check.svg</file>
         <file>icons/double-check.svg</file>
+        <file>icons/encrypt-background.png</file>
     </qresource>
 </RCC>

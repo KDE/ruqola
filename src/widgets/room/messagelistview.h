@@ -120,4 +120,5 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     ActionButtonsGenerator *const mActionButtonsGenerator;
     NewMessageIndicator *const mNewMessageIndicator;
+    const QPixmap mEncryptedRoomBackground;
 };

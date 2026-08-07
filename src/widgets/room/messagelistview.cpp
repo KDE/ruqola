@@ -77,6 +77,7 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     , mCurrentRocketChatAccount(account)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
     , mNewMessageIndicator(new NewMessageIndicator(viewport()))
+    , mEncryptedRoomBackground(QPixmap(u":/messages_icons/icons/encrypt-background.png"_s))
 {
     if (mCurrentRocketChatAccount) {
         mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
@@ -134,9 +135,11 @@ void MessageListView::resizeEvent(QResizeEvent *e)
 
 void MessageListView::paintEvent(QPaintEvent *e)
 {
+    QPainter p(viewport());
+    if (mRoom && mRoom->encrypted()) {
+        p.drawPixmap(width() - mEncryptedRoomBackground.width(), height() - mEncryptedRoomBackground.height(), mEncryptedRoomBackground);
+    }
     if (mRoom && (mRoom->numberMessages() == 0)) {
-        QPainter p(viewport());
-
         QFont font = p.font();
         font.setItalic(true);
         p.setFont(font);
