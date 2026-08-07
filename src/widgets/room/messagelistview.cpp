@@ -405,6 +405,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    if (!message || !mCurrentRocketChatAccount) {
+        return;
+    }
 
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = (messageType == Message::EncryptedText && !message->hasDescriptedContent()) || (messageType == Message::System)
@@ -503,10 +506,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     connect(forwardMessageAction, &QAction::triggered, this, [this, index]() {
         slotForwardMessage(index);
     });
-
-    if (!message || !mCurrentRocketChatAccount) {
-        return;
-    }
 
     const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
     const bool messageIsFollowing = threadMessageId.isEmpty()
@@ -635,7 +634,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addAction(copyUrlAction);
             }
             menu.addAction(copyLinkToMessageAction);
-            if (!isVideoConferenceMessage) {
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 menu.addAction(forwardMessageAction);
                 menu.addSeparator();
                 // menu.addAction(selectAllAction);
@@ -697,7 +696,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addAction(copyUrlAction);
             }
             menu.addAction(copyLinkToMessageAction);
-            if (!isVideoConferenceMessage) {
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 menu.addAction(forwardMessageAction);
                 menu.addSeparator();
                 // menu.addAction(selectAllAction);
@@ -805,7 +804,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(copyUrlAction);
         }
         menu.addAction(copyLinkToMessageAction);
-        if (!isVideoConferenceMessage) {
+        if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
             menu.addAction(forwardMessageAction);
             menu.addSeparator();
             // menu.addAction(selectAllAction);
