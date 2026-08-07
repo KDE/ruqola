@@ -448,6 +448,7 @@ public:
     [[nodiscard]] bool hasMessageReadReceiptActiveModule() const;
 
     void createDirectChannel(const QStringList &names);
+    void parseE2eKeyRequest(const QJsonArray &contents);
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

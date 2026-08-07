@@ -522,6 +522,17 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // Clear auth token otherwise we can't reconnect.
             mRocketChatAccount->settings()->setAuthToken({});
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/e2ekeyRequest"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users  e2e.keyRequest: " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: e2ekeyRequest: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: e2ekeyRequest :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            mRocketChatAccount->parseE2eKeyRequest(contents);
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -739,6 +750,7 @@ void RocketChatBackend::subscribeRegistration()
         u"force_logout"_s,
         u"uiInteraction"_s,
         u"webdav"_s,
+        u"e2ekeyRequest"_s,
     };
     for (const QString &str : listStreamNotifierUser) {
         QJsonArray params;

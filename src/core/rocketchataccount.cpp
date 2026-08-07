@@ -2129,6 +2129,13 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     return deleteAllowed && onTimeForDelete;
 }
 
+void RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents)
+{
+    qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents;
+    qDebug() << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents;
+    // TODO  QJsonArray(["6a7477d083ae3ec8a9eb588f","80941e2d-96ca-4db2-852a-bbd891060dea"]) => room -> key
+}
+
 void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
 {
     qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::parseVideoConference(const QJsonArray &contents) " << contents;
