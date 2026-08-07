@@ -69,7 +69,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mPinIcon(QIcon::fromTheme(u"pin"_s))
     , mTranslatedIcon(QIcon::fromTheme(u"translate"_s))
     , mReplyInThreadIcon(QIcon::fromTheme(u"view-conversation-balloon-symbolic"_s))
-    , mEncryptedIcon(QIcon::fromTheme(u"document-encrypt"_s))
+    , mEncryptedIcon(QIcon(u":/messages_icons/icons/document-encrypted-symbolic.svg"_s))
     , mTextToSpeechIcon(QIcon::fromTheme(u"player-volume"_s))
     , mSingleCheckIcon(QIcon(u":/messages_icons/icons/single-check.svg"_s))
     , mDoubleCheckIcon(QIcon(u":/messages_icons/icons/double-check.svg"_s))
@@ -640,7 +640,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Draw encrypted icon
-    // TODO implement encrypted message
     if (message->isEncryptedMessage()) {
         mEncryptedIcon.paint(painter, layout.encryptedIconRect);
     }

@@ -10,5 +10,6 @@
         <file>icons/single-check.svg</file>
         <file>icons/double-check.svg</file>
         <file>icons/encrypt-background.png</file>
+        <file>icons/document-encrypted-symbolic.svg</file>
     </qresource>
 </RCC>

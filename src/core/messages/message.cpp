@@ -214,7 +214,9 @@ bool Message::isAutoTranslated() const
 
 bool Message::isEncryptedMessage() const
 {
-    // TODO
+    if (mMessageEncrypted && mMessageEncrypted->hasDescriptedContent()) {
+        return true;
+    }
     return false;
 }
 
