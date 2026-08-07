@@ -71,6 +71,8 @@ QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject 
             return i18n("Only groups or direct channels can enable encryption");
         } else if (detailActionStr == "Editing_room"_L1) {
             return i18n("Editing room is not allowed");
+        } else if (detailActionStr == "Change_Room_Type"_L1) {
+            return i18n("Changing room type is not allowed");
         }
     }
     return RestApiAbstractJob::errorMessage(str, detail);
