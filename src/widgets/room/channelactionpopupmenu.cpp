@@ -202,7 +202,9 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 
         mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(u"mail-messages"_s));
 
-        mEncryptMessages->setVisible(mRoom->encryptedEnabled()); // Hide when not private channels or not direct
+        mEncryptMessages->setVisible(mRoom->encryptedEnabled()
+                                     && (mRoom->channelType() == Room::RoomType::Direct || mRoom->channelType() == Room::RoomType::Private)
+                                     && mRoom->hasPermission(u"set-owner"_s));
         mEncryptMessages->setChecked(mRoom->encrypted());
 
         const bool hasPermissionToBan = mRoom && mRoom->hasPermission(u"ban-user"_s)
