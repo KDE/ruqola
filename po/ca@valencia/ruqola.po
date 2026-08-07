@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:44+0000\n"
-"PO-Revision-Date: 2026-07-28 10:26+0200\n"
+"POT-Creation-Date: 2026-08-07 00:45+0000\n"
+"PO-Revision-Date: 2026-08-06 10:11+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -771,7 +771,7 @@ msgstr "Falta l'URL del servidor."
 msgid "Socket was unexpectedly closed."
 msgstr "El sòcol s'ha tancat inesperadament."
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:938
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:932
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
@@ -860,31 +860,26 @@ msgstr "Missatge fixat"
 
 #: core/messages/message.cpp:873
 #, kde-format
-msgid "Encrypted Message"
-msgstr "Missatge encriptat"
-
-#: core/messages/message.cpp:875
-#, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 ha deixat d'estar silenciat per %2"
 
-#: core/messages/message.cpp:877
+#: core/messages/message.cpp:875
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 ha sigut silenciat per %2"
 
-#: core/messages/message.cpp:879
+#: core/messages/message.cpp:877
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "%2 ha afegit el rol «%3» a %1"
 
-#: core/messages/message.cpp:881
+#: core/messages/message.cpp:879
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "%2 ha eliminat el rol «%3» a %1"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:885
+#: core/messages/message.cpp:883
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -893,132 +888,122 @@ msgstr ""
 "Este missatge està encriptat d'extrem a extrem. Per a veure'l, cal que "
 "introduïu la vostra clau d'encriptació en la configuració del vostre compte."
 
-#: core/messages/message.cpp:887
+#: core/messages/message.cpp:885
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Debat creat quant a «%1»"
 
-#: core/messages/message.cpp:889
+#: core/messages/message.cpp:887
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 s'ha unit a la conversa"
 
-#: core/messages/message.cpp:891
+#: core/messages/message.cpp:889
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "%1 ha arxivat esta sala"
 
-#: core/messages/message.cpp:893
+#: core/messages/message.cpp:891
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "%1 ha desarxivat esta sala"
 
-#: core/messages/message.cpp:896 core/messages/message.cpp:947
+#: core/messages/message.cpp:894 core/messages/message.cpp:941
 #, kde-format
 msgid "Unknown action!"
 msgstr "Acció desconeguda!"
 
-#: core/messages/message.cpp:900
+#: core/messages/message.cpp:898
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Us donem la benvinguda %1!"
 
-#: core/messages/message.cpp:902
+#: core/messages/message.cpp:900
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "%1 ha canviat l'avatar de la sala"
 
-#: core/messages/message.cpp:904
+#: core/messages/message.cpp:902
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "%1 ha activat l'encriptació d'esta sala"
 
-#: core/messages/message.cpp:906
+#: core/messages/message.cpp:904
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "%1 ha desactivat l'encriptació d'esta sala"
 
-#: core/messages/message.cpp:908
+#: core/messages/message.cpp:906
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "%1 ha establit la sala com de només lectura"
 
-#: core/messages/message.cpp:910
+#: core/messages/message.cpp:908
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "%1 ha afegit el permís d'escriptura a la sala"
 
-#: core/messages/message.cpp:912
+#: core/messages/message.cpp:910
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 ha afegit @%2 a este equip"
 
-#: core/messages/message.cpp:914
+#: core/messages/message.cpp:912
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 ha eliminat @%2 d'este equip"
 
-#: core/messages/message.cpp:916
+#: core/messages/message.cpp:914
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 ha convertit #%2 a un equip"
 
-#: core/messages/message.cpp:918
+#: core/messages/message.cpp:916
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 ha convertit #%2 a un canal"
 
-#: core/messages/message.cpp:920
+#: core/messages/message.cpp:918
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 ha eliminat #%2 d'este equip"
 
-#: core/messages/message.cpp:922
+#: core/messages/message.cpp:920
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 ha suprimit #%2"
 
-#: core/messages/message.cpp:924
+#: core/messages/message.cpp:922
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 ha afegit #%2 a este equip"
 
-#: core/messages/message.cpp:926
+#: core/messages/message.cpp:924
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 ha permés reaccions a la sala"
 
-#: core/messages/message.cpp:928
+#: core/messages/message.cpp:926
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1 ha eliminat el permís de reaccions a la sala"
 
-#: core/messages/message.cpp:930
+#: core/messages/message.cpp:928
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 s'ha unit a este equip"
 
-#: core/messages/message.cpp:932
-#, kde-format
-msgid "%1 has joined OTR chat."
-msgstr "%1 s'ha unit al xat OTR."
-
-#: core/messages/message.cpp:934
+#: core/messages/message.cpp:930
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "La clau %1 s'ha actualitzat correctament"
 
-#: core/messages/message.cpp:936
-#, kde-format
-msgid "%1 has requested key refresh."
-msgstr "%1 ha sol·licitat l'actualització de la clau."
-
-#: core/messages/message.cpp:940
+#: core/messages/message.cpp:934
 #, kde-format
 msgid "%1 banned %2"
 msgstr "%1 ha bandejat %2"
 
-#: core/messages/message.cpp:942
+#: core/messages/message.cpp:936
 #, kde-format
 msgid "%1 unbanned %2"
 msgstr "%1 ha desbandejat %2"
@@ -1333,7 +1318,7 @@ msgstr "Tipus de canal"
 msgid "Belongs To"
 msgstr "Pertany a"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:671
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1370,17 +1355,17 @@ msgstr "No s'ha trobat cap resultat."
 msgid "Notify all in this room"
 msgstr "Notifica a tothom en esta sala"
 
-#: core/model/messagesmodel.cpp:280
+#: core/model/messagesmodel.cpp:285
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Editat a les %1 per %2"
 
-#: core/model/messagesmodel.cpp:456
+#: core/model/messagesmodel.cpp:466
 #, kde-format
 msgid "Ignored Message"
 msgstr "Missatge ignorat"
 
-#: core/model/messagesmodel.cpp:467
+#: core/model/messagesmodel.cpp:477
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Este missatge només el podeu veure vós"
@@ -1476,85 +1461,85 @@ msgstr "Autenticació de dos factors"
 msgid "Last token part"
 msgstr "Última part del testimoni"
 
-#: core/model/roommodel.cpp:601
+#: core/model/roommodel.cpp:605
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 menció"
 msgstr[1] "%1 mencions"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:609
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 menció de grup"
 msgstr[1] "%1 mencions de grup"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 missatge del fil no llegit"
 msgstr[1] "%1 missatges dels fils no llegits"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:617
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 missatge sense llegir"
 msgstr[1] "%1 missatges sense llegir"
 
-#: core/model/roommodel.cpp:639
+#: core/model/roommodel.cpp:643
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala d'equips"
 
-#: core/model/roommodel.cpp:645
+#: core/model/roommodel.cpp:649
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:647
+#: core/model/roommodel.cpp:651
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de debat"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:655
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala de canal"
 
-#: core/model/roommodel.cpp:665 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Sense llegir"
 
-#: core/model/roommodel.cpp:667
+#: core/model/roommodel.cpp:671
 #, kde-format
 msgid "Favorites"
 msgstr "Preferides"
 
-#: core/model/roommodel.cpp:669
+#: core/model/roommodel.cpp:673
 #, kde-format
 msgid "Teams"
 msgstr "Equips"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Discussions"
 msgstr "Debats"
 
-#: core/model/roommodel.cpp:675
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Private Messages"
 msgstr "Missatges privats"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Draft"
 msgstr "Esborrany"
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Desconegut"
@@ -1786,38 +1771,6 @@ msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Respon…"
 
-#: core/otr/otrnotificationjob.cpp:47 core/otr/otrnotificationjob.cpp:57
-#: core/otr/otrnotificationjob.cpp:72
-#, kde-format
-msgid "OTR"
-msgstr "OTR"
-
-#: core/otr/otrnotificationjob.cpp:61
-#: core/videoconference/videoconferencenotificationjob.cpp:64
-#, kde-format
-msgid "Reject"
-msgstr "Rebutja"
-
-#: core/otr/otrnotificationjob.cpp:64
-#, kde-format
-msgid "Ok"
-msgstr "D'acord"
-
-#: core/otr/otrnotificationjob.cpp:96
-#, kde-format
-msgid "%1 ended the OTR session."
-msgstr "%1 ha finalitzat la sessió OTR."
-
-#: core/otr/otrnotificationjob.cpp:100
-#, kde-format
-msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr "%1 vol iniciar una OTR. Voleu acceptar?"
-
-#: core/otr/otrnotificationjob.cpp:104
-#, kde-format
-msgid "%1 denied the OTR session."
-msgstr "%1 ha denegat la sessió OTR."
-
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
@@ -1830,7 +1783,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:738
+#: core/rocketchataccount.cpp:784
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1839,22 +1792,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:746 core/rocketchataccount.cpp:759
+#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:753
+#: core/rocketchataccount.cpp:799
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
 
-#: core/rocketchataccount.cpp:3178
+#: core/rocketchataccount.cpp:3217
 #, kde-format
 msgid "Room Added"
 msgstr "S'ha afegit una sala"
 
-#: core/rocketchataccount.cpp:3179
+#: core/rocketchataccount.cpp:3218
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "S'ha afegit una sala nova a «%1»."
@@ -1879,17 +1832,17 @@ msgstr "Líder"
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1595
+#: core/room.cpp:1598
 #, kde-format
 msgid "Channel is read only."
 msgstr "El canal només és de lectura."
 
-#: core/room.cpp:1598
+#: core/room.cpp:1601
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Heu blocat este canal."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1604
 #, kde-format
 msgid "Channel was blocked."
 msgstr "El canal està blocat."
@@ -2097,6 +2050,11 @@ msgstr "Tocada entrant"
 msgid "Accept"
 msgstr "Accepta"
 
+#: core/videoconference/videoconferencenotificationjob.cpp:64
+#, kde-format
+msgid "Reject"
+msgstr "Rebutja"
+
 #: plugins/authentication/github/githubpluginauthentication.cpp:35
 #, kde-format
 msgid "GitHub"
@@ -2297,18 +2255,18 @@ msgstr "No es permet l'obtenció del missatge %2 a la sala %1"
 msgid "Invalid message: '%1'"
 msgstr "Missatge no vàlid: «%1»"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:141
 #, kde-format
 msgid "This room is blocked"
 msgstr "Esta sala està bloquejada"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:143
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Heu sigut silenciat i no podeu parlar en esta sala"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:138
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:145
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:153
 #, kde-format
 msgid "Invalid channel"
 msgstr "Canal no vàlid"
@@ -2770,32 +2728,37 @@ msgstr "El nom del rol és necessari"
 msgid "Room is not closed"
 msgstr "La sala no està tancada"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
+#, kde-format
+msgid "The room already has an end-to-end encryption key ID"
+msgstr ""
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "Es requerix el camp «%1»."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "Esta no és una sala de Livechat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Actualment els testimonis d'accés personal estan desactivats"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "Ja existix un testimoni amb este nom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid "Token does not exists"
 msgstr "El testimoni no existix"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2804,17 +2767,17 @@ msgstr ""
 "Error, hi ha massa sol·licituds. Espereu un moment. Cal esperar %1 segons "
 "abans de tornar-ho a provar."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
 #, kde-format
 msgid "User has no roles"
 msgstr "L'usuari no té cap rol"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
 #, kde-format
 msgid "User is not activated"
 msgstr "L'usuari no està activat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2823,89 +2786,89 @@ msgstr ""
 "El nombre d'usuaris que esteu intentant convidar al #channel_name excedix el "
 "límit definit per l'administrador"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
 #, kde-format
 msgid "User is not in this room"
 msgstr "L'usuari no es troba en esta sala"
 
 # skip-rule: rst-link0italic,rst-italic2
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "No esteu a la sala «%s»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
 #, kde-format
 msgid "User registration is disabled"
 msgstr "El registre d'usuaris està desactivat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "El registre d'usuari només es permet via un URL secret"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "Sou l'últim propietari. Establiu un propietari nou abans de deixar la sala."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
 #, kde-format
 msgid "The private group is archived"
 msgstr "El grup privat està arxivat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "User is already an owner"
 msgstr "L'usuari ja és un propietari"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, kde-format
 msgid "User is already a leader"
 msgstr "L'usuari ja és un líder"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
 #, kde-format
 msgid "User is already a moderator"
 msgstr "L'usuari ja és un moderador"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
 msgid "Invalid message id"
 msgstr "ID no vàlid de missatge"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid "User is not a leader"
 msgstr "L'usuari no és un líder"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "L'aplicació d'usuari no està permesa iniciar la sessió"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Els missatges directes no es poden arxivar"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
 #, kde-format
 msgid "Message not found."
 msgstr "No s'ha trobat el missatge."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "Es requerix una contrasenya d'autenticació de dos factors"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
 #, kde-format
 msgid "Invalid Password"
 msgstr "Contrasenya no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2914,22 +2877,22 @@ msgstr ""
 "El paràmetre requerit \\\"roomId\\\" o \\\"roomName\\\" que s'ha "
 "proporcionat no coincidix amb cap canal"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "Ja existix un rol amb este nom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "El missatge no s'ha pogut fixar"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "La contrasenya introduïda ja s'ha fet servir prèviament"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "S'ha assolit el nombre màxim de sales per convidat."
@@ -2955,9 +2918,10 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr "Només els grups o els canals directes poden activar l'encriptació"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
-#, kde-format
-msgid "Room does not have retention policy"
-msgstr "La sala no té política de retenció"
+#, fuzzy, kde-format
+#| msgid "Editing permissions is not allowed"
+msgid "Editing room is not allowed"
+msgstr "No es permet l'edició de permisos"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -3592,7 +3556,7 @@ msgstr "Descarta tots els informes"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:426
+#: widgets/room/messagelistview.cpp:429
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3601,7 +3565,7 @@ msgstr "Copia la selecció"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:428
+#: widgets/room/messagelistview.cpp:431
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3622,7 +3586,7 @@ msgstr "Llig el text"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:115
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -5325,13 +5289,7 @@ msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Mencions"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
-#, kde-format
-msgctxt "@option:check"
-msgid "Enable OTR"
-msgstr "Activa OTR"
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5341,7 +5299,7 @@ msgstr ""
 "Marca l'opció de crear grups encriptats i ser capaç de canviar grups i "
 "missatges directes perquè es puguen encriptar."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5351,7 +5309,7 @@ msgstr ""
 "Permet accedir a sales encriptades a persones sense claus d'encriptació. "
 "Podran veure i enviar missatges sense encriptar."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5360,17 +5318,6 @@ msgid ""
 msgstr ""
 "Notifica a les persones i ressalta les mencions d'usuari, canal i equip en "
 "el contingut encriptat."
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
-#, kde-format
-msgid ""
-"Enable option to use off-the-record (OTR) messages in direct messages "
-"between 2 users. OTR messages are not recorded on the server and exchanged "
-"directly and encrypted between the 2 users."
-msgstr ""
-"Marca l'opció per a utilitzar els missatges «off-the-record» (OTR) en els "
-"missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren en el "
-"servidor i s'intercanvien de manera directa i encriptada entre els 2 usuaris."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:22
 #, kde-format
@@ -7612,7 +7559,7 @@ msgid "Mark as Unread"
 msgstr "Marca com a sense llegir"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -8127,10 +8074,9 @@ msgid "DataBase E2E"
 msgstr "E2E de la base de dades"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E Rooms"
-msgstr "Base de dades de les sales"
+msgstr "Sales E2E de la base de dades"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
@@ -10586,7 +10532,7 @@ msgid "Switch To New Room"
 msgstr "Canvia a una sala nova"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:817
+#: widgets/room/messagelistview.cpp:819
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10607,23 +10553,6 @@ msgstr "%1 té %2 missatges sense llegir"
 #, kde-format
 msgid "Network is offline mode."
 msgstr "La xarxa està en mode desconnectat."
-
-#: widgets/otr/otrwidget.cpp:20
-#, kde-format
-msgid "Otr Activated"
-msgstr "S'ha activat OTR"
-
-#: widgets/otr/otrwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "End OTR"
-msgstr "Finalitza OTR"
-
-#: widgets/otr/otrwidget.cpp:27
-#, kde-format
-msgctxt "@action"
-msgid "Refresh Keys"
-msgstr "Actualitza les claus"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:31
 #, kde-format
@@ -10788,16 +10717,10 @@ msgstr "Exporta missatges…"
 #: widgets/room/channelactionpopupmenu.cpp:127
 #, kde-format
 msgctxt "@action"
-msgid "OTR"
-msgstr "OTR"
-
-#: widgets/room/channelactionpopupmenu.cpp:134
-#, kde-format
-msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Encriptació dels missatges"
 
-#: widgets/room/channelactionpopupmenu.cpp:140
+#: widgets/room/channelactionpopupmenu.cpp:133
 #, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
@@ -10832,21 +10755,21 @@ msgid "User Info"
 msgstr "Informació d'usuari"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:559
+#: widgets/room/messagelistview.cpp:561
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Inicia una conversa privada"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Mostra el missatge original"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -11051,138 +10974,138 @@ msgstr "Vos heu unit a un missatge directe nou"
 msgid "Start of conversation"
 msgstr "Inici de la conversa"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "No fixes el missatge"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Fixa el missatge"
 
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Elimina com a preferit"
 
-#: widgets/room/messagelistview.cpp:453
+#: widgets/room/messagelistview.cpp:456
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Suprimix"
 
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:469
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Marca el missatge com a no llegit"
 
-#: widgets/room/messagelistview.cpp:471
+#: widgets/room/messagelistview.cpp:474
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Mostra el fil sencer"
 
-#: widgets/room/messagelistview.cpp:476
+#: widgets/room/messagelistview.cpp:479
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Edita"
 
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Cita"
 
-#: widgets/room/messagelistview.cpp:486
+#: widgets/room/messagelistview.cpp:489
 #, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Confirmacions de lectura"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:494
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Copia l'enllaç cap al missatge"
 
-#: widgets/room/messagelistview.cpp:496
+#: widgets/room/messagelistview.cpp:499
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Missatge reenviat"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Deixa de seguir el missatge"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Seguix un missatge"
 
-#: widgets/room/messagelistview.cpp:526
+#: widgets/room/messagelistview.cpp:528
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copia l'URL"
 
-#: widgets/room/messagelistview.cpp:550 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:552 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/room/messagelistview.cpp:597
+#: widgets/room/messagelistview.cpp:599
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Inicia un debat"
 
-#: widgets/room/messagelistview.cpp:603
+#: widgets/room/messagelistview.cpp:605
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
-#: widgets/room/messagelistview.cpp:737
+#: widgets/room/messagelistview.cpp:739
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Vista dels informes"
 
-#: widgets/room/messagelistview.cpp:760
+#: widgets/room/messagelistview.cpp:762
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Descarta els informes"
 
-#: widgets/room/messagelistview.cpp:834
+#: widgets/room/messagelistview.cpp:836
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1090
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Voleu suprimir este missatge?"
 
-#: widgets/room/messagelistview.cpp:1089
+#: widgets/room/messagelistview.cpp:1091
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Suprimiu el missatge"
 
-#: widgets/room/messagelistview.cpp:1287
+#: widgets/room/messagelistview.cpp:1289
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11376,39 +11299,39 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:412
+#: widgets/room/roomwidget.cpp:400
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:413
+#: widgets/room/roomwidget.cpp:401
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Elimina l'historial"
 
-#: widgets/room/roomwidget.cpp:457
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: widgets/room/roomwidget.cpp:458
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "El contingut encriptat no es pot buscar."
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Busca de missatge"
 
-#: widgets/room/roomwidget.cpp:639
+#: widgets/room/roomwidget.cpp:627
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11416,7 +11339,7 @@ msgstr ""
 "Un administrador de l'espai de treball necessita instal·lar i configurar una "
 "aplicació de tocades de conferència."
 
-#: widgets/room/roomwidget.cpp:640
+#: widgets/room/roomwidget.cpp:628
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -12660,3 +12583,59 @@ msgstr "Nom d'usuari:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Afig un compte…"
+
+#~ msgid "Encrypted Message"
+#~ msgstr "Missatge encriptat"
+
+#~ msgid "%1 has joined OTR chat."
+#~ msgstr "%1 s'ha unit al xat OTR."
+
+#~ msgid "%1 has requested key refresh."
+#~ msgstr "%1 ha sol·licitat l'actualització de la clau."
+
+#~ msgid "OTR"
+#~ msgstr "OTR"
+
+#~ msgid "Ok"
+#~ msgstr "D'acord"
+
+#~ msgid "%1 ended the OTR session."
+#~ msgstr "%1 ha finalitzat la sessió OTR."
+
+#~ msgid "%1 wants to start OTR. Do you want to accept?"
+#~ msgstr "%1 vol iniciar una OTR. Voleu acceptar?"
+
+#~ msgid "%1 denied the OTR session."
+#~ msgstr "%1 ha denegat la sessió OTR."
+
+#~ msgid "Room does not have retention policy"
+#~ msgstr "La sala no té política de retenció"
+
+#~ msgctxt "@option:check"
+#~ msgid "Enable OTR"
+#~ msgstr "Activa OTR"
+
+#~ msgid ""
+#~ "Enable option to use off-the-record (OTR) messages in direct messages "
+#~ "between 2 users. OTR messages are not recorded on the server and "
+#~ "exchanged directly and encrypted between the 2 users."
+#~ msgstr ""
+#~ "Marca l'opció per a utilitzar els missatges «off-the-record» (OTR) en els "
+#~ "missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren en "
+#~ "el servidor i s'intercanvien de manera directa i encriptada entre els 2 "
+#~ "usuaris."
+
+#~ msgid "Otr Activated"
+#~ msgstr "S'ha activat OTR"
+
+#~ msgctxt "@action"
+#~ msgid "End OTR"
+#~ msgstr "Finalitza OTR"
+
+#~ msgctxt "@action"
+#~ msgid "Refresh Keys"
+#~ msgstr "Actualitza les claus"
+
+#~ msgctxt "@action"
+#~ msgid "OTR"
+#~ msgstr "OTR"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:44+0000\n"
+"POT-Creation-Date: 2026-08-07 00:45+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -773,7 +773,7 @@ msgstr "सेवकस्य URL अनुपस्थितम्।"
 msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट् अप्रत्याशितरूपेण बन्दः आसीत् ।"
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:938
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:932
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
@@ -862,31 +862,26 @@ msgstr "सन्देशः पिन कृतः"
 
 #: core/messages/message.cpp:873
 #, kde-format
-msgid "Encrypted Message"
-msgstr "एन्क्रिप्टेड् सन्देशः"
-
-#: core/messages/message.cpp:875
-#, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 %2 द्वारा अनम्यूट् आसीत्"
 
-#: core/messages/message.cpp:877
+#: core/messages/message.cpp:875
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 %2 द्वारा निःशब्दः अभवत्"
 
-#: core/messages/message.cpp:879
+#: core/messages/message.cpp:877
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "भूमिका '%3' %2 द्वारा %1 मध्ये योजितम्"
 
-#: core/messages/message.cpp:881
+#: core/messages/message.cpp:879
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "भूमिका '%3' %2 द्वारा %1 मध्ये निष्कासिता"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:885
+#: core/messages/message.cpp:883
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -895,133 +890,123 @@ msgstr ""
 "एषः सन्देशः अन्तः अन्तः गुप्तः अस्ति । तत् द्रष्टुं भवता स्वस्य खातेः सेटिङ्ग्स् मध्ये स्वस्य "
 "एन्क्रिप्शन कीलम् प्रविष्टव्यम् ।"
 
-#: core/messages/message.cpp:887
+#: core/messages/message.cpp:885
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "\"%1\" विषये चर्चा निर्मितवती।"
 
-#: core/messages/message.cpp:889
+#: core/messages/message.cpp:887
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 सम्भाषणे सम्मिलितः अस्ति"
 
-#: core/messages/message.cpp:891
+#: core/messages/message.cpp:889
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "एतत् कक्षं %1 द्वारा संग्रहीतम् अस्ति"
 
-#: core/messages/message.cpp:893
+#: core/messages/message.cpp:891
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "अयं कक्षः %1 द्वारा असंगृहीतः अस्ति"
 
-#: core/messages/message.cpp:896 core/messages/message.cpp:947
+#: core/messages/message.cpp:894 core/messages/message.cpp:941
 #, kde-format
 msgid "Unknown action!"
 msgstr "अज्ञात कर्म !"
 
-#: core/messages/message.cpp:900
+#: core/messages/message.cpp:898
 #, kde-format
 msgid "Welcome %1!"
 msgstr "स्वागतम् %1 !"
 
-#: core/messages/message.cpp:902
+#: core/messages/message.cpp:900
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "कक्षस्य अवतारः %1 इत्यनेन परिवर्तितः"
 
-#: core/messages/message.cpp:904
+#: core/messages/message.cpp:902
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "अस्य कक्षस्य गोपनं %1 द्वारा सक्षमम् अस्ति"
 
-#: core/messages/message.cpp:906
+#: core/messages/message.cpp:904
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "अस्य कक्षस्य गोपनं %1 द्वारा निष्क्रियं कृतम् अस्ति"
 
-#: core/messages/message.cpp:908
+#: core/messages/message.cpp:906
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "%1 द्वारा केवलं पठनीयरूपेण कक्षः सेट् कृतः"
 
-#: core/messages/message.cpp:910
+#: core/messages/message.cpp:908
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "कक्षः %1 द्वारा लेखनस्य अनुमतिं योजितवान्"
 
-#: core/messages/message.cpp:912
+#: core/messages/message.cpp:910
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 इत्यनेन @%2 इत्येतत् अस्मिन् दले योजितम्"
 
-#: core/messages/message.cpp:914
+#: core/messages/message.cpp:912
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 इत्यनेन @%2 इत्येतत् अस्मात् दलात् निष्कासितम्"
 
-#: core/messages/message.cpp:916
+#: core/messages/message.cpp:914
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 इत्यनेन #%2 इति दलं परिवर्तितम्"
 
-#: core/messages/message.cpp:918
+#: core/messages/message.cpp:916
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 इत्यनेन #%2 इत्येतत् Channel मध्ये परिवर्तितम्"
 
-#: core/messages/message.cpp:920
+#: core/messages/message.cpp:918
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 इत्यनेन #%2 अस्मात् दलात् निष्कासितम्"
 
-#: core/messages/message.cpp:922
+#: core/messages/message.cpp:920
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 अपाकृतवान् #%2"
 
-#: core/messages/message.cpp:924
+#: core/messages/message.cpp:922
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 इत्यनेन #%2 अस्मिन् दलस्य मध्ये योजितम्"
 
-#: core/messages/message.cpp:926
+#: core/messages/message.cpp:924
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 द्वारा प्रतिक्रियां कर्तुं कक्षः अनुमतः"
 
-#: core/messages/message.cpp:928
+#: core/messages/message.cpp:926
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1 द्वारा प्रतिक्रियां कर्तुं कक्षः अस्वीकृतः"
 
-#: core/messages/message.cpp:930
+#: core/messages/message.cpp:928
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 अस्मिन् दलस्य सदस्यः अभवत्"
 
-#: core/messages/message.cpp:932
-#, kde-format
-msgid "%1 has joined OTR chat."
-msgstr "%1 OTR गपशपं सम्मिलितवान् ।"
-
-#: core/messages/message.cpp:934
+#: core/messages/message.cpp:930
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 कुञ्जी सफलतया ताजगीकृतम्"
 
-#: core/messages/message.cpp:936
-#, kde-format
-msgid "%1 has requested key refresh."
-msgstr "%1 इत्यनेन कील-ताजगीकरणस्य अनुरोधः कृतः ।"
-
-#: core/messages/message.cpp:940
+#: core/messages/message.cpp:934
 #, fuzzy, kde-format
 #| msgid "%1 and %2"
 msgid "%1 banned %2"
 msgstr "%1 तथा %2"
 
-#: core/messages/message.cpp:942
+#: core/messages/message.cpp:936
 #, fuzzy, kde-format
 #| msgid "%1 and %2"
 msgid "%1 unbanned %2"
@@ -1337,7 +1322,7 @@ msgstr "चैनल प्रकार"
 msgid "Belongs To"
 msgstr "Belongs To इति"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:671
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1374,17 +1359,17 @@ msgstr "न परिणामः प्राप्तः।"
 msgid "Notify all in this room"
 msgstr "अस्मिन् कक्षे सर्वेभ्यः सूचयन्तु"
 
-#: core/model/messagesmodel.cpp:280
+#: core/model/messagesmodel.cpp:285
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "%2 द्वारा %1 इत्यत्र सम्पादितम्"
 
-#: core/model/messagesmodel.cpp:456
+#: core/model/messagesmodel.cpp:466
 #, kde-format
 msgid "Ignored Message"
 msgstr "उपेक्षितः सन्देशः"
 
-#: core/model/messagesmodel.cpp:467
+#: core/model/messagesmodel.cpp:477
 #, kde-format
 msgid "Only you can see this message"
 msgstr "केवलं भवन्तः एव एतत् सन्देशं द्रष्टुं शक्नुवन्ति"
@@ -1480,85 +1465,85 @@ msgstr "द्वौ कारकप्रमाणीकरणं"
 msgid "Last token part"
 msgstr "अन्तिमः टोकन भागः"
 
-#: core/model/roommodel.cpp:601
+#: core/model/roommodel.cpp:605
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 उल्लेखः"
 msgstr[1] "%1 उल्लेखः"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:609
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 समूहस्य उल्लेखः"
 msgstr[1] "%1 समूहस्य उल्लेखः"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 अपठितः थ्रेडेड् सन्देशः"
 msgstr[1] "%1 अपठित थ्रेडेड् सन्देशाः"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:617
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 अपठितः सन्देशः"
 msgstr[1] "%1 अपठितसन्देशाः"
 
-#: core/model/roommodel.cpp:639
+#: core/model/roommodel.cpp:643
 #, kde-format
 msgid "Teams Room"
 msgstr "दलकक्षः"
 
-#: core/model/roommodel.cpp:645
+#: core/model/roommodel.cpp:649
 #, kde-format
 msgid "Private Room"
 msgstr "निजी कक्ष"
 
-#: core/model/roommodel.cpp:647
+#: core/model/roommodel.cpp:651
 #, kde-format
 msgid "Discussion Room"
 msgstr "चर्चा कक्ष"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:655
 #, kde-format
 msgid "Channel Room"
 msgstr "चैनल कक्ष"
 
-#: core/model/roommodel.cpp:665 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "अपठित"
 
-#: core/model/roommodel.cpp:667
+#: core/model/roommodel.cpp:671
 #, kde-format
 msgid "Favorites"
 msgstr "प्रियाः"
 
-#: core/model/roommodel.cpp:669
+#: core/model/roommodel.cpp:673
 #, kde-format
 msgid "Teams"
 msgstr "दलाः"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Discussions"
 msgstr "विमर्शाः"
 
-#: core/model/roommodel.cpp:675
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Private Messages"
 msgstr "निजी सन्देश"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -1790,38 +1775,6 @@ msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "उत्तरं…"
 
-#: core/otr/otrnotificationjob.cpp:47 core/otr/otrnotificationjob.cpp:57
-#: core/otr/otrnotificationjob.cpp:72
-#, kde-format
-msgid "OTR"
-msgstr "ओटीआर"
-
-#: core/otr/otrnotificationjob.cpp:61
-#: core/videoconference/videoconferencenotificationjob.cpp:64
-#, kde-format
-msgid "Reject"
-msgstr "अस्वीकार"
-
-#: core/otr/otrnotificationjob.cpp:64
-#, kde-format
-msgid "Ok"
-msgstr "अस्तु"
-
-#: core/otr/otrnotificationjob.cpp:96
-#, kde-format
-msgid "%1 ended the OTR session."
-msgstr "%1 इत्यनेन OTR सत्रं समाप्तम् ।"
-
-#: core/otr/otrnotificationjob.cpp:100
-#, kde-format
-msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr "%1 OTR आरभतुम् इच्छति । किं भवन्तः स्वीकुर्वितुं इच्छन्ति ?"
-
-#: core/otr/otrnotificationjob.cpp:104
-#, kde-format
-msgid "%1 denied the OTR session."
-msgstr "%1 इत्यनेन OTR सत्रं अङ्गीकृतम् ।"
-
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
@@ -1834,7 +1787,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टङ्कयन्ति..."
 
-#: core/rocketchataccount.cpp:738
+#: core/rocketchataccount.cpp:784
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1843,23 +1796,23 @@ msgstr ""
 "REST: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:746 core/rocketchataccount.cpp:759
+#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected"
 msgstr "न संबद्धः"
 
-#: core/rocketchataccount.cpp:753
+#: core/rocketchataccount.cpp:799
 #, kde-format
 msgid "Not connected yet"
 msgstr "अद्यापि न सम्बद्धम्"
 
-#: core/rocketchataccount.cpp:3178
+#: core/rocketchataccount.cpp:3217
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "खाता योजितः"
 
-#: core/rocketchataccount.cpp:3179
+#: core/rocketchataccount.cpp:3218
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -1885,17 +1838,17 @@ msgstr "नेता"
 msgid "Moderator"
 msgstr "संचालकः"
 
-#: core/room.cpp:1595
+#: core/room.cpp:1598
 #, kde-format
 msgid "Channel is read only."
 msgstr "चैनलः केवलं पठनीयः अस्ति।"
 
-#: core/room.cpp:1598
+#: core/room.cpp:1601
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "भवता एतत् चैनलं अवरुद्धम् अस्ति।"
 
-#: core/room.cpp:1601
+#: core/room.cpp:1604
 #, kde-format
 msgid "Channel was blocked."
 msgstr "चैनल् अवरुद्धम् आसीत्।"
@@ -2111,6 +2064,11 @@ msgstr "InComing Call इति आह्वानम्"
 msgid "Accept"
 msgstr "स्वीकरोतु"
 
+#: core/videoconference/videoconferencenotificationjob.cpp:64
+#, kde-format
+msgid "Reject"
+msgstr "अस्वीकार"
+
 #: plugins/authentication/github/githubpluginauthentication.cpp:35
 #, kde-format
 msgid "GitHub"
@@ -2320,18 +2278,18 @@ msgstr "%1 कक्षे %2 सन्देशं प्राप्तुं 
 msgid "Invalid message: '%1'"
 msgstr "अमान्यः सन्देशः: '%1'."
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:141
 #, kde-format
 msgid "This room is blocked"
 msgstr "अयं कक्षः अवरुद्धः अस्ति"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:143
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "त्वं निःशब्दः असि, अस्मिन् कक्षे वक्तुं न शक्नोषि"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:138
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:145
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:153
 #, kde-format
 msgid "Invalid channel"
 msgstr "अमान्य चैनल"
@@ -2776,32 +2734,37 @@ msgstr "भूमिकानाम आवश्यकम् अस्ति"
 msgid "Room is not closed"
 msgstr "कक्षः न पिहितः अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
+#, kde-format
+msgid "The room already has an end-to-end encryption key ID"
+msgstr ""
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "'%1' इति क्षेत्रम् आवश्यकम् ।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "एतत् Livechat कक्षं नास्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "व्यक्तिगतप्रवेशटोकनं सम्प्रति अक्षमम् अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "एतेन नामेन सह टोकनः पूर्वमेव विद्यते"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid "Token does not exists"
 msgstr "टोकन न विद्यते"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2810,17 +2773,17 @@ msgstr ""
 "त्रुटिः, अत्यधिकाः अनुरोधाः। कृपया मन्दं कुर्वन्तु। पुनः प्रयासं कर्तुं पूर्वं भवता %1 सेकण्ड् "
 "प्रतीक्षितव्यम् ।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
 #, kde-format
 msgid "User has no roles"
 msgstr "उपयोक्तुः भूमिकाः नास्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
 #, kde-format
 msgid "User is not activated"
 msgstr "उपयोक्ता सक्रियः न भवति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2829,87 +2792,87 @@ msgstr ""
 "भवान् #channel_name इत्यत्र आमन्त्रयितुं प्रयतमानानां उपयोक्तृणां संख्या प्रशासकेन "
 "निर्धारितसीमाम् अतिक्रमयति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
 #, kde-format
 msgid "User is not in this room"
 msgstr "उपयोक्ता अस्मिन् कक्षे नास्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "त्वं `%s` कक्षे न असि"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
 #, kde-format
 msgid "User registration is disabled"
 msgstr "उपयोक्तृपञ्जीकरणं अक्षमम् अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "उपयोक्तृपञ्जीकरणं केवलं Secret URL मार्गेण एव अनुमतम् अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr "त्वं अन्तिमः स्वामिः असि। कृपया कक्षात् निर्गन्तुं पूर्वं नूतनं स्वामिनं स्थापयन्तु।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
 #, kde-format
 msgid "The private group is archived"
 msgstr "निजीसमूहः संग्रहीतः अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "User is already an owner"
 msgstr "उपयोक्ता पूर्वमेव स्वामिः अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, kde-format
 msgid "User is already a leader"
 msgstr "उपयोक्ता पूर्वमेव नेता अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
 #, kde-format
 msgid "User is already a moderator"
 msgstr "उपयोक्ता पूर्वमेव संचालकः अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
 msgid "Invalid message id"
 msgstr "अमान्य सन्देश id"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid "User is not a leader"
 msgstr "उपयोक्ता नेता नास्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "एप् उपयोक्तारः प्रवेशं कर्तुं न अर्हन्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "प्रत्यक्षसन्देशाः संग्रहीतुं न शक्यन्ते"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
 #, kde-format
 msgid "Message not found."
 msgstr "सन्देशः न लब्धः।"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "द्वौ प्रमाणीकरणगुप्तशब्दौ आवश्यकौ"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
 #, kde-format
 msgid "Invalid Password"
 msgstr "अमान्य गुप्तशब्दः"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2918,22 +2881,22 @@ msgstr ""
 "प्रदत्तः आवश्यकः \\\"roomId\\\" अथवा \\\"roomName\\\" पैरामीटर् कस्यापि चैनलस्य मेलनं "
 "न करोति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "एतत्नाम्ना भूमिका पूर्वमेव विद्यते"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "सन्देशः पिन कर्तुं न शक्तवान्"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "प्रविष्टः गुप्तशब्दः पूर्वं प्रयुक्तः अस्ति"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "प्रतिअतिथिं अधिकतमं कक्षसङ्ख्या प्राप्ता अस्ति।"
@@ -2959,9 +2922,10 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr "केवलं समूहाः अथवा प्रत्यक्षमार्गाः एव एन्क्रिप्शनं सक्षमं कर्तुं शक्नुवन्ति"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
-#, kde-format
-msgid "Room does not have retention policy"
-msgstr "कक्षे धारणनीतिः नास्ति"
+#, fuzzy, kde-format
+#| msgid "Editing permissions is not allowed"
+msgid "Editing room is not allowed"
+msgstr "सम्पादनस्य अनुमतिः अनुमतः नास्ति"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -3597,7 +3561,7 @@ msgstr "सर्वाणि प्रतिवेदनानि निरस�
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:426
+#: widgets/room/messagelistview.cpp:429
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
@@ -3608,7 +3572,7 @@ msgstr "प्रतिलिङ्कं लिङ्कं कुर्वन�
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:428
+#: widgets/room/messagelistview.cpp:431
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3629,7 +3593,7 @@ msgstr "पाठं वदतु"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:115
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -5318,13 +5282,7 @@ msgctxt "@option:check"
 msgid "Mentions"
 msgstr "उल्लेखः"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
-#, kde-format
-msgctxt "@option:check"
-msgid "Enable OTR"
-msgstr "OTR सक्षमं कुर्वन्तु"
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5334,7 +5292,7 @@ msgstr ""
 "एन्क्रिप्टेड् ग्रुप्स् निर्मातुं विकल्पं सक्षमं कुर्वन्तु तथा च एन्क्रिप्टेड् भवितुं समूहान् परिवर्तयितुं "
 "प्रत्यक्षसन्देशान् च कर्तुं समर्थाः भवेयुः ।"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5344,24 +5302,13 @@ msgstr ""
 "कक्षगुप्तीकरणकुंजीविहीनानां जनानां कृते एन्क्रिप्टेड्-कक्षेषु प्रवेशं अनुमन्यताम् । ते अगुप्तसन्देशान् "
 "द्रष्टुं प्रेषयितुं च शक्नुवन्ति।"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
 msgstr ""
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
-#, kde-format
-msgid ""
-"Enable option to use off-the-record (OTR) messages in direct messages "
-"between 2 users. OTR messages are not recorded on the server and exchanged "
-"directly and encrypted between the 2 users."
-msgstr ""
-"२ उपयोक्तृणां मध्ये प्रत्यक्षसन्देशेषु अभिलेखात् बहिः (OTR) सन्देशानां उपयोगं कर्तुं विकल्पं सक्षमं "
-"कुर्वन्तु । OTR सन्देशाः सर्वरे अभिलेखिताः न भवन्ति तथा च प्रत्यक्षतया आदानप्रदानं भवन्ति "
-"तथा च २ उपयोक्तृणां मध्ये एन्क्रिप्टेड् भवन्ति ।"
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:22
 #, kde-format
@@ -7585,7 +7532,7 @@ msgid "Mark as Unread"
 msgstr "अपठितम् इति चिह्नं कुर्वन्तु"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -10609,7 +10556,7 @@ msgid "Switch To New Room"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:817
+#: widgets/room/messagelistview.cpp:819
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10630,23 +10577,6 @@ msgstr "%1 इत्यस्य %2 अपठितसन्देशः अस�
 #, kde-format
 msgid "Network is offline mode."
 msgstr "नेटवर्क् अफलाइन मोड् अस्ति।"
-
-#: widgets/otr/otrwidget.cpp:20
-#, kde-format
-msgid "Otr Activated"
-msgstr "Otr सक्रियः"
-
-#: widgets/otr/otrwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "End OTR"
-msgstr "समाप्त ओटीआर"
-
-#: widgets/otr/otrwidget.cpp:27
-#, kde-format
-msgctxt "@action"
-msgid "Refresh Keys"
-msgstr "ताजगी कुञ्जी"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:31
 #, kde-format
@@ -10809,16 +10739,10 @@ msgstr "सन्देशान् निर्यातयन्तु..."
 #: widgets/room/channelactionpopupmenu.cpp:127
 #, kde-format
 msgctxt "@action"
-msgid "OTR"
-msgstr "ओटीआर"
-
-#: widgets/room/channelactionpopupmenu.cpp:134
-#, kde-format
-msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "सन्देशान् एन्क्रिप्ट् कुर्वन्तु"
 
-#: widgets/room/channelactionpopupmenu.cpp:140
+#: widgets/room/channelactionpopupmenu.cpp:133
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Show Pinned Messages…"
@@ -10858,21 +10782,21 @@ msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:559
+#: widgets/room/messagelistview.cpp:561
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "निजी वार्तालापं आरभत"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "मूलसन्देशं दर्शयतु"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -11086,139 +11010,139 @@ msgstr "भवन्तः नूतनं प्रत्यक्षसन्�
 msgid "Start of conversation"
 msgstr "संभाषणस्य आरम्भः"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "अनपिन सन्देश"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "पिन सन्देश"
 
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Favourite इति निष्कासयन्तु"
 
-#: widgets/room/messagelistview.cpp:453
+#: widgets/room/messagelistview.cpp:456
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "लुप्"
 
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:469
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "सन्देशं अपठितं इति चिह्नं कुर्वन्तु"
 
-#: widgets/room/messagelistview.cpp:471
+#: widgets/room/messagelistview.cpp:474
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "पूर्णसूत्रं दर्शयतु"
 
-#: widgets/room/messagelistview.cpp:476
+#: widgets/room/messagelistview.cpp:479
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "सम्पादन"
 
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "उद्धरण"
 
-#: widgets/room/messagelistview.cpp:486
+#: widgets/room/messagelistview.cpp:489
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "रसीदं पठन्तु"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:494
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "सन्देशस्य लिङ्कं प्रतिलिख्यताम्"
 
-#: widgets/room/messagelistview.cpp:496
+#: widgets/room/messagelistview.cpp:499
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "अग्रे सन्देशः"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "अनफॉलो सन्देश"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "अनुसरणं कुर्वन्तु सन्देशम्"
 
-#: widgets/room/messagelistview.cpp:526
+#: widgets/room/messagelistview.cpp:528
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL प्रतिलिपिं कुर्वन्तु"
 
-#: widgets/room/messagelistview.cpp:550 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:552 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
-#: widgets/room/messagelistview.cpp:597
+#: widgets/room/messagelistview.cpp:599
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "चर्चां आरभत"
 
-#: widgets/room/messagelistview.cpp:603
+#: widgets/room/messagelistview.cpp:605
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Thread इत्यत्र उत्तरं ददातु"
 
-#: widgets/room/messagelistview.cpp:737
+#: widgets/room/messagelistview.cpp:739
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "प्रतिवेदनानि पश्यन्तु"
 
-#: widgets/room/messagelistview.cpp:760
+#: widgets/room/messagelistview.cpp:762
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "प्रतिवेदनानि निरस्तं कुर्वन्तु"
 
-#: widgets/room/messagelistview.cpp:834
+#: widgets/room/messagelistview.cpp:836
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "रिपोर्ट् सन्देशः"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1090
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "किं भवान् एतत् सन्देशं विलोपयितुम् इच्छति ?"
 
-#: widgets/room/messagelistview.cpp:1089
+#: widgets/room/messagelistview.cpp:1091
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "सन्देशं विलोपयन्तु"
 
-#: widgets/room/messagelistview.cpp:1287
+#: widgets/room/messagelistview.cpp:1289
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11418,34 +11342,34 @@ msgstr "सूत्रेण उत्तरं ददाति"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "सन्देशस्य कृते सूत्रे उत्तरम्: '%1'."
 
-#: widgets/room/roomwidget.cpp:412
+#: widgets/room/roomwidget.cpp:400
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "किं भवन्तः वास्तवमेव इतिहासं दूरीकर्तुं इच्छन्ति ?"
 
-#: widgets/room/roomwidget.cpp:413
+#: widgets/room/roomwidget.cpp:401
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "इतिहासं निष्कासयन्तु"
 
-#: widgets/room/roomwidget.cpp:457
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Export Messages"
 msgstr "सन्देशान् निर्यातयन्तु"
 
-#: widgets/room/roomwidget.cpp:458
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "भवतः ईमेल प्रेषणार्थं पङ्क्तिबद्धा अस्ति।"
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "प्रत्यक्षसन्देशाः संग्रहीतुं न शक्यन्ते"
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -11453,13 +11377,13 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "सन्देशान् अन्वेष्टुम्"
 
-#: widgets/room/roomwidget.cpp:639
+#: widgets/room/roomwidget.cpp:627
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "कार्यक्षेत्रप्रशासकेन सम्मेलन-कॉल-अनुप्रयोगाः संस्थापनं विन्यस्तं च करणीयम् ।"
 
-#: widgets/room/roomwidget.cpp:640
+#: widgets/room/roomwidget.cpp:628
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -12791,6 +12715,61 @@ msgstr "उपयोक्तृनाम"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "खाता योजयतु..."
+
+#~ msgid "Encrypted Message"
+#~ msgstr "एन्क्रिप्टेड् सन्देशः"
+
+#~ msgid "%1 has joined OTR chat."
+#~ msgstr "%1 OTR गपशपं सम्मिलितवान् ।"
+
+#~ msgid "%1 has requested key refresh."
+#~ msgstr "%1 इत्यनेन कील-ताजगीकरणस्य अनुरोधः कृतः ।"
+
+#~ msgid "OTR"
+#~ msgstr "ओटीआर"
+
+#~ msgid "Ok"
+#~ msgstr "अस्तु"
+
+#~ msgid "%1 ended the OTR session."
+#~ msgstr "%1 इत्यनेन OTR सत्रं समाप्तम् ।"
+
+#~ msgid "%1 wants to start OTR. Do you want to accept?"
+#~ msgstr "%1 OTR आरभतुम् इच्छति । किं भवन्तः स्वीकुर्वितुं इच्छन्ति ?"
+
+#~ msgid "%1 denied the OTR session."
+#~ msgstr "%1 इत्यनेन OTR सत्रं अङ्गीकृतम् ।"
+
+#~ msgid "Room does not have retention policy"
+#~ msgstr "कक्षे धारणनीतिः नास्ति"
+
+#~ msgctxt "@option:check"
+#~ msgid "Enable OTR"
+#~ msgstr "OTR सक्षमं कुर्वन्तु"
+
+#~ msgid ""
+#~ "Enable option to use off-the-record (OTR) messages in direct messages "
+#~ "between 2 users. OTR messages are not recorded on the server and "
+#~ "exchanged directly and encrypted between the 2 users."
+#~ msgstr ""
+#~ "२ उपयोक्तृणां मध्ये प्रत्यक्षसन्देशेषु अभिलेखात् बहिः (OTR) सन्देशानां उपयोगं कर्तुं विकल्पं "
+#~ "सक्षमं कुर्वन्तु । OTR सन्देशाः सर्वरे अभिलेखिताः न भवन्ति तथा च प्रत्यक्षतया आदानप्रदानं "
+#~ "भवन्ति तथा च २ उपयोक्तृणां मध्ये एन्क्रिप्टेड् भवन्ति ।"
+
+#~ msgid "Otr Activated"
+#~ msgstr "Otr सक्रियः"
+
+#~ msgctxt "@action"
+#~ msgid "End OTR"
+#~ msgstr "समाप्त ओटीआर"
+
+#~ msgctxt "@action"
+#~ msgid "Refresh Keys"
+#~ msgstr "ताजगी कुञ्जी"
+
+#~ msgctxt "@action"
+#~ msgid "OTR"
+#~ msgstr "ओटीआर"
 
 #~ msgid "Link Preview"
 #~ msgstr "लिङ्क पूर्वावलोकन"

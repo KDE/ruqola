@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:44+0000\n"
-"PO-Revision-Date: 2026-07-28 07:56+0200\n"
+"POT-Creation-Date: 2026-08-07 00:45+0000\n"
+"PO-Revision-Date: 2026-08-06 16:59+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -762,7 +762,7 @@ msgstr "Saknar serverwebbadress."
 msgid "Socket was unexpectedly closed."
 msgstr "Uttag stängdes oväntat."
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:938
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:932
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
@@ -851,31 +851,26 @@ msgstr "Meddelande uppsatt"
 
 #: core/messages/message.cpp:873
 #, kde-format
-msgid "Encrypted Message"
-msgstr "Krypterat meddelande"
-
-#: core/messages/message.cpp:875
-#, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 slutade tystas av %2"
 
-#: core/messages/message.cpp:877
+#: core/messages/message.cpp:875
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 tystades av %2"
 
-#: core/messages/message.cpp:879
+#: core/messages/message.cpp:877
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "Rollen '%3' lades till för %1 av %2"
 
-#: core/messages/message.cpp:881
+#: core/messages/message.cpp:879
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "Rollen '%3' togs bort för %1 av %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:885
+#: core/messages/message.cpp:883
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -884,132 +879,122 @@ msgstr ""
 "Meddelandet är krypterat från början till slut. För att visa det måste du "
 "skriva in din krypteringsnyckel i dina kontoinställningar."
 
-#: core/messages/message.cpp:887
+#: core/messages/message.cpp:885
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Diskussion skapad om \"%1\""
 
-#: core/messages/message.cpp:889
+#: core/messages/message.cpp:887
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 har gått med i konversationen"
 
-#: core/messages/message.cpp:891
+#: core/messages/message.cpp:889
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Rummet har arkiverats av %1"
 
-#: core/messages/message.cpp:893
+#: core/messages/message.cpp:891
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Rummet har packats upp av %1"
 
-#: core/messages/message.cpp:896 core/messages/message.cpp:947
+#: core/messages/message.cpp:894 core/messages/message.cpp:941
 #, kde-format
 msgid "Unknown action!"
 msgstr "Okänd åtgärd."
 
-#: core/messages/message.cpp:900
+#: core/messages/message.cpp:898
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Välkommen %1!"
 
-#: core/messages/message.cpp:902
+#: core/messages/message.cpp:900
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Rummets avatar ändrad av %1"
 
-#: core/messages/message.cpp:904
+#: core/messages/message.cpp:902
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Rummets kryptering har aktiverats av %1"
 
-#: core/messages/message.cpp:906
+#: core/messages/message.cpp:904
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Rummets kryptering har inaktiverats av %1"
 
-#: core/messages/message.cpp:908
+#: core/messages/message.cpp:906
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Rummet skrivskyddat av %1"
 
-#: core/messages/message.cpp:910
+#: core/messages/message.cpp:908
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Skrivrättigheter tillagda för rummet av %1"
 
-#: core/messages/message.cpp:912
+#: core/messages/message.cpp:910
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 lade till @%2 till laget"
 
-#: core/messages/message.cpp:914
+#: core/messages/message.cpp:912
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 tog bort @%2 från laget"
 
-#: core/messages/message.cpp:916
+#: core/messages/message.cpp:914
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 konverterade #%2 till ett lag"
 
-#: core/messages/message.cpp:918
+#: core/messages/message.cpp:916
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 konverterade #%2 till en kanal"
 
-#: core/messages/message.cpp:920
+#: core/messages/message.cpp:918
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 tog bort #%2 från laget"
 
-#: core/messages/message.cpp:922
+#: core/messages/message.cpp:920
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 tog bort #%2"
 
-#: core/messages/message.cpp:924
+#: core/messages/message.cpp:922
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 lade till #%2 till laget"
 
-#: core/messages/message.cpp:926
+#: core/messages/message.cpp:924
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "Reaktioner tillåtna för rummet av %1"
 
-#: core/messages/message.cpp:928
+#: core/messages/message.cpp:926
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "Reaktioner inte tillåtna för rummet av %1"
 
-#: core/messages/message.cpp:930
+#: core/messages/message.cpp:928
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 gick med i laget"
 
-#: core/messages/message.cpp:932
-#, kde-format
-msgid "%1 has joined OTR chat."
-msgstr "%1 har gått med i OTR-chatt."
-
-#: core/messages/message.cpp:934
+#: core/messages/message.cpp:930
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 nyckeluppdatering lyckades"
 
-#: core/messages/message.cpp:936
-#, kde-format
-msgid "%1 has requested key refresh."
-msgstr "%1 har begärt nyckeluppdatering."
-
-#: core/messages/message.cpp:940
+#: core/messages/message.cpp:934
 #, kde-format
 msgid "%1 banned %2"
 msgstr "%1 bannlyste %2"
 
-#: core/messages/message.cpp:942
+#: core/messages/message.cpp:936
 #, kde-format
 msgid "%1 unbanned %2"
 msgstr "%1 tog bort bannlysning av %2"
@@ -1324,7 +1309,7 @@ msgstr "Kanaltyp"
 msgid "Belongs To"
 msgstr "Tillhör"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:671
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1361,17 +1346,17 @@ msgstr "Inga resultat hittades."
 msgid "Notify all in this room"
 msgstr "Underrätta alla i det här rummet"
 
-#: core/model/messagesmodel.cpp:280
+#: core/model/messagesmodel.cpp:285
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Redigerad %1 av %2"
 
-#: core/model/messagesmodel.cpp:456
+#: core/model/messagesmodel.cpp:466
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignorerat meddelande"
 
-#: core/model/messagesmodel.cpp:467
+#: core/model/messagesmodel.cpp:477
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Bara du kan se meddelandet"
@@ -1467,85 +1452,85 @@ msgstr "Tvåfaktorsbehörighet"
 msgid "Last token part"
 msgstr "Sista symboldel"
 
-#: core/model/roommodel.cpp:601
+#: core/model/roommodel.cpp:605
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 omnämnande"
 msgstr[1] "%1 omnämnanden"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:609
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 gruppomnämnande"
 msgstr[1] "%1 gruppomnämnanden"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 oläst meddelande i tråd"
 msgstr[1] "%1 olästa meddelanden i tråd"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:617
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 oläst meddelande"
 msgstr[1] "%1 olästa meddelanden"
 
-#: core/model/roommodel.cpp:639
+#: core/model/roommodel.cpp:643
 #, kde-format
 msgid "Teams Room"
 msgstr "Rum för lag"
 
-#: core/model/roommodel.cpp:645
+#: core/model/roommodel.cpp:649
 #, kde-format
 msgid "Private Room"
 msgstr "Privat rum"
 
-#: core/model/roommodel.cpp:647
+#: core/model/roommodel.cpp:651
 #, kde-format
 msgid "Discussion Room"
 msgstr "Diskussionsrum"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:655
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalrum"
 
-#: core/model/roommodel.cpp:665 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Oläst"
 
-#: core/model/roommodel.cpp:667
+#: core/model/roommodel.cpp:671
 #, kde-format
 msgid "Favorites"
 msgstr "Favoriter"
 
-#: core/model/roommodel.cpp:669
+#: core/model/roommodel.cpp:673
 #, kde-format
 msgid "Teams"
 msgstr "Lag"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioner"
 
-#: core/model/roommodel.cpp:675
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Private Messages"
 msgstr "Privata meddelanden"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Draft"
 msgstr "Utkast"
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Okänt"
@@ -1777,38 +1762,6 @@ msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Svara…"
 
-#: core/otr/otrnotificationjob.cpp:47 core/otr/otrnotificationjob.cpp:57
-#: core/otr/otrnotificationjob.cpp:72
-#, kde-format
-msgid "OTR"
-msgstr "OTR"
-
-#: core/otr/otrnotificationjob.cpp:61
-#: core/videoconference/videoconferencenotificationjob.cpp:64
-#, kde-format
-msgid "Reject"
-msgstr "Avslå"
-
-#: core/otr/otrnotificationjob.cpp:64
-#, kde-format
-msgid "Ok"
-msgstr "Ok"
-
-#: core/otr/otrnotificationjob.cpp:96
-#, kde-format
-msgid "%1 ended the OTR session."
-msgstr "%1 avslutade OTR-sessionen."
-
-#: core/otr/otrnotificationjob.cpp:100
-#, kde-format
-msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr "%1  vill starta OTR. Vill du acceptera?"
-
-#: core/otr/otrnotificationjob.cpp:104
-#, kde-format
-msgid "%1 denied the OTR session."
-msgstr "%1 nekade till OTR-sessionen."
-
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
 msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
@@ -1821,7 +1774,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
-#: core/rocketchataccount.cpp:738
+#: core/rocketchataccount.cpp:784
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1830,22 +1783,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:746 core/rocketchataccount.cpp:759
+#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected"
 msgstr "Inte ansluten"
 
-#: core/rocketchataccount.cpp:753
+#: core/rocketchataccount.cpp:799
 #, kde-format
 msgid "Not connected yet"
 msgstr "Inte ansluten ännu"
 
-#: core/rocketchataccount.cpp:3178
+#: core/rocketchataccount.cpp:3217
 #, kde-format
 msgid "Room Added"
 msgstr "Rum tillagt"
 
-#: core/rocketchataccount.cpp:3179
+#: core/rocketchataccount.cpp:3218
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Ett nytt rum har lagts till i '%1'."
@@ -1870,17 +1823,17 @@ msgstr "Ledare"
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1595
+#: core/room.cpp:1598
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalen är skrivskyddad."
 
-#: core/room.cpp:1598
+#: core/room.cpp:1601
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Du har blockerat kanalen."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1604
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalen har blockerats."
@@ -2088,6 +2041,11 @@ msgstr "Inkommande samtal"
 msgid "Accept"
 msgstr "Acceptera"
 
+#: core/videoconference/videoconferencenotificationjob.cpp:64
+#, kde-format
+msgid "Reject"
+msgstr "Avslå"
+
 #: plugins/authentication/github/githubpluginauthentication.cpp:35
 #, kde-format
 msgid "GitHub"
@@ -2288,18 +2246,18 @@ msgstr "Inte tillåten att få meddelande %2 i rum %1"
 msgid "Invalid message: '%1'"
 msgstr "Ogiltigt meddelande: '%1'"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:141
 #, kde-format
 msgid "This room is blocked"
 msgstr "Rummet är blockerat"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:143
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Du har blivit tystad och kan inte tala i det här rummet"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:138
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:145
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:153
 #, kde-format
 msgid "Invalid channel"
 msgstr "Ogiltig kanal"
@@ -2750,32 +2708,37 @@ msgstr "Rollnamn krävs"
 msgid "Room is not closed"
 msgstr "Rummet är inte stängt"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
+#, kde-format
+msgid "The room already has an end-to-end encryption key ID"
+msgstr ""
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "Fältet '%1' krävs."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "Det här är inte ett LiveChat-rum"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Personliga åtkomstsymboler är för närvarande inaktiverade"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "En symbol med det här namnet finns redan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid "Token does not exists"
 msgstr "Symbol finns inte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2784,17 +2747,17 @@ msgstr ""
 "Fel, för många förfrågningar. Sakta in. Du måste vänta %1 sekunder innan du "
 "försöker igen."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
 #, kde-format
 msgid "User has no roles"
 msgstr "Användare har inga roller"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
 #, kde-format
 msgid "User is not activated"
 msgstr "Användare är inte aktiverad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2803,87 +2766,87 @@ msgstr ""
 "Antal användare som du försöker inbjuda till #channel_name överskrider "
 "gränsen inställd av administratören"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
 #, kde-format
 msgid "User is not in this room"
 msgstr "Användare finns inte i det här rummet"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "Du är inte i rummet `%s`"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
 #, kde-format
 msgid "User registration is disabled"
 msgstr "Användarregistrering är inaktiverad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "Användarregistrering tillåts bara via hemlig webbadress"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr "Du är den sista ägaren. Ange ny ägare innan du lämnar rummet."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
 #, kde-format
 msgid "The private group is archived"
 msgstr "Den privata gruppen har arkiverats"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "User is already an owner"
 msgstr "Användaren är redan en ägare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, kde-format
 msgid "User is already a leader"
 msgstr "Användaren är redan en ledare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
 #, kde-format
 msgid "User is already a moderator"
 msgstr "Användaren är redan en moderator"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
 msgid "Invalid message id"
 msgstr "Ogiltigt meddelande-id"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid "User is not a leader"
 msgstr "Användare är inte en ledare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "Applikationsanvändare tillåts inte logga in"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Direktmeddelanden kan inte arkiveras"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
 #, kde-format
 msgid "Message not found."
 msgstr "Meddelande hittades inte."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "Tvåfaktorslösenord krävs"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
 #, kde-format
 msgid "Invalid Password"
 msgstr "Ogiltigt lösenord"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2892,22 +2855,22 @@ msgstr ""
 "De tillhandahållna nödvändiga parametrarna \\\"roomId\\\" eller \\\"roomName"
 "\\\" motsvarar inte någon kanal"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "En roll med det här namnet finns redan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "Meddelandet kunde inte sättas upp"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "Angivet lösenord har använts tidigare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Maximalt antal rum per gäst har nåtts."
@@ -2933,9 +2896,10 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr "Bara grupper eller direktkanaler kan aktivera kryptering"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
-#, kde-format
-msgid "Room does not have retention policy"
-msgstr "Rummet har ingen bibehållandepolicy"
+#, fuzzy, kde-format
+#| msgid "Editing permissions is not allowed"
+msgid "Editing room is not allowed"
+msgstr "Rättigheter att redigera tillåts inte"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -3567,7 +3531,7 @@ msgstr "Avfärda alla rapporter"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:426
+#: widgets/room/messagelistview.cpp:429
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3576,7 +3540,7 @@ msgstr "Kopiera markering"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:428
+#: widgets/room/messagelistview.cpp:431
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3597,7 +3561,7 @@ msgstr "Läs upp text"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:115
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -5292,13 +5256,7 @@ msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Omnämnanden"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
-#, kde-format
-msgctxt "@option:check"
-msgid "Enable OTR"
-msgstr "Aktivera OTR"
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5308,7 +5266,7 @@ msgstr ""
 "Aktivera alternativ för att skapa krypterade grupper och kunna ändra så att "
 "grupper och direktmeddelanden krypteras."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5318,7 +5276,7 @@ msgstr ""
 "Tillåt åtkomst till krypterade rum för personer utan rummens "
 "krypteringsnycklar. De kan se och skicka okrypterade meddelanden."
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5327,17 +5285,6 @@ msgid ""
 msgstr ""
 "Underrätta personer, och markera omnämnanden av användare, kanal, och grupp "
 "i krypterat innehåll."
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
-#, kde-format
-msgid ""
-"Enable option to use off-the-record (OTR) messages in direct messages "
-"between 2 users. OTR messages are not recorded on the server and exchanged "
-"directly and encrypted between the 2 users."
-msgstr ""
-"Aktivera alternativet för att använda off-the-record (OTR) meddelanden i "
-"direkta meddelanden mellan två användare. OTR-meddelanden lagras inte på "
-"servern och utbyts direkt och krypterat mellan de två användarna."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:22
 #, kde-format
@@ -7565,7 +7512,7 @@ msgid "Mark as Unread"
 msgstr "Markera som oläst"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -8078,13 +8025,12 @@ msgstr "Databas global"
 #: widgets/databasedialog/exploredatabasedialog.cpp:74
 #, kde-format
 msgid "DataBase E2E"
-msgstr "Databas hela vägen"
+msgstr "Databas E2E"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E Rooms"
-msgstr "Databas rum"
+msgstr "Databas E2E-rum"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
@@ -10524,7 +10470,7 @@ msgid "Switch To New Room"
 msgstr "Byt till nytt rum"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:817
+#: widgets/room/messagelistview.cpp:819
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10545,23 +10491,6 @@ msgstr "%1 har %2 olästa meddelanden"
 #, kde-format
 msgid "Network is offline mode."
 msgstr "Nätverket är nerkopplat."
-
-#: widgets/otr/otrwidget.cpp:20
-#, kde-format
-msgid "Otr Activated"
-msgstr "OTR aktiverat"
-
-#: widgets/otr/otrwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "End OTR"
-msgstr "Avsluta OTR"
-
-#: widgets/otr/otrwidget.cpp:27
-#, kde-format
-msgctxt "@action"
-msgid "Refresh Keys"
-msgstr "Uppdatera nycklar"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:31
 #, kde-format
@@ -10726,16 +10655,10 @@ msgstr "Exportera meddelanden…"
 #: widgets/room/channelactionpopupmenu.cpp:127
 #, kde-format
 msgctxt "@action"
-msgid "OTR"
-msgstr "OTR"
-
-#: widgets/room/channelactionpopupmenu.cpp:134
-#, kde-format
-msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Kryptera meddelanden"
 
-#: widgets/room/channelactionpopupmenu.cpp:140
+#: widgets/room/channelactionpopupmenu.cpp:133
 #, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
@@ -10770,21 +10693,21 @@ msgid "User Info"
 msgstr "Användarinformation"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:559
+#: widgets/room/messagelistview.cpp:561
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Starta ett privat samtal"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Visa originalmeddelande"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10989,138 +10912,138 @@ msgstr "Du har gått med i ett nytt direktmeddelande"
 msgid "Start of conversation"
 msgstr "Samtalets början"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Ta ner meddelande"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Sätt upp meddelande"
 
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Ta bort som favoriter"
 
-#: widgets/room/messagelistview.cpp:453
+#: widgets/room/messagelistview.cpp:456
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Ta bort"
 
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:469
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Markera meddelande som oläst"
 
-#: widgets/room/messagelistview.cpp:471
+#: widgets/room/messagelistview.cpp:474
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Visa hela tråden"
 
-#: widgets/room/messagelistview.cpp:476
+#: widgets/room/messagelistview.cpp:479
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Redigera"
 
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citat"
 
-#: widgets/room/messagelistview.cpp:486
+#: widgets/room/messagelistview.cpp:489
 #, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Läsbekräftelser"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:494
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Kopiera länk till meddelande"
 
-#: widgets/room/messagelistview.cpp:496
+#: widgets/room/messagelistview.cpp:499
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Vidarebefordra meddelande"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Följ inte meddelande längre"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Följ meddelande"
 
-#: widgets/room/messagelistview.cpp:526
+#: widgets/room/messagelistview.cpp:528
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopiera webbadress"
 
-#: widgets/room/messagelistview.cpp:550 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:552 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Användarinformation"
 
-#: widgets/room/messagelistview.cpp:597
+#: widgets/room/messagelistview.cpp:599
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Starta en diskussion"
 
-#: widgets/room/messagelistview.cpp:603
+#: widgets/room/messagelistview.cpp:605
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Svara på tråd"
 
-#: widgets/room/messagelistview.cpp:737
+#: widgets/room/messagelistview.cpp:739
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Visa rapporter"
 
-#: widgets/room/messagelistview.cpp:760
+#: widgets/room/messagelistview.cpp:762
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Avfärda rapporter"
 
-#: widgets/room/messagelistview.cpp:834
+#: widgets/room/messagelistview.cpp:836
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Rapportera meddelande"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1090
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Vill du ta bort meddelandet?"
 
-#: widgets/room/messagelistview.cpp:1089
+#: widgets/room/messagelistview.cpp:1091
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ta bort meddelande"
 
-#: widgets/room/messagelistview.cpp:1287
+#: widgets/room/messagelistview.cpp:1289
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11314,39 +11237,39 @@ msgstr "Svarar i en tråd"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Svara i tråd för meddelande: '%1'"
 
-#: widgets/room/roomwidget.cpp:412
+#: widgets/room/roomwidget.cpp:400
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vill du verkligen ta bort historiken?"
 
-#: widgets/room/roomwidget.cpp:413
+#: widgets/room/roomwidget.cpp:401
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Ta bort historik"
 
-#: widgets/room/roomwidget.cpp:457
+#: widgets/room/roomwidget.cpp:445
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: widgets/room/roomwidget.cpp:458
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "Krypterat innehåll går inte att söka i."
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Sök meddelande"
 
-#: widgets/room/roomwidget.cpp:639
+#: widgets/room/roomwidget.cpp:627
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -11354,7 +11277,7 @@ msgstr ""
 "En administratör av arbetsytan måste installera och ställa in ett program "
 "för konferenssamtal."
 
-#: widgets/room/roomwidget.cpp:640
+#: widgets/room/roomwidget.cpp:628
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -12592,6 +12515,61 @@ msgstr "Användarnamn:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Lägg till konto…"
+
+#~ msgid "Encrypted Message"
+#~ msgstr "Krypterat meddelande"
+
+#~ msgid "%1 has joined OTR chat."
+#~ msgstr "%1 har gått med i OTR-chatt."
+
+#~ msgid "%1 has requested key refresh."
+#~ msgstr "%1 har begärt nyckeluppdatering."
+
+#~ msgid "OTR"
+#~ msgstr "OTR"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgid "%1 ended the OTR session."
+#~ msgstr "%1 avslutade OTR-sessionen."
+
+#~ msgid "%1 wants to start OTR. Do you want to accept?"
+#~ msgstr "%1  vill starta OTR. Vill du acceptera?"
+
+#~ msgid "%1 denied the OTR session."
+#~ msgstr "%1 nekade till OTR-sessionen."
+
+#~ msgid "Room does not have retention policy"
+#~ msgstr "Rummet har ingen bibehållandepolicy"
+
+#~ msgctxt "@option:check"
+#~ msgid "Enable OTR"
+#~ msgstr "Aktivera OTR"
+
+#~ msgid ""
+#~ "Enable option to use off-the-record (OTR) messages in direct messages "
+#~ "between 2 users. OTR messages are not recorded on the server and "
+#~ "exchanged directly and encrypted between the 2 users."
+#~ msgstr ""
+#~ "Aktivera alternativet för att använda off-the-record (OTR) meddelanden i "
+#~ "direkta meddelanden mellan två användare. OTR-meddelanden lagras inte på "
+#~ "servern och utbyts direkt och krypterat mellan de två användarna."
+
+#~ msgid "Otr Activated"
+#~ msgstr "OTR aktiverat"
+
+#~ msgctxt "@action"
+#~ msgid "End OTR"
+#~ msgstr "Avsluta OTR"
+
+#~ msgctxt "@action"
+#~ msgid "Refresh Keys"
+#~ msgstr "Uppdatera nycklar"
+
+#~ msgctxt "@action"
+#~ msgid "OTR"
+#~ msgstr "OTR"
 
 #~ msgid "Link Preview"
 #~ msgstr "Länkförhandsgranskning"

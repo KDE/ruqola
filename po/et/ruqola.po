@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:44+0000\n"
+"POT-Creation-Date: 2026-08-07 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -805,7 +805,7 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:938
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:932
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
@@ -894,179 +894,163 @@ msgid "Message Pinned"
 msgstr "Sõnum kinnistatud"
 
 #: core/messages/message.cpp:873
-#, kde-format
-msgid "Encrypted Message"
-msgstr "Krüptitud sõnum"
-
-#: core/messages/message.cpp:875
 #, fuzzy, kde-format
 #| msgid "%1 was unmuted"
 msgid "%1 was unmuted by %2"
 msgstr "%1 sai hääle tagasi"
 
-#: core/messages/message.cpp:877
+#: core/messages/message.cpp:875
 #, fuzzy, kde-format
 #| msgid "%1 was muted"
 msgid "%1 was muted by %2"
 msgstr "%1 jäeti hääleta"
 
-#: core/messages/message.cpp:879
+#: core/messages/message.cpp:877
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "%2 lisas kasutajale %1 rolli '%3'"
 
-#: core/messages/message.cpp:881
+#: core/messages/message.cpp:879
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "%2 võttis kasutajalt %1 rolli '%3'"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:885
+#: core/messages/message.cpp:883
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
 "encryption key in your account settings."
 msgstr ""
 
-#: core/messages/message.cpp:887
+#: core/messages/message.cpp:885
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Loodi diskussioon teemal \"%1\""
 
-#: core/messages/message.cpp:889
+#: core/messages/message.cpp:887
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 liitus vestlusega"
 
-#: core/messages/message.cpp:891
+#: core/messages/message.cpp:889
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "%1 arhiveeris selle toa"
 
-#: core/messages/message.cpp:893
+#: core/messages/message.cpp:891
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "%1 tegi selle toa taas valla"
 
-#: core/messages/message.cpp:896 core/messages/message.cpp:947
+#: core/messages/message.cpp:894 core/messages/message.cpp:941
 #, kde-format
 msgid "Unknown action!"
 msgstr "Tundmatu toiming!"
 
-#: core/messages/message.cpp:900
+#: core/messages/message.cpp:898
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Tere tulemast - %1"
 
-#: core/messages/message.cpp:902
+#: core/messages/message.cpp:900
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr ""
 
-#: core/messages/message.cpp:904
+#: core/messages/message.cpp:902
 #, fuzzy, kde-format
 #| msgid "This room has been unarchived by %1"
 msgid "This room's encryption has been enabled by %1"
 msgstr "%1 tegi selle toa taas valla"
 
-#: core/messages/message.cpp:906
+#: core/messages/message.cpp:904
 #, fuzzy, kde-format
 #| msgid "This room has been archived by %1"
 msgid "This room's encryption has been disabled by %1"
 msgstr "%1 arhiveeris selle toa"
 
-#: core/messages/message.cpp:908
+#: core/messages/message.cpp:906
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr ""
 
-#: core/messages/message.cpp:910
+#: core/messages/message.cpp:908
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr ""
 
-#: core/messages/message.cpp:912
+#: core/messages/message.cpp:910
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgid "%1 added @%2 to this Team"
 msgstr "%2 lisas %1 vestlusse"
 
-#: core/messages/message.cpp:914
+#: core/messages/message.cpp:912
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "%1 removed @%2 from this Team"
 msgstr "Eemalda toast"
 
-#: core/messages/message.cpp:916
+#: core/messages/message.cpp:914
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "%1 converted #%2 to a Team"
 msgstr "Eemalda toast"
 
-#: core/messages/message.cpp:918
+#: core/messages/message.cpp:916
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
 msgid "%1 converted #%2 to a Channel"
 msgstr "Kanali loomine"
 
-#: core/messages/message.cpp:920
+#: core/messages/message.cpp:918
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "%1 removed #%2 from this Team"
 msgstr "Eemalda toast"
 
-#: core/messages/message.cpp:922
+#: core/messages/message.cpp:920
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "%1 deleted #%2"
 msgstr "Kustuta"
 
-#: core/messages/message.cpp:924
+#: core/messages/message.cpp:922
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgid "%1 added #%2 to this Team"
 msgstr "%2 lisas %1 vestlusse"
 
-#: core/messages/message.cpp:926
+#: core/messages/message.cpp:924
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:928
+#: core/messages/message.cpp:926
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:930
+#: core/messages/message.cpp:928
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgid "%1 joined this Team"
 msgstr "%2 lisas %1 vestlusse"
 
-#: core/messages/message.cpp:932
-#, fuzzy, kde-format
-#| msgid "%1 has joined the channel"
-msgid "%1 has joined OTR chat."
-msgstr "%1 liitus kanaliga"
-
-#: core/messages/message.cpp:934
+#: core/messages/message.cpp:930
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr ""
 
-#: core/messages/message.cpp:936
-#, kde-format
-msgid "%1 has requested key refresh."
-msgstr ""
-
-#: core/messages/message.cpp:940
+#: core/messages/message.cpp:934
 #, fuzzy, kde-format
 #| msgid "%1 and %2"
 msgid "%1 banned %2"
 msgstr "%1 ja %2"
 
-#: core/messages/message.cpp:942
+#: core/messages/message.cpp:936
 #, fuzzy, kde-format
 #| msgid "%1 and %2"
 msgid "%1 unbanned %2"
@@ -1408,7 +1392,7 @@ msgstr "Kanali nimi"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:671
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1450,18 +1434,18 @@ msgstr "Ühtegi lõime ei leitud"
 msgid "Notify all in this room"
 msgstr "Kasutaja ei ole selles toas"
 
-#: core/model/messagesmodel.cpp:280
+#: core/model/messagesmodel.cpp:285
 #, fuzzy, kde-format
 #| msgid "Edited by %1"
 msgid "Edited at %1 by %2"
 msgstr "Muutnud %1"
 
-#: core/model/messagesmodel.cpp:456
+#: core/model/messagesmodel.cpp:466
 #, kde-format
 msgid "Ignored Message"
 msgstr "Eiratud sõnum"
 
-#: core/model/messagesmodel.cpp:467
+#: core/model/messagesmodel.cpp:477
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgid "Only you can see this message"
@@ -1567,7 +1551,7 @@ msgstr "Autentimisviis"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:601
+#: core/model/roommodel.cpp:605
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1575,7 +1559,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Mainimised"
 msgstr[1] "Mainimised"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:609
 #, fuzzy, kde-format
 #| msgid "Mute Groups Mention:"
 msgid "%1 Group Mention"
@@ -1583,7 +1567,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Gruppides mainimiste vaigistamine:"
 msgstr[1] "Gruppides mainimiste vaigistamine:"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:613
 #, fuzzy, kde-format
 #| msgid "Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1591,7 +1575,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Lõimesõnumid"
 msgstr[1] "Lõimesõnumid"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:617
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1599,63 +1583,63 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ei ole lugenud %2 sõnumit"
 msgstr[1] "%1 ei ole lugenud %2 sõnumit"
 
-#: core/model/roommodel.cpp:639
+#: core/model/roommodel.cpp:643
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Teams Room"
 msgstr "Toad"
 
-#: core/model/roommodel.cpp:645
+#: core/model/roommodel.cpp:649
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privaattuba:"
 
-#: core/model/roommodel.cpp:647
+#: core/model/roommodel.cpp:651
 #, fuzzy, kde-format
 #| msgid "Discussion Name"
 msgid "Discussion Room"
 msgstr "Diskussiooni nimi"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:655
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Kanali teave"
 
-#: core/model/roommodel.cpp:665 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
 #, fuzzy, kde-format
 #| msgid "Unread Rooms"
 msgid "Unread"
 msgstr "Lugemata toad"
 
-#: core/model/roommodel.cpp:667
+#: core/model/roommodel.cpp:671
 #, kde-format
 msgid "Favorites"
 msgstr "Lemmikud"
 
-#: core/model/roommodel.cpp:669
+#: core/model/roommodel.cpp:673
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioonid"
 
-#: core/model/roommodel.cpp:675
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Private Messages"
 msgstr "Privaatsõnumid"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
@@ -1924,38 +1908,6 @@ msgctxt "@info:placeholder"
 msgid "Reply…"
 msgstr "Vasta"
 
-#: core/otr/otrnotificationjob.cpp:47 core/otr/otrnotificationjob.cpp:57
-#: core/otr/otrnotificationjob.cpp:72
-#, kde-format
-msgid "OTR"
-msgstr ""
-
-#: core/otr/otrnotificationjob.cpp:61
-#: core/videoconference/videoconferencenotificationjob.cpp:64
-#, kde-format
-msgid "Reject"
-msgstr ""
-
-#: core/otr/otrnotificationjob.cpp:64
-#, kde-format
-msgid "Ok"
-msgstr ""
-
-#: core/otr/otrnotificationjob.cpp:96
-#, kde-format
-msgid "%1 ended the OTR session."
-msgstr ""
-
-#: core/otr/otrnotificationjob.cpp:100
-#, kde-format
-msgid "%1 wants to start OTR. Do you want to accept?"
-msgstr ""
-
-#: core/otr/otrnotificationjob.cpp:104
-#, kde-format
-msgid "%1 denied the OTR session."
-msgstr ""
-
 #: core/receivetypingnotificationmanager.cpp:58
 #, fuzzy, kde-format
 #| msgid "<strong>%1</strong> is typing..."
@@ -1970,31 +1922,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:738
+#: core/rocketchataccount.cpp:784
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:746 core/rocketchataccount.cpp:759
+#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:753
+#: core/rocketchataccount.cpp:799
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:3178
+#: core/rocketchataccount.cpp:3217
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Room Added"
 msgstr "Konto nimi:"
 
-#: core/rocketchataccount.cpp:3179
+#: core/rocketchataccount.cpp:3218
 #, fuzzy, kde-format
 #| msgid "Enter account name"
 msgid "A new room was added in '%1'."
@@ -2022,17 +1974,17 @@ msgstr "Juht"
 msgid "Moderator"
 msgstr "Moderaator"
 
-#: core/room.cpp:1595
+#: core/room.cpp:1598
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal on kirjutuskaitstud."
 
-#: core/room.cpp:1598
+#: core/room.cpp:1601
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Oled selle kanali blokkinud."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1604
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal on blokitud."
@@ -2257,6 +2209,11 @@ msgstr ""
 msgid "Accept"
 msgstr ""
 
+#: core/videoconference/videoconferencenotificationjob.cpp:64
+#, kde-format
+msgid "Reject"
+msgstr ""
+
 #: plugins/authentication/github/githubpluginauthentication.cpp:35
 #, kde-format
 msgid "GitHub"
@@ -2478,19 +2435,19 @@ msgstr ""
 msgid "Invalid message: '%1'"
 msgstr "Vigane sõnum: '%1'"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:141
 #, fuzzy, kde-format
 #| msgid "The email domain is blacklisted"
 msgid "This room is blocked"
 msgstr "E-posti domeen on mustas nimekirjas"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:143
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr ""
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:130
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:138
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:145
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:153
 #, fuzzy, kde-format
 #| msgid "Invalid channel."
 msgid "Invalid channel"
@@ -2948,33 +2905,38 @@ msgstr "Rollil peab olema nimi"
 msgid "Room is not closed"
 msgstr "Tuba ei ole suletud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:420
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
+#, kde-format
+msgid "The room already has an end-to-end encryption key ID"
+msgstr ""
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, fuzzy, kde-format
 #| msgid "The field __field__ is required."
 msgid "The field '%1' is required."
 msgstr "Väli __field__ on nõutav."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "See ei ole Livechati tuba"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Personaalsed ligipääsu pääsmikud on praegu keelatud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "Selle nimega pääsmik on juba olemas"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
 #, kde-format
 msgid "Token does not exists"
 msgstr "Pääsmikku ei ole olemas"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
 #, fuzzy, kde-format
 #| msgid ""
 #| "Error, too many requests. Please slow down. You must wait __seconds__ "
@@ -2986,17 +2948,17 @@ msgstr ""
 "Tõrge: liiga palju päringuid. Palun võta hoogu maha. Sul tuleb enne uuesti "
 "proovimist oodata __seconds__ sekundit."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
 #, kde-format
 msgid "User has no roles"
 msgstr "Kasutajal puudub roll"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
 #, kde-format
 msgid "User is not activated"
 msgstr "Kasutaja ei ole aktiveeritud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -3005,91 +2967,91 @@ msgstr ""
 "Kasutajate arv, keda püüad kutsuda kanalile #channel_name, ületab haldaja "
 "seatud piirangu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
 #, kde-format
 msgid "User is not in this room"
 msgstr "Kasutaja ei ole selles toas"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "Sa ei ole toas `%s`"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
 #, kde-format
 msgid "User registration is disabled"
 msgstr "Kasutaja registreerimine on keelatud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr "Kasutaja registreerimine on lubatud ainult salajase URL-iga"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr "Oled viimane omanik. Palun määra uus omanik, enne kui toast lahkuda."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
 #, kde-format
 msgid "The private group is archived"
 msgstr "Privaatgrupp on arhiveeritud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "User is already an owner"
-msgstr "Kasutaja on juba omanik"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
-#, fuzzy, kde-format
-#| msgid "User is already an owner"
-msgid "User is already a leader"
 msgstr "Kasutaja on juba omanik"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, fuzzy, kde-format
 #| msgid "User is already an owner"
-msgid "User is already a moderator"
+msgid "User is already a leader"
 msgstr "Kasutaja on juba omanik"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:457
+#, fuzzy, kde-format
+#| msgid "User is already an owner"
+msgid "User is already a moderator"
+msgstr "Kasutaja on juba omanik"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
 msgid "Invalid message id"
 msgstr "Vigane sõnumi ID"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid "User is not a leader"
 msgstr "Kasutaja ei ole juht"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "Rakenduse kasutajal ei ole lubatud sisse logida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Otsesõnumeid ei saa arhiveerida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
 #, kde-format
 msgid "Message not found."
 msgstr "Sõnumit ei leitud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Two Authentication Password Required"
 msgstr "Autentimisviis"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Invalid Password"
 msgstr "Vigane parool"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
 #, fuzzy, kde-format
 #| msgid "The required '%1' param provided does not match any channel"
 msgid ""
@@ -3097,24 +3059,24 @@ msgid ""
 "match any channel"
 msgstr "Määratud nõutav parameeter \"%1\" ei sobi ühegi kanaliga"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
 #, fuzzy, kde-format
 #| msgid "A token with this name already exists"
 msgid "A role with this name already exists"
 msgstr "Selle nimega pääsmik on juba olemas"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message could not be pinned"
 msgstr "Sõnum kinnistatud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr ""
@@ -3142,9 +3104,10 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr ""
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
-#, kde-format
-msgid "Room does not have retention policy"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Editing permissions is not allowed"
+msgid "Editing room is not allowed"
+msgstr "Õiguste muutmine ei ole lubatud"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -3836,7 +3799,7 @@ msgstr "Veast teatamine"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:426
+#: widgets/room/messagelistview.cpp:429
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, fuzzy, kde-format
 #| msgid "Copy link"
@@ -3846,7 +3809,7 @@ msgstr "Kopeeri link"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:428
+#: widgets/room/messagelistview.cpp:431
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, fuzzy, kde-format
 #| msgid "Go to Message"
@@ -3869,7 +3832,7 @@ msgstr "Kõnele teksti"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:115
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -5663,14 +5626,7 @@ msgctxt "@option:check"
 msgid "Mentions"
 msgstr "Mainimised"
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Delete Room"
-msgctxt "@option:check"
-msgid "Enable OTR"
-msgstr "Toa kustutamine"
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:26
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5678,7 +5634,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -5686,20 +5642,12 @@ msgid ""
 "They'll be able to see and send unencrypted messages."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:45
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Notify people, and highlight user, channel, and team mentions in encrypted "
 "content."
-msgstr ""
-
-#: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:51
-#, kde-format
-msgid ""
-"Enable option to use off-the-record (OTR) messages in direct messages "
-"between 2 users. OTR messages are not recorded on the server and exchanged "
-"directly and encrypted between the 2 users."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:22
@@ -7979,7 +7927,7 @@ msgid "Mark as Unread"
 msgstr "Märgi mitteloetuks"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
 msgctxt "@action"
@@ -11180,7 +11128,7 @@ msgid "Switch To New Room"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:817
+#: widgets/room/messagelistview.cpp:819
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -11202,24 +11150,6 @@ msgstr "%1 ei ole lugenud %2 sõnumit"
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
 msgid "Network is offline mode."
-msgstr ""
-
-#: widgets/otr/otrwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "User is not activated"
-msgid "Otr Activated"
-msgstr "Kasutaja ei ole aktiveeritud"
-
-#: widgets/otr/otrwidget.cpp:22
-#, kde-format
-msgctxt "@action"
-msgid "End OTR"
-msgstr ""
-
-#: widgets/otr/otrwidget.cpp:27
-#, kde-format
-msgctxt "@action"
-msgid "Refresh Keys"
 msgstr ""
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:31
@@ -11403,19 +11333,13 @@ msgid "Export Messages…"
 msgstr "Anna sõnumist teada"
 
 #: widgets/room/channelactionpopupmenu.cpp:127
-#, kde-format
-msgctxt "@action"
-msgid "OTR"
-msgstr ""
-
-#: widgets/room/channelactionpopupmenu.cpp:134
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Krüptitud sõnum"
 
-#: widgets/room/channelactionpopupmenu.cpp:140
+#: widgets/room/channelactionpopupmenu.cpp:133
 #, fuzzy, kde-format
 #| msgid "Show Pinned Messages..."
 msgctxt "@action"
@@ -11453,7 +11377,7 @@ msgid "User Info"
 msgstr "Kasutaja teave"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:440
-#: widgets/room/messagelistview.cpp:559
+#: widgets/room/messagelistview.cpp:561
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
@@ -11461,7 +11385,7 @@ msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
@@ -11469,7 +11393,7 @@ msgid "Show Original Message"
 msgstr "Algsõnumi näitamine"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:667 widgets/room/messagelistview.cpp:727
+#: widgets/room/messagelistview.cpp:669 widgets/room/messagelistview.cpp:729
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
@@ -11705,42 +11629,42 @@ msgstr "Videosõnumi loomine"
 msgid "Start of conversation"
 msgstr "Alusta vestlust"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Lase sõnum vabaks"
 
-#: widgets/room/messagelistview.cpp:437
+#: widgets/room/messagelistview.cpp:440
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Kinnista sõnum"
 
-#: widgets/room/messagelistview.cpp:446
+#: widgets/room/messagelistview.cpp:449
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Eemalda lemmikute seast"
 
-#: widgets/room/messagelistview.cpp:453
+#: widgets/room/messagelistview.cpp:456
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "Kustuta"
 
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:469
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Märgi sõnum mitteloetuks"
 
-#: widgets/room/messagelistview.cpp:471
+#: widgets/room/messagelistview.cpp:474
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Threads"
@@ -11748,116 +11672,116 @@ msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Lõimede näitamine"
 
-#: widgets/room/messagelistview.cpp:476
+#: widgets/room/messagelistview.cpp:479
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "Muuda"
 
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:486
+#: widgets/room/messagelistview.cpp:489
 #, fuzzy, kde-format
 #| msgid "Clear Recents"
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Puhasta hiljutised"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:494
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Liikumine sõnumile"
 
-#: widgets/room/messagelistview.cpp:496
+#: widgets/room/messagelistview.cpp:499
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/messagelistview.cpp:512
+#: widgets/room/messagelistview.cpp:514
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/messagelistview.cpp:526
+#: widgets/room/messagelistview.cpp:528
 #, fuzzy, kde-format
 #| msgid "Copy link"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Kopeeri link"
 
-#: widgets/room/messagelistview.cpp:550 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:552 widgets/room/usersinroommenu.cpp:142
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/room/messagelistview.cpp:597
+#: widgets/room/messagelistview.cpp:599
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Alusta diskussiooni"
 
-#: widgets/room/messagelistview.cpp:603
+#: widgets/room/messagelistview.cpp:605
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Vasta lõimes"
 
-#: widgets/room/messagelistview.cpp:737
+#: widgets/room/messagelistview.cpp:739
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Veast teatamine"
 
-#: widgets/room/messagelistview.cpp:760
+#: widgets/room/messagelistview.cpp:762
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Veast teatamine"
 
-#: widgets/room/messagelistview.cpp:834
+#: widgets/room/messagelistview.cpp:836
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/messagelistview.cpp:1088
+#: widgets/room/messagelistview.cpp:1090
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Kas tõesti kustutada see sõnum?"
 
-#: widgets/room/messagelistview.cpp:1089
+#: widgets/room/messagelistview.cpp:1091
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Sõnumi kustutamine"
 
-#: widgets/room/messagelistview.cpp:1287
+#: widgets/room/messagelistview.cpp:1289
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title:window"
@@ -12078,50 +12002,50 @@ msgstr "Vastamine lõimes"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Lõimesõnumid: %1"
 
-#: widgets/room/roomwidget.cpp:412
+#: widgets/room/roomwidget.cpp:400
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Kas eemaldada konto \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:413
+#: widgets/room/roomwidget.cpp:401
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Laadi hiljutine ajalugu"
 
-#: widgets/room/roomwidget.cpp:457
+#: widgets/room/roomwidget.cpp:445
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/roomwidget.cpp:458
+#: widgets/room/roomwidget.cpp:446
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "Otsesõnumeid ei saa arhiveerida"
 
-#: widgets/room/roomwidget.cpp:620
+#: widgets/room/roomwidget.cpp:608
 #, fuzzy, kde-format
 #| msgid "Search Message"
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Sõnumi otsimine"
 
-#: widgets/room/roomwidget.cpp:639
+#: widgets/room/roomwidget.cpp:627
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:640
+#: widgets/room/roomwidget.cpp:628
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -13514,6 +13438,25 @@ msgstr "Kasutajanimi:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Lisa konto ..."
+
+#~ msgid "Encrypted Message"
+#~ msgstr "Krüptitud sõnum"
+
+#, fuzzy
+#~| msgid "%1 has joined the channel"
+#~ msgid "%1 has joined OTR chat."
+#~ msgstr "%1 liitus kanaliga"
+
+#, fuzzy
+#~| msgid "Delete Room"
+#~ msgctxt "@option:check"
+#~ msgid "Enable OTR"
+#~ msgstr "Toa kustutamine"
+
+#, fuzzy
+#~| msgid "User is not activated"
+#~ msgid "Otr Activated"
+#~ msgstr "Kasutaja ei ole aktiveeritud"
 
 #, fuzzy
 #~| msgid "Ignore"
