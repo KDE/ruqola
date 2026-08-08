@@ -1392,6 +1392,16 @@
       <description>
         <ul>
           <li>Encryption support</li>
+          <li xml:lang="ca">Implementació d'encriptatge</li>
+          <li xml:lang="ca-valencia">Implementació d'encriptació</li>
+          <li xml:lang="he">תמיכה בהצפנה</li>
+          <li xml:lang="ka">დაშიფვრის მხარდაჭერა</li>
+          <li xml:lang="nl">Ondersteuning voor versleuteling</li>
+          <li xml:lang="pt-BR">Suporte à criptografia</li>
+          <li xml:lang="sl">Podpora šifriranja</li>
+          <li xml:lang="sv">Krypteringsstöd</li>
+          <li xml:lang="tr">Şifreleme desteği</li>
+          <li xml:lang="uk">Підтримка шифрування</li>
           <li>Show user status in list of user in rooms</li>
           <li xml:lang="ca">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
           <li xml:lang="ca-valencia">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
@@ -1431,6 +1441,7 @@
           <li>Fix DDP reconnection</li>
           <li xml:lang="ca">Corregeix la reconnexió DDP</li>
           <li xml:lang="ca-valencia">Corregix tornar a connectar DDP</li>
+          <li xml:lang="he">תוקן חיבור DDP</li>
           <li xml:lang="ia">Corrige reconnexion DDP</li>
           <li xml:lang="it">Corregge la riconnessione DDP</li>
           <li xml:lang="ka">გასწორდა DDP-სთან თავიდან დაკავშირება</li>
@@ -1443,6 +1454,7 @@
           <li>Improve user info</li>
           <li xml:lang="ca">Millora la informació d'usuaris</li>
           <li xml:lang="ca-valencia">Millora la informació d'usuaris</li>
+          <li xml:lang="he">פרטי המשתמש השתפרו</li>
           <li xml:lang="ia">Meliora info de usator</li>
           <li xml:lang="it">Migliora le informazioni degli utenti</li>
           <li xml:lang="ka">გაუმჯობესდა მომხმარებლის ინფორმაცია</li>
@@ -1456,6 +1468,7 @@
           <li xml:lang="ar">إضافة إشعار عند إضافة غرفة جديدة</li>
           <li xml:lang="ca">Afegeix informació de notificacions en afegir una sala nova</li>
           <li xml:lang="ca-valencia">Afig informació de notificacions en afegir una sala nova</li>
+          <li xml:lang="he">נוספו פרטי הודעה כשנוסף חדר חדש</li>
           <li xml:lang="ia">Adde info de notificar quando adde un nove sala</li>
           <li xml:lang="it">Aggiungi le informazioni di notifica quando aggiungi una nuova stanza</li>
           <li xml:lang="ka">დაემატა გაფრთხილება ახალი ოთახის დამატებისას</li>
@@ -1470,6 +1483,7 @@
           <li xml:lang="ca">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="ca-valencia">Reescriptura de la implementació d'adjunció de fitxers</li>
           <li xml:lang="es">Rescrito el soporte de archivos adjuntos</li>
+          <li xml:lang="he">שכתוב תמיכה בקבצים מצורפים</li>
           <li xml:lang="ia">Rescribe supporto de file de attachamento.</li>
           <li xml:lang="it">Riscritto il supporto degli allegati</li>
           <li xml:lang="ka">მიმაგრებული ფაილის მხარდაჭერის გადაწერა</li>
@@ -1512,6 +1526,7 @@
           <li xml:lang="ca">Adapta a l'API nova RC 8.6.0</li>
           <li xml:lang="ca-valencia">Adapta a l'API nova RC 8.6.0</li>
           <li xml:lang="es">Adaptado a la nueva API de RC 8.6.0</li>
+          <li xml:lang="he">התאמה ל־API החדש של RC 8.6.0</li>
           <li xml:lang="ia">Adapta a nove API de RC 8.6.0 </li>
           <li xml:lang="it">Adattamento alla nuova API di RC 8.6.0</li>
           <li xml:lang="ka">მორგება RC 8.6.0-ის ახალ API-ისთან</li>
@@ -1540,6 +1555,7 @@
           <li xml:lang="ca">Afegeix el suport de confirmacions de lectura</li>
           <li xml:lang="ca-valencia">Afig el suport de confirmacions de lectura</li>
           <li xml:lang="es">Añadido soporte para acuse de recibo</li>
+          <li xml:lang="he">נוספה תמיכה באישור שליחה</li>
           <li xml:lang="ia">Adde supporto pro confirmationes de lectura</li>
           <li xml:lang="it">Aggiunge il supporto per le conferme di lettura</li>
           <li xml:lang="ka">დაემატა წაკითხვის ანგარიშის მხარდაჭერა</li>
@@ -1562,6 +1578,7 @@
           <li xml:lang="ca-valencia">Millora el mode desconnectat</li>
           <li xml:lang="es">Mejoras en modo desconectado</li>
           <li xml:lang="fr">Améliorer le mode déconnecté</li>
+          <li xml:lang="he">המצב הבלתי מקוון השתפר</li>
           <li xml:lang="ia">Meliora Modo foras de linea</li>
           <li xml:lang="it">Migliora la modalità non in linea</li>
           <li xml:lang="ka">გაუმჯობესდა ხაზგარეშე რეჟიმი</li>
@@ -1579,6 +1596,7 @@
           <li xml:lang="ca-valencia">Permet obrir un fitxer guardat.</li>
           <li xml:lang="es">Permitir la apertura de archivos guardados.</li>
           <li xml:lang="fr">Autoriser l'ouverture du fichier enregistré.</li>
+          <li xml:lang="he">מתן אפשרות לפתוח קובץ שמור.</li>
           <li xml:lang="ia">Permitte aperir file salveguardate.</li>
           <li xml:lang="it">Consente l'apertura del file salvato.</li>
           <li xml:lang="ka">შენახული ფაილის გახსნის დაშვება.</li>
@@ -1699,6 +1717,7 @@
           <li xml:lang="ca-valencia">Copia blocs de codi amb més facilitat</li>
           <li xml:lang="es">Facilitada la copia de bloques de código</li>
           <li xml:lang="fr">Copier le code en bloc plus facilement</li>
+          <li xml:lang="he">אפשר להעתיק מקטעי קוד ביתר קלות</li>
           <li xml:lang="ia">Copia codice de bloco plus facilemente</li>
           <li xml:lang="it">Copia più facile dei blocchi di codice</li>
           <li xml:lang="ka">კოდის ბლოკის უფრო ადვილად კოპირება</li>
@@ -1716,6 +1735,7 @@
           <li xml:lang="ca-valencia">Millora la interfície d'usuari del text a veu</li>
           <li xml:lang="es">Mejoras en la interfaz de usuario de texto a habla</li>
           <li xml:lang="fr">Améliorer l'interface utilisateur pour la synthèse vocale</li>
+          <li xml:lang="he">ממשק ההקראה השתפר</li>
           <li xml:lang="ia">Meliora interfacie d eusator de Texto-a-Pronunciation (TextToSpeech)</li>
           <li xml:lang="it">Migliorare l'interfaccia utente della sintesi vocale</li>
           <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
@@ -1733,6 +1753,7 @@
           <li xml:lang="ca-valencia">Mostra els camps dels adjunts</li>
           <li xml:lang="es">Mostrar campos adjuntos</li>
           <li xml:lang="fr">Afficher les champs de pièce jointe</li>
+          <li xml:lang="he">להציג שדות קבצים מצורפים</li>
           <li xml:lang="ia">Monstra campos de attachamento.</li>
           <li xml:lang="it">Mostra i campi degli allegati</li>
           <li xml:lang="ka">მიმაგრებული ფაილის ველების ჩვენება</li>
@@ -1750,6 +1771,7 @@
           <li xml:lang="ca-valencia">Implementa el mode desconnectat (experimental)</li>
           <li xml:lang="es">Modo desconectado implementado (experimental)</li>
           <li xml:lang="fr">Implémenter le mode déconnecté (Expérimental)</li>
+          <li xml:lang="he">מימוש מצב בלתי מקוון (ניסיוני)</li>
           <li xml:lang="ia">Implementa modoforas de linea (experimental)</li>
           <li xml:lang="it">Implementa la modalità non in linea (sperimentale)</li>
           <li xml:lang="ka">ხაზგარეშე რეჟიმი (ექსპერიმენტული)</li>
@@ -1782,6 +1804,7 @@
           <li xml:lang="ca">Corregeix la implementació del RC 8.0.0</li>
           <li xml:lang="ca-valencia">Corregix la implementació del RC 8.0.0</li>
           <li xml:lang="es">Mejora en el soporte de RC 80.0</li>
+          <li xml:lang="he">תוקנה התמיכה ב־RC 8.0.0</li>
           <li xml:lang="ia">Corrige supporto de  RC 8.0.0 </li>
           <li xml:lang="it">Corregge il supporto RC 8.0.0</li>
           <li xml:lang="ka">გასწორდა RC 8.0.0-ის მხარდაჭერა</li>
@@ -1863,6 +1886,7 @@
           <li xml:lang="ca">Corregeix l'exportació de la base de dades</li>
           <li xml:lang="ca-valencia">Corregix l'exportació de la base de dades</li>
           <li xml:lang="es">Corrección al exportar la base de datos</li>
+          <li xml:lang="he">ייצוא מסד הנתונים תוקן</li>
           <li xml:lang="ia">Corrige exportation de base de datos</li>
           <li xml:lang="it">Corregge l'esportazione della banca dati</li>
           <li xml:lang="ka">გასწორდა მონაცემთა ბაზის გატანა</li>
@@ -1902,6 +1926,7 @@
           <li xml:lang="ca">Afegeix un connector d'IA</li>
           <li xml:lang="ca-valencia">Afig un connector d'IA</li>
           <li xml:lang="es">Añadido complemento AI</li>
+          <li xml:lang="he">נוסף תוסף בינה מלאכותית</li>
           <li xml:lang="ia">Adde plugin de AI</li>
           <li xml:lang="it">Aggiungi estensione IA</li>
           <li xml:lang="ka">დაემატა ხი-ის დამატება</li>
@@ -2223,6 +2248,7 @@
           <li xml:lang="ca">Corregeix una icona al Windows</li>
           <li xml:lang="ca-valencia">Corregix una icona en Windows</li>
           <li xml:lang="es">Corrección del icono en Windows</li>
+          <li xml:lang="he">תיקון הסמל ב־Windows</li>
           <li xml:lang="ia">Corrige icone sur  Windows</li>
           <li xml:lang="it">Corregge l'icona sulle finestre</li>
           <li xml:lang="ka">გასწორდა ხატულა Windows-ზე</li>
@@ -3476,6 +3502,7 @@
           <li xml:lang="ca">Corregeix una fuita de memòria</li>
           <li xml:lang="ca-valencia">Corregix una fuita de memòria</li>
           <li xml:lang="es">Corregido uso excesivo de memoria</li>
+          <li xml:lang="he">תוקנה דליפת זכרון</li>
           <li xml:lang="ia">Corroige fuga (leak) de memoria</li>
           <li xml:lang="it">Corregge della perdita di memoria</li>
           <li xml:lang="ka">გასწორდა მეხსიერების გაჟონვა</li>
