@@ -117,7 +117,7 @@ include(ECMCheckOutboundLicense)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
-option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" ON)
+option(OPTION_USE_E2E_SUPPORT "E2E support" ON)
 option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
 
 option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON)
