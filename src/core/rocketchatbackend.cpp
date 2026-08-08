@@ -738,20 +738,22 @@ void RocketChatBackend::subscribeRegistration()
 {
     qCDebug(RUQOLA_LOG) << "subscribe registration";
     const QString userId{QString::fromLatin1(mRocketChatAccount->settings()->userId())};
-    const QStringList listStreamNotifierUser{
-        u"notification"_s,
-        u"rooms-changed"_s,
-        u"subscriptions-changed"_s,
-        u"message"_s,
-        u"webrtc"_s,
-        u"video-conference"_s,
-        u"userData"_s,
-        u"banners"_s,
-        u"force_logout"_s,
-        u"uiInteraction"_s,
-        u"webdav"_s,
-        u"e2ekeyRequest"_s,
-    };
+    const QStringList listStreamNotifierUser{u"notification"_s,
+                                             u"rooms-changed"_s,
+                                             u"subscriptions-changed"_s,
+                                             u"message"_s,
+                                             u"webrtc"_s,
+                                             u"video-conference"_s,
+                                             u"userData"_s,
+                                             u"banners"_s,
+                                             u"force_logout"_s,
+                                             u"uiInteraction"_s,
+                                             u"webdav"_s,
+                                             u"e2ekeyRequest"_s,
+                                             u"calendar"_s,
+                                             u"departmentAgentData"_s,
+                                             u"media-signal"_s,
+                                             u"call.hangup"_s};
     for (const QString &str : listStreamNotifierUser) {
         QJsonArray params;
         params.append(QJsonValue(u"%1/%2"_s.arg(userId, str)));
