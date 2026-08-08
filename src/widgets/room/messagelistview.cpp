@@ -633,7 +633,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             if (copyUrlAction) {
                 menu.addAction(copyUrlAction);
             }
-            menu.addAction(copyLinkToMessageAction);
+            if (!message->isEncryptedMessage()) {
+                menu.addAction(copyLinkToMessageAction);
+            }
             if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 menu.addAction(forwardMessageAction);
                 menu.addSeparator();
@@ -695,7 +697,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             if (copyUrlAction) {
                 menu.addAction(copyUrlAction);
             }
-            menu.addAction(copyLinkToMessageAction);
+            if (!message->isEncryptedMessage()) {
+                menu.addAction(copyLinkToMessageAction);
+            }
             if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 menu.addAction(forwardMessageAction);
                 menu.addSeparator();
@@ -803,7 +807,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (copyUrlAction) {
             menu.addAction(copyUrlAction);
         }
-        menu.addAction(copyLinkToMessageAction);
+        if (!message->isEncryptedMessage()) {
+            menu.addAction(copyLinkToMessageAction);
+        }
+
         if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
             menu.addAction(forwardMessageAction);
             menu.addSeparator();
