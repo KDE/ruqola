@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:45+0000\n"
-"PO-Revision-Date: 2026-07-13 00:13+0100\n"
+"POT-Creation-Date: 2026-08-09 00:45+0000\n"
+"PO-Revision-Date: 2026-08-08 17:23+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1801,16 +1801,14 @@ msgid "Not connected yet"
 msgstr "No conectado todavía"
 
 #: core/rocketchataccount.cpp:3224
-#, fuzzy, kde-format
-#| msgid "Room \"%1\" was added"
+#, kde-format
 msgid "Room Added"
-msgstr "Se añadió la sala «%1»"
+msgstr "Sala añadida"
 
 #: core/rocketchataccount.cpp:3225
-#, fuzzy, kde-format
-#| msgid "A new account was added."
+#, kde-format
 msgid "A new room was added in '%1'."
-msgstr "Se añadió una nueva cuenta."
+msgstr "Se añadió una nueva sala en «%1»."
 
 #: core/rocketchaturlutils.cpp:43
 #, kde-format
@@ -2735,6 +2733,7 @@ msgstr "La sala no está cerrada"
 #, kde-format
 msgid "The room already has an end-to-end encryption key ID"
 msgstr ""
+"La sala ya tiene una clave de identificación de cifrado extremo a extremo "
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
@@ -2921,16 +2920,14 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr "Solo los grupos o canales directos pueden activar el cifrado"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Editing permissions is not allowed"
+#, kde-format
 msgid "Editing room is not allowed"
-msgstr "No se permite editar permisos"
+msgstr "No se permite editar la sala"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:75
-#, fuzzy, kde-format
-#| msgid "Editing permissions is not allowed"
+#, kde-format
 msgid "Changing room type is not allowed"
-msgstr "No se permite editar permisos"
+msgstr "No se permite editar cambiar el tipo de sala"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -4011,15 +4008,14 @@ msgid "Deployment ID"
 msgstr "Id del despliegue"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Mongo Version"
-msgstr "Versión"
+msgstr "Versión de Mongo"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
 #, kde-format
 msgid "Mongo Storage Engine"
-msgstr ""
+msgstr "Motor de almacenaje Mongo"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
 #, kde-format
@@ -8088,10 +8084,9 @@ msgid "DataBase E2E"
 msgstr "Base de datos E2E"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E Rooms"
-msgstr "Salas de la base de datos"
+msgstr "Base de datos de salas E2E"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
@@ -10545,7 +10540,7 @@ msgid "Switch To New Room"
 msgstr "Cambiar a nueva sala"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:821
+#: widgets/room/messagelistview.cpp:828
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10775,14 +10770,14 @@ msgid "Start a Private Conversation"
 msgstr "Iniciar una conversación privada"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:671 widgets/room/messagelistview.cpp:731
+#: widgets/room/messagelistview.cpp:673 widgets/room/messagelistview.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Mostrar mensaje original"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:671 widgets/room/messagelistview.cpp:731
+#: widgets/room/messagelistview.cpp:673 widgets/room/messagelistview.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -11090,36 +11085,36 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Responder en el hilo"
 
-#: widgets/room/messagelistview.cpp:741
+#: widgets/room/messagelistview.cpp:745
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Ver reportes"
 
-#: widgets/room/messagelistview.cpp:764
+#: widgets/room/messagelistview.cpp:768
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Descartar reportes"
 
-#: widgets/room/messagelistview.cpp:838
+#: widgets/room/messagelistview.cpp:845
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Notificar mensaje"
 
-#: widgets/room/messagelistview.cpp:1092
+#: widgets/room/messagelistview.cpp:1099
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "¿Desea borrar este mensaje?"
 
-#: widgets/room/messagelistview.cpp:1093
+#: widgets/room/messagelistview.cpp:1100
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Borrar mensaje"
 
-#: widgets/room/messagelistview.cpp:1291
+#: widgets/room/messagelistview.cpp:1298
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11211,10 +11206,9 @@ msgid "(Show More Info…)"
 msgstr "(Mostrar más información…)"
 
 #: widgets/room/roomheaderlabel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgid "Add Topic"
-msgstr "Tema"
+msgstr "Añadir tema"
 
 #: widgets/room/roomheaderwidget.cpp:78
 #, kde-format
@@ -12171,43 +12165,34 @@ msgid "Emoji reaction"
 msgstr "Reacción de emoji"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Leader"
+#, kde-format
 msgid "Remove Leader User"
-msgstr "Eliminar como líder"
+msgstr "Eliminar usuario líder"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not remove \"%1\": %2"
+#, kde-format
 msgid "Could not remove leader \"%1\": %2"
-msgstr "No se pudo eliminar «%1»: %2"
+msgstr "No se pudo eliminar líder «%1»: %2"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Moderator"
+#, kde-format
 msgid "Remove Moderator User"
-msgstr "Eliminar como moderador"
+msgstr "Eliminar usuario moderador"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not add moderator \"%1\": %2"
+#, kde-format
 msgid "Could not remove moderator \"%1\": %2"
-msgstr "No se puede añadir moderador «%1»: %2"
+msgstr "No se pudo eliminar moderador «%1»: %2"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgid "Remove Owner User"
-msgstr "Eliminar usuario"
+msgstr "Eliminar usuario propietario"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Could not remove \"%1\": %2"
+#, kde-format
 msgid "Could not remove owner \"%1\": %2"
-msgstr "No se pudo eliminar «%1»: %2"
+msgstr "No se pudo eliminar propietario «%1»: %2"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
 #, kde-format
@@ -12605,69 +12590,3 @@ msgstr "Nombre del usuario:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Añadir cuenta…"
-
-#~ msgid "Encrypted Message"
-#~ msgstr "Mensaje cifrado"
-
-#~ msgid "%1 has joined OTR chat."
-#~ msgstr "%1 se ha unido al chat OTR."
-
-#~ msgid "%1 has requested key refresh."
-#~ msgstr "%1 ha pedido un refresco de la clave."
-
-#~ msgid "OTR"
-#~ msgstr "Confidencial"
-
-#~ msgid "Ok"
-#~ msgstr "Aceptar"
-
-#~ msgid "%1 ended the OTR session."
-#~ msgstr "%1 finalizó la sesión confidencial."
-
-#~ msgid "%1 wants to start OTR. Do you want to accept?"
-#~ msgstr "%1 quiere comenzar una sesión confidencial, ¿Quiere aceptarla?"
-
-#~ msgid "%1 denied the OTR session."
-#~ msgstr "%1 rechazó la sesión confidencial."
-
-#~ msgid "Room does not have retention policy"
-#~ msgstr "La sala no tiene política de retención"
-
-#~ msgctxt "@option:check"
-#~ msgid "Enable OTR"
-#~ msgstr "Activar sesión confidencial"
-
-#~ msgid ""
-#~ "Enable option to use off-the-record (OTR) messages in direct messages "
-#~ "between 2 users. OTR messages are not recorded on the server and "
-#~ "exchanged directly and encrypted between the 2 users."
-#~ msgstr ""
-#~ "Activar opción para usar mensajes confidenciales (OTR) en mensajes "
-#~ "directos entre dos usuarios. Los mensajes OTR no se almacenan en el "
-#~ "servidor sino que se intercambian directamente, cifrados entre ambos "
-#~ "usuarios."
-
-#~ msgid "Otr Activated"
-#~ msgstr "Confidencialidad activada"
-
-#~ msgctxt "@action"
-#~ msgid "End OTR"
-#~ msgstr "Finalizar sesión confidencial"
-
-#~ msgctxt "@action"
-#~ msgid "Refresh Keys"
-#~ msgstr "Refrescar claves"
-
-#~ msgctxt "@action"
-#~ msgid "OTR"
-#~ msgstr "Confidencial"
-
-#~ msgid "Link Preview"
-#~ msgstr "Vista previa del enlace"
-
-#, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Ignore"
-#~ msgctxt "@action:button"
-#~ msgid "Ignore"
-#~ msgstr "Ignorar"

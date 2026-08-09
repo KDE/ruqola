@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:45+0000\n"
-"PO-Revision-Date: 2026-08-07 18:01+0200\n"
+"POT-Creation-Date: 2026-08-09 00:45+0000\n"
+"PO-Revision-Date: 2026-08-08 07:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2901,10 +2901,9 @@ msgid "Editing room is not allowed"
 msgstr "Redigera rum tillåts inte"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:75
-#, fuzzy, kde-format
-#| msgid "Editing room is not allowed"
+#, kde-format
 msgid "Changing room type is not allowed"
-msgstr "Redigera rum tillåts inte"
+msgstr "Ändra rumstyp tillåts inte"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -10475,7 +10474,7 @@ msgid "Switch To New Room"
 msgstr "Byt till nytt rum"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:821
+#: widgets/room/messagelistview.cpp:828
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10705,14 +10704,14 @@ msgid "Start a Private Conversation"
 msgstr "Starta ett privat samtal"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:671 widgets/room/messagelistview.cpp:731
+#: widgets/room/messagelistview.cpp:673 widgets/room/messagelistview.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Visa originalmeddelande"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:671 widgets/room/messagelistview.cpp:731
+#: widgets/room/messagelistview.cpp:673 widgets/room/messagelistview.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -11019,36 +11018,36 @@ msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Svara på tråd"
 
-#: widgets/room/messagelistview.cpp:741
+#: widgets/room/messagelistview.cpp:745
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Visa rapporter"
 
-#: widgets/room/messagelistview.cpp:764
+#: widgets/room/messagelistview.cpp:768
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Avfärda rapporter"
 
-#: widgets/room/messagelistview.cpp:838
+#: widgets/room/messagelistview.cpp:845
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Rapportera meddelande"
 
-#: widgets/room/messagelistview.cpp:1092
+#: widgets/room/messagelistview.cpp:1099
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Vill du ta bort meddelandet?"
 
-#: widgets/room/messagelistview.cpp:1093
+#: widgets/room/messagelistview.cpp:1100
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ta bort meddelande"
 
-#: widgets/room/messagelistview.cpp:1291
+#: widgets/room/messagelistview.cpp:1298
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
