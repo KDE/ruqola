@@ -533,6 +533,63 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             mRocketChatAccount->parseE2eKeyRequest(contents);
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/banners"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users  banners: " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: banners: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: banners :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/media-signal"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users  media-signal: " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: media-signal: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: media-signal :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/call.hangup"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users call.hangup: " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: call.hangup: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: call.hangup :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/calendar"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users calendar " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: calendar: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: calendar :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/departmentAgentData"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users calendar " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: departmentAgentData: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: departmentAgentData :account name:" << mRocketChatAccount->accountName() << "object"
+                                            << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
