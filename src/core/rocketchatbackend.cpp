@@ -602,7 +602,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         }
     } else if (collection == "stream-notify-room-users"_L1) {
         qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXstream-notify-room-users  e2e.keyRequest: " << object;
-        ;
     } else if (collection == "stream-notify-room"_L1) {
         qCDebug(RUQOLA_BACKEND_LOG) << " stream-notify-room " << collection << " object " << object;
         const QString eventname = fields.value("eventName"_L1).toString();
