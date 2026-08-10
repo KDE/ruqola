@@ -7,6 +7,7 @@
 #include "roomwidgetbase.h"
 
 #include "commandpreviewwidget.h"
+#include "connection.h"
 #include "dialogs/createnewdiscussiondialog.h"
 #include "messagelinewidget.h"
 #include "messagetextedit.h"
@@ -15,7 +16,9 @@
 #include "room.h"
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
+#include "rooms/roomstartdiscussionjob.h"
 #include "roomutil.h"
+#include "ruqolawidgets_debug.h"
 #include "uploadfilemanager.h"
 #include "uploadfileprogressstatuslistwidget.h"
 
@@ -150,11 +153,29 @@ void RoomWidgetBase::slotShowQuoteMessage(const QString &permalink, const QStrin
 
 void RoomWidgetBase::slotCreateNewDiscussion(const QByteArray &messageId, const QString &originalMessage, const QString &channelName)
 {
-    CreateNewDiscussionDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setDiscussionName(originalMessage);
-    dlg.setChannelInfo(channelName, mRoomId);
-    dlg.setMessageId(messageId);
-    dlg.exec();
+    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(mCurrentRocketChatAccount, this);
+    dlg->setDiscussionName(originalMessage);
+    dlg->setChannelInfo(channelName, mRoomId);
+    dlg->setMessageId(messageId);
+    if (dlg->exec()) {
+        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+        auto job = new RocketChatRestApi::RoomStartDiscussionJob(this);
+        connect(job, &RocketChatRestApi::RoomStartDiscussionJob::startDiscussionDone, this, [this](const QJsonObject &replyObj) {
+            mCurrentRocketChatAccount->extractIdentifier(replyObj, "discussion"_L1, "_id"_L1);
+        });
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        job->setParentRoomId(info.channelId);
+
+        job->setDiscussionName(info.discussionName);
+        job->setParentMessageId(dlg->messageId());
+        job->setReplyMessage(info.message);
+        job->setUsers(info.users);
+        job->setTopic(info.topic);
+        if (!job->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoomStartDiscussionJob";
+        }
+    }
+    delete dlg;
 }
 
 void RoomWidgetBase::slotCreatePrivateDiscussion(const QString &userName)
