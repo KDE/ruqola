@@ -41,6 +41,8 @@ SystemMessageType SystemMessageTypeUtil::systemMessageTypeFromString(const QStri
         return MessageDeleted;
     } else if (str == "message_pinned"_L1) {
         return Pinned;
+    } else if (str == "message_pinned_e2e"_L1) {
+        return PinnedE2e;
     } else if (str == "user-unmuted"_L1) {
         return UserUnmuted;
     } else if (str == "user-muted"_L1) {
@@ -136,6 +138,8 @@ QString SystemMessageTypeUtil::systemMessageTypeStringFromEnum(SystemMessageType
         return "rm"_L1;
     case Pinned:
         return "message_pinned"_L1;
+    case PinnedE2e:
+        return "message_pinned_e2e"_L1;
     case UserUnmuted:
         return "user-unmuted"_L1;
     case UserMuted:

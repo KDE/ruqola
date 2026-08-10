@@ -26,6 +26,7 @@ enum SystemMessageType {
     JitsiCallStarted,
     MessageDeleted,
     Pinned,
+    PinnedE2e,
     UserMuted,
     UserUnmuted,
     SubscriptionRoleAdded,

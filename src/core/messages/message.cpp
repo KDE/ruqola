@@ -871,6 +871,8 @@ QString Message::systemMessageText() const
         return i18n("Message Deleted");
     case SystemMessageTypeUtil::SystemMessageType::Pinned:
         return i18n("Message Pinned");
+    case SystemMessageTypeUtil::SystemMessageType::PinnedE2e:
+        return i18n("Message Pinned by %1", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserUnmuted:
         return i18n("%1 was unmuted by %2", mText, mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserMuted:
