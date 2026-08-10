@@ -604,13 +604,15 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(startDiscussion);
             menu.addSeparator();
-            auto replyInThreadAction = new QAction(QIcon::fromTheme(u"mail-replied-symbolic"_s), i18nc("@action", "Reply in Thread"), &menu);
-            connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
-                slotReplyInThread(index);
-            });
-            menu.addAction(replyInThreadAction);
-            for (auto action : std::as_const(threadInfoActions)) {
-                menu.addAction(action);
+            if (!message->isEncryptedMessage()) {
+                auto replyInThreadAction = new QAction(QIcon::fromTheme(u"mail-replied-symbolic"_s), i18nc("@action", "Reply in Thread"), &menu);
+                connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
+                    slotReplyInThread(index);
+                });
+                menu.addAction(replyInThreadAction);
+                for (auto action : std::as_const(threadInfoActions)) {
+                    menu.addAction(action);
+                }
             }
 
             if (!isVideoConferenceMessage) {
