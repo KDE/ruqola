@@ -1394,6 +1394,7 @@
           <li>Encryption support</li>
           <li xml:lang="ca">Implementació d'encriptatge</li>
           <li xml:lang="ca-valencia">Implementació d'encriptació</li>
+          <li xml:lang="es">Soporte de cifrado</li>
           <li xml:lang="he">תמיכה בהצפנה</li>
           <li xml:lang="ka">დაშიფვრის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor versleuteling</li>
@@ -1405,6 +1406,7 @@
           <li>Show user status in list of user in rooms</li>
           <li xml:lang="ca">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
           <li xml:lang="ca-valencia">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
+          <li xml:lang="es">Mostrar estado del usuario en las listas de usuarios en la sala</li>
           <li xml:lang="ia">Monstra stato de usator in un lista de usator in salas</li>
           <li xml:lang="it">Mostra lo stato degli utenti nell'elenco degli utenti nelle stanze</li>
           <li xml:lang="ka">მომხმარებლის სტატუსის ჩვენება ოთახებში მომხმარებელთა სიაში</li>
@@ -1417,6 +1419,7 @@
           <li>Allow to define topic when it's not defined</li>
           <li xml:lang="ca">Permetre definir un tema quan no està definit</li>
           <li xml:lang="ca-valencia">Permetre definir un tema quan no està definit</li>
+          <li xml:lang="es">Permitir definir tema cuando no está definido</li>
           <li xml:lang="ia">Permitte definirtopico quando il non es definite</li>
           <li xml:lang="it">Consente di definire l'argomento quando non è definito</li>
           <li xml:lang="ka">თემის განსაზღვრის დაშვება, როცა ის განსაზღვრული არაა</li>
@@ -1429,6 +1432,7 @@
           <li>Redesign link previews as compact cards</li>
           <li xml:lang="ca">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
           <li xml:lang="ca-valencia">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
+          <li xml:lang="es">Rediseño en los enlaces de previsualización como cartas compactas</li>
           <li xml:lang="ia">Redesigna vista preliminar de ligamine como cartas compacte</li>
           <li xml:lang="it">Riprogettate le anteprime dei collegamenti come schede compatte</li>
           <li xml:lang="ka">შეიცვალა ბმულის მინიატურების დიზაინი კომპაქტურ ბარათებზე</li>
@@ -1441,6 +1445,7 @@
           <li>Fix DDP reconnection</li>
           <li xml:lang="ca">Corregeix la reconnexió DDP</li>
           <li xml:lang="ca-valencia">Corregix tornar a connectar DDP</li>
+          <li xml:lang="es">Arreglada la reconexión DDP</li>
           <li xml:lang="he">תוקן חיבור DDP</li>
           <li xml:lang="ia">Corrige reconnexion DDP</li>
           <li xml:lang="it">Corregge la riconnessione DDP</li>
@@ -1454,6 +1459,7 @@
           <li>Improve user info</li>
           <li xml:lang="ca">Millora la informació d'usuaris</li>
           <li xml:lang="ca-valencia">Millora la informació d'usuaris</li>
+          <li xml:lang="es">Mejorada la información de usuario</li>
           <li xml:lang="he">פרטי המשתמש השתפרו</li>
           <li xml:lang="ia">Meliora info de usator</li>
           <li xml:lang="it">Migliora le informazioni degli utenti</li>
@@ -1468,6 +1474,7 @@
           <li xml:lang="ar">إضافة إشعار عند إضافة غرفة جديدة</li>
           <li xml:lang="ca">Afegeix informació de notificacions en afegir una sala nova</li>
           <li xml:lang="ca-valencia">Afig informació de notificacions en afegir una sala nova</li>
+          <li xml:lang="es">Añadida información de notificación al añadir una nueva sala</li>
           <li xml:lang="he">נוספו פרטי הודעה כשנוסף חדר חדש</li>
           <li xml:lang="ia">Adde info de notificar quando adde un nove sala</li>
           <li xml:lang="it">Aggiungi le informazioni di notifica quando aggiungi una nuova stanza</li>
