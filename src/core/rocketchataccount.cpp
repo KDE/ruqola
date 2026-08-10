@@ -2132,7 +2132,22 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
 void RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents)
 {
     qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents;
-    qDebug() << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents;
+    qDebug() << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents << " count "
+             << contents.count();
+    if (contents.count() != 2) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "contents size != 2. It's a bug" << contents.count();
+        return;
+    }
+    const QByteArray roomId = contents.at(0).toString().toLatin1();
+    const QByteArray keyId = contents.at(1).toString().toLatin1();
+    qDebug() << debugCategoryAccountName() << " roomId : " << roomId << " keyId: " << keyId;
+
+    Room *r = mRoomModel->findRoom(roomId);
+    qDebug() << " found room " << r;
+    if (r) {
+        // TODO get encrypted room key
+    }
+
     // TODO  QJsonArray(["6a7477d083ae3ec8a9eb588f","80941e2d-96ca-4db2-852a-bbd891060dea"]) => room -> key
 }
 
