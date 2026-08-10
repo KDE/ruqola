@@ -737,7 +737,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // drawFocus(painter, option, messageRect);
 
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
-    if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
+    if (!isSystemMessage(message) && !message->isEncryptedMessage() && message->hoverHighlight() && mEmojiMenuEnabled) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
         mReplyInThreadIcon.paint(painter, layout.replyToThreadRect, Qt::AlignCenter);
 #if HAVE_TEXT_TO_SPEECH
