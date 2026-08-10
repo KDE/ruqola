@@ -169,9 +169,15 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
-    layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, senderRectY, iconSize, iconSize);
+    if (!message->isEncryptedMessage()) {
+        layout.replyToThreadRect = QRect(layout.addReactionRect.left() + margin + iconSize, senderRectY, iconSize, iconSize);
+    }
 #if HAVE_TEXT_TO_SPEECH
-    layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, senderRectY, iconSize, iconSize);
+    layout.textToSpeechIconRect =
+        QRect(message->isEncryptedMessage() ? layout.addReactionRect.left() + margin + iconSize : layout.replyToThreadRect.left() + margin + iconSize,
+              senderRectY,
+              iconSize,
+              iconSize);
 #endif
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), senderRectY), timeSize);

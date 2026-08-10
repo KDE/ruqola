@@ -176,7 +176,9 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     }
 
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
-    layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, senderRectY, iconSize, iconSize);
+    if (!message->isEncryptedMessage()) {
+        layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, senderRectY, iconSize, iconSize);
+    }
 #if HAVE_TEXT_TO_SPEECH
     layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, senderRectY, iconSize, iconSize);
 #endif

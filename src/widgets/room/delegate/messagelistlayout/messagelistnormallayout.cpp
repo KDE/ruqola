@@ -234,12 +234,18 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     }
 
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.textRect.y(), iconSize, iconSize);
-    layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, layout.textRect.y(), iconSize, iconSize);
+    if (!message->isEncryptedMessage()) {
+        layout.replyToThreadRect = QRect(layout.addReactionRect.left() + margin + iconSize, layout.textRect.y(), iconSize, iconSize);
+    }
     if (layout.sameSenderAsPreviousMessage) {
         layout.addReactionRect.moveTop(layout.textRect.y());
     }
 #if HAVE_TEXT_TO_SPEECH
-    layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, layout.textRect.y(), iconSize, iconSize);
+    layout.textToSpeechIconRect =
+        QRect(message->isEncryptedMessage() ? layout.addReactionRect.left() + margin + iconSize : layout.replyToThreadRect.left() + margin + iconSize,
+              layout.textRect.y(),
+              iconSize,
+              iconSize);
 #endif
 
     // Right edge available to laid-out content (a half-margin gutter is kept clear).
