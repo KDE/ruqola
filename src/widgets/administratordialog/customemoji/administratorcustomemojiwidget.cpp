@@ -92,7 +92,7 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
 
 void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 {
-    QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
+    const QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
     if (dlg->exec()) {
         const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info = dlg->info();
 
@@ -116,7 +116,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 
 void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &index)
 {
-    QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
+    const QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
     dlg->setType(AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType::Update);
     AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info;
 
