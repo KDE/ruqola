@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:45+0000\n"
-"PO-Revision-Date: 2026-07-17 15:06+0400\n"
+"POT-Creation-Date: 2026-08-11 00:45+0000\n"
+"PO-Revision-Date: 2026-08-10 18:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -235,7 +235,7 @@ msgstr "ملخص الخصوصية"
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
-msgstr "التّصاريح"
+msgstr "الأذون"
 
 #: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
@@ -763,7 +763,7 @@ msgstr "عنوان الخادم مفقود."
 msgid "Socket was unexpectedly closed."
 msgstr "أُغلق المقبس بشكل غير متوقع."
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:934
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:936
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
@@ -851,27 +851,33 @@ msgid "Message Pinned"
 msgstr "ثُبتت الرسالة"
 
 #: core/messages/message.cpp:875
+#, fuzzy, kde-format
+#| msgid "Message Pinned"
+msgid "Message Pinned by %1"
+msgstr "ثُبتت الرسالة"
+
+#: core/messages/message.cpp:877
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "ألغي كتم %1 بواسطة %2"
 
-#: core/messages/message.cpp:877
+#: core/messages/message.cpp:879
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "كُتم %1 بواسطة %2"
 
-#: core/messages/message.cpp:879
+#: core/messages/message.cpp:881
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "أُضيف دور '%3' إلى %1 بواسطة %2"
 
-#: core/messages/message.cpp:881
+#: core/messages/message.cpp:883
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "دور '%3' أُزيل إلى %1 بواسطة %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:885
+#: core/messages/message.cpp:887
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -880,122 +886,122 @@ msgstr ""
 "هذه الرسالة معماة من البداية إلى النهاية. لعرضها، يجب عليك إدخال مفتاح "
 "تعميتك في إعدادات حسابك."
 
-#: core/messages/message.cpp:887
+#: core/messages/message.cpp:889
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "أنشئ ناقش حول \"%1\""
 
-#: core/messages/message.cpp:889
+#: core/messages/message.cpp:891
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 انضم للمحادثة"
 
-#: core/messages/message.cpp:891
+#: core/messages/message.cpp:893
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "أُرشفت هذه الغرفة بواسطة %1"
 
-#: core/messages/message.cpp:893
+#: core/messages/message.cpp:895
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "ألغيت أرشفة هذه الغرفة بواسطة %1"
 
-#: core/messages/message.cpp:896 core/messages/message.cpp:943
+#: core/messages/message.cpp:898 core/messages/message.cpp:945
 #, kde-format
 msgid "Unknown action!"
 msgstr "إجراء مجهول!"
 
-#: core/messages/message.cpp:900
+#: core/messages/message.cpp:902
 #, kde-format
 msgid "Welcome %1!"
 msgstr "مرحبًا %1!"
 
-#: core/messages/message.cpp:902
+#: core/messages/message.cpp:904
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "غير %1 الصورة الرمزية للغرفة"
 
-#: core/messages/message.cpp:904
+#: core/messages/message.cpp:906
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "مكّن %1 تعمية الغرفة"
 
-#: core/messages/message.cpp:906
+#: core/messages/message.cpp:908
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "عطّل %1 تعمية الغرفة"
 
-#: core/messages/message.cpp:908
+#: core/messages/message.cpp:910
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "وضع %1 الغرفة في وضع القراءة فقط"
 
-#: core/messages/message.cpp:910
+#: core/messages/message.cpp:912
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "أضف %1 صلاحية الكتابة للغرفة"
 
-#: core/messages/message.cpp:912
+#: core/messages/message.cpp:914
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "أضف %1 @%2  إلى هذا الفريق"
 
-#: core/messages/message.cpp:914
+#: core/messages/message.cpp:916
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "أزال %1 @%2 من هذا الفريق"
 
-#: core/messages/message.cpp:916
+#: core/messages/message.cpp:918
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "حول %1 #%2  إلى فريق"
 
-#: core/messages/message.cpp:918
+#: core/messages/message.cpp:920
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "حول %1 #%2  إلى قناة"
 
-#: core/messages/message.cpp:920
+#: core/messages/message.cpp:922
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "أزال %1 #%2 من هذا الفريق"
 
-#: core/messages/message.cpp:922
+#: core/messages/message.cpp:924
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 حذف #%2"
 
-#: core/messages/message.cpp:924
+#: core/messages/message.cpp:926
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "أضف %1#%2  إلى هذا الفريق"
 
-#: core/messages/message.cpp:926
+#: core/messages/message.cpp:928
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1 للغرفة بالتفاعل"
 
-#: core/messages/message.cpp:928
+#: core/messages/message.cpp:930
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "لم يسمح %1 للغرفة بالتفاعل"
 
-#: core/messages/message.cpp:930
+#: core/messages/message.cpp:932
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "انضمّ %1 إلى هذا الفريق"
 
-#: core/messages/message.cpp:932
+#: core/messages/message.cpp:934
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "تحدث مفتاح %1 بنجاح"
 
-#: core/messages/message.cpp:936
+#: core/messages/message.cpp:938
 #, kde-format
 msgid "%1 banned %2"
 msgstr "%1 حظر %2"
 
-#: core/messages/message.cpp:938
+#: core/messages/message.cpp:940
 #, kde-format
 msgid "%1 unbanned %2"
 msgstr "%1 رفع الحظر عن %2"
@@ -1814,12 +1820,12 @@ msgstr "غير متّصل"
 msgid "Not connected yet"
 msgstr "غير متّصل حتى الآن"
 
-#: core/rocketchataccount.cpp:3224
+#: core/rocketchataccount.cpp:3239
 #, kde-format
 msgid "Room Added"
 msgstr "أُضيفت الغرفة"
 
-#: core/rocketchataccount.cpp:3225
+#: core/rocketchataccount.cpp:3240
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "أضيف غرفة جديدة في '%1'."
@@ -2416,7 +2422,7 @@ msgstr "لا يُسمح بمشاركة الملفات في الرسائل الم
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 #, kde-format
 msgid "Editing permissions is not allowed"
-msgstr "لا يسمح بتعديل الأذونات"
+msgstr "لا يسمح بتعديل الأذون"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 #, kde-format
@@ -2763,7 +2769,7 @@ msgstr "الغرفة غير مغلقة"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:419
 #, kde-format
 msgid "The room already has an end-to-end encryption key ID"
-msgstr ""
+msgstr "تحتوي الغرفة فعلًا على معرّف مفتاح التعمية من طرف إلى طرف"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:422
 #, kde-format
@@ -2948,16 +2954,14 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr "فقط المجموعات أو القنوات المباشرة يمكنها تمكين التعمية"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Editing permissions is not allowed"
+#, kde-format
 msgid "Editing room is not allowed"
-msgstr "لا يسمح بتعديل الأذونات"
+msgstr "لا يسمح بتعديل الغرفة"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:75
-#, fuzzy, kde-format
-#| msgid "Editing permissions is not allowed"
+#, kde-format
 msgid "Changing room type is not allowed"
-msgstr "لا يسمح بتعديل الأذونات"
+msgstr "لا يسمح بتعديل نوع الغرفة"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
 #, kde-format
@@ -3753,7 +3757,7 @@ msgstr "الأدوار:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search permissions…"
-msgstr "ابحث التّصاريح…"
+msgstr "ابحث الأذون…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:49
 #, kde-format
@@ -7289,12 +7293,12 @@ msgstr "خوادم STUN/TURN"
 #, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
-msgstr "التّصاريح"
+msgstr "الأذون"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:31
 #, kde-format
 msgid "No permissions information found."
-msgstr "لم يُعثر على معلومات الأذونات."
+msgstr "لم يُعثر على معلومات الأذون."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:28
 #, kde-format
@@ -8079,10 +8083,9 @@ msgid "DataBase E2E"
 msgstr "قاعدة البيانات E2E"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E Rooms"
-msgstr "غرف قاعدة البيانات"
+msgstr "قاعدة بيانات E2E للغرف"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
@@ -10552,7 +10555,7 @@ msgid "Switch To New Room"
 msgstr "بدّل إلى غرفة جديدة"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:828
+#: widgets/room/messagelistview.cpp:830
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10780,14 +10783,14 @@ msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:673 widgets/room/messagelistview.cpp:735
+#: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:456
-#: widgets/room/messagelistview.cpp:673 widgets/room/messagelistview.cpp:735
+#: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10820,49 +10823,49 @@ msgstr[5] "%1 رسالة"
 msgid "No message yet"
 msgstr "لا يوجد رسائل بعد"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1049
+#: widgets/room/delegate/messagelistdelegate.cpp:1051
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "متابعة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1053
+#: widgets/room/delegate/messagelistdelegate.cpp:1055
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "لقد ثُبتت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1057
+#: widgets/room/delegate/messagelistdelegate.cpp:1059
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "لقد عُلّمت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1061
+#: widgets/room/delegate/messagelistdelegate.cpp:1063
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "الرسالة تحتوي على نص مترجم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1065
+#: widgets/room/delegate/messagelistdelegate.cpp:1067
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1069
+#: widgets/room/delegate/messagelistdelegate.cpp:1071
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "أضف تفاعل"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1075
+#: widgets/room/delegate/messagelistdelegate.cpp:1077
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "أوقف"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1075
+#: widgets/room/delegate/messagelistdelegate.cpp:1077
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11096,42 +11099,42 @@ msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "ابدأ مناقشة"
 
-#: widgets/room/messagelistview.cpp:607
+#: widgets/room/messagelistview.cpp:608
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/messagelistview.cpp:745
+#: widgets/room/messagelistview.cpp:747
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "اطلع على التقارير"
 
-#: widgets/room/messagelistview.cpp:768
+#: widgets/room/messagelistview.cpp:770
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "استبعد التقارير"
 
-#: widgets/room/messagelistview.cpp:845
+#: widgets/room/messagelistview.cpp:847
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
 
-#: widgets/room/messagelistview.cpp:1099
+#: widgets/room/messagelistview.cpp:1101
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "هل تريد حذف هذه الرسالة؟"
 
-#: widgets/room/messagelistview.cpp:1100
+#: widgets/room/messagelistview.cpp:1102
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "احذف الرّسالة"
 
-#: widgets/room/messagelistview.cpp:1298
+#: widgets/room/messagelistview.cpp:1300
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
@@ -11227,10 +11230,9 @@ msgid "(Show More Info…)"
 msgstr "(اعرض معلومات أكثر…)"
 
 #: widgets/room/roomheaderlabel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgid "Add Topic"
-msgstr "موضوع"
+msgstr "أضف موضوعًا"
 
 #: widgets/room/roomheaderwidget.cpp:78
 #, kde-format
