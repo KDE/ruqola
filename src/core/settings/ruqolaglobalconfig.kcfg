@@ -60,7 +60,6 @@
         <choices>
           <choice name="Compact"/>
 	  <choice name="Normal"/>
-	  <choice name="Cozy"/>
         </choices>
         <default>Compact</default>
     </entry>

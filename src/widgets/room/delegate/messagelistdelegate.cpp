@@ -31,7 +31,6 @@
 #include "room/delegate/messagedelegatehelpercontext.h"
 #include "room/delegate/messagedelegatehelperdivider.h"
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
-#include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
 #include "room/roomutil.h"
 #include "ruqola_delegate_lastunseedline_debug.h"
@@ -1155,9 +1154,6 @@ void MessageListDelegate::switchMessageLayout()
     switch (RuqolaGlobalConfig::self()->messageStyle()) {
     case RuqolaGlobalConfig::EnumMessageStyle::Normal:
         mMessageListLayoutBase = new MessageListNormalLayout(this);
-        break;
-    case RuqolaGlobalConfig::EnumMessageStyle::Cozy:
-        mMessageListLayoutBase = new MessageListCozyLayout(this);
         break;
     case RuqolaGlobalConfig::EnumMessageStyle::Compact:
         mMessageListLayoutBase = new MessageListCompactLayout(this);
