@@ -71,10 +71,7 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     for (const UserLayout &userLayout : layout.usersLayout) {
         const QRectF avatarRect = userLayout.userAvatarRect.translated(blockRect.topLeft());
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter,
-                                                      QRectF(avatarRect.topLeft(), avatarRect.toRect().size()),
-                                                      avatarRect.topLeft(),
-                                                      userLayout.avatarPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, avatarRect, userLayout.avatarPixmap);
 #else
         painter->drawPixmap(avatarRect.toRect(), userLayout.avatarPixmap);
 #endif

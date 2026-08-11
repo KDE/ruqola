@@ -575,7 +575,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Draw the pixmap
     if (mRocketChatAccount->displayAvatars() && !layout.sameSenderAsPreviousMessage) {
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.size()), layout.avatarPos, layout.avatarPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.deviceIndependentSize()), layout.avatarPixmap);
 #else
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 #endif
