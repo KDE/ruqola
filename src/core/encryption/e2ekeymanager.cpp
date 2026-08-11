@@ -7,9 +7,12 @@
 #include "e2ekeymanager.h"
 #include "config-ruqola.h"
 #include "connection.h"
+#include "e2e/acceptsuggestedgroupkeyjob.h"
 #include "e2e/fetchmykeysjob.h"
 #include "e2e/getusersofroomwithoutkeyjob.h"
 #include "e2e/provideuserswithsuggestedgroupkeysjob.h"
+#include "e2e/rejectsuggestedgroupkeyjob.h"
+#include "e2e/requestsubscriptionkeysjob.h"
 #include "e2e/setroomkeyidjob.h"
 #include "e2e/setuserpublicandprivatekeysjob.h"
 #include "e2e/updategroupkeyjob.h"
@@ -23,6 +26,7 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "room.h"
+#include "roomencryptionkey.h"
 #include "ruqola_encryption_debug.h"
 #include "ruqolaserverconfig.h"
 #include <qt6keychain/keychain.h>
@@ -33,6 +37,7 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QTimer>
+#include <chrono>
 using namespace QKeychain;
 using namespace Qt::Literals::StringLiterals;
 
@@ -163,7 +168,11 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     RSA_free(privateKey);
     mDecodedPrivateKey = privateKeyPem;
     setStatus(Status::KeyDecrypted);
-    if (decryptRoomsSessionKeys()) {
+    const bool sessionKeysDecrypted = decryptRoomsSessionKeys();
+    // Suggestions received while the private key was still locked can be imported now, and the
+    // rooms left without a key are the ones we have to ask for.
+    processSuggestedRoomKeys();
+    if (sessionKeysDecrypted) {
         Q_EMIT needRefreshView();
     }
     Q_EMIT decodeEncryptionKeyDone();
@@ -368,6 +377,35 @@ bool E2eKeyManager::distributeExistingRoomE2EKey(const QByteArray &roomId)
     return true;
 #else
     Q_UNUSED(roomId)
+    return false;
+#endif
+}
+
+bool E2eKeyManager::provideRoomKeyToUsers([[maybe_unused]] const QByteArray &roomId, [[maybe_unused]] const QString &keyId)
+{
+#if USE_E2E_SUPPORT
+    // Port of Rocket.Chat's E2ERoom::provideKeyToUser(): a room member which does not own
+    // the group key yet asked for it. Re-encrypt our copy for everybody still missing it.
+    if (!mAccount || roomId.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "provideRoomKeyToUsers: invalid arguments";
+        return false;
+    }
+
+    Room *const room = mAccount->room(roomId);
+    if (!room) {
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "provideRoomKeyToUsers: unknown room" << roomId;
+        return false;
+    }
+
+    // The requester tells us which key id it is waiting for. If it doesn't match the one we
+    // hold, we are not the right provider (e.g. the room key was reset in the meantime).
+    if (room->e2eKeyId() != keyId) {
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "provideRoomKeyToUsers: key id mismatch for room" << roomId << "requested" << keyId << "owned" << room->e2eKeyId();
+        return false;
+    }
+
+    return distributeExistingRoomE2EKey(roomId);
+#else
     return false;
 #endif
 }
@@ -758,6 +796,128 @@ bool E2eKeyManager::decryptRoomsSessionKeys() const
     RSA_free(privateKey);
 #endif
     return true;
+}
+
+bool E2eKeyManager::processSuggestedRoomKey([[maybe_unused]] Room *r)
+{
+#if USE_E2E_SUPPORT
+    // Port of Rocket.Chat's E2E.onSubscriptionChanged()/handleAsyncE2EESuggestedKey(): a room
+    // member which owns the group key encrypted it for us and stored it in our subscription as
+    // "E2ESuggestedKey". Import it, then tell the server whether we accept it — only then does
+    // the server promote it to "E2EKey", which is what we need to send encrypted messages.
+    if (!mAccount || !r) {
+        return false;
+    }
+
+    const QString suggestedKey = r->e2ESuggestedKey();
+    if (suggestedKey.isEmpty()) {
+        // Nothing was shared with us. If this encrypted room has no usable key at all, nobody
+        // ever sent us one: ask for it, the way Rocket.Chat's handshake() does.
+        if (r->encrypted() && r->sessionKey().isEmpty() && mStatus == Status::KeyDecrypted) {
+            scheduleRequestMissingRoomKeys();
+        }
+        return false;
+    }
+
+    if (mStatus != Status::KeyDecrypted || mDecodedPrivateKey.isEmpty()) {
+        // Our own private key is not available yet: keep the suggestion around, it will be
+        // retried from processSuggestedRoomKeys() once the key is decrypted.
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "processSuggestedRoomKey: private key not ready, postponing for room" << r->roomId();
+        return false;
+    }
+
+    RSA *privateKey = EncryptionUtils::privateKeyFromPEM(mDecodedPrivateKey);
+    if (!privateKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "processSuggestedRoomKey: failed to load private key from PEM";
+        return false;
+    }
+
+    // Try the import on a scratch object so a bogus suggestion cannot destroy a room key we
+    // already own and use.
+    RoomEncryptionKey candidate;
+    candidate.setE2EKey(suggestedKey);
+    candidate.decryptWithPrivateKey(privateKey);
+    RSA_free(privateKey);
+
+    const bool imported = !candidate.sessionKey().isEmpty();
+    const QByteArray roomId = r->roomId();
+
+    if (imported) {
+        // The suggestion is "keyId + base64(ciphertext)": adopt the key id it carries, but never
+        // clear a known one when the payload had no prefix.
+        if (!candidate.e2eKeyId().isEmpty()) {
+            r->setE2eKeyId(candidate.e2eKeyId());
+        }
+        r->setE2EKey(suggestedKey);
+        if (!decryptRoomSessionKeys(r)) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "processSuggestedRoomKey: unable to decrypt imported key for room" << roomId;
+        }
+        auto acceptJob = new RocketChatRestApi::AcceptSuggestedGroupKeyJob(this);
+        mAccount->restApi()->initializeRestApiJob(acceptJob);
+        acceptJob->setRoomId(QString::fromLatin1(roomId));
+        if (!acceptJob->start()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "processSuggestedRoomKey: failed to start AcceptSuggestedGroupKeyJob for room" << roomId;
+        }
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "processSuggestedRoomKey: accepted suggested key for room" << roomId << "keyId" << candidate.e2eKeyId();
+    } else {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "processSuggestedRoomKey: invalid suggested key for room" << roomId << ", rejecting it";
+        auto rejectJob = new RocketChatRestApi::RejectSuggestedGroupKeyJob(this);
+        mAccount->restApi()->initializeRestApiJob(rejectJob);
+        rejectJob->setRoomId(QString::fromLatin1(roomId));
+        if (!rejectJob->start()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "processSuggestedRoomKey: failed to start RejectSuggestedGroupKeyJob for room" << roomId;
+        }
+    }
+
+    // Handled either way: the server clears the suggestion, so drop our local copy too.
+    r->setE2ESuggestedKey({});
+    return imported;
+#else
+    return false;
+#endif
+}
+
+void E2eKeyManager::processSuggestedRoomKeys()
+{
+#if USE_E2E_SUPPORT
+    if (!mAccount) {
+        return;
+    }
+    const auto rooms = mAccount->roomModel()->rooms();
+    for (Room *r : rooms) {
+        // Rooms left without a key schedule the request themselves.
+        (void)processSuggestedRoomKey(r);
+    }
+#endif
+}
+
+void E2eKeyManager::scheduleRequestMissingRoomKeys()
+{
+    if (mRequestMissingRoomKeysScheduled) {
+        return;
+    }
+    mRequestMissingRoomKeysScheduled = true;
+    // Rooms arrive in batches: coalesce them into a single request.
+    QTimer::singleShot(std::chrono::seconds{2}, this, [this]() {
+        mRequestMissingRoomKeysScheduled = false;
+        requestMissingRoomKeys();
+    });
+}
+
+void E2eKeyManager::requestMissingRoomKeys()
+{
+    if (!mAccount) {
+        return;
+    }
+    // Rocket.Chat's E2ERoom::handshake() publishes "<roomId>/e2ekeyRequest" per room; the REST
+    // endpoint does the same server-side for every subscription of ours which has no key yet.
+    // Members owning the key answer with e2e.provideUsersSuggestedGroupKeys, which comes back
+    // to us as an "E2ESuggestedKey" handled by processSuggestedRoomKey().
+    auto job = new RocketChatRestApi::RequestSubscriptionKeysJob(this);
+    mAccount->restApi()->initializeRestApiJob(job);
+    if (!job->start()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to start RequestSubscriptionKeysJob";
+    }
 }
 
 bool E2eKeyManager::decryptRoomSessionKeys(Room *r) const

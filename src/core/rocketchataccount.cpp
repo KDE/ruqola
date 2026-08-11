@@ -540,7 +540,13 @@ void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &mes
         const QByteArray sessionKey = room->sessionKey();
         if (sessionKey.isEmpty()) {
             qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to send encrypted message: missing room session key for" << roomID;
-            mE2eKeyManager->decodeEncryptionKey();
+            if (mE2eKeyManager->status() == E2eKeyManager::Status::KeyDecrypted) {
+                // Our own key is usable, the room key is simply the one we never received:
+                // ask the other members to encrypt it for us.
+                mE2eKeyManager->requestMissingRoomKeys();
+            } else {
+                mE2eKeyManager->decodeEncryptionKey();
+            }
             return;
         }
 
@@ -2131,24 +2137,19 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
 
 void RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents)
 {
-    qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents;
-    qDebug() << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents << " count "
-             << contents.count();
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents;
+    // Rocket.Chat sends [ roomId, e2eKeyId ]: a room member which is waiting for the group
+    // key asks the members which already own it to encrypt it for them.
     if (contents.count() != 2) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "contents size != 2. It's a bug" << contents.count();
         return;
     }
     const QByteArray roomId = contents.at(0).toString().toLatin1();
-    const QByteArray keyId = contents.at(1).toString().toLatin1();
-    qDebug() << debugCategoryAccountName() << " roomId : " << roomId << " keyId: " << keyId;
+    const QString keyId = contents.at(1).toString();
 
-    Room *r = mRoomModel->findRoom(roomId);
-    qDebug() << " found room " << r;
-    if (r) {
-        // TODO get encrypted room key
+    if (!mE2eKeyManager->provideRoomKeyToUsers(roomId, keyId)) {
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to provide E2E room key for room" << roomId << "keyId" << keyId;
     }
-
-    // TODO  QJsonArray(["6a7477d083ae3ec8a9eb588f","80941e2d-96ca-4db2-852a-bbd891060dea"]) => room -> key
 }
 
 void RocketChatAccount::parseVideoConference(const QJsonArray &contents)

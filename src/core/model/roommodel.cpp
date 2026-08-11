@@ -283,6 +283,9 @@ QByteArray RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
                 room->updateSubscriptionRoom(roomData);
                 if (mRocketChatAccount) {
                     (void)mRocketChatAccount->e2eKeyManager()->decryptRoomSessionKeys(room);
+                    // A member may have just shared the room key with us through the
+                    // subscription; without importing it the room stays unable to encrypt.
+                    (void)mRocketChatAccount->e2eKeyManager()->processSuggestedRoomKey(room);
                 }
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 
@@ -325,6 +328,11 @@ QByteArray RoomModel::addRoom(const QJsonObject &room)
     if (!addRoom(r)) {
         // qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room: " << r->name();
         return {};
+    }
+    if (mRocketChatAccount) {
+        (void)mRocketChatAccount->e2eKeyManager()->decryptRoomSessionKeys(r);
+        // The subscription can already carry a room key another member encrypted for us.
+        (void)mRocketChatAccount->e2eKeyManager()->processSuggestedRoomKey(r);
     }
     return r->roomId();
 }

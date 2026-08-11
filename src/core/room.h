@@ -202,6 +202,10 @@ public:
     [[nodiscard]] QString e2eKeyId() const;
     void setE2eKeyId(const QString &e2eKeyId);
 
+    // Room key suggested by another member, waiting for us to import and accept it.
+    [[nodiscard]] QString e2ESuggestedKey() const;
+    void setE2ESuggestedKey(const QString &e2ESuggestedKey);
+
 #if USE_E2E_SUPPORT
     void decryptSessionKeyWithPrivateKey(RSA *privateKey);
 #endif

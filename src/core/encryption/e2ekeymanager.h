@@ -39,6 +39,7 @@ public:
     void fetchMyKeys();
     [[nodiscard]] bool initializeRoomE2EKey(const QByteArray &roomId, const QString &existingKeyId = {});
     [[nodiscard]] bool distributeExistingRoomE2EKey(const QByteArray &roomId);
+    [[nodiscard]] bool provideRoomKeyToUsers(const QByteArray &roomId, const QString &keyId);
 
     [[nodiscard]] E2eKeyManager::Status needToDecodeEncryptionKey() const;
 
@@ -53,6 +54,14 @@ public:
     void verifyExistingKeyForTest(const QJsonObject &json);
     [[nodiscard]] bool decryptRoomsSessionKeys() const;
     [[nodiscard]] bool decryptRoomSessionKeys(Room *r) const;
+
+    // Import the room key another member encrypted for us ("E2ESuggestedKey") and tell the
+    // server whether we accept it. Returns true when a key was successfully imported.
+    [[nodiscard]] bool processSuggestedRoomKey(Room *r);
+    void processSuggestedRoomKeys();
+
+    // Ask the members of the encrypted rooms we have no key for to share it with us.
+    void requestMissingRoomKeys();
 
 Q_SIGNALS:
     void needDecodeEncryptionKey();
@@ -73,6 +82,8 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString passwordKeyIdentifier() const;
     LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *baseJob);
     LIBRUQOLACORE_NO_EXPORT void distributeRoomSessionKey(const QByteArray &roomId, const QByteArray &sessionKey, const QString &keyId);
+    LIBRUQOLACORE_NO_EXPORT void scheduleRequestMissingRoomKeys();
+    bool mRequestMissingRoomKeysScheduled = false;
     Status mStatus = Status::Unknown;
     QString mGeneratedPassword;
     QByteArray mDecodedPrivateKey;

@@ -674,6 +674,11 @@ void Room::parseInsertRoom(const QJsonObject &json)
 
     // setE2eKeyId(json["e2eKeyId"_L1].toString());
     setE2EKey(json["E2EKey"_L1].toString());
+    // Only overwrite on payloads which actually carry the field: subscription updates can be
+    // partial and we must not drop a pending suggestion we have not imported yet.
+    if (json.contains("E2ESuggestedKey"_L1)) {
+        setE2ESuggestedKey(json["E2ESuggestedKey"_L1].toString());
+    }
 
     if (json.contains("encrypted"_L1)) {
         setEncrypted(json["encrypted"_L1].toBool());
@@ -737,6 +742,11 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         setFavorite(favoriteValue.toBool());
     }
     setE2EKey(json["E2EKey"_L1].toString());
+    // Only overwrite on payloads which actually carry the field: subscription updates can be
+    // partial and we must not drop a pending suggestion we have not imported yet.
+    if (json.contains("E2ESuggestedKey"_L1)) {
+        setE2ESuggestedKey(json["E2ESuggestedKey"_L1].toString());
+    }
     setReadOnly(json["ro"_L1].toBool());
 
     setUpdatedAt(Utils::parseDate(u"_updatedAt"_s, json));
@@ -1234,6 +1244,25 @@ void Room::setE2eKeyId(const QString &e2eKeyId)
         mRoomEncryptionKey->setE2eKeyId(e2eKeyId);
         Q_EMIT encryptionKeyIdChanged();
     }
+}
+
+QString Room::e2ESuggestedKey() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->e2ESuggestedKey();
+    }
+    return {};
+}
+
+void Room::setE2ESuggestedKey(const QString &e2ESuggestedKey)
+{
+    if (!mRoomEncryptionKey) {
+        if (e2ESuggestedKey.isEmpty()) {
+            return;
+        }
+        mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    mRoomEncryptionKey->setE2ESuggestedKey(e2ESuggestedKey);
 }
 
 QString Room::e2EKey() const

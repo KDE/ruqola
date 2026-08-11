@@ -23,6 +23,11 @@ public:
     [[nodiscard]] QString e2eKeyId() const;
     void setE2eKeyId(const QString &newE2eKeyId);
 
+    // Key another room member encrypted for us and which is still pending our approval
+    // (subscription field "E2ESuggestedKey"). It becomes the E2EKey once accepted.
+    [[nodiscard]] QString e2ESuggestedKey() const;
+    void setE2ESuggestedKey(const QString &newE2ESuggestedKey);
+
     [[nodiscard]] bool operator==(const RoomEncryptionKey &other) const;
 
     [[nodiscard]] QByteArray sessionKey() const;
@@ -36,6 +41,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseSessionKey();
     // Encryption Key
     QString mE2EKey;
+    QString mE2ESuggestedKey;
     QString mE2eKeyId;
     QString mEncryptedKeyBase64; // Base64-encoded RSA-encrypted session key
     QByteArray mSessionKey;

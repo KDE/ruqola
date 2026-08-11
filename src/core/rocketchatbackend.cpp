@@ -523,7 +523,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             mRocketChatAccount->settings()->setAuthToken({});
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         } else if (eventname.endsWith("/e2ekeyRequest"_L1)) {
-            qDebug() << " 111111111111111111111111111stream-notify-room-users  e2e.keyRequest: " << object;
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);

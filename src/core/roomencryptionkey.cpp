@@ -241,6 +241,16 @@ void RoomEncryptionKey::parseSessionKey()
     // Waiting for RSA private key to decrypt session key
 }
 
+QString RoomEncryptionKey::e2ESuggestedKey() const
+{
+    return mE2ESuggestedKey;
+}
+
+void RoomEncryptionKey::setE2ESuggestedKey(const QString &newE2ESuggestedKey)
+{
+    mE2ESuggestedKey = newE2ESuggestedKey;
+}
+
 QString RoomEncryptionKey::e2eKeyId() const
 {
     return mE2eKeyId;
