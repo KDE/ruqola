@@ -194,7 +194,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         const QJsonArray members = root["members"_L1].toArray();
         QList<User> users;
         users.reserve(members.count());
-        for (const QJsonValue &current : members) {
+        for (const auto &current : members) {
             if (current.type() == QJsonValue::Object) {
                 const QJsonObject userObject = current.toObject();
                 const QString userName = userObject["username"_L1].toString();
@@ -241,7 +241,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
 
             QList<User> users;
             users.reserve(records.count());
-            for (const QJsonValue &current : records) {
+            for (const auto &current : records) {
                 if (current.type() == QJsonValue::Object) {
                     const QJsonObject userObject = current.toObject();
                     const QString userName = userObject["username"_L1].toString();

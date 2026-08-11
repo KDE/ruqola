@@ -55,7 +55,7 @@ void ConferenceCallSettingsWidget::initialize(const QMap<QString, SettingsWidget
         // {"data":[{"key":"jitsi","label":"Jitsi"}],"success":true}
         QMap<QString, QString> maps;
         const QJsonArray array = obj["data"_L1].toArray();
-        for (const QJsonValue &current : array) {
+        for (const auto &current : array) {
             const QJsonObject roleObject = current.toObject();
             maps.insert(roleObject["key"_L1].toString(), roleObject["label"_L1].toString());
         }

@@ -27,7 +27,7 @@ void ListMessages::parseMessagesList(const QJsonObject &messagesObj, const QStri
 {
     const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? u"messages"_s : arrayName].toArray();
     mListMessages.reserve(messagesArray.count());
-    for (const QJsonValue &current : messagesArray) {
+    for (const auto &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject messageObject = current.toObject();
             Message m;

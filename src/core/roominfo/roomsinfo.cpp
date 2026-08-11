@@ -61,7 +61,7 @@ void RoomsInfo::parseListRooms(const QJsonObject &adminRoomsObj, RoomsInfo::Pars
 
     const QJsonArray adminRoomsArray = adminRoomsObj[jsonKeyType].toArray();
     mRooms.reserve(mRooms.count() + adminRoomsArray.count());
-    for (const QJsonValue &current : adminRoomsArray) {
+    for (const auto &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject adminRoomObject = current.toObject();
             RoomInfo m;

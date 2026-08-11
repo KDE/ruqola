@@ -43,7 +43,7 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
 void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
     const QJsonObject settings = obj[u"settings"_s].toObject();
-    for (const QJsonValue &current : settings) {
+    for (const auto &current : settings) {
         // TODO store json => update it when widget settings change
         ApplicationsSettingsSettingsInfo i;
         i.parseSettings(current.toObject());

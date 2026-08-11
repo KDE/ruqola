@@ -53,7 +53,7 @@ void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
     clear();
     // qDebug() << " obj " << obj;
     const QJsonArray array = obj["languages"_L1].toArray();
-    for (const QJsonValue &current : array) {
+    for (const auto &current : array) {
         const QJsonObject languageObject = current.toObject();
         AutotranslateLanguage lang;
         lang.setLanguage(languageObject.value("language"_L1).toString());

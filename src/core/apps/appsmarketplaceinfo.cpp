@@ -58,7 +58,7 @@ QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t)
 void AppsMarketPlaceInfo::parsePermissions(const QJsonArray &array)
 {
     mPermissions.clear();
-    for (const QJsonValue &current : array) {
+    for (const auto &current : array) {
         Permission perm;
         perm.type = perm.convertStringToPermissionType(current["name"_L1].toString());
         mPermissions.append(std::move(perm));
@@ -88,7 +88,7 @@ void AppsMarketPlaceInfo::changeApplicationStatus(const QString &str)
 void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
 {
     mPricePlan.clear();
-    for (const QJsonValue &current : array) {
+    for (const auto &current : array) {
         PricePlan priceElement;
         priceElement.price = current["price"_L1].toInt();
         priceElement.trialDays = current["trialDays"_L1].toInt();
@@ -227,7 +227,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
 
     QStringList lst;
     lst.reserve(categoriesArray.count());
-    for (const QJsonValue &current : categoriesArray) {
+    for (const auto &current : categoriesArray) {
         lst.append(current.toString());
     }
     mCategories = lst;

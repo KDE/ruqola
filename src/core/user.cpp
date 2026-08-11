@@ -387,7 +387,7 @@ QList<User> User::parseUsersList(const QJsonObject &object, const QList<RoleInfo
 {
     const QJsonArray fieldsArray = object.value("items"_L1).toArray();
     QList<User> users;
-    for (const QJsonValue &current : fieldsArray) {
+    for (const auto &current : fieldsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User user;

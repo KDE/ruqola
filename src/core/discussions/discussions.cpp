@@ -42,7 +42,7 @@ void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
 void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
 {
     const QJsonArray discussionsArray = discussionsObj["discussions"_L1].toArray();
-    for (const QJsonValue &current : discussionsArray) {
+    for (const auto &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
             Discussion m;

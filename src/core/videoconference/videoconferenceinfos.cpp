@@ -103,7 +103,7 @@ void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &videoCon
 void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &videoConferenceInfosObj)
 {
     const QJsonArray videoConferencesArray = videoConferenceInfosObj["data"_L1].toArray();
-    for (const QJsonValue &current : videoConferencesArray) {
+    for (const auto &current : videoConferencesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject videoConferenceObject = current.toObject();
             VideoConferenceInfo m;

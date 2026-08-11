@@ -52,7 +52,7 @@ void CustomEmojisInfo::parseListCustomEmoji(const QJsonObject &obj)
 {
     const QJsonArray adminRoomsArray = obj["emojis"_L1].toArray();
     mCustomEmojiInfos.reserve(mCustomEmojiInfos.count() + adminRoomsArray.count());
-    for (const QJsonValue &current : adminRoomsArray) {
+    for (const auto &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject adminRoomObject = current.toObject();
             CustomEmoji m;

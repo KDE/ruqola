@@ -27,7 +27,7 @@ void BannerInfo::parseBannerInfo(const QJsonObject &object)
     QStringList lst;
     const QJsonArray array = object["textArguments"_L1].toArray();
     lst.reserve(array.count());
-    for (const QJsonValue &current : array) {
+    for (const auto &current : array) {
         lst.append(current.toString());
     }
     mTextArguments = lst;

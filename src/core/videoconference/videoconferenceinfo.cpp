@@ -41,7 +41,7 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     // Users
     const QJsonArray usersArray = content["users"_L1].toArray();
     mUsers.reserve(usersArray.count());
-    for (const QJsonValue &current : usersArray) {
+    for (const auto &current : usersArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User m;
@@ -142,7 +142,7 @@ VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
     info.mConferenceType = info.convertTypeToEnum(o["type"_L1].toString());
     const QJsonArray usersArray = o["users"_L1].toArray();
     info.mUsers.reserve(usersArray.count());
-    for (const QJsonValue &current : usersArray) {
+    for (const auto &current : usersArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User m;

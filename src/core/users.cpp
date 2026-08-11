@@ -67,7 +67,7 @@ void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QList<R
 
     const QJsonArray adminRoomsArray = obj[parseTypeStr].toArray();
     mUsers.reserve(mUsers.count() + adminRoomsArray.count());
-    for (const QJsonValue &current : adminRoomsArray) {
+    for (const auto &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User m;

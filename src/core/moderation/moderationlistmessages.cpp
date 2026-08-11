@@ -19,7 +19,7 @@ void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, c
 {
     const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? u"messages"_s : arrayName].toArray();
     mListMessages.reserve(messagesArray.count());
-    for (const QJsonValue &current : messagesArray) {
+    for (const auto &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject messageModerationObject = current.toObject();
             Message m;

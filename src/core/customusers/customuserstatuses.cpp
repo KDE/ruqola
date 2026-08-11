@@ -29,7 +29,7 @@ void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customSt
 {
     const QJsonArray customsUserArray = customStatusObj["statuses"_L1].toArray();
     mCustomUserStatusList.reserve(mCustomUserStatusList.count() + customsUserArray.count());
-    for (const QJsonValue &current : customsUserArray) {
+    for (const auto &current : customsUserArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject customUserObj = current.toObject();
             CustomUserStatus m;

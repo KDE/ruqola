@@ -27,7 +27,7 @@ VideoConferenceManager::~VideoConferenceManager() = default;
 
 void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
 {
-    for (const QJsonValue &current : contents) {
+    for (const auto &current : contents) {
         const QJsonObject videoConfObject = current.toObject();
         VideoConference videoConference;
         videoConference.parseVideoConference(videoConfObject);

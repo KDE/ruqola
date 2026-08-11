@@ -51,7 +51,7 @@ void CustomSoundsInfo::parseListCustomSound(const QJsonObject &obj)
 {
     const QJsonArray adminRoomsArray = obj["sounds"_L1].toArray();
     mCustomSoundInfos.reserve(mCustomSoundInfos.count() + adminRoomsArray.count());
-    for (const QJsonValue &current : adminRoomsArray) {
+    for (const auto &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject adminRoomObject = current.toObject();
             CustomSoundInfo m;

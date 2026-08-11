@@ -24,7 +24,7 @@ void RolesManager::parseRoles(const QJsonObject &obj)
     const QJsonArray array = obj["roles"_L1].toArray();
 
     mRoleInfo.reserve(array.count());
-    for (const QJsonValue &current : array) {
+    for (const auto &current : array) {
         const QJsonObject roleObject = current.toObject();
         RoleInfo info;
         info.parseRoleInfo(roleObject);
@@ -35,7 +35,7 @@ void RolesManager::parseRoles(const QJsonObject &obj)
 void RolesManager::updateRoles(const QJsonArray &contents)
 {
     bool wasChanged = false;
-    for (const QJsonValue &current : contents) {
+    for (const auto &current : contents) {
         const QJsonObject roleObject = current.toObject();
         const QString type = roleObject.value("type"_L1).toString();
         const QString identifier = roleObject.value("_id"_L1).toString();

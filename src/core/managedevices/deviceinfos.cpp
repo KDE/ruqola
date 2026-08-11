@@ -103,7 +103,7 @@ void DeviceInfos::parseDeviceInfos(const QJsonObject &deviceInfosObj)
 void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
 {
     const QJsonArray discussionsArray = deviceInfosObj["sessions"_L1].toArray();
-    for (const QJsonValue &current : discussionsArray) {
+    for (const auto &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
             DeviceInfo m;

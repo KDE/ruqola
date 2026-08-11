@@ -51,7 +51,7 @@ void FileAttachments::parseFiles(const QJsonObject &fileAttachmentsObj)
 {
     const QJsonArray fileAttachmentsArray = fileAttachmentsObj["files"_L1].toArray();
     mFileAttachments.reserve(mFileAttachments.count() + fileAttachmentsArray.count());
-    for (const QJsonValue &current : fileAttachmentsArray) {
+    for (const auto &current : fileAttachmentsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject fileAttachmentObject = current.toObject();
             File m;

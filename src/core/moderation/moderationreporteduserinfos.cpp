@@ -104,7 +104,7 @@ void ModerationReportedUserInfos::parseModerationReportedUserInfos(const QJsonOb
 void ModerationReportedUserInfos::parseModerationReportedUserInfosObj(const QJsonObject &ModerationReportedUserInfosObj)
 {
     const QJsonArray moderationsArray = ModerationReportedUserInfosObj["reports"_L1].toArray();
-    for (const QJsonValue &current : moderationsArray) {
+    for (const auto &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject moderationObject = current.toObject();
             ModerationReportedUserInfo m;

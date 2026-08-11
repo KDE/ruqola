@@ -24,7 +24,7 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
     mTotalTime = obj["totalTime"_L1].toInteger();
     mCreatedAt = QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"_createdAt"_s, obj), QTimeZone::utc());
     const QJsonArray array = obj["entries"_L1].toArray();
-    for (const QJsonValue &current : array) {
+    for (const auto &current : array) {
         ApplicationsSettingsLogsInfo::LogsArgument log;
         log.parseArguments(current.toObject());
         mArguments.append(log);
