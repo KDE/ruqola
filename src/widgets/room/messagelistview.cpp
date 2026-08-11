@@ -994,7 +994,7 @@ void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
 
 void MessageListView::slotForwardMessage(const QModelIndex &index)
 {
-    QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
+    const QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const QList<QByteArray> identifiers = dlg->channelIdentifiers();
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
@@ -1144,7 +1144,7 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
 
 void MessageListView::slotReportMessage(const QModelIndex &index)
 {
-    QPointer<ReportMessageDialog> dlg = new ReportMessageDialog(this);
+    const QPointer<ReportMessageDialog> dlg = new ReportMessageDialog(this);
     const QString message = index.data(MessagesModel::OriginalMessage).toString();
     dlg->setPreviewMessage(message);
     if (dlg->exec()) {
