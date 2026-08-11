@@ -33,6 +33,9 @@ private:
         QString unreadText;
         QSize unreadSize;
         QRect unreadRect;
+        // The badge actually painted for unreadText: right-aligned on unreadRect, widened to a
+        // circle and vertically centered in the row. Used for painting *and* tooltip hit-testing.
+        QRect mentionRect;
         bool isHeader = false;
     };
 

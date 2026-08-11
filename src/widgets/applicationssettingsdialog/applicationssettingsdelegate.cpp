@@ -53,7 +53,7 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
     // Draw the pixmap
     if (!layout.appPixmap.isNull()) {
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.appPixmapPos, layout.appPixmap.size()), layout.appPixmapPos, layout.appPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.appPixmapPos, layout.appPixmap.deviceIndependentSize()), layout.appPixmap);
 #else
         painter->drawPixmap(layout.appPixmapPos, layout.appPixmap);
 #endif
