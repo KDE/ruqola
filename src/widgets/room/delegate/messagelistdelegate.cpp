@@ -666,11 +666,11 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             }
             ++attachmentIdx;
             if (att.hasMessageAttachmentActions()) {
-                mHelperAttachmentActions.get()->draw(att.messageAttachmentActions(),
-                                                     painter,
-                                                     layout.attachmentsActionRectList.at(attachmentActionsIdx),
-                                                     index,
-                                                     option);
+                mHelperAttachmentActions->draw(att.messageAttachmentActions(),
+                                               painter,
+                                               layout.attachmentsActionRectList.at(attachmentActionsIdx),
+                                               index,
+                                               option);
                 ++attachmentActionsIdx;
             }
         }
@@ -702,7 +702,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             for (const MessageUrl &messageUrl : messageUrls) {
                 if (messageUrl.hasRichPreview()) {
                     // qDebug() << "messageUrl  " << messageUrl;
-                    mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
+                    mHelperUrlPreview->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
                 }
                 ++messageUrlIndex;
             }
