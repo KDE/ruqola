@@ -780,8 +780,6 @@ target_sources(
         room/delegate/messagelistlayout/messagelistcompactlayout.cpp
         room/delegate/messagelistlayout/messagelistnormallayout.h
         room/delegate/messagelistlayout/messagelistnormallayout.cpp
-        room/delegate/messagelistlayout/messagelistcozylayout.h
-        room/delegate/messagelistlayout/messagelistcozylayout.cpp
         conferencecalldialog/conferencecalldialog.h
         conferencecalldialog/conferencecalldialog.cpp
         conferencecalldialog/conferencecallwidget.h
