@@ -5,13 +5,13 @@
 */
 
 #include "autogeneratetextplugintool.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "autogeneratetextplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QStandardPaths>
 
+using namespace Qt::Literals::StringLiterals;
 K_PLUGIN_CLASS_WITH_JSON(AutoGenerateTextPluginTool, "ruqola_autogeneratetexttoolsplugin.json")
 
 AutoGenerateTextPluginTool::AutoGenerateTextPluginTool(QObject *parent, const QVariantList &)
