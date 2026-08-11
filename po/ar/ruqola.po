@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-01 02:40+0000\n"
-"PO-Revision-Date: 2026-06-30 22:14+0400\n"
+"PO-Revision-Date: 2026-08-10 18:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -245,7 +245,7 @@ msgstr "ملخص الخصوصية"
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
-msgstr "التّصاريح"
+msgstr "الأذون"
 
 #: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
@@ -2448,7 +2448,7 @@ msgstr "لا يُسمح بمشاركة الملفات في الرسائل الم
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 #, kde-format
 msgid "Editing permissions is not allowed"
-msgstr "لا يسمح بتعديل الأذونات"
+msgstr "لا يسمح بتعديل الأذون"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 #, kde-format
@@ -3772,7 +3772,7 @@ msgstr "الأدوار:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search permissions…"
-msgstr "ابحث التّصاريح…"
+msgstr "ابحث الأذون…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:49
 #, kde-format
@@ -7301,12 +7301,12 @@ msgstr "خوادم STUN/TURN"
 #, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
-msgstr "التّصاريح"
+msgstr "الأذون"
 
 #: widgets/applicationssettingsdialog/applicationspermissionwidget.cpp:31
 #, kde-format
 msgid "No permissions information found."
-msgstr "لم يُعثر على معلومات الأذونات."
+msgstr "لم يُعثر على معلومات الأذون."
 
 #: widgets/applicationssettingsdialog/applicationssettingsaskapplicationdialog.cpp:27
 #, kde-format
@@ -12231,7 +12231,7 @@ msgstr "السماح بنسخ الصورة في الحافظة"
 #: widgets/whatsnew/whatsnewtranslations.cpp:39
 #, kde-format
 msgid "Improve debug support (Allow to show current account permissions)"
-msgstr "تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)"
+msgstr "تحسين تصحيح الأخطاء (السماح بعرض أذون الحساب الحالي)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:40
 #, kde-format
@@ -12552,7 +12552,7 @@ msgstr "إصلاح رسالة التحرير."
 #: widgets/whatsnew/whatsnewtranslations.cpp:135
 #, kde-format
 msgid "Show permissions in Rocket.Chat Marketplace."
-msgstr "اعرض الأذونات في متجر روكت تشات."
+msgstr "اعرض الأذون في متجر روكت تشات."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:136
 #, kde-format
