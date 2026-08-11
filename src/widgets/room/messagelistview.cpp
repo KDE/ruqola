@@ -653,7 +653,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(followingToMessageAction);
 
 #if HAVE_TEXT_TRANSLATOR
-            if (!isVideoConferenceMessage) {
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 createTranslorMenu();
                 if (!mTranslatorMenu->isEmpty()) {
                     menu.addSeparator();
@@ -667,7 +667,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addSeparator();
                 menu.addAction(deleteAction);
             }
-            if (!isVideoConferenceMessage
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()
                 && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
                     || !message->localTranslation().isEmpty())) {
                 createSeparator(menu);
@@ -716,7 +716,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addAction(editAction);
             }
 #if HAVE_TEXT_TRANSLATOR
-            if (!isVideoConferenceMessage) {
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 createTranslorMenu();
                 if (!mTranslatorMenu->isEmpty()) {
                     menu.addSeparator();
@@ -729,7 +729,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addSeparator();
                 menu.addAction(deleteAction);
             }
-            if (!isVideoConferenceMessage
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()
                 && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
                     || !message->localTranslation().isEmpty())) {
                 createSeparator(menu);
