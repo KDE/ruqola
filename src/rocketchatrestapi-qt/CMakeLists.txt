@@ -205,6 +205,8 @@ target_sources(
         e2e/fetchuserswaitingforgroupkeyjob.cpp
         e2e/setroomkeyidjob.cpp
         e2e/setroomkeyidjob.h
+        e2e/requestsubscriptionkeysjob.cpp
+        e2e/requestsubscriptionkeysjob.h
         emoji/emojicustomalljob.cpp
         emoji/emojicustomalljob.h
         emoji/emojicustomcreatejob.cpp
