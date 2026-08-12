@@ -49,19 +49,31 @@ void FetchUsersWaitingForGroupKeyJob::onGetRequestResponse(const QString &replyE
 
 QByteArray FetchUsersWaitingForGroupKeyJob::roomId() const
 {
-    return mRoomId;
+    return mRoomIds.isEmpty() ? QByteArray{} : mRoomIds.constFirst();
 }
 
 void FetchUsersWaitingForGroupKeyJob::setRoomId(const QByteArray &newRoomId)
 {
-    mRoomId = newRoomId;
+    mRoomIds = {newRoomId};
+}
+
+QList<QByteArray> FetchUsersWaitingForGroupKeyJob::roomIds() const
+{
+    return mRoomIds;
+}
+
+void FetchUsersWaitingForGroupKeyJob::setRoomIds(const QList<QByteArray> &newRoomIds)
+{
+    mRoomIds = newRoomIds;
 }
 
 QNetworkRequest FetchUsersWaitingForGroupKeyJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"roomIds[]"_s, QLatin1StringView(mRoomId));
+    for (const QByteArray &roomIdentifier : mRoomIds) {
+        queryUrl.addQueryItem(u"roomIds[]"_s, QLatin1StringView(roomIdentifier));
+    }
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 

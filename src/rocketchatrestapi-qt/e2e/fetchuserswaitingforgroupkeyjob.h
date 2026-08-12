@@ -26,6 +26,10 @@ public:
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &newRoomId);
 
+    // Rocket.Chat asks for a batch of rooms at once (E2E::initiateKeyDistribution()).
+    [[nodiscard]] QList<QByteArray> roomIds() const;
+    void setRoomIds(const QList<QByteArray> &newRoomIds);
+
 Q_SIGNALS:
     void fetchUsersWaitingForGroupKeyDone(const QJsonObject &replyObject);
 
@@ -33,6 +37,6 @@ protected:
     void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    QByteArray mRoomId;
+    QList<QByteArray> mRoomIds;
 };
 }
