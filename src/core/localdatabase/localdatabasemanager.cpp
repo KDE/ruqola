@@ -236,10 +236,15 @@ QList<QByteArray> LocalDatabaseManager::loadRooms(const QString &accountName)
     }
 }
 
+// E2E keys are stored regardless of storeMessageInDataBase() (E2eKeyManager writes them straight
+// through e2EDatabase()), so removing them must not be conditional either: gating it here left the
+// key on disk forever whenever the user had disabled message storage.
 bool LocalDatabaseManager::deleteKey(const QString &accountName, const QString &userId)
 {
-    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        return mE2EDatabase->deleteKey(accountName, userId);
-    }
-    return false;
+    return mE2EDatabase->deleteKey(accountName, userId);
+}
+
+bool LocalDatabaseManager::deleteAllRoomKeys(const QString &accountName)
+{
+    return mE2ERoomsDataBase->deleteAllKeys(accountName);
 }

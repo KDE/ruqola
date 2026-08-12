@@ -205,6 +205,34 @@ void E2eKeyManager::slotPasswordWritten(QKeychain::Job *baseJob)
     }
 }
 
+void E2eKeyManager::deletePassword()
+{
+    auto deleteJob = new DeletePasswordJob(u"Ruqola"_s);
+    connect(deleteJob, &Job::finished, this, &E2eKeyManager::slotPasswordDeleted);
+    deleteJob->setKey(passwordKeyIdentifier());
+    deleteJob->start();
+}
+
+void E2eKeyManager::slotPasswordDeleted(QKeychain::Job *baseJob)
+{
+    if (baseJob->error() && baseJob->error() != EntryNotFound) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error deleting password using QKeychain:" << baseJob->errorString();
+    }
+}
+
+void E2eKeyManager::resetKeys()
+{
+    mGeneratedPassword.clear();
+    mDecodedPrivateKey.clear();
+    mPendingUploadPublicKey.clear();
+    mPendingUploadPrivateKey.clear();
+    mPendingUploadFailed = false;
+    mRequestMissingRoomKeysScheduled = false;
+    setKeySaved(false);
+    setStatus(Status::Unknown);
+    deletePassword();
+}
+
 void E2eKeyManager::readPassword()
 {
     auto readJob = new ReadPasswordJob(u"Ruqola"_s);

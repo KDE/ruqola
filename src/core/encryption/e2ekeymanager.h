@@ -37,6 +37,9 @@ public:
     [[nodiscard]] bool hasPendingUploadFailure() const;
 
     void fetchMyKeys();
+    // Forget every trace of the current key: cached key material, the E2E password kept in the
+    // keychain (it cannot decrypt the key the server hands out after a reset) and the status.
+    void resetKeys();
     [[nodiscard]] bool initializeRoomE2EKey(const QByteArray &roomId, const QString &existingKeyId = {});
     [[nodiscard]] bool distributeExistingRoomE2EKey(const QByteArray &roomId);
     [[nodiscard]] bool provideRoomKeyToUsers(const QByteArray &roomId, const QString &keyId);
@@ -78,7 +81,9 @@ private:
     LIBRUQOLACORE_NO_EXPORT void verifyExistingKey(const QJsonObject &json);
     LIBRUQOLACORE_NO_EXPORT bool startUploadGeneratedKey(const QByteArray &publicKey, const QByteArray &encryptedPrivateKey);
     LIBRUQOLACORE_NO_EXPORT void storePassword(const QString &password);
+    LIBRUQOLACORE_NO_EXPORT void deletePassword();
     LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *baseJob);
+    LIBRUQOLACORE_NO_EXPORT void slotPasswordDeleted(QKeychain::Job *baseJob);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString passwordKeyIdentifier() const;
     LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *baseJob);
     LIBRUQOLACORE_NO_EXPORT void distributeRoomSessionKey(const QByteArray &roomId, const QByteArray &sessionKey, const QString &keyId);

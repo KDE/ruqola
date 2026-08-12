@@ -96,6 +96,20 @@ bool E2ERoomsDataBase::deleteKey(const QString &accountName, const QString &room
     return true;
 }
 
+bool E2ERoomsDataBase::deleteAllKeys(const QString &accountName)
+{
+    QSqlDatabase db;
+    if (!initializeDataBase(accountName, db)) {
+        return false;
+    }
+    QSqlQuery query(db);
+    if (!query.exec(QStringLiteral("DELETE FROM E2EROOMSKEYS"))) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete all keys from E2EROOMSKEYS table" << db.databaseName() << query.lastError();
+        return false;
+    }
+    return true;
+}
+
 bool E2ERoomsDataBase::hasKey(const QString &accountName, const QString &roomId, const QString &keyId)
 {
     QSqlDatabase db;

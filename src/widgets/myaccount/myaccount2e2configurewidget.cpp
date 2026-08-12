@@ -13,6 +13,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <KSeparator>
 #include <QJsonArray>
 #include <QLabel>
@@ -87,6 +88,7 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
     job->setMethodCallJobInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallFailed, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyFailed);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetOwnE2eKeyJob job";
     }
@@ -95,8 +97,21 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
 void MyAccount2e2ConfigureWidget::slotReset2E2KeyDone(const QJsonObject &replyObject)
 {
     qCDebug(RUQOLAWIDGETS_LOG) << "slotReset2E2KeyDone:" << replyObject;
+    // The server keeps the key when the method throws. Dropping it locally then would be pointless
+    // anyway: the next login fetches it back from the server and stores it again.
+    if (replyObject.contains("error"_L1)) {
+        return;
+    }
     mRocketChatAccount->resetE2eKey();
-    // TODO logout !
+}
+
+void MyAccount2e2ConfigureWidget::slotReset2E2KeyFailed(const QJsonObject &errorObject)
+{
+    qCWarning(RUQOLAWIDGETS_LOG) << "slotReset2E2KeyFailed:" << errorObject;
+    const QString reason = errorObject.value("reason"_L1).toString();
+    KMessageBox::error(this,
+                       reason.isEmpty() ? i18n("The server refused to reset your E2E key.") : i18n("The server refused to reset your E2E key: %1", reason),
+                       i18nc("@title:window", "Reset E2E Key"));
 }
 
 #include "moc_myaccount2e2configurewidget.cpp"

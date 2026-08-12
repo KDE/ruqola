@@ -2155,7 +2155,16 @@ void RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents)
 void RocketChatAccount::resetE2eKey()
 {
     qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::resetE2eKey() ";
-    std::ignore = localDatabaseManager()->deleteKey(accountName(), QString::fromLatin1(userId()));
+    // The server generates a brand new key on the next login, so every piece of the old one has to
+    // go: the user key, the room keys it protected and the password cached by the key manager.
+    // This must run before logOut(), which clears the user id.
+    if (!localDatabaseManager()->deleteKey(accountName(), QString::fromLatin1(userId()))) {
+        qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << "Unable to remove the E2E key from the local database";
+    }
+    if (!localDatabaseManager()->deleteAllRoomKeys(accountName())) {
+        qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << "Unable to remove the E2E room keys from the local database";
+    }
+    mE2eKeyManager->resetKeys();
     logOut();
 }
 

@@ -20,6 +20,7 @@ public:
     saveKey(const QString &accountName, const QString &roomId, const QString &keyId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey);
     [[nodiscard]] bool loadKey(const QString &accountName, const QString &roomId, const QString &keyId, QByteArray &encryptedPrivateKey, QByteArray &publicKey);
     [[nodiscard]] bool deleteKey(const QString &accountName, const QString &roomId, const QString &keyId);
+    [[nodiscard]] bool deleteAllKeys(const QString &accountName);
     [[nodiscard]] bool hasKey(const QString &accountName, const QString &roomId, const QString &keyId);
 
     [[nodiscard]] std::unique_ptr<QSqlTableModel> createE2eRoomsModel(const QString &accountName) const;

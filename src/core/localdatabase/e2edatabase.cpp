@@ -80,6 +80,10 @@ bool E2EDataBase::deleteKey(const QString &accountName, const QString &userId)
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EKEYS table" << db.databaseName() << query.lastError();
         return false;
     }
+    if (query.numRowsAffected() <= 0) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "No key removed from E2EKEYS table" << db.databaseName() << "userId" << userId;
+        return false;
+    }
     return true;
 }
 

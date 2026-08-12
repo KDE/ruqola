@@ -37,6 +37,14 @@ void MethodCallJob::onPostRequestResponse(const QString &replyErrorString, const
     if (replyObject["success"_L1].toBool()) {
         addLoggerInfo("MethodCallJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
         const QJsonObject obj = QJsonDocument::fromJson(replyObject["message"_L1].toString().toUtf8()).object();
+        // The request went through, but the method it carried may still have thrown server-side.
+        const QJsonValue errorValue = obj["error"_L1];
+        if (!errorValue.isUndefined()) {
+            const QJsonObject errorObject = errorValue.toObject();
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MethodCallJob: method" << mMethodCallJobInfo.methodName << "failed:" << errorObject;
+            addLoggerWarning("MethodCallJob: method failed: "_ba + QJsonDocument(errorObject).toJson(QJsonDocument::Indented));
+            Q_EMIT methodCallFailed(errorObject);
+        }
         Q_EMIT methodCallDone(obj);
     } else {
         emitFailedMessage(replyErrorString, replyObject);

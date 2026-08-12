@@ -82,6 +82,8 @@ public:
 
     [[nodiscard]] bool deleteKey(const QString &accountName, const QString &userId);
 
+    [[nodiscard]] bool deleteAllRoomKeys(const QString &accountName);
+
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;
