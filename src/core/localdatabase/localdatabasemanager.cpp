@@ -235,3 +235,11 @@ QList<QByteArray> LocalDatabaseManager::loadRooms(const QString &accountName)
         return {};
     }
 }
+
+bool LocalDatabaseManager::deleteKey(const QString &accountName, const QString &userId)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        return mE2EDatabase->deleteKey(accountName, userId);
+    }
+    return false;
+}

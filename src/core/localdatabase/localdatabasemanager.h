@@ -80,6 +80,8 @@ public:
 
     [[nodiscard]] QByteArray roomId(const QString &accountName, const QByteArray &subscriptionId);
 
+    [[nodiscard]] bool deleteKey(const QString &accountName, const QString &userId);
+
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;

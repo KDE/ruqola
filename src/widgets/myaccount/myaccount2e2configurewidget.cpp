@@ -95,6 +95,7 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
 void MyAccount2e2ConfigureWidget::slotReset2E2KeyDone(const QJsonObject &replyObject)
 {
     qCDebug(RUQOLAWIDGETS_LOG) << "slotReset2E2KeyDone:" << replyObject;
+    mRocketChatAccount->resetE2eKey();
     // TODO logout !
 }
 
