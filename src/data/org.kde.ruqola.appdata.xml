@@ -908,7 +908,7 @@
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою електронної пошти</li>
       <li xml:lang="zh-TW">透過電子郵件的兩步驟驗證</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
-      <li xml:lang="ar">دعم المسؤول (معلومات الخادم، الغرف، حالة المستخدم المخصصة، الأصوات المخصصة، الرموز التعبيرية المخصصة، المستخدمون، الدعوات، عرض السجل، الأذونات، الأدوار، Oauth)، إعدادات المسؤول (الرسالة، الحساب، سياسة الاحتفاظ، تحميل الملفات، التعمية)</li>
+      <li xml:lang="ar">دعم المسؤول (معلومات الخادم، الغرف، حالة المستخدم المخصصة، الأصوات المخصصة، الرموز التعبيرية المخصصة، المستخدمون، الدعوات، عرض السجل، الأذون، الأدوار، Oauth)، إعدادات المسؤول (الرسالة، الحساب، سياسة الاحتفاظ، تحميل الملفات، التعمية)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
       <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emoji personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
       <li xml:lang="en-GB">Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
@@ -1392,6 +1392,7 @@
       <description>
         <ul>
           <li>Encryption support</li>
+          <li xml:lang="ar">إتاحة التعمية</li>
           <li xml:lang="ca">Implementació d'encriptatge</li>
           <li xml:lang="ca-valencia">Implementació d'encriptació</li>
           <li xml:lang="es">Soporte de cifrado</li>
@@ -1404,6 +1405,7 @@
           <li xml:lang="tr">Şifreleme desteği</li>
           <li xml:lang="uk">Підтримка шифрування</li>
           <li>Show user status in list of user in rooms</li>
+          <li xml:lang="ar">إظهار حالة المستخدم في قائمة المستخدمين في الغرف</li>
           <li xml:lang="ca">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
           <li xml:lang="ca-valencia">Mostra l'estat de l'usuari a la llista d'usuaris a les sales</li>
           <li xml:lang="es">Mostrar estado del usuario en las listas de usuarios en la sala</li>
@@ -1417,6 +1419,7 @@
           <li xml:lang="tr">Odalardaki kullanıcı listelerinde kullanıcı durumlarını göster</li>
           <li xml:lang="uk">Реалізовано показ стану користувача у списку користувачів кімнати</li>
           <li>Allow to define topic when it's not defined</li>
+          <li xml:lang="ar">السماح بإضافة موضوع إن لم يكن معينًا</li>
           <li xml:lang="ca">Permetre definir un tema quan no està definit</li>
           <li xml:lang="ca-valencia">Permetre definir un tema quan no està definit</li>
           <li xml:lang="es">Permitir definir tema cuando no está definido</li>
@@ -1430,6 +1433,7 @@
           <li xml:lang="tr">Tanımlı değilse konu tanımlamaya olanak tanı</li>
           <li xml:lang="uk">Уможливлено визначення теми, якщо її ще не визначено</li>
           <li>Redesign link previews as compact cards</li>
+          <li xml:lang="ar">إعادة تصميم معاينات الروابط لتصبح بطاقات مدمجة</li>
           <li xml:lang="ca">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
           <li xml:lang="ca-valencia">Redissenya els enllaços de vistes prèvies com a targetes compactes</li>
           <li xml:lang="es">Rediseño en los enlaces de previsualización como cartas compactas</li>
@@ -1443,6 +1447,7 @@
           <li xml:lang="tr">Bağlantı önizlemelerini küçük kartlar olarak yeniden tasarla</li>
           <li xml:lang="uk">Змінено дизайн попереднього перегляду посилань: тепер це компактні картки</li>
           <li>Fix DDP reconnection</li>
+          <li xml:lang="ar">إصلاح إعادة الاتصال DDP</li>
           <li xml:lang="ca">Corregeix la reconnexió DDP</li>
           <li xml:lang="ca-valencia">Corregix tornar a connectar DDP</li>
           <li xml:lang="es">Arreglada la reconexión DDP</li>
@@ -1457,6 +1462,7 @@
           <li xml:lang="tr">DDP’ye yeniden bağlanmayı onar</li>
           <li xml:lang="uk">Виправлено повторне з'єднання DDP</li>
           <li>Improve user info</li>
+          <li xml:lang="ar">تحسين معلومات المستخدم</li>
           <li xml:lang="ca">Millora la informació d'usuaris</li>
           <li xml:lang="ca-valencia">Millora la informació d'usuaris</li>
           <li xml:lang="es">Mejorada la información de usuario</li>
@@ -2751,7 +2757,7 @@
           <li xml:lang="tr">İletiyi düzenlemeyi düzelt</li>
           <li xml:lang="uk">Виправлено редагування повідомлень</li>
           <li>Show permissions in Rocket.Chat Marketplace</li>
-          <li xml:lang="ar">اعرض الأذونات في متجر روكت تشات</li>
+          <li xml:lang="ar">اعرض الأذون في متجر روكت تشات</li>
           <li xml:lang="ca">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Mostrar permisos en tienda Rocket.Chat</li>
@@ -3697,7 +3703,7 @@
           <li xml:lang="tr">Görselin panoya kopyalanmasına izin ver</li>
           <li xml:lang="uk">Дозволити копіювання зображення до буфера</li>
           <li>Improve debug support (Allow to show current account permissions)</li>
-          <li xml:lang="ar">تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)</li>
+          <li xml:lang="ar">تحسين تصحيح الأخطاء (السماح بعرض أذون الحساب الحالي)</li>
           <li xml:lang="ca">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="ca-valencia">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="es">Mejorado el soporte de depuración (Permite mostrar los permisos actuales de la cuenta)</li>
