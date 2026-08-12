@@ -8,12 +8,15 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class E2eDisableWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT E2eDisableDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit E2eDisableDialog(QWidget *parent = nullptr);
+    explicit E2eDisableDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~E2eDisableDialog() override;
+
+    void setRoomId(const QByteArray &roomId);
 
 private:
     E2eDisableWidget *const mE2eDisableWidget;

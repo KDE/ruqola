@@ -5,15 +5,20 @@
 */
 
 #include "e2edisablewidget.h"
+#include "encryption/e2ekeymanager.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <KSeparator>
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
-E2eDisableWidget::E2eDisableWidget(QWidget *parent)
+E2eDisableWidget::E2eDisableWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+    , mResetKeysButton(new QPushButton(i18nc("@action:button", "Reset encryption keys"), this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName("mainLayout"_L1);
@@ -38,16 +43,44 @@ E2eDisableWidget::E2eDisableWidget(QWidget *parent)
     labelReset->setWordWrap(true);
     mainLayout->addWidget(labelReset);
 
-    auto pushButton = new QPushButton(i18n("Reset encryption keys"), this);
-    pushButton->setObjectName("pushButton"_L1);
-    mainLayout->addWidget(pushButton);
-    connect(pushButton, &QPushButton::clicked, this, []() {
-        qDebug() << " Not implemented yet";
-        // TODO
-    });
+    mResetKeysButton->setObjectName("pushButton"_L1);
+    mResetKeysButton->setEnabled(false);
+    mainLayout->addWidget(mResetKeysButton);
+    connect(mResetKeysButton, &QPushButton::clicked, this, &E2eDisableWidget::slotResetEncryptionKeys);
     mainLayout->addStretch(1);
 }
 
 E2eDisableWidget::~E2eDisableWidget() = default;
+
+void E2eDisableWidget::setRoomId(const QByteArray &roomId)
+{
+    mRoomId = roomId;
+    mResetKeysButton->setEnabled(mRocketChatAccount && !mRoomId.isEmpty());
+}
+
+void E2eDisableWidget::slotResetEncryptionKeys()
+{
+    if (!mRocketChatAccount || mRoomId.isEmpty()) {
+        return;
+    }
+    if (KMessageBox::warningContinueCancel(
+            this,
+            i18n(
+                "Resetting the encryption keys is only recommended if no room member has a valid key to regain access to the previously encrypted content. All "
+                "members may lose access to previously encrypted content.\nThis action cannot be undone. Do you want to continue?"),
+            i18nc("@title:window", "Reset Encryption Keys"),
+            KStandardGuiItem::cont(),
+            KStandardGuiItem::cancel(),
+            u"resetE2eRoomKeys"_s)
+        != KMessageBox::Continue) {
+        return;
+    }
+    if (!mRocketChatAccount->e2eKeyManager()->resetRoomKey(mRoomId)) {
+        // The key manager logs why it refused (no usable own key, unknown room…).
+        KMessageBox::error(this, i18n("The encryption keys of this room could not be reset."), i18nc("@title:window", "Reset Encryption Keys"));
+        return;
+    }
+    Q_EMIT resetEncryptionKeysDone();
+}
 
 #include "moc_e2edisablewidget.cpp"
