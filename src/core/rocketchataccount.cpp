@@ -2156,6 +2156,7 @@ void RocketChatAccount::resetE2eKey()
 {
     qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::resetE2eKey() ";
     std::ignore = localDatabaseManager()->deleteKey(accountName(), QString::fromLatin1(userId()));
+    logOut();
 }
 
 void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
