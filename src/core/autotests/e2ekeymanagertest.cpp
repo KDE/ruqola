@@ -31,7 +31,7 @@ E2eKeyManagerTest::E2eKeyManagerTest(QObject *parent)
 
 void E2eKeyManagerTest::shouldHaveDefaultValues()
 {
-    E2eKeyManager m(nullptr);
+    const E2eKeyManager m(nullptr);
     QCOMPARE(m.status(), E2eKeyManager::Status::Unknown);
     QVERIFY(!m.keySaved());
     QVERIFY(!m.hasPendingUploadFailure());
@@ -40,7 +40,7 @@ void E2eKeyManagerTest::shouldHaveDefaultValues()
 void E2eKeyManagerTest::shouldEmitDecodeSignalOnlyWhenNeeded()
 {
     E2eKeyManager manager(nullptr);
-    QSignalSpy spy(&manager, &E2eKeyManager::needDecodeEncryptionKey);
+    const QSignalSpy spy(&manager, &E2eKeyManager::needDecodeEncryptionKey);
 
     manager.setStatus(E2eKeyManager::Status::Unknown);
     manager.decodeEncryptionKey();
@@ -57,7 +57,7 @@ void E2eKeyManagerTest::shouldEmitDecodeSignalOnlyWhenNeeded()
 
 void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBase64StringPayload()
 {
-    QTemporaryDir tempDir;
+    const QTemporaryDir tempDir;
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
@@ -87,7 +87,7 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBase64StringPayload()
 
 void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBinaryObjectPayload()
 {
-    QTemporaryDir tempDir;
+    const QTemporaryDir tempDir;
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
@@ -119,7 +119,7 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBinaryObjectPayload()
 
 void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
 {
-    QTemporaryDir tempDir;
+    const QTemporaryDir tempDir;
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
@@ -161,7 +161,7 @@ void E2eKeyManagerTest::shouldKeepGenerationStateAndAllowRetryWhenUploadFails()
 #if !USE_E2E_SUPPORT
     QSKIP("E2E support is disabled");
 #else
-    QTemporaryDir tempDir;
+    const QTemporaryDir tempDir;
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
@@ -172,7 +172,7 @@ void E2eKeyManagerTest::shouldKeepGenerationStateAndAllowRetryWhenUploadFails()
     account.settings()->setAuthToken(u"token"_s);
 
     E2eKeyManager manager(&account);
-    QSignalSpy uploadFailedSpy(&manager, &E2eKeyManager::uploadEncryptionKeyFailed);
+    const QSignalSpy uploadFailedSpy(&manager, &E2eKeyManager::uploadEncryptionKeyFailed);
 
     // Empty server payload triggers local key generation and upload attempt.
     manager.verifyExistingKeyForTest(QJsonObject{});
@@ -195,7 +195,7 @@ void E2eKeyManagerTest::shouldPostponeDecryption()
     E2eKeyManager manager(nullptr);
     manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
 
-    QSignalSpy postponedSpy(&manager, &E2eKeyManager::decodeEncryptionKeyPostponed);
+    const QSignalSpy postponedSpy(&manager, &E2eKeyManager::decodeEncryptionKeyPostponed);
 
     manager.postponeDecryption();
 
@@ -208,7 +208,7 @@ void E2eKeyManagerTest::shouldDecodeEncryptionKeyWithValidPassword()
 #if !USE_E2E_SUPPORT
     QSKIP("E2E support is disabled");
 #else
-    QTemporaryDir tempDir;
+    const QTemporaryDir tempDir;
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
@@ -230,8 +230,8 @@ void E2eKeyManagerTest::shouldDecodeEncryptionKeyWithValidPassword()
     E2eKeyManager manager(&account);
     manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
 
-    QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
-    QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
+    const QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
+    const QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
     QVERIFY(manager.decodeEncryptionKey(password));
     QCOMPARE(manager.status(), E2eKeyManager::Status::KeyDecrypted);
     QCOMPARE(doneSpy.count(), 1);
@@ -246,7 +246,7 @@ void E2eKeyManagerTest::shouldFailDecodeEncryptionKeyWithWrongPassword()
 #if !USE_E2E_SUPPORT
     QSKIP("E2E support is disabled");
 #else
-    QTemporaryDir tempDir;
+    const QTemporaryDir tempDir;
     QVERIFY(tempDir.isValid());
 
     RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
@@ -268,8 +268,8 @@ void E2eKeyManagerTest::shouldFailDecodeEncryptionKeyWithWrongPassword()
     E2eKeyManager manager(&account);
     manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
 
-    QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
-    QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
+    const QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
+    const QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
     QVERIFY(!manager.decodeEncryptionKey(u"wrong-password"_s));
     QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToDecryptKey);
     QCOMPARE(doneSpy.count(), 0);
