@@ -26,7 +26,7 @@ void E2EDataBaseTest::initTestCase()
 
 void E2EDataBaseTest::shouldDefaultValues()
 {
-    E2EDataBase e2eDatabase;
+    const E2EDataBase e2eDatabase;
     QCOMPARE(e2eDatabase.schemaDatabaseStr(), u"CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)"_s);
 }
 
@@ -65,7 +65,8 @@ void E2EDataBaseTest::testOverwrite()
 
     QVERIFY(store.saveKey(accountName(), userId, priv1, pub1));
     {
-        QByteArray loadedPriv, loadedPub;
+        QByteArray loadedPriv;
+        QByteArray loadedPub;
         QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
         QCOMPARE(loadedPriv, priv1);
         QCOMPARE(loadedPub, pub1);
@@ -73,7 +74,8 @@ void E2EDataBaseTest::testOverwrite()
 
     QVERIFY(store.saveKey(accountName(), userId, priv2, pub2));
     {
-        QByteArray loadedPriv, loadedPub;
+        QByteArray loadedPriv;
+        QByteArray loadedPub;
         QVERIFY(store.loadKey(accountName(), userId, loadedPriv, loadedPub));
         QCOMPARE(loadedPriv, priv2);
         QCOMPARE(loadedPub, pub2);
@@ -85,7 +87,8 @@ void E2EDataBaseTest::testNonExistentKey()
 {
     E2EDataBase store;
     const auto userId = otherUser;
-    QByteArray priv, pub;
+    QByteArray priv;
+    QByteArray pub;
     QVERIFY(!store.hasKey(accountName(), userId));
     QVERIFY(!store.loadKey(accountName(), userId, priv, pub));
     QVERIFY(store.deleteKey(accountName(), userId));
