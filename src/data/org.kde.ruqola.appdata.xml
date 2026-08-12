@@ -847,7 +847,7 @@
       <li xml:lang="uk">Двофакторне розпізнавання за допомогою електронної пошти</li>
       <li xml:lang="zh-TW">透過電子郵件的兩步驟驗證</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
-      <li xml:lang="ar">دعم المسؤول (معلومات الخادم، الغرف، حالة المستخدم المخصصة، الأصوات المخصصة، الرموز التعبيرية المخصصة، المستخدمون، الدعوات، عرض السجل، الأذونات، الأدوار، Oauth)، إعدادات المسؤول (الرسالة، الحساب، سياسة الاحتفاظ، تحميل الملفات، التعمية)</li>
+      <li xml:lang="ar">دعم المسؤول (معلومات الخادم، الغرف، حالة المستخدم المخصصة، الأصوات المخصصة، الرموز التعبيرية المخصصة، المستخدمون، الدعوات، عرض السجل، الأذون، الأدوار، Oauth)، إعدادات المسؤول (الرسالة، الحساب، سياسة الاحتفاظ، تحميل الملفات، التعمية)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
       <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emoji personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
       <li xml:lang="en-GB">Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
@@ -2329,7 +2329,7 @@
           <li xml:lang="sv">Rätta redigering av meddelanden</li>
           <li xml:lang="uk">Виправлено редагування повідомлень</li>
           <li>Show permissions in Rocket.Chat Marketplace</li>
-          <li xml:lang="ar">اعرض الأذونات في متجر روكت تشات</li>
+          <li xml:lang="ar">اعرض الأذون في متجر روكت تشات</li>
           <li xml:lang="ca">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="ca-valencia">Mostra els permisos al mercat d'aplicacions Rocket.Chat</li>
           <li xml:lang="es">Mostrar permisos en tienda Rocket.Chat</li>
@@ -3151,7 +3151,7 @@
           <li xml:lang="sv">Tillåt att kopiera bild till klippbordet</li>
           <li xml:lang="uk">Дозволити копіювання зображення до буфера</li>
           <li>Improve debug support (Allow to show current account permissions)</li>
-          <li xml:lang="ar">تحسين تصحيح الأخطاء (السماح بعرض أذونات الحساب الحالي)</li>
+          <li xml:lang="ar">تحسين تصحيح الأخطاء (السماح بعرض أذون الحساب الحالي)</li>
           <li xml:lang="ca">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="ca-valencia">Millora la implementació de la depuració (permet mostrar els permisos actuals dels comptes)</li>
           <li xml:lang="es">Mejorado el soporte de depuración (Permite mostrar los permisos actuales de la cuenta)</li>
