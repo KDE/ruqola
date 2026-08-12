@@ -24,7 +24,7 @@ E2eDisableDialogTest::~E2eDisableDialogTest() = default;
 
 void E2eDisableDialogTest::shouldHaveDefaultValues()
 {
-    E2eDisableDialog d;
+    E2eDisableDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

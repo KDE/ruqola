@@ -25,7 +25,7 @@ E2eDisableWidgetTest::~E2eDisableWidgetTest() = default;
 
 void E2eDisableWidgetTest::shouldHaveDefaultValues()
 {
-    E2eDisableWidget w;
+    const E2eDisableWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -45,6 +45,8 @@ void E2eDisableWidgetTest::shouldHaveDefaultValues()
     auto pushButton = w.findChild<QPushButton *>(u"pushButton"_s);
     QVERIFY(pushButton);
     QVERIFY(!pushButton->text().isEmpty());
+    // Without a room the keys can't be reset.
+    QVERIFY(!pushButton->isEnabled());
 }
 
 #include "moc_e2edisablewidgettest.cpp"
