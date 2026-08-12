@@ -88,6 +88,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         mMyAccountPersonalAccessTokenConfigureWidget->setEnabled(false);
         mMyAccountFeaturePreviewConfigureWidget->setEnabled(false);
     }
+    connect(mMyAccount2e2ConfigureWidget, &MyAccount2e2ConfigureWidget::forceCloseMyAccountDialog, this, &MyAccountConfigureWidget::forceCloseMyAccountDialog);
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;

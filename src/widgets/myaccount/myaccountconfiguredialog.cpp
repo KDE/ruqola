@@ -42,6 +42,7 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, Q
     connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &MyAccountConfigureDialog::slotAccept);
 
+    connect(mMyAccountConfigWidget, &MyAccountConfigureWidget::forceCloseMyAccountDialog, this, &MyAccountConfigureDialog::reject);
     readConfig();
 }
 

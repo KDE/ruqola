@@ -27,6 +27,9 @@ public:
 
     void initialize();
 
+Q_SIGNALS:
+    void forceCloseMyAccountDialog();
+
 private:
     MyAccount2FaConfigureWidget *const mMyAccount2FaConfigureWidget;
     MyAccountProfileConfigureWidget *const mMyAccount2ProfileConfigureWidget;

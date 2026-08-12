@@ -103,6 +103,7 @@ void MyAccount2e2ConfigureWidget::slotReset2E2KeyDone(const QJsonObject &replyOb
         return;
     }
     mRocketChatAccount->resetE2eKey();
+    Q_EMIT forceCloseMyAccountDialog();
 }
 
 void MyAccount2e2ConfigureWidget::slotReset2E2KeyFailed(const QJsonObject &errorObject)
