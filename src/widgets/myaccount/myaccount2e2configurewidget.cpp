@@ -84,7 +84,7 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
         .methodName = methodName,
         .anonymous = false,
     };
-    job->setMethodCallJobInfo(std::move(info));
+    job->setMethodCallJobInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);
     if (!job->start()) {
