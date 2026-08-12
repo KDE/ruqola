@@ -206,6 +206,12 @@ public:
     [[nodiscard]] QString e2ESuggestedKey() const;
     void setE2ESuggestedKey(const QString &e2ESuggestedKey);
 
+    // Members which have no room key yet and expect the ones owning it to share it with them
+    // (room field "usersWaitingForE2EKeys"). Transient server state, never stored locally.
+    [[nodiscard]] QList<QByteArray> usersWaitingForE2EKeys() const;
+    void setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys);
+    void parseUsersWaitingForE2EKeys(const QJsonObject &json);
+
 #if USE_E2E_SUPPORT
     void decryptSessionKeyWithPrivateKey(RSA *privateKey);
 #endif

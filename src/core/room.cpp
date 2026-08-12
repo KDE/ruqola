@@ -298,6 +298,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
     // TODO E2EKey
     setE2eKeyId(json["e2eKeyId"_L1].toString());
+    parseUsersWaitingForE2EKeys(json);
 
     const QJsonValue ownerValue = json.value("u"_L1);
     if (!ownerValue.isUndefined()) {
@@ -679,6 +680,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (json.contains("E2ESuggestedKey"_L1)) {
         setE2ESuggestedKey(json["E2ESuggestedKey"_L1].toString());
     }
+    parseUsersWaitingForE2EKeys(json);
 
     if (json.contains("encrypted"_L1)) {
         setEncrypted(json["encrypted"_L1].toBool());
@@ -1263,6 +1265,45 @@ void Room::setE2ESuggestedKey(const QString &e2ESuggestedKey)
         mRoomEncryptionKey = new RoomEncryptionKey;
     }
     mRoomEncryptionKey->setE2ESuggestedKey(e2ESuggestedKey);
+}
+
+void Room::parseUsersWaitingForE2EKeys(const QJsonObject &json)
+{
+    // Rocket.Chat stores the queue as [ { "userId": …, "ts": … } ]: only the user ids matter to
+    // us, we use them to know which members expect us to share the room key with them.
+    const QJsonValue usersWaitingValue = json.value("usersWaitingForE2EKeys"_L1);
+    if (usersWaitingValue.isUndefined()) {
+        return;
+    }
+    QList<QByteArray> users;
+    const QJsonArray usersArray = usersWaitingValue.toArray();
+    users.reserve(usersArray.count());
+    for (const QJsonValue &current : usersArray) {
+        const QByteArray userId = current["userId"_L1].toString().toLatin1();
+        if (!userId.isEmpty()) {
+            users.append(userId);
+        }
+    }
+    setUsersWaitingForE2EKeys(users);
+}
+
+QList<QByteArray> Room::usersWaitingForE2EKeys() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->usersWaitingForE2EKeys();
+    }
+    return {};
+}
+
+void Room::setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys)
+{
+    if (!mRoomEncryptionKey) {
+        if (newUsersWaitingForE2EKeys.isEmpty()) {
+            return;
+        }
+        mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    mRoomEncryptionKey->setUsersWaitingForE2EKeys(newUsersWaitingForE2EKeys);
 }
 
 QString Room::e2EKey() const

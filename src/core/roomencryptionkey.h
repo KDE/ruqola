@@ -6,6 +6,7 @@
 #pragma once
 #include "config-ruqola.h"
 #include "libruqolacore_export.h"
+#include <QList>
 #include <QSharedData>
 #if USE_E2E_SUPPORT
 extern "C" {
@@ -28,6 +29,11 @@ public:
     [[nodiscard]] QString e2ESuggestedKey() const;
     void setE2ESuggestedKey(const QString &newE2ESuggestedKey);
 
+    // Members which have no key for the room yet and expect the ones owning it to share it with
+    // them (room field "usersWaitingForE2EKeys").
+    [[nodiscard]] QList<QByteArray> usersWaitingForE2EKeys() const;
+    void setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys);
+
     [[nodiscard]] bool operator==(const RoomEncryptionKey &other) const;
 
     [[nodiscard]] QByteArray sessionKey() const;
@@ -45,4 +51,5 @@ private:
     QString mE2eKeyId;
     QString mEncryptedKeyBase64; // Base64-encoded RSA-encrypted session key
     QByteArray mSessionKey;
+    QList<QByteArray> mUsersWaitingForE2EKeys;
 };

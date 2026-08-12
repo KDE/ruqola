@@ -333,6 +333,16 @@ bool RoomEncryptionKey::operator==(const RoomEncryptionKey &other) const
     return other.mE2EKey == mE2EKey && other.mE2eKeyId == mE2eKeyId;
 }
 
+QList<QByteArray> RoomEncryptionKey::usersWaitingForE2EKeys() const
+{
+    return mUsersWaitingForE2EKeys;
+}
+
+void RoomEncryptionKey::setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys)
+{
+    mUsersWaitingForE2EKeys = newUsersWaitingForE2EKeys;
+}
+
 QByteArray RoomEncryptionKey::sessionKey() const
 {
     return mSessionKey;

@@ -13,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_autotest_helper.h"
 #include <QCborValue>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QSignalSpy>
 #include <QTest>
 
@@ -327,6 +328,26 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyautoTranslateChanged.count(), 1);
     QCOMPARE(spydirectChannelUserIdChanged.count(), 1);
     QCOMPARE(spylastMessageAtChanged.count(), 1);
+}
+
+void RoomTest::shouldParseUsersWaitingForE2EKeys()
+{
+    Room input(nullptr);
+    QVERIFY(input.usersWaitingForE2EKeys().isEmpty());
+
+    // The queue is stored by the server as a list of { userId, ts } objects.
+    const QJsonObject roomJson =
+        QJsonDocument::fromJson(R"({"_id":"roomid","usersWaitingForE2EKeys":[{"userId":"user1","ts":1234},{"userId":"user2","ts":5678}]})"_ba).object();
+    input.parseUpdateRoom(roomJson);
+    QCOMPARE(input.usersWaitingForE2EKeys(), QList<QByteArray>() << "user1"_ba << "user2"_ba);
+
+    // A payload without the field must not drop what we know.
+    input.parseUpdateRoom(QJsonDocument::fromJson(R"({"_id":"roomid"})"_ba).object());
+    QCOMPARE(input.usersWaitingForE2EKeys(), QList<QByteArray>() << "user1"_ba << "user2"_ba);
+
+    // An empty queue means nobody is waiting anymore.
+    input.parseUpdateRoom(QJsonDocument::fromJson(R"({"_id":"roomid","usersWaitingForE2EKeys":[]})"_ba).object());
+    QVERIFY(input.usersWaitingForE2EKeys().isEmpty());
 }
 
 void RoomTest::shoudUserIsMuted()

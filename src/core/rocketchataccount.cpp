@@ -540,7 +540,7 @@ void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &mes
         const QByteArray sessionKey = room->sessionKey();
         if (sessionKey.isEmpty()) {
             qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to send encrypted message: missing room session key for" << roomID;
-            if (mE2eKeyManager->status() == E2eKeyManager::Status::KeyDecrypted) {
+            if (mE2eKeyManager->hasUsableKey()) {
                 // Our own key is usable, the room key is simply the one we never received:
                 // ask the other members to encrypt it for us.
                 mE2eKeyManager->requestMissingRoomKeys();

@@ -21,6 +21,8 @@ private Q_SLOTS:
 
     void shoudUserIsMuted();
 
+    void shouldParseUsersWaitingForE2EKeys();
+
     // Rooms subscriptions only
     void shouldParseRoom_data();
     void shouldParseRoom();
