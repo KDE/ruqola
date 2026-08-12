@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:45+0000\n"
-"PO-Revision-Date: 2026-08-08 18:37+0200\n"
+"POT-Creation-Date: 2026-08-12 00:45+0000\n"
+"PO-Revision-Date: 2026-08-11 15:05+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -854,10 +854,9 @@ msgid "Message Pinned"
 msgstr "Bericht vastgepind"
 
 #: core/messages/message.cpp:875
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgid "Message Pinned by %1"
-msgstr "Bericht vastgepind"
+msgstr "Bericht vastgepind door %1"
 
 #: core/messages/message.cpp:877
 #, kde-format
@@ -1319,7 +1318,7 @@ msgstr "Kanaaltype"
 msgid "Belongs To"
 msgstr "Behoort toe aan"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1462,85 +1461,85 @@ msgstr "Twee-factor-authenticatie"
 msgid "Last token part"
 msgstr "Laatste gedeelte token"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 vermelding"
 msgstr[1] "%1 vermeldingen"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:617
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 groepsmelding"
 msgstr[1] "%1 groepsmeldingen"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:621
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 ongelezen bericht uit discussiebundeling"
 msgstr[1] "%1 ongelezen berichten uit discussiebundeling"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:625
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ongelezen bericht"
 msgstr[1] "%1 ongelezen berichten"
 
-#: core/model/roommodel.cpp:643
+#: core/model/roommodel.cpp:651
 #, kde-format
 msgid "Teams Room"
 msgstr "Teamsroom"
 
-#: core/model/roommodel.cpp:649
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Private Room"
 msgstr "Privéroom"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:659
 #, kde-format
 msgid "Discussion Room"
 msgstr "Discussieroom"
 
-#: core/model/roommodel.cpp:655
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanaalroom"
 
-#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Ongelezen"
 
-#: core/model/roommodel.cpp:671
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Favorites"
 msgstr "Favorieten"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Discussions"
 msgstr "Discussies"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Private Messages"
 msgstr "Privé berichten"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:689
 #, kde-format
 msgid "Draft"
 msgstr "Concept"
 
-#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Onbekend"
@@ -1737,7 +1736,7 @@ msgstr "Doet mee aan dit team"
 msgid "(Autojoin)"
 msgstr "(Auto-meedoen)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1184
 #, kde-format
 msgid "Owner"
 msgstr "Eigenaar"
@@ -1786,7 +1785,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:784
+#: core/rocketchataccount.cpp:790
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1795,22 +1794,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
+#: core/rocketchataccount.cpp:798 core/rocketchataccount.cpp:811
 #, kde-format
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#: core/rocketchataccount.cpp:799
+#: core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected yet"
 msgstr "Nog niet verbonden"
 
-#: core/rocketchataccount.cpp:3239
+#: core/rocketchataccount.cpp:3240
 #, kde-format
 msgid "Room Added"
 msgstr "Room toegevoegd"
 
-#: core/rocketchataccount.cpp:3240
+#: core/rocketchataccount.cpp:3241
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Een nieuw room is toegevoegd in '%1'."
@@ -1825,27 +1824,27 @@ msgstr "Account toegevoegd"
 msgid "A new account was added."
 msgstr "Een nieuw account is ingevoerd."
 
-#: core/room.cpp:1177
+#: core/room.cpp:1187
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1180
+#: core/room.cpp:1190
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1598
+#: core/room.cpp:1627
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanaal is alleen-lezen."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1630
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "U hebt dit kanaal geblokkeerd."
 
-#: core/room.cpp:1604
+#: core/room.cpp:1633
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanaal was geblokkeerd."
@@ -10749,99 +10748,99 @@ msgid "Error Opening File"
 msgstr "Fout bij openen van bestand"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:165
 #, kde-format
 msgid "Join"
 msgstr "Deelnemen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:430
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #, kde-format
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #: widgets/room/messagelistview.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Een privé conversatie beginnen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Oorspronkelijke bericht tonen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Bericht vertalen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:720
+#: widgets/room/delegate/messagelistdelegate.cpp:719
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 antwoord"
 msgstr[1] "%1 antwoorden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 bericht"
 msgstr[1] "%1 berichten"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "No message yet"
 msgstr "Nog geen bericht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1051
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Bezig met volgen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1055
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Bericht is vastgepind"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1059
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Bericht heeft een ster gekregen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1063
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Melding heeft een vertaalde tekst"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1067
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1071
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Reactie toevoegen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Stoppen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"

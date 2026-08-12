@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:45+0000\n"
+"POT-Creation-Date: 2026-08-12 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -1328,7 +1328,7 @@ msgstr "चैनल प्रकार"
 msgid "Belongs To"
 msgstr "से संबंधित"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1471,85 +1471,85 @@ msgstr "दो कारक प्रमाणीकरण"
 msgid "Last token part"
 msgstr "अंतिम टोकन भाग"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 उल्लेख"
 msgstr[1] "%1 उल्लेख"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:617
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 समूह उल्लेख"
 msgstr[1] "%1 समूह उल्लेख"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:621
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 अपठित थ्रेडेड संदेश"
 msgstr[1] "%1 अपठित थ्रेडेड संदेश"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:625
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 अपठित संदेश"
 msgstr[1] "%1 अपठित संदेश"
 
-#: core/model/roommodel.cpp:643
+#: core/model/roommodel.cpp:651
 #, kde-format
 msgid "Teams Room"
 msgstr "टीम रूम"
 
-#: core/model/roommodel.cpp:649
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Private Room"
 msgstr "निजी कमरा"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:659
 #, kde-format
 msgid "Discussion Room"
 msgstr "चर्चा कक्ष"
 
-#: core/model/roommodel.cpp:655
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Channel Room"
 msgstr "चैनल रूम"
 
-#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "अपठित ग"
 
-#: core/model/roommodel.cpp:671
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Favorites"
 msgstr "पसंदीदा"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Teams"
 msgstr "टीमें"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Discussions"
 msgstr "चर्चाएँ"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Private Messages"
 msgstr "निजी संदेश"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:689
 #, kde-format
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
@@ -1744,7 +1744,7 @@ msgstr "इस टीम में शामिल हुए"
 msgid "(Autojoin)"
 msgstr "(ऑटोज्वाइन)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1184
 #, kde-format
 msgid "Owner"
 msgstr "मालिक"
@@ -1793,7 +1793,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टाइप कर रहे हैं..."
 
-#: core/rocketchataccount.cpp:784
+#: core/rocketchataccount.cpp:790
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1802,23 +1802,23 @@ msgstr ""
 "शेष: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
+#: core/rocketchataccount.cpp:798 core/rocketchataccount.cpp:811
 #, kde-format
 msgid "Not connected"
 msgstr "जुड़े नहीं हैं"
 
-#: core/rocketchataccount.cpp:799
+#: core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected yet"
 msgstr "अभी तक कनेक्ट नहीं हुआ"
 
-#: core/rocketchataccount.cpp:3239
+#: core/rocketchataccount.cpp:3240
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "खाता जोड़ा गया"
 
-#: core/rocketchataccount.cpp:3240
+#: core/rocketchataccount.cpp:3241
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -1834,27 +1834,27 @@ msgstr "खाता जोड़ा गया"
 msgid "A new account was added."
 msgstr "एक नया खाता जोड़ा गया."
 
-#: core/room.cpp:1177
+#: core/room.cpp:1187
 #, kde-format
 msgid "Leader"
 msgstr "नेता"
 
-#: core/room.cpp:1180
+#: core/room.cpp:1190
 #, kde-format
 msgid "Moderator"
 msgstr "मध्यस्थ"
 
-#: core/room.cpp:1598
+#: core/room.cpp:1627
 #, kde-format
 msgid "Channel is read only."
 msgstr "चैनल केवल पढ़ने के लिए है."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1630
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "आपने इस चैनल को ब्लॉक कर दिया है।"
 
-#: core/room.cpp:1604
+#: core/room.cpp:1633
 #, kde-format
 msgid "Channel was blocked."
 msgstr "चैनल अवरुद्ध कर दिया गया."
@@ -10800,75 +10800,75 @@ msgid "Error Opening File"
 msgstr "फ़ाइल सहेजने में त्रुटि"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:165
 #, kde-format
 msgid "Join"
 msgstr "जोड़ना"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:430
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #, kde-format
 msgid "User Info"
 msgstr "उपयोगकर्ता जानकारी"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #: widgets/room/messagelistview.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "निजी बातचीत शुरू करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "मूल संदेश दिखाएं"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "संदेश का अनुवाद करें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:720
+#: widgets/room/delegate/messagelistdelegate.cpp:719
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "%1 उत्तर"
 msgstr[1] "%1 उत्तर"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 संदेश"
 msgstr[1] "%1 संदेश"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "No message yet"
 msgstr "अभी तक कोई संदेश नहीं"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1051
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "अगले"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1055
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "संदेश पिन कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1059
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "संदेश को तारांकित कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1063
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -10876,25 +10876,25 @@ msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "संदेश को तारांकित कर दिया गया है"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1067
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "थ्रेड में उत्तर दें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1071
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "प्रतिक्रिया जोड़ें"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Speak Text"

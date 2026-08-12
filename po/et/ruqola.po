@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:45+0000\n"
+"POT-Creation-Date: 2026-08-12 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1398,7 +1398,7 @@ msgstr "Kanali nimi"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1557,7 +1557,7 @@ msgstr "Autentimisviis"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:613
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1565,7 +1565,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Mainimised"
 msgstr[1] "Mainimised"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:617
 #, fuzzy, kde-format
 #| msgid "Mute Groups Mention:"
 msgid "%1 Group Mention"
@@ -1573,7 +1573,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Gruppides mainimiste vaigistamine:"
 msgstr[1] "Gruppides mainimiste vaigistamine:"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:621
 #, fuzzy, kde-format
 #| msgid "Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1581,7 +1581,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Lõimesõnumid"
 msgstr[1] "Lõimesõnumid"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:625
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1589,63 +1589,63 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 ei ole lugenud %2 sõnumit"
 msgstr[1] "%1 ei ole lugenud %2 sõnumit"
 
-#: core/model/roommodel.cpp:643
+#: core/model/roommodel.cpp:651
 #, fuzzy, kde-format
 #| msgid "Rooms"
 msgid "Teams Room"
 msgstr "Toad"
 
-#: core/model/roommodel.cpp:649
+#: core/model/roommodel.cpp:657
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privaattuba:"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:659
 #, fuzzy, kde-format
 #| msgid "Discussion Name"
 msgid "Discussion Room"
 msgstr "Diskussiooni nimi"
 
-#: core/model/roommodel.cpp:655
+#: core/model/roommodel.cpp:663
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Kanali teave"
 
-#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
 #, fuzzy, kde-format
 #| msgid "Unread Rooms"
 msgid "Unread"
 msgstr "Lugemata toad"
 
-#: core/model/roommodel.cpp:671
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Favorites"
 msgstr "Lemmikud"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Discussions"
 msgstr "Diskussioonid"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Private Messages"
 msgstr "Privaatsõnumid"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:689
 #, kde-format
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:317
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
@@ -1876,7 +1876,7 @@ msgstr "%2 lisas %1 vestlusse"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1184
 #, kde-format
 msgid "Owner"
 msgstr "Omanik"
@@ -1928,31 +1928,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:784
+#: core/rocketchataccount.cpp:790
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
+#: core/rocketchataccount.cpp:798 core/rocketchataccount.cpp:811
 #, kde-format
 msgid "Not connected"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:799
+#: core/rocketchataccount.cpp:805
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:3239
+#: core/rocketchataccount.cpp:3240
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Room Added"
 msgstr "Konto nimi:"
 
-#: core/rocketchataccount.cpp:3240
+#: core/rocketchataccount.cpp:3241
 #, fuzzy, kde-format
 #| msgid "Enter account name"
 msgid "A new room was added in '%1'."
@@ -1970,27 +1970,27 @@ msgstr "Konto nimi:"
 msgid "A new account was added."
 msgstr "Konto nimi"
 
-#: core/room.cpp:1177
+#: core/room.cpp:1187
 #, kde-format
 msgid "Leader"
 msgstr "Juht"
 
-#: core/room.cpp:1180
+#: core/room.cpp:1190
 #, kde-format
 msgid "Moderator"
 msgstr "Moderaator"
 
-#: core/room.cpp:1598
+#: core/room.cpp:1627
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal on kirjutuskaitstud."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1630
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Oled selle kanali blokkinud."
 
-#: core/room.cpp:1604
+#: core/room.cpp:1633
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal on blokitud."
@@ -11378,17 +11378,17 @@ msgid "Error Opening File"
 msgstr "Tõrge faili salvestamisel"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:165
 #, kde-format
 msgid "Join"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:430
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #, kde-format
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #: widgets/room/messagelistview.cpp:563
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
@@ -11396,7 +11396,7 @@ msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
@@ -11404,7 +11404,7 @@ msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Algsõnumi näitamine"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, fuzzy, kde-format
 #| msgid "Translate Message"
@@ -11412,61 +11412,61 @@ msgctxt "@action"
 msgid "Translate Message"
 msgstr "Tõlgi sõnum"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:720
+#: widgets/room/delegate/messagelistdelegate.cpp:719
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastus"
 msgstr[1] "%1 vastust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 sõnum"
 msgstr[1] "%1 sõnumit"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "No message yet"
 msgstr "Ühtegi sõnumit pole veel"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1051
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1055
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sõnum kinnistatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1059
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sõnum kustutatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1063
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Sõnum kustutatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1067
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Vasta lõimes"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1071
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
@@ -11474,13 +11474,13 @@ msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Konto lisamine"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, fuzzy, kde-format
 #| msgid "Speak Text"
 msgctxt "@info:tooltip"

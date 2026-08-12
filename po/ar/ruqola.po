@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:45+0000\n"
+"POT-Creation-Date: 2026-08-12 00:45+0000\n"
 "PO-Revision-Date: 2026-08-10 18:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1316,7 +1316,7 @@ msgstr "نوع القناة"
 msgid "Belongs To"
 msgstr "ينتمي إلى"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1463,7 +1463,7 @@ msgstr "الاستيثاق الثنائي"
 msgid "Last token part"
 msgstr "أخر جزء من الرمز"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1474,7 +1474,7 @@ msgstr[3] "%1 إشارات"
 msgstr[4] "%1 إشارة"
 msgstr[5] "%1 إشارة"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:617
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1485,7 +1485,7 @@ msgstr[3] "%1 إشارات للمجموعة"
 msgstr[4] "%1 إشارة للمجموعة"
 msgstr[5] "%1 إشارة للمجموعة"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:621
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1496,7 +1496,7 @@ msgstr[3] "%1 رسائل مسلسلة غير مقروءة"
 msgstr[4] "%1 رسالة مسلسلة غير مقروءة"
 msgstr[5] "%1 رسالة مسلسلة غير مقروءة"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:625
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1507,57 +1507,57 @@ msgstr[3] "%1 رسائل غير مقروءة"
 msgstr[4] "%1 رسالة غير مقروءة"
 msgstr[5] "%1 رسالة غير مقروءة"
 
-#: core/model/roommodel.cpp:643
+#: core/model/roommodel.cpp:651
 #, kde-format
 msgid "Teams Room"
 msgstr "غرفة فرق"
 
-#: core/model/roommodel.cpp:649
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Private Room"
 msgstr "غرفة خاصة"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:659
 #, kde-format
 msgid "Discussion Room"
 msgstr "غرفة مناقشة"
 
-#: core/model/roommodel.cpp:655
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Channel Room"
 msgstr "غرفة قناة"
 
-#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "غير المقروء"
 
-#: core/model/roommodel.cpp:671
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Favorites"
 msgstr "المفضّلة"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Teams"
 msgstr "الفرق"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Discussions"
 msgstr "مناقشات"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Private Messages"
 msgstr "رسائل خاصة"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:689
 #, kde-format
 msgid "Draft"
 msgstr "مسودة"
 
-#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "مجهول"
@@ -1605,7 +1605,7 @@ msgstr "أخفِ رسائل ”انضم مستخدم“"
 #: core/model/systemmessagesmodel.cpp:42
 #, kde-format
 msgid "Hide \"Role No Longer Defined\" messages"
-msgstr "أخفِ رسائل ”لم يعد الدور محدداً“"
+msgstr "أخفِ رسائل ”لم يعد الدور محددًا“"
 
 #: core/model/systemmessagesmodel.cpp:43
 #, kde-format
@@ -1752,7 +1752,7 @@ msgstr "انضمّ  إلى هذا الفريق"
 msgid "(Autojoin)"
 msgstr "(انضمام آليّ)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1184
 #, kde-format
 msgid "Owner"
 msgstr "مالك"
@@ -1801,7 +1801,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> يكتبون…"
 
-#: core/rocketchataccount.cpp:784
+#: core/rocketchataccount.cpp:790
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1810,22 +1810,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
+#: core/rocketchataccount.cpp:798 core/rocketchataccount.cpp:811
 #, kde-format
 msgid "Not connected"
 msgstr "غير متّصل"
 
-#: core/rocketchataccount.cpp:799
+#: core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected yet"
 msgstr "غير متّصل حتى الآن"
 
-#: core/rocketchataccount.cpp:3239
+#: core/rocketchataccount.cpp:3240
 #, kde-format
 msgid "Room Added"
 msgstr "أُضيفت الغرفة"
 
-#: core/rocketchataccount.cpp:3240
+#: core/rocketchataccount.cpp:3241
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "أضيف غرفة جديدة في '%1'."
@@ -1840,27 +1840,27 @@ msgstr "أضيف حساب"
 msgid "A new account was added."
 msgstr "أضيف حساب جديد"
 
-#: core/room.cpp:1177
+#: core/room.cpp:1187
 #, kde-format
 msgid "Leader"
 msgstr "قائد"
 
-#: core/room.cpp:1180
+#: core/room.cpp:1190
 #, kde-format
 msgid "Moderator"
 msgstr "وسيط"
 
-#: core/room.cpp:1598
+#: core/room.cpp:1627
 #, kde-format
 msgid "Channel is read only."
 msgstr "القناة للقراءة فقط."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1630
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "لقد حظرت هذه القناة."
 
-#: core/room.cpp:1604
+#: core/room.cpp:1633
 #, kde-format
 msgid "Channel was blocked."
 msgstr "حُظرت القناة."
@@ -2857,17 +2857,17 @@ msgstr "المجموعة الخاصة مؤرشفة"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "User is already an owner"
-msgstr "المستخدم هو مالك فعلاً"
+msgstr "المستخدم هو مالك فعلًا"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, kde-format
 msgid "User is already a leader"
-msgstr "المستخدم هو قائد فعلاً"
+msgstr "المستخدم هو قائد فعلًا"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:457
 #, kde-format
 msgid "User is already a moderator"
-msgstr "المستخدم هو مشرف فعلاً"
+msgstr "المستخدم هو مشرف فعلًا"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
@@ -2877,7 +2877,7 @@ msgstr "معرف رسالة غير صالحة"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid "User is not a leader"
-msgstr "المستخدم ليس قائداً"
+msgstr "المستخدم ليس قائدًا"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
@@ -2926,7 +2926,7 @@ msgstr "تعذر تثبيت الرسالة"
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:479
 #, kde-format
 msgid "Entered password has been previously used"
-msgstr "كلمة السر المدخلة مستخدمة مسبقاً"
+msgstr "كلمة السر المدخلة مستخدمة مسبقًا"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:481
 #, kde-format
@@ -5528,7 +5528,7 @@ msgstr "أرسل إحصائيات إلى روكت تشات"
 #, kde-format
 msgctxt "@option:check"
 msgid "Use REST instead of websocket for Meteor calls"
-msgstr "استخدم REST بدلاً من websocket لاستدعاءات ميتيور"
+msgstr "استخدم REST بدلًا من websocket لاستدعاءات ميتيور"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
@@ -5637,7 +5637,7 @@ msgid ""
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
 msgstr ""
-"يتحقق آليّاً من التحديثات الجديدة/الرسائل المهمة من مطوري روكت تشات ويتلقى "
+"يتحقق آليًّا من التحديثات الجديدة/الرسائل المهمة من مطوري روكت تشات ويتلقى "
 "إشعارات عند توفرها.\n"
 "يظهر الإشعار مرة واحدة لكل إصدار جديد كشعار قابل للنقر وكرسالة من آليّ روكت "
 "تشات، \n"
@@ -5895,7 +5895,7 @@ msgid ""
 msgstr ""
 "مستخدم LDAP الذي يبحث  للتحقق من هوية المستخدمين الآخرين عند تسجيل الدخول. "
 "عادةً ما يكون هذا حساب خدمة تُنشئ خصيصًا للتكاملات مع جهات خارجية. استخدم اسمًا "
-"مؤهلاً بالكامل، مثل cn=Administrator،cn=Users،dc=Example،dc=com."
+"مؤهلًا بالكامل، مثل cn=Administrator،cn=Users،dc=Example،dc=com."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:65
 #, kde-format
@@ -6221,7 +6221,7 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
-"ستُعرض الصور المصغرة بدلاً من الصورة الأصلية لتقليل استخدام البيانات. يمكن "
+"ستُعرض الصور المصغرة بدلًا من الصورة الأصلية لتقليل استخدام البيانات. يمكن "
 "تنزيل الصور بالدقة الأصلية باستخدام الأيقونة الموجودة بجوار اسم المرفق."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:137
@@ -6446,7 +6446,7 @@ msgstr "المعرّف"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
 #, kde-format
 msgid "Secret"
-msgstr "سريّة جداً"
+msgstr "سريّة جدًا"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
@@ -7708,7 +7708,7 @@ msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
-"لقد أرسلنا لك بريداً إلكترونياً لتأكيد تسجيلك.\n"
+"لقد أرسلنا لك بريدًا إلكترونيًا لتأكيد تسجيلك.\n"
 "إذا لم يصلك بريد إلكتروني بعد قليل، يرجى العودة والمحاولة مرة أخرى."
 
 #: widgets/common/authenticationloginwidget.cpp:163
@@ -8463,7 +8463,7 @@ msgstr "أنشئ"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Too many users selected."
-msgstr "حددت عدد كبير جداً من المستخدمين."
+msgstr "حددت عدد كبير جدًا من المستخدمين."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:29
 #, kde-format
@@ -9551,9 +9551,9 @@ msgid ""
 msgstr ""
 "سيؤدي تعطيل التعمية من طرف لطرف إلى تعريض خصوصية هذه المجموعة الخاصة للخطر. "
 "سيُفقد الوصول إلى أي محتوى معمّي لجميع أعضاء المجموعة الخاصة.\n"
-"يمكن إعادة تمكين التعمية لاحقاً. تابع بحذر.\n"
+"يمكن إعادة تمكين التعمية لاحقًا. تابع بحذر.\n"
 "إذا لم يتمكن أحد من الوصول إلى المحتوى المعمّى يمكنك تصفير مفاتيح التعمية "
-"بدلاً من ذلك."
+"بدلًا من ذلك."
 
 #: widgets/encryption/e2edisablewidget.cpp:36
 #, kde-format
@@ -9561,8 +9561,8 @@ msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
 "access to previously encrypted content may be lost."
 msgstr ""
-"بدلاً من ذلك، ستؤدي عملية تصفير مفاتيح التعمية، إلى الإبقاء على التعمية ممكّنة "
-"ولكن قد يُفقد الوصول إلى المحتوى المعمّى سابقاً."
+"بدلًا من ذلك، ستؤدي عملية تصفير مفاتيح التعمية، إلى الإبقاء على التعمية ممكّنة "
+"ولكن قد يُفقد الوصول إلى المحتوى المعمّى سابقًا."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
 #, kde-format
@@ -9810,12 +9810,12 @@ msgstr "فشل الولوج: خطأ عام"
 #: widgets/loginwidget/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
-msgstr "فشل الولوج: حُظر عنوان الإنترنت IP من الولوج مؤقتاً ."
+msgstr "فشل الولوج: حُظر عنوان الإنترنت IP من الولوج مؤقتًا ."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
-msgstr "فشل الولوج: حُظر المستخدم من الولوج مؤقتاً ."
+msgstr "فشل الولوج: حُظر المستخدم من الولوج مؤقتًا ."
 
 #: widgets/loginwidget/ruqolaloginwidget.cpp:229
 #, kde-format
@@ -10130,7 +10130,7 @@ msgid ""
 msgstr ""
 "امحُ رمز الاستجابة السريعة. سيظهر لك رمز مكون من 6 أرقام يتعين عليك إدخاله "
 "أدناه.\n"
-"إذا لم تتمكن من مسح رمز الاستجابة السريعة، يمكنك إدخال الرمز يدويًا بدلاً من "
+"إذا لم تتمكن من مسح رمز الاستجابة السريعة، يمكنك إدخال الرمز يدويًا بدلًا من "
 "ذلك:"
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
@@ -10431,7 +10431,7 @@ msgid ""
 "email address when ready."
 msgstr ""
 "سيُولد ملف بياناتك. سيرسل رابط لتنزيله إلى عنوان بريدك الإلكتروني عندما يكون "
-"جاهزاً."
+"جاهزًا."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:255
 #, kde-format
@@ -10765,38 +10765,38 @@ msgid "Error Opening File"
 msgstr "خطأ في فتح الملفّ"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:165
 #, kde-format
 msgid "Join"
 msgstr "انضم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:430
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #, kde-format
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #: widgets/room/messagelistview.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "رسالة الترجمة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:720
+#: widgets/room/delegate/messagelistdelegate.cpp:719
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10807,7 +10807,7 @@ msgstr[3] "%1 ردود"
 msgstr[4] "%1 ردًّا"
 msgstr[5] "%1 ردّ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10818,54 +10818,54 @@ msgstr[3] "%1 رسائل"
 msgstr[4] "%1 رسالة"
 msgstr[5] "%1 رسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "No message yet"
 msgstr "لا يوجد رسائل بعد"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1051
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "متابعة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1055
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "لقد ثُبتت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1059
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "لقد عُلّمت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1063
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "الرسالة تحتوي على نص مترجم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1067
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1071
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "أضف تفاعل"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "أوقف"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -10965,7 +10965,7 @@ msgstr "هل تريد تحويل هذا النص الكبير إلى مرفق؟"
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
-msgstr "الرسالة طويلة جداً"
+msgstr "الرسالة طويلة جدًا"
 
 #: widgets/room/messagelinewidget.cpp:423
 #, kde-format

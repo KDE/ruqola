@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:45+0000\n"
-"PO-Revision-Date: 2026-08-08 07:02+0200\n"
+"POT-Creation-Date: 2026-08-12 00:45+0000\n"
+"PO-Revision-Date: 2026-08-11 06:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -853,10 +853,9 @@ msgid "Message Pinned"
 msgstr "Sporočilo pripeto"
 
 #: core/messages/message.cpp:875
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgid "Message Pinned by %1"
-msgstr "Sporočilo pripeto"
+msgstr "Sporočilo pripel %1"
 
 #: core/messages/message.cpp:877
 #, kde-format
@@ -1318,7 +1317,7 @@ msgstr "Vrsta kanala"
 msgid "Belongs To"
 msgstr "Pripada k"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:675
+#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1463,7 +1462,7 @@ msgstr "Dvostopenjsko preverjanje pristnosti"
 msgid "Last token part"
 msgstr "Zadnji del žetona"
 
-#: core/model/roommodel.cpp:605
+#: core/model/roommodel.cpp:613
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1472,7 +1471,7 @@ msgstr[1] "%1 Omembi"
 msgstr[2] "%1 Omembe"
 msgstr[3] "%1 Omemb"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:617
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1481,7 +1480,7 @@ msgstr[1] "%1 omembi skupine"
 msgstr[2] "%1 omembe skupine"
 msgstr[3] "%1 omemb skupine"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:621
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1490,7 +1489,7 @@ msgstr[1] "%1 Neprebrani sporočila niti"
 msgstr[2] "%1 Neprebrana sporočila niti"
 msgstr[3] "%1 Neprebranih sporočil niti"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:625
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1499,57 +1498,57 @@ msgstr[1] "%1 neprebrani sporočili"
 msgstr[2] "%1 neprebrana sporočila"
 msgstr[3] "%1 neprebranih sporočil"
 
-#: core/model/roommodel.cpp:643
+#: core/model/roommodel.cpp:651
 #, kde-format
 msgid "Teams Room"
 msgstr "Soba za ekipe"
 
-#: core/model/roommodel.cpp:649
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Private Room"
 msgstr "Zasebna soba"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:659
 #, kde-format
 msgid "Discussion Room"
 msgstr "Soba za razprave"
 
-#: core/model/roommodel.cpp:655
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Channel Room"
 msgstr "Soba s kanali"
 
-#: core/model/roommodel.cpp:669 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Neprebrano"
 
-#: core/model/roommodel.cpp:671
+#: core/model/roommodel.cpp:679
 #, kde-format
 msgid "Favorites"
 msgstr "Priljubljeni"
 
-#: core/model/roommodel.cpp:673
+#: core/model/roommodel.cpp:681
 #, kde-format
 msgid "Teams"
 msgstr "Ekipe"
 
-#: core/model/roommodel.cpp:677
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Discussions"
 msgstr "Razprave"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Private Messages"
 msgstr "Zasebna sporočila"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:689
 #, kde-format
 msgid "Draft"
 msgstr "Osnutek"
 
-#: core/model/roommodel.cpp:683 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:317
 #, kde-format
 msgid "Unknown"
 msgstr "Neznano"
@@ -1744,7 +1743,7 @@ msgstr "Se je pridružil tej ekipi"
 msgid "(Autojoin)"
 msgstr "(Samodejno pridruži)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1174
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1184
 #, kde-format
 msgid "Owner"
 msgstr "Lastnik"
@@ -1793,7 +1792,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:784
+#: core/rocketchataccount.cpp:790
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1802,22 +1801,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:792 core/rocketchataccount.cpp:805
+#: core/rocketchataccount.cpp:798 core/rocketchataccount.cpp:811
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:799
+#: core/rocketchataccount.cpp:805
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3239
+#: core/rocketchataccount.cpp:3240
 #, kde-format
 msgid "Room Added"
 msgstr "Soba je bila dodana"
 
-#: core/rocketchataccount.cpp:3240
+#: core/rocketchataccount.cpp:3241
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Novi soba je bila dodana v '%1'."
@@ -1832,27 +1831,27 @@ msgstr "Račun dodan"
 msgid "A new account was added."
 msgstr "Novi račun je bil dodan."
 
-#: core/room.cpp:1177
+#: core/room.cpp:1187
 #, kde-format
 msgid "Leader"
 msgstr "Vodja"
 
-#: core/room.cpp:1180
+#: core/room.cpp:1190
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1598
+#: core/room.cpp:1627
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal je samo za branje."
 
-#: core/room.cpp:1601
+#: core/room.cpp:1630
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Blokirali ste ta kanal."
 
-#: core/room.cpp:1604
+#: core/room.cpp:1633
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal je bil blokiran."
@@ -10746,38 +10745,38 @@ msgid "Error Opening File"
 msgstr "Napaka pri odpiranju datoteke"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:67
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:168
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:165
 #, kde-format
 msgid "Join"
 msgstr "Pridružite se"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:430
+#: widgets/room/delegate/messagelistdelegate.cpp:429
 #, kde-format
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #: widgets/room/messagelistview.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:456
+#: widgets/room/delegate/messagelistdelegate.cpp:455
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:720
+#: widgets/room/delegate/messagelistdelegate.cpp:719
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10786,7 +10785,7 @@ msgstr[1] "%1 odgovora"
 msgstr[2] "%1 odgovori"
 msgstr[3] "%1 odgovorov"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10795,54 +10794,54 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:730
+#: widgets/room/delegate/messagelistdelegate.cpp:729
 #, kde-format
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1051
+#: widgets/room/delegate/messagelistdelegate.cpp:1050
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Sledi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1055
+#: widgets/room/delegate/messagelistdelegate.cpp:1054
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sporočilo je bilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1059
+#: widgets/room/delegate/messagelistdelegate.cpp:1058
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sporočilo je bilo označeno z zvezdico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1063
+#: widgets/room/delegate/messagelistdelegate.cpp:1062
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Sporočilo ima prevedeno besedilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1067
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1071
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1076
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
