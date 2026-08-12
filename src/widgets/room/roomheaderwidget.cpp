@@ -424,7 +424,10 @@ void RoomHeaderWidget::slotActionButtonChanged()
 
 void RoomHeaderWidget::slotDisabledEncryption()
 {
-    E2eDisableDialog d(this);
+    E2eDisableDialog d(mCurrentRocketChatAccount, this);
+    if (mRoom) {
+        d.setRoomId(mRoom->roomId());
+    }
     if (d.exec()) {
         Q_EMIT encryptedChanged(false);
     } else {
