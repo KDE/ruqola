@@ -50,8 +50,11 @@ private:
         bool useEmojiFont;
     };
 
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
-    LIBRUQOLAWIDGETS_NO_EXPORT void removeRunningAnimatedImage(const QModelIndex &index) const;
+    // A message can show several animated reactions at once, so an animation is identified by (index, reaction name).
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index,
+                                                                                                                  const QByteArray &identifier) const;
+    // Removes the animations of this message whose reaction is not in identifiersToKeep, i.e. all of them by default.
+    LIBRUQOLAWIDGETS_NO_EXPORT void removeRunningAnimatedImages(const QModelIndex &index, const QList<QByteArray> &identifiersToKeep = {}) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QList<ReactionLayout>
     layoutReactions(const QList<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const;
     const QFont mEmojiFont;

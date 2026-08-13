@@ -45,8 +45,9 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
     // Only an animated attachment that we actually paint may keep a running QMovie: otherwise it would
     // go on emitting frameChanged() -> view->update() forever, repainting something we don't draw.
     const bool animateImage = !layout.pixmap.isNull() && layout.isShown && layout.isAnimatedImage && RuqolaGlobalConfig::self()->animateGifImage();
+    const QByteArray attachmentId = msgAttach.attachmentId();
     if (!animateImage) {
-        removeRunningAnimatedImage(index);
+        removeRunningAnimatedImage(index, attachmentId);
     }
     // drawTitle(msgAttach, painter, );
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
@@ -62,11 +63,11 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
         if (layout.isShown) {
             QPixmap scaledPixmap;
             if (animateImage) {
-                auto it = findRunningAnimatedImage(index);
+                auto it = findRunningAnimatedImage(index, attachmentId);
                 if (it != mRunningAnimatedImages.end()) {
                     scaledPixmap = (*it).movie->currentPixmap();
                 } else {
-                    mRunningAnimatedImages.emplace_back(index);
+                    mRunningAnimatedImages.emplace_back(index, attachmentId);
                     auto &rai = mRunningAnimatedImages.back();
                     rai.movie->setFileName(layout.imagePreviewPath);
                     rai.movie->setScaledSize(layout.imageSize);
@@ -80,7 +81,8 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                             if (view->viewport()->rect().intersects(view->visualRect(idx))) {
                                 view->update(idx);
                             } else {
-                                removeRunningAnimatedImage(idx);
+                                // The whole message is out of sight: stop all its animations, not just this one.
+                                removeRunningAnimatedImages(idx);
                             }
                         },
                         Qt::QueuedConnection);
@@ -227,20 +229,28 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     return layout;
 }
 
-std::vector<RunningAnimatedImage>::iterator MessageAttachmentDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
+std::vector<RunningAnimatedImage>::iterator MessageAttachmentDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index,
+                                                                                                           const QByteArray &identifier) const
 {
-    auto matchesIndex = [&](const RunningAnimatedImage &rai) {
-        return rai.index == index;
+    auto matchesImage = [&](const RunningAnimatedImage &rai) {
+        return rai.index == index && rai.identifier == identifier;
     };
-    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
+    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesImage);
 }
 
-void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &index) const
+void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &index, const QByteArray &identifier) const
 {
-    auto it = findRunningAnimatedImage(index);
+    auto it = findRunningAnimatedImage(index, identifier);
     if (it != mRunningAnimatedImages.end()) {
         mRunningAnimatedImages.erase(it);
     }
+}
+
+void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImages(const QModelIndex &index) const
+{
+    std::erase_if(mRunningAnimatedImages, [&](const RunningAnimatedImage &rai) {
+        return rai.index == index;
+    });
 }
 
 QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &pos,

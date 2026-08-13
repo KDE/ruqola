@@ -8,8 +8,9 @@
 
 #include <QMovie>
 
-RunningAnimatedImage::RunningAnimatedImage(const QModelIndex &idx)
+RunningAnimatedImage::RunningAnimatedImage(const QModelIndex &idx, const QByteArray &identifier)
     : index(idx)
+    , identifier(identifier)
     , movie(new QMovie)
 {
 }
@@ -22,6 +23,7 @@ RunningAnimatedImage::~RunningAnimatedImage()
 
 RunningAnimatedImage::RunningAnimatedImage(RunningAnimatedImage &&other) noexcept
     : index(other.index)
+    , identifier(std::move(other.identifier))
     , movie(other.movie)
 {
     other.movie = nullptr;
@@ -29,8 +31,14 @@ RunningAnimatedImage::RunningAnimatedImage(RunningAnimatedImage &&other) noexcep
 
 RunningAnimatedImage &RunningAnimatedImage::operator=(RunningAnimatedImage &&other)
 {
-    index = other.index;
-    movie = other.movie;
-    other.movie = nullptr;
+    if (this != &other) {
+        index = other.index;
+        identifier = std::move(other.identifier);
+        // Don't leak the movie we own: std::vector::erase() move-assigns the following elements over the
+        // erased one, so this is what destroys the movie of a removed (non-last) entry.
+        delete movie;
+        movie = other.movie;
+        other.movie = nullptr;
+    }
     return *this;
 }
