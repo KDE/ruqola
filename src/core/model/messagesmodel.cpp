@@ -678,6 +678,7 @@ bool MessagesModel::isEmpty() const
 void MessagesModel::clear()
 {
     mSearchText.clear();
+    mHighlightSearchStringIndexInMessage.clear();
     if (rowCount() != 0) {
         beginResetModel();
         mAllMessages.clear();
@@ -822,10 +823,13 @@ MessagesModel::HighlightSearchStringIndexInMessage MessagesModel::highlightSearc
 void MessagesModel::setHighlightSearchStringIndexInMessage(const HighlightSearchStringIndexInMessage &newHighlightSearchStringIndexInMessage)
 {
     if (mHighlightSearchStringIndexInMessage != newHighlightSearchStringIndexInMessage) {
+        // The message losing the highlight has to be repainted too, its converted text changes as well.
+        const QModelIndex previousIndex = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
         mHighlightSearchStringIndexInMessage = newHighlightSearchStringIndexInMessage;
-        auto it = findMessage(mHighlightSearchStringIndexInMessage.messageId);
-        if (it != mAllMessages.cend()) {
-            const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+        if (previousIndex.isValid()) {
+            Q_EMIT dataChanged(previousIndex, previousIndex);
+        }
+        if (const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId); index.isValid() && index != previousIndex) {
             Q_EMIT dataChanged(index, index);
         }
     }
@@ -833,12 +837,12 @@ void MessagesModel::setHighlightSearchStringIndexInMessage(const HighlightSearch
 
 void MessagesModel::clearHighlightSearchStringIndexInMessage()
 {
-    auto it = findMessage(mHighlightSearchStringIndexInMessage.messageId);
-    if (it != mAllMessages.cend()) {
-        const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+    const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+    // Clear before emitting, so that anything reacting to dataChanged converts the text without the highlight.
+    mHighlightSearchStringIndexInMessage.clear();
+    if (index.isValid()) {
         Q_EMIT dataChanged(index, index);
     }
-    mHighlightSearchStringIndexInMessage.clear();
 }
 
 void MessagesModel::updateTextToSpeech(const QByteArray &messageId, bool inProgress)
