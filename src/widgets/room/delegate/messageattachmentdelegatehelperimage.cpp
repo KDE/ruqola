@@ -256,7 +256,7 @@ bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
                                                        QMenu *menu)
 {
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    if (layout.isShown) {
+    if (layout.isShown && !layout.pixmap.isNull()) {
         const QRect rectAdjusted = attachmentsRect.adjusted(0, 0, 0, -(layout.titleSize.height() + DelegatePaintUtil::margin()));
         if (rectAdjusted.contains(pos)) {
             auto copyImageAction = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18n("Copy Image to Clipboard"), menu);
