@@ -669,7 +669,7 @@ void RoomWidget::slotCallRequested()
                 }
             });
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceStartJob job";
             }
         }
         delete dlg;
