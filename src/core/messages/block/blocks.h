@@ -9,6 +9,7 @@
 #include "block.h"
 #include "libruqolacore_export.h"
 #include <QList>
+#include <memory>
 class LIBRUQOLACORE_EXPORT Blocks : public QSharedData
 {
 public:
@@ -24,7 +25,7 @@ public:
     [[nodiscard]] bool operator==(const Blocks &other) const;
 
     [[nodiscard]] static QJsonArray serialize(const Blocks &reactions);
-    [[nodiscard]] static Blocks *deserialize(const QJsonArray &o);
+    [[nodiscard]] static std::unique_ptr<Blocks> deserialize(const QJsonArray &o);
 
     [[nodiscard]] bool isEmpty() const;
 

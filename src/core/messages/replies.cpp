@@ -66,14 +66,14 @@ QJsonArray Replies::serialize(const Replies &replies)
     return QJsonArray::fromStringList(serialize);
 }
 
-Replies *Replies::deserialize(const QJsonArray &repliesArray)
+std::unique_ptr<Replies> Replies::deserialize(const QJsonArray &repliesArray)
 {
     QList<QByteArray> replies;
     replies.reserve(repliesArray.count());
     for (int i = 0, total = repliesArray.count(); i < total; ++i) {
         replies.append(repliesArray.at(i).toString().toLatin1());
     }
-    auto final = new Replies;
+    auto final = std::make_unique<Replies>();
     final->setReplies(replies);
     return final;
 }

@@ -76,9 +76,9 @@ QJsonArray MessageTranslations::serialize(const MessageTranslations &translation
     return array;
 }
 
-MessageTranslations *MessageTranslations::deserialize(const QJsonArray &array)
+std::unique_ptr<MessageTranslations> MessageTranslations::deserialize(const QJsonArray &array)
 {
-    MessageTranslations *translationMessage = new MessageTranslations;
+    auto translationMessage = std::make_unique<MessageTranslations>();
     QMap<QString, QString> translationStrings;
     for (int i = 0, total = array.count(); i < total; ++i) {
         const QJsonObject o = array.at(i).toObject();

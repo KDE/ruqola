@@ -88,7 +88,7 @@ QJsonObject Reactions::serialize(const Reactions &reactions)
     return obj;
 }
 
-Reactions *Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
+std::unique_ptr<Reactions> Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     QList<Reaction> reacts;
     const QStringList lst = o.keys();
@@ -110,7 +110,7 @@ Reactions *Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManag
         }
         users.clear();
     }
-    auto final = new Reactions;
+    auto final = std::make_unique<Reactions>();
     final->setReactions(reacts);
     return final;
 }

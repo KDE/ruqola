@@ -10,6 +10,7 @@
 #include "messageurl.h"
 #include <QList>
 #include <QSharedData>
+#include <memory>
 class LIBRUQOLACORE_EXPORT MessageUrls : public QSharedData
 {
 public:
@@ -25,7 +26,7 @@ public:
     [[nodiscard]] bool operator==(const MessageUrls &other) const;
 
     [[nodiscard]] static QJsonArray serialize(const MessageUrls &urls);
-    [[nodiscard]] static MessageUrls *deserialize(const QJsonArray &o, const QByteArray &messageId);
+    [[nodiscard]] static std::unique_ptr<MessageUrls> deserialize(const QJsonArray &o, const QByteArray &messageId);
 
     [[nodiscard]] bool isEmpty() const;
 

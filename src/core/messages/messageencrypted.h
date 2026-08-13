@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QSharedData>
+#include <memory>
 class QJsonObject;
 
 class QDebug;
@@ -22,7 +23,7 @@ public:
     void parse(const QJsonObject &o);
 
     [[nodiscard]] static QJsonObject serialize(const MessageEncrypted &message);
-    [[nodiscard]] static MessageEncrypted *deserialize(const QJsonObject &o);
+    [[nodiscard]] static std::unique_ptr<MessageEncrypted> deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isValid() const;
 

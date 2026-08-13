@@ -1176,9 +1176,8 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mMessageStarred.setIsStarred(o["starred"_L1].toBool());
 
     if (o.contains("pinnedMessage"_L1)) {
-        const MessagePinned *const pinned = MessagePinned::deserialize(o["pinnedMessage"_L1].toObject());
+        const auto pinned = MessagePinned::deserialize(o["pinnedMessage"_L1].toObject());
         message.setMessagePinned(*pinned);
-        delete pinned;
     }
 
     message.mRole = o["role"_L1].toString();
@@ -1190,30 +1189,26 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     if (o.contains("attachments"_L1)) {
         const QJsonArray attachmentsArray = o.value("attachments"_L1).toArray();
-        const MessageAttachments *const attachments = MessageAttachments::deserialize(attachmentsArray, message.messageId());
+        const auto attachments = MessageAttachments::deserialize(attachmentsArray, message.messageId());
         message.setAttachments(*attachments);
-        delete attachments;
     }
 
     if (o.contains("urls"_L1)) {
         const QJsonArray urlsArray = o.value("urls"_L1).toArray();
-        const MessageUrls *const urls = MessageUrls::deserialize(urlsArray, message.messageId());
+        const auto urls = MessageUrls::deserialize(urlsArray, message.messageId());
         message.setUrls(*urls);
-        delete urls;
     }
 
     if (o.contains("reactions"_L1)) {
         const QJsonObject reactionsArray = o.value("reactions"_L1).toObject();
-        const Reactions *const reaction = Reactions::deserialize(reactionsArray, emojiManager);
+        const auto reaction = Reactions::deserialize(reactionsArray, emojiManager);
         message.setReactions(*reaction);
-        delete reaction;
     }
 
     if (o.contains("replies"_L1)) {
         const QJsonArray repliesArray = o.value("replies"_L1).toArray();
-        const Replies *const replies = Replies::deserialize(repliesArray);
+        const auto replies = Replies::deserialize(repliesArray);
         message.setReplies(*replies);
-        delete replies;
     }
 
     QMap<QString, QByteArray> mentions;
@@ -1226,16 +1221,14 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     if (o.contains("channels"_L1)) {
         const QJsonArray channelsArray = o.value("channels"_L1).toArray();
-        const Channels *const channels = Channels::deserialize(channelsArray);
+        const auto channels = Channels::deserialize(channelsArray);
         message.setChannels(*channels);
-        delete channels;
     }
 
     if (o.contains("blocks"_L1)) {
         const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
-        const Blocks *const blocks = Blocks::deserialize(blocksArray);
+        const auto blocks = Blocks::deserialize(blocksArray);
         message.setBlocks(*blocks);
-        delete blocks;
     }
 
     if (o.contains("localTranslation"_L1)) {
@@ -1244,16 +1237,14 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     if (o.contains("messageTranslation"_L1)) {
-        const MessageTranslations *const translation = MessageTranslations::deserialize(o["messageTranslation"_L1].toArray());
+        const auto translation = MessageTranslations::deserialize(o["messageTranslation"_L1].toArray());
         message.setMessageTranslation(*translation);
-        delete translation;
     }
 
     if (o.contains("content"_L1)) {
         const QJsonObject contentObj = o.value("content"_L1).toObject();
-        const MessageEncrypted *const encrypted = MessageEncrypted::deserialize(contentObj);
+        const auto encrypted = MessageEncrypted::deserialize(contentObj);
         message.setMessageEncrypted(*encrypted);
-        delete encrypted;
     }
 
     return message;

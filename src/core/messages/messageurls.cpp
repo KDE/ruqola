@@ -76,7 +76,7 @@ QJsonArray MessageUrls::serialize(const MessageUrls &urls)
     return urlArray;
 }
 
-MessageUrls *MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteArray &messageId)
+std::unique_ptr<MessageUrls> MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteArray &messageId)
 {
     QList<MessageUrl> urls;
     for (int i = 0; i < urlsArray.count(); ++i) {
@@ -88,7 +88,7 @@ MessageUrls *MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteAr
         }
     }
 
-    auto final = new MessageUrls;
+    auto final = std::make_unique<MessageUrls>();
     final->setMessageUrls(urls);
     return final;
 }

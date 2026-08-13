@@ -10,6 +10,7 @@
 #include "messageattachment.h"
 #include <QList>
 #include <QSharedData>
+#include <memory>
 class LIBRUQOLACORE_EXPORT MessageAttachments : public QSharedData
 {
 public:
@@ -25,7 +26,7 @@ public:
     [[nodiscard]] bool operator==(const MessageAttachments &other) const;
 
     [[nodiscard]] static QJsonArray serialize(const MessageAttachments &attachments);
-    [[nodiscard]] static MessageAttachments *deserialize(const QJsonArray &o, const QByteArray &messageId);
+    [[nodiscard]] static std::unique_ptr<MessageAttachments> deserialize(const QJsonArray &o, const QByteArray &messageId);
 
     [[nodiscard]] bool isEmpty() const;
 

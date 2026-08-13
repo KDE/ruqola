@@ -211,9 +211,9 @@ QDebug operator<<(QDebug d, const MessageEncrypted &t)
     return d;
 }
 
-MessageEncrypted *MessageEncrypted::deserialize(const QJsonObject &o)
+std::unique_ptr<MessageEncrypted> MessageEncrypted::deserialize(const QJsonObject &o)
 {
-    MessageEncrypted *encrypted = new MessageEncrypted;
+    auto encrypted = std::make_unique<MessageEncrypted>();
     encrypted->setAlgorithm(o["algorithm"_L1].toString().toLatin1());
     encrypted->setCiphertext(o["ciphertext"_L1].toString());
     encrypted->setIv(o["iv"_L1].toString().toLatin1());

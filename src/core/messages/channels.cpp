@@ -84,7 +84,7 @@ QJsonArray Channels::serialize(const Channels &channels)
     return array;
 }
 
-Channels *Channels::deserialize(const QJsonArray &channelsArray)
+std::unique_ptr<Channels> Channels::deserialize(const QJsonArray &channelsArray)
 {
     QList<ChannelInfo> channels;
     const int total = channelsArray.count();
@@ -98,7 +98,7 @@ Channels *Channels::deserialize(const QJsonArray &channelsArray)
         };
         channels.append(info);
     }
-    auto final = new Channels;
+    auto final = std::make_unique<Channels>();
     final->setChannels(channels);
     return final;
 }

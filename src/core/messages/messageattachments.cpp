@@ -76,7 +76,7 @@ QJsonArray MessageAttachments::serialize(const MessageAttachments &attachments)
     return array;
 }
 
-MessageAttachments *MessageAttachments::deserialize(const QJsonArray &attachmentsArray, const QByteArray &messageId)
+std::unique_ptr<MessageAttachments> MessageAttachments::deserialize(const QJsonArray &attachmentsArray, const QByteArray &messageId)
 {
     QList<MessageAttachment> attachmentList;
     for (int i = 0; i < attachmentsArray.count(); ++i) {
@@ -87,7 +87,7 @@ MessageAttachments *MessageAttachments::deserialize(const QJsonArray &attachment
             attachmentList.append(std::move(att));
         }
     }
-    auto final = new MessageAttachments;
+    auto final = std::make_unique<MessageAttachments>();
     final->setMessageAttachments(attachmentList);
     return final;
 }

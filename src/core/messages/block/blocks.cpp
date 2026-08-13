@@ -92,14 +92,14 @@ QJsonArray Blocks::serialize(const Blocks &blocks)
     return blockArray;
 }
 
-Blocks *Blocks::deserialize(const QJsonArray &blocksArray)
+std::unique_ptr<Blocks> Blocks::deserialize(const QJsonArray &blocksArray)
 {
     QList<Block> blocks;
     for (int i = 0, total = blocksArray.count(); i < total; ++i) {
         const Block block = Block::deserialize(blocksArray.at(i).toObject());
         blocks.append(std::move(block));
     }
-    auto final = new Blocks;
+    auto final = std::make_unique<Blocks>();
     final->setBlocks(blocks);
     return final;
 }

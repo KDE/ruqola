@@ -10,6 +10,7 @@
 #include <QList>
 #include <QObject>
 #include <QSharedData>
+#include <memory>
 class LIBRUQOLACORE_EXPORT Channels : public QSharedData
 {
 public:
@@ -32,7 +33,7 @@ public:
     [[nodiscard]] bool operator==(const Channels &other) const;
 
     [[nodiscard]] static QJsonArray serialize(const Channels &channels);
-    [[nodiscard]] static Channels *deserialize(const QJsonArray &o);
+    [[nodiscard]] static std::unique_ptr<Channels> deserialize(const QJsonArray &o);
 
     [[nodiscard]] bool isEmpty() const;
 
