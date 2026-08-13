@@ -1386,6 +1386,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setBroadcast(o["broadcast"_L1].toBool(false));
     r->setE2EKey(o["e2ekey"_L1].toString());
     r->setE2eKeyId(o["e2ekeyid"_L1].toString());
+    r->setE2ESuggestedKey(o["E2ESuggestedKey"_L1].toString());
     r->setJoinCodeRequired(o["joinCodeRequired"_L1].toBool());
     r->setUpdatedAt(static_cast<qint64>(o["updatedAt"_L1].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o["lastSeenAt"_L1].toDouble()));
@@ -1530,6 +1531,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     if (!r->e2eKeyId().isEmpty()) {
         o["e2ekeyid"_L1] = r->e2eKeyId();
+    }
+    if (!r->e2ESuggestedKey().isEmpty()) {
+        o["E2ESuggestedKey"_L1] = r->e2ESuggestedKey();
     }
 
     if (!r->description().isEmpty()) {
