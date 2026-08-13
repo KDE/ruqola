@@ -1029,7 +1029,7 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 
 void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
 {
-    const bool offline = mCurrentRocketChatAccount->offlineMode();
+    const bool offline = mCurrentRocketChatAccount && mCurrentRocketChatAccount->offlineMode();
     mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels() && !offline);
     mCreateDirectMessages->setEnabled(!loginPageActivated && canCreateDirectMessages() && !offline);
     mLogout->setEnabled(!loginPageActivated);
