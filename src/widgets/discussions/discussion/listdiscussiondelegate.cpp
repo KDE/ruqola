@@ -149,7 +149,7 @@ bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView 
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
 bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

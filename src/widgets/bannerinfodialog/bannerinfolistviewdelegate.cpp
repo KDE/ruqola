@@ -115,7 +115,7 @@ bool BannerInfoListViewDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemV
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
 bool BannerInfoListViewDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

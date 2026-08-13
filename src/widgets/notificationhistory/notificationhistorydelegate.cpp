@@ -285,7 +285,7 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
 QPoint NotificationHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)

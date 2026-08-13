@@ -195,7 +195,7 @@ bool ServerErrorInfoHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractI
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
 QPoint ServerErrorInfoHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
