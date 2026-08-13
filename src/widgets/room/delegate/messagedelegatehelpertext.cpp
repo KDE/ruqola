@@ -255,7 +255,7 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QRect mes
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
         return true;
     }
-    return true;
+    return false;
 }
 
 bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)

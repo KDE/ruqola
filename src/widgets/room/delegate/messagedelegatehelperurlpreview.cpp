@@ -230,7 +230,7 @@ bool MessageDelegateHelperUrlPreview::handleHelpEvent(QHelpEvent *helpEvent,
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip);
         return true;
     }
-    return true;
+    return false;
 }
 
 bool MessageDelegateHelperUrlPreview::handleMouseEvent(const MessageUrl &messageUrl,
