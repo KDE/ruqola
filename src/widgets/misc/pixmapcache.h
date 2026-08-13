@@ -17,7 +17,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PixmapCache
 public:
     void setMaxEntries(int maxEntries);
 
-    [[nodiscard]] QPixmap pixmapForLocalFile(const QString &path);
+    // devicePixelRatio: when > 0, the pixmap is *stored* with this ratio, so that callers in the
+    // paint/hit-test paths don't have to call QPixmap::setDevicePixelRatio() on the cached pixmap
+    // (which detaches, i.e. deep-copies the image data, on every single call).
+    [[nodiscard]] QPixmap pixmapForLocalFile(const QString &path, qreal devicePixelRatio = -1);
 
     [[nodiscard]] QPixmap findCachedPixmap(const QString &path);
     void insertCachedPixmap(const QString &path, const QPixmap &pixmap);

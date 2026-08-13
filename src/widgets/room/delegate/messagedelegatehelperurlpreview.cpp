@@ -138,8 +138,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
         layout.imageUrl = messageUrl.imageUrl();
 
         const QString imagePreviewPath = previewImageUrl.toLocalFile();
-        layout.pixmap = mPixmapCache.pixmapForLocalFile(imagePreviewPath);
-        layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
+        layout.pixmap = mPixmapCache.pixmapForLocalFile(imagePreviewPath, option.widget->devicePixelRatioF());
         const auto dpr = layout.pixmap.devicePixelRatioF();
         // Regular link previews get a small, favicon-like thumbnail; links whose
         // content *is* an image/video keep a larger picture since that is the

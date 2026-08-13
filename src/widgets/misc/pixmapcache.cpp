@@ -13,7 +13,7 @@ void PixmapCache::setMaxEntries(int maxEntries)
     mCachedImages.setMaxEntries(maxEntries);
 }
 
-QPixmap PixmapCache::pixmapForLocalFile(const QString &path)
+QPixmap PixmapCache::pixmapForLocalFile(const QString &path, qreal devicePixelRatio)
 {
     auto pixmap = findCachedPixmap(path);
 
@@ -25,6 +25,14 @@ QPixmap PixmapCache::pixmapForLocalFile(const QString &path)
             }
             return pixmap;
         }
+        if (devicePixelRatio > 0) {
+            pixmap.setDevicePixelRatio(devicePixelRatio);
+        }
+        insertCachedPixmap(path, pixmap);
+    } else if (devicePixelRatio > 0 && !qFuzzyCompare(pixmap.devicePixelRatioF(), devicePixelRatio)) {
+        // The screen (or its scale factor) changed: pay for the detach once and re-cache the result.
+        pixmap.setDevicePixelRatio(devicePixelRatio);
+        remove(path);
         insertCachedPixmap(path, pixmap);
     }
 

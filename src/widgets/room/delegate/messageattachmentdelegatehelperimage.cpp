@@ -194,8 +194,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     if (!previewImageUrl.isEmpty() && previewImageUrl.isLocalFile()) {
         layout.imagePreviewPath = previewImageUrl.toLocalFile();
         layout.imageBigPath = msgAttach.link();
-        layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePreviewPath);
-        layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
+        layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePreviewPath, option.widget->devicePixelRatioF());
         // or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.isShown = msgAttach.showAttachment();
         layout.isAnimatedImage = msgAttach.isAnimatedImage();
