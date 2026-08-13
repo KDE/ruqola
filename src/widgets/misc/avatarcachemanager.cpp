@@ -54,7 +54,9 @@ void AvatarCacheManager::setCurrentRocketChatAccount(RocketChatAccount *currentR
     }
 
     mRocketChatAccount = currentRocketChatAccount;
-    connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &AvatarCacheManager::slotAvatarChanged);
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &AvatarCacheManager::slotAvatarChanged);
+    }
 }
 
 QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
