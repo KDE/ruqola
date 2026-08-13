@@ -7,18 +7,13 @@
 #include "messageattachmentdelegatehelperfile.h"
 
 #include "common/delegatepaintutil.h"
-#include "connection.h"
-#include "downloadfilejob.h"
 #include "rocketchataccount.h"
 #include "ruqolautils.h"
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
 #include <KLocalizedString>
-#include <TextAddonsWidgets/SaveFileUtils>
 
 #include "messageattachmentdelegatehelperopenfilejob.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqolawidgets_selection_debug.h"
 #include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
