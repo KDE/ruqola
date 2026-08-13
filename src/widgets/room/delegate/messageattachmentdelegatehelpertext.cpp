@@ -256,5 +256,5 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip);
         return true;
     }
-    return true;
+    return false;
 }
