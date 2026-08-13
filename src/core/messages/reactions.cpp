@@ -71,8 +71,8 @@ bool Reactions::operator==(const Reactions &other) const
 
 QDebug operator<<(QDebug d, const Reactions &t)
 {
-    for (int i = 0; i < t.reactions().count(); i++) {
-        d.space() << t.reactions().at(i) << "\n";
+    for (const Reaction &reaction : t.reactions()) {
+        d.space() << reaction << "\n";
     }
     return d;
 }
@@ -80,10 +80,10 @@ QDebug operator<<(QDebug d, const Reactions &t)
 QJsonObject Reactions::serialize(const Reactions &reactions)
 {
     QJsonObject obj;
-    for (int i = 0; i < reactions.reactions().count(); ++i) {
+    for (const Reaction &reaction : reactions.reactions()) {
         QJsonObject react;
-        react["usernames"_L1] = QJsonArray::fromStringList(reactions.reactions().at(i).userNames());
-        obj[reactions.reactions().at(i).reactionName()] = react;
+        react["usernames"_L1] = QJsonArray::fromStringList(reaction.userNames());
+        obj[reaction.reactionName()] = react;
     }
     return obj;
 }

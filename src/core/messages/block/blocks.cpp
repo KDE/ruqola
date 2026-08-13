@@ -77,8 +77,8 @@ bool Blocks::operator==(const Blocks &other) const
 
 QDebug operator<<(QDebug d, const Blocks &t)
 {
-    for (int i = 0; i < t.blocks().count(); i++) {
-        d.space() << t.blocks().at(i) << "\n";
+    for (const Block &block : t.blocks()) {
+        d.space() << block << "\n";
     }
     return d;
 }

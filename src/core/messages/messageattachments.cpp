@@ -61,8 +61,8 @@ bool MessageAttachments::operator==(const MessageAttachments &other) const
 
 QDebug operator<<(QDebug d, const MessageAttachments &t)
 {
-    for (int i = 0; i < t.messageAttachments().count(); i++) {
-        d.space() << t.messageAttachments().at(i) << "\n";
+    for (const MessageAttachment &attachment : t.messageAttachments()) {
+        d.space() << attachment << "\n";
     }
     return d;
 }

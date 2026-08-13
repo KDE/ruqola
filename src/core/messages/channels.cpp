@@ -62,8 +62,8 @@ bool Channels::operator==(const Channels &other) const
 
 QDebug operator<<(QDebug d, const Channels &t)
 {
-    for (int i = 0; i < t.channels().count(); i++) {
-        d.space() << t.channels().at(i) << "\n";
+    for (const Channels::ChannelInfo &info : t.channels()) {
+        d.space() << info << "\n";
     }
     return d;
 }

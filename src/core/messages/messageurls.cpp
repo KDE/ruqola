@@ -61,8 +61,8 @@ bool MessageUrls::operator==(const MessageUrls &other) const
 
 QDebug operator<<(QDebug d, const MessageUrls &t)
 {
-    for (int i = 0; i < t.messageUrls().count(); i++) {
-        d.space() << t.messageUrls().at(i) << "\n";
+    for (const MessageUrl &url : t.messageUrls()) {
+        d.space() << url << "\n";
     }
     return d;
 }
