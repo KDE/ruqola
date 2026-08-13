@@ -1267,8 +1267,6 @@ void RuqolaMainWindow::updateHamburgerMenu()
     menu->addSeparator();
     menu->addAction(actionCollection()->action(u"configure_my_account"_s));
     menu->addSeparator();
-    menu->addAction(actionCollection()->action(u"directory"_s));
-    menu->addSeparator();
     menu->addAction(actionCollection()->action(u"logout"_s));
     menu->addSeparator();
     menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Quit)));
