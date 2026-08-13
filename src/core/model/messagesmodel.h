@@ -193,6 +193,14 @@ private:
     LIBRUQOLACORE_NO_EXPORT void addMessage(const Message &message);
 
     LIBRUQOLACORE_NO_EXPORT void refresh();
+    /**
+     * @brief Decrypts @p message in place with the room session key, if we already have one.
+     *
+     * Must be called on every path that puts messages into the model, otherwise an encrypted
+     * message stays displayed as such.
+     */
+    LIBRUQOLACORE_NO_EXPORT void decryptMessage(const Message &message) const;
+    LIBRUQOLACORE_NO_EXPORT void decryptMessageList(const QList<Message> &messages) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QByteArray &threadMessageId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QByteArray &userId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,

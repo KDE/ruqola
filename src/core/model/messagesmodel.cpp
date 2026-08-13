@@ -173,14 +173,15 @@ void MessagesModel::addMessage(const Message &message)
         const QModelIndex index = createIndex(rowNumber, 0);
         Q_EMIT dataChanged(index, index, roles);
     };
-    if (mRoom && !mRoom->sessionKey().isEmpty()) {
-        if (auto f = message.messageEncrypted()) {
-            f->decryptContent(mRoom->sessionKey());
-        }
-    }
+    decryptMessage(message);
 
     // When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
+        if (message.pendingMessage()) {
+            // If we already have a message and we must add pending message it's that server
+            // send quickly new message => replace not it by a pending message
+            return;
+        }
         (*mAllMessages.begin()) = message;
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update first message";
         emitChanged(0, {OriginalMessageOrAttachmentDescription});
@@ -208,6 +209,7 @@ void MessagesModel::addMessagesSyncAfterLoadingFromDatabase(QList<Message> messa
         beginResetModel();
         std::sort(messages.begin(), messages.end(), compareTimeStamps);
         const QList<Message> reducedMessageList = messages.mid(messages.count() - 50);
+        decryptMessageList(reducedMessageList);
         mAllMessages = reducedMessageList;
         endResetModel();
     } else {
@@ -224,11 +226,13 @@ void MessagesModel::addMessages(const QList<Message> &messages, bool insertListM
         return;
     }
     if (mAllMessages.isEmpty()) {
+        decryptMessageList(messages);
         beginInsertRows(QModelIndex(), 0, messages.count() - 1);
         mAllMessages = messages;
         std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
         endInsertRows();
     } else if (insertListMessages) {
+        decryptMessageList(messages);
         beginResetModel();
         mAllMessages += messages;
         std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
@@ -437,11 +441,44 @@ void MessagesModel::generateText(const Message &message, const QString &searchTe
     // mNumberOfTextSearched = numberOfTextSearched;
 }
 
+void MessagesModel::decryptMessage(const Message &message) const
+{
+    if (!mRoom) {
+        return;
+    }
+    if (const auto sessionKey = mRoom->sessionKey(); !sessionKey.isEmpty()) {
+        if (auto f = message.messageEncrypted()) {
+            f->decryptContent(sessionKey);
+        }
+    }
+}
+
+void MessagesModel::decryptMessageList(const QList<Message> &messages) const
+{
+    if (!mRoom) {
+        return;
+    }
+    if (const auto sessionKey = mRoom->sessionKey(); !sessionKey.isEmpty()) {
+        for (const Message &message : messages) {
+            if (auto f = message.messageEncrypted()) {
+                f->decryptContent(sessionKey);
+            }
+        }
+    }
+}
+
 void MessagesModel::decryptMessages(const QByteArray &sessionKey)
 {
-    for (auto &msg : std::as_const(mAllMessages)) {
-        if (auto f = msg.messageEncrypted()) {
+    // The session key usually arrives after the messages have been loaded and painted, so the rows
+    // that just became readable must be announced, otherwise they keep showing the encrypted text.
+    for (int row = 0, total = mAllMessages.count(); row < total; ++row) {
+        // QList::at() hands out a const reference on purpose: decryptContent() only fills the
+        // mutable decrypted members of the shared MessageEncrypted, no detach needed here.
+        if (auto f = mAllMessages.at(row).messageEncrypted()) {
             f->decryptContent(sessionKey);
+            // One signal per row: the view drops its text/size-hint cache for topLeft only.
+            const QModelIndex idx = createIndex(row, 0);
+            Q_EMIT dataChanged(idx, idx, {OriginalMessageOrAttachmentDescription});
         }
     }
 }
