@@ -33,11 +33,10 @@ void ServerErrorInfoHistoryDelegate::drawAccountInfo(QPainter *painter, const QM
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
     const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
-    const QString accountInfoStr = accountName;
-    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, accountInfoStr);
+    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, accountName);
     const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
     const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
-    painter->drawText(infoTextRect, accountInfoStr);
+    painter->drawText(infoTextRect, accountName);
     const int lineY = (infoAreaRect.top() + infoAreaRect.bottom()) / 2;
     QColor lightColor(painter->pen().color());
     lightColor.setAlpha(60);
