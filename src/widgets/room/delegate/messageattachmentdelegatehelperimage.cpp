@@ -42,6 +42,12 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                                                 const QStyleOptionViewItem &option) const
 {
     const ImageLayout layout = layoutImage(msgAttach, option, messageRect.width(), messageRect.height());
+    // Only an animated attachment that we actually paint may keep a running QMovie: otherwise it would
+    // go on emitting frameChanged() -> view->update() forever, repainting something we don't draw.
+    const bool animateImage = !layout.pixmap.isNull() && layout.isShown && layout.isAnimatedImage && RuqolaGlobalConfig::self()->animateGifImage();
+    if (!animateImage) {
+        removeRunningAnimatedImage(index);
+    }
     // drawTitle(msgAttach, painter, );
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
@@ -55,7 +61,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
         // Draw main pixmap (if shown)
         if (layout.isShown) {
             QPixmap scaledPixmap;
-            if (layout.isAnimatedImage && RuqolaGlobalConfig::self()->animateGifImage()) {
+            if (animateImage) {
                 auto it = findRunningAnimatedImage(index);
                 if (it != mRunningAnimatedImages.end()) {
                     scaledPixmap = (*it).movie->currentPixmap();
