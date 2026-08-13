@@ -94,7 +94,6 @@ void ChannelActionPopupMenu::createMenu()
     });
 
     mInviteUsersGenerateUrlSeparator = mMenu->addSeparator();
-    mMenu->addAction(mInviteUsersGenerateUrlSeparator);
     mInviteUsersGenerateUrl = new QAction(i18nc("@action", "Invite Users"), this);
     mMenu->addAction(mInviteUsersGenerateUrl);
     connect(mInviteUsersGenerateUrl, &QAction::triggered, this, [this]() {
@@ -103,7 +102,6 @@ void ChannelActionPopupMenu::createMenu()
 
     mAddUserInRoomsSeparator = mMenu->addSeparator();
     mAddUserInRooms = new QAction(i18nc("@action", "Add Users in Channel…"), this);
-    mMenu->addAction(mAddUserInRoomsSeparator);
     connect(mAddUserInRooms, &QAction::triggered, this, [this]() {
         Q_EMIT actionRequested(RoomHeaderWidget::AddUsersInRoom);
     });
