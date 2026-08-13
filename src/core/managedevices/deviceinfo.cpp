@@ -113,8 +113,12 @@ qint64 DeviceInfo::loginAt() const
 void DeviceInfo::setLoginAt(qint64 newLoginAt)
 {
     mLoginAt = newLoginAt;
-    QLocale l;
-    mLoginAtDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mLoginAt), QLocale::LongFormat);
+    if (mLoginAt != -1) {
+        const QLocale l;
+        mLoginAtDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mLoginAt), QLocale::LongFormat);
+    } else {
+        mLoginAtDateTimeStr.clear();
+    }
 }
 
 QString DeviceInfo::loginAtDisplay() const
