@@ -26,7 +26,10 @@
 #include <QMimeData>
 #include <QPainter>
 #include <QStyleOptionViewItem>
+#include <QTextDocument>
 #include <QToolTip>
+
+#include <memory>
 
 using namespace Qt::Literals::StringLiterals;
 MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
@@ -36,11 +39,12 @@ MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account,
 
 MessageDelegateHelperText::~MessageDelegateHelperText() = default;
 
-QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const
+MessageDelegateHelperText::MessageTextInfo MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &index) const
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
-    QString text = index.data(MessagesModel::MessageConvertedText).toString();
+    MessageTextInfo info;
+    info.text = index.data(MessagesModel::MessageConvertedText).toString();
     const QByteArray threadMessageId = message->threadMessageId();
 
     if (mShowThreadContext && !threadMessageId.isEmpty()) {
@@ -57,7 +61,6 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
             if (!sameAsPreviousMessageThread) {
                 const MessagesModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
                 if (model) {
-                    auto that = const_cast<MessageDelegateHelperText *>(this);
                     // Find the previous message in the same thread, to use it as context
                     auto hasSameThread = [&](const Message &msg) {
                         return msg.threadMessageId() == threadMessageId || msg.messageId() == threadMessageId;
@@ -72,20 +75,14 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                 Message *msg = messageCache->messageForId(threadMessageId);
                                 if (msg) {
                                     contextMessage = *msg;
-                                } else if (connectToUpdates) {
-                                    connect(messageCache, &MessageCache::messageLoaded, this, [threadMessageId, that, index](const QByteArray &msgId) {
-                                        if (msgId == threadMessageId) {
-                                            that->updateView(index);
-                                        }
-                                    });
+                                } else {
+                                    info.pendingMessageIds.append(threadMessageId);
                                 }
                             } else {
                                 // qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
                             }
-                        } else if (connectToUpdates) {
-                            connect(messageCache, &MessageCache::modelLoaded, this, [that, index]() {
-                                that->updateView(index);
-                            });
+                        } else {
+                            info.pendingThreadModel = true;
                         }
                     }
                     // Use TextConverter in case it starts with a [](URL) reply marker
@@ -110,23 +107,55 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     const int hightLightStringIndex = 0;
                     const QString contextString =
                         TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
-                    if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
-                        connect(messageCache, &MessageCache::messageLoaded, this, [needUpdateMessageId, that, index](const QByteArray &msgId) {
-                            if (msgId == needUpdateMessageId) {
-                                that->updateView(index);
-                            }
-                        });
+                    if (!needUpdateMessageId.isEmpty()) {
+                        info.pendingMessageIds.append(needUpdateMessageId);
                     }
                     // TODO add url ?
-                    Utils::QuotedRichTextInfo info;
-                    info.richText = contextString;
-                    text.prepend(Utils::formatQuotedRichText(std::move(info)));
+                    Utils::QuotedRichTextInfo quotedInfo;
+                    quotedInfo.richText = contextString;
+                    info.text.prepend(Utils::formatQuotedRichText(std::move(quotedInfo)));
                 }
             }
         }
     }
 
-    return text;
+    return info;
+}
+
+void MessageDelegateHelperText::connectToMessageUpdates(const MessageTextInfo &info, const QPersistentModelIndex &index, QTextDocument *doc) const
+{
+    if (!mRocketChatAccount || (info.pendingMessageIds.isEmpty() && !info.pendingThreadModel)) {
+        return;
+    }
+    auto *const messageCache = mRocketChatAccount->messageCache();
+    auto *const that = const_cast<MessageDelegateHelperText *>(this);
+    // The connections use the document as context object, so they go away when the cache drops it.
+    if (!info.pendingMessageIds.isEmpty()) {
+        auto pendingMessageIds = std::make_shared<QByteArrayList>(info.pendingMessageIds);
+        auto connection = std::make_shared<QMetaObject::Connection>();
+        *connection = connect(messageCache, &MessageCache::messageLoaded, doc, [that, index, doc, pendingMessageIds, connection](const QByteArray &msgId) {
+            if (pendingMessageIds->removeAll(msgId) == 0) {
+                return;
+            }
+            if (pendingMessageIds->isEmpty()) {
+                QObject::disconnect(*connection);
+            }
+            doc->setHtml(that->makeMessageText(index).text);
+            that->updateView(index);
+        });
+    }
+    if (info.pendingThreadModel) {
+        auto connection = std::make_shared<QMetaObject::Connection>();
+        *connection = connect(messageCache, &MessageCache::modelLoaded, doc, [that, index, doc, connection]() {
+            // modelLoaded doesn't tell us which model was loaded, so stay connected until ours is there.
+            const MessageTextInfo updatedInfo = that->makeMessageText(index);
+            if (!updatedInfo.pendingThreadModel) {
+                QObject::disconnect(*connection);
+            }
+            doc->setHtml(updatedInfo.text);
+            that->updateView(index);
+        });
+    }
 }
 
 QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relativePos) const
@@ -319,17 +348,20 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     }
 
     const auto persistentIndex = QPersistentModelIndex(index);
-    const QString text = makeMessageText(persistentIndex, connectToUpdates);
-    if (text.isEmpty()) {
+    const MessageTextInfo info = makeMessageText(persistentIndex);
+    if (info.text.isEmpty()) {
         return nullptr;
     }
-    auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), text, width);
+    auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), info.text, width);
     auto ret = doc.get();
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needToUpdateColors, ret, [this, persistentIndex, ret]() {
-        ret->setHtml(makeMessageText(persistentIndex, false));
+        ret->setHtml(makeMessageText(persistentIndex).text);
         auto that = const_cast<MessageDelegateHelperText *>(this);
         that->updateView(persistentIndex);
     });
+    if (connectToUpdates) {
+        connectToMessageUpdates(info, persistentIndex, ret);
+    }
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
 }
