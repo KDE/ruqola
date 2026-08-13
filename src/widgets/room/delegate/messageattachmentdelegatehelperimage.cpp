@@ -260,7 +260,7 @@ bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
         const QRect rectAdjusted = attachmentsRect.adjusted(0, 0, 0, -(layout.titleSize.height() + DelegatePaintUtil::margin()));
         if (rectAdjusted.contains(pos)) {
             auto copyImageAction = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18n("Copy Image to Clipboard"), menu);
-            connect(copyImageAction, &QAction::triggered, this, [msgAttach, option, layout]() {
+            connect(copyImageAction, &QAction::triggered, this, [layout]() {
                 auto data = new QMimeData();
                 data->setImageData(layout.pixmap.toImage());
                 data->setData(u"x-kde-force-image-copy"_s, QByteArray());
