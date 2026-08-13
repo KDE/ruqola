@@ -129,9 +129,9 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void clearAvatarSizeHintCache();
 
     [[nodiscard]] MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    LIBRUQOLAWIDGETS_NO_EXPORT void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT void drawLastSeenLine(QPainter *painter, int displayLastSeenY, const QStyleOptionViewItem &option) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void
-    drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName) const;
+    drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName, bool drawLastSeenLine) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool isSystemMessage(const Message *message) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index) const;
 
