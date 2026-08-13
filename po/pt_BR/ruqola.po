@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:45+0000\n"
+"POT-Creation-Date: 2026-08-13 00:48+0000\n"
 "PO-Revision-Date: 2026-08-11 06:49-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1734,7 +1734,7 @@ msgstr "Juntou-se a esta equipe"
 msgid "(Autojoin)"
 msgstr "(Entrada automática)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1184
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1186
 #, kde-format
 msgid "Owner"
 msgstr "Proprietário"
@@ -1802,12 +1802,12 @@ msgstr "Não conectado"
 msgid "Not connected yet"
 msgstr "Não conectado ainda"
 
-#: core/rocketchataccount.cpp:3240
+#: core/rocketchataccount.cpp:3256
 #, kde-format
 msgid "Room Added"
 msgstr "Sala adicionada"
 
-#: core/rocketchataccount.cpp:3241
+#: core/rocketchataccount.cpp:3257
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Uma nova sala foi adicionada em '%1'."
@@ -1822,27 +1822,27 @@ msgstr "Conta adicionada"
 msgid "A new account was added."
 msgstr "Uma nova conta foi adicionada."
 
-#: core/room.cpp:1187
+#: core/room.cpp:1189
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1190
+#: core/room.cpp:1192
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1627
+#: core/room.cpp:1668
 #, kde-format
 msgid "Channel is read only."
 msgstr "O canal é somente leitura."
 
-#: core/room.cpp:1630
+#: core/room.cpp:1671
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Você bloqueou este canal."
 
-#: core/room.cpp:1633
+#: core/room.cpp:1674
 #, kde-format
 msgid "Channel was blocked."
 msgstr "O canal foi bloqueado."
@@ -9492,13 +9492,20 @@ msgctxt "@title:window"
 msgid "Disable Encryption"
 msgstr "Desativar criptografia"
 
-#: widgets/encryption/e2edisabledialog.cpp:30
+#: widgets/encryption/e2edisabledialog.cpp:32
 #, kde-format
 msgctxt "@action:button"
 msgid "Disable Encryption"
 msgstr "Desativar criptografia"
 
-#: widgets/encryption/e2edisablewidget.cpp:23
+#: widgets/encryption/e2edisablewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Reset encryption keys"
+msgctxt "@action:button"
+msgid "Reset encryption keys"
+msgstr "Redefinir chaves de criptografia"
+
+#: widgets/encryption/e2edisablewidget.cpp:28
 #, kde-format
 msgid ""
 "Disabling E2EE will compromise the privacy of this groupe privé. Access to "
@@ -9514,7 +9521,7 @@ msgstr ""
 "Se ninguém conseguir acessar o conteúdo criptografado, você pode redefinir "
 "as chaves de criptografia."
 
-#: widgets/encryption/e2edisablewidget.cpp:36
+#: widgets/encryption/e2edisablewidget.cpp:41
 #, kde-format
 msgid ""
 "Alternatively, resetting encryption keys will keep encryption enabled but "
@@ -9524,10 +9531,27 @@ msgstr ""
 "ativada, mas o acesso ao conteúdo criptografado anteriormente poderá ser "
 "perdido."
 
-#: widgets/encryption/e2edisablewidget.cpp:41
+#: widgets/encryption/e2edisablewidget.cpp:69
 #, kde-format
-msgid "Reset encryption keys"
+msgid ""
+"Resetting the encryption keys is only recommended if no room member has a "
+"valid key to regain access to the previously encrypted content. All members "
+"may lose access to previously encrypted content.\n"
+"This action cannot be undone. Do you want to continue?"
+msgstr ""
+
+#: widgets/encryption/e2edisablewidget.cpp:71
+#: widgets/encryption/e2edisablewidget.cpp:80
+#, fuzzy, kde-format
+#| msgid "Reset encryption keys"
+msgctxt "@title:window"
+msgid "Reset Encryption Keys"
 msgstr "Redefinir chaves de criptografia"
+
+#: widgets/encryption/e2edisablewidget.cpp:80
+#, kde-format
+msgid "The encryption keys of this room could not be reset."
+msgstr ""
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:20
 #, kde-format
@@ -9985,19 +10009,19 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Enviar novo código"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:26
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:27
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Redefinir chave E2E"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:27
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:28
 #, kde-format
 msgctxt "@action:button"
 msgid "Modify"
 msgstr "Modificar"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:35
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:36
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10016,7 +10040,7 @@ msgstr ""
 "precisará digitá-la em outros dispositivos nos quais deseja usar a "
 "criptografia e2e."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:53
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:54
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -10030,6 +10054,24 @@ msgstr ""
 "a qualquer sala criptografada que tenha um ou mais membros online. Devido à "
 "natureza da criptografia E2E, o Rocket.Chat não poderá restaurar o acesso a "
 "nenhuma sala criptografada que não tenha nenhum membro online."
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:114
+#, kde-format
+msgid "The server refused to reset your E2E key."
+msgstr ""
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:114
+#, kde-format
+msgid "The server refused to reset your E2E key: %1"
+msgstr ""
+
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:115
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Reset E2E Key"
+msgctxt "@title:window"
+msgid "Reset E2E Key"
+msgstr "Redefinir chave E2E"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
 #, kde-format
