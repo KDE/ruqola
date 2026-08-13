@@ -94,6 +94,87 @@ QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
     return doc.toJson(QJsonDocument::Compact);
 }
 
+QByteArray EncryptionUtils::exportJWKPrivateKey(RSA *rsaKey)
+{
+    if (!rsaKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "RSA key is null";
+        return {};
+    }
+
+    const BIGNUM *n = nullptr;
+    const BIGNUM *e = nullptr;
+    const BIGNUM *d = nullptr;
+    RSA_get0_key(rsaKey, &n, &e, &d);
+    if (!n || !e || !d) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "exportJWKPrivateKey: missing required key components";
+        return {};
+    }
+
+    const auto toBase64Url = [](const BIGNUM *bigNumber) -> QString {
+        if (!bigNumber) {
+            return {};
+        }
+        QByteArray bytes(BN_num_bytes(bigNumber), 0);
+        BN_bn2bin(bigNumber, reinterpret_cast<unsigned char *>(bytes.data()));
+        return QString::fromLatin1(bytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    };
+
+    QJsonObject jwkObj;
+    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
+    jwkObj[QStringLiteral("n")] = toBase64Url(n);
+    jwkObj[QStringLiteral("e")] = toBase64Url(e);
+    jwkObj[QStringLiteral("d")] = toBase64Url(d);
+    // The CRT parameters are optional in JWK but every WebCrypto implementation exports them.
+    const std::pair<const char *, const BIGNUM *> crtParameters[] = {
+        {"p", RSA_get0_p(rsaKey)},
+        {"q", RSA_get0_q(rsaKey)},
+        {"dp", RSA_get0_dmp1(rsaKey)},
+        {"dq", RSA_get0_dmq1(rsaKey)},
+        {"qi", RSA_get0_iqmp(rsaKey)},
+    };
+    for (const auto &[name, value] : crtParameters) {
+        const QString encodedValue = toBase64Url(value);
+        if (!encodedValue.isEmpty()) {
+            jwkObj[QLatin1StringView(name)] = encodedValue;
+        }
+    }
+    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
+    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("decrypt");
+    jwkObj[QStringLiteral("ext")] = true;
+
+    const QJsonDocument doc(jwkObj);
+    return doc.toJson(QJsonDocument::Compact);
+}
+
+QByteArray EncryptionUtils::encryptPrivateKeyV2(const QByteArray &privateKey, const QString &password, const QString &userId)
+{
+    if (privateKey.isEmpty() || password.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptPrivateKeyV2: missing private key or password";
+        return {};
+    }
+    // Port of Rocket.Chat's Keychain::encryptKey().
+    constexpr int iterations = 100000;
+    const QString salt = QStringLiteral("v2:%1:%2").arg(userId, QUuid::createUuid().toString(QUuid::WithoutBraces));
+    const QByteArray masterKey = deriveKey(salt.toUtf8(), password.toUtf8(), iterations, 32);
+    if (masterKey.isEmpty()) {
+        return {};
+    }
+    // A 12-byte IV is what tells the other clients to read the key back as AES-GCM: a 16-byte one
+    // is understood as the legacy AES-CBC layout.
+    const QByteArray iv = generateRandomIV(12);
+    const QByteArray ciphertext = encryptAES_GCM_256(privateKey, masterKey, iv);
+    if (ciphertext.isEmpty()) {
+        return {};
+    }
+
+    QJsonObject storedKey;
+    storedKey[QStringLiteral("iv")] = QString::fromLatin1(iv.toBase64());
+    storedKey[QStringLiteral("ciphertext")] = QString::fromLatin1(ciphertext.toBase64());
+    storedKey[QStringLiteral("salt")] = salt;
+    storedKey[QStringLiteral("iterations")] = iterations;
+    return QJsonDocument(storedKey).toJson(QJsonDocument::Compact);
+}
+
 QByteArray EncryptionUtils::exportJWKEncryptedPrivateKey(const QByteArray &encryptedPrivateKey)
 {
     QJsonObject jwkObj;
@@ -206,7 +287,6 @@ QByteArray EncryptionUtils::encryptPrivateKey(const QByteArray &privateKey, cons
 
 QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivateKey, const QByteArray &masterKey)
 {
-    qDebug() << " encryptedPrivateKey " << encryptedPrivateKey << " masterKey " << masterKey;
     if (encryptedPrivateKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Encrypted private key is empty";
         return {};
@@ -220,7 +300,7 @@ QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivate
     const QByteArray iv = encryptedPrivateKey.left(16);
     const QByteArray cipherText = encryptedPrivateKey.mid(16);
 
-    qDebug() << " iv " << iv << " cipherText " << cipherText;
+    // Never log 'iv'/'cipherText'/'masterKey' here: they are the user's private key material.
     if (iv.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Decryption of the private key failed, 'iv' is empty";
         return {};

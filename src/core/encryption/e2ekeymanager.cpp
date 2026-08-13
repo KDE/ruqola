@@ -141,38 +141,34 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     // After decryption, the plaintext may be:
     //   • JWK JSON  (starts with '{') – produced by Rocket.Chat web/mobile
     //   • PEM       – produced by Ruqola itself
+    // A leading '{' only *suggests* the V2 envelope: the binary layout starts with a random IV
+    // byte, which is '{' once in 256 keys. So never commit to V2 before the JSON really describes
+    // one, otherwise those users could never unlock their key again.
     QByteArray decryptedPrivateKey;
+    bool decryptedAsV2 = false;
     if (encryptedPrivateKey.startsWith('{')) {
         // ── V2 format (AES-GCM) ─────────────────────────────────────────────
-        const QJsonDocument doc = QJsonDocument::fromJson(encryptedPrivateKey);
-        if (doc.isNull() || !doc.isObject()) {
-            qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to parse V2 encrypted private key JSON";
-            setStatus(Status::NeedToDecryptKey);
-            Q_EMIT failedDecodeEncryptionKey();
-            return false;
-        }
-        const QJsonObject v2 = doc.object();
+        const QJsonObject v2 = QJsonDocument::fromJson(encryptedPrivateKey).object();
         const QString v2Salt = v2.value(QStringLiteral("salt")).toString();
         const int v2Iterations = v2.value(QStringLiteral("iterations")).toInt();
         const QByteArray v2Iv = QByteArray::fromBase64(v2.value(QStringLiteral("iv")).toString().toUtf8());
         const QByteArray v2Ciphertext = QByteArray::fromBase64(v2.value(QStringLiteral("ciphertext")).toString().toUtf8());
 
         if (v2Salt.isEmpty() || v2Iterations <= 0 || v2Iv.isEmpty() || v2Ciphertext.isEmpty()) {
-            qCWarning(RUQOLA_ENCRYPTION_LOG) << "V2 encrypted private key has missing fields";
-            setStatus(Status::NeedToDecryptKey);
-            Q_EMIT failedDecodeEncryptionKey();
-            return false;
-        }
+            qCDebug(RUQOLA_ENCRYPTION_LOG) << "Encrypted private key is not a V2 envelope, reading it as the binary layout";
+        } else {
+            const QByteArray v2MasterKey = EncryptionUtils::deriveKey(v2Salt.toUtf8(), password.toUtf8(), v2Iterations, 32);
+            if (v2MasterKey.isEmpty()) {
+                setStatus(Status::NeedToDecryptKey);
+                Q_EMIT failedDecodeEncryptionKey();
+                return false;
+            }
 
-        const QByteArray v2MasterKey = EncryptionUtils::deriveKey(v2Salt.toUtf8(), password.toUtf8(), v2Iterations, 32);
-        if (v2MasterKey.isEmpty()) {
-            setStatus(Status::NeedToDecryptKey);
-            Q_EMIT failedDecodeEncryptionKey();
-            return false;
+            decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, v2MasterKey, v2Iv);
+            decryptedAsV2 = true;
         }
-
-        decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, v2MasterKey, v2Iv);
-    } else {
+    }
+    if (!decryptedAsV2) {
         // ── V1 / oldest format (AES-CBC) ────────────────────────────────────
         const QByteArray masterKey = EncryptionUtils::getMasterKey(password, userId);
         if (masterKey.isEmpty()) {
@@ -760,9 +756,18 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
                 }
             }
 
-            // Oldest format: plain base64 string → binary (iv + ciphertext)
-            const QByteArray decoded = QByteArray::fromBase64(strBytes);
-            return decoded.isEmpty() ? strBytes : decoded;
+            // Oldest format: plain base64 string → binary (iv + ciphertext). Decode strictly: the
+            // tolerant mode drops whatever is not base64 and would turn an unknown payload into
+            // plausible-looking garbage, which only shows up much later as a failed decryption.
+            const auto decoded = QByteArray::fromBase64Encoding(strBytes, QByteArray::Base64Encoding | QByteArray::AbortOnBase64DecodingErrors);
+            if (decoded.decodingStatus != QByteArray::Base64DecodingStatus::Ok) {
+                // Keep the raw bytes: they are wrong for every format we know, but replacing them
+                // with nothing would make us generate and upload a new key pair over the one the
+                // server already has.
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << "private_key is neither a known JSON envelope nor valid base64";
+                return strBytes;
+            }
+            return decoded.decoded.isEmpty() ? strBytes : decoded.decoded;
         }
 
         return {};
@@ -804,16 +809,35 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
         return;
     }
 
-    const QByteArray masterKey = EncryptionUtils::getMasterKey(mGeneratedPassword, userId);
     const EncryptionUtils::RSAKeyPair rsaKeyPair = EncryptionUtils::generateRSAKey();
-    if (masterKey.isEmpty() || rsaKeyPair.privateKey.isEmpty() || rsaKeyPair.publicKey.isEmpty()) {
+    if (rsaKeyPair.privateKey.isEmpty() || rsaKeyPair.publicKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: prerequisite generation failed";
         setStatus(Status::Unknown);
         Q_EMIT verifyKeyDone();
         return;
     }
 
-    const QByteArray encryptedGeneratedPrivateKey = EncryptionUtils::encryptPrivateKey(rsaKeyPair.privateKey, masterKey);
+    // OpenSSL gives us PEM, but a Rocket.Chat client stores and shares JWK: the public key it
+    // fetches for us must be JWK JSON, otherwise it cannot import it and can never encrypt a room
+    // key for us. Same for the private key: what the password protects is its JWK serialisation.
+    RSA *const generatedPrivateKey = EncryptionUtils::privateKeyFromPEM(rsaKeyPair.privateKey);
+    if (!generatedPrivateKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: generated private key can't be parsed";
+        setStatus(Status::Unknown);
+        Q_EMIT verifyKeyDone();
+        return;
+    }
+    const QByteArray publicKeyJwk = EncryptionUtils::exportJWKPublicKey(generatedPrivateKey);
+    const QByteArray privateKeyJwk = EncryptionUtils::exportJWKPrivateKey(generatedPrivateKey);
+    RSA_free(generatedPrivateKey);
+    if (publicKeyJwk.isEmpty() || privateKeyJwk.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: JWK export failed";
+        setStatus(Status::Unknown);
+        Q_EMIT verifyKeyDone();
+        return;
+    }
+
+    const QByteArray encryptedGeneratedPrivateKey = EncryptionUtils::encryptPrivateKeyV2(privateKeyJwk, mGeneratedPassword, userId);
     if (encryptedGeneratedPrivateKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to generate E2E keys: private key encryption failed";
         setStatus(Status::Unknown);
@@ -821,9 +845,10 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
         return;
     }
 
-    (void)mAccount->localDatabaseManager()->e2EDatabase()->saveKey(mAccount->accountName(), userId, encryptedGeneratedPrivateKey, rsaKeyPair.publicKey);
+    // Store exactly what the server will hand back on the next login, so both paths decode the
+    // same way.
+    (void)mAccount->localDatabaseManager()->e2EDatabase()->saveKey(mAccount->accountName(), userId, encryptedGeneratedPrivateKey, publicKeyJwk);
 
-    qCDebug(RUQOLA_ENCRYPTION_LOG) << "rsaKeyPair.publicKey" << rsaKeyPair.publicKey << " encryptedGeneratedPrivateKey " << encryptedGeneratedPrivateKey;
     // Port of Rocket.Chat's E2E::createAndLoadKeys(): the key we just generated is loaded right
     // away, we don't have to decrypt anything to use it. Without this the account would stay
     // without usable key material until the next login, and no room key could be imported,
@@ -834,7 +859,7 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
     storePassword(mGeneratedPassword);
     // Local key material is ready at this point, so keep generation state even if upload cannot start.
     setStatus(Status::NeedToGenerateKey);
-    startUploadGeneratedKey(rsaKeyPair.publicKey, encryptedGeneratedPrivateKey);
+    startUploadGeneratedKey(publicKeyJwk, encryptedGeneratedPrivateKey);
     Q_EMIT verifyKeyDone();
 #else
     setStatus(Status::Unknown);
@@ -856,7 +881,10 @@ bool E2eKeyManager::startUploadGeneratedKey(const QByteArray &publicKey, const Q
 
     RocketChatRestApi::SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
     info.rsaPublicKey = QString::fromUtf8(publicKey);
-    info.rsaPrivateKey = QString::fromLatin1(encryptedPrivateKey.toBase64());
+    // Rocket.Chat stores the encrypted private key as the JSON envelope itself
+    // ({"iv":…,"ciphertext":…,"salt":…,"iterations":…}); the oldest format is a bare base64 blob.
+    info.rsaPrivateKey =
+        encryptedPrivateKey.trimmed().startsWith('{') ? QString::fromUtf8(encryptedPrivateKey) : QString::fromLatin1(encryptedPrivateKey.toBase64());
     setJob->setSetUserPublicAndPrivateKeysInfo(info);
 
     connect(setJob, &RocketChatRestApi::SetUserPublicAndPrivateKeysJob::setUserPublicAndPrivateKeysDone, this, [this]() {

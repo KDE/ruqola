@@ -80,9 +80,10 @@ bool E2EDataBase::deleteKey(const QString &accountName, const QString &userId)
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EKEYS table" << db.databaseName() << query.lastError();
         return false;
     }
+    // Deleting a key which is not stored is not an error: the table simply has nothing for this
+    // user (e.g. resetting the E2E key of an account which never decrypted one).
     if (query.numRowsAffected() <= 0) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "No key removed from E2EKEYS table" << db.databaseName() << "userId" << userId;
-        return false;
+        qCDebug(RUQOLA_DATABASE_LOG) << "No key removed from E2EKEYS table" << db.databaseName() << "userId" << userId;
     }
     return true;
 }

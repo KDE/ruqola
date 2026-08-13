@@ -28,9 +28,15 @@ struct RSAKeyPair {
 };
 
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray exportJWKPublicKey(RSA *rsaKey);
+// Serialise a private key the way WebCrypto's exportKey("jwk") does: this is the plaintext
+// Rocket.Chat clients expect to find once they decrypted the stored private key.
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray exportJWKPrivateKey(RSA *rsaKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT RSAKeyPair generateRSAKey();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray exportJWKEncryptedPrivateKey(const QByteArray &encryptedPrivateKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptPrivateKey(const QByteArray &privateKey, const QByteArray &masterKey);
+// Encrypt a private key in the "V2" layout every Rocket.Chat client can read back:
+// {"iv":…, "ciphertext":…, "salt":…, "iterations":…} (PBKDF2-SHA256 + AES-GCM-256).
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptPrivateKeyV2(const QByteArray &privateKey, const QString &password, const QString &userId);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptPrivateKey(const QByteArray &encryptedPrivateKey, const QByteArray &masterKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray getMasterKey(const QString &password, const QString &userId);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv);

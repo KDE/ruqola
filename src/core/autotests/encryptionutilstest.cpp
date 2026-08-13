@@ -6,6 +6,8 @@
 
 #include "encryptionutilstest.h"
 #include "encryption/encryptionutils.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(EncryptionUtilsTest)
 EncryptionUtilsTest::EncryptionUtilsTest(QObject *parent)
@@ -16,6 +18,70 @@ EncryptionUtilsTest::EncryptionUtilsTest(QObject *parent)
 void EncryptionUtilsTest::shouldExportJWKKey()
 {
     // TODO
+}
+
+// A generated key pair has to be published in the format every Rocket.Chat client can read back:
+// JWK for the public key, and a JWK private key sealed in the "V2" envelope.
+void EncryptionUtilsTest::shouldRoundTripGeneratedKeyPairAsRocketChatDoes()
+{
+    const EncryptionUtils::RSAKeyPair keyPair = EncryptionUtils::generateRSAKey();
+    QVERIFY(!keyPair.privateKey.isEmpty());
+
+    RSA *rsa = EncryptionUtils::privateKeyFromPEM(keyPair.privateKey);
+    QVERIFY(rsa);
+    const QByteArray publicKeyJwk = EncryptionUtils::exportJWKPublicKey(rsa);
+    const QByteArray privateKeyJwk = EncryptionUtils::exportJWKPrivateKey(rsa);
+    RSA_free(rsa);
+
+    // Both must be JWK JSON: a PEM would make the other clients throw when importing them.
+    const QJsonObject publicKeyObject = QJsonDocument::fromJson(publicKeyJwk).object();
+    QCOMPARE(publicKeyObject.value(QStringLiteral("kty")).toString(), QStringLiteral("RSA"));
+    QVERIFY(!publicKeyObject.value(QStringLiteral("n")).toString().isEmpty());
+
+    // We store that JWK locally and encrypt the room keys with it, so it must convert back.
+    RSA *publicKey = EncryptionUtils::publicKeyFromPEM(EncryptionUtils::publicKeyJWKToPEM(publicKeyJwk));
+    QVERIFY(publicKey);
+    RSA_free(publicKey);
+
+    const QJsonObject privateKeyObject = QJsonDocument::fromJson(privateKeyJwk).object();
+    QCOMPARE(privateKeyObject.value(QStringLiteral("kty")).toString(), QStringLiteral("RSA"));
+    for (const QString &component : {QStringLiteral("n"),
+                                     QStringLiteral("e"),
+                                     QStringLiteral("d"),
+                                     QStringLiteral("p"),
+                                     QStringLiteral("q"),
+                                     QStringLiteral("dp"),
+                                     QStringLiteral("dq"),
+                                     QStringLiteral("qi")}) {
+        QVERIFY2(!privateKeyObject.value(component).toString().isEmpty(), qPrintable(component));
+    }
+    // The JWK must describe the very same key.
+    QCOMPARE(EncryptionUtils::privateKeyJWKToPEM(privateKeyJwk), keyPair.privateKey);
+
+    const QString password = QStringLiteral("secret password");
+    const QString userId = QStringLiteral("userId");
+    const QByteArray storedKey = EncryptionUtils::encryptPrivateKeyV2(privateKeyJwk, password, userId);
+    const QJsonObject storedKeyObject = QJsonDocument::fromJson(storedKey).object();
+    QVERIFY(storedKeyObject.value(QStringLiteral("salt")).toString().startsWith(QStringLiteral("v2:") + userId + QLatin1Char(':')));
+    QCOMPARE(storedKeyObject.value(QStringLiteral("iterations")).toInt(), 100000);
+
+    // Decrypting it the way every client does must give the JWK private key back. A 16-byte IV
+    // would be understood as the legacy AES-CBC layout, so it has to be shorter.
+    const QByteArray iv = QByteArray::fromBase64(storedKeyObject.value(QStringLiteral("iv")).toString().toUtf8());
+    QCOMPARE(iv.size(), 12);
+    const QByteArray masterKey = EncryptionUtils::deriveKey(storedKeyObject.value(QStringLiteral("salt")).toString().toUtf8(),
+                                                            password.toUtf8(),
+                                                            storedKeyObject.value(QStringLiteral("iterations")).toInt(),
+                                                            32);
+    const QByteArray ciphertext = QByteArray::fromBase64(storedKeyObject.value(QStringLiteral("ciphertext")).toString().toUtf8());
+    QCOMPARE(EncryptionUtils::decryptAES_GCM_256(ciphertext, masterKey, iv), privateKeyJwk);
+
+    // A wrong password must not decrypt it.
+    const QByteArray wrongMasterKey = EncryptionUtils::deriveKey(storedKeyObject.value(QStringLiteral("salt")).toString().toUtf8(),
+                                                                 QByteArrayLiteral("other password"),
+                                                                 storedKeyObject.value(QStringLiteral("iterations")).toInt(),
+                                                                 32);
+    QVERIFY(EncryptionUtils::decryptAES_GCM_256(ciphertext, wrongMasterKey, iv).isEmpty());
 }
 
 void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData_data()
