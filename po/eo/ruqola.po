@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 02:40+0000\n"
+"POT-Creation-Date: 2026-08-13 02:47+0000\n"
 "PO-Revision-Date: 2024-12-26 21:43+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -10825,7 +10825,7 @@ msgid "Error Opening File"
 msgstr "Eraro dum konservado de dosiero"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:166
 #, kde-format
 msgid "Join"
 msgstr "Kuniĝo"

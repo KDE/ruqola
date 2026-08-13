@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 02:40+0000\n"
+"POT-Creation-Date: 2026-08-13 02:47+0000\n"
 "PO-Revision-Date: 2026-07-17 17:06+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -10509,7 +10509,7 @@ msgid "Error Opening File"
 msgstr "Error durante que il aperiva file "
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:166
 #, kde-format
 msgid "Join"
 msgstr "Uni te"

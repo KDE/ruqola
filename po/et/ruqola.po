@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 02:40+0000\n"
+"POT-Creation-Date: 2026-08-13 02:47+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -11371,7 +11371,7 @@ msgid "Error Opening File"
 msgstr "Tõrge faili salvestamisel"
 
 #: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:68
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:166
 #, kde-format
 msgid "Join"
 msgstr ""
