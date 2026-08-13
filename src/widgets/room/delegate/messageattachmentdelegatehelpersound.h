@@ -30,6 +30,8 @@ private:
         QString audioPath;
         QString title;
         QSize titleSize;
+        // Title + buttons: what the first row really needs, the title alone is not enough
+        QSize headerSize;
         QSize descriptionSize;
         QRect playerVolumeButtonRect;
         QRect downloadButtonRect;

@@ -15,7 +15,7 @@
 
 namespace
 {
-constexpr uint padding = 4;
+constexpr int padding = 4;
 }
 
 using namespace Qt::Literals::StringLiterals;
@@ -40,25 +40,36 @@ void SwitchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     drawBackground(painter, option, index);
     const QString text = index.data(SwitchChannelHistoryModel::Name).toString();
     const int margin = DelegatePaintUtil::margin();
+    // The row is padding pixels taller than the text, so inset the avatar by it instead of
+    // letting it fill the row edge to edge.
+    const int iconSize = option.rect.height() - padding;
     int xPos = 0;
     const Utils::AvatarInfo info = index.data(SwitchChannelHistoryModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(option.rect.x() + margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
-            xPos = margin + option.rect.height();
+            // Don't use drawDecoration() here: it aligns the pixmap using its device size, so an
+            // avatar with a devicePixelRatio > 1 ends up offset by half of it. Drawing into an
+            // explicit target rect is devicePixelRatio-correct.
+            painter->drawPixmap(option.rect.x() + margin, option.rect.y() + padding / 2, iconSize, iconSize, pix);
+            xPos = margin + iconSize;
         }
     }
     const int xText = option.rect.x() + margin + xPos;
 
-    const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText, option.rect.height());
+    const QRect displayRect(xText, option.rect.y(), option.rect.width() - margin - xPos, option.rect.height());
     drawDisplay(painter, option, displayRect, text);
 }
 
 QSize SwitchChannelDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    return QItemDelegate::sizeHint(option, index) + QSize(0, padding);
+    QSize size = QItemDelegate::sizeHint(option, index) + QSize(0, padding);
+    const Utils::AvatarInfo info = index.data(SwitchChannelHistoryModel::AvatarInfo).value<Utils::AvatarInfo>();
+    if (info.isValid()) {
+        // Same layout as paint(): [M] <square avatar of (row height - padding)> [M] <name>
+        size.rwidth() += 2 * DelegatePaintUtil::margin() + size.height() - padding;
+    }
+    return size;
 }
 
 #include "moc_switchchanneldelegate.cpp"

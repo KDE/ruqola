@@ -30,18 +30,24 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     const QIcon icon = index.data(EmoticonModel::IconRole).value<QIcon>();
     const QString emojiText = index.data(EmoticonModel::UnicodeEmojiRole).toString();
+    const int xEmoji = option.rect.x() + margin;
     if (!icon.isNull()) {
         const int emojiWidth = emojiFontMetrics.horizontalAdvance(u"MM"_s);
-        const QRect displayRect(margin, option.rect.y(), emojiWidth, option.rect.height());
-        drawDecoration(painter, option, displayRect, icon.pixmap(emojiWidth, option.rect.height()));
-        painter->drawText(margin + emojiWidth, option.rect.y() + emojiFontMetrics.ascent(), emojiText);
+        const QRect displayRect(xEmoji, option.rect.y(), emojiWidth, option.rect.height());
+        // Not drawDecoration(): it centers the pixmap using its device size, so on a HiDPI screen
+        // (where QIcon::pixmap() returns a devicePixelRatio > 1 pixmap) it lands outside displayRect.
+        const QPixmap pix = icon.pixmap(emojiWidth, option.rect.height());
+        const QSizeF pixSize = pix.deviceIndependentSize();
+        painter->drawPixmap(
+            QPointF(displayRect.x() + (displayRect.width() - pixSize.width()) / 2, displayRect.y() + (displayRect.height() - pixSize.height()) / 2),
+            pix);
+        painter->drawText(xEmoji + emojiWidth, option.rect.y() + emojiFontMetrics.ascent(), emojiText);
     } else {
         const int emojiWidth = emojiFontMetrics.horizontalAdvance(emojiText);
         painter->setFont(mEmojiFont);
-        painter->drawText(margin, option.rect.y() + emojiFontMetrics.ascent(), emojiText);
+        painter->drawText(xEmoji, option.rect.y() + emojiFontMetrics.ascent(), emojiText);
         const QString text = index.data(EmoticonModel::IdentifierRole).toString();
-        const int xText = option.rect.x() + margin + emojiWidth;
-        const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText, option.rect.height());
+        const QRect displayRect(xEmoji + emojiWidth, option.rect.y(), option.rect.width() - margin - emojiWidth, option.rect.height());
         drawDisplay(painter, option, displayRect, text);
     }
 }

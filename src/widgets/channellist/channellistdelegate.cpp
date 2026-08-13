@@ -63,7 +63,7 @@ ChannelListDelegate::Layout ChannelListDelegate::doLayout(const QStyleOptionView
     layout.unreadText = layout.isHeader ? QString() : makeUnreadText(index);
     const int margin = DelegatePaintUtil::margin();
     layout.unreadSize = !layout.unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, layout.unreadText) : QSize(0, 0);
-    layout.unreadRect = QRect(option.rect.width() - layout.unreadSize.width() - 2 * margin,
+    layout.unreadRect = QRect(option.rect.x() + option.rect.width() - layout.unreadSize.width() - 2 * margin,
                               option.rect.y() + padding,
                               layout.unreadSize.width() + margin,
                               layout.unreadSize.height());
@@ -114,10 +114,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const ChannelListDelegate::Layout layout = doLayout(option, index);
 
-    const int xText = offsetAvatarRoom + option.rect.x() + iconSize + (isHeader ? 1 : 2) * margin;
-    const QRect displayRect(xText,
+    const int xTextOffset = offsetAvatarRoom + iconSize + (isHeader ? 1 : 2) * margin;
+    const QRect displayRect(option.rect.x() + xTextOffset,
                             option.rect.y() + padding,
-                            option.rect.width() - xText - layout.unreadSize.width() - 2 * margin,
+                            option.rect.width() - xTextOffset - layout.unreadSize.width() - 2 * margin,
                             option.rect.height() - extraMargins);
 
     QStyleOptionViewItem optionCopy = option;
@@ -132,10 +132,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             if (avatarInfo.isValid()) {
                 const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, avatarInfo, option.rect.height() - extraMargins);
 #if USE_ROUNDED_RECT_PIXMAP
-                const QPointF pos(margin, option.rect.top() + padding);
+                const QPointF pos(option.rect.x() + margin, option.rect.top() + padding);
                 DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(pos, pix.deviceIndependentSize()), pix);
 #else
-                painter->drawPixmap(margin, option.rect.top() + padding, pix);
+                painter->drawPixmap(option.rect.x() + margin, option.rect.top() + padding, pix);
 #endif
             }
         }

@@ -134,8 +134,8 @@ void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
         auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
         settings->setLanguage(lang);
         Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
+        qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
     }
-    qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
 #endif
 }
 
@@ -228,12 +228,13 @@ QMenu *MessageTextEdit::mousePopupMenu()
 {
     QMenu *menu = KTextEdit::mousePopupMenu();
 
-    QClipboard *const clip = QApplication::clipboard();
-    const QMimeData *mimeData = clip->mimeData();
-    if (mimeData->hasImage()) {
+    // Don't store the QMimeData pointer: it's owned by the clipboard and is invalidated as soon as the clipboard contents change.
+    if (const QMimeData *mimeData = QApplication::clipboard()->mimeData(); mimeData && mimeData->hasImage()) {
         menu->addSeparator();
-        menu->addAction(i18n("Paste Image"), this, [this, mimeData]() {
-            Q_EMIT handleMimeData(mimeData);
+        menu->addAction(i18n("Paste Image"), this, [this]() {
+            if (const QMimeData *currentMimeData = QApplication::clipboard()->mimeData(); currentMimeData && currentMimeData->hasImage()) {
+                Q_EMIT handleMimeData(currentMimeData);
+            }
         });
     }
     menu->addSeparator();

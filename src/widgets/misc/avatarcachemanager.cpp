@@ -175,16 +175,16 @@ QPixmap AvatarCacheManager::makeRoundedAvatarPixmap(const QWidget *widget, const
         pix = pix.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
         pix.setDevicePixelRatio(dpr);
 
-        QPixmap fullScale(pix.size());
-        fullScale.fill(Qt::transparent);
-
-        downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
+        downScaled = QPixmap(pix.size());
+        downScaled.fill(Qt::transparent);
         downScaled.setDevicePixelRatio(dpr);
 
         QPainterPath path;
         QPainter p(&downScaled);
         p.setRenderHint(QPainter::Antialiasing);
-        path.addRoundedRect(downScaled.rect(), 5, 5);
+        // The painter paints in device-independent pixels, so the clip path must be expressed in
+        // them too: QPixmap::rect() is in device pixels and would be dpr times too large.
+        path.addRoundedRect(QRectF(QPointF(0, 0), downScaled.deviceIndependentSize()), 5, 5);
 
         p.setClipPath(path);
         p.drawPixmap(QPoint(0, 0), pix);

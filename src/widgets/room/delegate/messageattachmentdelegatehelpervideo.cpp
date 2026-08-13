@@ -41,9 +41,11 @@ void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAtta
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
 
     mVisibilityIcon.paint(painter, layout.showButtonRect.translated(messageRect.topLeft()));
-    mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+    if (layout.downloadButtonRect.isValid()) {
+        mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+    }
 
-    const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
+    const int nextY = messageRect.y() + layout.headerSize.height() + DelegatePaintUtil::margin();
 
     drawDescription(msgAttach, messageRect, painter, nextY, index, option);
 }
@@ -54,13 +56,13 @@ QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &ms
                                                      const QStyleOptionViewItem &option) const
 {
     const VideoLayout layout = layoutVideo(msgAttach, option, maxWidth);
-    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
+    int height = layout.headerSize.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;
     if (layout.hasDescription) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
+    return {qMax(layout.headerSize.width(), descriptionWidth), height};
 }
 
 bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachment &msgAttach,
@@ -72,8 +74,14 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
     case QEvent::MouseButtonRelease: {
+        // Only a plain left click acts on the buttons: a release ending a text selection must go to the
+        // base class, otherwise selecting the description pops up the video dialog.
+        if (mouseEvent->button() != Qt::LeftButton || mTextSelectionImpl->textSelection()->hasSelection()) {
+            break;
+        }
         const QPoint pos = mouseEvent->pos();
 
+        // downloadButtonRect is invalid when the attachment can't be downloaded => it contains() nothing
         const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
@@ -114,8 +122,15 @@ MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAt
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     layout.descriptionSize = documentTypeForIndexSize(convertAttachmentToDocumentDescriptionInfo(msgAttach, attachmentsWidth));
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    layout.showButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
-    layout.downloadButtonRect = layout.showButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
+    const int headerHeight = qMax(layout.titleSize.height(), iconSize);
+    const int iconY = (headerHeight - iconSize) / 2;
+    layout.showButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), iconY, iconSize, iconSize);
+    int headerWidth = layout.showButtonRect.right() + 1;
+    if (msgAttach.canDownloadAttachment()) {
+        layout.downloadButtonRect = layout.showButtonRect.translated(iconSize + DelegatePaintUtil::margin(), 0);
+        headerWidth = layout.downloadButtonRect.right() + 1;
+    }
+    layout.headerSize = QSize(headerWidth, headerHeight);
     layout.videoPath = msgAttach.link();
     return layout;
 }
@@ -126,6 +141,6 @@ QPoint MessageAttachmentDelegateHelperVideo::adaptMousePosition(const QPoint &po
                                                                 const QStyleOptionViewItem &option)
 {
     const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
-    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.headerSize.height() + DelegatePaintUtil::margin());
     return relativePos;
 }

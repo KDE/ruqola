@@ -45,12 +45,14 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     int xPos = -1;
     const Utils::AvatarInfo info = index.data(JoinedChannelModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        constexpr ushort marginTop = padding / 2;
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height() - marginTop);
+        constexpr int marginTop = padding / 2;
+        const int iconSize = option.rect.height() - padding;
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
-            xPos = margin + option.rect.height();
+            // Not drawDecoration(): it aligns the pixmap using its device size, which offsets it
+            // when the devicePixelRatio is > 1.
+            painter->drawPixmap(option.rect.x() + margin, option.rect.y() + marginTop, iconSize, iconSize, pix);
+            xPos = margin + iconSize;
         }
     }
 
