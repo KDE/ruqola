@@ -12,11 +12,8 @@ class CommandPreviewImageDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    explicit CommandPreviewImageDelegate(QListView *view, QObject *parent = nullptr);
+    explicit CommandPreviewImageDelegate(QObject *parent = nullptr);
     ~CommandPreviewImageDelegate() override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     [[nodiscard]] QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-
-private:
-    QListView *const mView;
 };
