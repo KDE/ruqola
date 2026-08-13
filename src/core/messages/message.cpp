@@ -95,8 +95,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     }
     setPrivateMessage(o.value("private"_L1).toBool(false));
 
-    const QString type = o.value("t"_L1).toString();
-    if (!type.isEmpty()) {
+    if (const QString type = o.value("t"_L1).toString(); !type.isEmpty()) {
         if (type == "videoconf"_L1) {
             mMessageType = MessageType::VideoConference;
             // qDebug() << " VIDEO " << o;
@@ -1351,21 +1350,21 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["reactions"_L1] = Reactions::serialize(*message.reactions());
     }
 
-    if (message.threadCount() > 0) {
-        o["tcount"_L1] = message.threadCount();
+    if (const auto threadCount = message.threadCount(); threadCount > 0) {
+        o["tcount"_L1] = threadCount;
         o["tlm"_L1] = message.threadLastMessage();
     }
 
-    if (message.discussionCount() > 0) {
-        o["dcount"_L1] = message.discussionCount();
+    if (const auto discussionCount = message.discussionCount(); discussionCount > 0) {
+        o["dcount"_L1] = discussionCount;
         o["dlm"_L1] = message.discussionLastMessage();
     }
-    if (!message.discussionRoomId().isEmpty()) {
-        o["drid"_L1] = QString::fromLatin1(message.discussionRoomId());
+    if (const auto discussionRoomId = message.discussionRoomId(); !discussionRoomId.isEmpty()) {
+        o["drid"_L1] = QString::fromLatin1(discussionRoomId);
     }
 
-    if (!message.threadMessageId().isEmpty()) {
-        o["tmid"_L1] = QString::fromLatin1(message.threadMessageId());
+    if (const auto threadMessageId = message.threadMessageId(); !threadMessageId.isEmpty()) {
+        o["tmid"_L1] = QString::fromLatin1(threadMessageId);
     }
     if (message.replies() && !message.replies()->isEmpty()) {
         o["replies"_L1] = Replies::serialize(*message.replies());
@@ -1376,8 +1375,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["blocks"_L1] = Blocks::serialize(*message.blocks());
     }
 
-    if (!message.localTranslation().isEmpty()) {
-        o["localTranslation"_L1] = message.localTranslation();
+    if (const auto localTranslation = message.localTranslation(); !localTranslation.isEmpty()) {
+        o["localTranslation"_L1] = localTranslation;
         o["showLocalTranslation"_L1] = message.showTranslatedMessage();
     }
     if (message.messageTranslation() && !message.messageTranslation()->isEmpty()) {
