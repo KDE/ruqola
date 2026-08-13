@@ -23,7 +23,13 @@ void MessageAttachmentDownloadAndSaveJob::slotDownloadDone(const QString &path)
 {
     switch (mInfo.actionType) {
     case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave:
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 43)
+        if (!TextAddonsWidgets::SaveFileUtils::saveFile(mInfo.parentWidget, path, saveFileString())) {
+            return;
+        }
+#else
         TextAddonsWidgets::SaveFileUtils::saveFile(mInfo.parentWidget, path, saveFileString());
+#endif
         Q_EMIT mRocketChatAccount->openSavedFileFolderDone({QUrl::fromLocalFile(path)}, RocketChatAccount::FileType::File);
         break;
     case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly:
