@@ -101,8 +101,9 @@ void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
         .name = completerName,
         .channelId = roomId,
     };
+    mSearchTimer->stop();
     mCompletionListView->hide();
-    Q_EMIT joinedChannelFound(std::move(info));
+    Q_EMIT joinedChannelFound(info);
 }
 
 #include "moc_joinedchannelcompletionlineeditbase.cpp"
