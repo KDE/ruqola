@@ -141,9 +141,11 @@ void ModerationReportedMessageModel::setModerationInfos(const ModerationReported
 void ModerationReportedMessageModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mModerationInfos.count();
-    mModerationInfos.parseModerationInfos(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mModerationInfos.count() - 1);
-    endInsertRows();
+    mModerationInfos.parseMoreModerationInfos(obj);
+    if (mModerationInfos.count() > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, mModerationInfos.count() - 1);
+        endInsertRows();
+    }
     checkFullList();
 }
 
