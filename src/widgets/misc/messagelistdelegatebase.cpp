@@ -55,16 +55,18 @@ bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect mess
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
         const auto *doc = documentForModelIndex(index, messageRect.width());
-        const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
-        if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
-            auto mimeData = new QMimeData;
-            mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Html));
-            mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text));
-            auto drag = new QDrag(const_cast<QWidget *>(option.widget));
-            drag->setMimeData(mimeData);
-            drag->exec(Qt::CopyAction);
-            mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
-            return true;
+        if (doc) {
+            const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+            if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
+                auto mimeData = new QMimeData;
+                mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Html));
+                mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text));
+                auto drag = new QDrag(const_cast<QWidget *>(option.widget));
+                drag->setMimeData(mimeData);
+                drag->exec(Qt::CopyAction);
+                mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
+                return true;
+            }
         }
     }
     return false;
