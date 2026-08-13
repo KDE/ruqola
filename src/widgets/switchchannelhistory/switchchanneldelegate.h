@@ -22,6 +22,5 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
 private:
-    RocketChatAccount *mRocketChatAccount = nullptr;
     AvatarCacheManager *const mAvatarCacheManager;
 };

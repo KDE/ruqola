@@ -32,7 +32,6 @@ void SwitchChannelDelegate::setCurrentRocketChatAccount(RocketChatAccount *curre
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(currentRocketChatAccount);
     mAvatarCacheManager->clearCache();
-    mRocketChatAccount = currentRocketChatAccount;
 }
 
 void SwitchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
