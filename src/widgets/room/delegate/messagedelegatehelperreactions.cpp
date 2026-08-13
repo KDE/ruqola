@@ -157,7 +157,7 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
                         &QMovie::frameChanged,
                         view,
                         [view, idx, this]() {
-                            if (view->viewport()->rect().contains(view->visualRect(idx))) {
+                            if (view->viewport()->rect().intersects(view->visualRect(idx))) {
                                 view->update(idx);
                             } else {
                                 removeRunningAnimatedImage(idx);
