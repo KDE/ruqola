@@ -102,8 +102,8 @@ void AvatarCacheManager::setMaxEntries(int maxEntries)
 
 QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QString &url, int maxHeight) const
 {
-    const QUrl iconUrlStr = mRocketChatAccount->previewUrlFromLocalCache(url);
-    if (iconUrlStr.isEmpty()) {
+    const QUrl iconUrl = mRocketChatAccount->previewUrlFromLocalCache(url);
+    if (iconUrl.isEmpty()) {
         return {};
     }
 
@@ -111,18 +111,18 @@ QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QSt
 
     auto &cache = mAvatarCache.cache;
 
-    auto downScaled = cache.findCachedPixmap(iconUrlStr.toLocalFile());
+    auto downScaled = cache.findCachedPixmap(iconUrl.toLocalFile());
     if (downScaled.isNull()) {
-        const QUrl &iconUrl(iconUrlStr);
         Q_ASSERT(iconUrl.isLocalFile());
         QPixmap fullScale;
-        if (!fullScale.load(iconUrl.toLocalFile())) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
+        const QString iconUrlLocalFile = iconUrl.toLocalFile();
+        if (!fullScale.load(iconUrlLocalFile)) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrlLocalFile;
             return {};
         }
         downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
         downScaled.setDevicePixelRatio(dpr);
-        cache.insertCachedPixmap(iconUrlStr.toLocalFile(), downScaled);
+        cache.insertCachedPixmap(iconUrlLocalFile, downScaled);
     }
     return downScaled;
 }
