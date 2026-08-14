@@ -279,13 +279,12 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         layout.timeStampHoverOnly = true;
         const int contentTop = layout.textRect.isValid() ? layout.textRect.y() : attachmentsY;
         const int gutterRight = textLeft - margin;
-        const int timeX = timeStampUsesRightEdge ? rightEdge - timeSize.width() // right edge fallback
-                                                 : gutterRight - timeSize.width(); // right-aligned in the avatar gutter
+        const int receiptRight = timeStampUsesRightEdge ? rightEdge : gutterRight;
+        const int receiptX = receiptRight - iconSize;
+        const int timeX = receiptX - margin - timeSize.width();
         layout.timeStampPos = QPoint(timeX, contentTop + option.fontMetrics.ascent());
         layout.timeStampRect = QRect(timeX, contentTop, timeSize.width(), option.fontMetrics.height());
-        // No per-message read receipt on grouped rows (it would strand a tiny check next
-        // to the hover time); the receipt stays with the author line above.
-        layout.readReceiptIconRect = QRect();
+        layout.readReceiptIconRect = QRect(receiptX, contentTop, iconSize, iconSize);
     }
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();

@@ -27,6 +27,7 @@
 #include "misc/avatarcachemanager.h"
 #include "misc/emoticonmenuwidget.h"
 #include "model/messagesmodel.h"
+#include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messagedelegatehelpercontext.h"
 #include "room/delegate/messagedelegatehelperdivider.h"
@@ -631,14 +632,16 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     if (mRocketChatAccount->ruqolaServerConfig()->messageReadReceiptEnabled()) {
-        // A read receipt only carries meaning for one's own messages in a direct conversation:
-        // in rooms "read by everyone" rarely resolves so the per-message flag is just noise, and
-        // the flag only tracks read state at all when the server-side feature is enabled.
+        // The server's messagesRead position is the oldest last-seen timestamp across
+        // room participants. Keep receipts useful by showing them in direct rooms and
+        // in small group rooms only (fewer than five participants).
+        const bool ownMessage = message->userId() == mRocketChatAccount->userId();
         const Room *room = mRocketChatAccount->room(message->roomId());
-        const bool ownMessageInDirectRoom = room && room->channelType() == Room::RoomType::Direct && message->userId() == mRocketChatAccount->userId();
-        // The read receipt follows the timestamp: on the author line for a new sender,
-        // and suppressed for grouped rows (null rect) where the timestamp is gutter-only.
-        if (showTimestamp && layout.readReceiptIconRect.isValid() && ownMessageInDirectRoom) {
+        const int memberCount = room ? room->usersModelForRoom()->total() : 0;
+        const bool showForRoom = room && (room->channelType() == Room::RoomType::Direct || (memberCount > 0 && memberCount < 5));
+        // Keep the receipt visible for every outgoing direct message. Grouped rows hide
+        // their timestamp until hover, but delivery/read state must remain visible.
+        if (layout.readReceiptIconRect.isValid() && ownMessage && showForRoom) {
             if (message->unread()) {
                 mSingleCheckIcon.paint(painter, layout.readReceiptIconRect);
             } else {
