@@ -95,9 +95,6 @@ void MessageLineExtraToolButton::slotActionButtonChanged()
     if (mCurrentRocketChatAccount) {
         const ActionButton::FilterActionInfo filterInfo{.buttonContext = ActionButton::ButtonContext::MessageBoxAction, .roles = {}};
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
-        if (!actionButtons.isEmpty()) {
-            mMenu->addSeparator();
-        }
         // qDebug() << "*************** actionButtons " << actionButtons << "mRoomId  " << mRoomId;
         mActionButtonsGenerator->generateMessageBoxActionButtons(actionButtons, menu(), mRoomId);
         setVisible(!menu()->isEmpty());
