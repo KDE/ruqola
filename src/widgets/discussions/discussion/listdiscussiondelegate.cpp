@@ -15,6 +15,7 @@
 #include <QListView>
 #include <QPainter>
 #include <QToolTip>
+#include <utility>
 
 #include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
@@ -82,9 +83,8 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const QString messageStr = i18np("%1 message", "%1 messages", layout.numberOfMessages) + u' ' + layout.lastMessageTimeText;
     DelegatePaintUtil::drawLighterText(painter, messageStr, QPoint(layout.textRect.left(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
-    const QString discussionsText = i18n("Open Discussion");
     painter->setPen(option.palette.link().color());
-    painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
+    painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), layout.openDiscussionText);
 
     // debug
     // painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
@@ -111,8 +111,8 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
         additionalHeight += 4;
     }
 
-    // contents is date + text
-    const int contentsHeight = layout.openDiscussionTextY + layout.textRect.height() - option.rect.y();
+    // contents is text + number of messages/timestamp + "open discussion" line
+    const int contentsHeight = qRound(layout.openDiscussionTextY + layout.openDiscussionTextHeight) - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
@@ -160,8 +160,10 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
         auto mev = static_cast<QMouseEvent *>(event);
         const Layout layout = doLayout(option, index);
 
-        const QRect discussionRect(layout.textRect.x(), layout.openDiscussionTextY, layout.textRect.width(), layout.openDiscussionTextHeight);
-        if (discussionRect.contains(mev->pos())) {
+        // Only follow the link when the press started on it too, otherwise a text selection
+        // ending over the link would open the discussion.
+        const QPersistentModelIndex pressedIndex = std::exchange(mOpenDiscussionPressedIndex, {});
+        if (pressedIndex == index && openDiscussionRect(layout, option).contains(mev->pos())) {
             const QByteArray discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toByteArray();
             Q_EMIT openDiscussion(discussionRoomId);
             return true;
@@ -173,12 +175,21 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
         auto mev = static_cast<QMouseEvent *>(event);
         if (mev->buttons() & Qt::LeftButton) {
             const Layout layout = doLayout(option, index);
+            if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseButtonDblClick) {
+                mOpenDiscussionPressedIndex = openDiscussionRect(layout, option).contains(mev->pos()) ? QPersistentModelIndex(index) : QPersistentModelIndex();
+            }
             if (handleMouseEvent(mev, layout.textRect, option, index)) {
                 return true;
             }
         }
     }
     return false;
+}
+
+QRect ListDiscussionDelegate::openDiscussionRect(const Layout &layout, const QStyleOptionViewItem &option) const
+{
+    const int width = option.fontMetrics.horizontalAdvance(layout.openDiscussionText);
+    return QRect(layout.textRect.x(), qRound(layout.openDiscussionTextY), width, qRound(layout.openDiscussionTextHeight));
 }
 
 QPoint ListDiscussionDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
@@ -239,6 +250,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 
     layout.numberOfMessages = index.data(DiscussionsModel::NumberOfMessages).toInt();
 
+    layout.openDiscussionText = i18n("Open Discussion");
     layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
     layout.openDiscussionTextHeight = option.fontMetrics.height();
 

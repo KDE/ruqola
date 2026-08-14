@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistdelegatebase.h"
+#include <QPersistentModelIndex>
 class QTextDocument;
 class RocketChatAccount;
 class AvatarCacheManager;
@@ -66,7 +67,10 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index) const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QRect openDiscussionRect(const Layout &layout, const QStyleOptionViewItem &option) const;
 
+    // Index whose "open discussion" link was pressed, so that the release can be paired with it
+    QPersistentModelIndex mOpenDiscussionPressedIndex;
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;
 };
