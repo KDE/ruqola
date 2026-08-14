@@ -13,19 +13,26 @@
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
+#include "room/messagetextedit.h"
 #include "room/roomwidget.h"
 #include "ruqolawidgets_debug.h"
 #include <TextAddonsWidgets/NeedUpdateVersionWidget>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QEvent>
 #include <QHBoxLayout>
 #include <QSplitter>
 #include <QStackedWidget>
+#include <QStyle>
+#include <QTextBlock>
+#include <QTextLayout>
+#include <QTimer>
 
 #include "model/roommodel.h"
 
 #include <algorithm>
+#include <utility>
 
 namespace
 {
@@ -196,28 +203,58 @@ void RuqolaMainWidget::showEvent(QShowEvent *event)
 {
     QWidget::showEvent(event);
 
-    // HACK: beautify the GUI by aligning a couple of items
-    auto searchRoom = mChannelList->findChild<QWidget *>(u"mSearchRoom"_s);
-    if (!searchRoom) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mSearchRoom" << searchRoom;
+    if (!mSearchRoom) {
+        mSearchRoom = mChannelList->findChild<QWidget *>(u"mSearchRoom"_s);
+    }
+    if (!mSearchRoom) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mSearchRoom" << mSearchRoom;
         return;
     }
 
-    auto messageLine = mRoomWidget->findChild<QWidget *>(u"mMessageLineWidget"_s);
-    if (!messageLine) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mMessageLineWidget" << messageLine;
+    if (!mMessageTextEdit) {
+        mMessageTextEdit = mRoomWidget->findChild<MessageTextEdit *>(u"mMessageTextEdit"_s);
+        if (mMessageTextEdit) {
+            mMessageTextEdit->installEventFilter(this);
+        }
+    }
+    if (!mMessageTextEdit) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mMessageTextEdit" << mMessageTextEdit;
         return;
     }
 
-    auto align = [](QWidget *left, QWidget *right) {
-        // the widgets on the right can be much taller, but usually are
-        // just a few pixels shorter than the corresponding row on the left
-        // so we just want to grow the right widget to the minimum height
-        // of the left widget
-        const auto minHeight = std::max(left->minimumSizeHint().height(), right->minimumSizeHint().height());
-        right->setMinimumHeight(minHeight);
-    };
-    align(searchRoom, messageLine);
+    alignMessageInputs();
+}
+
+bool RuqolaMainWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == mMessageTextEdit && (event->type() == QEvent::Resize || event->type() == QEvent::FontChange || event->type() == QEvent::StyleChange)) {
+        // Font and style changes can update the size hint before the layout has
+        // assigned the editor its final height.
+        QTimer::singleShot(0, this, &RuqolaMainWidget::alignMessageInputs);
+    }
+    return QWidget::eventFilter(watched, event);
+}
+
+void RuqolaMainWidget::alignMessageInputs()
+{
+    if (!mSearchRoom || !mMessageTextEdit || mMessageTextEdit->height() <= 0) {
+        return;
+    }
+
+    int visualLineCount = 0;
+    for (QTextBlock block = mMessageTextEdit->document()->begin(); block.isValid(); block = block.next()) {
+        const QTextLayout *layout = block.layout();
+        visualLineCount += layout ? std::max(1, layout->lineCount()) : 1;
+        if (visualLineCount > 1) {
+            return;
+        }
+    }
+
+    if (visualLineCount == 1) {
+        // Match the actual one-line editor height. Multiline heights are ignored.
+        const bool breezeStyle = mSearchRoom->style()->name().compare(u"breeze"_s, Qt::CaseInsensitive) == 0;
+        mSearchRoom->setFixedHeight(mMessageTextEdit->height() + (breezeStyle ? 1 : 0));
+    }
 }
 
 #include "moc_ruqolamainwidget.cpp"
