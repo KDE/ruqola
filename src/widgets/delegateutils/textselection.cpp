@@ -105,7 +105,7 @@ QString TextSelection::selectedText(Format format) const
                     for (auto factory : std::as_const(mAttachmentFactories)) {
                         doc = factory->documentForAttachement(att);
                         if (doc) {
-                            if (!str.endsWith(u'\n')) {
+                            if (!str.isEmpty() && !str.endsWith(u'\n')) {
                                 str += u'\n';
                             }
                             selectionText(ordered, format, row, index, doc, str, att);
@@ -121,7 +121,7 @@ QString TextSelection::selectedText(Format format) const
                     if (url.showPreview()) {
                         doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
                         if (doc) {
-                            if (!str.endsWith(u'\n')) {
+                            if (!str.isEmpty() && !str.endsWith(u'\n')) {
                                 str += u'\n';
                             }
                             selectionText(ordered, format, row, index, doc, str, {}, url);
