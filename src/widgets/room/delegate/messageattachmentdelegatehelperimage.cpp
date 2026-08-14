@@ -158,9 +158,11 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             job->setInfo(info);
             job->start();
             return true;
-        } else if (!layout.pixmap.isNull()) {
+        } else if (layout.isShown && !layout.pixmap.isNull()) {
+            // imageSize is in device pixels (as the cached pixmap is), draw() paints it scaled down by the dpr.
+            const qreal dpr = layout.pixmap.devicePixelRatioF();
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-            const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
+            const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width() / dpr, layout.imageSize.height() / dpr);
             if (imageRect.contains(pos)) {
                 auto parentWidget = const_cast<QWidget *>(option.widget);
                 auto dlg = new ShowImageDialog(mRocketChatAccount, parentWidget);
@@ -259,7 +261,12 @@ QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &po
                                                                 const QStyleOptionViewItem &option)
 {
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.titleSize.height() + DelegatePaintUtil::margin());
+    // Same vertical layout as draw(): title | margin [| image | margin] | description
+    int descriptionY = layout.titleSize.height() + DelegatePaintUtil::margin();
+    if (layout.isShown && !layout.pixmap.isNull()) {
+        descriptionY += layout.imageSize.height() / layout.pixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
+    }
+    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, descriptionY);
     return relativePos;
 }
 

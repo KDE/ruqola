@@ -101,14 +101,16 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
         mTextSelectionImpl->setMightStartDrag(false);
         mCurrentIndex = QModelIndex();
         if (const auto *doc = documentFromAttachment(msgAttach, attachmentsRect.width())) {
-            const QPoint pos = mouseEvent->pos();
-            const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
+            // The document is laid out below the attachment header, so hit testing needs the adapted
+            // position, not the raw viewport one.
+            const QPoint relativePos = adaptMousePosition(mouseEvent->pos(), msgAttach, attachmentsRect, option);
+            const int charPos = doc->documentLayout()->hitTest(relativePos, Qt::FuzzyHit);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
                 return false;
             }
             // TODO fix mTextSelectionImpl->contains with attachment
-            if (mTextSelectionImpl->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+            if (mTextSelectionImpl->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(relativePos, Qt::ExactHit) != -1) {
                 mTextSelectionImpl->setMightStartDrag(true);
                 mCurrentIndex = index;
                 return true;
