@@ -68,9 +68,9 @@ void AddUsersWidget::slotRemoveUser(const QString &username)
             userWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
             mMap.remove(username);
+            Q_EMIT userListChanged(!mMap.isEmpty());
         }
     }
-    Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
 QList<QByteArray> AddUsersWidget::userIds() const
