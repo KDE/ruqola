@@ -53,8 +53,8 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
         connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &MessageLineExtraToolButton::updateTimeStampSupport);
+        setVisible(mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0));
     }
-    setVisible(mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0));
 
     updateWebDavSupport();
     updateTimeStampSupport();
