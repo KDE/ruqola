@@ -17,6 +17,7 @@ class RoomWidget;
 class QSplitter;
 class RocketChatAccount;
 class BannerMessageWidget;
+class MessageTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,9 @@ public:
 
     void showEvent(QShowEvent *event) override;
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override;
+
 Q_SIGNALS:
     void channelSelected();
 
@@ -41,6 +45,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMarkBannerAsRead(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomPressed(const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void createBannerMessageWidget();
+    LIBRUQOLAWIDGETS_NO_EXPORT void alignMessageInputs();
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;
@@ -50,4 +55,6 @@ private:
     BannerMessageWidget *mBannerMessageWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QVBoxLayout *const mTopLayout;
+    QPointer<QWidget> mSearchRoom;
+    QPointer<MessageTextEdit> mMessageTextEdit;
 };
