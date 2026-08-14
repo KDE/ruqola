@@ -104,9 +104,19 @@ void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::Previe
             }
             slotParsePreviewCommandItems(replyObject);
         });
+        connect(job,
+                &RocketChatRestApi::PreviewsCommandJob::previewsCommandFailed,
+                this,
+                [this, requestToken](const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &) {
+                    if (requestToken != mPreviewRequestToken) {
+                        return;
+                    }
+                    hidePreview();
+                });
 
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
+            hidePreview();
         }
     }
 }
