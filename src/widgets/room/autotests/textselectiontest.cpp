@@ -53,6 +53,22 @@ private:
     mutable std::vector<std::unique_ptr<QTextDocument>> mTextDocs;
 };
 
+class TestUrlPreviewFactory : public DocumentFactoryInterface
+{
+public:
+    QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override
+    {
+        if (!mDoc) {
+            mDoc = std::make_unique<QTextDocument>();
+            mDoc->setHtml(messageUrl.htmlDescription());
+        }
+        return mDoc.get();
+    }
+
+private:
+    mutable std::unique_ptr<QTextDocument> mDoc;
+};
+
 static QStandardItem *newItem(const QString &text)
 {
     auto item = new QStandardItem;
@@ -163,6 +179,12 @@ void TextSelectionTest::testSingleLineReverseSelection()
 
     // THEN
     QCOMPARE(selection.selectedText(TextSelection::Format::Text), u"ine"_s);
+    // ... and the selected range must be reported as selected, just like for a left-to-right selection.
+    QVERIFY(!selection.contains(index1, 0));
+    QVERIFY(selection.contains(index1, 1));
+    QVERIFY(selection.contains(index1, 2));
+    QVERIFY(selection.contains(index1, 4)); // (arguable, end of selection)
+    QVERIFY(!selection.contains(index1, 5));
 }
 
 void TextSelectionTest::testSelectWordUnderCursor()
@@ -198,6 +220,46 @@ void TextSelectionTest::testSelectWordUnderCursor()
     QVERIFY(!selection.contains(index2, 6));
     QVERIFY(selection.contains(index2, 7));
     QVERIFY(selection.contains(index2, 9));
+}
+
+void TextSelectionTest::testSelectWordUnderCursorInUrlPreviewDoesNotSelectMessageText()
+{
+    // GIVEN
+    const QModelIndex index1 = model.index(1, 0);
+    TestFactory factory(model.rowCount());
+    TestUrlPreviewFactory urlPreviewFactory;
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+    selection.setMessageUrlHelperFactory(&urlPreviewFactory);
+
+    MessageUrl messageUrl;
+    messageUrl.setUrl(u"https://kde.org"_s);
+    messageUrl.setPageTitle(u"KDE"_s);
+    messageUrl.setDescription(u"Community"_s);
+    messageUrl.generateMessageUrlInfo();
+    QVERIFY(messageUrl.hasHtmlDescription());
+
+    QTextDocument *urlPreviewDoc = urlPreviewFactory.documentForUrlPreview(messageUrl);
+    const QTextCursor found = urlPreviewDoc->find(u"KDE"_s);
+    QVERIFY(!found.isNull());
+    // Use a word whose position also exists in the message text, so that a leaking position is visible.
+    QVERIFY(found.selectionEnd() < factory.documentForIndex(index1)->characterCount() - 1);
+
+    // WHEN double-clicking a word inside the url preview
+    selection.selectWordUnderCursor(index1, found.selectionStart() + 1, &urlPreviewFactory, messageUrl);
+
+    // THEN the word is selected in the url preview...
+    QVERIFY(selection.hasSelection());
+    const QTextCursor urlCursor = selection.selectionForIndex(index1, urlPreviewDoc, {}, messageUrl);
+    QVERIFY(!urlCursor.isNull());
+    QCOMPARE(urlCursor.selection().toPlainText(), u"KDE"_s);
+
+    // ... and the message text of that row stays untouched.
+    const QTextCursor messageCursor = selection.selectionForIndex(index1, factory.documentForIndex(index1));
+    QVERIFY(messageCursor.isNull() || messageCursor.selection().toPlainText().isEmpty());
+    // The test model has no Message, so the url preview text can't be collected here; what matters
+    // is that no part of "Line 1 bold" ends up in the selected text.
+    QVERIFY(selection.selectedText(TextSelection::Format::Text).isEmpty());
 }
 
 void TextSelectionTest::shouldHaveDefaultValues()
