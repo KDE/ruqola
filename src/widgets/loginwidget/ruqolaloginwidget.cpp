@@ -146,7 +146,7 @@ void RuqolaLoginWidget::slotLogin()
     const AccountManager::AccountManagerInfo info = mRuqolaLoginStackWidget->accountInfo();
     mRocketChatAccount->settings()->setUserName(info.userName);
     mRocketChatAccount->settings()->setPassword(info.password);
-    if (mTwoFactorAuthenticationPasswordLineEdit->isHidden()) {
+    if (mTwoFactorAuthenticationWidget->isHidden()) {
         mTwoFactorAuthenticationPasswordLineEdit->clear();
     } else {
         mRocketChatAccount->settings()->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());
