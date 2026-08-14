@@ -16,12 +16,11 @@ SearchMessageCommandButtonWidget::SearchMessageCommandButtonWidget(QWidget *pare
     auto flowLayout = new TextAddonsWidgets::TextAddonsWidgetFlowLayout(this);
     flowLayout->setObjectName(u"flowLayout"_s);
     flowLayout->setContentsMargins({});
-    flowLayout->setSpacing(0);
     flowLayout->setHorizontalSpacing(0);
     flowLayout->setVerticalSpacing(0);
     const QList<SearchMessageCommandButtonWidget::ButtonInfo> buttonsList = fillCommandLineText();
     Q_ASSERT(!buttonsList.isEmpty());
-    for (const auto &info : std::as_const(buttonsList)) {
+    for (const auto &info : buttonsList) {
         flowLayout->addWidget(createPushButton(info));
     }
     hide();
