@@ -162,13 +162,15 @@ void SearchMessageWidget::slotSearchMessagesFailed()
 
 void SearchMessageWidget::slotLoadHistory()
 {
-    messageSearch(mSearchLineEdit->text(), mRoomId, false, mOffset);
+    messageSearch(mSearchPattern, mRoomId, false, mOffset);
     mOffset += numberOfElment;
 }
 
 void SearchMessageWidget::slotClearedMessages()
 {
-    mSearchMessageFilterProxyModel->clearModel();
+    clearSearchModel();
+    mSearchText.clear();
+    mSearchPattern.clear();
     updateLabel();
 }
 
@@ -188,6 +190,7 @@ void SearchMessageWidget::slotSearchMessages(const QString &str)
         }
 
         clearSearchModel();
+        mSearchPattern = newStr;
         mSearchMessageFilterProxyModel->setSearchText(newStr);
         mSearchLineEdit->addCompletionItem(newStr);
         messageSearch(newStr, mRoomId, false);

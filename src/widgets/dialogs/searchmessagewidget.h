@@ -56,6 +56,8 @@ private:
     CommonMessageFilterProxyModel *const mSearchMessageFilterProxyModel;
 
     QString mSearchText;
+    // mSearchText decorated with the regular expression markers, as sent to the server
+    QString mSearchPattern;
     QByteArray mRoomId;
     int mOffset = 0;
     bool mMessageIsEmpty = false;
