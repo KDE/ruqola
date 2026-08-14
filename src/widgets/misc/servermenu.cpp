@@ -65,7 +65,7 @@ void ServerMenu::slotUpdateAccountMenu()
                     action->setChecked(true);
                 }
                 menu()->addAction(action);
-                if (mActionCollection) {
+                if (mActionCollection && shortcutIndex < 10) {
                     // Start shortcuts at 1 instead of 0 for better ergonomics (0 key is far from 1-9)
                     mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(shortcutIndex)));
                 }
