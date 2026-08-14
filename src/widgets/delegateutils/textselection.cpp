@@ -424,6 +424,10 @@ void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int 
 
 void TextSelection::selectWord(const QModelIndex &index, int charPos, QTextDocument *doc)
 {
+    if (!doc) {
+        qCWarning(RUQOLAWIDGETS_SELECTION_LOG) << " Document is null. It's a bug";
+        return;
+    }
     QTextCursor cursor(doc);
     cursor.setPosition(charPos);
     clear();
