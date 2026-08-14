@@ -56,7 +56,7 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
     QTextStream stream(&formattedTooltip);
     auto addLine = [&](const QString &line) {
         if (!line.isEmpty()) {
-            stream << "<p>"_L1 << line << "</p>"_L1;
+            stream << "<p>"_L1 << line.toHtmlEscaped() << "</p>"_L1;
         }
     };
 
