@@ -35,7 +35,6 @@ public:
 
     [[nodiscard]] QLineEdit *lineEdit() const;
 Q_SIGNALS:
-    void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);
 
 private:
