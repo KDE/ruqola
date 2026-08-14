@@ -22,7 +22,7 @@ public:
     ~SearchMessageWithDelayLineEdit() override;
     void addCompletionItem(const QString &str);
 
-    void insertSearchString(const QString &str);
+    void insertSearchString(bool needSpace, const QString &str, bool unique);
 
     [[nodiscard]] SearchMessageWithDelayLineEdit::SearchRegularExpressionInfo searchRegularExpressionInfo() const;
 

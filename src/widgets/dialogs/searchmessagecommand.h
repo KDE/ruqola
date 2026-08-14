@@ -31,4 +31,5 @@ public:
 
     [[nodiscard]] static QString generateCommandText(SearchMessageCommand::SearchMessageCommandType type);
     [[nodiscard]] static bool mustBeUnique(SearchMessageCommand::SearchMessageCommandType type);
+    [[nodiscard]] static bool needSpace(SearchMessageCommand::SearchMessageCommandType type);
 };

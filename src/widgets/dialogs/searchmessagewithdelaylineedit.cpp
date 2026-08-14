@@ -67,12 +67,28 @@ void SearchMessageWithDelayLineEdit::addCompletionItem(const QString &str)
     }
 }
 
-void SearchMessageWithDelayLineEdit::insertSearchString(const QString &str)
+void SearchMessageWithDelayLineEdit::insertSearchString(bool needSpace, const QString &str, bool unique)
 {
-    if (!text().isEmpty()) {
-        insert(u' ' + str);
+    const QString currentText = text();
+    if (unique && currentText.contains(str)) {
+        return;
+    }
+    if (!currentText.isEmpty()) {
+        QString newText = currentText;
+        if (!newText.endsWith(QLatin1Char(' '))) {
+            newText += u' ';
+        }
+        newText += str;
+        if (needSpace) {
+            newText += u' ';
+        }
+        setText(newText);
     } else {
-        insert(str);
+        QString newText = str;
+        if (needSpace) {
+            newText += u' ';
+        }
+        insert(newText);
     }
 }
 
