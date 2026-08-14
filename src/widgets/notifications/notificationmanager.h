@@ -29,8 +29,7 @@ Q_SIGNALS:
     void alert();
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void updateUnityService(int unreadMessage);
-    LIBRUQOLACORE_NO_EXPORT void createSystrayToolTip();
+    LIBRUQOLAWIDGETS_NO_EXPORT void createSystrayToolTip();
 
     QMap<QString, Notification::TrayInfo> mListTrayIcon;
     KActionCollection *const mActionCollection;
