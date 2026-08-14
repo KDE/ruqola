@@ -47,8 +47,12 @@ void SelectedMessageBackgroundAnimation::start()
     auto animation = new QPropertyAnimation(this, "backgroundColor"_ba, this);
     animation->setDuration(2000);
     const auto color = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color();
+    // Fade out the alpha channel only: interpolating towards Qt::transparent (transparent black)
+    // would drag the rgb channels to black and darken the highlight instead of dissolving it.
+    QColor endColor = color;
+    endColor.setAlpha(0);
     animation->setStartValue(color);
-    animation->setEndValue(QColor(Qt::transparent));
+    animation->setEndValue(endColor);
     animation->setEasingCurve(QEasingCurve::InOutQuad);
     animation->start();
     connect(animation, &QPropertyAnimation::finished, this, [this]() {

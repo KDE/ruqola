@@ -529,7 +529,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     if (message->textToSpeechInProgress()) {
         painter->fillRect(option.rect, mTextToSpeechInProgressColor);
-    } else if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
+    } else if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor.alpha() != 0) {
         painter->fillRect(option.rect, goToMessageBackgroundColor);
     } else if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);
