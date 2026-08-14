@@ -42,6 +42,7 @@ ListDiscussionDelegate::~ListDiscussionDelegate() = default;
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
+    drawBackground(painter, option, index);
 
     const Layout layout = doLayout(option, index);
 
@@ -212,8 +213,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 
     const QPixmap pix = makeAvatarPixmap(option.widget, index, senderTextSize.height());
     if (!pix.isNull()) {
-        const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        layout.avatarPixmap = scaledPixmap;
+        layout.avatarPixmap = pix;
     }
 
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
