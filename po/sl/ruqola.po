@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:48+0000\n"
-"PO-Revision-Date: 2026-08-11 06:58+0200\n"
+"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"PO-Revision-Date: 2026-08-13 07:22+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -765,120 +765,120 @@ msgstr "Manjka strežnikov url."
 msgid "Socket was unexpectedly closed."
 msgstr "Vtičnica je bila nepričakovano zaprta."
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:936
+#: core/messages/block/block.cpp:162 core/messages/message.cpp:935
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
 msgid "Conference Call"
 msgstr "Konferenčni klic"
 
-#: core/messages/message.cpp:836
+#: core/messages/message.cpp:835
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 se je pridružil(a) kanalu"
 
-#: core/messages/message.cpp:838
+#: core/messages/message.cpp:837
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 je zapustil(a) kanal"
 
-#: core/messages/message.cpp:840
+#: core/messages/message.cpp:839
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 je zapustil to ekipo"
 
-#: core/messages/message.cpp:843
+#: core/messages/message.cpp:842
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Temo je počistil: %1"
 
-#: core/messages/message.cpp:845
+#: core/messages/message.cpp:844
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 je spremenil temo na: <i>%1</i>"
 
-#: core/messages/message.cpp:848
+#: core/messages/message.cpp:847
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 je pogovoru dodal %1"
 
-#: core/messages/message.cpp:850
+#: core/messages/message.cpp:849
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 je spremenil ime sobe v <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:852
+#: core/messages/message.cpp:851
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 je odstranil uporabnika %1"
 
-#: core/messages/message.cpp:855
+#: core/messages/message.cpp:854
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Opis je počistil %1"
 
-#: core/messages/message.cpp:857
+#: core/messages/message.cpp:856
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 je spremenil opis sobe na %1"
 
-#: core/messages/message.cpp:861
+#: core/messages/message.cpp:860
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Obvestilo je počistil %1"
 
-#: core/messages/message.cpp:863
+#: core/messages/message.cpp:862
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 je spremenil obvestilo sobe na %1"
 
-#: core/messages/message.cpp:866
+#: core/messages/message.cpp:865
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 je spremenil zasebnost sobe v %1"
 
-#: core/messages/message.cpp:868
+#: core/messages/message.cpp:867
 #, kde-format
 msgid "Click to join to video"
 msgstr "Kliknite, če se želite pridružiti videopogovoru"
 
-#: core/messages/message.cpp:871
+#: core/messages/message.cpp:870
 #, kde-format
 msgid "Message Deleted"
 msgstr "Sporočilo izbrisano"
 
-#: core/messages/message.cpp:873
+#: core/messages/message.cpp:872
 #, kde-format
 msgid "Message Pinned"
 msgstr "Sporočilo pripeto"
 
-#: core/messages/message.cpp:875
+#: core/messages/message.cpp:874
 #, kde-format
 msgid "Message Pinned by %1"
 msgstr "Sporočilo pripel %1"
 
-#: core/messages/message.cpp:877
+#: core/messages/message.cpp:876
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "uporabniku %1 je preklical utišanje %2"
 
-#: core/messages/message.cpp:879
+#: core/messages/message.cpp:878
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "uporabnika %1 je utišal %2"
 
-#: core/messages/message.cpp:881
+#: core/messages/message.cpp:880
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "Vlogo »%3« je dodal v %1 uporabnik %2"
 
-#: core/messages/message.cpp:883
+#: core/messages/message.cpp:882
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "Vlogo »%3« je odstranil iz %1 uporabbnik %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:887
+#: core/messages/message.cpp:886
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -887,122 +887,122 @@ msgstr ""
 "To sporočilo je šifrirano od začetka do konca. Če si ga želite ogledati, "
 "morate vnesti svoj ključ šifriranja v nastavitvah vašega računa."
 
-#: core/messages/message.cpp:889
+#: core/messages/message.cpp:888
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Razprava, ustvarjena o »%1«"
 
-#: core/messages/message.cpp:891
+#: core/messages/message.cpp:890
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 se je pridružil pogovoru"
 
-#: core/messages/message.cpp:893
+#: core/messages/message.cpp:892
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "To soba je arhiviral uporabnik %1"
 
-#: core/messages/message.cpp:895
+#: core/messages/message.cpp:894
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "To sobo je povrnil iz arhiva uporabnik %1"
 
-#: core/messages/message.cpp:898 core/messages/message.cpp:945
+#: core/messages/message.cpp:897 core/messages/message.cpp:944
 #, kde-format
 msgid "Unknown action!"
 msgstr "Neznano dejanje!"
 
-#: core/messages/message.cpp:902
+#: core/messages/message.cpp:901
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Dobrodošli %1!"
 
-#: core/messages/message.cpp:904
+#: core/messages/message.cpp:903
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Avatar sobe je spremenil %1"
 
-#: core/messages/message.cpp:906
+#: core/messages/message.cpp:905
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Šifriranje te sobe je omogočil %1"
 
-#: core/messages/message.cpp:908
+#: core/messages/message.cpp:907
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Šifriranje te sobe je onemogočil %1"
 
-#: core/messages/message.cpp:910
+#: core/messages/message.cpp:909
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Sobo je samo za branje nastavil %1"
 
-#: core/messages/message.cpp:912
+#: core/messages/message.cpp:911
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Dovoljenje za pisanje je sobi dodal %1"
 
-#: core/messages/message.cpp:914
+#: core/messages/message.cpp:913
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 je dodal @%2 v to ekipo"
 
-#: core/messages/message.cpp:916
+#: core/messages/message.cpp:915
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 je odstranil @%2 iz te ekipe"
 
-#: core/messages/message.cpp:918
+#: core/messages/message.cpp:917
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 je pretvoril #%2 v ekipo"
 
-#: core/messages/message.cpp:920
+#: core/messages/message.cpp:919
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 je pretvoril #%2 v kanal"
 
-#: core/messages/message.cpp:922
+#: core/messages/message.cpp:921
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 je odstranil #%2 iz te ekipe"
 
-#: core/messages/message.cpp:924
+#: core/messages/message.cpp:923
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 je izbrisal #%2"
 
-#: core/messages/message.cpp:926
+#: core/messages/message.cpp:925
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 je dodal #%2 v to ekipo"
 
-#: core/messages/message.cpp:928
+#: core/messages/message.cpp:927
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "Dovoljenje za reakcije je sobi dodal %1"
 
-#: core/messages/message.cpp:930
+#: core/messages/message.cpp:929
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "Dovoljenje za reakcijo je sobi odstranil %1"
 
-#: core/messages/message.cpp:932
+#: core/messages/message.cpp:931
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 se je pridružil tej ekipi"
 
-#: core/messages/message.cpp:934
+#: core/messages/message.cpp:933
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 ključ se je uspešno osvežil"
 
-#: core/messages/message.cpp:938
+#: core/messages/message.cpp:937
 #, kde-format
 msgid "%1 banned %2"
 msgstr "%1 je prepovedal %2"
 
-#: core/messages/message.cpp:940
+#: core/messages/message.cpp:939
 #, kde-format
 msgid "%1 unbanned %2"
 msgstr "%1 je umaknil prepoved %2"
@@ -1354,17 +1354,17 @@ msgstr "Ni zadetkov."
 msgid "Notify all in this room"
 msgstr "Obvesti vse v tej sobi"
 
-#: core/model/messagesmodel.cpp:285
+#: core/model/messagesmodel.cpp:289
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Uredil %2: %1"
 
-#: core/model/messagesmodel.cpp:466
+#: core/model/messagesmodel.cpp:503
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
 
-#: core/model/messagesmodel.cpp:477
+#: core/model/messagesmodel.cpp:514
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Samo vi lahko vidite to sporočilo"
@@ -1743,7 +1743,7 @@ msgstr "Se je pridružil tej ekipi"
 msgid "(Autojoin)"
 msgstr "(Samodejno pridruži)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1186
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1185
 #, kde-format
 msgid "Owner"
 msgstr "Lastnik"
@@ -1831,27 +1831,27 @@ msgstr "Račun dodan"
 msgid "A new account was added."
 msgstr "Novi račun je bil dodan."
 
-#: core/room.cpp:1189
+#: core/room.cpp:1188
 #, kde-format
 msgid "Leader"
 msgstr "Vodja"
 
-#: core/room.cpp:1192
+#: core/room.cpp:1191
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1668
+#: core/room.cpp:1671
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanal je samo za branje."
 
-#: core/room.cpp:1671
+#: core/room.cpp:1674
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Blokirali ste ta kanal."
 
-#: core/room.cpp:1674
+#: core/room.cpp:1677
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanal je bil blokiran."
@@ -9110,7 +9110,7 @@ msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 #: widgets/dialogs/showlistmessagebasewidget.cpp:114
 #: widgets/discussions/showdiscussionswidget.cpp:101
 #: widgets/misc/searchtreebasewidget.cpp:80
-#: widgets/room/usersinroomflowwidget.cpp:136
+#: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:194
 #, kde-format
 msgid "(Click here for Loading more…)"
@@ -9155,7 +9155,7 @@ msgid "Display Image"
 msgstr "Pokaži sliko"
 
 #: widgets/dialogs/showimagedialog.cpp:60
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:262
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:277
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiraj sliko na odložišče"
@@ -9210,8 +9210,8 @@ msgctxt "@info:tooltip"
 msgid "Rotate Right"
 msgstr "Zavrti desno"
 
-#: widgets/dialogs/showimagewidget.cpp:231
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
+#: widgets/dialogs/showimagewidget.cpp:234
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:69
 #, kde-format
 msgid "Save Image"
 msgstr "Shrani sliko"
@@ -9515,8 +9515,7 @@ msgid "Disable Encryption"
 msgstr "Onemogoči šifriranje"
 
 #: widgets/encryption/e2edisablewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset encryption keys"
 msgstr "Ponovno nastavi ključe šifriranja"
@@ -9553,11 +9552,14 @@ msgid ""
 "may lose access to previously encrypted content.\n"
 "This action cannot be undone. Do you want to continue?"
 msgstr ""
+"Ponovna nastavitev šifrirnih ključev je priporočljiva le, če noben član sobe "
+"nima veljavnega ključa za ponovno pridobitev dostopa do prej šifrirane "
+"vsebine. Vsi člani lahko izgubijo dostop do prej šifrirane vsebine.\n"
+"Tega dejanja ni mogoče razveljaviti. Ali želite nadaljevati?"
 
 #: widgets/encryption/e2edisablewidget.cpp:71
 #: widgets/encryption/e2edisablewidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Encryption Keys"
 msgstr "Ponovno nastavi ključe šifriranja"
@@ -9565,7 +9567,7 @@ msgstr "Ponovno nastavi ključe šifriranja"
 #: widgets/encryption/e2edisablewidget.cpp:80
 #, kde-format
 msgid "The encryption keys of this room could not be reset."
-msgstr ""
+msgstr "Šifrirnih ključev te sobe ni bilo mogoče ponovno nastaviti."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:20
 #, kde-format
@@ -9878,45 +9880,45 @@ msgctxt "@info:tooltip"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:63
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:72
 #, kde-format
 msgid "Save Video"
 msgstr "Shrani video"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:66
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:75
 #, kde-format
 msgid "Save Sound"
 msgstr "Shrani zvok"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:78
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
 msgstr "Prenesi sliko"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:79
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:88
 #, kde-format
 msgid "Download Image…"
 msgstr "Prenesi sliko…"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:82
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Video"
 msgstr "Prenesi video"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:83
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:92
 #, kde-format
 msgid "Download Video…"
 msgstr "Prenesi video…"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:86
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:95
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Sound"
 msgstr "Prenesi zvok"
 
-#: widgets/misc/messageattachmentdownloadandsavejob.cpp:87
+#: widgets/misc/messageattachmentdownloadandsavejob.cpp:96
 #, kde-format
 msgid "Download Sound…"
 msgstr "Prenesi zvok…"
@@ -10070,20 +10072,18 @@ msgstr ""
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key."
-msgstr ""
+msgstr "Strežnik je zavrnil ponovno nastavitev vašega ključa E2E."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key: %1"
-msgstr ""
+msgstr "Strežnik je zavrnil ponovno nastavitev vašega ključa E2E: %1"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E Key"
-msgstr "Ponastavi ključ E2E"
+msgstr "Ponovno nastavi ključ E2E"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
 #, kde-format
@@ -10734,36 +10734,36 @@ msgctxt "@action"
 msgid "Configure Auto-Translate…"
 msgstr "Konfiguriraj samodejno prevajanje…"
 
-#: widgets/room/channelactionpopupmenu.cpp:98
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgctxt "@action"
 msgid "Invite Users"
 msgstr "Povabi uporabnike"
 
-#: widgets/room/channelactionpopupmenu.cpp:105
+#: widgets/room/channelactionpopupmenu.cpp:104
 #, kde-format
 msgctxt "@action"
 msgid "Add Users in Channel…"
 msgstr "Dodaj uporabnike v kanal…"
 
-#: widgets/room/channelactionpopupmenu.cpp:113
+#: widgets/room/channelactionpopupmenu.cpp:111
 #, kde-format
 msgid "Video Chat"
 msgstr "Video klepet"
 
-#: widgets/room/channelactionpopupmenu.cpp:120
+#: widgets/room/channelactionpopupmenu.cpp:118
 #, kde-format
 msgctxt "@action"
 msgid "Export Messages…"
 msgstr "Izvozi sporočila…"
 
-#: widgets/room/channelactionpopupmenu.cpp:127
+#: widgets/room/channelactionpopupmenu.cpp:125
 #, kde-format
 msgctxt "@action"
 msgid "Encrypt Messages"
 msgstr "Šifriraj sporočila"
 
-#: widgets/room/channelactionpopupmenu.cpp:133
+#: widgets/room/channelactionpopupmenu.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
@@ -10792,33 +10792,33 @@ msgstr "Napaka pri odpiranju datoteke"
 msgid "Join"
 msgstr "Pridružite se"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:429
+#: widgets/room/delegate/messagelistdelegate.cpp:437
 #, kde-format
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:439
+#: widgets/room/delegate/messagelistdelegate.cpp:447
 #: widgets/room/messagelistview.cpp:563
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:455
+#: widgets/room/delegate/messagelistdelegate.cpp:463
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:455
+#: widgets/room/delegate/messagelistdelegate.cpp:463
 #: widgets/room/messagelistview.cpp:675 widgets/room/messagelistview.cpp:737
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:719
+#: widgets/room/delegate/messagelistdelegate.cpp:728
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10827,7 +10827,7 @@ msgstr[1] "%1 odgovora"
 msgstr[2] "%1 odgovori"
 msgstr[3] "%1 odgovorov"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:729
+#: widgets/room/delegate/messagelistdelegate.cpp:738
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10836,54 +10836,54 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:729
+#: widgets/room/delegate/messagelistdelegate.cpp:738
 #, kde-format
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1050
+#: widgets/room/delegate/messagelistdelegate.cpp:1059
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Sledi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1054
+#: widgets/room/delegate/messagelistdelegate.cpp:1063
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Sporočilo je bilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1058
+#: widgets/room/delegate/messagelistdelegate.cpp:1067
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Sporočilo je bilo označeno z zvezdico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1062
+#: widgets/room/delegate/messagelistdelegate.cpp:1071
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Sporočilo ima prevedeno besedilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1066
+#: widgets/room/delegate/messagelistdelegate.cpp:1075
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1070
+#: widgets/room/delegate/messagelistdelegate.cpp:1079
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Dodaj reakcijo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1076
+#: widgets/room/delegate/messagelistdelegate.cpp:1085
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1076
+#: widgets/room/delegate/messagelistdelegate.cpp:1085
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11158,37 +11158,37 @@ msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Napaka prevajalca"
 
-#: widgets/room/messagetextedit.cpp:235
+#: widgets/room/messagetextedit.cpp:234
 #, kde-format
 msgid "Paste Image"
 msgstr "Prilepi sliko"
 
-#: widgets/room/messagetextedit.cpp:242
+#: widgets/room/messagetextedit.cpp:243
 #, kde-format
 msgid "Change Text Format"
 msgstr "Spremeni obliko besedila"
 
-#: widgets/room/messagetextedit.cpp:244
+#: widgets/room/messagetextedit.cpp:245
 #, kde-format
 msgid "Bold"
 msgstr "Krepko"
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Italic"
 msgstr "Ležeče"
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Strike-out"
 msgstr "Prečrtano"
 
-#: widgets/room/messagetextedit.cpp:248
+#: widgets/room/messagetextedit.cpp:249
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kode"
 
-#: widgets/room/messagetextedit.cpp:250
+#: widgets/room/messagetextedit.cpp:251
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url markdowna"
@@ -11427,7 +11427,7 @@ msgctxt "@title:window"
 msgid "Users"
 msgstr "Uporabniki"
 
-#: widgets/room/usersinroomflowwidget.cpp:142
+#: widgets/room/usersinroomflowwidget.cpp:151
 #, kde-format
 msgid "(Open External Dialog…)"
 msgstr "(Odpri zunanje pogovorno okno…)"
@@ -11914,13 +11914,13 @@ msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Skrij menijsko vrstico"
 
-#: widgets/ruqolamainwindow.cpp:1439
+#: widgets/ruqolamainwindow.cpp:1437
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Deluj s povezavo"
 
-#: widgets/ruqolamainwindow.cpp:1442
+#: widgets/ruqolamainwindow.cpp:1440
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
