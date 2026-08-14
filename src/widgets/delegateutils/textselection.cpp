@@ -33,6 +33,10 @@ TextSelection::OrderedPositions TextSelection::orderedPositions() const
     if (ret.fromRow > ret.toRow) {
         std::swap(ret.fromRow, ret.toRow);
         std::swap(ret.fromCharPos, ret.toCharPos);
+    } else if (ret.fromRow == ret.toRow && ret.fromCharPos >= 0 && ret.toCharPos >= 0 && ret.fromCharPos > ret.toCharPos) {
+        // Selection made right-to-left inside a single row. Negative positions are sentinels
+        // (selection anchored in an attachment/url preview), don't reorder them.
+        std::swap(ret.fromCharPos, ret.toCharPos);
     }
     return ret;
 }
@@ -143,12 +147,14 @@ bool TextSelection::contains(const QModelIndex &index, int charPos, [[maybe_unus
     // TODO implement check attachment
     const int row = index.row();
     const OrderedPositions ordered = orderedPositions();
+    // A negative char position means the endpoint is not in the message text (attachment/url preview),
+    // in which case the whole row counts as selected.
     if (row == ordered.fromRow) {
         if (row == ordered.toRow) // single line selection
-            return ordered.fromCharPos <= charPos && charPos <= ordered.toCharPos;
+            return ordered.fromCharPos <= charPos && (ordered.toCharPos < 0 || charPos <= ordered.toCharPos);
         return ordered.fromCharPos <= charPos;
     } else if (row == ordered.toRow) {
-        return charPos <= ordered.toCharPos;
+        return ordered.toCharPos < 0 || charPos <= ordered.toCharPos;
     } else {
         return row > ordered.fromRow && row < ordered.toRow;
     }
@@ -456,13 +462,19 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
     }
     if (msgAttach.isValid()) {
         QTextDocument *doc = factory->documentForAttachement(msgAttach);
-        selectWord(index, charPos, doc);
+        if (doc) {
+            selectWord(index, charPos, doc);
 
-        AttachmentSelection selection;
-        selection.fromCharPos = mStartPos;
-        selection.toCharPos = mEndPos;
-        selection.attachment = msgAttach;
-        mAttachmentSelection.append(std::move(selection));
+            AttachmentSelection selection;
+            selection.fromCharPos = mStartPos;
+            selection.toCharPos = mEndPos;
+            selection.attachment = msgAttach;
+            mAttachmentSelection.append(std::move(selection));
+            // The word is in the attachment document, not in the message text.
+            mStartPos = -1;
+            mEndPos = -1;
+            mEndSelectionArea = EndSelectionArea::Attachment;
+        }
     }
 }
 
@@ -482,6 +494,10 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
             selection.toCharPos = mEndPos;
             selection.messageUrl = msgUrl;
             mMessageUrlSelection.append(std::move(selection));
+            // The word is in the url preview document, not in the message text.
+            mStartPos = -1;
+            mEndPos = -1;
+            mEndSelectionArea = EndSelectionArea::MessageUrl;
         }
     }
 }
