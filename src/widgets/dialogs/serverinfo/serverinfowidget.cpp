@@ -29,7 +29,7 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
 
     mLogo->setObjectName(u"mLogo"_s);
     mLogo->hide(); // Hide by default
-    layout->addWidget(mLogo);
+    layout->addRow(mLogo);
 
     mAccountName->setObjectName(u"mAccountName"_s);
     mAccountName->setTextInteractionFlags(Qt::TextSelectableByMouse);
