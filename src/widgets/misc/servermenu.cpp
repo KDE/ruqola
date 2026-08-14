@@ -50,6 +50,7 @@ void ServerMenu::slotUpdateAccountMenu()
     } else {
         auto group = new QActionGroup(this);
         group->setExclusive(true);
+        int shortcutIndex = 1;
         for (int i = 0; i < accountNumber; ++i) {
             const auto index = model->index(i, 0);
             auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
@@ -66,11 +67,12 @@ void ServerMenu::slotUpdateAccountMenu()
                 menu()->addAction(action);
                 if (mActionCollection) {
                     // Start shortcuts at 1 instead of 0 for better ergonomics (0 key is far from 1-9)
-                    mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(i + 1)));
+                    mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(shortcutIndex)));
                 }
                 connect(action, &QAction::triggered, this, [accountName, accountManager]() {
                     accountManager->setCurrentAccount(accountName);
                 });
+                ++shortcutIndex;
             }
         }
     }
