@@ -12,6 +12,8 @@
 #include <QApplication>
 #include <QMenu>
 
+#include <utility>
+
 NotificationManager::NotificationManager(KActionCollection *actionCollection, QObject *parent)
     : QObject(parent)
     , mActionCollection(actionCollection)
@@ -38,12 +40,13 @@ void NotificationManager::createSystemTray(QObject *parent)
         mNotification = new Notification(parent);
         auto trayMenu = mNotification->contextMenu();
 
-        mContextStatusMenu = mNotification->contextMenu()->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
+        mContextStatusMenu = trayMenu->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
         mContextStatusMenu->menuAction()->setVisible(false);
         trayMenu->addAction(mActionCollection->action(KStandardActions::name(KStandardActions::Preferences)));
         trayMenu->addAction(mActionCollection->action(KStandardActions::name(KStandardActions::ConfigureNotifications)));
         // Create systray to show notifications on Desktop
         connect(mNotification, &Notification::alert, this, &NotificationManager::alert);
+        createSystrayToolTip();
     }
 #endif
 }
@@ -83,12 +86,10 @@ void NotificationManager::createSystrayToolTip()
     QString str;
     bool hasAlert = false;
     int unreadMessage = 0;
-    for (const auto &[key, value] : mListTrayIcon.asKeyValueRange()) {
-        const Notification::TrayInfo trayInfo = value;
-        if (mNotification) {
-            if (trayInfo.hasAlert) {
-                hasAlert = trayInfo.hasAlert;
-            }
+    for (const auto &[key, value] : std::as_const(mListTrayIcon).asKeyValueRange()) {
+        const Notification::TrayInfo &trayInfo = value;
+        if (trayInfo.hasAlert) {
+            hasAlert = true;
         }
         if (trayInfo.unreadMessage != 0) {
             if (mNotification) {

@@ -136,8 +136,10 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateOfflineAction();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNotifyNewRoom(const QString &accountName, const QByteArray &roomId);
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateContextStatusMenu();
 
     bool mReallyClose{false};
+    bool mLoginPageActivated{true};
 
     RuqolaCentralWidget *const mMainWidget;
     QAction *mServerInfo = nullptr;

@@ -916,6 +916,8 @@ void RuqolaMainWindow::slotConfigure()
 
         mAccountOverviewWidget->updateButtons();
         mNotificationManager->createSystemTray(this);
+        // Enabling the systray again creates a new (empty and hidden) status menu => fill it.
+        updateContextStatusMenu();
         Q_EMIT Ruqola::self()->translatorMenuChanged();
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     }
@@ -1029,6 +1031,7 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 
 void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
 {
+    mLoginPageActivated = loginPageActivated;
     const bool offline = mCurrentRocketChatAccount && mCurrentRocketChatAccount->offlineMode();
     mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels() && !offline);
     mCreateDirectMessages->setEnabled(!loginPageActivated && canCreateDirectMessages() && !offline);
@@ -1201,6 +1204,15 @@ void RuqolaMainWindow::slotUpdateStatusMenu()
         contextStatusMenu->setTitle(Utils::displaytextFromPresenceStatus(status));
         contextStatusMenu->setIcon(QIcon::fromTheme(Utils::iconFromPresenceStatus(status)));
     }
+}
+
+void RuqolaMainWindow::updateContextStatusMenu()
+{
+    if (auto contextStatusMenu = mNotificationManager->contextStatusMenu()) {
+        contextStatusMenu->menuAction()->setVisible(!mLoginPageActivated);
+    }
+    slotUpdateCustomUserStatus();
+    slotUpdateStatusMenu();
 }
 
 void RuqolaMainWindow::slotUpdateCustomUserStatus()
