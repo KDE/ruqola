@@ -77,9 +77,9 @@ void ViewLogWidget::slotInsertStdOutInfo(const QString &str)
 void ViewLogWidget::insertLine(const QString &str)
 {
 #if HAVE_TEXT_CUSTOM_EDITOR
-    mPlainTextEdit->editor()->appendHtml(u"<p white-space:pre\">%1</p>"_s.arg(str));
+    mPlainTextEdit->editor()->appendHtml(u"<p white-space:pre\">%1</p>"_s.arg(str.toHtmlEscaped()));
 #else
-    mPlainTextEdit->appendHtml(u"<p white-space:pre\">%1</p>"_s.arg(str));
+    mPlainTextEdit->appendHtml(u"<p white-space:pre\">%1</p>"_s.arg(str.toHtmlEscaped()));
 #endif
 }
 
