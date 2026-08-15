@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"POT-Creation-Date: 2026-08-15 00:45+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -3461,17 +3461,17 @@ msgid "Show Moderation Messages"
 msgstr "Moderációs üzenetek megjelenítése"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:217
+#: widgets/dialogs/searchmessagewidget.cpp:220
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
-#: widgets/room/commandpreviewwidget.cpp:161
+#: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, kde-format
 msgid "Loading…"
 msgstr "Betöltés…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:221
+#: widgets/dialogs/searchmessagewidget.cpp:224
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:180
 #, kde-format
@@ -3479,7 +3479,7 @@ msgid "No Message found"
 msgstr "Nem található üzenet"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:227
+#: widgets/dialogs/searchmessagewidget.cpp:230
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3622,7 +3622,7 @@ msgstr "Üzenet másolása"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:109
+#: widgets/notificationhistory/notificationhistorylistview.cpp:108
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, kde-format
 msgctxt "@action"
@@ -3633,7 +3633,7 @@ msgstr "Szöveg felolvasása"
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
-#: widgets/notificationhistory/notificationhistorylistview.cpp:115
+#: widgets/notificationhistory/notificationhistorylistview.cpp:114
 #: widgets/room/messagelistview.cpp:468
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
@@ -7778,7 +7778,7 @@ msgid "Username or email:"
 msgstr "Felhasználónév vagy e-mail"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1114
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7788,7 +7788,7 @@ msgstr ""
 "Ha nem kap rövidesen e-mailt, akkor térjen vissza, és próbálja meg újra."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1115
+#: widgets/ruqolamainwindow.cpp:1118
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8982,55 +8982,55 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Szoba profilképének kiválasztása"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From Me"
 msgstr "Feladó:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
 msgstr "Az üzenet nem található."
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From"
 msgstr "Feladó:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:46
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Filter channels (%1)"
@@ -9038,57 +9038,57 @@ msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
 msgstr "Csatornák szűrése (%1)"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Day"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@action:button"
 msgid "Has Location"
 msgstr "Fordítás"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@action:button"
 msgid "Is Pinned"
 msgstr "Üzenet kitűzve"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start"
@@ -9096,7 +9096,7 @@ msgctxt "@action:button"
 msgid "Has Star"
 msgstr "Kezdés"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -9292,7 +9292,7 @@ msgid "Display Image"
 msgstr "Kép megjelenítése"
 
 #: widgets/dialogs/showimagedialog.cpp:60
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:277
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:284
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kép másolása a vágólapra"
@@ -9316,7 +9316,7 @@ msgstr "Alkalmazások keresése"
 msgid "Show previous image"
 msgstr "Üzenet megjelenítése"
 
-#: widgets/dialogs/showimageprevnextimagewidget.cpp:31
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:30
 #, fuzzy, kde-format
 #| msgctxt "@info:shell"
 #| msgid "Show Message"
@@ -9540,14 +9540,14 @@ msgid_plural "%1 teams (Total: %2)"
 msgstr[0] "%1 csapat (Összesen: %2)"
 msgstr[1] "%1 csapat (Összesen: %2)"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:83
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 üzenet"
 msgstr[1] "%1 üzenet"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:84
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:253
 #, kde-format
 msgid "Open Discussion"
 msgstr "Megbeszélés megnyitása"
@@ -10757,13 +10757,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Ugrás az üzenethez"
 
-#: widgets/notifications/notificationmanager.cpp:41
+#: widgets/notifications/notificationmanager.cpp:43
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Állapot"
 
-#: widgets/notifications/notificationmanager.cpp:98
+#: widgets/notifications/notificationmanager.cpp:99
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%2 olvasatlan üzenet itt: %1"
@@ -12106,18 +12106,18 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Csapat létrehozása"
 
-#: widgets/ruqolamainwindow.cpp:1013
+#: widgets/ruqolamainwindow.cpp:1015
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1013
+#: widgets/ruqolamainwindow.cpp:1015
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Csatornanapló megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1261
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -12126,20 +12126,20 @@ msgstr ""
 "<qt>Teljesen elrejti a menüsávot. Ezzel a paranccsal állítható vissza: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1252
+#: widgets/ruqolamainwindow.cpp:1264
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menüsáv elrejtése"
 
-#: widgets/ruqolamainwindow.cpp:1437
+#: widgets/ruqolamainwindow.cpp:1449
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Kilépett"
 
-#: widgets/ruqolamainwindow.cpp:1440
+#: widgets/ruqolamainwindow.cpp:1452
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"

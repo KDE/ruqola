@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"POT-Creation-Date: 2026-08-15 00:45+0000\n"
 "PO-Revision-Date: 2026-01-16 19:56+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3420,17 +3420,17 @@ msgid "Show Moderation Messages"
 msgstr "Näytä moderointiviestit"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:217
+#: widgets/dialogs/searchmessagewidget.cpp:220
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
-#: widgets/room/commandpreviewwidget.cpp:161
+#: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, kde-format
 msgid "Loading…"
 msgstr "Ladataan…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:221
+#: widgets/dialogs/searchmessagewidget.cpp:224
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:180
 #, kde-format
@@ -3438,7 +3438,7 @@ msgid "No Message found"
 msgstr "Viestejä ei löytynyt"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:227
+#: widgets/dialogs/searchmessagewidget.cpp:230
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3581,7 +3581,7 @@ msgstr "Kopioi viesti"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:109
+#: widgets/notificationhistory/notificationhistorylistview.cpp:108
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, kde-format
 msgctxt "@action"
@@ -3592,7 +3592,7 @@ msgstr "Puhu teksti"
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
-#: widgets/notificationhistory/notificationhistorylistview.cpp:115
+#: widgets/notificationhistory/notificationhistorylistview.cpp:114
 #: widgets/room/messagelistview.cpp:468
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
@@ -7674,7 +7674,7 @@ msgid "Username or email:"
 msgstr "Käyttäjätunnus tai sähköposti:"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1114
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7684,7 +7684,7 @@ msgstr ""
 "Ellei viestiä pikapuoliin kuulu, palaa yrittämään uudestaan."
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1115
+#: widgets/ruqolamainwindow.cpp:1118
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8848,55 +8848,55 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Valitse huoneen avatar"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From Me"
 msgstr "Lähettäjä:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
 msgstr "Viestiä ei löytynyt"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From"
 msgstr "Lähettäjä:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:46
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Filter channels (%1)"
@@ -8904,58 +8904,58 @@ msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
 msgstr "Suodata kanavia (%1)"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, fuzzy, kde-format
 #| msgid "Delay:"
 msgctxt "@action:button"
 msgid "Day"
 msgstr "Viive:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@action:button"
 msgid "Has Location"
 msgstr "Käännös"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@action:button"
 msgid "Is Pinned"
 msgstr "Viesti kiinnitetty"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Start"
@@ -8963,7 +8963,7 @@ msgctxt "@action:button"
 msgid "Has Star"
 msgstr "Aloita"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -9158,7 +9158,7 @@ msgid "Display Image"
 msgstr "Näytä kuva"
 
 #: widgets/dialogs/showimagedialog.cpp:60
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:277
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:284
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopioi kuva leikepöydälle"
@@ -9178,7 +9178,7 @@ msgstr "Muu sovellus…"
 msgid "Show previous image"
 msgstr "Näytä edellinen kuva"
 
-#: widgets/dialogs/showimageprevnextimagewidget.cpp:31
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:30
 #, kde-format
 msgid "Show next image"
 msgstr "Näytä seuraava kuva"
@@ -9398,14 +9398,14 @@ msgid_plural "%1 teams (Total: %2)"
 msgstr[0] "%1 työryhmä (kaikkiaan: %2)"
 msgstr[1] "%1 työryhmää (kaikkiaan: %2)"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:83
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:84
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:253
 #, kde-format
 msgid "Open Discussion"
 msgstr "Avaa keskustelu"
@@ -10578,13 +10578,13 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Siirry viestiin"
 
-#: widgets/notifications/notificationmanager.cpp:41
+#: widgets/notifications/notificationmanager.cpp:43
 #, kde-format
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Tila"
 
-#: widgets/notifications/notificationmanager.cpp:98
+#: widgets/notifications/notificationmanager.cpp:99
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "Käyttäjällä %1 on %2 lukematonta viestiä"
@@ -11899,18 +11899,18 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Luo työryhmä"
 
-#: widgets/ruqolamainwindow.cpp:1013
+#: widgets/ruqolamainwindow.cpp:1015
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Ei voida kirjoittaa lokitiedostoon %1"
 
-#: widgets/ruqolamainwindow.cpp:1013
+#: widgets/ruqolamainwindow.cpp:1015
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Näytä kanavaloki"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1261
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11919,19 +11919,19 @@ msgstr ""
 "<qt>Tämä piilottaa valikkorivin kokonaan. Saat sen uudelleen näkyviin "
 "painamalla %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1252
+#: widgets/ruqolamainwindow.cpp:1264
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Piilota valikkorivi"
 
-#: widgets/ruqolamainwindow.cpp:1437
+#: widgets/ruqolamainwindow.cpp:1449
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Työskentele verkollisessa tilassa"
 
-#: widgets/ruqolamainwindow.cpp:1440
+#: widgets/ruqolamainwindow.cpp:1452
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:45+0000\n"
+"POT-Creation-Date: 2026-08-15 00:45+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3599,10 +3599,10 @@ msgid "Show Moderation Messages"
 msgstr "Nachricht senden"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:217
+#: widgets/dialogs/searchmessagewidget.cpp:220
 #: widgets/dialogs/showlistmessagebasewidget.cpp:104
 #: widgets/discussions/showdiscussionswidget.cpp:90
-#: widgets/room/commandpreviewwidget.cpp:161
+#: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, fuzzy, kde-format
 #| msgid "Loading..."
@@ -3610,7 +3610,7 @@ msgid "Loading…"
 msgstr "Wird geladen ..."
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:221
+#: widgets/dialogs/searchmessagewidget.cpp:224
 #: widgets/dialogs/showlistmessagebasewidget.cpp:106
 #: widgets/room/usersinroomwidget.cpp:180
 #, kde-format
@@ -3618,7 +3618,7 @@ msgid "No Message found"
 msgstr "Es wurde keine Nachricht gefunden"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:227
+#: widgets/dialogs/searchmessagewidget.cpp:230
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3769,7 +3769,7 @@ msgstr "Nachricht kopieren"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
 #: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:109
+#: widgets/notificationhistory/notificationhistorylistview.cpp:108
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
 #, fuzzy, kde-format
 #| msgid "Speak Text"
@@ -3781,7 +3781,7 @@ msgstr "Text vorlesen"
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
-#: widgets/notificationhistory/notificationhistorylistview.cpp:115
+#: widgets/notificationhistory/notificationhistorylistview.cpp:114
 #: widgets/room/messagelistview.cpp:468
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, fuzzy, kde-format
@@ -8026,7 +8026,7 @@ msgid "Username or email:"
 msgstr "Benutzername"
 
 #: widgets/common/authenticationloginwidget.cpp:162
-#: widgets/ruqolamainwindow.cpp:1114
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8034,7 +8034,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:163
-#: widgets/ruqolamainwindow.cpp:1115
+#: widgets/ruqolamainwindow.cpp:1118
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -9279,118 +9279,118 @@ msgctxt "@title:window"
 msgid "Select Room Avatar"
 msgstr "Raum-Avatar auswählen"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From Me"
 msgstr "Von:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Message not found."
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
 msgstr "Nachricht nicht gefunden."
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "@action:button"
 msgid "From"
 msgstr "Von:"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Finds Messages from a specific user. (Use the username format without space)"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:44
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
 #, kde-format
 msgctxt "@action:button"
 msgid "Order:desc"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Sorts message by descending timestamp"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:45
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:46
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, fuzzy, kde-format
 #| msgid "Filter Channels (CTRL + K)"
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
 msgstr "Kanäle filtern (Strg+K)"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Day"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@action:button"
 msgid "Has Location"
 msgstr "Übersetzung"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgctxt "@action:button"
 msgid "Is Pinned"
 msgstr "Nachricht angeheftet"
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
 msgstr ""
 
-#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
+#: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgctxt "@info:tooltip"
@@ -9591,7 +9591,7 @@ msgid "Display Image"
 msgstr "Bild anzeigen"
 
 #: widgets/dialogs/showimagedialog.cpp:60
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:277
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:284
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Bild in die Zwischenablage kopieren"
@@ -9613,7 +9613,7 @@ msgstr "Programm nicht gefunden"
 msgid "Show previous image"
 msgstr "Alle Nachrichten"
 
-#: widgets/dialogs/showimageprevnextimagewidget.cpp:31
+#: widgets/dialogs/showimageprevnextimagewidget.cpp:30
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Show next image"
@@ -9851,14 +9851,14 @@ msgid_plural "%1 teams (Total: %2)"
 msgstr[0] "%1 Team (Gesamt: %2)"
 msgstr[1] "%1 Teams (Gesamt: %2)"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:83
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 Nachricht"
 msgstr[1] "%1 Nachrichten"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:84
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:253
 #, kde-format
 msgid "Open Discussion"
 msgstr ""
@@ -11091,14 +11091,14 @@ msgctxt "@action"
 msgid "Go to Message"
 msgstr "Nachricht"
 
-#: widgets/notifications/notificationmanager.cpp:41
+#: widgets/notifications/notificationmanager.cpp:43
 #, fuzzy, kde-format
 #| msgid "Status"
 msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Status"
 
-#: widgets/notifications/notificationmanager.cpp:98
+#: widgets/notifications/notificationmanager.cpp:99
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 hat %2 ungelesene Nachrichten"
@@ -12567,39 +12567,39 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Team erstellen"
 
-#: widgets/ruqolamainwindow.cpp:1013
+#: widgets/ruqolamainwindow.cpp:1015
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1013
+#: widgets/ruqolamainwindow.cpp:1015
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kein Kanal gefunden"
 
-#: widgets/ruqolamainwindow.cpp:1249
+#: widgets/ruqolamainwindow.cpp:1261
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1252
+#: widgets/ruqolamainwindow.cpp:1264
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1437
+#: widgets/ruqolamainwindow.cpp:1449
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Offline"
 
-#: widgets/ruqolamainwindow.cpp:1440
+#: widgets/ruqolamainwindow.cpp:1452
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
