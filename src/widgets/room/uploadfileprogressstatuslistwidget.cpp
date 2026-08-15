@@ -9,6 +9,7 @@
 #include "uploadfileprogressstatuswidget.h"
 #include <QScrollBar>
 #include <QVBoxLayout>
+#include <utility>
 
 using namespace Qt::Literals::StringLiterals;
 UploadFileProgressStatusListWidget::UploadFileProgressStatusListWidget(QWidget *parent)
@@ -61,7 +62,8 @@ void UploadFileProgressStatusListWidget::addProgressStatusWidget(int identifier)
     ti->setIdentifier(identifier);
     mBigBox->layout()->addWidget(ti);
 
-    resize(mBigBox->width(), mBigBox->height());
+    // Our size hint depends on mBigBox's one: tell the layout in the parent that it changed.
+    updateGeometry();
 
     mUploadItems.insert(identifier, ti);
     connect(ti, &UploadFileProgressStatusWidget::cancelUpload, this, &UploadFileProgressStatusListWidget::cancelUpload);
@@ -71,8 +73,24 @@ void UploadFileProgressStatusListWidget::removeUploadFileProgressStatusWidget(in
 {
     UploadFileProgressStatusWidget *item = mUploadItems.take(identifier);
     if (item) {
+        connect(item, &QObject::destroyed, this, &UploadFileProgressStatusListWidget::slotLayoutFirstItem);
+        item->setVisible(false);
+        item->deleteLater();
+        if (mUploadItems.isEmpty()) {
+            setVisible(false);
+        }
+    }
+}
+
+void UploadFileProgressStatusListWidget::clear()
+{
+    for (auto item : std::as_const(mUploadItems)) {
+        item->setVisible(false);
         item->deleteLater();
     }
+    mUploadItems.clear();
+    setVisible(false);
+    updateGeometry();
 }
 
 void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info,
@@ -87,13 +105,7 @@ void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi:
             item->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
             setVisible(true);
         } else {
-            connect(item, &QObject::destroyed, this, &UploadFileProgressStatusListWidget::slotLayoutFirstItem);
-            item->setVisible(false);
-            mUploadItems.remove(identifier);
-            item->deleteLater();
-            if (mUploadItems.isEmpty()) {
-                setVisible(false);
-            }
+            removeUploadFileProgressStatusWidget(identifier);
         }
     }
 }

@@ -43,6 +43,7 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
             }
         }
         mUploadMap.remove(jobIdentifier);
+        Q_EMIT uploadFinished(jobIdentifier);
     });
     connect(job, &RocketChatRestApi::UploadFileJob::confirmMediaRequested, this, &UploadFileManager::confirmMedia);
     if (!job->start()) {
@@ -89,6 +90,8 @@ void UploadFileManager::cancelJob(int identifier)
         removeFile(job->uploadFileInfo());
         job->abort();
     }
+    // Aborting the reply doesn't necessarily report any progress, so tell listeners that this upload is over.
+    Q_EMIT uploadFinished(identifier);
 }
 
 #include "moc_uploadfilemanager.cpp"

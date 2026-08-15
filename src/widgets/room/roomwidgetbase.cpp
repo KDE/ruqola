@@ -210,6 +210,11 @@ void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::
     mUploadFileProgressStatusListWidget->uploadProgress(info, jobIdentifier, accountName);
 }
 
+void RoomWidgetBase::slotUploadFinished(int jobIdentifier)
+{
+    mUploadFileProgressStatusListWidget->removeUploadFileProgressStatusWidget(jobIdentifier);
+}
+
 QByteArray RoomWidgetBase::roomId() const
 {
     return mRoomId;
@@ -225,17 +230,19 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
         disconnect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
+        disconnect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadFinished, this, &RoomWidgetBase::slotUploadFinished);
         disconnect(mCurrentRocketChatAccount,
                    &RocketChatAccount::ownUserUiPreferencesChanged,
                    mMessageLineWidget,
                    &MessageLineWidget::slotOwnUserPreferencesChanged);
-        // hide it when we switch account.
-        mUploadFileProgressStatusListWidget->setVisible(false);
+        // The uploads shown there belong to the previous account: don't keep them around.
+        mUploadFileProgressStatusListWidget->clear();
     }
 
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
     connect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
+    connect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadFinished, this, &RoomWidgetBase::slotUploadFinished);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
