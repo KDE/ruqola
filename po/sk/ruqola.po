@@ -1013,16 +1013,14 @@ msgid "%1 has requested key refresh."
 msgstr "%1 požiadal o obnovenie kľúča."
 
 #: core/messages/message.cpp:888
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 a %2"
+msgstr "%1 zablokoval %2"
 
 #: core/messages/message.cpp:890
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 a %2"
+msgstr "%1 odblokoval %2"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1426,7 +1424,7 @@ msgstr[2] "%1 seconds"
 #: core/model/notificationhistorymodel.cpp:71
 #, kde-format
 msgid "Room \"%1\" was added"
-msgstr ""
+msgstr "Miestnosť „%1“ bola pridaná"
 
 #: core/model/notificationpreferencemodel.cpp:54
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:261
@@ -1558,7 +1556,7 @@ msgstr "Súkromné adresy"
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Koncept"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
@@ -2217,10 +2215,9 @@ msgid "Invalid Parameters"
 msgstr "Neplatné argumenty"
 
 #: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
-#, fuzzy, kde-format
-#| msgid "User is not in this room"
+#, kde-format
 msgid "User is banned from this room"
-msgstr "Používateľ nie je v tejto miestnosti"
+msgstr "Používateľ je v tejto miestnosti zablokovaný"
 
 #: rocketchatrestapi-qt/channels/channeljoinjob.cpp:108
 #, kde-format
@@ -3280,10 +3277,10 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr "Hľadať súbor..."
+msgstr "Uložiť"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
@@ -3306,11 +3303,10 @@ msgstr "Všetky správy"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Private Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "Súkromné adresy"
+msgstr "Koncepty správ"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
 #, kde-format
@@ -8563,8 +8559,7 @@ msgid "Discussion Name"
 msgstr "Názov diskusie"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Topic"
 msgstr "Topic"
@@ -9093,44 +9088,35 @@ msgid "(Click here for Loading more…)"
 msgstr "(Kliknite sem for Loading more…)"
 
 #: widgets/dialogs/showbannedusersdialog.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Pinned Messages - %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
-msgstr "Show Pinned Messages - %1"
+msgstr "Zobraziť zablokovaných používateľov – %1"
 
 #: widgets/dialogs/showbanneduserslistview.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action"
 msgid "Unban User"
 msgstr "Odblokovať používateľa"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "Hľadať súbor..."
+msgstr "Hľadať zablokovaných používateľov…"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid "No User found"
+#, kde-format
 msgid "No Banned Users found"
-msgstr "Súkromné adresy"
+msgstr "Nenašli sa žiadni zablokovaní používatelia"
 
 #: widgets/dialogs/showbanneduserswidget.cpp:118
-#, fuzzy, kde-format
-#| msgid "%1 User in room (Total: %2)"
-#| msgid_plural "%1 Users in room (Total: %2)"
+#, kde-format
 msgid "%1 Banned User in room (Total: %2)"
 msgid_plural "%1 Banned Users in room (Total: %2)"
-msgstr[0] "%1 používateľov v miestnosti (Celkovo: %2)"
-msgstr[1] "%1 používateľ v miestnosti (Celkovo: %2)"
-msgstr[2] "%1 používatelia v miestnosti (Celkovo: %2)"
+msgstr[0] "%1 používateľ so zákazom v miestnosti (celkovo: %2)"
+msgstr[1] "%1 používatelia so zákazom v miestnosti (celkovo: %2)"
+msgstr[2] "%1 používateľov so zákazom v miestnosti (celkovo: %2)"
 
 #: widgets/dialogs/showimagedialog.cpp:39
 #, kde-format
@@ -9183,17 +9169,16 @@ msgid "Fit to View"
 msgstr "Prispôsobiť zobrazeniu"
 
 #: widgets/dialogs/showimagewidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Rate Limiter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr "Rate Limiter"
+msgstr "Otočiť doľava"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "Otočiť doprava"
 
 #: widgets/dialogs/showimagewidget.cpp:231
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:60
@@ -9251,12 +9236,10 @@ msgid "Video: %1"
 msgstr "Video: %1"
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "Odblokovať používateľa"
+msgstr "Odblokovať používateľov"
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
@@ -9264,6 +9247,8 @@ msgctxt "@label:textbox"
 msgid ""
 "Some user are banned from this room. Do you want to unban and add them back ?"
 msgstr ""
+"Niektorí používatelia majú do tejto miestnosti zákaz vstupu. Chcete im zákaz "
+"zrušiť a pridať ich späť?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
 #: widgets/room/messagelinewidget.cpp:508
@@ -9778,17 +9763,15 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "Prihlásenie zlyhalo: Používateľ aplikácie sa nemôže prihlásiť."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "Not network found."
 msgstr "Súkromné adresy"
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Network is offline mode."
+#, kde-format
 msgctxt "@action:button"
 msgid "Switch Offline Mode"
-msgstr "Sieť je v režime offline."
+msgstr "Prepnúť režim offline"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizedialog.cpp:20
 #, kde-format
@@ -10502,7 +10485,7 @@ msgstr "Vyčistiť"
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
-msgstr ""
+msgstr "Prepnúť na novú miestnosť"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
 #: widgets/room/messagelistview.cpp:741
@@ -10717,12 +10700,10 @@ msgid "Encrypt Messages"
 msgstr "Šifrovať správy"
 
 #: widgets/room/channelactionpopupmenu.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Pinned Messages…"
+#, kde-format
 msgctxt "@action"
 msgid "Show Banned Users…"
-msgstr "Hľadať súbor..."
+msgstr "Zobraziť zablokovaných používateľov…"
 
 #: widgets/room/debugdialog/showdebugdialog.cpp:24
 #, kde-format
@@ -11429,23 +11410,18 @@ msgid "Ignore User"
 msgstr "Ignorovať"
 
 #: widgets/room/usersinroommenu.cpp:104
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user?"
+#, kde-format
 msgid "Do you want to remove this user from Channel?"
-msgstr "Do chcete to remove this user?"
+msgstr "Chcete tohto používateľa odstrániť z kanála?"
 
 #: widgets/room/usersinroommenu.cpp:105
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@title"
 msgid "Remove User"
 msgstr "Odstrániť účet"
 
 #: widgets/room/usersinroommenu.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
 msgstr "Odstrániť účet"
@@ -11541,34 +11517,27 @@ msgid "Report User"
 msgstr "Správa"
 
 #: widgets/room/usersinroommenu.cpp:218
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgctxt "@action"
 msgid "Ban User From Room"
-msgstr "Pridať používateľov do miestnosti"
+msgstr "Zablokovať používateľa v miestnosti"
 
 #: widgets/room/usersinroommenu.cpp:230
-#, fuzzy, kde-format
-#| msgid "Do you want to block this user?"
+#, kde-format
 msgid "Do you want to ban this user?"
-msgstr "Do chcete to block this user?"
+msgstr "Chcete tohto používateľa zablokovať?"
 
 #: widgets/room/usersinroommenu.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Odblokovať používateľa"
+msgstr "Zablokovať používateľa"
 
 #: widgets/room/usersinroommenu.cpp:232
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Unblock User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
-msgstr "Odblokovať používateľa"
+msgstr "Zablokovať používateľa"
 
 #: widgets/room/usersinroomwidget.cpp:165
 #, kde-format
@@ -12146,45 +12115,35 @@ msgstr "Pridať účet"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:18
 msgid "Improve offline Mode"
-msgstr ""
+msgstr "Vylepšenie režimu offline"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:19
-#, fuzzy
-#| msgid "Allow to send multi files."
 msgid "Allow to open saved file."
-msgstr "Povoliť odosielanie viacerých súborov."
+msgstr "Možnosť otvoriť uložený súbor."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:20
-#, fuzzy
-#| msgid "Fix duplicated messages in search message dialog."
 msgid "Allow to rotate image in show image dialog."
-msgstr "Opustiť kanál"
+msgstr "Možnosť otočiť obrázok v dialógu zobrazenia obrázka."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:21
 msgid "Add new room info in notification history dialog."
-msgstr ""
+msgstr "Pridanie informácií o novej miestnosti v dialógu histórie oznámení."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:22
 msgid "Use new textmessagewidget for error notification."
-msgstr ""
+msgstr "Použitie nového textmessagewidget na oznámenie chyby."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:23
-#, fuzzy
-#| msgid "Implement message style"
 msgid "Implement Draft message sorting channel."
-msgstr "Hľadať súbor..."
+msgstr "Doplnené triedenie kanálov podľa konceptov správ."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:24
-#, fuzzy
-#| msgid "Implement Pending Typed database storage."
 msgid "Implement Banned Users list dialog."
-msgstr "Implement Pending Typed database storage."
+msgstr "Doplnený dialóg so zoznamom zablokovaných používateľov."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:25
-#, fuzzy
-#| msgid "Implement mute/unmute user."
 msgid "Implement Banned/Unbanned Users."
-msgstr "Hľadať súbor..."
+msgstr "Doplnené blokovanie a odblokovanie používateľov."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:34
 #, kde-format
