@@ -52,12 +52,11 @@ QString LocalDatabaseBase::schemaDataBase() const
     return {};
 }
 
-QString LocalDatabaseBase::databaseName(const QString &name) const
+QString LocalDatabaseBase::databaseNamePrefix(DatabaseType type)
 {
     QString prefix;
-    switch (mDatabaseType) {
+    switch (type) {
     case DatabaseType::Unknown:
-        qCWarning(RUQOLA_DATABASE_LOG) << "Unknown data base it's a bug" << name;
         break;
     case DatabaseType::Accounts:
         prefix = u"accounts-"_s;
@@ -86,7 +85,61 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::Logger:
         break;
     }
-    return prefix + name;
+    return prefix;
+}
+
+QString LocalDatabaseBase::databaseName(const QString &name) const
+{
+    if (mDatabaseType == DatabaseType::Unknown) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Unknown data base it's a bug" << name;
+    }
+    return databaseNamePrefix(mDatabaseType) + name;
+}
+
+void LocalDatabaseBase::removeDataBaseConnections(const QString &accountName)
+{
+    if (accountName.isEmpty()) {
+        return;
+    }
+    // All types: the caller removes the account as a whole, and each database class registers its
+    // connections under its own prefix.
+    static constexpr DatabaseType allTypes[] = {
+        DatabaseType::Accounts,
+        DatabaseType::Rooms,
+        DatabaseType::Messages,
+        DatabaseType::Logger,
+        DatabaseType::Global,
+        DatabaseType::E2E,
+        DatabaseType::E2ERooms,
+        DatabaseType::PendingTypedInfo,
+        DatabaseType::RoomSubscriptions,
+    };
+
+    const QStringList connectionNames = QSqlDatabase::connectionNames();
+    QStringList namesToRemove;
+    for (const DatabaseType type : allTypes) {
+        const QString accountConnection = databaseNamePrefix(type) + accountName;
+        // Per-room databases are registered as "<prefix><accountName>-<roomId>"
+        const QString roomConnectionPrefix = accountConnection + u'-';
+        for (const QString &name : connectionNames) {
+            if (name == accountConnection || name.startsWith(roomConnectionPrefix)) {
+                namesToRemove.append(name);
+            }
+        }
+    }
+    namesToRemove.removeDuplicates();
+
+    for (const QString &name : std::as_const(namesToRemove)) {
+        {
+            // Don't reopen it just to close it, and let the copy die before removeDatabase()
+            QSqlDatabase db = QSqlDatabase::database(name, false);
+            if (db.isOpen()) {
+                db.close();
+            }
+        }
+        QSqlDatabase::removeDatabase(name);
+    }
+    qCDebug(RUQOLA_DATABASE_LOG) << "Removed" << namesToRemove.count() << "database connection(s) for account" << accountName;
 }
 
 void LocalDatabaseBase::setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger)

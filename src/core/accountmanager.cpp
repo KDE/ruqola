@@ -6,6 +6,7 @@
 
 #include "accountmanager.h"
 #include "job/validateinviteserverjob.h"
+#include "localdatabase/localdatabasebase.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -474,6 +475,10 @@ void AccountManager::removeLogs(const QString &accountName)
 
 void AccountManager::removeDatabaseAccount(const QString &accountName)
 {
+    // Sqlite connections are process-wide and outlive the account: close them before removing the
+    // files, otherwise re-adding an account with the same name would reuse a connection pointing at
+    // a deleted file (writes lost, tables gone).
+    LocalDatabaseBase::removeDataBaseConnections(accountName);
     {
         const QString directory = LocalDatabaseUtils::localAccountsDatabasePath() + accountName;
         removeDirectory(directory);

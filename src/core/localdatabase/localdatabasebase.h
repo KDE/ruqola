@@ -35,6 +35,10 @@ public:
     [[nodiscard]] QString schemaDatabaseStr() const;
     void setDatabaseLogger(RocketChatRestApi::AbstractLogger *logger);
 
+    // Closes and unregisters every sqlite connection belonging to this account, whatever the
+    // database type. Must be called before the account files are deleted from disk.
+    static void removeDataBaseConnections(const QString &accountName);
+
 protected:
     [[nodiscard]] virtual QString schemaDataBase() const;
     [[nodiscard]] bool initializeDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db);
@@ -42,6 +46,7 @@ protected:
     [[nodiscard]] bool checkDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db);
     [[nodiscard]] bool checkDataBase(const QString &accountName, QSqlDatabase &db);
     [[nodiscard]] QString databaseName(const QString &name) const;
+    [[nodiscard]] static QString databaseNamePrefix(DatabaseType type);
 
     const QString mBasePath;
     const DatabaseType mDatabaseType = DatabaseType::Unknown;
