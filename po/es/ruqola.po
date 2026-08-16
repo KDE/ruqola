@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:45+0000\n"
-"PO-Revision-Date: 2026-08-08 17:23+0100\n"
+"PO-Revision-Date: 2026-08-16 00:36+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -857,10 +857,9 @@ msgid "Message Pinned"
 msgstr "Mensaje fijado"
 
 #: core/messages/message.cpp:874
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgid "Message Pinned by %1"
-msgstr "Mensaje fijado"
+msgstr "Mensaje fijado por %1"
 
 #: core/messages/message.cpp:876
 #, kde-format
@@ -9516,8 +9515,7 @@ msgid "Disable Encryption"
 msgstr "Desactivar cifrado"
 
 #: widgets/encryption/e2edisablewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset encryption keys"
 msgstr "Restablecer claves de cifrado"
@@ -9556,11 +9554,15 @@ msgid ""
 "may lose access to previously encrypted content.\n"
 "This action cannot be undone. Do you want to continue?"
 msgstr ""
+"Solo se recomienda restablecer las claves de cifrado si ningún miembro de la "
+"sala tiene una clave válida para retomar el acceso al contenido previamente "
+"cifrado. Todos los miembros podrían perder acceso al contenido previamente "
+"cifrado.\n"
+"Esta acción no se puede revertir. ¿Quiere continuar?"
 
 #: widgets/encryption/e2edisablewidget.cpp:71
 #: widgets/encryption/e2edisablewidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Encryption Keys"
 msgstr "Restablecer claves de cifrado"
@@ -9568,7 +9570,7 @@ msgstr "Restablecer claves de cifrado"
 #: widgets/encryption/e2edisablewidget.cpp:80
 #, kde-format
 msgid "The encryption keys of this room could not be reset."
-msgstr ""
+msgstr "No se pudo restablecer las claves de cifrado de esta sala."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:20
 #, kde-format
@@ -10081,20 +10083,18 @@ msgstr ""
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key."
-msgstr ""
+msgstr "El servidor rechazó restablecer su clave E2E."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key: %1"
-msgstr ""
+msgstr "El servidor rechazó restablecer su clave E2E: %1"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E Key"
-msgstr "Reiniciar clave E2E"
+msgstr "Restablecer clave E2E"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
 #, kde-format
