@@ -511,6 +511,10 @@ void AccountManager::removeDatabaseAccount(const QString &accountName)
         const QString directory = LocalDatabaseUtils::localRoomSubscriptionsDatabasePath() + accountName;
         removeDirectory(directory);
     }
+    {
+        const QString directory = LocalDatabaseUtils::localE2ERoomsDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
 }
 
 void AccountManager::removeDirectory(const QString &directory)
