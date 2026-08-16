@@ -39,6 +39,8 @@ public:
     // database type. Must be called before the account files are deleted from disk.
     static void removeDataBaseConnections(const QString &accountName);
 
+    [[nodiscard]] QStringList allDatabaseFiles(const QString &accountName, const QByteArray &roomId) const;
+
 protected:
     [[nodiscard]] virtual QString schemaDataBase() const;
     [[nodiscard]] bool initializeDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db);

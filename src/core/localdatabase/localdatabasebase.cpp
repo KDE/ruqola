@@ -35,6 +35,17 @@ QString LocalDatabaseBase::dbFileName(const QString &accountName, const QByteArr
     return dbFileName(accountName, QString::fromLatin1(roomId));
 }
 
+QStringList LocalDatabaseBase::allDatabaseFiles(const QString &accountName, const QByteArray &roomId) const
+{
+    const QString dirPath = mBasePath + accountName;
+    const QDir dir(dirPath);
+    if (!dir.exists()) {
+        return {};
+    }
+    const QString baseName = dbFileName(accountName, roomId);
+    return {baseName, baseName + u"-wal"_s, baseName + u"-shm"_s};
+}
+
 QString LocalDatabaseBase::dbFileName(const QString &accountName) const
 {
     const QString dirPath = mBasePath + accountName;

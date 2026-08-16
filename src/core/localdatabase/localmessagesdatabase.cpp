@@ -37,15 +37,17 @@ void LocalMessagesDatabase::deleteDatabaseFromRoomId(const QString &accountName,
 {
     const QString dbName = databaseName(accountName + u'-' + QString::fromLatin1(roomId));
     QSqlDatabase::removeDatabase(dbName);
-    const QString fileName = dbFileName(accountName, roomId);
-    if (!QFileInfo::exists(fileName)) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Filename doesn't exist: " << fileName;
-        return;
-    } else {
-        if (!QFile(fileName).remove()) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to remove: " << fileName;
+    const QStringList listFiles = allDatabaseFiles(accountName, roomId);
+    for (const auto &fileName : listFiles) {
+        if (!QFileInfo::exists(fileName)) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Filename doesn't exist: " << fileName;
+            continue;
         } else {
-            qCDebug(RUQOLA_DATABASE_LOG) << fileName << " was removed";
+            if (!QFile(fileName).remove()) {
+                qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to remove: " << fileName;
+            } else {
+                qCDebug(RUQOLA_DATABASE_LOG) << fileName << " was removed";
+            }
         }
     }
 }
