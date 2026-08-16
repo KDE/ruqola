@@ -9,6 +9,7 @@
 #include "ruqola_database_debug.h"
 
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -125,37 +126,65 @@ QString LocalDatabaseBase::generateDatabaseName(const QString &accountName, cons
     return dbName;
 }
 
-bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db)
+void LocalDatabaseBase::forgetDataBase(const QString &dbName, QSqlDatabase &db)
 {
-    const QString dbName = generateDatabaseName(accountName, roomId);
+    // removeDatabase() warns and keeps the connection alive as long as a QSqlDatabase copy exists,
+    // so drop ours first.
+    db = QSqlDatabase();
+    if (QSqlDatabase::contains(dbName)) {
+        QSqlDatabase::removeDatabase(dbName);
+    }
+}
+
+bool LocalDatabaseBase::openOrCreateDataBase(const QString &dbName, const QString &dirPath, const QString &fileName, QSqlDatabase &db)
+{
     db = QSqlDatabase::database(dbName);
-    if (!db.isValid()) {
-        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
-        const QString dirPath = mBasePath + accountName;
-        if (!QDir().mkpath(dirPath)) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << dirPath;
-            return false;
-        }
-        const QString fileName = dbFileName(accountName, roomId);
-        const bool dbExists = QFileInfo::exists(fileName);
-        db.setDatabaseName(fileName);
-        if (!db.open()) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
-            return false;
-        }
+    if (db.isValid() && db.isOpen()) {
+        return true;
+    }
+    // Either there is no such connection yet, or a previous attempt failed halfway through (the
+    // connection is registered but was never opened). Drop it: isValid() only tells us the driver
+    // is there, so keeping it would make us skip the schema creation below forever.
+    forgetDataBase(dbName, db);
+
+    if (!QDir().mkpath(dirPath)) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << dirPath;
+        return false;
+    }
+    const bool dbExists = QFileInfo::exists(fileName);
+    db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
+    db.setDatabaseName(fileName);
+    if (!db.open()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
+        forgetDataBase(dbName, db);
+        return false;
+    }
+    bool schemaFailed = false;
+    {
         QSqlQuery query(db);
         if (!dbExists) {
             query.exec(schemaDataBase());
             if (query.lastError().isValid()) {
-                qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
-                return false;
+                qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table in" << db.databaseName() << ":" << db.lastError();
+                schemaFailed = true;
             }
         }
-        // Using the write-ahead log and sync = NORMAL for faster writes
-        // (idea taken from kactivities-stat)
-        query.exec(u"PRAGMA synchronous = 1"_s);
-        // use the write-ahead log (requires sqlite > 3.7.0)
-        query.exec(u"PRAGMA journal_mode = WAL"_s);
+        if (!schemaFailed) {
+            // Using the write-ahead log and sync = NORMAL for faster writes
+            // (idea taken from kactivities-stat)
+            query.exec(u"PRAGMA synchronous = 1"_s);
+            // use the write-ahead log (requires sqlite > 3.7.0)
+            query.exec(u"PRAGMA journal_mode = WAL"_s);
+        }
+    }
+    if (schemaFailed) {
+        // open() has just created an empty file. Remove it along with the connection, otherwise the
+        // next run would see an existing file, skip the schema creation and query missing tables.
+        forgetDataBase(dbName, db);
+        if (!QFile::remove(fileName)) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't remove incomplete database" << fileName;
+        }
+        return false;
     }
 
     Q_ASSERT(db.isValid());
@@ -163,40 +192,12 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QBy
     return true;
 }
 
+bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db)
+{
+    return openOrCreateDataBase(generateDatabaseName(accountName, roomId), mBasePath + accountName, dbFileName(accountName, roomId), db);
+}
+
 bool LocalDatabaseBase::initializeDataBase(const QString &accountName, QSqlDatabase &db)
 {
-    const QString dbName = databaseName(accountName);
-    db = QSqlDatabase::database(dbName);
-    if (!db.isValid()) {
-        db = QSqlDatabase::addDatabase(u"QSQLITE"_s, dbName);
-        const QString dirPath = mBasePath + accountName;
-        if (!QDir().mkpath(dirPath)) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << dirPath;
-            return false;
-        }
-        const QString fileName = dbFileName(accountName);
-        const bool dbExists = QFileInfo::exists(fileName);
-        db.setDatabaseName(fileName);
-        if (!db.open()) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
-            return false;
-        }
-        QSqlQuery query(db);
-        if (!dbExists) {
-            query.exec(schemaDataBase());
-            if (query.lastError().isValid()) {
-                qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
-                return false;
-            }
-        }
-        // Using the write-ahead log and sync = NORMAL for faster writes
-        // (idea taken from kactivities-stat)
-        query.exec(u"PRAGMA synchronous = 1"_s);
-        // use the write-ahead log (requires sqlite > 3.7.0)
-        query.exec(u"PRAGMA journal_mode = WAL"_s);
-    }
-
-    Q_ASSERT(db.isValid());
-    Q_ASSERT(db.isOpen());
-    return true;
+    return openOrCreateDataBase(databaseName(accountName), mBasePath + accountName, dbFileName(accountName), db);
 }

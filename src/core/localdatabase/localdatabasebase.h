@@ -49,4 +49,6 @@ protected:
 
 private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDatabaseName(const QString &accountName, const QByteArray &roomId) const;
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool openOrCreateDataBase(const QString &dbName, const QString &dirPath, const QString &fileName, QSqlDatabase &db);
+    LIBRUQOLACORE_NO_EXPORT static void forgetDataBase(const QString &dbName, QSqlDatabase &db);
 };
