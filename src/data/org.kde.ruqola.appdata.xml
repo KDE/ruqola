@@ -1401,6 +1401,7 @@
           <li xml:lang="ka">დაშიფვრის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor versleuteling</li>
           <li xml:lang="pt-BR">Suporte à criptografia</li>
+          <li xml:lang="sk">Podpora šifrovania</li>
           <li xml:lang="sl">Podpora šifriranja</li>
           <li xml:lang="sv">Krypteringsstöd</li>
           <li xml:lang="tr">Şifreleme desteği</li>
@@ -1415,6 +1416,7 @@
           <li xml:lang="ka">მომხმარებლის სტატუსის ჩვენება ოთახებში მომხმარებელთა სიაში</li>
           <li xml:lang="nl">Gebruikerstatus tonen in de lijst met gebruikers in rooms</li>
           <li xml:lang="pt-BR">Mostrar o status dos usuários na lista de usuários nas salas</li>
+          <li xml:lang="sk">Zobrazenie stavu používateľov v zoznamoch v miestnostiach</li>
           <li xml:lang="sl">Prikaži stanje uporabnika na seznamu uporabnikov v sobah</li>
           <li xml:lang="sv">Visa användarstatus i en lista för användare i flera rum</li>
           <li xml:lang="tr">Odalardaki kullanıcı listelerinde kullanıcı durumlarını göster</li>
@@ -1429,6 +1431,7 @@
           <li xml:lang="ka">თემის განსაზღვრის დაშვება, როცა ის განსაზღვრული არაა</li>
           <li xml:lang="nl">Het mogelijk maken om het onderwerp te definiëren wanneer dit nog niet is vastgelegd</li>
           <li xml:lang="pt-BR">Permitir definir o tópico quando ele não estiver definido</li>
+          <li xml:lang="sk">Možnosť určiť tému, keď nie je zadaná</li>
           <li xml:lang="sl">Dovoli definiranje teme klepeta, kadar ni definirana</li>
           <li xml:lang="sv">Tillåt att ämnet definieras när det inte är definierat</li>
           <li xml:lang="tr">Tanımlı değilse konu tanımlamaya olanak tanı</li>
@@ -1443,6 +1446,7 @@
           <li xml:lang="ka">შეიცვალა ბმულის მინიატურების დიზაინი კომპაქტურ ბარათებზე</li>
           <li xml:lang="nl">Ontwerp koppelingsvoorbeelden opnieuw als compacte kaarten</li>
           <li xml:lang="pt-BR">Redesenho das prévias de links como cartões compactos</li>
+          <li xml:lang="sk">Prepracované náhľady odkazov do podoby kompaktných kariet</li>
           <li xml:lang="sl">Preoblikuj predoglede povezav kot kompaktne kartice</li>
           <li xml:lang="sv">Konstruera om länkförhandsgranskningar som kompakta kort</li>
           <li xml:lang="tr">Bağlantı önizlemelerini küçük kartlar olarak yeniden tasarla</li>
@@ -1458,6 +1462,7 @@
           <li xml:lang="ka">გასწორდა DDP-სთან თავიდან დაკავშირება</li>
           <li xml:lang="nl">Probleem met DDP-herverbinding oplossen</li>
           <li xml:lang="pt-BR">Correção da reconexão DDP</li>
+          <li xml:lang="sk">Oprava opätovného pripojenia DDP</li>
           <li xml:lang="sl">Popravi ponovno povezavo DDP</li>
           <li xml:lang="sv">Rätta DDP återanslutning</li>
           <li xml:lang="tr">DDP’ye yeniden bağlanmayı onar</li>
@@ -1473,6 +1478,7 @@
           <li xml:lang="ka">გაუმჯობესდა მომხმარებლის ინფორმაცია</li>
           <li xml:lang="nl">Gebruikersinformatie verbeteren</li>
           <li xml:lang="pt-BR">Melhoria das informações de usuários</li>
+          <li xml:lang="sk">Vylepšenie informácií o používateľovi</li>
           <li xml:lang="sl">Izboljša informacije o uporabniku</li>
           <li xml:lang="sv">Förbättra användarinformation</li>
           <li xml:lang="tr">Kullanıcı bilgisini iyileştir</li>
@@ -1488,6 +1494,7 @@
           <li xml:lang="ka">დაემატა გაფრთხილება ახალი ოთახის დამატებისას</li>
           <li xml:lang="nl">Voeg meldingsgegevens toe bij het toevoegen van een nieuwe room.</li>
           <li xml:lang="pt-BR">Adicionada informações de notificação ao adicionar uma nova sala</li>
+          <li xml:lang="sk">Oznámenie pri pridaní novej miestnosti</li>
           <li xml:lang="sl">Doda informacije v obvestilu pri dodajanju nove sobe</li>
           <li xml:lang="sv">Tillägg av underrättelseinformation när ett nytt rum läggs till.</li>
           <li xml:lang="tr">Yeni bir oda eklerken ihbar bilgisi ekle</li>
@@ -1503,6 +1510,7 @@
           <li xml:lang="ka">მიმაგრებული ფაილის მხარდაჭერის გადაწერა</li>
           <li xml:lang="nl">Ondersteuning voor bijlagebestanden herschrijven</li>
           <li xml:lang="pt-BR">Reescrita do suporte a arquivo anexo</li>
+          <li xml:lang="sk">Prepísaná podpora súborových príloh</li>
           <li xml:lang="sl">Podpora za prepisovanje datotek prilog</li>
           <li xml:lang="sv">Skriv om filstöd för bilagor</li>
           <li xml:lang="tr">Dosya ek desteğini yeniden yaz</li>
@@ -1517,6 +1525,7 @@
           <li xml:lang="ka">დაემატა მხარდაჭერის ამოცანის ნიშანი Windows-ზე/macos-ზე</li>
           <li xml:lang="nl">Voeg een badge voor ondersteuningstaken toe op Windows/macOS</li>
           <li xml:lang="pt-BR">Adicionar selo de tarefa de suporte no Windows/macOS</li>
+          <li xml:lang="sk">Podpora odznaku úlohy na Windows a macOS</li>
           <li xml:lang="sl">Dodaj značko za podporno nalogo v windows/macos</li>
           <li xml:lang="sv">Lägg till stöd för aktivitetsbricka på Windows och macOS</li>
           <li xml:lang="tr">Windows/macOS üzerinde görev rozeti desteği</li>
@@ -1531,6 +1540,7 @@
           <li xml:lang="ka">დაემატა სერვერის საკონტროლო სიის ხელსაწყო სერვერის შესამოწმებლად ვერსიის აწევის შემდეგ.</li>
           <li xml:lang="nl">Voeg een servercontrolelijst toe om een ​​server na een upgrade te verifiëren.</li>
           <li xml:lang="pt-BR">Adiciona uma ferramenta de checklist de servidor para verificar um servidor após uma atualização.</li>
+          <li xml:lang="sk">Pribudol nástroj Kontrolný zoznam servera na overenie servera po aktualizácii.</li>
           <li xml:lang="sl">Dodajte orodje za preverjanje strežnika, da preverite strežnik po nadgradnji.</li>
           <li xml:lang="sv">Lägg till ett verktyg med serverchecklista för att verifiera en server efter en uppgradering.</li>
           <li xml:lang="tr">Yükseltme sonrası sunucuyu doğrulamak için bir sunucu kontrol listesi ekle</li>
@@ -1546,6 +1556,7 @@
           <li xml:lang="ka">მორგება RC 8.6.0-ის ახალ API-ისთან</li>
           <li xml:lang="nl">Nieuwe API aanpassen aan RC 8.6.0</li>
           <li xml:lang="pt-BR">Adaptar à nova API do RC 8.6.0</li>
+          <li xml:lang="sk">Prispôsobenie novému API RC 8.6.0</li>
           <li xml:lang="sl">Prilagodi na RC 8.6.0 novi API</li>
           <li xml:lang="sv">Anpassa till nytt programmeringsgränssnitt i RC 8.6.0</li>
           <li xml:lang="tr">RC 8.6.0 yeni API’sine uyum sağla</li>
@@ -1560,6 +1571,7 @@
           <li xml:lang="ka">წაკითხულობის სტატუსის ჩვენება შეტყობინებაში</li>
           <li xml:lang="nl">Informatie over gelezen-berichten tonen in bericht</li>
           <li xml:lang="pt-BR">Mostrar informações de confirmação de leitura na mensagem</li>
+          <li xml:lang="sk">Zobrazovanie potvrdení o prečítaní v správe</li>
           <li xml:lang="sl">Prikaži informacije o potrdilih o branju v sporočilu</li>
           <li xml:lang="sv">Visa information om läsbekräftelser i meddelande</li>
           <li xml:lang="tr">İletide okundu makbuzlarını göster</li>
@@ -1575,6 +1587,7 @@
           <li xml:lang="ka">დაემატა წაკითხვის ანგარიშის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor gelezen-berichten toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte a recibos de leitura</li>
+          <li xml:lang="sk">Pridaná podpora potvrdení o prečítaní</li>
           <li xml:lang="sl">Doda podporo za potrdila o branju</li>
           <li xml:lang="sv">Lägg till stöd för läsbekräftelser</li>
           <li xml:lang="tr">Okundu makbuzları desteği ekle</li>
@@ -1682,6 +1695,7 @@
           <li xml:lang="nl">Implementeer een kanaal voor het sorteren van conceptberichten.</li>
           <li xml:lang="pt-BR">Implementa canal de classificação de mensagens em rascunho.</li>
           <li xml:lang="ru">Реализация канала сортировки черновиков сообщений</li>
+          <li xml:lang="sk">Doplnené triedenie kanálov podľa konceptov správ.</li>
           <li xml:lang="sl">Implementira kanal za sortiranje osnutkov sporočil.</li>
           <li xml:lang="sv">Implementera sorteringskanal för meddelandeutkast.</li>
           <li xml:lang="tr">Taslak ileti sıralama özelliğini gerçekle</li>
@@ -1697,6 +1711,7 @@
           <li xml:lang="nl">Implementeer een dialoogvenster voor de lijst met geblokkeerde gebruikers.</li>
           <li xml:lang="pt-BR">Implementa o diálogo de lista de usuários banidos.</li>
           <li xml:lang="ru">Реализация диалога списка «Забаненные пользователи»</li>
+          <li xml:lang="sk">Doplnený dialóg so zoznamom používateľov so zákazom.</li>
           <li xml:lang="sl">Implementira pogovorno okno s seznamom prepovedanih uporabnikov.</li>
           <li xml:lang="sv">Implementera listdialogruta för bannlysta användare.</li>
           <li xml:lang="tr">Yasaklı kullanıcılar iletişim kutusunu gerçekle</li>
@@ -1712,6 +1727,7 @@
           <li xml:lang="nl">Implementeer geblokkeerde/gedeblokkeerde gebruikers.</li>
           <li xml:lang="pt-BR">Implementa usuários banidos/com banimento removido.</li>
           <li xml:lang="ru">Реализация функции «Забаненные/Разбаненные пользователи»</li>
+          <li xml:lang="sk">Doplnená správa používateľov so zákazom a so zrušeným zákazom.</li>
           <li xml:lang="sl">Implementira prepovedane/neprepovedane uporabnike.</li>
           <li xml:lang="sv">Implementera bannlys/sluta bannlysa användare.</li>
           <li xml:lang="tr">Yasaklı/yasaklı olmayan kullanıcılar özelliğini gerçekle</li>
