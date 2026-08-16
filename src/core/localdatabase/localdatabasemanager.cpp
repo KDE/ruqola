@@ -176,6 +176,7 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArr
         mMessagesDatabase->deleteDatabaseFromRoomId(accountName, roomId);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::RoomTimeStamp);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
+        mRoomPendingTypedInfoDatabase->deleteRoomPendingTypedInfo(accountName, roomId);
         // TODO remove rooms from mE2ERoomsDataBase
     }
 }
