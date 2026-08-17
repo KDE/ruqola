@@ -129,7 +129,7 @@ std::unique_ptr<QSqlTableModel> E2ERoomsDataBase::createE2eRoomsModel(const QStr
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
         const QString fileName = dbFileName(accountName);
-        qDebug() << " fileName " << fileName;
+        // qDebug() << " fileName " << fileName;
         if (!QFileInfo::exists(fileName)) {
             return {};
         }
