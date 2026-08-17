@@ -211,6 +211,7 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
     ret = BN_set_word(bne, e);
     if (ret != 1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when generating exponent";
+        BN_free(bne);
         return {};
     }
 
@@ -218,6 +219,8 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
     ret = RSA_generate_key_ex(rsa, bits, bne, nullptr);
     if (ret != 1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error during generate key";
+        BN_free(bne);
+        RSA_free(rsa);
         return {};
     }
 
