@@ -1101,7 +1101,8 @@ QString EncryptionUtils::generateRandomText(int length)
     const int charSize = characters.size();
 
     for (int i = 0; i < length; ++i) {
-        const int index = QRandomGenerator::global()->bounded(charSize);
+        // system() is the cryptographically secure generator: global() is only securely seeded.
+        const int index = QRandomGenerator::system()->bounded(charSize);
         randomText.append(characters.at(index));
     }
 
@@ -1178,16 +1179,28 @@ QString EncryptionUtils::generateRandomPassword()
 {
     const int numberChar = 30;
     const QByteArray charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?";
-    const QByteArray randomBytes = generateRandomIV(numberChar);
-    if (randomBytes.isEmpty()) {
-        return {};
-    }
+    const int charsetSize = charset.size();
+    // A plain 'byte % charsetSize' would favour the first (256 % charsetSize) characters, so drop the
+    // bytes of the incomplete last range instead of folding them back into the charset.
+    const int rejectionLimit = 256 - (256 % charsetSize);
 
     QString randomStr;
     randomStr.reserve(numberChar);
-    for (int i = 0; i < numberChar; ++i) {
-        const int index = static_cast<unsigned char>(randomBytes.at(i)) % charset.size();
-        randomStr.append(QLatin1Char(charset.at(index)));
+    while (randomStr.size() < numberChar) {
+        const QByteArray randomBytes = generateRandomIV(numberChar);
+        if (randomBytes.isEmpty()) {
+            return {};
+        }
+        for (const char randomByte : randomBytes) {
+            const int value = static_cast<unsigned char>(randomByte);
+            if (value >= rejectionLimit) {
+                continue;
+            }
+            randomStr.append(QLatin1Char(charset.at(value % charsetSize)));
+            if (randomStr.size() == numberChar) {
+                break;
+            }
+        }
     }
     return randomStr;
 }
