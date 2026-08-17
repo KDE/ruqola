@@ -1127,6 +1127,9 @@ void E2eKeyManager::distributeKeysToWaitingUsers()
 void E2eKeyManager::slotUsersWaitingForGroupKey([[maybe_unused]] const QJsonObject &replyObject)
 {
 #if USE_E2E_SUPPORT
+    if (!mAccount) {
+        return;
+    }
     const QJsonObject usersPerRoom = replyObject.value("usersWaitingForE2EKeys"_L1).toObject();
     for (auto it = usersPerRoom.constBegin(); it != usersPerRoom.constEnd(); ++it) {
         const QByteArray roomId = it.key().toLatin1();
