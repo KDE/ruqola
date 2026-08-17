@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-15 00:45+0000\n"
+"POT-Creation-Date: 2026-08-17 00:45+0000\n"
 "PO-Revision-Date: 2026-06-27 15:38+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -167,12 +167,12 @@ msgstr "Новая возможность"
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
 
-#: core/accountmanager.cpp:343
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некорректный маркер приглашения"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Некорректный маркер приглашения. Создание учётной записи отменено."

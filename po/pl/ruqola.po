@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-15 00:45+0000\n"
+"POT-Creation-Date: 2026-08-17 00:45+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -164,12 +164,12 @@ msgstr "Nowa możliwość"
 msgid "The following accounts are available:"
 msgstr "Następujące konta są dostępne:"
 
-#: core/accountmanager.cpp:343
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Nieprawidłowy token zaproszenia"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Token zaproszenia jest nieprawidłowy. Zaniechano tworzenia konta."

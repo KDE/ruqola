@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-15 00:45+0000\n"
+"POT-Creation-Date: 2026-08-17 00:45+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -164,12 +164,12 @@ msgstr "Nova kapablo"
 msgid "The following accounts are available:"
 msgstr "La jenaj kontoj disponeblas:"
 
-#: core/accountmanager.cpp:343
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Nevalida invit-ĵetono"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Invit-ĵetono estas nevalida. Kontokreado nuligita."
