@@ -1164,26 +1164,6 @@ QVector<uint8_t> EncryptionUtils::toArrayBuffer(const QByteArray &ba)
     return byteVector;
 }
 
-// crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
-QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
-{
-#if 0
-    export async function importRawKey(keyData, keyUsages = ['deriveKey']) {
-            return crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
-    }
-#endif
-
-#if 0
-    QByteArray iv = generateRandomIV(16);
-    QByteArray data = generateRandomText(16).toUtf8();
-    QByteArray cipherText = encryptAES_CBC(data, key, iv);
-#endif
-
-    const QByteArray baseKey = deriveKey(keyData, salt, iterations);
-
-    return baseKey;
-}
-
 bool EncryptionUtils::EncryptionInfo::isValid() const
 {
     return !vector.isEmpty() && !encryptedData.isEmpty();
