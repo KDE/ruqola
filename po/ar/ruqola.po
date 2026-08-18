@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-17 00:45+0000\n"
-"PO-Revision-Date: 2026-08-10 18:34+0400\n"
+"PO-Revision-Date: 2026-08-17 20:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -851,10 +851,9 @@ msgid "Message Pinned"
 msgstr "ثُبتت الرسالة"
 
 #: core/messages/message.cpp:874
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgid "Message Pinned by %1"
-msgstr "ثُبتت الرسالة"
+msgstr "ثُبتت الرسالة بواسطة %1"
 
 #: core/messages/message.cpp:876
 #, kde-format
@@ -9541,8 +9540,7 @@ msgid "Disable Encryption"
 msgstr "عطّل التعمية"
 
 #: widgets/encryption/e2edisablewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset encryption keys"
 msgstr "صفّر مفاتيح التعمية"
@@ -9579,11 +9577,14 @@ msgid ""
 "may lose access to previously encrypted content.\n"
 "This action cannot be undone. Do you want to continue?"
 msgstr ""
+"يُنصح بإعادة تصفير مفاتيح التعمية فقط في حالة عدم امتلاك أي عضو في الغرفة "
+"لمفتاح صالح لاستعادة الوصول إلى المحتوى المُعمى سابقًا. وقد يفقد جميع الأعضاء "
+"إمكانية الوصول إلى المحتوى المُعمى سابقًا.\n"
+"لا يمكن التراجع عن هذا الإجراء. هل تريد المتابعة؟"
 
 #: widgets/encryption/e2edisablewidget.cpp:71
 #: widgets/encryption/e2edisablewidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Encryption Keys"
 msgstr "صفّر مفاتيح التعمية"
@@ -9591,7 +9592,7 @@ msgstr "صفّر مفاتيح التعمية"
 #: widgets/encryption/e2edisablewidget.cpp:80
 #, kde-format
 msgid "The encryption keys of this room could not be reset."
-msgstr ""
+msgstr "تعذر إعادة تصفير مفاتيح التعمية الخاصة بهذه الغرفة."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:20
 #, kde-format
@@ -10092,17 +10093,15 @@ msgstr ""
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key."
-msgstr ""
+msgstr "رفض الخادم تصفير مفتاح نهاية إلى نهاية الخاص بك:"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key: %1"
-msgstr ""
+msgstr "رفض الخادم تصفير مفتاح نهاية إلى نهاية الخاص بك: %1"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E Key"
 msgstr "صفّر مفتاح التعمية من طرف لطرف"
