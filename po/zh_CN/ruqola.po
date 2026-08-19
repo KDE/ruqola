@@ -850,10 +850,9 @@ msgid "Message Pinned"
 msgstr ""
 
 #: core/messages/message.cpp:874
-#, fuzzy, kde-format
-#| msgid "Message %1 in thread"
+#, kde-format
 msgid "Message Pinned by %1"
-msgstr "帖子消息 %1"
+msgstr ""
 
 #: core/messages/message.cpp:876
 #, kde-format
