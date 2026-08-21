@@ -6,8 +6,15 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "texttospeechenqueueinfo.h"
+#include <QList>
 #include <QObject>
 
+// Stores the message information of each text sent to the speech synthesizer.
+// TextEditTextToSpeech::TextToSpeech identifies an utterance by its position in
+// the queue, so we must insert exactly one element per enqueued text, in the
+// same order. Use TextToSpeechEnqueueUtils::enqueue() which does both, and
+// insert a default constructed (invalid) info when we don't have information
+// about the message.
 class LIBRUQOLACORE_EXPORT TextToSpeechEnqueueManager : public QObject
 {
     Q_OBJECT
@@ -20,9 +27,10 @@ public:
 
     void insert(const TextToSpeechEnqueueInfo &info);
 
-    [[nodiscard]] TextToSpeechEnqueueInfo value(qsizetype index) const;
+    // Removes the last inserted element, when the text was not enqueued after all.
+    void removeLast();
 
-    void insertDummyInfo();
+    [[nodiscard]] TextToSpeechEnqueueInfo value(qsizetype index) const;
 
     [[nodiscard]] QList<TextToSpeechEnqueueInfo> enqueueList() const;
 
