@@ -1110,6 +1110,8 @@ if(HAVE_TEXT_TO_SPEECH)
         PRIVATE
             configuredialog/configureaccessibilitywidget.h
             configuredialog/configureaccessibilitywidget.cpp
+            misc/texttospeechenqueueutils.h
+            misc/texttospeechenqueueutils.cpp
     )
 endif()
 
