@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include <QByteArray>
 #include <QString>
 class LIBRUQOLACORE_EXPORT TextToSpeechEnqueueInfo
 {

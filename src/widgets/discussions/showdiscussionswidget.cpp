@@ -18,6 +18,7 @@
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -53,7 +54,9 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-    connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+    });
 #endif
 
     mListDiscussionsListView->setObjectName(u"mListDiscussions"_s);

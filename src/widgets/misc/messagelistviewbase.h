@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "texttospeech/texttospeechenqueueinfo.h"
 #include <QList>
 #include <QListView>
 class PluginTextInterface;
@@ -25,7 +26,9 @@ public:
 Q_SIGNALS:
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
-    void textToSpeech(const QString &str);
+    // info is empty when the view has no message information to report: the
+    // receiver must still store it (see TextToSpeechEnqueueUtils::enqueue).
+    void textToSpeech(const QString &str, const TextToSpeechEnqueueInfo &info = {});
     void needToClearSizeHintCache();
 
 protected:

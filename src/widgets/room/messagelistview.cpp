@@ -1133,9 +1133,10 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
             info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
             info.setRoomId(mRoom->roomId());
 
+            // The info is stored by the widget which owns the speech synthesizer,
+            // as it must be done for each enqueued text (see TextToSpeechEnqueueUtils).
             if (!Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->contains(info)) {
-                Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
-                Q_EMIT textToSpeech(message);
+                Q_EMIT textToSpeech(message, info);
             }
         }
     }

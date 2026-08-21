@@ -17,6 +17,7 @@
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -44,10 +45,9 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *accoun
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-    connect(mListNotificationsListView,
-            &ModerationReportInfoListView::textToSpeech,
-            mTextToSpeechWidget,
-            &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mListNotificationsListView, &ModerationReportInfoListView::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+    });
 #endif
 
     mListNotificationsListView->setObjectName(u"mListNotifications"_s);

@@ -44,7 +44,7 @@ public:
 Q_SIGNALS:
     void loadHistory();
     void createNewDiscussion(const QByteArray &messageId, const QString &originalMessage);
-    void textToSpeech(const QString &messageText);
+    void textToSpeech(const QString &messageText, const TextToSpeechEnqueueInfo &info = {});
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
     void uiInteractionRequested(const QJsonObject &obj);

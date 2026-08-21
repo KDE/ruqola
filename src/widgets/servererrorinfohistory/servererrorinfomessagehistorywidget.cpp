@@ -19,6 +19,7 @@
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -69,8 +70,10 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     mainLayout->addWidget(mTextToSpeechWidget);
     connect(mListServerInfosListView,
             &ServerErrorInfoMessageHistoryListView::textToSpeech,
-            mTextToSpeechWidget,
-            &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+            this,
+            [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+                TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+            });
 #endif
 
     mListServerInfosListView->setObjectName(u"mListServerInfosListView"_s);

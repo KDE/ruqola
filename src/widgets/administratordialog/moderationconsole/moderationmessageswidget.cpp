@@ -17,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -36,7 +37,9 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-    connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mResultListWidget, &MessageListView::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+    });
 #endif
 
     mResultListWidget->setObjectName(u"mResultListWidget"_s);

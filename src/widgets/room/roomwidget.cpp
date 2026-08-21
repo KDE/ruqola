@@ -78,6 +78,7 @@
 #include "video-conference/videoconferencecapabilitiesjob.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 #include <TextAddonsWidgets/OpenSavedFileFolderWidget>
@@ -133,7 +134,9 @@ RoomWidget::RoomWidget(QWidget *parent)
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mRoomWidgetLayout->addWidget(mTextToSpeechWidget);
-    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+    });
 #endif
     mOpenSavedFileFolderWidget->setObjectName(u"mOpenSavedFileFolderWidget"_s);
     mRoomWidgetLayout->addWidget(mOpenSavedFileFolderWidget);
