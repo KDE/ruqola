@@ -9,12 +9,14 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "messages/messageurl.h"
 #include <QJsonObject>
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(MessageUrlTest)
 
 MessageUrlTest::MessageUrlTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void MessageUrlTest::shouldHaveDefaultValue()

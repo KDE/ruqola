@@ -9,12 +9,14 @@ using namespace Qt::Literals::StringLiterals;
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 #include "importexportdata/importdata/importdatawizard.h"
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_MAIN(ImportDataWizardTest)
 ImportDataWizardTest::ImportDataWizardTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ImportDataWizardTest::shouldHaveDefaultValues()

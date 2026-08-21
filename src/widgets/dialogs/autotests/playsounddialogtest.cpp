@@ -11,6 +11,7 @@ using namespace Qt::Literals::StringLiterals;
 #include "dialogs/playsoundwidget.h"
 #include <QComboBox>
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -18,6 +19,7 @@ QTEST_MAIN(PlaySoundDialogTest)
 PlaySoundDialogTest::PlaySoundDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void PlaySoundDialogTest::shouldHaveDefaultValues()

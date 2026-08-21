@@ -15,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(RoomTest)
@@ -22,6 +23,7 @@ QTEST_GUILESS_MAIN(RoomTest)
 RoomTest::RoomTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RoomTest::shouldHaveDefaultValue()

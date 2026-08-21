@@ -8,6 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "configuredialog/configureaccessibilitywidget.h"
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
@@ -16,6 +17,7 @@ QTEST_MAIN(ConfigureAccessibilityWidgetTest)
 ConfigureAccessibilityWidgetTest::ConfigureAccessibilityWidgetTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ConfigureAccessibilityWidgetTest::shouldHaveDefaultValues()

@@ -8,6 +8,7 @@
 
 #include "rocketchataccount.h"
 #include "room/messagetextedit.h"
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_MAIN(MessageTextEditTest)
@@ -16,6 +17,7 @@ using namespace Qt::Literals::StringLiterals;
 MessageTextEditTest::MessageTextEditTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void MessageTextEditTest::shouldHaveDefautValues()

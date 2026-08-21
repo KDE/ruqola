@@ -14,6 +14,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
@@ -23,6 +24,7 @@ using namespace Qt::Literals::StringLiterals;
 EmojiManagerTest::EmojiManagerTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void EmojiManagerTest::shouldHaveDefaultValue()

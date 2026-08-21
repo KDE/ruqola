@@ -11,6 +11,7 @@
 #include "model/messagesmodel.h"
 
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 #include <QTextCursor>
 #include <QTextDocument>
@@ -22,6 +23,7 @@ using namespace Qt::Literals::StringLiterals;
 TextSelectionTest::TextSelectionTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 class TestFactory : public DocumentFactoryInterface
