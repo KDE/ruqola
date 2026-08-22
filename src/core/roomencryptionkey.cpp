@@ -26,8 +26,8 @@ QByteArray decodeBase64Variants(const QByteArray &text)
 
     // Prefer URL-safe decoding when URL-safe alphabet is present.
     const bool looksBase64Url = text.contains('-') || text.contains('_');
-    const QByteArray first = QByteArray::fromBase64(text, looksBase64Url ? QByteArray::Base64UrlEncoding : QByteArray::Base64Encoding);
-    const QByteArray second = QByteArray::fromBase64(text, looksBase64Url ? QByteArray::Base64Encoding : QByteArray::Base64UrlEncoding);
+    QByteArray first = QByteArray::fromBase64(text, looksBase64Url ? QByteArray::Base64UrlEncoding : QByteArray::Base64Encoding);
+    QByteArray second = QByteArray::fromBase64(text, looksBase64Url ? QByteArray::Base64Encoding : QByteArray::Base64UrlEncoding);
 
     if (!first.isEmpty() && !second.isEmpty()) {
         // Keep the longest candidate to avoid truncated decodes.
@@ -220,9 +220,9 @@ void RoomEncryptionKey::parseSessionKey()
         mEncryptedKeyBase64 = mE2EKey;
     } else {
         if (mE2eKeyId.isEmpty()) {
-            mE2eKeyId = prefixedKeyId;
+            mE2eKeyId = std::move(prefixedKeyId);
         }
-        mEncryptedKeyBase64 = prefixedCipherText;
+        mEncryptedKeyBase64 = std::move(prefixedCipherText);
     }
 
     // Validate encoded payload can be decoded as base64/base64url.

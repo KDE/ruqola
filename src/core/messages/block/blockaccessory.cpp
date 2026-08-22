@@ -77,7 +77,7 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
     for (const auto &r : optionsArray) {
         BlockAccessoryOption option;
         option.parse(r.toObject());
-        mOptions.append(option);
+        mOptions.append(std::move(option));
     }
 }
 

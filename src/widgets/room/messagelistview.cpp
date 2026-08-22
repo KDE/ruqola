@@ -1071,8 +1071,8 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
     }
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, Ruqola::self()->parentWidget());
     ThreadMessageWidget::ThreadMessageInfo info;
-    info.threadMessageId = messageId;
-    info.threadMessagePreview = threadMessagePreview;
+    info.threadMessageId = std::move(messageId);
+    info.threadMessagePreview = std::move(threadMessagePreview);
     info.threadIsFollowing = threadIsFollowing;
     info.room = mRoom;
     const Message tm = index.data(MessagesModel::ThreadMessage).value<Message>();

@@ -509,7 +509,7 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
         const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
         int numberOfTextSearched = 0;
         int hightLightStringIndex = 0;
-        const QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText, numberOfTextSearched, hightLightStringIndex)};
+        QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText, numberOfTextSearched, hightLightStringIndex)};
         if (message.privateMessage()) {
             return i18n("Only you can see this message") + convertedMessage;
         }
@@ -536,7 +536,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
                 if (att.attachmentId() == visibility.elementId) {
                     MessageAttachment changeAttachment = attachments.takeAt(i);
                     changeAttachment.setShowAttachment(visibility.show);
-                    attachments.insert(i, changeAttachment);
+                    attachments.insert(i, std::move(changeAttachment));
                     break;
                 }
             }
@@ -558,7 +558,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
                 if (att.urlId() == visibility.elementId) {
                     MessageUrl changeUrlPreview = urls.takeAt(i);
                     changeUrlPreview.setShowPreview(visibility.show);
-                    urls.insert(i, changeUrlPreview);
+                    urls.insert(i, std::move(changeUrlPreview));
                     break;
                 }
             }
@@ -632,7 +632,7 @@ QString MessagesModel::convertMessageText(const Message &message,
                         messageTranslation = message.messageTranslation()->translatedStringFromLanguage(mRoom->autoTranslateLanguage());
                     }
                     if (!messageTranslation.isEmpty()) {
-                        messageStr = messageTranslation;
+                        messageStr = std::move(messageTranslation);
                     } else if (!message.localTranslation().isEmpty()) {
                         messageStr = message.localTranslation();
                     }

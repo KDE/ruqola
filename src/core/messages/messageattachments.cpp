@@ -49,7 +49,7 @@ void MessageAttachments::parseMessageAttachments(const QJsonArray &attachments, 
         messageAttachement.parseAttachment(attachment);
         messageAttachement.setAttachmentId(MessageUtils::generateUniqueId(messageId, i));
         if (messageAttachement.isValid()) {
-            mMessageAttachments.append(messageAttachement);
+            mMessageAttachments.append(std::move(messageAttachement));
         }
     }
 }

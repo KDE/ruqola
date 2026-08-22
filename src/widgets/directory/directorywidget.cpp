@@ -157,7 +157,7 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
                 str.removeFirst();
             }
         }
-        info.pattern = str;
+        info.pattern = std::move(str);
     }
     job->setDirectoryInfo(info);
     RocketChatRestApi::QueryParameters parameters;

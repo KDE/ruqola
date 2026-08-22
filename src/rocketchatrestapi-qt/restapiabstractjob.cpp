@@ -217,7 +217,7 @@ QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
     const QString errorType = replyObject["errorType"_L1].toString();
     if (!errorType.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;
-        const QString trStr = errorMessage(errorType, replyObject["details"_L1].toObject());
+        QString trStr = errorMessage(errorType, replyObject["details"_L1].toObject());
         if (!trStr.isEmpty()) {
             return trStr;
         } else {

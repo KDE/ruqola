@@ -16,7 +16,7 @@ QJsonArray AuthenticationManagerUtils::loginResume(const QString &token)
     QJsonArray array;
     QJsonObject resumeObject;
     resumeObject["resume"_L1] = token;
-    array.append(resumeObject);
+    array.append(std::move(resumeObject));
     return array;
 }
 
@@ -30,7 +30,7 @@ QJsonArray AuthenticationManagerUtils::loginLdap(const QString &user, const QStr
     // Ldap seems to new supported hashPassword... To bad.
     ldapObject["ldapPass"_L1] = password;
     ldapObject["ldapOptions"_L1] = QJsonObject();
-    array.append(ldapObject);
+    array.append(std::move(ldapObject));
     return array;
 }
 
@@ -43,7 +43,7 @@ QJsonArray AuthenticationManagerUtils::loginOAuth(const QString &credentialToken
     oauthCredentialObject["credentialToken"_L1] = credentialToken;
     oauthCredentialObject["credentialSecret"_L1] = credentialSecret;
     oauthObject["oauth"_L1] = oauthCredentialObject;
-    array.append(oauthObject);
+    array.append(std::move(oauthObject));
     return array;
 }
 
@@ -72,7 +72,7 @@ QJsonArray AuthenticationManagerUtils::login(const QString &user, const QString 
     const QJsonObject passwordObject = hashPassword(password);
     loginObject["password"_L1] = passwordObject;
 
-    array.append(loginObject);
+    array.append(std::move(loginObject));
     return array;
 }
 
@@ -85,6 +85,6 @@ QJsonArray AuthenticationManagerUtils::sendOTP(const QString &otpCode, const QJs
     totpObject["code"_L1] = otpCode;
     totpObject["login"_L1] = lastLoginPayload;
     otp["totp"_L1] = totpObject;
-    array.append(otp);
+    array.append(std::move(otp));
     return array;
 }

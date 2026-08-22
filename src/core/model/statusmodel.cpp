@@ -58,7 +58,7 @@ void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
 
 QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
 {
-    const QString statusStr = Utils::i18nFromPresenceStatus(status);
+    QString statusStr = Utils::i18nFromPresenceStatus(status);
     if (statusStr.isEmpty()) {
         return i18n("Modify Status…");
     }
@@ -139,7 +139,7 @@ void StatusModel::updateCustomStatus(const QList<CustomUserStatus> &customUserSt
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
         statusInfo.order = 5;
         statusInfo.statusStr = status.name();
-        mStatusList.append(statusInfo);
+        mStatusList.append(std::move(statusInfo));
     }
     endResetModel();
 }

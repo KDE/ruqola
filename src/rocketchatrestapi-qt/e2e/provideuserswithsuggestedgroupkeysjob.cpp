@@ -89,7 +89,7 @@ QJsonDocument ProvideUsersWithSuggestedGroupKeysJob::json() const
         QJsonObject keyObj;
         keyObj["_id"_L1] = k.userId;
         keyObj["key"_L1] = k.encryptedKey;
-        keysArr.append(keyObj);
+        keysArr.append(std::move(keyObj));
     }
     usersSuggestedGroupKeys.insert(mRoomId, keysArr);
     obj["usersSuggestedGroupKeys"_L1] = usersSuggestedGroupKeys;

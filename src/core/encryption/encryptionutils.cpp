@@ -313,7 +313,7 @@ QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivate
         return {};
     }
 
-    const QByteArray plainText = decryptAES_CBC_256(cipherText, masterKey, iv);
+    QByteArray plainText = decryptAES_CBC_256(cipherText, masterKey, iv);
 
     if (plainText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Decryption of the cipherText failed, plainText is empty";
@@ -345,7 +345,7 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
         return {};
     }
 
-    const QByteArray masterKey = deriveKey(salt.toUtf8(), password.toUtf8(), 1000, 32);
+    QByteArray masterKey = deriveKey(salt.toUtf8(), password.toUtf8(), 1000, 32);
     if (masterKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Master key derivation failed!";
         return {};
@@ -616,7 +616,7 @@ QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QB
     const QByteArray iv = encrypted.left(16);
     const QByteArray cipherText = encrypted.mid(16);
 
-    const QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);
+    QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);
 
     if (plainText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, message decryption failed, plain text is empty";

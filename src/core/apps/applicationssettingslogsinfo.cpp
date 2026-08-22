@@ -27,7 +27,7 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
     for (const auto &current : array) {
         ApplicationsSettingsLogsInfo::LogsArgument log;
         log.parseArguments(current.toObject());
-        mArguments.append(log);
+        mArguments.append(std::move(log));
     }
 }
 

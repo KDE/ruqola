@@ -39,7 +39,7 @@ static NotificationHistoryDelegate::RoomAccount roomAccountInfo(const QModelInde
         channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
     }
     info.accountName = accountName;
-    info.channelName = channelName;
+    info.channelName = std::move(channelName);
     return info;
 }
 

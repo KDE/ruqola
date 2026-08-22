@@ -249,7 +249,7 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
 
         auto persistantIndex = oldSection[ourOldIndex.row()];
         oldSection.erase(oldSection.begin() + ourOldIndex.row());
-        newSection.insert(newLocation, persistantIndex);
+        newSection.insert(newLocation, std::move(persistantIndex));
 
         endMoveRows();
     }

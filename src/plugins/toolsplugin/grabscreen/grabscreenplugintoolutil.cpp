@@ -14,7 +14,7 @@
 using namespace Qt::Literals::StringLiterals;
 QString GrabScreenPluginToolUtil::picturePath(const QString &accountName)
 {
-    const QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + u"/ruqola/"_s + accountName;
+    QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + u"/ruqola/"_s + accountName;
 
     if (!QDir().mkpath(imagePath)) {
         qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Unable to create image folder: " << imagePath;

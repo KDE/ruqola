@@ -164,7 +164,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
             QJsonObject obj;
             obj["name"_L1] = i.key();
             obj["value"_L1] = i.value();
-            array.append(obj);
+            array.append(std::move(obj));
         }
         dataObj["featuresPreview"_L1] = array;
     }

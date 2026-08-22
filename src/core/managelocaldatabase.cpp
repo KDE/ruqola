@@ -134,14 +134,14 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         QJsonObject dateObject;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
         dateObject["$date"_L1] = QJsonValue(info.lastSeenAt);
-        params.append(dateObject);
+        params.append(std::move(dateObject));
     } else if (mRocketChatAccount->offlineMode()) {
         qCDebug(RUQOLA_OFFLINE_MODE_LOG) << " no sync message in offline mode";
         return;
     } else if (info.timeStamp != 0) {
         QJsonObject dateObjectTimeStamp;
         dateObjectTimeStamp["$date"_L1] = QJsonValue(info.timeStamp);
-        params.append(dateObjectTimeStamp);
+        params.append(std::move(dateObjectTimeStamp));
 
         QJsonObject dateObjectEnd;
         dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
@@ -198,7 +198,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
-        params.append(dateObjectEnd);
+        params.append(std::move(dateObjectEnd));
 
         params.append(QJsonValue(downloadMessage)); // Max number of messages to load;
 

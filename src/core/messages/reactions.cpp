@@ -83,7 +83,7 @@ QJsonObject Reactions::serialize(const Reactions &reactions)
     for (const Reaction &reaction : reactions.reactions()) {
         QJsonObject react;
         react["usernames"_L1] = QJsonArray::fromStringList(reaction.userNames());
-        obj[reaction.reactionName()] = react;
+        obj[reaction.reactionName()] = std::move(react);
     }
     return obj;
 }

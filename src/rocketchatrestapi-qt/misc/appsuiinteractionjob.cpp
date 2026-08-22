@@ -116,18 +116,18 @@ void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QS
     payload.insert(u"blockId"_s, blockId);
     payload.insert(u"value"_s, value);
 
-    o.insert(u"payload"_s, payload);
+    o.insert(u"payload"_s, std::move(payload));
     o.insert(u"rid"_s, QLatin1StringView(roomId));
     o.insert(u"mid"_s, QLatin1StringView(messageId));
 
     QJsonObject container;
     container.insert(u"type"_s, u"message"_s);
     container.insert(u"id"_s, QLatin1StringView(messageId));
-    o.insert(u"container"_s, container);
+    o.insert(u"container"_s, std::move(container));
 
     // TODO fix me.
     o.insert(u"triggerId"_s, u"foo"_s);
-    messageObj = o;
+    messageObj = std::move(o);
 }
 
 #include "moc_appsuiinteractionjob.cpp"

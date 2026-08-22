@@ -192,7 +192,7 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     if (decryptedPrivateKey.startsWith('{')) {
         privateKeyPem = EncryptionUtils::privateKeyJWKToPEM(decryptedPrivateKey);
     } else {
-        privateKeyPem = decryptedPrivateKey;
+        privateKeyPem = std::move(decryptedPrivateKey);
     }
 
     if (privateKeyPem.isEmpty()) {
@@ -210,7 +210,7 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     }
 
     RSA_free(privateKey);
-    mDecodedPrivateKey = privateKeyPem;
+    mDecodedPrivateKey = std::move(privateKeyPem);
     setStatus(Status::KeyDecrypted);
     const bool sessionKeysDecrypted = decryptRoomsSessionKeys();
     // Suggestions received while the private key was still locked can be imported now, and the
@@ -743,7 +743,7 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
 
         if (privateKeyValue.isString()) {
             const QString str = privateKeyValue.toString();
-            const QByteArray strBytes = str.toUtf8();
+            QByteArray strBytes = str.toUtf8();
 
             // Check whether the string is itself a JSON object (server stringified it)
             if (str.startsWith(QLatin1Char('{'))) {

@@ -117,9 +117,9 @@ void FeaturePreviewWidget::slotSaveSettings()
             const QString value = QStringLiteral("[{\"name\":\"sidebarDrafts\",\"value\":false}]");
             obj["value"_L1] = value;
         }
-        previewFeatures.append(obj);
+        previewFeatures.append(std::move(obj));
     }
-    params.append(previewFeatures);
+    params.append(std::move(previewFeatures));
     const QString methodName{u"saveSettings"_s};
     const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
         .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),

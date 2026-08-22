@@ -108,7 +108,7 @@ MessageDelegateHelperText::MessageTextInfo MessageDelegateHelperText::makeMessag
                     const QString contextString =
                         TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
                     if (!needUpdateMessageId.isEmpty()) {
-                        info.pendingMessageIds.append(needUpdateMessageId);
+                        info.pendingMessageIds.append(std::move(needUpdateMessageId));
                     }
                     // TODO add url ?
                     Utils::QuotedRichTextInfo quotedInfo;

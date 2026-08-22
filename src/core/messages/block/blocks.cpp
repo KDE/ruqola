@@ -49,7 +49,7 @@ void Blocks::setVideoConferenceInfo(const VideoConferenceInfo &info)
         mBlocks.removeAll(*it);
         Block b(*it);
         b.setVideoConferenceInfo(info);
-        mBlocks.append(b);
+        mBlocks.append(std::move(b));
     }
 }
 

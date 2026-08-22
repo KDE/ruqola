@@ -188,7 +188,7 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 
                         // TODO change it
                         obj["random"_L1] = QString::number(45);
-                        params.append(obj);
+                        params.append(std::move(obj));
                         info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
                         uploadSoundFileJob->setMethodCallJobInfo(info);
                         // qDebug() << " info.messageObj " << info.messageObj;
@@ -258,7 +258,7 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
             previewSound["name"_L1] = originalCustomSoundInfo.name;
             previewSound["extension"_L1] = originalCustomSoundInfo.name; // TODO extension
             obj["previousSound"_L1] = previewSound;
-            params.append(obj);
+            params.append(std::move(obj));
             info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
             job->setMethodCallJobInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);

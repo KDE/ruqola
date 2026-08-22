@@ -154,7 +154,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (hasPendingMessageTyped) {
         QFont font = optionCopy.font;
         font.setItalic(true);
-        optionCopy.font = font;
+        optionCopy.font = std::move(font);
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
     if (!isHeader && !layout.unreadText.isEmpty()) {

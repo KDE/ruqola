@@ -89,7 +89,7 @@ void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &
     if (!found) {
         AppsMarketPlaceInfo info;
         info.setInstalledInfo(installedInfo);
-        mAppsMarketPlaceInfos.append(info);
+        mAppsMarketPlaceInfos.append(std::move(info));
     }
     endResetModel();
 }

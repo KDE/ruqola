@@ -71,7 +71,7 @@ QJsonArray MessageTranslations::serialize(const MessageTranslations &translation
     for (const auto &[key, value] : translation.mTranslatedString.asKeyValueRange()) {
         QJsonObject obj;
         obj.insert(key, value);
-        array.append(obj);
+        array.append(std::move(obj));
     }
     return array;
 }
