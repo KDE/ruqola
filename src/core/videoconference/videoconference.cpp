@@ -17,7 +17,7 @@ VideoConference::~VideoConference() = default;
 
 bool VideoConference::operator==(const VideoConference &other) const
 {
-    return mAction == other.action() && mCallId == other.callId() && mRoomId == other.roomId() && mUserId == other.userId();
+    return mAction == other.mAction && mCallId == other.mCallId && mRoomId == other.mRoomId && mUserId == other.mUserId;
 }
 
 void VideoConference::parseVideoConference(const QJsonObject &content)

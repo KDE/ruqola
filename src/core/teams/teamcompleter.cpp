@@ -15,7 +15,7 @@ TeamCompleter::TeamCompleter() = default;
 
 bool TeamCompleter::operator==(const TeamCompleter &other) const
 {
-    return mName == other.name() && mFname == other.fname() && mTeamId == other.teamId();
+    return mName == other.mName && mFname == other.mFname && mTeamId == other.mTeamId;
 }
 
 QString TeamCompleter::name() const

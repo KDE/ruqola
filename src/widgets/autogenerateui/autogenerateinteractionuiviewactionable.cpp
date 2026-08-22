@@ -58,7 +58,7 @@ void AutoGenerateInteractionUiViewActionable::setActionId(const QByteArray &newA
 
 bool AutoGenerateInteractionUiViewActionable::operator==(const AutoGenerateInteractionUiViewActionable &other) const
 {
-    return other.appId() == appId() && other.blockId() == blockId() && other.actionId() == actionId() && other.type() == type();
+    return other.mAppId == mAppId && other.mBlockId == mBlockId && other.mActionId == mActionId && other.mType == mType;
 }
 
 ActionElementWidget *AutoGenerateInteractionUiViewActionable::generateWidget([[maybe_unused]] QWidget *parent)

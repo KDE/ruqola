@@ -77,14 +77,13 @@ void AutoGenerateInteractionUiView::setId(const QByteArray &newId)
 
 bool AutoGenerateInteractionUiView::operator==(const AutoGenerateInteractionUiView &other) const
 {
-    const bool closeButtonEqual =
-        (!other.closeButton() && !closeButton()) || (other.closeButton() && closeButton() && (*other.closeButton() == *closeButton()));
+    const bool closeButtonEqual = (!other.mCloseButton && !mCloseButton) || (other.mCloseButton && mCloseButton && (*other.mCloseButton == *mCloseButton));
     const bool submitButtonEqual =
-        (!other.submitButton() && !submitButton()) || (other.submitButton() && submitButton() && (*other.submitButton() == *submitButton()));
-    const bool blocksEqual = (!other.blocks() && !blocks()) || (other.blocks() && blocks() && (*other.blocks() == *blocks()));
+        (!other.mSubmitButton && !mSubmitButton) || (other.mSubmitButton && mSubmitButton && (*other.mSubmitButton == *mSubmitButton));
+    const bool blocksEqual = (!other.mBlocks && !mBlocks) || (other.mBlocks && mBlocks && (*other.mBlocks == *mBlocks));
 
-    return other.id() == id() && other.showIcon() == showIcon() && closeButtonEqual && submitButtonEqual && other.title() == title() && blocksEqual
-        && other.appId() == appId() && other.type() == type();
+    return other.mId == mId && other.mShowIcon == mShowIcon && closeButtonEqual && submitButtonEqual && other.mTitle == mTitle && blocksEqual
+        && other.mAppId == mAppId && other.mType == mType;
 }
 
 bool AutoGenerateInteractionUiView::showIcon() const

@@ -61,7 +61,7 @@ QDebug operator<<(QDebug d, const BlockAccessory &t)
 
 bool BlockAccessory::operator==(const BlockAccessory &other) const
 {
-    return other.actionId() == actionId() && other.value() == value() && other.type() == type() && other.options() == options() && other.text() == text();
+    return other.mActionId == mActionId && other.mValue == mValue && other.mType == mType && other.mOptions == mOptions && other.mText == mText;
 }
 
 void BlockAccessory::parseAccessory(const QJsonObject &o)

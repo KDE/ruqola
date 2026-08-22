@@ -15,7 +15,7 @@ TeamRoom::TeamRoom() = default;
 
 bool TeamRoom::operator==(const TeamRoom &other) const
 {
-    return mAutoJoin == other.autoJoin() && mName == other.name() && mFname == other.fname() && mIdentifier == other.identifier();
+    return mAutoJoin == other.mAutoJoin && mName == other.mName && mFname == other.mFname && mIdentifier == other.mIdentifier;
 }
 
 bool TeamRoom::autoJoin() const

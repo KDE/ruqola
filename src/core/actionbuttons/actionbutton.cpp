@@ -244,10 +244,10 @@ ActionButton::ButtonContext ActionButton::convertContextFromString(const QString
 
 bool ActionButton::operator==(const ActionButton &other) const
 {
-    return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
-        && other.hasOneRole() == hasOneRole() && other.buttonContext() == buttonContext() && other.hasAllRoles() == hasAllRoles()
-        && other.hasAllPermissions() == hasAllPermissions() && other.hasOnePermission() == hasOnePermission()
-        && other.messageActionContexts() == messageActionContexts() && other.category() == category();
+    return other.mActionId == mActionId && other.mAppId == mAppId && other.mLabelI18n == mLabelI18n && other.mRoomTypeFilters == mRoomTypeFilters
+        && other.mHasOneRole == mHasOneRole && other.mButtonContext == mButtonContext && other.mHasAllRoles == mHasAllRoles
+        && other.mHasAllPermissions == mHasAllPermissions && other.mHasOnePermission == mHasOnePermission
+        && other.mMessageActionContexts == mMessageActionContexts && other.mCategory == mCategory;
 }
 
 ActionButton::ButtonContext ActionButton::buttonContext() const

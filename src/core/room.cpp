@@ -68,7 +68,7 @@ QString Room::roomFromRoomType(Room::RoomType type)
 bool Room::operator==(const Room &other) const
 {
     // qDebug() << " other.id"<<other.id << " id " << id;
-    return other.mRoomId == roomId();
+    return other.mRoomId == mRoomId;
 }
 
 bool Room::isEqual(const Room &other) const

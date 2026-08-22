@@ -57,7 +57,7 @@ void Channels::parseChannels(const QJsonArray &channels)
 
 bool Channels::operator==(const Channels &other) const
 {
-    return mChannels == other.channels();
+    return mChannels == other.mChannels;
 }
 
 QDebug operator<<(QDebug d, const Channels &t)

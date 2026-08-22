@@ -29,8 +29,8 @@ ActionElementWidget *AutoGenerateInteractionUiViewLinearScaleElement::generateWi
 
 bool AutoGenerateInteractionUiViewLinearScaleElement::operator==(const AutoGenerateInteractionUiViewLinearScaleElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.maxValue() == maxValue() && other.minValue() == minValue()
-        && other.initialValue() == initialValue() && other.postLabel() == postLabel() && other.preLabel() == preLabel();
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.mMaxValue == mMaxValue && other.mMinValue == mMinValue
+        && other.mInitialValue == mInitialValue && other.mPostLabel == mPostLabel && other.mPreLabel == mPreLabel;
 }
 
 void AutoGenerateInteractionUiViewLinearScaleElement::parseElement(const QJsonObject &json)

@@ -36,7 +36,7 @@ bool AppsMarketPlaceInstalledInfo::isValid() const
 bool AppsMarketPlaceInstalledInfo::operator==(const AppsMarketPlaceInstalledInfo &other) const
 {
     return mAppName == other.mAppName && mVersion == other.mVersion && mIsPrivate == other.mIsPrivate && mDescription == other.mDescription
-        && mSupport == other.mSupport && mHomePage == other.mHomePage && mAuthorName == other.mAuthorName && mMigrated == other.migrated()
+        && mSupport == other.mSupport && mHomePage == other.mHomePage && mAuthorName == other.mAuthorName && mMigrated == other.mMigrated
         && mAppId == other.mAppId && mStatus == other.mStatus;
 }
 

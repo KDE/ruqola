@@ -60,7 +60,7 @@ ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidge
 
 bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
 {
-    return other.initialOptions() == initialOptions() && other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mInitialOptions == mInitialOptions && other.mOptions == mOptions && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewCheckboxElement::options() const

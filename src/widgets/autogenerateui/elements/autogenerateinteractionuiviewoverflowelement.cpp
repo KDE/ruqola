@@ -74,7 +74,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &
 
 bool AutoGenerateInteractionUiViewOverflowElement::operator==(const AutoGenerateInteractionUiViewOverflowElement &other) const
 {
-    return other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mOptions == mOptions && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewOverflowElement::serializeElement(QJsonObject &o) const

@@ -153,11 +153,11 @@ void NotificationOptions::setDesktopNotifications(const NotificationValue &deskt
 
 bool NotificationOptions::operator==(const NotificationOptions &other) const
 {
-    return (mDesktopNotifications == other.desktopNotifications()) && (mMobilePushNotification == other.mobilePushNotification())
-        && (mEmailNotifications == other.emailNotifications()) && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
-        && (mDisableNotifications == other.disableNotifications()) && (mHideUnreadStatus == other.hideUnreadStatus())
-        && (mAudioNotificationValue == other.audioNotificationValue()) && (mMuteGroupMentions == other.muteGroupMentions())
-        && (mHideMentionStatus == other.hideMentionStatus());
+    return (mDesktopNotifications == other.mDesktopNotifications) && (mMobilePushNotification == other.mMobilePushNotification)
+        && (mEmailNotifications == other.mEmailNotifications) && (mUnreadTrayIconAlert == other.mUnreadTrayIconAlert)
+        && (mDisableNotifications == other.mDisableNotifications) && (mHideUnreadStatus == other.mHideUnreadStatus)
+        && (mAudioNotificationValue == other.mAudioNotificationValue) && (mMuteGroupMentions == other.mMuteGroupMentions)
+        && (mHideMentionStatus == other.mHideMentionStatus);
 }
 
 bool NotificationOptions::operator!=(const NotificationOptions &other) const

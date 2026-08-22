@@ -492,11 +492,11 @@ void MessageUrl::setDescription(const QString &description)
 
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
-    return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
-        && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName())
-        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth())
-        && (mUrlId == other.urlId() && (mHtmlDescription == other.htmlDescription()) && (mImageBuildUrl == other.buildImageUrl()))
-        && (mContentType == other.contentType());
+    return (mUrl == other.mUrl) && (mPageTitle == other.mPageTitle) && (mDescription == other.mDescription) && (mImageUrl == other.mImageUrl)
+        && (mAuthorName == other.mAuthorName) && (mAuthorUrl == other.mAuthorUrl) && (mSiteUrl == other.mSiteUrl) && (mSiteName == other.mSiteName)
+        && (mImageHeight == other.mImageHeight) && (mImageWidth == other.mImageWidth)
+        && (mUrlId == other.mUrlId && (mHtmlDescription == other.mHtmlDescription) && (mImageBuildUrl == other.mImageBuildUrl))
+        && (mContentType == other.mContentType);
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)

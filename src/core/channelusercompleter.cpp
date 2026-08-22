@@ -109,9 +109,9 @@ void ChannelUserCompleter::setAvatarInfo(const Utils::AvatarInfo &newAvatarInfo)
 
 bool ChannelUserCompleter::operator==(const ChannelUserCompleter &other) const
 {
-    return (mType == other.type()) && (mName == other.name())
-        && (mDescription == other.description() && (mUserName == other.userName()) && (mAvatarTag == other.avatarTag()) && (mOutsideRoom == other.outsideRoom())
-            && (mIdentifier == other.identifier()));
+    return (mType == other.mType) && (mName == other.mName)
+        && (mDescription == other.mDescription && (mUserName == other.mUserName) && (mAvatarTag == other.mAvatarTag) && (mOutsideRoom == other.mOutsideRoom)
+            && (mIdentifier == other.mIdentifier));
 }
 
 QString ChannelUserCompleter::description() const

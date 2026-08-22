@@ -32,7 +32,7 @@ ModerationMessage::ModerationMessage(const ModerationMessage &other)
 
 bool ModerationMessage::operator==(const ModerationMessage &other) const
 {
-    return mModerationId == other.moderationId() && mRoomId == other.roomId() && mRoomName == other.roomName() && mRoomFName == other.roomFName();
+    return mModerationId == other.mModerationId && mRoomId == other.mRoomId && mRoomName == other.mRoomName && mRoomFName == other.mRoomFName;
 }
 
 QByteArray ModerationMessage::moderationId() const

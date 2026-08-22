@@ -104,7 +104,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchEleme
 
 bool AutoGenerateInteractionUiViewToggleSwitchElement::operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.options() == options() && other.initialOptions() == initialOptions();
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.mOptions == mOptions && other.mInitialOptions == mInitialOptions;
 }
 
 #include "moc_autogenerateinteractionuiviewtoggleswitchelement.cpp"

@@ -33,7 +33,7 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 
 bool ApplicationsSettingsLogsInfo::operator==(const ApplicationsSettingsLogsInfo &other) const
 {
-    return mMethod == other.method() && mArguments == other.arguments() && mCreatedAt == other.createdAt() && mTotalTime == other.totalTime();
+    return mMethod == other.mMethod && mArguments == other.mArguments && mCreatedAt == other.mCreatedAt && mTotalTime == other.mTotalTime;
 }
 
 QList<ApplicationsSettingsLogsInfo::LogsArgument> ApplicationsSettingsLogsInfo::arguments() const

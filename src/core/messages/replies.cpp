@@ -52,7 +52,7 @@ void Replies::parseReplies(const QJsonArray &replieArray)
 
 bool Replies::operator==(const Replies &other) const
 {
-    return mReplies == other.replies();
+    return mReplies == other.mReplies;
 }
 
 QJsonArray Replies::serialize(const Replies &replies)

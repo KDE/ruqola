@@ -78,8 +78,8 @@ void RetentionInfo::setMaxAge(int maxAge)
 
 bool RetentionInfo::operator==(RetentionInfo other) const
 {
-    return mMaxAge == other.maxAge() && mEnabled == other.enabled() && mOverrideGlobal == other.overrideGlobal() && mExcludePinned == other.excludePinned()
-        && mFilesOnly == other.filesOnly();
+    return mMaxAge == other.mMaxAge && mEnabled == other.mEnabled && mOverrideGlobal == other.mOverrideGlobal && mExcludePinned == other.mExcludePinned
+        && mFilesOnly == other.mFilesOnly;
 }
 
 bool RetentionInfo::operator!=(RetentionInfo other) const

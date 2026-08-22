@@ -47,7 +47,7 @@ void MessageTranslations::parse(const QJsonObject &obj)
 
 bool MessageTranslations::operator==(const MessageTranslations &other) const
 {
-    return mTranslatedString == other.translatedString();
+    return mTranslatedString == other.mTranslatedString;
 }
 
 QMap<QString, QString> MessageTranslations::translatedString() const

@@ -68,16 +68,16 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 {
-    return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
-        && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
-        && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
-        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mShowUnread == other.showUnread()
-        && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite() && mRoomListSortOrder == other.roomListSortOrder()
-        && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail() && mRoomListDisplay == other.roomListDisplay()
-        && mNewMessageNotification == other.newMessageNotification() && mNewRoomNotification == other.newRoomNotification()
-        && mNotificationsSoundVolume == other.notificationsSoundVolume() && mMuteFocusedConversations == other.muteFocusedConversations()
-        && mFeaturePreviewPreferences == other.featurePreviewPreferences() && mMasterVolume == other.masterVolume()
-        && mCallRingerVolume == other.callRingerVolume();
+    return mHighlightWords == other.mHighlightWords && mEmailNotificationMode == other.mEmailNotificationMode
+        && mDesktopNotifications == other.mDesktopNotifications && mUseEmojis == other.mUseEmojis && mConvertAsciiEmoji == other.mConvertAsciiEmoji
+        && mHideRoles == other.mHideRoles && mDisplayAvatars == other.mDisplayAvatars && mIdleTimeLimit == other.mIdleTimeLimit
+        && mEnableAutoAway == other.mEnableAutoAway && mPushNotifications == other.mPushNotifications && mShowUnread == other.mShowUnread
+        && mShowRoomAvatar == other.mShowRoomAvatar && mShowFavorite == other.mShowFavorite && mRoomListSortOrder == other.mRoomListSortOrder
+        && mReceiveLoginDetectionEmail == other.mReceiveLoginDetectionEmail && mRoomListDisplay == other.mRoomListDisplay
+        && mNewMessageNotification == other.mNewMessageNotification && mNewRoomNotification == other.mNewRoomNotification
+        && mNotificationsSoundVolume == other.mNotificationsSoundVolume && mMuteFocusedConversations == other.mMuteFocusedConversations
+        && mFeaturePreviewPreferences == other.mFeaturePreviewPreferences && mMasterVolume == other.mMasterVolume
+        && mCallRingerVolume == other.mCallRingerVolume;
 }
 
 QStringList OwnUserPreferences::highlightWords() const

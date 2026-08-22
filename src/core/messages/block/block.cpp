@@ -207,8 +207,8 @@ void Block::setBlockType(BlockType newBlockType)
 
 bool Block::operator==(const Block &other) const
 {
-    return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId() && mBlockActions == other.blockActions()
-        && mSectionText == other.sectionText() && mBlockAccessory == other.blockAccessory() && mVideoConferenceInfo == other.videoConferenceInfo();
+    return mBlockId == other.mBlockId && mCallId == other.mCallId && mAppId == other.mAppId && mBlockActions == other.mBlockActions
+        && mSectionText == other.mSectionText && mBlockAccessory == other.mBlockAccessory && mVideoConferenceInfo == other.mVideoConferenceInfo;
 }
 
 QString Block::sectionText() const

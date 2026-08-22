@@ -156,8 +156,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelect
 bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const AutoGenerateInteractionUiViewMultiStaticSelectElement &other) const
 {
     // TODO add placeholder too
-    return other.maxSelectItems() == maxSelectItems() && other.initialValue() == initialValue() && other.options() == options()
-        && other.initialOptions() == initialOptions() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mMaxSelectItems == mMaxSelectItems && other.mInitialValue == mInitialValue && other.mOptions == mOptions
+        && other.mInitialOptions == mInitialOptions && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJsonObject &o) const

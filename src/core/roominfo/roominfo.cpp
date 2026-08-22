@@ -357,11 +357,10 @@ QString RoomInfo::channelTypeStr() const
 
 bool RoomInfo::operator==(const RoomInfo &other) const
 {
-    return mDefaultRoom == other.defaultRoom() && mUsersCount == other.usersCount() && mMessageCount == other.messageCount()
-        && mChannelType == other.channelType() && mIdentifier == other.identifier() && mTopic == other.topic() && mName == other.name()
-        && mUserNames == other.userNames() && mUsers == other.users() && mTeamInfo == other.teamInfo() && mLastMessage == other.lastMessage()
-        && mCreatedRoom == other.createdRoom() && mDescription == other.description() && mAnnouncement == other.announcement()
-        && mOwnerName == other.ownerName() && mFName == other.fName() && mParentRid == other.parentRid();
+    return mDefaultRoom == other.mDefaultRoom && mUsersCount == other.mUsersCount && mMessageCount == other.mMessageCount && mChannelType == other.mChannelType
+        && mIdentifier == other.mIdentifier && mTopic == other.mTopic && mName == other.mName && mUserNames == other.mUserNames && mUsers == other.mUsers
+        && mTeamInfo == other.mTeamInfo && mLastMessage == other.mLastMessage && mCreatedRoom == other.mCreatedRoom && mDescription == other.mDescription
+        && mAnnouncement == other.mAnnouncement && mOwnerName == other.mOwnerName && mFName == other.mFName && mParentRid == other.mParentRid;
 }
 
 QDebug operator<<(QDebug d, const RoomInfo &t)

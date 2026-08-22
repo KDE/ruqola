@@ -54,7 +54,7 @@ void AutoGenerateInteractionUiViewUserSelectElement::setPlaceHolder(AutoGenerate
 
 bool AutoGenerateInteractionUiViewUserSelectElement::operator==(const AutoGenerateInteractionUiViewUserSelectElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.placeHolder() == placeHolder();
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.mPlaceHolder == mPlaceHolder;
 }
 
 QVariant AutoGenerateInteractionUiViewUserSelectElement::currentValue() const

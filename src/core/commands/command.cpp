@@ -161,8 +161,8 @@ void Command::parseCommand(const QJsonObject &obj)
 
 bool Command::operator==(const Command &other) const
 {
-    return mParams == other.params() && mCommandName == other.commandName() && mDescription == other.description() && mClientOnly == other.clientOnly()
-        && mProvidesPreview == other.providesPreview() && mPermissions == other.permissions();
+    return mParams == other.mParams && mCommandName == other.mCommandName && mDescription == other.mDescription && mClientOnly == other.mClientOnly
+        && mProvidesPreview == other.mProvidesPreview && mPermissions == other.mPermissions;
 }
 
 bool Command::isValid() const

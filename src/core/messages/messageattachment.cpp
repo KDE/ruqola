@@ -526,12 +526,12 @@ void MessageAttachment::setLink(const QString &link)
 
 bool MessageAttachment::operator==(const MessageAttachment &other) const
 {
-    return (mDescription == other.description()) && (mTitle == other.title()) && (mLink == other.link()) && (mColor == other.color())
-        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mAuthorName == other.authorName())
-        && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
-        && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview()) && (mAttachmentSize == other.attachmentSize())
-        && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle()) && (mFormat == other.format())
-        && (mMessageAttachmentActions == other.messageAttachmentActions());
+    return (mDescription == other.mDescription) && (mTitle == other.mTitle) && (mLink == other.mLink) && (mColor == other.mColor)
+        && (mImageHeight == other.mImageHeight) && (mImageWidth == other.mImageWidth) && (mAuthorName == other.mAuthorName) && (mMimeType == other.mMimeType)
+        && (mText == other.mText) && (mAttachmentFields == other.mAttachmentFields) && (mCollapsed == other.mCollapsed) && (mAuthorIcon == other.mAuthorIcon)
+        && (mImageUrlPreview == other.mImageUrlPreview) && (mAttachmentSize == other.mAttachmentSize)
+        && (mAttachmentGeneratedTitle == other.mAttachmentGeneratedTitle) && (mFormat == other.mFormat)
+        && (mMessageAttachmentActions == other.mMessageAttachmentActions);
 }
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)

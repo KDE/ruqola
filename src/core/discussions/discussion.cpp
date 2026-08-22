@@ -113,9 +113,9 @@ QDebug operator<<(QDebug d, const Discussion &t)
 
 bool Discussion::operator==(const Discussion &other) const
 {
-    return (description() == other.description()) && (parentRoomId() == other.parentRoomId()) && (numberMessages() == other.numberMessages())
-        && (lastMessage() == other.lastMessage()) && (discussionRoomId() == other.discussionRoomId()) && (timeStamp() == other.timeStamp())
-        && (fname() == other.fname()) && (userName() == other.userName());
+    return (mDescription == other.mDescription) && (mParentRoomId == other.mParentRoomId) && (mNumberMessages == other.mNumberMessages)
+        && (mLastMessage == other.mLastMessage) && (mDiscussionRoomId == other.mDiscussionRoomId) && (mTimeStamp == other.mTimeStamp)
+        && (mFname == other.mFname) && (mUserName == other.mUserName);
 }
 
 void Discussion::parseDiscussion(const QJsonObject &o)

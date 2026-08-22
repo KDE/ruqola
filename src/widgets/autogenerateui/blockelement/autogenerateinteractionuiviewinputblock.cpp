@@ -43,7 +43,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewInputBlock &t)
 
 bool AutoGenerateInteractionUiViewInputBlock::operator==(const AutoGenerateInteractionUiViewInputBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.optional() == optional() && other.label() == label();
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.mOptional == mOptional && other.mLabel == mLabel;
 }
 
 void AutoGenerateInteractionUiViewInputBlock::parseBlock(const QJsonObject &json)

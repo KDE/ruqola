@@ -46,8 +46,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
 
 bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.text() == text() && other.accessory() == accessory()
-        && other.fields() == fields();
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.mText == mText && other.mAccessory == mAccessory && other.mFields == mFields;
 }
 
 QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *parent)

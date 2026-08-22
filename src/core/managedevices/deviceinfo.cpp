@@ -51,8 +51,8 @@ void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
 
 bool DeviceInfo::operator==(const DeviceInfo &other) const
 {
-    return mIdentifier == other.identifier() && mIp == other.ip() && mHost == other.host() && mSessionId == other.sessionId() && mUserId == other.userId()
-        && mLoginAt == other.loginAt() && mOs == other.os() && mClient == other.client();
+    return mIdentifier == other.mIdentifier && mIp == other.mIp && mHost == other.mHost && mSessionId == other.mSessionId && mUserId == other.mUserId
+        && mLoginAt == other.mLoginAt && mOs == other.mOs && mClient == other.mClient;
 }
 
 const QByteArray &DeviceInfo::identifier() const

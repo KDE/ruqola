@@ -56,7 +56,7 @@ void MessageUrls::parseMessageUrls(const QJsonArray &urls, const QByteArray &mes
 
 bool MessageUrls::operator==(const MessageUrls &other) const
 {
-    return mMessageUrls == other.messageUrls();
+    return mMessageUrls == other.mMessageUrls;
 }
 
 QDebug operator<<(QDebug d, const MessageUrls &t)

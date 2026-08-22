@@ -23,7 +23,7 @@ AutoGenerateInteractionUiViewTimePickerElement::~AutoGenerateInteractionUiViewTi
 
 bool AutoGenerateInteractionUiViewTimePickerElement::operator==(const AutoGenerateInteractionUiViewTimePickerElement &other) const
 {
-    return other.initialTime() == initialTime() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mInitialTime == mInitialTime && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewTimePickerElement::parseElement(const QJsonObject &json)

@@ -57,7 +57,7 @@ bool TeamInfo::isValid() const
 
 bool TeamInfo::operator==(const TeamInfo &other) const
 {
-    return mTeamId == other.teamId() && mMainTeam == other.mainTeam() && mAutoJoin == other.autoJoin() && mRoomsCount == other.roomsCount();
+    return mTeamId == other.mTeamId && mMainTeam == other.mMainTeam && mAutoJoin == other.mAutoJoin && mRoomsCount == other.mRoomsCount;
 }
 
 bool TeamInfo::operator!=(const TeamInfo &other) const

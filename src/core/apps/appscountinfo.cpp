@@ -72,8 +72,8 @@ QDebug operator<<(QDebug d, const AppsCountInfo &t)
 
 bool AppsCountInfo::operator==(const AppsCountInfo &other) const
 {
-    return mTotalPrivateEnabled == other.totalPrivateEnabled() && mTotalMarketplaceEnabled == other.totalMarketplaceEnabled()
-        && mMaxMarketplaceApps == other.maxMarketplaceApps() && mMaxPrivateApps == other.maxPrivateApps();
+    return mTotalPrivateEnabled == other.mTotalPrivateEnabled && mTotalMarketplaceEnabled == other.mTotalMarketplaceEnabled
+        && mMaxMarketplaceApps == other.mMaxMarketplaceApps && mMaxPrivateApps == other.mMaxPrivateApps;
 }
 
 bool AppsCountInfo::isValid() const

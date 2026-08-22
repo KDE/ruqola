@@ -66,7 +66,7 @@ void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiMan
 
 bool Reactions::operator==(const Reactions &other) const
 {
-    return mReactions == other.reactions();
+    return mReactions == other.mReactions;
 }
 
 QDebug operator<<(QDebug d, const Reactions &t)

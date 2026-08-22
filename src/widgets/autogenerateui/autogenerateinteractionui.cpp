@@ -234,7 +234,7 @@ void AutoGenerateInteractionUi::setTypeUi(TypeUi newTypeUi)
 
 bool AutoGenerateInteractionUi::operator==(const AutoGenerateInteractionUi &other) const
 {
-    return other.appId() == appId() && other.typeUi() == typeUi() && other.triggerId() == triggerId();
+    return other.mAppId == mAppId && other.mTypeUi == mTypeUi && other.mTriggerId == mTriggerId;
 }
 
 QByteArray AutoGenerateInteractionUi::triggerId() const

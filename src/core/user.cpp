@@ -54,10 +54,10 @@ void User::setStatus(PresenceStatus s)
 
 bool User::operator==(const User &other) const
 {
-    return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
-        && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
-        && (mLastLogin == other.lastLogin()) && (mActive == other.active()) && (mRequirePasswordChange == other.requirePasswordChange())
-        && (mBio == other.bio()) && (mNickName == other.nickName()) && (mType == other.type());
+    return (mName == other.mName) && (mUserId == other.mUserId) && (mStatus == other.mStatus) && (mUserName == other.mUserName)
+        && (mUtcOffset == other.mUtcOffset) && (mStatusText == other.mStatusText) && (mRoles == other.mRoles) && (mCreatedAt == other.mCreatedAt)
+        && (mLastLogin == other.mLastLogin) && (mActive == other.mActive) && (mRequirePasswordChange == other.mRequirePasswordChange) && (mBio == other.mBio)
+        && (mNickName == other.mNickName) && (mType == other.mType);
 }
 
 bool User::operator!=(const User &other) const

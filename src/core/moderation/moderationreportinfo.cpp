@@ -20,8 +20,8 @@ ModerationReportInfo::~ModerationReportInfo() = default;
 
 bool ModerationReportInfo::operator==(const ModerationReportInfo &other) const
 {
-    return mDescription == other.description() && mReportIdentifier == other.reportIdentifier() && mTimeStamp == other.timeStamp() && mRoomId == other.roomId()
-        && mUserId == other.userId() && mUserName == other.userName();
+    return mDescription == other.mDescription && mReportIdentifier == other.mReportIdentifier && mTimeStamp == other.mTimeStamp && mRoomId == other.mRoomId
+        && mUserId == other.mUserId && mUserName == other.mUserName;
 }
 
 void ModerationReportInfo::parseModerationReportInfo(const QJsonObject &o)

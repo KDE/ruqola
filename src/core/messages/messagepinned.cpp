@@ -56,7 +56,7 @@ void MessagePinned::setPinnedBy(const QString &pinnedBy)
 
 bool MessagePinned::operator==(const MessagePinned &other) const
 {
-    return (mPinned == other.pinned()) && (mPinnedBy == other.pinnedBy());
+    return (mPinned == other.mPinned) && (mPinnedBy == other.mPinnedBy);
 }
 
 void MessagePinned::parse(const QJsonObject &o)

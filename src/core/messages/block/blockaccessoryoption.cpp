@@ -52,7 +52,7 @@ void BlockAccessoryOption::setValue(const QString &newValue)
 
 bool BlockAccessoryOption::operator==(const BlockAccessoryOption &other) const
 {
-    return mValue == other.value() && mText == other.text();
+    return mValue == other.mValue && mText == other.mText;
 }
 
 QString BlockAccessoryOption::text() const

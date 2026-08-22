@@ -181,7 +181,7 @@ bool MessageEncrypted::encrypt([[maybe_unused]] const QByteArray &plainText,
 
 bool MessageEncrypted::operator==(const MessageEncrypted &other) const
 {
-    return mAlgorithm == other.algorithm() && mCiphertext == other.ciphertext() && mKeyId == other.keyId() && mIv == other.iv();
+    return mAlgorithm == other.mAlgorithm && mCiphertext == other.mCiphertext && mKeyId == other.mKeyId && mIv == other.mIv;
 }
 
 void MessageEncrypted::parse(const QJsonObject &o)

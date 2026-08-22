@@ -160,8 +160,8 @@ QString CustomEmoji::name() const
 
 bool CustomEmoji::operator==(const CustomEmoji &other) const
 {
-    return (mName == other.name()) && (mExtension == other.extension()) && (mIdentifier == other.identifier()) && (mAliases == other.aliases())
-        && (mEmojiIdentifier == other.emojiIdentifier()) && (mUpdatedAt == other.updatedAt());
+    return (mName == other.mName) && (mExtension == other.mExtension) && (mIdentifier == other.mIdentifier) && (mAliases == other.mAliases)
+        && (mEmojiIdentifier == other.mEmojiIdentifier) && (mUpdatedAt == other.mUpdatedAt);
 }
 
 QDebug operator<<(QDebug d, const CustomEmoji &t)

@@ -115,10 +115,10 @@ QDebug operator<<(QDebug d, const OwnUser &t)
 
 bool OwnUser::operator==(const OwnUser &other) const
 {
-    return (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName()) && (mEmail == other.email())
-        && (mStatusText == other.statusText()) && (mName == other.name()) && (mAvatarUrl == other.avatarUrl()) && (mUtcOffset == other.utcOffset())
-        && (mStatusDefault == other.statusDefault()) && (mNickName == other.nickName()) && (mRoles == other.roles())
-        && (mServicePassword == other.servicePassword()) && (mOwnUserPreferences == other.ownUserPreferences());
+    return (mUserId == other.mUserId) && (mStatus == other.mStatus) && (mUserName == other.mUserName) && (mEmail == other.mEmail)
+        && (mStatusText == other.mStatusText) && (mName == other.mName) && (mAvatarUrl == other.mAvatarUrl) && (mUtcOffset == other.mUtcOffset)
+        && (mStatusDefault == other.mStatusDefault) && (mNickName == other.mNickName) && (mRoles == other.mRoles)
+        && (mServicePassword == other.mServicePassword) && (mOwnUserPreferences == other.mOwnUserPreferences);
 }
 
 QString OwnUser::email() const

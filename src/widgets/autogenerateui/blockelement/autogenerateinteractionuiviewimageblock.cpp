@@ -81,7 +81,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageBlock &t)
 bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInteractionUiViewImageBlock &other) const
 {
     // TODO title
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.image() == image();
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.mImage == mImage;
 }
 
 void AutoGenerateInteractionUiViewImageBlock::serializeBlock(QJsonObject &o) const

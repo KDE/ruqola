@@ -72,7 +72,7 @@ void Blocks::parseBlocks(const QJsonArray &blocks)
 
 bool Blocks::operator==(const Blocks &other) const
 {
-    return mBlocks == other.blocks();
+    return mBlocks == other.mBlocks;
 }
 
 QDebug operator<<(QDebug d, const Blocks &t)

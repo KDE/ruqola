@@ -50,7 +50,7 @@ void AutoGenerateInteractionUiViewImage::setImageUrl(const QString &newImageUrl)
 
 bool AutoGenerateInteractionUiViewImage::operator==(const AutoGenerateInteractionUiViewImage &other) const
 {
-    return other.altText() == altText() && other.imageUrl() == imageUrl();
+    return other.mAltText == mAltText && other.mImageUrl == mImageUrl;
 }
 
 QJsonObject AutoGenerateInteractionUiViewImage::serialize() const

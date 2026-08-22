@@ -42,7 +42,7 @@ void MessageAttachmentActions::setAlignment(const AlignmentButton &newAlignment)
 
 bool MessageAttachmentActions::operator==(const MessageAttachmentActions &other) const
 {
-    return mAlignment == other.alignment() && mActions == other.actions();
+    return mAlignment == other.mAlignment && mActions == other.mActions;
 }
 
 QList<MessageAttachmentAction> MessageAttachmentActions::actions() const

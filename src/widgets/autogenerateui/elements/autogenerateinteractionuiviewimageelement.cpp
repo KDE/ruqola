@@ -24,7 +24,7 @@ ActionElementWidget *AutoGenerateInteractionUiViewImageElement::generateWidget([
 
 bool AutoGenerateInteractionUiViewImageElement::operator==(const AutoGenerateInteractionUiViewImageElement &other) const
 {
-    return other.image() == image() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mImage == mImage && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewImageElement::parseElement(const QJsonObject &json)

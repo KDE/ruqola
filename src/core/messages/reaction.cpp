@@ -79,7 +79,7 @@ int Reaction::count() const
 
 bool Reaction::operator==(const Reaction &other) const
 {
-    return (mUserNames == other.userNames()) && (mReactionName == other.reactionName());
+    return (mUserNames == other.mUserNames) && (mReactionName == other.mReactionName);
 }
 
 QDebug operator<<(QDebug d, const Reaction &t)

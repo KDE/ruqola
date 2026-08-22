@@ -14,7 +14,7 @@ TeamRoomCompleter::TeamRoomCompleter() = default;
 
 bool TeamRoomCompleter::operator==(const TeamRoomCompleter &other) const
 {
-    return mName == other.name() && mFname == other.fname() && mIdentifier == other.identifier();
+    return mName == other.mName && mFname == other.mFname && mIdentifier == other.mIdentifier;
 }
 
 QString TeamRoomCompleter::name() const

@@ -103,7 +103,7 @@ void PreviewCommand::parse(const QJsonObject &obj)
 
 bool PreviewCommand::operator==(const PreviewCommand &other) const
 {
-    return other.id() == id() && other.type() == type() && other.value() == value();
+    return other.mId == mId && other.mType == mType && other.mValue == mValue;
 }
 
 bool PreviewCommand::isValid() const

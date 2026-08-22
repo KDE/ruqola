@@ -663,14 +663,14 @@ void Message::parseAttachment(const QJsonArray &attachments)
 
 bool Message::operator==(const Message &other) const
 {
-    bool result = (mMessageId == other.messageId()) && (mRoomId == other.roomId()) && (mText == other.text()) && (mTimeStamp == other.timeStamp())
-        && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
-        && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
-        && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
-        && (mMentions == other.mentions()) && (mRole == other.role()) && (unread() == other.unread()) && (mMessageStarred == other.messageStarred())
+    bool result = (mMessageId == other.mMessageId) && (mRoomId == other.mRoomId) && (mText == other.mText) && (mTimeStamp == other.mTimeStamp)
+        && (mUsername == other.mUsername) && (mName == other.mName) && (mUserId == other.mUserId) && (mUpdatedAt == other.mUpdatedAt)
+        && (mEditedAt == other.mEditedAt) && (mEditedByUsername == other.mEditedByUsername) && (mAlias == other.mAlias) && (mAvatar == other.mAvatar)
+        && (mSystemMessageType == other.mSystemMessageType) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
+        && (mMentions == other.mMentions) && (mRole == other.mRole) && (unread() == other.unread()) && (mMessageStarred == other.mMessageStarred)
         && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
         && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
-        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mEmoji == other.emoji())
+        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mEmoji == other.mEmoji)
         && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
         && (localTranslation() == other.localTranslation()) && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
     if (!result) {
@@ -678,128 +678,128 @@ bool Message::operator==(const Message &other) const
     }
 
     // compare urls
-    if (replies() && other.replies()) {
-        if (*replies() == (*other.replies())) {
+    if (mReplies && other.mReplies) {
+        if (*mReplies == (*other.mReplies)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!replies() && !other.replies()) {
+    } else if (!mReplies && !other.mReplies) {
         result = true;
     } else {
         return false;
     }
 
     // compare urls
-    if (urls() && other.urls()) {
-        if (*urls() == (*other.urls())) {
+    if (mUrls && other.mUrls) {
+        if (*mUrls == (*other.mUrls)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!urls() && !other.urls()) {
+    } else if (!mUrls && !other.mUrls) {
         result = true;
     } else {
         return false;
     }
 
     // compare attachments
-    if (attachments() && other.attachments()) {
-        if (*attachments() == (*other.attachments())) {
+    if (mAttachments && other.mAttachments) {
+        if (*mAttachments == (*other.mAttachments)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!attachments() && !other.attachments()) {
+    } else if (!mAttachments && !other.mAttachments) {
         result = true;
     } else {
         return false;
     }
 
     // compare blocks
-    if (blocks() && other.blocks()) {
-        if (*blocks() == (*other.blocks())) {
+    if (mBlocks && other.mBlocks) {
+        if (*mBlocks == (*other.mBlocks)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!blocks() && !other.blocks()) {
+    } else if (!mBlocks && !other.mBlocks) {
         result = true;
     } else {
         return false;
     }
 
     // compare channels
-    if (channels() && other.channels()) {
-        if (*channels() == (*other.channels())) {
+    if (mChannels && other.mChannels) {
+        if (*mChannels == (*other.mChannels)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!channels() && !other.channels()) {
+    } else if (!mChannels && !other.mChannels) {
         result = true;
     } else {
         return false;
     }
 
     // compare messagePinned
-    if (messagePinned() && other.messagePinned()) {
-        if (*messagePinned() == (*other.messagePinned())) {
+    if (mMessagePinned && other.mMessagePinned) {
+        if (*mMessagePinned == (*other.mMessagePinned)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!messagePinned() && !other.messagePinned()) {
+    } else if (!mMessagePinned && !other.mMessagePinned) {
         result = true;
     } else {
         return false;
     }
 
     // compare reactions
-    if (reactions() && other.reactions()) {
-        if (*reactions() == (*other.reactions())) {
+    if (mReactions && other.mReactions) {
+        if (*mReactions == (*other.mReactions)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!reactions() && !other.reactions()) {
+    } else if (!mReactions && !other.mReactions) {
         result = true;
     } else {
         return false;
     }
     // compare messageTranslation
-    if (messageTranslation() && other.messageTranslation()) {
-        if (*messageTranslation() == (*other.messageTranslation())) {
+    if (mMessageTranslation && other.mMessageTranslation) {
+        if (*mMessageTranslation == (*other.mMessageTranslation)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!messageTranslation() && !other.messageTranslation()) {
+    } else if (!mMessageTranslation && !other.mMessageTranslation) {
         result = true;
     } else {
         return false;
     }
     // Compare moderationMessage
-    if (moderationMessage() && other.moderationMessage()) {
-        if (*moderationMessage() == (*other.moderationMessage())) {
+    if (mModerationMessage && other.mModerationMessage) {
+        if (*mModerationMessage == (*other.mModerationMessage)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!moderationMessage() && !other.moderationMessage()) {
+    } else if (!mModerationMessage && !other.mModerationMessage) {
         result = true;
     } else {
         return false;
     }
 
     // compare blocks
-    if (messageEncrypted() && other.messageEncrypted()) {
-        if (*messageEncrypted() == (*other.messageEncrypted())) {
+    if (mMessageEncrypted && other.mMessageEncrypted) {
+        if (*mMessageEncrypted == (*other.mMessageEncrypted)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!messageEncrypted() && !other.messageEncrypted()) {
+    } else if (!mMessageEncrypted && !other.mMessageEncrypted) {
         result = true;
     } else {
         return false;

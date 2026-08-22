@@ -47,7 +47,7 @@ void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
 
 bool ChannelCounterInfo::operator==(const ChannelCounterInfo &other) const
 {
-    return mUnreadMessages == other.unreadMessages() && mMessageCount == other.messageCount() && mUnreadFrom == other.unreadFrom() && mJoined == other.joined();
+    return mUnreadMessages == other.mUnreadMessages && mMessageCount == other.mMessageCount && mUnreadFrom == other.mUnreadFrom && mJoined == other.mJoined;
 }
 
 bool ChannelCounterInfo::operator!=(const ChannelCounterInfo &other) const

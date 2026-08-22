@@ -53,8 +53,8 @@ QString BannerInfo::defaultText(const BannerInfo &info)
 
 bool BannerInfo::operator==(const BannerInfo &other) const
 {
-    return mText == other.text() && mTitle == other.title() && mLink == other.link() && mRead == other.read() && mRead == other.read()
-        && mTextArguments == other.textArguments() && mIdentifier == other.identifier() && mPriority == other.priority();
+    return mText == other.mText && mTitle == other.mTitle && mLink == other.mLink && mRead == other.mRead && mRead == other.mRead
+        && mTextArguments == other.mTextArguments && mIdentifier == other.mIdentifier && mPriority == other.mPriority;
 }
 
 const QString &BannerInfo::text() const

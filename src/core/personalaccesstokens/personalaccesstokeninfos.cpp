@@ -80,5 +80,5 @@ QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t)
 
 bool PersonalAccessTokenInfos::operator==(const PersonalAccessTokenInfos &other) const
 {
-    return personalAccessTokenInfos() == other.personalAccessTokenInfos();
+    return mPersonalAccessTokenInfos == other.mPersonalAccessTokenInfos;
 }
