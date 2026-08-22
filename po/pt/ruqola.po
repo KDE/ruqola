@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-17 00:45+0000\n"
+"POT-Creation-Date: 2026-08-22 00:45+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3570,10 +3570,10 @@ msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Mostrar as Mensagens de Menção - %1"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:52
-#: widgets/dialogs/searchmessagewidget.cpp:220
-#: widgets/dialogs/showlistmessagebasewidget.cpp:104
-#: widgets/discussions/showdiscussionswidget.cpp:90
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/dialogs/searchmessagewidget.cpp:218
+#: widgets/dialogs/showlistmessagebasewidget.cpp:107
+#: widgets/discussions/showdiscussionswidget.cpp:93
 #: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, fuzzy, kde-format
@@ -3581,16 +3581,16 @@ msgstr "Mostrar as Mensagens de Menção - %1"
 msgid "Loading…"
 msgstr "A carregar..."
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:54
-#: widgets/dialogs/searchmessagewidget.cpp:224
-#: widgets/dialogs/showlistmessagebasewidget.cpp:106
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/dialogs/searchmessagewidget.cpp:222
+#: widgets/dialogs/showlistmessagebasewidget.cpp:109
 #: widgets/room/usersinroomwidget.cpp:180
 #, kde-format
 msgid "No Message found"
 msgstr "Não foi encontrada nenhuma mensagem"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:60
-#: widgets/dialogs/searchmessagewidget.cpp:230
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/dialogs/searchmessagewidget.cpp:228
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -3760,12 +3760,12 @@ msgctxt "@action"
 msgid "Select All"
 msgstr "Seleccionar Tudo"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:39
+#: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:40
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
 #: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
-#: widgets/notificationhistory/notificationhistorywidget.cpp:47
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
+#: widgets/notificationhistory/notificationhistorywidget.cpp:48
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Search..."
 msgctxt "@info:placeholder"
@@ -9651,14 +9651,14 @@ msgctxt "@info:placeholder"
 msgid "Search messages…"
 msgstr "Procurar por mensagens"
 
-#: widgets/dialogs/searchmessagewidget.cpp:53
+#: widgets/dialogs/searchmessagewidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Search messages"
 msgctxt "@info:placeholder"
 msgid "Search messages"
 msgstr "Procurar por mensagens"
 
-#: widgets/dialogs/searchmessagewidget.cpp:68
+#: widgets/dialogs/searchmessagewidget.cpp:67
 #, kde-format
 msgid ""
 "You can search using <a href=\"https://en.wikipedia.org/wiki/"
@@ -9766,8 +9766,8 @@ msgstr[1] "%1 Anexos na Sala (Total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:103
 #: widgets/dialogs/showbanneduserswidget.cpp:115
-#: widgets/dialogs/showlistmessagebasewidget.cpp:114
-#: widgets/discussions/showdiscussionswidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:117
+#: widgets/discussions/showdiscussionswidget.cpp:104
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:194
@@ -9888,7 +9888,7 @@ msgstr ""
 msgid "Save Image"
 msgstr "Gravar a Imagem"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:112
+#: widgets/dialogs/showlistmessagebasewidget.cpp:115
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -10093,19 +10093,19 @@ msgctxt "@title:window"
 msgid "Show Discussions - %1"
 msgstr "Mostrar as Discussões - %1"
 
-#: widgets/discussions/showdiscussionswidget.cpp:41
+#: widgets/discussions/showdiscussionswidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Search discussion..."
 msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Procurar uma discussão..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:92
+#: widgets/discussions/showdiscussionswidget.cpp:95
 #, kde-format
 msgid "No Discussion found"
 msgstr "Nenhuma discussão encontrada"
 
-#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/discussions/showdiscussionswidget.cpp:102
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -12011,7 +12011,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Remover a Mensagem"
 
-#: widgets/room/messagelistview.cpp:1300
+#: widgets/room/messagelistview.cpp:1301
 #, fuzzy, kde-format
 #| msgid "Translator Error"
 msgctxt "@title:window"
@@ -12226,35 +12226,35 @@ msgstr "A responder num tópico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta no Tópico à Mensagem: '%1'"
 
-#: widgets/room/roomwidget.cpp:400
+#: widgets/room/roomwidget.cpp:403
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Deseja realmente remover o histórico?"
 
-#: widgets/room/roomwidget.cpp:401
+#: widgets/room/roomwidget.cpp:404
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remover o Histórico"
 
-#: widgets/room/roomwidget.cpp:445
+#: widgets/room/roomwidget.cpp:448
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: widgets/room/roomwidget.cpp:446
+#: widgets/room/roomwidget.cpp:449
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
 
-#: widgets/room/roomwidget.cpp:608
+#: widgets/room/roomwidget.cpp:611
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "As Mensagens Directas não podem ser arquivadas"
 
-#: widgets/room/roomwidget.cpp:608
+#: widgets/room/roomwidget.cpp:611
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -12262,7 +12262,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Procurar por Mensagens"
 
-#: widgets/room/roomwidget.cpp:627
+#: widgets/room/roomwidget.cpp:630
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -12270,7 +12270,7 @@ msgstr ""
 "É preciso um administrador da área de trabalho para instalar e configurar "
 "uma aplicação de chamadas em conferência."
 
-#: widgets/room/roomwidget.cpp:628
+#: widgets/room/roomwidget.cpp:631
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"
@@ -13521,12 +13521,12 @@ msgctxt "@title:window"
 msgid "Thread"
 msgstr "Tópico"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:122
 #, kde-format
 msgid "Follow Message"
 msgstr "Seguir a Mensagem"
 
-#: widgets/threadwidget/threadmessagewidget.cpp:119
+#: widgets/threadwidget/threadmessagewidget.cpp:122
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Não Seguir a Mensagem"
