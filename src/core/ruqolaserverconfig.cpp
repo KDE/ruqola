@@ -1075,7 +1075,7 @@ bool RuqolaServerConfig::PasswordSettings::operator==(const PasswordSettings &ot
         && accountsPasswordPolicyAtLeastOneSpecialCharacter == other.accountsPasswordPolicyAtLeastOneSpecialCharacter;
 }
 
-RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::PasswordSettings::validatePassword(const QString &str)
+RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::PasswordSettings::validatePassword(const QString &str) const
 {
     RuqolaServerConfig::PasswordSettings::PasswordSettingChecks checks = RuqolaServerConfig::PasswordSettings::None;
     if (!accountsPasswordPolicyEnabled) {

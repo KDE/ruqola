@@ -78,7 +78,7 @@ QString MessageAttachmentDownloadAndSaveJob::saveFileString() const
     return str;
 }
 
-void MessageAttachmentDownloadAndSaveJob::assignProgressDialogStr(QProgressDialog *progressDialog)
+void MessageAttachmentDownloadAndSaveJob::assignProgressDialogStr(QProgressDialog *progressDialog) const
 {
     switch (mInfo.attachmentType) {
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown:

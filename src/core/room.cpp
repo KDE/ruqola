@@ -1641,7 +1641,7 @@ bool Room::encryptedEnabled() const
     return mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->encryptionEnabled() : false;
 }
 
-bool Room::userIsIgnored(const QByteArray &userId)
+bool Room::userIsIgnored(const QByteArray &userId) const
 {
     const QStringList users = ignoredUsers();
     if (users.isEmpty()) {
@@ -1651,7 +1651,7 @@ bool Room::userIsIgnored(const QByteArray &userId)
     return users.contains(QString::fromLatin1(userId));
 }
 
-bool Room::userIsMuted(const QString &username)
+bool Room::userIsMuted(const QString &username) const
 {
     const QStringList users = mutedUsers();
     if (users.isEmpty()) {

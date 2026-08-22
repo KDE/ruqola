@@ -57,7 +57,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDownloadDone(const QString &path);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDownloadCancel();
-    LIBRUQOLAWIDGETS_NO_EXPORT void assignProgressDialogStr(QProgressDialog *progressDialog);
+    LIBRUQOLAWIDGETS_NO_EXPORT void assignProgressDialogStr(QProgressDialog *progressDialog) const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString saveFileString() const;
     MessageAttachmentDownloadJobInfo mInfo;

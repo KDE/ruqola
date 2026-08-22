@@ -193,7 +193,7 @@ public:
     [[nodiscard]] bool encrypted() const;
     void setEncrypted(bool encrypted);
 
-    [[nodiscard]] bool userIsIgnored(const QByteArray &userId);
+    [[nodiscard]] bool userIsIgnored(const QByteArray &userId) const;
     [[nodiscard]] QString roomMessageInfo() const;
 
     [[nodiscard]] QString e2EKey() const;
@@ -315,7 +315,7 @@ public:
     [[nodiscard]] qint64 lastOpenedAt() const;
     void setLastOpenedAt(qint64 newLastOpenedAt);
 
-    [[nodiscard]] bool userIsMuted(const QString &username);
+    [[nodiscard]] bool userIsMuted(const QString &username) const;
 
     [[nodiscard]] QByteArray sessionKey() const;
 Q_SIGNALS:
