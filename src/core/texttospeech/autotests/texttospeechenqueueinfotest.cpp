@@ -17,7 +17,7 @@ TextToSpeechEnqueueInfoTest::TextToSpeechEnqueueInfoTest(QObject *parent)
 
 void TextToSpeechEnqueueInfoTest::shouldHaveDefaultValues()
 {
-    TextToSpeechEnqueueInfo info;
+    const TextToSpeechEnqueueInfo info;
     QVERIFY(info.accountName().isEmpty());
     QVERIFY(info.messageId().isEmpty());
     QVERIFY(info.roomId().isEmpty());
