@@ -28,7 +28,7 @@ TextToSpeechEnqueueManagerTest::TextToSpeechEnqueueManagerTest(QObject *parent)
 
 void TextToSpeechEnqueueManagerTest::shouldHaveDefaultValues()
 {
-    TextToSpeechEnqueueManager manager;
+    const TextToSpeechEnqueueManager manager;
     QVERIFY(manager.enqueueList().isEmpty());
     QVERIFY(!manager.value(0).isValid());
     QVERIFY(!manager.value(-1).isValid());
