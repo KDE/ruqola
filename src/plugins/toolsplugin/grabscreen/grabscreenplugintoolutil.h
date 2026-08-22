@@ -11,4 +11,4 @@ namespace GrabScreenPluginToolUtil
 {
 [[nodiscard]] QString picturePath(const QString &accountName);
 [[nodiscard]] QString generateFileName(const QString &dirPath);
-};
+}

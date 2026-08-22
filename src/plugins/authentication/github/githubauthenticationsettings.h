@@ -15,4 +15,4 @@ namespace GitHubAuthenticationSettings
 [[nodiscard]] QString clientSecret();
 [[nodiscard]] QUrl authorizeUrl();
 [[nodiscard]] QUrl accessTokenUrl();
-};
+}

@@ -15,4 +15,4 @@ namespace RocketChatCacheUtils
                                                                ManagerDataPaths::PathType type,
                                                                const QString &accountName,
                                                                const QString &accountServerHost);
-};
+}

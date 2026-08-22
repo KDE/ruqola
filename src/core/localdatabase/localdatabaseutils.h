@@ -52,4 +52,4 @@ enum class DatabasePath : uint8_t {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString deleteRoomSubscription();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString insertRoomSubscription();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString roomIdFromSubscription();
-};
+}

@@ -12,4 +12,4 @@
 namespace RocketChatUrlUtils
 {
 [[nodiscard]] LIBRUQOLACORE_EXPORT bool parseUrl(const QString &link);
-};
+}

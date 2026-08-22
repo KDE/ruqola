@@ -11,7 +11,7 @@ class RocketChatAccount;
 namespace RocketChatRestApi
 {
 class RoomsUnbanUserJob;
-};
+}
 class LIBRUQOLACORE_EXPORT UnbanUserInChannelJob : public QObject
 {
     Q_OBJECT
