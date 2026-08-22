@@ -88,7 +88,7 @@ void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
             .methodName = methodName,
             .anonymous = false,
         };
-        job->setMethodCallJobInfo(std::move(info));
+        job->setMethodCallJobInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
             mRocketChatAccount->roomFiles(mRoomId, mRoomType);

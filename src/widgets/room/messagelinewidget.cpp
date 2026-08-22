@@ -358,7 +358,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             info.fileName = att.fileName;
             info.deleteTemporaryFile = false;
             info.rc80Server = mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0);
-            Q_EMIT createUploadJob(std::move(info));
+            Q_EMIT createUploadJob(info);
         }
         mPendingAttachmentWidget->clear();
     }
@@ -392,7 +392,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     if (!mReplyInThreadDialogBox) {
         setThreadMessageId({});
     }
-    Q_EMIT createUploadJob(std::move(info));
+    Q_EMIT createUploadJob(info);
 }
 
 void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString &text)

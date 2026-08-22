@@ -306,7 +306,7 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
             info.anonymous = false;
             const QJsonArray params{{QString::fromLatin1(soundIdentifier)}};
             info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
-            job->setMethodCallJobInfo(std::move(info));
+            job->setMethodCallJobInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
                 qDebug() << " replyObject " << replyObject;

@@ -40,31 +40,31 @@ void AutoGenerateInteractionUiViewBlocks::parse(const QJsonArray &array)
         if (type == "section"_L1) {
             AutoGenerateInteractionUiViewSectionBlock *section = new AutoGenerateInteractionUiViewSectionBlock;
             section->parse(r.toObject());
-            mBlockElements.append(std::move(section));
+            mBlockElements.append(section);
         } else if (type == "divider"_L1) {
             AutoGenerateInteractionUiViewDividerBlock *divider = new AutoGenerateInteractionUiViewDividerBlock;
             divider->parse(r.toObject());
-            mBlockElements.append(std::move(divider));
+            mBlockElements.append(divider);
         } else if (type == "actions"_L1) {
             AutoGenerateInteractionUiViewActionsBlock *actions = new AutoGenerateInteractionUiViewActionsBlock;
             actions->parse(r.toObject());
-            mBlockElements.append(std::move(actions));
+            mBlockElements.append(actions);
         } else if (type == "input"_L1) {
             AutoGenerateInteractionUiViewInputBlock *input = new AutoGenerateInteractionUiViewInputBlock;
             input->parse(r.toObject());
-            mBlockElements.append(std::move(input));
+            mBlockElements.append(input);
         } else if (type == "context"_L1) {
             AutoGenerateInteractionUiViewContextBlock *context = new AutoGenerateInteractionUiViewContextBlock;
             context->parse(r.toObject());
-            mBlockElements.append(std::move(context));
+            mBlockElements.append(context);
         } else if (type == "image"_L1) {
             AutoGenerateInteractionUiViewImageBlock *image = new AutoGenerateInteractionUiViewImageBlock;
             image->parse(r.toObject());
-            mBlockElements.append(std::move(image));
+            mBlockElements.append(image);
         } else if (type == "callout"_L1) {
             AutoGenerateInteractionUiViewCalloutBlock *callout = new AutoGenerateInteractionUiViewCalloutBlock;
             callout->parse(r.toObject());
-            mBlockElements.append(std::move(callout));
+            mBlockElements.append(callout);
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown type " << type;
         }

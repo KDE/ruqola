@@ -121,7 +121,7 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     info.authMethodType = mRocketChatAccount->settings()->authMethodType();
     info.authenticationInfos = mRocketChatAccount->authenticationMethodInfos();
     // qDebug() << " info " << info;
-    mRuqolaLoginStackWidget->setAccountInfo(std::move(info));
+    mRuqolaLoginStackWidget->setAccountInfo(info);
 
 #if 0
     disconnect(mUpdatePasswordConnection);

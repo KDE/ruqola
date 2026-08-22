@@ -150,7 +150,7 @@ void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &index)
         .type = command.typeStr(),
     };
 
-    mPreviewCommandInfo.itemInfo = std::move(info);
+    mPreviewCommandInfo.itemInfo = info;
     setVisible(false);
     mPreviewCommandModel->clear();
     Q_EMIT sendPreviewCommandInfo(mPreviewCommandInfo);

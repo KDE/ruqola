@@ -113,7 +113,7 @@ bool TeamRoomsModel::setData(const QModelIndex &index, const QVariant &value, in
                 Q_EMIT dataChanged(index, index);
                 const QByteArray roomId = data(index, TeamRoomsModel::Identifier).toByteArray();
                 if (value == Qt::Checked) {
-                    mRoomSelected.append(std::move(roomId));
+                    mRoomSelected.append(roomId);
                 } else {
                     mRoomSelected.removeAll(roomId);
                 }

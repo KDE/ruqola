@@ -39,7 +39,7 @@ void MultiStaticSelectLineEdit::setInitialValues(const QStringList &lst)
         }
     }
     if (!infoLst.isEmpty()) {
-        setCurrentSelectItems(std::move(infoLst));
+        setCurrentSelectItems(infoLst);
     }
 }
 
@@ -68,7 +68,7 @@ void MultiStaticSelectLineEdit::slotComplete(const QModelIndex &index)
     mCompletionListView->hide();
     if (info.isValid()) {
         disconnect(this, &QLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
-        Q_EMIT addSelectedItem(std::move(info));
+        Q_EMIT addSelectedItem(info);
         clear();
         connect(this, &QLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
     }

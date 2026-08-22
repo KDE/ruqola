@@ -113,7 +113,7 @@ MessageDelegateHelperText::MessageTextInfo MessageDelegateHelperText::makeMessag
                     // TODO add url ?
                     Utils::QuotedRichTextInfo quotedInfo;
                     quotedInfo.richText = contextString;
-                    info.text.prepend(Utils::formatQuotedRichText(std::move(quotedInfo)));
+                    info.text.prepend(Utils::formatQuotedRichText(quotedInfo));
                 }
             }
         }

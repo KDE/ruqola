@@ -60,7 +60,7 @@ void AccountServerTreeWidget::load()
         item->setToolTip(0, info.serverUrl);
         item->setNewAccount(false);
         item->setCheckState(0, account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
-        item->setAccountInfo(std::move(info));
+        item->setAccountInfo(info);
     }
     resizeColumnToContents(0);
 }
@@ -118,7 +118,7 @@ void AccountServerTreeWidget::modifyAccountConfig()
     dlg->setAccountInfo(accountInfo);
     if (dlg->exec()) {
         const AccountManager::AccountManagerInfo info = dlg->accountInfo();
-        serverListItem->setAccountInfo(std::move(info));
+        serverListItem->setAccountInfo(info);
     }
     delete dlg;
 }
@@ -151,7 +151,7 @@ void AccountServerTreeWidget::addAccountConfig()
         info.accountName = newAccountName;
         auto accountServeritem = new AccountServerListWidgetItem(this);
         accountServeritem->setCheckState(0, Qt::Checked);
-        accountServeritem->setAccountInfo(std::move(info));
+        accountServeritem->setAccountInfo(info);
         accountServeritem->setNewAccount(true);
     }
     delete dlg;

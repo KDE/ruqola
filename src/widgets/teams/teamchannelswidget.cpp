@@ -167,7 +167,7 @@ void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
     const QJsonObject room = replyObject.value("room"_L1).toObject();
     TeamRoom teamRoom;
     teamRoom.parse(room);
-    mTeamRoomsModel->setRoomChanged(std::move(teamRoom));
+    mTeamRoomsModel->setRoomChanged(teamRoom);
 }
 
 void TeamChannelsWidget::removeRoomFromTeam(const QByteArray &roomId)

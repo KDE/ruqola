@@ -22,7 +22,7 @@ void ForwardMessageAddChannelCompletionLineEdit::slotJoinedChannelFound(
     const ForwardMessageAddChannelCompletionLineEdit::JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info)
 {
     disconnect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
-    Q_EMIT fowardToChannel(std::move(info));
+    Q_EMIT fowardToChannel(info);
     clear();
     connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
 }

@@ -109,7 +109,7 @@ ActionElementWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::gene
             .text = opt->text().generateText(true),
             .value = opt->value(),
         };
-        lst.append(std::move(info));
+        lst.append(info);
     }
     mMultiStaticSelectWidget->setUserCompletionInfos(lst);
     if (mMaxSelectItems != -1) {

@@ -27,7 +27,7 @@ int main(int argc, char **argv)
         // Make url
         info.url = u"foo"_s;
         info.clientId = value;
-        job->setGitLabInfo(std::move(info));
+        job->setGitLabInfo(info);
         job->start();
         app.exec();
     } else {

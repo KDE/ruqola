@@ -132,7 +132,7 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     QJsonObject obj = loadFile(u"channelparent.json"_s);
     InputCompleterModel::SearchInfo info;
     info.searchType = InputCompleterModel::SearchInfo::ChannelsAndUsers;
-    w.setSearchInfo(std::move(info));
+    w.setSearchInfo(info);
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
     QCOMPARE(rowInsertedSpy.count(), 1);
@@ -178,7 +178,7 @@ void InputCompleterModelTest::shouldClearModel()
     QJsonObject obj = loadFile(u"channelparent.json"_s);
     InputCompleterModel::SearchInfo info;
     info.searchType = InputCompleterModel::SearchInfo::ChannelsAndUsers;
-    w.setSearchInfo(std::move(info));
+    w.setSearchInfo(info);
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
     QCOMPARE(rowInsertedSpy.count(), 1);

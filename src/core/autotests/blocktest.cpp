@@ -178,7 +178,7 @@ void BlockTest::shouldLoadBlock_data()
         accessory.setValue("0"_L1);
         accessory.setText("Vote"_L1);
         accessory.setType(BlockAccessory::AccessoryType::Button);
-        info.setBlockAccessory(std::move(accessory));
+        info.setBlockAccessory(accessory);
         QTest::addRow("section2") << u"section2"_s << info;
     }
 }

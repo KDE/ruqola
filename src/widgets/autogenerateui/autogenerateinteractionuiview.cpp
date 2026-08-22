@@ -160,7 +160,7 @@ void AutoGenerateInteractionUiView::slotActionChanged(const QByteArray &blockId,
         .idContainer = mId,
         .triggerId = QUuid::createUuid().toByteArray(QUuid::Id128),
     };
-    Q_EMIT actionChanged(std::move(info));
+    Q_EMIT actionChanged(info);
 }
 
 void AutoGenerateInteractionUiView::generateWidget(QWidget *widget)

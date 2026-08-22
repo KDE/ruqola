@@ -115,7 +115,7 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     info.setMessage(messageError);
     bool showMessageWidget = true;
     showMessageWidget = descriptionError.isEmpty();
-    ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info), showMessageWidget);
+    ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info, showMessageWidget);
     if (!descriptionError.isEmpty()) {
         const QString message = u"<b>%1</b><br/>%2"_s.arg(accountName, descriptionError);
         mTextMessageWidget->showMessage(message, {}, KMessageWidget::Error);

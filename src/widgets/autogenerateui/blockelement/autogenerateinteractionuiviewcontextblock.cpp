@@ -61,11 +61,11 @@ void AutoGenerateInteractionUiViewContextBlock::parseBlock(const QJsonObject &js
         if (type == "plain_text"_L1 || type == "mrkdwn"_L1) {
             auto text = new AutoGenerateInteractionUiViewText;
             text->parse(r.toObject());
-            mElements.append(std::move(text));
+            mElements.append(text);
         } else if (type == "image"_L1) {
             auto img = new AutoGenerateInteractionUiViewImage;
             img->parse(r.toObject());
-            mElements.append(std::move(img));
+            mElements.append(img);
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewContextBlock Unknown type " << type;
         }

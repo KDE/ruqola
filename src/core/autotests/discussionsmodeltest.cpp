@@ -35,7 +35,7 @@ void DiscussionsModelTest::shouldAssignValues()
         c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
-        discussionList.append(std::move(c));
+        discussionList.append(c);
     }
     w.setDiscussions(discussionList);
     QCOMPARE(w.rowCount(), 10);
@@ -83,7 +83,7 @@ void DiscussionsModelTest::shouldAssignValues()
         c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
-        discussionList.append(std::move(c));
+        discussionList.append(c);
     }
     w.setDiscussions(discussionList);
     QCOMPARE(w.rowCount(), 5);

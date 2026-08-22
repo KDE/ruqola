@@ -61,43 +61,43 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
         if (type == "button"_L1) {
             auto e = new AutoGenerateInteractionUiViewButtonElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "checkbox"_L1) {
             auto e = new AutoGenerateInteractionUiViewCheckboxElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "radio_button"_L1) {
             auto e = new AutoGenerateInteractionUiViewRadioButtonElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "toggle_switch"_L1) {
             auto e = new AutoGenerateInteractionUiViewToggleSwitchElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "static_select"_L1) {
             auto e = new AutoGenerateInteractionUiViewStaticSelectElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "overflow"_L1) {
             auto e = new AutoGenerateInteractionUiViewOverflowElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "linear_scale"_L1) {
             auto e = new AutoGenerateInteractionUiViewLinearScaleElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "datepicker"_L1) {
             auto e = new AutoGenerateInteractionUiViewDatePickerElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "time_picker"_L1) {
             auto e = new AutoGenerateInteractionUiViewTimePickerElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "users_select"_L1) {
             auto e = new AutoGenerateInteractionUiViewUserSelectElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown elements type " << type;
         }

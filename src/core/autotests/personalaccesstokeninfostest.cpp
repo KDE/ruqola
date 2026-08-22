@@ -67,7 +67,7 @@ void PersonalAccessTokenInfosTest::shouldLoadPersonalAccessTokenInfos_data()
             i.setCreatedAt(1741856839672);
             lst.append(i);
         }
-        info.setPersonalAccessTokenInfos(std::move(lst));
+        info.setPersonalAccessTokenInfos(lst);
         QTest::addRow("four-tokens") << u"four-tokens"_s << info;
     }
 }

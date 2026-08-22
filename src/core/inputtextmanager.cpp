@@ -158,7 +158,7 @@ void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QStri
                 InputCompleterModel::SearchInfo searchInfo;
                 searchInfo.searchString = str;
                 searchInfo.searchType = InputCompleterModel::SearchInfo::SearchType::Users;
-                mInputCompleterModel->setSearchInfo(std::move(searchInfo)); // necessary for make sure to show @here or @all
+                mInputCompleterModel->setSearchInfo(searchInfo); // necessary for make sure to show @here or @all
                 Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::User);
             }
         } else if (word.startsWith(u'#')) {
@@ -168,7 +168,7 @@ void InputTextManager::setInputTextChanged(const QByteArray &roomId, const QStri
                 .searchType = InputCompleterModel::SearchInfo::SearchType::Channels,
                 .searchString = str,
             };
-            mInputCompleterModel->setSearchInfo(std::move(searchInfo));
+            mInputCompleterModel->setSearchInfo(searchInfo);
             Q_EMIT completionRequested(roomId, str, QString(), InputTextManager::CompletionForType::Channel);
             // slotCompletionChannels(str);
             setCompletionType(InputTextManager::CompletionForType::Channel);

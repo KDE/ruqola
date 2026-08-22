@@ -92,7 +92,7 @@ void OauthTreeView::addClicked()
         oauthInfo.redirectUri = info.redirectUrl;
         oauthInfo.name = info.applicationName;
         auto job = new RocketChatRestApi::OauthAppsCreateJob(this);
-        job->setOauthAppsCreateInfo(std::move(oauthInfo));
+        job->setOauthAppsCreateInfo(oauthInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::OauthAppsCreateJob::oauthAppsCreateDone, this, &OauthTreeView::oauthAdded);
         if (!job->start()) {
@@ -115,7 +115,7 @@ void OauthTreeView::editClicked(const QModelIndex &index)
         info.authorizationUrl = mRocketChatAccount->serverUrl() + u"/oauth/authorize"_s;
         info.accessTokenUrl = mRocketChatAccount->serverUrl() + u"/oauth/token"_s;
         info.active = model()->index(index.row(), AdminOauthModel::Active).data().toBool();
-        dlg->setOauthInfo(std::move(info));
+        dlg->setOauthInfo(info);
         if (dlg->exec()) {
             info = dlg->oauthInfo();
             if (info.isValid()) {
@@ -125,7 +125,7 @@ void OauthTreeView::editClicked(const QModelIndex &index)
                 oauthInfo.name = info.applicationName;
                 oauthInfo.appId = applicationId;
                 auto job = new RocketChatRestApi::OauthAppsUpdateJob(this);
-                job->setOauthAppsUpdateInfo(std::move(oauthInfo));
+                job->setOauthAppsUpdateInfo(oauthInfo);
                 mRocketChatAccount->restApi()->initializeRestApiJob(job);
                 connect(job, &RocketChatRestApi::OauthAppsUpdateJob::oauthAppsUpdateDone, this, &OauthTreeView::oauthUpdated);
                 if (!job->start()) {

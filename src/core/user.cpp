@@ -164,7 +164,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
                 .email = emailObj.value("address"_L1).toString(),
                 .verified = emailObj.value("verified"_L1).toBool(),
             };
-            setUserEmailsInfo(std::move(info));
+            setUserEmailsInfo(info);
         }
     }
     setRequirePasswordChange(object.value("requirePasswordChange"_L1).toBool(false));

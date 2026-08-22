@@ -126,7 +126,7 @@ void FeaturePreviewWidget::slotSaveSettings()
         .methodName = methodName,
         .anonymous = false,
     };
-    job->setMethodCallJobInfo(std::move(info));
+    job->setMethodCallJobInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start saveSettings job";

@@ -258,7 +258,7 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         .offset = offset,
         .count = 5,
     };
-    job->setRoomsImagesJobInfo(std::move(info));
+    job->setRoomsImagesJobInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this, info](const QJsonObject &replyObject) {
         // qDebug() << " replyObject " << replyObject;

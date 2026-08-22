@@ -71,14 +71,14 @@ void AdministratorOauthWidget::initialize()
 void AdministratorOauthWidget::slotOauthAppAdded(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), true);
+    info.parseOauthInfo(obj, true);
     mAdminOauthModel->addMoreOauth(info);
 }
 
 void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), true);
+    info.parseOauthInfo(obj, true);
     mAdminOauthModel->removeOauth(info.identifier());
     mAdminOauthModel->addMoreOauth(info);
 }

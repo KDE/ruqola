@@ -137,7 +137,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
             lstUserInfo.append(std::move(info));
         }
 
-        moderationReportUserInfos.setModerationReportUserInfosList(std::move(lstUserInfo));
+        moderationReportUserInfos.setModerationReportUserInfosList(lstUserInfo);
 #if 0
       reportedUser    userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
       reportedUser   userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
