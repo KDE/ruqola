@@ -22,7 +22,7 @@ DirectoryWidgetTest::DirectoryWidgetTest(QObject *parent)
 
 void DirectoryWidgetTest::shouldHaveDefaultValues()
 {
-    DirectoryWidget w(nullptr, DirectoryWidget::DirectoryType::Unknown);
+    const DirectoryWidget w(nullptr, DirectoryWidget::DirectoryType::Unknown);
     auto mLabelResultSearch = w.findChild<QLabel *>(u"mLabelResultSearch"_s);
     QVERIFY(mLabelResultSearch);
     QVERIFY(mLabelResultSearch->text().isEmpty());

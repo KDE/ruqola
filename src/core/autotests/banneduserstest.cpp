@@ -33,7 +33,7 @@ void BannedUsersTest::shouldLoadBannedUsers_data()
     QTest::addColumn<QList<BannedUser>>("userlist");
 
     {
-        QList<BannedUser> lst;
+        const QList<BannedUser> lst;
         QTest::addRow("bannedusers1") << u"bannedusers1"_s << 0 << 0 << lst;
     }
     {

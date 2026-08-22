@@ -23,7 +23,7 @@ InputCompleterModelTest::InputCompleterModelTest(QObject *parent)
 
 void InputCompleterModelTest::shouldHaveDefaultValue()
 {
-    InputCompleterModel w(nullptr);
+    const InputCompleterModel w(nullptr);
     QCOMPARE(w.rowCount(), 0);
 }
 
@@ -175,7 +175,7 @@ void InputCompleterModelTest::shouldClearModel()
     QSignalSpy rowABTInserted(&w, &InputCompleterModel::rowsAboutToBeInserted);
     QSignalSpy modelAboutToBeResetSpy(&w, &InputCompleterModel::modelAboutToBeReset);
 
-    QJsonObject obj = loadFile(u"channelparent.json"_s);
+    const QJsonObject obj = loadFile(u"channelparent.json"_s);
     InputCompleterModel::SearchInfo info;
     info.searchType = InputCompleterModel::SearchInfo::ChannelsAndUsers;
     w.setSearchInfo(info);

@@ -17,7 +17,7 @@ EmoticonCategoryTest::EmoticonCategoryTest(QObject *parent)
 
 void EmoticonCategoryTest::shouldHaveDefaultValues()
 {
-    EmoticonCategory cat;
+    const EmoticonCategory cat;
     QVERIFY(cat.category().isEmpty());
     QVERIFY(cat.name().isEmpty());
 }

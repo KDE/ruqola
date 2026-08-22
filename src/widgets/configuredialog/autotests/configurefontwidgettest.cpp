@@ -23,7 +23,7 @@ ConfigureFontWidgetTest::ConfigureFontWidgetTest(QObject *parent)
 
 void ConfigureFontWidgetTest::shouldHaveDefaultValues()
 {
-    ConfigureFontWidget w;
+    const ConfigureFontWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

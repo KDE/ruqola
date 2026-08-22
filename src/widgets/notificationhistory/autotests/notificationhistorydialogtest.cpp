@@ -23,7 +23,7 @@ NotificationHistoryDialogTest::NotificationHistoryDialogTest(QObject *parent)
 
 void NotificationHistoryDialogTest::shouldHaveDefaultValues()
 {
-    NotificationHistoryDialog d;
+    const NotificationHistoryDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

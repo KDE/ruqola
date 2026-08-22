@@ -17,7 +17,7 @@ AutoGenerateInteractionUiViewInputBlockTest::AutoGenerateInteractionUiViewInputB
 
 void AutoGenerateInteractionUiViewInputBlockTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewInputBlock b;
+    const AutoGenerateInteractionUiViewInputBlock b;
     QVERIFY(!b.optional());
     QVERIFY(!b.element());
 }

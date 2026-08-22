@@ -21,7 +21,7 @@ ChannelSearchNameLineResultWidgetTest::ChannelSearchNameLineResultWidgetTest(QOb
 
 void ChannelSearchNameLineResultWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelSearchNameLineResultWidget w;
+    const ChannelSearchNameLineResultWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

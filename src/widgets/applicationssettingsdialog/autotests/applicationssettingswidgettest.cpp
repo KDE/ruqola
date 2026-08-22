@@ -22,7 +22,7 @@ ApplicationsSettingsWidgetTest::ApplicationsSettingsWidgetTest(QObject *parent)
 
 void ApplicationsSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsWidget d(nullptr);
+    const ApplicationsSettingsWidget d(nullptr);
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

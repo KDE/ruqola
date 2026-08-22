@@ -16,7 +16,7 @@ MessageUrlsTest::MessageUrlsTest(QObject *parent)
 
 void MessageUrlsTest::shouldHaveDefaultValue()
 {
-    MessageUrls w;
+    const MessageUrls w;
     QVERIFY(w.isEmpty());
     QVERIFY(w.messageUrls().isEmpty());
 }

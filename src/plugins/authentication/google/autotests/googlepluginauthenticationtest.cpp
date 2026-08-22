@@ -17,7 +17,7 @@ GooglePluginAuthenticationTest::GooglePluginAuthenticationTest(QObject *parent)
 
 void GooglePluginAuthenticationTest::shouldHaveDefaultValue()
 {
-    GooglePluginAuthentication w(nullptr, {});
+    const GooglePluginAuthentication w(nullptr, {});
     QVERIFY(!w.name().isEmpty());
     QCOMPARE(w.type(), AuthenticationManager::OauthType::Google);
 }

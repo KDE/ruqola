@@ -21,7 +21,7 @@ ExploreAppsTranslationWidgetTest::ExploreAppsTranslationWidgetTest(QObject *pare
 
 void ExploreAppsTranslationWidgetTest::shouldHaveDefaultValues()
 {
-    ExploreAppsTranslationWidget w;
+    const ExploreAppsTranslationWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

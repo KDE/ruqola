@@ -26,7 +26,7 @@ void CreateChannelJobTest::shouldHaveDefaultValue()
     CreateChannelJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    CreateChannelTeamInfo info = job.createChannelInfo();
+    const CreateChannelTeamInfo info = job.createChannelInfo();
     QVERIFY(!info.readOnly);
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());

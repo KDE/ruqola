@@ -16,7 +16,7 @@ NotificationHistoryManagerTest::NotificationHistoryManagerTest(QObject *parent)
 
 void NotificationHistoryManagerTest::shouldHaveDefaultValues()
 {
-    NotificationHistoryManager w;
+    const NotificationHistoryManager w;
     // TODO
 }
 

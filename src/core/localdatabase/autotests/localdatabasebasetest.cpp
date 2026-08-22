@@ -49,46 +49,46 @@ LocalDatabaseBaseTest::LocalDatabaseBaseTest(QObject *parent)
 void LocalDatabaseBaseTest::shouldHaveDefaultValues()
 {
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Accounts);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Accounts);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"accounts-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Rooms);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Rooms);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"rooms-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Messages);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Messages);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"messages-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Logger);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Logger);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Global);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::Global);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"global-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::E2E);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::E2E);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"e2e-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::PendingTypedInfo);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::PendingTypedInfo);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"pendingtypedinfo-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::RoomSubscriptions);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::RoomSubscriptions);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"roomsubscriptions-kde"_s);
     }
     {
-        TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::E2ERooms);
+        const TestLocalDatabaseBase w(u"foo/bla/"_s, LocalDatabaseBase::DatabaseType::E2ERooms);
         QCOMPARE(w.currentDatabaseName(u"kde"_s), u"e2e-rooms-kde"_s);
     }
 }
 
 void LocalDatabaseBaseTest::shouldRemoveDataBaseConnections()
 {
-    QTemporaryDir tmpDir;
+    const QTemporaryDir tmpDir;
     QVERIFY(tmpDir.isValid());
     const QString basePath = tmpDir.path() + u'/';
 

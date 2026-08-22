@@ -21,7 +21,7 @@ AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject
 
 void AdministratorCustomSoundsWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomSoundsWidget w(nullptr);
+    const AdministratorCustomSoundsWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

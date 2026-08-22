@@ -25,7 +25,7 @@ ApplicationsPermissionDialogTest::ApplicationsPermissionDialogTest(QObject *pare
 
 void ApplicationsPermissionDialogTest::shouldHaveDefaultValues()
 {
-    ApplicationsPermissionDialog d;
+    const ApplicationsPermissionDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

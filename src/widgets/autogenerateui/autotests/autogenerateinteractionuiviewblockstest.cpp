@@ -15,7 +15,7 @@ AutoGenerateInteractionUiViewBlocksTest::AutoGenerateInteractionUiViewBlocksTest
 
 void AutoGenerateInteractionUiViewBlocksTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewBlocks b;
+    const AutoGenerateInteractionUiViewBlocks b;
     QVERIFY(b.blockElements().isEmpty());
     // TODO
 }

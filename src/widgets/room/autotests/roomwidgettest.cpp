@@ -39,7 +39,7 @@ RoomWidgetTest::RoomWidgetTest(QObject *parent)
 
 void RoomWidgetTest::shouldHaveDefaultValues()
 {
-    RoomWidget w;
+    const RoomWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -159,7 +159,7 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
 void RoomWidgetTest::shouldShowNoticeWhenReplyingToThread()
 {
     QEventLoop loop;
-    RoomWidget w;
+    const RoomWidget w;
 
     auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(u"mRoomReplyThreadWidget"_s);
     QVERIFY(!mRoomReplyThreadWidget->isVisible());

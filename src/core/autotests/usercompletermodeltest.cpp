@@ -22,8 +22,8 @@ UserCompleterModelTest::UserCompleterModelTest(QObject *parent)
 void UserCompleterModelTest::shouldHaveDefaultValue()
 {
     UserCompleterModel w;
-    QSignalSpy rowInsertedSpy(&w, &UserCompleterModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
+    const QSignalSpy rowInsertedSpy(&w, &UserCompleterModel::rowsInserted);
+    const QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
@@ -33,8 +33,8 @@ void UserCompleterModelTest::shouldAddValues()
 {
     UserCompleterModel w;
     QList<User> users;
-    QSignalSpy rowInsertedSpy(&w, &UserCompleterModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
+    const QSignalSpy rowInsertedSpy(&w, &UserCompleterModel::rowsInserted);
+    const QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(u"name%1"_s.arg(i));

@@ -22,7 +22,7 @@ AppsCountInfoWidgetTest::AppsCountInfoWidgetTest(QObject *parent)
 
 void AppsCountInfoWidgetTest::shouldHaveDefaultValues()
 {
-    AppsCountInfoWidget w;
+    const AppsCountInfoWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

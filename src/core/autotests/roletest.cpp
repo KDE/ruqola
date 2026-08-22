@@ -19,7 +19,7 @@ RoleTest::RoleTest(QObject *parent)
 
 void RoleTest::shouldHaveDefaultValue()
 {
-    Role r;
+    const Role r;
     QVERIFY(!r.isOwner());
     QVERIFY(!r.isModerator());
     QVERIFY(!r.isLeader());

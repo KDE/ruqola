@@ -41,7 +41,7 @@ void RemoveOtherTokensJobTest::shouldGenerateRequest()
 
 void RemoveOtherTokensJobTest::shouldGenerateJson()
 {
-    RemoveOtherTokensJob job;
+    const RemoveOtherTokensJob job;
     QVERIFY(job.json().toJson(QJsonDocument::Compact).isNull());
 }
 

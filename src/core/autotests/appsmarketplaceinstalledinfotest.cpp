@@ -19,7 +19,7 @@ AppsMarketPlaceInstalledInfoTest::AppsMarketPlaceInstalledInfoTest(QObject *pare
 
 void AppsMarketPlaceInstalledInfoTest::shouldHaveDefaultValues()
 {
-    AppsMarketPlaceInstalledInfo w;
+    const AppsMarketPlaceInstalledInfo w;
     QVERIFY(!w.isPrivate());
     QVERIFY(!w.migrated());
     QVERIFY(w.appName().isEmpty());

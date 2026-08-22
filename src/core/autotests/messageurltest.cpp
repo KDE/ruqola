@@ -21,7 +21,7 @@ MessageUrlTest::MessageUrlTest(QObject *parent)
 
 void MessageUrlTest::shouldHaveDefaultValue()
 {
-    MessageUrl url;
+    const MessageUrl url;
     QVERIFY(url.url().isEmpty());
     QVERIFY(url.pageTitle().isEmpty());
     QVERIFY(url.description().isEmpty());
@@ -227,7 +227,7 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
         QTest::newRow("generateHtmlDescription-test3") << url << u"[Title](Title_url)"_s;
     }
     {
-        MessageUrl url;
+        const MessageUrl url;
         QTest::newRow("generateHtmlDescription-test4") << url << QString();
     }
     {
@@ -320,7 +320,7 @@ void MessageUrlTest::shouldContentTypeConvert()
     QCOMPARE(MessageUrl::stringToContentTypeEnum(u"video"_s), MessageUrl::ContentType::Video);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(u"image_animated"_s), MessageUrl::ContentType::ImageAnimated);
 
-    MessageUrl m;
+    const MessageUrl m;
     QCOMPARE(m.parseHeaderContentType(u"foo"_s), MessageUrl::ContentType::None);
     QCOMPARE(m.parseHeaderContentType(u"image/foo"_s), MessageUrl::ContentType::Image);
     QCOMPARE(m.parseHeaderContentType(u"audio/bla"_s), MessageUrl::ContentType::Audio);

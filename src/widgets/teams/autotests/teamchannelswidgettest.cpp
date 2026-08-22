@@ -21,7 +21,7 @@ TeamChannelsWidgetTest::TeamChannelsWidgetTest(QObject *parent)
 
 void TeamChannelsWidgetTest::shouldHaveDefaultValues()
 {
-    TeamChannelsWidget w(nullptr);
+    const TeamChannelsWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

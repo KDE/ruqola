@@ -22,7 +22,7 @@ ShowAttachmentWidgetTest::ShowAttachmentWidgetTest(QObject *parent)
 
 void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
 {
-    ShowAttachmentWidget w(nullptr);
+    const ShowAttachmentWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

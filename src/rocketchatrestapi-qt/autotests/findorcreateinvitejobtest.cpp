@@ -97,7 +97,7 @@ void FindOrCreateInviteJobTest::shouldParseResult()
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    QJsonObject obj = doc.object();
+    const QJsonObject obj = doc.object();
     f.close();
     FindOrCreateInviteJob job;
     const FindOrCreateInviteJob::InviteUsersInfo result = job.parseResult(obj);

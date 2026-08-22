@@ -23,7 +23,7 @@ CommandPreviewWidgetTest::CommandPreviewWidgetTest(QObject *parent)
 
 void CommandPreviewWidgetTest::shouldHaveDefaultValues()
 {
-    CommandPreviewWidget w;
+    const CommandPreviewWidget w;
 
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -53,8 +53,8 @@ void CommandPreviewWidgetTest::shouldHidePreviewOnEscape()
 
 void CommandPreviewWidgetTest::shouldNotEmitOnInvalidDoubleClick()
 {
-    CommandPreviewWidget w;
-    QSignalSpy spy(&w, &CommandPreviewWidget::sendPreviewCommandInfo);
+    const CommandPreviewWidget w;
+    const QSignalSpy spy(&w, &CommandPreviewWidget::sendPreviewCommandInfo);
     QVERIFY(spy.isValid());
 
     // QVERIFY(QMetaObject::invokeMethod(&w, "slotDoubleClicked", Q_ARG(QModelIndex, QModelIndex())));
@@ -89,7 +89,7 @@ void CommandPreviewWidgetTest::shouldEmitOnEnterWithSelection()
     w.activateWindow();
     w.setFocus();
 
-    QSignalSpy spy(&w, &CommandPreviewWidget::sendPreviewCommandInfo);
+    const QSignalSpy spy(&w, &CommandPreviewWidget::sendPreviewCommandInfo);
     QVERIFY(spy.isValid());
 
     QTest::keyClick(&w, Qt::Key_Return);

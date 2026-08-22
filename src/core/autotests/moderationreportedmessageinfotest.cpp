@@ -17,7 +17,7 @@ ModerationReportedMessageInfoTest::ModerationReportedMessageInfoTest(QObject *pa
 
 void ModerationReportedMessageInfoTest::shouldHaveDefaultValues()
 {
-    ModerationReportedMessageInfo i;
+    const ModerationReportedMessageInfo i;
     QVERIFY(i.userId().isEmpty());
     QVERIFY(i.name().isEmpty());
     QVERIFY(i.userName().isEmpty());

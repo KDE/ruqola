@@ -20,7 +20,7 @@ ChannelNameValidLineWidgetTest::ChannelNameValidLineWidgetTest(QObject *parent)
 
 void ChannelNameValidLineWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelNameValidLineWidget w(nullptr);
+    const ChannelNameValidLineWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

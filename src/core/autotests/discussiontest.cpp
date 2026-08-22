@@ -18,7 +18,7 @@ DiscussionTest::DiscussionTest(QObject *parent)
 
 void DiscussionTest::shouldHaveDefaultValue()
 {
-    Discussion discussion;
+    const Discussion discussion;
     QVERIFY(discussion.description().isEmpty());
     QVERIFY(discussion.parentRoomId().isEmpty());
     QCOMPARE(discussion.numberMessages(), 0);

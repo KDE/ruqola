@@ -19,13 +19,13 @@ ApplicationsSettingsLogsInfoTest::ApplicationsSettingsLogsInfoTest(QObject *pare
 
 void ApplicationsSettingsLogsInfoTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsLogsInfo log;
+    const ApplicationsSettingsLogsInfo log;
     QVERIFY(log.method().isEmpty());
     QVERIFY(log.arguments().isEmpty());
     QVERIFY(log.createdAt().isNull());
     QCOMPARE(log.totalTime(), 0);
 
-    ApplicationsSettingsLogsInfo::LogsArgument args;
+    const ApplicationsSettingsLogsInfo::LogsArgument args;
     QVERIFY(args.caller.isEmpty());
     QVERIFY(args.method.isEmpty());
     QVERIFY(args.severity.isEmpty());

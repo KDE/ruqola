@@ -25,7 +25,7 @@ RegisterUserDialogTest::RegisterUserDialogTest(QObject *parent)
 
 void RegisterUserDialogTest::shouldHaveDefaultValues()
 {
-    RegisterUserDialog w(nullptr);
+    const RegisterUserDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

@@ -22,7 +22,7 @@ AdministratorInviteUsersDialogTest::AdministratorInviteUsersDialogTest(QObject *
 
 void AdministratorInviteUsersDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorInviteUsersDialog w;
+    const AdministratorInviteUsersDialog w;
     QVERIFY(w.emails().isEmpty());
 
     QVERIFY(!w.windowTitle().isEmpty());

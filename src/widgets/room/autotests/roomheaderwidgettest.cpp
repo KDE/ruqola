@@ -24,7 +24,7 @@ RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
 
 void RoomHeaderWidgetTest::shouldHaveDefaultValues()
 {
-    RoomHeaderWidget w;
+    const RoomHeaderWidget w;
     QVERIFY(w.sizePolicy().hasHeightForWidth());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -232,14 +232,14 @@ void RoomHeaderWidgetTest::shouldEmitSignal()
     w.show();
     // QVERIFY(QTest::qWaitForWindowExposed(&w));
 
-    QSignalSpy favoriteSignal(&w, &RoomHeaderWidget::favoriteChanged);
+    const QSignalSpy favoriteSignal(&w, &RoomHeaderWidget::favoriteChanged);
     auto mFavoriteButton = w.findChild<QToolButton *>(u"mFavoriteButton"_s);
     QTest::mouseClick(mFavoriteButton, Qt::LeftButton);
     QCOMPARE(favoriteSignal.count(), 1);
 
     auto mSearchMessageButton = w.findChild<QToolButton *>(u"mSearchMessageButton"_s);
 
-    QSignalSpy searchMessageSignal(&w, &RoomHeaderWidget::searchMessageRequested);
+    const QSignalSpy searchMessageSignal(&w, &RoomHeaderWidget::searchMessageRequested);
     QTest::mouseClick(mSearchMessageButton, Qt::LeftButton);
     QCOMPARE(searchMessageSignal.count(), 1);
 }

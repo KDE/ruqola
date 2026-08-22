@@ -17,7 +17,7 @@ AutotranslateLanguagesModelTest::AutotranslateLanguagesModelTest(QObject *parent
 
 void AutotranslateLanguagesModelTest::shouldHaveDefaultValues()
 {
-    AutotranslateLanguagesModel model;
+    const AutotranslateLanguagesModel model;
     // TODO
 }
 

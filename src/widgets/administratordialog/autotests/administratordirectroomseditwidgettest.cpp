@@ -20,7 +20,7 @@ AdministratorDirectRoomsEditWidgetTest::AdministratorDirectRoomsEditWidgetTest(Q
 
 void AdministratorDirectRoomsEditWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorDirectRoomsEditWidget w;
+    const AdministratorDirectRoomsEditWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

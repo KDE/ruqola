@@ -21,7 +21,7 @@ ForwardMessageWidgetTest::ForwardMessageWidgetTest(QObject *parent)
 
 void ForwardMessageWidgetTest::shouldHaveDefaultValues()
 {
-    ForwardMessageWidget w(nullptr);
+    const ForwardMessageWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

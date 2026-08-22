@@ -23,7 +23,7 @@ TeamChannelsDialogTest::TeamChannelsDialogTest(QObject *parent)
 
 void TeamChannelsDialogTest::shouldHaveDefaultValues()
 {
-    TeamChannelsDialog d(nullptr);
+    const TeamChannelsDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

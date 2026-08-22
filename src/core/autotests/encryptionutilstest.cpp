@@ -90,11 +90,11 @@ void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData_data()
     QTest::addColumn<EncryptionUtils::EncryptionInfo>("encryptionInfo");
 
     {
-        EncryptionUtils::EncryptionInfo info;
+        const EncryptionUtils::EncryptionInfo info;
         QTest::addRow("empty") << QByteArray() << info;
     }
     {
-        EncryptionUtils::EncryptionInfo info;
+        const EncryptionUtils::EncryptionInfo info;
         QTest::addRow("too-short") << QByteArray("1234567890123456") << info;
     }
     {
@@ -118,7 +118,7 @@ void EncryptionUtilsTest::shouldJoinVectorAndEcryptedData_data()
     QTest::addColumn<QByteArray>("encryptedData");
 
     {
-        EncryptionUtils::EncryptionInfo info;
+        const EncryptionUtils::EncryptionInfo info;
         QTest::addRow("empty") << info << QByteArray();
     }
     {

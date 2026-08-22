@@ -26,7 +26,7 @@ void TeamsCreateJobTest::shouldHaveDefaultValue()
     TeamsCreateJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    CreateChannelTeamInfo info = job.teamsCreateJobInfo();
+    const CreateChannelTeamInfo info = job.teamsCreateJobInfo();
     QVERIFY(!info.readOnly);
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());
@@ -69,7 +69,7 @@ void TeamsCreateJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
 
-    bool privateTeam = true;
+    const bool privateTeam = true;
     info.privateChannel = privateTeam;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),

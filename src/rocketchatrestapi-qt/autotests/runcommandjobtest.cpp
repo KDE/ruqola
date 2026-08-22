@@ -83,7 +83,7 @@ void RunCommandJobTest::shouldNotStarting()
 
 void RunCommandJobTest::shouldHaveDefaultValueRunCommandInfo()
 {
-    RunCommandJob::RunCommandInfo job;
+    const RunCommandJob::RunCommandInfo job;
     QVERIFY(job.commandName.isEmpty());
     QVERIFY(job.roomId.isEmpty());
     QVERIFY(job.threadMessageId.isEmpty());
@@ -114,7 +114,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
     QTest::addColumn<bool>("valid");
 
     {
-        RunCommandJob::RunCommandInfo empty;
+        const RunCommandJob::RunCommandInfo empty;
         QTest::addRow("empty") << QString() << QByteArray() << QByteArray() << empty << false;
     }
     {

@@ -59,16 +59,16 @@ void LocalRoomSubscriptionsDatabaseTest::shouldStoreRoomSubscription()
     // GIVEN
     LocalRoomSubscriptionsDatabase logger;
 
-    QByteArray subscriptionId = "sub1"_ba;
-    QByteArray roomId = "foo1"_ba;
+    const QByteArray subscriptionId = "sub1"_ba;
+    const QByteArray roomId = "foo1"_ba;
     logger.insertRoomSubscription(otherAccountName(), subscriptionId, roomId);
 
-    QByteArray subscriptionId2 = "sub2"_ba;
-    QByteArray roomId2 = "foo2"_ba;
+    const QByteArray subscriptionId2 = "sub2"_ba;
+    const QByteArray roomId2 = "foo2"_ba;
     logger.insertRoomSubscription(otherAccountName(), subscriptionId2, roomId2);
 
-    QByteArray subscriptionId3 = "sub3"_ba;
-    QByteArray roomId3 = "foo3"_ba;
+    const QByteArray subscriptionId3 = "sub3"_ba;
+    const QByteArray roomId3 = "foo3"_ba;
     logger.insertRoomSubscription(otherAccountName(), subscriptionId3, roomId3);
 
     // WHEN

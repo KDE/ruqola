@@ -18,7 +18,7 @@ LicensesManagerTest::LicensesManagerTest(QObject *parent)
 
 void LicensesManagerTest::shouldHaveDefaultValues()
 {
-    LicensesManager w;
+    const LicensesManager w;
     QVERIFY(w.activeModules().isEmpty());
     QVERIFY(!w.hasLicense(LicensesManager::ActiveModule::Unknown));
     QVERIFY(!w.hasLicense(LicensesManager::ActiveModule::LdapEnterprise));

@@ -18,7 +18,7 @@ DiscussionsModelTest::DiscussionsModelTest(QObject *parent)
 
 void DiscussionsModelTest::shouldHaveDefaultValues()
 {
-    DiscussionsModel model;
+    const DiscussionsModel model;
     QVERIFY(!model.loadMoreDiscussionsInProgress());
 }
 

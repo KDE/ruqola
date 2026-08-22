@@ -22,7 +22,7 @@ ConfigureAccessibilityWidgetTest::ConfigureAccessibilityWidgetTest(QObject *pare
 
 void ConfigureAccessibilityWidgetTest::shouldHaveDefaultValues()
 {
-    ConfigureAccessibilityWidget w;
+    const ConfigureAccessibilityWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

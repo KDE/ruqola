@@ -20,7 +20,7 @@ RoleEditDialogTest::RoleEditDialogTest(QObject *parent)
 
 void RoleEditDialogTest::shouldHaveDefaultValues()
 {
-    RoleEditDialog d;
+    const RoleEditDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

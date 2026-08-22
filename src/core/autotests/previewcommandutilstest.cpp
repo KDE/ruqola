@@ -107,7 +107,7 @@ void PreviewCommandUtilsTest::shouldParsePreviewCommandUtils_data()
         QTest::addRow("test1") << u"test1"_s << commands;
     }
     {
-        QList<PreviewCommand> commands;
+        const QList<PreviewCommand> commands;
         QTest::addRow("empty") << u"empty"_s << commands;
     }
 }
@@ -118,7 +118,7 @@ void PreviewCommandUtilsTest::shouldParsePreviewCommandUtils()
     QFETCH(QList<PreviewCommand>, expectedPreviewCommands);
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/previewcommandutil/"_L1 + name + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
-    QList<PreviewCommand> previewCommands = PreviewCommandUtils::parsePreviewJson(obj);
+    const QList<PreviewCommand> previewCommands = PreviewCommandUtils::parsePreviewJson(obj);
     const bool previewCommandsEqual = (previewCommands == expectedPreviewCommands);
     if (!previewCommandsEqual) {
         qDebug() << "previewCommands " << previewCommands;

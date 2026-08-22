@@ -19,7 +19,7 @@ ApplicationsSettingsSettingsInfoTest::ApplicationsSettingsSettingsInfoTest(QObje
 
 void ApplicationsSettingsSettingsInfoTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsSettingsInfo w;
+    const ApplicationsSettingsSettingsInfo w;
     QVERIFY(w.i18nDescription().isEmpty());
     QVERIFY(w.i18nLabel().isEmpty());
     QVERIFY(w.id().isEmpty());

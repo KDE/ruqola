@@ -15,7 +15,7 @@ MessageExtraTest::MessageExtraTest(QObject *parent)
 
 void MessageExtraTest::shouldHaveDefaultValues()
 {
-    MessageExtra extra;
+    const MessageExtra extra;
     QVERIFY(extra.localTranslation().isEmpty());
     QVERIFY(extra.discussionRoomId().isEmpty());
     QVERIFY(extra.threadMessageId().isEmpty());

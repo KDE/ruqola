@@ -19,7 +19,7 @@ ConfirmPasswordDialogTest::ConfirmPasswordDialogTest(QObject *parent)
 
 void ConfirmPasswordDialogTest::shouldHaveDefaultValues()
 {
-    ConfirmPasswordDialog w;
+    const ConfirmPasswordDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

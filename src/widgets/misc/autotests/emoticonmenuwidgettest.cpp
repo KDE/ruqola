@@ -26,7 +26,7 @@ EmoticonMenuWidgetTest::EmoticonMenuWidgetTest(QObject *parent)
 
 void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
 {
-    EmoticonMenuWidget w;
+    const EmoticonMenuWidget w;
     auto layout = w.findChild<QVBoxLayout *>(u"layout"_s);
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});

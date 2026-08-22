@@ -18,7 +18,7 @@ CreateChannelTeamInfoTest::CreateChannelTeamInfoTest(QObject *parent)
 
 void CreateChannelTeamInfoTest::shouldHaveDefaultValues()
 {
-    RocketChatRestApi::CreateChannelTeamInfo info;
+    const RocketChatRestApi::CreateChannelTeamInfo info;
     QVERIFY(info.members.isEmpty());
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.topic.isEmpty());

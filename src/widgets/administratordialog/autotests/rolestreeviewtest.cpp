@@ -16,7 +16,7 @@ RolesTreeViewTest::RolesTreeViewTest(QObject *parent)
 
 void RolesTreeViewTest::shouldHaveDefaultValues()
 {
-    RolesTreeView w;
+    const RolesTreeView w;
     QVERIFY(!w.rootIsDecorated());
     QVERIFY(w.isSortingEnabled());
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);

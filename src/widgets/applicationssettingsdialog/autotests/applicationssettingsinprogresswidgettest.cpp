@@ -19,7 +19,7 @@ ApplicationsSettingsInProgressWidgetTest::ApplicationsSettingsInProgressWidgetTe
 
 void ApplicationsSettingsInProgressWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsInProgressWidget d;
+    const ApplicationsSettingsInProgressWidget d;
     auto mainLayout = d.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

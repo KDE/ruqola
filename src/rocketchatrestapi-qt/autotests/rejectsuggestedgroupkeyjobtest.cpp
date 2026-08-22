@@ -40,7 +40,7 @@ void RejectSuggestedGroupKeyJobTest::shouldGenerateRequest()
 
 void RejectSuggestedGroupKeyJobTest::shouldGenerateJson()
 {
-    ResetOwnE2eKeyJob job;
+    const ResetOwnE2eKeyJob job;
     // TODO
     // QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
 }

@@ -19,7 +19,7 @@ ApplicationsPermissionWidgetTest::ApplicationsPermissionWidgetTest(QObject *pare
 
 void ApplicationsPermissionWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsPermissionWidget d;
+    const ApplicationsPermissionWidget d;
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

@@ -20,7 +20,7 @@ PasswordConfirmWidgetTest::PasswordConfirmWidgetTest(QObject *parent)
 
 void PasswordConfirmWidgetTest::shouldHaveDefaultValues()
 {
-    PasswordConfirmWidget w;
+    const PasswordConfirmWidget w;
 
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -40,7 +40,7 @@ void PasswordConfirmWidgetTest::shouldHaveDefaultValues()
 
 void PasswordConfirmWidgetTest::shouldReturnNewPassword()
 {
-    PasswordConfirmWidget w;
+    const PasswordConfirmWidget w;
     auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mNewPasswordLineEdit"_s);
 
     auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mConfirmPasswordLineEdit"_s);

@@ -21,7 +21,7 @@ MyAccountPersonalAccessCreateDialogTest::MyAccountPersonalAccessCreateDialogTest
 
 void MyAccountPersonalAccessCreateDialogTest::shouldHaveDefaultValues()
 {
-    MyAccountPersonalAccessCreateDialog d;
+    const MyAccountPersonalAccessCreateDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

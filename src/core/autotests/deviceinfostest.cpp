@@ -18,7 +18,7 @@ DeviceInfosTest::DeviceInfosTest(QObject *parent)
 
 void DeviceInfosTest::shouldHaveDefaultValues()
 {
-    DeviceInfos w;
+    const DeviceInfos w;
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);

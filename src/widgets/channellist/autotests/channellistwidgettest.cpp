@@ -23,7 +23,7 @@ ChannelListWidgetTest::ChannelListWidgetTest(QObject *parent)
 
 void ChannelListWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelListWidget w;
+    const ChannelListWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainlayout"_s);
     QVERIFY(mainLayout);

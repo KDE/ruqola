@@ -18,7 +18,7 @@ ModerationReportUserInfosTest::ModerationReportUserInfosTest(QObject *parent)
 
 void ModerationReportUserInfosTest::shouldHaveDefaultValues()
 {
-    ModerationReportUserInfos infos;
+    const ModerationReportUserInfos infos;
     QCOMPARE(infos.moderationReportUserInfosCount(), 0);
     QCOMPARE(infos.offset(), 0);
     QCOMPARE(infos.total(), 0);

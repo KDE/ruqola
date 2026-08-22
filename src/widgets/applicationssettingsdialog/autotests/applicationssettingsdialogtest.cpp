@@ -23,7 +23,7 @@ ApplicationsSettingsDialogTest::ApplicationsSettingsDialogTest(QObject *parent)
 
 void ApplicationsSettingsDialogTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsDialog d(nullptr);
+    const ApplicationsSettingsDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -26,7 +26,7 @@ ReportUserDialogTest::ReportUserDialogTest(QObject *parent)
 
 void ReportUserDialogTest::shouldHaveDefaultValues()
 {
-    ReportUserDialog w;
+    const ReportUserDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
@@ -46,7 +46,7 @@ void ReportUserDialogTest::shouldHaveDefaultValues()
 
 void ReportUserDialogTest::shouldUpdateOkButton()
 {
-    ReportUserDialog w;
+    const ReportUserDialog w;
     auto mReportUserWidget = w.findChild<ReportUserWidget *>(u"mReportUserWidget"_s);
     auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
 

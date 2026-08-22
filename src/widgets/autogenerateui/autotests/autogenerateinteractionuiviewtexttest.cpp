@@ -17,7 +17,7 @@ AutoGenerateInteractionUiViewTextTest::AutoGenerateInteractionUiViewTextTest(QOb
 
 void AutoGenerateInteractionUiViewTextTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewText t;
+    const AutoGenerateInteractionUiViewText t;
     QVERIFY(t.text().isEmpty());
     QVERIFY(!t.emoji());
     QCOMPARE(t.type(), AutoGenerateInteractionUiViewText::TextType::Unknown);

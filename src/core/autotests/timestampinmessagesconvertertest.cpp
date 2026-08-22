@@ -70,7 +70,7 @@ void TimeStampInMessagesConverterTest::shouldCalculateRelativeTime_data()
     QTest::addColumn<QDateTime>("currentDateTime");
     QTest::addColumn<QString>("result");
     {
-        QDateTime dt = QDateTime::currentDateTime();
+        const QDateTime dt = QDateTime::currentDateTime();
         QTest::addRow("now") << dt << dt << u"Now"_s;
     }
     {

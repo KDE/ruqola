@@ -16,7 +16,7 @@ RoomInfoTest::RoomInfoTest(QObject *parent)
 
 void RoomInfoTest::shouldHaveDefaultValues()
 {
-    RoomInfo w;
+    const RoomInfo w;
     QVERIFY(!w.defaultRoom());
     QCOMPARE(w.usersCount(), -1);
     QCOMPARE(w.messageCount(), -1);

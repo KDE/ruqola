@@ -23,7 +23,7 @@ TeamSelectDeletedRoomDialogTest::TeamSelectDeletedRoomDialogTest(QObject *parent
 
 void TeamSelectDeletedRoomDialogTest::shouldHaveDefaultValues()
 {
-    TeamSelectDeletedRoomDialog d;
+    const TeamSelectDeletedRoomDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

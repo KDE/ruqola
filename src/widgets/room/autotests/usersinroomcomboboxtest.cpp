@@ -16,7 +16,7 @@ UsersInRoomComboBoxTest::UsersInRoomComboBoxTest(QObject *parent)
 
 void UsersInRoomComboBoxTest::shouldHaveDefaultValues()
 {
-    UsersInRoomComboBox w(false);
+    const UsersInRoomComboBox w(false);
     QVERIFY(w.count() > 0);
     QCOMPARE(w.currentData().value<UsersForRoomFilterProxyModel::FilterUserType>(), UsersForRoomFilterProxyModel::FilterUserType::All);
 }

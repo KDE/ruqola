@@ -20,7 +20,7 @@ NotificationInfoTest::NotificationInfoTest(QObject *parent)
 
 void NotificationInfoTest::shouldHaveDefaultValues()
 {
-    NotificationInfo t;
+    const NotificationInfo t;
     QVERIFY(t.accountName().isEmpty());
     QVERIFY(t.message().isEmpty());
     QVERIFY(t.title().isEmpty());

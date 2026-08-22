@@ -39,7 +39,7 @@ void RuqolaServerConfigTest::shouldConfigWithDefaultValue()
 
 void RuqolaServerConfigTest::shouldHaveDefaultValues()
 {
-    RuqolaServerConfig config;
+    const RuqolaServerConfig config;
     QVERIFY(config.jitsiMeetPrefix().isEmpty());
     QVERIFY(config.jitsiMeetUrl().isEmpty());
     QVERIFY(config.uniqueId().isEmpty());
@@ -96,7 +96,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.messageReadReceiptEnabled());
     QVERIFY(!config.messageReadReceiptStoreUsers());
 
-    RuqolaServerConfig::PasswordSettings passwordSetting;
+    const RuqolaServerConfig::PasswordSettings passwordSetting;
     QVERIFY(!passwordSetting.accountsPasswordPolicyEnabled);
     QVERIFY(passwordSetting.accountsPasswordPolicyForbidRepeatingCharacters);
     QVERIFY(passwordSetting.accountsPasswordPolicyAtLeastOneLowercase);
@@ -138,7 +138,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setLogoUrl(logoUrl);
     config.setFaviconUrl(faviconUrl);
 
-    quint64 uploadFileMax = 222222;
+    const quint64 uploadFileMax = 222222;
 
     config.setFileMaxFileSize(uploadFileMax);
 
@@ -167,7 +167,7 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
     QTest::addColumn<AuthenticationManager::AuthMethodTypes>("types");
 
     {
-        QStringList lst;
+        const QStringList lst;
         // By default ruqola has password support
         AuthenticationManager::AuthMethodTypes types;
         types |= AuthenticationManager::AuthMethodType::Unknown;
@@ -309,15 +309,15 @@ void RuqolaServerConfigTest::shouldSerializeConfig_data()
     QTest::addColumn<AuthenticationManager::AuthMethodTypes>("authentications");
 
     {
-        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Unknown;
+        const AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Unknown;
         QTest::newRow("empty") << u"empty.json"_s << type;
     }
     {
-        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Password;
+        const AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::Password;
         QTest::newRow("test1") << u"test1.json"_s << type;
     }
     {
-        AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
+        const AuthenticationManager::AuthMethodTypes type = AuthenticationManager::AuthMethodType::GitHub;
         QTest::newRow("onlygithub") << u"onlygithub.json"_s << type;
     }
     {
@@ -352,7 +352,7 @@ void RuqolaServerConfigTest::shouldSerializeConfig()
     RuqolaServerConfig newConfig;
     newConfig.deserialize(newObj);
 
-    bool compare = (config == newConfig);
+    const bool compare = (config == newConfig);
     if (!compare) {
         qDebug() << "config " << config;
         qDebug() << "newConfig " << newConfig;
@@ -370,7 +370,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
     QTest::addColumn<RuqolaServerConfig::PasswordSettings::PasswordSettingChecks>("passwordOk");
 
     {
-        RuqolaServerConfig::PasswordSettings settings;
+        const RuqolaServerConfig::PasswordSettings settings;
         const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
         const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks passwordOk = RuqolaServerConfig::PasswordSettings::None;
         QTest::newRow("empty") << QString() << settings << check << true << passwordOk;
@@ -381,7 +381,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyEnabled = false;
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = RuqolaServerConfig::PasswordSettings::None;
         const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks passwordOk = RuqolaServerConfig::PasswordSettings::None;
         QTest::newRow("disable") << u"sdfsdfDdd2"_s << settings << check << true << passwordOk;
     }
@@ -391,7 +391,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyEnabled = true;
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
@@ -413,8 +413,8 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyEnabled = true;
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+                                                                                   RuqolaServerConfig::PasswordSettings::MaxLengh};
         const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks passwordOk = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
@@ -432,7 +432,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyAtLeastOneLowercase = false;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
             RuqolaServerConfig::PasswordSettings::ForbidRepeatingCharactersCount,
@@ -453,7 +453,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneUppercase = true;
         settings.accountsPasswordPolicyAtLeastOneLowercase = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
@@ -478,7 +478,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneLowercase = true;
         settings.accountsPasswordPolicyAtLeastOneNumber = true;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
@@ -504,7 +504,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyAtLeastOneNumber = true;
         settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
@@ -532,11 +532,11 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyMaxLength = 8;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
-                                                                             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
-                                                                             RuqolaServerConfig::PasswordSettings::MinLengh,
-                                                                             RuqolaServerConfig::PasswordSettings::MaxLengh};
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
+                                                                                   RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
+                                                                                   RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
+                                                                                   RuqolaServerConfig::PasswordSettings::MinLengh,
+                                                                                   RuqolaServerConfig::PasswordSettings::MaxLengh};
         const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks passwordOk = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::MaxLengh,
@@ -558,7 +558,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyMaxLength = 8;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
@@ -587,7 +587,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyMaxLength = 8;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
@@ -617,7 +617,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyMaxLength = 8;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
@@ -646,7 +646,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyMaxLength = 8;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 3;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,
@@ -676,7 +676,7 @@ void RuqolaServerConfigTest::shouldCheckPassword_data()
         settings.accountsPasswordPolicyMinLength = 6;
         settings.accountsPasswordPolicyMaxLength = 8;
         settings.accountsPasswordPolicyForbidRepeatingCharactersCount = 4;
-        RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
+        const RuqolaServerConfig::PasswordSettings::PasswordSettingChecks check = {
             RuqolaServerConfig::PasswordSettings::AtLeastOneUppercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneLowercase,
             RuqolaServerConfig::PasswordSettings::AtLeastOneNumber,

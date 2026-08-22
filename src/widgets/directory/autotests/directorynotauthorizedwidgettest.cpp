@@ -19,7 +19,7 @@ DirectoryNotAuthorizedWidgetTest::DirectoryNotAuthorizedWidgetTest(QObject *pare
 
 void DirectoryNotAuthorizedWidgetTest::shouldHaveDefaultValues()
 {
-    DirectoryNotAuthorizedWidget w(nullptr);
+    const DirectoryNotAuthorizedWidget w(nullptr);
 
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

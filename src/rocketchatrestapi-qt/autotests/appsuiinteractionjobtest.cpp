@@ -26,7 +26,7 @@ void AppsUiInteractionJobTest::shouldHaveDefaultValue()
     AppsUiInteractionJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+    const AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     job.setAppsUiInteractionJobInfo(info);
     QVERIFY(job.requireHttpAuthentication());
 }

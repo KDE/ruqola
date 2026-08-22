@@ -22,7 +22,7 @@ TeamConvertToChannelDialogTest::TeamConvertToChannelDialogTest(QObject *parent)
 
 void TeamConvertToChannelDialogTest::shouldHaveDefaultValues()
 {
-    TeamConvertToChannelDialog d;
+    const TeamConvertToChannelDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

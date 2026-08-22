@@ -25,7 +25,7 @@ NotificationHistoryWidgetTest::NotificationHistoryWidgetTest(QObject *parent)
 
 void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
 {
-    NotificationHistoryWidget w;
+    const NotificationHistoryWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

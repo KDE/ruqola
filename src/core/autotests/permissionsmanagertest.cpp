@@ -18,13 +18,13 @@ PermissionsManagerTest::PermissionsManagerTest(QObject *parent)
 
 void PermissionsManagerTest::shouldHaveDefaultValues()
 {
-    PermissionsManager w;
+    const PermissionsManager w;
     QCOMPARE(w.permissionCount(), 0);
 }
 
 void PermissionsManagerTest::shouldHasRoles()
 {
-    PermissionsManager w;
+    const PermissionsManager w;
     QVERIFY(w.roles(u"bla"_s).isEmpty());
 }
 

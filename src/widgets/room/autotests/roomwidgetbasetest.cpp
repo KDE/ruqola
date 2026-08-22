@@ -27,7 +27,7 @@ RoomWidgetBaseTest::RoomWidgetBaseTest(QObject *parent)
 
 void RoomWidgetBaseTest::shouldHaveDefaultValues()
 {
-    RoomWidgetBase w(MessageListView::Mode::Editing);
+    const RoomWidgetBase w(MessageListView::Mode::Editing);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

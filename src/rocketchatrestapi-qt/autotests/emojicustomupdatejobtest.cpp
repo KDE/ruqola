@@ -40,7 +40,7 @@ void EmojiCustomUpdateJobTest::shouldGenerateRequest()
 
 void EmojiCustomUpdateJobTest::shouldGenerateJson()
 {
-    EmojiCustomUpdateJob job;
+    const EmojiCustomUpdateJob job;
     // TODO
     //    const QString emojiId = u"foo1"_s;
     //    job.setEmojiId(emojiId);

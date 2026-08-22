@@ -20,7 +20,7 @@ E2ePasswordDecodeKeyDialogTest::E2ePasswordDecodeKeyDialogTest(QObject *parent)
 
 void E2ePasswordDecodeKeyDialogTest::shouldHaveDefaultValues()
 {
-    E2ePasswordDecodeKeyDialog d;
+    const E2ePasswordDecodeKeyDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

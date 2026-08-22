@@ -39,7 +39,7 @@ void EmojiCustomCreateJobTest::shouldGenerateRequest()
 
 void EmojiCustomCreateJobTest::shouldGenerateJson()
 {
-    EmojiCustomCreateJob job;
+    const EmojiCustomCreateJob job;
     // TODO
     //    const QString emojiId = u"foo1"_s;
     //    job.setEmojiId(emojiId);

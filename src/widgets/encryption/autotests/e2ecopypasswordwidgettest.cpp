@@ -20,7 +20,7 @@ E2eCopyPasswordWidgetTest::E2eCopyPasswordWidgetTest(QObject *parent)
 
 void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    E2eCopyPasswordWidget w(nullptr);
+    const E2eCopyPasswordWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);

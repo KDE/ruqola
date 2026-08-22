@@ -19,7 +19,7 @@ DiscussionsTest::DiscussionsTest(QObject *parent)
 
 void DiscussionsTest::shouldHaveDefaultValues()
 {
-    Discussions w;
+    const Discussions w;
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);

@@ -19,7 +19,7 @@ NotificationOptionsTest::NotificationOptionsTest(QObject *parent)
 
 void NotificationOptionsTest::shouldHaveDefaultValue()
 {
-    NotificationOptions w;
+    const NotificationOptions w;
     QVERIFY(w.desktopNotifications().isEmpty());
     QVERIFY(w.mobilePushNotification().isEmpty());
     QVERIFY(w.emailNotifications().isEmpty());
@@ -35,28 +35,28 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
 void NotificationOptionsTest::shouldAssignValue()
 {
     NotificationOptions w;
-    NotificationOptions::NotificationValue desktopNotifications = NotificationOptions::NotificationValue{"bla"_ba, QByteArray()};
+    const NotificationOptions::NotificationValue desktopNotifications = NotificationOptions::NotificationValue{"bla"_ba, QByteArray()};
     w.setDesktopNotifications(desktopNotifications);
 
-    NotificationOptions::NotificationValue mobilePushNotification = NotificationOptions::NotificationValue{"bli"_ba, QByteArray()};
+    const NotificationOptions::NotificationValue mobilePushNotification = NotificationOptions::NotificationValue{"bli"_ba, QByteArray()};
     w.setMobilePushNotification(mobilePushNotification);
 
-    NotificationOptions::NotificationValue emailNotifications = NotificationOptions::NotificationValue{"blu"_ba, QByteArray()};
+    const NotificationOptions::NotificationValue emailNotifications = NotificationOptions::NotificationValue{"blu"_ba, QByteArray()};
     w.setEmailNotifications(emailNotifications);
 
-    QString unreadTrayIconAlert = u"Ablu"_s;
+    const QString unreadTrayIconAlert = u"Ablu"_s;
     w.setUnreadTrayIconAlert(unreadTrayIconAlert);
 
-    QByteArray audioNotificationValue = "ZZZZ"_ba;
+    const QByteArray audioNotificationValue = "ZZZZ"_ba;
     w.setAudioNotificationValue(audioNotificationValue);
 
-    bool disableNotifications = true;
+    const bool disableNotifications = true;
     w.setDisableNotifications(disableNotifications);
 
-    bool hideUnreadStatus = true;
+    const bool hideUnreadStatus = true;
     w.setHideUnreadStatus(hideUnreadStatus);
 
-    bool muteGroupMentions = true;
+    const bool muteGroupMentions = true;
     w.setMuteGroupMentions(muteGroupMentions);
 
     QCOMPARE(w.desktopNotifications(), desktopNotifications);
@@ -79,7 +79,7 @@ void NotificationOptionsTest::shouldParseNotification_data()
     QTest::addColumn<QByteArray>("desktopNotifications");
     QTest::addColumn<QByteArray>("mobilePushNotification");
     QTest::addColumn<QByteArray>("emailNotifications");
-    NotificationOptions notif;
+    const NotificationOptions notif;
     QTest::addRow("notification1") << u"notification1"_s << QByteArrayLiteral("default") << QByteArrayLiteral("all") << "all"_ba;
 }
 

@@ -16,7 +16,7 @@ ModerationMessagesWidgetTest::ModerationMessagesWidgetTest(QObject *parent)
 
 void ModerationMessagesWidgetTest::shouldHaveDefaultValues()
 {
-    ModerationMessagesWidget w(nullptr);
+    const ModerationMessagesWidget w(nullptr);
     // TODO
 }
 

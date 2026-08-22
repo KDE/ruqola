@@ -22,7 +22,7 @@ ExploreDatabaseWidgetTest::ExploreDatabaseWidgetTest(QObject *parent)
 
 void ExploreDatabaseWidgetTest::shouldHaveDefaultValues()
 {
-    ExploreDatabaseViewMessagesWidget w(nullptr);
+    const ExploreDatabaseViewMessagesWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

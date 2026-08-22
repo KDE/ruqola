@@ -23,7 +23,7 @@ InputTextManagerTest::InputTextManagerTest(QObject *parent)
 
 void InputTextManagerTest::shouldHaveDefaultValue()
 {
-    InputTextManager manager(nullptr, nullptr);
+    const InputTextManager manager(nullptr, nullptr);
     QVERIFY(manager.inputCompleterModel());
     QCOMPARE(manager.inputCompleterModel()->rowCount(), 0);
 }

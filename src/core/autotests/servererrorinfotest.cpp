@@ -17,7 +17,7 @@ ServerErrorInfoTest::ServerErrorInfoTest(QObject *parent)
 
 void ServerErrorInfoTest::shouldHaveDefaultValues()
 {
-    ServerErrorInfo info;
+    const ServerErrorInfo info;
     QVERIFY(info.message().isEmpty());
     QVERIFY(info.accountName().isEmpty());
     QVERIFY(info.dateTime().isValid());

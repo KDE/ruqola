@@ -17,7 +17,7 @@ GoogleAuthenticationInterfaceTest::GoogleAuthenticationInterfaceTest(QObject *pa
 
 void GoogleAuthenticationInterfaceTest::shouldHaveDefaultValue()
 {
-    GoogleAuthenticationInterface w;
+    const GoogleAuthenticationInterface w;
     QVERIFY(!w.account());
 }
 

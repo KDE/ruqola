@@ -22,7 +22,7 @@ UploadFileWidgetTest::UploadFileWidgetTest(QObject *parent)
 
 void UploadFileWidgetTest::shouldHaveDefaultValues()
 {
-    UploadFileWidget w;
+    const UploadFileWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -51,7 +51,7 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
 
 void UploadFileWidgetTest::shouldReturnEmptyResult()
 {
-    UploadFileWidget w;
+    const UploadFileWidget w;
     QVERIFY(w.fileName().isEmpty());
     QVERIFY(w.fileUrl().isEmpty());
 }

@@ -23,7 +23,7 @@ ResetPasswordDialogTest::ResetPasswordDialogTest(QObject *parent)
 
 void ResetPasswordDialogTest::shouldHaveDefaultValues()
 {
-    ResetPasswordDialog w;
+    const ResetPasswordDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
@@ -43,7 +43,7 @@ void ResetPasswordDialogTest::shouldHaveDefaultValues()
 
 void ResetPasswordDialogTest::shouldUpdateOkButton()
 {
-    ResetPasswordDialog w;
+    const ResetPasswordDialog w;
     auto mResetPasswordWidget = w.findChild<ResetPasswordWidget *>(u"mResetPasswordWidget"_s);
     auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
 

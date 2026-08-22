@@ -17,7 +17,7 @@ ManageLocalDatabaseTest::ManageLocalDatabaseTest(QObject *parent)
 
 void ManageLocalDatabaseTest::shouldHaveDefaultValues()
 {
-    ManageLocalDatabase d(nullptr);
+    const ManageLocalDatabase d(nullptr);
     // TODO
 }
 

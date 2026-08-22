@@ -33,19 +33,19 @@ void LocalAccountsDatabaseTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalAccountsDatabase accountDataBase;
+    const LocalAccountsDatabase accountDataBase;
     QFile::remove(accountDataBase.dbFileName(accountName()));
 }
 
 void LocalAccountsDatabaseTest::shouldHaveDefaultValues()
 {
-    LocalAccountsDatabase accountDataBase;
+    const LocalAccountsDatabase accountDataBase;
     QCOMPARE(accountDataBase.schemaDatabaseStr(), u"CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)"_s);
 }
 
 void LocalAccountsDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalAccountsDatabase accountDataBase;
+    const LocalAccountsDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/account/myAccount/myAccount.sqlite"_s);
 }

@@ -20,7 +20,7 @@ ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
 
 void ReportMessageWidgetTest::shouldHaveDefaultValues()
 {
-    ReportUserWidget w;
+    const ReportUserWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

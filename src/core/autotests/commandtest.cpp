@@ -16,7 +16,7 @@ CommandTest::CommandTest(QObject *parent)
 
 void CommandTest::shouldHaveDefaultValues()
 {
-    Command c;
+    const Command c;
     QVERIFY(c.params().isEmpty());
     QVERIFY(c.permissions().isEmpty());
     QVERIFY(c.commandName().isEmpty());

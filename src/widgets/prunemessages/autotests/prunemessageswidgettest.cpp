@@ -23,7 +23,7 @@ PruneMessagesWidgetTest::PruneMessagesWidgetTest(QObject *parent)
 
 void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 {
-    PruneMessagesWidget w(nullptr);
+    const PruneMessagesWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

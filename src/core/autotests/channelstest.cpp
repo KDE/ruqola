@@ -16,7 +16,7 @@ ChannelsTest::ChannelsTest(QObject *parent)
 
 void ChannelsTest::shouldHaveDefaultValues()
 {
-    Channels w;
+    const Channels w;
     QVERIFY(w.isEmpty());
     QVERIFY(w.channels().isEmpty());
 }

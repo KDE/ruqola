@@ -33,7 +33,7 @@ ExploreDatabaseDialogTest::ExploreDatabaseDialogTest(QObject *parent)
 
 void ExploreDatabaseDialogTest::shouldHaveDefaultValues()
 {
-    ExploreDatabaseDialog d(nullptr);
+    const ExploreDatabaseDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto tabWidget = d.findChild<QTabWidget *>(u"tabWidget"_s);

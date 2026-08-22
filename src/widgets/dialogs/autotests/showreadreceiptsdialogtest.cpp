@@ -20,7 +20,7 @@ ShowReadReceiptsDialogTest::ShowReadReceiptsDialogTest(QObject *parent)
 
 void ShowReadReceiptsDialogTest::shouldHaveDefaultValues()
 {
-    ShowReadReceiptsDialog w(nullptr);
+    const ShowReadReceiptsDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

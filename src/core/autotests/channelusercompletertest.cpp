@@ -17,7 +17,7 @@ ChannelUserCompleterTest::ChannelUserCompleterTest(QObject *parent)
 
 void ChannelUserCompleterTest::shouldHaveDefaultValues()
 {
-    ChannelUserCompleter w;
+    const ChannelUserCompleter w;
     QVERIFY(w.description().isEmpty());
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.fName().isEmpty());

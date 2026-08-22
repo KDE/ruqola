@@ -20,7 +20,7 @@ AdministratorRoomsSelectRoomTypeWidgetTest::AdministratorRoomsSelectRoomTypeWidg
 
 void AdministratorRoomsSelectRoomTypeWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorRoomsSelectRoomTypeWidget w;
+    const AdministratorRoomsSelectRoomTypeWidget w;
 
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -19,7 +19,7 @@ PersonalAccessTokenInfosTest::PersonalAccessTokenInfosTest(QObject *parent)
 
 void PersonalAccessTokenInfosTest::shouldHaveDefaultValues()
 {
-    PersonalAccessTokenInfos w;
+    const PersonalAccessTokenInfos w;
     QCOMPARE(w.count(), 0);
     QVERIFY(w.isEmpty());
 }
@@ -29,7 +29,7 @@ void PersonalAccessTokenInfosTest::shouldLoadPersonalAccessTokenInfos_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<PersonalAccessTokenInfos>("personalAccessTokenInfos");
     {
-        PersonalAccessTokenInfos info;
+        const PersonalAccessTokenInfos info;
         QTest::addRow("empty-token") << u"empty-token"_s << info;
     }
     {

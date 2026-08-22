@@ -23,7 +23,7 @@ CustomUserStatusesTest::CustomUserStatusesTest(QObject *parent)
 
 void CustomUserStatusesTest::shouldHaveDefaultValues()
 {
-    CustomUserStatuses w;
+    const CustomUserStatuses w;
     QVERIFY(w.customUserStatusList().isEmpty());
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
@@ -69,7 +69,7 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses()
 
     CustomUserStatuses r;
     r.parseCustomUserStatuses(obj);
-    bool compareCustom = r.customUserStatusList() == customUserStatus;
+    const bool compareCustom = r.customUserStatusList() == customUserStatus;
     if (!compareCustom) {
         qDebug() << "current : " << r.customUserStatusList();
         qDebug() << "expected: " << customUserStatus;

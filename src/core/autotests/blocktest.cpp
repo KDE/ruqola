@@ -18,7 +18,7 @@ BlockTest::BlockTest(QObject *parent)
 
 void BlockTest::shouldHaveDefaultValues()
 {
-    Block b;
+    const Block b;
     QVERIFY(b.callId().isEmpty());
     QVERIFY(b.blockId().isEmpty());
     QVERIFY(b.appId().isEmpty());

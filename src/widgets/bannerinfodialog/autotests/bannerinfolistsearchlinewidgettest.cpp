@@ -22,7 +22,7 @@ BannerInfoListSearchLineWidgetTest::BannerInfoListSearchLineWidgetTest(QObject *
 
 void BannerInfoListSearchLineWidgetTest::shouldHaveDefaultValues()
 {
-    BannerInfoListSearchLineWidget w;
+    const BannerInfoListSearchLineWidget w;
 
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -44,7 +44,7 @@ void BannerInfoListSearchLineWidgetTest::shouldHaveDefaultValues()
 
 void BannerInfoListSearchLineWidgetTest::shouldEmitFilterChanged()
 {
-    BannerInfoListSearchLineWidget w;
+    const BannerInfoListSearchLineWidget w;
     QSignalSpy filterChanged(&w, &BannerInfoListSearchLineWidget::filterChanged);
 
     auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);

@@ -23,7 +23,7 @@ ExportMessagesDialogTest::ExportMessagesDialogTest(QObject *parent)
 
 void ExportMessagesDialogTest::shouldHaveDefaultValues()
 {
-    ExportMessagesDialog d;
+    const ExportMessagesDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

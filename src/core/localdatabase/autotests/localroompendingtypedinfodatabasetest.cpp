@@ -60,7 +60,7 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     // GIVEN
     LocalRoomPendingTypedInfoDatabase logger;
 
-    QByteArray roomId = "foo1"_ba;
+    const QByteArray roomId = "foo1"_ba;
     AccountRoomSettings::PendingTypedInfo info1;
     info1.messageIdBeingEdited = "foo"_ba;
     info1.quotePermalink = u"bla"_s;
@@ -70,14 +70,14 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     info1.scrollbarPosition = 5;
     logger.updateRoomPendingTypedInfo(otherAccountName(), roomId, info1);
 
-    QByteArray roomId2 = "foo2"_ba;
+    const QByteArray roomId2 = "foo2"_ba;
     AccountRoomSettings::PendingTypedInfo info2;
     info2.messageIdBeingEdited = "foo1"_ba;
     info2.quotePermalink = u"bla1"_s;
     info2.scrollbarPosition = 5;
     logger.updateRoomPendingTypedInfo(otherAccountName(), roomId2, info2);
 
-    QByteArray roomId3 = "foo3"_ba;
+    const QByteArray roomId3 = "foo3"_ba;
     AccountRoomSettings::PendingTypedInfo info3;
     info3.messageIdBeingEdited = "foo5"_ba;
     info3.quotePermalink = u"bla-kde"_s;

@@ -115,7 +115,7 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
     QTest::addColumn<Utils::AvatarInfo>("avatarInfo");
     QTest::addColumn<QUrl>("result");
     {
-        Utils::AvatarInfo avatarInfo;
+        const Utils::AvatarInfo avatarInfo;
         QTest::newRow("empty") << QString() << avatarInfo << QUrl();
     }
     {

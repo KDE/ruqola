@@ -40,7 +40,7 @@ void RequestSubscriptionKeysJobTest::shouldGenerateRequest()
 
 void RequestSubscriptionKeysJobTest::shouldGenerateJson()
 {
-    RequestSubscriptionKeysJob job;
+    const RequestSubscriptionKeysJob job;
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), "{}"_ba);
 }
 

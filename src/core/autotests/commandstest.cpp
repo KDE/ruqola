@@ -19,7 +19,7 @@ CommandsTest::CommandsTest(QObject *parent)
 
 void CommandsTest::shouldHaveDefaultValue()
 {
-    Commands r;
+    const Commands r;
     QVERIFY(r.commands().isEmpty());
     QVERIFY(r.isEmpty());
 }

@@ -18,7 +18,7 @@ BannerInfoWidgetTest::BannerInfoWidgetTest(QObject *parent)
 
 void BannerInfoWidgetTest::shouldHaveDefaultValues()
 {
-    BannerInfoWidget w(nullptr);
+    const BannerInfoWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

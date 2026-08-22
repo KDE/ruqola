@@ -26,7 +26,7 @@ MyAccountConfigureWidgetTest::MyAccountConfigureWidgetTest(QObject *parent)
 
 void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccountConfigureWidget w(nullptr);
+    const MyAccountConfigureWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

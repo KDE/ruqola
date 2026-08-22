@@ -44,7 +44,7 @@ void LocalMessagesDatabaseTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalMessagesDatabase logger;
+    const LocalMessagesDatabase logger;
     QFile::remove(logger.dbFileName(accountName(), roomId()));
     QFile::remove(logger.dbFileName(accountName(), otherRoomId()));
     QFile::remove(logger.dbFileName(accountName(), existingRoomId()));
@@ -97,7 +97,7 @@ void LocalMessagesDatabaseTest::shouldStoreMessages()
 void LocalMessagesDatabaseTest::shouldLoadExistingDb() // this test depends on shouldStoreMessages()
 {
     // GIVEN
-    LocalMessagesDatabase logger;
+    const LocalMessagesDatabase logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
     QSqlDatabase::database(accountName() + u'-' + QString::fromLatin1(otherRoomId())).close();
     const QString srcDb = logger.dbFileName(accountName(), otherRoomId());
@@ -133,7 +133,7 @@ void LocalMessagesDatabaseTest::shouldDeleteMessages() // this test depends on s
 void LocalMessagesDatabaseTest::shouldReturnNullIfDoesNotExist()
 {
     // GIVEN
-    LocalMessagesDatabase logger;
+    const LocalMessagesDatabase logger;
     // WHEN
     auto tableModel = logger.createMessageModel(accountName(), "does not exist"_ba);
     // THEN
@@ -255,7 +255,7 @@ void LocalMessagesDatabaseTest::shouldGenerateQuery_data()
 
 void LocalMessagesDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalMessagesDatabase accountDataBase;
+    const LocalMessagesDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/messages/myAccount/myAccount.sqlite"_s);
 }

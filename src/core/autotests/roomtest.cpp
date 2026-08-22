@@ -28,7 +28,7 @@ RoomTest::RoomTest(QObject *parent)
 
 void RoomTest::shouldHaveDefaultValue()
 {
-    Room input(nullptr);
+    const Room input(nullptr);
     QVERIFY(input.usersModelForRoom());
 
     QVERIFY(input.messageModel());
@@ -256,28 +256,28 @@ void RoomTest::shouldSerialized()
 void RoomTest::shouldEmitSignals()
 {
     Room input(nullptr);
-    QSignalSpy spyNameChanged(&input, &Room::nameChanged);
-    QSignalSpy spyannouncementChanged(&input, &Room::announcementChanged);
-    QSignalSpy spytopicChanged(&input, &Room::topicChanged);
-    QSignalSpy spyfavoriteChanged(&input, &Room::favoriteChanged);
-    QSignalSpy spyalertChanged(&input, &Room::alertChanged);
-    QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
-    QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
-    QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
-    QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
-    QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
-    QSignalSpy spyblockedChanged(&input, &Room::blockedChanged);
-    QSignalSpy spyrolesChanged(&input, &Room::rolesChanged);
-    QSignalSpy spyignoredUsersChanged(&input, &Room::ignoredUsersChanged);
-    QSignalSpy spymutedUsersChanged(&input, &Room::mutedUsersChanged);
-    QSignalSpy spyencryptedChanged(&input, &Room::encryptedChanged);
-    QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
-    QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
-    QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
-    QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::autoTranslateLanguageChanged);
-    QSignalSpy spyautoTranslateChanged(&input, &Room::autoTranslateChanged);
-    QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
-    QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
+    const QSignalSpy spyNameChanged(&input, &Room::nameChanged);
+    const QSignalSpy spyannouncementChanged(&input, &Room::announcementChanged);
+    const QSignalSpy spytopicChanged(&input, &Room::topicChanged);
+    const QSignalSpy spyfavoriteChanged(&input, &Room::favoriteChanged);
+    const QSignalSpy spyalertChanged(&input, &Room::alertChanged);
+    const QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
+    const QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
+    const QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
+    const QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
+    const QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
+    const QSignalSpy spyblockedChanged(&input, &Room::blockedChanged);
+    const QSignalSpy spyrolesChanged(&input, &Room::rolesChanged);
+    const QSignalSpy spyignoredUsersChanged(&input, &Room::ignoredUsersChanged);
+    const QSignalSpy spymutedUsersChanged(&input, &Room::mutedUsersChanged);
+    const QSignalSpy spyencryptedChanged(&input, &Room::encryptedChanged);
+    const QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
+    const QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
+    const QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
+    const QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::autoTranslateLanguageChanged);
+    const QSignalSpy spyautoTranslateChanged(&input, &Room::autoTranslateChanged);
+    const QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
+    const QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
 
     input.setRoomId("foo"_ba);
     input.setChannelType(Room::roomTypeFromString(u"p"_s));
@@ -427,7 +427,7 @@ void RoomTest::shouldParseRoomAndUpdate()
 
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/room-updated/"_L1 + fileNameinit + ".json"_L1;
     QFile f(originalJsonFile);
-    bool opened = f.open(QIODevice::ReadOnly);
+    const bool opened = f.open(QIODevice::ReadOnly);
     if (!opened) {
         qWarning() << " impossible to open " << originalJsonFile;
     }

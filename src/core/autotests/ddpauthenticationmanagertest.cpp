@@ -34,7 +34,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-        QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+        const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         authManager.setAuthToken(u"some token"_s);
         QVERIFY(authManager.login());
         QCOMPARE(spyStatusChanged.count(), 1);
@@ -68,7 +68,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-        QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+        const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         QVERIFY(authManager.loginPassword(u"someuser"_s, u"somepassword"_s));
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -101,7 +101,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-        QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+        const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         QVERIFY(authManager.loginOAuth(u"someuser"_s, u"somepassword"_s));
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -134,7 +134,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-        QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+        const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         QVERIFY(authManager.loginPassword(u"someuser"_s, u"somepassword"_s));
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -167,7 +167,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         DDPAuthenticationManager authManager(dummyAccount.ddp());
 
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-        QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+        const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
         QVERIFY(authManager.loginOAuth(u"sometoken"_s, u"somesecret"_s));
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -201,7 +201,7 @@ void DDPAuthenticationManagerTest::testLoginInvalidLoginInfo()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"wronguser"_s, u"wrongpassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -231,7 +231,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"wronguser"_s, u"wrongpassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -293,7 +293,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"wronguser"_s, u"wrongpassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -355,7 +355,7 @@ void DDPAuthenticationManagerTest::testUnknownError()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"someuser"_s, u"somepassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -379,7 +379,7 @@ void DDPAuthenticationManagerTest::testUserNotActivatedError()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"someuser"_s, u"somepassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -403,7 +403,7 @@ void DDPAuthenticationManagerTest::testLoginBlockForIpError()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"someuser"_s, u"somepassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -427,7 +427,7 @@ void DDPAuthenticationManagerTest::testLoginBlockedForUser()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"someuser"_s, u"somepassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
@@ -451,7 +451,7 @@ void DDPAuthenticationManagerTest::testLoginAppUserAllowToLogin()
     DDPAuthenticationManager authManager(dummyAccount.ddp());
 
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedOut);
-    QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
+    const QSignalSpy spyStatusChanged(&authManager, &DDPAuthenticationManager::loginStatusChanged);
     QVERIFY(authManager.loginPassword(u"someuser"_s, u"somepassword"_s));
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);

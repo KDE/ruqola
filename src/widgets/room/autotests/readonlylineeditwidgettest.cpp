@@ -19,7 +19,7 @@ ReadOnlyLineEditWidgetTest::ReadOnlyLineEditWidgetTest(QObject *parent)
 
 void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
 {
-    ReadOnlyLineEditWidget w;
+    const ReadOnlyLineEditWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -28,7 +28,7 @@ void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(label->text().isEmpty());
 
-    QFont font = label->font();
+    const QFont font = label->font();
     QVERIFY(font.bold());
     QVERIFY(font.italic());
 }

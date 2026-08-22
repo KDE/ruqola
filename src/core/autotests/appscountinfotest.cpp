@@ -18,7 +18,7 @@ AppsCountInfoTest::AppsCountInfoTest(QObject *parent)
 
 void AppsCountInfoTest::shouldHaveDefaultValues()
 {
-    AppsCountInfo w;
+    const AppsCountInfo w;
     QCOMPARE(w.maxMarketplaceApps(), -1);
     QCOMPARE(w.maxPrivateApps(), -1);
     QCOMPARE(w.totalMarketplaceEnabled(), -1);

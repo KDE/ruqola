@@ -20,7 +20,7 @@ SearchMessageWithDelayLineEditTest::SearchMessageWithDelayLineEditTest(QObject *
 
 void SearchMessageWithDelayLineEditTest::shouldHaveDefaultValues()
 {
-    SearchMessageWithDelayLineEdit w(nullptr);
+    const SearchMessageWithDelayLineEdit w(nullptr);
     auto mCompleter = w.findChild<QCompleter *>(u"mCompleter"_s);
     QVERIFY(mCompleter);
 

@@ -18,7 +18,7 @@ ConfigureSettingsDialogTest::ConfigureSettingsDialogTest(QObject *parent)
 
 void ConfigureSettingsDialogTest::shouldHaveDefaultValues()
 {
-    ConfigureSettingsDialog w;
+    const ConfigureSettingsDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     // TODO (add more)
 }

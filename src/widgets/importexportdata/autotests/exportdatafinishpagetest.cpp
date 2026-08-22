@@ -22,7 +22,7 @@ ExportDataFinishPageTest::ExportDataFinishPageTest(QObject *parent)
 
 void ExportDataFinishPageTest::shouldHaveDefaultValues()
 {
-    ExportDataFinishPage w;
+    const ExportDataFinishPage w;
     auto mInfos = w.findChild<QLabel *>(u"mInfos"_s);
     QVERIFY(mInfos);
     QVERIFY(mInfos->text().isEmpty());

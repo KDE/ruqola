@@ -22,7 +22,7 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
 {
     FilesForRoomModel w;
     QVERIFY(w.fileAttachments());
-    QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
+    const QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
     // (if it had 0 columns, it would have to emit column insertions, too much trouble)
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
@@ -40,7 +40,7 @@ void FilesForRoomModelTest::shouldAddFiles()
         f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
-    QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
+    const QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
 
     w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 10);

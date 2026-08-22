@@ -15,7 +15,7 @@ PreviewCommandTest::PreviewCommandTest(QObject *parent)
 
 void PreviewCommandTest::shouldHaveDefaultValues()
 {
-    PreviewCommand c;
+    const PreviewCommand c;
     QVERIFY(c.id().isEmpty());
     QCOMPARE(c.type(), PreviewCommand::TypePreview::Unknown);
     QVERIFY(c.value().isEmpty());

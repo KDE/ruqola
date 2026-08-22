@@ -27,7 +27,7 @@ void UsersAutocompleteJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 
-    UsersAutocompleteJob::UsersAutocompleterInfo info;
+    const UsersAutocompleteJob::UsersAutocompleterInfo info;
     QVERIFY(!info.isValid());
     QVERIFY(info.pattern.isEmpty());
     QVERIFY(info.exception.isEmpty());

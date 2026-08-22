@@ -29,7 +29,7 @@ EmojiManagerTest::EmojiManagerTest(QObject *parent)
 
 void EmojiManagerTest::shouldHaveDefaultValue()
 {
-    EmojiManager manager(nullptr);
+    const EmojiManager manager(nullptr);
     QVERIFY(manager.serverUrl().isEmpty());
     QCOMPARE(manager.count(), 3820);
     QVERIFY(manager.customEmojiList().isEmpty());
@@ -157,7 +157,7 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
         emojiList.append(std::move(val));
         emojiList.append(std::move(val1));
 
-        QList<CustomEmoji> emojiListAfterDeleting = emojiList;
+        const QList<CustomEmoji> emojiListAfterDeleting = emojiList;
         CustomEmoji val2;
         val2.setName(u"ruqola"_s);
         val2.setIdentifier("HdN28k4PQ6J9xLkZ8"_ba);
@@ -180,7 +180,7 @@ void EmojiManagerTest::shouldAddEmojiCustom()
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + initialListName + ".json"_L1;
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
-    QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
+    const QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
 
@@ -248,7 +248,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom()
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/json/restapi/"_L1 + initialListName + ".json"_L1;
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
-    QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
+    const QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
     manager.loadCustomEmoji(obj);
 
     QCOMPARE(manager.count(), number);
@@ -265,7 +265,7 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 {
     // Load list of unicode emoticon
     TextEmoticonsCore::UnicodeEmoticonManager::self();
-    EmojiManager manager(nullptr);
+    const EmojiManager manager(nullptr);
     QString grinning;
     grinning += QChar(0xd800 + 61);
     grinning += QChar(0xDC00 + 512);
@@ -299,7 +299,7 @@ void EmojiManagerTest::shouldOrderUnicodeEmojis()
 {
     // Load list of unicode emoticon
     TextEmoticonsCore::UnicodeEmoticonManager::self();
-    EmojiManager manager(nullptr);
+    const EmojiManager manager(nullptr);
     const QList<TextEmoticonsCore::UnicodeEmoticon> list = manager.unicodeEmojiList();
     auto hasCategory = [](const QString &category) {
         return [category](const TextEmoticonsCore::UnicodeEmoticon &emo) {
@@ -400,7 +400,7 @@ void EmojiManagerTest::shouldNormalizeReactions()
     QFETCH(QString, emoji);
     QFETCH(QString, normalizedEmoji);
 
-    EmojiManager manager(nullptr);
+    const EmojiManager manager(nullptr);
     QCOMPARE(manager.normalizedReactionEmoji(emoji), normalizedEmoji);
 }
 
@@ -419,7 +419,7 @@ void EmojiManagerTest::replaceAsciiEmoji()
 {
     QFETCH(QString, input);
     QFETCH(bool, replaced);
-    QString original = input;
+    const QString original = input;
 
     TextEmoticonsCore::UnicodeEmoticonManager::self();
     RocketChatAccount account;

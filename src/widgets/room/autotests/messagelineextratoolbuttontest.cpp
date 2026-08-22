@@ -15,7 +15,7 @@ MessageLineExtraToolButtonTest::MessageLineExtraToolButtonTest(QObject *parent)
 
 void MessageLineExtraToolButtonTest::shouldHaveDefaultValues()
 {
-    MessageLineExtraToolButton b;
+    const MessageLineExtraToolButton b;
     QVERIFY(!b.toolTip().isEmpty());
     QVERIFY(b.autoRaise());
     QCOMPARE(b.popupMode(), QToolButton::InstantPopup);

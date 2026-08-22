@@ -19,7 +19,7 @@ ChannelListViewTest::ChannelListViewTest(QObject *parent)
 
 void ChannelListViewTest::shouldHaveDefaultValues()
 {
-    ChannelListView w;
+    const ChannelListView w;
     QCOMPARE(w.horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
     QCOMPARE(w.itemDelegate()->objectName(), u"mChannelListDelegate"_s);
     QCOMPARE(w.isHeaderHidden(), true);

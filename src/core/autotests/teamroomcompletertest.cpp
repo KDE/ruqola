@@ -15,7 +15,7 @@ TeamRoomCompleterTest::TeamRoomCompleterTest(QObject *parent)
 
 void TeamRoomCompleterTest::shouldHaveDefaultValues()
 {
-    TeamRoomCompleter t;
+    const TeamRoomCompleter t;
     // TODO
 }
 

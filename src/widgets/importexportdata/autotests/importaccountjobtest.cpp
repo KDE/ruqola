@@ -16,7 +16,7 @@ ImportAccountJobTest::ImportAccountJobTest(QObject *parent)
 
 void ImportAccountJobTest::shouldHaveDefaultValues()
 {
-    ImportAccountJob w({});
+    const ImportAccountJob w({});
 
     // TODO
 }

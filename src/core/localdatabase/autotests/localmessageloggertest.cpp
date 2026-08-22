@@ -45,7 +45,7 @@ void LocalMessageLoggerTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalMessageLogger logger;
+    const LocalMessageLogger logger;
     QFile::remove(logger.dbFileName(accountName(), roomId()));
     QFile::remove(logger.dbFileName(accountName(), otherRoomId()));
     QFile::remove(logger.dbFileName(accountName(), existingRoomId()));
@@ -100,7 +100,7 @@ void LocalMessageLoggerTest::shouldStoreMessages()
 void LocalMessageLoggerTest::shouldLoadExistingDb() // this test depends on shouldStoreMessages()
 {
     // GIVEN
-    LocalMessageLogger logger;
+    const LocalMessageLogger logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
     QSqlDatabase::database(accountName() + u'-' + QString::fromLatin1(otherRoomId())).close();
     const QString srcDb = logger.dbFileName(accountName(), otherRoomId());
@@ -138,7 +138,7 @@ void LocalMessageLoggerTest::shouldDeleteMessages() // this test depends on shou
 void LocalMessageLoggerTest::shouldReturnNullIfDoesNotExist()
 {
     // GIVEN
-    LocalMessageLogger logger;
+    const LocalMessageLogger logger;
     // WHEN
     auto tableModel = logger.createMessageModel(accountName(), "does not exist"_ba);
     // THEN
@@ -147,7 +147,7 @@ void LocalMessageLoggerTest::shouldReturnNullIfDoesNotExist()
 
 void LocalMessageLoggerTest::shouldDefaultValues()
 {
-    LocalMessageLogger logger;
+    const LocalMessageLogger logger;
     QCOMPARE(logger.schemaDatabaseStr(), u"CREATE TABLE LOGS (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, userName TEXT, text TEXT)"_s);
 }
 

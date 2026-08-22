@@ -20,7 +20,7 @@ PasswordLineEditWidgetTest::PasswordLineEditWidgetTest(QObject *parent)
 
 void PasswordLineEditWidgetTest::shouldHaveDefaultValues()
 {
-    PasswordLineEditWidget w;
+    const PasswordLineEditWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

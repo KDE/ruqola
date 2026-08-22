@@ -20,7 +20,7 @@ RolesManagerTest::RolesManagerTest(QObject *parent)
 
 void RolesManagerTest::shouldHaveDefaultValues()
 {
-    RolesManager m;
+    const RolesManager m;
     QVERIFY(m.roleInfo().isEmpty());
 }
 
@@ -82,7 +82,7 @@ void RolesManagerTest::shouldUpdateRoles()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RolesManager m;
-    QSignalSpy spy(&m, &RolesManager::rolesChanged);
+    const QSignalSpy spy(&m, &RolesManager::rolesChanged);
     m.parseRoles(obj);
     QCOMPARE(m.roleInfo().count(), numberOfRolesBefore);
 

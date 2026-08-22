@@ -22,7 +22,7 @@ AutoTranslateConfigureWidgetTest::AutoTranslateConfigureWidgetTest(QObject *pare
 
 void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    AutoTranslateConfigureWidget w(nullptr);
+    const AutoTranslateConfigureWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

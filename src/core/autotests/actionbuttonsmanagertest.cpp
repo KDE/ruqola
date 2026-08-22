@@ -18,7 +18,7 @@ ActionButtonsManagerTest::ActionButtonsManagerTest(QObject *parent)
 
 void ActionButtonsManagerTest::shouldHaveDefaultValues()
 {
-    ActionButtonsManager m(nullptr);
+    const ActionButtonsManager m(nullptr);
     QVERIFY(m.actionButtons().isEmpty());
 }
 
@@ -28,7 +28,7 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
     QTest::addColumn<QList<ActionButton>>("actionButtons");
 
     {
-        QList<ActionButton> buttons;
+        const QList<ActionButton> buttons;
         QTest::addRow("actionbuttons-empty") << u"actionbuttons-empty"_s << buttons;
     }
     {

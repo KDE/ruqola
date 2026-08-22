@@ -20,7 +20,7 @@ AdministratorModerationConsoleWidgetTest::AdministratorModerationConsoleWidgetTe
 
 void AdministratorModerationConsoleWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorModerationConsoleWidget d(nullptr);
+    const AdministratorModerationConsoleWidget d(nullptr);
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

@@ -18,7 +18,7 @@ VideoConferenceTest::VideoConferenceTest(QObject *parent)
 
 void VideoConferenceTest::shouldHaveDefaultValues()
 {
-    VideoConference w;
+    const VideoConference w;
     QVERIFY(w.callId().isEmpty());
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.userId().isEmpty());

@@ -20,7 +20,7 @@ AdministratorCustomUserStatusCreateWidgetTest::AdministratorCustomUserStatusCrea
 
 void AdministratorCustomUserStatusCreateWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomUserStatusCreateWidget w;
+    const AdministratorCustomUserStatusCreateWidget w;
 
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -18,7 +18,7 @@ CreateNewServerStackWidgetTest::CreateNewServerStackWidgetTest(QObject *parent)
 
 void CreateNewServerStackWidgetTest::shouldHaveDefaultValues()
 {
-    CreateNewServerStackWidget w;
+    const CreateNewServerStackWidget w;
 
     auto mCheckNewServerUrlWidget = w.findChild<CheckNewServerUrlWidget *>(u"mCheckNewServerUrlWidget"_s);
     QVERIFY(mCheckNewServerUrlWidget);

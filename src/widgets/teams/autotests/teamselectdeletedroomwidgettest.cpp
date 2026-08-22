@@ -20,7 +20,7 @@ TeamSelectDeletedRoomWidgetTest::TeamSelectDeletedRoomWidgetTest(QWidget *parent
 
 void TeamSelectDeletedRoomWidgetTest::shouldHaveDefaultValues()
 {
-    TeamSelectDeletedRoomWidget w;
+    const TeamSelectDeletedRoomWidget w;
 
     QVERIFY(w.roomsId().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

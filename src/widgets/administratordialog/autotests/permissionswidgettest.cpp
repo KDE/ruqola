@@ -24,7 +24,7 @@ PermissionsWidgetTest::PermissionsWidgetTest(QObject *parent)
 
 void PermissionsWidgetTest::shouldHaveDefaultValues()
 {
-    PermissionsWidget w(nullptr);
+    const PermissionsWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -24,7 +24,7 @@ PlaySoundDialogTest::PlaySoundDialogTest(QObject *parent)
 
 void PlaySoundDialogTest::shouldHaveDefaultValues()
 {
-    PlaySoundDialog w(nullptr);
+    const PlaySoundDialog w(nullptr);
 
     QVERIFY(!w.windowTitle().isEmpty());
 

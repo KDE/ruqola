@@ -20,7 +20,7 @@ ReactionsTest::ReactionsTest(QObject *parent)
 
 void ReactionsTest::shouldHaveDefaultValue()
 {
-    Reactions reacts;
+    const Reactions reacts;
     QVERIFY(reacts.reactions().isEmpty());
     QVERIFY(reacts.isEmpty());
 }

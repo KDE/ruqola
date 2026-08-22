@@ -20,7 +20,7 @@ EncryptionSettingsWidgetTest::EncryptionSettingsWidgetTest(QObject *parent)
 
 void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    EncryptionSettingsWidget w(nullptr);
+    const EncryptionSettingsWidget w(nullptr);
     QVERIFY(w.widgetResizable());
 
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);

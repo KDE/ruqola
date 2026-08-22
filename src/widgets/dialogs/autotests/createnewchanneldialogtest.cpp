@@ -24,7 +24,7 @@ CreateNewChannelDialogTest::CreateNewChannelDialogTest(QObject *parent)
 
 void CreateNewChannelDialogTest::shouldHaveDefaultValues()
 {
-    CreateNewChannelDialog w(nullptr);
+    const CreateNewChannelDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

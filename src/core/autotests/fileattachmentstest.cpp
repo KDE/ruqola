@@ -17,7 +17,7 @@ FileAttachmentsTest::FileAttachmentsTest(QObject *parent)
 
 void FileAttachmentsTest::shouldHaveDefaultValues()
 {
-    FileAttachments w;
+    const FileAttachments w;
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);

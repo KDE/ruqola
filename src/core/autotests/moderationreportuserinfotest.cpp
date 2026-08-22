@@ -18,7 +18,7 @@ ModerationReportUserInfoTest::ModerationReportUserInfoTest(QObject *parent)
 
 void ModerationReportUserInfoTest::shouldHaveDefaultValues()
 {
-    ModerationReportUserInfo w;
+    const ModerationReportUserInfo w;
     QVERIFY(w.description().isEmpty());
     QVERIFY(w.reportId().isEmpty());
 }

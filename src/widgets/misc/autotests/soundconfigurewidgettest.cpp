@@ -17,7 +17,7 @@ SoundConfigureWidgetTest::SoundConfigureWidgetTest(QObject *parent)
 
 void SoundConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    SoundConfigureWidget w(nullptr);
+    const SoundConfigureWidget w(nullptr);
     // TODO
 }
 

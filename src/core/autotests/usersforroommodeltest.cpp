@@ -23,8 +23,8 @@ UsersForRoomModelTest::UsersForRoomModelTest(QObject *parent)
 void UsersForRoomModelTest::shouldHaveDefaultValue()
 {
     UsersForRoomModel w;
-    QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
+    const QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
+    const QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
@@ -140,8 +140,8 @@ void UsersForRoomModelTest::shouldParseUsers()
     QFETCH(int, numberOfSignal);
     QFETCH(bool, restApi);
     UsersForRoomModel w;
-    QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
+    const QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
+    const QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
     w.parseUsersForRooms(loadFile(filename), nullptr, restApi, {}); // We don't have userstatus model here
     QCOMPARE(rowInsertedSpy.count(), numberOfSignal);
     QCOMPARE(rowABTInserted.count(), numberOfSignal);

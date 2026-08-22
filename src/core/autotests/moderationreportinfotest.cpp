@@ -18,7 +18,7 @@ ModerationReportInfoTest::ModerationReportInfoTest(QObject *parent)
 
 void ModerationReportInfoTest::shouldHaveDefaultValues()
 {
-    ModerationReportInfo info;
+    const ModerationReportInfo info;
     QVERIFY(info.reportIdentifier().isEmpty());
     QVERIFY(info.description().isEmpty());
     QCOMPARE(info.timeStamp(), -1);

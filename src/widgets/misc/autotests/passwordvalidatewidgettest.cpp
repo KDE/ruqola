@@ -20,12 +20,12 @@ PasswordValidateWidgetTest::PasswordValidateWidgetTest(QObject *parent)
 
 void PasswordValidateWidgetTest::shouldHaveDefaultValues()
 {
-    PasswordValidateWidget w;
+    const PasswordValidateWidget w;
     auto mGridLayout = w.findChild<QGridLayout *>(u"mGridLayout"_s);
     QVERIFY(mGridLayout);
     QCOMPARE(mGridLayout->contentsMargins(), QMargins{});
 
-    PasswordValidateLabel l;
+    const PasswordValidateLabel l;
     auto mainLayout = l.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

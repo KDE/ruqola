@@ -32,7 +32,7 @@ RoomModelTest::RoomModelTest(QObject *parent)
 
 void RoomModelTest::shouldHaveDefaultValues()
 {
-    RoomModel sampleModel;
+    const RoomModel sampleModel;
     QCOMPARE(sampleModel.rowCount(), 0);
 }
 
@@ -163,7 +163,7 @@ void RoomModelTest::shouldUpdateRoomFromQJsonObject()
     sampleModel.addRoom("RA151100ECE"_ba, u"myRoom"_s);
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
+    const QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
     sampleModel.updateRoom(roomData);
     room = sampleModel.findRoom("RA151100ECE"_ba);
     QVERIFY(room);
@@ -237,7 +237,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     //    input.append(roomData);
 
     QCOMPARE(sampleModel.rowCount(), 1);
-    QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
+    const QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
     sampleModel.updateRoom(roomData);
     QCOMPARE(sampleModel.rowCount(), 1);
 
@@ -312,8 +312,8 @@ void RoomModelTest::shouldReturnDataDefault()
 {
     RoomModel sampleModel;
     QVariant output;
-    QByteArray Id("RA151100ECE");
-    QString name = u"myRoom"_s;
+    const QByteArray Id("RA151100ECE");
+    const QString name = u"myRoom"_s;
     sampleModel.addRoom(Id, name);
 
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomName);

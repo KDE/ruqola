@@ -21,7 +21,7 @@ MessageTest::MessageTest(QObject *parent)
 
 void MessageTest::shouldHaveDefaultValues()
 {
-    Message m;
+    const Message m;
     QVERIFY(!m.pendingMessage());
     QVERIFY(!m.showIgnoredMessage());
     QVERIFY(m.showTranslatedMessage());
@@ -350,7 +350,7 @@ void MessageTest::shouldParseMessage()
     const QByteArray content = f.readAll();
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    QJsonObject obj = doc.object();
+    const QJsonObject obj = doc.object();
     Message originalMessage;
     originalMessage.parseMessage(obj, false, nullptr);
     const bool messageIsEqual = (originalMessage == expectedMessage);
@@ -558,7 +558,7 @@ void MessageTest::shouldSerializeData()
 
         input.setAttachments(attachments);
         // Urls
-        QList<MessageUrl> lstUrls;
+        const QList<MessageUrl> lstUrls;
 #if 0 // TODO FIXME
         {
             MessageUrl url1;
@@ -776,8 +776,8 @@ void MessageTest::shouldParseJsonMessage()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(u"/messages/"_s, jsonIndented, fileName);
 
-    Message m = Message::deserialize(docSerialized.object());
-    bool compareMessage = (r == m);
+    const Message m = Message::deserialize(docSerialized.object());
+    const bool compareMessage = (r == m);
     if (!compareMessage) {
         qDebug() << "loaded message" << r;
         qDebug() << "fromJson " << m;
@@ -833,7 +833,7 @@ void MessageTest::shouldUpdateJsonMessage()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(u"/messages-updated/"_s, jsonIndented, fileNameinit);
 
-    Message m = Message::deserialize(docSerialized.object());
+    const Message m = Message::deserialize(docSerialized.object());
     const bool compareMessage = (r == m);
     if (!compareMessage) {
         qDebug() << "loaded message" << r;

@@ -21,7 +21,7 @@ PreviewUrlCacheManagerTest::PreviewUrlCacheManagerTest(QObject *parent)
 
 void PreviewUrlCacheManagerTest::shouldHaveDefaultValues()
 {
-    PreviewUrlCacheManager w(nullptr);
+    const PreviewUrlCacheManager w(nullptr);
     QCOMPARE(w.embedCacheExpirationDays(), -1);
     QVERIFY(w.cachePath().isEmpty());
 }
@@ -30,7 +30,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
 {
     // Test 1: need to clean cache 1 file! 1 file to remove
     {
-        QTemporaryDir accountFileTmp;
+        const QTemporaryDir accountFileTmp;
         const QString cachePath{accountFileTmp.path()};
         QFile file(cachePath + u"/foo1"_s);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -41,7 +41,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         }
         file.close();
 
-        QDir dir(cachePath);
+        const QDir dir(cachePath);
         const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
         // qDebug() << "current infoLists " << infoLists.count() << infoLists;
         QCOMPARE(infoLists.count(), 1);
@@ -50,14 +50,14 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         w.setCachePath(cachePath);
         w.setEmbedCacheExpirationDays(2);
 
-        QDir dir2(cachePath);
+        const QDir dir2(cachePath);
         const QFileInfoList infoLists2 = dir2.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
         // qDebug() << "after clean infoLists2 " << infoLists2.count();
         QVERIFY(infoLists2.isEmpty());
     }
     // Test 2: 10 files not necessary to clean them.
     {
-        QTemporaryDir accountFileTmp;
+        const QTemporaryDir accountFileTmp;
         const QString cachePath{accountFileTmp.path()};
         QStringList firstList;
         for (int i = 0; i < 10; ++i) {
@@ -72,7 +72,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
             file.close();
         }
 
-        QDir dir(cachePath);
+        const QDir dir(cachePath);
         const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
         // qDebug() << "current infoLists " << infoLists.count() << infoLists;
         QCOMPARE(infoLists.count(), 10);
@@ -81,7 +81,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         w.setCachePath(cachePath);
         w.setEmbedCacheExpirationDays(5555); // 5555 days. It will not have pb :)
 
-        QDir dir2(cachePath);
+        const QDir dir2(cachePath);
         const QFileInfoList infoLists2 = dir2.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
         QStringList lst;
         for (const QFileInfo &info : infoLists2) {
@@ -94,7 +94,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
     }
     // Test 3: 10 files => 5 we need to delete
     {
-        QTemporaryDir accountFileTmp;
+        const QTemporaryDir accountFileTmp;
         const QString cachePath{accountFileTmp.path()};
         QStringList firstList;
         for (int i = 0; i < 10; ++i) {
@@ -109,7 +109,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
             file.close();
         }
 
-        QDir dir(cachePath);
+        const QDir dir(cachePath);
         const QFileInfoList infoLists = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
         // qDebug() << "current infoLists " << infoLists.count() << infoLists;
         QCOMPARE(infoLists.count(), 10);
@@ -119,7 +119,7 @@ void PreviewUrlCacheManagerTest::shouldTestRemoveOldFiles()
         w.setCurrentDate(QDate(2024, 1, 11));
         w.setEmbedCacheExpirationDays(5); // 5555 days. It will not have pb :)
 
-        QDir dir2(cachePath);
+        const QDir dir2(cachePath);
         const QFileInfoList infoLists2 = dir2.entryInfoList(QDir::NoDotAndDotDot | QDir::Files);
         QStringList lst;
         lst.append(u"foo6"_s);

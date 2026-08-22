@@ -36,7 +36,7 @@ void MessagesModelTest::initTestCase()
 
 void MessagesModelTest::shouldHaveDefaultValue()
 {
-    MessagesModel w("roomId"_ba, Ruqola::self()->rocketChatAccount());
+    const MessagesModel w("roomId"_ba, Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.searchText().isEmpty());
     const MessagesModel::HighlightSearchStringIndexInMessage initValue = {.index = -1, .messageId = ""};

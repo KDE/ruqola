@@ -42,7 +42,7 @@ void UsersLogoutOtherClientsJobTest::shouldGenerateRequest()
 
 void UsersLogoutOtherClientsJobTest::shouldGenerateJson()
 {
-    UsersLogoutOtherClientsJob job;
+    const UsersLogoutOtherClientsJob job;
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({})").toLatin1());
 }
 

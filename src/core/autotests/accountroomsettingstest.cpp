@@ -17,7 +17,7 @@ AccountRoomSettingsTest::AccountRoomSettingsTest(QObject *parent)
 
 void AccountRoomSettingsTest::shouldHaveDefaultValues()
 {
-    AccountRoomSettings s(nullptr);
+    const AccountRoomSettings s(nullptr);
     QVERIFY(s.isEmpty());
 
     const AccountRoomSettings::PendingTypedInfo info;

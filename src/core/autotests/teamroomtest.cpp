@@ -15,7 +15,7 @@ TeamRoomTest::TeamRoomTest(QObject *parent)
 
 void TeamRoomTest::shouldHaveDefaultValue()
 {
-    TeamRoom w;
+    const TeamRoom w;
     QVERIFY(!w.autoJoin());
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.fname().isEmpty());

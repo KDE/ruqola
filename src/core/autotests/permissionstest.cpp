@@ -20,7 +20,7 @@ PermissionsTest::PermissionsTest(QObject *parent)
 
 void PermissionsTest::shouldHaveDefaultValue()
 {
-    Permissions r;
+    const Permissions r;
     QVERIFY(r.permissions().isEmpty());
     QVERIFY(r.isEmpty());
 }

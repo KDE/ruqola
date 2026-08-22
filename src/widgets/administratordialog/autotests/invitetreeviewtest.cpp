@@ -16,7 +16,7 @@ InviteTreeViewTest::InviteTreeViewTest(QObject *parent)
 
 void InviteTreeViewTest::shouldHaveDefaultValues()
 {
-    InviteTreeView w;
+    const InviteTreeView w;
     QVERIFY(w.alternatingRowColors());
     QVERIFY(!w.rootIsDecorated());
     QVERIFY(w.isSortingEnabled());

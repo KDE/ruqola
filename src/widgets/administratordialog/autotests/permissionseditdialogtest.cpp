@@ -22,7 +22,7 @@ PermissionsEditDialogTest::PermissionsEditDialogTest(QObject *parent)
 
 void PermissionsEditDialogTest::shouldHaveDefaultValues()
 {
-    PermissionsEditDialog d;
+    const PermissionsEditDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

@@ -19,14 +19,14 @@ RestApiMethodTest::RestApiMethodTest(QObject *parent)
 
 void RestApiMethodTest::shouldHaveDefaultValue()
 {
-    RestApiMethod rest;
+    const RestApiMethod rest;
     QVERIFY(rest.serverUrl().isEmpty());
 }
 
 void RestApiMethodTest::shouldAssignDefaultValue()
 {
     RestApiMethod rest;
-    QString newUrl = u"http://www.kde.org"_s;
+    const QString newUrl = u"http://www.kde.org"_s;
     rest.setServerUrl(newUrl);
     QCOMPARE(rest.serverUrl(), newUrl);
 }

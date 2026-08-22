@@ -17,7 +17,7 @@ ActivitiesManagerTest::ActivitiesManagerTest(QObject *parent)
 
 void ActivitiesManagerTest::shouldHaveDefaultValues()
 {
-    ActivitiesManager w;
+    const ActivitiesManager w;
     QVERIFY(!w.enabled());
 }
 

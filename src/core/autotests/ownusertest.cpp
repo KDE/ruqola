@@ -19,7 +19,7 @@ OwnUserTest::OwnUserTest(QObject *parent)
 
 void OwnUserTest::shouldHaveDefaultValues()
 {
-    OwnUser user;
+    const OwnUser user;
     QVERIFY(user.userId().isEmpty());
     QVERIFY(user.userName().isEmpty());
     QVERIFY(user.status().isEmpty());

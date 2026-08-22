@@ -16,7 +16,7 @@ AutoGenerateInteractionUiViewOverflowElementTest::AutoGenerateInteractionUiViewO
 
 void AutoGenerateInteractionUiViewOverflowElementTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewOverflowElement f;
+    const AutoGenerateInteractionUiViewOverflowElement f;
     // TODO
 }
 

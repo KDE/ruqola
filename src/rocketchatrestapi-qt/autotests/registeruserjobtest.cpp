@@ -29,7 +29,7 @@ void RegisterUserJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.registerUserInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 
-    RegisterUserJob::RegisterUserInfo info;
+    const RegisterUserJob::RegisterUserInfo info;
     QVERIFY(info.username.isEmpty());
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.email.isEmpty());

@@ -17,7 +17,7 @@ AppsMarketPlaceInfoTest::AppsMarketPlaceInfoTest(QObject *parent)
 
 void AppsMarketPlaceInfoTest::shouldHaveDefaultValues()
 {
-    AppsMarketPlaceInfo d;
+    const AppsMarketPlaceInfo d;
     QVERIFY(d.appId().isEmpty());
     QVERIFY(d.appName().isEmpty());
     QVERIFY(!d.isEnterpriseOnly());

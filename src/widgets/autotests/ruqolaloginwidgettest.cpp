@@ -46,7 +46,7 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFailedError);
     QVERIFY(mFailedError->text().isEmpty());
     QVERIFY(mFailedError->isHidden());
-    QFont font = mFailedError->font();
+    const QFont font = mFailedError->font();
     QVERIFY(font.bold());
 
     auto mTwoFactorAuthenticationWidget = w.findChild<QWidget *>(u"mTwoFactorAuthenticationWidget"_s);

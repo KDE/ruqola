@@ -22,7 +22,7 @@ MessageMaximumSizeDialogTest::MessageMaximumSizeDialogTest(QObject *parent)
 
 void MessageMaximumSizeDialogTest::shouldHaveDefaultValues()
 {
-    MessageMaximumSizeDialog d;
+    const MessageMaximumSizeDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

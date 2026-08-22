@@ -19,7 +19,7 @@ ServerConfigInfoTest::ServerConfigInfoTest(QObject *parent)
 
 void ServerConfigInfoTest::shouldHaveDefaultValues()
 {
-    ServerConfigInfo info;
+    const ServerConfigInfo info;
     QVERIFY(info.accountName().isEmpty());
     QVERIFY(info.userName().isEmpty());
     QVERIFY(info.serverVersionStr().isEmpty());

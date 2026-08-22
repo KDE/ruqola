@@ -20,7 +20,7 @@ AdministratorCustomSoundsCreateWidgetTest::AdministratorCustomSoundsCreateWidget
 
 void AdministratorCustomSoundsCreateWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomSoundsCreateWidget w;
+    const AdministratorCustomSoundsCreateWidget w;
 
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

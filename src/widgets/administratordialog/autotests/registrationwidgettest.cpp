@@ -18,7 +18,7 @@ RegistrationWidgetTest::RegistrationWidgetTest(QObject *parent)
 
 void RegistrationWidgetTest::shouldHaveDefaultValues()
 {
-    RegistrationWidget w;
+    const RegistrationWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

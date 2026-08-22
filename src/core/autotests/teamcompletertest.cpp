@@ -16,7 +16,7 @@ TeamCompleterTest::TeamCompleterTest(QObject *parent)
 
 void TeamCompleterTest::shouldHaveDefaultValues()
 {
-    TeamCompleter t;
+    const TeamCompleter t;
     // TODO
 }
 

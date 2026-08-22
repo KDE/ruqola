@@ -20,7 +20,7 @@ UserTest::UserTest(QObject *parent)
 
 void UserTest::shouldHaveDefaultValue()
 {
-    User u;
+    const User u;
     QVERIFY(u.name().isEmpty());
     QVERIFY(u.userId().isEmpty());
     QCOMPARE(u.status(), User::PresenceStatus::Offline);
@@ -128,8 +128,8 @@ void UserTest::checkEqualsAndUnequalsOperator()
 {
     User sampleuser;
     User sampleuserOther;
-    QByteArray Id = "RA151100ECE"_ba;
-    QString name = u"Robert Segwick"_s;
+    const QByteArray Id = "RA151100ECE"_ba;
+    const QString name = u"Robert Segwick"_s;
 
     sampleuser.setUserId(Id);
     sampleuser.setName(name);

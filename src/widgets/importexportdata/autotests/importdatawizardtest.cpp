@@ -21,7 +21,7 @@ ImportDataWizardTest::ImportDataWizardTest(QObject *parent)
 
 void ImportDataWizardTest::shouldHaveDefaultValues()
 {
-    ImportDataWizard w;
+    const ImportDataWizard w;
 
     auto mImportDataSelectAccountPage = w.findChild<ImportDataSelectAccountPage *>(u"mImportDataSelectAccountPage"_s);
     QVERIFY(mImportDataSelectAccountPage);

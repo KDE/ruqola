@@ -32,8 +32,8 @@ void E2eSaveEncryptionKeyWidgetTest::shouldHaveDefaultValues()
 
 void E2eSaveEncryptionKeyWidgetTest::shouldEmitSaveSignal()
 {
-    E2eSaveEncryptionKeyWidget w;
-    QSignalSpy saveSignal(&w, &E2eSaveEncryptionKeyWidget::saveEncrytionKey);
+    const E2eSaveEncryptionKeyWidget w;
+    const QSignalSpy saveSignal(&w, &E2eSaveEncryptionKeyWidget::saveEncrytionKey);
     auto decodeEncryptionKeyAction = w.findChild<QAction *>(u"decodeEncryptionKeyAction"_s);
     decodeEncryptionKeyAction->trigger();
     QCOMPARE(saveSignal.count(), 1);

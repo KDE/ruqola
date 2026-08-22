@@ -17,7 +17,7 @@ CommonMessagesModelTest::CommonMessagesModelTest(QObject *parent)
 
 void CommonMessagesModelTest::shouldHaveDefaultValue()
 {
-    CommonMessagesModel w;
+    const CommonMessagesModel w;
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(!w.loadCommonMessagesInProgress());
 }

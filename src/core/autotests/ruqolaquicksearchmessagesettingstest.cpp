@@ -19,7 +19,7 @@ RuqolaQuickSearchMessageSettingsTest::RuqolaQuickSearchMessageSettingsTest(QObje
 
 void RuqolaQuickSearchMessageSettingsTest::shouldHaveDefaultValues()
 {
-    RuqolaQuickSearchMessageSettings w(nullptr);
+    const RuqolaQuickSearchMessageSettings w(nullptr);
     QCOMPARE(w.currentSearchIndex(), -1);
     QVERIFY(w.currentMessageIdentifier().isEmpty());
     QCOMPARE(w.foundSearchCount(), -1);
@@ -85,9 +85,9 @@ void RuqolaQuickSearchMessageSettingsTest::shouldTestNextSearchStringIndex()
     QCOMPARE(nbSearchString, 3);
     messageSettings.setFoundSearchCount(nbSearchString);
 #endif
-    QSignalSpy spy(&messageSettings, &RuqolaQuickSearchMessageSettings::refreshMessage);
+    const QSignalSpy spy(&messageSettings, &RuqolaQuickSearchMessageSettings::refreshMessage);
 
-    QSignalSpy spyUpdateButtons(&messageSettings, &RuqolaQuickSearchMessageSettings::updateNextPreviousButtons);
+    const QSignalSpy spyUpdateButtons(&messageSettings, &RuqolaQuickSearchMessageSettings::updateNextPreviousButtons);
 
     messageSettings.next();
     QCOMPARE(spy.count(), 1);
@@ -159,8 +159,8 @@ void RuqolaQuickSearchMessageSettingsTest::shouldTestPreviousSearchStringIndex()
 #if 0
     messageSettings.setFoundSearchCount(nbSearchString);
 #endif
-    QSignalSpy spy(&messageSettings, &RuqolaQuickSearchMessageSettings::refreshMessage);
-    QSignalSpy spyUpdateButtons(&messageSettings, &RuqolaQuickSearchMessageSettings::updateNextPreviousButtons);
+    const QSignalSpy spy(&messageSettings, &RuqolaQuickSearchMessageSettings::refreshMessage);
+    const QSignalSpy spyUpdateButtons(&messageSettings, &RuqolaQuickSearchMessageSettings::updateNextPreviousButtons);
 #if 0
     QCOMPARE(nbSearchString, 3);
 #endif

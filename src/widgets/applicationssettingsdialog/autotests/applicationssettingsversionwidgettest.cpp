@@ -18,7 +18,7 @@ ApplicationsSettingsVersionWidgetTest::ApplicationsSettingsVersionWidgetTest(QOb
 
 void ApplicationsSettingsVersionWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsVersionWidget d(nullptr);
+    const ApplicationsSettingsVersionWidget d(nullptr);
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

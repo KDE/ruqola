@@ -21,7 +21,7 @@ ChannelInfoPruneWidgetTest::ChannelInfoPruneWidgetTest(QObject *parent)
 
 void ChannelInfoPruneWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelInfoPruneWidget w;
+    const ChannelInfoPruneWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

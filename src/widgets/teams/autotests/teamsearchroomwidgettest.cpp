@@ -19,7 +19,7 @@ TeamSearchRoomWidgetTest::TeamSearchRoomWidgetTest(QObject *parent)
 
 void TeamSearchRoomWidgetTest::shouldHaveDefaultValues()
 {
-    TeamSearchRoomWidget w(nullptr);
+    const TeamSearchRoomWidget w(nullptr);
     QVERIFY(w.roomIds().isEmpty());
 
     auto mTeamSearchRoomForTeamWidget = w.findChild<TeamSearchRoomForTeamWidget *>(u"mTeamSearchRoomForTeamWidget"_s);

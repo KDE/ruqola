@@ -63,7 +63,7 @@ void RocketChatMessageTest::shouldSplotlightWithoutUsers()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QByteArray(), u"room"_s, u"foo,bla"_s, false, true, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QByteArray(), u"room"_s, u"foo,bla"_s, false, true, 43);
     compareFile(r.result, u"spotlight-without-users"_s);
 }
 
@@ -71,7 +71,7 @@ void RocketChatMessageTest::shouldSplotlightWithoutRooms()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QByteArray(), u"room"_s, u"foo,bla"_s, true, false, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QByteArray(), u"room"_s, u"foo,bla"_s, true, false, 43);
     compareFile(r.result, u"spotlight-without-rooms"_s);
 }
 
@@ -79,7 +79,7 @@ void RocketChatMessageTest::inputChannelAutocomplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.inputChannelAutocomplete(QByteArray(), u"pattern"_s, u"exception"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.inputChannelAutocomplete(QByteArray(), u"pattern"_s, u"exception"_s, 43);
     compareFile(r.result, u"inputChannelAutocomplete"_s);
 }
 
@@ -87,7 +87,7 @@ void RocketChatMessageTest::inputUserAutocomplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QByteArray(), u"pattern"_s, u"exception"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QByteArray(), u"pattern"_s, u"exception"_s, 43);
     compareFile(r.result, u"inputUserAutocomplete"_s);
 }
 
@@ -95,7 +95,7 @@ void RocketChatMessageTest::inputUserWithRoomIdAutocomplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QByteArray("RoomId25"), u"pattern"_s, u"exception"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QByteArray("RoomId25"), u"pattern"_s, u"exception"_s, 43);
     compareFile(r.result, u"inputUserWithRoomIdAutocomplete"_s);
 }
 
@@ -103,7 +103,7 @@ void RocketChatMessageTest::blockUser()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.blockUser(u"rid"_s, u"userId"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.blockUser(u"rid"_s, u"userId"_s, 43);
     compareFile(r.result, u"blockUser"_s);
 }
 
@@ -112,13 +112,13 @@ void RocketChatMessageTest::setAdminStatus()
     {
         RocketChatMessage m;
         m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus("userId"_ba, false, 43);
+        const RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus("userId"_ba, false, 43);
         compareFile(r.result, u"setAdminStatusFalse"_s);
     }
     {
         RocketChatMessage m;
         m.setJsonFormat(QJsonDocument::Indented);
-        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus("userId"_ba, false, 43);
+        const RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus("userId"_ba, false, 43);
         compareFile(r.result, u"setAdminStatusTrue"_s);
     }
 }
@@ -127,7 +127,7 @@ void RocketChatMessageTest::unBlockUser()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.unblockUser(u"rid"_s, u"userId"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.unblockUser(u"rid"_s, u"userId"_s, 43);
     compareFile(r.result, u"unBlockUser"_s);
 }
 
@@ -135,7 +135,7 @@ void RocketChatMessageTest::enable2fa()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.enable2fa(43);
+    const RocketChatMessage::RocketChatMessageResult r = m.enable2fa(43);
     compareFile(r.result, u"enable2fa"_s);
 }
 
@@ -143,7 +143,7 @@ void RocketChatMessageTest::disable2fa()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.disable2fa(u"bla"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.disable2fa(u"bla"_s, 43);
     compareFile(r.result, u"disable2fa"_s);
 }
 
@@ -151,7 +151,7 @@ void RocketChatMessageTest::validateTempToken2fa()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.validateTempToken2fa(u"bla"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.validateTempToken2fa(u"bla"_s, 43);
     compareFile(r.result, u"validateTempToken2fa"_s);
 }
 
@@ -159,7 +159,7 @@ void RocketChatMessageTest::regenerateCodes2fa()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.regenerateCodes2fa(u"bla"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.regenerateCodes2fa(u"bla"_s, 43);
     compareFile(r.result, u"regenerateCodes2fa"_s);
 }
 
@@ -167,7 +167,7 @@ void RocketChatMessageTest::openRoom()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.openRoom("bla"_ba, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.openRoom("bla"_ba, 43);
     compareFile(r.result, u"openroom"_s);
 }
 
@@ -175,7 +175,7 @@ void RocketChatMessageTest::bannerDismiss()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss("banner_read"_ba, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss("banner_read"_ba, 43);
     compareFile(r.result, u"bannerDismiss"_s);
 }
 
@@ -184,7 +184,7 @@ void RocketChatMessageTest::videoConferenceAccepted()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
 
-    RocketChatMessage::RocketChatMessageResult r =
+    const RocketChatMessage::RocketChatMessageResult r =
         m.videoConferenceAccepted(u"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_s, u"639976cb31e2ca494753c439"_s, u"YbwG4T2uB3wZSZSKB"_s, 43);
     compareFile(r.result, u"videoConferenceAccepted"_s);
 }
@@ -194,7 +194,7 @@ void RocketChatMessageTest::videoConferenceRejected()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
 
-    RocketChatMessage::RocketChatMessageResult r =
+    const RocketChatMessage::RocketChatMessageResult r =
         m.videoConferenceRejected(u"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_s, u"639976cb31e2ca494753c439"_s, u"YbwG4T2uB3wZSZSKB"_s, 43);
     compareFile(r.result, u"videoConferenceRejected"_s);
 }
@@ -204,7 +204,7 @@ void RocketChatMessageTest::videoConferenceCall()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
 
-    RocketChatMessage::RocketChatMessageResult r =
+    const RocketChatMessage::RocketChatMessageResult r =
         m.videoConferenceCall(u"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_s, u"639976cb31e2ca494753c439"_s, u"YbwG4T2uB3wZSZSKB"_s, 43);
     compareFile(r.result, u"videoConferenceCall"_s);
 }
@@ -214,7 +214,7 @@ void RocketChatMessageTest::videoConferenceConfirmed()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
 
-    RocketChatMessage::RocketChatMessageResult r =
+    const RocketChatMessage::RocketChatMessageResult r =
         m.videoConferenceConfirmed(u"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"_s, u"639976cb31e2ca494753c439"_s, u"YbwG4T2uB3wZSZSKB"_s, 43);
     compareFile(r.result, u"videoConferenceConfirmed"_s);
 }
@@ -224,7 +224,7 @@ void RocketChatMessageTest::getRoomByTypeAndName()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
 
-    RocketChatMessage::RocketChatMessageResult r = m.getRoomByTypeAndName("oHfocsBTwc9bSdAxt"_ba, u"c"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.getRoomByTypeAndName("oHfocsBTwc9bSdAxt"_ba, u"c"_s, 43);
     compareFile(r.result, u"getRoomByTypeAndName"_s);
 }
 

@@ -22,7 +22,7 @@ ServerErrorInfoMessageHistoryWidgetTest::ServerErrorInfoMessageHistoryWidgetTest
 
 void ServerErrorInfoMessageHistoryWidgetTest::shouldHaveDefaultValues()
 {
-    ServerErrorInfoMessageHistoryWidget w;
+    const ServerErrorInfoMessageHistoryWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -18,7 +18,7 @@ ChannelCounterInfoTest::ChannelCounterInfoTest(QObject *parent)
 
 void ChannelCounterInfoTest::shouldHaveDefaultValues()
 {
-    ChannelCounterInfo info;
+    const ChannelCounterInfo info;
     QCOMPARE(info.unreadMessages(), 0);
     QCOMPARE(info.messageCount(), 0);
     QVERIFY(!info.joined());

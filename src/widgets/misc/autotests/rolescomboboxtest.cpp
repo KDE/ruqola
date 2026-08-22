@@ -16,7 +16,7 @@ RolesComboBoxTest::RolesComboBoxTest(QObject *parent)
 
 void RolesComboBoxTest::shouldHaveDefaultValues()
 {
-    RolesComboBox w;
+    const RolesComboBox w;
     QVERIFY(w.roles().isEmpty());
     // QCOMPARE(w.sizeAdjustPolicy(), QComboBox::AdjustToContents);
 }

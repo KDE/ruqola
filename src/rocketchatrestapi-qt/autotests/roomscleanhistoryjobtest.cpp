@@ -29,7 +29,7 @@ void RoomsCleanHistoryJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 
-    RoomsCleanHistoryJob::CleanHistoryInfo info;
+    const RoomsCleanHistoryJob::CleanHistoryInfo info;
     QVERIFY(!info.isValid());
     QVERIFY(!info.inclusive);
     QVERIFY(!info.excludePinned);

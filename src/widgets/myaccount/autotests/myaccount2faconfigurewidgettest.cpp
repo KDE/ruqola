@@ -23,7 +23,7 @@ MyAccount2FaConfigureWidgetTest::MyAccount2FaConfigureWidgetTest(QObject *parent
 
 void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccount2FaConfigureWidget w(nullptr);
+    const MyAccount2FaConfigureWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

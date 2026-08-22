@@ -37,7 +37,7 @@ void CustomSoundsGetOneJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    QNetworkRequest request = job.request();
+    const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/custom-sounds.getOne?_id=%1"_s.arg(QString::fromLatin1(soundId))));
 }
 

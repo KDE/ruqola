@@ -19,7 +19,7 @@ UsersInRoomFlowWidgetTest::UsersInRoomFlowWidgetTest(QObject *parent)
 
 void UsersInRoomFlowWidgetTest::shouldHaveDefaultValues()
 {
-    UsersInRoomFlowWidget w;
+    const UsersInRoomFlowWidget w;
     auto mFlowLayout = w.findChild<TextAddonsWidgets::TextAddonsWidgetFlowLayout *>(u"mFlowLayout"_s);
     QVERIFY(mFlowLayout);
     QCOMPARE(mFlowLayout->spacing(), 0);

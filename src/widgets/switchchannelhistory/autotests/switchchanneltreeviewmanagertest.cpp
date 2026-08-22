@@ -17,7 +17,7 @@ SwitchChannelTreeViewManagerTest::SwitchChannelTreeViewManagerTest(QObject *pare
 
 void SwitchChannelTreeViewManagerTest::shouldHaveDefaultValues()
 {
-    SwitchChannelTreeViewManager m;
+    const SwitchChannelTreeViewManager m;
     QVERIFY(!m.parentWidget());
     QVERIFY(m.switchChannelTreeView());
     QVERIFY(!m.currentRocketChatAccount());

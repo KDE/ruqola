@@ -17,7 +17,7 @@ ParseRocketChatUrlUtilsTest::ParseRocketChatUrlUtilsTest(QObject *parent)
 
 void ParseRocketChatUrlUtilsTest::shouldHaveDefaultValues()
 {
-    ParseRocketChatUrlUtils::ParsingInfo parseInfo;
+    const ParseRocketChatUrlUtils::ParsingInfo parseInfo;
     QVERIFY(parseInfo.messageId.isEmpty());
     QVERIFY(parseInfo.roomId.isEmpty());
     QVERIFY(parseInfo.serverHost.isEmpty());

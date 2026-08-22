@@ -20,7 +20,7 @@ ChannelRolesInfoWidgetTest::ChannelRolesInfoWidgetTest(QObject *parent)
 
 void ChannelRolesInfoWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelRolesInfoWidget w;
+    const ChannelRolesInfoWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

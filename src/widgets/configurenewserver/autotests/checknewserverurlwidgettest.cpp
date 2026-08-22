@@ -24,7 +24,7 @@ CheckNewServerUrlWidgetTest::CheckNewServerUrlWidgetTest(QObject *parent)
 
 void CheckNewServerUrlWidgetTest::shouldHaveDefaultValues()
 {
-    CheckNewServerUrlWidget w;
+    const CheckNewServerUrlWidget w;
 
     auto topLayout = w.findChild<QVBoxLayout *>(u"topLayout"_s);
     QVERIFY(topLayout);

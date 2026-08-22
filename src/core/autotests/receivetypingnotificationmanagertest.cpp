@@ -20,7 +20,7 @@ ReceiveTypingNotificationManagerTest::ReceiveTypingNotificationManagerTest(QObje
 
 void ReceiveTypingNotificationManagerTest::shouldHaveDefaultValues()
 {
-    ReceiveTypingNotificationManager manager;
+    const ReceiveTypingNotificationManager manager;
     QVERIFY(manager.typingNotification(QByteArrayLiteral("Foo")).isEmpty());
 }
 

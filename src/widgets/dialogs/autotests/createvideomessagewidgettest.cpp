@@ -22,7 +22,7 @@ CreateVideoMessageWidgetTest::CreateVideoMessageWidgetTest(QObject *parent)
 
 void CreateVideoMessageWidgetTest::shouldHaveDefaultValues()
 {
-    CreateVideoMessageWidget w;
+    const CreateVideoMessageWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

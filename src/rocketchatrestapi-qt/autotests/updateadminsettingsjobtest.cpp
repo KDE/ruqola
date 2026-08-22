@@ -40,7 +40,7 @@ void UpdateAdminSettingsJobTest::shouldGenerateRequest()
 
 void UpdateAdminSettingsJobTest::shouldGenerateJson()
 {
-    UpdateAdminSettingsJob job;
+    const UpdateAdminSettingsJob job;
     // TODO
 }
 

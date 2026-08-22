@@ -23,7 +23,7 @@ MyAccountConfigureDialogTest::MyAccountConfigureDialogTest(QObject *parent)
 
 void MyAccountConfigureDialogTest::shouldHaveDefaultValue()
 {
-    MyAccountConfigureDialog w(nullptr);
+    const MyAccountConfigureDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

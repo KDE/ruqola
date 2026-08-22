@@ -17,7 +17,7 @@ NotificationPreferenceModelTest::NotificationPreferenceModelTest(QObject *parent
 
 void NotificationPreferenceModelTest::shouldHaveDefaultValue()
 {
-    NotificationPreferenceModel w;
+    const NotificationPreferenceModel w;
     QCOMPARE(w.rowCount(), 4);
 
     // FIXME QCOMPARE(w.currentPreference(), 0);

@@ -16,7 +16,7 @@ MessageAttachmentDownloadAndSaveJobTest::MessageAttachmentDownloadAndSaveJobTest
 
 void MessageAttachmentDownloadAndSaveJobTest::shouldHaveDefaultValues()
 {
-    MessageAttachmentDownloadAndSaveJob w;
+    const MessageAttachmentDownloadAndSaveJob w;
     QVERIFY(!w.rocketChatAccount());
     QVERIFY(!w.canStart());
     QVERIFY(!w.info().isValid());
@@ -24,7 +24,7 @@ void MessageAttachmentDownloadAndSaveJobTest::shouldHaveDefaultValues()
 
 void MessageAttachmentDownloadAndSaveJobTest::shouldMessageAttachmentDownloadJobInfoHaveDefaultValues()
 {
-    MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
+    const MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo info;
     QVERIFY(info.attachmentPath.isEmpty());
     QVERIFY(!info.needToDownloadAttachment);
     QVERIFY(!info.parentWidget);

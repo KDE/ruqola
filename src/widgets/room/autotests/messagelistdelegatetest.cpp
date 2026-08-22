@@ -92,7 +92,7 @@ void MessageListDelegateTest::layoutChecks()
     delegate.setRocketChatAccount(Ruqola::self()->rocketChatAccount());
     RuqolaGlobalConfig::self()->setMessageStyle(previousMessageStyle);
     QStyleOptionViewItem option;
-    QWidget fakeWidget;
+    const QWidget fakeWidget;
     option.widget = &fakeWidget;
     option.rect = QRect(normalLayout ? 0 : 100, 100, 500, 500);
 

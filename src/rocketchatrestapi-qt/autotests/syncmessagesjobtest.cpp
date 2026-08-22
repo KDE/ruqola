@@ -41,7 +41,7 @@ void SyncMessagesJobTest::shouldGenerateRequest()
     job.setRoomId(roomId);
     const QDateTime lastUpdate{QDateTime(QDate(2023, 7, 21), QTime(1, 1, 1))};
     job.setLastUpdate(lastUpdate);
-    QNetworkRequest request = job.request();
+    const QNetworkRequest request = job.request();
     QCOMPARE(request.url(),
              QUrl(u"http://www.kde.org/api/v1/chat.syncMessages?roomId=%1&lastUpdate=%2"_s.arg(QLatin1StringView(roomId))
                       .arg(lastUpdate.toUTC().toString(Qt::ISODateWithMs))));

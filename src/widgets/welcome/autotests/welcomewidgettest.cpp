@@ -19,7 +19,7 @@ WelcomeWidgetTest::WelcomeWidgetTest(QObject *parent)
 
 void WelcomeWidgetTest::shouldHaveDefaultValues()
 {
-    WelcomeWidget w;
+    const WelcomeWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -33,12 +33,12 @@ void WelcomeWidgetTest::shouldHaveDefaultValues()
 
 void WelcomeWidgetTest::shouldEmitSignal()
 {
-    WelcomeWidget w;
+    const WelcomeWidget w;
 
     auto addAccountButton = w.findChild<QPushButton *>("addAccountButton"_L1);
     QVERIFY(addAccountButton);
 
-    QSignalSpy createNewAccountSignal(&w, &WelcomeWidget::createNewAccount);
+    const QSignalSpy createNewAccountSignal(&w, &WelcomeWidget::createNewAccount);
     QTest::mouseClick(addAccountButton, Qt::LeftButton);
     QCOMPARE(createNewAccountSignal.count(), 1);
 }

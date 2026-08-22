@@ -19,7 +19,7 @@ RolesTest::RolesTest(QObject *parent)
 
 void RolesTest::shouldHaveDefaultValue()
 {
-    Roles r;
+    const Roles r;
     QVERIFY(r.roles().isEmpty());
     QVERIFY(r.isEmpty());
 }

@@ -21,7 +21,7 @@ AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest
 
 void AdministratorCustomUserStatusWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomUserStatusWidget w(nullptr);
+    const AdministratorCustomUserStatusWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

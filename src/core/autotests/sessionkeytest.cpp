@@ -35,11 +35,11 @@ void SessionKeyTest::sessionKeyEncryptionDecryptionTest()
 
     for (int i = 0; i <= 10; i++) {
         const QByteArray sessionKey = EncryptionUtils::generateSessionKey();
-        std::unique_ptr<RSA, decltype(&RSA_free)> publicRsaKey(EncryptionUtils::publicKeyFromPEM(publicKey), &RSA_free);
+        const std::unique_ptr<RSA, decltype(&RSA_free)> publicRsaKey(EncryptionUtils::publicKeyFromPEM(publicKey), &RSA_free);
         QVERIFY(publicRsaKey);
         const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKey, publicRsaKey.get());
 
-        std::unique_ptr<RSA, decltype(&RSA_free)> privateRsaKey(EncryptionUtils::privateKeyFromPEM(privateKey), &RSA_free);
+        const std::unique_ptr<RSA, decltype(&RSA_free)> privateRsaKey(EncryptionUtils::privateKeyFromPEM(privateKey), &RSA_free);
         QVERIFY(privateRsaKey);
         const QByteArray decryptedSessionKey = EncryptionUtils::decryptSessionKey(encryptedSessionKey, privateRsaKey.get());
         QCOMPARE(sessionKey, decryptedSessionKey);

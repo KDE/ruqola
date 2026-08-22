@@ -17,7 +17,7 @@ ThreadMessageModelTest::ThreadMessageModelTest(QObject *parent)
 
 void ThreadMessageModelTest::shouldHaveDefaultValues()
 {
-    ThreadMessageModel w;
+    const ThreadMessageModel w;
     QVERIFY(w.threadMessageId().isEmpty());
 }
 

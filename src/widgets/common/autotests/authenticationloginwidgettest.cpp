@@ -22,7 +22,7 @@ AuthenticationLoginWidgetTest::AuthenticationLoginWidgetTest(QObject *parent)
 
 void AuthenticationLoginWidgetTest::shouldHaveDefaultValues()
 {
-    AuthenticationLoginWidget w;
+    const AuthenticationLoginWidget w;
 
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -20,7 +20,7 @@ AdministratorInvitesWidgetTest::AdministratorInvitesWidgetTest(QObject *parent)
 
 void AdministratorInvitesWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorInvitesWidget d(nullptr);
+    const AdministratorInvitesWidget d(nullptr);
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     auto mSearchLineWidget = d.findChild<QLineEdit *>(u"mSearchLineWidget"_s);

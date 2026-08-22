@@ -16,7 +16,7 @@ NotifierJobTest::NotifierJobTest(QObject *parent)
 
 void NotifierJobTest::shouldHaveDefaultValues()
 {
-    NotifierJob notifier;
+    const NotifierJob notifier;
     QVERIFY(!notifier.info().isValid());
 }
 

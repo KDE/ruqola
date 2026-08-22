@@ -41,7 +41,7 @@ void User2FAEnableEmailJobTest::shouldGenerateRequest()
 
 void User2FAEnableEmailJobTest::shouldGenerateJson()
 {
-    User2FAEnableEmailJob job;
+    const User2FAEnableEmailJob job;
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QByteArray("{}"));
 }
 

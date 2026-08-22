@@ -19,7 +19,7 @@ SearchMessageLineWidgetTest::SearchMessageLineWidgetTest(QObject *parent)
 
 void SearchMessageLineWidgetTest::shouldHaveDefaultValues()
 {
-    SearchMessageLineWidget w;
+    const SearchMessageLineWidget w;
 
     auto mMainLayout = w.findChild<QHBoxLayout *>(u"mMainLayout"_s);
     QVERIFY(mMainLayout);

@@ -17,7 +17,7 @@ CreateUpdateUserInfoTest::CreateUpdateUserInfoTest(QObject *parent)
 
 void CreateUpdateUserInfoTest::shouldHaveDefaultValues()
 {
-    RocketChatRestApi::CreateUpdateUserInfo info;
+    const RocketChatRestApi::CreateUpdateUserInfo info;
     QVERIFY(info.mRoles.isEmpty());
     QVERIFY(info.mUserId.isEmpty());
     QVERIFY(info.mEmail.isEmpty());

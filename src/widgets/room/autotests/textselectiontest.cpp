@@ -266,7 +266,7 @@ void TextSelectionTest::testSelectWordUnderCursorInUrlPreviewDoesNotSelectMessag
 
 void TextSelectionTest::shouldHaveDefaultValues()
 {
-    TextSelection selection;
+    const TextSelection selection;
     QVERIFY(!selection.hasSelection());
     QVERIFY(!selection.textHelperFactory());
     QVERIFY(selection.attachmentFactories().isEmpty());

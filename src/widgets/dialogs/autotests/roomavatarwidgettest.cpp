@@ -15,7 +15,7 @@ RoomAvatarWidgetTest::RoomAvatarWidgetTest(QObject *parent)
 
 void RoomAvatarWidgetTest::shouldHaveDefaultValues()
 {
-    RoomAvatarWidget w;
+    const RoomAvatarWidget w;
     QVERIFY(w.roomAvatar().isEmpty());
     QVERIFY(!w.wasChanged());
     QCOMPARE(w.size(), QSize(120, 120));

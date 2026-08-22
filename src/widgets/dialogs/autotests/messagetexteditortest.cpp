@@ -15,7 +15,7 @@ MessageTextEditorTest::MessageTextEditorTest(QObject *parent)
 
 void MessageTextEditorTest::shouldHaveDefaultValues()
 {
-    MessageTextEditor d;
+    const MessageTextEditor d;
     QVERIFY(!d.acceptRichText());
     QVERIFY(d.toPlainText().isEmpty());
     QVERIFY(d.tabChangesFocus());

@@ -19,7 +19,7 @@ AdministratorUsersTabWidgetTest::AdministratorUsersTabWidgetTest(QObject *parent
 
 void AdministratorUsersTabWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorUsersTabWidget w(nullptr);
+    const AdministratorUsersTabWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

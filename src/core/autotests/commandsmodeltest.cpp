@@ -16,7 +16,7 @@ CommandsModelTest::CommandsModelTest(QObject *parent)
 
 void CommandsModelTest::shouldHaveDefaultValues()
 {
-    CommandsModel d;
+    const CommandsModel d;
     QCOMPARE(d.rowCount(), 0);
 }
 

@@ -18,7 +18,7 @@ ActionButtonTest::ActionButtonTest(QObject *parent)
 
 void ActionButtonTest::shouldHaveDefaultValues()
 {
-    ActionButton b;
+    const ActionButton b;
     QVERIFY(b.appId().isEmpty());
     QVERIFY(b.actionId().isEmpty());
     QVERIFY(b.labelI18n().isEmpty());
@@ -37,7 +37,7 @@ void ActionButtonTest::shouldLoadActionButton_data()
     QTest::addColumn<ActionButton>("actionButton");
 
     {
-        ActionButton b;
+        const ActionButton b;
         QTest::addRow("actionbutton-empty") << u"actionbutton-empty"_s << b;
     }
 

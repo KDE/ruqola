@@ -20,7 +20,7 @@ DirectChannelInfoWidgetTest::DirectChannelInfoWidgetTest(QObject *parent)
 
 void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
 {
-    DirectChannelInfoWidget w(nullptr);
+    const DirectChannelInfoWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

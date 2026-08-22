@@ -29,7 +29,7 @@ void RoomsExportJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 
-    RoomsExportJob::RoomsExportInfo info;
+    const RoomsExportJob::RoomsExportInfo info;
     QVERIFY(!info.isValid());
     QCOMPARE(info.fileFormat, RoomsExportJob::RoomsExportInfo::FileFormat::Unknown);
     QVERIFY(info.roomId.isEmpty());

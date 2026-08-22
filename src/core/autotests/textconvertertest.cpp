@@ -24,7 +24,7 @@ namespace
 {
 QString prepareExpectedOutput(QString output)
 {
-    KColorScheme scheme;
+    const KColorScheme scheme;
     const auto codeBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color().name();
     const auto codeBorderColor = scheme.foreground(KColorScheme::InactiveText).color().name();
 
@@ -228,7 +228,7 @@ void TextConverterTest::shouldHighlightWords()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex), output);
 }
@@ -240,7 +240,7 @@ void TextConverterTest::shouldHighlightText_data()
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString() << QString();
     QTest::newRow("word@1") << QStringLiteral("@foo") << QString() << QStringLiteral("<p><a href='ruqola:/user/foo'>@foo</a></p>\n");
-    KColorScheme colorScheme;
+    const KColorScheme colorScheme;
     const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::NegativeText).color().name();
     const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::NegativeBackground).color().name();
     QTest::newRow("word@1-username") << QStringLiteral("@foo") << QStringLiteral("foo")
@@ -262,7 +262,7 @@ void TextConverterTest::shouldHighlightText()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, {}, nullptr, nullptr, {}, {}, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex), output);
 }
@@ -411,7 +411,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, &manager, nullptr, {}, {}, {});
     auto actualOutput = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex);
     if (QLatin1StringView(QTest::currentDataTag()) == "quotedcode7"_L1) {
@@ -437,12 +437,12 @@ void TextConverterTest::shouldShowChannels_data()
     QTest::addColumn<QList<Channels::ChannelInfo>>("channels");
 
     {
-        QMap<QString, QByteArray> mentions;
-        QList<Channels::ChannelInfo> channels;
+        const QMap<QString, QByteArray> mentions;
+        const QList<Channels::ChannelInfo> channels;
         QTest::newRow("empty") << QString() << QString() << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        const QMap<QString, QByteArray> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("foo");
@@ -451,7 +451,7 @@ void TextConverterTest::shouldShowChannels_data()
         QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<p><a href='ruqola:/room/idd'>#foo</a></p>\n") << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        const QMap<QString, QByteArray> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("bla");
@@ -460,7 +460,7 @@ void TextConverterTest::shouldShowChannels_data()
         QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<p><a href='ruqola:/room/foo'>#foo</a></p>\n") << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        const QMap<QString, QByteArray> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
         info.name = QStringLiteral("bla");
@@ -470,7 +470,7 @@ void TextConverterTest::shouldShowChannels_data()
         QTest::newRow("use fname") << QStringLiteral("#bla") << QStringLiteral("<p><a href='ruqola:/room/idd'>#FNAME</a></p>\n") << mentions << channels;
     }
     {
-        QMap<QString, QByteArray> mentions;
+        const QMap<QString, QByteArray> mentions;
 
         QList<Channels::ChannelInfo> channels;
         {
@@ -506,7 +506,7 @@ void TextConverterTest::shouldShowChannels()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, c, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex), output);
     delete c;
@@ -527,7 +527,7 @@ void TextConverterTest::shouldShowUsers()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, c, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex), output);
     delete c;
@@ -541,8 +541,8 @@ void TextConverterTest::shouldShowUsers_data()
     QTest::addColumn<QList<Channels::ChannelInfo>>("channels");
 
     {
-        QMap<QString, QByteArray> mentions;
-        QList<Channels::ChannelInfo> lst;
+        const QMap<QString, QByteArray> mentions;
+        const QList<Channels::ChannelInfo> lst;
         QTest::newRow("empty") << QString() << QString() << mentions << lst;
     }
     {
@@ -574,7 +574,7 @@ void TextConverterTest::shouldShowUsers_data()
         QMap<QString, QByteArray> mentions;
         mentions.insert(QStringLiteral("nico"), "bb"_ba);
         mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
-        QList<Channels::ChannelInfo> lst;
+        const QList<Channels::ChannelInfo> lst;
         QTest::newRow("quasi same name") << QStringLiteral("@nico foo @nico.bla")
                                          << QStringLiteral("<p><a href='ruqola:/user/nico'>@nico</a> foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n")
                                          << mentions << lst;
@@ -584,7 +584,7 @@ void TextConverterTest::shouldShowUsers_data()
         QMap<QString, QByteArray> mentions;
         mentions.insert(QStringLiteral("nico"), "bb"_ba);
         mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
-        QList<Channels::ChannelInfo> lst;
+        const QList<Channels::ChannelInfo> lst;
         QTest::newRow("quasi same name-2") << QStringLiteral("foo @nico.bla") << QStringLiteral("<p>foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n")
                                            << mentions << lst;
     }
@@ -593,7 +593,7 @@ void TextConverterTest::shouldShowUsers_data()
         QMap<QString, QByteArray> mentions;
         mentions.insert(QStringLiteral("nico"), "bb"_ba);
         mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
-        QList<Channels::ChannelInfo> lst;
+        const QList<Channels::ChannelInfo> lst;
         QTest::newRow("quasi same name-1") << QStringLiteral("@nico foo") << QStringLiteral("<p><a href='ruqola:/user/nico'>@nico</a> foo</p>\n") << mentions
                                            << lst;
     }
@@ -646,7 +646,7 @@ void TextConverterTest::shouldShowSearchedText()
     QByteArray needUpdateMessageId;
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
-    int hightLightStringIndex = 0;
+    const int hightLightStringIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, nullptr, {}, searchedText);
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex), output);
 }

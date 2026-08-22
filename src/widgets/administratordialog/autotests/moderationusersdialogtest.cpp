@@ -21,7 +21,7 @@ ModerationUsersDialogTest::ModerationUsersDialogTest(QObject *parent)
 
 void ModerationUsersDialogTest::shouldHaveDefaultValues()
 {
-    ModerationUsersDialog d(nullptr);
+    const ModerationUsersDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

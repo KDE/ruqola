@@ -40,7 +40,7 @@ void ResetRoomKeyJobTest::shouldGenerateRequest()
 
 void ResetRoomKeyJobTest::shouldGenerateJson()
 {
-    ResetRoomKeyJob job;
+    const ResetRoomKeyJob job;
     // TODO
     // QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
 }

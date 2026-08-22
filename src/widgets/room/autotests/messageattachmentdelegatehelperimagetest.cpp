@@ -28,9 +28,9 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
 {
     auto listView = new QListView();
     TextSelectionImpl textSelection;
-    MessageAttachmentDelegateHelperImage helper(nullptr, listView, &textSelection);
+    const MessageAttachmentDelegateHelperImage helper(nullptr, listView, &textSelection);
     QStyleOptionViewItem option;
-    QWidget fakeWidget;
+    const QWidget fakeWidget;
     option.widget = &fakeWidget;
     const MessageAttachment msgAttach = testAttachment();
 

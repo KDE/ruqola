@@ -20,7 +20,7 @@ AskTwoAuthenticationPasswordWidgetTest::AskTwoAuthenticationPasswordWidgetTest(Q
 
 void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    AskTwoAuthenticationPasswordWidget w;
+    const AskTwoAuthenticationPasswordWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

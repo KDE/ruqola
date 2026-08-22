@@ -19,7 +19,7 @@ UsersInRoomTreeViewTest::UsersInRoomTreeViewTest(QObject *parent)
 
 void UsersInRoomTreeViewTest::shouldHaveDefaultValues()
 {
-    UsersInRoomTreeView w;
+    const UsersInRoomTreeView w;
     QVERIFY(!w.dragEnabled());
     QVERIFY(!w.rootIsDecorated());
     QVERIFY(w.itemsExpandable());
@@ -31,7 +31,7 @@ void UsersInRoomTreeViewTest::shouldHaveDefaultValues()
 
 void UsersInRoomTreeViewTest::shouldKeepSectionProxyChain()
 {
-    UsersInRoomTreeView w;
+    const UsersInRoomTreeView w;
     auto *const filterProxy = w.usersForRoomFilterProxy();
     QVERIFY(filterProxy);
 

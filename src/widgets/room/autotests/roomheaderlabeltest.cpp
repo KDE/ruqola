@@ -19,7 +19,7 @@ RoomHeaderLabelTest::RoomHeaderLabelTest(QObject *parent)
 
 void RoomHeaderLabelTest::shouldHaveDefaultValues()
 {
-    RoomHeaderLabel w;
+    const RoomHeaderLabel w;
     QVERIFY(w.fullText().isEmpty());
     // TODO
 }
