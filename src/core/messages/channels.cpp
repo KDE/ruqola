@@ -51,7 +51,7 @@ void Channels::parseChannels(const QJsonArray &channels)
             .identifier = channel.value("_id"_L1).toString().toLatin1(),
         };
 
-        mChannels.append(std::move(info));
+        mChannels.append(info);
     }
 }
 
