@@ -62,17 +62,16 @@ ChannelListDelegate::Layout ChannelListDelegate::doLayout(const QStyleOptionView
     layout.isHeader = !index.parent().isValid();
     layout.unreadText = layout.isHeader ? QString() : makeUnreadText(index);
     const int margin = DelegatePaintUtil::margin();
-    layout.unreadSize = !layout.unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, layout.unreadText) : QSize(0, 0);
-    layout.unreadRect = QRect(option.rect.x() + option.rect.width() - layout.unreadSize.width() - 2 * margin,
-                              option.rect.y() + padding,
-                              layout.unreadSize.width() + margin,
-                              layout.unreadSize.height());
+    const QSize unreadSize = !layout.unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, layout.unreadText) : QSize(0, 0);
+    const QRect unreadRect(option.rect.x() + option.rect.width() - unreadSize.width() - 2 * margin,
+                           option.rect.y() + padding,
+                           unreadSize.width() + margin,
+                           unreadSize.height());
 
-    layout.mentionRect =
-        QRect(layout.unreadRect.x(), layout.unreadRect.y(), qMax(layout.unreadRect.width(), layout.unreadRect.height()), layout.unreadRect.height());
+    layout.mentionRect = QRect(unreadRect.x(), unreadRect.y(), qMax(unreadRect.width(), unreadRect.height()), unreadRect.height());
     // unreadRect.y() is already offset by padding, so this centers the badge in option.rect.
     layout.mentionRect.translate(0, (option.rect.height() - layout.mentionRect.height()) / 2 - padding);
-    layout.mentionRect.moveRight(layout.unreadRect.right());
+    layout.mentionRect.moveRight(unreadRect.right());
 
     return layout;
 }
@@ -117,7 +116,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const int xTextOffset = offsetAvatarRoom + iconSize + (isHeader ? 1 : 2) * margin;
     const QRect displayRect(option.rect.x() + xTextOffset,
                             option.rect.y() + padding,
-                            option.rect.width() - xTextOffset - layout.unreadSize.width() - 2 * margin,
+                            layout.mentionRect.left() - option.rect.x() - xTextOffset,
                             option.rect.height() - extraMargins);
 
     QStyleOptionViewItem optionCopy = option;
