@@ -40,6 +40,10 @@ PersonalAccessTokenInfo PersonalAccessTokenInfos::at(int index) const
 
 void PersonalAccessTokenInfos::removeAt(int index)
 {
+    if (index < 0 || index >= mPersonalAccessTokenInfos.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return;
+    }
     mPersonalAccessTokenInfos.removeAt(index);
 }
 
