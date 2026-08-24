@@ -109,6 +109,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     clearFilterChannel();
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
+        disconnect(mCurrentRocketChatAccount, nullptr, mChannelView, nullptr);
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::accountInitialized, this, &ChannelListWidget::slotAccountInitialized);
