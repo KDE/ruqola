@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewuserselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QJsonObject>
@@ -54,7 +55,7 @@ void AutoGenerateInteractionUiViewUserSelectElement::setPlaceHolder(AutoGenerate
 
 bool AutoGenerateInteractionUiViewUserSelectElement::operator==(const AutoGenerateInteractionUiViewUserSelectElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.mPlaceHolder == mPlaceHolder;
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && AutoGenerateInteractionUtil::isEqual(mPlaceHolder, other.mPlaceHolder);
 }
 
 QVariant AutoGenerateInteractionUiViewUserSelectElement::currentValue() const

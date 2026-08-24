@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewactionsblock.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
@@ -43,7 +44,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionsBlock &t)
 
 bool AutoGenerateInteractionUiViewActionsBlock::operator==(const AutoGenerateInteractionUiViewActionsBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other);
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && AutoGenerateInteractionUtil::isSerializedEqual(mElements, other.mElements);
 }
 
 void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &json)

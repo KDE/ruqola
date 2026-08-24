@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewtoggleswitchelement.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -104,7 +105,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchEleme
 
 bool AutoGenerateInteractionUiViewToggleSwitchElement::operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.mOptions == mOptions && other.mInitialOptions == mInitialOptions;
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && AutoGenerateInteractionUtil::isEqual(mOptions, other.mOptions)
+        && AutoGenerateInteractionUtil::isEqual(mInitialOptions, other.mInitialOptions);
 }
 
 #include "moc_autogenerateinteractionuiviewtoggleswitchelement.cpp"

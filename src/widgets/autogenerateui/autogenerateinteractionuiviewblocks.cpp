@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewblocks.h"
+#include "autogenerateinteractionutil.h"
 #include "autogenerateui/blockelement/autogenerateinteractionuiviewcalloutblock.h"
 #include "autogenerateui/blockelement/autogenerateinteractionuiviewimageblock.h"
 #include "blockelement/autogenerateinteractionuiviewactionsblock.h"
@@ -81,7 +82,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlocks &t)
 
 bool AutoGenerateInteractionUiViewBlocks::operator==(const AutoGenerateInteractionUiViewBlocks &other) const
 {
-    return other.mBlockElements == mBlockElements;
+    return AutoGenerateInteractionUtil::isSerializedEqual(mBlockElements, other.mBlockElements);
 }
 
 QList<AutoGenerateInteractionUiViewBlockBase *> AutoGenerateInteractionUiViewBlocks::blockElements() const

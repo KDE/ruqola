@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewinputblocktest.h"
 #include "autogenerateui/blockelement/autogenerateinteractionuiviewinputblock.h"
+#include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include "ruqola_autogenerateui_autotest_helper.h"
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
@@ -54,6 +55,12 @@ void AutoGenerateInteractionUiViewInputBlockTest::shouldLoadJson_data()
         text.setText("Auto-reply Message:"_L1);
         text.setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
         textElement->setLabel(text);
+        auto element = new AutoGenerateInteractionUiViewPlainTextInputElement;
+        element->setType("plain_text_input");
+        element->setActionId("AutoReplyMessage");
+        element->setInitialValue("Hey, I received your message and will get back to you as soon as possible."_L1);
+        element->setMultiLine(true);
+        textElement->setElement(element);
         QTest::addRow("test1") << u"test1"_s << textElement;
     }
 }

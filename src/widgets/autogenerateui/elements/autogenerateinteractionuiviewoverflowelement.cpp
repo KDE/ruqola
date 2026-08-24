@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewoverflowelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QJsonArray>
@@ -74,7 +75,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOverflowElement &
 
 bool AutoGenerateInteractionUiViewOverflowElement::operator==(const AutoGenerateInteractionUiViewOverflowElement &other) const
 {
-    return other.mOptions == mOptions && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return AutoGenerateInteractionUtil::isEqual(mOptions, other.mOptions) && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewOverflowElement::serializeElement(QJsonObject &o) const

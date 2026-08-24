@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewplaintextinputelementtest.h"
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include "ruqola_autogenerateui_autotest_helper.h"
 #include <QTest>
@@ -55,6 +56,10 @@ void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson_data
         textElement->setMultiLine(true);
         textElement->setType("plain_text_input");
         textElement->setActionId("AutoReplyMessage");
+        auto placeHolder = new AutoGenerateInteractionUiViewText;
+        placeHolder->setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
+        placeHolder->setText(u"Type your auto-reply message"_s);
+        textElement->setPlaceHolder(placeHolder);
         QTest::addRow("plaintextinput") << u"plaintextinput"_s << textElement;
     }
 }

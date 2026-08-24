@@ -7,6 +7,7 @@
 #include "autogenerateinteractionuiviewcontextblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewimage.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -27,7 +28,7 @@ AutoGenerateInteractionUiViewContextBlock::~AutoGenerateInteractionUiViewContext
 
 bool AutoGenerateInteractionUiViewContextBlock::operator==(const AutoGenerateInteractionUiViewContextBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.mElements == mElements;
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && AutoGenerateInteractionUtil::isSerializedEqual(mElements, other.mElements);
 }
 
 QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *parent)

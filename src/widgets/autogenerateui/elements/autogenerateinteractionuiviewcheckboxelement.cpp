@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewcheckboxelement.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QCheckBox>
@@ -60,7 +61,8 @@ ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidge
 
 bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
 {
-    return other.mInitialOptions == mInitialOptions && other.mOptions == mOptions && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return AutoGenerateInteractionUtil::isEqual(mInitialOptions, other.mInitialOptions) && AutoGenerateInteractionUtil::isEqual(mOptions, other.mOptions)
+        && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewCheckboxElement::options() const

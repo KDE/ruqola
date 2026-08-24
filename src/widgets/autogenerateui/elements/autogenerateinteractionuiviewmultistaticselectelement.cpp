@@ -6,6 +6,7 @@
 #include "autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 #include "autogenerateui/widgets/multistaticselectwidget.h"
 
@@ -156,8 +157,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelect
 bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const AutoGenerateInteractionUiViewMultiStaticSelectElement &other) const
 {
     // TODO add placeholder too
-    return other.mMaxSelectItems == mMaxSelectItems && other.mInitialValue == mInitialValue && other.mOptions == mOptions
-        && other.mInitialOptions == mInitialOptions && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mMaxSelectItems == mMaxSelectItems && other.mInitialValue == mInitialValue && AutoGenerateInteractionUtil::isEqual(mOptions, other.mOptions)
+        && AutoGenerateInteractionUtil::isEqual(mInitialOptions, other.mInitialOptions) && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJsonObject &o) const

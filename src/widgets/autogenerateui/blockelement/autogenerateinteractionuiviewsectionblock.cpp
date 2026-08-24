@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewsectionblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewimageelement.h"
@@ -46,7 +47,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
 
 bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.mText == mText && other.mAccessory == mAccessory && other.mFields == mFields;
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && AutoGenerateInteractionUtil::isEqual(mText, other.mText)
+        && AutoGenerateInteractionUtil::isSerializedEqual(mAccessory, other.mAccessory) && AutoGenerateInteractionUtil::isEqual(mFields, other.mFields);
 }
 
 QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *parent)
