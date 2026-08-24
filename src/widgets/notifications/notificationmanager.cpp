@@ -96,7 +96,7 @@ void NotificationManager::createSystrayToolTip()
                 if (!str.isEmpty()) {
                     str += u'\n';
                 }
-                str += i18n("%1 has %2 Unread Message", key, trayInfo.unreadMessage);
+                str += i18np("%1 has %2 unread message", "%1 has %2 unread messages", key, trayInfo.unreadMessage);
             }
             unreadMessage += trayInfo.unreadMessage;
         }
