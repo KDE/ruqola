@@ -40,7 +40,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpen(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString noFoundInfo() const;
-    LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();
     const DirectoryType mType;
     bool mWasInitialized = false;
 };

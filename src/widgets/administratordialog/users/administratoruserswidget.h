@@ -35,7 +35,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyUser(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreElements();
-    LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActivateUser(const QModelIndex &index, bool activateUser);
