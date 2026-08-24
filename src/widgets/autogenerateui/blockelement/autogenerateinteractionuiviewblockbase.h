@@ -10,6 +10,7 @@
 #include <QObject>
 #include <QString>
 #include <QVariant>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewBlockBase : public QObject
 {
@@ -54,6 +55,5 @@ protected:
     QByteArray mType;
 };
 
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase &t);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase::StateInfo &t);

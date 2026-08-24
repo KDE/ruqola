@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include "moderationreportinfo.h"
 #include <QList>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT ModerationReportInfos
 {
@@ -46,5 +47,4 @@ private:
     int mTotal = 0;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportInfos, Ruqola_ModerationReportInfos, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfos &t);

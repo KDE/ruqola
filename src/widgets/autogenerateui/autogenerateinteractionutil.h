@@ -9,6 +9,7 @@
 #include <QJsonObject>
 #include <QList>
 #include <algorithm>
+class QDebug;
 // packages/ui-kit/src/interactions/UserInteraction.ts
 namespace AutoGenerateInteractionUtil
 {
@@ -103,7 +104,6 @@ Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ViewSubmitUserInfo, Q_RELOCATABL
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ActionButtonInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::ActionMessageInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &t);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionButtonInfo &t);
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUtil::ActionMessageInfo &t);

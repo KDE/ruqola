@@ -9,6 +9,7 @@
 #include "file.h"
 #include "libruqolacore_export.h"
 #include <QList>
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT FileAttachments
@@ -47,5 +48,4 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(FileAttachments, Ruqola_FileAttachments, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const FileAttachments &t);

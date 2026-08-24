@@ -9,6 +9,7 @@
 #include "customsoundinfo.h"
 #include "libruqolacore_export.h"
 #include <QList>
+class QDebug;
 class LIBRUQOLACORE_EXPORT CustomSoundsInfo
 {
 public:
@@ -49,5 +50,4 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(CustomSoundsInfo, Ruqola_CustomSoundsInfo, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomSoundsInfo &t);

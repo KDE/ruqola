@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QString>
+class QDebug;
 
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT File
@@ -78,5 +79,4 @@ private:
     qint64 mUploadedAt = -1;
 };
 Q_DECLARE_TYPEINFO(File, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);

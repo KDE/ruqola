@@ -11,6 +11,7 @@
 #include <QMetaType>
 #include <QSharedData>
 #include <memory>
+class QDebug;
 class QJsonArray;
 class LIBRUQOLACORE_EXPORT Replies : public QSharedData
 {
@@ -35,5 +36,4 @@ private:
     QList<QByteArray> mReplies;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Replies, Ruqola_Replies, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Replies &t);

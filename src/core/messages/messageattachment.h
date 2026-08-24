@@ -10,6 +10,7 @@
 #include "messageattachmentactions.h"
 #include "messageattachmentfield.h"
 #include <QList>
+class QDebug;
 class LIBRUQOLACORE_EXPORT MessageAttachment
 {
     Q_GADGET
@@ -132,5 +133,4 @@ private:
     bool mShowAttachment = false;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachment &t);

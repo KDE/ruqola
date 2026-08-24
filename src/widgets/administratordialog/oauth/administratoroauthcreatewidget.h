@@ -9,6 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QDebug;
 class QCheckBox;
 class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthCreateWidget : public QWidget
@@ -35,5 +36,4 @@ private:
     QLineEdit *const mApplicationName;
     QLineEdit *const mRedirectUrl;
 };
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorOauthCreateWidget::OauthCreateInfo &t);

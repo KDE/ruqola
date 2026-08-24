@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QUrl>
 #include <QWizard>
+class QDebug;
 class GenerateVideoMessagePage;
 class CreateVideoMessagePage;
 class CreateVideoMessageWidget;
@@ -81,5 +82,4 @@ private:
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
 };
-class QDebug;
 LIBRUQOLAWIDGETS_TESTS_EXPORT QDebug operator<<(QDebug d, const CreateVideoMessageWizard::CreateVideoMessageInfo &t);

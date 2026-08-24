@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolawidgets_export.h"
 #include <QObject>
+class QDebug;
 class QMenu;
 class LIBRUQOLAWIDGETS_EXPORT PluginToolInterface : public QObject
 {
@@ -36,5 +37,4 @@ protected:
     PluginToolInfo mInfo;
     QWidget *mParentWidget = nullptr;
 };
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const PluginToolInterface::PluginToolInfo &t);

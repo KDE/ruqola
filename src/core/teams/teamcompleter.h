@@ -10,6 +10,7 @@
 #include <QMetaType>
 class QJsonObject;
 
+class QDebug;
 class LIBRUQOLACORE_EXPORT TeamCompleter
 {
 public:
@@ -32,7 +33,6 @@ private:
     QString mFname;
     QByteArray mTeamId;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamCompleter &t);
 QT_DECL_METATYPE_EXTERN_TAGGED(TeamCompleter, Ruqola_TeamCompleter, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(TeamCompleter, Q_RELOCATABLE_TYPE);

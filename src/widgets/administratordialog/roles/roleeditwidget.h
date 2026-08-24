@@ -9,6 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QDebug;
 class QLineEdit;
 class QCheckBox;
 class RoleScopeComboBox;
@@ -48,5 +49,4 @@ private:
     QCheckBox *const mTwoFactor;
     RoleScopeComboBox *const mRoleScopeComboBox;
 };
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const RoleEditWidget::RoleEditDialogInfo &t);

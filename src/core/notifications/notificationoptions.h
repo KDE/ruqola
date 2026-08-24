@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QString>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT NotificationOptions
 {
@@ -88,6 +89,5 @@ private:
     bool mMuteGroupMentions = false;
     bool mHideMentionStatus = false;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions::NotificationValue &t);

@@ -9,6 +9,7 @@
 #include "bannerinfo.h"
 #include "libruqolacore_export.h"
 #include <QList>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT BannerInfos
 {
@@ -54,5 +55,4 @@ private:
 Q_DECLARE_METATYPE(BannerInfos)
 Q_DECLARE_METATYPE(BannerInfos::UnreadInformation)
 Q_DECLARE_TYPEINFO(BannerInfos::UnreadInformation, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BannerInfos &t);

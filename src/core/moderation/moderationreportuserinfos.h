@@ -7,6 +7,7 @@
 #include "libruqolacore_export.h"
 #include "moderationreportuserinfo.h"
 #include "user.h"
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT ModerationReportUserInfos
@@ -43,5 +44,4 @@ private:
     int mModerationReportUserInfosCount = 0;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfos, Ruqola_ModerationReportUserInfos, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfos &t);

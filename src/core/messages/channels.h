@@ -11,6 +11,7 @@
 #include <QObject>
 #include <QSharedData>
 #include <memory>
+class QDebug;
 class LIBRUQOLACORE_EXPORT Channels : public QSharedData
 {
 public:
@@ -42,6 +43,5 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Channels, Ruqola_Channels, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Channels::ChannelInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels::ChannelInfo &t);

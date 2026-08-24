@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QPixmap>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
@@ -192,6 +193,5 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t);

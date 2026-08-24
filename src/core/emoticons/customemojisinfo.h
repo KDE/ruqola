@@ -9,6 +9,7 @@
 #include "customemoji.h"
 #include "libruqolacore_export.h"
 #include <QList>
+class QDebug;
 class LIBRUQOLACORE_EXPORT CustomEmojisInfo
 {
 public:
@@ -45,5 +46,4 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(CustomEmojisInfo, Ruqola_CustomEmojisInfo, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmojisInfo &t);

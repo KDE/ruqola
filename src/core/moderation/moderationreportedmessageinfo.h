@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 #include <QString>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT ModerationReportedMessageInfo
 {
@@ -65,5 +66,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportedMessageInfo, Ruqola_ModerationReportedMessageInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ModerationReportedMessageInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportedMessageInfo &t);

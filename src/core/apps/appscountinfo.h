@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QMetaType>
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT AppsCountInfo
@@ -42,5 +43,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(AppsCountInfo, Ruqola_AppsCountInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(AppsCountInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsCountInfo &t);

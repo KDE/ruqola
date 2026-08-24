@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMap>
 #include <memory>
+class QDebug;
 class QJsonArray;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT MessageTranslations : public QSharedData
@@ -33,5 +34,4 @@ public:
 private:
     QMap<QString, QString> mTranslatedString;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageTranslations &t);

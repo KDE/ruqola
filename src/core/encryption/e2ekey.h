@@ -9,6 +9,7 @@
 
 #include <QMetaType>
 #include <QString>
+class QDebug;
 
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT E2eKey
@@ -31,5 +32,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(E2eKey, Ruqola_E2eKey, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(E2eKey, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const E2eKey &t);

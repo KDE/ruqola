@@ -8,6 +8,7 @@
 
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
+class QDebug;
 class LIBRUQOLACORE_EXPORT AuthenticationInfo
 {
     Q_GADGET
@@ -32,5 +33,4 @@ private:
     AuthenticationManager::AuthMethodType mOauthType = AuthenticationManager::AuthMethodType::Unknown;
 };
 Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AuthenticationInfo &t);

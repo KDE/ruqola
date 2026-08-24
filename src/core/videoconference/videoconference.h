@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QMetaType>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT VideoConference
 {
@@ -52,5 +53,4 @@ private:
     Action mAction = Action::Unknown;
 };
 Q_DECLARE_TYPEINFO(VideoConference, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConference &t);

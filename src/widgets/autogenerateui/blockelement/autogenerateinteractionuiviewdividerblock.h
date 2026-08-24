@@ -8,6 +8,7 @@
 
 #include "autogenerateinteractionuiviewblockbase.h"
 #include "libruqolawidgets_private_export.h"
+class QDebug;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewDividerBlock : public AutoGenerateInteractionUiViewBlockBase
 {
@@ -26,5 +27,4 @@ protected:
     [[nodiscard]] QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> serializeBlockState() const override;
 };
 
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewDividerBlock &t);

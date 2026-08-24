@@ -9,6 +9,7 @@
 #include "libruqola_private_export.h"
 #include "roles/roleinfo.h"
 #include <QString>
+class QDebug;
 
 class LIBRUQOLACORE_TESTS_EXPORT Permission
 {
@@ -39,5 +40,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Permission, Ruqola_Permission, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Permission, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Permission &t);

@@ -8,6 +8,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 #include <QString>
+class QDebug;
 class LIBRUQOLACORE_EXPORT Role
 {
 public:
@@ -45,5 +46,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Role, Ruqola_Role, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Role, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Role &t);

@@ -8,6 +8,7 @@
 
 #include "libruqola_private_export.h"
 #include <QMetaType>
+class QDebug;
 
 class LIBRUQOLACORE_TESTS_EXPORT Discussion
 {
@@ -61,6 +62,5 @@ private:
     qint64 mLastMessage = -1;
     qint64 mTimeStamp = -1;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussion &t);
 Q_DECLARE_TYPEINFO(Discussion, Q_RELOCATABLE_TYPE);

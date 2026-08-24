@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include "videoconferenceinfo.h"
 #include <QList>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT VideoConferenceInfos
 {
@@ -45,5 +46,4 @@ private:
     int mTotal = 0;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(VideoConferenceInfos, Ruqola_VideoConferenceInfos, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConferenceInfos &t);

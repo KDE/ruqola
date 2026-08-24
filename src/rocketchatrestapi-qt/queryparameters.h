@@ -8,6 +8,7 @@
 #include <QMap>
 #include <QMetaType>
 #include <QString>
+class QDebug;
 
 class QUrlQuery;
 
@@ -62,5 +63,4 @@ private:
 };
 
 } // namespace RocketChatRestApi
-class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::QueryParameters &t);

@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QString>
+class QDebug;
 
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT DeviceInfo
@@ -61,5 +62,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(DeviceInfo, Ruqola_DeviceInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(DeviceInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const DeviceInfo &t);

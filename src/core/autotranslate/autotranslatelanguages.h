@@ -9,6 +9,7 @@
 #include "autotranslatelanguage.h"
 #include "libruqola_private_export.h"
 #include <QList>
+class QDebug;
 
 class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguages
 {
@@ -30,5 +31,4 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(AutotranslateLanguages, Ruqola_AutotranslateLanguages, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguages &t);

@@ -10,6 +10,7 @@
 #include "user.h"
 #include <QJsonDocument>
 #include <QString>
+class QDebug;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {
     Q_GADGET
@@ -82,5 +83,4 @@ private:
 
     friend class RocketChatMessageTest;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t);

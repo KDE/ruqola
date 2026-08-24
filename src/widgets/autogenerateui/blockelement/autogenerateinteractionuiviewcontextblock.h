@@ -8,6 +8,7 @@
 
 #include "autogenerateui/blockelement/autogenerateinteractionuiviewblockbase.h"
 #include "libruqolawidgets_private_export.h"
+class QDebug;
 class AutoGenerateInteractionUiViewElement;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewContextBlock : public AutoGenerateInteractionUiViewBlockBase
 {
@@ -33,5 +34,4 @@ private:
     QList<AutoGenerateInteractionUiViewElement *> mElements;
 };
 
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewContextBlock &t);

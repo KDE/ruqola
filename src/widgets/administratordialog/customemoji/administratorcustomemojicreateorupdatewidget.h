@@ -10,6 +10,7 @@
 #include <QIcon>
 #include <QUrl>
 #include <QWidget>
+class QDebug;
 class QLineEdit;
 class KUrlRequester;
 class QLabel;
@@ -52,5 +53,4 @@ private:
     QLabel *const mWarningLabel;
     QLabel *const mIconLabel;
 };
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &t);

@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include "roominfo.h"
 #include <QList>
+class QDebug;
 class LIBRUQOLACORE_EXPORT RoomsInfo
 {
 public:
@@ -50,5 +51,4 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(RoomsInfo, Ruqola_RoomsInfo, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoomsInfo &t);

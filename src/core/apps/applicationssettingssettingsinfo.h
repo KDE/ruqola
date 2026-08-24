@@ -7,6 +7,7 @@
 
 #include "libruqolacore_export.h"
 #include <QJsonObject>
+class QDebug;
 class LIBRUQOLACORE_EXPORT ApplicationsSettingsSettingsInfo
 {
     Q_GADGET
@@ -71,5 +72,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(ApplicationsSettingsSettingsInfo, Ruqola_ApplicationsSettingsSettingsInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ApplicationsSettingsSettingsInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ApplicationsSettingsSettingsInfo &t);

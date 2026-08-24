@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QStringList>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {
@@ -136,5 +137,4 @@ private:
     bool mMuteFocusedConversations = false;
 };
 Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUserPreferences &t);

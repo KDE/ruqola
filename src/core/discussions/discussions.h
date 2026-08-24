@@ -9,6 +9,7 @@
 #include "discussion.h"
 #include "libruqola_private_export.h"
 #include <QList>
+class QDebug;
 
 class LIBRUQOLACORE_TESTS_EXPORT Discussions
 {
@@ -45,5 +46,4 @@ private:
     int mTotal = 0;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Discussions, Ruqola_Discussions, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussions &t);

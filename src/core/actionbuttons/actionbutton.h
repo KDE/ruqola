@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QStringList>
+class QDebug;
 class LIBRUQOLACORE_EXPORT ActionButton
 {
     Q_GADGET
@@ -132,6 +133,5 @@ private:
 QT_DECL_METATYPE_EXTERN_TAGGED(ActionButton, Ruqola_ActionButton, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ActionButton, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(ActionButton::FilterActionInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton::FilterActionInfo &t);

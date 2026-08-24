@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include "user.h"
 #include <QList>
+class QDebug;
 class LIBRUQOLACORE_EXPORT Users
 {
 public:
@@ -55,5 +56,4 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(Users, Ruqola_Users, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Users &t);

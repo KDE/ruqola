@@ -10,6 +10,7 @@
 #include "blockaction.h"
 #include "libruqolacore_export.h"
 #include "videoconference/videoconferenceinfo.h"
+class QDebug;
 // packages/ui-kit/src/surfaces/message/UiKitParserMessage.ts
 class LIBRUQOLACORE_EXPORT Block
 {
@@ -77,6 +78,5 @@ private:
     VideoConferenceInfo mVideoConferenceInfo;
     BlockAccessory mBlockAccessory;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_RELOCATABLE_TYPE);
