@@ -14,7 +14,7 @@
 using namespace Qt::Literals::StringLiterals;
 PersonalAccessTokenInfos::PersonalAccessTokenInfos() = default;
 
-QList<PersonalAccessTokenInfo> PersonalAccessTokenInfos::personalAccessTokenInfos() const
+const QList<PersonalAccessTokenInfo> &PersonalAccessTokenInfos::personalAccessTokenInfos() const
 {
     return mPersonalAccessTokenInfos;
 }
@@ -29,11 +29,12 @@ void PersonalAccessTokenInfos::clear()
     mPersonalAccessTokenInfos.clear();
 }
 
-PersonalAccessTokenInfo PersonalAccessTokenInfos::at(int index) const
+const PersonalAccessTokenInfo &PersonalAccessTokenInfos::at(int index) const
 {
     if (index < 0 || index >= mPersonalAccessTokenInfos.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return {};
+        static const PersonalAccessTokenInfo invalidInfo;
+        return invalidInfo;
     }
     return mPersonalAccessTokenInfos.at(index);
 }

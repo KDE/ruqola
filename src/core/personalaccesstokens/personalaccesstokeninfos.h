@@ -14,7 +14,7 @@ class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfos
 public:
     PersonalAccessTokenInfos();
 
-    [[nodiscard]] QList<PersonalAccessTokenInfo> personalAccessTokenInfos() const;
+    [[nodiscard]] const QList<PersonalAccessTokenInfo> &personalAccessTokenInfos() const;
     void setPersonalAccessTokenInfos(const QList<PersonalAccessTokenInfo> &tokenInfos);
 
     void parsePersonalAccessTokenInfos(const QJsonObject &obj);
@@ -23,7 +23,7 @@ public:
     [[nodiscard]] int count() const;
     void clear();
 
-    [[nodiscard]] PersonalAccessTokenInfo at(int index) const;
+    [[nodiscard]] const PersonalAccessTokenInfo &at(int index) const;
 
     void removeAt(int index);
 
