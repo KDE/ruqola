@@ -147,6 +147,7 @@ void AccountServerTreeWidget::addAccountConfig()
         int i = 1;
         while (accountList.contains(newAccountName)) {
             newAccountName = u"%1_%2"_s.arg(newAccountName).arg(i);
+            ++i;
         }
         info.accountName = newAccountName;
         auto accountServeritem = new AccountServerListWidgetItem(this);
