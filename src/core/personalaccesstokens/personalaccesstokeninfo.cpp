@@ -43,6 +43,8 @@ void PersonalAccessTokenInfo::setCreatedAt(qint64 newCreatedAt)
     if (mCreatedAt != -1) {
         const QLocale l;
         mCreateAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedAt), QLocale::LongFormat);
+    } else {
+        mCreateAtDisplayDateTime.clear();
     }
 }
 
