@@ -19,7 +19,6 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsLogsWidget::ApplicationsSettingsLogsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTextBrowser(new QTextBrowser(this))

@@ -16,7 +16,6 @@ static QString accountName()
 {
     return u"myAccount"_s;
 }
-using namespace Qt::Literals::StringLiterals;
 void E2EDataBaseTest::initTestCase()
 {
     E2EDataBase store;
