@@ -83,13 +83,15 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
             actionName = i18nc("@action", "Open Private Message…");
             break;
         case DirectoryType::Unknown:
-            break;
+            return;
         }
         menu.addAction(actionName, this, [this, i]() {
             slotOpen(i);
         });
     }
-    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    if (!menu.isEmpty()) {
+        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    }
 }
 
 void DirectoryWidget::slotOpen(const QModelIndex &index)
