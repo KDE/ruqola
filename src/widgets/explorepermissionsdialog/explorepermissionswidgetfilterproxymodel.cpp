@@ -5,7 +5,6 @@
 */
 
 #include "explorepermissionswidgetfilterproxymodel.h"
-#include "config-ruqola.h"
 #include "model/permissionsmodel.h"
 
 ExplorePermissionsWidgetFilterProxyModel::ExplorePermissionsWidgetFilterProxyModel(QObject *parent)
