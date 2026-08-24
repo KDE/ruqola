@@ -44,8 +44,6 @@ void NotificationManager::createSystemTray(QObject *parent)
         mContextStatusMenu->menuAction()->setVisible(false);
         trayMenu->addAction(mActionCollection->action(KStandardActions::name(KStandardActions::Preferences)));
         trayMenu->addAction(mActionCollection->action(KStandardActions::name(KStandardActions::ConfigureNotifications)));
-        // Create systray to show notifications on Desktop
-        connect(mNotification, &Notification::alert, this, &NotificationManager::alert);
         createSystrayToolTip();
     }
 #endif
@@ -53,9 +51,7 @@ void NotificationManager::createSystemTray(QObject *parent)
 
 void NotificationManager::roomNeedAttention()
 {
-    if (mNotification) {
-        mNotification->roomNeedAttention();
-    }
+    Q_EMIT alert();
 }
 
 void NotificationManager::logout(const QString &accountName)

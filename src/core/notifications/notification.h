@@ -40,9 +40,6 @@ public:
 
     void updateToolTip(const QString &str, bool hasAlert);
 
-Q_SIGNALS:
-    void alert();
-
 private:
     /**
      * @brief Creates tray icon consisting of actions

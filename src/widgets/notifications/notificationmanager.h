@@ -8,7 +8,6 @@
 #include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include "notifications/notification.h"
-class Notification;
 class QMenu;
 class KActionCollection;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationManager : public QObject

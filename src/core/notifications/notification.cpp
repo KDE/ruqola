@@ -36,12 +36,6 @@ void Notification::createTrayIcon()
     setCategory(KStatusNotifierItem::Communications);
 }
 
-void Notification::roomNeedAttention()
-{
-    qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert";
-    Q_EMIT alert();
-}
-
 void Notification::updateToolTip(const QString &str, bool hasAlert)
 {
     setToolTipSubTitle(str);
