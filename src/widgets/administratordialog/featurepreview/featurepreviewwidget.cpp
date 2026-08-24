@@ -122,7 +122,7 @@ void FeaturePreviewWidget::slotSaveSettings()
     params.append(std::move(previewFeatures));
     const QString methodName{u"saveSettings"_s};
     const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
-        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+        .messageObj = mRocketChatAccount ? mRocketChatAccount->ddp()->generateJsonObject(methodName, params) : QJsonObject{},
         .methodName = methodName,
         .anonymous = false,
     };
