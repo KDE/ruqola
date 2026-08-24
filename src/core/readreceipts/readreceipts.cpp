@@ -75,8 +75,9 @@ void ReadReceipts::parseReadReceipts(const QJsonArray &array)
 
 QDebug operator<<(QDebug d, const ReadReceipts &t)
 {
-    for (int i = 0, total = t.readReceipts().count(); i < total; ++i) {
-        d.space() << t.readReceipts().at(i) << "\n";
+    const auto list = t.readReceipts();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        d.space() << list.at(i) << "\n";
     }
     return d;
 }
