@@ -105,7 +105,7 @@ void AutoGenerateInteractionUiViewContextBlock::serializeBlock(QJsonObject &o) c
     o["elements"_L1] = r;
 }
 
-static QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewContextBlock &t)
+QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewContextBlock &t)
 {
     d.space() << "AutoGenerateInteractionUiViewBlockBase:" << static_cast<const AutoGenerateInteractionUiViewBlockBase &>(t);
     d.space() << "elements:" << t.elements();
