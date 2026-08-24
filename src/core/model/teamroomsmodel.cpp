@@ -99,6 +99,9 @@ void TeamRoomsModel::setRoomChanged(const TeamRoom &t)
 
 void TeamRoomsModel::insertRooms(const QList<TeamRoom> &teamRooms)
 {
+    if (teamRooms.isEmpty()) {
+        return;
+    }
     const int count = mTeamRooms.count();
     beginInsertRows(QModelIndex(), count, count + teamRooms.count() - 1);
     mTeamRooms.append(teamRooms);
