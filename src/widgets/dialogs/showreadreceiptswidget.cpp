@@ -77,7 +77,7 @@ void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
-        qDebug() << " replyObject " << replyObject;
+        // qDebug() << " replyObject " << replyObject;
         ReadReceipts receipts;
         receipts.parseReadReceipts(replyObject["result"_L1].toArray());
         mModel->setReadReceipts(receipts);
