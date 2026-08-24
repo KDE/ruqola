@@ -176,11 +176,10 @@ qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
 
 qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 {
-    if (o.contains(key)) {
-        return QDateTime::fromString(o.value(key).toString(), Qt::ISODate).toMSecsSinceEpoch();
-    } else {
-        return -1;
-    }
+    // An absent or unparsable value must yield -1: toMSecsSinceEpoch() on an invalid QDateTime returns 0,
+    // which callers would otherwise accept as a valid 1970-01-01 timestamp.
+    const QDateTime dt = QDateTime::fromString(o.value(key).toString(), Qt::ISODate);
+    return dt.isValid() ? dt.toMSecsSinceEpoch() : -1;
 }
 
 QString Utils::convertTextWithCheckMark(const QString &str)

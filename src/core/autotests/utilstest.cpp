@@ -293,4 +293,26 @@ void UtilsTest::shouldParseDate_data()
     QTest::newRow("invalid-string") << QByteArray(R"({"ls":"not-a-date"})") << qint64(-1);
 }
 
+void UtilsTest::shouldParseIsoDate()
+{
+    QFETCH(QByteArray, json);
+    QFETCH(qint64, expected);
+    const QJsonObject o = QJsonDocument::fromJson(json).object();
+    QCOMPARE(Utils::parseIsoDate(u"createdAt"_s, o), expected);
+}
+
+void UtilsTest::shouldParseIsoDate_data()
+{
+    QTest::addColumn<QByteArray>("json");
+    QTest::addColumn<qint64>("expected");
+    QTest::newRow("missing") << QByteArray("{}") << qint64(-1);
+    QTest::newRow("iso-string") << QByteArray(R"({"createdAt":"2025-03-13T09:03:20.248Z"})") << qint64(1741856600248);
+    // Unparsable values used to return 0, which callers accepted as a valid 1970-01-01 date
+    QTest::newRow("invalid-string") << QByteArray(R"({"createdAt":"not-a-date"})") << qint64(-1);
+    QTest::newRow("empty-string") << QByteArray(R"({"createdAt":""})") << qint64(-1);
+    QTest::newRow("numeric-msecs") << QByteArray(R"({"createdAt":1741856600248})") << qint64(-1);
+    QTest::newRow("ejson-object") << QByteArray(R"({"createdAt":{"$date":1741856600248}})") << qint64(-1);
+    QTest::newRow("null") << QByteArray(R"({"createdAt":null})") << qint64(-1);
+}
+
 #include "moc_utilstest.cpp"
