@@ -60,6 +60,6 @@ QDebug operator<<(QDebug d, const TeamCompleter &t)
 {
     d.space() << "Name" << t.name();
     d.space() << "Fname:" << t.fname();
-    d.space() << "identifier:" << t.teamId();
+    d.space() << "teamId:" << t.teamId();
     return d;
 }
