@@ -56,7 +56,7 @@ void MyAccountFeaturePreviewConfigureWidget::save()
     }
     if (mTimeStampCheckBox->isVisible()) {
         // TODO
-        featuresPreview.insert("timeStamp"_L1, mAddDraftCheckBox->isChecked());
+        featuresPreview.insert("timeStamp"_L1, mTimeStampCheckBox->isChecked());
     }
     info.featuresPreview = std::move(featuresPreview);
     info.userId = mRocketChatAccount->userId();
