@@ -139,8 +139,9 @@ QDebug operator<<(QDebug d, const Commands &t)
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
     d.space() << "commandsCount" << t.commandsCount() << "\n";
-    for (int i = 0, total = t.commands().count(); i < total; ++i) {
-        d.space() << t.commands().at(i) << "\n";
+    const auto list = t.commands();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        d.space() << list.at(i) << "\n";
     }
     return d;
 }

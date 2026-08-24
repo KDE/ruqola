@@ -125,8 +125,9 @@ QDebug operator<<(QDebug d, const BannedUsers &t)
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
     d.space() << "bannedUsersCount" << t.bannedUsersCount() << "\n";
-    for (int i = 0, total = t.bannedUsers().count(); i < total; ++i) {
-        d.space() << t.bannedUsers().at(i) << "\n";
+    const auto list = t.bannedUsers();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        d.space() << list.at(i) << "\n";
     }
     return d;
 }

@@ -159,8 +159,9 @@ QDebug operator<<(QDebug d, const CustomUserStatuses &t)
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
     d.space() << "customStatus Count" << t.count() << "\n";
-    for (int i = 0, total = t.customUserStatusList().count(); i < total; ++i) {
-        d.space() << t.customUserStatusList().at(i) << "\n";
+    const auto list = t.customUserStatusList();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        d.space() << list.at(i) << "\n";
     }
     return d;
 }

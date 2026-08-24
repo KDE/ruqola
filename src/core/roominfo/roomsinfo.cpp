@@ -137,8 +137,9 @@ QDebug operator<<(QDebug d, const RoomsInfo &t)
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
     d.space() << "roomsCount" << t.roomsCount() << "\n";
-    for (int i = 0, total = t.rooms().count(); i < total; ++i) {
-        d.space() << t.rooms().at(i) << "\n";
+    const auto list = t.rooms();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        d.space() << list.at(i) << "\n";
     }
     return d;
 }

@@ -148,8 +148,9 @@ QDebug operator<<(QDebug d, const Users &t)
     d.space() << "total " << t.total();
     d.space() << "offset " << t.offset();
     d.space() << "usersCount " << t.usersCount() << "\n";
-    for (int i = 0, total = t.users().count(); i < total; ++i) {
-        d.space() << t.users().at(i) << "\n";
+    const auto list = t.users();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        d.space() << list.at(i) << "\n";
     }
     return d;
 }

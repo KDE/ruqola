@@ -57,8 +57,9 @@ void AutotranslateLanguagesModel::parseLanguages(const QJsonObject &obj)
 
 int AutotranslateLanguagesModel::currentLanguage(const QString &lang) const
 {
-    for (int i = 0; i < mAutoTranslateLanguages.autotranslateLanguage().count(); ++i) {
-        if (mAutoTranslateLanguages.autotranslateLanguage().at(i).language() == lang) {
+    const auto list = mAutoTranslateLanguages.autotranslateLanguage();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        if (list.at(i).language() == lang) {
             return i;
         }
     }

@@ -173,8 +173,9 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
         obj["attachment_size"_L1] = messageAttach.attachmentSize();
     }
     QJsonArray fieldArray;
-    for (int i = 0, total = messageAttach.attachmentFields().count(); i < total; ++i) {
-        const QJsonObject fields = MessageAttachmentField::serialize(messageAttach.attachmentFields().at(i));
+    const auto list = messageAttach.attachmentFields();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        const QJsonObject fields = MessageAttachmentField::serialize(list.at(i));
         fieldArray.append(fields);
     }
     if (!fieldArray.isEmpty()) {
