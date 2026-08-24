@@ -25,7 +25,7 @@ E2eDisableWidget::E2eDisableWidget(RocketChatAccount *account, QWidget *parent)
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(
-        i18n("Disabling E2EE will compromise the privacy of this groupe privé. Access to any encrypted content will be lost for all groupe privé members.\n"
+        i18n("Disabling E2EE will compromise the privacy of this private group. Access to any encrypted content will be lost for all private group members.\n"
              "Encryption can be re-enabled later. Proceed with caution.\n"
              "If no one is able to access the encrypted content you can reset encryption keys instead."),
         this);
