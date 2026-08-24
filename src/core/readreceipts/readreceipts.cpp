@@ -40,6 +40,10 @@ ReadReceipt ReadReceipts::at(int index) const
 
 void ReadReceipts::removeAt(int index)
 {
+    if (index < 0 || index >= mReadReceipts.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return;
+    }
     mReadReceipts.removeAt(index);
 }
 
