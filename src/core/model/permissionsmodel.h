@@ -28,11 +28,11 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] Permissions permissions() const;
     void setPermissions(const Permissions &newPermissions);
 
 private:
+    [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     Permissions mPermissions;
 };
