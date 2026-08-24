@@ -20,7 +20,7 @@ E2eSaveEncryptionKeyWidget::E2eSaveEncryptionKeyWidget(QWidget *parent)
     setText(i18n("Save your encryption password. Click here to view and copy your password."));
 
     auto saveEncryptionKeyAction = new QAction(i18nc("@action", "Save Encryption Key"), this);
-    saveEncryptionKeyAction->setObjectName(u"decodeEncryptionKeyAction"_s);
+    saveEncryptionKeyAction->setObjectName(u"saveEncryptionKeyAction"_s);
     connect(saveEncryptionKeyAction, &QAction::triggered, this, &E2eSaveEncryptionKeyWidget::saveEncrytionKey);
     addAction(saveEncryptionKeyAction);
 }
