@@ -6,6 +6,7 @@
 
 #include "translatorenginemanager.h"
 
+#include <KLocalizedString>
 #include <TextTranslator/TranslatorEngineClient>
 #include <TextTranslator/TranslatorEngineLoader>
 #include <TextTranslator/TranslatorEnginePlugin>
@@ -32,7 +33,10 @@ void TranslatorEngineManager::translatorConfigChanged()
 
 void TranslatorEngineManager::initializeTranslateEngine()
 {
+    const bool hadPreviousEngine = (mTranslatorEnginePlugin != nullptr);
     delete mTranslatorEnginePlugin;
+    // Clear it right away: createTranslatorClient() can emit loadingTranslatorFailed()
+    // and translatorEngineBase() must not hand out a dangling pointer in between.
     mTranslatorEnginePlugin = nullptr;
     const QString engineName = TextTranslator::TranslatorUtil::loadEngine();
     TextTranslator::TranslatorEngineClient *translatorClient = TextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(engineName);
@@ -40,6 +44,12 @@ void TranslatorEngineManager::initializeTranslateEngine()
         mTranslatorEnginePlugin = translatorClient->createTranslator();
         connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
         connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorEngineManager::translateFailed);
+    }
+    if (hadPreviousEngine) {
+        // Deleting the previous plugin also destroyed the network reply of a translation
+        // still in flight, so neither translateDone() nor translateFailed() will ever be
+        // emitted for it. Tell the jobs waiting for it, otherwise they never go away.
+        Q_EMIT translateFailed(i18n("Translation was interrupted as the translator engine changed."));
     }
 }
 
