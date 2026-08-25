@@ -27,8 +27,5 @@ Q_SIGNALS:
 
 protected:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-
-private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void slotLogout();
 };
 }

@@ -59,7 +59,6 @@ protected:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotCompletionAvailable();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetAsBold();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetAsItalic();

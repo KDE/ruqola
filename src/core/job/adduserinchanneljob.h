@@ -17,7 +17,6 @@ public:
     struct UserInChannelNeedUnBanJobInfo {
         QByteArray roomId;
         QString userName;
-        [[nodiscard]] bool isValid() const;
     };
 
     struct AddUserInChannelJobInfo {

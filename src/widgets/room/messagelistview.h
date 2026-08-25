@@ -43,8 +43,6 @@ public:
 
     [[nodiscard]] MessageListView::Mode mode() const;
 
-    void setRoomId(const QString &roomID);
-
     void goToMessage(const QByteArray &messageId);
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 

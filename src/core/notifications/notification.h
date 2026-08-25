@@ -36,8 +36,6 @@ public:
     explicit Notification(QObject *parent = nullptr);
     ~Notification() override;
 
-    void roomNeedAttention();
-
     void updateToolTip(const QString &str, bool hasAlert);
 
 private:
