@@ -9,7 +9,7 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
-#include <QDateTime>
+#include <QDate>
 
 namespace RocketChatRestApi
 {

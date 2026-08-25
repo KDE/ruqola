@@ -6,7 +6,6 @@
 
 #pragma once
 #include <QDialog>
-#include <QList>
 
 #include "directchannelinfowidget.h"
 #include "libruqolawidgets_private_export.h"

@@ -9,7 +9,6 @@
 #include "libruqolacore_export.h"
 #include "model/sortfilterproxymodelbase.h"
 #include "ownuser/ownuserpreferences.h"
-#include <QSortFilterProxyModel>
 
 /**
  * This proxy model sits on top of RoomModel and implements

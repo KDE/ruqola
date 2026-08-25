@@ -10,7 +10,6 @@
 
 #include "libruqolacore_export.h"
 #include <KStatusNotifierItem>
-#include <QMap>
 
 class LIBRUQOLACORE_EXPORT Notification : public KStatusNotifierItem
 {

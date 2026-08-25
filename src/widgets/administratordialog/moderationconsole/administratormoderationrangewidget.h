@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
-#include <QDateTime>
+#include <QDate>
 #include <QWidget>
 class QDateEdit;
 class QToolButton;

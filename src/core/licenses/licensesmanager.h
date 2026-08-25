@@ -6,8 +6,9 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include <QList>
 #include <QMetaType>
-#include <QStringList>
+#include <QString>
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT LicensesManager
 {
