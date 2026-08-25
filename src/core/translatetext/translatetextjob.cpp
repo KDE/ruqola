@@ -23,10 +23,12 @@ void TranslateTextJob::translate()
 {
     if (mInfo.isValid()) {
         auto translatorEngine = TranslatorEngineManager::self()->translatorEngineBase();
-        translatorEngine->setInputText(mInfo.inputText);
-        translatorEngine->setFrom(mInfo.from);
-        translatorEngine->setTo(mInfo.to);
-        translatorEngine->translate();
+        if (translatorEngine) {
+            translatorEngine->setInputText(mInfo.inputText);
+            translatorEngine->setFrom(mInfo.from);
+            translatorEngine->setTo(mInfo.to);
+            translatorEngine->translate();
+        }
     } else {
         Q_EMIT translateFailed(i18n("Missing translator info. It's a bug"));
         qCDebug(RUQOLA_LOG) << " Invalid translate info " << mInfo;
