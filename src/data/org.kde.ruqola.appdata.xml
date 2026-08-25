@@ -1680,6 +1680,7 @@
           <li xml:lang="ca">Usa el «textmessagewidget» nou per a notificacions d'error</li>
           <li xml:lang="ca-valencia">Utilitza el «textmessagewidget» nou per a notificacions d'error</li>
           <li xml:lang="es">Uso de los nuevos widgets de mensajes de texto para las notificaciones de error</li>
+          <li xml:lang="he">שימוש ב־textmessagewidget להתראות על שגיאות</li>
           <li xml:lang="ia">Usa nove textmessagewidget per notification de error</li>
           <li xml:lang="it">Utilizzare il nuovo oggetto per i messaggi di testo per la notifica degli errori.</li>
           <li xml:lang="ka">ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის</li>
@@ -2964,6 +2965,7 @@
           <li xml:lang="ca">Permet mostrar la configuració del mercat d'aplicacions</li>
           <li xml:lang="ca-valencia">Permet mostrar la configuració del mercat d'aplicacions</li>
           <li xml:lang="es">Permite mostrar las preferencias de la tienda de aplicaciones</li>
+          <li xml:lang="he">מתן אפשרות להצגת הגדרות חנות יישומים</li>
           <li xml:lang="ia">Permitte monstrar preferentias de application de mercato </li>
           <li xml:lang="it">Consente di mostrare le impostazioni del negozio delle applicazioni</li>
           <li xml:lang="ka">აპლიკაციის მარკეტის პარამეტრების ჩვენების დაშვება</li>
@@ -3139,6 +3141,7 @@
           <li xml:lang="ca">Corregeix la visualització del nom del debat a la compleció</li>
           <li xml:lang="ca-valencia">Corregix la visualització del nom del debat a la compleció</li>
           <li xml:lang="es">Corrección al mostrar el nombre de la discusión al completar</li>
+          <li xml:lang="he">תוקנה הצגת שם דיון בהשלמה</li>
           <li xml:lang="ia">Corrige monstra nomine de discussion in completion</li>
           <li xml:lang="it">Corregge il nome della discussione visualizzata in fase di completamento</li>
           <li xml:lang="ka">გასწორდა დასრულებისას კამათის სახელის ჩვენება</li>
@@ -3651,6 +3654,7 @@
           <li xml:lang="ca">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
           <li xml:lang="ca-valencia">Millora la selecció de la sala o l'usuari en editar la línia del missatge (mostra la icona, informa si l'usuari està en el canal)</li>
           <li xml:lang="es">Mejorada la selección de sala o usuario en la línea de edición de mensaje (muestra icono e informa si el usuario está en el canal)</li>
+          <li xml:lang="he">השתפרה בחירת חדר או משתמש בשורת עריכת הודעה (הצגת סמל, הודעה אם המשתמש בערוץ)</li>
           <li xml:lang="ia">Meliora le selection de sala o usator in le linea de edition de message  (monstra icone, informa si le usator es in le canal)</li>
           <li xml:lang="it">Migliora la selezione della stanza o di un utente nella riga della riga dei messaggi (mostra l'icona, informa se l'utente è nel canale)</li>
           <li xml:lang="ka">ოთახის არჩევის ან მომხმარებლის ხაზის ჩასწორების გაუმჯობესება (ხატულის ჩვენება, მომხმარებლის შეტყობინება, თუ მომხმარებელი არხზეა)</li>
