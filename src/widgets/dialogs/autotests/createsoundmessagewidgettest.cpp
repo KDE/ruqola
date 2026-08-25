@@ -7,7 +7,6 @@
 #include "createsoundmessagewidgettest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "dialogs/createsoundmessagewidget.h"
 #include <QComboBox>
 #include <QLabel>
 #include <QStandardPaths>

@@ -5,7 +5,6 @@
 */
 
 #include "channelactionpopupmenutest.h"
-#include "room/channelactionpopupmenu.h"
 
 #include <QTest>
 QTEST_MAIN(ChannelActionPopupMenuTest)

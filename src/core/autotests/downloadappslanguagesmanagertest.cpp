@@ -5,7 +5,6 @@
 */
 
 #include "downloadappslanguagesmanagertest.h"
-#include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(DownloadAppsLanguagesManagerTest)

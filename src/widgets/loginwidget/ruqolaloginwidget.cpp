@@ -9,7 +9,6 @@
 #include "colorsandmessageviewstyle.h"
 #include "common/authenticationoauthwidget.h"
 #include "loginwidget/ruqolaloginbutton.h"
-#include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"

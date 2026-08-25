@@ -16,7 +16,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/moderationreportedusermodel.h"
 #include "model/moderationreporteduserproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
-#include "moderation/moderationdismissuserreportsjob.h"
 #include "moderation/moderationreportsbyuseridjob.h"
 #include "moderation/moderationreportuserinfos.h"
 #include "moderation/moderationuserreportsjob.h"

@@ -7,7 +7,6 @@
 #include "configurenotificationwidget.h"
 
 #include "misc/soundconfigurewidget.h"
-#include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccount.h"

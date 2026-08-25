@@ -11,7 +11,6 @@
 #include "model/readreceiptsfilterproxymodel.h"
 #include "model/readreceiptsmodel.h"
 #include "rocketchataccount.h"
-#include "rooms/roomsbannedusersjob.h"
 #include "ruqolawidgets_debug.h"
 #include "showreadreceiptsdelegate.h"
 #include <KLineEditEventHandler>

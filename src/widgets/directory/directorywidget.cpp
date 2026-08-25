@@ -7,7 +7,6 @@
 #include "directorywidget.h"
 
 #include "connection.h"
-#include "ddpapi/ddpclient.h"
 #include "misc/directoryjob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/directoryroomsmodel.h"

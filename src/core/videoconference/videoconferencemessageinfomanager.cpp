@@ -11,7 +11,6 @@
 #include "updatevideoconferencemessagejob.h"
 #include "video-conference/videoconferenceinfojob.h"
 #include <QTimer>
-#include <chrono>
 using namespace std::chrono_literals;
 
 VideoConferenceMessageInfoManager::VideoConferenceMessageInfoManager(RocketChatAccount *account, QObject *parent)

@@ -7,7 +7,6 @@
 #include "customsoundsupdatejobtest.h"
 
 #include "custom/customsoundsupdatejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>

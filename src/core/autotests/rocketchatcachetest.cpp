@@ -5,7 +5,6 @@
 */
 
 #include "rocketchatcachetest.h"
-#include "rocketchatcache.h"
 #include "rocketchatcacheutils.h"
 #include <QStandardPaths>
 #include <QTest>

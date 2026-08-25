@@ -14,7 +14,6 @@
 #include "apps/appsmarketplaceinstalledinfo.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
-#include "im/imblockuserjob.h"
 #include "memorymanager/memorymanager.h"
 #include "misc/methodcalljob.h"
 #include "model/appscategoriesmodel.h"

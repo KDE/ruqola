@@ -12,7 +12,6 @@
 #include "dialogs/showimagedialog.h"
 #include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
-#include "rooms/roomsimagesjob.h"
 #include "ruqolawidgets_debug.h"
 #include "showattachmentwidget.h"
 

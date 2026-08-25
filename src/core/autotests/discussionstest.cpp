@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "discussionstest.h"
-#include "discussions/discussion.h"
 #include "discussions/discussions.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>

@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "permissions/permissions.h"
-#include "ruqola_autotest_helper.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(PermissionsTest)

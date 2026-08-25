@@ -5,7 +5,6 @@
 */
 
 #include "autogenerateinteractionuiviewimageelementtest.h"
-#include "autogenerateui/elements/autogenerateinteractionuiviewimageelement.h"
 #include <QTest>
 QTEST_MAIN(AutoGenerateInteractionUiViewImageElementTest)
 

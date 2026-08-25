@@ -6,7 +6,6 @@
 
 #include "usersautocompletejobtest.h"
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/usersautocompletejob.h"

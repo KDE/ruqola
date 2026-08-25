@@ -13,7 +13,6 @@
 #include <TextAddonsWidgets/CompletionListView>
 
 #include <QTimer>
-#include <chrono>
 
 using namespace std::chrono_literals;
 

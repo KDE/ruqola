@@ -46,7 +46,6 @@
 #include "channels/channeldeletejob.h"
 #include "channels/channelfilesjob.h"
 #include "channels/channelgetcountersjob.h"
-#include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"
 #include "channels/channelmembersjob.h"
 #include "channels/channelremoveleaderjob.h"

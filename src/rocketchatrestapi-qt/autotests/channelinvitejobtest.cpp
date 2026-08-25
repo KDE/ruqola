@@ -7,7 +7,6 @@
 #include "channelinvitejobtest.h"
 
 #include "channels/channelinvitejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>

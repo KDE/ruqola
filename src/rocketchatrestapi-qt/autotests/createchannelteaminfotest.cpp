@@ -6,7 +6,6 @@
 
 #include "createchannelteaminfotest.h"
 #include "createchannelteaminfo.h"
-#include "restapimethod.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(CreateChannelTeamInfoTest)

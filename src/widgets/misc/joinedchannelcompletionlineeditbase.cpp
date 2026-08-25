@@ -14,7 +14,6 @@
 #include <KLocalizedString>
 #include <QTimer>
 #include <TextAddonsWidgets/CompletionListView>
-#include <chrono>
 
 using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;

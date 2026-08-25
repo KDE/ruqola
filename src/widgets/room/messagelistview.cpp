@@ -58,7 +58,6 @@
 
 #include "newmessageindicator.h"
 #include "ruqola_newmessageindicator_debug.h"
-#include "ruqolaglobalconfig.h"
 
 #include "config-ruqola.h"
 #if HAVE_TEXT_TRANSLATOR

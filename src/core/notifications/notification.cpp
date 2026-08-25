@@ -9,8 +9,6 @@
 
 #include "notification.h"
 
-#include "ruqola_notification_debug.h"
-
 #include <KLocalizedString>
 #include <QIcon>
 

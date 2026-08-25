@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/changechannelnamejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>

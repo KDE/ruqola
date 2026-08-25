@@ -9,7 +9,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
-#include "model/roomfilterproxymodel.h"
 
 #include <QLineEdit>
 #include <QTest>

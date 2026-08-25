@@ -17,7 +17,6 @@
 #include <QToolTip>
 #include <utility>
 
-#include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"

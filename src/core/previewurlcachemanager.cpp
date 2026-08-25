@@ -11,7 +11,6 @@
 #include <KSharedConfig>
 #include <QDir>
 #include <QTimer>
-#include <chrono>
 using namespace std::chrono_literals;
 
 PreviewUrlCacheManager::PreviewUrlCacheManager(RocketChatAccount *account, QObject *parent)

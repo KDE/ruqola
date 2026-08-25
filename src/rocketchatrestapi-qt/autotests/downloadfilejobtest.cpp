@@ -6,7 +6,6 @@
 
 #include "downloadfilejobtest.h"
 #include "downloadfilejob.h"
-#include "restapimethod.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(DownloadFileJobTest)

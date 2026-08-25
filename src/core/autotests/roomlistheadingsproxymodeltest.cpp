@@ -5,7 +5,6 @@
 */
 #include "roomlistheadingsproxymodeltest.h"
 
-#include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 #include "model/roommodel.h"
 

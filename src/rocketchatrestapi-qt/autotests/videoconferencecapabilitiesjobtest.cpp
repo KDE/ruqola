@@ -6,7 +6,6 @@
 
 #include "videoconferencecapabilitiesjobtest.h"
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "video-conference/videoconferencecapabilitiesjob.h"

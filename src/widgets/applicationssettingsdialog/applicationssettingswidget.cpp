@@ -8,9 +8,7 @@
 #include "applicationssettingsdialog/applicationssettingslistwidget.h"
 #include "applicationssettingsinprogresswidget.h"
 #include "applicationssettingslistview.h"
-#include "appscountinfowidget.h"
 #include "memorymanager/memorymanager.h"
-#include "model/appsmarketplacemodel.h"
 
 #include <QStackedWidget>
 #include <QVBoxLayout>

@@ -5,7 +5,6 @@
 */
 
 #include "usersinroomlabeltest.h"
-#include "room/usersinroomlabel.h"
 #include <QTest>
 QTEST_MAIN(UsersInRoomLabelTest)
 

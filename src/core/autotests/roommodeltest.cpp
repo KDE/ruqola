@@ -18,7 +18,6 @@
 
 #include "rocketchataccount.h"
 #include <QTest>
-#include <qglobal.h>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RoomModelTest)
 

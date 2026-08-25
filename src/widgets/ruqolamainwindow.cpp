@@ -44,7 +44,6 @@
 #include "model/statusmodelfilterproxymodel.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "notificationhistory/notificationhistorydialog.h"
-#include "notifications/notification.h"
 #include "notifications/notificationmanager.h"
 #include "ownuser/ownuserpreferences.h"
 #include "receivetypingnotificationmanager.h"

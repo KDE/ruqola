@@ -16,7 +16,6 @@
 #include "localroomsubscriptionsdatabase.h"
 #include "messages/message.h"
 #include "room.h"
-#include "ruqola_database_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <QDir>
 

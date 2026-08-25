@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "room/messagelinewidget.h"
-#include "room/messagelistview.h"
 #include "room/roomwidgetbase.h"
 #include "threadwidget/threadmessagewidget.h"
 #include <QLabel>

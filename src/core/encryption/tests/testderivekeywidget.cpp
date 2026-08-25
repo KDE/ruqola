@@ -5,7 +5,6 @@
 */
 
 #include "testderivekeywidget.h"
-#include "encryption/encryptionutils.h"
 
 #include <QVBoxLayout>
 

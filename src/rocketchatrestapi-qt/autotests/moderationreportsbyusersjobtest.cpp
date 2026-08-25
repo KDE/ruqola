@@ -8,7 +8,6 @@
 
 #include "moderation/moderationreportsbyusersjob.h"
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 

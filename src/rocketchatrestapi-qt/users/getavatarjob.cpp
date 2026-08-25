@@ -12,6 +12,7 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GetAvatarJob::GetAvatarJob(QObject *parent)
     : UserBaseJob(parent)

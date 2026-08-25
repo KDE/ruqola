@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "newmessageindicatorgui.h"
-#include "room/newmessageindicator.h"
 #include <KMessageWidget>
 #include <QApplication>
 #include <QHBoxLayout>

@@ -11,7 +11,6 @@
 #include <QStandardPaths>
 #include <QTest>
 #if HAVE_ACTIVITY_SUPPORT
-#include "activities/activitiesmanager.h"
 #endif
 QTEST_GUILESS_MAIN(RocketChatAccountFilterProxyModelTest)
 

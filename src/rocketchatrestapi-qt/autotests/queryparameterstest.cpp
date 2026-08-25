@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "queryparameters.h"
-#include "restapimethod.h"
 #include <QTest>
 
 #include <QUrlQuery>

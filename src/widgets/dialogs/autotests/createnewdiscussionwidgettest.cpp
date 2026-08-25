@@ -7,7 +7,6 @@
 #include "createnewdiscussionwidgettest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "dialogs/channelsearchnamelineedit.h"
 #include "dialogs/channelsearchwidget.h"
 #include "dialogs/createnewdiscussionwidget.h"
 #include "misc/adduserswidget.h"

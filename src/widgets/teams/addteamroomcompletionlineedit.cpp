@@ -19,7 +19,6 @@
 
 #include <QJsonArray>
 #include <QTimer>
-#include <chrono>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;

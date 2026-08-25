@@ -15,7 +15,6 @@
 
 #include <KColorScheme>
 #include <KStatefulBrush>
-#include <chrono>
 using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;
 

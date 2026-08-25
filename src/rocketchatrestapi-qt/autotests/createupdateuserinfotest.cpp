@@ -6,7 +6,6 @@
 
 #include "createupdateuserinfotest.h"
 #include "createupdateuserinfo.h"
-#include "restapimethod.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(CreateUpdateUserInfoTest)
