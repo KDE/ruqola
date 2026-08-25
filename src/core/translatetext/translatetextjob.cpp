@@ -28,6 +28,8 @@ void TranslateTextJob::translate()
             translatorEngine->setFrom(mInfo.from);
             translatorEngine->setTo(mInfo.to);
             translatorEngine->translate();
+        } else {
+            Q_EMIT translateFailed(i18n("No translator engine available."));
         }
     } else {
         Q_EMIT translateFailed(i18n("Missing translator info. It's a bug"));
