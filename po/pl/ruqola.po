@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:45+0000\n"
+"POT-Creation-Date: 2026-08-25 00:45+0000\n"
 "PO-Revision-Date: 2025-11-08 10:02+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -1752,7 +1752,7 @@ msgstr "(sam dołączaj)"
 msgid "Owner"
 msgstr "Właściciel"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:370
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:369
 #, kde-format
 msgid "Offline"
 msgstr "Niedostępny"
@@ -2032,17 +2032,17 @@ msgstr "Administrator"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:92 core/utils.cpp:364
+#: core/utils.cpp:92 core/utils.cpp:363
 #, kde-format
 msgid "Online"
 msgstr "Dostępny"
 
-#: core/utils.cpp:94 core/utils.cpp:366 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:365 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Zajęty"
 
-#: core/utils.cpp:96 core/utils.cpp:368 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:367 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Nieobecny"
@@ -3852,7 +3852,7 @@ msgstr "Nie znaleziono żadnego użytkownika"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:216
+#: widgets/directory/directorywidget.cpp:218
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3986,7 +3986,7 @@ msgid "No room found"
 msgstr "Nie znaleziono żadnego pokoju"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:213
+#: widgets/directory/directorywidget.cpp:215
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7453,12 +7453,12 @@ msgctxt "@title:window"
 msgid "Uninstall Application"
 msgstr "Usuń aplikację"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:66
 #, kde-format
 msgid "%1 Caller: %2"
 msgstr "%1 Dzwoniący: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
 #, kde-format
 msgid "No logs info found."
 msgstr "Nie znaleziono żadnego dziennika."
@@ -7813,7 +7813,7 @@ msgstr "Adres URL spotkania:"
 msgid "Provider:"
 msgstr "Dostawca:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:207
+#: widgets/configuredialog/accountservertreewidget.cpp:208
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "Wyświetl konto w bieżącej aktywności"
@@ -9444,22 +9444,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Otwórz wiadomość prywatną…"
 
-#: widgets/directory/directorywidget.cpp:197
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No Room found"
 msgstr "Nie znaleziono żadnego pokoju"
 
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:201
 #, kde-format
 msgid "No User found"
 msgstr "Nie znaleziono żadnego użytkownika"
 
-#: widgets/directory/directorywidget.cpp:201
+#: widgets/directory/directorywidget.cpp:203
 #, kde-format
 msgid "No Team found"
 msgstr "Nie znaleziono żadnego zespołu"
 
-#: widgets/directory/directorywidget.cpp:219
+#: widgets/directory/directorywidget.cpp:221
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -9593,10 +9593,16 @@ msgid "Reset encryption keys"
 msgstr "Wyzeruj klucze szyfrujące"
 
 #: widgets/encryption/e2edisablewidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Disabling E2EE will compromise the privacy of this groupe privé. Access "
+#| "to any encrypted content will be lost for all groupe privé members.\n"
+#| "Encryption can be re-enabled later. Proceed with caution.\n"
+#| "If no one is able to access the encrypted content you can reset "
+#| "encryption keys instead."
 msgid ""
-"Disabling E2EE will compromise the privacy of this groupe privé. Access to "
-"any encrypted content will be lost for all groupe privé members.\n"
+"Disabling E2EE will compromise the privacy of this private group. Access to "
+"any encrypted content will be lost for all private group members.\n"
 "Encryption can be re-enabled later. Proceed with caution.\n"
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
@@ -10671,10 +10677,14 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Dostępność"
 
-#: widgets/notifications/notificationmanager.cpp:99
-#, kde-format
-msgid "%1 has %2 Unread Message"
-msgstr "%1 ma %2 nieprzeczytanych wiadomości"
+#: widgets/notifications/notificationmanager.cpp:95
+#, fuzzy, kde-format
+#| msgid "%1 has %2 Unread Message"
+msgid "%1 has %2 unread message"
+msgid_plural "%1 has %2 unread messages"
+msgstr[0] "%1 ma %2 nieprzeczytanych wiadomości"
+msgstr[1] "%1 ma %2 nieprzeczytanych wiadomości"
+msgstr[2] "%1 ma %2 nieprzeczytanych wiadomości"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format

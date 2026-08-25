@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:45+0000\n"
-"PO-Revision-Date: 2026-01-16 19:56+0200\n"
+"POT-Creation-Date: 2026-08-25 00:45+0000\n"
+"PO-Revision-Date: 2026-03-03 17:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -18,10 +18,9 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "Tekijänoikeudet © 2020–2025 Ruqolan tekijät"
+msgstr "Tekijänoikeudet © 2020–2026 Ruqolan tekijät"
 
 #: apps/main.cpp:64
 #, kde-format
@@ -414,7 +413,7 @@ msgstr "Salli lukea videokokousasetukset"
 #: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Salli muuttaa videokonferenssitarjoajan asetuksia"
 
 #: core/apps/appsmarketplaceinfo.cpp:692
 #, kde-format
@@ -444,7 +443,7 @@ msgstr "Lähtevä viestintä"
 #: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "Näytä työtilan kaikki huoneet"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1748,7 +1747,7 @@ msgstr "(Liity automaattisesti)"
 msgid "Owner"
 msgstr "Omistaja"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:370
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:369
 #, kde-format
 msgid "Offline"
 msgstr "Ei verkossa"
@@ -1945,17 +1944,15 @@ msgstr "Aktivoi virheenpaikannustila"
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Tyhjennä tietokanta (käytä varoen)"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Nyt"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 sekunti"
@@ -1965,39 +1962,37 @@ msgstr[1] "%1 sekuntia"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minuutti"
+msgstr[1] "%1 minuuttia"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 tunti"
+msgstr[1] "%1 tuntia"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 päivä"
+msgstr[1] "%1 päivää"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] "vuosi"
-msgstr[1] "vuosi"
+msgstr[1] "%1 vuotta"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:90
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
 msgstr[0] "kuukausi"
-msgstr[1] "kuukausi"
+msgstr[1] "%1 kuukautta"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -2019,17 +2014,17 @@ msgstr "Ylläpitäjä"
 msgid "Bot"
 msgstr "Botti"
 
-#: core/utils.cpp:92 core/utils.cpp:364
+#: core/utils.cpp:92 core/utils.cpp:363
 #, kde-format
 msgid "Online"
 msgstr "Verkossa"
 
-#: core/utils.cpp:94 core/utils.cpp:366 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:365 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Varattu"
 
-#: core/utils.cpp:96 core/utils.cpp:368 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:367 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Poissa"
@@ -3189,7 +3184,7 @@ msgstr "Luo uusi ääni"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "MP3-tiedosto"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:39
 #, kde-format
@@ -3288,11 +3283,10 @@ msgid "Quick Reactions"
 msgstr "Pikareaktiot"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Viestejä yhteensä"
+msgstr "Aikaleima viesteissä"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
@@ -3821,7 +3815,7 @@ msgstr "Käyttäjää ei löytynyt"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:216
+#: widgets/directory/directorywidget.cpp:218
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -3954,7 +3948,7 @@ msgid "No room found"
 msgstr "Huonetta ei löytynyt"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:213
+#: widgets/directory/directorywidget.cpp:215
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7395,12 +7389,12 @@ msgctxt "@title:window"
 msgid "Uninstall Application"
 msgstr "Poista sovelluksen asennus"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:67
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:66
 #, kde-format
 msgid "%1 Caller: %2"
 msgstr "%1 kutsuja: %2"
 
-#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:73
+#: widgets/applicationssettingsdialog/applicationssettingslogswidget.cpp:72
 #, kde-format
 msgid "No logs info found."
 msgstr "Lokitietoa ei löytynyt."
@@ -7753,7 +7747,7 @@ msgstr "Tapaamisen verkko-osoite:"
 msgid "Provider:"
 msgstr "Tarjoaja:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:207
+#: widgets/configuredialog/accountservertreewidget.cpp:208
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "Näytä nykyisessä toiminnassa tili"
@@ -8849,25 +8843,22 @@ msgid "Select Room Avatar"
 msgstr "Valitse huoneen avatar"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "Lähettäjä:"
+msgstr "Minulta"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Viestiä ei löytynyt"
+msgstr "Etsii lähettämäsi viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "Lähettäjä:"
+msgstr "Lähettäjältä"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:42
 #, kde-format
@@ -8892,84 +8883,75 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "Ennen"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:46
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "Suodata kanavia (%1)"
+msgstr "Suodata päiväyksen mukaan – %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:47
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "Jälkeen"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Viive:"
+msgstr "Päivä"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Käännös"
+msgstr "Sisältää sijainnin"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:51
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "Etsii sijainnin sisältävät viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "Sisältää verkko-osoitteen"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "Etsii linkin sisältävät viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Viesti kiinnitetty"
+msgstr "On kiinnitetty"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "Näyttää nykyisen huoneen kiinnitetyt viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Aloita"
+msgstr "On merkitty tähdellä"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Viesti on merkitty tähdellä"
+msgstr "Näyttää tähdellä merkitsemäsi viestit."
 
 #: widgets/dialogs/searchmessagedialog.cpp:31
 #, kde-format
@@ -9005,17 +8987,15 @@ msgstr ""
 "\">säännöllisin lausekkein</a>, esim. <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Valinnat"
+msgstr "Valinta"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Säännölliset lausekkeet"
+msgstr "Säännöllinen lauseke"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
 #, fuzzy, kde-format
@@ -9028,7 +9008,7 @@ msgstr "Sivuuta käyttäjä"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "Näyttää tai piilottaa hakuvalintarivin."
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9376,22 +9356,22 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Avaa yksityisviestejä…"
 
-#: widgets/directory/directorywidget.cpp:197
+#: widgets/directory/directorywidget.cpp:199
 #, kde-format
 msgid "No Room found"
 msgstr "Huonetta ei löytynyt"
 
-#: widgets/directory/directorywidget.cpp:199
+#: widgets/directory/directorywidget.cpp:201
 #, kde-format
 msgid "No User found"
 msgstr "Käyttäjää ei löytynyt"
 
-#: widgets/directory/directorywidget.cpp:201
+#: widgets/directory/directorywidget.cpp:203
 #, kde-format
 msgid "No Team found"
 msgstr "Työryhmää ei löytynyt"
 
-#: widgets/directory/directorywidget.cpp:219
+#: widgets/directory/directorywidget.cpp:221
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -9520,10 +9500,16 @@ msgid "Reset encryption keys"
 msgstr "Palauta salausavaimet"
 
 #: widgets/encryption/e2edisablewidget.cpp:28
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Disabling E2EE will compromise the privacy of this groupe privé. Access "
+#| "to any encrypted content will be lost for all groupe privé members.\n"
+#| "Encryption can be re-enabled later. Proceed with caution.\n"
+#| "If no one is able to access the encrypted content you can reset "
+#| "encryption keys instead."
 msgid ""
-"Disabling E2EE will compromise the privacy of this groupe privé. Access to "
-"any encrypted content will be lost for all groupe privé members.\n"
+"Disabling E2EE will compromise the privacy of this private group. Access to "
+"any encrypted content will be lost for all private group members.\n"
 "Encryption can be re-enabled later. Proceed with caution.\n"
 "If no one is able to access the encrypted content you can reset encryption "
 "keys instead."
@@ -9684,28 +9670,24 @@ msgid "Export Done."
 msgstr "Vienti on valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, fuzzy, kde-format
-#| msgid "Account %1: export config done."
+#, kde-format
 msgid "<b>Account %1:</b> export config done."
-msgstr "Tili %1: asetusten vienti valmis."
+msgstr "<b>Tili %1:</b> asetusten vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "Tili %1: välimuistin vienti valmis."
+msgstr "<b>Tili %1:</b> välimuistin vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, fuzzy, kde-format
-#| msgid "Account %1: export logs done."
+#, kde-format
 msgid "<b>Account %1:</b> export logs done."
-msgstr "Tili %1: lokien vienti valmis."
+msgstr "<b>Tili %1:</b> lokien vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export database done."
-msgstr "Tili %1: välimuistin vienti valmis."
+msgstr "<b>Tili %1:</b> välimuistin vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:169
 #, kde-format
@@ -9720,7 +9702,7 @@ msgstr "Tilit on viety."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "Luotu Zip: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9772,8 +9754,7 @@ msgid "Import Accounts"
 msgstr "Tuo tilejä"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:40
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Peru"
@@ -10204,11 +10185,10 @@ msgid "Manage Device"
 msgstr "Hallinnoi laitetta"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Viestejä yhteensä"
+msgstr "Aikaleima viesteissä"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10421,13 +10401,13 @@ msgstr "Ilmoitusten äänenvoimakkuus:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "Puhelun soiton voimakkuus:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "Pää-äänenvoimakkuus:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:196
 #, kde-format
@@ -10584,10 +10564,13 @@ msgctxt "@item:inmenu Instant message presence status"
 msgid "Status"
 msgstr "Tila"
 
-#: widgets/notifications/notificationmanager.cpp:99
-#, kde-format
-msgid "%1 has %2 Unread Message"
-msgstr "Käyttäjällä %1 on %2 lukematonta viestiä"
+#: widgets/notifications/notificationmanager.cpp:95
+#, fuzzy, kde-format
+#| msgid "%1 has %2 Unread Message"
+msgid "%1 has %2 unread message"
+msgid_plural "%1 has %2 unread messages"
+msgstr[0] "Käyttäjällä %1 on %2 lukematonta viestiä"
+msgstr[1] "Käyttäjällä %1 on %2 lukematonta viestiä"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -10893,7 +10876,7 @@ msgstr "Lisää WebDAV-palvelin"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "Lisää aikaleima"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -12608,70 +12591,62 @@ msgstr "Lakkaa seuraamasta viestiä"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr ""
+msgstr "Lisää aikaleima"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr ""
+msgstr "Lyhyt kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Long Time (%1)"
-msgstr "Paikallinen aika:"
+msgstr "Pitkä kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Short Date (%1)"
-msgstr "Ilmoituksen päivämäärä"
+msgstr "Lyhyt päiväys (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Default (%1)"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "Oletus (%1)"
+msgstr "Pitkä päiväys (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgid "Full Date and Time (%1)"
-msgstr "Suodata kanavia (%1)"
+msgstr "Täysi päiväys ja kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr ""
+msgstr "Täysi päiväys ja kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr ""
+msgstr "Suhteellinen aika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Paikallinen aika:"
+msgstr "Maa-asetus"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Päiväys"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Aikavyöhyke"
+msgstr "Kellonaika"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
-msgstr "Aliaksen muoto"
+msgstr "Muoto"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
