@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 02:47+0000\n"
-"PO-Revision-Date: 2025-11-12 17:39+0200\n"
+"PO-Revision-Date: 2026-03-03 17:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -18,10 +18,9 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2025 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2026 Ruqola authors"
-msgstr "Tekijänoikeudet © 2020–2025 Ruqolan tekijät"
+msgstr "Tekijänoikeudet © 2020–2026 Ruqolan tekijät"
 
 #: apps/main.cpp:66 core/notifications/notification.cpp:28
 #, kde-format
@@ -412,27 +411,24 @@ msgid "Allow to read oauth app settings"
 msgstr "Salli lukea oauth-sovellusasetukset"
 
 #: core/apps/appsmarketplaceinfo.cpp:686
-#, fuzzy, kde-format
-#| msgid "Allow to write oauth app settings"
+#, kde-format
 msgid "Allow to write video conference settings"
-msgstr "Salli kirjoittaa oauth-sovellusasetukset"
+msgstr "Salli kirjoittaa videokokousasetukset"
 
 #: core/apps/appsmarketplaceinfo.cpp:688
-#, fuzzy, kde-format
-#| msgid "Allow to read oauth app settings"
+#, kde-format
 msgid "Allow to read video conference settings"
-msgstr "Salli lukea oauth-sovellusasetukset"
+msgstr "Salli lukea videokokousasetukset"
 
 #: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to change video conference provider settings"
-msgstr ""
+msgstr "Salli muuttaa videokonferenssitarjoajan asetuksia"
 
 #: core/apps/appsmarketplaceinfo.cpp:692
-#, fuzzy, kde-format
-#| msgid "Allow to write role"
+#, kde-format
 msgid "Allow to register button"
-msgstr "Salli roolin kirjoittaminen"
+msgstr "Salli rekisteröidä painike"
 
 #: core/apps/appsmarketplaceinfo.cpp:698
 #, kde-format
@@ -450,16 +446,14 @@ msgid "Allow to read role"
 msgstr "Salli roolin lukeminen"
 
 #: core/apps/appsmarketplaceinfo.cpp:704
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Mute Focused Conversations"
+#, kde-format
 msgid "Out Bound Communication"
-msgstr "Vaimenna kohdistetut keskustelut"
+msgstr "Lähtevä viestintä"
 
 #: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
 msgid "View all rooms in the workspace"
-msgstr ""
+msgstr "Näytä työtilan kaikki huoneet"
 
 #: core/authenticationmanager.cpp:87
 #, kde-format
@@ -1958,10 +1952,9 @@ msgid "Show Message"
 msgstr "Näytä viesti"
 
 #: core/ruqolacommandlineparser.cpp:51
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Message Url"
-msgstr "Viesti"
+msgstr "Viestin verkko-osoite"
 
 #: core/ruqolacommandlineparser.cpp:54
 #, kde-format
@@ -1970,35 +1963,30 @@ msgid "Lists the available options for user feedback"
 msgstr "Luettelee käyttäjäpalautemahdollisuudet"
 
 #: core/ruqolacommandlineparser.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Start a Call"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
-msgstr "Aloita puhelu"
+msgstr "Aloita verkotta"
 
 #: core/ruqolacommandlineparser.cpp:59
-#, fuzzy, kde-format
-#| msgid "Activated"
+#, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
-msgstr "Käytössä"
+msgstr "Aktivoi virheenpaikannustila"
 
 #: core/ruqolacommandlineparser.cpp:61
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
-msgstr ""
+msgstr "Tyhjennä tietokanta (käytä varoen)"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:59
 #, kde-format
 msgid "Now"
-msgstr ""
+msgstr "Nyt"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:63
-#, fuzzy, kde-format
-#| msgid "1 second"
-#| msgid_plural "%1 seconds"
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 sekunti"
@@ -2008,39 +1996,37 @@ msgstr[1] "%1 sekuntia"
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minuutti"
+msgstr[1] "%1 minuuttia"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:71
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 tunti"
+msgstr[1] "%1 tuntia"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:75
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 päivä"
+msgstr[1] "%1 päivää"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:83
 #: core/timestamp/timestampinmessagesconverter.cpp:92
-#, fuzzy, kde-format
-#| msgid "year"
+#, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
 msgstr[0] "vuosi"
-msgstr[1] "vuosi"
+msgstr[1] "%1 vuotta"
 
 #: core/timestamp/timestampinmessagesconverter.cpp:90
-#, fuzzy, kde-format
-#| msgid "month"
+#, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
 msgstr[0] "kuukausi"
-msgstr[1] "kuukausi"
+msgstr[1] "%1 kuukautta"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -3208,7 +3194,7 @@ msgstr "Luo uusi ääni"
 #, kde-format
 msgctxt "@item:inlistbox File type selection filter"
 msgid "mp3 file"
-msgstr ""
+msgstr "MP3-tiedosto"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:38
 #, kde-format
@@ -3307,11 +3293,10 @@ msgid "Quick Reactions"
 msgstr "Pikareaktiot"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Total Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in Messages"
-msgstr "Viestejä yhteensä"
+msgstr "Aikaleima viesteissä"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
@@ -7857,12 +7842,10 @@ msgid "Animate GIFs"
 msgstr "Animoi GIF-kuvat"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable experimental local database"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable local database"
-msgstr "Ota käyttöön kokeellinen paikallinen tietokanta"
+msgstr "Ota käyttöön paikallinen tietokanta"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:27
 #, kde-format
@@ -8076,9 +8059,7 @@ msgid "DataBase Room Subscriptions"
 msgstr "Tietokanta – huoneet"
 
 #: widgets/delegateutils/messagedelegateutils.cpp:43
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Copy"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
 msgstr "Kopioi"
@@ -8848,25 +8829,22 @@ msgid "Select Room Avatar"
 msgstr "Valitse huoneen avatar"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From Me"
-msgstr "Lähettäjä:"
+msgstr "Minulta"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Message not found."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds Messages sent by you."
-msgstr "Viestiä ei löytynyt"
+msgstr "Etsii lähettämäsi viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "@action:button"
 msgid "From"
-msgstr "Lähettäjä:"
+msgstr "Lähettäjältä"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:41
 #, kde-format
@@ -8891,84 +8869,75 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Before"
-msgstr ""
+msgstr "Ennen"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:49
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:53
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:57
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter by date as %1"
-msgstr "Suodata kanavia (%1)"
+msgstr "Suodata päiväyksen mukaan – %1"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:52
 #, kde-format
 msgctxt "@action:button"
 msgid "After"
-msgstr ""
+msgstr "Jälkeen"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Delay:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Day"
-msgstr "Viive:"
+msgstr "Päivä"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Location"
-msgstr "Käännös"
+msgstr "Sisältää sijainnin"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:61
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that include a location."
-msgstr ""
+msgstr "Etsii sijainnin sisältävät viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Has Url"
-msgstr ""
+msgstr "Sisältää verkko-osoitteen"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Finds messages that contain a link"
-msgstr ""
+msgstr "Etsii linkin sisältävät viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgctxt "@action:button"
 msgid "Is Pinned"
-msgstr "Viesti kiinnitetty"
+msgstr "On kiinnitetty"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Displays pinned messages in the current room."
-msgstr ""
+msgstr "Näyttää nykyisen huoneen kiinnitetyt viestit."
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Start"
+#, kde-format
 msgctxt "@action:button"
 msgid "Has Star"
-msgstr "Aloita"
+msgstr "On merkitty tähdellä"
 
 #: widgets/dialogs/searchmessagecommandbuttonwidget.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Viesti on merkitty tähdellä"
+msgstr "Näyttää tähdellä merkitsemäsi viestit."
 
 #: widgets/dialogs/searchmessagedialog.cpp:30
 #, kde-format
@@ -9004,17 +8973,15 @@ msgstr ""
 "\">säännöllisin lausekkein</a>, esim. <code>/^text$/i</code>"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:23
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Option"
-msgstr "Valinnat"
+msgstr "Valinta"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:25
-#, fuzzy, kde-format
-#| msgid "Regular Expressions"
+#, kde-format
 msgid "Regular Expression"
-msgstr "Säännölliset lausekkeet"
+msgstr "Säännöllinen lauseke"
 
 #: widgets/dialogs/searchmessagewithdelaylineedit.cpp:28
 #, fuzzy, kde-format
@@ -9027,7 +8994,7 @@ msgstr "Sivuuta käyttäjä"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show or Hide search option line"
-msgstr ""
+msgstr "Näyttää tai piilottaa hakuvalintarivin."
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:19
 #, kde-format
@@ -9635,10 +9602,9 @@ msgid "Impossible to create zip file."
 msgstr "Zip-tiedostoa on mahdotonta luoda."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to export account."
-msgstr "Tietoja on mahdotonta viedä."
+msgstr "Tiliä on mahdotonta viedä."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
 #, kde-format
@@ -9646,28 +9612,24 @@ msgid "Export Done."
 msgstr "Vienti on valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
-#, fuzzy, kde-format
-#| msgid "Account %1: export config done."
+#, kde-format
 msgid "<b>Account %1:</b> export config done."
-msgstr "Tili %1: asetusten vienti valmis."
+msgstr "<b>Tili %1:</b> asetusten vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export cache done."
-msgstr "Tili %1: välimuistin vienti valmis."
+msgstr "<b>Tili %1:</b> välimuistin vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
-#, fuzzy, kde-format
-#| msgid "Account %1: export logs done."
+#, kde-format
 msgid "<b>Account %1:</b> export logs done."
-msgstr "Tili %1: lokien vienti valmis."
+msgstr "<b>Tili %1:</b> lokien vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:146
-#, fuzzy, kde-format
-#| msgid "Account %1: export cache done."
+#, kde-format
 msgid "<b>Account %1:</b> export database done."
-msgstr "Tili %1: välimuistin vienti valmis."
+msgstr "<b>Tili %1:</b> välimuistin vienti valmis."
 
 #: widgets/importexportdata/exportdata/exportaccountjob.cpp:167
 #, kde-format
@@ -9682,7 +9644,7 @@ msgstr "Tilit on viety."
 #: widgets/importexportdata/exportdata/exportdatafinishpage.cpp:76
 #, kde-format
 msgid "Generated Zip: %1"
-msgstr ""
+msgstr "Luotu Zip: %1"
 
 #: widgets/importexportdata/exportdata/exportdataselectaccountpage.cpp:23
 #, kde-format
@@ -9734,8 +9696,7 @@ msgid "Import Accounts"
 msgstr "Tuo tilejä"
 
 #: widgets/loginwidget/ruqolaloginbutton.cpp:40
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Peru"
@@ -10148,11 +10109,10 @@ msgid "Manage Device"
 msgstr "Hallinnoi laitetta"
 
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Hide \"User Join\" messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Timestamp in messages"
-msgstr "Piilota ”Käyttäjä liittyi” -viestit"
+msgstr "Aikaleima viesteissä"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:29
 #, kde-format
@@ -10365,13 +10325,13 @@ msgstr "Ilmoitusten äänenvoimakkuus:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Call ringer volume:"
-msgstr ""
+msgstr "Puhelun soiton voimakkuus:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Master volume:"
-msgstr ""
+msgstr "Pää-äänenvoimakkuus:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:196
 #, kde-format
@@ -10826,12 +10786,10 @@ msgid "Message has been starred"
 msgstr "Viesti on merkitty tähdellä"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1030
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Message has been starred"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
-msgstr "Viesti on merkitty tähdellä"
+msgstr "Viestissä on käännösteksti"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1034
 #, kde-format
@@ -10849,12 +10807,10 @@ msgstr "Lisää reaktio"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1044
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
 msgstr "Puhu teksti"
@@ -10869,7 +10825,7 @@ msgstr "Lisää WebDAV-palvelin"
 #, kde-format
 msgctxt "@action"
 msgid "Insert TimeStamp"
-msgstr ""
+msgstr "Lisää aikaleima"
 
 #: widgets/room/messagelineextratoolbutton.cpp:22
 #, kde-format
@@ -11872,18 +11828,16 @@ msgid "Hide menu bar"
 msgstr "Piilota valikkorivi"
 
 #: widgets/ruqolamainwindow.cpp:1447
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgctxt "@action"
 msgid "Work Online"
-msgstr "Verkossa"
+msgstr "Työskentele verkollisessa tilassa"
 
 #: widgets/ruqolamainwindow.cpp:1450
-#, fuzzy, kde-format
-#| msgid "Offline"
+#, kde-format
 msgctxt "@action"
 msgid "Work Offline"
-msgstr "Ei verkossa"
+msgstr "Työskentele verkottomassa tilassa"
 
 #. i18n: ectx: Menu (windows)
 #: widgets/ruqolaui.rc:42
@@ -12062,68 +12016,62 @@ msgstr "Lakkaa seuraamasta viestiä"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add TimeStamp"
-msgstr ""
+msgstr "Lisää aikaleima"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
 #, kde-format
 msgid "Short Time (%1)"
-msgstr ""
+msgstr "Lyhyt kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
 #, kde-format
 msgid "Long Time (%1)"
-msgstr ""
+msgstr "Pitkä kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
 #, kde-format
 msgid "Short Date (%1)"
-msgstr ""
+msgstr "Lyhyt päiväys (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
-#, fuzzy, kde-format
-#| msgid "Default (%1)"
+#, kde-format
 msgid "Long Date (%1)"
-msgstr "Oletus (%1)"
+msgstr "Pitkä päiväys (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Filter channels (%1)"
+#, kde-format
 msgid "Full Date and Time (%1)"
-msgstr "Suodata kanavia (%1)"
+msgstr "Täysi päiväys ja kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
-msgstr ""
+msgstr "Täysi päiväys ja kellonaika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
 #, kde-format
 msgid "Relative time (%1)"
-msgstr ""
+msgstr "Suhteellinen aika (%1)"
 
 #: widgets/timestampinmessages/timestampinmessagestimezonecombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Local Time:"
+#, kde-format
 msgid "Locale"
-msgstr "Paikallinen aika:"
+msgstr "Maa-asetus"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Päiväys"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "TimeZone"
+#, kde-format
 msgid "Time"
-msgstr "Aikavyöhyke"
+msgstr "Kellonaika"
 
 #: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Alias Format"
+#, kde-format
 msgid "Format"
-msgstr "Aliaksen muoto"
+msgstr "Muoto"
 
 #: widgets/userfeedback/accountinfosource.cpp:24
 #, kde-format
@@ -12809,25 +12757,22 @@ msgstr "Korjaa tiedoston liitteen koon näyttö."
 #: widgets/whatsnew/whatsnewtranslations.cpp:214
 #, kde-format
 msgid "Copy block code more easily."
-msgstr ""
+msgstr "Kopioi koodilohko helpommin."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:215
-#, fuzzy, kde-format
-#| msgid "Improve list of user in room."
+#, kde-format
 msgid "Improve Text To Speech user interface."
-msgstr "Paranna huoneen käyttäjäluetteloa."
+msgstr "Paranna puhesynteesikäyttöliittymää."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:216
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Show Attachments - %1"
+#, kde-format
 msgid "Show attachment fields."
-msgstr "Näytä liitteet – %1"
+msgstr "Näytä liitekentät."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:217
 #, kde-format
 msgid "Implement Offline Mode (experimental)."
-msgstr ""
+msgstr "Toteuta verkoton tila (kokeellinen)"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:218
 #, kde-format
@@ -12835,44 +12780,39 @@ msgid "Implement Pending Typed database storage."
 msgstr ""
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:219
-#, fuzzy, kde-format
-#| msgid "Fix jitsi support."
+#, kde-format
 msgid "Fix RC 8.0.0 support."
-msgstr "Korjattu Jitsi-tuki."
+msgstr "korjattu RC 8.0.0 -tuki"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:220
-#, fuzzy, kde-format
-#| msgid "Add AI Rocket Chat Actions support."
+#, kde-format
 msgid "Add Attachment Actions Support."
-msgstr "Lisätty AI Rocket Chat -toimintotuki."
+msgstr "lisätty liitetoimenpiteiden tuki"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:221
-#, fuzzy, kde-format
-#| msgid "Add Report User Support"
+#, kde-format
 msgid "Add TimeStamp support."
-msgstr "Lisätty käyttäjästä ilmoittamisen tuki"
+msgstr "lisätty aikaleimatuki"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:224
 #, kde-format
 msgid "Save local translation to local database."
-msgstr ""
+msgstr "Tallenna paikallinen käännös paikalliseen tietokantaan."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:225
 #, kde-format
 msgid "Fix remove room (in local database)."
-msgstr ""
+msgstr "Korjattu huoneen poistaminen (paikallisessa tietokannassa)."
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:226
-#, fuzzy, kde-format
-#| msgid "Report date"
+#, kde-format
 msgid "Fix export database."
-msgstr "Ilmoituksen päivämäärä"
+msgstr "korjattu tietokannan vienti"
 
 #: widgets/whatsnew/whatsnewtranslations.cpp:227
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Fix upload Custom Sound"
-msgstr "Mukautetut äänet"
+msgstr "korjattu mukautetun äänen lähetys"
 
 #, fuzzy
 #~| msgid "Do you want to mute this user?"
