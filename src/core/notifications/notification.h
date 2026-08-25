@@ -12,7 +12,6 @@
 #include <KStatusNotifierItem>
 #include <QMap>
 
-class UnityServiceManager;
 class LIBRUQOLACORE_EXPORT Notification : public KStatusNotifierItem
 {
     Q_OBJECT

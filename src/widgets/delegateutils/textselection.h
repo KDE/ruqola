@@ -17,7 +17,6 @@
 
 class QTextCursor;
 class QTextDocument;
-class Message;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DocumentFactoryInterface
 {

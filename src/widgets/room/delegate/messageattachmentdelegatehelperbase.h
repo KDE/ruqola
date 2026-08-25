@@ -22,7 +22,6 @@ class QMouseEvent;
 class QStyleOptionViewItem;
 class QHelpEvent;
 
-class Message;
 class QListView;
 class RocketChatAccount;
 class QMenu;

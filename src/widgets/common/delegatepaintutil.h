@@ -8,7 +8,6 @@
 
 #include <QString>
 class QPainter;
-class QPointF;
 class QPoint;
 class QRectF;
 class QPixmap;

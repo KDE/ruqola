@@ -10,7 +10,6 @@
 #include "libruqola_private_export.h"
 #include <QList>
 class QDebug;
-class DownloadAppsLanguagesManager;
 class LIBRUQOLACORE_TESTS_EXPORT BannedUsers
 {
 public:

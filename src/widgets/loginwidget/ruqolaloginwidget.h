@@ -9,7 +9,6 @@
 #include "authenticationmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class QPushButton;
 class QLabel;
 class KBusyIndicatorWidget;
 class TwoAuthenticationPasswordWidget;

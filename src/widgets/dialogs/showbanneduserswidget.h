@@ -10,7 +10,6 @@
 #include <QWidget>
 class QLineEdit;
 class QLabel;
-class QListView;
 class BannedUsersModel;
 class RocketChatAccount;
 class BannedUsersFilterProxyModel;

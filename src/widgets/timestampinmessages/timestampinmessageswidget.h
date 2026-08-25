@@ -8,7 +8,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "timestamp/timestampinmessagesutils.h"
 #include <QWidget>
-class QDebug;
 class QDateEdit;
 class QTimeEdit;
 class TimeStampInMessagesFormatComboBox;

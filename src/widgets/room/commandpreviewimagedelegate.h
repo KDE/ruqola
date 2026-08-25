@@ -7,7 +7,6 @@
 #pragma once
 
 #include <QStyledItemDelegate>
-class QListView;
 class CommandPreviewImageDelegate : public QStyledItemDelegate
 {
     Q_OBJECT

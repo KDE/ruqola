@@ -18,7 +18,6 @@ namespace RocketChatRestApi
 {
 class RestApiAbstractJob;
 class GetThreadMessagesJob;
-class GetMessageJob;
 }
 
 class LIBRUQOLACORE_EXPORT MessageCache : public QObject
