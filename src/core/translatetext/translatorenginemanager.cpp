@@ -10,7 +10,6 @@
 #include <TextTranslator/TranslatorEngineLoader>
 #include <TextTranslator/TranslatorEnginePlugin>
 #include <TextTranslator/TranslatorUtil>
-using namespace Qt::Literals::StringLiterals;
 TranslatorEngineManager::TranslatorEngineManager(QObject *parent)
     : QObject{parent}
 {
@@ -34,14 +33,13 @@ void TranslatorEngineManager::translatorConfigChanged()
 void TranslatorEngineManager::initializeTranslateEngine()
 {
     delete mTranslatorEnginePlugin;
+    mTranslatorEnginePlugin = nullptr;
     const QString engineName = TextTranslator::TranslatorUtil::loadEngine();
     TextTranslator::TranslatorEngineClient *translatorClient = TextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(engineName);
     if (translatorClient) {
         mTranslatorEnginePlugin = translatorClient->createTranslator();
         connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
         connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorEngineManager::translateFailed);
-    } else {
-        mTranslatorEnginePlugin = nullptr;
     }
 }
 
