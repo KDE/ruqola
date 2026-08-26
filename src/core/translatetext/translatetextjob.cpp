@@ -13,8 +13,29 @@
 TranslateTextJob::TranslateTextJob(QObject *parent)
     : QObject(parent)
 {
-    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateDone, this, &TranslateTextJob::translateDone);
-    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateFailed, this, &TranslateTextJob::translateFailed);
+    mTranslatorEnginePlugin = TranslatorEngineManager::self()->translatorEngineBase();
+    if (mTranslatorEnginePlugin) {
+        connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateDone, this, [this]() {
+            const QString result = mTranslatorEnginePlugin->resultTranslate();
+            disconnectFromEngine();
+            Q_EMIT translateDone(mInfo.messageId, result);
+        });
+        connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateFailed, this, [this](const QString &errorMessage) {
+            disconnectFromEngine();
+            Q_EMIT translateFailed(mInfo.messageId, errorMessage);
+        });
+    }
+}
+
+void TranslateTextJob::disconnectFromEngine()
+{
+    // The engine plugin is shared by every job: once we got our own result we must stop
+    // listening to it, otherwise the result of the next translation would be delivered
+    // here as well (this job is only deleteLater()'ed, so it outlives its result).
+    if (mTranslatorEnginePlugin) {
+        mTranslatorEnginePlugin->disconnect(this);
+        mTranslatorEnginePlugin = nullptr;
+    }
 }
 
 TranslateTextJob::~TranslateTextJob() = default;
@@ -22,17 +43,16 @@ TranslateTextJob::~TranslateTextJob() = default;
 void TranslateTextJob::translate()
 {
     if (mInfo.isValid()) {
-        auto translatorEngine = TranslatorEngineManager::self()->translatorEngineBase();
-        if (translatorEngine) {
-            translatorEngine->setInputText(mInfo.inputText);
-            translatorEngine->setFrom(mInfo.from);
-            translatorEngine->setTo(mInfo.to);
-            translatorEngine->translate();
-        } else {
-            Q_EMIT translateFailed(i18n("No translator engine available."));
+        if (!mTranslatorEnginePlugin) {
+            Q_EMIT translateFailed(mInfo.messageId, i18n("No translator engine available."));
+            return;
         }
+        mTranslatorEnginePlugin->setInputText(mInfo.inputText);
+        mTranslatorEnginePlugin->setFrom(mInfo.from);
+        mTranslatorEnginePlugin->setTo(mInfo.to);
+        mTranslatorEnginePlugin->translate();
     } else {
-        Q_EMIT translateFailed(i18n("Missing translator info. It's a bug"));
+        Q_EMIT translateFailed(mInfo.messageId, i18n("Missing translator info. It's a bug"));
         qCDebug(RUQOLA_LOG) << " Invalid translate info " << mInfo;
     }
 }
@@ -54,9 +74,10 @@ bool TranslateTextJob::TranslateInfo::isValid() const
 
 QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t)
 {
-    d.space() << "From " << t.from;
-    d.space() << "To " << t.to;
-    d.space() << "inputtext " << t.inputText;
+    d.space() << "From:" << t.from;
+    d.space() << "To:" << t.to;
+    d.space() << "inputtext:" << t.inputText;
+    d.space() << "messageId:" << t.messageId;
     return d;
 }
 

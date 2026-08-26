@@ -483,6 +483,12 @@ void MessagesModel::decryptMessages(const QByteArray &sessionKey)
     }
 }
 
+void MessagesModel::changeLocalTranslation(const QByteArray &messageId, const QString &result)
+{
+    const QModelIndex index = indexForMessage(messageId);
+    setData(index, result, MessagesModel::LocalTranslation);
+}
+
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
     if (message.messageType() == Message::System) {

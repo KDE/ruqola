@@ -8,6 +8,10 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 class QDebug;
+namespace TextTranslator
+{
+class TranslatorEnginePlugin;
+}
 class LIBRUQOLACORE_EXPORT TranslateTextJob : public QObject
 {
     Q_OBJECT
@@ -16,6 +20,7 @@ public:
         QString from;
         QString to;
         QString inputText;
+        QByteArray messageId;
         [[nodiscard]] bool isValid() const;
     };
     explicit TranslateTextJob(QObject *parent = nullptr);
@@ -27,10 +32,12 @@ public:
     void setInfo(const TranslateInfo &newInfo);
 
 Q_SIGNALS:
-    void translateDone(const QString &translatedText);
-    void translateFailed(const QString &errorMessage = QString());
+    void translateDone(const QByteArray &messageId, const QString &translatedText);
+    void translateFailed(const QByteArray &messageId, const QString &errorMessage = QString());
 
 private:
+    LIBRUQOLACORE_NO_EXPORT void disconnectFromEngine();
     TranslateInfo mInfo;
+    TextTranslator::TranslatorEnginePlugin *mTranslatorEnginePlugin = nullptr;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t);

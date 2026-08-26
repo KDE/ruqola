@@ -111,6 +111,20 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     connect(mMessageListDelegate, &MessageListDelegate::textToSpeech, this, &MessageListView::slotTextToSpeech);
     connect(mMessageListDelegate, &MessageListDelegate::stopTextToSpeech, this, &MessageListView::slotStopTextToSpeech);
 #endif
+#if HAVE_TEXT_TRANSLATOR
+    // TranslatorEngineManager is a singleton and every MessageListView is connected to it,
+    // so only react when the translated message is one of ours.
+    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateDone, this, [this](const QByteArray &messageId, const QString &result) {
+        if (auto messageModel = qobject_cast<MessagesModel *>(model()); messageModel && messageModel->indexForMessage(messageId).isValid()) {
+            messageModel->changeLocalTranslation(messageId, result);
+        }
+    });
+    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateFailed, this, [this](const QByteArray &messageId, const QString &errorStr) {
+        if (const auto messageModel = qobject_cast<MessagesModel *>(model()); messageModel && messageModel->indexForMessage(messageId).isValid()) {
+            KMessageBox::error(this, errorStr, i18nc("@title:window", "Translator Error"));
+        }
+    });
+#endif
 }
 
 MessageListView::~MessageListView() = default;
@@ -1280,27 +1294,18 @@ void MessageListView::slotTranslate([[maybe_unused]] const QString &from,
     if (modelIndex.isValid()) {
         const QString originalMessage = modelIndex.data(MessagesModel::OriginalMessage).toString();
         if (!originalMessage.isEmpty()) {
+            const QByteArray messageId = modelIndex.data(MessagesModel::MessageId).toByteArray();
             qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " originalMessage " << originalMessage;
             qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " from " << from << " to " << to;
-            TranslateTextJob::TranslateInfo info;
-            info.from = from;
-            info.to = to;
-            info.inputText = originalMessage;
-            auto job = new TranslateTextJob(this);
-            job->setInfo(info);
-            connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex, job](const QString &str) {
-                auto messageModel = qobject_cast<MessagesModel *>(model());
-                qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " modelIndex " << modelIndex;
-                // qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " messageModel " << messageModel;
-                messageModel->setData(modelIndex, str, MessagesModel::LocalTranslation);
-                qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " translated string :" << str;
-                job->deleteLater();
-            });
-            connect(job, &TranslateTextJob::translateFailed, this, [this, job](const QString &errorMessage) {
-                KMessageBox::error(this, errorMessage, i18nc("@title:window", "Translator Error"));
-                job->deleteLater();
-            });
-            job->translate();
+            const TranslatorEngineManager::TranslateRequest info{
+                .from = from,
+                .to = to,
+                .inputText = originalMessage,
+                .messageId = messageId,
+            };
+            if (info.isValid()) {
+                TranslatorEngineManager::self()->addPendingTranslation(info);
+            }
         }
     }
 #endif

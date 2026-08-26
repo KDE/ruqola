@@ -183,6 +183,8 @@ public:
 
     void decryptMessages(const QByteArray &sessionKey);
 
+    void changeLocalTranslation(const QByteArray &messageId, const QString &result);
+
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     /**
