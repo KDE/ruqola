@@ -70,7 +70,7 @@ void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
 
 void MessageLineExtraToolButton::updateWebDavSupport()
 {
-    if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
+    if (mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
         mMenu->addAction(mWebdavAddServerAction);
     } else {
         mMenu->removeAction(mWebdavAddServerAction);
@@ -79,10 +79,11 @@ void MessageLineExtraToolButton::updateWebDavSupport()
 
 void MessageLineExtraToolButton::updateTimeStampSupport()
 {
-    if (mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+    if (mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
         mMenu->addAction(mTimeStampAction);
     } else {
-        if (mCurrentRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
+        if (mCurrentRocketChatAccount
+            && mCurrentRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
             mMenu->addAction(mTimeStampAction);
         } else {
             mMenu->removeAction(mTimeStampAction);
