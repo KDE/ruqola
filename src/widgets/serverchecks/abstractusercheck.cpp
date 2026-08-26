@@ -146,7 +146,7 @@ void AbstractUserCheck::changeChannelLeaderUser(const QByteArray &userId, const 
         });
         connectFailure(job, callback);
         if (!job->start()) {
-            callback(false, i18n("Could not start the add moderator request."));
+            callback(false, i18n("Could not start the add leader request."));
         }
     } else {
         auto job = new RocketChatRestApi::ChannelRemoveLeaderJob(this);
@@ -158,7 +158,7 @@ void AbstractUserCheck::changeChannelLeaderUser(const QByteArray &userId, const 
         });
         connectFailure(job, callback);
         if (!job->start()) {
-            callback(false, i18n("Could not start the remove moderator request."));
+            callback(false, i18n("Could not start the remove leader request."));
         }
     }
 }
