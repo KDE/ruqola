@@ -68,7 +68,7 @@ void ExportDataFinishPage::setListAccounts(const QList<ImportExportUtils::Accoun
 void ExportDataFinishPage::exportAccounts()
 {
     const QString fileNamePath = generateExportZipFileName();
-    auto job = new ExportAccountJob(generateExportZipFileName(), this);
+    auto job = new ExportAccountJob(fileNamePath, this);
     connect(job, &ExportAccountJob::exportDone, this, &ExportDataFinishPage::slotExportDone);
     connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
     connect(job, &ExportAccountJob::exportInfo, this, &ExportDataFinishPage::slotExportInfo);
