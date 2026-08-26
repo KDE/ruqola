@@ -160,7 +160,7 @@ void ImportAccountJob::importAccount(QString accountName)
             }
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(cachePath + u"/%1"_s.arg(file));
-                if (filePathEntry->isDirectory()) {
+                if (filePathEntry && filePathEntry->isDirectory()) {
                     const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
                     if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(file))) {
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
@@ -249,7 +249,7 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
         }
         for (const QString &file : messageList) {
             const KArchiveEntry *filePathEntry = mArchive->directory()->entry(databasePath + u"/" + subfolder + u"/%1"_s.arg(file));
-            if (filePathEntry->isFile()) {
+            if (filePathEntry && filePathEntry->isFile()) {
                 const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
                 QString newFileName = file;
                 if (renameFiles) {
