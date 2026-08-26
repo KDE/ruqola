@@ -162,7 +162,7 @@ bool ExportAccountJob::canStart() const
 void ExportAccountJob::storeDirectory(const QString &subDirectory, const QString &subfolderPath)
 {
     const QDir directoryToStore(subDirectory);
-    qDebug() << " directoryToStore " << directoryToStore;
+    qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " directoryToStore " << directoryToStore;
     if (directoryToStore.exists()) {
         const bool addFolder = mArchive->addLocalDirectory(directoryToStore.path(), subfolderPath);
         if (!addFolder) {
