@@ -263,7 +263,7 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Invalid file " << file;
                     }
                 }
-                if (!filePath->copyTo(newCachePath)) {
+                if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(newFileName))) {
                     qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory " << newCachePath + u"/%1"_s.arg(newFileName);
                 }
             } else {
