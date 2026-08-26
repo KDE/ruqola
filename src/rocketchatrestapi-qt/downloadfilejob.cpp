@@ -52,7 +52,7 @@ void DownloadFileJob::slotDownloadDone()
                 file.write(data);
                 file.close();
             } else {
-                qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Error !" << file.errorString();
+                qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Error !" << file.errorString() << " newFilePath " << newFilePath;
             }
             Q_EMIT downloadFileDone(reply->url(), mLocalFileUrl);
         } else {
