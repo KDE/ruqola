@@ -30,9 +30,9 @@ Q_SIGNALS:
     void roomListChanged(bool isNotEmpty);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &info);
     AddTeamRoomCompletionLineEdit *const mSearchRoomLineEdit;
     TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
-    QMap<QString, ClickableWidget *> mMap;
+    QMap<QByteArray, ClickableWidget *> mMap;
 };

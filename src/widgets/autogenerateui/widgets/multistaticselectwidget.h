@@ -32,10 +32,10 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QString &username);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void checkMaxSelectedItems();
     MultiStaticSelectLineEdit *const mLineEdit;
     TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
-    QMap<QString, ClickableWidget *> mMap;
+    QMap<QByteArray, ClickableWidget *> mMap;
     int mMaxSelectItems = -1;
 };

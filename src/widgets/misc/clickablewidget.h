@@ -39,8 +39,7 @@ public:
     void setPixmap(const QPixmap &pix);
 
 Q_SIGNALS:
-    void removeClickableWidget(const QString &username);
-    void removeClickableWidgetFromIdentifier(const QByteArray &identifier);
+    void removeClickableWidget(const QByteArray &identifier);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemove();

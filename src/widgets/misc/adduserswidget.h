@@ -38,10 +38,10 @@ Q_SIGNALS:
     void userListChanged(bool isNotEmpty);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QString &username);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QByteArray &userId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
     AddUsersCompletionLineEdit *const mSearchUserLineEdit;
     TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
-    QMap<QString, ClickableWidget *> mMap;
+    QMap<QByteArray, ClickableWidget *> mMap;
     AvatarCacheManager *const mAvatarCacheManager;
 };

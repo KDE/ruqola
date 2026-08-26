@@ -61,15 +61,15 @@ void MultiStaticSelectWidget::setPlaceholderText(const QString &str)
 
 void MultiStaticSelectWidget::slotAddNewName(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info)
 {
-    const QString &userName = info.text;
-    if (mMap.contains(userName)) {
+    const QByteArray identifier = info.value.toLatin1();
+    if (mMap.contains(identifier)) {
         return;
     }
-    auto clickableUserWidget = new ClickableWidget(userName, this);
-    clickableUserWidget->setIdentifier(info.value.toLatin1());
+    auto clickableUserWidget = new ClickableWidget(info.text, this);
+    clickableUserWidget->setIdentifier(identifier);
     connect(clickableUserWidget, &ClickableWidget::removeClickableWidget, this, &MultiStaticSelectWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
-    mMap.insert(userName, clickableUserWidget);
+    mMap.insert(identifier, clickableUserWidget);
     checkMaxSelectedItems();
 }
 
@@ -80,15 +80,15 @@ void MultiStaticSelectWidget::checkMaxSelectedItems()
     }
 }
 
-void MultiStaticSelectWidget::slotRemoveUser(const QString &username)
+void MultiStaticSelectWidget::slotRemoveUser(const QByteArray &identifier)
 {
-    ClickableWidget *userWidget = mMap.value(username);
+    ClickableWidget *userWidget = mMap.value(identifier);
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
             userWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
-            mMap.remove(username);
+            mMap.remove(identifier);
             checkMaxSelectedItems();
         }
     }
