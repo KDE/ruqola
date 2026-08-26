@@ -29,7 +29,7 @@ ImportDataWizard::ImportDataWizard(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Import Accounts"));
     mImportDataSelectAccountPage->setObjectName(u"mImportDataSelectAccountPage"_s);
-    mImportDataFinishPage->setObjectName(u"mImportDataSelectAccountPage"_s);
+    mImportDataFinishPage->setObjectName(u"mImportDataFinishPage"_s);
 
     setPage(SelectAccountPage, mImportDataSelectAccountPage);
     setPage(FinishPage, mImportDataFinishPage);

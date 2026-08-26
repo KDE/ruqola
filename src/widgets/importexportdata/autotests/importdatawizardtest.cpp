@@ -26,7 +26,7 @@ void ImportDataWizardTest::shouldHaveDefaultValues()
     auto mImportDataSelectAccountPage = w.findChild<ImportDataSelectAccountPage *>(u"mImportDataSelectAccountPage"_s);
     QVERIFY(mImportDataSelectAccountPage);
 
-    auto mImportDataFinishPage = w.findChild<ImportDataFinishPage *>(u"mImportDataSelectAccountPage"_s);
+    auto mImportDataFinishPage = w.findChild<ImportDataFinishPage *>(u"mImportDataFinishPage"_s);
     QVERIFY(mImportDataFinishPage);
 }
 
