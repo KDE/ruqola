@@ -63,7 +63,7 @@ void ForwardMessageWidget::slotRemoveRoom(const QString &name)
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
-            mFlowLayout->removeItem(mFlowLayout->itemAt(index));
+            delete mFlowLayout->takeAt(index);
             mMap.remove(name);
             userWidget->deleteLater();
         }
