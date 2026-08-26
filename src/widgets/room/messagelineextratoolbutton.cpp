@@ -15,7 +15,7 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     : QToolButton(parent)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
     , mMenu(new QMenu)
-    , mWebdavAddServerAction(new QAction(i18nc("@action", "Add WebDav Server"), this))
+    , mWebdavAddServerAction(new QAction(i18nc("@action", "Add WebDAV Server"), this))
     , mTimeStampAction(new QAction(i18nc("@action", "Insert TimeStamp"), this))
 {
     setIcon(QIcon::fromTheme(u"list-add"_s));
