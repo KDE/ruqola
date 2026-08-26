@@ -29,7 +29,7 @@ ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *
     mForwardMessageAddChannelCompletionLineEdit->setObjectName(u"mForwardMessageAddChannelCompletionLineEdit"_s);
     mainLayout->addWidget(mForwardMessageAddChannelCompletionLineEdit);
     connect(mForwardMessageAddChannelCompletionLineEdit,
-            &ForwardMessageAddChannelCompletionLineEdit::fowardToChannel,
+            &ForwardMessageAddChannelCompletionLineEdit::forwardToChannel,
             this,
             &ForwardMessageWidget::slotForwardToChannel);
 

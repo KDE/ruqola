@@ -17,7 +17,7 @@ public:
     ~ForwardMessageAddChannelCompletionLineEdit() override;
 
 Q_SIGNALS:
-    void fowardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
+    void forwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinedChannelFound(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info);
