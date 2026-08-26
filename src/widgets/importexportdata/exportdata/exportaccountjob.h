@@ -30,10 +30,6 @@ Q_SIGNALS:
     void exportFailed(const QString &errorMsg);
     void exportInfo(const QString &msg);
 
-    void exportCacheData(const ImportExportUtils::AccountImportExportInfo &info);
-    void exportLogsData(const ImportExportUtils::AccountImportExportInfo &info);
-    void exportDatabaseData(const ImportExportUtils::AccountImportExportInfo &info);
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void storeDirectory(const QString &subDirectory, const QString &subfolderPath);
     LIBRUQOLAWIDGETS_NO_EXPORT void exportAccount(const ImportExportUtils::AccountImportExportInfo &info);
@@ -44,7 +40,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void finishExportAccount();
     LIBRUQOLAWIDGETS_NO_EXPORT void exportAccount();
     QList<ImportExportUtils::AccountImportExportInfo> mListAccounts;
-    int mAccountIndex = 0;
     QStringList mAccountNames;
     KZip *const mArchive;
 };

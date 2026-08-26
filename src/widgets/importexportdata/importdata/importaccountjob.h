@@ -40,5 +40,4 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString verifyExistingAccount(QString accountName) const;
     QStringList mAccountInfos;
     KZip *const mArchive;
-    int mAccountIndex = 0;
 };

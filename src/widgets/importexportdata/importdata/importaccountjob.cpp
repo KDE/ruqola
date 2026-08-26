@@ -14,17 +14,21 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QTemporaryDir>
-#include <QTimer>
+#include <utility>
 
 using namespace Qt::Literals::StringLiterals;
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
     : QThread{parent}
     , mArchive(new KZip(fileName))
 {
+    connect(this, &ImportAccountJob::finished, this, &QObject::deleteLater);
 }
 
 ImportAccountJob::~ImportAccountJob()
 {
+    if (isRunning()) {
+        wait();
+    }
     if (mArchive && mArchive->isOpen()) {
         mArchive->close();
     }
@@ -35,7 +39,6 @@ void ImportAccountJob::run()
 {
     const bool result = mArchive->open(QIODevice::ReadOnly);
     if (!result) {
-        deleteLater();
         Q_EMIT importFailed(i18n("Impossible to open zip file."));
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open zip file";
         return;
@@ -49,7 +52,6 @@ void ImportAccountJob::run()
         if (!accountsFile->copyTo(accountFileTmp.path())) {
             qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Impossible to copy to " << accountFileTmp.path();
             Q_EMIT importFailed(i18n("Impossible to copy file"));
-            deleteLater();
             return;
         }
         // qDebug() << " accountFileTmp->fileName()" << accountFileTmp.path();
@@ -57,7 +59,6 @@ void ImportAccountJob::run()
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open file";
             Q_EMIT importFailed(i18n("Impossible to open file"));
-            deleteLater();
             return;
         }
 
@@ -68,24 +69,21 @@ void ImportAccountJob::run()
         }
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " list of accounts " << mAccountInfos;
     }
-    QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
+    importAccounts();
 }
 
 void ImportAccountJob::importAccounts()
 {
-    if (mAccountIndex < mAccountInfos.count()) {
-        const auto account = mAccountInfos.at(mAccountIndex);
+    for (const QString &account : std::as_const(mAccountInfos)) {
         importAccount(account);
-    } else {
-        finishImportAccounts();
     }
+    finishImportAccounts();
 }
 
 void ImportAccountJob::finishImportAccounts()
 {
     Q_EMIT importDone();
     Q_EMIT importInfo(i18n("Import Done.") + u'\n');
-    deleteLater();
 }
 
 void ImportAccountJob::importAccount(QString accountName)
@@ -226,9 +224,6 @@ void ImportAccountJob::importAccount(QString accountName)
                          true); // TODO verify this one in the future as not implemented yet
         }
     }
-
-    mAccountIndex++;
-    QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
 }
 
 void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,

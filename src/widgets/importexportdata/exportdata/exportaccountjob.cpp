@@ -13,19 +13,21 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QTemporaryFile>
+#include <utility>
 
 using namespace Qt::Literals::StringLiterals;
 ExportAccountJob::ExportAccountJob(const QString &fileName, QObject *parent)
     : QThread{parent}
     , mArchive(new KZip(fileName))
 {
-    connect(this, &ExportAccountJob::exportCacheData, this, &ExportAccountJob::exportCache);
-    connect(this, &ExportAccountJob::exportDatabaseData, this, &ExportAccountJob::exportDatabase);
-    connect(this, &ExportAccountJob::exportLogsData, this, &ExportAccountJob::exportLogs);
+    connect(this, &ExportAccountJob::finished, this, &QObject::deleteLater);
 }
 
 ExportAccountJob::~ExportAccountJob()
 {
+    if (isRunning()) {
+        wait();
+    }
     if (mArchive && mArchive->isOpen()) {
         mArchive->close();
     }
@@ -35,14 +37,12 @@ ExportAccountJob::~ExportAccountJob()
 void ExportAccountJob::run()
 {
     if (!canStart()) {
-        deleteLater();
         Q_EMIT exportFailed(i18n("Impossible to export data."));
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Account list is empty! ";
         return;
     }
     const bool result = mArchive->open(QIODevice::WriteOnly);
     if (!result) {
-        deleteLater();
         Q_EMIT exportFailed(i18n("Impossible to create zip file."));
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open zip file";
         return;
@@ -53,13 +53,11 @@ void ExportAccountJob::run()
 
 void ExportAccountJob::exportAccount()
 {
-    if (mAccountIndex < mListAccounts.count()) {
-        const auto account = mListAccounts.at(mAccountIndex);
+    for (const auto &account : std::as_const(mListAccounts)) {
         mAccountNames.append(account.accountName);
         exportAccount(account);
-    } else {
-        finishExportAccount();
     }
+    finishExportAccount();
 }
 
 void ExportAccountJob::finishExportAccount()
@@ -68,7 +66,6 @@ void ExportAccountJob::finishExportAccount()
     if (!tmp.open()) {
         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to create temporary file";
         Q_EMIT exportFailed(i18n("Impossible to export account.") + u'\n');
-        deleteLater();
         return;
     }
     QTextStream text(&tmp);
@@ -78,7 +75,6 @@ void ExportAccountJob::finishExportAccount()
 
     Q_EMIT exportInfo(i18n("Export Done.") + u'\n');
     Q_EMIT exportDone();
-    deleteLater();
 }
 
 QList<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccounts() const
@@ -98,7 +94,7 @@ void ExportAccountJob::exportConfig(const ImportExportUtils::AccountImportExport
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " configPath " << configPath;
     storeDirectory(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + u"/ruqola/"_s + info.accountName, configPath);
     Q_EMIT exportInfo(i18n("<b>Account %1:</b> export config done.", info.accountName));
-    Q_EMIT exportCacheData(info);
+    exportCache(info);
 }
 
 void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportInfo &info)
@@ -110,7 +106,7 @@ void ExportAccountJob::exportCache(const ImportExportUtils::AccountImportExportI
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "QStandardPaths::writableLocation(QStandardPaths::CacheLocation) " << storeCachePath;
     storeDirectory(storeCachePath, cachePath);
     Q_EMIT exportInfo(i18n("<b>Account %1:</b> export cache done.", info.accountName));
-    Q_EMIT exportDatabaseData(info);
+    exportDatabase(info);
 }
 
 void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportInfo &info)
@@ -120,8 +116,6 @@ void ExportAccountJob::exportLogs(const ImportExportUtils::AccountImportExportIn
     qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " localPath " << localPath;
     storeDirectory(LocalDatabaseUtils::localMessageLoggerPath() + info.accountName, localPath);
     Q_EMIT exportInfo(i18n("<b>Account %1:</b> export logs done.", info.accountName));
-    mAccountIndex++;
-    exportAccount();
 }
 
 void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExportInfo &info)
@@ -146,7 +140,7 @@ void ExportAccountJob::exportDatabase(const ImportExportUtils::AccountImportExpo
                    localPath + u'/' + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::RoomSubscriptions));
 
     Q_EMIT exportInfo(i18n("<b>Account %1:</b> export database done.", info.accountName));
-    Q_EMIT exportLogsData(info);
+    exportLogs(info);
 }
 
 void ExportAccountJob::setListAccounts(const QList<ImportExportUtils::AccountImportExportInfo> &newListAccounts)
