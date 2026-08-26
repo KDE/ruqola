@@ -20,7 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 ListAttachmentDelegate::ListAttachmentDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
     , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
-    , mDeleteIcon(QIcon::fromTheme(u"delete"_s))
+    , mDeleteIcon(QIcon::fromTheme(u"edit-delete"_s))
     , mRocketChatAccount(account)
 {
 }
