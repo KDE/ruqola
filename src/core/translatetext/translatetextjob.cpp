@@ -18,11 +18,11 @@ TranslateTextJob::TranslateTextJob(QObject *parent)
         connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateDone, this, [this]() {
             const QString result = mTranslatorEnginePlugin->resultTranslate();
             disconnectFromEngine();
-            Q_EMIT translateDone(mInfo.messageId, result);
+            Q_EMIT translateDone(mTranslateRequest.messageId, result);
         });
         connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateFailed, this, [this](const QString &errorMessage) {
             disconnectFromEngine();
-            Q_EMIT translateFailed(mInfo.messageId, errorMessage);
+            Q_EMIT translateFailed(mTranslateRequest.messageId, errorMessage);
         });
     }
 }
@@ -42,43 +42,29 @@ TranslateTextJob::~TranslateTextJob() = default;
 
 void TranslateTextJob::translate()
 {
-    if (mInfo.isValid()) {
+    if (mTranslateRequest.isValid()) {
         if (!mTranslatorEnginePlugin) {
-            Q_EMIT translateFailed(mInfo.messageId, i18n("No translator engine available."));
+            Q_EMIT translateFailed(mTranslateRequest.messageId, i18n("No translator engine available."));
             return;
         }
-        mTranslatorEnginePlugin->setInputText(mInfo.inputText);
-        mTranslatorEnginePlugin->setFrom(mInfo.from);
-        mTranslatorEnginePlugin->setTo(mInfo.to);
+        mTranslatorEnginePlugin->setInputText(mTranslateRequest.inputText);
+        mTranslatorEnginePlugin->setFrom(mTranslateRequest.from);
+        mTranslatorEnginePlugin->setTo(mTranslateRequest.to);
         mTranslatorEnginePlugin->translate();
     } else {
-        Q_EMIT translateFailed(mInfo.messageId, i18n("Missing translator info. It's a bug"));
-        qCDebug(RUQOLA_LOG) << " Invalid translate info " << mInfo;
+        Q_EMIT translateFailed(mTranslateRequest.messageId, i18n("Missing translator info. It's a bug"));
+        qCDebug(RUQOLA_LOG) << " Invalid translate info " << mTranslateRequest;
     }
 }
 
-const TranslateTextJob::TranslateInfo &TranslateTextJob::info() const
+const TranslatorEngineManager::TranslateRequest &TranslateTextJob::translateRequest() const
 {
-    return mInfo;
+    return mTranslateRequest;
 }
 
-void TranslateTextJob::setInfo(const TranslateInfo &newInfo)
+void TranslateTextJob::setTranslateRequest(const TranslatorEngineManager::TranslateRequest &newInfo)
 {
-    mInfo = newInfo;
-}
-
-bool TranslateTextJob::TranslateInfo::isValid() const
-{
-    return !from.isEmpty() && !to.isEmpty() && !inputText.isEmpty();
-}
-
-QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t)
-{
-    d.space() << "From:" << t.from;
-    d.space() << "To:" << t.to;
-    d.space() << "inputtext:" << t.inputText;
-    d.space() << "messageId:" << t.messageId;
-    return d;
+    mTranslateRequest = newInfo;
 }
 
 #include "moc_translatetextjob.cpp"

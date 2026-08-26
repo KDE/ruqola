@@ -55,13 +55,8 @@ void TranslatorEngineManager::startNextTranslation()
     // The engine plugin is shared and holds the text being translated, so it can only
     // carry one translation at a time: they are run one after the other.
     const TranslateRequest request = mPendingTranslateRequests.constFirst();
-    TranslateTextJob::TranslateInfo info;
-    info.from = request.from;
-    info.to = request.to;
-    info.inputText = request.inputText;
-    info.messageId = request.messageId;
     mCurrentJob = new TranslateTextJob(this);
-    mCurrentJob->setInfo(info);
+    mCurrentJob->setTranslateRequest(request);
     connect(mCurrentJob, &TranslateTextJob::translateDone, this, [this](const QByteArray &messageId, const QString &str) {
         finishCurrentTranslation();
         Q_EMIT translateDone(messageId, str);

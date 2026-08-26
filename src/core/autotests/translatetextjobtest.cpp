@@ -18,7 +18,7 @@ TranslateTextJobTest::TranslateTextJobTest(QObject *parent)
 void TranslateTextJobTest::shouldHaveDefaultValues()
 {
     const TranslateTextJob job;
-    QVERIFY(!job.info().isValid());
+    QVERIFY(!job.translateRequest().isValid());
 }
 
 #include "moc_translatetextjobtest.cpp"
