@@ -27,9 +27,9 @@ Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QString &name);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveRoom(const QByteArray &channelId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotForwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo);
     ForwardMessageAddChannelCompletionLineEdit *const mForwardMessageAddChannelCompletionLineEdit;
     TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
-    QMap<QString, ClickableWidget *> mMap;
+    QMap<QByteArray, ClickableWidget *> mMap;
 };

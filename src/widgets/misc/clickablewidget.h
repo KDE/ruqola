@@ -40,6 +40,7 @@ public:
 
 Q_SIGNALS:
     void removeClickableWidget(const QString &username);
+    void removeClickableWidgetFromIdentifier(const QByteArray &identifier);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemove();

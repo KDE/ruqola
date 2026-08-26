@@ -45,26 +45,26 @@ ForwardMessageWidget::~ForwardMessageWidget()
 
 void ForwardMessageWidget::slotForwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo)
 {
-    const QString &roomName = channelInfo.name;
-    if (mMap.contains(roomName)) {
+    const QByteArray &channelId = channelInfo.channelId;
+    if (mMap.contains(channelId)) {
         return;
     }
-    auto clickableWidget = new ClickableWidget(roomName, this);
-    clickableWidget->setIdentifier(channelInfo.channelId);
-    connect(clickableWidget, &ClickableWidget::removeClickableWidget, this, &ForwardMessageWidget::slotRemoveRoom);
+    auto clickableWidget = new ClickableWidget(channelInfo.name, this);
+    clickableWidget->setIdentifier(channelId);
+    connect(clickableWidget, &ClickableWidget::removeClickableWidgetFromIdentifier, this, &ForwardMessageWidget::slotRemoveRoom);
     mFlowLayout->addWidget(clickableWidget);
-    mMap.insert(roomName, clickableWidget);
+    mMap.insert(channelId, clickableWidget);
     Q_EMIT updateOkButton(!mMap.isEmpty());
 }
 
-void ForwardMessageWidget::slotRemoveRoom(const QString &name)
+void ForwardMessageWidget::slotRemoveRoom(const QByteArray &channelId)
 {
-    ClickableWidget *userWidget = mMap.value(name);
+    ClickableWidget *userWidget = mMap.value(channelId);
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
             delete mFlowLayout->takeAt(index);
-            mMap.remove(name);
+            mMap.remove(channelId);
             userWidget->deleteLater();
         }
     }
