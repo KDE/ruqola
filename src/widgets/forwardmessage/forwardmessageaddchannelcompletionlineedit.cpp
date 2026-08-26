@@ -8,8 +8,6 @@
 #include "misc/joinedchannelcompletiondelegate.h"
 #include "rocketchataccount.h"
 
-using namespace std::chrono_literals;
-
 ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : JoinedChannelCompletionLineEditBase(account, parent)
 {
