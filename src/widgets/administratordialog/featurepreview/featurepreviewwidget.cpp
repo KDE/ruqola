@@ -98,38 +98,40 @@ void FeaturePreviewWidget::initialize()
 
 void FeaturePreviewWidget::slotSaveSettings()
 {
-    auto job = new RocketChatRestApi::MethodCallJob(this);
-    QJsonArray params;
-    QJsonArray previewFeatures;
-    {
-        QJsonObject obj;
-        obj["_id"_L1] = u"Accounts_AllowFeaturePreview"_s;
-        obj["value"_L1] = mAllowFeaturePreview->isChecked();
-        previewFeatures.append(obj);
-    }
-    {
-        QJsonObject obj;
-        obj["_id"_L1] = u"Accounts_Default_User_Preferences_featuresPreview"_s;
-        if (mDraftMessages->isChecked()) {
-            const QString value = QStringLiteral("[{\"name\":\"sidebarDrafts\",\"value\":true}]");
-            obj["value"_L1] = value;
-        } else {
-            const QString value = QStringLiteral("[{\"name\":\"sidebarDrafts\",\"value\":false}]");
-            obj["value"_L1] = value;
+    if (mRocketChatAccount) {
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        QJsonArray params;
+        QJsonArray previewFeatures;
+        {
+            QJsonObject obj;
+            obj["_id"_L1] = u"Accounts_AllowFeaturePreview"_s;
+            obj["value"_L1] = mAllowFeaturePreview->isChecked();
+            previewFeatures.append(obj);
         }
-        previewFeatures.append(std::move(obj));
-    }
-    params.append(std::move(previewFeatures));
-    const QString methodName{u"saveSettings"_s};
-    const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
-        .messageObj = mRocketChatAccount ? mRocketChatAccount->ddp()->generateJsonObject(methodName, params) : QJsonObject{},
-        .methodName = methodName,
-        .anonymous = false,
-    };
-    job->setMethodCallJobInfo(info);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start saveSettings job";
+        {
+            QJsonObject obj;
+            obj["_id"_L1] = u"Accounts_Default_User_Preferences_featuresPreview"_s;
+            if (mDraftMessages->isChecked()) {
+                const QString value = QStringLiteral("[{\"name\":\"sidebarDrafts\",\"value\":true}]");
+                obj["value"_L1] = value;
+            } else {
+                const QString value = QStringLiteral("[{\"name\":\"sidebarDrafts\",\"value\":false}]");
+                obj["value"_L1] = value;
+            }
+            previewFeatures.append(std::move(obj));
+        }
+        params.append(std::move(previewFeatures));
+        const QString methodName{u"saveSettings"_s};
+        const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
+            .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+            .methodName = methodName,
+            .anonymous = false,
+        };
+        job->setMethodCallJobInfo(info);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start saveSettings job";
+        }
     }
 }
 
