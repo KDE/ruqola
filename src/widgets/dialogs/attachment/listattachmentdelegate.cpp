@@ -39,7 +39,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     // Draw Mimetype Icon
     const Layout layout = doLayout(option, index);
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
-    const bool fileComplete = file->complete();
+    const bool fileComplete = layout.isFileComplete;
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForName(file->mimeType());
     const QPixmap pix = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(u"application-octet-stream"_s)).pixmap(layout.mimetypeHeight);
@@ -105,7 +105,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
         const Layout layout = doLayout(option, index);
 
-        const bool fileComplete = file->complete();
+        const bool fileComplete = layout.isFileComplete;
 
         if (fileComplete && layout.downloadAttachmentRect.contains(mev->pos())) {
             saveAttachment(option, file);
@@ -126,7 +126,8 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         }
     } else if (eventType == QEvent::MouseButtonDblClick) {
         const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
-        const bool fileComplete = file->complete();
+        const Layout layout = doLayout(option, index);
+        const bool fileComplete = layout.isFileComplete;
         if (fileComplete) {
             if (file->typeGroup() == "image"_L1) {
                 Q_EMIT showImage(file->fileId());
@@ -153,6 +154,7 @@ ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOpti
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
 
     Layout layout;
+    layout.isFileComplete = file->complete();
     QRect usableRect = option.rect;
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
