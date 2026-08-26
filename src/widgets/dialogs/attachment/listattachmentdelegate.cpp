@@ -105,7 +105,9 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
         const Layout layout = doLayout(option, index);
 
-        if (layout.downloadAttachmentRect.contains(mev->pos())) {
+        const bool fileComplete = file->complete();
+
+        if (fileComplete && layout.downloadAttachmentRect.contains(mev->pos())) {
             saveAttachment(option, file);
             return true;
         }
@@ -124,7 +126,8 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         }
     } else if (eventType == QEvent::MouseButtonDblClick) {
         const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
-        if (file) {
+        const bool fileComplete = file->complete();
+        if (fileComplete) {
             if (file->typeGroup() == "image"_L1) {
                 Q_EMIT showImage(file->fileId());
             } else {
