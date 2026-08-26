@@ -12,6 +12,7 @@
 #include <KLocalizedString>
 #include <KZip>
 #include <QDir>
+#include <QFile>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <utility>
@@ -160,7 +161,7 @@ void ImportAccountJob::importAccount(QString accountName)
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(cachePath + u"/%1"_s.arg(file));
                 if (filePathEntry && filePathEntry->isDirectory()) {
                     const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
-                    if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(file))) {
+                    if (filePath && !filePath->copyTo(newCachePath + u"/%1"_s.arg(file))) {
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
                     }
                 } else {
@@ -233,7 +234,6 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
                                     const QString &dest,
                                     bool renameFiles)
 {
-    // TODO rename file
     auto messageDirectory = databaseDirectory->entry(subfolder);
     if (messageDirectory && messageDirectory->isDirectory()) {
         const auto directory = static_cast<const KArchiveDirectory *>(messageDirectory);
@@ -258,8 +258,20 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Invalid file " << file;
                     }
                 }
-                if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(newFileName))) {
-                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory " << newCachePath + u"/%1"_s.arg(newFileName);
+                // KArchiveFile::copyTo() takes a destination *directory* and always uses the name stored in the
+                // archive, so renaming has to happen afterwards.
+                if (!filePath->copyTo(newCachePath)) {
+                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy database file " << newCachePath + u'/' + file;
+                    continue;
+                }
+                if (newFileName != file) {
+                    const QString oldFilePath = newCachePath + u'/' + file;
+                    const QString newFilePath = newCachePath + u'/' + newFileName;
+                    // QFile::rename() fails when the target already exists
+                    QFile::remove(newFilePath);
+                    if (!QFile::rename(oldFilePath, newFilePath)) {
+                        qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to rename " << oldFilePath << " to " << newFilePath;
+                    }
                 }
             } else {
                 qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Missing import file ? " << messageList;
