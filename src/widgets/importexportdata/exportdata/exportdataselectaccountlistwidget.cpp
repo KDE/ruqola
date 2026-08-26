@@ -18,6 +18,7 @@ ExportDataSelectAccountListWidget::~ExportDataSelectAccountListWidget() = defaul
 
 void ExportDataSelectAccountListWidget::setAccountList(const QList<ImportExportUtils::AccountImportExportInfo> &lst)
 {
+    clear();
     for (const auto &accountName : lst) {
         auto item = new QListWidgetItem(this);
         item->setText(accountName.accountName);
