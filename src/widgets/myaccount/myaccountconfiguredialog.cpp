@@ -19,7 +19,7 @@
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
-const char myMyAccountConfigureDialogConfigGroupName[] = "RegisterUserDialog";
+const char myMyAccountConfigureDialogConfigGroupName[] = "MyAccountConfigureDialog";
 }
 
 using namespace Qt::Literals::StringLiterals;
