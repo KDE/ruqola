@@ -64,7 +64,7 @@ void AwayManager::slotResumeFromIdle()
 int AwayManager::calculateRemainingTime() const
 {
     // The remaining time until the user will be marked as "auto-away".
-    const int remainingTime = mIdleTiming - KIdleTime::instance()->idleTime();
+    const int remainingTime = mIdleTiming * 1000 - KIdleTime::instance()->idleTime();
 
     return remainingTime;
 }
