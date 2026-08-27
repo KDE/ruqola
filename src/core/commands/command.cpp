@@ -51,6 +51,7 @@ void Command::setDescription(const QString &description)
 void Command::convertParamsI18n()
 {
     if (mParams.isEmpty()) {
+        mTranslatedParams.clear();
         return;
     }
     if (mParams == "Slash_Status_Params"_L1) {
@@ -74,6 +75,7 @@ QString Command::translatedParams() const
 void Command::convertDescriptionI18n()
 {
     if (mDescription.isEmpty()) {
+        mTranslatedDescription.clear();
         return;
     } else if (mDescription == "Archive"_L1) {
         mTranslatedDescription = i18n("Archive");
@@ -144,6 +146,7 @@ void Command::parseCommand(const QJsonObject &obj)
     setDescription(obj.value("description"_L1).toString());
     setParams(obj.value("params"_L1).toString());
 
+    mPermissions.clear();
     const QJsonValue permissionValue = obj.value("permission"_L1);
     if (!permissionValue.isUndefined()) {
         if (permissionValue.isString()) {
