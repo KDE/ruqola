@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:47+0000\n"
+"POT-Creation-Date: 2026-08-27 00:45+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1363,12 +1363,12 @@ msgstr "通知聊天室中所有人"
 msgid "Edited at %1 by %2"
 msgstr "由 %2 於 %1 編輯"
 
-#: core/model/messagesmodel.cpp:503
+#: core/model/messagesmodel.cpp:509
 #, kde-format
 msgid "Ignored Message"
 msgstr "已忽略的訊息"
 
-#: core/model/messagesmodel.cpp:514
+#: core/model/messagesmodel.cpp:520
 #, kde-format
 msgid "Only you can see this message"
 msgstr "只有您能看到這則訊息"
@@ -1983,17 +1983,17 @@ msgid "%1 month"
 msgid_plural "%1 months"
 msgstr[0] "個月"
 
-#: core/translatetext/translatetextjob.cpp:32
+#: core/translatetext/translatetextjob.cpp:47
 #, kde-format
 msgid "No translator engine available."
 msgstr ""
 
-#: core/translatetext/translatetextjob.cpp:35
+#: core/translatetext/translatetextjob.cpp:55
 #, kde-format
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/translatetext/translatorenginemanager.cpp:52
+#: core/translatetext/translatorenginemanager.cpp:105
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
@@ -3531,7 +3531,7 @@ msgstr "忽略所有檢舉"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:434
+#: widgets/room/messagelistview.cpp:448
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3540,7 +3540,7 @@ msgstr "複製選取範圍"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:450
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3561,7 +3561,7 @@ msgstr "說出文字"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:114
-#: widgets/room/messagelistview.cpp:467
+#: widgets/room/messagelistview.cpp:481
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7394,7 +7394,7 @@ msgid "Mark as Unread"
 msgstr "標記為未讀"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:454
+#: widgets/room/messagelistview.cpp:468
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -7949,12 +7949,12 @@ msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "儲存附件"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:116
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:118
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "您確定要刪除這個檔案嗎？"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:117
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:119
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -9475,7 +9475,7 @@ msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr "請選取至少一個要轉寄訊息到的頻道。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
 #, kde-format
 msgid "Impossible to export data."
 msgstr "無法匯出資料。"
@@ -9485,41 +9485,41 @@ msgstr "無法匯出資料。"
 msgid "Impossible to create zip file."
 msgstr "無法建立 zip 檔。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
 #, kde-format
 msgid "Impossible to export account."
 msgstr "無法匯出帳戶。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:76
 #, kde-format
 msgid "Export Done."
 msgstr "匯出已完成。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:96
 #, fuzzy, kde-format
 #| msgid "Account %1: export config done."
 msgid "<b>Account %1:</b> export config done."
 msgstr "帳戶 %1：已匯出設定。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:108
 #, fuzzy, kde-format
 #| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export cache done."
 msgstr "帳戶 %1：已匯出快取。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:118
 #, fuzzy, kde-format
 #| msgid "Account %1: export logs done."
 msgid "<b>Account %1:</b> export logs done."
 msgstr "帳戶 %1：已匯出紀錄。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, fuzzy, kde-format
 #| msgid "Account %1: export cache done."
 msgid "<b>Account %1:</b> export database done."
 msgstr "帳戶 %1：已匯出快取。"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:169
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:163
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "目錄 \"%1\" 無法加入備份檔。"
@@ -9546,17 +9546,17 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "匯出帳戶"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:39
+#: widgets/importexportdata/importdata/importaccountjob.cpp:43
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "無法開啟 zip 檔案。"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:51
+#: widgets/importexportdata/importdata/importaccountjob.cpp:55
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "無法複製檔案"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:59
+#: widgets/importexportdata/importdata/importaccountjob.cpp:62
 #, kde-format
 msgid "Impossible to open file"
 msgstr "無法開啟檔案"
@@ -10373,7 +10373,7 @@ msgid "Switch To New Room"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:829
+#: widgets/room/messagelistview.cpp:843
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10599,21 +10599,21 @@ msgid "User Info"
 msgstr "使用者資訊"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:447
-#: widgets/room/messagelistview.cpp:562
+#: widgets/room/messagelistview.cpp:576
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "開始私人對話"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:674 widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "顯示原始訊息"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:674 widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10685,9 +10685,11 @@ msgid "Speak Text"
 msgstr "說出文字"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add WebDAV Server"
 msgctxt "@action"
-msgid "Add WebDav Server"
+msgid "Add WebDAV Server"
 msgstr "新增 WebDAV 伺服器"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
@@ -10807,65 +10809,71 @@ msgstr "檔案上傳"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "伺服器未授權此檔案（無效的 MIME 類型）"
 
-#: widgets/room/messagelistview.cpp:146
+#: widgets/room/messagelistview.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Translator Error"
+msgstr "翻譯工具錯誤"
+
+#: widgets/room/messagelistview.cpp:160
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "您已加入新的私訊"
 
-#: widgets/room/messagelistview.cpp:148
+#: widgets/room/messagelistview.cpp:162
 #, kde-format
 msgid "Start of conversation"
 msgstr "對話開頭"
 
-#: widgets/room/messagelistview.cpp:445
+#: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:445
+#: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:454
+#: widgets/room/messagelistview.cpp:468
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "從收藏中移除"
 
-#: widgets/room/messagelistview.cpp:461
+#: widgets/room/messagelistview.cpp:475
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "刪除"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "將訊息標記為未讀"
 
-#: widgets/room/messagelistview.cpp:479
+#: widgets/room/messagelistview.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "顯示完整對話串"
 
-#: widgets/room/messagelistview.cpp:484
+#: widgets/room/messagelistview.cpp:498
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:489
+#: widgets/room/messagelistview.cpp:503
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "引用"
 
-#: widgets/room/messagelistview.cpp:494
+#: widgets/room/messagelistview.cpp:508
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search device…"
@@ -10873,88 +10881,82 @@ msgctxt "@action"
 msgid "Read Receipts"
 msgstr "搜尋裝置…"
 
-#: widgets/room/messagelistview.cpp:499
+#: widgets/room/messagelistview.cpp:513
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "複製訊息連結"
 
-#: widgets/room/messagelistview.cpp:504
+#: widgets/room/messagelistview.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:529
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "取消跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:529
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:543
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: widgets/room/messagelistview.cpp:553 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:567 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "使用者資訊"
 
-#: widgets/room/messagelistview.cpp:600
+#: widgets/room/messagelistview.cpp:614
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:607
+#: widgets/room/messagelistview.cpp:621
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/messagelistview.cpp:746
+#: widgets/room/messagelistview.cpp:760
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "檢視檢舉"
 
-#: widgets/room/messagelistview.cpp:769
+#: widgets/room/messagelistview.cpp:783
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "忽略檢舉"
 
-#: widgets/room/messagelistview.cpp:846
+#: widgets/room/messagelistview.cpp:860
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:1100
+#: widgets/room/messagelistview.cpp:1114
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:1101
+#: widgets/room/messagelistview.cpp:1115
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
-
-#: widgets/room/messagelistview.cpp:1300
-#, kde-format
-msgctxt "@title:window"
-msgid "Translator Error"
-msgstr "翻譯工具錯誤"
 
 #: widgets/room/messagetextedit.cpp:234
 #, kde-format
@@ -11785,7 +11787,6 @@ msgid "Could not start the remove owner request."
 msgstr "不要剪除置頂訊息"
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:149
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Do not prune pinned messages"
@@ -11793,11 +11794,24 @@ msgid "Could not start the add moderator request."
 msgstr "不要剪除置頂訊息"
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
-#: widgets/serverchecks/abstractusercheck.cpp:161
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Do not prune pinned messages"
 msgid "Could not start the remove moderator request."
+msgstr "不要剪除置頂訊息"
+
+#: widgets/serverchecks/abstractusercheck.cpp:149
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the add leader request."
+msgstr "不要剪除置頂訊息"
+
+#: widgets/serverchecks/abstractusercheck.cpp:161
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the remove leader request."
 msgstr "不要剪除置頂訊息"
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
@@ -12500,6 +12514,10 @@ msgstr "使用者名稱："
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "新增帳戶…"
+
+#~ msgctxt "@action"
+#~ msgid "Add WebDav Server"
+#~ msgstr "新增 WebDAV 伺服器"
 
 #~ msgid "Encrypted Message"
 #~ msgstr "已加密訊息"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:47+0000\n"
+"POT-Creation-Date: 2026-08-27 00:45+0000\n"
 "PO-Revision-Date: 2026-07-28 10:54+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1358,12 +1358,12 @@ msgstr "Notifica omnes in iste sala"
 msgid "Edited at %1 by %2"
 msgstr "Modificate a %1 per %2"
 
-#: core/model/messagesmodel.cpp:503
+#: core/model/messagesmodel.cpp:509
 #, kde-format
 msgid "Ignored Message"
 msgstr "Message ignorate"
 
-#: core/model/messagesmodel.cpp:514
+#: core/model/messagesmodel.cpp:520
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Solmente tu pote vider iste message?"
@@ -1980,17 +1980,17 @@ msgid_plural "%1 months"
 msgstr[0] "%1 mense"
 msgstr[1] "%1 menses"
 
-#: core/translatetext/translatetextjob.cpp:32
+#: core/translatetext/translatetextjob.cpp:47
 #, kde-format
 msgid "No translator engine available."
 msgstr ""
 
-#: core/translatetext/translatetextjob.cpp:35
+#: core/translatetext/translatetextjob.cpp:55
 #, kde-format
 msgid "Missing translator info. It's a bug"
 msgstr "Mancante information de traductor. Il es un bug"
 
-#: core/translatetext/translatorenginemanager.cpp:52
+#: core/translatetext/translatorenginemanager.cpp:105
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
@@ -3556,7 +3556,7 @@ msgstr "Abbandona Omne Reportos"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:434
+#: widgets/room/messagelistview.cpp:448
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3565,7 +3565,7 @@ msgstr "Copia selection"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:450
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3586,7 +3586,7 @@ msgstr "Pronuncia texto"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:114
-#: widgets/room/messagelistview.cpp:467
+#: widgets/room/messagelistview.cpp:481
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7377,7 +7377,7 @@ msgid "Mark as Unread"
 msgstr "Marca como non legite"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:454
+#: widgets/room/messagelistview.cpp:468
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -7933,12 +7933,12 @@ msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Salveguarda attachamento"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:116
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:118
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Tu vole deler iste file?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:117
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:119
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -9441,7 +9441,7 @@ msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr ""
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
 #, kde-format
 msgid "Impossible to export data."
 msgstr ""
@@ -9451,37 +9451,37 @@ msgstr ""
 msgid "Impossible to create zip file."
 msgstr "Impossibile crear le file zip."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
 #, kde-format
 msgid "Impossible to export account."
 msgstr "Impossibile exportar conto."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:76
 #, kde-format
 msgid "Export Done."
 msgstr "Exportation Facite"
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:96
 #, kde-format
 msgid "<b>Account %1:</b> export config done."
 msgstr "<b>Conto %1: </b>Exportation de configuration facite."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:108
 #, kde-format
 msgid "<b>Account %1:</b> export cache done."
 msgstr "<b>Conto %1: </b>Exportation de cache facite."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:118
 #, kde-format
 msgid "<b>Account %1:</b> export logs done."
 msgstr "<b>Conto %1:</b> Exportation de registros (logs) facite."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "<b>Account %1:</b> export database done."
 msgstr "<b>Conto %1:</b> Exportation de base de datos facite."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:169
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:163
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Directorio  \"%1\" non pote esser addite al file de retrocopia."
@@ -9508,17 +9508,17 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Exporta Contos"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:39
+#: widgets/importexportdata/importdata/importaccountjob.cpp:43
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr ""
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:51
+#: widgets/importexportdata/importdata/importaccountjob.cpp:55
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "Impossibile copiar file"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:59
+#: widgets/importexportdata/importdata/importaccountjob.cpp:62
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Impossibile aperir file"
@@ -10342,7 +10342,7 @@ msgid "Switch To New Room"
 msgstr "Commuta a nove sala"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:829
+#: widgets/room/messagelistview.cpp:843
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10568,21 +10568,21 @@ msgid "User Info"
 msgstr "Information de usator"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:447
-#: widgets/room/messagelistview.cpp:562
+#: widgets/room/messagelistview.cpp:576
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Initia un Conversation Private"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:674 widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Monstra message original"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:674 widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10656,9 +10656,11 @@ msgid "Speak Text"
 msgstr "Pronuncia texto"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add WebDAV Server"
 msgctxt "@action"
-msgid "Add WebDav Server"
+msgid "Add WebDAV Server"
 msgstr "Adde Servitor de WebDav"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
@@ -10777,152 +10779,152 @@ msgstr "Incargamento de file"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:146
+#: widgets/room/messagelistview.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Translator Error"
+msgstr "Error de traductor"
+
+#: widgets/room/messagelistview.cpp:160
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Tu  ha unite un nove messages directe"
 
-#: widgets/room/messagelistview.cpp:148
+#: widgets/room/messagelistview.cpp:162
 #, kde-format
 msgid "Start of conversation"
 msgstr "Initio de Conversation"
 
-#: widgets/room/messagelistview.cpp:445
+#: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Deappuncta Messages"
 
-#: widgets/room/messagelistview.cpp:445
+#: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Appuncta Message"
 
-#: widgets/room/messagelistview.cpp:454
+#: widgets/room/messagelistview.cpp:468
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Remove como favorito"
 
-#: widgets/room/messagelistview.cpp:461
+#: widgets/room/messagelistview.cpp:475
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Dele"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Marca message  como non legite"
 
-#: widgets/room/messagelistview.cpp:479
+#: widgets/room/messagelistview.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Monstra Topico complete"
 
-#: widgets/room/messagelistview.cpp:484
+#: widgets/room/messagelistview.cpp:498
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Modifica"
 
-#: widgets/room/messagelistview.cpp:489
+#: widgets/room/messagelistview.cpp:503
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Cita"
 
-#: widgets/room/messagelistview.cpp:494
+#: widgets/room/messagelistview.cpp:508
 #, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Lege  receptas"
 
-#: widgets/room/messagelistview.cpp:499
+#: widgets/room/messagelistview.cpp:513
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Copia ligamine a Message"
 
-#: widgets/room/messagelistview.cpp:504
+#: widgets/room/messagelistview.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Expedi message"
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:529
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Non Seque message..."
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:529
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Seque message"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:543
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copia URL"
 
-#: widgets/room/messagelistview.cpp:553 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:567 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Information de usator"
 
-#: widgets/room/messagelistview.cpp:600
+#: widgets/room/messagelistview.cpp:614
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Initia un discussion"
 
-#: widgets/room/messagelistview.cpp:607
+#: widgets/room/messagelistview.cpp:621
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Responde in Topico"
 
-#: widgets/room/messagelistview.cpp:746
+#: widgets/room/messagelistview.cpp:760
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Vide Reportos"
 
-#: widgets/room/messagelistview.cpp:769
+#: widgets/room/messagelistview.cpp:783
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Abbandona Reportos"
 
-#: widgets/room/messagelistview.cpp:846
+#: widgets/room/messagelistview.cpp:860
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Reporta Message"
 
-#: widgets/room/messagelistview.cpp:1100
+#: widgets/room/messagelistview.cpp:1114
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Tu vole deler iste message?"
 
-#: widgets/room/messagelistview.cpp:1101
+#: widgets/room/messagelistview.cpp:1115
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Dele Messages"
-
-#: widgets/room/messagelistview.cpp:1300
-#, kde-format
-msgctxt "@title:window"
-msgid "Translator Error"
-msgstr "Error de traductor"
 
 #: widgets/room/messagetextedit.cpp:234
 #, kde-format
@@ -11738,16 +11740,26 @@ msgid "Could not start the remove owner request."
 msgstr "Non pote initiar le requesta de remover proprietario."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:149
 #, kde-format
 msgid "Could not start the add moderator request."
 msgstr "Non pote initiar le requesta de adder moderator."
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
-#: widgets/serverchecks/abstractusercheck.cpp:161
 #, kde-format
 msgid "Could not start the remove moderator request."
 msgstr "Non pote initiar le requesta de remover moderator."
+
+#: widgets/serverchecks/abstractusercheck.cpp:149
+#, fuzzy, kde-format
+#| msgid "Could not start the add owner request."
+msgid "Could not start the add leader request."
+msgstr "Non pote initiar le requesta de adder proprietario."
+
+#: widgets/serverchecks/abstractusercheck.cpp:161
+#, fuzzy, kde-format
+#| msgid "Could not start the remove owner request."
+msgid "Could not start the remove leader request."
+msgstr "Non pote initiar le requesta de remover proprietario."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198
@@ -12382,6 +12394,10 @@ msgstr "Nomine de usator:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Adde conto…"
+
+#~ msgctxt "@action"
+#~ msgid "Add WebDav Server"
+#~ msgstr "Adde Servitor de WebDav"
 
 #~ msgid "Encrypted Message"
 #~ msgstr "Message Cryptate"

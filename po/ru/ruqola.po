@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:47+0000\n"
+"POT-Creation-Date: 2026-08-27 00:45+0000\n"
 "PO-Revision-Date: 2026-06-27 15:38+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1368,12 +1368,12 @@ msgstr "Уведомить всех в этой комнате"
 msgid "Edited at %1 by %2"
 msgstr "Изменено %1 (%2)"
 
-#: core/model/messagesmodel.cpp:503
+#: core/model/messagesmodel.cpp:509
 #, kde-format
 msgid "Ignored Message"
 msgstr "Игнорируемое сообщение"
 
-#: core/model/messagesmodel.cpp:514
+#: core/model/messagesmodel.cpp:520
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Только вы можете видеть это сообщение"
@@ -2016,17 +2016,17 @@ msgstr[1] "%1 месяца"
 msgstr[2] "%1 месяцев"
 msgstr[3] "%1 месяц"
 
-#: core/translatetext/translatetextjob.cpp:32
+#: core/translatetext/translatetextjob.cpp:47
 #, kde-format
 msgid "No translator engine available."
 msgstr ""
 
-#: core/translatetext/translatetextjob.cpp:35
+#: core/translatetext/translatetextjob.cpp:55
 #, kde-format
 msgid "Missing translator info. It's a bug"
 msgstr "Не указаны данные переводчика. Это внутренняя ошибка программы"
 
-#: core/translatetext/translatorenginemanager.cpp:52
+#: core/translatetext/translatorenginemanager.cpp:105
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
@@ -3614,7 +3614,7 @@ msgstr "Отклонение всех жалоб"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:434
+#: widgets/room/messagelistview.cpp:448
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
 #, kde-format
 msgctxt "@action"
@@ -3623,7 +3623,7 @@ msgstr "Копировать выбранное"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:97
-#: widgets/room/messagelistview.cpp:436
+#: widgets/room/messagelistview.cpp:450
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3644,7 +3644,7 @@ msgstr "Зачитать текст"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:53
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:114
-#: widgets/room/messagelistview.cpp:467
+#: widgets/room/messagelistview.cpp:481
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
 #, kde-format
 msgctxt "@action"
@@ -7636,7 +7636,7 @@ msgid "Mark as Unread"
 msgstr "Отметить как непрочитанное"
 
 #: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:454
+#: widgets/room/messagelistview.cpp:468
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -8192,12 +8192,12 @@ msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Сохранение вложения"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:116
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:118
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Удалить этот файл?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:117
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:119
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -9768,7 +9768,7 @@ msgctxt "@label:textbox"
 msgid "Select at least one channel to forward the message to."
 msgstr "Выберите хотя бы один канал для пересылки сообщения."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:39
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:40
 #, kde-format
 msgid "Impossible to export data."
 msgstr "Невозможно выполнить экспорт данных."
@@ -9778,37 +9778,37 @@ msgstr "Невозможно выполнить экспорт данных."
 msgid "Impossible to create zip file."
 msgstr "Невозможно создать ZIP-файл."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:70
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:68
 #, kde-format
 msgid "Impossible to export account."
 msgstr "Невозможно выполнить экспорт учётной записи."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:79
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:76
 #, kde-format
 msgid "Export Done."
 msgstr "Экспорт завершён."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:100
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:96
 #, kde-format
 msgid "<b>Account %1:</b> export config done."
 msgstr "<b>Учётная запись %1:</b> экспорт конфигурации завершён."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:112
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:108
 #, kde-format
 msgid "<b>Account %1:</b> export cache done."
 msgstr "<b>Учётная запись %1:</b> экспорт кэша завершён."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:122
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:118
 #, kde-format
 msgid "<b>Account %1:</b> export logs done."
 msgstr "<b>Учётная запись %1:</b> экспорт журнала завершён."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:148
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:142
 #, kde-format
 msgid "<b>Account %1:</b> export database done."
 msgstr "<b>Учётная запись %1:</b> экспорт базы данных завершён."
 
-#: widgets/importexportdata/exportdata/exportaccountjob.cpp:169
+#: widgets/importexportdata/exportdata/exportaccountjob.cpp:163
 #, kde-format
 msgid "Directory \"%1\" cannot be added to backup file."
 msgstr "Каталог «%1» нельзя добавить в файл резервной копии."
@@ -9835,17 +9835,17 @@ msgctxt "@title:window"
 msgid "Export Accounts"
 msgstr "Экспорт учётных записей"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:39
+#: widgets/importexportdata/importdata/importaccountjob.cpp:43
 #, kde-format
 msgid "Impossible to open zip file."
 msgstr "Невозможно открыть ZIP-файл."
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:51
+#: widgets/importexportdata/importdata/importaccountjob.cpp:55
 #, kde-format
 msgid "Impossible to copy file"
 msgstr "Невозможно скопировать файл"
 
-#: widgets/importexportdata/importdata/importaccountjob.cpp:59
+#: widgets/importexportdata/importdata/importaccountjob.cpp:62
 #, kde-format
 msgid "Impossible to open file"
 msgstr "Невозможно открыть файл"
@@ -10679,7 +10679,7 @@ msgid "Switch To New Room"
 msgstr "Перейти в новую комнату"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:87
-#: widgets/room/messagelistview.cpp:829
+#: widgets/room/messagelistview.cpp:843
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10907,21 +10907,21 @@ msgid "User Info"
 msgstr "Сведения о пользователе"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:447
-#: widgets/room/messagelistview.cpp:562
+#: widgets/room/messagelistview.cpp:576
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Начать конфиденциальный разговор"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:674 widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Показать исходное сообщение"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:674 widgets/room/messagelistview.cpp:736
+#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10999,9 +10999,11 @@ msgid "Speak Text"
 msgstr "Зачитать текст"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add WebDAV Server"
 msgctxt "@action"
-msgid "Add WebDav Server"
+msgid "Add WebDAV Server"
 msgstr "Добавить сервер WebDAV"
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
@@ -11121,153 +11123,153 @@ msgstr "Отправка файлов"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Этот файл не разрешён сервером (некорректный тип MIME)"
 
-#: widgets/room/messagelistview.cpp:146
+#: widgets/room/messagelistview.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Translator Error"
+msgstr "Ошибка переводчика"
+
+#: widgets/room/messagelistview.cpp:160
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Вы подключились к новому прямому обмену сообщениями"
 
-#: widgets/room/messagelistview.cpp:148
+#: widgets/room/messagelistview.cpp:162
 #, kde-format
 msgid "Start of conversation"
 msgstr "Начало разговора"
 
-#: widgets/room/messagelistview.cpp:445
+#: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Открепить сообщение"
 
-#: widgets/room/messagelistview.cpp:445
+#: widgets/room/messagelistview.cpp:459
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Закрепить сообщение"
 
-#: widgets/room/messagelistview.cpp:454
+#: widgets/room/messagelistview.cpp:468
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Удалить из избранного "
 
-#: widgets/room/messagelistview.cpp:461
+#: widgets/room/messagelistview.cpp:475
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Удалить"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Отметить сообщение как непрочитанное"
 
-#: widgets/room/messagelistview.cpp:479
+#: widgets/room/messagelistview.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Показать ветку целиком"
 
-#: widgets/room/messagelistview.cpp:484
+#: widgets/room/messagelistview.cpp:498
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Изменить"
 
-#: widgets/room/messagelistview.cpp:489
+#: widgets/room/messagelistview.cpp:503
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Цитировать"
 
-#: widgets/room/messagelistview.cpp:494
+#: widgets/room/messagelistview.cpp:508
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Подтверждения прочтения"
 
-#: widgets/room/messagelistview.cpp:499
+#: widgets/room/messagelistview.cpp:513
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Копировать ссылку на сообщение"
 
-#: widgets/room/messagelistview.cpp:504
+#: widgets/room/messagelistview.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Переслать сообщение"
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:529
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Прекратить отслеживание сообщения"
 
-#: widgets/room/messagelistview.cpp:515
+#: widgets/room/messagelistview.cpp:529
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Отслеживать сообщение"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:543
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Копировать URL-адрес"
 
-#: widgets/room/messagelistview.cpp:553 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:567 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Сведения о пользователе"
 
-#: widgets/room/messagelistview.cpp:600
+#: widgets/room/messagelistview.cpp:614
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Начать обсуждение"
 
-#: widgets/room/messagelistview.cpp:607
+#: widgets/room/messagelistview.cpp:621
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Ответить в ветке"
 
-#: widgets/room/messagelistview.cpp:746
+#: widgets/room/messagelistview.cpp:760
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Просмотреть жалобы"
 
-#: widgets/room/messagelistview.cpp:769
+#: widgets/room/messagelistview.cpp:783
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Отклонить жалобы"
 
-#: widgets/room/messagelistview.cpp:846
+#: widgets/room/messagelistview.cpp:860
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Пожаловаться на сообщение"
 
-#: widgets/room/messagelistview.cpp:1100
+#: widgets/room/messagelistview.cpp:1114
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Удалить это сообщение?"
 
-#: widgets/room/messagelistview.cpp:1101
+#: widgets/room/messagelistview.cpp:1115
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Удаление сообщения"
-
-#: widgets/room/messagelistview.cpp:1300
-#, kde-format
-msgctxt "@title:window"
-msgid "Translator Error"
-msgstr "Ошибка переводчика"
 
 #: widgets/room/messagetextedit.cpp:234
 #, kde-format
@@ -12098,7 +12100,6 @@ msgid "Could not start the remove owner request."
 msgstr "Не вырезать закреплённые сообщения"
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
-#: widgets/serverchecks/abstractusercheck.cpp:149
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Do not prune pinned messages"
@@ -12106,11 +12107,24 @@ msgid "Could not start the add moderator request."
 msgstr "Не вырезать закреплённые сообщения"
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
-#: widgets/serverchecks/abstractusercheck.cpp:161
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Do not prune pinned messages"
 msgid "Could not start the remove moderator request."
+msgstr "Не вырезать закреплённые сообщения"
+
+#: widgets/serverchecks/abstractusercheck.cpp:149
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the add leader request."
+msgstr "Не вырезать закреплённые сообщения"
+
+#: widgets/serverchecks/abstractusercheck.cpp:161
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Do not prune pinned messages"
+msgid "Could not start the remove leader request."
 msgstr "Не вырезать закреплённые сообщения"
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
@@ -12807,6 +12821,10 @@ msgstr "Имя пользователя:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Добавить учётную запись…"
+
+#~ msgctxt "@action"
+#~ msgid "Add WebDav Server"
+#~ msgstr "Добавить сервер WebDAV"
 
 #~ msgid "Encrypted Message"
 #~ msgstr "Зашифрованное сообщение"
