@@ -65,8 +65,8 @@ void ImportAccountJob::run()
 
         QTextStream in(&file);
         while (!in.atEnd()) {
-            const QString line = in.readLine();
-            mAccountInfos.append(line);
+            QString line = in.readLine();
+            mAccountInfos.append(std::move(line));
         }
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " list of accounts " << mAccountInfos;
     }

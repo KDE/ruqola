@@ -96,8 +96,8 @@ std::unique_ptr<Blocks> Blocks::deserialize(const QJsonArray &blocksArray)
 {
     QList<Block> blocks;
     for (int i = 0, total = blocksArray.count(); i < total; ++i) {
-        const Block block = Block::deserialize(blocksArray.at(i).toObject());
-        blocks.append(block);
+        Block block = Block::deserialize(blocksArray.at(i).toObject());
+        blocks.append(std::move(block));
     }
     auto final = std::make_unique<Blocks>();
     final->setBlocks(blocks);

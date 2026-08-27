@@ -45,14 +45,14 @@ QVector<QByteArray> decodeAllBase64Variants(const QString &text)
     QVector<QByteArray> out;
     const QByteArray bytes = text.toLatin1();
 
-    const QByteArray plain = QByteArray::fromBase64(bytes, QByteArray::Base64Encoding);
+    QByteArray plain = QByteArray::fromBase64(bytes, QByteArray::Base64Encoding);
     if (!plain.isEmpty()) {
-        out.append(plain);
+        out.append(std::move(plain));
     }
 
-    const QByteArray url = QByteArray::fromBase64(bytes, QByteArray::Base64UrlEncoding);
+    QByteArray url = QByteArray::fromBase64(bytes, QByteArray::Base64UrlEncoding);
     if (!url.isEmpty() && !out.contains(url)) {
-        out.append(url);
+        out.append(std::move(url));
     }
     return out;
 }

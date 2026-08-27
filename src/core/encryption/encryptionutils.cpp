@@ -273,8 +273,8 @@ QByteArray EncryptionUtils::encryptPrivateKey(const QByteArray &privateKey, cons
         return {};
     }
 
-    const QByteArray iv = generateRandomIV(16);
-    const QByteArray ciphertext = encryptAES_CBC_256(privateKey, masterKey, iv);
+    QByteArray iv = generateRandomIV(16);
+    QByteArray ciphertext = encryptAES_CBC_256(privateKey, masterKey, iv);
 
     if (ciphertext.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Encryption of the private key failed, cipherText is empty";
@@ -282,8 +282,8 @@ QByteArray EncryptionUtils::encryptPrivateKey(const QByteArray &privateKey, cons
     }
 
     QByteArray encrypted;
-    encrypted.append(iv);
-    encrypted.append(ciphertext);
+    encrypted.append(std::move(iv));
+    encrypted.append(std::move(ciphertext));
 
     return encrypted;
 }
@@ -582,8 +582,8 @@ QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QB
         return {};
     }
 
-    const QByteArray iv = generateRandomIV(16);
-    const QByteArray cipherText = encryptAES_CBC_128(plainText, sessionKey, iv);
+    QByteArray iv = generateRandomIV(16);
+    QByteArray cipherText = encryptAES_CBC_128(plainText, sessionKey, iv);
 
     if (cipherText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, message encryption failed, cipher text is empty!";
@@ -591,8 +591,8 @@ QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QB
     }
 
     QByteArray result;
-    result.append(iv);
-    result.append(cipherText);
+    result.append(std::move(iv));
+    result.append(std::move(cipherText));
     return result;
 }
 

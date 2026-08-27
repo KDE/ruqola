@@ -1278,9 +1278,9 @@ void Room::parseUsersWaitingForE2EKeys(const QJsonObject &json)
     const QJsonArray usersArray = usersWaitingValue.toArray();
     users.reserve(usersArray.count());
     for (const auto &current : usersArray) {
-        const QByteArray userId = current["userId"_L1].toString().toLatin1();
+        QByteArray userId = current["userId"_L1].toString().toLatin1();
         if (!userId.isEmpty()) {
-            users.append(userId);
+            users.append(std::move(userId));
         }
     }
     setUsersWaitingForE2EKeys(users);

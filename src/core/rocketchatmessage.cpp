@@ -159,8 +159,8 @@ RocketChatMessage::searchRoomUsers(const QByteArray &roomId, const QString &patt
     QJsonArray params;
     params.append(pattern);
 
-    const QJsonArray exceptionJson = exceptions.isEmpty() ? QJsonArray{} : QJsonArray::fromStringList(exceptions.split(u','));
-    params.append(exceptionJson);
+    QJsonArray exceptionJson = exceptions.isEmpty() ? QJsonArray{} : QJsonArray::fromStringList(exceptions.split(u','));
+    params.append(std::move(exceptionJson));
 
     QJsonObject secondParams;
     if (searchRoom) {
