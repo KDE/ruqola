@@ -212,6 +212,8 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
     if (ret != 1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when generating exponent";
         BN_free(bne);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
         return {};
     }
 
@@ -221,6 +223,8 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error during generate key";
         BN_free(bne);
         RSA_free(rsa);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
         return {};
     }
 
@@ -818,10 +822,12 @@ QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
     RSA *rsa = RSA_new();
     // RSA_set0_* transfers ownership of the BIGNUMs to rsa
     RSA_set0_key(rsa, n, e, d);
-    if (p && q)
+    if (p && q) {
         RSA_set0_factors(rsa, p, q);
-    if (dp && dq && qi)
+    }
+    if (dp && dq && qi) {
         RSA_set0_crt_params(rsa, dp, dq, qi);
+    }
 
     BIO *bio = BIO_new(BIO_s_mem());
     if (!bio) {
