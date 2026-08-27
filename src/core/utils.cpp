@@ -168,8 +168,7 @@ qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
     }
     // ISO-8601 string form used by REST and stream-notify-user events, e.g. "2026-06-16T14:24:39.849Z"
     if (value.isString()) {
-        const QDateTime dt = QDateTime::fromString(value.toString(), Qt::ISODate);
-        return dt.isValid() ? dt.toMSecsSinceEpoch() : -1;
+        return parseIsoDate(value.toString());
     }
     return -1;
 }
@@ -178,7 +177,12 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 {
     // An absent or unparsable value must yield -1: toMSecsSinceEpoch() on an invalid QDateTime returns 0,
     // which callers would otherwise accept as a valid 1970-01-01 timestamp.
-    const QDateTime dt = QDateTime::fromString(o.value(key).toString(), Qt::ISODate);
+    return parseIsoDate(o.value(key).toString());
+}
+
+qint64 Utils::parseIsoDate(const QString &value)
+{
+    const QDateTime dt = QDateTime::fromString(value, Qt::ISODate);
     return dt.isValid() ? dt.toMSecsSinceEpoch() : -1;
 }
 
