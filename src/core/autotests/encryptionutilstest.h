@@ -19,6 +19,7 @@ private Q_SLOTS:
     void shouldExportJWKKey();
     void shouldRoundTripGeneratedKeyPairAsRocketChatDoes();
     void shouldExportSessionKeyJwkForBothAesFlavours();
+    void shouldDeriveMasterKeyTheWayRocketChatDoes();
 
     void shouldSplitVectorAndEcryptedData_data();
     void shouldSplitVectorAndEcryptedData();

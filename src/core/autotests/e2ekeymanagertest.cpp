@@ -14,6 +14,7 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 
+#include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
 #include <QStandardPaths>
@@ -274,6 +275,107 @@ void E2eKeyManagerTest::shouldFailDecodeEncryptionKeyWithWrongPassword()
     QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToDecryptKey);
     QCOMPARE(doneSpy.count(), 0);
     QCOMPARE(failedSpy.count(), 1);
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), userId));
+#endif
+}
+
+// A password holding a character outside ASCII has to be encoded the way every Rocket.Chat client
+// does, one byte per code unit: sealing it the UTF-8 way derives a different master key and leaves
+// the private key unusable everywhere else.
+void E2eKeyManagerTest::shouldDecodeV2KeySealedWithANonAsciiPassword()
+{
+#if !USE_E2E_SUPPORT
+    QSKIP("E2E support is disabled");
+#else
+    const QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.setAccountName(u"test-e2ekeymanager"_s);
+    const QString userId = u"test-e2e-user-latin1"_s;
+    account.settings()->setUserId(userId.toLatin1());
+
+    const QString password = u"p\u00E4ssw\u00F6rd-\u00E9\u00E8"_s;
+    const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
+    QVERIFY(!rsaKeyPair.privateKey.isEmpty());
+
+    const QByteArray storedKey = EncryptionUtils::encryptPrivateKeyV2(rsaKeyPair.privateKey, password, userId);
+    QVERIFY(!storedKey.isEmpty());
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(account.accountName(), userId, storedKey, rsaKeyPair.publicKey));
+
+    E2eKeyManager manager(&account);
+    manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+
+    const QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
+    const QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
+    QVERIFY(manager.decodeEncryptionKey(password));
+    QCOMPARE(manager.status(), E2eKeyManager::Status::KeyDecrypted);
+    QCOMPARE(doneSpy.count(), 1);
+    QCOMPARE(failedSpy.count(), 0);
+
+    // The UTF-8 encoding of that password is a different secret and must not open the envelope.
+    E2eKeyManager utf8Manager(&account);
+    utf8Manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+    QVERIFY(!utf8Manager.decodeEncryptionKey(QString::fromLatin1(password.toUtf8())));
+
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), userId));
+#endif
+}
+
+// Keys a previous Ruqola version sealed used the UTF-8 encoding of the password. They have to keep
+// opening, otherwise fixing the encoding would lock those accounts out of their own key.
+void E2eKeyManagerTest::shouldDecodeV2KeySealedTheOldRuqolaWay()
+{
+#if !USE_E2E_SUPPORT
+    QSKIP("E2E support is disabled");
+#else
+    const QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
+    RocketChatAccount account(tempDir.filePath(u"account.ini"_s));
+    account.setAccountName(u"test-e2ekeymanager"_s);
+    const QString userId = u"test-e2e-user-utf8"_s;
+    account.settings()->setUserId(userId.toLatin1());
+
+    const QString password = u"p\u00E4ssw\u00F6rd-\u00E9\u00E8"_s;
+    const auto rsaKeyPair = EncryptionUtils::generateRSAKey();
+    QVERIFY(!rsaKeyPair.privateKey.isEmpty());
+
+    // Rebuild the V2 envelope by hand, sealed with the master key the old encoding gave.
+    constexpr int iterations = 100000;
+    const QString salt = u"v2:%1:legacy"_s.arg(userId);
+    const QByteArray legacyMasterKey = EncryptionUtils::deriveKey(salt.toUtf8(), password.toUtf8(), iterations, 32);
+    QVERIFY(!legacyMasterKey.isEmpty());
+    QVERIFY(legacyMasterKey != EncryptionUtils::deriveMasterKey(salt, password, iterations));
+    const QByteArray iv = EncryptionUtils::generateRandomIV(12);
+    const QByteArray ciphertext = EncryptionUtils::encryptAES_GCM_256(rsaKeyPair.privateKey, legacyMasterKey, iv);
+    QVERIFY(!ciphertext.isEmpty());
+
+    QJsonObject storedKey;
+    storedKey[QStringLiteral("iv")] = QString::fromLatin1(iv.toBase64());
+    storedKey[QStringLiteral("ciphertext")] = QString::fromLatin1(ciphertext.toBase64());
+    storedKey[QStringLiteral("salt")] = salt;
+    storedKey[QStringLiteral("iterations")] = iterations;
+    QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(account.accountName(),
+                                                                   userId,
+                                                                   QJsonDocument(storedKey).toJson(QJsonDocument::Compact),
+                                                                   rsaKeyPair.publicKey));
+
+    E2eKeyManager manager(&account);
+    manager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+
+    const QSignalSpy doneSpy(&manager, &E2eKeyManager::decodeEncryptionKeyDone);
+    const QSignalSpy failedSpy(&manager, &E2eKeyManager::failedDecodeEncryptionKey);
+    QVERIFY(manager.decodeEncryptionKey(password));
+    QCOMPARE(manager.status(), E2eKeyManager::Status::KeyDecrypted);
+    QCOMPARE(doneSpy.count(), 1);
+    QCOMPARE(failedSpy.count(), 0);
+
+    // A genuinely wrong password must still be refused, whichever encoding is tried.
+    E2eKeyManager wrongManager(&account);
+    wrongManager.setStatus(E2eKeyManager::Status::NeedToDecryptKey);
+    QVERIFY(!wrongManager.decodeEncryptionKey(u"wrong-p\u00E4ssword"_s));
 
     QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), userId));
 #endif

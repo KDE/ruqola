@@ -25,4 +25,6 @@ private Q_SLOTS:
     void shouldPostponeDecryption();
     void shouldDecodeEncryptionKeyWithValidPassword();
     void shouldFailDecodeEncryptionKeyWithWrongPassword();
+    void shouldDecodeV2KeySealedWithANonAsciiPassword();
+    void shouldDecodeV2KeySealedTheOldRuqolaWay();
 };

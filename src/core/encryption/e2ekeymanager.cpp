@@ -184,7 +184,7 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
         if (v2Salt.isEmpty() || v2Iterations <= 0 || v2Iv.isEmpty() || v2Ciphertext.isEmpty()) {
             qCDebug(RUQOLA_ENCRYPTION_LOG) << "Encrypted private key is not a V2 envelope, reading it as the binary layout";
         } else {
-            const QByteArray v2MasterKey = EncryptionUtils::deriveKey(v2Salt.toUtf8(), password.toUtf8(), v2Iterations, 32);
+            const QByteArray v2MasterKey = EncryptionUtils::deriveMasterKey(v2Salt, password, v2Iterations);
             if (v2MasterKey.isEmpty()) {
                 setStatus(Status::NeedToDecryptKey);
                 Q_EMIT failedDecodeEncryptionKey();
@@ -193,6 +193,20 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
 
             decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, v2MasterKey, v2Iv);
             decryptedAsV2 = true;
+            if (decryptedPrivateKey.isEmpty()) {
+                // Keys a previous Ruqola version sealed derived the master key from the UTF-8
+                // encoding of the password, which parts company with every other client as soon as
+                // the password is not pure ASCII. Retry that way before giving up — for an ASCII
+                // password both derivations agree, so this costs nothing in the common case.
+                const QByteArray legacyMasterKey = EncryptionUtils::deriveKey(v2Salt.toUtf8(), password.toUtf8(), v2Iterations, 32);
+                if (!legacyMasterKey.isEmpty() && legacyMasterKey != v2MasterKey) {
+                    decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, legacyMasterKey, v2Iv);
+                    if (!decryptedPrivateKey.isEmpty()) {
+                        qCWarning(RUQOLA_ENCRYPTION_LOG) << "The private key was sealed with a non-ASCII password encoded the way Ruqola used to: it has "
+                                                            "to be re-uploaded before another client can unlock it";
+                    }
+                }
+            }
             if (decryptedPrivateKey.isEmpty()) {
                 // The envelope describes itself, so the only thing that can be wrong is the
                 // password: this is what a stale keychain entry looks like after the E2E key was

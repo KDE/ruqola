@@ -39,6 +39,11 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptPrivateKeyV2(const QByteArray &privateKey, const QString &password, const QString &userId);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptPrivateKey(const QByteArray &encryptedPrivateKey, const QByteArray &masterKey);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray getMasterKey(const QString &password, const QString &userId);
+// Turn a password or a salt into the bytes Rocket.Chat derives keys from: its code units, one byte
+// each, not its UTF-8 encoding.
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray keyDerivationBytes(const QString &text);
+// PBKDF2-SHA256 over those bytes, giving the 32-byte master key that protects the private key.
+[[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray deriveMasterKey(const QString &salt, const QString &password, int iterations);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray decryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray encryptAES_CBC_128(const QByteArray &data, const QByteArray &key, const QByteArray &iv);

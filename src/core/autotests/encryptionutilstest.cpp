@@ -103,6 +103,35 @@ void EncryptionUtilsTest::shouldExportSessionKeyJwkForBothAesFlavours()
     QVERIFY(EncryptionUtils::sessionKeyToJWK({}).isEmpty());
 }
 
+// Rocket.Chat derives the master key from the code units of the password, one byte each, and not
+// from its UTF-8 encoding. The two agree for ASCII only, so an accented password sealed the UTF-8
+// way produces a private key no other client can unlock.
+void EncryptionUtilsTest::shouldDeriveMasterKeyTheWayRocketChatDoes()
+{
+    // 'ä' and 'ö' are one byte each, as Rocket.Chat's Binary.decode() reads them.
+    const QString password = QStringLiteral("p\u00E4ssw\u00F6rd");
+    QCOMPARE(EncryptionUtils::keyDerivationBytes(password), QByteArray::fromHex("70e4737377f67264"));
+    QVERIFY(EncryptionUtils::keyDerivationBytes(password) != password.toUtf8());
+    // ASCII is where the two encodings agree.
+    QCOMPARE(EncryptionUtils::keyDerivationBytes(QStringLiteral("password")), QByteArrayLiteral("password"));
+
+    // A character that does not fit in a byte makes Rocket.Chat throw, so no key may be derived
+    // from it: silently folding it into '?' would seal the key with something nothing reproduces.
+    QVERIFY(EncryptionUtils::keyDerivationBytes(QStringLiteral("pass\u20ACword")).isEmpty());
+    QVERIFY(EncryptionUtils::deriveMasterKey(QStringLiteral("v2:userId:1234"), QStringLiteral("pass\u20ACword"), 1000).isEmpty());
+
+    // Known answer: PBKDF2-HMAC-SHA256 over those bytes.
+    const QString salt = QStringLiteral("v2:userId:1234");
+    QCOMPARE(EncryptionUtils::deriveMasterKey(salt, password, 1000), QByteArray::fromHex("f8ee28a74439d92a44ebf0970667f33b27fe7e6db5d8561006cdb1bba53d67fc"));
+    // What the UTF-8 encoding would have given, i.e. what must no longer be produced.
+    QVERIFY(EncryptionUtils::deriveMasterKey(salt, password, 1000) != QByteArray::fromHex("da6df525f5f57608882ff8dba32211bebd86fb710d8612566d61a6062652f79a"));
+
+    // getMasterKey() is the same derivation with the V1 parameters.
+    QCOMPARE(EncryptionUtils::getMasterKey(password, salt), EncryptionUtils::deriveMasterKey(salt, password, 1000));
+    QVERIFY(EncryptionUtils::deriveMasterKey(salt, {}, 1000).isEmpty());
+    QVERIFY(EncryptionUtils::deriveMasterKey({}, password, 1000).isEmpty());
+}
+
 void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData_data()
 {
     QTest::addColumn<QByteArray>("encryptedData");

@@ -155,7 +155,7 @@ QByteArray EncryptionUtils::encryptPrivateKeyV2(const QByteArray &privateKey, co
     // Port of Rocket.Chat's Keychain::encryptKey().
     constexpr int iterations = 100000;
     const QString salt = QStringLiteral("v2:%1:%2").arg(userId, QUuid::createUuid().toString(QUuid::WithoutBraces));
-    const QByteArray masterKey = deriveKey(salt.toUtf8(), password.toUtf8(), iterations, 32);
+    const QByteArray masterKey = deriveMasterKey(salt, password, iterations);
     if (masterKey.isEmpty()) {
         return {};
     }
@@ -349,13 +349,56 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
         return {};
     }
 
-    QByteArray masterKey = deriveKey(salt.toUtf8(), password.toUtf8(), 1000, 32);
+    QByteArray masterKey = deriveMasterKey(salt, password, 1000);
     if (masterKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Master key derivation failed!";
         return {};
     }
 
     return masterKey;
+}
+
+/**
+ * @brief Turns a password or a salt into the bytes Rocket.Chat derives keys from.
+ *
+ * Rocket.Chat feeds PBKDF2 the code units of the string, one byte each (Binary.decode() in its
+ * e2ee/binary.ts), and not its UTF-8 encoding. Both agree for ASCII but part company right after:
+ * 'é' is the single byte 0xE9 there and two bytes in UTF-8, which derives a different master key
+ * and leaves the private key of an account with an accented password impossible to unlock from the
+ * other client.
+ *
+ * @param text The password or salt.
+ * @return Its bytes, or an empty array when a character does not fit in one. Rocket.Chat throws a
+ *         RangeError in that case, so no client can derive a key from such a password: mangling it
+ *         into '?' would only turn that into a key nothing can reproduce.
+ */
+QByteArray EncryptionUtils::keyDerivationBytes(const QString &text)
+{
+    QByteArray bytes;
+    bytes.reserve(text.size());
+    for (const QChar character : text) {
+        if (character.unicode() > 0xFF) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "keyDerivationBytes: no Rocket.Chat client can derive a key from a text holding this character";
+            return {};
+        }
+        bytes.append(static_cast<char>(character.unicode()));
+    }
+    return bytes;
+}
+
+QByteArray EncryptionUtils::deriveMasterKey(const QString &salt, const QString &password, int iterations)
+{
+    if (password.isEmpty() || salt.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "deriveMasterKey: password or salt is empty";
+        return {};
+    }
+    const QByteArray passwordBytes = keyDerivationBytes(password);
+    const QByteArray saltBytes = keyDerivationBytes(salt);
+    // An empty conversion must never reach PBKDF2: it happily derives a key from no password at all.
+    if (passwordBytes.isEmpty() || saltBytes.isEmpty()) {
+        return {};
+    }
+    return deriveKey(saltBytes, passwordBytes, iterations, 32);
 }
 
 /**
