@@ -680,7 +680,9 @@ void E2eKeyManager::distributeRoomSessionKey([[maybe_unused]] const QByteArray &
     RocketChatRestApi::UpdateGroupKeyJob::UpdateGroupKeyInfo updateInfo;
     updateInfo.uid = QString::fromLatin1(mAccount->settings()->userId());
     updateInfo.roomId = QString::fromLatin1(roomId);
-    updateInfo.key = QString::fromLatin1(encryptedSessionKey.toBase64());
+    // Every key Rocket.Chat stores is "keyId + base64(payload)" (PrefixedBase64): the bare base64
+    // we used to send only worked because the readers fall back to the room's e2eKeyId.
+    updateInfo.key = keyId + QString::fromLatin1(encryptedSessionKey.toBase64());
     updateKeyJob->setUpdateGroupInfo(updateInfo);
     if (!updateKeyJob->start()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "distributeRoomSessionKey: failed to start UpdateGroupKeyJob";
@@ -794,7 +796,16 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
             if (obj.contains(QStringLiteral("iv")) && obj.contains(QStringLiteral("ciphertext")) && obj.contains(QStringLiteral("salt"))) {
                 return QJsonDocument(obj).toJson(QJsonDocument::Compact);
             }
-            return {};
+            if (obj.isEmpty()) {
+                // Nothing is stored for us: the caller has to generate a key pair.
+                return {};
+            }
+            // An envelope in none of the layouts we know still is key material, so keep its bytes
+            // exactly as the string branch does: returning nothing would make the caller believe
+            // the server holds no key for us and upload a new pair over that one, orphaning every
+            // room key. Decryption fails loudly instead.
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "private_key is a JSON object in none of the known layouts";
+            return QJsonDocument(obj).toJson(QJsonDocument::Compact);
         };
 
         if (privateKeyValue.isObject()) {

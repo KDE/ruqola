@@ -72,6 +72,7 @@ public:
 #endif
 private:
     LIBRUQOLACORE_NO_EXPORT void parseSessionKey();
+    LIBRUQOLACORE_NO_EXPORT void retireCurrentKey();
 #if USE_E2E_SUPPORT
     LIBRUQOLACORE_NO_EXPORT void decryptOldRoomKeysWithPrivateKey(RSA *privateKey);
 #endif

@@ -143,6 +143,7 @@ void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
     }
 
     {
+        // An empty object stores nothing, so a key pair has to be generated.
         QJsonObject malformedJson;
         malformedJson["public_key"_L1] = u"present-public-key"_s;
         malformedJson["private_key"_L1] = QJsonObject{};
@@ -152,6 +153,17 @@ void E2eKeyManagerTest::shouldHandleMissingOrMalformedServerKeys()
 #else
         QCOMPARE(manager.status(), E2eKeyManager::Status::Unknown);
 #endif
+    }
+
+    {
+        // An envelope in none of the layouts we know is still key material: generating a new pair
+        // would upload it over the one the server holds and orphan every room key. We keep it and
+        // let the decryption fail instead.
+        QJsonObject unknownEnvelopeJson;
+        unknownEnvelopeJson["public_key"_L1] = u"present-public-key"_s;
+        unknownEnvelopeJson["private_key"_L1] = QJsonObject{{u"someFutureLayout"_s, u"payload"_s}};
+        manager.verifyExistingKeyForTest(unknownEnvelopeJson);
+        QCOMPARE(manager.status(), E2eKeyManager::Status::NeedToDecryptKey);
     }
 
     QVERIFY(account.localDatabaseManager()->e2EDatabase()->deleteKey(account.accountName(), u"test-e2e-user-generation"_s));

@@ -203,6 +203,12 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
 
     BIO *pubBio = BIO_new(BIO_s_mem());
     BIO *privBio = BIO_new(BIO_s_mem());
+    if (!pubBio || !privBio) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when allocating the key buffers";
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
+        return {};
+    }
 
     const int bits = 2048;
     const unsigned long e = RSA_F4; // équivalent à 0x10001
@@ -218,6 +224,13 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
     }
 
     rsa = RSA_new();
+    if (!rsa) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when allocating the key";
+        BN_free(bne);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
+        return {};
+    }
     ret = RSA_generate_key_ex(rsa, bits, bne, nullptr);
     if (ret != 1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error during generate key";
@@ -623,9 +636,9 @@ QByteArray EncryptionUtils::decryptSessionKey(const QByteArray &encryptedSession
 }
 
 /**
- * @brief Encrypts a message using AES-128-CBC.
+ * @brief Encrypts a message with the room key, AES-CBC in the mode the key length dictates.
  * @param plainText The message to encrypt.
- * @param sessionKey The 16-byte session key.
+ * @param sessionKey The session key: 32 bytes (AES-256) or 16 bytes (AES-128).
  * @return The IV prepended to the ciphertext.
  */
 QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QByteArray &sessionKey)
@@ -639,8 +652,15 @@ QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QB
         return {};
     }
 
+    // The mode follows the key, as everywhere else: passing a 32-byte key to the AES-128 helper
+    // silently threw away half of it and produced something no Rocket.Chat client could read.
+    if (sessionKey.size() != 32 && sessionKey.size() != 16) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, unexpected session key size" << sessionKey.size();
+        return {};
+    }
+
     QByteArray iv = generateRandomIV(16);
-    QByteArray cipherText = encryptAES_CBC_128(plainText, sessionKey, iv);
+    QByteArray cipherText = sessionKey.size() == 32 ? encryptAES_CBC_256(plainText, sessionKey, iv) : encryptAES_CBC_128(plainText, sessionKey, iv);
 
     if (cipherText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, message encryption failed, cipher text is empty!";
@@ -654,9 +674,9 @@ QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QB
 }
 
 /**
- * @brief Decrypts a message using AES-128-CBC.
+ * @brief Decrypts a message with the room key, AES-CBC in the mode the key length dictates.
  * @param encrypted The message to decrypt.
- * @param sessionKey The 16-byte session key.
+ * @param sessionKey The session key: 32 bytes (AES-256) or 16 bytes (AES-128).
  * @return The decrypted message.
  */
 QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QByteArray &sessionKey)
@@ -670,10 +690,15 @@ QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QB
         return {};
     }
 
+    if (sessionKey.size() != 32 && sessionKey.size() != 16) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, unexpected session key size" << sessionKey.size();
+        return {};
+    }
+
     const QByteArray iv = encrypted.left(16);
     const QByteArray cipherText = encrypted.mid(16);
 
-    QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);
+    QByteArray plainText = sessionKey.size() == 32 ? decryptAES_CBC_256(cipherText, sessionKey, iv) : decryptAES_CBC_128(cipherText, sessionKey, iv);
 
     if (plainText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, message decryption failed, plain text is empty";
@@ -873,13 +898,33 @@ QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
     }
 
     RSA *rsa = RSA_new();
-    // RSA_set0_* transfers ownership of the BIGNUMs to rsa
+    if (!rsa) {
+        BN_free(n);
+        BN_free(e);
+        BN_free(d);
+        BN_free(p);
+        BN_free(q);
+        BN_free(dp);
+        BN_free(dq);
+        BN_free(qi);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: unable to allocate the key";
+        return {};
+    }
+    // RSA_set0_* transfers ownership of the BIGNUMs to rsa. The optional groups are all-or-nothing,
+    // so whatever is left over on an incomplete one has to be released here instead of leaking.
     RSA_set0_key(rsa, n, e, d);
     if (p && q) {
         RSA_set0_factors(rsa, p, q);
+    } else {
+        BN_free(p);
+        BN_free(q);
     }
     if (dp && dq && qi) {
         RSA_set0_crt_params(rsa, dp, dq, qi);
+    } else {
+        BN_free(dp);
+        BN_free(dq);
+        BN_free(qi);
     }
 
     BIO *bio = BIO_new(BIO_s_mem());
@@ -945,12 +990,27 @@ QByteArray EncryptionUtils::publicKeyJWKToPEM(const QByteArray &jwkJson)
     }
 
     RSA *rsa = RSA_new();
+    if (!rsa) {
+        BN_free(n);
+        BN_free(e);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: unable to allocate the key";
+        return {};
+    }
     RSA_set0_key(rsa, n, e, nullptr); // transfers ownership
 
     // Wrap in EVP_PKEY and write as SubjectPublicKeyInfo PEM (BEGIN PUBLIC KEY)
     EVP_PKEY *pkey = EVP_PKEY_new();
+    if (!pkey) {
+        RSA_free(rsa);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: unable to allocate the key wrapper";
+        return {};
+    }
     EVP_PKEY_assign_RSA(pkey, rsa); // pkey owns rsa from here
     BIO *bio = BIO_new(BIO_s_mem());
+    if (!bio) {
+        EVP_PKEY_free(pkey);
+        return {};
+    }
     PEM_write_bio_PUBKEY(bio, pkey);
 
     BUF_MEM *buf = nullptr;

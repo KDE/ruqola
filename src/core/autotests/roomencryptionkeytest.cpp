@@ -134,4 +134,54 @@ void RoomEncryptionKeyTest::shouldKeepOldRoomKeysToReadHistory()
 #endif
 }
 
+// When the room announces another key id, the key we hold is not the room key any more. Nothing
+// downstream compares the two, so keeping it would mean decrypting with a retired key and — far
+// worse — encrypting outgoing messages with it under the new id, which nobody could ever read.
+void RoomEncryptionKeyTest::shouldRetireTheCurrentKeyWhenTheRoomIsRekeyed()
+{
+#if USE_E2E_SUPPORT
+    const EncryptionUtils::RSAKeyPair keyPair = EncryptionUtils::generateRSAKey();
+    QVERIFY(!keyPair.privateKey.isEmpty());
+    RSA *publicKey = EncryptionUtils::publicKeyFromPEM(keyPair.publicKey);
+    QVERIFY(publicKey);
+    const QString firstKeyId = EncryptionUtils::generateRoomKeyId();
+    const QByteArray firstSessionKey = EncryptionUtils::generateSessionKey();
+    const QByteArray sharedKey = EncryptionUtils::encryptSessionKey(EncryptionUtils::sessionKeyToJWK(firstSessionKey), publicKey);
+    RSA_free(publicKey);
+
+    RoomEncryptionKey roomKey;
+    roomKey.setE2EKey(firstKeyId + QString::fromLatin1(sharedKey.toBase64()));
+    RSA *privateKey = EncryptionUtils::privateKeyFromPEM(keyPair.privateKey);
+    QVERIFY(privateKey);
+    roomKey.decryptWithPrivateKey(privateKey);
+    RSA_free(privateKey);
+    QCOMPARE(roomKey.sessionKey(), firstSessionKey);
+
+    // The room was re-keyed by another member: the new id arrives before its key does.
+    const QString secondKeyId = EncryptionUtils::generateRoomKeyId();
+    roomKey.setE2eKeyId(secondKeyId);
+    QCOMPARE(roomKey.e2eKeyId(), secondKeyId);
+    // No key for the new id, so nothing is encrypted or decrypted with the retired one...
+    QVERIFY(roomKey.sessionKey().isEmpty());
+    QVERIFY(roomKey.sessionKeyForKeyId(secondKeyId).isEmpty());
+    QVERIFY(roomKey.e2EKey().isEmpty());
+    // ...but the history written under the first id stays readable.
+    QCOMPARE(roomKey.sessionKeyForKeyId(firstKeyId), firstSessionKey);
+    QVERIFY(roomKey.hasSessionKey());
+    QVERIFY(roomKey.hasEncryptedKeys());
+
+    // Learning the id for the first time retires nothing, and neither does a payload which says
+    // nothing about it.
+    {
+        RoomEncryptionKey freshRoomKey;
+        freshRoomKey.setE2EKey(firstKeyId + QString::fromLatin1(sharedKey.toBase64()));
+        QCOMPARE(freshRoomKey.e2eKeyId(), firstKeyId);
+        freshRoomKey.setE2eKeyId(firstKeyId);
+        QCOMPARE(freshRoomKey.e2EKey(), firstKeyId + QString::fromLatin1(sharedKey.toBase64()));
+        freshRoomKey.setE2eKeyId({});
+        QVERIFY(!freshRoomKey.e2EKey().isEmpty());
+    }
+#endif
+}
+
 #include "moc_roomencryptionkeytest.cpp"

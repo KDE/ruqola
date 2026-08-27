@@ -288,7 +288,41 @@ QString RoomEncryptionKey::e2eKeyId() const
 
 void RoomEncryptionKey::setE2eKeyId(const QString &newE2eKeyId)
 {
+    if (mE2eKeyId == newE2eKeyId) {
+        return;
+    }
+    // Port of Rocket.Chat's E2ERoom::onRoomKeyReset(): once the room announces another key id, the
+    // key we hold has stopped being the room key. Keeping it is worse than holding none, because
+    // nothing else here compares the two: every message would be decrypted with a retired key, and
+    // the ones we send would be encrypted with it and labelled with the new id, leaving them
+    // unreadable for everybody including us. An empty id carries no such news — it is a payload
+    // which simply says nothing about the room key.
+    if (!mE2eKeyId.isEmpty() && !newE2eKeyId.isEmpty()) {
+        retireCurrentKey();
+    }
     mE2eKeyId = newE2eKeyId;
+}
+
+void RoomEncryptionKey::retireCurrentKey()
+{
+    // The retired key is what the messages of its era still need, so it joins the old ones instead
+    // of being dropped.
+    if (!mSessionKey.isEmpty() || !mEncryptedKeyBase64.isEmpty()) {
+        const auto hasSameKeyId = [this](const OldRoomKey &oldKey) {
+            return oldKey.keyId == mE2eKeyId;
+        };
+        if (!std::any_of(mOldRoomKeys.cbegin(), mOldRoomKeys.cend(), hasSameKeyId)) {
+            mOldRoomKeys.append(OldRoomKey{
+                .keyId = mE2eKeyId,
+                .encryptedKeyBase64 = mEncryptedKeyBase64,
+                .sessionKey = mSessionKey,
+                .timeStamp = -1,
+            });
+        }
+    }
+    mE2EKey.clear();
+    mEncryptedKeyBase64.clear();
+    mSessionKey.clear();
 }
 #if USE_E2E_SUPPORT
 void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)

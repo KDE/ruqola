@@ -35,7 +35,11 @@ void MessageEncryptionDecryptionTest::messageEncryptionDecryptionTest()
         const QByteArray message2 = EncryptionUtils::generateRandomText(i).toUtf8();
         const QByteArray encrypted = EncryptionUtils::encryptMessage(message2, sessionKey1);
         const QByteArray decryptedWithWrongKey = EncryptionUtils::decryptMessage(encrypted, sessionKey2);
-        QVERIFY(decryptedWithWrongKey.isEmpty() && decryptedWithWrongKey != message2);
+        // AES-CBC has no authentication tag, so about one wrong key in 256 leaves valid PKCS#7
+        // padding behind and decrypts to garbage instead of to nothing. Requiring an empty result
+        // made this test fail a few percent of its runs; what actually holds is that the garbage is
+        // never the message.
+        QVERIFY(decryptedWithWrongKey != message2);
     }
 }
 
