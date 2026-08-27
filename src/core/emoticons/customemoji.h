@@ -53,7 +53,7 @@ public:
     [[nodiscard]] QString emojiFileName() const;
 
     [[nodiscard]] QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
-    [[nodiscard]] QString generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const;
+    [[nodiscard]] QString generateHtmlFromCustomEmojiLocalPath(const QString &emojiLocalPath) const;
 
 private:
     QString mEmojiIdentifier;
