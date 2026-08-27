@@ -42,14 +42,11 @@ QList<Block> Blocks::blocks() const
 
 void Blocks::setVideoConferenceInfo(const VideoConferenceInfo &info)
 {
-    auto it = std::find_if(mBlocks.cbegin(), mBlocks.cend(), [info](const auto &block) {
+    auto it = std::find_if(mBlocks.begin(), mBlocks.end(), [&info](const Block &block) {
         return block.blockId() == info.blockId();
     });
-    if (it != mBlocks.cend()) {
-        mBlocks.removeAll(*it);
-        Block b(*it);
-        b.setVideoConferenceInfo(info);
-        mBlocks.append(std::move(b));
+    if (it != mBlocks.end()) {
+        it->setVideoConferenceInfo(info);
     }
 }
 
