@@ -29,7 +29,7 @@ void Block::parseBlock(const QJsonObject &block)
             mSectionText = objText["text"_L1].toString();
         }
     }
-
+    mBlockActions.clear();
     const QJsonArray elements = block["elements"_L1].toArray();
     const auto elementsCount = elements.count();
     mBlockActions.reserve(elementsCount);

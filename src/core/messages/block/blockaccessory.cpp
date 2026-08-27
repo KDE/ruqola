@@ -72,6 +72,8 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
     mType = convertAccessoryTypeToEnum(o["type"_L1].toString());
     mText = o["text"_L1]["text"_L1].toString();
     const QJsonArray optionsArray = o["options"_L1].toArray();
+    mOptions.clear();
+    mOptions.reserve(qsizetype(optionsArray.count()));
     for (const auto &r : optionsArray) {
         BlockAccessoryOption option;
         option.parse(r.toObject());
