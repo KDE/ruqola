@@ -324,6 +324,9 @@ public:
     // from before the room was re-keyed.
     [[nodiscard]] QByteArray sessionKeyForKeyId(const QString &keyId) const;
 
+    // Keys the room used before its current one, each with the session key we managed to decrypt.
+    [[nodiscard]] QList<RoomEncryptionKey::OldRoomKey> oldRoomKeys() const;
+
     // Whether any room key, current or older, is usable.
     [[nodiscard]] bool hasSessionKey() const;
 

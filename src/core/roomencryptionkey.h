@@ -23,6 +23,9 @@ public:
         QString keyId;
         QString encryptedKeyBase64;
         QByteArray sessionKey;
+        // When the key stopped being the room key. Rocket.Chat requires it back when the key is
+        // handed on to another member, so it has to survive the round trip.
+        qint64 timeStamp = -1;
     };
 
     RoomEncryptionKey();
@@ -53,6 +56,8 @@ public:
 
     // The key a message encrypted under 'keyId' has to be decrypted with, current or older.
     [[nodiscard]] QByteArray sessionKeyForKeyId(const QString &keyId) const;
+
+    [[nodiscard]] QList<OldRoomKey> oldRoomKeys() const;
 
     // Whether any key of the room, current or older, is usable.
     [[nodiscard]] bool hasSessionKey() const;

@@ -6,6 +6,7 @@
 
 #include "messagetest.h"
 #include "messages/message.h"
+#include "messages/messageencrypted.h"
 #include "ruqola_autotest_helper.h"
 #include <QCborValue>
 #include <QJsonArray>
@@ -41,6 +42,54 @@ void MessageTest::shouldHaveDefaultValues()
 }
 
 // TODO add check for default value ???
+
+void MessageTest::shouldParseEncryptedContentVersions()
+{
+    const QString legacyPayload = QStringLiteral("a1b2c3d4e5f6MDEyMzQ1Njc4OWFiY2RlZps+T56cXa0c2AQQwbeyd5PcYf9WhRr3YpIuJZ3+mkmD");
+    const auto parsed = [](const QByteArray &json) {
+        Message message;
+        message.parseMessage(QJsonDocument::fromJson(json).object(), false, nullptr);
+        return message;
+    };
+
+    // Current format: "content" is an object.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","content":{"algorithm":"rc.v2.aes-sha2","kid":"23e2720d-b3e0-4753-85ff-bad2caeb867b",)"
+                                       R"("iv":"MDEyMzQ1Njc4OWFi","ciphertext":"ej0KsqEKP7tIhPFauxLZfLCDiI6PY2Ex68Kv4kt2sCFIA24="}})"_ba);
+        QVERIFY(message.messageEncrypted());
+        QCOMPARE(message.messageEncrypted()->algorithm(), QByteArray("rc.v2.aes-sha2"));
+        QCOMPARE(message.messageEncrypted()->keyId(), QByteArray("23e2720d-b3e0-4753-85ff-bad2caeb867b"));
+    }
+
+    // "rc.v1.aes-sha2": "content" is the payload string itself.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","content":")"_ba + legacyPayload.toLatin1() + R"("})"_ba);
+        QVERIFY(message.messageEncrypted());
+        QCOMPARE(message.messageEncrypted()->algorithm(), QByteArray("rc.v1.aes-sha2"));
+        QCOMPARE(message.messageEncrypted()->keyId(), QByteArray("a1b2c3d4e5f6"));
+    }
+
+    // The oldest ones carry the payload in "msg" and have no "content" at all.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","msg":")"_ba + legacyPayload.toLatin1() + R"("})"_ba);
+        QVERIFY(message.messageEncrypted());
+        QCOMPARE(message.messageEncrypted()->keyId(), QByteArray("a1b2c3d4e5f6"));
+    }
+
+    // An encrypted message whose "msg" already holds the plaintext must be left alone rather than
+    // mistaken for a payload: that is what a message we just sent looks like.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","msg":"already readable"})"_ba);
+        QVERIFY(!message.messageEncrypted());
+        QCOMPARE(message.text(), u"already readable"_s);
+    }
+
+    // A plain message has nothing encrypted about it.
+    {
+        const Message message = parsed(R"({"_id":"msgid","msg":"hello"})"_ba);
+        QVERIFY(!message.messageEncrypted());
+    }
+}
 
 void MessageTest::shouldParseMessage_data()
 {

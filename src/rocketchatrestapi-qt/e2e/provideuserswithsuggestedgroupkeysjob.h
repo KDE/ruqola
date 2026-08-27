@@ -15,6 +15,17 @@ namespace RocketChatRestApi
 {
 
 /**
+ * A key of the room from before it was re-keyed, re-encrypted for the member we hand it to. Without
+ * them that member can read what was written since the last key change only.
+ */
+struct SuggestedOldGroupKey {
+    QString keyId;
+    QString encryptedKey;
+    // ISO-8601 date: the server feeds it to new Date() before storing it.
+    QString timeStamp;
+};
+
+/**
  * QString userId;
  *
  *QString encryptedKey;
@@ -22,6 +33,7 @@ namespace RocketChatRestApi
 struct SuggestedGroupKey {
     QString userId;
     QString encryptedKey; // base64 ????
+    QVector<SuggestedOldGroupKey> oldKeys;
 };
 
 class LIBROCKETCHATRESTAPI_QT_EXPORT ProvideUsersWithSuggestedGroupKeysJob : public RestApiAbstractJob

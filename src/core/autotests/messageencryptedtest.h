@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldDecryptV2Payload();
     void shouldEncryptLegacyCbcPayload();
     void shouldDecryptLegacyCbcPayload();
+    void shouldParseLegacyV1Payload();
 };

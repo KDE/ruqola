@@ -1337,6 +1337,14 @@ QByteArray Room::sessionKeyForKeyId(const QString &keyId) const
     return {};
 }
 
+QList<RoomEncryptionKey::OldRoomKey> Room::oldRoomKeys() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->oldRoomKeys();
+    }
+    return {};
+}
+
 bool Room::hasSessionKey() const
 {
     return mRoomEncryptionKey && mRoomEncryptionKey->hasSessionKey();

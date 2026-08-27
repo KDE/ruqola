@@ -119,4 +119,36 @@ void MessageEncryptedTest::shouldDecryptLegacyCbcPayload()
 #endif
 }
 
+// A "rc.v1.aes-sha2" message has no {kid, iv, ciphertext} object: the whole payload is the single
+// string "kid(12) + base64(iv[16] + ciphertext)". Normalising it into the fields of the current
+// format is what lets one decryption path and one key lookup serve both versions.
+void MessageEncryptedTest::shouldParseLegacyV1Payload()
+{
+    const QByteArray iv("0123456789abcdef");
+    const QByteArray sessionKey(16, 'k');
+    const QByteArray plainText("{\"msg\":\"hello e2e\"}");
+    // Same AES-128-CBC vector as above, with the iv prepended and a 12-character key id in front.
+    const QString keyId = QStringLiteral("a1b2c3d4e5f6");
+    const QString payload = keyId + QStringLiteral("MDEyMzQ1Njc4OWFiY2RlZps+T56cXa0c2AQQwbeyd5PcYf9WhRr3YpIuJZ3+mkmD");
+
+    MessageEncrypted encrypted;
+    QVERIFY(encrypted.parseLegacyPayload(payload));
+    QCOMPARE(encrypted.algorithm(), QByteArray("rc.v1.aes-sha2"));
+    // The key id has to be readable, it is what selects the room key of that era.
+    QCOMPARE(encrypted.keyId(), keyId.toLatin1());
+    QCOMPARE(QByteArray::fromBase64(encrypted.iv()), iv);
+    QVERIFY(encrypted.isValid());
+#if USE_E2E_SUPPORT
+    QCOMPARE(encrypted.decrypt(sessionKey), plainText);
+#endif
+
+    // Payloads that cannot carry a key id, or an iv and a ciphertext, must be refused rather than
+    // decoded into something plausible-looking.
+    MessageEncrypted toooShort;
+    QVERIFY(!toooShort.parseLegacyPayload(QStringLiteral("a1b2c3d4e5f6")));
+    QVERIFY(!toooShort.parseLegacyPayload({}));
+    QVERIFY(!toooShort.parseLegacyPayload(keyId + QString::fromLatin1(iv.toBase64())));
+    QVERIFY(!toooShort.isValid());
+}
+
 #include "moc_messageencryptedtest.cpp"

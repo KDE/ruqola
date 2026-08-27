@@ -35,10 +35,12 @@
 #include <qt6keychain/keychain.h>
 
 #include <QByteArray>
+#include <QDateTime>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QTimeZone>
 #include <QTimer>
 #include <chrono>
 using namespace QKeychain;
@@ -82,6 +84,31 @@ namespace
     const QByteArray encryptedSessionKey = EncryptionUtils::encryptSessionKey(sessionKeyJwk, rsaPublicKey);
     RSA_free(rsaPublicKey);
     return encryptedSessionKey;
+}
+
+// Port of Rocket.Chat's encryptOldKeysForParticipant(): each old key is re-encrypted for the
+// recipient and keeps its own key id, which is what lets them decrypt the messages of that era.
+[[nodiscard]] QVector<RocketChatRestApi::SuggestedOldGroupKey> encryptOldRoomKeysForPublicKey(const QList<RoomEncryptionKey::OldRoomKey> &oldRoomKeys,
+                                                                                              const QByteArray &publicKey)
+{
+    QVector<RocketChatRestApi::SuggestedOldGroupKey> encryptedOldKeys;
+    encryptedOldKeys.reserve(oldRoomKeys.size());
+    for (const RoomEncryptionKey::OldRoomKey &oldKey : oldRoomKeys) {
+        const QByteArray encryptedOldKey = encryptSessionKeyForPublicKey(oldKey.sessionKey, publicKey);
+        if (encryptedOldKey.isEmpty()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "unable to encrypt the old room key" << oldKey.keyId << "for a room member";
+            continue;
+        }
+        // The server stores the date as-is, so an unknown one must not become a 1969 timestamp: it
+        // only orders the keys, the lookup goes through the key id.
+        const QDateTime timeStamp = oldKey.timeStamp >= 0 ? QDateTime::fromMSecsSinceEpoch(oldKey.timeStamp, QTimeZone::UTC) : QDateTime::currentDateTimeUtc();
+        encryptedOldKeys.append({
+            oldKey.keyId,
+            oldKey.keyId + QString::fromLatin1(encryptedOldKey.toBase64()),
+            timeStamp.toString(Qt::ISODateWithMs),
+        });
+    }
+    return encryptedOldKeys;
 }
 
 // Rocket.Chat's ROOM_KEY_EXCHANGE_SIZE: number of rooms a single key distribution round covers.
@@ -538,6 +565,18 @@ void E2eKeyManager::sendRoomKeyToUsers([[maybe_unused]] const QByteArray &roomId
         return;
     }
     const QString ownUserId = QString::fromLatin1(mAccount->settings()->userId());
+    // Port of Rocket.Chat's exportOldRoomKeys(): the keys the room used before its current one go
+    // out with it, otherwise the member we are onboarding sees nothing written before the last key
+    // change. Only the ones we could decrypt can be handed on.
+    QList<RoomEncryptionKey::OldRoomKey> oldRoomKeys;
+    if (Room *const room = mAccount->room(roomId)) {
+        const auto allOldRoomKeys = room->oldRoomKeys();
+        for (const RoomEncryptionKey::OldRoomKey &oldKey : allOldRoomKeys) {
+            if (!oldKey.sessionKey.isEmpty()) {
+                oldRoomKeys.append(oldKey);
+            }
+        }
+    }
     QVector<RocketChatRestApi::SuggestedGroupKey> suggestedKeys;
     suggestedKeys.reserve(users.size());
 
@@ -565,6 +604,7 @@ void E2eKeyManager::sendRoomKeyToUsers([[maybe_unused]] const QByteArray &roomId
         suggestedKeys.append({
             targetUserId,
             keyId + QString::fromLatin1(encryptedRecipientSessionKey.toBase64()),
+            encryptOldRoomKeysForPublicKey(oldRoomKeys, publicKey.toUtf8()),
         });
     }
 

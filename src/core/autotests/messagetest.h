@@ -18,6 +18,8 @@ private Q_SLOTS:
 
     void shouldHaveDefaultValues();
 
+    void shouldParseEncryptedContentVersions();
+
     void shouldParseMessage_data();
     void shouldParseMessage();
     void shouldSerializeData();

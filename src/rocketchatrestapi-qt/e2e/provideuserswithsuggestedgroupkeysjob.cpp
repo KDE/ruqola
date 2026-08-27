@@ -89,6 +89,18 @@ QJsonDocument ProvideUsersWithSuggestedGroupKeysJob::json() const
         QJsonObject keyObj;
         keyObj["_id"_L1] = k.userId;
         keyObj["key"_L1] = k.encryptedKey;
+        // The endpoint refuses unknown members, so only send "oldKeys" when there is one to send.
+        if (!k.oldKeys.isEmpty()) {
+            QJsonArray oldKeysArr;
+            for (const auto &oldKey : k.oldKeys) {
+                QJsonObject oldKeyObj;
+                oldKeyObj["e2eKeyId"_L1] = oldKey.keyId;
+                oldKeyObj["E2EKey"_L1] = oldKey.encryptedKey;
+                oldKeyObj["ts"_L1] = oldKey.timeStamp;
+                oldKeysArr.append(std::move(oldKeyObj));
+            }
+            keyObj["oldKeys"_L1] = std::move(oldKeysArr);
+        }
         keysArr.append(std::move(keyObj));
     }
     usersSuggestedGroupKeys.insert(mRoomId, keysArr);

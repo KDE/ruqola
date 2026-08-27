@@ -22,6 +22,10 @@ public:
     [[nodiscard]] bool operator==(const MessageEncrypted &other) const;
     void parse(const QJsonObject &o);
 
+    // Read a "rc.v1.aes-sha2" payload: a bare "kid + base64(iv + ciphertext)" string instead of the
+    // {kid, iv, ciphertext} object of the current format. It is normalised into the same fields.
+    [[nodiscard]] bool parseLegacyPayload(const QString &prefixedCiphertext);
+
     [[nodiscard]] static QJsonObject serialize(const MessageEncrypted &message);
     [[nodiscard]] static std::unique_ptr<MessageEncrypted> deserialize(const QJsonObject &o);
 

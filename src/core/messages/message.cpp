@@ -117,7 +117,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     parseReactions(o.value("reactions"_L1).toObject(), emojiManager);
     parseChannels(o.value("channels"_L1).toArray());
     parseReplies(o.value("replies"_L1).toArray());
-    parseEncrypted(o.value("content"_L1).toObject());
+    parseEncrypted(o);
 }
 
 void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
@@ -510,17 +510,42 @@ void Message::parseReplies(const QJsonArray &replies)
     }
 }
 
-void Message::parseEncrypted(const QJsonObject &encrypted)
+void Message::parseEncrypted(const QJsonObject &o)
 {
-    if (!encrypted.isEmpty()) {
-        if (!mMessageEncrypted) {
-            mMessageEncrypted = new MessageEncrypted;
-        } else {
-            mMessageEncrypted.reset(new MessageEncrypted);
+    // Port of Rocket.Chat's normalizePayload(): "content" is the {algorithm, kid, iv, ciphertext}
+    // object of a "rc.v2.aes-sha2" message, but a plain "kid + base64(iv + ciphertext)" string for
+    // a "rc.v1.aes-sha2" one — and the oldest messages carry that string in "msg" with no
+    // "content" at all.
+    const QJsonValue contentValue = o.value("content"_L1);
+    if (contentValue.isObject()) {
+        if (const QJsonObject encrypted = contentValue.toObject(); !encrypted.isEmpty()) {
+            resetEncrypted();
+            mMessageEncrypted->parse(encrypted);
+            return;
         }
-        mMessageEncrypted->parse(encrypted);
+    } else if (contentValue.isString()) {
+        resetEncrypted();
+        if (mMessageEncrypted->parseLegacyPayload(contentValue.toString())) {
+            return;
+        }
+    } else if (mMessageType == MessageType::EncryptedText) {
+        // "msg" holds the ciphertext here. It can also already hold the plaintext (a message we
+        // just sent, or one loaded decrypted from the local database): the payload simply does not
+        // parse then, and the text is left as it is.
+        resetEncrypted();
+        if (mMessageEncrypted->parseLegacyPayload(o.value("msg"_L1).toString())) {
+            return;
+        }
+    }
+    mMessageEncrypted.reset();
+}
+
+void Message::resetEncrypted()
+{
+    if (!mMessageEncrypted) {
+        mMessageEncrypted = new MessageEncrypted;
     } else {
-        mMessageEncrypted.reset();
+        mMessageEncrypted.reset(new MessageEncrypted);
     }
 }
 

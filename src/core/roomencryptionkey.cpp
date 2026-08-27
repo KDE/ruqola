@@ -7,6 +7,7 @@
 #include "roomencryptionkey.h"
 #include "ruqola_encryption_debug.h"
 #include "ruqola_room_memory_debug.h"
+#include "utils.h"
 #include <QCryptographicHash>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -17,6 +18,8 @@
 #if USE_E2E_SUPPORT
 #include "encryption/encryptionutils.h"
 #endif
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
@@ -407,8 +410,14 @@ void RoomEncryptionKey::parseOldRoomKeys(const QJsonArray &array)
             .keyId = keyId,
             .encryptedKeyBase64 = stripKeyIdPrefix(encryptedKey, keyId),
             .sessionKey = {},
+            .timeStamp = Utils::parseDate(u"ts"_s, obj),
         });
     }
+}
+
+QList<RoomEncryptionKey::OldRoomKey> RoomEncryptionKey::oldRoomKeys() const
+{
+    return mOldRoomKeys;
 }
 
 QByteArray RoomEncryptionKey::sessionKeyForKeyId(const QString &keyId) const

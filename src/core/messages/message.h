@@ -252,7 +252,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
     LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
     LIBRUQOLACORE_NO_EXPORT void parseReplies(const QJsonArray &replies);
-    LIBRUQOLACORE_NO_EXPORT void parseEncrypted(const QJsonObject &encrypted);
+    LIBRUQOLACORE_NO_EXPORT void parseEncrypted(const QJsonObject &o);
+    LIBRUQOLACORE_NO_EXPORT void resetEncrypted();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT MessageExtra *messageExtra();
 

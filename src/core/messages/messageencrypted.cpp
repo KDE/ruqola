@@ -113,7 +113,10 @@ QByteArray MessageEncrypted::decrypt([[maybe_unused]] const QByteArray &sessionK
         return {};
     }
 
-    if (mAlgorithm != "rc.v2.aes-sha2") {
+    // A "rc.v1.aes-sha2" payload was normalised into the same fields when it was parsed, so both
+    // versions decrypt identically from here: what differs is the mode, and that comes from the
+    // room key rather than from the content version.
+    if (mAlgorithm != "rc.v2.aes-sha2" && mAlgorithm != "rc.v1.aes-sha2") {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: unsupported algorithm" << mAlgorithm;
         return {};
     }
@@ -209,6 +212,30 @@ bool MessageEncrypted::encrypt([[maybe_unused]] const QByteArray &plainText,
 bool MessageEncrypted::operator==(const MessageEncrypted &other) const
 {
     return mAlgorithm == other.mAlgorithm && mCiphertext == other.mCiphertext && mKeyId == other.mKeyId && mIv == other.mIv;
+}
+
+bool MessageEncrypted::parseLegacyPayload(const QString &prefixedCiphertext)
+{
+    // Port of Rocket.Chat's decodeV1EncryptedContent(): the whole payload is
+    // "kid(12 chars) + base64(iv[16] + ciphertext)". Storing it in the fields of the current format
+    // keeps a single decryption path and lets the key id be looked up the same way.
+    constexpr qsizetype legacyKeyIdLength = 12;
+    constexpr qsizetype legacyIvLength = 16;
+    if (prefixedCiphertext.size() <= legacyKeyIdLength) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::parseLegacyPayload: too short to carry a key id";
+        return false;
+    }
+    const QByteArray decoded = QByteArray::fromBase64(prefixedCiphertext.mid(legacyKeyIdLength).toLatin1());
+    if (decoded.size() <= legacyIvLength) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::parseLegacyPayload: too short to carry an iv and a ciphertext";
+        return false;
+    }
+
+    mAlgorithm = "rc.v1.aes-sha2";
+    mKeyId = prefixedCiphertext.left(legacyKeyIdLength).toLatin1();
+    mIv = decoded.left(legacyIvLength).toBase64();
+    mCiphertext = QString::fromLatin1(decoded.mid(legacyIvLength).toBase64());
+    return true;
 }
 
 void MessageEncrypted::parse(const QJsonObject &o)
