@@ -46,19 +46,22 @@ ExploreAppsTranslationWidget::~ExploreAppsTranslationWidget() = default;
 
 void ExploreAppsTranslationWidget::slotContextMenu(const QPoint &pos)
 {
-    QMenu menu(this);
     const QModelIndex index = mTreeWidget->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [index]() {
-        const QString currentValue = index.data().toString();
-        QClipboard *clip = QApplication::clipboard();
-        clip->setText(currentValue, QClipboard::Clipboard);
-        clip->setText(currentValue, QClipboard::Selection);
-    });
-    menu.exec(mTreeWidget->viewport()->mapToGlobal(pos));
+    if (index.isValid()) {
+        QMenu menu(this);
+        menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [index]() {
+            const QString currentValue = index.data().toString();
+            QClipboard *clip = QApplication::clipboard();
+            clip->setText(currentValue, QClipboard::Clipboard);
+            clip->setText(currentValue, QClipboard::Selection);
+        });
+        menu.exec(mTreeWidget->viewport()->mapToGlobal(pos));
+    }
 }
 
 void ExploreAppsTranslationWidget::setAppsLanguagesInfoMap(const QMap<QString, DownloadAppsLanguagesInfo> &map)
 {
+    mTreeWidget->clear();
     for (const auto [key, value] : map.asKeyValueRange()) {
         auto itemTop = new QTreeWidgetItem(mTreeWidget);
         itemTop->setText(0, key);
