@@ -16,7 +16,6 @@ class LIBRUQOLACORE_EXPORT NotificationOptions
     Q_GADGET
 public:
     NotificationOptions();
-    NotificationOptions(const NotificationOptions &other) = default;
     struct LIBRUQOLACORE_EXPORT NotificationValue {
         NotificationValue() = default;
         explicit NotificationValue(const QByteArray &val, const QByteArray &pref)
@@ -66,7 +65,6 @@ public:
     void parseNotificationOptions(const QJsonObject &obj);
     void updateNotificationOptions(const QJsonObject &obj);
 
-    NotificationOptions &operator=(const NotificationOptions &other) = default;
     [[nodiscard]] bool operator==(const NotificationOptions &other) const;
     [[nodiscard]] bool operator!=(const NotificationOptions &other) const;
 

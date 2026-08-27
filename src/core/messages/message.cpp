@@ -17,8 +17,6 @@
 using namespace Qt::Literals::StringLiterals;
 Message::Message() = default;
 
-Message::~Message() = default;
-
 void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager)
 {
     mMessageId = o.value("_id"_L1).toString().toLatin1();

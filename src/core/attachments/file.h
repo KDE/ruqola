@@ -17,7 +17,6 @@ class LIBRUQOLACORE_EXPORT File
     Q_GADGET
 public:
     File();
-    File(const File &other) = default;
 
     void parseFile(const QJsonObject &json, bool restApi);
     [[nodiscard]] QString fileName() const;
@@ -27,8 +26,6 @@ public:
     void setDescription(const QString &description);
 
     [[nodiscard]] bool operator==(const File &other) const;
-
-    File &operator=(const File &other) = default;
 
     [[nodiscard]] QByteArray userId() const;
     void setUserId(const QByteArray &userId);

@@ -35,7 +35,8 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.privateMessage());
     QVERIFY(!m.textToSpeechInProgress());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 440);
+    // 27/08/2026 => size 432 (removed the pointless virtual destructor)
+    QCOMPARE(sizeof(Message), 432);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 

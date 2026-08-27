@@ -31,8 +31,6 @@ public:
 
     [[nodiscard]] bool operator==(const CustomEmoji &other) const;
 
-    CustomEmoji &operator=(const CustomEmoji &other) = default;
-
     [[nodiscard]] bool isValid() const;
 
     [[nodiscard]] QStringList aliases() const;

@@ -29,8 +29,6 @@ class LIBRUQOLACORE_EXPORT Message
     Q_GADGET
 public:
     Message();
-    Message(const Message &other) = default;
-    virtual ~Message();
 
     enum MessageType : uint8_t {
         System,
@@ -90,8 +88,6 @@ public:
     void parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager);
 
     [[nodiscard]] bool operator==(const Message &other) const;
-
-    Message &operator=(const Message &other) = default;
 
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
