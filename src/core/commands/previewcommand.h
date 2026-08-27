@@ -9,7 +9,7 @@
 #include <QMetaType>
 #include <QString>
 class QDebug;
-
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT PreviewCommand
 {
     Q_GADGET
