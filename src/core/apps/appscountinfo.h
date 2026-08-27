@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT AppsCountInfo
 {
 public:
     AppsCountInfo();
-    ~AppsCountInfo();
     void parseCountInfo(const QJsonObject &replyObject);
 
     [[nodiscard]] int maxMarketplaceApps() const;

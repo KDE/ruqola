@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT CustomUserStatuses
 {
 public:
     CustomUserStatuses();
-    ~CustomUserStatuses();
 
     [[nodiscard]] bool isEmpty() const;
     void clear();

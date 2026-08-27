@@ -13,8 +13,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ActionButton, Ruqola_ActionButton)
 using namespace Qt::Literals::StringLiterals;
 ActionButton::ActionButton() = default;
 
-ActionButton::~ActionButton() = default;
-
 QByteArray ActionButton::appId() const
 {
     return mAppId;

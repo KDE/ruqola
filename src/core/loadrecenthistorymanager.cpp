@@ -9,8 +9,6 @@
 
 LoadRecentHistoryManager::LoadRecentHistoryManager() = default;
 
-LoadRecentHistoryManager::~LoadRecentHistoryManager() = default;
-
 qint64 LoadRecentHistoryManager::lastLoadingTimeStamp() const
 {
     return mLastLoadingTimeStamp;

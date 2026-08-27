@@ -89,7 +89,6 @@ public:
         PermissionType type = PermissionType::Unknown;
     };
     AppsMarketPlaceInfo();
-    ~AppsMarketPlaceInfo();
 
     void parseAppsMarketPlaceInfo(const QJsonObject &replyObject);
 

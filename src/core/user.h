@@ -40,7 +40,6 @@ public:
     };
 
     User();
-    ~User();
 
     [[nodiscard]] QString name() const;
     void setName(const QString &name);

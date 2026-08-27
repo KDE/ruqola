@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT ServicePassword
 {
 public:
     ServicePassword();
-    ~ServicePassword();
     [[nodiscard]] bool operator==(const ServicePassword &other) const;
     void parseService(const QJsonObject &replyObject);
 

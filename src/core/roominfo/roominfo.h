@@ -18,7 +18,6 @@ class LIBRUQOLACORE_EXPORT RoomInfo
 {
 public:
     RoomInfo();
-    ~RoomInfo();
     [[nodiscard]] bool operator==(const RoomInfo &other) const;
     void parseRoomInfo(const QJsonObject &object);
 

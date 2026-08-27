@@ -12,8 +12,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ApplicationsSettingsSettingsInfo, Ruqola_Applicat
 using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsSettingsInfo::ApplicationsSettingsSettingsInfo() = default;
 
-ApplicationsSettingsSettingsInfo::~ApplicationsSettingsSettingsInfo() = default;
-
 void ApplicationsSettingsSettingsInfo::parseSettings(const QJsonObject &obj)
 {
     mJsonObj = obj;

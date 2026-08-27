@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT ModerationReportInfo
 {
 public:
     ModerationReportInfo();
-    ~ModerationReportInfo();
 
     [[nodiscard]] bool operator==(const ModerationReportInfo &other) const;
     [[nodiscard]] QString description() const;

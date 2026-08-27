@@ -27,7 +27,6 @@ public:
     Q_ENUM(Status);
 
     AppsMarketPlaceInstalledInfo();
-    ~AppsMarketPlaceInstalledInfo();
 
     [[nodiscard]] bool isValid() const;
 

@@ -14,8 +14,6 @@
 using namespace Qt::Literals::StringLiterals;
 CustomUserStatuses::CustomUserStatuses() = default;
 
-CustomUserStatuses::~CustomUserStatuses() = default;
-
 void CustomUserStatuses::parseCustomUserStatuses(const QJsonObject &customStatusObj)
 {
     mCustomUserCount = customStatusObj["count"_L1].toInt();

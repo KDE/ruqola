@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT OauthInfo
 {
 public:
     OauthInfo();
-    ~OauthInfo() = default;
     [[nodiscard]] bool operator==(const OauthInfo &other) const;
     void parseOauthInfo(const QJsonObject &replyObject, bool restapi = true);
 

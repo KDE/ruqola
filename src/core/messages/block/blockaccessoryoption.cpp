@@ -9,8 +9,6 @@
 using namespace Qt::Literals::StringLiterals;
 BlockAccessoryOption::BlockAccessoryOption() = default;
 
-BlockAccessoryOption::~BlockAccessoryOption() = default;
-
 void BlockAccessoryOption::parse(const QJsonObject &obj)
 {
     mValue = obj["value"_L1].toString();

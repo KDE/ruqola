@@ -8,8 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 SearchMessageCommand::SearchMessageCommand() = default;
 
-SearchMessageCommand::~SearchMessageCommand() = default;
-
 QString SearchMessageCommand::generateCommandText(SearchMessageCommand::SearchMessageCommandType type)
 {
     switch (type) {

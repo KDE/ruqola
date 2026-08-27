@@ -14,8 +14,6 @@ RuqolaCommandLineParser::RuqolaCommandLineParser(QCommandLineParser *parser)
     initializeCommandLine(parser);
 }
 
-RuqolaCommandLineParser::~RuqolaCommandLineParser() = default;
-
 QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
 {
     switch (e) {

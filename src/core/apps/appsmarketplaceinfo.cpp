@@ -18,8 +18,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo)
 using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInfo::AppsMarketPlaceInfo() = default;
 
-AppsMarketPlaceInfo::~AppsMarketPlaceInfo() = default;
-
 QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t)
 {
     d.space() << "appId " << t.appId();

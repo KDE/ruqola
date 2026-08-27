@@ -14,8 +14,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfo, Ruqola_ModerationReport
 using namespace Qt::Literals::StringLiterals;
 ModerationReportUserInfo::ModerationReportUserInfo() = default;
 
-ModerationReportUserInfo::~ModerationReportUserInfo() = default;
-
 bool ModerationReportUserInfo::operator==(const ModerationReportUserInfo &other) const
 {
     return other.mDescription == mDescription && other.mReportId == mReportId && other.mReportedUser == mReportedUser && other.mReportedBy == mReportedBy

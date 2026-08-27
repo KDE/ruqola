@@ -22,7 +22,6 @@ public:
     Q_ENUM(SettingType);
 
     ApplicationsSettingsSettingsInfo();
-    ~ApplicationsSettingsSettingsInfo();
 
     void parseSettings(const QJsonObject &obj);
     [[nodiscard]] QString i18nDescription() const;

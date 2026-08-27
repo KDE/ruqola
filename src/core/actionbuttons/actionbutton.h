@@ -70,7 +70,6 @@ public:
     };
 
     ActionButton();
-    ~ActionButton();
 
     [[nodiscard]] QByteArray appId() const;
     void setAppId(const QByteArray &newAppId);

@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT ModerationReportUserInfos
 {
 public:
     ModerationReportUserInfos();
-    ~ModerationReportUserInfos();
 
     [[nodiscard]] bool operator==(const ModerationReportUserInfos &other) const;
 

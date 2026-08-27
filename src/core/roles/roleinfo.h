@@ -13,7 +13,6 @@ class LIBRUQOLACORE_EXPORT RoleInfo
 {
 public:
     RoleInfo();
-    ~RoleInfo();
 
     [[nodiscard]] const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);

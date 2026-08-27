@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT ModerationReportedMessageInfo
 {
 public:
     ModerationReportedMessageInfo();
-    ~ModerationReportedMessageInfo() = default;
 
     [[nodiscard]] bool operator==(const ModerationReportedMessageInfo &other) const;
 

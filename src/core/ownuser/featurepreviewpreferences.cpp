@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 FeaturePreviewPreferences::FeaturePreviewPreferences() = default;
 
-FeaturePreviewPreferences::~FeaturePreviewPreferences() = default;
-
 bool FeaturePreviewPreferences::operator==(const FeaturePreviewPreferences &other) const
 {
     return mPreviewStatus == other.mPreviewStatus;

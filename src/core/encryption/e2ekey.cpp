@@ -13,8 +13,6 @@ using namespace Qt::Literals::StringLiterals;
 
 E2eKey::E2eKey() = default;
 
-E2eKey::~E2eKey() = default;
-
 void E2eKey::parseKeyInfo(const QJsonObject &replyObject)
 {
     const QJsonObject publicKey = replyObject["public_key"_L1].toObject();

@@ -13,7 +13,6 @@ class LIBRUQOLACORE_EXPORT MessageAttachmentAction
 {
 public:
     MessageAttachmentAction();
-    ~MessageAttachmentAction();
 
     [[nodiscard]] bool isValid() const;
 

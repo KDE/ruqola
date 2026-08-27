@@ -14,8 +14,6 @@
 using namespace Qt::Literals::StringLiterals;
 Block::Block() = default;
 
-Block::~Block() = default;
-
 void Block::parseBlock(const QJsonObject &block)
 {
     // "blocks":[{"appId":"videoconf-core","blockId":"63981f8a4ef3f3baa965a0d8","callId":"63981f8a4ef3f3baa965a0d8","type":"video_conf"}]

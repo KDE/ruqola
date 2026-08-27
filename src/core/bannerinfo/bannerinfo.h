@@ -16,7 +16,6 @@ class LIBRUQOLACORE_EXPORT BannerInfo
 {
 public:
     BannerInfo();
-    ~BannerInfo();
 
     [[nodiscard]] bool isValid() const;
 

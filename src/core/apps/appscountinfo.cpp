@@ -11,8 +11,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(AppsCountInfo, Ruqola_AppsCountInfo)
 using namespace Qt::Literals::StringLiterals;
 AppsCountInfo::AppsCountInfo() = default;
 
-AppsCountInfo::~AppsCountInfo() = default;
-
 void AppsCountInfo::parseCountInfo(const QJsonObject &replyObject)
 {
     mMaxMarketplaceApps = replyObject["maxMarketplaceApps"_L1].toInt();

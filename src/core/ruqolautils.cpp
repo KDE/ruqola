@@ -20,8 +20,6 @@
 using namespace Qt::Literals::StringLiterals;
 RuqolaUtils::RuqolaUtils() = default;
 
-RuqolaUtils::~RuqolaUtils() = default;
-
 RuqolaUtils *RuqolaUtils::self()
 {
     static RuqolaUtils s_self;

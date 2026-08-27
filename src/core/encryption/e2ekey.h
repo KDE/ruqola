@@ -16,7 +16,6 @@ class LIBRUQOLACORE_EXPORT E2eKey
 {
 public:
     E2eKey();
-    ~E2eKey();
 
     void parseKeyInfo(const QJsonObject &replyObject);
 

@@ -20,8 +20,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(User, Ruqola_User)
 using namespace Qt::Literals::StringLiterals;
 User::User() = default;
 
-User::~User() = default;
-
 QString User::name() const
 {
     return mName;

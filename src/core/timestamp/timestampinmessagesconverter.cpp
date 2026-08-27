@@ -14,8 +14,6 @@ using namespace Qt::Literals::StringLiterals;
 
 TimeStampInMessagesConverter::TimeStampInMessagesConverter() = default;
 
-TimeStampInMessagesConverter::~TimeStampInMessagesConverter() = default;
-
 QString TimeStampInMessagesConverter::regularExpressionStr() const
 {
     return u"<t:([^>]*?)(?::([tTdDFfR]))?>"_s;

@@ -13,7 +13,6 @@ class LIBRUQOLACORE_EXPORT TextToSpeechEnqueueInfo
 {
 public:
     TextToSpeechEnqueueInfo();
-    ~TextToSpeechEnqueueInfo();
 
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &newRoomId);

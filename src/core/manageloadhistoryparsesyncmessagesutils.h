@@ -14,7 +14,6 @@ class LIBRUQOLACORE_TESTS_EXPORT ManageLoadHistoryParseSyncMessagesUtils
 {
 public:
     explicit ManageLoadHistoryParseSyncMessagesUtils(RocketChatAccount *account);
-    ~ManageLoadHistoryParseSyncMessagesUtils();
 
     [[nodiscard]] QList<QByteArray> deletedMessages() const;
     void setDeletedMessages(const QList<QByteArray> &newDeletedMessages);

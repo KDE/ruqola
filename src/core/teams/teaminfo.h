@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT TeamInfo
 {
 public:
     TeamInfo();
-    ~TeamInfo() = default;
 
     void parseTeamInfo(const QJsonObject &replyObject);
 

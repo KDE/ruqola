@@ -17,7 +17,6 @@ class LIBRUQOLACORE_EXPORT OwnUserPreferences
     Q_GADGET
 public:
     OwnUserPreferences();
-    ~OwnUserPreferences();
     void parsePreferences(const QJsonObject &replyObject);
     [[nodiscard]] bool operator==(const OwnUserPreferences &other) const;
     [[nodiscard]] QStringList highlightWords() const;

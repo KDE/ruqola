@@ -16,8 +16,6 @@ ServerErrorInfo::ServerErrorInfo()
     setDateTime(QDateTime::currentDateTime());
 }
 
-ServerErrorInfo::~ServerErrorInfo() = default;
-
 QDebug operator<<(QDebug d, const ServerErrorInfo &t)
 {
     d.space() << "Account Name" << t.accountName();

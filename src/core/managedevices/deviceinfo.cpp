@@ -13,8 +13,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(DeviceInfo, Ruqola_DeviceInfo)
 using namespace Qt::Literals::StringLiterals;
 DeviceInfo::DeviceInfo() = default;
 
-DeviceInfo::~DeviceInfo() = default;
-
 QDebug operator<<(QDebug d, const DeviceInfo &t)
 {
     d.space() << "Identifier" << t.identifier();

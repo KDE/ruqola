@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 PermissionsManager::PermissionsManager() = default;
 
-PermissionsManager::~PermissionsManager() = default;
-
 void PermissionsManager::parsePermissions(const QJsonObject &replyObject)
 {
     mMapPermissions.clear(); // Full sync — remove stale permissions first

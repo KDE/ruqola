@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT InviteInfo
 {
 public:
     InviteInfo();
-    ~InviteInfo() = default;
     void parseInviteInfo(const QJsonObject &replyObject);
     [[nodiscard]] const QByteArray &identifier() const;
     void setIdentifier(const QByteArray &newIdentifier);

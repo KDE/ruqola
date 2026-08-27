@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 BannerInfos::BannerInfos() = default;
 
-BannerInfos::~BannerInfos() = default;
-
 void BannerInfos::parseBannerInfos(const QJsonObject &object)
 {
     mBanners.clear();

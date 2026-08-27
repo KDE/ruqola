@@ -11,8 +11,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(BannedUser, Ruqola_BannedUser)
 using namespace Qt::Literals::StringLiterals;
 BannedUser::BannedUser() = default;
 
-BannedUser::~BannedUser() = default;
-
 QString BannedUser::userName() const
 {
     return mUserName;

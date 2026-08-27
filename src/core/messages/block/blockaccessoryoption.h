@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT BlockAccessoryOption
 {
 public:
     BlockAccessoryOption();
-    ~BlockAccessoryOption();
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);
 

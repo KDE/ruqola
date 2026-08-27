@@ -15,8 +15,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(BannerInfo, Ruqola_BannerInfo)
 using namespace Qt::Literals::StringLiterals;
 BannerInfo::BannerInfo() = default;
 
-BannerInfo::~BannerInfo() = default;
-
 bool BannerInfo::isValid() const
 {
     return !mText.isEmpty() && !mIdentifier.isEmpty() && !mTitle.isEmpty();

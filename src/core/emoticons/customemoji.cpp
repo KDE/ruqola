@@ -12,8 +12,6 @@
 using namespace Qt::Literals::StringLiterals;
 CustomEmoji::CustomEmoji() = default;
 
-CustomEmoji::~CustomEmoji() = default;
-
 bool CustomEmoji::hasEmoji(const QString &identifier) const
 {
     return (mEmojiIdentifier == identifier) || mAliases.contains(identifier);

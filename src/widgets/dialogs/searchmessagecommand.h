@@ -12,7 +12,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageCommand
     Q_GADGET
 public:
     SearchMessageCommand();
-    ~SearchMessageCommand();
 
     enum SearchMessageCommandType : uint8_t {
         Unknown = 0,

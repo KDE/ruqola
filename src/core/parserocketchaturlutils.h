@@ -50,7 +50,6 @@ public:
     };
 
     ParseRocketChatUrlUtils();
-    ~ParseRocketChatUrlUtils();
 
     [[nodiscard]] UrlType parseUrl(const QString &messageUrl);
 

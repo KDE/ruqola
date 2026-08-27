@@ -26,7 +26,6 @@ public:
     Q_ENUM(Action)
 
     VideoConference();
-    ~VideoConference();
 
     [[nodiscard]] bool operator==(const VideoConference &other) const;
 

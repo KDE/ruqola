@@ -23,7 +23,6 @@ public:
     Q_ENUM(VideoConferenceType)
 
     VideoConferenceInfo();
-    ~VideoConferenceInfo();
     void parse(const QJsonObject &content);
 
     [[nodiscard]] QString url() const;

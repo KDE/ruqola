@@ -16,7 +16,6 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
     Q_GADGET
 public:
     RocketChatMessage();
-    ~RocketChatMessage() = default;
 
     struct RocketChatMessageResult {
         QString method;

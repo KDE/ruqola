@@ -8,8 +8,6 @@
 
 AuthenticationInfo::AuthenticationInfo() = default;
 
-AuthenticationInfo::~AuthenticationInfo() = default;
-
 QString AuthenticationInfo::name() const
 {
     return mName;

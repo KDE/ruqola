@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT ModerationReportedUserInfo
 {
 public:
     ModerationReportedUserInfo();
-    ~ModerationReportedUserInfo() = default;
     [[nodiscard]] bool operator==(const ModerationReportedUserInfo &other) const;
 
     void parseModerationReportedUserInfo(const QJsonObject &replyObject);

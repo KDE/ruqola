@@ -17,7 +17,6 @@ class LIBRUQOLACORE_TESTS_EXPORT CustomEmoji
     Q_GADGET
 public:
     CustomEmoji();
-    ~CustomEmoji();
 
     void parseEmoji(const QJsonObject &emoji, bool useIsoDate = false);
 

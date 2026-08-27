@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT CustomSoundInfo
 {
 public:
     CustomSoundInfo();
-    ~CustomSoundInfo() = default;
 
     [[nodiscard]] const QByteArray &identifier() const;
     void setIdentifier(const QByteArray &newIdentifier);

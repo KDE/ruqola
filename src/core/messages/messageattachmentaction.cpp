@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentAction::MessageAttachmentAction() = default;
 
-MessageAttachmentAction::~MessageAttachmentAction() = default;
-
 bool MessageAttachmentAction::isValid() const
 {
     return !mType.isEmpty();

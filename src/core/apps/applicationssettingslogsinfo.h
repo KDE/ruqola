@@ -24,7 +24,6 @@ public:
     };
 
     ApplicationsSettingsLogsInfo();
-    ~ApplicationsSettingsLogsInfo();
     [[nodiscard]] QString method() const;
     void setMethod(const QString &newMethod);
 

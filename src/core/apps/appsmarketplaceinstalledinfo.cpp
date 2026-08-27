@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInstalledInfo::AppsMarketPlaceInstalledInfo() = default;
 
-AppsMarketPlaceInstalledInfo::~AppsMarketPlaceInstalledInfo() = default;
-
 QDebug operator<<(QDebug d, const AppsMarketPlaceInstalledInfo &t)
 {
     d.space() << "private" << t.isPrivate();

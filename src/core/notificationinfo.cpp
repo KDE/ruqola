@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 NotificationInfo::NotificationInfo() = default;
 
-NotificationInfo::~NotificationInfo() = default;
-
 QDebug operator<<(QDebug d, const NotificationInfo &t)
 {
     d.space() << "accountName" << t.accountName();

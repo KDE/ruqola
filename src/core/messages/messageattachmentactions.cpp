@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentActions::MessageAttachmentActions() = default;
 
-MessageAttachmentActions::~MessageAttachmentActions() = default;
-
 bool MessageAttachmentActions::isValid() const
 {
     return !mActions.isEmpty() && mAlignment != AlignmentButton::Unknown;

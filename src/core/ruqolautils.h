@@ -14,7 +14,6 @@ class QUrl;
 class LIBRUQOLACORE_EXPORT RuqolaUtils
 {
 public:
-    ~RuqolaUtils();
     static RuqolaUtils *self();
     void openUrl(const QString &url);
 

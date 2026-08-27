@@ -28,7 +28,6 @@ public:
     };
 
     BannerInfos();
-    ~BannerInfos();
 
     [[nodiscard]] const QList<BannerInfo> &banners() const;
     void setBanners(const QList<BannerInfo> &newBanners);

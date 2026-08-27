@@ -9,8 +9,6 @@
 
 TextToSpeechEnqueueInfo::TextToSpeechEnqueueInfo() = default;
 
-TextToSpeechEnqueueInfo::~TextToSpeechEnqueueInfo() = default;
-
 QByteArray TextToSpeechEnqueueInfo::roomId() const
 {
     return mRoomId;

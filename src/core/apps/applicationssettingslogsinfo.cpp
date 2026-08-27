@@ -16,8 +16,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ApplicationsSettingsLogsInfo, Ruqola_Applications
 
 ApplicationsSettingsLogsInfo::ApplicationsSettingsLogsInfo() = default;
 
-ApplicationsSettingsLogsInfo::~ApplicationsSettingsLogsInfo() = default;
-
 void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 {
     mMethod = obj["method"_L1].toString();

@@ -45,7 +45,6 @@ public:
         [[nodiscard]] bool operator==(const PendingTypedInfo &other) const;
     };
     explicit AccountRoomSettings(RocketChatAccount *account);
-    ~AccountRoomSettings();
 
     void remove(const QByteArray &roomId);
 

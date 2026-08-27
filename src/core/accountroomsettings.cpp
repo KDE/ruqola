@@ -15,8 +15,6 @@ AccountRoomSettings::AccountRoomSettings(RocketChatAccount *account)
 {
 }
 
-AccountRoomSettings::~AccountRoomSettings() = default;
-
 void AccountRoomSettings::remove(const QByteArray &roomId)
 {
     if (mPendingTypedTexts.remove(roomId) > 0) {

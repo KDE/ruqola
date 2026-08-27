@@ -14,8 +14,6 @@
 using namespace Qt::Literals::StringLiterals;
 OwnUserPreferences::OwnUserPreferences() = default;
 
-OwnUserPreferences::~OwnUserPreferences() = default;
-
 void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 {
     // qDebug() << " replyObject " << replyObject;

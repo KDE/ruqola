@@ -15,8 +15,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfos, Ruqola_ModerationRepor
 using namespace Qt::Literals::StringLiterals;
 ModerationReportUserInfos::ModerationReportUserInfos() = default;
 
-ModerationReportUserInfos::~ModerationReportUserInfos() = default;
-
 QDebug operator<<(QDebug d, const ModerationReportUserInfos &t)
 {
     d.space() << "total" << t.total();

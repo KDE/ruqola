@@ -16,8 +16,6 @@ ManageLoadHistoryParseSyncMessagesUtils::ManageLoadHistoryParseSyncMessagesUtils
 {
 }
 
-ManageLoadHistoryParseSyncMessagesUtils::~ManageLoadHistoryParseSyncMessagesUtils() = default;
-
 QList<QByteArray> ManageLoadHistoryParseSyncMessagesUtils::deletedMessages() const
 {
     return mDeletedMessages;

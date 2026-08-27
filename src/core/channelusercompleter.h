@@ -16,7 +16,6 @@ class LIBRUQOLACORE_EXPORT ChannelUserCompleter
     Q_GADGET
 public:
     ChannelUserCompleter();
-    ~ChannelUserCompleter();
 
     enum ChannelUserCompleterType : uint8_t {
         Unknown,

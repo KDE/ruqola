@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT MessageAttachmentField
 {
 public:
     MessageAttachmentField();
-    ~MessageAttachmentField();
     [[nodiscard]] bool operator==(const MessageAttachmentField &other) const;
     [[nodiscard]] QString title() const;
     void setTitle(const QString &title);

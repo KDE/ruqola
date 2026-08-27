@@ -25,7 +25,6 @@ public:
     Q_ENUM(AccessoryType)
 
     BlockAccessory();
-    ~BlockAccessory();
 
     [[nodiscard]] QByteArray actionId() const;
     void setActionId(const QByteArray &newActionId);

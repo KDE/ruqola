@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT CustomUserStatus
 {
 public:
     CustomUserStatus();
-    ~CustomUserStatus();
 
     [[nodiscard]] bool isValid() const;
 

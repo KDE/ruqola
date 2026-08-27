@@ -46,7 +46,6 @@ public:
     Q_ENUM(ActiveModule)
 
     LicensesManager();
-    ~LicensesManager();
 
     [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule) const;
 

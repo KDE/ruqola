@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT AppsCategoryInfo
 {
 public:
     AppsCategoryInfo();
-    ~AppsCategoryInfo();
 
     void parseAppsCategoryInfo(const QJsonObject &replyObject);
     [[nodiscard]] QString title() const;

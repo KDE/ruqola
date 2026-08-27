@@ -15,7 +15,6 @@ class LIBRUQOLACORE_TESTS_EXPORT PermissionsManager
 {
 public:
     PermissionsManager();
-    ~PermissionsManager();
 
     void parsePermissions(const QJsonObject &replyObject);
 

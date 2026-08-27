@@ -11,8 +11,6 @@ using namespace Qt::Literals::StringLiterals;
 
 ReadReceipt::ReadReceipt() = default;
 
-ReadReceipt::~ReadReceipt() = default;
-
 QByteArray ReadReceipt::userId() const
 {
     return mUserId;

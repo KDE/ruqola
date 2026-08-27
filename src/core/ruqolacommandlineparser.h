@@ -28,7 +28,6 @@ public:
     };
 
     explicit RuqolaCommandLineParser(QCommandLineParser *parser);
-    ~RuqolaCommandLineParser();
 
     [[nodiscard]] static QString commandLineFromEnum(CommandLineName e);
 

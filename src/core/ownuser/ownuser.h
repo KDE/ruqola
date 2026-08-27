@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT OwnUser
 {
 public:
     OwnUser();
-    ~OwnUser();
     void parseOwnUserInfo(const QJsonObject &replyObject);
 
     [[nodiscard]] QByteArray userId() const;

@@ -13,8 +13,6 @@ using namespace Qt::Literals::StringLiterals;
 
 ParseRocketChatUrlUtils::ParseRocketChatUrlUtils() = default;
 
-ParseRocketChatUrlUtils::~ParseRocketChatUrlUtils() = default;
-
 ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString &messageUrl)
 {
     if (messageUrl.isEmpty()) {

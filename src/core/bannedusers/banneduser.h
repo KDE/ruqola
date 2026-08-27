@@ -13,7 +13,6 @@ class LIBRUQOLACORE_EXPORT BannedUser
 {
 public:
     BannedUser();
-    ~BannedUser();
 
     [[nodiscard]] QString userName() const;
     void setUserName(const QString &newUserName);

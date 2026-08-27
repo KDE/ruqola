@@ -17,8 +17,6 @@
 using namespace Qt::Literals::StringLiterals;
 VideoConferenceInfo::VideoConferenceInfo() = default;
 
-VideoConferenceInfo::~VideoConferenceInfo() = default;
-
 void VideoConferenceInfo::parse(const QJsonObject &content)
 {
     qCDebug(RUQOLA_VIDEO_CONFERENCE_LOG) << " content " << content;

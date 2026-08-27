@@ -12,8 +12,6 @@
 using namespace Qt::Literals::StringLiterals;
 BlockAccessory::BlockAccessory() = default;
 
-BlockAccessory::~BlockAccessory() = default;
-
 bool BlockAccessory::isValid() const
 {
     return !mActionId.isEmpty() && (mType != BlockAccessory::AccessoryType::Unknown);

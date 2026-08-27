@@ -22,7 +22,6 @@ public:
     };
     Q_ENUM(AlignmentButton)
     MessageAttachmentActions();
-    ~MessageAttachmentActions();
 
     void parse(const QJsonObject &obj);
     [[nodiscard]] AlignmentButton alignment() const;

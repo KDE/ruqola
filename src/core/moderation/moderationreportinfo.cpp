@@ -16,8 +16,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ModerationReportInfo, Ruqola_ModerationReportInfo
 using namespace Qt::Literals::StringLiterals;
 ModerationReportInfo::ModerationReportInfo() = default;
 
-ModerationReportInfo::~ModerationReportInfo() = default;
-
 bool ModerationReportInfo::operator==(const ModerationReportInfo &other) const
 {
     return mDescription == other.mDescription && mReportIdentifier == other.mReportIdentifier && mTimeStamp == other.mTimeStamp && mRoomId == other.mRoomId

@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT AuthenticationInfo
     Q_GADGET
 public:
     AuthenticationInfo();
-    ~AuthenticationInfo();
 
     [[nodiscard]] QString name() const;
     void setName(const QString &name);

@@ -14,8 +14,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(OwnUser, Ruqola_OwnUser)
 using namespace Qt::Literals::StringLiterals;
 OwnUser::OwnUser() = default;
 
-OwnUser::~OwnUser() = default;
-
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {
     // qDebug() << "replyObject " << replyObject;

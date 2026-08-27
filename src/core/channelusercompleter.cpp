@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 ChannelUserCompleter::ChannelUserCompleter() = default;
 
-ChannelUserCompleter::~ChannelUserCompleter() = default;
-
 QDebug operator<<(QDebug d, const ChannelUserCompleter &t)
 {
     d.space() << "Type" << t.type();

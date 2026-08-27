@@ -16,7 +16,6 @@ class LIBRUQOLACORE_EXPORT DeviceInfo
 {
 public:
     DeviceInfo();
-    ~DeviceInfo();
 
     void parseDeviceInfo(const QJsonObject &object);
 
