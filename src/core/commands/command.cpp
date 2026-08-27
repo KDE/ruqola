@@ -142,10 +142,12 @@ void Command::parseCommand(const QJsonObject &obj)
     mProvidesPreview = obj.value("providesPreview"_L1).toBool();
     mClientOnly = obj.value("clientOnly"_L1).toBool();
     // Add "/" for completion.
-    const QString commandName = obj.value("command"_L1).toString();
-    if (!commandName.isEmpty()) {
+    if (const QString commandName = obj.value("command"_L1).toString(); !commandName.isEmpty()) {
         mCommandName = u'/' + commandName;
+    } else {
+        mCommandName.clear();
     }
+
     setDescription(obj.value("description"_L1).toString());
     setParams(obj.value("params"_L1).toString());
 
