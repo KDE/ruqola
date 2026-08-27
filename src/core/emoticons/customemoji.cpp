@@ -39,9 +39,9 @@ void CustomEmoji::parseEmoji(const QJsonObject &emoji, bool useIsoDate)
     mName = emoji.value("name"_L1).toString();
     mEmojiIdentifier = u':' + mName + u':';
     if (useIsoDate) {
-        mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, emoji);
-    } else {
         mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, emoji);
+    } else {
+        mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, emoji);
     }
     const QJsonArray array = emoji.value("aliases"_L1).toArray();
     const auto arrayCount = array.count();
