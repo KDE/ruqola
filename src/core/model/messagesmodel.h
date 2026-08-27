@@ -181,7 +181,7 @@ public:
 
     void generateText(const Message &message, const QString &searchText, int hightLightStringIndex);
 
-    void decryptMessages(const QByteArray &sessionKey);
+    void decryptMessages();
 
     void changeLocalTranslation(const QByteArray &messageId, const QString &result);
 

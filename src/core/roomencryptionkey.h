@@ -8,6 +8,7 @@
 #include "libruqolacore_export.h"
 #include <QList>
 #include <QSharedData>
+class QJsonArray;
 #if USE_E2E_SUPPORT
 extern "C" {
 #include <openssl/rsa.h>
@@ -16,6 +17,14 @@ extern "C" {
 class LIBRUQOLACORE_EXPORT RoomEncryptionKey : public QSharedData
 {
 public:
+    // A key the room used before it was re-keyed. Messages carry the id of the key they were
+    // written with, so keeping the previous ones is the only way to still read that history.
+    struct OldRoomKey {
+        QString keyId;
+        QString encryptedKeyBase64;
+        QByteArray sessionKey;
+    };
+
     RoomEncryptionKey();
     ~RoomEncryptionKey();
     [[nodiscard]] QString e2EKey() const;
@@ -34,9 +43,22 @@ public:
     [[nodiscard]] QList<QByteArray> usersWaitingForE2EKeys() const;
     void setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys);
 
+    // Keys the room used before its current one, from the subscription fields "oldRoomKeys" (ours
+    // already) and "suggestedOldRoomKeys" (still offered to us). Each is RSA-encrypted for us.
+    void parseOldRoomKeys(const QJsonArray &array);
+
     [[nodiscard]] bool operator==(const RoomEncryptionKey &other) const;
 
     [[nodiscard]] QByteArray sessionKey() const;
+
+    // The key a message encrypted under 'keyId' has to be decrypted with, current or older.
+    [[nodiscard]] QByteArray sessionKeyForKeyId(const QString &keyId) const;
+
+    // Whether any key of the room, current or older, is usable.
+    [[nodiscard]] bool hasSessionKey() const;
+
+    // Whether there is key material waiting for our private key.
+    [[nodiscard]] bool hasEncryptedKeys() const;
 
 #if USE_E2E_SUPPORT
     // Decrypt the session key using the provided RSA private key
@@ -45,11 +67,15 @@ public:
 #endif
 private:
     LIBRUQOLACORE_NO_EXPORT void parseSessionKey();
+#if USE_E2E_SUPPORT
+    LIBRUQOLACORE_NO_EXPORT void decryptOldRoomKeysWithPrivateKey(RSA *privateKey);
+#endif
     // Encryption Key
     QString mE2EKey;
     QString mE2ESuggestedKey;
     QString mE2eKeyId;
     QString mEncryptedKeyBase64; // Base64-encoded RSA-encrypted session key
     QByteArray mSessionKey;
+    QList<OldRoomKey> mOldRoomKeys;
     QList<QByteArray> mUsersWaitingForE2EKeys;
 };

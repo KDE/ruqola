@@ -130,7 +130,25 @@ QByteArray MessageEncrypted::decrypt([[maybe_unused]] const QByteArray &sessionK
         return {};
     }
 
-    return EncryptionUtils::decryptAES_GCM_256(decodedCiphertext, sessionKey, decodedIv);
+    // Rocket.Chat takes the AES mode from the room key itself (Aes.decrypt() passes
+    // key.algorithm.name), not from the content version: a room still keyed with a legacy
+    // 16-byte A128CBC key produces AES-CBC-128 payloads inside a "rc.v2.aes-sha2" content.
+    if (sessionKey.size() == 16) {
+        return EncryptionUtils::decryptAES_CBC_128(decodedCiphertext, sessionKey, decodedIv);
+    }
+    if (sessionKey.size() != 32) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: unexpected session key size" << sessionKey.size();
+        return {};
+    }
+    const QByteArray decrypted = EncryptionUtils::decryptAES_GCM_256(decodedCiphertext, sessionKey, decodedIv);
+    if (decrypted.isEmpty()) {
+        // The room key we were handed is not the one this message was written with. Rocket.Chat
+        // looks the message "kid" up in the subscription's oldRoomKeys before falling back to the
+        // current key, so a mismatch here usually means the room key was reset after this message.
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: cannot decrypt message encrypted with kid" << mKeyId
+                                         << "- the current room key does not match it";
+    }
+    return decrypted;
 #else
     return {};
 #endif
@@ -157,13 +175,22 @@ bool MessageEncrypted::encrypt([[maybe_unused]] const QByteArray &plainText,
         return false;
     }
 
-    const QByteArray generatedIv = EncryptionUtils::generateRandomIV(12);
+    // Same rule as in decrypt(): the room key decides the mode. Rocket.Chat's Aes.encrypt() also
+    // derives the IV length from it, 12 bytes for AES-GCM and 16 for the legacy AES-CBC-128.
+    const bool useLegacyCbc = sessionKey.size() == 16;
+    if (!useLegacyCbc && sessionKey.size() != 32) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: unexpected session key size" << sessionKey.size();
+        return false;
+    }
+
+    const QByteArray generatedIv = EncryptionUtils::generateRandomIV(useLegacyCbc ? 16 : 12);
     if (generatedIv.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: failed to generate iv";
         return false;
     }
 
-    const QByteArray encryptedPayload = EncryptionUtils::encryptAES_GCM_256(plainText, sessionKey, generatedIv);
+    const QByteArray encryptedPayload = useLegacyCbc ? EncryptionUtils::encryptAES_CBC_128(plainText, sessionKey, generatedIv)
+                                                     : EncryptionUtils::encryptAES_GCM_256(plainText, sessionKey, generatedIv);
     if (encryptedPayload.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::encrypt: encryption failed";
         return false;

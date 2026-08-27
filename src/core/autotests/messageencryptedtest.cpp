@@ -66,4 +66,57 @@ void MessageEncryptedTest::shouldDecryptV2Payload()
     QVERIFY(encrypted.decrypt(wrongSessionKey).isEmpty());
 }
 
+// A room keyed before Rocket.Chat switched to AES-GCM still holds a 16-byte A128CBC key, and its
+// clients encrypt with AES-CBC-128 even inside a "rc.v2.aes-sha2" content: the mode follows the
+// key, not the content version.
+void MessageEncryptedTest::shouldEncryptLegacyCbcPayload()
+{
+    const QByteArray sessionKey(16, 'k');
+    const QByteArray plainText("{\"msg\":\"hello legacy\"}");
+    const QByteArray keyId("23e2720d-b3e0-4753-85ff-bad2caeb867b");
+
+    MessageEncrypted encrypted;
+    const bool encryptedOk = encrypted.encrypt(plainText, sessionKey, keyId);
+#if USE_E2E_SUPPORT
+    QVERIFY(encryptedOk);
+    QCOMPARE(encrypted.algorithm(), QByteArray("rc.v2.aes-sha2"));
+    QCOMPARE(encrypted.keyId(), keyId);
+    // AES-CBC takes a full-block IV, unlike the 12-byte one of AES-GCM.
+    QCOMPARE(QByteArray::fromBase64(encrypted.iv()).size(), 16);
+    QCOMPARE(encrypted.decrypt(sessionKey), plainText);
+
+    const QByteArray wrongSessionKey(16, 'x');
+    QVERIFY(encrypted.decrypt(wrongSessionKey) != plainText);
+
+    // A key of a size no Rocket.Chat client can import must not be used at all.
+    MessageEncrypted bogus;
+    QVERIFY(!bogus.encrypt(plainText, QByteArray(24, 'k'), keyId));
+#else
+    QVERIFY(!encryptedOk);
+#endif
+}
+
+void MessageEncryptedTest::shouldDecryptLegacyCbcPayload()
+{
+    // Test vector generated with AES-128-CBC, key='k'*16, iv="0123456789abcdef"
+    const QByteArray sessionKey(16, 'k');
+    const QByteArray iv("0123456789abcdef");
+    const QByteArray plainText("{\"msg\":\"hello e2e\"}");
+    const QByteArray encryptedPayload = QByteArray::fromBase64("mz5PnpxdrRzYBBDBt7J3k9xh/1aFGvdiki4lnf6aSYM=");
+    QVERIFY(!encryptedPayload.isEmpty());
+
+    MessageEncrypted encrypted;
+    encrypted.setAlgorithm("rc.v2.aes-sha2");
+    encrypted.setKeyId("23e2720d-b3e0-4753-85ff-bad2caeb867b");
+    encrypted.setIv(iv.toBase64());
+    encrypted.setCiphertext(QString::fromLatin1(encryptedPayload.toBase64()));
+
+#if USE_E2E_SUPPORT
+    QCOMPARE(encrypted.decrypt(sessionKey), plainText);
+    QVERIFY(encrypted.decrypt(QByteArray(16, 'x')) != plainText);
+#else
+    QVERIFY(encrypted.decrypt(sessionKey).isEmpty());
+#endif
+}
+
 #include "moc_messageencryptedtest.cpp"

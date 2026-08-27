@@ -678,6 +678,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (json.contains("E2ESuggestedKey"_L1)) {
         setE2ESuggestedKey(json["E2ESuggestedKey"_L1].toString());
     }
+    parseOldRoomKeys(json);
     parseUsersWaitingForE2EKeys(json);
 
     if (json.contains("encrypted"_L1)) {
@@ -747,6 +748,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     if (json.contains("E2ESuggestedKey"_L1)) {
         setE2ESuggestedKey(json["E2ESuggestedKey"_L1].toString());
     }
+    parseOldRoomKeys(json);
     setReadOnly(json["ro"_L1].toBool());
 
     setUpdatedAt(Utils::parseDate(u"_updatedAt"_s, json));
@@ -1305,6 +1307,46 @@ void Room::setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingFor
     mRoomEncryptionKey->setUsersWaitingForE2EKeys(newUsersWaitingForE2EKeys);
 }
 
+void Room::parseOldRoomKeys(const QJsonObject &json)
+{
+    // Partial subscription updates must not drop the old keys we already imported, so only touch
+    // them on a payload actually carrying one of the two fields.
+    const bool hasOldRoomKeys = json.contains("oldRoomKeys"_L1);
+    const bool hasSuggestedOldRoomKeys = json.contains("suggestedOldRoomKeys"_L1);
+    if (!hasOldRoomKeys && !hasSuggestedOldRoomKeys) {
+        return;
+    }
+    if (!mRoomEncryptionKey) {
+        mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    if (hasOldRoomKeys) {
+        mRoomEncryptionKey->parseOldRoomKeys(json.value("oldRoomKeys"_L1).toArray());
+    }
+    // The server promotes the suggested ones to "oldRoomKeys" when we accept the room key, but
+    // they are already encrypted for us: importing them now shows the history right away.
+    if (hasSuggestedOldRoomKeys) {
+        mRoomEncryptionKey->parseOldRoomKeys(json.value("suggestedOldRoomKeys"_L1).toArray());
+    }
+}
+
+QByteArray Room::sessionKeyForKeyId(const QString &keyId) const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->sessionKeyForKeyId(keyId);
+    }
+    return {};
+}
+
+bool Room::hasSessionKey() const
+{
+    return mRoomEncryptionKey && mRoomEncryptionKey->hasSessionKey();
+}
+
+bool Room::hasEncryptedKeys() const
+{
+    return mRoomEncryptionKey && mRoomEncryptionKey->hasEncryptedKeys();
+}
+
 QString Room::e2EKey() const
 {
     if (mRoomEncryptionKey) {
@@ -1337,8 +1379,8 @@ void Room::decryptSessionKeyWithPrivateKey(RSA *privateKey)
                                    << "roomName=" << name() << "roomId=" << roomId() << "e2eKeyId=" << mRoomEncryptionKey->e2eKeyId()
                                    << "e2eKeyLen=" << mRoomEncryptionKey->e2EKey().size() << "hasPrivateKey=" << (privateKey != nullptr);
     mRoomEncryptionKey->decryptWithPrivateKey(privateKey);
-    if (const auto sessionKey = mRoomEncryptionKey->sessionKey(); !sessionKey.isEmpty()) {
-        mMessageModel->decryptMessages(sessionKey);
+    if (mRoomEncryptionKey->hasSessionKey()) {
+        mMessageModel->decryptMessages();
     }
 }
 #endif

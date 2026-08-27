@@ -8,10 +8,12 @@
 #include "ruqola_encryption_debug.h"
 #include "ruqola_room_memory_debug.h"
 #include <QCryptographicHash>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUuid>
 #include <QVector>
+#include <algorithm>
 #if USE_E2E_SUPPORT
 #include "encryption/encryptionutils.h"
 #endif
@@ -37,6 +39,22 @@ QByteArray decodeBase64Variants(const QByteArray &text)
         return first;
     }
     return second;
+}
+
+// Rocket.Chat serialises every key it shares as "kid + base64(RSA payload)" and recovers the two
+// parts by length, the base64 tail of a 2048-bit RSA payload always being 344 characters long
+// (PrefixedBase64 in its e2ee/prefixed.ts).
+constexpr qsizetype rsaPayloadBase64Length = 344;
+
+QString stripKeyIdPrefix(const QString &prefixedKey, const QString &keyId)
+{
+    if (!keyId.isEmpty() && prefixedKey.startsWith(keyId)) {
+        return prefixedKey.mid(keyId.size());
+    }
+    if (prefixedKey.size() > rsaPayloadBase64Length) {
+        return prefixedKey.right(rsaPayloadBase64Length);
+    }
+    return prefixedKey;
 }
 
 #if USE_E2E_SUPPORT
@@ -104,9 +122,18 @@ QVector<QByteArray> encryptedKeyCandidates(const QString &fullE2EKey, const QStr
     return out;
 }
 
+// Rocket.Chat has exactly two room key flavours (ALGORITHM_MAP in its crypto/aes.ts) and the raw
+// key length is what tells them apart: 32 bytes for the AES-GCM-256 of the rooms keyed nowadays,
+// 16 bytes for the AES-CBC-128 of the ones keyed before the GCM switch. Refusing the short ones
+// leaves those rooms unreadable and, worse, makes us reject the key their members share with us.
+[[nodiscard]] bool isSupportedSessionKeySize(qsizetype size)
+{
+    return size == 32 || size == 16;
+}
+
 QByteArray normalizeSessionKeyPayload(const QByteArray &decryptedPayload)
 {
-    if (decryptedPayload.size() == 32) {
+    if (isSupportedSessionKeySize(decryptedPayload.size())) {
         return decryptedPayload;
     }
 
@@ -115,8 +142,8 @@ QByteArray normalizeSessionKeyPayload(const QByteArray &decryptedPayload)
         return {};
     }
 
-    // Some payloads are base64/base64url text of the raw 32-byte key.
-    if (const QByteArray decoded = decodeBase64Variants(trimmed); decoded.size() == 32) {
+    // Some payloads are base64/base64url text of the raw key.
+    if (const QByteArray decoded = decodeBase64Variants(trimmed); isSupportedSessionKeySize(decoded.size())) {
         return decoded;
     }
 
@@ -127,18 +154,18 @@ QByteArray normalizeSessionKeyPayload(const QByteArray &decryptedPayload)
             const QJsonObject obj = doc.object();
             if (const QString k = obj.value(QStringLiteral("k")).toString(); !k.isEmpty()) {
                 const QByteArray decodedK = QByteArray::fromBase64(k.toLatin1(), QByteArray::Base64UrlEncoding);
-                if (decodedK.size() == 32) {
+                if (isSupportedSessionKeySize(decodedK.size())) {
                     return decodedK;
                 }
             }
             if (const QString key = obj.value(QStringLiteral("key")).toString(); !key.isEmpty()) {
-                if (const QByteArray decodedKey = decodeBase64Variants(key.toLatin1()); decodedKey.size() == 32) {
+                if (const QByteArray decodedKey = decodeBase64Variants(key.toLatin1()); isSupportedSessionKeySize(decodedKey.size())) {
                     return decodedKey;
                 }
             }
             if (const QString binary = obj.value(QStringLiteral("$binary")).toString(); !binary.isEmpty()) {
                 const QByteArray decodedBinary = QByteArray::fromBase64(binary.toLatin1());
-                if (decodedBinary.size() == 32) {
+                if (isSupportedSessionKeySize(decodedBinary.size())) {
                     return decodedBinary;
                 }
             }
@@ -270,8 +297,12 @@ void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)
         return;
     }
 
+    decryptOldRoomKeysWithPrivateKey(privateKey);
+
     if (mEncryptedKeyBase64.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "No encrypted key available for decryption";
+        if (mOldRoomKeys.isEmpty()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "No encrypted key available for decryption";
+        }
         mSessionKey.clear();
         return;
     }
@@ -310,7 +341,7 @@ void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)
 
         lastDecryptedPayload = decryptedPayload;
         mSessionKey = normalizeSessionKeyPayload(decryptedPayload);
-        if (mSessionKey.size() == 32) {
+        if (isSupportedSessionKeySize(mSessionKey.size())) {
             qCDebug(RUQOLA_ENCRYPTION_LOG) << "Session key successfully decrypted for keyId:" << mE2eKeyId;
             return;
         }
@@ -321,12 +352,97 @@ void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)
                                          << "for current RSA private key)";
     } else {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Invalid decrypted session key size:" << mSessionKey.size()
-                                         << "(expected 32), payloadLen=" << lastDecryptedPayload.size()
+                                         << "(expected 16 or 32), payloadLen=" << lastDecryptedPayload.size()
                                          << "payloadPreview=" << QString::fromLatin1(lastDecryptedPayload.left(48));
     }
     mSessionKey.clear();
 }
+
+void RoomEncryptionKey::decryptOldRoomKeysWithPrivateKey(RSA *privateKey)
+{
+    // Port of Rocket.Chat's E2ERoom::decryptOldRoomKeys(): the keys the room used before it was
+    // re-keyed sit in our subscription, each RSA-encrypted for us, and are what makes the messages
+    // written back then readable again. One we cannot decrypt keeps an empty session key so it is
+    // not retried for every message of the room.
+    const int rsaSize = RSA_size(privateKey);
+    for (OldRoomKey &oldKey : mOldRoomKeys) {
+        if (!oldKey.sessionKey.isEmpty() || oldKey.encryptedKeyBase64.isEmpty()) {
+            continue;
+        }
+        const QByteArray encryptedKey = decodeBase64Variants(oldKey.encryptedKeyBase64.toLatin1());
+        if (encryptedKey.size() != rsaSize) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "Old room key" << oldKey.keyId << "has an unexpected encrypted size" << encryptedKey.size() << "expected"
+                                             << rsaSize;
+            continue;
+        }
+        oldKey.sessionKey = normalizeSessionKeyPayload(EncryptionUtils::decryptSessionKey(encryptedKey, privateKey));
+        if (oldKey.sessionKey.isEmpty()) {
+            // Expected when the key was shared with a private key we do not own any more.
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "Unable to decrypt old room key" << oldKey.keyId;
+        } else {
+            qCDebug(RUQOLA_ENCRYPTION_LOG) << "Old room key decrypted for keyId:" << oldKey.keyId;
+        }
+    }
+}
 #endif
+
+void RoomEncryptionKey::parseOldRoomKeys(const QJsonArray &array)
+{
+    // Rocket.Chat stores them as [ { "e2eKeyId": …, "E2EKey": …, "ts": … } ]. A key already known
+    // is left untouched: it may carry a session key an earlier payload let us decrypt.
+    for (const QJsonValue &value : array) {
+        const QJsonObject obj = value.toObject();
+        const QString keyId = obj.value(QStringLiteral("e2eKeyId")).toString();
+        const QString encryptedKey = obj.value(QStringLiteral("E2EKey")).toString();
+        if (keyId.isEmpty() || encryptedKey.isEmpty() || keyId == mE2eKeyId) {
+            continue;
+        }
+        const auto hasSameKeyId = [&keyId](const OldRoomKey &oldKey) {
+            return oldKey.keyId == keyId;
+        };
+        if (std::any_of(mOldRoomKeys.cbegin(), mOldRoomKeys.cend(), hasSameKeyId)) {
+            continue;
+        }
+        mOldRoomKeys.append(OldRoomKey{
+            .keyId = keyId,
+            .encryptedKeyBase64 = stripKeyIdPrefix(encryptedKey, keyId),
+            .sessionKey = {},
+        });
+    }
+}
+
+QByteArray RoomEncryptionKey::sessionKeyForKeyId(const QString &keyId) const
+{
+    // Port of Rocket.Chat's E2ERoom::retrieveDecryptionKey(): a message names the key it was
+    // written with, and the current room key is only the right one when the two match. As there,
+    // an old key we could not decrypt falls back to the current one rather than to nothing.
+    if (!keyId.isEmpty() && keyId != mE2eKeyId) {
+        for (const OldRoomKey &oldKey : mOldRoomKeys) {
+            if (oldKey.keyId == keyId) {
+                if (!oldKey.sessionKey.isEmpty()) {
+                    return oldKey.sessionKey;
+                }
+                break;
+            }
+        }
+    }
+    return mSessionKey;
+}
+
+bool RoomEncryptionKey::hasSessionKey() const
+{
+    if (!mSessionKey.isEmpty()) {
+        return true;
+    }
+    return std::any_of(mOldRoomKeys.cbegin(), mOldRoomKeys.cend(), [](const OldRoomKey &oldKey) {
+        return !oldKey.sessionKey.isEmpty();
+    });
+}
+
+bool RoomEncryptionKey::hasEncryptedKeys() const
+{
+    return !mE2EKey.isEmpty() || !mOldRoomKeys.isEmpty();
+}
 
 bool RoomEncryptionKey::operator==(const RoomEncryptionKey &other) const
 {

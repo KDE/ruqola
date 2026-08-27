@@ -166,6 +166,12 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
 
             decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, v2MasterKey, v2Iv);
             decryptedAsV2 = true;
+            if (decryptedPrivateKey.isEmpty()) {
+                // The envelope describes itself, so the only thing that can be wrong is the
+                // password: this is what a stale keychain entry looks like after the E2E key was
+                // reset from another client.
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << "The E2E password does not match the stored private key envelope";
+            }
         }
     }
     if (!decryptedAsV2) {
@@ -959,7 +965,9 @@ bool E2eKeyManager::decryptRoomsSessionKeys() const
 
     RoomModel *model = mAccount->roomModel();
     for (Room *r : model->rooms()) {
-        if (!r->e2EKey().isEmpty()) {
+        // A room can hold nothing but the keys it used before it was re-keyed: they are what its
+        // older messages need, so they have to be imported too.
+        if (r->hasEncryptedKeys()) {
             r->decryptSessionKeyWithPrivateKey(privateKey);
         }
     }
@@ -1210,7 +1218,7 @@ bool E2eKeyManager::decryptRoomSessionKeys(Room *r) const
         return false;
     }
 
-    if (!r->e2EKey().isEmpty()) {
+    if (r->hasEncryptedKeys()) {
         r->decryptSessionKeyWithPrivateKey(privateKey);
     }
     RSA_free(privateKey);

@@ -84,6 +84,25 @@ void EncryptionUtilsTest::shouldRoundTripGeneratedKeyPairAsRocketChatDoes()
     QVERIFY(EncryptionUtils::decryptAES_GCM_256(ciphertext, wrongMasterKey, iv).isEmpty());
 }
 
+// Rocket.Chat imports a shared room key through ALGORITHM_MAP[jwk.alg], so re-sharing the 16-byte
+// key of a legacy room has to keep announcing it as A128CBC: sending it as A256GCM would make the
+// recipient import the wrong cipher and read nothing.
+void EncryptionUtilsTest::shouldExportSessionKeyJwkForBothAesFlavours()
+{
+    const QJsonObject gcmJwk = QJsonDocument::fromJson(EncryptionUtils::sessionKeyToJWK(QByteArray(32, 'k'))).object();
+    QCOMPARE(gcmJwk.value(QStringLiteral("alg")).toString(), QStringLiteral("A256GCM"));
+    QCOMPARE(gcmJwk.value(QStringLiteral("kty")).toString(), QStringLiteral("oct"));
+    QCOMPARE(QByteArray::fromBase64(gcmJwk.value(QStringLiteral("k")).toString().toLatin1(), QByteArray::Base64UrlEncoding), QByteArray(32, 'k'));
+
+    const QJsonObject cbcJwk = QJsonDocument::fromJson(EncryptionUtils::sessionKeyToJWK(QByteArray(16, 'k'))).object();
+    QCOMPARE(cbcJwk.value(QStringLiteral("alg")).toString(), QStringLiteral("A128CBC"));
+    QCOMPARE(QByteArray::fromBase64(cbcJwk.value(QStringLiteral("k")).toString().toLatin1(), QByteArray::Base64UrlEncoding), QByteArray(16, 'k'));
+
+    // Those two are the only flavours Rocket.Chat knows: anything else has to be refused.
+    QVERIFY(EncryptionUtils::sessionKeyToJWK(QByteArray(24, 'k')).isEmpty());
+    QVERIFY(EncryptionUtils::sessionKeyToJWK({}).isEmpty());
+}
+
 void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData_data()
 {
     QTest::addColumn<QByteArray>("encryptedData");

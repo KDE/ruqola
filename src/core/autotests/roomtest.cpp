@@ -352,6 +352,26 @@ void RoomTest::shouldParseUsersWaitingForE2EKeys()
     QVERIFY(input.usersWaitingForE2EKeys().isEmpty());
 }
 
+void RoomTest::shouldParseOldRoomKeys()
+{
+    Room input(nullptr);
+    QVERIFY(!input.hasEncryptedKeys());
+
+    // Keys of the eras before the room was re-keyed, as the subscription carries them.
+    const auto subscriptionJson = [](const QByteArray &json) {
+        return QJsonDocument::fromJson(json).object();
+    };
+    input.parseSubscriptionRoom(subscriptionJson(R"({"_id":"subid","rid":"roomid","oldRoomKeys":[{"e2eKeyId":"kid-1","E2EKey":"kid-1payload","ts":1234}],)"
+                                                 R"("suggestedOldRoomKeys":[{"e2eKeyId":"kid-2","E2EKey":"kid-2payload","ts":5678}]})"_ba));
+    QVERIFY(input.hasEncryptedKeys());
+    // Nothing is decrypted yet, so every lookup falls back to the (still empty) current key.
+    QVERIFY(input.sessionKeyForKeyId(u"kid-1"_s).isEmpty());
+
+    // A partial subscription update must not drop the keys we already imported.
+    input.parseSubscriptionRoom(subscriptionJson(R"({"_id":"subid","rid":"roomid"})"_ba));
+    QVERIFY(input.hasEncryptedKeys());
+}
+
 void RoomTest::shoudUserIsMuted()
 {
     {

@@ -211,6 +211,7 @@ public:
     [[nodiscard]] QList<QByteArray> usersWaitingForE2EKeys() const;
     void setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys);
     void parseUsersWaitingForE2EKeys(const QJsonObject &json);
+    void parseOldRoomKeys(const QJsonObject &json);
 
 #if USE_E2E_SUPPORT
     void decryptSessionKeyWithPrivateKey(RSA *privateKey);
@@ -318,6 +319,16 @@ public:
     [[nodiscard]] bool userIsMuted(const QString &username) const;
 
     [[nodiscard]] QByteArray sessionKey() const;
+
+    // The room key a message encrypted under 'keyId' needs: the current one, or an older one kept
+    // from before the room was re-keyed.
+    [[nodiscard]] QByteArray sessionKeyForKeyId(const QString &keyId) const;
+
+    // Whether any room key, current or older, is usable.
+    [[nodiscard]] bool hasSessionKey() const;
+
+    // Whether the room carries key material waiting for our private key.
+    [[nodiscard]] bool hasEncryptedKeys() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();

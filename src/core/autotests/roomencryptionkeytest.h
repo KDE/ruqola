@@ -15,4 +15,6 @@ public:
     ~RoomEncryptionKeyTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldImportLegacyCbcSessionKey();
+    void shouldKeepOldRoomKeysToReadHistory();
 };

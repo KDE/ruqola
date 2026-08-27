@@ -17,4 +17,6 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldEncryptV2Payload();
     void shouldDecryptV2Payload();
+    void shouldEncryptLegacyCbcPayload();
+    void shouldDecryptLegacyCbcPayload();
 };

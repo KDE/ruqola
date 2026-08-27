@@ -369,26 +369,36 @@ QByteArray EncryptionUtils::generateSessionKey()
 }
 
 /**
- * @brief Converts a raw 32-byte AES-256-GCM session key to JWK JSON format.
+ * @brief Converts a raw AES session key to JWK JSON format.
  *
  * Rocket.Chat distributes session keys as the RSA-OAEP-encrypted bytes of a JWK
  * JSON string (not raw key bytes). This function produces the JSON payload that
  * must be encrypted before sharing with other participants so that both Ruqola
  * and Rocket.Chat web/mobile clients can import it.
  *
- * @param rawKey The 32-byte raw AES key.
+ * The key length picks the algorithm, the way Rocket.Chat's ALGORITHM_MAP does: 32 bytes is the
+ * AES-GCM-256 of every room created nowadays, 16 bytes the AES-CBC-128 of the rooms keyed before
+ * the GCM switch. Re-sharing such a legacy key has to keep announcing it as A128CBC, otherwise
+ * the recipient imports it as GCM and can read nothing.
+ *
+ * @param rawKey The raw AES key: 32 bytes (A256GCM) or 16 bytes (A128CBC).
  * @return JWK JSON bytes, e.g.
  *   {"k":"<base64url>","alg":"A256GCM","ext":true,"key_ops":["encrypt","decrypt"],"kty":"oct"}
  */
 QByteArray EncryptionUtils::sessionKeyToJWK(const QByteArray &rawKey)
 {
-    if (rawKey.size() != 32) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "sessionKeyToJWK: expected 32-byte key, got" << rawKey.size();
+    QString algorithm;
+    if (rawKey.size() == 32) {
+        algorithm = QStringLiteral("A256GCM");
+    } else if (rawKey.size() == 16) {
+        algorithm = QStringLiteral("A128CBC");
+    } else {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "sessionKeyToJWK: expected a 16- or 32-byte key, got" << rawKey.size();
         return {};
     }
     QJsonObject jwk;
     jwk[QStringLiteral("k")] = QString::fromLatin1(rawKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    jwk[QStringLiteral("alg")] = QStringLiteral("A256GCM");
+    jwk[QStringLiteral("alg")] = algorithm;
     jwk[QStringLiteral("ext")] = true;
     jwk[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("encrypt") << QStringLiteral("decrypt");
     jwk[QStringLiteral("kty")] = QStringLiteral("oct");

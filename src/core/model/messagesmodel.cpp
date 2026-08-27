@@ -446,8 +446,10 @@ void MessagesModel::decryptMessage(const Message &message) const
     if (!mRoom) {
         return;
     }
-    if (const auto sessionKey = mRoom->sessionKey(); !sessionKey.isEmpty()) {
-        if (auto f = message.messageEncrypted()) {
+    // Every message names the room key it was encrypted with: after the room was re-keyed the
+    // current key only fits the recent ones, the older ones need the key of their own era.
+    if (auto f = message.messageEncrypted()) {
+        if (const auto sessionKey = mRoom->sessionKeyForKeyId(QString::fromLatin1(f->keyId())); !sessionKey.isEmpty()) {
             f->decryptContent(sessionKey);
         }
     }
@@ -458,23 +460,26 @@ void MessagesModel::decryptMessageList(const QList<Message> &messages) const
     if (!mRoom) {
         return;
     }
-    if (const auto sessionKey = mRoom->sessionKey(); !sessionKey.isEmpty()) {
-        for (const Message &message : messages) {
-            if (auto f = message.messageEncrypted()) {
-                f->decryptContent(sessionKey);
-            }
-        }
+    for (const Message &message : messages) {
+        decryptMessage(message);
     }
 }
 
-void MessagesModel::decryptMessages(const QByteArray &sessionKey)
+void MessagesModel::decryptMessages()
 {
-    // The session key usually arrives after the messages have been loaded and painted, so the rows
+    if (!mRoom) {
+        return;
+    }
+    // The session keys usually arrive after the messages have been loaded and painted, so the rows
     // that just became readable must be announced, otherwise they keep showing the encrypted text.
     for (int row = 0, total = mAllMessages.count(); row < total; ++row) {
         // QList::at() hands out a const reference on purpose: decryptContent() only fills the
         // mutable decrypted members of the shared MessageEncrypted, no detach needed here.
         if (auto f = mAllMessages.at(row).messageEncrypted()) {
+            const auto sessionKey = mRoom->sessionKeyForKeyId(QString::fromLatin1(f->keyId()));
+            if (sessionKey.isEmpty()) {
+                continue;
+            }
             f->decryptContent(sessionKey);
             // One signal per row: the view drops its text/size-hint cache for topLeft only.
             const QModelIndex idx = createIndex(row, 0);
