@@ -12,8 +12,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(PreviewCommand, Ruqola_PreviewCommand)
 using namespace Qt::Literals::StringLiterals;
 PreviewCommand::PreviewCommand() = default;
 
-PreviewCommand::~PreviewCommand() = default;
-
 PreviewCommand::TypePreview PreviewCommand::convertStringToPreviewType(const QString &str) const
 {
     if (str == "image"_L1) {

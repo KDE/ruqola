@@ -25,7 +25,6 @@ public:
     Q_ENUM(TypePreview);
 
     PreviewCommand();
-    ~PreviewCommand();
     [[nodiscard]] QString id() const;
     void setId(const QString &newId);
 
