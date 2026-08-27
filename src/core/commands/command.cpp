@@ -86,7 +86,7 @@ void Command::convertDescriptionI18n()
     } else if (mDescription == "Slash_Tableflip_Description"_L1) {
         mTranslatedDescription = i18n("Displays (╯°□°）╯︵ ┻━┻");
     } else if (mDescription == "Slash_TableUnflip_Description"_L1) {
-        mTranslatedDescription = i18n("Displays ┬─┬<feff> ノ( ゜-゜ノ)");
+        mTranslatedDescription = i18n("Displays ┬─┬ ノ( ゜-゜ノ)");
     } else if (mDescription == "Create_A_New_Channel"_L1) {
         mTranslatedDescription = i18n("Create a New Channel");
     } else if (mDescription == "Show_the_keyboard_shortcut_list"_L1) {
