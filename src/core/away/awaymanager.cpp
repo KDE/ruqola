@@ -124,11 +124,11 @@ void AwayManager::setEnabled(bool newEnabled)
 
 int AwayManager::timeValue() const
 {
-    constexpr int minute = 60 * 1000;
 #ifdef DEBUG_IDLETIME
+    constexpr int minute = 60 * 1000;
     const int timerValue = minute; // 1 minutes
 #else
-    const int timerValue = mIdleTiming * minute;
+    const int timerValue = mIdleTiming * 1000;
 #endif
     return timerValue;
 }
