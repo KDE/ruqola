@@ -58,6 +58,10 @@ void Commands::parseListCommands(const QJsonObject &commandsObj)
             const QJsonObject commandObj = current.toObject();
             Command m;
             m.parseCommand(commandObj);
+            if (!m.isValid()) {
+                qCWarning(RUQOLA_COMMANDS_LOG) << "Invalid command" << commandObj;
+                continue;
+            }
             if (mDownloadManager) {
                 const QString description = mDownloadManager->translatedString(lang, m.description());
                 if (!description.isEmpty()) {
