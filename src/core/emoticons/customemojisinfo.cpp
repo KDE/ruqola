@@ -115,7 +115,10 @@ void CustomEmojisInfo::setTotal(int total)
 
 CustomEmoji CustomEmojisInfo::takeAt(int index)
 {
-    return mCustomEmojiInfos.takeAt(index);
+    if (index < mCustomEmojiInfos.count()) {
+        return mCustomEmojiInfos.takeAt(index);
+    }
+    return CustomEmoji();
 }
 
 QDebug operator<<(QDebug d, const CustomEmojisInfo &t)
