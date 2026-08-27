@@ -8,9 +8,9 @@
 
 #include "libruqola_private_export.h"
 #include <QMetaType>
-
 #include <QStringList>
 class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_TESTS_EXPORT CustomEmoji
 {
