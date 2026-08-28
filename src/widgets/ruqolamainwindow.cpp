@@ -304,8 +304,8 @@ void RuqolaMainWindow::slotAccountChanged()
     }
     updateActions();
     slotClearNotification(); // Clear notification when we switch too.
+    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     if (mCurrentRocketChatAccount) {
-        mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
         mSwitchChannelTreeManager->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 
         mStatusComboBox->blockSignals(true);

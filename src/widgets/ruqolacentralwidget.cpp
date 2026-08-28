@@ -162,6 +162,9 @@ void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account
         mRuqolaMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
         // Check if account is connected or not.
         slotLoginStatusChanged();
+    } else {
+        mStackedWidget->setCurrentWidget(mRuqolaWelcomeWidget);
+        Q_EMIT loginPageActivated(true);
     }
 }
 
