@@ -81,7 +81,7 @@ void AuthenticationManagerBase::setUserId(const QString &newUserId)
 bool AuthenticationManagerBase::loginPassword(const QString &user, const QString &password)
 {
     if (checkGenericError()) {
-        mLoginStatus = AuthenticationManager::LoggedOut;
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
     }
     return loginImpl(AuthenticationManagerUtils::login(user, password));
 }
@@ -89,7 +89,7 @@ bool AuthenticationManagerBase::loginPassword(const QString &user, const QString
 bool AuthenticationManagerBase::loginLDAP(const QString &user, const QString &password)
 {
     if (checkGenericError()) {
-        mLoginStatus = AuthenticationManager::LoggedOut;
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
     }
     return loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
 }
@@ -97,7 +97,7 @@ bool AuthenticationManagerBase::loginLDAP(const QString &user, const QString &pa
 bool AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
     if (checkGenericError()) {
-        mLoginStatus = AuthenticationManager::LoggedOut;
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
     }
     return loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
