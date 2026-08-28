@@ -5,7 +5,6 @@
 */
 
 #include "bannerinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfolistsearchlinewidget.h"
 #include "bannerinfolistview.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mBannerInfoListSearchLineWidget(new BannerInfoListSearchLineWidget(this))
@@ -51,6 +51,7 @@ void BannerInfoWidget::initializeProxyModel()
 {
     mBannerInfosFilterProxyModel->setFilterFixedString(mBannerInfoListSearchLineWidget->searchText());
     mBannerInfosFilterProxyModel->setShowUnread(mBannerInfoListSearchLineWidget->showOnlyUnread());
+    mBannerInfoListView->setSearchText(mBannerInfoListSearchLineWidget->searchText());
 }
 
 #include "moc_bannerinfowidget.cpp"

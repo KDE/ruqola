@@ -33,6 +33,11 @@ BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *pare
 
 BannerInfoListView::~BannerInfoListView() = default;
 
+void BannerInfoListView::setSearchText(const QString &str)
+{
+    mBannerInfoListViewDelegate->setSearchText(str);
+}
+
 bool BannerInfoListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     return mBannerInfoListViewDelegate->maybeStartDrag(event, option, index);
