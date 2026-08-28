@@ -47,7 +47,7 @@ public:
     [[nodiscard]] bool logoutAndCleanup(const OwnUser &owser);
     [[nodiscard]] bool loginImpl(const QJsonArray &params);
 
-    [[nodiscard]] QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
+    [[nodiscard]] static QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
     void processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method);
 
     virtual void callLoginImpl(const QJsonArray &params, Method method) = 0;
