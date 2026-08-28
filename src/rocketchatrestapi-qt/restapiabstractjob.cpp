@@ -500,10 +500,11 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
     const auto error = mReply->error();
     if (error != QNetworkReply::NoError) {
         if (networkErrorsNeedingReconnect().contains(error)) {
-            // Ignore errors that will be handled in Connection class.
-            // no deleting, we will be trying to destroy everything and relogin
-            // reply will be invalid at this point, deleting it will crash us
+            // Ignore errors that will be handled in Connection class: it will destroy everything and relogin.
+            // Delete the job (its owner may outlive the Connection), but not the reply: it is invalid at this
+            // point and belongs to the QNetworkAccessManager, which dies with the Connection.
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Network error. Lost connection? Let's reconnect";
+            deleteLater();
             return;
         }
         // qDebug() << mReply->readAll();

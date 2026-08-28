@@ -45,6 +45,10 @@ void AddUserInChannelJob::start()
         Q_EMIT addUserInChannelDone(mInfo.roomId, mInfo.userId);
         deleteLater();
     });
+    connect(job, &ChannelInviteJob::failed, this, [this](const QString &serverErrorStr) {
+        qCWarning(RUQOLA_LOG) << "ChannelInviteJob failed:" << serverErrorStr;
+        deleteLater();
+    });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
         deleteLater();
