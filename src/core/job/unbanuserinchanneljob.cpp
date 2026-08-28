@@ -47,8 +47,7 @@ bool UnbanUserInChannelJob::start()
         deleteLater();
         return false;
     }
-    findUserNames();
-    return true;
+    return findUserNames();
 }
 
 void UnbanUserInChannelJob::slotRoomsUnbanUserJobDone(RocketChatRestApi::RoomsUnbanUserJob *job)
@@ -59,7 +58,7 @@ void UnbanUserInChannelJob::slotRoomsUnbanUserJobDone(RocketChatRestApi::RoomsUn
     }
 }
 
-void UnbanUserInChannelJob::findUserNames()
+bool UnbanUserInChannelJob::findUserNames()
 {
     auto job = new RocketChatRestApi::RoomsBannedUsersJob(this);
     const RocketChatRestApi::RoomsBannedUsersJob::RoomsBannedUsersJobInfo info{
@@ -74,7 +73,9 @@ void UnbanUserInChannelJob::findUserNames()
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start RoomsBannedUsersJob job";
         deleteLater();
+        return false;
     }
+    return true;
 }
 
 void UnbanUserInChannelJob::slotRoomsBannedUsersDone(const QJsonObject &obj, [[maybe_unused]] const QByteArray &roomId)
