@@ -33,6 +33,7 @@ BannerInfoListViewDelegate::~BannerInfoListViewDelegate() = default;
 
 void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    drawBackground(painter, option, index);
     painter->save();
 
     const Layout layout = doLayout(option, index);

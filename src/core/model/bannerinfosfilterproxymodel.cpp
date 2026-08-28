@@ -9,6 +9,7 @@
 BannerInfosFilterProxyModel::BannerInfosFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
 {
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
 }
 
 BannerInfosFilterProxyModel::~BannerInfosFilterProxyModel() = default;
