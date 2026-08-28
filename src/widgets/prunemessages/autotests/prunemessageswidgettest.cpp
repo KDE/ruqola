@@ -59,7 +59,6 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 
     auto mUsers = w.findChild<AddUsersWidget *>(u"mUsers"_s);
     QVERIFY(mUsers);
-    mainLayout->addWidget(mUsers);
 
     auto mInclusive = w.findChild<QCheckBox *>(u"mInclusive"_s);
     QVERIFY(mInclusive);
