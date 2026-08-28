@@ -6,6 +6,7 @@
 
 #include "downloadfilejob.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -56,11 +57,12 @@ void DownloadFileJob::slotDownloadDone()
             }
             Q_EMIT downloadFileDone(reply->url(), mLocalFileUrl);
         } else {
-            // FIXME
-            // emitFailedMessage(replyObject, reply);
+            Q_EMIT failed(i18n("Download failed: %1", mUrl.toDisplayString()), reply->errorString());
             addLoggerWarning("DownloadFileJob problem data: [" + data + "] :END");
         }
         reply->deleteLater();
+    } else {
+        Q_EMIT failed(i18n("Download failed: %1", mUrl.toDisplayString()), i18n("No reply received"));
     }
     deleteLater();
 }

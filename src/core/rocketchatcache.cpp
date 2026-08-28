@@ -7,6 +7,7 @@
 #include "rocketchatcache.h"
 #include "avatarmanager.h"
 #include "connection.h"
+#include "downloadfilejob.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "rocketchatcacheutils.h"
@@ -137,7 +138,10 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
         // Not in cache. We need to download it (e.g. file attachment).
         const QUrl downloadUrl = mAccount->urlForLink(url);
         // const QUrl destUrl = storeInCache ? QUrl::fromLocalFile(fileCachePath(downloadUrl)) : localFile;
-        mAccount->restApi()->downloadFile(downloadUrl, localFile, QByteArray("text/plain"));
+        auto job = mAccount->restApi()->downloadFile(downloadUrl, localFile, QByteArray("text/plain"));
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start DownloadFileJob job";
+        }
         // this will call slotDataDownloaded
     }
 }
@@ -222,7 +226,11 @@ void RocketChatCache::downloadFileFromServer(const QString &filename, bool needA
     if (!mFileInDownload.contains(downloadUrl)) {
         mFileInDownload.insert(downloadUrl);
         const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl, type));
-        mAccount->restApi()->downloadFile(downloadUrl, destFileUrl, "text/plain", needAuthentication);
+        auto job = mAccount->restApi()->downloadFile(downloadUrl, destFileUrl, "text/plain", needAuthentication);
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start DownloadFileJob job";
+        }
+
         // this will call slotDataDownloaded
     }
 }
@@ -310,7 +318,10 @@ void RocketChatCache::insertAvatarUrl(const QString &userIdentifier, const QUrl 
 {
     mAvatarUrl.insert(userIdentifier, url);
     if (!url.isEmpty() && !fileInCache(url)) {
-        mAccount->restApi()->downloadFile(url, QUrl::fromLocalFile(fileCachePath(url)), "image/png"_ba);
+        auto job = mAccount->restApi()->downloadFile(url, QUrl::fromLocalFile(fileCachePath(url)), "image/png"_ba);
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start DownloadFileJob job";
+        }
         // this will call slotDataDownloaded
     }
 }

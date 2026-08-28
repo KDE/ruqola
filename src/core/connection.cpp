@@ -282,9 +282,6 @@ DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFile
     job->setLocalFileUrl(localFileUrl);
     job->setRequiredAuthentication(requiredAuthentication);
     initializeRestApiJob(job);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start DownloadFileJob job";
-    }
     return job;
 }
 

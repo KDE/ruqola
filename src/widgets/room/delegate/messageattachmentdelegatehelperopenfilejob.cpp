@@ -56,6 +56,15 @@ void MessageAttachmentDelegateHelperOpenFileJob::runApplication(const KService::
         job->start();
         deleteLater();
     });
+    connect(job, &RocketChatRestApi::DownloadFileJob::failed, this, [this](const QString &serverErrorStr, [[maybe_unused]] const QString &descriptionError) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Error " << serverErrorStr;
+        deleteLater();
+    });
+
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start DownloadFileJob job";
+        deleteLater();
+    }
 }
 
 void MessageAttachmentDelegateHelperOpenFileJob::openUrl()
@@ -64,6 +73,7 @@ void MessageAttachmentDelegateHelperOpenFileJob::openUrl()
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + "/ruqola_attachment_XXXXXX"_L1));
     if (!tempDir->isValid()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to create attachment temporary file";
+        deleteLater();
         return;
     }
     tempDir->setAutoRemove(false); // can't delete them, same problem as in messagelib ViewerPrivate::attachmentOpenWith
@@ -78,6 +88,15 @@ void MessageAttachmentDelegateHelperOpenFileJob::openUrl()
         }
         deleteLater();
     });
+    connect(job, &RocketChatRestApi::DownloadFileJob::failed, this, [this](const QString &serverErrorStr, [[maybe_unused]] const QString &descriptionError) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Error " << serverErrorStr;
+        deleteLater();
+    });
+
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start DownloadFileJob job";
+        deleteLater();
+    }
 #endif
 }
 
