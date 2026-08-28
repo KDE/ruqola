@@ -48,7 +48,10 @@ void ValidateInviteServerJob::start()
     });
 
     if (!job->start()) {
+        Q_EMIT tokenIsInvalid();
         qCWarning(RUQOLA_LOG) << "Impossible to start ValidateInviteTokenJob";
+        restApi->deleteLater();
+        deleteLater();
     }
 }
 
