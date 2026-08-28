@@ -81,7 +81,8 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
     }
 
     // contents is date + text
-    const int contentsHeight = layout.textRect.height() - option.rect.y();
+    const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
+
     //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
