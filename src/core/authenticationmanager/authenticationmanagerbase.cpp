@@ -116,7 +116,6 @@ QString AuthenticationManagerBase::convertMethodEnumToString(AuthenticationManag
 {
     switch (m) {
     case AuthenticationManagerBase::Method::Login:
-        return sl("login");
     case AuthenticationManagerBase::Method::SendOtp:
         return sl("login");
     case AuthenticationManagerBase::Method::Logout:
