@@ -61,7 +61,13 @@ AccountManager::AccountManager(QObject *parent)
     // TODO disable/enable account
 #endif
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
+#if TEXTEMOTICONSCORE_VERSION >= QT_VERSION_CHECK(2, 1, 45)
+    // ktextaddons generates its emoji set from emojibase, the one Rocket.Chat names its
+    // emojis after, so there is nothing left for us to ship.
+    TextEmoticonsCore::UnicodeEmoticonManager::self();
+#else
     TextEmoticonsCore::UnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
+#endif
     loadAccount();
     connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
     connect(TextEditTextToSpeech::TextToSpeech::self(),

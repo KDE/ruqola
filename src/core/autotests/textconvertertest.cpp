@@ -285,9 +285,16 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QString smiley;
     smiley += QChar(0xD83D);
     smiley += QChar(0xDE42);
-    const auto smileyText = QStringLiteral("<span style=\"font: x-large %2\" title=\":slight_smile:\">%1</span>").arg(smiley, Utils::emojiFontName());
+    // The title is the identifier of the emoji, which ktextaddons takes from emojibase
+    // since 2.1.45; before that :slightly_smiling_face: was only an alias.
+#if TEXTEMOTICONSCORE_VERSION >= QT_VERSION_CHECK(2, 1, 45)
+    const auto smileyIdentifier = u":slightly_smiling_face:"_s;
+#else
+    const auto smileyIdentifier = u":slight_smile:"_s;
+#endif
+    const auto smileyText = QStringLiteral("<span style=\"font: x-large %2\" title=\"%3\">%1</span>").arg(smiley, Utils::emojiFontName(), smileyIdentifier);
     QTest::newRow("ascii-smiley") << QStringLiteral(":)") << QStringLiteral("<p>%1</p>\n").arg(smileyText) << QStringLiteral("www.kde.org");
-    QTest::newRow("multi-smiley") << QStringLiteral(":):slight_smile::):)") << QStringLiteral("<p>%1</p>\n").arg(smileyText.repeated(4))
+    QTest::newRow("multi-smiley") << QStringLiteral(":):slightly_smiling_face::):)") << QStringLiteral("<p>%1</p>\n").arg(smileyText.repeated(4))
                                   << QStringLiteral("www.kde.org");
 
     QTest::newRow("url") << QStringLiteral("https://www.kde.org") << QStringLiteral("<p><a href=\"https://www.kde.org\">https://www.kde.org</a></p>\n")

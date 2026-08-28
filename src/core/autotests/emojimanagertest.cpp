@@ -21,6 +21,27 @@
 QTEST_GUILESS_MAIN(EmojiManagerTest)
 
 using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+#if TEXTEMOTICONSCORE_VERSION >= QT_VERSION_CHECK(2, 1, 45)
+// ktextaddons generates its emoji set from emojibase, the one Rocket.Chat names its
+// emojis after. Before 2.1.45 it shipped an older and differently named set.
+constexpr int unicodeEmojiCount = 3979;
+constexpr int peopleEmojiCount = 2593;
+constexpr int firstSymbolOrder = 4645;
+constexpr auto firstSymbolIdentifier = ":atm:";
+constexpr auto firstRegionalIdentifier = ":regional_indicator_a:";
+constexpr auto slightlySmilingFace = ":slightly_smiling_face:";
+#else
+constexpr int unicodeEmojiCount = 3820;
+constexpr int peopleEmojiCount = 2158;
+constexpr int firstSymbolOrder = 3207;
+constexpr auto firstSymbolIdentifier = ":pink_heart:";
+constexpr auto firstRegionalIdentifier = ":regional_indicator_z:";
+constexpr auto slightlySmilingFace = ":slight_smile:";
+#endif
+}
 EmojiManagerTest::EmojiManagerTest(QObject *parent)
     : QObject(parent)
 {
@@ -31,7 +52,7 @@ void EmojiManagerTest::shouldHaveDefaultValue()
 {
     const EmojiManager manager(nullptr);
     QVERIFY(manager.serverUrl().isEmpty());
-    QCOMPARE(manager.count(), 3820);
+    QCOMPARE(manager.count(), unicodeEmojiCount);
     QVERIFY(manager.customEmojiList().isEmpty());
 }
 
@@ -39,7 +60,7 @@ void EmojiManagerTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
-    QTest::addRow("emojiparent") << u"emojiparent"_s << 3827;
+    QTest::addRow("emojiparent") << u"emojiparent"_s << unicodeEmojiCount + 7;
 }
 
 void EmojiManagerTest::shouldParseEmoji()
@@ -82,7 +103,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         QList<CustomEmoji> emojiListAfterDeleting;
         emojiListAfterDeleting.append(val1);
 
-        QTest::addRow("delete1") << u"emojiparent2"_s << 3822 << u"emojicustomdelete1"_s << emojiList << emojiListAfterDeleting;
+        QTest::addRow("delete1") << u"emojiparent2"_s << unicodeEmojiCount + 2 << u"emojicustomdelete1"_s << emojiList << emojiListAfterDeleting;
     }
     {
         QList<CustomEmoji> emojiList;
@@ -104,7 +125,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         emojiList.append(std::move(val));
         emojiList.append(std::move(val1));
         // We can't delete emoji which is not in liste.
-        QTest::addRow("delete2") << u"emojiparent2"_s << 3822 << u"emojicustomdelete2"_s << emojiList << emojiList;
+        QTest::addRow("delete2") << u"emojiparent2"_s << unicodeEmojiCount + 2 << u"emojicustomdelete2"_s << emojiList << emojiList;
     }
 }
 
@@ -166,7 +187,7 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
         val2.setUpdatedAt(1631885946222);
         val2.setAliases({u":roo:"_s});
         emojiList.append(std::move(val2));
-        QTest::addRow("emojiparent2") << u"emojiparent2"_s << 3822 << u"addemojicustom1"_s << emojiListAfterDeleting << emojiList;
+        QTest::addRow("emojiparent2") << u"emojiparent2"_s << unicodeEmojiCount + 2 << u"addemojicustom1"_s << emojiListAfterDeleting << emojiList;
     }
 }
 
@@ -234,7 +255,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
         val2.setAliases({u"rooss"_s});
         emojiListAfterDeleting.append(val);
         emojiListAfterDeleting.append(std::move(val2));
-        QTest::addRow("emojiparent2") << u"emojiparent2"_s << 3822 << u"updateemojicustom1"_s << emojiList << emojiList;
+        QTest::addRow("emojiparent2") << u"emojiparent2"_s << unicodeEmojiCount + 2 << u"updateemojicustom1"_s << emojiList << emojiList;
     }
 }
 
@@ -292,7 +313,7 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 
     QCOMPARE(manager.categories().count(), 9);
     QCOMPARE(manager.categories().at(0).category(), u"people"_s);
-    QCOMPARE(manager.emojisForCategory(u"people"_s).count(), 2158);
+    QCOMPARE(manager.emojisForCategory(u"people"_s).count(), peopleEmojiCount);
 }
 
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
@@ -310,15 +331,15 @@ void EmojiManagerTest::shouldOrderUnicodeEmojis()
     auto it = std::find_if(list.begin(), list.end(), hasCategory(u"symbols"_s));
     QVERIFY(it != list.end());
     const TextEmoticonsCore::UnicodeEmoticon firstSymbol = *it;
-    QCOMPARE(firstSymbol.order(), 3207);
+    QCOMPARE(firstSymbol.order(), firstSymbolOrder);
     QCOMPARE(firstSymbol.category(), u"symbols"_s);
-    QCOMPARE(firstSymbol.identifier(), u":pink_heart:"_s);
+    QCOMPARE(firstSymbol.identifier(), QLatin1StringView(firstSymbolIdentifier));
 
     // Check what's the first emoji in the category "regional"
     it = std::find_if(list.begin(), list.end(), hasCategory(u"regional"_s));
     QVERIFY(it != list.end());
     const TextEmoticonsCore::UnicodeEmoticon firstRegional = *it;
-    QCOMPARE(firstRegional.identifier(), u":regional_indicator_z:"_s); // letters are reversed, weird
+    QCOMPARE(firstRegional.identifier(), QLatin1StringView(firstRegionalIdentifier));
 }
 
 void EmojiManagerTest::shouldGenerateHtml()
@@ -383,14 +404,12 @@ void EmojiManagerTest::shouldNormalizeReactions_data()
     QTest::addColumn<QString>("emoji");
     QTest::addColumn<QString>("normalizedEmoji");
 
-    QTest::addRow(":)") << ":)"
-                        << ":slight_smile:";
-    QTest::addRow(":slight_simle:") << ":slight_smile:"
-                                    << ":slight_smile:";
+    QTest::addRow(":)") << ":)" << slightlySmilingFace;
+    QTest::addRow(":slight_simle:") << ":slight_smile:" << slightlySmilingFace;
     QString slightSmile;
     slightSmile += QChar(0xD83D);
     slightSmile += QChar(0xDE42);
-    QTest::addRow("unicode-smile") << slightSmile << ":slight_smile:";
+    QTest::addRow("unicode-smile") << slightSmile << slightlySmilingFace;
     QTest::addRow(":vader:") << ":vader:"
                              << ":vader:";
 }

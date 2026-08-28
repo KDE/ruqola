@@ -572,8 +572,14 @@ target_sources(
         readreceipts/readreceipt.cpp
         readreceipts/readreceipts.h
         readreceipts/readreceipts.cpp
-        emoji.qrc
 )
+
+# ktextaddons ships an emoji set generated from emojibase since 2.1.45, which is the
+# one Rocket.Chat names its emojis after. Older versions ship an outdated one, so keep
+# bundling our own copy for them.
+if(KF6TextEmoticonsWidgets_VERSION VERSION_LESS "2.1.45")
+    target_sources(libruqolacore PRIVATE emoji.qrc)
+endif()
 
 if(HAVE_TEXT_AUTOGENERATE_TEXT)
     target_sources(
