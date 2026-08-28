@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:45+0000\n"
+"POT-Creation-Date: 2026-08-28 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -170,266 +170,266 @@ msgstr "Neplatný token pozvánky"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Pozvánkový token je neplatný. Vytvorenie účtu bolo zrušené."
 
-#: core/apps/appsmarketplaceinfo.cpp:113
+#: core/apps/appsmarketplaceinfo.cpp:111
 #, kde-format
 msgid "per %1"
 msgstr "per %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "month"
 msgstr "Opustiť kanál"
 
-#: core/apps/appsmarketplaceinfo.cpp:164
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "year"
 msgstr "year"
 
-#: core/apps/appsmarketplaceinfo.cpp:410 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:408 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Popis"
 
-#: core/apps/appsmarketplaceinfo.cpp:419
+#: core/apps/appsmarketplaceinfo.cpp:417
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
 #, kde-format
 msgid "Version"
 msgstr "Verzia"
 
-#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:35
+#: core/apps/appsmarketplaceinfo.cpp:420 core/model/appscategoriesmodel.cpp:35
 #, kde-format
 msgid "Categories"
 msgstr "Kategórie"
 
-#: core/apps/appsmarketplaceinfo.cpp:427
+#: core/apps/appsmarketplaceinfo.cpp:425
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentácia"
 
-#: core/apps/appsmarketplaceinfo.cpp:438
+#: core/apps/appsmarketplaceinfo.cpp:436
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: core/apps/appsmarketplaceinfo.cpp:451
+#: core/apps/appsmarketplaceinfo.cpp:449
 #, kde-format
 msgid "Homepage"
 msgstr "Domovská stránka"
 
-#: core/apps/appsmarketplaceinfo.cpp:464
+#: core/apps/appsmarketplaceinfo.cpp:462
 #, kde-format
 msgid "Support"
 msgstr "Podpora"
 
-#: core/apps/appsmarketplaceinfo.cpp:469
+#: core/apps/appsmarketplaceinfo.cpp:467
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Prehľad súkromia"
 
-#: core/apps/appsmarketplaceinfo.cpp:480
+#: core/apps/appsmarketplaceinfo.cpp:478
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
 msgstr "Prístupové práva"
 
-#: core/apps/appsmarketplaceinfo.cpp:616
+#: core/apps/appsmarketplaceinfo.cpp:614
 #, kde-format
 msgid "Access messages"
 msgstr "Prístup k správam"
 
-#: core/apps/appsmarketplaceinfo.cpp:618
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Hľadať súbor..."
 
-#: core/apps/appsmarketplaceinfo.cpp:620
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, kde-format
 msgid "Access room information"
 msgstr "Prístup k informáciám o miestnosti"
 
-#: core/apps/appsmarketplaceinfo.cpp:622
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Vytvárať a upravovať miestnosti"
 
-#: core/apps/appsmarketplaceinfo.cpp:624
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Access to this server network"
 msgstr "Prístup k sieti tohto servera"
 
-#: core/apps/appsmarketplaceinfo.cpp:626
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Access user information"
 msgstr "Prístup k informáciám o používateľovi"
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, kde-format
 msgid "Modify user information"
 msgstr "Meno účtu"
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Register new slash commands"
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Registrovať a udržiavať naplánované úlohy"
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Register new HTTP endpoints"
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Prístup k nastaveniam na tomto serveri"
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Upravovať nastavenia na tomto serveri"
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Nahrávanie súborov na tento server"
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Prístup k súborom nahraným na tento server"
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interact with Cloud Services v mene this server"
 
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Prístup k minimálnym informáciám o prostredí tohto servera"
 
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Prístup k informáciám o viacerých oddeleniach Livechatu"
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Access Livechat department information"
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Modify Livechat department information"
 
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Modify Livechat room information"
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Prístup k informáciám o miestnosti Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Modify Livechat message information"
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Access Livechat message information"
 
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Modify Livechat visitor information"
 
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Access Livechat visitor information"
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Prístup k informáciám o stave Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:666
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interakcia s používateľským rozhraním"
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Ukladať interné dáta do databázy"
 
-#: core/apps/appsmarketplaceinfo.cpp:672
+#: core/apps/appsmarketplaceinfo.cpp:670
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Modify Livechat custom field configuration"
 
-#: core/apps/appsmarketplaceinfo.cpp:682
+#: core/apps/appsmarketplaceinfo.cpp:680
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Povoliť zápis nastavení aplikácie OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:684
+#: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Povoliť čítanie nastavení aplikácie OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:686
+#: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr "Povoliť zápis nastavení videokonferencie"
 
-#: core/apps/appsmarketplaceinfo.cpp:688
+#: core/apps/appsmarketplaceinfo.cpp:686
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr "Povoliť čítanie nastavení videokonferencie"
 
-#: core/apps/appsmarketplaceinfo.cpp:690
+#: core/apps/appsmarketplaceinfo.cpp:688
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr "Povoliť zmenu nastavení poskytovateľa videokonferencie"
 
-#: core/apps/appsmarketplaceinfo.cpp:692
+#: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to register button"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:698
+#: core/apps/appsmarketplaceinfo.cpp:696
 #, kde-format
 msgid "Allow to send email"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:700
+#: core/apps/appsmarketplaceinfo.cpp:698
 #, kde-format
 msgid "Allow to write role"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:702
+#: core/apps/appsmarketplaceinfo.cpp:700
 #, kde-format
 msgid "Allow to read role"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:704
+#: core/apps/appsmarketplaceinfo.cpp:702
 #, kde-format
 msgid "Out Bound Communication"
 msgstr "Odchádzajúca komunikácia"
 
-#: core/apps/appsmarketplaceinfo.cpp:706
+#: core/apps/appsmarketplaceinfo.cpp:704
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr "Zobraziť všetky miestnosti v pracovnom priestore"
@@ -525,142 +525,143 @@ msgstr "Successfully logged out"
 msgid "Unknown state"
 msgstr "Unknown state"
 
-#: core/bannerinfo/bannerinfo.cpp:49
+#: core/bannerinfo/bannerinfo.cpp:47
 #, kde-format
 msgid "New version available %1"
 msgstr "New version available %1"
 
-#: core/bannerinfo/bannerinfos.cpp:65
+#: core/bannerinfo/bannerinfos.cpp:63
 #, kde-format
 msgid "(link)"
 msgstr "(odkaz)"
 
-#: core/commands/command.cpp:57
+#: core/commands/command.cpp:58
 #, kde-format
 msgid "Status message"
 msgstr "Stavová správa"
 
-#: core/commands/command.cpp:59
+#: core/commands/command.cpp:60
 #, kde-format
 msgid "Topic message"
 msgstr "Správa k téme"
 
-#: core/commands/command.cpp:61
+#: core/commands/command.cpp:62
 #, kde-format
 msgid "your message"
 msgstr "1 správa"
 
-#: core/commands/command.cpp:63
+#: core/commands/command.cpp:64
 #, kde-format
 msgid "your message (optional)"
 msgstr "your message (optional)"
 
-#: core/commands/command.cpp:79
+#: core/commands/command.cpp:81
 #, kde-format
 msgid "Archive"
 msgstr "Archív"
 
-#: core/commands/command.cpp:81
+#: core/commands/command.cpp:83
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
 msgstr "Displays ༼ つ ◕_◕ ༽つ before your message"
 
-#: core/commands/command.cpp:83
+#: core/commands/command.cpp:85
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
 msgstr "Displays ( ͡° ͜ʖ ͡°) after your message"
 
-#: core/commands/command.cpp:85
+#: core/commands/command.cpp:87
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
 msgstr "Displays ¯\\_(ツ)_/¯ after your message"
 
-#: core/commands/command.cpp:87
+#: core/commands/command.cpp:89
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Displays (╯°□°）╯︵ ┻━┻"
 
-#: core/commands/command.cpp:89
-#, kde-format
-msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+#: core/commands/command.cpp:91
+#, fuzzy, kde-format
+#| msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+msgid "Displays ┬─┬ ノ( ゜-゜ノ)"
 msgstr "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
 
-#: core/commands/command.cpp:91
+#: core/commands/command.cpp:93
 #, kde-format
 msgid "Create a New Channel"
 msgstr "Opustiť kanál"
 
-#: core/commands/command.cpp:93
+#: core/commands/command.cpp:95
 #, kde-format
 msgid "Show the keyboard shortcut list"
 msgstr "Zobraziť zoznam klávesových skratiek"
 
-#: core/commands/command.cpp:95
+#: core/commands/command.cpp:97
 #, kde-format
 msgid "Hide Room"
 msgstr "Skryť miestnosť"
 
-#: core/commands/command.cpp:97
+#: core/commands/command.cpp:99
 #, kde-format
 msgid "Invite one user to join this channel"
 msgstr "Pozvite jedného používateľa do tohto kanála"
 
-#: core/commands/command.cpp:99
+#: core/commands/command.cpp:101
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
 msgstr "Pozvite všetkých používateľov z tohto kanála do [#kanála]"
 
-#: core/commands/command.cpp:101
+#: core/commands/command.cpp:103
 #, kde-format
 msgid "Invite all users from [#channel] to join this channel"
 msgstr "Pozvite všetkých používateľov z [#kanála] do tohto kanála"
 
-#: core/commands/command.cpp:103
+#: core/commands/command.cpp:105
 #, kde-format
 msgid "Join the given channel"
 msgstr "Opustiť kanál"
 
-#: core/commands/command.cpp:105
+#: core/commands/command.cpp:107
 #, kde-format
 msgid "Remove someone from the room"
 msgstr "Odstrániť niekoho z miestnosti"
 
-#: core/commands/command.cpp:107
+#: core/commands/command.cpp:109
 #, kde-format
 msgid "Leave the current channel"
 msgstr "Opustiť kanál"
 
-#: core/commands/command.cpp:109
+#: core/commands/command.cpp:111
 #, kde-format
 msgid "Displays action text"
 msgstr "Displays action text"
 
-#: core/commands/command.cpp:111
+#: core/commands/command.cpp:113
 #, kde-format
 msgid "Direct message someone"
 msgstr "Direct message someone"
 
-#: core/commands/command.cpp:113
+#: core/commands/command.cpp:115
 #, kde-format
 msgid "Mute someone in the room"
 msgstr "Stlmiť niekoho v miestnosti"
 
-#: core/commands/command.cpp:115
+#: core/commands/command.cpp:117
 #, kde-format
 msgid "Unmute someone in the room"
 msgstr "Zrušiť stlmenie niekoho v miestnosti"
 
-#: core/commands/command.cpp:117
+#: core/commands/command.cpp:119
 #, kde-format
 msgid "Set your status message"
 msgstr "Set your status message"
 
-#: core/commands/command.cpp:119
+#: core/commands/command.cpp:121
 #, kde-format
 msgid "Set topic"
 msgstr "Set topic"
 
-#: core/commands/command.cpp:121
+#: core/commands/command.cpp:123
 #, kde-format
 msgid "Unarchive"
 msgstr "Odarchivovať"
@@ -760,120 +761,120 @@ msgstr "Missing server url."
 msgid "Socket was unexpectedly closed."
 msgstr "Soket bol neočakávane zatvorený."
 
-#: core/messages/block/block.cpp:162 core/messages/message.cpp:935
+#: core/messages/block/block.cpp:160 core/messages/message.cpp:958
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
 msgid "Conference Call"
 msgstr "Conference Call"
 
-#: core/messages/message.cpp:835
+#: core/messages/message.cpp:858
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 sa pripojil k kanálu"
 
-#: core/messages/message.cpp:837
+#: core/messages/message.cpp:860
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 opustil kanál"
 
-#: core/messages/message.cpp:839
+#: core/messages/message.cpp:862
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 opustil tento tím"
 
-#: core/messages/message.cpp:842
+#: core/messages/message.cpp:865
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Téma bola vymazaná používateľom: %1"
 
-#: core/messages/message.cpp:844
+#: core/messages/message.cpp:867
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 changed topic to: <i>%1</i>"
 
-#: core/messages/message.cpp:847
+#: core/messages/message.cpp:870
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 pridal %1 do konverzácie"
 
-#: core/messages/message.cpp:849
+#: core/messages/message.cpp:872
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:851
+#: core/messages/message.cpp:874
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 removed user %1"
 
-#: core/messages/message.cpp:854
+#: core/messages/message.cpp:877
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Popis bol vymazaný používateľom %1"
 
-#: core/messages/message.cpp:856
+#: core/messages/message.cpp:879
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 zmenil popis miestnosti na %1"
 
-#: core/messages/message.cpp:860
+#: core/messages/message.cpp:883
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Oznámenie bolo vymazané používateľom %1"
 
-#: core/messages/message.cpp:862
+#: core/messages/message.cpp:885
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 zmenil oznámenie miestnosti na %1"
 
-#: core/messages/message.cpp:865
+#: core/messages/message.cpp:888
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 zmenil súkromie miestnosti na %1"
 
-#: core/messages/message.cpp:867
+#: core/messages/message.cpp:890
 #, kde-format
 msgid "Click to join to video"
 msgstr "Kliknite pre pripojenie k videu"
 
-#: core/messages/message.cpp:870
+#: core/messages/message.cpp:893
 #, kde-format
 msgid "Message Deleted"
 msgstr "Message Deleted"
 
-#: core/messages/message.cpp:872
+#: core/messages/message.cpp:895
 #, kde-format
 msgid "Message Pinned"
 msgstr "Message Pinned"
 
-#: core/messages/message.cpp:874
+#: core/messages/message.cpp:897
 #, kde-format
 msgid "Message Pinned by %1"
 msgstr "Správu pripol %1"
 
-#: core/messages/message.cpp:876
+#: core/messages/message.cpp:899
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "Používateľovi %1 bolo zrušené stlmenie používateľom %2"
 
-#: core/messages/message.cpp:878
+#: core/messages/message.cpp:901
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "Používateľ %1 bol stlmený používateľom %2"
 
-#: core/messages/message.cpp:880
+#: core/messages/message.cpp:903
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "Rola „%3“ bola pridaná používateľovi %1 používateľom %2"
 
-#: core/messages/message.cpp:882
+#: core/messages/message.cpp:905
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "Rola „%3” bola odobratá používateľovi %1 používateľom %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:886
+#: core/messages/message.cpp:909
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -882,122 +883,122 @@ msgstr ""
 "Táto správa je šifrovaná end-to-end. Ak ju chcete zobraziť, musíte zadať "
 "šifrovací kľúč v nastaveniach účtu."
 
-#: core/messages/message.cpp:888
+#: core/messages/message.cpp:911
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Discussion created about \"%1\""
 
-#: core/messages/message.cpp:890
+#: core/messages/message.cpp:913
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 sa pripojil ku konverzácii"
 
-#: core/messages/message.cpp:892
+#: core/messages/message.cpp:915
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Túto miestnosť archivoval používateľ %1"
 
-#: core/messages/message.cpp:894
+#: core/messages/message.cpp:917
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Táto miestnosť bola obnovená z archívu používateľom %1"
 
-#: core/messages/message.cpp:897 core/messages/message.cpp:944
+#: core/messages/message.cpp:920 core/messages/message.cpp:967
 #, kde-format
 msgid "Unknown action!"
 msgstr "Unknown action!"
 
-#: core/messages/message.cpp:901
+#: core/messages/message.cpp:924
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Welcome %1!"
 
-#: core/messages/message.cpp:903
+#: core/messages/message.cpp:926
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Avatar miestnosti bol zmenený používateľom %1"
 
-#: core/messages/message.cpp:905
+#: core/messages/message.cpp:928
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Šifrovanie tejto miestnosti bolo aktivované používateľom %1"
 
-#: core/messages/message.cpp:907
+#: core/messages/message.cpp:930
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Šifrovanie tejto miestnosti bolo deaktivované používateľom %1"
 
-#: core/messages/message.cpp:909
+#: core/messages/message.cpp:932
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Miestnosť bola nastavená ako len na čítanie používateľom %1"
 
-#: core/messages/message.cpp:911
+#: core/messages/message.cpp:934
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Miestnosti bolo pridané oprávnenie na zápis používateľom %1"
 
-#: core/messages/message.cpp:913
+#: core/messages/message.cpp:936
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 pridal @%2 do tohto tímu"
 
-#: core/messages/message.cpp:915
+#: core/messages/message.cpp:938
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 odstránil @%2 z tohto tímu"
 
-#: core/messages/message.cpp:917
+#: core/messages/message.cpp:940
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 konvertoval #%2 na tím"
 
-#: core/messages/message.cpp:919
+#: core/messages/message.cpp:942
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 konvertoval #%2 na kanál"
 
-#: core/messages/message.cpp:921
+#: core/messages/message.cpp:944
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 odstránil #%2 z tohto tímu"
 
-#: core/messages/message.cpp:923
+#: core/messages/message.cpp:946
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 deleted #%2"
 
-#: core/messages/message.cpp:925
+#: core/messages/message.cpp:948
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 pridal #%2 do tohto tímu"
 
-#: core/messages/message.cpp:927
+#: core/messages/message.cpp:950
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "Miestnosť povolila reagovanie používateľom %1"
 
-#: core/messages/message.cpp:929
+#: core/messages/message.cpp:952
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "Miestnosť zakázala reagovanie používateľom %1"
 
-#: core/messages/message.cpp:931
+#: core/messages/message.cpp:954
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 sa pripojil k tomuto tímu"
 
-#: core/messages/message.cpp:933
+#: core/messages/message.cpp:956
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 key refreshed successfully"
 
-#: core/messages/message.cpp:937
+#: core/messages/message.cpp:960
 #, kde-format
 msgid "%1 banned %2"
 msgstr "%1 zablokoval %2"
 
-#: core/messages/message.cpp:939
+#: core/messages/message.cpp:962
 #, kde-format
 msgid "%1 unbanned %2"
 msgstr "%1 odblokoval %2"
@@ -1354,12 +1355,12 @@ msgstr "Upozorniť všetkých v tejto miestnosti"
 msgid "Edited at %1 by %2"
 msgstr "Upravené o %1 používateľom %2"
 
-#: core/model/messagesmodel.cpp:509
+#: core/model/messagesmodel.cpp:514
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignored Message"
 
-#: core/model/messagesmodel.cpp:520
+#: core/model/messagesmodel.cpp:525
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Only môžete see this message"
@@ -1733,12 +1734,12 @@ msgstr "Odstrániť účet"
 msgid "(Autojoin)"
 msgstr "(Autojoin)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1185
+#: core/model/usersforroommodel.cpp:307 core/room.cpp:1187
 #, kde-format
 msgid "Owner"
 msgstr "Vlastník"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:369
+#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
 #, kde-format
 msgid "Offline"
 msgstr "Nepripojený"
@@ -1821,126 +1822,126 @@ msgstr "Účet bol pridaný"
 msgid "A new account was added."
 msgstr "Bol pridaný nový účet."
 
-#: core/room.cpp:1188
+#: core/room.cpp:1190
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1191
+#: core/room.cpp:1193
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1671
+#: core/room.cpp:1721
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanál je len na čítanie."
 
-#: core/room.cpp:1674
+#: core/room.cpp:1724
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Zablokovali ste tento kanál."
 
-#: core/room.cpp:1677
+#: core/room.cpp:1727
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanál bol zablokovaný."
 
-#: core/roominfo/roominfo.cpp:130
+#: core/roominfo/roominfo.cpp:128
 #, kde-format
 msgid "Discussion"
 msgstr "Diskusia"
 
-#: core/roominfo/roominfo.cpp:134
+#: core/roominfo/roominfo.cpp:132
 #, kde-format
 msgid "Private Team"
 msgstr "Opustiť kanál"
 
-#: core/roominfo/roominfo.cpp:136
+#: core/roominfo/roominfo.cpp:134
 #, kde-format
 msgid "Group"
 msgstr "Skupina"
 
-#: core/roominfo/roominfo.cpp:140
+#: core/roominfo/roominfo.cpp:138
 #, kde-format
 msgid "Public Team"
 msgstr "Public Team"
 
 #. i18n: ectx: Menu (channel)
-#: core/roominfo/roominfo.cpp:142 widgets/ruqolaui.rc:27
+#: core/roominfo/roominfo.cpp:140 widgets/ruqolaui.rc:27
 #, kde-format
 msgid "Channel"
 msgstr "Kanál"
 
-#: core/roominfo/roominfo.cpp:145
+#: core/roominfo/roominfo.cpp:143
 #, kde-format
 msgid "Direct message"
 msgstr "Priama správa"
 
-#: core/roominfo/roominfo.cpp:147
+#: core/roominfo/roominfo.cpp:145
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
 #, kde-format
 msgid "Omnichannel"
 msgstr "Opustiť kanál"
 
-#: core/ruqolacommandlineparser.cpp:46
+#: core/ruqolacommandlineparser.cpp:44
 #, kde-format
 msgctxt "@info:shell"
 msgid "Return lists of accounts"
 msgstr "Odstrániť účet"
 
-#: core/ruqolacommandlineparser.cpp:48
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Spustiť s konkrétnym účtom"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:47
 #, kde-format
 msgid "Account Name"
 msgstr "Meno účtu"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:49
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Všetky správy"
 
-#: core/ruqolacommandlineparser.cpp:51
+#: core/ruqolacommandlineparser.cpp:49
 #, kde-format
 msgid "Message Url"
 msgstr "Správa"
 
-#: core/ruqolacommandlineparser.cpp:54
+#: core/ruqolacommandlineparser.cpp:52
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "Uvádza dostupné možnosti spätnej väzby od používateľov"
 
-#: core/ruqolacommandlineparser.cpp:57
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Spustiť ako nepripojený"
 
-#: core/ruqolacommandlineparser.cpp:59
+#: core/ruqolacommandlineparser.cpp:57
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Aktivovať režim ladenia"
 
-#: core/ruqolacommandlineparser.cpp:61
+#: core/ruqolacommandlineparser.cpp:59
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
 msgstr "Vyčistiť databázu (Používajte opatrne)"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:59
+#: core/timestamp/timestampinmessagesconverter.cpp:57
 #, kde-format
 msgid "Now"
 msgstr "Now"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:63
+#: core/timestamp/timestampinmessagesconverter.cpp:61
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
@@ -1948,7 +1949,7 @@ msgstr[0] "%1 sekunda"
 msgstr[1] "%1 sekundy"
 msgstr[2] "%1 sekúnd"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:67
+#: core/timestamp/timestampinmessagesconverter.cpp:65
 #, kde-format
 msgid "%1 minute"
 msgid_plural "%1 minutes"
@@ -1956,7 +1957,7 @@ msgstr[0] "%1 minúta"
 msgstr[1] "%1 minúty"
 msgstr[2] "%1 minút"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:71
+#: core/timestamp/timestampinmessagesconverter.cpp:69
 #, kde-format
 msgid "%1 hour"
 msgid_plural "%1 hours"
@@ -1964,7 +1965,7 @@ msgstr[0] "%1 hodina"
 msgstr[1] "%1 hodiny"
 msgstr[2] "%1 hodín"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:75
+#: core/timestamp/timestampinmessagesconverter.cpp:73
 #, kde-format
 msgid "%1 day"
 msgid_plural "%1 days"
@@ -1972,8 +1973,8 @@ msgstr[0] "%1 deň"
 msgstr[1] "%1 dni"
 msgstr[2] "%1 dní"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:83
-#: core/timestamp/timestampinmessagesconverter.cpp:92
+#: core/timestamp/timestampinmessagesconverter.cpp:81
+#: core/timestamp/timestampinmessagesconverter.cpp:90
 #, kde-format
 msgid "%1 year"
 msgid_plural "%1 years"
@@ -1981,7 +1982,7 @@ msgstr[0] "%1 year"
 msgstr[1] "%1 years"
 msgstr[2] "%1 years"
 
-#: core/timestamp/timestampinmessagesconverter.cpp:90
+#: core/timestamp/timestampinmessagesconverter.cpp:88
 #, kde-format
 msgid "%1 month"
 msgid_plural "%1 months"
@@ -2004,53 +2005,53 @@ msgstr "Chýbajú informácie o prekladateľovi. Je to chyba"
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
 
-#: core/user.cpp:211
+#: core/user.cpp:209
 #, kde-format
 msgid "User"
 msgstr "Používateľ"
 
-#: core/user.cpp:213
+#: core/user.cpp:211
 #, kde-format
 msgid "Administrator"
 msgstr "Administrátor"
 
-#: core/user.cpp:215
+#: core/user.cpp:213
 #, kde-format
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:92 core/utils.cpp:363
+#: core/utils.cpp:92 core/utils.cpp:367
 #, kde-format
 msgid "Online"
 msgstr "Pripojený"
 
-#: core/utils.cpp:94 core/utils.cpp:365 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Zaneprázdnený"
 
-#: core/utils.cpp:96 core/utils.cpp:367 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Neprítomný"
 
+#: core/videoconference/videoconferenceinfo.cpp:285
 #: core/videoconference/videoconferenceinfo.cpp:287
-#: core/videoconference/videoconferenceinfo.cpp:289
 #, kde-format
 msgid "Call was not answered"
 msgstr "Hovor nebol prijatý"
 
-#: core/videoconference/videoconferenceinfo.cpp:291
+#: core/videoconference/videoconferenceinfo.cpp:289
 #, kde-format
 msgid "Call ended"
 msgstr "Call ended"
 
-#: core/videoconference/videoconferenceinfo.cpp:295
+#: core/videoconference/videoconferenceinfo.cpp:293
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Vaša odpoveď:"
 
-#: core/videoconference/videoconferenceinfo.cpp:297
+#: core/videoconference/videoconferenceinfo.cpp:295
 #, kde-format
 msgid "Call ongoing"
 msgstr "Call ongoing"
@@ -3977,7 +3978,7 @@ msgid "Refresh"
 msgstr "Obnoviť"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:51
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:52
 #, kde-format
 msgctxt "@action"
 msgid "Copy"
