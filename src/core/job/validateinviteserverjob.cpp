@@ -46,6 +46,13 @@ void ValidateInviteServerJob::start()
         restApi->deleteLater();
         deleteLater();
     });
+    // Http/network errors are reported by failed(), neither of the two signals above is emitted then.
+    connect(job, &RocketChatRestApi::ValidateInviteTokenJob::failed, this, [restApi, this](const QString &serverErrorStr) {
+        qCWarning(RUQOLA_LOG) << "ValidateInviteTokenJob failed:" << serverErrorStr;
+        Q_EMIT tokenIsInvalid();
+        restApi->deleteLater();
+        deleteLater();
+    });
 
     if (!job->start()) {
         Q_EMIT tokenIsInvalid();

@@ -70,6 +70,10 @@ bool UnbanUserInChannelJob::findUserNames()
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsBannedUsersJob::roomsBannedUsersDone, this, &UnbanUserInChannelJob::slotRoomsBannedUsersDone);
+    connect(job, &RocketChatRestApi::RoomsBannedUsersJob::failed, this, [this](const QString &serverErrorStr) {
+        qCWarning(RUQOLA_LOG) << "RoomsBannedUsersJob failed:" << serverErrorStr;
+        deleteLater();
+    });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start RoomsBannedUsersJob job";
         deleteLater();
@@ -108,12 +112,21 @@ void UnbanUserInChannelJob::slotRoomsBannedUsersDone(const QJsonObject &obj, [[m
             connect(job, &RocketChatRestApi::RoomsUnbanUserJob::roomsUnbanUserDone, this, [this, job]() {
                 slotRoomsUnbanUserJobDone(job);
             });
+            // Without this a failed unban would keep its entry in the list forever and block slotAddUserInRooms().
+            connect(job, &RocketChatRestApi::RoomsUnbanUserJob::failed, this, [this, job](const QString &serverErrorStr) {
+                qCWarning(RUQOLA_LOG) << "RoomsUnbanUserJob failed:" << serverErrorStr;
+                slotRoomsUnbanUserJobDone(job);
+            });
             if (!job->start()) {
                 qCWarning(RUQOLA_LOG) << "Impossible to start RoomsUnbanUserJob";
                 job->deleteLater();
             } else {
                 mRoomsUnbanUserJobList.append(job);
             }
+        }
+        if (mRoomsUnbanUserJobList.isEmpty()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start any RoomsUnbanUserJob";
+            deleteLater();
         }
     }
 }
@@ -133,10 +146,16 @@ void UnbanUserInChannelJob::slotAddUserInRooms()
     addUserInRoomJob->setMethodCallJobInfo(addUserInRoomInfo);
     mRocketChatAccount->restApi()->initializeRestApiJob(addUserInRoomJob);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-    connect(addUserInRoomJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
-        const QJsonObject obj = root.value("result"_L1).toObject();
+    connect(addUserInRoomJob, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this]() {
         deleteLater();
-        // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
+    });
+    // methodCallFailed reports a method which threw server-side, failed() the http/network errors.
+    connect(addUserInRoomJob, &RocketChatRestApi::MethodCallJob::methodCallFailed, this, [this]() {
+        deleteLater();
+    });
+    connect(addUserInRoomJob, &RocketChatRestApi::MethodCallJob::failed, this, [this](const QString &serverErrorStr) {
+        qCWarning(RUQOLA_LOG) << "addUsersToRoom failed:" << serverErrorStr;
+        deleteLater();
     });
     if (!addUserInRoomJob->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUsersToRoom job";
