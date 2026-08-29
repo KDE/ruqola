@@ -53,7 +53,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
     if (!quoteUrl.isEmpty()
         && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
-        const QByteArray messageId = quoteUrl.mid(quoteUrl.indexOf("msg="_L1) + 4).toLatin1();
+        const QByteArray messageId = QStringView(quoteUrl).mid(quoteUrl.indexOf("msg="_L1) + 4).toLatin1();
         // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
         auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
             return msg.messageId() == messageId;
