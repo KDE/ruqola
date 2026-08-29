@@ -1101,10 +1101,10 @@ void RuqolaMainWindow::slotRegisterNewUser()
     if (mCurrentRocketChatAccount) {
         dlg->setPasswordValidChecks(mCurrentRocketChatAccount->ruqolaServerConfig()->passwordSettings());
         dlg->setManuallyApproveNewUsersRequired(mCurrentRocketChatAccount->ruqolaServerConfig()->accountsManuallyApproveNewUsers());
+        connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
+            mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
+        });
     }
-    connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
-        mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
-    });
     dlg->exec();
     delete dlg;
 }
