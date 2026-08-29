@@ -32,7 +32,7 @@ QString E2ERoomsDataBase::schemaDataBase() const
     return QString::fromLatin1(s_schemaE2ERoomsKeysStore);
 }
 
-QString E2ERoomsDataBase::generateRoomKeyId(const QString &roomId, const QString &keyId) const
+QString E2ERoomsDataBase::generateRoomKeyId(const QString &roomId, const QString &keyId)
 {
     if (roomId.isEmpty() || keyId.isEmpty()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to generate identifier";

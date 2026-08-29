@@ -83,7 +83,7 @@ QPoint MessageAttachmentDelegateHelperText::adaptMousePosition(const QPoint &pos
     return relativePos(pos, layout, attachmentsRect);
 }
 
-QPoint MessageAttachmentDelegateHelperText::relativePos(const QPoint &pos, const TextLayout &layout, QRect attachmentsRect) const
+QPoint MessageAttachmentDelegateHelperText::relativePos(const QPoint &pos, const TextLayout &layout, QRect attachmentsRect)
 {
     // draw() only pushes the document below a title row when there is a title.
     const int documentY = layout.title.isEmpty() ? 0 : qRound(layout.titleRect.height()) + DelegatePaintUtil::margin();

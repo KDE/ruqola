@@ -29,7 +29,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void loadBannedUsers();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessageInRoom() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersFailed(const QString &serverErrorStr, const QString &descriptionError);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotBannedUsersFailed(const QString &serverErrorStr, const QString &descriptionError);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreBannedUsers();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUnbanUser(const QString &userName);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUnBanUsersDone(const QString &userName);

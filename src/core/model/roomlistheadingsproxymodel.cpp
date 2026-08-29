@@ -274,7 +274,7 @@ void RoomListHeadingsProxyModel::rebuildSections()
     }
 }
 
-auto RoomListHeadingsProxyModel::type(const QModelIndex &index) const -> IndexType
+auto RoomListHeadingsProxyModel::type(const QModelIndex &index) -> IndexType
 {
     if (!index.isValid()) {
         return IndexType::Root;

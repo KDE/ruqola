@@ -185,7 +185,7 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
     return false;
 }
 
-QRect ListDiscussionDelegate::openDiscussionRect(const Layout &layout, const QStyleOptionViewItem &option) const
+QRect ListDiscussionDelegate::openDiscussionRect(const Layout &layout, const QStyleOptionViewItem &option)
 {
     const int width = option.fontMetrics.horizontalAdvance(layout.openDiscussionText);
     return QRect(layout.textRect.x(), qRound(layout.openDiscussionTextY), width, qRound(layout.openDiscussionTextHeight));
@@ -256,7 +256,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     return layout;
 }
 
-QByteArray ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toByteArray();
     Q_ASSERT(!discussionRoomId.isEmpty());

@@ -28,12 +28,12 @@ ToolsPluginManager *ToolsPluginManager::self()
     return &s_self;
 }
 
-QString ToolsPluginManager::configGroupName() const
+QString ToolsPluginManager::configGroupName()
 {
     return u"RuqolaPlugin-toolsplugins"_s;
 }
 
-QString ToolsPluginManager::configPrefixSettingKey() const
+QString ToolsPluginManager::configPrefixSettingKey()
 {
     return u"toolspluginsPlugin"_s;
 }

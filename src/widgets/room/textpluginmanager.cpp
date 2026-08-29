@@ -28,12 +28,12 @@ TextPluginManager *TextPluginManager::self()
     return &s_self;
 }
 
-QString TextPluginManager::configGroupName() const
+QString TextPluginManager::configGroupName()
 {
     return u"RuqolaPlugin-textplugins"_s;
 }
 
-QString TextPluginManager::configPrefixSettingKey() const
+QString TextPluginManager::configPrefixSettingKey()
 {
     return u"textpluginsPlugin"_s;
 }

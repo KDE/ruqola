@@ -60,7 +60,7 @@ QDebug operator<<(QDebug d, const MessageAttachmentActions &t)
     return d;
 }
 
-MessageAttachmentActions::AlignmentButton MessageAttachmentActions::convertStringToAlignmentButton(const QString &str) const
+MessageAttachmentActions::AlignmentButton MessageAttachmentActions::convertStringToAlignmentButton(const QString &str)
 {
     if (str == "horizontal"_L1) {
         return MessageAttachmentActions::AlignmentButton::Horizontal;

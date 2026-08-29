@@ -47,6 +47,6 @@ private:
                                                                        const MessageAttachment &msgAttach,
                                                                        QRect attachmentsRect,
                                                                        const QStyleOptionViewItem &option) override;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint relativePos(const QPoint &pos, const TextLayout &layout, QRect attachmentsRect) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QPoint relativePos(const QPoint &pos, const TextLayout &layout, QRect attachmentsRect);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT static bool documentIsShown(const TextLayout &layout);
 };

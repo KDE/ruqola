@@ -53,7 +53,7 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     }
 }
 
-VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(const QString &str) const
+VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(const QString &str)
 {
     if (str == "videoconference"_L1) {
         return VideoConferenceInfo::VideoConferenceType::Conference;

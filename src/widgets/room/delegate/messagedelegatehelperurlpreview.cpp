@@ -168,8 +168,7 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
     return layout;
 }
 
-MessageDelegateHelperBase::DocumentTypeInfo MessageDelegateHelperUrlPreview::convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl,
-                                                                                                                        int width) const
+MessageDelegateHelperBase::DocumentTypeInfo MessageDelegateHelperUrlPreview::convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width)
 {
     MessageDelegateHelperBase::DocumentTypeInfo info;
     info.identifier = messageUrl.urlId();
@@ -330,7 +329,7 @@ int MessageDelegateHelperUrlPreview::charPosition(const QTextDocument *doc, cons
     return doc->documentLayout()->hitTest(relativePos(pos, layout, previewRect), Qt::FuzzyHit);
 }
 
-QPoint MessageDelegateHelperUrlPreview::relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect) const
+QPoint MessageDelegateHelperUrlPreview::relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect)
 {
     // The description document is laid out inside the card padding (below the
     // top gap), to the right of the thumbnail; translate mouse coordinates into

@@ -21,7 +21,7 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize() override;
-    LIBRUQOLAWIDGETS_NO_EXPORT void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureClicked(const QString &groupName, const QString &identifier);
 
     QList<PluginItem *> mPluginToolsItems;

@@ -43,7 +43,7 @@ static NotificationHistoryDelegate::RoomAccount roomAccountInfo(const QModelInde
     return info;
 }
 
-void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -224,7 +224,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     return layout;
 }
 
-QByteArray NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(NotificationHistoryModel::Identifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());

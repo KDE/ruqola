@@ -30,9 +30,9 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void modifyRole(const QModelIndex &modelIndex);
     LIBRUQOLAWIDGETS_NO_EXPORT void deleteRole(const QModelIndex &modelIndex);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyDoubleClickRoles(const QModelIndex &index);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleCreateDone();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleUpdateDone();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleDeleteDone();
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleCreateDone();
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleUpdateDone();
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotRoleDeleteDone();
     RolesTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     AdminRolesModel *const mAdminRolesModel;

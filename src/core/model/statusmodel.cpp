@@ -56,7 +56,7 @@ void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
     }
 }
 
-QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
+QString StatusModel::textFromPresenceStatus(User::PresenceStatus status)
 {
     QString statusStr = Utils::i18nFromPresenceStatus(status);
     if (statusStr.isEmpty()) {
@@ -65,7 +65,7 @@ QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
     return statusStr;
 }
 
-QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const
+QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status)
 {
     switch (status) {
     case User::PresenceStatus::Online:

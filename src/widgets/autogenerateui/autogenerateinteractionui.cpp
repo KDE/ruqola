@@ -175,7 +175,7 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
     }
 }
 
-AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const
+AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str)
 {
     if (str == "modal.update"_L1) {
         return AutoGenerateInteractionUi::TypeUi::ModalDialogUpdate;

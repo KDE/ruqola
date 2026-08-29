@@ -28,7 +28,7 @@ SearchMessageCommandButtonWidget::SearchMessageCommandButtonWidget(QWidget *pare
 SearchMessageCommandButtonWidget::~SearchMessageCommandButtonWidget() = default;
 
 SearchMessageCommandButtonWidget::ButtonInfo
-SearchMessageCommandButtonWidget::createButtonInfo(SearchMessageCommand::SearchMessageCommandType type, const QString &title, const QString &tooltip) const
+SearchMessageCommandButtonWidget::createButtonInfo(SearchMessageCommand::SearchMessageCommandType type, const QString &title, const QString &tooltip)
 {
     return {SearchMessageCommand::generateCommandText(type), title, tooltip, SearchMessageCommand::mustBeUnique(type), SearchMessageCommand::needSpace(type)};
 }

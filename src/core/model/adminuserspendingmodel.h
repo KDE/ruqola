@@ -41,6 +41,6 @@ public:
     [[nodiscard]] bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createPendingAction(const User &user) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createPendingButtonText(const User &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString createPendingAction(const User &user);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString createPendingButtonText(const User &user);
 };

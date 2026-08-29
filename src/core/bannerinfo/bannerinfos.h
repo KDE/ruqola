@@ -47,7 +47,7 @@ public:
     [[nodiscard]] QList<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateText(const BannerInfo &info) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateText(const BannerInfo &info);
     QList<BannerInfo> mBanners;
 };
 

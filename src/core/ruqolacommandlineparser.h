@@ -32,5 +32,5 @@ public:
     [[nodiscard]] static QString commandLineFromEnum(CommandLineName e);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void initializeCommandLine(QCommandLineParser *parser);
+    static LIBRUQOLACORE_NO_EXPORT void initializeCommandLine(QCommandLineParser *parser);
 };

@@ -146,7 +146,7 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
 
 MessageAttachmentDelegateHelperActions::ActionsLayout MessageAttachmentDelegateHelperActions::layoutActions(const MessageAttachmentActions &act,
                                                                                                             const QStyleOptionViewItem &option,
-                                                                                                            [[maybe_unused]] int attachmentsWidth) const
+                                                                                                            [[maybe_unused]] int attachmentsWidth)
 {
     ActionsLayout layout;
 

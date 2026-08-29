@@ -42,7 +42,7 @@ public:
     [[nodiscard]] bool isValid() const;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT PreviewCommand::TypePreview convertStringToPreviewType(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT PreviewCommand::TypePreview convertStringToPreviewType(const QString &str);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertPreviewTypeToString() const;
     QString mId;
     QString mValue;

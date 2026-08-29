@@ -67,7 +67,7 @@ bool MessageDelegateHelperContext::handleMouseEvent([[maybe_unused]] const Block
 }
 
 MessageDelegateHelperContext::ContextLayout
-MessageDelegateHelperContext::layoutContext(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
+MessageDelegateHelperContext::layoutContext(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth)
 {
     ContextLayout layout;
 

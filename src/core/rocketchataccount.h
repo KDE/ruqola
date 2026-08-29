@@ -437,7 +437,7 @@ public:
 
     void updateTextToSpeech(const QByteArray &roomId, const QByteArray &messageId, bool inProgress);
 
-    [[nodiscard]] bool offlineMode() const;
+    [[nodiscard]] static bool offlineMode();
 
     [[nodiscard]] qint64 globalRoomsTimeStamp() const;
     void insertRoomSubscription(const QByteArray &subscriptionId, const QByteArray &roomId);

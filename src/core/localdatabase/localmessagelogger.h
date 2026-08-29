@@ -28,5 +28,5 @@ protected:
     [[nodiscard]] QString schemaDataBase() const override;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateTextFromMessage(const Message &m) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateTextFromMessage(const Message &m);
 };

@@ -108,7 +108,7 @@ void AppsMarketPlaceModel::setAppsMarketPlaceInfos(const QList<AppsMarketPlaceIn
     }
 }
 
-QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo)
 {
     if (!appsMarketPlaceInfo.appId().isEmpty()) {
         return appsMarketPlaceInfo.appId();
@@ -120,7 +120,7 @@ QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlac
     return {};
 }
 
-QString AppsMarketPlaceModel::appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+QString AppsMarketPlaceModel::appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo)
 {
     if (!appsMarketPlaceInfo.appId().isEmpty()) {
         return appsMarketPlaceInfo.appName();
@@ -132,7 +132,7 @@ QString AppsMarketPlaceModel::appName(const AppsMarketPlaceInfo &appsMarketPlace
     return {};
 }
 
-QPixmap AppsMarketPlaceModel::pixmap(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+QPixmap AppsMarketPlaceModel::pixmap(const AppsMarketPlaceInfo &appsMarketPlaceInfo)
 {
     const AppsMarketPlaceInstalledInfo installedInfo = appsMarketPlaceInfo.installedInfo();
     if (installedInfo.isValid()) {

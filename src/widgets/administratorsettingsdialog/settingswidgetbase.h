@@ -46,7 +46,7 @@ protected:
     void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable);
 
     void addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable);
-    void fillComboBox(QComboBox *comboBox, const QMap<QString, QString> &items);
+    static void fillComboBox(QComboBox *comboBox, const QMap<QString, QString> &items);
 
     void addPasswordEdit(const QString &labelStr, KPasswordLineEdit *lineEdit, const QString &variable);
     void addLabel(const QString &labelStr, QLabel *labelElement, const QString &variable);
@@ -62,7 +62,7 @@ protected:
     void initializeWidget(QCheckBox *checkbox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, bool defaultValue = false);
     void initializeWidget(QSpinBox *spinbox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, int defaultValue = -1);
     void initializeWidget(QComboBox *comboBox, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue = QString());
-    void initializeWidget(QLabel *label, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue);
+    static void initializeWidget(QLabel *label, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue);
 
     [[nodiscard]] QLabel *createBoldLabel(const QString &text);
     [[nodiscard]] QString urlFromRelativePath(const QString &relativePath);

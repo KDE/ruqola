@@ -24,17 +24,17 @@ EmojiManager::EmojiManager(RocketChatAccount *account, QObject *parent)
 
 EmojiManager::~EmojiManager() = default;
 
-QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
+QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::unicodeEmojiList()
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmojiList();
 }
 
-QList<TextEmoticonsCore::EmoticonCategory> EmojiManager::categories() const
+QList<TextEmoticonsCore::EmoticonCategory> EmojiManager::categories()
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->categories();
 }
 
-QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category) const
+QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category)
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->emojisForCategory(category);
 }
@@ -134,7 +134,7 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
     return false;
 }
 
-TextEmoticonsCore::UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
+TextEmoticonsCore::UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier)
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
 }

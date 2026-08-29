@@ -60,7 +60,7 @@ QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Utils::AvatarInfo TeamRoomCompleterModel::avatarInfo(const TeamRoomCompleter &room) const
+Utils::AvatarInfo TeamRoomCompleterModel::avatarInfo(const TeamRoomCompleter &room)
 {
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::Room;

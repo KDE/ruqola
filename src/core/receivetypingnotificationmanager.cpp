@@ -49,7 +49,7 @@ void ReceiveTypingNotificationManager::insertTypingNotification(const QByteArray
     }
 }
 
-QString ReceiveTypingNotificationManager::generateNotification(const QStringList &userNames) const
+QString ReceiveTypingNotificationManager::generateNotification(const QStringList &userNames)
 {
     if (userNames.isEmpty()) {
         return {};

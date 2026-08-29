@@ -26,14 +26,14 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void parseServerInfo(QTreeWidgetItem *serverInfoItem, const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void parseUsageInfo(QTreeWidgetItem *usageInfoItem, const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void parseRuntimeInfo(QTreeWidgetItem *runtimeInfoItem, const QJsonObject &obj);
-    LIBRUQOLAWIDGETS_NO_EXPORT void createItemFromIntValue(QTreeWidgetItem *usageInfoItem,
-                                                           const QJsonObject &obj,
-                                                           const QString &label,
-                                                           const QString &identifier,
-                                                           const QString &iconName = {});
-    LIBRUQOLAWIDGETS_NO_EXPORT void
+    static LIBRUQOLAWIDGETS_NO_EXPORT void createItemFromIntValue(QTreeWidgetItem *usageInfoItem,
+                                                                  const QJsonObject &obj,
+                                                                  const QString &label,
+                                                                  const QString &identifier,
+                                                                  const QString &iconName = {});
+    static LIBRUQOLAWIDGETS_NO_EXPORT void
     createItemFromStringValue(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
-    LIBRUQOLAWIDGETS_NO_EXPORT void
+    static LIBRUQOLAWIDGETS_NO_EXPORT void
     createItemDisplayFormat(QTreeWidgetItem *parentItem, const QJsonObject &obj, const QString &label, const QString &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLicensesListDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotStatisticDone(const QJsonObject &obj);
@@ -41,7 +41,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void loadStatisticInfo(bool refresh);
     LIBRUQOLAWIDGETS_NO_EXPORT void loadLicensesInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotContextMenu(const QPoint &pos);
-    LIBRUQOLAWIDGETS_NO_EXPORT void createItemFromLicense(QTreeWidgetItem *licenseInfoItem, const QString &name, bool valid);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void createItemFromLicense(QTreeWidgetItem *licenseInfoItem, const QString &name, bool valid);
     LIBRUQOLAWIDGETS_NO_EXPORT void parseUsersInfo(QTreeWidgetItem *userInfoItem, const QJsonObject &obj);
     QTreeWidget *const mTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;

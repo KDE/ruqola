@@ -48,7 +48,7 @@ void AutoGenerateInteractionUiViewButtonElement::setValue(const QString &newValu
     mValue = newValue;
 }
 
-AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str) const
+AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return AutoGenerateInteractionUiViewButtonElement::Style::Unknown;

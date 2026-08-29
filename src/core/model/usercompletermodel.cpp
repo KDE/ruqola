@@ -67,7 +67,7 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user) const
+Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user)
 {
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
@@ -75,7 +75,7 @@ Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user) const
     return info;
 }
 
-QString UserCompleterModel::displayUserName(const User &user) const
+QString UserCompleterModel::displayUserName(const User &user)
 {
     return user.name();
 }

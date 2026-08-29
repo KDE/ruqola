@@ -106,7 +106,7 @@ void PendingAttachmentWidget::setPendingAttachmentInfos(const QList<AccountRoomS
     }
 }
 
-bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl) const
+bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl)
 {
     if (fileUrl.isLocalFile()) {
         const QFileInfo f(fileUrl.toLocalFile());

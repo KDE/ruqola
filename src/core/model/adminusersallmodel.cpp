@@ -46,7 +46,7 @@ bool AdminUsersAllModel::setData(const QModelIndex &id, const QVariant &value, i
     return false;
 }
 
-QString AdminUsersAllModel::createRegistrationStatus(const User &user) const
+QString AdminUsersAllModel::createRegistrationStatus(const User &user)
 {
     const bool lastLoginIsValid = user.lastLogin().isValid();
     const QStringList usersExcludedFromPending = {"bot"_L1, "app"_L1};

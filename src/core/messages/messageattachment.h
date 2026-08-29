@@ -108,7 +108,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString fixTitle(const QString &title) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString fixTitle(const QString &title);
     MessageAttachmentActions mMessageAttachmentActions;
     QList<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = AttachmentType::Unknown;

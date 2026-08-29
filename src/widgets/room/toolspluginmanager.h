@@ -37,8 +37,8 @@ public:
 
     [[nodiscard]] QList<PluginTool *> pluginsList() const;
 
-    [[nodiscard]] QString configGroupName() const;
-    [[nodiscard]] QString configPrefixSettingKey() const;
+    [[nodiscard]] static QString configGroupName();
+    [[nodiscard]] static QString configPrefixSettingKey();
 
     [[nodiscard]] QList<TextAddonsWidgets::PluginUtilData> pluginDataList() const;
     [[nodiscard]] PluginTool *pluginFromIdentifier(const QString &identifier) const;

@@ -16,7 +16,7 @@ public:
     explicit EmoticonMenuWidget(QWidget *parent = nullptr);
     ~EmoticonMenuWidget() override;
 
-    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
+    static void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
 protected:
     [[nodiscard]] QSize sizeHint() const override;

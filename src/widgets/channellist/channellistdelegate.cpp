@@ -182,7 +182,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 }
 
-QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
+QString ChannelListDelegate::makeUnreadText(const QModelIndex &index)
 {
     const bool hideBadgeForMention = index.data(RoomModel::HideBadgeForMention).toBool();
     if (hideBadgeForMention) {

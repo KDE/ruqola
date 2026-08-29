@@ -50,7 +50,7 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void initialize(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateState(bool state);
-    LIBRUQOLAWIDGETS_NO_EXPORT void initializeValues(SettingsWidgetBase *widget, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void initializeValues(SettingsWidgetBase *widget, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings);
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;

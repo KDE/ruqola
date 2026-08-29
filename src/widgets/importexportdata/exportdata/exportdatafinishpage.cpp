@@ -52,7 +52,7 @@ bool ExportDataFinishPage::isComplete() const
     return mExportDone;
 }
 
-QString ExportDataFinishPage::generateExportZipFileName() const
+QString ExportDataFinishPage::generateExportZipFileName()
 {
     return QDir::homePath() + u'/' + u"ruqola-accountdata-%1.zip"_s.arg(QDateTime::currentDateTime().toString()).replace(u":"_s, u"_"_s);
 }

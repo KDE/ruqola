@@ -26,6 +26,6 @@ Q_SIGNALS:
     void clearNotification();
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames);
     QMap<QByteArray, QStringList> mMapTypingNotifications;
 };

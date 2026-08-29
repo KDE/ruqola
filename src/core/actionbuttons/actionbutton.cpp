@@ -75,7 +75,7 @@ void ActionButton::parseActionButton(const QJsonObject &json)
     // TODO variant
 }
 
-ActionButton::Category ActionButton::convertCategoryFromString(const QString &str) const
+ActionButton::Category ActionButton::convertCategoryFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::Category::Unknown;
@@ -122,7 +122,7 @@ void ActionButton::parseWhen(const QJsonObject &json)
     }
 }
 
-ActionButton::MessageActionContext ActionButton::convertMessageActionContextsFromString(const QString &str) const
+ActionButton::MessageActionContext ActionButton::convertMessageActionContextsFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::MessageActionContext::Unknown;
@@ -150,7 +150,7 @@ void ActionButton::setCategory(Category newCategory)
     mCategory = newCategory;
 }
 
-ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
+ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::RoomTypeFilter::Unknown;
@@ -219,7 +219,7 @@ void ActionButton::setHasAllRoles(const QStringList &newHasAllRoles)
     mHasAllRoles = newHasAllRoles;
 }
 
-ActionButton::ButtonContext ActionButton::convertContextFromString(const QString &str) const
+ActionButton::ButtonContext ActionButton::convertContextFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::ButtonContext::Unknown;

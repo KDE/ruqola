@@ -56,7 +56,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const BannedUser &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const BannedUser &user);
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QByteArray mRoomId;
     bool mHasFullList = false;

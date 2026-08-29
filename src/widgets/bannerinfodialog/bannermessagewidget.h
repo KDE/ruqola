@@ -26,6 +26,6 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReadInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateInfo();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenUrl(const QString &url);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenUrl(const QString &url);
     QList<BannerInfos::UnreadInformation> mBannerInfos;
 };

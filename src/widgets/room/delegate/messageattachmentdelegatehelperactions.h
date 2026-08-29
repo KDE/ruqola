@@ -33,7 +33,7 @@ private:
     struct ActionsLayout {
         QList<ButtonLayout> buttonList;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const MessageAttachmentActions &act,
-                                                                         const QStyleOptionViewItem &option,
-                                                                         int attachmentsWidth) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const MessageAttachmentActions &act,
+                                                                                const QStyleOptionViewItem &option,
+                                                                                int attachmentsWidth);
 };

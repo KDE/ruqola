@@ -32,7 +32,7 @@ public:
     [[nodiscard]] QList<MessageAttachmentAction> actions() const;
     void setActions(const QList<MessageAttachmentAction> &newActions);
 
-    [[nodiscard]] AlignmentButton convertStringToAlignmentButton(const QString &str) const;
+    [[nodiscard]] static AlignmentButton convertStringToAlignmentButton(const QString &str);
 
     [[nodiscard]] bool isValid() const;
 

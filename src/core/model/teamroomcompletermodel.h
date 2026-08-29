@@ -33,6 +33,6 @@ public:
     void setRooms(const QList<TeamRoomCompleter> &rooms);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoomCompleter &room) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoomCompleter &room);
     QList<TeamRoomCompleter> mRooms;
 };

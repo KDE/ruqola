@@ -38,7 +38,7 @@ private:
     };
 
     [[nodiscard]] ChannelListDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    [[nodiscard]] QString makeUnreadText(const QModelIndex &index) const;
+    [[nodiscard]] static QString makeUnreadText(const QModelIndex &index);
     void clearAvatarCache();
 
     OwnUserPreferences::RoomListDisplay mRoomListDisplay = OwnUserPreferences::RoomListDisplay::Unknown;

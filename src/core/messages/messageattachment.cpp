@@ -337,7 +337,7 @@ void MessageAttachment::setAttachmentFields(const QList<MessageAttachmentField> 
     generateAttachmentFieldsText();
 }
 
-QString MessageAttachment::fixTitle(const QString &title) const
+QString MessageAttachment::fixTitle(const QString &title)
 {
     QString newTitle = title;
     if (newTitle.length() > 80) {

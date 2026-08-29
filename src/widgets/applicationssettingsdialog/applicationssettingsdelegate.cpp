@@ -189,7 +189,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     return layout;
 }
 
-QByteArray ApplicationsSettingsDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ApplicationsSettingsDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(AppsMarketPlaceModel::AppId).toByteArray();
     Q_ASSERT(!identifier.isEmpty());

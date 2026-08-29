@@ -60,7 +60,7 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     return {};
 }
 
-QString NotificationHistoryModel::generateMessage(const NotificationInfo &info) const
+QString NotificationHistoryModel::generateMessage(const NotificationInfo &info)
 {
     switch (info.notificationType()) {
     case NotificationInfo::NotificationType::StandardMessage:

@@ -12,7 +12,7 @@
 using namespace Qt::Literals::StringLiterals;
 DownloadAppsLanguagesParser::DownloadAppsLanguagesParser() = default;
 
-QMap<QString, DownloadAppsLanguagesInfo> DownloadAppsLanguagesParser::parse(const QJsonObject &obj) const
+QMap<QString, DownloadAppsLanguagesInfo> DownloadAppsLanguagesParser::parse(const QJsonObject &obj)
 {
     QMap<QString, DownloadAppsLanguagesInfo> map;
     const QJsonArray array = obj.value("apps"_L1).toArray();

@@ -33,7 +33,7 @@ public:
     void setReadReceipts(const ReadReceipts &newReadReceipts);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const ReadReceipt &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const ReadReceipt &user);
 
     ReadReceipts mReadReceipts;
 };

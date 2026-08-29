@@ -65,9 +65,9 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ListDiscussionDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QRect openDiscussionRect(const Layout &layout, const QStyleOptionViewItem &option) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index);
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QRect openDiscussionRect(const Layout &layout, const QStyleOptionViewItem &option);
 
     // Index whose "open discussion" link was pressed, so that the release can be paired with it
     QPersistentModelIndex mOpenDiscussionPressedIndex;

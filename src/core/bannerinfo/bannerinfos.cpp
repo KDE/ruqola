@@ -56,7 +56,7 @@ QList<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() co
     return infos;
 }
 
-QString BannerInfos::generateText(const BannerInfo &info) const
+QString BannerInfos::generateText(const BannerInfo &info)
 {
     QString str = BannerInfo::defaultText(info);
     if (!info.link().isEmpty()) {

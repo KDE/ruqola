@@ -41,7 +41,7 @@ public:
     [[nodiscard]] bool isEmpty() const;
 
 private:
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewText::TextType convertTypeFromString(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewText::TextType convertTypeFromString(const QString &str);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString convertTextTypeToString() const;
     TextType mType = TextType::Unknown;
     QString mText;

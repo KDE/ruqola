@@ -75,7 +75,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
 
 SearchTreeBaseWidget::~SearchTreeBaseWidget() = default;
 
-QString SearchTreeBaseWidget::clickableStr() const
+QString SearchTreeBaseWidget::clickableStr()
 {
     return u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
 }

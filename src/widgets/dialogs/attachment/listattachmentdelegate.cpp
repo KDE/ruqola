@@ -149,7 +149,7 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
     return {0, contentsHeight};
 }
 
-ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
 

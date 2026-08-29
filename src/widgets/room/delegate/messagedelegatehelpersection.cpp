@@ -155,7 +155,7 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
 }
 
 MessageDelegateHelperSection::SectionLayout
-MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
+MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth)
 {
     SectionLayout layout;
     layout.sectionText = block.sectionText();

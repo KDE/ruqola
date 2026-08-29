@@ -25,8 +25,8 @@ public:
 
     void setRestApiConnection(Connection *restApi);
 
-    [[nodiscard]] QString recordingVideoPath(const QString &accountName) const;
-    [[nodiscard]] QString recordingImagePath(const QString &accountName) const;
+    [[nodiscard]] static QString recordingVideoPath(const QString &accountName);
+    [[nodiscard]] static QString recordingImagePath(const QString &accountName);
     [[nodiscard]] QString avatarUrl(const Utils::AvatarInfo &info);
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
@@ -58,7 +58,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void removeAvatar(const QString &avatarIdentifier);
     LIBRUQOLACORE_NO_EXPORT void loadAvatarCache();
     LIBRUQOLACORE_NO_EXPORT void cleanupCache();
-    LIBRUQOLACORE_NO_EXPORT void cleanupCacheDirectory(const QString &directory);
+    static LIBRUQOLACORE_NO_EXPORT void cleanupCacheDirectory(const QString &directory);
     LIBRUQOLACORE_NO_EXPORT void handleMigration();
 
     QHash<QString, QUrl> mAvatarUrl;

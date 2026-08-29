@@ -136,7 +136,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void selectAccount(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void removeDatabaseAccount(const QString &accountName);
-    LIBRUQOLACORE_NO_EXPORT void removeDirectory(const QString &directory);
+    static LIBRUQOLACORE_NO_EXPORT void removeDirectory(const QString &directory);
     LIBRUQOLACORE_NO_EXPORT void removeLogs(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void loadAccount();
     LIBRUQOLACORE_NO_EXPORT void connectToAccount(RocketChatAccount *account);
@@ -144,7 +144,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void changeEnableState(RocketChatAccount *account, bool enabled);
     LIBRUQOLACORE_NO_EXPORT void disconnectAccount(RocketChatAccount *account);
     LIBRUQOLACORE_NO_EXPORT void slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT MigrateDatabaseTypes needToHandleDataMigration() const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT MigrateDatabaseTypes needToHandleDataMigration();
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;

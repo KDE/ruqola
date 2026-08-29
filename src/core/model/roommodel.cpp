@@ -605,7 +605,7 @@ bool RoomModel::userOffline(Room *r) const
     return false;
 }
 
-QString RoomModel::generateUnreadToolTip(Room *r) const
+QString RoomModel::generateUnreadToolTip(Room *r)
 {
     QStringList toolTipStr;
     const int userMentions = r->userMentions();
@@ -628,7 +628,7 @@ QString RoomModel::generateUnreadToolTip(Room *r) const
     return toolTipStr.join(", "_L1);
 }
 
-RoomModel::MentionsInfoType RoomModel::mentionsInfoType(Room *r) const
+RoomModel::MentionsInfoType RoomModel::mentionsInfoType(Room *r)
 {
     const int userMentions = r->userMentions();
     if (userMentions > 0 /* TODO || tunreadUser > 0*/) {

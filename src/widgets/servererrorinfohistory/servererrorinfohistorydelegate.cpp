@@ -28,7 +28,7 @@ ServerErrorInfoHistoryDelegate::ServerErrorInfoHistoryDelegate(QListView *view, 
 
 ServerErrorInfoHistoryDelegate::~ServerErrorInfoHistoryDelegate() = default;
 
-void ServerErrorInfoHistoryDelegate::drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void ServerErrorInfoHistoryDelegate::drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -156,7 +156,7 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     return layout;
 }
 
-QByteArray ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());

@@ -70,7 +70,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseAuthor(const QJsonObject &authorObject);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT AppsMarketPlaceInstalledInfo::Status convertStatusFromString(const QString &str);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT AppsMarketPlaceInstalledInfo::Status convertStatusFromString(const QString &str);
     QPixmap mPixmap;
     QString mAppName;
     QString mVersion;

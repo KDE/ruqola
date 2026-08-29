@@ -165,7 +165,7 @@ bool BannedUsersModel::hasFullList() const
     return mHasFullList;
 }
 
-Utils::AvatarInfo BannedUsersModel::avatarInfo(const BannedUser &user) const
+Utils::AvatarInfo BannedUsersModel::avatarInfo(const BannedUser &user)
 {
     const Utils::AvatarInfo info{
         .etag = {},

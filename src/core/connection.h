@@ -182,7 +182,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();
     LIBRUQOLACORE_NO_EXPORT void slotResult(QNetworkReply *reply);
-    LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    static LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     LIBRUQOLACORE_NO_EXPORT void slotLogout();
     LIBRUQOLACORE_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
     LIBRUQOLACORE_NO_EXPORT void setJoinCodeChannel(const QString &roomId, const QString &joinCode);

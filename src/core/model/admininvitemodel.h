@@ -41,8 +41,8 @@ public:
     void removeInvite(const QByteArray &identifier);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString maxUses(int uses) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString maxUses(int uses);
     LIBRUQOLACORE_NO_EXPORT void clear();
     QList<InviteInfo> mAdminInvites;
 };

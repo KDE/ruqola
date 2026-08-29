@@ -241,7 +241,7 @@ void MessageListDelegate::setSearchText(const QString &newSearchText)
     }
 }
 
-void MessageListDelegate::drawLastSeenLine(QPainter *painter, int displayLastSeenY, const QStyleOptionViewItem &option) const
+void MessageListDelegate::drawLastSeenLine(QPainter *painter, int displayLastSeenY, const QStyleOptionViewItem &option)
 {
     qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG) << "Draw last unseed line";
     const QPen origPen = painter->pen();
@@ -264,7 +264,7 @@ void MessageListDelegate::drawModerationDate(QPainter *painter,
                                              const QModelIndex &index,
                                              const QStyleOptionViewItem &option,
                                              const QString &roomName,
-                                             bool drawLastSeenLine) const
+                                             bool drawLastSeenLine)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -287,7 +287,7 @@ void MessageListDelegate::drawModerationDate(QPainter *painter,
     painter->setPen(origPen);
 }
 
-void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine) const
+void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -765,7 +765,7 @@ void MessageListDelegate::clearSizeHintCache()
     mSizeHintCache.clear();
 }
 
-QByteArray MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray MessageListDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
@@ -803,7 +803,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     return size;
 }
 
-bool MessageListDelegate::isSystemMessage(const Message *message) const
+bool MessageListDelegate::isSystemMessage(const Message *message)
 {
     const Message::MessageType messageType = message->messageType();
     const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) /* || (messageType == Message::VideoConference)*/;

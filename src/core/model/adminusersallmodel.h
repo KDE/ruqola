@@ -39,5 +39,5 @@ public:
     [[nodiscard]] bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString createRegistrationStatus(const User &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString createRegistrationStatus(const User &user);
 };

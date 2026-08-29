@@ -110,7 +110,7 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QString AdminInviteModel::maxUses(int uses) const
+QString AdminInviteModel::maxUses(int uses)
 {
     if (uses == 0) {
         return i18n("Unlimited");
@@ -118,7 +118,7 @@ QString AdminInviteModel::maxUses(int uses) const
     return QString::number(uses);
 }
 
-QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo) const
+QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo)
 {
     if (inviteInfo.expireDateTime() > QDateTime::currentDateTime()) {
         return i18n("Expire in %1 days", QDateTime::currentDateTime().daysTo(inviteInfo.expireDateTime()));

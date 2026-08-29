@@ -280,7 +280,7 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
     }
 }
 
-QString ImportAccountJob::verifyExistingAccount(QString accountName) const
+QString ImportAccountJob::verifyExistingAccount(QString accountName)
 {
     int i = 1;
     QString orginalAccountName = accountName;

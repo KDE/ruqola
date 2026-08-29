@@ -37,7 +37,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSaveRoomSettingsDone(const QString &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGetRoomSettingsDone(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotGetRoomSettingsModifyDone(const QJsonObject &obj, Room::RoomType roomType);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
     convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType, const QByteArray &roomIdentifier);
 
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;

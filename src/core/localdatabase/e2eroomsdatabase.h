@@ -25,7 +25,7 @@ public:
 
     [[nodiscard]] std::unique_ptr<QSqlTableModel> createE2eRoomsModel(const QString &accountName) const;
 
-    [[nodiscard]] QString generateRoomKeyId(const QString &roomId, const QString &keyId) const;
+    [[nodiscard]] static QString generateRoomKeyId(const QString &roomId, const QString &keyId);
 
 protected:
     [[nodiscard]] QString schemaDataBase() const override;

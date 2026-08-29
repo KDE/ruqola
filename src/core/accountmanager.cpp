@@ -178,7 +178,7 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
     }
 }
 
-AccountManager::MigrateDatabaseTypes AccountManager::needToHandleDataMigration() const
+AccountManager::MigrateDatabaseTypes AccountManager::needToHandleDataMigration()
 {
     if (RuqolaGlobalConfig::self()->databaseVersion() == 0 && currentDataBaseVersion == 1) {
         return MigrateDatabaseType::All;

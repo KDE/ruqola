@@ -37,7 +37,7 @@ protected:
     LIBRUQOLAWIDGETS_NO_EXPORT void hideColumns();
     LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();
     LIBRUQOLAWIDGETS_NO_EXPORT void resizeColumToContents();
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString clickableStr() const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QString clickableStr();
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;

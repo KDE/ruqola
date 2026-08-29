@@ -84,8 +84,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetPinnedMessage(const QModelIndex &index, bool isPinned);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotStartDiscussion(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotStartPrivateConversation(const QString &userName);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotTranslateMessage(const QModelIndex &index, bool checked);
-    LIBRUQOLAWIDGETS_NO_EXPORT void createSeparator(QMenu &menu);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotTranslateMessage(const QModelIndex &index, bool checked);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void createSeparator(QMenu &menu);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVerticalScrollbarChanged(int value);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReplyInThread(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDebugMessage(const QModelIndex &index);
@@ -99,7 +99,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowUserInfo(const QString &userName);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateView();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLastSeenChanged();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextToSpeech(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void addDebugMenu(QMenu &menu, const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void addSelectedMessageBackgroundAnimation(const QModelIndex &index);

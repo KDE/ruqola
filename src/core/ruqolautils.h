@@ -17,9 +17,9 @@ public:
     static RuqolaUtils *self();
     void openUrl(const QString &url);
 
-    [[nodiscard]] QString extractRoomUserFromUrl(const QString &url);
+    [[nodiscard]] static QString extractRoomUserFromUrl(const QString &url);
 
-    void openUrl(const QUrl &url);
+    static void openUrl(const QUrl &url);
 
 private:
     RuqolaUtils();

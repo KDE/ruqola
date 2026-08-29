@@ -326,7 +326,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userIdentifier, const QUrl 
     }
 }
 
-QString RocketChatCache::recordingVideoPath(const QString &accountName) const
+QString RocketChatCache::recordingVideoPath(const QString &accountName)
 {
     const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Video, accountName);
     if (!QDir().mkpath(path)) {
@@ -337,7 +337,7 @@ QString RocketChatCache::recordingVideoPath(const QString &accountName) const
     return filePath;
 }
 
-QString RocketChatCache::recordingImagePath(const QString &accountName) const
+QString RocketChatCache::recordingImagePath(const QString &accountName)
 {
     const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Picture, accountName);
     if (!QDir().mkpath(path)) {

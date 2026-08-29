@@ -255,7 +255,7 @@ void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
                              i18nc("@title:window", "Download File Requested"));
 }
 
-QString MyAccountPreferenceConfigureWidget::desktopPushNotificationI18n(const QString &value) const
+QString MyAccountPreferenceConfigureWidget::desktopPushNotificationI18n(const QString &value)
 {
     if (value == "all"_L1) {
         return i18n("All Messages");

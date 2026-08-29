@@ -58,7 +58,7 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QByteArray
     }
 }
 
-QString LocalMessageLogger::generateTextFromMessage(const Message &m) const
+QString LocalMessageLogger::generateTextFromMessage(const Message &m)
 {
     QString message;
     if (const QString txt = m.text(); !txt.isEmpty()) {

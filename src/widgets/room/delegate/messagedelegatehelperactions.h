@@ -42,7 +42,7 @@ private:
     struct ActionsLayout {
         QList<ButtonLayout> buttonList;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT ActionsLayout layoutActions(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth);
     LIBRUQOLAWIDGETS_NO_EXPORT void executeBlockAction(const QString &appId,
                                                        const QString &actionId,
                                                        const QString &value,

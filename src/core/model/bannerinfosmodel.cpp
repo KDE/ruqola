@@ -48,7 +48,7 @@ QVariant BannerInfosModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QString BannerInfosModel::text(const BannerInfo &info) const
+QString BannerInfosModel::text(const BannerInfo &info)
 {
     QString str = BannerInfo::defaultText(info);
     if (!info.link().isEmpty()) {

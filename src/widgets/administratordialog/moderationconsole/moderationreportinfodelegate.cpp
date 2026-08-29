@@ -159,7 +159,7 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
     return layout;
 }
 
-QByteArray ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(ModerationReportInfoModel::ReportIdentifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());

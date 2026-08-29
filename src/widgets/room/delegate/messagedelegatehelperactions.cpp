@@ -137,7 +137,7 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
 }
 
 MessageDelegateHelperActions::ActionsLayout
-MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
+MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth)
 {
     ActionsLayout layout;
 

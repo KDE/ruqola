@@ -23,7 +23,7 @@ public:
     [[nodiscard]] bool isComplete() const override;
 
 private:
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateExportZipFileName() const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QString generateExportZipFileName();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportFailed(const QString &msg);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportInfo(const QString &msg);

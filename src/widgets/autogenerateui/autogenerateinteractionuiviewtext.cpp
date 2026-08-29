@@ -38,7 +38,7 @@ QString AutoGenerateInteractionUiViewText::convertTextTypeToString() const
     return {};
 }
 
-AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::convertTypeFromString(const QString &str) const
+AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::convertTypeFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return AutoGenerateInteractionUiViewText::TextType::Unknown;

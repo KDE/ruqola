@@ -43,7 +43,7 @@ public:
     void setIsCheckable(bool isCheckable);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoom &room) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoom &room);
     QList<TeamRoom> mTeamRooms;
     QList<QByteArray> mRoomSelected;
     bool mIsCheckable = false;

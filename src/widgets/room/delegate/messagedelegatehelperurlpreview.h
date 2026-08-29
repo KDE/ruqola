@@ -56,11 +56,11 @@ private:
         int contentHeight = 0;
         bool isShown = true;
     };
-    LIBRUQOLAWIDGETS_NO_EXPORT void dump(const PreviewLayout &layout);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void dump(const PreviewLayout &layout);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperUrlPreview::PreviewLayout
     layoutPreview(const MessageUrl &messageUrl, const QStyleOptionViewItem &option, int urlsPreviewWidth, int urlsPreviewHeight) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
-    convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT MessageDelegateHelperBase::DocumentTypeInfo
+    convertMessageUrlToDocumentDescriptionInfo(const MessageUrl &messageUrl, int width);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT int charPosition(const QTextDocument *doc, const PreviewLayout &layout, QRect previewRect, const QPoint &pos);
     LIBRUQOLAWIDGETS_NO_EXPORT void drawDescription(const MessageUrl &messageUrl,
                                                     QRect previewRect,
@@ -69,7 +69,7 @@ private:
                                                     const QStyleOptionViewItem &option,
                                                     const PreviewLayout &layout) const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QTextDocument *documentForUrlPreview(const MessageUrl &messageUrl) const override;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QPoint relativePos(const QPoint &pos, const PreviewLayout &layout, QRect previewRect);
 
     QPersistentModelIndex mCurrentIndex;
     mutable PixmapCache mPixmapCache;

@@ -43,9 +43,9 @@ private:
         QPoint timeStampPos;
         bool sameAccountAsPreviousMessage = false;
     };
-    LIBRUQOLAWIDGETS_NO_EXPORT void drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    static LIBRUQOLAWIDGETS_NO_EXPORT void drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ServerErrorInfoHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option,
                                                                                              const QModelIndex &index) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index);
 };

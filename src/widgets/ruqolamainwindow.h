@@ -117,7 +117,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowPermissions();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotImportAccounts();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportAccounts();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotMessageStyleChanged();
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotMessageStyleChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotApplicationsSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotJoinTeam();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenPrivateChannel();
@@ -132,7 +132,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPrivateApplicationsSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddInviteServer(const AccountManager::AccountManagerInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowAppsTranslation();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotWorkOfflineMode();
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotWorkOfflineMode();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateOfflineAction();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowNotifyNewRoom(const QString &accountName, const QByteArray &roomId);

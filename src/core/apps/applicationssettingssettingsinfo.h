@@ -56,7 +56,7 @@ public:
     [[nodiscard]] QJsonObject jsonObj() const;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ApplicationsSettingsSettingsInfo::SettingType convertStringToType(const QString &str);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ApplicationsSettingsSettingsInfo::SettingType convertStringToType(const QString &str);
     QJsonObject mJsonObj;
     QString mI18nDescription;
     QString mI18nLabel;

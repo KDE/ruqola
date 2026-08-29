@@ -64,9 +64,9 @@ public:
     void updateAppStatus(const QString &appId, const QString &status);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QByteArray appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QPixmap pixmap(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QByteArray appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QPixmap pixmap(const AppsMarketPlaceInfo &appsMarketPlaceInfo);
     QList<AppsMarketPlaceInfo> mAppsMarketPlaceInfos;
     AppsCountInfo mAppsCountInfo;
 };

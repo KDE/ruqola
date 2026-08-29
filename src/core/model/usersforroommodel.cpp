@@ -99,7 +99,7 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user) const
+UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user)
 {
     const QStringList roles = user.roles();
     if (roles.contains(u"owner"_s)) {
@@ -125,7 +125,7 @@ int UsersForRoomModel::numberUsersWithoutFilter() const
     return mNumberUsersWithoutFilter;
 }
 
-QString UsersForRoomModel::generateDisplayName(const User &user) const
+QString UsersForRoomModel::generateDisplayName(const User &user)
 {
     const QString displayName = u"<a href=\'%1\'>%1</a>"_s.arg(user.userName().isEmpty() ? user.name() : user.userName());
     return displayName;
@@ -174,7 +174,7 @@ void UsersForRoomModel::setTotal(int total)
     mTotal = total;
 }
 
-Utils::AvatarInfo UsersForRoomModel::avatarInfo(const User &user) const
+Utils::AvatarInfo UsersForRoomModel::avatarInfo(const User &user)
 {
     const Utils::AvatarInfo info{
         .etag = {},

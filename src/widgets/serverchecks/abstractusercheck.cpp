@@ -27,7 +27,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-QString AbstractUserCheck::targetUserName() const
+QString AbstractUserCheck::targetUserName()
 {
     // A dedicated test account that isn't normally a channel member, so these checks
     // don't disrupt real users or fail because the target is already present.

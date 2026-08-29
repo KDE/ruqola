@@ -140,7 +140,7 @@ bool AppsMarketPlaceInfo::PricePlan::operator==(const AppsMarketPlaceInfo::Price
     return price == other.price && trialDays == other.trialDays && strategy == other.strategy && enabled == other.enabled && isPerSeat == other.isPerSeat;
 }
 
-AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convertStringToStrategy(const QString &str) const
+AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convertStringToStrategy(const QString &str)
 {
     if (str == "monthly"_L1) {
         return AppsMarketPlaceInfo::PricePlan::Strategy::Monthly;

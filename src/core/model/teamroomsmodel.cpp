@@ -54,7 +54,7 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Utils::AvatarInfo TeamRoomsModel::avatarInfo(const TeamRoom &room) const
+Utils::AvatarInfo TeamRoomsModel::avatarInfo(const TeamRoom &room)
 {
     const Utils::AvatarInfo info{
         .etag = {},

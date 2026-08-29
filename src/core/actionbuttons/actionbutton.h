@@ -109,11 +109,11 @@ public:
     void setCategory(Category newCategory);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::Category convertCategoryFromString(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::Category convertCategoryFromString(const QString &str);
     LIBRUQOLACORE_NO_EXPORT void parseWhen(const QJsonObject &json);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::MessageActionContext convertMessageActionContextsFromString(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::MessageActionContext convertMessageActionContextsFromString(const QString &str);
 
     QStringList mHasOnePermission;
     QStringList mHasAllPermissions;

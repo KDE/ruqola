@@ -24,7 +24,7 @@ public:
             Yearly,
         };
 
-        [[nodiscard]] Strategy convertStringToStrategy(const QString &str) const;
+        [[nodiscard]] static Strategy convertStringToStrategy(const QString &str);
         [[nodiscard]] QString strategyToI18n() const;
         int price = -1;
         int trialDays = -1;

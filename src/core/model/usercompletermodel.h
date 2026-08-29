@@ -34,7 +34,7 @@ public:
     void addUsers(const QList<User> &users);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString displayUserName(const User &user) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const User &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString displayUserName(const User &user);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const User &user);
     QList<User> mUsers;
 };

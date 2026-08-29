@@ -170,7 +170,7 @@ BannerInfoListViewDelegate::Layout BannerInfoListViewDelegate::doLayout(const QS
     return layout;
 }
 
-QByteArray BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(BannerInfosModel::Identifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());

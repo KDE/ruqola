@@ -116,7 +116,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyFailedWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDecodeEncryptionKey();
     LIBRUQOLAWIDGETS_NO_EXPORT void createE2eDecodeEncryptionKeyWidget();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomExportDone();
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomExportDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void displayUiInteractionDialog(const QJsonObject &obj);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddWebDavServer();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();

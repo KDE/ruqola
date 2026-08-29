@@ -311,7 +311,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     return layout;
 }
 
-QRect MessageListNormalLayout::iconRect(int iconIndex, int senderX, int iconPosition, int iconSize, int margin, int avatarWidth) const
+QRect MessageListNormalLayout::iconRect(int iconIndex, int senderX, int iconPosition, int iconSize, int margin, int avatarWidth)
 {
     switch (iconIndex) {
     case 0:

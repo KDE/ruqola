@@ -3220,7 +3220,7 @@ void RocketChatAccount::updateTextToSpeech(const QByteArray &roomId, const QByte
     }
 }
 
-bool RocketChatAccount::offlineMode() const
+bool RocketChatAccount::offlineMode()
 {
     return Ruqola::self()->offlineMode();
 }

@@ -50,7 +50,7 @@ protected:
     [[nodiscard]] virtual QString selectedText(const QModelIndex &index);
     [[nodiscard]] virtual bool hasSelection() const;
 
-    void slotStopTextToSpeech(const QModelIndex &index);
+    static void slotStopTextToSpeech(const QModelIndex &index);
 
     QList<PluginTextInterface *> mPluginTextInterface;
 

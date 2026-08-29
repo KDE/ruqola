@@ -101,7 +101,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeSettings(const QString &accountFileName);
     LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *job);
-    LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *job);
+    static LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *job);
 
     AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Unknown; // By default
     QByteArray mUserId;

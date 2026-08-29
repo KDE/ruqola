@@ -37,7 +37,7 @@ private:
                                                  const QString &dest,
                                                  bool renameFiles);
 
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString verifyExistingAccount(QString accountName) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QString verifyExistingAccount(QString accountName);
     QStringList mAccountInfos;
     KZip *const mArchive;
 };

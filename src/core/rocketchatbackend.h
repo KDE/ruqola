@@ -46,7 +46,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseServerVersionDone(const QString &version);
     LIBRUQOLACORE_NO_EXPORT void tryAutoLogin();
     LIBRUQOLACORE_NO_EXPORT void subscribeRegistration();
-    LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
+    static LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
     LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const Message &m);
     RocketChatAccount *const mRocketChatAccount;
 };

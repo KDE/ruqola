@@ -59,7 +59,7 @@ void ReadReceiptsModel::setReadReceipts(const ReadReceipts &newReadReceipts)
     endResetModel();
 }
 
-Utils::AvatarInfo ReadReceiptsModel::avatarInfo(const ReadReceipt &user) const
+Utils::AvatarInfo ReadReceiptsModel::avatarInfo(const ReadReceipt &user)
 {
     const Utils::AvatarInfo info{
         .etag = {},

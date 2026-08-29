@@ -265,7 +265,7 @@ QByteArray MessageAttachmentDelegateHelperBase::documentId(DocumentIdType type, 
     return documendIdPrefix(type) + msgAttach.attachmentId();
 }
 
-QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type) const
+QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type)
 {
     switch (type) {
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Unknown:

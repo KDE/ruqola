@@ -100,8 +100,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT bool startUploadGeneratedKey(const QByteArray &publicKey, const QByteArray &encryptedPrivateKey);
     LIBRUQOLACORE_NO_EXPORT void storePassword(const QString &password);
     LIBRUQOLACORE_NO_EXPORT void deletePassword();
-    LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *baseJob);
-    LIBRUQOLACORE_NO_EXPORT void slotPasswordDeleted(QKeychain::Job *baseJob);
+    static LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *baseJob);
+    static LIBRUQOLACORE_NO_EXPORT void slotPasswordDeleted(QKeychain::Job *baseJob);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString passwordKeyIdentifier() const;
     LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *baseJob);
     LIBRUQOLACORE_NO_EXPORT void distributeRoomSessionKey(const QByteArray &roomId, const QByteArray &sessionKey, const QString &keyId);

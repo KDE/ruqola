@@ -32,8 +32,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void setWasChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void initComboboxValues();
     LIBRUQOLAWIDGETS_NO_EXPORT void downloadData(bool fullData);
-    LIBRUQOLAWIDGETS_NO_EXPORT void createLayout(QLabel *label, QWidget *widget, QVBoxLayout *layout);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString desktopPushNotificationI18n(const QString &value) const;
+    static LIBRUQOLAWIDGETS_NO_EXPORT void createLayout(QLabel *label, QWidget *widget, QVBoxLayout *layout);
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QString desktopPushNotificationI18n(const QString &value);
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;

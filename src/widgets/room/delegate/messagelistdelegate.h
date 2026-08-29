@@ -63,7 +63,7 @@ public:
 
     [[nodiscard]] bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
-    void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine) const;
+    static void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine);
 
     void setShowThreadContext(bool b);
 
@@ -129,11 +129,11 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void clearAvatarSizeHintCache();
 
     [[nodiscard]] MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    LIBRUQOLAWIDGETS_NO_EXPORT void drawLastSeenLine(QPainter *painter, int displayLastSeenY, const QStyleOptionViewItem &option) const;
-    LIBRUQOLAWIDGETS_NO_EXPORT void
-    drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName, bool drawLastSeenLine) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool isSystemMessage(const Message *message) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index) const;
+    static LIBRUQOLAWIDGETS_NO_EXPORT void drawLastSeenLine(QPainter *painter, int displayLastSeenY, const QStyleOptionViewItem &option);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void
+    drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName, bool drawLastSeenLine);
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT bool isSystemMessage(const Message *message);
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QByteArray cacheIdentifier(const QModelIndex &index);
 
     friend class MessageListDelegateTest;
 
