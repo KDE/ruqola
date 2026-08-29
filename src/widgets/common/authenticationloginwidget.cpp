@@ -56,7 +56,6 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
     connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
     connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
-    connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::tryLogin, this, &AuthenticationLoginWidget::tryLogin);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &AuthenticationLoginWidget::slotResetPasswordRequested);
 }
