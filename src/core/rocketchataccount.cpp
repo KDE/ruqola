@@ -3210,9 +3210,7 @@ void RocketChatAccount::addMessageToDataBase(const QByteArray &roomId, const Mes
 
 void RocketChatAccount::addMessagesToDataBase(const QByteArray &roomId, const QList<Message> &messages)
 {
-    for (const auto &message : messages) {
-        mLocalDatabaseManager->addMessage(accountName(), roomId, message);
-    }
+    mLocalDatabaseManager->addMessages(accountName(), roomId, messages);
 }
 
 void RocketChatAccount::updateTextToSpeech(const QByteArray &roomId, const QByteArray &messageId, bool inProgress)

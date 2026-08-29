@@ -11,7 +11,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QRegularExpression>
 #include <QStringList>
 using namespace Qt::Literals::StringLiterals;
 
@@ -547,7 +546,6 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
 {
     const QString id = currentConfObject["_id"_L1].toString();
     const QVariant value = currentConfObject["value"_L1].toVariant();
-    static const QRegularExpression regularExpressionOAuth(u"^Accounts_OAuth_\\w+"_s);
     if (id == "uniqueID"_L1) {
         setUniqueId(value.toString());
     } else if (id == "Jitsi_Enabled"_L1) {
@@ -690,12 +688,12 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMessageReadReceiptEnabled(value.toBool());
     } else if (id == "Message_Read_Receipt_Store_Users"_L1) {
         setMessageReadReceiptStoreUsers(value.toBool());
-    } else if (!mPasswordSettings.loadSettings(id, value)) { // Last one !!!!
-        qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
-    } else if (id.contains(regularExpressionOAuth)) {
+    } else if (id.startsWith("Accounts_OAuth_"_L1)) {
         if (value.toBool()) {
             addOauthService(id);
         }
+    } else if (!mPasswordSettings.loadSettings(id, value)) { // Last one !!!!
+        qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
 }
 

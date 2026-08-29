@@ -59,20 +59,46 @@ QString LocalMessagesDatabase::schemaDataBase() const
 
 void LocalMessagesDatabase::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
+    addMessages(accountName, roomId, {m});
+}
+
+void LocalMessagesDatabase::addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages)
+{
+    if (messages.isEmpty()) {
+        return;
+    }
     QSqlDatabase db;
-    if (initializeDataBase(accountName, roomId, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceMessage(), db);
-        query.addBindValue(QString::fromLatin1(m.messageId()));
-        query.addBindValue(m.timeStamp());
+    if (!initializeDataBase(accountName, roomId, db)) {
+        return;
+    }
+    QSqlQuery query(db);
+    if (!query.prepare(LocalDatabaseUtils::insertReplaceMessage())) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't prepare insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
+        return;
+    }
+    // Without an explicit transaction each exec() is one of its own, i.e. one fsync per message.
+    const bool inTransaction = db.transaction();
+    if (!inTransaction) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't start a transaction on" << db.databaseName() << db.lastError();
+    }
+    for (const Message &m : messages) {
+        // Positional bindValue() overwrites, unlike addBindValue() which would append past the
+        // three placeholders on the second iteration.
+        query.bindValue(0, QString::fromLatin1(m.messageId()));
+        query.bindValue(1, m.timeStamp());
         // qDebug() << " m.timeStamp() " << m.timeStamp();
         // FIXME look at why we can't save a binary ?
-        query.addBindValue(Message::serialize(m, false)); // TODO binary or not ?
+        query.bindValue(2, Message::serialize(m, false)); // TODO binary or not ?
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
             mRuqolaLogger->dataSaveFromDatabase("add message in account " + accountName.toUtf8() + " in roomName " + roomId + " for message id "
                                                 + m.messageId());
         }
+    }
+    if (inTransaction && !db.commit()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't commit the MESSAGES batch in" << db.databaseName() << db.lastError();
+        db.rollback();
     }
 }
 

@@ -36,6 +36,7 @@ public:
 
     void deleteMessage(const QString &accountName, const QByteArray &roomId, const QByteArray &messageId);
     void addMessage(const QString &accountName, const QByteArray &roomId, const Message &m);
+    void addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages);
 
     void addRoom(const QString &accountName, Room *room);
     void deleteRoom(const QString &accountName, const QByteArray &roomId);

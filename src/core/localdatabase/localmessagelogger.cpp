@@ -41,20 +41,46 @@ QString LocalMessageLogger::schemaDataBase() const
 
 void LocalMessageLogger::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
+    addMessages(accountName, roomId, {m});
+}
+
+void LocalMessageLogger::addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages)
+{
     if (!RuqolaGlobalConfig::self()->enableLogging()) {
         return;
     }
+    if (messages.isEmpty()) {
+        return;
+    }
     QSqlDatabase db;
-    if (initializeDataBase(accountName, roomId, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceMessageFromLogs(), db);
-        query.addBindValue(QString::fromLatin1(m.messageId()));
-        query.addBindValue(m.timeStamp());
-        query.addBindValue(m.username());
-        query.addBindValue(generateTextFromMessage(m));
+    if (!initializeDataBase(accountName, roomId, db)) {
+        return;
+    }
+    QSqlQuery query(db);
+    if (!query.prepare(LocalDatabaseUtils::insertReplaceMessageFromLogs())) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't prepare insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
+        return;
+    }
+    // Without an explicit transaction each exec() is one of its own, i.e. one fsync per message.
+    const bool inTransaction = db.transaction();
+    if (!inTransaction) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't start a transaction on" << db.databaseName() << db.lastError();
+    }
+    for (const Message &m : messages) {
+        // Positional bindValue() overwrites, unlike addBindValue() which would append past the
+        // four placeholders on the second iteration.
+        query.bindValue(0, QString::fromLatin1(m.messageId()));
+        query.bindValue(1, m.timeStamp());
+        query.bindValue(2, m.username());
+        query.bindValue(3, generateTextFromMessage(m));
 
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
         }
+    }
+    if (inTransaction && !db.commit()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't commit the LOGS batch in" << db.databaseName() << db.lastError();
+        db.rollback();
     }
 }
 

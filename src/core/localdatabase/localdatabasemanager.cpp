@@ -46,11 +46,20 @@ LocalRoomPendingTypedInfoDatabase *LocalDatabaseManager::roomPendingTypedInfoDat
 
 void LocalDatabaseManager::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
-    mMessageLogger->addMessage(accountName, roomId, m);
+    addMessages(accountName, roomId, {m});
+}
+
+void LocalDatabaseManager::addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages)
+{
+    if (messages.isEmpty()) {
+        return;
+    }
+    mMessageLogger->addMessages(accountName, roomId, messages);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mMessagesDatabase->addMessage(accountName, roomId, m);
-        // Update timestamp.
-        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, roomId, m.timeStamp(), GlobalDatabase::TimeStampType::MessageTimeStamp);
+        mMessagesDatabase->addMessages(accountName, roomId, messages);
+        // Update timestamp. Both rows used to be rewritten once per message, where only the last
+        // write survived: keep that value, write it once.
+        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, roomId, messages.constLast().timeStamp(), GlobalDatabase::TimeStampType::MessageTimeStamp);
         mGlobalDatabase->insertOrReplaceTimeStamp(accountName,
                                                   {},
                                                   LocalDatabaseUtils::currentTimeStamp(),
