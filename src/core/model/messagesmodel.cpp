@@ -886,7 +886,7 @@ void MessagesModel::markMessagesReadUntil(qint64 until)
     }
     if (firstRow != -1) {
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "markMessagesReadUntil until=" << until << "cleared unread on rows" << firstRow << "-" << lastRow;
-        Q_EMIT dataChanged(createIndex(firstRow, 0), createIndex(lastRow, 0));
+        Q_EMIT dataChanged(createIndex(firstRow, 0), createIndex(lastRow, 0), {MessagesModel::Unread});
     }
 }
 

@@ -280,7 +280,8 @@ void UsersForRoomModel::setUserStatusChanged(const User &newuser)
         if (newuser.userId() == user.userId()) {
             user.setStatus(newuser.status());
             const QModelIndex idx = createIndex(i, 0);
-            Q_EMIT dataChanged(idx, idx);
+            // section() switches on status(), so Section must be listed or the grouping proxy misses the move.
+            Q_EMIT dataChanged(idx, idx, {IconStatus, Status, StatusStr, Section, Qt::DecorationRole});
             Q_EMIT userStatusChanged(user.userId());
             break;
         }
