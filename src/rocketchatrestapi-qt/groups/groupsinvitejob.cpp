@@ -94,7 +94,7 @@ QJsonDocument GroupsInviteJob::json() const
     if (!inviteUserId().isEmpty()) {
         jsonObj["userId"_L1] = inviteUserId();
     } else if (!inviteUserName().isEmpty()) {
-        jsonObj["userName"_L1] = inviteUserName();
+        jsonObj["username"_L1] = inviteUserName();
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

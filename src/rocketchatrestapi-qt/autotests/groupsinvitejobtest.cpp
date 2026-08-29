@@ -49,7 +49,7 @@ void GroupsInviteJobTest::shouldGenerateUsernameJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setInviteUserName(userId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","username":"%1"})").arg(userId, roomId).toLatin1());
 }
 
 void GroupsInviteJobTest::shouldGenerateUserIdJson()

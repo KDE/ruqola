@@ -88,7 +88,7 @@ void ChannelInviteJobTest::shouldGenerateUserNameJson()
         .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserName,
     };
     job.setChannelInviteInfo(inviteInfo);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userName, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","username":"%1"})").arg(userName, roomId).toLatin1());
 }
 
 #include "moc_channelinvitejobtest.cpp"

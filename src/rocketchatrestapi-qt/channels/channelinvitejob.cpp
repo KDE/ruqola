@@ -90,7 +90,7 @@ QJsonDocument ChannelInviteJob::json() const
         jsonObj["userId"_L1] = mChannelInviteInfo.identifier;
         break;
     case ChannelInviteJob::ChannelInviteInfoType::UserName:
-        jsonObj["userName"_L1] = mChannelInviteInfo.identifier;
+        jsonObj["username"_L1] = mChannelInviteInfo.identifier;
         break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
