@@ -90,9 +90,9 @@ void RegisterUserWidget::slotRegisterNewUser()
 RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registerUserInfo() const
 {
     RocketChatRestApi::RegisterUserJob::RegisterUserInfo info;
-    info.email = mEmail->text();
-    info.name = mUserName->text();
-    info.username = mUserName->text().remove(u' ');
+    info.email = mEmail->text().trimmed();
+    info.name = mUserName->text().trimmed();
+    info.username = mUserName->text().trimmed().remove(u' ');
     info.password = mPasswordConfirmWidget->password();
     if (mReasonTextEdit->isVisible()) {
         info.reason = mReasonTextEdit->toPlainText();
