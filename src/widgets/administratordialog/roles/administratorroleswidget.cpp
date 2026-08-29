@@ -100,7 +100,7 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) { // For delete
         QMenu menu(this);
         const bool hasEntrepriseSupport = mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport();
-        if (mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport()) {
+        if (hasEntrepriseSupport) {
             menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorRolesWidget::addRole);
         }
         if (index.isValid()) {
