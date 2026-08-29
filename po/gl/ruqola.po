@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
+"POT-Creation-Date: 2026-08-29 00:45+0000\n"
 "PO-Revision-Date: 2025-06-21 12:55+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -163,12 +163,12 @@ msgstr "Nova funcionalidade"
 msgid "The following accounts are available:"
 msgstr "As seguintes contas están dispoñíbeis:"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:350
 #, kde-format
 msgid "Invalid invite token"
 msgstr "O pase de invitación non é válido"
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:351
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "O pase de invitación non é válido. Cancelouse a creación da conta."
@@ -2319,6 +2319,19 @@ msgstr "A expresión fornecida non é válida."
 msgid "File not found '%1'"
 msgstr "Non se atopou o ficheiro «%1»."
 
+#: rocketchatrestapi-qt/downloadfilejob.cpp:60
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Download failed: %1"
+msgstr "Descargar a imaxe"
+
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, kde-format
+msgid "No reply received"
+msgstr ""
+
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
@@ -3634,7 +3647,7 @@ msgstr "Pronunciar o texto"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:53
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:114
 #: widgets/room/messagelistview.cpp:481
@@ -7464,7 +7477,7 @@ msgid "Enable"
 msgstr "Activar"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -10913,13 +10926,13 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "Non é posíbel abrir o ficheiro."
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
+"POT-Creation-Date: 2026-08-29 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -165,13 +165,13 @@ msgstr "नई सुविधा"
 msgid "The following accounts are available:"
 msgstr "निम्नलिखित खाते उपलब्ध हैं:"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:350
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "अमान्य टोकन"
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:351
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -2326,6 +2326,19 @@ msgstr "अमान्य इमोजी प्रदान किया ग�
 msgid "File not found '%1'"
 msgstr "फ़ाइल '%1' नहीं मिली"
 
+#: rocketchatrestapi-qt/downloadfilejob.cpp:60
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Download failed: %1"
+msgstr "छवि डाउनलोड करें"
+
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, kde-format
+msgid "No reply received"
+msgstr ""
+
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
@@ -3614,7 +3627,7 @@ msgstr "पाठ बोलें"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:53
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:114
 #: widgets/room/messagelistview.cpp:481
@@ -7404,7 +7417,7 @@ msgid "Enable"
 msgstr "सक्षम"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -10841,13 +10854,13 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr ""
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, fuzzy, kde-format
 #| msgid "Impossible to open file"
 msgid "Impossible to open %1"
 msgstr "फ़ाइल खोलना असंभव"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error saving file"

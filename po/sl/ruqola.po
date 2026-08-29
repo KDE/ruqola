@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
-"PO-Revision-Date: 2026-08-27 06:48+0200\n"
+"POT-Creation-Date: 2026-08-29 00:45+0000\n"
+"PO-Revision-Date: 2026-08-28 06:42+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -165,12 +165,12 @@ msgstr "Nova zmožnost"
 msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:350
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Neveljaven žeton povabila"
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:351
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Žeton povabila je neveljaven. Kreiranje računa preklicano."
@@ -586,10 +586,9 @@ msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Prikaže (╯°□°)╯( ┻━┻"
 
 #: core/commands/command.cpp:91
-#, fuzzy, kde-format
-#| msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+#, kde-format
 msgid "Displays ┬─┬ ノ( ゜-゜ノ)"
-msgstr "Prikaže ┬─┬<feff> ノ( ゜-゜ノ)"
+msgstr "Prikaže ┬─┬ ノ( ゜-゜ノ)"
 
 #: core/commands/command.cpp:93
 #, kde-format
@@ -2320,6 +2319,19 @@ msgstr "Na voljo je neveljaven emodži."
 msgid "File not found '%1'"
 msgstr "Datoteke ni mogoče najti »%1«"
 
+#: rocketchatrestapi-qt/downloadfilejob.cpp:60
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Download failed: %1"
+msgstr "Prenesi sliko"
+
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, kde-format
+msgid "No reply received"
+msgstr ""
+
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
@@ -3615,7 +3627,7 @@ msgstr "Govori besedilo"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:53
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:114
 #: widgets/room/messagelistview.cpp:481
@@ -7402,7 +7414,7 @@ msgid "Enable"
 msgstr "Omogoči"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -10790,12 +10802,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Razhrošči"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Ni mogoče odpreti %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"

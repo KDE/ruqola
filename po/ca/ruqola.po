@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:45+0000\n"
-"PO-Revision-Date: 2026-08-27 08:48+0200\n"
+"POT-Creation-Date: 2026-08-29 00:45+0000\n"
+"PO-Revision-Date: 2026-08-28 10:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -166,12 +166,12 @@ msgstr "Característica nova"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:350
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:351
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -591,10 +591,9 @@ msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Mostra (╯°□°）╯︵ ┻━┻"
 
 #: core/commands/command.cpp:91
-#, fuzzy, kde-format
-#| msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+#, kde-format
 msgid "Displays ┬─┬ ノ( ゜-゜ノ)"
-msgstr "Mostra ┬─┬<feff> ノ( ゜-゜ノ)"
+msgstr "Mostra ┬─┬ ノ( ゜-゜ノ)"
 
 #: core/commands/command.cpp:93
 #, kde-format
@@ -2302,6 +2301,19 @@ msgstr "S'ha proporcionat un emoji no vàlid."
 msgid "File not found '%1'"
 msgstr "No s'ha trobat el fitxer «%1»"
 
+#: rocketchatrestapi-qt/downloadfilejob.cpp:60
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Download failed: %1"
+msgstr "Baixada d'imatge"
+
+#: rocketchatrestapi-qt/downloadfilejob.cpp:65
+#, kde-format
+msgid "No reply received"
+msgstr ""
+
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
@@ -3600,7 +3612,7 @@ msgstr "Pronuncia el text"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:53
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:114
 #: widgets/room/messagelistview.cpp:481
@@ -7417,7 +7429,7 @@ msgid "Enable"
 msgstr "Activa"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -10797,12 +10809,12 @@ msgctxt "@title:window"
 msgid "Debug"
 msgstr "Depuració"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, kde-format
 msgid "Impossible to open %1"
 msgstr "Impossible obrir %1"
 
-#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:77
+#: widgets/room/delegate/messageattachmentdelegatehelperopenfilejob.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Opening File"
