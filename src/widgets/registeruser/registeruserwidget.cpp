@@ -92,8 +92,9 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
 {
     RocketChatRestApi::RegisterUserJob::RegisterUserInfo info;
     info.email = mEmail->text().trimmed();
-    info.name = mUserName->text().trimmed();
-    info.username = mUserName->text().trimmed().remove(u' ');
+    QString name = mUserName->text().trimmed();
+    info.name = name;
+    info.username = name.remove(u' ');
     info.password = mPasswordConfirmWidget->password();
     if (mManuallyApproveNewUsersRequired) {
         info.reason = mReasonTextEdit->toPlainText();
