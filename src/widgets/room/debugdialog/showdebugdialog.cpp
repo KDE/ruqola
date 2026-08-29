@@ -15,7 +15,7 @@
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
-const char myShowDebugDialoggGroupName[] = "ShowDebugDialog";
+const char myShowDebugDialogGroupName[] = "ShowDebugDialog";
 }
 using namespace Qt::Literals::StringLiterals;
 ShowDebugDialog::ShowDebugDialog(QWidget *parent)
@@ -49,12 +49,12 @@ void ShowDebugDialog::setPlainText(const QString &text)
 void ShowDebugDialog::readConfig()
 {
     create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowDebugDialoggGroupName), 400, 300);
+    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowDebugDialogGroupName), 400, 300);
 }
 
 void ShowDebugDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDebugDialoggGroupName));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDebugDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
