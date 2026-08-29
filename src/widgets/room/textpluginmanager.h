@@ -26,6 +26,7 @@ public:
     PluginText *plugin = nullptr;
     bool isEnabled = true;
 };
+Q_DECLARE_TYPEINFO(TextPluginManagerInfo, Q_RELOCATABLE_TYPE);
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextPluginManager : public QObject
 {

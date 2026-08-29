@@ -27,6 +27,7 @@ public:
     PluginTool *plugin = nullptr;
     bool isEnabled = true;
 };
+Q_DECLARE_TYPEINFO(ToolsPluginManagerInfo, Q_RELOCATABLE_TYPE);
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ToolsPluginManager : public QObject
 {

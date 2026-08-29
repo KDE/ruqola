@@ -338,4 +338,5 @@ private:
 
     int mNumberOfTextSearched = -1;
 };
+Q_DECLARE_TYPEINFO(Message, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);
