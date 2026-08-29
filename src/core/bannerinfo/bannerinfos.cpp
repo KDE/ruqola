@@ -16,6 +16,7 @@ void BannerInfos::parseBannerInfos(const QJsonObject &object)
     mBanners.clear();
     const QJsonObject obj = object["banners"_L1].toObject();
     const QStringList keys = obj.keys();
+    mBanners.reserve(keys.count());
     for (const auto &key : keys) {
         const QJsonObject currentObj = obj[key].toObject();
         BannerInfo info;

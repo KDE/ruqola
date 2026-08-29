@@ -79,6 +79,7 @@ QJsonArray MessageAttachments::serialize(const MessageAttachments &attachments)
 std::unique_ptr<MessageAttachments> MessageAttachments::deserialize(const QJsonArray &attachmentsArray, const QByteArray &messageId)
 {
     QList<MessageAttachment> attachmentList;
+    attachmentList.reserve(attachmentsArray.count());
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
         MessageAttachment att = MessageAttachment::deserialize(attachment);

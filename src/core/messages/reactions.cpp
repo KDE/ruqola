@@ -92,6 +92,7 @@ std::unique_ptr<Reactions> Reactions::deserialize(const QJsonObject &o, EmojiMan
 {
     QList<Reaction> reacts;
     const QStringList lst = o.keys();
+    reacts.reserve(lst.count());
     QStringList users;
     for (const QString &str : lst) {
         const QJsonObject obj = o.value(str).toObject();

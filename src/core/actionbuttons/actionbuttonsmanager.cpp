@@ -57,6 +57,7 @@ void ActionButtonsManager::parseActionButtons(const QJsonArray &array)
 {
     // qDebug() << " void ActionButtonsManager::parseActionButtons(const QJsonArray &array) " << array;
     QList<ActionButton> buttons;
+    buttons.reserve(array.count());
     for (const auto &r : array) {
         ActionButton act;
         act.parseActionButton(r.toObject());

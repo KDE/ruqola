@@ -79,6 +79,7 @@ QJsonArray MessageUrls::serialize(const MessageUrls &urls)
 std::unique_ptr<MessageUrls> MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteArray &messageId)
 {
     QList<MessageUrl> urls;
+    urls.reserve(urlsArray.count());
     for (int i = 0; i < urlsArray.count(); ++i) {
         const QJsonObject urlObj = urlsArray.at(i).toObject();
         MessageUrl url = MessageUrl::deserialize(urlObj);

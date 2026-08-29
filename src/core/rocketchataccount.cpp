@@ -1061,6 +1061,7 @@ QList<TextEmoticonsCore::CustomEmoji> RocketChatAccount::customEmojies() const
 {
     QList<TextEmoticonsCore::CustomEmoji> mCustomEmojies;
     const auto customEmojiList = mEmojiManager->customEmojiList();
+    mCustomEmojies.reserve(customEmojiList.count());
     for (const auto &emoji : customEmojiList) {
         TextEmoticonsCore::CustomEmoji custom;
         custom.setIdentifier(emoji.emojiIdentifier());
@@ -1626,6 +1627,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     mLstPluginAuthenticationInterface.clear();
 
     mAuthenticationMethodInfos.clear();
+    mAuthenticationMethodInfos.reserve(lstPlugins.count());
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
         AuthenticationInfo info;
         info.setIconName(abstractPlugin->iconName());
