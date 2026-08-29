@@ -31,7 +31,7 @@ public:
     [[nodiscard]] QList<Permission> permissions() const;
 
 private:
-    [[nodiscard]] bool storePermission(const QString &id);
+    [[nodiscard]] static bool storePermission(const QString &id);
     void parseRemovePermission(const QJsonArray &removeArray);
     QMap<QString, Permission> mMapPermissions;
 };
