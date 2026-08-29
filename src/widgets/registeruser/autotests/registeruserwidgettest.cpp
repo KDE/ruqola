@@ -14,7 +14,9 @@
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QSignalSpy>
 #include <QTest>
+#include <qtestmouse.h>
 
 using namespace Qt::Literals::StringLiterals;
 namespace
@@ -85,6 +87,25 @@ void RegisterUserWidgetTest::shouldRegisterButtonUpdate()
 
     fillRegisterUserForm(w, u"bla"_s);
     QVERIFY(mRegisterButton->isEnabled());
+}
+
+void RegisterUserWidgetTest::shouldEmitRegisterUser()
+{
+    const RegisterUserWidget w(nullptr);
+    auto mRegisterButton = w.findChild<QPushButton *>(u"mRegisterButton"_s);
+    const QSignalSpy registerNewAccountSpy(&w, &RegisterUserWidget::registerNewAccount);
+    QTest::mouseClick(mRegisterButton, Qt::LeftButton);
+    QCOMPARE(registerNewAccountSpy.count(), 0);
+
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
+    mUserName->setText(u"fff"_s);
+
+    auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
+    mEmail->setText(u"fff"_s);
+    fillRegisterUserForm(w, u"bla"_s);
+
+    QTest::mouseClick(mRegisterButton, Qt::LeftButton);
+    QCOMPARE(registerNewAccountSpy.count(), 1);
 }
 
 #include "moc_registeruserwidgettest.cpp"
