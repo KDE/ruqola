@@ -27,7 +27,7 @@ bool GetUsernameSuggestionJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("GetUsernameSuggestionJob start");
+    addStartRestApiInfo("GetUsernameSuggestionJob start"_ba);
     return true;
 }
 

@@ -25,7 +25,7 @@ bool MethodCallJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("MethodCallJob::start");
+    addStartRestApiInfo("MethodCallJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

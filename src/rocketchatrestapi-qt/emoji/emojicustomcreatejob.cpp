@@ -32,7 +32,7 @@ bool EmojiCustomCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("EmojiCustomCreateJob::start");
+    addStartRestApiInfo("EmojiCustomCreateJob::start"_ba);
     const QString fileNameAsLocalFile = mEmojiInfo.fileNameUrl.toLocalFile();
     auto file = new QFile(fileNameAsLocalFile);
     if (!file->open(QIODevice::ReadOnly)) {

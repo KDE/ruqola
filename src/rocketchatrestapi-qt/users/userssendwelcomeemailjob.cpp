@@ -28,7 +28,7 @@ bool UsersSendWelcomeEmailJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersSendWelcomeEmailJob::start");
+    addStartRestApiInfo("UsersSendWelcomeEmailJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

@@ -28,7 +28,7 @@ bool SetUserPublicAndPrivateKeysJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetUserPublicAndPrivateKeysJob::start");
+    addStartRestApiInfo("SetUserPublicAndPrivateKeysJob::start"_ba);
     submitPostRequest(json());
 
     return true;

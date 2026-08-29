@@ -28,7 +28,7 @@ bool ChannelInviteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelInviteJob::start");
+    addStartRestApiInfo("ChannelInviteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

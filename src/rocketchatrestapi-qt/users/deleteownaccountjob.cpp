@@ -28,7 +28,7 @@ bool DeleteOwnAccountJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteOwnAccountJob::start");
+    addStartRestApiInfo("DeleteOwnAccountJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

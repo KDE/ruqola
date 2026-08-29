@@ -28,7 +28,7 @@ bool RoomsExportJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsExportJob::start");
+    addStartRestApiInfo("RoomsExportJob::start"_ba);
     submitPostRequest(json());
 
     return true;

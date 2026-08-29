@@ -28,7 +28,7 @@ bool RoomsDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsDeleteJob::start");
+    addStartRestApiInfo("RoomsDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

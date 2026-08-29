@@ -29,7 +29,7 @@ bool ReactOnMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ReactOnMessageJob::start");
+    addStartRestApiInfo("ReactOnMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;

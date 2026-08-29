@@ -27,7 +27,7 @@ bool ResetRoomKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ResetRoomKeyJob::start");
+    addStartRestApiInfo("ResetRoomKeyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

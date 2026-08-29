@@ -27,7 +27,7 @@ bool GroupAddOwnerJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupAddOwnerJob::start");
+    addStartRestApiInfo("GroupAddOwnerJob::start"_ba);
     submitPostRequest(json());
 
     return true;

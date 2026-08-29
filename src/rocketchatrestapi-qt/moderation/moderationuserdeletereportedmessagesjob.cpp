@@ -28,7 +28,7 @@ bool ModerationUserDeleteReportedMessagesJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ModerationUserDeleteReportedMessagesJob::start");
+    addStartRestApiInfo("ModerationUserDeleteReportedMessagesJob::start"_ba);
     submitPostRequest(json());
 
     return true;

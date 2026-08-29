@@ -27,7 +27,7 @@ bool RoomsBanUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsBanUserJob::start");
+    addStartRestApiInfo("RoomsBanUserJob::start"_ba);
     submitPostRequest(json());
 
     return true;

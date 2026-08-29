@@ -30,7 +30,7 @@ bool FindOrCreateInviteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("FindOrCreateInviteJob::start");
+    addStartRestApiInfo("FindOrCreateInviteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

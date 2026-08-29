@@ -29,7 +29,7 @@ bool PostMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("PostMessageJob::start");
+    addStartRestApiInfo("PostMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;

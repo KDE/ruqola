@@ -27,7 +27,7 @@ bool SetTopicDmJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetTopicDmJob::start");
+    addStartRestApiInfo("SetTopicDmJob::start"_ba);
     submitPostRequest(json());
 
     return true;

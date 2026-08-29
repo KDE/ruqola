@@ -28,7 +28,7 @@ bool GroupsInfoJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupsInfoJob::start: ");
+    addStartRestApiInfo("GroupsInfoJob::start: "_ba);
     submitGetRequest();
 
     return true;

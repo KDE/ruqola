@@ -27,7 +27,7 @@ bool ChangeGroupsEncryptedJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeGroupsEncryptedJob::start");
+    addStartRestApiInfo("ChangeGroupsEncryptedJob::start"_ba);
     submitPostRequest(json());
 
     return true;

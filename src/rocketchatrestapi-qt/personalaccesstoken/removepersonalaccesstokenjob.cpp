@@ -9,11 +9,10 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include <KLocalizedString>
-
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <qloggingcategory.h>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
@@ -27,10 +26,11 @@ RemovePersonalAccessTokenJob::~RemovePersonalAccessTokenJob() = default;
 bool RemovePersonalAccessTokenJob::start()
 {
     if (!canStart()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemovePersonalAccessTokenJob: cannot start";
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RemovePersonalAccessTokenJob::start");
+    addStartRestApiInfo("RemovePersonalAccessTokenJob::start"_ba);
     submitPostRequest(json());
 
     return true;

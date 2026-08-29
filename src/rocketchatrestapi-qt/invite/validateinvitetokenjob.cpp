@@ -28,7 +28,7 @@ bool ValidateInviteTokenJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ValidateInviteTokenJob::start");
+    addStartRestApiInfo("ValidateInviteTokenJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

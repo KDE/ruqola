@@ -27,7 +27,7 @@ bool ChannelAddModeratorJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelAddModeratorJob::start");
+    addStartRestApiInfo("ChannelAddModeratorJob::start"_ba);
     submitPostRequest(json());
 
     return true;

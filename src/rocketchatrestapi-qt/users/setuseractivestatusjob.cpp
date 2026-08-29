@@ -28,7 +28,7 @@ bool SetUserActiveStatusJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetUserActiveStatusJob::start");
+    addStartRestApiInfo("SetUserActiveStatusJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

@@ -27,7 +27,7 @@ bool ChangeChannelReadonlyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeChannelReadonlyJob::start");
+    addStartRestApiInfo("ChangeChannelReadonlyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

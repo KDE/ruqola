@@ -28,7 +28,7 @@ bool TeamLeaveRoomJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("TeamLeaveRoomJob::start");
+    addStartRestApiInfo("TeamLeaveRoomJob::start"_ba);
     submitPostRequest(json());
 
     return true;

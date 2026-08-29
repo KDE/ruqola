@@ -30,7 +30,7 @@ bool ChannelsConvertToTeamJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelsConvertToTeamJob::start");
+    addStartRestApiInfo("ChannelsConvertToTeamJob::start"_ba);
     submitPostRequest(json());
 
     return true;

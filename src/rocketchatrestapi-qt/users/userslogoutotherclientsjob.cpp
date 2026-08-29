@@ -28,7 +28,7 @@ bool UsersLogoutOtherClientsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersLogoutOtherClientsJob::start");
+    addStartRestApiInfo("UsersLogoutOtherClientsJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

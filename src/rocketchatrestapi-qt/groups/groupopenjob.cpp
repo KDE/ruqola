@@ -27,7 +27,7 @@ bool GroupOpenJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupOpenJob::start");
+    addStartRestApiInfo("GroupOpenJob::start"_ba);
     submitPostRequest(json());
 
     return true;

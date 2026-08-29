@@ -27,7 +27,7 @@ bool ChangeChannelDescriptionJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeChannelDescriptionJob::start");
+    addStartRestApiInfo("ChangeChannelDescriptionJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

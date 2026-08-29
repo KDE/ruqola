@@ -28,7 +28,7 @@ bool GroupRemoveOwnerJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupRemoveOwnerJob::start");
+    addStartRestApiInfo("GroupRemoveOwnerJob::start"_ba);
     submitPostRequest(json());
 
     return true;

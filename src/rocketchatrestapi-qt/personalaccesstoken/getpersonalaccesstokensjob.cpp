@@ -30,7 +30,7 @@ bool GetPersonalAccessTokensJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("GetPersonalAccessTokensJob: Ask custom sounds info"_ba);
+    addStartRestApiInfo("GetPersonalAccessTokensJob: Ask personal access tokens"_ba);
 
     return true;
 }

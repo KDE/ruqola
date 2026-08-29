@@ -43,7 +43,7 @@ bool ChannelGetAllUserMentionsJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("ChannelGetAllUserMentionsJob::start");
+    addStartRestApiInfo("ChannelGetAllUserMentionsJob::start"_ba);
 
     return true;
 }

@@ -28,7 +28,7 @@ bool ResetAvatarJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ResetAvatarJob::start");
+    addStartRestApiInfo("ResetAvatarJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

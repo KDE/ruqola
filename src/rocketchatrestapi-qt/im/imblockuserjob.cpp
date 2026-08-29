@@ -28,7 +28,7 @@ bool ImBlockUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ImBlockUserJob::start");
+    addStartRestApiInfo("ImBlockUserJob::start"_ba);
     submitPostRequest(json());
 
     return true;

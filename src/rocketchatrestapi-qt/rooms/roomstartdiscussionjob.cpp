@@ -30,7 +30,7 @@ bool RoomStartDiscussionJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomStartDiscussionJob::start");
+    addStartRestApiInfo("RoomStartDiscussionJob::start"_ba);
     submitPostRequest(json());
 
     return true;

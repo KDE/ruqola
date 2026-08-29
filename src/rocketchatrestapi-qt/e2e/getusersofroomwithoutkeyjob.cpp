@@ -29,7 +29,7 @@ bool GetUsersOfRoomWithoutKeyJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("Start GetUsersOfRoomWithoutKey");
+    addStartRestApiInfo("Start GetUsersOfRoomWithoutKey"_ba);
 
     return true;
 }

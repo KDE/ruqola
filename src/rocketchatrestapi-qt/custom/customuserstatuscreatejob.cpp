@@ -28,7 +28,7 @@ bool CustomUserStatusCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CustomUserStatusCreateJob::start");
+    addStartRestApiInfo("CustomUserStatusCreateJob::start"_ba);
     submitPostRequest(json());
 
     return true;

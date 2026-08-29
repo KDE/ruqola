@@ -27,7 +27,7 @@ bool GroupAddModeratorJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupAddModeratorJob::start");
+    addStartRestApiInfo("GroupAddModeratorJob::start"_ba);
     submitPostRequest(json());
 
     return true;

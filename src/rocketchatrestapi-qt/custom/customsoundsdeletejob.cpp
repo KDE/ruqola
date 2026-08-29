@@ -28,7 +28,7 @@ bool CustomSoundsDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CustomSoundsDeleteJob::start");
+    addStartRestApiInfo("CustomSoundsDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

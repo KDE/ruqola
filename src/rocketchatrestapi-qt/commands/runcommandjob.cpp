@@ -28,7 +28,7 @@ bool RunCommandJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RunCommandJob::start");
+    addStartRestApiInfo("RunCommandJob::start"_ba);
     submitPostRequest(json());
 
     return true;

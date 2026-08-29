@@ -28,7 +28,7 @@ bool RoleUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoleUpdateJob::start");
+    addStartRestApiInfo("RoleUpdateJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

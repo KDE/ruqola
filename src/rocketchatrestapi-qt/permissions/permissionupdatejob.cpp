@@ -29,7 +29,7 @@ bool PermissionUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("PermissionUpdateJob::start");
+    addStartRestApiInfo("PermissionUpdateJob::start"_ba);
     submitPostRequest(json());
 
     return true;

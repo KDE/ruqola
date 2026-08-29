@@ -34,7 +34,7 @@ bool SetAvatarJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetAvatarJob::start");
+    addStartRestApiInfo("SetAvatarJob::start"_ba);
     if (!mAvatarInfo.mAvatarUrl.isEmpty()) {
         submitPostRequest(json());
     } else {

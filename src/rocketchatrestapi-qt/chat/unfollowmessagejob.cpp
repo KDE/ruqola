@@ -27,7 +27,7 @@ bool UnFollowMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UnFollowMessageJob::start");
+    addStartRestApiInfo("UnFollowMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;

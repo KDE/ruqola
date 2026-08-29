@@ -29,7 +29,7 @@ bool SendInvitationEmailJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SendInvitationEmailJob::start");
+    addStartRestApiInfo("SendInvitationEmailJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

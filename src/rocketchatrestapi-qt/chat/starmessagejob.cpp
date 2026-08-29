@@ -39,7 +39,7 @@ bool StarMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("StarMessageJob::start");
+    addStartRestApiInfo("StarMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;

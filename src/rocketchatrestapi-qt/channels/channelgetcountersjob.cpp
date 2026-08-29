@@ -42,7 +42,7 @@ bool ChannelGetCountersJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("ChannelGetCountersJob::start");
+    addStartRestApiInfo("ChannelGetCountersJob::start"_ba);
 
     return true;
 }

@@ -28,7 +28,7 @@ bool NotifyAdminsAppsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("NotifyAdminsAppsJob::start");
+    addStartRestApiInfo("NotifyAdminsAppsJob::start"_ba);
     submitPostRequest(json());
 
     return true;

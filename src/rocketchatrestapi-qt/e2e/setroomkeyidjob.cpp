@@ -28,7 +28,7 @@ bool SetRoomKeyIDJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetRoomKeyIDJob::start");
+    addStartRestApiInfo("SetRoomKeyIDJob::start"_ba);
     submitPostRequest(json());
 
     return true;

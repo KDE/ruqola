@@ -27,7 +27,7 @@ bool GroupsInviteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupsInviteJob::start");
+    addStartRestApiInfo("GroupsInviteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

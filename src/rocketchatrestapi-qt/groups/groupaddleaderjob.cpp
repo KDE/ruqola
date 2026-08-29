@@ -27,7 +27,7 @@ bool GroupAddLeaderJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupAddLeaderJob::start");
+    addStartRestApiInfo("GroupAddLeaderJob::start"_ba);
     submitPostRequest(json());
 
     return true;

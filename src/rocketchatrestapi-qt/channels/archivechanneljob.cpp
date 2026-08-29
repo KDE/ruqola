@@ -27,7 +27,7 @@ bool ArchiveChannelJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ArchiveChannelJob::start");
+    addStartRestApiInfo("ArchiveChannelJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

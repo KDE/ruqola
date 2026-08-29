@@ -27,7 +27,7 @@ bool ChangeGroupsReadonlyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeGroupsReadonlyJob::start");
+    addStartRestApiInfo("ChangeGroupsReadonlyJob::start"_ba);
     submitPostRequest(json());
 
     return true;

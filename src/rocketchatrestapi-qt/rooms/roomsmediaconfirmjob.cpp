@@ -27,7 +27,7 @@ bool RoomsMediaConfirmJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsMediaConfirmJob::start");
+    addStartRestApiInfo("RoomsMediaConfirmJob::start"_ba);
     submitPostRequest(json());
 
     return true;

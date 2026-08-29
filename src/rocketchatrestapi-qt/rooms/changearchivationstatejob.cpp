@@ -28,7 +28,7 @@ bool ChangeArchivationStateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeArchivationStateJob::start");
+    addStartRestApiInfo("ChangeArchivationStateJob::start"_ba);
     submitPostRequest(json());
 
     return true;

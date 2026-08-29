@@ -27,7 +27,7 @@ bool TeamsCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("TeamsCreateJob::start");
+    addStartRestApiInfo("TeamsCreateJob::start"_ba);
     submitPostRequest(json());
 
     return true;

@@ -28,7 +28,7 @@ bool DeleteMessageFileJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteMessageFileJob::start");
+    addStartRestApiInfo("DeleteMessageFileJob::start"_ba);
     submitPostRequest(json());
 
     return true;

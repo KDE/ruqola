@@ -30,7 +30,7 @@ bool TeamAddRoomsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("TeamAddRoomsJob::start");
+    addStartRestApiInfo("TeamAddRoomsJob::start"_ba);
     submitPostRequest(json());
 
     return true;

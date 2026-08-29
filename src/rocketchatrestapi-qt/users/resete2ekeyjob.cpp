@@ -29,7 +29,7 @@ bool ResetE2EKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ResetE2EKeyJob::start");
+    addStartRestApiInfo("ResetE2EKeyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

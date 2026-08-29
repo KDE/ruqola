@@ -41,8 +41,8 @@ bool GetAvatarJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("GetAvatarJob ask for avatarUserId: " + mUserInfo.userIdentifier.toLatin1());
-    addStartRestApiInfo("GetAvatarJob::start");
+    addStartRestApiInfo("GetAvatarJob ask for avatarUserId: "_ba + mUserInfo.userIdentifier.toLatin1());
+    addStartRestApiInfo("GetAvatarJob::start"_ba);
     return true;
 }
 

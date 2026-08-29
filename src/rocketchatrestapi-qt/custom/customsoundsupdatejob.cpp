@@ -32,7 +32,7 @@ bool CustomSoundsUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CustomSoundsUpdateJob::start");
+    addStartRestApiInfo("CustomSoundsUpdateJob::start"_ba);
 
     const QString fileNameAsLocalFile = mSoundInfo.fileNameUrl.toLocalFile();
     auto file = new QFile(fileNameAsLocalFile);

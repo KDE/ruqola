@@ -28,7 +28,7 @@ bool GroupsConvertToTeamJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupsConvertToTeamJob::start");
+    addStartRestApiInfo("GroupsConvertToTeamJob::start"_ba);
     submitPostRequest(json());
 
     return true;

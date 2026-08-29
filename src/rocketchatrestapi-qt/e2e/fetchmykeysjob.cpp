@@ -28,7 +28,7 @@ bool FetchMyKeysJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("Start FetchMyKeysJob");
+    addStartRestApiInfo("Start FetchMyKeysJob"_ba);
 
     return true;
 }

@@ -28,7 +28,7 @@ bool User2FADisableEmailJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("User2FADisableEmailJob::start");
+    addStartRestApiInfo("User2FADisableEmailJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

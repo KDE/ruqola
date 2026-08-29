@@ -28,7 +28,7 @@ bool SessionsLogoutMeJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SessionsLogoutMeJob::start");
+    addStartRestApiInfo("SessionsLogoutMeJob::start"_ba);
     submitPostRequest(json());
 
     return true;

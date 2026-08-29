@@ -29,7 +29,7 @@ bool UpdateAdminSettingsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UpdateAdminSettingsJob::start");
+    addStartRestApiInfo("UpdateAdminSettingsJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

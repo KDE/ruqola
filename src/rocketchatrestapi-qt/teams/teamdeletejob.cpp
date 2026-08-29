@@ -29,7 +29,7 @@ bool TeamDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("TeamDeleteJob::start");
+    addStartRestApiInfo("TeamDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

@@ -28,7 +28,7 @@ bool VideoConferenceJoinJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("VideoConferenceJoinJob::start");
+    addStartRestApiInfo("VideoConferenceJoinJob::start"_ba);
     submitPostRequest(json());
 
     return true;

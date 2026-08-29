@@ -30,7 +30,7 @@ bool RoomFavoriteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomFavoriteJob::start");
+    addStartRestApiInfo("RoomFavoriteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

@@ -43,7 +43,7 @@ bool GetGroupRolesJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("GetGroupRolesJob::start");
+    addStartRestApiInfo("GetGroupRolesJob::start"_ba);
 
     return true;
 }

@@ -29,7 +29,7 @@ bool FetchUsersWaitingForGroupKeyJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("Start FetchUsersWaitingForGroupKeyJob");
+    addStartRestApiInfo("Start FetchUsersWaitingForGroupKeyJob"_ba);
 
     return true;
 }

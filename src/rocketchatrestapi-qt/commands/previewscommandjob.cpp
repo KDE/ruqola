@@ -29,7 +29,7 @@ bool PreviewsCommandJob::start()
         return false;
     }
     if (mPreviewsCommandInfo.itemInfo.isValid()) {
-        addStartRestApiInfo("PreviewsCommandJob::start");
+        addStartRestApiInfo("PreviewsCommandJob::start"_ba);
         submitPostRequest(json());
     } else {
         submitGetRequest();

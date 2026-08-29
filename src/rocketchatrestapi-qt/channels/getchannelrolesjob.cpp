@@ -45,7 +45,7 @@ bool GetChannelRolesJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("GetChannelRolesJob::start");
+    addStartRestApiInfo("GetChannelRolesJob::start"_ba);
     return true;
 }
 

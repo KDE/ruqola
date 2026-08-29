@@ -30,7 +30,7 @@ bool ResetTOTPJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ResetTOTPJob::start");
+    addStartRestApiInfo("ResetTOTPJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

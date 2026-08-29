@@ -27,7 +27,7 @@ bool ChannelsModeratorsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelsModeratorsJob::start: ");
+    addStartRestApiInfo("ChannelsModeratorsJob::start: "_ba);
     submitGetRequest();
 
     return true;

@@ -27,7 +27,7 @@ bool RequestSubscriptionKeysJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RequestSubscriptionKeysJob::start");
+    addStartRestApiInfo("RequestSubscriptionKeysJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

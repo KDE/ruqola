@@ -27,7 +27,7 @@ bool ChannelKickJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelKickJob::start");
+    addStartRestApiInfo("ChannelKickJob::start"_ba);
     submitPostRequest(json());
 
     return true;

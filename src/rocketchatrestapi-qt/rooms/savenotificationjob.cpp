@@ -28,7 +28,7 @@ bool SaveNotificationJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SaveNotificationJob::start");
+    addStartRestApiInfo("SaveNotificationJob::start"_ba);
     submitPostRequest(json());
 
     return true;

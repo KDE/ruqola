@@ -28,7 +28,7 @@ bool ChannelRemoveOwnerJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelRemoveOwnerJob::start");
+    addStartRestApiInfo("ChannelRemoveOwnerJob::start"_ba);
     submitPostRequest(json());
 
     return true;

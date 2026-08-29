@@ -28,7 +28,7 @@ bool User2FASendEmailCodeJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("User2FASendEmailCodeJob::start");
+    addStartRestApiInfo("User2FASendEmailCodeJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

@@ -28,7 +28,7 @@ bool BannersDismissJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("BannersDismissJob::start");
+    addStartRestApiInfo("BannersDismissJob::start"_ba);
     submitPostRequest(json());
 
     return true;

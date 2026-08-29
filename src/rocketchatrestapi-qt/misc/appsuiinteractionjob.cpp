@@ -25,7 +25,7 @@ bool AppsUiInteractionJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("AppsUiInteractionJob::start");
+    addStartRestApiInfo("AppsUiInteractionJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

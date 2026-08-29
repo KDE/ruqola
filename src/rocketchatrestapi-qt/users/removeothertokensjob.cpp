@@ -27,7 +27,7 @@ bool RemoveOtherTokensJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RemoveOtherTokensJob::start");
+    addStartRestApiInfo("RemoveOtherTokensJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

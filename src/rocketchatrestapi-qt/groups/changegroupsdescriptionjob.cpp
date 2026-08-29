@@ -27,7 +27,7 @@ bool ChangeGroupsDescriptionJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeGroupsDescriptionJob::start");
+    addStartRestApiInfo("ChangeGroupsDescriptionJob::start"_ba);
     submitPostRequest(json());
 
     return true;

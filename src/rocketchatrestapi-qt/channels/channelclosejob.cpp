@@ -27,7 +27,7 @@ bool ChannelCloseJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelCloseJob::start");
+    addStartRestApiInfo("ChannelCloseJob::start"_ba);
     submitPostRequest(json());
 
     return true;

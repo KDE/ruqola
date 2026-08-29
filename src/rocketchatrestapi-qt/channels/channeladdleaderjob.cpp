@@ -27,7 +27,7 @@ bool ChannelAddLeaderJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelAddLeaderJob::start");
+    addStartRestApiInfo("ChannelAddLeaderJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

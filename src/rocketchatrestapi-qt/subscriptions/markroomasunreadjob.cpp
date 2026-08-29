@@ -29,7 +29,7 @@ bool MarkRoomAsUnReadJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("MarkRoomAsUnReadJob::start");
+    addStartRestApiInfo("MarkRoomAsUnReadJob::start"_ba);
     submitPostRequest(json());
 
     return true;

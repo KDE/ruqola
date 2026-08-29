@@ -28,7 +28,7 @@ bool PinMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("PinMessageJob::start");
+    addStartRestApiInfo("PinMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;

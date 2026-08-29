@@ -32,7 +32,7 @@ bool EmojiCustomUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("EmojiCustomUpdateJob::start");
+    addStartRestApiInfo("EmojiCustomUpdateJob::start"_ba);
 
     const QString fileNameAsLocalFile = mEmojiInfo.fileNameUrl.toLocalFile();
     auto file = new QFile(fileNameAsLocalFile);

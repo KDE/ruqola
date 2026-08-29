@@ -27,7 +27,7 @@ bool GroupsDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupsDeleteJob::start");
+    addStartRestApiInfo("GroupsDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

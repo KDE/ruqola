@@ -27,7 +27,7 @@ bool ChannelFilesJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelFilesJob::start: ");
+    addStartRestApiInfo("ChannelFilesJob::start: "_ba);
     submitGetRequest();
 
     return true;

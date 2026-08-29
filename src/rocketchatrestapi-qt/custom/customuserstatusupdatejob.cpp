@@ -28,7 +28,7 @@ bool CustomUserStatusUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CustomUserStatusUpdateJob::start");
+    addStartRestApiInfo("CustomUserStatusUpdateJob::start"_ba);
     submitPostRequest(json());
 
     return true;

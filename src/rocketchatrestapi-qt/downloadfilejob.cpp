@@ -31,7 +31,7 @@ bool DownloadFileJob::start()
     mReply = networkAccessManager()->get(request());
     const QByteArray className = metaObject()->className();
     mReply->setProperty("jobClassName", className);
-    addStartRestApiInfo("DownloadFileJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType + " saveAs " + mLocalFileUrl.toEncoded());
+    addStartRestApiInfo("DownloadFileJob: url:"_ba + mUrl.toEncoded() + " mimetype "_ba + mMimeType + " saveAs "_ba + mLocalFileUrl.toEncoded());
     connect(mReply.data(), &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }

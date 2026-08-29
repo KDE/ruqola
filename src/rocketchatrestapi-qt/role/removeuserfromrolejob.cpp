@@ -30,7 +30,7 @@ bool RemoveUserFromRoleJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RemoveUsersFromRoleJob::start");
+    addStartRestApiInfo("RemoveUsersFromRoleJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

@@ -27,7 +27,7 @@ bool RoomsUnmuteUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsUnmuteUserJob::start");
+    addStartRestApiInfo("RoomsUnmuteUserJob::start"_ba);
     submitPostRequest(json());
 
     return true;

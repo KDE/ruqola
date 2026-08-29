@@ -28,7 +28,7 @@ bool RoleDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoleDeleteJob::start");
+    addStartRestApiInfo("RoleDeleteJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

@@ -27,7 +27,7 @@ bool SetJoinCodeChannelJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetJoinCodeChannelJob::start");
+    addStartRestApiInfo("SetJoinCodeChannelJob::start"_ba);
     submitPostRequest(json());
 
     return true;

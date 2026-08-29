@@ -28,7 +28,7 @@ bool OauthAppsUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("OauthAppsUpdateJob::start");
+    addStartRestApiInfo("OauthAppsUpdateJob::start"_ba);
     submitPostRequest(json());
 
     return true;

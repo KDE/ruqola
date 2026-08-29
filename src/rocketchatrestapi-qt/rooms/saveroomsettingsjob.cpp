@@ -31,7 +31,7 @@ bool SaveRoomSettingsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SaveRoomSettingsJob::start");
+    addStartRestApiInfo("SaveRoomSettingsJob::start"_ba);
     submitPostRequest(json());
 
     return true;

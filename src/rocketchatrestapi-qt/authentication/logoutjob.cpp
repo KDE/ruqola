@@ -31,7 +31,7 @@ bool LogoutJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("LogoutJob::start");
+    addStartRestApiInfo("LogoutJob::start"_ba);
     return true;
 }
 

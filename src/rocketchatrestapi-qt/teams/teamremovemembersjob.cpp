@@ -29,7 +29,7 @@ bool TeamRemoveMembersJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("TeamRemoveMembersJob::start");
+    addStartRestApiInfo("TeamRemoveMembersJob::start"_ba);
     submitPostRequest(json());
 
     return true;

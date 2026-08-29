@@ -28,7 +28,7 @@ bool OauthAppsDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("OauthAppsDeleteJob::start");
+    addStartRestApiInfo("OauthAppsDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;

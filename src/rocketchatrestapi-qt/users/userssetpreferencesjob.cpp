@@ -31,7 +31,7 @@ bool UsersSetPreferencesJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersSetPreferencesJob::start");
+    addStartRestApiInfo("UsersSetPreferencesJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

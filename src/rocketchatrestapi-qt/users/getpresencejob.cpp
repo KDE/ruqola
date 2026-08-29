@@ -40,7 +40,7 @@ bool GetPresenceJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("GetPresenceJob ask for presenceUserId: " + mUserInfo.userIdentifier.toLatin1());
+    addStartRestApiInfo("GetPresenceJob ask for presenceUserId: "_ba + mUserInfo.userIdentifier.toLatin1());
     return true;
 }
 

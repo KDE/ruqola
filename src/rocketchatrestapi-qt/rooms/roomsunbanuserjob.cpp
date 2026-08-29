@@ -27,7 +27,7 @@ bool RoomsUnbanUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsUnbanUserJob::start");
+    addStartRestApiInfo("RoomsUnbanUserJob::start"_ba);
     submitPostRequest(json());
 
     return true;

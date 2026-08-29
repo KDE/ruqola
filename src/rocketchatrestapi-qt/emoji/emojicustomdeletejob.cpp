@@ -26,7 +26,7 @@ bool EmojiCustomDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteEmojiCustomJob::start");
+    addStartRestApiInfo("DeleteEmojiCustomJob::start"_ba);
     submitPostRequest(json());
 
     return true;

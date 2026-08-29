@@ -28,7 +28,7 @@ bool ModerationReportUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ModerationReportUserJob::start");
+    addStartRestApiInfo("ModerationReportUserJob::start"_ba);
     submitPostRequest(json());
 
     return true;

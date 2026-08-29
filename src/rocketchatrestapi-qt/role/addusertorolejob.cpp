@@ -28,7 +28,7 @@ bool AddUserToRoleJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("AddUserToRoleJob::start");
+    addStartRestApiInfo("AddUserToRoleJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

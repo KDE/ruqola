@@ -29,7 +29,7 @@ bool UsersUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersUpdateJob::start");
+    addStartRestApiInfo("UsersUpdateJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

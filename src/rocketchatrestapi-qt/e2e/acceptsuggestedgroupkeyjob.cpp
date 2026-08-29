@@ -28,7 +28,7 @@ bool AcceptSuggestedGroupKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("AcceptSuggestedGroupKeyJob::start");
+    addStartRestApiInfo("AcceptSuggestedGroupKeyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

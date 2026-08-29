@@ -28,7 +28,7 @@ bool UpdateGroupKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UpdateGroupKeyJob::start");
+    addStartRestApiInfo("UpdateGroupKeyJob::start"_ba);
     submitPostRequest(json());
 
     return true;

@@ -28,7 +28,7 @@ bool MarkRoomAsReadJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("MarkRoomAsReadJob::start");
+    addStartRestApiInfo("MarkRoomAsReadJob::start"_ba);
     submitPostRequest(json());
 
     return true;

@@ -30,7 +30,7 @@ bool RoleCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoleCreateJob::start");
+    addStartRestApiInfo("RoleCreateJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

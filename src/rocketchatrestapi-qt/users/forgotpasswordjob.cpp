@@ -39,7 +39,7 @@ bool ForgotPasswordJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ForgotPasswordJob::start");
+    addStartRestApiInfo("ForgotPasswordJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

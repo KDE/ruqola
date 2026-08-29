@@ -27,7 +27,7 @@ bool CreateDmJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CreateDmJob::start");
+    addStartRestApiInfo("CreateDmJob::start"_ba);
     submitPostRequest(json());
 
     return true;

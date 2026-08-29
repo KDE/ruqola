@@ -53,7 +53,7 @@ bool ProvideUsersWithSuggestedGroupKeysJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ProvideUsersWithSuggestedGroupKeysJob::start");
+    addStartRestApiInfo("ProvideUsersWithSuggestedGroupKeysJob::start"_ba);
     submitPostRequest(json());
     return true;
 }

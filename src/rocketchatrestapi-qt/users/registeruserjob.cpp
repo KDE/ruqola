@@ -40,7 +40,7 @@ bool RegisterUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RegisterUserJob::start");
+    addStartRestApiInfo("RegisterUserJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
