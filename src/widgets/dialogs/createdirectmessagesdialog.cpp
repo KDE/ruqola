@@ -46,7 +46,6 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *accoun
     okButton->setEnabled(false);
     okButton->setText(i18nc("@action:button", "Create"));
     connect(mCreateDirectMessagesWidget, &CreateDirectMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateDirectMessagesDialog::accept);
 }
 CreateDirectMessagesDialog::~CreateDirectMessagesDialog()
 {
