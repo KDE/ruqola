@@ -193,7 +193,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                     if (emoji.isAnimatedImage() && isReaction) {
                         cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
                     } else {
-                        const QString fileName = customEmojiFileName(emojiIdentifier);
+                        const QString fileName = emoji.emojiFileName();
                         if (!fileName.isEmpty() && mRocketChatAccount) {
                             const QUrl emojiUrl = mRocketChatAccount->attachmentUrlFromLocalCache(fileName);
                             if (emojiUrl.isEmpty()) {
