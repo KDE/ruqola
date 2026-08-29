@@ -568,10 +568,6 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setBlockEditingMessageInMinutes(value.toInt());
     } else if (id == "Message_AllowDeleting_BlockDeleteInMinutes"_L1) {
         setBlockDeletingMessageInMinutes(value.toInt());
-    } else if (id.contains(regularExpressionOAuth)) {
-        if (value.toBool()) {
-            addOauthService(id);
-        }
     } else if (id == "Site_Url"_L1) {
         setSiteUrl(value.toString());
     } else if (id == "Site_Name"_L1) {
@@ -696,6 +692,10 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMessageReadReceiptStoreUsers(value.toBool());
     } else if (!mPasswordSettings.loadSettings(id, value)) { // Last one !!!!
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
+    } else if (id.contains(regularExpressionOAuth)) {
+        if (value.toBool()) {
+            addOauthService(id);
+        }
     }
 }
 
