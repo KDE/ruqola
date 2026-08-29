@@ -91,11 +91,11 @@ void AuthenticationLoginWidget::changeAuthenticationWidgetStatus(bool enabled)
 void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
 {
     auto restApi = new Connection(this);
-    restApi->setServerUrl(mAccountInfo.serverUrl);
-    restApi->forgotPassword(email);
     connect(restApi, &Connection::forgotPasswordDone, this, [restApi]() {
         restApi->deleteLater();
     });
+    restApi->setServerUrl(mAccountInfo.serverUrl);
+    restApi->forgotPassword(email);
 }
 
 void AuthenticationLoginWidget::slotLoginSettingsChanged()
