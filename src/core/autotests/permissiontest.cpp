@@ -34,6 +34,7 @@ void PermissionTest::shouldLoadPermission_data()
         Permission p;
         p.setIdentifier(u"pin-message"_s);
         p.setRoles({u"owner"_s, u"moderator"_s, u"admin"_s, u"global-moderator"_s});
+        p.setRolesStr({u"owner"_s, u"moderator"_s, u"admin"_s, u"global-moderator"_s});
         p.setUpdatedAt(1634615770401);
         QTest::addRow("permission1") << u"permission1"_s << p;
     }
@@ -41,6 +42,7 @@ void PermissionTest::shouldLoadPermission_data()
         Permission p;
         p.setIdentifier(u"create-c"_s);
         p.setRoles({u"admin"_s, u"user"_s, u"bot"_s, u"app"_s});
+        p.setRolesStr({u"admin"_s, u"user"_s, u"bot"_s, u"app"_s});
         p.setUpdatedAt(1634615770401);
         QTest::addRow("permission2") << u"permission2"_s << p;
     }

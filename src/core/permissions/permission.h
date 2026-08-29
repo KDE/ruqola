@@ -32,6 +32,8 @@ public:
 
     [[nodiscard]] bool operator==(const Permission &other) const;
 
+    void setRolesStr(const QStringList &newRolesStr);
+
 private:
     qint64 mUpdatedAt = -1;
     QStringList mRolesStr;

@@ -40,6 +40,8 @@ bool Permission::parsePermission(const QJsonObject &replyObject, const QList<Rol
             });
             if (index != roleInfo.end()) {
                 mRolesStr.append((*index).name());
+            } else {
+                mRolesStr.append(role);
             }
         }
     }
@@ -88,7 +90,12 @@ const QStringList &Permission::rolesStr() const
 
 bool Permission::operator==(const Permission &other) const
 {
-    return other.mRoles == mRoles && other.mUpdatedAt == mUpdatedAt && other.mIdentifier == mIdentifier;
+    return other.mRolesStr == mRolesStr && other.mRoles == mRoles && other.mUpdatedAt == mUpdatedAt && other.mIdentifier == mIdentifier;
+}
+
+void Permission::setRolesStr(const QStringList &newRolesStr)
+{
+    mRolesStr = newRolesStr;
 }
 
 QDebug operator<<(QDebug d, const Permission &t)
