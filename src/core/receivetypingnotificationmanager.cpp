@@ -21,12 +21,11 @@ void ReceiveTypingNotificationManager::clearTypingNotification()
 
 void ReceiveTypingNotificationManager::insertTypingNotification(const QByteArray &roomId, const QString &userName, bool onTyping)
 {
-    if (mMapTypingNotifications.contains(roomId)) {
-        QStringList lst = mMapTypingNotifications.value(roomId);
+    if (const auto it = mMapTypingNotifications.find(roomId); it != mMapTypingNotifications.end()) {
+        QStringList &lst = it.value();
         if (onTyping) {
             if (!lst.contains(userName)) {
                 lst.append(userName);
-                mMapTypingNotifications[roomId] = lst;
                 Q_EMIT notificationChanged(roomId, generateNotification(lst));
             }
         } else {
@@ -34,11 +33,12 @@ void ReceiveTypingNotificationManager::insertTypingNotification(const QByteArray
             if (removedUserCount > 0) {
                 if (lst.isEmpty()) {
                     // remove roomId
-                    mMapTypingNotifications.remove(roomId);
+                    mMapTypingNotifications.erase(it);
+                    // generateNotification() returns an empty string for an empty list
+                    Q_EMIT notificationChanged(roomId, {});
                 } else {
-                    mMapTypingNotifications[roomId] = lst;
+                    Q_EMIT notificationChanged(roomId, generateNotification(lst));
                 }
-                Q_EMIT notificationChanged(roomId, generateNotification(lst));
             }
         }
     } else {

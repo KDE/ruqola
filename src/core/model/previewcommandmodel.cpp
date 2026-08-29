@@ -91,8 +91,8 @@ QVariant PreviewCommandModel::data(const QModelIndex &index, int role) const
     } else if (role == static_cast<int>(PreviewCommandRoles::PreviewCommandInfo)) {
         return QVariant::fromValue(commandPreviewInfo);
     } else if (role == static_cast<int>(PreviewCommandRoles::Image)) {
-        if (mMapUrlToImage.contains(commandPreviewInfo.value())) {
-            return mMapUrlToImage.value(commandPreviewInfo.value());
+        if (const auto it = mMapUrlToImage.constFind(commandPreviewInfo.value()); it != mMapUrlToImage.cend()) {
+            return it.value();
         }
         return {};
     }

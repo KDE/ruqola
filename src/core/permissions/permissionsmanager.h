@@ -8,7 +8,7 @@
 
 #include "libruqola_private_export.h"
 #include "permission.h"
-#include <QMap>
+#include <QHash>
 #include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT PermissionsManager
@@ -33,5 +33,5 @@ public:
 private:
     [[nodiscard]] static bool storePermission(const QString &id);
     static void parseRemovePermission(const QJsonArray &removeArray);
-    QMap<QString, Permission> mMapPermissions;
+    QHash<QString, Permission> mMapPermissions;
 };

@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QMap>
+#include <QHash>
 #include <QObject>
 class LIBRUQOLACORE_EXPORT ReceiveTypingNotificationManager : public QObject
 {
@@ -27,5 +27,5 @@ Q_SIGNALS:
 
 private:
     [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames);
-    QMap<QByteArray, QStringList> mMapTypingNotifications;
+    QHash<QByteArray, QStringList> mMapTypingNotifications;
 };

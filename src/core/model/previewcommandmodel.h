@@ -7,6 +7,7 @@
 #include "commands/previewcommand.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
+#include <QHash>
 
 class LIBRUQOLACORE_EXPORT PreviewCommandModel : public QAbstractListModel
 {
@@ -30,5 +31,5 @@ private:
     LIBRUQOLACORE_NO_EXPORT void fetchImage(const PreviewCommand &command, int index);
     LIBRUQOLACORE_NO_EXPORT void fetchImages();
     QList<PreviewCommand> mPreviewCommands;
-    QMap<QString, QPixmap> mMapUrlToImage;
+    QHash<QString, QPixmap> mMapUrlToImage;
 };
