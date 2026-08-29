@@ -215,7 +215,6 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
     const AdministratorCustomSoundsCreateWidget::CustomSoundInfo originalCustomSoundInfo{.name = nameModelIndex.data().toString(), .fileNameUrl = {}};
     dlg->setCustomSoundInfo(originalCustomSoundInfo);
     if (dlg->exec()) {
-        const AdministratorCustomSoundsCreateWidget::CustomSoundInfo newCustomInfo = dlg->customSoundInfo();
         // Use new RESTAPI method when RC >= 8.5.0
         if (mRocketChatAccount->hasAtLeastVersion(8, 5, 0)) {
             auto job = new RocketChatRestApi::CustomSoundsUpdateJob(this);
@@ -235,6 +234,7 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
             /// api/v1/method.call/uploadCustomSound when we upload new sound file
             ///
 
+            const AdministratorCustomSoundsCreateWidget::CustomSoundInfo newCustomInfo = dlg->customSoundInfo();
             const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
             const QByteArray soundIdentifier = modelIndex.data().toByteArray();
 

@@ -532,10 +532,9 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
 void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = lineEdit->property(s_property).toString();
-    QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
         const auto result = mapSettings.value(variableName);
-        value = result.value.toString();
+        const QString value = result.value.toString();
         lineEdit->setText(value);
         lineEdit->setProperty(s_property_current_value, value);
         lineEdit->setProperty(s_property_default_value, defaultValue);

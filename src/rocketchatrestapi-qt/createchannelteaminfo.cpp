@@ -38,8 +38,6 @@ QJsonDocument CreateChannelTeamInfo::json() const
         jsonObj["type"_L1] = privateChannel ? 1 : 0;
     }
 
-    QJsonObject roomObj;
-
     QJsonObject extraJsonObj;
 
     if (broadcast) {
@@ -58,6 +56,7 @@ QJsonDocument CreateChannelTeamInfo::json() const
         extraJsonObj["teamId"_L1] = QLatin1StringView(teamId);
     }
     if (infoType == CreateInfoType::Team) {
+        QJsonObject roomObj;
         roomObj["extraData"_L1] = extraJsonObj;
         jsonObj["room"_L1] = roomObj;
     } else {

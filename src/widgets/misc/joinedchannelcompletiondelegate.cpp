@@ -45,10 +45,10 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     int xPos = -1;
     const Utils::AvatarInfo info = index.data(JoinedChannelModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        constexpr int marginTop = padding / 2;
         const int iconSize = option.rect.height() - padding;
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
+            constexpr int marginTop = padding / 2;
             // Not drawDecoration(): it aligns the pixmap using its device size, which offsets it
             // when the devicePixelRatio is > 1.
             painter->drawPixmap(option.rect.x() + margin, option.rect.y() + marginTop, iconSize, iconSize, pix);

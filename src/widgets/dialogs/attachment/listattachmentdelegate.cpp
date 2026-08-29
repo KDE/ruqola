@@ -125,10 +125,10 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             return true;
         }
     } else if (eventType == QEvent::MouseButtonDblClick) {
-        const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
         const Layout layout = doLayout(option, index);
         const bool fileComplete = layout.isFileComplete;
         if (fileComplete) {
+            const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
             if (file->typeGroup() == "image"_L1) {
                 Q_EMIT showImage(file->fileId());
             } else {

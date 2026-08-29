@@ -88,12 +88,12 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
     auto rocketChatAccount = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
     if (rocketChatAccount) {
         // const QString path{parseUrl.path()};
-        const QByteArray messageId = parseInfo.messageId.toLatin1();
         qCDebug(RUQOLA_LOG) << " parseUrl " << parseInfo;
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(rocketChatAccount->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
         if (mCurrentAccount) {
+            const QByteArray messageId = parseInfo.messageId.toLatin1();
             Q_EMIT mCurrentAccount->raiseWindow();
             Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseInfo.roomId, parseInfo.roomIdType, parseInfo.channelType);
         }
@@ -435,8 +435,8 @@ void AccountManager::addAccount(RocketChatAccount *account)
 {
     const bool wasEmpty = isEmpty();
     mRocketChatAccountModel->insertAccount(account);
-    const QString accountName = account->accountName();
     if (wasEmpty) {
+        const QString accountName = account->accountName();
         setCurrentAccount(accountName);
     }
 }

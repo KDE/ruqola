@@ -428,8 +428,6 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
 
 void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool adminStatus)
 {
-    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
-    const QByteArray userId = modelIndex.data().toByteArray();
     if (mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
         if (adminStatus) {
             auto job = new RocketChatRestApi::AddUserToRoleJob(this);
@@ -461,6 +459,8 @@ void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool ad
             }
         }
     } else {
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
+        const QByteArray userId = modelIndex.data().toByteArray();
         mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
     }
 }

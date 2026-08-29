@@ -35,8 +35,6 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     boldFont.setBold(true);
 
     const QFontMetrics fontMetrics(boldFont);
-    const int iconSize = option.rect.height() - 4;
-    const int iconY = option.rect.y() + 2;
     const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
 
     // The timestamp is right aligned and drawn with the view font, so paint it first:
@@ -53,6 +51,8 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     int xPos = option.rect.x();
     const Utils::AvatarInfo info = index.data(ReadReceiptsModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
+        const int iconSize = option.rect.height() - 4;
+        const int iconY = option.rect.y() + 2;
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
             painter->drawPixmap(xPos + margin, iconY, iconSize, iconSize, pix);

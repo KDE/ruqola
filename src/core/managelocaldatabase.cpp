@@ -84,7 +84,6 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     Q_ASSERT(info.roomModel);
 
     qint64 endDateTime = info.roomModel->lastTimestamp();
-    qint64 oldestLoadedDateTime = info.roomModel->firstTimestamp();
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " ManageLocalDatabase::loadMessagesHistory endDateTime " << QDateTime::fromMSecsSinceEpoch(endDateTime);
     QJsonArray params;
     params.append(QJsonValue(QString::fromLatin1(info.roomId)));
@@ -153,6 +152,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(QJsonValue(175)); // Max number of messages to load;
         // qDebug() << " params" << params;
     } else {
+        qint64 oldestLoadedDateTime = info.roomModel->firstTimestamp();
         int downloadMessage = 50;
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE

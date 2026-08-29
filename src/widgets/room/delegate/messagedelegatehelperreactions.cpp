@@ -143,8 +143,6 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
         } else {
             const bool animateGif = reactionLayout.reaction.isAnimatedImage() && RuqolaGlobalConfig::self()->animateGifImage();
             if (animateGif) {
-                const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-
                 const QByteArray identifier = reactionLayout.reaction.reactionName().toUtf8();
                 animatedReactions.append(identifier);
                 QPixmap scaledPixmap;
@@ -152,6 +150,7 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
                 if (it != mRunningAnimatedImages.end()) {
                     scaledPixmap = (*it).movie->currentPixmap();
                 } else {
+                    const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
                     mRunningAnimatedImages.emplace_back(index, identifier);
                     auto &rai = mRunningAnimatedImages.back();
                     rai.movie->setFileName(reactionLayout.emojiImagePath);

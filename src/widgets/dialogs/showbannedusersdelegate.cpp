@@ -36,14 +36,14 @@ void ShowBannedUsersDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     painter->setFont(boldFont);
 
     const QFontMetrics fontMetrics(boldFont);
-    const int iconSize = option.rect.height() - 4;
-    const int iconY = option.rect.y() + 2;
     const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
     const int rightLimit = option.rect.right() - margin;
 
     int xPos = option.rect.x();
     const Utils::AvatarInfo info = index.data(BannedUsersModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
+        const int iconSize = option.rect.height() - 4;
+        const int iconY = option.rect.y() + 2;
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
             painter->drawPixmap(xPos + margin, iconY, iconSize, iconSize, pix);

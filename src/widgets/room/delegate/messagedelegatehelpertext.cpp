@@ -48,16 +48,16 @@ MessageDelegateHelperText::MessageTextInfo MessageDelegateHelperText::makeMessag
     const QByteArray threadMessageId = message->threadMessageId();
 
     if (mShowThreadContext && !threadMessageId.isEmpty()) {
-        const auto sameAsPreviousMessageThread = [&] {
-            if (index.row() < 1) {
-                return false;
-            }
-            const auto previousIndex = index.sibling(index.row() - 1, index.column());
-            const auto *previousMessage = previousIndex.data(MessagesModel::MessagePointer).value<Message *>();
-            Q_ASSERT(previousMessage);
-            return threadMessageId == previousMessage->threadMessageId();
-        }();
         if (mRocketChatAccount) {
+            const auto sameAsPreviousMessageThread = [&] {
+                if (index.row() < 1) {
+                    return false;
+                }
+                const auto previousIndex = index.sibling(index.row() - 1, index.column());
+                const auto *previousMessage = previousIndex.data(MessagesModel::MessagePointer).value<Message *>();
+                Q_ASSERT(previousMessage);
+                return threadMessageId == previousMessage->threadMessageId();
+            }();
             if (!sameAsPreviousMessageThread) {
                 const MessagesModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
                 if (model) {
@@ -293,9 +293,9 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
         return false;
     }
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
-        const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
         const auto *doc = documentForIndex(index, messageRect.width(), false);
         if (doc) {
+            const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
             const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
                 auto mimeData = new QMimeData;

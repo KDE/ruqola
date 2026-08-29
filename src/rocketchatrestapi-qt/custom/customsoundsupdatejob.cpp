@@ -43,12 +43,11 @@ bool CustomSoundsUpdateJob::start()
         deleteLater();
         return false;
     }
-    const QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
-
     auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     if (!mSoundInfo.fileNameUrl.isEmpty()) {
+        const QMimeDatabase db;
+        const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
         QHttpPart filePart;
         filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
         const QString filePartInfo = u"form-data; name=\"sound\"; filename=\"%1\""_s.arg(mSoundInfo.fileNameUrl.fileName());

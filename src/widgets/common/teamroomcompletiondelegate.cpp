@@ -36,13 +36,13 @@ void TeamRoomCompletionDelegate::paint(QPainter *painter, const QStyleOptionView
     painter->setFont(boldFont);
 
     const QFontMetrics fontMetrics(boldFont);
-    const int iconSize = option.rect.height() - 4;
-    const int iconY = option.rect.y() + 2;
     const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
 
     int xPos = 0;
     const Utils::AvatarInfo info = index.data(TeamRoomCompleterModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
+        const int iconSize = option.rect.height() - 4;
+        const int iconY = option.rect.y() + 2;
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
             painter->drawPixmap(margin, iconY, iconSize, iconSize, pix);

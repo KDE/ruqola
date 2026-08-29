@@ -40,12 +40,12 @@ void SwitchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     drawBackground(painter, option, index);
     const QString text = index.data(SwitchChannelHistoryModel::Name).toString();
     const int margin = DelegatePaintUtil::margin();
-    // The row is padding pixels taller than the text, so inset the avatar by it instead of
-    // letting it fill the row edge to edge.
-    const int iconSize = option.rect.height() - padding;
     int xPos = 0;
     const Utils::AvatarInfo info = index.data(SwitchChannelHistoryModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
+        // The row is padding pixels taller than the text, so inset the avatar by it instead of
+        // letting it fill the row edge to edge.
+        const int iconSize = option.rect.height() - padding;
         const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
             // Don't use drawDecoration() here: it aligns the pixmap using its device size, so an

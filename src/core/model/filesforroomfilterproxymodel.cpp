@@ -62,19 +62,18 @@ void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
 
 bool FilesForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
-    const QString fileName = sourceIndex.data(FilesForRoomModel::FileName).toString();
-    const QString username = sourceIndex.data(FilesForRoomModel::UserName).toString();
-
     if (mFilterString.isEmpty() && mTypeGroup.isEmpty()) {
         return true;
     } else {
+        const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+        const QString fileName = sourceIndex.data(FilesForRoomModel::FileName).toString();
+        const QString username = sourceIndex.data(FilesForRoomModel::UserName).toString();
         const bool indexContains = contains(fileName) || contains(username);
         if (!mFilterString.isEmpty() && mTypeGroup.isEmpty()) {
             return indexContains;
         }
         if (!mTypeGroup.isEmpty()) {
+            const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
             return (mTypeGroup == typegroup) && indexContains;
         }
     }

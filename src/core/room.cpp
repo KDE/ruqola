@@ -317,9 +317,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         if (uidsArray.count() != 2) {
             qCWarning(RUQOLA_LOG) << " Invalid uidsArray " << uidsArray;
         }
-        const auto &u0 = uidsArray[0].toString().toLatin1();
-        const auto &u1 = uidsArray[1].toString().toLatin1();
         if (mRocketChatAccount) {
+            const auto &u0 = uidsArray[0].toString().toLatin1();
+            const auto &u1 = uidsArray[1].toString().toLatin1();
             setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
         }
 

@@ -433,8 +433,8 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     const QJsonObject roomData = array[1].toObject();
     if (actionName == "removed"_L1) {
         qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name " << " rid " << roomData.value("rid"_L1);
-        const QByteArray subscriptionId = roomData.value("_id"_L1).toString().toLatin1();
         if (mRocketChatAccount) {
+            const QByteArray subscriptionId = roomData.value("_id"_L1).toString().toLatin1();
             mRocketChatAccount->deleteRoomSubscription(subscriptionId);
         }
         const QByteArray roomId = roomData.value("rid"_L1).toString().toLatin1();

@@ -78,8 +78,6 @@ QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msg
 MessageAttachmentDelegateHelperFile::FileLayout
 MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
-    const int buttonMargin = DelegatePaintUtil::margin();
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int y = 0;
     FileLayout layout;
     layout.title = msgAttach.attachmentGeneratedTitle();
@@ -91,6 +89,8 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     layout.height = layout.titleSize.height() + (msgAttach.description().isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height())
         + (msgAttach.attachmentFieldsText().isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.fieldsSize.height());
     if (msgAttach.canDownloadAttachment()) {
+        const int buttonMargin = DelegatePaintUtil::margin();
+        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
     }
     return layout;

@@ -97,7 +97,6 @@ AccountManager::ActivitySettings ConfigureActivitiesWidget::activitiesSettings()
 
 void ConfigureActivitiesWidget::setActivitiesSettings(const AccountManager::ActivitySettings &activitySettings)
 {
-    auto model = mListView->model();
     auto selection = mListView->selectionModel();
     selection->clearSelection();
 
@@ -105,6 +104,7 @@ void ConfigureActivitiesWidget::setActivitiesSettings(const AccountManager::Acti
     mListView->setEnabled(activitySettings.enabled);
     mEnableActivitiesSupport->setChecked(activitySettings.enabled);
     if (!listIsEmpty) {
+        auto model = mListView->model();
         bool hasFoundActivities = false;
         for (int row = 0; row < model->rowCount(); ++row) {
             const auto index = model->index(row, 0);

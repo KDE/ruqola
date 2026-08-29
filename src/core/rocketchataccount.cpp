@@ -875,10 +875,9 @@ void RocketChatAccount::clearAllUnreadMessages()
 {
     for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = mRoomModel->index(roomIdx);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toByteArray();
         const bool roomHasAlert = roomModelIndex.data(RoomModel::RoomAlert).toBool();
         if (roomHasAlert) {
-            markRoomAsRead(roomId);
+            markRoomAsRead(roomModelIndex.data(RoomModel::RoomId).toByteArray());
         }
     }
 }
@@ -2193,9 +2192,9 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         case NotificationInfo::NotificationType::StandardMessage: {
             const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
             // qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
-            QPixmap pix;
             if (!iconFileName.isEmpty()) {
                 const QUrl url = QUrl::fromLocalFile(iconFileName);
+                QPixmap pix;
                 // qDebug() << "url.toLocalFile()" << url.toLocalFile();
                 const bool loaded = pix.load(url.toLocalFile().remove(u"file://"_s), "JPEG");
                 // qDebug() << " load pixmap : " << loaded;
@@ -2626,8 +2625,6 @@ bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArr
     const bool deletionIsEnabled = mRuqolaServerConfig->allowMessageDeletingEnabled();
     const bool userHasPermissionToDeleteAny = hasPermission(u"delete-message"_s, roomId);
     const bool userHasPermissionToDeleteOwn = hasPermission(u"delete-own-message"_s);
-    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, roomId);
-    const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
     if (canForceDelete) {
         return true;
     }
@@ -2642,6 +2639,8 @@ bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArr
 
     const bool isUserOwnFile = fileUserId == userId();
     if (userHasPermissionToDeleteAny || isUserOwnFile) {
+        const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, roomId);
+        const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
         if (!bypassBlockTimeLimit && blockDeleteInMinutes != 0) {
             if (!uploadedAt || !blockDeleteInMinutes) {
                 return false;

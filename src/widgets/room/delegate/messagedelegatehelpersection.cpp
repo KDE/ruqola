@@ -110,10 +110,10 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
             return true;
         }
         if (layout.menuRect.translated(blocksRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
             const auto blockAccessory = block.blockAccessory();
             const auto options = blockAccessory.options();
             if (!options.isEmpty()) {
+                auto parentWidget = const_cast<QWidget *>(option.widget);
                 QMenu menu(parentWidget);
                 const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
                 for (const auto &opt : options) {

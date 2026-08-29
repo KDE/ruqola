@@ -23,12 +23,11 @@ CommandPreviewImageDelegate::~CommandPreviewImageDelegate() = default;
 
 void CommandPreviewImageDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const bool hasFocus = option.state & QStyle::State_HasFocus;
-
     QPixmap pixmap = index.data(static_cast<int>(PreviewCommandModel::PreviewCommandRoles::Image)).value<QPixmap>();
     if (!pixmap.isNull()) {
         const QRect rect = option.rect.adjusted(margin, margin, -margin, -margin);
         painter->drawPixmap(rect, pixmap.scaled(rect.size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        const bool hasFocus = option.state & QStyle::State_HasFocus;
         if (hasFocus) {
             painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
         }

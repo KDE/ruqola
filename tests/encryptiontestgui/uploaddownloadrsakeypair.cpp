@@ -76,13 +76,12 @@ void UploadDownloadRsaKeyPair::downloadKeys(const QString &authToken,
     fetchJob->setUserId(userId);
 
     QObject::connect(fetchJob, &FetchMyKeysJob::fetchMyKeysDone, fetchJob, [password, onSuccess](const QJsonObject &jsonObj) {
-        const auto publicKey = jsonObj["public_key"_L1].toString();
-        const auto encryptedPrivateKeyB64 = jsonObj["private_key"_L1].toString();
-        const auto encryptedPrivateKey = QByteArray::fromBase64(encryptedPrivateKeyB64.toUtf8());
-        const auto masterKey = getMasterKey(password, u"salt"_s);
-        const auto decryptedPrivateKey = QString::fromUtf8(decryptPrivateKey(encryptedPrivateKey, masterKey));
-
         if (onSuccess) {
+            const auto publicKey = jsonObj["public_key"_L1].toString();
+            const auto encryptedPrivateKeyB64 = jsonObj["private_key"_L1].toString();
+            const auto encryptedPrivateKey = QByteArray::fromBase64(encryptedPrivateKeyB64.toUtf8());
+            const auto masterKey = getMasterKey(password, u"salt"_s);
+            const auto decryptedPrivateKey = QString::fromUtf8(decryptPrivateKey(encryptedPrivateKey, masterKey));
             onSuccess(publicKey, decryptedPrivateKey);
         }
     });
