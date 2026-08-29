@@ -25,6 +25,7 @@ void RegisterUserWidgetTest::shouldHaveDefaultValues()
 {
     const RegisterUserWidget w(nullptr);
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
+    QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
