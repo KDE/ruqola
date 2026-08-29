@@ -43,9 +43,6 @@ void AuthenticationOauthWidget::addAuthenticationMethod(const AuthenticationInfo
 
 void AuthenticationOauthWidget::clear()
 {
-    while (!mMainLayout->isEmpty()) {
-        mMainLayout->removeWidget(mAuthenticationButtonList.constFirst());
-    }
     qDeleteAll(mAuthenticationButtonList);
     mAuthenticationButtonList.clear();
 }
