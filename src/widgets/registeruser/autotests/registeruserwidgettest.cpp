@@ -8,13 +8,29 @@
 
 #include "misc/passwordconfirmwidget.h"
 #include "registeruser/registeruserwidget.h"
+#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
 #include <QTest>
+
 using namespace Qt::Literals::StringLiterals;
+namespace
+{
+void fillRegisterUserForm(const RegisterUserWidget &w, const QString &password)
+{
+    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mNewPasswordLineEdit"_s);
+    QVERIFY(mNewPasswordLineEdit);
+    mNewPasswordLineEdit->setPassword(password);
+
+    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mConfirmPasswordLineEdit"_s);
+    QVERIFY(mConfirmPasswordLineEdit);
+    mConfirmPasswordLineEdit->setPassword(password);
+}
+}
+
 QTEST_MAIN(RegisterUserWidgetTest)
 RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
     : QObject(parent)
@@ -66,6 +82,9 @@ void RegisterUserWidgetTest::shouldRegisterButtonUpdate()
     auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
     mEmail->setText(u"fff"_s);
     QVERIFY(!mRegisterButton->isEnabled());
+
+    fillRegisterUserForm(w, u"bla"_s);
+    QVERIFY(mRegisterButton->isEnabled());
 }
 
 #include "moc_registeruserwidgettest.cpp"
