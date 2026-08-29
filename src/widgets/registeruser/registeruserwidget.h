@@ -38,4 +38,5 @@ private:
     PasswordConfirmWidget *const mPasswordConfirmWidget;
     QPlainTextEdit *const mReasonTextEdit;
     QLabel *const mReasonLabel;
+    bool mManuallyApproveNewUsersRequired = false;
 };

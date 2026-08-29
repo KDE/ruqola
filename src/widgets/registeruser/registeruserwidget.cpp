@@ -48,8 +48,8 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     mReasonLabel->setObjectName(u"mReasonLabel"_s);
     mainLayout->addRow(mReasonLabel, mReasonTextEdit);
     // Hide by default
-    mReasonLabel->setVisible(false);
-    mReasonTextEdit->setVisible(false);
+    mReasonLabel->setVisible(mManuallyApproveNewUsersRequired);
+    mReasonTextEdit->setVisible(mManuallyApproveNewUsersRequired);
     connect(mReasonTextEdit, &QPlainTextEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mRegisterButton->setObjectName(u"mRegisterButton"_s);
@@ -67,15 +67,16 @@ void RegisterUserWidget::setPasswordValidChecks(const RuqolaServerConfig::Passwo
 
 void RegisterUserWidget::setManuallyApproveNewUsersRequired(bool manual)
 {
-    mReasonTextEdit->setVisible(manual);
-    mReasonLabel->setVisible(manual);
+    mManuallyApproveNewUsersRequired = manual;
+    mReasonTextEdit->setVisible(mManuallyApproveNewUsersRequired);
+    mReasonLabel->setVisible(mManuallyApproveNewUsersRequired);
 }
 
 void RegisterUserWidget::slotUpdateRegisterButton()
 {
     bool enableRegisterButton =
         !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() && mPasswordConfirmWidget->isNewPasswordConfirmed();
-    if (mReasonTextEdit->isVisible()) {
+    if (mManuallyApproveNewUsersRequired) {
         enableRegisterButton &= !mReasonTextEdit->document()->isEmpty();
     }
     mRegisterButton->setEnabled(enableRegisterButton);
@@ -94,7 +95,7 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
     info.name = mUserName->text().trimmed();
     info.username = mUserName->text().trimmed().remove(u' ');
     info.password = mPasswordConfirmWidget->password();
-    if (mReasonTextEdit->isVisible()) {
+    if (mManuallyApproveNewUsersRequired) {
         info.reason = mReasonTextEdit->toPlainText();
     }
     return info;
