@@ -53,4 +53,19 @@ void RegisterUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mReasonLabel->text().isEmpty());
 }
 
+void RegisterUserWidgetTest::shouldRegisterButtonUpdate()
+{
+    const RegisterUserWidget w(nullptr);
+    auto mRegisterButton = w.findChild<QPushButton *>(u"mRegisterButton"_s);
+    QVERIFY(!mRegisterButton->isEnabled());
+
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
+    mUserName->setText(u"fff"_s);
+    QVERIFY(!mRegisterButton->isEnabled());
+
+    auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
+    mEmail->setText(u"fff"_s);
+    QVERIFY(!mRegisterButton->isEnabled());
+}
+
 #include "moc_registeruserwidgettest.cpp"
