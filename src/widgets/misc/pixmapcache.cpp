@@ -15,27 +15,30 @@ void PixmapCache::setMaxEntries(int maxEntries)
 
 QPixmap PixmapCache::pixmapForLocalFile(const QString &path, qreal devicePixelRatio)
 {
-    auto pixmap = findCachedPixmap(path);
+    return scaledPixmapForLocalFile(path, -1, devicePixelRatio);
+}
 
-    if (pixmap.isNull()) {
-        pixmap = QPixmap(path);
-        if (pixmap.isNull()) {
-            if (QFileInfo(path).isFile()) { // When url needs access it will failed
-                qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path << " from cache";
-            }
-            return pixmap;
-        }
-        if (devicePixelRatio > 0) {
-            pixmap.setDevicePixelRatio(devicePixelRatio);
-        }
-        insertCachedPixmap(path, pixmap);
-    } else if (devicePixelRatio > 0 && !qFuzzyCompare(pixmap.devicePixelRatioF(), devicePixelRatio)) {
-        // The screen (or its scale factor) changed: pay for the detach once and re-cache the result.
-        pixmap.setDevicePixelRatio(devicePixelRatio);
-        remove(path);
-        insertCachedPixmap(path, pixmap);
+QPixmap PixmapCache::scaledPixmapForLocalFile(const QString &path, int maxSize, qreal devicePixelRatio)
+{
+    const qreal dpr = devicePixelRatio > 0 ? devicePixelRatio : 1.0;
+    const QString key = path + u'\n' + QString::number(maxSize) + u'@' + QString::number(dpr);
+    auto pixmap = findCachedPixmap(key);
+    if (!pixmap.isNull()) {
+        return pixmap;
     }
-
+    pixmap = QPixmap(path);
+    if (pixmap.isNull()) {
+        if (QFileInfo(path).isFile()) { // When url needs access it will failed
+            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path << " from cache";
+        }
+        return pixmap;
+    }
+    if (maxSize > 0) {
+        const int deviceSize = qRound(maxSize * dpr);
+        pixmap = pixmap.scaled(deviceSize, deviceSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    }
+    pixmap.setDevicePixelRatio(dpr);
+    insertCachedPixmap(key, pixmap);
     return pixmap;
 }
 

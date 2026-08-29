@@ -21,6 +21,7 @@ public:
     // paint/hit-test paths don't have to call QPixmap::setDevicePixelRatio() on the cached pixmap
     // (which detaches, i.e. deep-copies the image data, on every single call).
     [[nodiscard]] QPixmap pixmapForLocalFile(const QString &path, qreal devicePixelRatio = -1);
+    [[nodiscard]] QPixmap scaledPixmapForLocalFile(const QString &path, int maxSize, qreal devicePixelRatio = -1);
 
     [[nodiscard]] QPixmap findCachedPixmap(const QString &path);
     void insertCachedPixmap(const QString &path, const QPixmap &pixmap);

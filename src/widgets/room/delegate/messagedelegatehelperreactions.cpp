@@ -53,9 +53,10 @@ MessageDelegateHelperReactions::layoutReactions(const QList<Reaction> &reactions
                 if (emojiUrl.isEmpty()) {
                     // The download is happening, this will all be updated again later
                 } else {
-                    if (!mPixmapCache.pixmapForLocalFile(emojiUrl.toLocalFile()).isNull()) {
-                        layout.emojiImagePath = emojiUrl.toLocalFile();
-                        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+                    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+                    const auto localFile = emojiUrl.toLocalFile();
+                    if (!mPixmapCache.scaledPixmapForLocalFile(localFile, iconSize, option.widget->devicePixelRatioF()).isNull()) {
+                        layout.emojiImagePath = localFile;
                         emojiWidth = iconSize;
                     }
                 }
@@ -176,10 +177,9 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
                 scaledPixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
                 painter->drawPixmap(r.x(), r.y(), scaledPixmap);
             } else {
-                const QPixmap pixmap = mPixmapCache.pixmapForLocalFile(reactionLayout.emojiImagePath);
                 const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-                const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-                painter->drawPixmap(r.x(), r.y(), scaledPixmap);
+                const QPixmap pixmap = mPixmapCache.scaledPixmapForLocalFile(reactionLayout.emojiImagePath, maxIconSize, option.widget->devicePixelRatioF());
+                painter->drawPixmap(r.x(), r.y(), pixmap);
             }
         }
         // Count
