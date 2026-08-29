@@ -38,6 +38,7 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &RegisterUserDialog::reject);
+    connect(mRegisterUserWidget, &RegisterUserWidget::registerNewAccount, this, &RegisterUserDialog::registerNewAccount);
     readConfig();
 }
 
