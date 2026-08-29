@@ -27,7 +27,7 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     if (index.row() < 0 || index.row() >= mNotificationInfo.count()) {
         return {};
     }
-    const auto info = mNotificationInfo.at(index.row());
+    const auto &info = mNotificationInfo.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case AccountName:

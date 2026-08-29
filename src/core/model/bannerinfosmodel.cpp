@@ -29,7 +29,7 @@ QVariant BannerInfosModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mBannerInfos.count()) {
         return {};
     }
-    const auto info = mBannerInfos.at(index.row());
+    const auto &info = mBannerInfos.at(index.row());
     switch (role) {
     case BannerInfosModel::Read: {
         return info.read();

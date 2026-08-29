@@ -29,7 +29,7 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
     if (index.row() < 0 || index.row() >= mServerErrorInfo.count()) {
         return {};
     }
-    const auto info = mServerErrorInfo.at(index.row());
+    const auto &info = mServerErrorInfo.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case AccountName:

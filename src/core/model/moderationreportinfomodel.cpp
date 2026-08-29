@@ -27,7 +27,7 @@ QVariant ModerationReportInfoModel::data(const QModelIndex &index, int role) con
     if (index.row() < 0 || index.row() >= mModerationReportInfos.count()) {
         return {};
     }
-    const auto info = mModerationReportInfos.at(index.row());
+    const auto &info = mModerationReportInfos.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case Message:
