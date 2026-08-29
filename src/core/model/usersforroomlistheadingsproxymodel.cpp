@@ -272,11 +272,11 @@ void UsersForRoomListHeadingsProxyModel::rebuildSections()
     }
 
     for (auto row = 0, until = sourceModel()->rowCount(); row < until; ++row) {
-        const QPersistentModelIndex index = sourceModel()->index(row, 0);
+        QPersistentModelIndex index = sourceModel()->index(row, 0);
         const auto newSectionId = uint(index.data(UsersForRoomModel::Section).value<UsersForRoomModel::SectionStatus>());
         auto &newSection = mSections.at(newSectionId);
 
-        newSection.push_back(index);
+        newSection.push_back(std::move(index));
     }
 
     for (auto &section : mSections) {

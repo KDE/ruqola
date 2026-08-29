@@ -33,9 +33,9 @@ void MultiStaticSelectLineEdit::setInitialValues(const QStringList &lst)
 {
     QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> infoLst;
     for (const auto &value : lst) {
-        const MultiStaticSelectLineEditModel::SelectItemCompletionInfo info = mMultiStaticSelectLineEditModel->itemCompletionInfo(value);
+        MultiStaticSelectLineEditModel::SelectItemCompletionInfo info = mMultiStaticSelectLineEditModel->itemCompletionInfo(value);
         if (info.isValid()) {
-            infoLst.append(info);
+            infoLst.append(std::move(info));
         }
     }
     if (!infoLst.isEmpty()) {

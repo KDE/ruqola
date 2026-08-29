@@ -272,9 +272,9 @@ Block Block::deserialize(const QJsonObject &o)
         const auto elementsCount = elements.count();
         blockActions.reserve(elementsCount);
         for (auto i = 0; i < elementsCount; ++i) {
-            const BlockAction action = BlockAction::deserialize(elements.at(i).toObject());
+            BlockAction action = BlockAction::deserialize(elements.at(i).toObject());
             if (action.isValid()) {
-                blockActions.append(action);
+                blockActions.append(std::move(action));
             } else {
                 // qDebug() << "Invalid elements" << elements.at(i).toObject() << " action " << action;
                 qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();

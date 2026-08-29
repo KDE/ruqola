@@ -45,13 +45,13 @@ void Channels::parseChannels(const QJsonArray &channels)
     mChannels.clear();
     for (int i = 0, total = channels.size(); i < total; ++i) {
         const QJsonObject channel = channels.at(i).toObject();
-        const ChannelInfo info{
+        ChannelInfo info{
             .fname = channel.value("fname"_L1).toString(),
             .name = channel.value("name"_L1).toString(),
             .identifier = channel.value("_id"_L1).toString().toLatin1(),
         };
 
-        mChannels.append(info);
+        mChannels.append(std::move(info));
     }
 }
 
@@ -91,12 +91,12 @@ std::unique_ptr<Channels> Channels::deserialize(const QJsonArray &channelsArray)
     channels.reserve(total);
     for (int i = 0; i < total; ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
-        const ChannelInfo info{
+        ChannelInfo info{
             .fname = channel.value("fname"_L1).toString(),
             .name = channel.value("name"_L1).toString(),
             .identifier = channel.value("_id"_L1).toString().toLatin1(),
         };
-        channels.append(info);
+        channels.append(std::move(info));
     }
     auto final = std::make_unique<Channels>();
     final->setChannels(channels);
