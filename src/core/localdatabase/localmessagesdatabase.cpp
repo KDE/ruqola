@@ -182,6 +182,9 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
     }
 
     QList<Message> listMessages;
+    if (numberElements > 0) {
+        listMessages.reserve(numberElements);
+    }
     while (resultQuery.next()) {
         const QString json = resultQuery.value(u"json"_s).toString();
         listMessages.append(convertJsonToMessage(json, emojiManager));
