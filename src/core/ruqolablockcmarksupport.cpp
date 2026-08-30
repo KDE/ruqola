@@ -257,6 +257,7 @@ QString generateRichTextCMark(const QString &str,
     QString userMentionBackgroundColor;
     QString hereAllMentionBackgroundColor;
     QString hereAllMentionForegroundColor;
+    int offset = 0;
     while (userIterator.hasNext()) {
         if (userMentionForegroundColor.isEmpty()) {
             userMentionForegroundColor = schemeView.foreground(KColorScheme::NegativeText).color().name();
@@ -275,27 +276,25 @@ QString generateRichTextCMark(const QString &str,
             wordFromUserIdentifier = wordStr;
         }
         const int capturedStart = match.capturedStart(2) - 1;
-        const int replaceWordLength = wordStr.length() + 1;
+        const int replaceWordLength = wordStr.length() + 1; // '@' + word
+        QString replaceStr;
         if (word == username) {
-            newStr.replace(capturedStart,
-                           replaceWordLength,
-                           u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(wordStr,
-                                                                                                                                userMentionForegroundColor,
-                                                                                                                                userMentionBackgroundColor,
-                                                                                                                                wordFromUserIdentifier));
-
+            replaceStr = u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(wordStr,
+                                                                                                                              userMentionForegroundColor,
+                                                                                                                              userMentionBackgroundColor,
+                                                                                                                              wordFromUserIdentifier);
+        } else if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
+            replaceStr = u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(wordStr,
+                                                                                                    hereAllMentionForegroundColor,
+                                                                                                    hereAllMentionBackgroundColor);
         } else {
-            if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
-                newStr.replace(capturedStart,
-                               replaceWordLength,
-                               u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(wordStr,
-                                                                                                          hereAllMentionForegroundColor,
-                                                                                                          hereAllMentionBackgroundColor));
-            } else {
-                newStr.replace(capturedStart, replaceWordLength, u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(wordStr, wordFromUserIdentifier));
-            }
+            replaceStr = u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(wordStr, wordFromUserIdentifier);
         }
-        userIterator = regularExpressionUser.globalMatch(newStr);
+        // Inserted anchors put the '@' behind a '>', so a single pass is enough: the text we
+        // add can never match the regexp again.
+        newStr.replace(capturedStart + offset, replaceWordLength, replaceStr);
+        // We added a new string => increase offset
+        offset += replaceStr.length() - replaceWordLength;
     }
 
     return newStr;

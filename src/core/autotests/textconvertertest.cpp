@@ -231,6 +231,17 @@ void TextConverterTest::shouldHighlightText_data()
                                      << u"<p>bla bla <a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a></p>\n"_s.arg(
                                             userMentionForegroundColor,
                                             userMentionBackgroundColor);
+    // Mentions taking different branches, so the replacements have different lengths: checks
+    // that the offset used to walk the string stays in sync.
+    const auto hereAllMentionForegroundColor = colorScheme.foreground(KColorScheme::NeutralText).color().name();
+    const auto hereAllMentionBackgroundColor = colorScheme.background(KColorScheme::NeutralBackground).color().name();
+    QTest::newRow("mixed mentions") << u"@foo bla @here bli @other"_s << u"foo"_s
+                                    << u"<p><a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a> bla <a "
+                                       u"style=\"color:%3;background-color:%4;font-weight:bold\">here</a> bli <a "
+                                       u"href='ruqola:/user/other'>@other</a></p>\n"_s.arg(userMentionForegroundColor,
+                                                                                           userMentionBackgroundColor,
+                                                                                           hereAllMentionForegroundColor,
+                                                                                           hereAllMentionBackgroundColor);
 }
 
 void TextConverterTest::shouldHighlightText()
