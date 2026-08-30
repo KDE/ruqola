@@ -85,12 +85,12 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     addCheckBox(mAtLeastOneSymbol, u"Accounts_Password_Policy_AtLeastOneSpecialCharacter"_s);
 
     connect(this, &PasswordSettingsWidget::changedDone, this, [this](const QString &variable) {
-        if (variable == QLatin1String("Accounts_Password_History_Enabled")) {
+        if (variable == "Accounts_Password_History_Enabled"_L1) {
             updateSettingsStatus(mEnablePasswordHistory->isChecked());
         }
     });
     connect(this, &PasswordSettingsWidget::changedCanceled, this, [this](const QString &variable) {
-        if (variable == QLatin1String("Accounts_Password_History_Enabled")) {
+        if (variable == "Accounts_Password_History_Enabled"_L1) {
             updateSettingsStatus(mEnablePasswordHistory->isChecked());
         }
     });

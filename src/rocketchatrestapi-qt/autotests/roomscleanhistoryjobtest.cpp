@@ -61,39 +61,36 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
     info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":false,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId))
+             u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":false,\"latest\":"
+             u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId))
                  .toLatin1());
     info.inclusive = true;
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId))
+             u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":true,\"latest\":"
+             u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId))
                  .toLatin1());
     info.ignoreThreads = true;
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId))
+             u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
+             u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId))
                  .toLatin1());
     const QStringList users = {u"bla"_s, u"bli"_s};
     info.users = users;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}")
-                 .arg(QLatin1StringView(roomId))
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
+        u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}"_s.arg(QLatin1StringView(roomId))
+            .toLatin1());
     info.ignoreDiscussion = true;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":true,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}")
-                 .arg(QLatin1StringView(roomId))
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":true,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
+        u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}"_s.arg(QLatin1StringView(roomId))
+            .toLatin1());
 }
 
 void RoomsCleanHistoryJobTest::shouldNotStarting()

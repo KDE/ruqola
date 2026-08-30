@@ -49,7 +49,7 @@ void OauthAppsCreateJobTest::shouldGenerateJson()
     foo.active = true;
     job.setOauthAppsCreateInfo(foo);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"active":true,"name":"bla","redirectUri":"bl"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"active":true,"name":"bla","redirectUri":"bl"})"_s.toLatin1());
 }
 
 void OauthAppsCreateJobTest::shouldNotStarting()

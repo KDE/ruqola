@@ -44,7 +44,7 @@ void OauthAppsDeleteJobTest::shouldGenerateJson()
     OauthAppsDeleteJob job;
     job.setIdentifier(u"bla"_s);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"appId":"bla"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"appId":"bla"})"_s.toLatin1());
 }
 
 void OauthAppsDeleteJobTest::shouldNotStarting()

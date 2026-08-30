@@ -48,7 +48,7 @@ void PermissionUpdateJobTest::shouldGenerateJson()
     job.setPermissions(lst);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"permissions":[{"_id":"bla","roles":["user","admin"]},{"_id":"team","roles":["user","admin","owner"]}]})").toLatin1());
+             uR"({"permissions":[{"_id":"bla","roles":["user","admin"]},{"_id":"team","roles":["user","admin","owner"]}]})"_s.toLatin1());
 }
 
 void PermissionUpdateJobTest::shouldNotStarting()

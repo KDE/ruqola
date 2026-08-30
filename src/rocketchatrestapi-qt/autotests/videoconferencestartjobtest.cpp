@@ -47,7 +47,7 @@ void VideoConferenceStartJobTest::shouldGenerateJson()
     info.roomId = "foo"_ba;
     info.title = u"bla"_s;
     job.setInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"allowRinging":false,"roomId":"foo","title":"bla"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"allowRinging":false,"roomId":"foo","title":"bla"})"_s.toLatin1());
 }
 
 void VideoConferenceStartJobTest::shouldNotStarting()

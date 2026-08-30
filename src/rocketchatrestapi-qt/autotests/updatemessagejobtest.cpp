@@ -51,9 +51,8 @@ void UpdateMessageJobTest::shouldGenerateJson()
     job.setRoomId(roomId);
     job.setMessageId(messageId);
     job.setUpdatedText(updatedText);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"msgId":"%2","roomId":"%1","text":"%3"})").arg(QLatin1StringView(roomId), QLatin1StringView(messageId), updatedText).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"msgId":"%2","roomId":"%1","text":"%3"})"_s.arg(QLatin1StringView(roomId), QLatin1StringView(messageId), updatedText).toLatin1());
 }
 
 void UpdateMessageJobTest::shouldNotStarting()

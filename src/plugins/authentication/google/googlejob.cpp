@@ -77,7 +77,7 @@ void GoogleJob::getDataFromJson()
     // https://github.com/login/oauth/access_token
     const QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
     const QJsonObject object = document.object();
-    const auto settingsObject = object[u"web"_s].toObject();
+    const auto settingsObject = object["web"_L1].toObject();
     const auto authUri(settingsObject[u"auth_uri"_s].toString());
     const auto clientID = settingsObject[u"client_id"_s].toString();
     const auto clientSecret(settingsObject[u"client_secret"_s].toString());

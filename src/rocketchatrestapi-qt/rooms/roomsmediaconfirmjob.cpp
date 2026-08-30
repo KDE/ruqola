@@ -133,7 +133,7 @@ QNetworkRequest RoomsMediaConfirmJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsMediaConfirm,
                                                  RestApiUtil::RestApiUrlExtensionType::V1,
-                                                 QStringLiteral("%1/%2").arg(QString::fromLatin1(mRoomId), QString::fromLatin1(mFileId)));
+                                                 u"%1/%2"_s.arg(QString::fromLatin1(mRoomId), QString::fromLatin1(mFileId)));
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

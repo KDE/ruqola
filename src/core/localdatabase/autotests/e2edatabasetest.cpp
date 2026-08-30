@@ -10,8 +10,8 @@
 
 QTEST_GUILESS_MAIN(E2EDataBaseTest)
 using namespace Qt::Literals::StringLiterals;
-const auto testUser = QStringLiteral("testuser");
-const auto otherUser = QStringLiteral("otheruser");
+const auto testUser = u"testuser"_s;
+const auto otherUser = u"otheruser"_s;
 static QString accountName()
 {
     return u"myAccount"_s;

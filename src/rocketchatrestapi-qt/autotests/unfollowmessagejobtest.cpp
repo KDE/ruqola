@@ -45,7 +45,7 @@ void UnFollowMessageJobTest::shouldGenerateJson()
     UnFollowMessageJob job;
     const QByteArray messageid("foo1");
     job.setMessageId(messageid);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"mid":"%1"})").arg(QLatin1StringView(messageid)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"mid":"%1"})"_s.arg(QLatin1StringView(messageid)).toLatin1());
 }
 
 void UnFollowMessageJobTest::shouldNotStarting()

@@ -59,9 +59,9 @@ void CreateChannelJob::setCreateChannelInfo(const CreateChannelTeamInfo &createC
 QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
     if (str == "error-duplicate-channel-name"_L1) {
-        return i18n("A channel with name '%1' exists", detail.value(u"channel_name"_s).toString());
+        return i18n("A channel with name '%1' exists", detail.value("channel_name"_L1).toString());
     } else if (str == "error-invalid-room-name"_L1) {
-        return i18n("'%1' is not a valid room name", detail.value(u"channel_name"_s).toString());
+        return i18n("'%1' is not a valid room name", detail.value("channel_name"_L1).toString());
     }
 
     return RestApiAbstractJob::errorMessage(str, detail);

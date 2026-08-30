@@ -112,10 +112,10 @@ void FeaturePreviewWidget::slotSaveSettings()
             QJsonObject obj;
             obj["_id"_L1] = u"Accounts_Default_User_Preferences_featuresPreview"_s;
             if (mDraftMessages->isChecked()) {
-                const QString value = QStringLiteral("[{\"name\":\"sidebarDrafts\",\"value\":true}]");
+                const QString value = u"[{\"name\":\"sidebarDrafts\",\"value\":true}]"_s;
                 obj["value"_L1] = value;
             } else {
-                const QString value = QStringLiteral("[{\"name\":\"sidebarDrafts\",\"value\":false}]");
+                const QString value = u"[{\"name\":\"sidebarDrafts\",\"value\":false}]"_s;
                 obj["value"_L1] = value;
             }
             previewFeatures.append(std::move(obj));

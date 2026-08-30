@@ -53,19 +53,18 @@ void SendMessageJobTest::shouldGenerateJson()
     args.roomId = roomId;
     args.message = text;
     job.setSendMessageArguments(args);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":{"msg":"%2","rid":"%1"}})").arg(roomId, text).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":{"msg":"%2","rid":"%1"}})"_s.arg(roomId, text).toLatin1());
 
     const QString threadId = u"threadid"_s;
     args.threadMessageId = threadId;
     job.setSendMessageArguments(args);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"message":{"msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":{"msg":"%2","rid":"%1","tmid":"%3"}})"_s.arg(roomId, text, threadId).toLatin1());
 
     const QString messageId = u"msgid"_s;
     args.messageId = messageId;
     job.setSendMessageArguments(args);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"message":{"_id":"%4","msg":"%2","rid":"%1","tmid":"%3"}})").arg(roomId, text, threadId, messageId).toLatin1());
+             uR"({"message":{"_id":"%4","msg":"%2","rid":"%1","tmid":"%3"}})"_s.arg(roomId, text, threadId, messageId).toLatin1());
 }
 
 void SendMessageJobTest::shouldGenerateJsonEncrypted()
@@ -84,7 +83,7 @@ void SendMessageJobTest::shouldGenerateJsonEncrypted()
     args.info = info;
     job.setSendMessageArguments(args);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"message":{"content":{"algorithm":"bla","ciphertext":"foo","iv":"kde","kid":"blo"},"rid":"foo1","t":"e2e"}})").toLatin1());
+             uR"({"message":{"content":{"algorithm":"bla","ciphertext":"foo","iv":"kde","kid":"blo"},"rid":"foo1","t":"e2e"}})"_s.toLatin1());
 }
 
 void SendMessageJobTest::shouldNotStarting()

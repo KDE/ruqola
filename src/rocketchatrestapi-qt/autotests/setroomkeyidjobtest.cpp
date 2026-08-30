@@ -50,7 +50,7 @@ void SetRoomKeyIDJobTest::shouldGenerateJson()
     info.keyId = keyId;
     job.setRoomKeyIDInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"keyID":"%2","rid":"%1"})").arg(QString::fromLatin1(roomId), QString::fromLatin1(keyId)).toLatin1());
+             uR"({"keyID":"%2","rid":"%1"})"_s.arg(QString::fromLatin1(roomId), QString::fromLatin1(keyId)).toLatin1());
 }
 
 void SetRoomKeyIDJobTest::shouldNotStarting()

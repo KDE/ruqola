@@ -50,7 +50,7 @@ void TeamAddRoomsJobTest::shouldGenerateJson()
     job.setTeamId(teamId);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"rooms":["%1"],"teamId":"%2"})").arg(QLatin1StringView(roomId), QLatin1StringView(teamId)).toLatin1());
+             uR"({"rooms":["%1"],"teamId":"%2"})"_s.arg(QLatin1StringView(roomId), QLatin1StringView(teamId)).toLatin1());
 }
 
 void TeamAddRoomsJobTest::shouldNotStarting()

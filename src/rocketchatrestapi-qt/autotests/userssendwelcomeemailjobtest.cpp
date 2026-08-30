@@ -45,7 +45,7 @@ void UsersSendWelcomeEmailJobTest::shouldGenerateJson()
     UsersSendWelcomeEmailJob job;
     const QString email = u"bla@kde.org"_s;
     job.setEmail(email);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"bla@kde.org"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"email":"bla@kde.org"})"_s.toLatin1());
 }
 
 void UsersSendWelcomeEmailJobTest::shouldNotStarting()

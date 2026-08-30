@@ -26,7 +26,7 @@ ApplicationsSettingsSettingsWidget::ApplicationsSettingsSettingsWidget(RocketCha
     , mRocketChatAccount(account)
     , mMainLayout(new QVBoxLayout(this))
 {
-    mMainLayout->setObjectName("mainLayout"_L1);
+    mMainLayout->setObjectName(u"mainLayout"_s);
 }
 
 ApplicationsSettingsSettingsWidget::~ApplicationsSettingsSettingsWidget() = default;
@@ -42,7 +42,7 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
 
 void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
-    const QJsonObject settings = obj[u"settings"_s].toObject();
+    const QJsonObject settings = obj["settings"_L1].toObject();
     for (const auto &current : settings) {
         // TODO store json => update it when widget settings change
         ApplicationsSettingsSettingsInfo i;

@@ -48,7 +48,7 @@ void DeleteMessageJobTest::shouldGenerateJson()
     job.setRoomId(roomId);
     job.setMessageId(text);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"msgId":"%2","roomId":"%1"})").arg(QLatin1StringView(roomId), QLatin1StringView(text)).toLatin1());
+             uR"({"msgId":"%2","roomId":"%1"})"_s.arg(QLatin1StringView(roomId), QLatin1StringView(text)).toLatin1());
 }
 
 void DeleteMessageJobTest::shouldNotStarting()

@@ -39,7 +39,7 @@ bool E2EDataBase::saveKey(const QString &accountName, const QString &userId, con
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("INSERT OR REPLACE INTO E2EKEYS (userId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"));
+    query.prepare(u"INSERT OR REPLACE INTO E2EKEYS (userId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"_s);
     query.addBindValue(userId);
     query.addBindValue(encryptedPrivateKey);
     query.addBindValue(publicKey);
@@ -57,7 +57,7 @@ bool E2EDataBase::loadKey(const QString &accountName, const QString &userId, QBy
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT encryptedPrivateKey, publicKey FROM E2EKEYS WHERE userId = ?"));
+    query.prepare(u"SELECT encryptedPrivateKey, publicKey FROM E2EKEYS WHERE userId = ?"_s);
     query.addBindValue(userId);
     if (query.exec() && query.first()) {
         encryptedPrivateKey = query.value(0).toByteArray();
@@ -74,7 +74,7 @@ bool E2EDataBase::deleteKey(const QString &accountName, const QString &userId)
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("DELETE FROM E2EKEYS WHERE userId = ?"));
+    query.prepare(u"DELETE FROM E2EKEYS WHERE userId = ?"_s);
     query.addBindValue(userId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EKEYS table" << db.databaseName() << query.lastError();
@@ -95,7 +95,7 @@ bool E2EDataBase::hasKey(const QString &accountName, const QString &userId)
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT 1 FROM E2EKEYS WHERE userId = ?"));
+    query.prepare(u"SELECT 1 FROM E2EKEYS WHERE userId = ?"_s);
     query.addBindValue(userId);
     return query.exec() && query.first();
 }

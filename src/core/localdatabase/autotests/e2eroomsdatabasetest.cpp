@@ -10,10 +10,10 @@
 
 QTEST_GUILESS_MAIN(E2ERoomsDataBaseTest)
 using namespace Qt::Literals::StringLiterals;
-const auto testRoom = QStringLiteral("testRoom");
-const auto testKey = QStringLiteral("testKey");
-const auto testOtherRoom = QStringLiteral("testOtherRoom");
-const auto testOtherKey = QStringLiteral("testOtherKey");
+const auto testRoom = u"testRoom"_s;
+const auto testKey = u"testKey"_s;
+const auto testOtherRoom = u"testOtherRoom"_s;
+const auto testOtherKey = u"testOtherKey"_s;
 static QString accountName()
 {
     return u"myAccount"_s;

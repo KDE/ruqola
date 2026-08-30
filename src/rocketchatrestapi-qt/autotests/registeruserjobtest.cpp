@@ -63,7 +63,7 @@ void RegisterUserJobTest::shouldGenerateJson()
         info.password = password;
         job.setRegisterUserInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","username":"%4"})").arg(email, name, password, username).toLatin1());
+                 uR"({"email":"%1","name":"%2","pass":"%3","username":"%4"})"_s.arg(email, name, password, username).toLatin1());
     }
     {
         RegisterUserJob job;
@@ -79,9 +79,8 @@ void RegisterUserJobTest::shouldGenerateJson()
         info.password = password;
         info.reason = reason;
         job.setRegisterUserInfo(info);
-        QCOMPARE(
-            job.json().toJson(QJsonDocument::Compact),
-            QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","reason":"%4","username":"%5"})").arg(email, name, password, reason, username).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 uR"({"email":"%1","name":"%2","pass":"%3","reason":"%4","username":"%5"})"_s.arg(email, name, password, reason, username).toLatin1());
     }
 }
 

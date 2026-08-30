@@ -47,7 +47,7 @@ void ChangeGroupsDescriptionJobTest::shouldGenerateJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setDescription(description);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"description":"%1","roomId":"%2"})").arg(description, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"description":"%1","roomId":"%2"})"_s.arg(description, roomId).toLatin1());
 }
 
 #include "moc_changegroupsdescriptionjobtest.cpp"

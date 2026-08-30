@@ -191,14 +191,14 @@ void EmailSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::Set
     initializeWidget(mInvitationSubject, mapSettings, u"You have been invited to [Site_Name]"_s);
     initializeWidget(mInvitationBody,
                      mapSettings,
-                     QStringLiteral("<h2>{Welcome_to Site_Name}</h2><p>{Visit_Site_Url_and_try_the_best_open_source_chat_solution_available_today}</p><a "
-                                    "class=\"btn\" href=\"[Site_URL]\">{Join_Chat}</a>"));
+                     u"<h2>{Welcome_to Site_Name}</h2><p>{Visit_Site_Url_and_try_the_best_open_source_chat_solution_available_today}</p><a "
+                     u"class=\"btn\" href=\"[Site_URL]\">{Join_Chat}</a>"_s);
 
     initializeWidget(mPasswordChangedSubject, mapSettings, u"{Password_Changed_Email_Subject}"_s);
     initializeWidget(mPasswordChangedBody,
                      mapSettings,
-                     QStringLiteral("<h2>{Hi},</h2><p>{Your_password_was_changed_by_an_admin}</p><p>{Your_temporary_password_is_password}</p><a class=\"btn\" "
-                                    "target=\"_blank\" href=\"[Site_URL]\">{Login}</a>"));
+                     u"<h2>{Hi},</h2><p>{Your_password_was_changed_by_an_admin}</p><p>{Your_temporary_password_is_password}</p><a class=\"btn\" "
+                     u"target=\"_blank\" href=\"[Site_URL]\">{Login}</a>"_s);
 }
 
 #include "moc_emailsettingswidget.cpp"

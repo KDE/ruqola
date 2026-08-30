@@ -63,8 +63,7 @@ void UsersUpdateJobTest::shouldGenerateJson()
     job.setUpdateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"data":{"email":"%1","name":"%2","password":"%4","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"username":"%3","verified":false},"userId":"%5"})")
+        uR"({"data":{"email":"%1","name":"%2","password":"%4","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"username":"%3","verified":false},"userId":"%5"})"_s
             .arg(mEmail, mName, mUserName, mPassword, mUserId)
             .toLatin1());
 }

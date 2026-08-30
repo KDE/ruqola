@@ -49,7 +49,7 @@ void TeamUpdateRoomJobTest::shouldGenerateJson()
     const bool isDefault = true;
     job.setIsDefault(isDefault);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"isDefault":true,"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"isDefault":true,"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 }
 
 void TeamUpdateRoomJobTest::shouldNotStarting()

@@ -618,7 +618,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // Move code in rocketChatAccount ?
 
             QString roomId = eventname;
-            roomId.remove(u"/deleteMessage"_s);
+            roomId.remove("/deleteMessage"_L1);
             MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1());
             if (messageModel) {
                 const QJsonObject objRemoveId = contents.at(0).toObject();
@@ -648,7 +648,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
 
             QString roomId = eventname;
-            roomId.remove(u"/user-activity"_s);
+            roomId.remove("/user-activity"_L1);
             // TODO Perhaps not necessary to convert to variantlist. Need to investigate
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-room: typing event ? " << eventname << " content  " << contents.toVariantList() << " object "
                                         << object;
@@ -667,7 +667,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             qCDebug(RUQOLA_BACKEND_LOG) << " DELETE MESSAGE Bulk not IMPLEMENTED yet";
             QString roomId = eventname;
-            roomId.remove(u"/deleteMessageBulk"_s);
+            roomId.remove("/deleteMessageBulk"_L1);
             qCDebug(RUQOLA_BACKEND_LOG) << "UNIMPLEMENT!!!!!! deleteMessageBulk " << collection << " object " << object;
             // QJsonObject({"collection":"stream-notify-room","fields":{"args":[{"excludePinned":false,"ignoreDiscussion":true,"rid":"QgCf8GcnXYW5QXiHN","ts":{"$gt":{"$date":946681200000},"$lt":{"$date":1599602400000}},"users":[]}],"eventName":"QgCf8GcnXYW5QXiHN/deleteMessageBulk"},"id":"id","msg":"changed"})
         } else if (eventname.endsWith("/messagesRead"_L1)) {
@@ -681,7 +681,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // the read-receipt flag on messages up to that point so the indicator updates live.
             // Args: [{ until: Date, tmid?: string }]; a per-thread read (tmid set) is not handled here.
             QString roomId = eventname;
-            roomId.remove(u"/messagesRead"_s);
+            roomId.remove("/messagesRead"_L1);
             const QJsonObject readInfo = contents.at(0).toObject();
             const qint64 until = Utils::parseDate(u"until"_s, readInfo);
             if (until > 0 && readInfo.value("tmid"_L1).toString().isEmpty()) {

@@ -1,4 +1,5 @@
 /*
+
    SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -13,6 +14,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(RoomEncryptionKeyTest)
 
 RoomEncryptionKeyTest::RoomEncryptionKeyTest(QObject *parent)
@@ -97,12 +99,12 @@ void RoomEncryptionKeyTest::shouldKeepOldRoomKeysToReadHistory()
     roomKey.setE2EKey(shareKeyForKeyId(currentKeyId, currentSessionKey));
 
     QJsonObject oldKey;
-    oldKey[QStringLiteral("e2eKeyId")] = previousKeyId;
-    oldKey[QStringLiteral("E2EKey")] = shareKeyForKeyId(previousKeyId, previousSessionKey);
+    oldKey[u"e2eKeyId"_s] = previousKeyId;
+    oldKey[u"E2EKey"_s] = shareKeyForKeyId(previousKeyId, previousSessionKey);
     // The server hands the suggested ones over in a separate field, both go through the same parse.
     QJsonObject suggestedOldKey;
-    suggestedOldKey[QStringLiteral("e2eKeyId")] = suggestedKeyId;
-    suggestedOldKey[QStringLiteral("E2EKey")] = shareKeyForKeyId(suggestedKeyId, suggestedSessionKey);
+    suggestedOldKey[u"e2eKeyId"_s] = suggestedKeyId;
+    suggestedOldKey[u"E2EKey"_s] = shareKeyForKeyId(suggestedKeyId, suggestedSessionKey);
     roomKey.parseOldRoomKeys(QJsonArray() << oldKey);
     roomKey.parseOldRoomKeys(QJsonArray() << suggestedOldKey);
     QVERIFY(roomKey.hasEncryptedKeys());
@@ -126,8 +128,8 @@ void RoomEncryptionKeyTest::shouldKeepOldRoomKeysToReadHistory()
     // and the current key never belongs to the old ones.
     roomKey.parseOldRoomKeys(QJsonArray() << oldKey << oldKey);
     QJsonObject currentAsOldKey;
-    currentAsOldKey[QStringLiteral("e2eKeyId")] = currentKeyId;
-    currentAsOldKey[QStringLiteral("E2EKey")] = shareKeyForKeyId(currentKeyId, EncryptionUtils::generateSessionKey());
+    currentAsOldKey[u"e2eKeyId"_s] = currentKeyId;
+    currentAsOldKey[u"E2EKey"_s] = shareKeyForKeyId(currentKeyId, EncryptionUtils::generateSessionKey());
     roomKey.parseOldRoomKeys(QJsonArray() << currentAsOldKey);
     QCOMPARE(roomKey.sessionKeyForKeyId(previousKeyId), previousSessionKey);
     QCOMPARE(roomKey.sessionKeyForKeyId(currentKeyId), currentSessionKey);

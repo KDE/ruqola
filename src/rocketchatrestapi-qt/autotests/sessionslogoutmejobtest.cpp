@@ -45,7 +45,7 @@ void SessionsLogoutMeJobTest::shouldGenerateJson()
     const QByteArray sessionId("foo1");
     job.setSessionId(sessionId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"sessionId":"%1"})").arg(QLatin1StringView(sessionId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"sessionId":"%1"})"_s.arg(QLatin1StringView(sessionId)).toLatin1());
 }
 
 void SessionsLogoutMeJobTest::shouldNotStarting()

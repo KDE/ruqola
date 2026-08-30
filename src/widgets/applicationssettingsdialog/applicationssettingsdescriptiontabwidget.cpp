@@ -25,23 +25,23 @@ ApplicationsSettingsDescriptionTabWidget::ApplicationsSettingsDescriptionTabWidg
     , mSettingsWidget(new ApplicationsSettingsSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
-    mTabWidget->setObjectName("mTabWidget"_L1);
+    mTabWidget->setObjectName(u"mTabWidget"_s);
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mTabWidget);
 
-    mDescriptionWidget->setObjectName("mDescriptionWidget"_L1);
+    mDescriptionWidget->setObjectName(u"mDescriptionWidget"_s);
     mTabWidget->addTab(mDescriptionWidget, i18n("Description"));
 
-    mVersionWidget->setObjectName("mVersionWidget"_L1);
+    mVersionWidget->setObjectName(u"mVersionWidget"_s);
     mTabWidget->addTab(mVersionWidget, i18n("Versions"));
 
-    mLogsWidget->setObjectName("mLogsWidget"_L1);
+    mLogsWidget->setObjectName(u"mLogsWidget"_s);
     const int logTabIndex = mTabWidget->addTab(mLogsWidget, i18n("Logs"));
 
-    mSettingsWidget->setObjectName("mSettingsWidget"_L1);
+    mSettingsWidget->setObjectName(u"mSettingsWidget"_s);
     const int settingsTabIndex = mTabWidget->addTab(mSettingsWidget, i18n("Settings"));
 
     if (mRocketChatAccount) {

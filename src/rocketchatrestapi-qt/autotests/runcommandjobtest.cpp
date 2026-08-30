@@ -49,7 +49,7 @@ void RunCommandJobTest::shouldGenerateJson()
     info.threadMessageId = u"threadId"_s;
     job.setRunCommandInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"command":"%1","roomId":"%2","tmid":"%3"})").arg(info.commandName, info.roomId, info.threadMessageId).toLatin1());
+             uR"({"command":"%1","roomId":"%2","tmid":"%3"})"_s.arg(info.commandName, info.roomId, info.threadMessageId).toLatin1());
 }
 
 void RunCommandJobTest::shouldNotStarting()

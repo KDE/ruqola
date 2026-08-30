@@ -44,10 +44,10 @@ void ImBlockUserJobTest::shouldGenerateJson()
 
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"block":false,"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"block":false,"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 
     job.setBlockUser(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"block":true,"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"block":true,"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 }
 
 void ImBlockUserJobTest::shouldNotStarting()

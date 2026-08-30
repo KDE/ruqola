@@ -53,29 +53,27 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     job.setParentRoomId(pRid);
     const QString discussionName = u"bla"_s;
     job.setDiscussionName(discussionName);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","t_name":"%2"})").arg(QLatin1StringView(pRid), discussionName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"prid":"%1","t_name":"%2"})"_s.arg(QLatin1StringView(pRid), discussionName).toLatin1());
     const QString replyMessage = u"Bli"_s;
     job.setReplyMessage(replyMessage);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3"})").arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
+             uR"({"prid":"%1","reply":"%2","t_name":"%3"})"_s.arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
 
     const QList<QByteArray> users{"aaa"_ba, "bbb"_ba, "ddd"_ba};
     job.setUsers(users);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
-                 .arg(QLatin1StringView(pRid), replyMessage, discussionName)
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        uR"({"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})"_s.arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
 
     job.setEncrypted(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
-                 .arg(QLatin1StringView(pRid), replyMessage, discussionName)
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        uR"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})"_s.arg(QLatin1StringView(pRid), replyMessage, discussionName)
+            .toLatin1());
     const QString topic = u"topic"_s;
     job.setTopic(topic);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","topic":"%4","users":["aaa","bbb","ddd"]})")
+             uR"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","topic":"%4","users":["aaa","bbb","ddd"]})"_s
                  .arg(QLatin1StringView(pRid), replyMessage, discussionName, topic)
                  .toLatin1());
 }

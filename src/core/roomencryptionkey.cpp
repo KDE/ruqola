@@ -155,18 +155,18 @@ QByteArray normalizeSessionKeyPayload(const QByteArray &decryptedPayload)
     if (!doc.isNull()) {
         if (doc.isObject()) {
             const QJsonObject obj = doc.object();
-            if (const QString k = obj.value(QStringLiteral("k")).toString(); !k.isEmpty()) {
+            if (const QString k = obj.value("k"_L1).toString(); !k.isEmpty()) {
                 const QByteArray decodedK = QByteArray::fromBase64(k.toLatin1(), QByteArray::Base64UrlEncoding);
                 if (isSupportedSessionKeySize(decodedK.size())) {
                     return decodedK;
                 }
             }
-            if (const QString key = obj.value(QStringLiteral("key")).toString(); !key.isEmpty()) {
+            if (const QString key = obj.value("key"_L1).toString(); !key.isEmpty()) {
                 if (const QByteArray decodedKey = decodeBase64Variants(key.toLatin1()); isSupportedSessionKeySize(decodedKey.size())) {
                     return decodedKey;
                 }
             }
-            if (const QString binary = obj.value(QStringLiteral("$binary")).toString(); !binary.isEmpty()) {
+            if (const QString binary = obj.value("$binary"_L1).toString(); !binary.isEmpty()) {
                 const QByteArray decodedBinary = QByteArray::fromBase64(binary.toLatin1());
                 if (isSupportedSessionKeySize(decodedBinary.size())) {
                     return decodedBinary;
@@ -429,8 +429,8 @@ void RoomEncryptionKey::parseOldRoomKeys(const QJsonArray &array)
     // is left untouched: it may carry a session key an earlier payload let us decrypt.
     for (const QJsonValue &value : array) {
         const QJsonObject obj = value.toObject();
-        const QString keyId = obj.value(QStringLiteral("e2eKeyId")).toString();
-        const QString encryptedKey = obj.value(QStringLiteral("E2EKey")).toString();
+        const QString keyId = obj.value("e2eKeyId"_L1).toString();
+        const QString encryptedKey = obj.value("E2EKey"_L1).toString();
         if (keyId.isEmpty() || encryptedKey.isEmpty() || keyId == mE2eKeyId) {
             continue;
         }

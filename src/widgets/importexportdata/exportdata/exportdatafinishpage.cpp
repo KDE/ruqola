@@ -54,7 +54,7 @@ bool ExportDataFinishPage::isComplete() const
 
 QString ExportDataFinishPage::generateExportZipFileName()
 {
-    return QDir::homePath() + u'/' + u"ruqola-accountdata-%1.zip"_s.arg(QDateTime::currentDateTime().toString()).replace(u":"_s, u"_"_s);
+    return QDir::homePath() + u'/' + u"ruqola-accountdata-%1.zip"_s.arg(QDateTime::currentDateTime().toString()).replace(u':', u'_');
 }
 
 void ExportDataFinishPage::setListAccounts(const QList<ImportExportUtils::AccountImportExportInfo> &newListAccounts)

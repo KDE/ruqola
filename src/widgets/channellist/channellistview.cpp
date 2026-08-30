@@ -170,7 +170,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addAction(convertToTeam);
                     }
                 } else {
-                    if (room->hasPermission("edit-team-channel"_L1)) {
+                    if (room->hasPermission(u"edit-team-channel"_s)) {
                         menu.addSeparator();
                         auto convertToChanne = new QAction(i18nc("@action", "Convert to Channel"), &menu);
                         connect(convertToChanne, &QAction::triggered, this, [this, index]() {

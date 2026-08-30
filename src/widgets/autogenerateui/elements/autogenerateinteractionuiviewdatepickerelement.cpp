@@ -67,7 +67,7 @@ void AutoGenerateInteractionUiViewDatePickerElement::setPlaceHolder(AutoGenerate
 
 QVariant AutoGenerateInteractionUiViewDatePickerElement::currentValue() const
 {
-    return mDateTime->date().toString("yyyy-MM-dd"_L1);
+    return mDateTime->date().toString(u"yyyy-MM-dd");
 }
 
 void AutoGenerateInteractionUiViewDatePickerElement::setCurrentValue(const QVariant &v)

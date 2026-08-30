@@ -49,11 +49,11 @@ void SetStatusJobTest::shouldGenerateJson()
     job.setStatusUserId(userId);
     job.setStatusMessage(QString());
     job.setStatus(SetStatusJob::StatusType::Away);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"","status":"away","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"","status":"away","userId":"foo1"})"_s.arg(userId).toLatin1());
     job.setStatusMessage(u"bla"_s);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"away","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"away","userId":"foo1"})"_s.arg(userId).toLatin1());
     job.setStatus(SetStatusJob::StatusType::Offline);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"offline","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"offline","userId":"foo1"})"_s.arg(userId).toLatin1());
 }
 
 void SetStatusJobTest::shouldNotStarting()

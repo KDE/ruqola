@@ -176,10 +176,10 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     if (encryptedPrivateKey.startsWith('{')) {
         // ── V2 format (AES-GCM) ─────────────────────────────────────────────
         const QJsonObject v2 = QJsonDocument::fromJson(encryptedPrivateKey).object();
-        const QString v2Salt = v2.value(QStringLiteral("salt")).toString();
-        const int v2Iterations = v2.value(QStringLiteral("iterations")).toInt();
-        const QByteArray v2Iv = QByteArray::fromBase64(v2.value(QStringLiteral("iv")).toString().toUtf8());
-        const QByteArray v2Ciphertext = QByteArray::fromBase64(v2.value(QStringLiteral("ciphertext")).toString().toUtf8());
+        const QString v2Salt = v2.value("salt"_L1).toString();
+        const int v2Iterations = v2.value("iterations"_L1).toInt();
+        const QByteArray v2Iv = QByteArray::fromBase64(v2.value("iv"_L1).toString().toUtf8());
+        const QByteArray v2Ciphertext = QByteArray::fromBase64(v2.value("ciphertext"_L1).toString().toUtf8());
 
         if (v2Salt.isEmpty() || v2Iterations <= 0 || v2Iv.isEmpty() || v2Ciphertext.isEmpty()) {
             qCDebug(RUQOLA_ENCRYPTION_LOG) << "Encrypted private key is not a V2 envelope, reading it as the binary layout";
@@ -788,12 +788,12 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
         // Helper: process a QJsonObject for V1 ($binary) or V2 (iv/ciphertext)
         const auto decodeObject = [](const QJsonObject &obj) -> QByteArray {
             // V1: {"$binary": "<base64>"}
-            const QString binaryValue = obj.value(QStringLiteral("$binary")).toString();
+            const QString binaryValue = obj.value("$binary"_L1).toString();
             if (!binaryValue.isEmpty()) {
                 return QByteArray::fromBase64(binaryValue.toUtf8());
             }
             // V2: {"iv":…, "ciphertext":…, "salt":…, "iterations":…}
-            if (obj.contains(QStringLiteral("iv")) && obj.contains(QStringLiteral("ciphertext")) && obj.contains(QStringLiteral("salt"))) {
+            if (obj.contains("iv"_L1) && obj.contains("ciphertext"_L1) && obj.contains("salt"_L1)) {
                 return QJsonDocument(obj).toJson(QJsonDocument::Compact);
             }
             if (obj.isEmpty()) {

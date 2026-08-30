@@ -49,13 +49,11 @@ void SetUserPublicAndPrivateKeysJobTest::shouldGenerateJson()
     info.rsaPrivateKey = rsaprivate;
     info.rsaPublicKey = rsapublic;
     job.setSetUserPublicAndPrivateKeysInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"force":false,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"force":false,"private_key":"%2","public_key":"%1"})"_s.arg(rsapublic, rsaprivate).toLatin1());
 
     info.force = true;
     job.setSetUserPublicAndPrivateKeysInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"force":true,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"force":true,"private_key":"%2","public_key":"%1"})"_s.arg(rsapublic, rsaprivate).toLatin1());
 }
 
 void SetUserPublicAndPrivateKeysJobTest::shouldNotStarting()

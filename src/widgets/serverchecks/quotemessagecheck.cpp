@@ -52,8 +52,8 @@ void QuoteMessageCheck::checkState()
             return;
         }
         QString permalink = mAccount->serverUrl() + u'/' + RoomUtil::generatePermalink(QString::fromLatin1(mOriginalId), room->name(), room->channelType());
-        if (!permalink.startsWith(u"https://"_s)) {
-            permalink.prepend(u"https://"_s);
+        if (!permalink.startsWith("https://"_L1)) {
+            permalink.prepend("https://"_L1);
         }
         // This is how Ruqola itself sends a quote (see MessageLineWidget).
         mAccount->sendMessage(mRoomId, u"[ ](%1) %2"_s.arg(permalink, mQuoteMarker));

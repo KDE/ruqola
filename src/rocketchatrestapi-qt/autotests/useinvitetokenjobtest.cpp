@@ -44,7 +44,7 @@ void UseInviteTokenJobTest::shouldGenerateJson()
 {
     UseInviteTokenJob job;
     job.setToken(u"bla"_s);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"token":"bla"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"token":"bla"})"_s.toLatin1());
 }
 
 void UseInviteTokenJobTest::shouldNotStarting()

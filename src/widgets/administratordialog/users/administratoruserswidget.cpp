@@ -72,14 +72,14 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         break;
     }
 
-    adminUsersModel->setObjectName("mAdminUsersModel"_L1);
+    adminUsersModel->setObjectName(u"mAdminUsersModel"_s);
     if (account) {
         adminUsersModel->setRoles(account->roleInfo());
     }
     mModel = adminUsersModel;
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
-    mProxyModelModel->setObjectName("mAdminUsersProxyModel"_L1);
+    mProxyModelModel->setObjectName(u"mAdminUsersProxyModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
     if (type == AdministratorUsersWidget::UsersType::Pending) {
@@ -97,7 +97,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         mProxyModelModel->setSortFunction(funct);
     }
 
-    mRolesComboBox->setObjectName("mRolesComboBox"_L1);
+    mRolesComboBox->setObjectName(u"mRolesComboBox"_s);
     mSearchLineLayout->addWidget(mRolesComboBox);
     if (account) {
         mRolesComboBox->setRolesInfo(account->roleInfo());

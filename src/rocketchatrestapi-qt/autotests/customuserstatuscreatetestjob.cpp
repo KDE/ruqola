@@ -48,7 +48,7 @@ void CustomUserStatusCreateTestJob::shouldGenerateJson()
     info.name = name;
     info.statusType = statusType;
     job.setStatusCreateInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","statusType":"%2"})").arg(name, statusType).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"name":"%1","statusType":"%2"})"_s.arg(name, statusType).toLatin1());
 }
 
 void CustomUserStatusCreateTestJob::shouldNotStarting()

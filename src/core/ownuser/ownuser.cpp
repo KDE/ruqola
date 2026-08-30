@@ -40,7 +40,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 
 bool OwnUser::isAdministrator() const
 {
-    return mRoles.contains(u"admin"_s);
+    return mRoles.contains("admin"_L1);
 }
 
 ServicePassword OwnUser::servicePassword() const

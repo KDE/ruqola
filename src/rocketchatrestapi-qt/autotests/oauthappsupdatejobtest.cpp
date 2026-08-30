@@ -50,7 +50,7 @@ void OauthAppsUpdateJobTest::shouldGenerateJson()
     foo.appId = u"bli"_s;
     job.setOauthAppsUpdateInfo(foo);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"active":true,"appId":"bli","name":"bla","redirectUri":"bl"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"active":true,"appId":"bli","name":"bla","redirectUri":"bl"})"_s.toLatin1());
 }
 
 void OauthAppsUpdateJobTest::shouldNotStarting()

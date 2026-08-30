@@ -1,4 +1,5 @@
 /*
+
    SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -7,6 +8,7 @@
 #include "messageencryptiondecryptiontest.h"
 #include "encryption/encryptionutils.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(MessageEncryptionDecryptionTest)
 MessageEncryptionDecryptionTest::MessageEncryptionDecryptionTest(QObject *parent)
@@ -24,7 +26,7 @@ MessageEncryptionDecryptionTest::MessageEncryptionDecryptionTest(QObject *parent
  */
 void MessageEncryptionDecryptionTest::messageEncryptionDecryptionTest()
 {
-    const auto message = QStringLiteral("This is GSoC 2025, Andro Ranogajec got to the end of 'Phase 1' :)");
+    const auto message = u"This is GSoC 2025, Andro Ranogajec got to the end of 'Phase 1' :)"_s;
     const QByteArray sessionKey1 = EncryptionUtils::generateSessionKey();
     const QByteArray sessionKey2 = EncryptionUtils::generateSessionKey();
     const QString decryptedMessage =

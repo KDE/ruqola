@@ -23,10 +23,12 @@ curl -X POST http://localhost:3000/api/v1/login \
 #include <QFile>
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
+
 using namespace EncryptionUtils;
 using namespace RocketChatRestApi;
 
-const auto url = QStringLiteral("http://localhost:3000");
+const auto url = u"http://localhost:3000"_s;
 
 QHash<QString, QString> loadEnvFile(const QString &filePath)
 {
@@ -60,7 +62,7 @@ QHash<QString, QString> loadEnvFile(const QString &filePath)
 void uploadKeys(const QString &authToken, const QString &userId, const QString &password, QNetworkAccessManager *networkManager)
 {
     const auto keyPair = generateRSAKey();
-    const auto masterKey = getMasterKey(password, QStringLiteral("salt"));
+    const auto masterKey = getMasterKey(password, u"salt"_s);
     const auto encryptedPrivateKey = encryptPrivateKey(keyPair.privateKey, masterKey);
 
     auto *uploadJob = new SetUserPublicAndPrivateKeysJob();
@@ -104,7 +106,7 @@ void downloadKeys(const QString &password)
         qDebug() << "Downloaded Public Key:" << publicKey;
 
         const auto encryptedPrivateKey = QByteArray::fromBase64(encryptedPrivateKeyB64.toUtf8());
-        const auto masterKey = getMasterKey(password, QStringLiteral("salt"));
+        const auto masterKey = getMasterKey(password, u"salt"_s);
         const auto decryptedPrivateKey = decryptPrivateKey(encryptedPrivateKey, masterKey);
 
         qDebug() << "Decrypted Private Key:\n" << QString::fromUtf8(decryptedPrivateKey);
@@ -129,15 +131,15 @@ int main(int argc, char *argv[])
     auto *loginJob = new LoginJob(&app);
     auto *restApiMethod = new RestApiMethod();
 
-    auto creds = loadEnvFile(QStringLiteral("/home/edc/rocketchat/ruqola/.env"));
+    auto creds = loadEnvFile(u"/home/edc/rocketchat/ruqola/.env"_s);
 
     restApiMethod->setServerUrl(url);
 
     loginJob->setRestApiMethod(restApiMethod);
     loginJob->setNetworkAccessManager(networkManager);
 
-    loginJob->setUserName(creds.value(QStringLiteral("USERNAME")));
-    loginJob->setPassword(creds.value(QStringLiteral("PASSWORD")));
+    loginJob->setUserName(creds.value(u"USERNAME"_s));
+    loginJob->setPassword(creds.value(u"PASSWORD"_s));
 
     QObject::connect(loginJob, &LoginJob::loginDone, &app, [networkManager](const QString &authToken, const QString &userId) {
         qDebug() << "Login successful! Auth token:" << authToken << "UserId:" << userId;

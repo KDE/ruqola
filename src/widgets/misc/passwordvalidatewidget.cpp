@@ -16,7 +16,7 @@ PasswordValidateWidget::PasswordValidateWidget(QWidget *parent)
     : QWidget{parent}
     , mGridLayout(new QGridLayout(this))
 {
-    mGridLayout->setObjectName("mGridLayout"_L1);
+    mGridLayout->setObjectName(u"mGridLayout"_s);
     mGridLayout->setContentsMargins({});
 }
 
@@ -143,11 +143,11 @@ PasswordValidateLabel::PasswordValidateLabel(QWidget *parent)
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setSpacing(0);
 
-    mIconLabel->setObjectName("mIconLabel"_L1);
-    mLabel->setObjectName("mLabel"_L1);
+    mIconLabel->setObjectName(u"mIconLabel"_s);
+    mLabel->setObjectName(u"mLabel"_s);
     mainLayout->addWidget(mIconLabel);
     mainLayout->addWidget(mLabel);
 }

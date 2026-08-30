@@ -57,105 +57,90 @@ void TextConverterTest::shouldConvertText_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString();
-    QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("<p>foo</p>\n");
-    QTest::newRow("customemojiwithoutmanager") << QStringLiteral(":foo:") << QStringLiteral("<p>:foo:</p>\n");
+    QTest::newRow("simpletext") << u"foo"_s << u"<p>foo</p>\n"_s;
+    QTest::newRow("customemojiwithoutmanager") << u":foo:"_s << u"<p>:foo:</p>\n"_s;
 
-    QTest::newRow("testurl") << QStringLiteral("http://www.kde.org http://www.kde.org")
-                             << QStringLiteral(
-                                    "<p><a href=\"http://www.kde.org\">http://www.kde.org</a> <a href=\"http://www.kde.org\">http://www.kde.org</a></p>\n");
-    QTest::newRow("named-url") << QStringLiteral("[example.com](http://example.com)")
-                               << QStringLiteral("<p><a href=\"http://example.com\">example.com</a></p>\n");
-    QTest::newRow("unresolved quoted message") << QStringLiteral("[ ](https://example.com/channel/general?msg=quotedMessageId)\nVisible message")
-                                               << QStringLiteral("<p>Visible message</p>\n");
-    QTest::newRow("bold") << QStringLiteral("*bla*") << QStringLiteral("<p><strong>bla</strong></p>\n");
-    QTest::newRow("multi star") << QStringLiteral("**bla**") << QStringLiteral("<p><strong>bla</strong></p>\n");
-    QTest::newRow("multi star2") << QStringLiteral("***bla***") << QStringLiteral("<p><strong><strong>bla</strong></strong></p>\n");
-    QTest::newRow("multi star3") << QStringLiteral("***bla ******") << QStringLiteral("<p>***bla ******</p>\n");
-    QTest::newRow("Remove <br/>") << QStringLiteral("foo<br />") << QStringLiteral("<p>foo</p>\n");
-    QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("<p>0.6.3</p>\n");
+    QTest::newRow("testurl") << u"http://www.kde.org http://www.kde.org"_s
+                             << u"<p><a href=\"http://www.kde.org\">http://www.kde.org</a> <a href=\"http://www.kde.org\">http://www.kde.org</a></p>\n"_s;
+    QTest::newRow("named-url") << u"[example.com](http://example.com)"_s << u"<p><a href=\"http://example.com\">example.com</a></p>\n"_s;
+    QTest::newRow("unresolved quoted message") << u"[ ](https://example.com/channel/general?msg=quotedMessageId)\nVisible message"_s
+                                               << u"<p>Visible message</p>\n"_s;
+    QTest::newRow("bold") << u"*bla*"_s << u"<p><strong>bla</strong></p>\n"_s;
+    QTest::newRow("multi star") << u"**bla**"_s << u"<p><strong>bla</strong></p>\n"_s;
+    QTest::newRow("multi star2") << u"***bla***"_s << u"<p><strong><strong>bla</strong></strong></p>\n"_s;
+    QTest::newRow("multi star3") << u"***bla ******"_s << u"<p>***bla ******</p>\n"_s;
+    QTest::newRow("Remove <br/>") << u"foo<br />"_s << u"<p>foo</p>\n"_s;
+    QTest::newRow("0.6.3") << u"0.6.3"_s << u"<p>0.6.3</p>\n"_s;
     // Bug 391520
-    QTest::newRow("multi-line") << QStringLiteral("These are the options:\n- a\n- b")
-                                << QStringLiteral("<p>These are the options:</p>\n<ul>\n<li>a</li>\n<li>b</li>\n</ul>\n");
+    QTest::newRow("multi-line") << u"These are the options:\n- a\n- b"_s << u"<p>These are the options:</p>\n<ul>\n<li>a</li>\n<li>b</li>\n</ul>\n"_s;
 
-    QTest::newRow("word@") << QStringLiteral("@foo") << QStringLiteral("<p><a href='ruqola:/user/foo'>@foo</a></p>\n");
-    QTest::newRow("word@-2") << QStringLiteral("@foo.bla") << QStringLiteral("<p><a href='ruqola:/user/foo.bla'>@foo.bla</a></p>\n");
-    QTest::newRow("word@-3") << QStringLiteral("@foo.bla.bli") << QStringLiteral("<p><a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a></p>\n");
-    QTest::newRow("word@-4") << QStringLiteral("@foo.bla.bli dd") << QStringLiteral("<p><a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd</p>\n");
-    QTest::newRow("word@-5") << QStringLiteral("bla bla 21 @foo.bla.bli dd")
-                             << QStringLiteral("<p>bla bla 21 <a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd</p>\n");
-    QTest::newRow("word@-6") << QStringLiteral("@foo-bla") << QStringLiteral("<p><a href='ruqola:/user/foo-bla'>@foo-bla</a></p>\n");
-    QTest::newRow("word@-7") << QStringLiteral("@foo_bla") << QStringLiteral("<p><a href='ruqola:/user/foo_bla'>@foo_bla</a></p>\n");
-    QTest::newRow("word@-8") << QStringLiteral("bli@foo_bla") << QStringLiteral("<p>bli@foo_bla</p>\n");
-    QTest::newRow("word@-9") << QStringLiteral("@réunion") << QStringLiteral("<p><a href='ruqola:/user/réunion'>@réunion</a></p>\n");
+    QTest::newRow("word@") << u"@foo"_s << u"<p><a href='ruqola:/user/foo'>@foo</a></p>\n"_s;
+    QTest::newRow("word@-2") << u"@foo.bla"_s << u"<p><a href='ruqola:/user/foo.bla'>@foo.bla</a></p>\n"_s;
+    QTest::newRow("word@-3") << u"@foo.bla.bli"_s << u"<p><a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a></p>\n"_s;
+    QTest::newRow("word@-4") << u"@foo.bla.bli dd"_s << u"<p><a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd</p>\n"_s;
+    QTest::newRow("word@-5") << u"bla bla 21 @foo.bla.bli dd"_s << u"<p>bla bla 21 <a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd</p>\n"_s;
+    QTest::newRow("word@-6") << u"@foo-bla"_s << u"<p><a href='ruqola:/user/foo-bla'>@foo-bla</a></p>\n"_s;
+    QTest::newRow("word@-7") << u"@foo_bla"_s << u"<p><a href='ruqola:/user/foo_bla'>@foo_bla</a></p>\n"_s;
+    QTest::newRow("word@-8") << u"bli@foo_bla"_s << u"<p>bli@foo_bla</p>\n"_s;
+    QTest::newRow("word@-9") << u"@réunion"_s << u"<p><a href='ruqola:/user/réunion'>@réunion</a></p>\n"_s;
 
-    QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<p><a href='ruqola:/room/foo'>#foo</a></p>\n");
-    QTest::newRow("word#-2") << QStringLiteral("#foo.bla") << QStringLiteral("<p><a href='ruqola:/room/foo.bla'>#foo.bla</a></p>\n");
-    QTest::newRow("word#-3") << QStringLiteral("#foo.bla.bli") << QStringLiteral("<p><a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a></p>\n");
-    QTest::newRow("word#-4") << QStringLiteral("#foo.bla.bli dd") << QStringLiteral("<p><a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd</p>\n");
-    QTest::newRow("word#-5") << QStringLiteral("bla bla 21 #foo.bla.bli dd")
-                             << QStringLiteral("<p>bla bla 21 <a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd</p>\n");
-    QTest::newRow("word#-6") << QStringLiteral("#foo-bla") << QStringLiteral("<p><a href='ruqola:/room/foo-bla'>#foo-bla</a></p>\n");
-    QTest::newRow("word#-7") << QStringLiteral("#foo_bla") << QStringLiteral("<p><a href='ruqola:/room/foo_bla'>#foo_bla</a></p>\n");
-    QTest::newRow("word#-8") << QStringLiteral("#réunion") << QStringLiteral("<p><a href='ruqola:/room/réunion'>#réunion</a></p>\n");
+    QTest::newRow("word#") << u"#foo"_s << u"<p><a href='ruqola:/room/foo'>#foo</a></p>\n"_s;
+    QTest::newRow("word#-2") << u"#foo.bla"_s << u"<p><a href='ruqola:/room/foo.bla'>#foo.bla</a></p>\n"_s;
+    QTest::newRow("word#-3") << u"#foo.bla.bli"_s << u"<p><a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a></p>\n"_s;
+    QTest::newRow("word#-4") << u"#foo.bla.bli dd"_s << u"<p><a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd</p>\n"_s;
+    QTest::newRow("word#-5") << u"bla bla 21 #foo.bla.bli dd"_s << u"<p>bla bla 21 <a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd</p>\n"_s;
+    QTest::newRow("word#-6") << u"#foo-bla"_s << u"<p><a href='ruqola:/room/foo-bla'>#foo-bla</a></p>\n"_s;
+    QTest::newRow("word#-7") << u"#foo_bla"_s << u"<p><a href='ruqola:/room/foo_bla'>#foo_bla</a></p>\n"_s;
+    QTest::newRow("word#-8") << u"#réunion"_s << u"<p><a href='ruqola:/room/réunion'>#réunion</a></p>\n"_s;
     // Test parsing when it's in an url... don't replace it.
 
-    QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla")
-                         << QStringLiteral("<p><a href=\"http://www.kde.org#foo_bla\">http://www.kde.org#foo_bla</a></p>\n");
+    QTest::newRow("url") << u"http://www.kde.org#foo_bla"_s << u"<p><a href=\"http://www.kde.org#foo_bla\">http://www.kde.org#foo_bla</a></p>\n"_s;
 
     QTest::newRow("`code`")
-        << QStringLiteral("foo `bla` bar `asdf` test")
-        << QStringLiteral("<p>foo <code style='background-color:$BGCOLOR$'>bla</code> bar <code style='background-color:$BGCOLOR$'>asdf</code> test</p>\n");
-    QTest::newRow("`code \\` escaped`") << QStringLiteral("foo `bla\\` bar \\`asdf` test")
-                                        << QStringLiteral("<p>foo `bla\\` bar <code style='background-color:$BGCOLOR$'>asdf</code> test</p>\n");
-    QTest::newRow("quote<") << QStringLiteral("`inside quotes: <<....` this is outside the quotes <<.")
-                            << QStringLiteral(
-                                   "<p><code style='background-color:$BGCOLOR$'>inside quotes: &lt;&lt;....</code> this is outside the quotes &lt;&lt;.</p>\n");
-    QTest::newRow("quotedtext1") << QStringLiteral("> toto") << QStringLiteral("<p><code style='background-color:$BGCOLOR$'>toto</code></p>\n");
-    QTest::newRow("quotedtext2") << QStringLiteral("bla \n> toto")
-                                 << QStringLiteral("<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code></p>\n");
+        << u"foo `bla` bar `asdf` test"_s
+        << u"<p>foo <code style='background-color:$BGCOLOR$'>bla</code> bar <code style='background-color:$BGCOLOR$'>asdf</code> test</p>\n"_s;
+    QTest::newRow("`code \\` escaped`") << u"foo `bla\\` bar \\`asdf` test"_s
+                                        << u"<p>foo `bla\\` bar <code style='background-color:$BGCOLOR$'>asdf</code> test</p>\n"_s;
+    QTest::newRow("quote<") << u"`inside quotes: <<....` this is outside the quotes <<."_s
+                            << u"<p><code style='background-color:$BGCOLOR$'>inside quotes: &lt;&lt;....</code> this is outside the quotes &lt;&lt;.</p>\n"_s;
+    QTest::newRow("quotedtext1") << u"> toto"_s << u"<p><code style='background-color:$BGCOLOR$'>toto</code></p>\n"_s;
+    QTest::newRow("quotedtext2") << u"bla \n> toto"_s << u"<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code></p>\n"_s;
 
     QTest::newRow("quotedtext3")
-        << QStringLiteral("bla \n> toto \n> bla")
-        << QStringLiteral(
-               "<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code><br />\n<code style='background-color:$BGCOLOR$'>bla</code></p>\n");
+        << u"bla \n> toto \n> bla"_s
+        << u"<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code><br />\n<code style='background-color:$BGCOLOR$'>bla</code></p>\n"_s;
 
-    QTest::newRow("quotedtext4") << QStringLiteral("bla \n> toto \n> *bla*")
-                                 << QStringLiteral(
-                                        "<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code><br />\n<code "
-                                        "style='background-color:$BGCOLOR$'></code><strong>bla</strong></p>\n");
+    QTest::newRow("quotedtext4") << u"bla \n> toto \n> *bla*"_s
+                                 << u"<p>bla<br />\n<code style='background-color:$BGCOLOR$'>toto</code><br />\n<code "
+                                    u"style='background-color:$BGCOLOR$'></code><strong>bla</strong></p>\n"_s;
 
-    QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<p>bla &gt; toto</p>\n");
+    QTest::newRow("noquotedtext") << u"bla > toto"_s << u"<p>bla &gt; toto</p>\n"_s;
 
-    QTest::newRow("code-with-language") << QStringLiteral("```ruby\nssss\n```")
-                                        << QStringLiteral(
-                                               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                               "$BORDERCOLOR$'><code>ssss</code></td></tr></table></p>\n");
+    QTest::newRow("code-with-language") << u"```ruby\nssss\n```"_s
+                                        << u"<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                           u"$BORDERCOLOR$'><code>ssss</code></td></tr></table></p>\n"_s;
 
     QTest::newRow("code-with-language-2")
-        << QStringLiteral("```dart\nimport 'package:flutter/material.dart';\nimport 'package:markdown/markdown.dart';\n```")
-        << QStringLiteral(
-               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code><span "
-               "style=\"font-weight:bold;\">import</span>&nbsp;<span style=\"color:#bf0303;\">'package:flutter/material.dart'</span>;<br><span "
-               "style=\"font-weight:bold;\">import</span>&nbsp;<span "
-               "style=\"color:#bf0303;\">'package:markdown/markdown.dart'</span>;</code></td></tr></table></p>\n");
+        << u"```dart\nimport 'package:flutter/material.dart';\nimport 'package:markdown/markdown.dart';\n```"_s
+        << u"<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code><span "
+           u"style=\"font-weight:bold;\">import</span>&nbsp;<span style=\"color:#bf0303;\">'package:flutter/material.dart'</span>;<br><span "
+           u"style=\"font-weight:bold;\">import</span>&nbsp;<span "
+           u"style=\"color:#bf0303;\">'package:markdown/markdown.dart'</span>;</code></td></tr></table></p>\n"_s;
 
     QTest::newRow("indented-code-block")
-        << QStringLiteral("```\n  first line\n  second line\n```")
-        << QStringLiteral(
-               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-               "$BORDERCOLOR$'><code>&nbsp;&nbsp;first&nbsp;line<br>&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
+        << u"```\n  first line\n  second line\n```"_s
+        << u"<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+           u"$BORDERCOLOR$'><code>&nbsp;&nbsp;first&nbsp;line<br>&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n"_s;
 
     QTest::newRow("indented-code-block2")
-        << QStringLiteral("```\n\tfirst line\t  second line\n```")
-        << QStringLiteral(
-               "<p><table><tr><td style='background-color:#f7f7f7; padding: 5px; border: 1px solid "
-               "#707d8a'><code>&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n");
+        << u"```\n\tfirst line\t  second line\n```"_s
+        << u"<p><table><tr><td style='background-color:#f7f7f7; padding: 5px; border: 1px solid "
+           u"#707d8a'><code>&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;line&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;second&nbsp;line</code></td></tr></table></p>\n"_s;
     // We don't need to convert #1
-    QTest::newRow("href + #") << QStringLiteral("[test #1](http://www.kde.org)") << QStringLiteral("<p><a href=\"http://www.kde.org\">test #1</a></p>\n");
+    QTest::newRow("href + #") << u"[test #1](http://www.kde.org)"_s << u"<p><a href=\"http://www.kde.org\">test #1</a></p>\n"_s;
 
     // Bug we convert url with emoji
-    QTest::newRow("url emoji") << QStringLiteral("http://www.kde.org/:b:/s/bla")
-                               << QStringLiteral("<p><a href=\"http://www.kde.org/:b:/s/bla\">http://www.kde.org/:b:/s/bla</a></p>\n");
+    QTest::newRow("url emoji") << u"http://www.kde.org/:b:/s/bla"_s << u"<p><a href=\"http://www.kde.org/:b:/s/bla\">http://www.kde.org/:b:/s/bla</a></p>\n"_s;
 }
 
 void TextConverterTest::shouldConvertText()
@@ -185,35 +170,30 @@ void TextConverterTest::shouldHighlightWords_data()
     QTest::addColumn<QStringList>("highlightWords");
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString() << QStringList{} << QString();
-    const QStringList highlightWords{QStringLiteral("ruqola"), QStringLiteral("kde")};
-    QTest::newRow("lowercase") << QStringLiteral("Ruqola") << QStringLiteral("foo") << highlightWords
-                               << QStringLiteral("<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a></p>\n");
-    QTest::newRow("two-word") << QStringLiteral("Ruqola kde") << QStringLiteral("foo") << highlightWords
-                              << QStringLiteral(
-                                     "<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> <a "
-                                     "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a></p>\n");
+    const QStringList highlightWords{u"ruqola"_s, u"kde"_s};
+    QTest::newRow("lowercase") << u"Ruqola"_s << u"foo"_s << highlightWords
+                               << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a></p>\n"_s;
+    QTest::newRow("two-word") << u"Ruqola kde"_s << u"foo"_s << highlightWords
+                              << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> <a "
+                                 u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a></p>\n"_s;
 
-    QTest::newRow("words") << QStringLiteral("Ruqola bla kde KDE.") << QStringLiteral("foo") << highlightWords
-                           << QStringLiteral(
-                                  "<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> bla <a "
-                                  "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
-                                  "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n");
+    QTest::newRow("words") << u"Ruqola bla kde KDE."_s << u"foo"_s << highlightWords
+                           << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> bla <a "
+                              u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
+                              u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n"_s;
 
-    QTest::newRow("wordinurl") << QStringLiteral("https://www.kde.org/~/bla/bli.txt") << QStringLiteral("bla") << highlightWords
-                               << QStringLiteral(
-                                      "<p><a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a "
-                                      "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a>.org/~/bla/bli.txt</a></p>\n");
+    QTest::newRow("wordinurl") << u"https://www.kde.org/~/bla/bli.txt"_s << u"bla"_s << highlightWords
+                               << u"<p><a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a "
+                                  u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a>.org/~/bla/bli.txt</a></p>\n"_s;
     QTest::newRow("channelruqola")
-        << QStringLiteral("#ruqola-bla bla kde KDE.") << QStringLiteral("foo") << highlightWords
-        << QStringLiteral(
-               "<p><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "
-               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
-               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n");
+        << u"#ruqola-bla bla kde KDE."_s << u"foo"_s << highlightWords
+        << u"<p><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "
+           u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
+           u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n"_s;
 
-    QTest::newRow("here1") << QStringLiteral("ruqola @here") << QStringLiteral("foo") << highlightWords
-                           << QStringLiteral(
-                                  "<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a> <a "
-                                  "style=\"color:$HERECOLOR$;background-color:$HEREBGCOLOR$;font-weight:bold\">here</a></p>\n");
+    QTest::newRow("here1") << u"ruqola @here"_s << u"foo"_s << highlightWords
+                           << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a> <a "
+                              u"style=\"color:$HERECOLOR$;background-color:$HEREBGCOLOR$;font-weight:bold\">here</a></p>\n"_s;
 }
 
 void TextConverterTest::shouldHighlightWords()
@@ -239,17 +219,18 @@ void TextConverterTest::shouldHighlightText_data()
     QTest::addColumn<QString>("username");
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString() << QString();
-    QTest::newRow("word@1") << QStringLiteral("@foo") << QString() << QStringLiteral("<p><a href='ruqola:/user/foo'>@foo</a></p>\n");
+    QTest::newRow("word@1") << u"@foo"_s << QString() << u"<p><a href='ruqola:/user/foo'>@foo</a></p>\n"_s;
     const KColorScheme colorScheme;
     const auto userMentionForegroundColor = colorScheme.foreground(KColorScheme::NegativeText).color().name();
     const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::NegativeBackground).color().name();
-    QTest::newRow("word@1-username") << QStringLiteral("@foo") << QStringLiteral("foo")
-                                     << QStringLiteral("<p><a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a></p>\n")
-                                            .arg(userMentionForegroundColor, userMentionBackgroundColor);
-    QTest::newRow("word@2-username") << QStringLiteral("bla bla @foo") << QStringLiteral("foo")
-                                     << QStringLiteral(
-                                            "<p>bla bla <a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a></p>\n")
-                                            .arg(userMentionForegroundColor, userMentionBackgroundColor);
+    QTest::newRow("word@1-username") << u"@foo"_s << u"foo"_s
+                                     << u"<p><a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a></p>\n"_s.arg(
+                                            userMentionForegroundColor,
+                                            userMentionBackgroundColor);
+    QTest::newRow("word@2-username") << u"bla bla @foo"_s << u"foo"_s
+                                     << u"<p>bla bla <a href='ruqola:/user/foo' style=\"color:%1;background-color:%2;font-weight:bold\">@foo</a></p>\n"_s.arg(
+                                            userMentionForegroundColor,
+                                            userMentionBackgroundColor);
 }
 
 void TextConverterTest::shouldHighlightText()
@@ -273,14 +254,13 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QTest::addColumn<QString>("output");
     QTest::addColumn<QString>("serverUrl");
 
-    QTest::newRow("empty") << QString() << QString() << QStringLiteral("www.kde.org");
-    QTest::newRow("bold") << QStringLiteral("*foo*") << QStringLiteral("<p><strong>foo</strong></p>\n") << QStringLiteral("www.kde.org");
-    QTest::newRow("italic") << QStringLiteral("_foo_") << QStringLiteral("<p><em>foo</em></p>\n") << QStringLiteral("www.kde.org");
+    QTest::newRow("empty") << QString() << QString() << u"www.kde.org"_s;
+    QTest::newRow("bold") << u"*foo*"_s << u"<p><strong>foo</strong></p>\n"_s << u"www.kde.org"_s;
+    QTest::newRow("italic") << u"_foo_"_s << u"<p><em>foo</em></p>\n"_s << u"www.kde.org"_s;
     // TODO error
-    QTest::newRow("italic2") << QStringLiteral("_personal: theming related tasks_") << QStringLiteral("<p><em>personal: theming related tasks</em></p>\n")
-                             << QStringLiteral("www.kde.org");
-    QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("<p>foo</p>\n") << QStringLiteral("www.kde.org");
-    QTest::newRow("customemojiwithmanager") << QStringLiteral(":foo:") << QStringLiteral("<p>:foo:</p>\n") << QStringLiteral("www.kde.org");
+    QTest::newRow("italic2") << u"_personal: theming related tasks_"_s << u"<p><em>personal: theming related tasks</em></p>\n"_s << u"www.kde.org"_s;
+    QTest::newRow("simpletext") << u"foo"_s << u"<p>foo</p>\n"_s << u"www.kde.org"_s;
+    QTest::newRow("customemojiwithmanager") << u":foo:"_s << u"<p>:foo:</p>\n"_s << u"www.kde.org"_s;
 
     QString smiley;
     smiley += QChar(0xD83D);
@@ -292,15 +272,13 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
 #else
     const auto smileyIdentifier = u":slight_smile:"_s;
 #endif
-    const auto smileyText = QStringLiteral("<span style=\"font: x-large %2\" title=\"%3\">%1</span>").arg(smiley, Utils::emojiFontName(), smileyIdentifier);
-    QTest::newRow("ascii-smiley") << QStringLiteral(":)") << QStringLiteral("<p>%1</p>\n").arg(smileyText) << QStringLiteral("www.kde.org");
-    QTest::newRow("multi-smiley") << QStringLiteral(":):slightly_smiling_face::):)") << QStringLiteral("<p>%1</p>\n").arg(smileyText.repeated(4))
-                                  << QStringLiteral("www.kde.org");
+    const auto smileyText = u"<span style=\"font: x-large %2\" title=\"%3\">%1</span>"_s.arg(smiley, Utils::emojiFontName(), smileyIdentifier);
+    QTest::newRow("ascii-smiley") << u":)"_s << u"<p>%1</p>\n"_s.arg(smileyText) << u"www.kde.org"_s;
+    QTest::newRow("multi-smiley") << u":):slightly_smiling_face::):)"_s << u"<p>%1</p>\n"_s.arg(smileyText.repeated(4)) << u"www.kde.org"_s;
 
-    QTest::newRow("url") << QStringLiteral("https://www.kde.org") << QStringLiteral("<p><a href=\"https://www.kde.org\">https://www.kde.org</a></p>\n")
-                         << QStringLiteral("www.kde.org");
+    QTest::newRow("url") << u"https://www.kde.org"_s << u"<p><a href=\"https://www.kde.org\">https://www.kde.org</a></p>\n"_s << u"www.kde.org"_s;
 
-    QTest::newRow("\")") << QStringLiteral("\")") << QStringLiteral("<p>&quot;)</p>\n") << QStringLiteral("www.kde.org");
+    QTest::newRow("\")") << u"\")"_s << u"<p>&quot;)</p>\n"_s << u"www.kde.org"_s;
 
     //    QTest::newRow("customemojiwithmanager1") << QStringLiteral(":vader:")
     //                                             << QStringLiteral("<p><img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'
@@ -326,78 +304,64 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     //        src='http://www.kde.org/emoji-custom/vader.png' title=':vader:'/></p>\n")
     //                                                        << QStringLiteral("http://www.kde.org");
 
-    QTest::newRow("quotedcode1") << QStringLiteral("bla\n```\nfoo\n```\nblub")
-                                 << QStringLiteral(
-                                        "<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>blub</p>\n")
-                                 << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode1") << u"bla\n```\nfoo\n```\nblub"_s
+                                 << u"<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>blub</p>\n"_s
+                                 << u"www.kde.org"_s;
 
-    QTest::newRow("quotedcode2") << QStringLiteral("bla\n```\nfoo\n```\nbli")
-                                 << QStringLiteral(
-                                        "<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>bli</p>\n")
-                                 << QStringLiteral("www.kde.org");
-    QTest::newRow("quotedcode3") << QStringLiteral("bla\n```\nfoo\n```")
-                                 << QStringLiteral(
-                                        "<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n")
-                                 << QStringLiteral("www.kde.org");
-    QTest::newRow("quotedcode4") << QStringLiteral("```\nfoo\n```\nff")
-                                 << QStringLiteral(
-                                        "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>ff</p>\n")
-                                 << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode2") << u"bla\n```\nfoo\n```\nbli"_s
+                                 << u"<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>bli</p>\n"_s
+                                 << u"www.kde.org"_s;
+    QTest::newRow("quotedcode3") << u"bla\n```\nfoo\n```"_s
+                                 << u"<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n"_s
+                                 << u"www.kde.org"_s;
+    QTest::newRow("quotedcode4") << u"```\nfoo\n```\nff"_s
+                                 << u"<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>ff</p>\n"_s
+                                 << u"www.kde.org"_s;
 
-    QTest::newRow("quotedcode5") << QStringLiteral("bla\n```\nfoo\n```\nff")
-                                 << QStringLiteral(
-                                        "<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>ff</p>\n")
-                                 << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode5") << u"bla\n```\nfoo\n```\nff"_s
+                                 << u"<p>bla</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p>ff</p>\n"_s
+                                 << u"www.kde.org"_s;
 
-    QTest::newRow("quotedcode6") << QStringLiteral("*foo*\n```\nfoo\n```\n*bar*\n```\nblub\n```\n*asdf*")
-                                 << QStringLiteral(
-                                        "<p><strong>foo</strong></p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p><strong>bar</strong></p>\n<p><table><tr><td "
-                                        "style='background-color:$BGCOLOR$; padding: 5px; border: "
-                                        "1px solid $BORDERCOLOR$'><code>blub</code></td></tr></table></p>\n<p><strong>asdf</strong></p>\n")
-                                 << QStringLiteral("www.kde.org");
-    QTest::newRow("quotedcode7") << QStringLiteral(":)\n```\n:)\n```\n:)")
-                                 << QStringLiteral(
-                                        "<p>%1</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>:)</code></td></tr></table></p>\n<p>%1</p>\n")
-                                        .arg(smileyText)
-                                 << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode6") << u"*foo*\n```\nfoo\n```\n*bar*\n```\nblub\n```\n*asdf*"_s
+                                 << u"<p><strong>foo</strong></p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>foo</code></td></tr></table></p>\n<p><strong>bar</strong></p>\n<p><table><tr><td "
+                                    u"style='background-color:$BGCOLOR$; padding: 5px; border: "
+                                    u"1px solid $BORDERCOLOR$'><code>blub</code></td></tr></table></p>\n<p><strong>asdf</strong></p>\n"_s
+                                 << u"www.kde.org"_s;
+    QTest::newRow("quotedcode7") << u":)\n```\n:)\n```\n:)"_s
+                                 << u"<p>%1</p>\n<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>:)</code></td></tr></table></p>\n<p>%1</p>\n"_s.arg(smileyText)
+                                 << u"www.kde.org"_s;
     QTest::newRow("quotedcode8")
-        << QStringLiteral("```javascript\ncode\n```")
-        << QStringLiteral(
-               "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>code</code></td></tr></table></p>\n")
-        << QStringLiteral("www.kde.org");
+        << u"```javascript\ncode\n```"_s
+        << u"<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid $BORDERCOLOR$'><code>code</code></td></tr></table></p>\n"_s
+        << u"www.kde.org"_s;
 
-    QTest::newRow("quotedcode9") << QStringLiteral("```\nblub\ncode\n```")
-                                 << QStringLiteral(
-                                        "<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
-                                        "$BORDERCOLOR$'><code>blub<br>code</code></td></tr></table></p>\n")
-                                 << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode9") << u"```\nblub\ncode\n```"_s
+                                 << u"<p><table><tr><td style='background-color:$BGCOLOR$; padding: 5px; border: 1px solid "
+                                    u"$BORDERCOLOR$'><code>blub<br>code</code></td></tr></table></p>\n"_s
+                                 << u"www.kde.org"_s;
     QTest::newRow("inline-code-with-brackets")
-        << QStringLiteral("`[[test]]` and `a[b` something")
-        << QStringLiteral(
-               "<p><code style='background-color:$BGCOLOR$'>[[test]]</code> and <code style='background-color:$BGCOLOR$'>a[b</code> "
-               "something</p>\n")
-        << QStringLiteral("www.kde.org");
+        << u"`[[test]]` and `a[b` something"_s
+        << u"<p><code style='background-color:$BGCOLOR$'>[[test]]</code> and <code style='background-color:$BGCOLOR$'>a[b</code> "
+           u"something</p>\n"_s
+        << u"www.kde.org"_s;
 
-    QTest::newRow("inline-code-with-tilde") << QStringLiteral("`auto [a, b] = std::minmax_element(~~~);`")
-                                            << QStringLiteral(
-                                                   "<p><code style='background-color:$BGCOLOR$'>auto [a, b] = "
-                                                   "std::minmax_element(~~~);</code></p>\n")
-                                            << QStringLiteral("www.kde.org");
+    QTest::newRow("inline-code-with-tilde") << u"`auto [a, b] = std::minmax_element(~~~);`"_s
+                                            << u"<p><code style='background-color:$BGCOLOR$'>auto [a, b] = "
+                                               u"std::minmax_element(~~~);</code></p>\n"_s
+                                            << u"www.kde.org"_s;
 
-    QTest::newRow("inline-code-with-smiley") << QStringLiteral(":) `:)` :)")
-                                             << QStringLiteral("<p>%1 <code style='background-color:$BGCOLOR$'>:)</code> %1</p>\n").arg(smileyText)
-                                             << QStringLiteral("www.kde.org");
+    QTest::newRow("inline-code-with-smiley") << u":) `:)` :)"_s << u"<p>%1 <code style='background-color:$BGCOLOR$'>:)</code> %1</p>\n"_s.arg(smileyText)
+                                             << u"www.kde.org"_s;
 
-    QTest::newRow("url-with-emoji") << QStringLiteral("https://www.kde.org/:x:/bla.html")
-                                    << QStringLiteral("<p>%1 <code style='background-color:$BGCOLOR$'>:)</code> %1</p>\n").arg(smileyText)
-                                    << QStringLiteral("www.kde.org");
+    QTest::newRow("url-with-emoji") << u"https://www.kde.org/:x:/bla.html"_s
+                                    << u"<p>%1 <code style='background-color:$BGCOLOR$'>:)</code> %1</p>\n"_s.arg(smileyText) << u"www.kde.org"_s;
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()
@@ -424,8 +388,8 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     if (QLatin1StringView(QTest::currentDataTag()) == "quotedcode7"_L1) {
         // remove additional highlighting of the ':)' symbols within the <code> block
         // the text color is syntax highlighting theme dependent, so hard for us to check
-        static const auto codespan = QRegularExpression(QStringLiteral("<code><span style=\".+\">:\\)</span></code>"));
-        actualOutput.replace(codespan, QStringLiteral("<code>:)</code>"));
+        static const auto codespan = QRegularExpression(u"<code><span style=\".+\">:\\)</span></code>"_s);
+        actualOutput.replace(codespan, u"<code>:)</code>"_s);
     }
     QEXPECT_FAIL("url-with-emoji", "Currently it if we have a emoji char in url", Continue);
     const bool isEqual = (actualOutput == output);
@@ -452,29 +416,29 @@ void TextConverterTest::shouldShowChannels_data()
         const QMap<QString, QByteArray> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
-        info.name = QStringLiteral("foo");
+        info.name = u"foo"_s;
         info.identifier = "idd"_ba;
         channels.append(info);
-        QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<p><a href='ruqola:/room/idd'>#foo</a></p>\n") << mentions << channels;
+        QTest::newRow("word#") << u"#foo"_s << u"<p><a href='ruqola:/room/idd'>#foo</a></p>\n"_s << mentions << channels;
     }
     {
         const QMap<QString, QByteArray> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
-        info.name = QStringLiteral("bla");
+        info.name = u"bla"_s;
         info.identifier = "idd"_ba;
         channels.append(info);
-        QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<p><a href='ruqola:/room/foo'>#foo</a></p>\n") << mentions << channels;
+        QTest::newRow("not existing room") << u"#foo"_s << u"<p><a href='ruqola:/room/foo'>#foo</a></p>\n"_s << mentions << channels;
     }
     {
         const QMap<QString, QByteArray> mentions;
         QList<Channels::ChannelInfo> channels;
         Channels::ChannelInfo info;
-        info.name = QStringLiteral("bla");
-        info.fname = QStringLiteral("FNAME");
+        info.name = u"bla"_s;
+        info.fname = u"FNAME"_s;
         info.identifier = "idd"_ba;
         channels.append(info);
-        QTest::newRow("use fname") << QStringLiteral("#bla") << QStringLiteral("<p><a href='ruqola:/room/idd'>#FNAME</a></p>\n") << mentions << channels;
+        QTest::newRow("use fname") << u"#bla"_s << u"<p><a href='ruqola:/room/idd'>#FNAME</a></p>\n"_s << mentions << channels;
     }
     {
         const QMap<QString, QByteArray> mentions;
@@ -482,19 +446,19 @@ void TextConverterTest::shouldShowChannels_data()
         QList<Channels::ChannelInfo> channels;
         {
             Channels::ChannelInfo info;
-            info.name = QStringLiteral("bli");
+            info.name = u"bli"_s;
             info.identifier = "112"_ba;
             channels.append(info);
         }
         {
             Channels::ChannelInfo info;
-            info.name = QStringLiteral("oss");
+            info.name = u"oss"_s;
             info.identifier = "kli"_ba;
             channels.append(info);
         }
-        QTest::newRow("multi channel") << QStringLiteral("foo #bli blass #oss")
-                                       << QStringLiteral("<p>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></p>\n")
-                                       << mentions << channels;
+        QTest::newRow("multi channel") << u"foo #bli blass #oss"_s
+                                       << u"<p>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></p>\n"_s << mentions
+                                       << channels;
     }
 }
 
@@ -554,55 +518,52 @@ void TextConverterTest::shouldShowUsers_data()
     }
     {
         QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("kde"), "bb"_ba);
+        mentions.insert(u"kde"_s, "bb"_ba);
         QList<Channels::ChannelInfo> lst;
         Channels::ChannelInfo info;
-        info.name = QStringLiteral("foo");
+        info.name = u"foo"_s;
         info.identifier = "idd"_ba;
         lst.append(info);
-        QTest::newRow("channel-user1") << QStringLiteral("#foo @kde")
-                                       << QStringLiteral("<p><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></p>\n") << mentions << lst;
+        QTest::newRow("channel-user1") << u"#foo @kde"_s << u"<p><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></p>\n"_s << mentions
+                                       << lst;
     }
 
     {
         QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("kde1"), "bb"_ba);
+        mentions.insert(u"kde1"_s, "bb"_ba);
         QList<Channels::ChannelInfo> lst;
         Channels::ChannelInfo info;
-        info.name = QStringLiteral("foo2");
+        info.name = u"foo2"_s;
         info.identifier = "idd"_ba;
         lst.append(info);
-        QTest::newRow("channel-user-unknown") << QStringLiteral("#foo @kde")
-                                              << QStringLiteral("<p><a href='ruqola:/room/foo'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></p>\n") << mentions
-                                              << lst;
+        QTest::newRow("channel-user-unknown") << u"#foo @kde"_s << u"<p><a href='ruqola:/room/foo'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></p>\n"_s
+                                              << mentions << lst;
     }
 
     {
         QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("nico"), "bb"_ba);
-        mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
+        mentions.insert(u"nico"_s, "bb"_ba);
+        mentions.insert(u"nico.bla"_s, "bb_new"_ba);
         const QList<Channels::ChannelInfo> lst;
-        QTest::newRow("quasi same name") << QStringLiteral("@nico foo @nico.bla")
-                                         << QStringLiteral("<p><a href='ruqola:/user/nico'>@nico</a> foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n")
-                                         << mentions << lst;
+        QTest::newRow("quasi same name") << u"@nico foo @nico.bla"_s
+                                         << u"<p><a href='ruqola:/user/nico'>@nico</a> foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n"_s << mentions
+                                         << lst;
     }
 
     {
         QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("nico"), "bb"_ba);
-        mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
+        mentions.insert(u"nico"_s, "bb"_ba);
+        mentions.insert(u"nico.bla"_s, "bb_new"_ba);
         const QList<Channels::ChannelInfo> lst;
-        QTest::newRow("quasi same name-2") << QStringLiteral("foo @nico.bla") << QStringLiteral("<p>foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n")
-                                           << mentions << lst;
+        QTest::newRow("quasi same name-2") << u"foo @nico.bla"_s << u"<p>foo <a href='ruqola:/user/nico.bla'>@nico.bla</a></p>\n"_s << mentions << lst;
     }
 
     {
         QMap<QString, QByteArray> mentions;
-        mentions.insert(QStringLiteral("nico"), "bb"_ba);
-        mentions.insert(QStringLiteral("nico.bla"), "bb_new"_ba);
+        mentions.insert(u"nico"_s, "bb"_ba);
+        mentions.insert(u"nico.bla"_s, "bb_new"_ba);
         const QList<Channels::ChannelInfo> lst;
-        QTest::newRow("quasi same name-1") << QStringLiteral("@nico foo") << QStringLiteral("<p><a href='ruqola:/user/nico'>@nico</a> foo</p>\n") << mentions
-                                           << lst;
+        QTest::newRow("quasi same name-1") << u"@nico foo"_s << u"<p><a href='ruqola:/user/nico'>@nico</a> foo</p>\n"_s << mentions << lst;
     }
 }
 
@@ -614,30 +575,26 @@ void TextConverterTest::shouldShowSearchedText_data()
     QTest::addColumn<QString>("searchedText");
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString() << QStringList{} << QString() << QString();
-    const QStringList highlightWords{QStringLiteral("ruqola"), QStringLiteral("kde")};
-    QTest::newRow("lowercase") << QStringLiteral("Ruqola") << QStringLiteral("foo") << highlightWords << QString()
-                               << QStringLiteral("<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a></p>\n");
-    QTest::newRow("two-word") << QStringLiteral("Ruqola kde") << QStringLiteral("foo") << highlightWords << QString()
-                              << QStringLiteral(
-                                     "<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> <a "
-                                     "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a></p>\n");
+    const QStringList highlightWords{u"ruqola"_s, u"kde"_s};
+    QTest::newRow("lowercase") << u"Ruqola"_s << u"foo"_s << highlightWords << QString()
+                               << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a></p>\n"_s;
+    QTest::newRow("two-word") << u"Ruqola kde"_s << u"foo"_s << highlightWords << QString()
+                              << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> <a "
+                                 u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a></p>\n"_s;
 
-    QTest::newRow("words") << QStringLiteral("Ruqola bla kde KDE.") << QStringLiteral("foo") << highlightWords << QString()
-                           << QStringLiteral(
-                                  "<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> bla <a "
-                                  "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
-                                  "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n");
+    QTest::newRow("words") << u"Ruqola bla kde KDE."_s << u"foo"_s << highlightWords << QString()
+                           << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> bla <a "
+                              u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
+                              u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n"_s;
 
-    QTest::newRow("wordinurl") << QStringLiteral("https://www.kde.org/~/bla/bli.txt") << QStringLiteral("bla") << highlightWords << QString()
-                               << QStringLiteral(
-                                      "<p><a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a "
-                                      "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a>.org/~/bla/bli.txt</a></p>\n");
+    QTest::newRow("wordinurl") << u"https://www.kde.org/~/bla/bli.txt"_s << u"bla"_s << highlightWords << QString()
+                               << u"<p><a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a "
+                                  u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a>.org/~/bla/bli.txt</a></p>\n"_s;
     QTest::newRow("channelruqola")
-        << QStringLiteral("#ruqola-bla bla kde KDE.") << QStringLiteral("foo") << highlightWords << QString()
-        << QStringLiteral(
-               "<p><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "
-               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
-               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n");
+        << u"#ruqola-bla bla kde KDE."_s << u"foo"_s << highlightWords << QString()
+        << u"<p><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "
+           u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
+           u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</p>\n"_s;
 }
 
 void TextConverterTest::shouldShowSearchedText()

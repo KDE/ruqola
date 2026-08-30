@@ -102,7 +102,7 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user)
 {
     const QStringList roles = user.roles();
-    if (roles.contains(u"owner"_s)) {
+    if (roles.contains("owner"_L1)) {
         return UsersForRoomModel::SectionStatus::Owner;
     }
     switch (user.status()) {

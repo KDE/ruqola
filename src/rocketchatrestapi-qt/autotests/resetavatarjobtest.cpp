@@ -46,7 +46,7 @@ void ResetAvatarJobTest::shouldGenerateJson()
     info.userIdentifier = u"foo1"_s;
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(info.userIdentifier).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"userId":"%1"})"_s.arg(info.userIdentifier).toLatin1());
 }
 
 void ResetAvatarJobTest::shouldNotStarting()

@@ -45,9 +45,9 @@ void ChangeArchivationStateJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     job.setRoomId(roomId);
     job.setArchive(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"action":"archive","rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"action":"archive","rid":"%1"})"_s.arg(roomId).toLatin1());
     job.setArchive(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"action":"unarchive","rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"action":"unarchive","rid":"%1"})"_s.arg(roomId).toLatin1());
 }
 
 void ChangeArchivationStateJobTest::shouldNotStarting()

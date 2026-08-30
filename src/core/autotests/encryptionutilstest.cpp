@@ -36,8 +36,8 @@ void EncryptionUtilsTest::shouldRoundTripGeneratedKeyPairAsRocketChatDoes()
 
     // Both must be JWK JSON: a PEM would make the other clients throw when importing them.
     const QJsonObject publicKeyObject = QJsonDocument::fromJson(publicKeyJwk).object();
-    QCOMPARE(publicKeyObject.value(QStringLiteral("kty")).toString(), QStringLiteral("RSA"));
-    QVERIFY(!publicKeyObject.value(QStringLiteral("n")).toString().isEmpty());
+    QCOMPARE(publicKeyObject.value(u"kty"_s).toString(), u"RSA"_s);
+    QVERIFY(!publicKeyObject.value(u"n"_s).toString().isEmpty());
 
     // We store that JWK locally and encrypt the room keys with it, so it must convert back.
     RSA *publicKey = EncryptionUtils::publicKeyFromPEM(EncryptionUtils::publicKeyJWKToPEM(publicKeyJwk));
@@ -45,42 +45,33 @@ void EncryptionUtilsTest::shouldRoundTripGeneratedKeyPairAsRocketChatDoes()
     RSA_free(publicKey);
 
     const QJsonObject privateKeyObject = QJsonDocument::fromJson(privateKeyJwk).object();
-    QCOMPARE(privateKeyObject.value(QStringLiteral("kty")).toString(), QStringLiteral("RSA"));
-    for (const QString &component : {QStringLiteral("n"),
-                                     QStringLiteral("e"),
-                                     QStringLiteral("d"),
-                                     QStringLiteral("p"),
-                                     QStringLiteral("q"),
-                                     QStringLiteral("dp"),
-                                     QStringLiteral("dq"),
-                                     QStringLiteral("qi")}) {
+    QCOMPARE(privateKeyObject.value(u"kty"_s).toString(), u"RSA"_s);
+    for (const QString &component : {u"n"_s, u"e"_s, u"d"_s, u"p"_s, u"q"_s, u"dp"_s, u"dq"_s, u"qi"_s}) {
         QVERIFY2(!privateKeyObject.value(component).toString().isEmpty(), qPrintable(component));
     }
     // The JWK must describe the very same key.
     QCOMPARE(EncryptionUtils::privateKeyJWKToPEM(privateKeyJwk), keyPair.privateKey);
 
-    const QString password = QStringLiteral("secret password");
-    const QString userId = QStringLiteral("userId");
+    const QString password = u"secret password"_s;
+    const QString userId = u"userId"_s;
     const QByteArray storedKey = EncryptionUtils::encryptPrivateKeyV2(privateKeyJwk, password, userId);
     const QJsonObject storedKeyObject = QJsonDocument::fromJson(storedKey).object();
-    QVERIFY(storedKeyObject.value(QStringLiteral("salt")).toString().startsWith(QStringLiteral("v2:") + userId + QLatin1Char(':')));
-    QCOMPARE(storedKeyObject.value(QStringLiteral("iterations")).toInt(), 100000);
+    QVERIFY(storedKeyObject.value(u"salt"_s).toString().startsWith(u"v2:"_s + userId + QLatin1Char(':')));
+    QCOMPARE(storedKeyObject.value(u"iterations"_s).toInt(), 100000);
 
     // Decrypting it the way every client does must give the JWK private key back. A 16-byte IV
     // would be understood as the legacy AES-CBC layout, so it has to be shorter.
-    const QByteArray iv = QByteArray::fromBase64(storedKeyObject.value(QStringLiteral("iv")).toString().toUtf8());
+    const QByteArray iv = QByteArray::fromBase64(storedKeyObject.value(u"iv"_s).toString().toUtf8());
     QCOMPARE(iv.size(), 12);
-    const QByteArray masterKey = EncryptionUtils::deriveKey(storedKeyObject.value(QStringLiteral("salt")).toString().toUtf8(),
-                                                            password.toUtf8(),
-                                                            storedKeyObject.value(QStringLiteral("iterations")).toInt(),
-                                                            32);
-    const QByteArray ciphertext = QByteArray::fromBase64(storedKeyObject.value(QStringLiteral("ciphertext")).toString().toUtf8());
+    const QByteArray masterKey =
+        EncryptionUtils::deriveKey(storedKeyObject.value(u"salt"_s).toString().toUtf8(), password.toUtf8(), storedKeyObject.value(u"iterations"_s).toInt(), 32);
+    const QByteArray ciphertext = QByteArray::fromBase64(storedKeyObject.value(u"ciphertext"_s).toString().toUtf8());
     QCOMPARE(EncryptionUtils::decryptAES_GCM_256(ciphertext, masterKey, iv), privateKeyJwk);
 
     // A wrong password must not decrypt it.
-    const QByteArray wrongMasterKey = EncryptionUtils::deriveKey(storedKeyObject.value(QStringLiteral("salt")).toString().toUtf8(),
+    const QByteArray wrongMasterKey = EncryptionUtils::deriveKey(storedKeyObject.value(u"salt"_s).toString().toUtf8(),
                                                                  "other password"_ba,
-                                                                 storedKeyObject.value(QStringLiteral("iterations")).toInt(),
+                                                                 storedKeyObject.value(u"iterations"_s).toInt(),
                                                                  32);
     QVERIFY(EncryptionUtils::decryptAES_GCM_256(ciphertext, wrongMasterKey, iv).isEmpty());
 }
@@ -91,13 +82,13 @@ void EncryptionUtilsTest::shouldRoundTripGeneratedKeyPairAsRocketChatDoes()
 void EncryptionUtilsTest::shouldExportSessionKeyJwkForBothAesFlavours()
 {
     const QJsonObject gcmJwk = QJsonDocument::fromJson(EncryptionUtils::sessionKeyToJWK(QByteArray(32, 'k'))).object();
-    QCOMPARE(gcmJwk.value(QStringLiteral("alg")).toString(), QStringLiteral("A256GCM"));
-    QCOMPARE(gcmJwk.value(QStringLiteral("kty")).toString(), QStringLiteral("oct"));
-    QCOMPARE(QByteArray::fromBase64(gcmJwk.value(QStringLiteral("k")).toString().toLatin1(), QByteArray::Base64UrlEncoding), QByteArray(32, 'k'));
+    QCOMPARE(gcmJwk.value(u"alg"_s).toString(), u"A256GCM"_s);
+    QCOMPARE(gcmJwk.value(u"kty"_s).toString(), u"oct"_s);
+    QCOMPARE(QByteArray::fromBase64(gcmJwk.value(u"k"_s).toString().toLatin1(), QByteArray::Base64UrlEncoding), QByteArray(32, 'k'));
 
     const QJsonObject cbcJwk = QJsonDocument::fromJson(EncryptionUtils::sessionKeyToJWK(QByteArray(16, 'k'))).object();
-    QCOMPARE(cbcJwk.value(QStringLiteral("alg")).toString(), QStringLiteral("A128CBC"));
-    QCOMPARE(QByteArray::fromBase64(cbcJwk.value(QStringLiteral("k")).toString().toLatin1(), QByteArray::Base64UrlEncoding), QByteArray(16, 'k'));
+    QCOMPARE(cbcJwk.value(u"alg"_s).toString(), u"A128CBC"_s);
+    QCOMPARE(QByteArray::fromBase64(cbcJwk.value(u"k"_s).toString().toLatin1(), QByteArray::Base64UrlEncoding), QByteArray(16, 'k'));
 
     // Those two are the only flavours Rocket.Chat knows: anything else has to be refused.
     QVERIFY(EncryptionUtils::sessionKeyToJWK(QByteArray(24, 'k')).isEmpty());
@@ -110,19 +101,19 @@ void EncryptionUtilsTest::shouldExportSessionKeyJwkForBothAesFlavours()
 void EncryptionUtilsTest::shouldDeriveMasterKeyTheWayRocketChatDoes()
 {
     // 'ä' and 'ö' are one byte each, as Rocket.Chat's Binary.decode() reads them.
-    const QString password = QStringLiteral("p\u00E4ssw\u00F6rd");
+    const QString password = u"p\u00E4ssw\u00F6rd"_s;
     QCOMPARE(EncryptionUtils::keyDerivationBytes(password), QByteArray::fromHex("70e4737377f67264"));
     QVERIFY(EncryptionUtils::keyDerivationBytes(password) != password.toUtf8());
     // ASCII is where the two encodings agree.
-    QCOMPARE(EncryptionUtils::keyDerivationBytes(QStringLiteral("password")), "password"_ba);
+    QCOMPARE(EncryptionUtils::keyDerivationBytes(u"password"_s), "password"_ba);
 
     // A character that does not fit in a byte makes Rocket.Chat throw, so no key may be derived
     // from it: silently folding it into '?' would seal the key with something nothing reproduces.
-    QVERIFY(EncryptionUtils::keyDerivationBytes(QStringLiteral("pass\u20ACword")).isEmpty());
-    QVERIFY(EncryptionUtils::deriveMasterKey(QStringLiteral("v2:userId:1234"), QStringLiteral("pass\u20ACword"), 1000).isEmpty());
+    QVERIFY(EncryptionUtils::keyDerivationBytes(u"pass\u20ACword"_s).isEmpty());
+    QVERIFY(EncryptionUtils::deriveMasterKey(u"v2:userId:1234"_s, u"pass\u20ACword"_s, 1000).isEmpty());
 
     // Known answer: PBKDF2-HMAC-SHA256 over those bytes.
-    const QString salt = QStringLiteral("v2:userId:1234");
+    const QString salt = u"v2:userId:1234"_s;
     QCOMPARE(EncryptionUtils::deriveMasterKey(salt, password, 1000), QByteArray::fromHex("f8ee28a74439d92a44ebf0970667f33b27fe7e6db5d8561006cdb1bba53d67fc"));
     // What the UTF-8 encoding would have given, i.e. what must no longer be produced.
     QVERIFY(EncryptionUtils::deriveMasterKey(salt, password, 1000) != QByteArray::fromHex("da6df525f5f57608882ff8dba32211bebd86fb710d8612566d61a6062652f79a"));

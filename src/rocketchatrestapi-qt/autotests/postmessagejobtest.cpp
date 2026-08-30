@@ -47,7 +47,7 @@ void PostMessageJobTest::shouldGenerateJson()
     const QString text = u"topic1"_s;
     job.setRoomIds({roomId});
     job.setText(text);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","text":"%2"})").arg(QLatin1StringView(roomId), text).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","text":"%2"})"_s.arg(QLatin1StringView(roomId), text).toLatin1());
 }
 
 void PostMessageJobTest::shouldNotStarting()

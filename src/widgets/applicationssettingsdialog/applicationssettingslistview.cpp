@@ -27,11 +27,11 @@ ApplicationsSettingsListView::ApplicationsSettingsListView(RocketChatAccount *ac
     , mApplicationsSettingsListDelegate(new ApplicationsSettingsDelegate(account, this, this))
     , mAppsMarketPlaceFilterProxyModel(new AppsMarketPlaceFilterProxyModel(this))
 {
-    mApplicationsSettingsListDelegate->setObjectName("mApplicationsSettingsListDelegate"_L1);
+    mApplicationsSettingsListDelegate->setObjectName(u"mApplicationsSettingsListDelegate"_s);
     setItemDelegate(mApplicationsSettingsListDelegate);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
-    mAppsMarketPlaceFilterProxyModel->setObjectName("mAppsMarketPlaceFilterProxyModel"_L1);
+    mAppsMarketPlaceFilterProxyModel->setObjectName(u"mAppsMarketPlaceFilterProxyModel"_s);
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     if (mRocketChatAccount) {

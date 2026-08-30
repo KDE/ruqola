@@ -48,7 +48,7 @@ void VideoConferenceJoinJobTest::shouldGenerateJson()
         info.useCamera = false;
         info.useMicro = false;
         job.setInfo(info);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"bla","state":{"cam":false,"mic":false}})").toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"callId":"bla","state":{"cam":false,"mic":false}})"_s.toLatin1());
     }
     {
         VideoConferenceJoinJob::VideoConferenceJoinInfo info;
@@ -56,7 +56,7 @@ void VideoConferenceJoinJobTest::shouldGenerateJson()
         info.useCamera = true;
         info.useMicro = true;
         job.setInfo(info);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"foo","state":{"cam":true,"mic":true}})").toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"callId":"foo","state":{"cam":true,"mic":true}})"_s.toLatin1());
     }
 }
 

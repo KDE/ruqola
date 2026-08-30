@@ -43,7 +43,7 @@ void VideoConferenceCancelJobTest::shouldGenerateJson()
 {
     VideoConferenceCancelJob job;
     job.setCallId(u"foo"_s);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"foo"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"callId":"foo"})"_s.toLatin1());
 }
 
 void VideoConferenceCancelJobTest::shouldNotStarting()

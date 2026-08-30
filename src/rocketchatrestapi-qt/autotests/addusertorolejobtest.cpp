@@ -53,7 +53,7 @@ void AddUserToRoleJobTest::shouldGenerateJson()
         job.setUsername(username);
         const QString rolename = u"role1"_s;
         job.setRoleName(rolename);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleName":"%1","username":"%2"})").arg(rolename, username).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roleName":"%1","username":"%2"})"_s.arg(rolename, username).toLatin1());
     }
     {
         AddUserToRoleJob job;
@@ -65,7 +65,7 @@ void AddUserToRoleJobTest::shouldGenerateJson()
         job.setRoleName(rolename);
         const QString roleId = u"roleId1"_s;
         job.setRoleId(roleId);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleId":"%1","username":"%2"})").arg(roleId, username).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roleId":"%1","username":"%2"})"_s.arg(roleId, username).toLatin1());
     }
 }
 

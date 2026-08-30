@@ -44,7 +44,7 @@ void CustomSoundsDeleteJobTest::shouldGenerateJson()
 
     const QByteArray customSoundId("foo1");
     job.setCustomSoundId(customSoundId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"_id":"%1"})").arg(QLatin1StringView(customSoundId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"_id":"%1"})"_s.arg(QLatin1StringView(customSoundId)).toLatin1());
 }
 
 void CustomSoundsDeleteJobTest::shouldNotStarting()

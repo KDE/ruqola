@@ -45,8 +45,8 @@ QUrl Utils::generateServerUrl(const QString &url)
 
 QString Utils::extractRoomUserFromUrl(QString url)
 {
-    url.remove(u"ruqola:/user/"_s);
-    url.remove(u"ruqola:/room/"_s);
+    url.remove("ruqola:/user/"_L1);
+    url.remove("ruqola:/room/"_L1);
     return url;
 }
 

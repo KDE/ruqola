@@ -40,9 +40,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0,
-                                          Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+        authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -54,7 +52,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "resume"
             }
-        })")));
+        })"_s));
 
         QCOMPARE(spyStatusChanged.count(), 2);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
@@ -74,8 +72,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
         authManager.processMethodResponse(0,
-                                          Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+                                          Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -87,7 +84,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "?????"
             }
-        })"))); // TODO: check the type for non-ldap, non-2fa successful login messages
+        })"_s)); // TODO: check the type for non-ldap, non-2fa successful login messages
 
         QCOMPARE(spyStatusChanged.count(), 2);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
@@ -107,8 +104,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
         authManager.processMethodResponse(0,
-                                          Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+                                          Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -120,7 +116,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "?????"
             }
-        })"))); // TODO: check the type for non-ldap, non-2fa successful login messages
+        })"_s)); // TODO: check the type for non-ldap, non-2fa successful login messages
 
         QCOMPARE(spyStatusChanged.count(), 2);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
@@ -139,9 +135,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0,
-                                          Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+        authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -153,7 +147,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "ldap"
             }
-        })")));
+        })"_s));
 
         QCOMPARE(spyStatusChanged.count(), 2);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
@@ -172,9 +166,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponse(0,
-                                          Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+        authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -186,7 +178,7 @@ void DDPAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "????"
             }
-        })")));
+        })"_s));
 
         QCOMPARE(spyStatusChanged.count(), 2);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoggedIn);
@@ -206,9 +198,7 @@ void DDPAuthenticationManagerTest::testLoginInvalidLoginInfo()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0,
-                                      Utils::strToJsonObject(QStringLiteral(
-                                          R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
@@ -219,7 +209,7 @@ void DDPAuthenticationManagerTest::testLoginInvalidLoginInfo()
             "message": "User not found [403]",
             "errorType": "Meteor.Error"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedInvalidUserOrPassword);
@@ -236,9 +226,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0,
-                                      Utils::strToJsonObject(QStringLiteral(
-                                          R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
@@ -256,7 +244,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
             "message": "TOTP Required [totp-required]",
             "errorType": "Meteor.Error"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpRequired);
@@ -265,9 +253,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
     QCOMPARE(spyStatusChanged.count(), 3);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
-    authManager.processMethodResponse(1,
-                                      Utils::strToJsonObject(QStringLiteral(
-                                          R"(
+    authManager.processMethodResponse(1, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "1",
@@ -279,7 +265,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpSuccess()
             },
             "type": "password"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 4);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoggedIn);
@@ -298,9 +284,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0,
-                                      Utils::strToJsonObject(QStringLiteral(
-                                          R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
@@ -318,7 +302,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
             "message": "TOTP Required [totp-required]",
             "errorType": "Meteor.Error"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpRequired);
@@ -327,9 +311,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
     QCOMPARE(spyStatusChanged.count(), 3);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
-    authManager.processMethodResponse(1,
-                                      Utils::strToJsonObject(QStringLiteral(
-                                          R"(
+    authManager.processMethodResponse(1, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "1",
@@ -343,7 +325,7 @@ void DDPAuthenticationManagerTest::testLoginWithOtpFailure()
             "message": "TOTP Invalid [totp-invalid]",
             "errorType": "Meteor.Error"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 4);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedInvalidOtp);
@@ -360,14 +342,14 @@ void DDPAuthenticationManagerTest::testUnknownError()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "unknown-error"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::GenericError);
@@ -384,14 +366,14 @@ void DDPAuthenticationManagerTest::testUserNotActivatedError()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-user-is-not-activated"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedUserNotActivated);
@@ -408,14 +390,14 @@ void DDPAuthenticationManagerTest::testLoginBlockForIpError()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-login-blocked-for-ip"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedLoginBlockForIp);
@@ -432,14 +414,14 @@ void DDPAuthenticationManagerTest::testLoginBlockedForUser()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-login-blocked-for-user"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedLoginBlockedForUser);
@@ -456,14 +438,14 @@ void DDPAuthenticationManagerTest::testLoginAppUserAllowToLogin()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponse(0, Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponse(0, Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-app-user-is-not-allowed-to-login"
         }
-    })")));
+    })"_s));
 
     QCOMPARE(spyStatusChanged.count(), 2);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginFailedLoginAppNotAllowedToLogin);

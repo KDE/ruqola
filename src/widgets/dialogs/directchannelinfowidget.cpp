@@ -181,7 +181,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
                 }
             }
         }
-        rolesLabel->setText(newRolesList.join(u", "_s));
+        rolesLabel->setText(newRolesList.join(", "_L1));
         rolesLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
         label = new QLabel(i18n("Roles:"), this);
         label->setFont(f);

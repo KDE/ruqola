@@ -72,7 +72,7 @@ void RoomsMediaConfirmJobTest::shouldGenerateJson()
         const QString message(u"descr"_s);
         job.setMessage(message);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msg":"%1"})").arg(message).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"msg":"%1"})"_s.arg(message).toLatin1());
     }
     {
         RoomsMediaConfirmJob job;
@@ -82,7 +82,7 @@ void RoomsMediaConfirmJobTest::shouldGenerateJson()
         const QString fileName(u"ff"_s);
         job.setFileName(fileName);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"fileName":"%2","msg":"%1"})").arg(message, fileName).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"fileName":"%2","msg":"%1"})"_s.arg(message, fileName).toLatin1());
     }
     {
         RoomsMediaConfirmJob job;
@@ -92,7 +92,7 @@ void RoomsMediaConfirmJobTest::shouldGenerateJson()
         const QByteArray tmid = "tmid3"_ba;
         job.setTmid(tmid);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"msg":"%1","tmid":"%2"})").arg(message, QString::fromLatin1(tmid)).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"msg":"%1","tmid":"%2"})"_s.arg(message, QString::fromLatin1(tmid)).toLatin1());
     }
 }
 

@@ -52,9 +52,8 @@ void RoleUpdateJobTest::shouldGenerateJson()
     info.scope = scope;
     info.identifier = roleId;
     job.setUpdateRoleInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"description":"%3","mandatory2fa":false,"name":"%1","roleId":"%4","scope":"%2"})").arg(name, scope, description, roleId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"description":"%3","mandatory2fa":false,"name":"%1","roleId":"%4","scope":"%2"})"_s.arg(name, scope, description, roleId).toLatin1());
 }
 
 void RoleUpdateJobTest::shouldNotStarting()

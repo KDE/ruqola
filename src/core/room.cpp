@@ -1731,7 +1731,7 @@ QString Room::roomMessageInfo() const
 
 bool Room::canChangeRoles() const
 {
-    return mRoles.contains(u"owner"_s);
+    return mRoles.contains("owner"_L1);
 }
 
 bool Room::userHasOwnerRole(const QByteArray &userId) const

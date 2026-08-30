@@ -14,6 +14,8 @@
 #include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagelistdelegate.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 MessageListNormalLayout::MessageListNormalLayout(MessageListDelegate *delegate)
     : MessageListLayoutBase(delegate)
 {
@@ -254,7 +256,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         // Group the time with the author line, right after the sender name (and any
         // author-line icons): "Alice Martin · 12:34 ✓✓". The old far-right placement
         // stranded it ~a column width from the text it belonged to.
-        const QString separator = QStringLiteral("·  "); // middot
+        const QString separator = u"·  "_s; // middot
         layout.timeStampText = separator + layout.timeStampText;
         const QSize authorTimeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
         // Start just after the sender name and its author-line icons. The ignored-message

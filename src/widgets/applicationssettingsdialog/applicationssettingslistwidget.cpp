@@ -31,25 +31,25 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
     mApplicationsSettingsDescriptionTabWidget->hide();
 
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto splitter = new QSplitter(this);
-    splitter->setObjectName("splitter"_L1);
+    splitter->setObjectName(u"splitter"_s);
     mainLayout->addWidget(splitter);
 
     auto appsWidget = new QWidget(this);
-    appsWidget->setObjectName("appsWidget"_L1);
+    appsWidget->setObjectName(u"appsWidget"_s);
 
     auto appsWidgetLayout = new QVBoxLayout(appsWidget);
-    appsWidgetLayout->setObjectName("appsWidgetLayout"_L1);
+    appsWidgetLayout->setObjectName(u"appsWidgetLayout"_s);
     appsWidgetLayout->setContentsMargins({});
 
     appsWidgetLayout->addWidget(mAppsCountInfoWidget);
     appsWidgetLayout->addWidget(mApplicationsSettingsSearchWidget);
     appsWidgetLayout->addWidget(mApplicationsSettingsListView);
 
-    mApplicationsSettingsDescriptionTabWidget->setObjectName("mApplicationsSettingsDescriptionTabWidget"_L1);
+    mApplicationsSettingsDescriptionTabWidget->setObjectName(u"mApplicationsSettingsDescriptionTabWidget"_s);
 
     splitter->addWidget(appsWidget);
     splitter->addWidget(mApplicationsSettingsDescriptionTabWidget);

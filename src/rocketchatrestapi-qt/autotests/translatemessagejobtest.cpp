@@ -48,8 +48,7 @@ void TranslateMessageJobTest::shouldGenerateJson()
     job.setMessageId(messageId);
     const QString targetLanguage = u"bla"_s;
     job.setTargetLanguage(targetLanguage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"messageId":"%1","targetLanguage":"%2"})").arg(messageId, targetLanguage).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"messageId":"%1","targetLanguage":"%2"})"_s.arg(messageId, targetLanguage).toLatin1());
 }
 
 void TranslateMessageJobTest::shouldNotStarting()

@@ -83,12 +83,12 @@ QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
     const QString eBase64Url = QString::fromLatin1(eBytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
 
     QJsonObject jwkObj;
-    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
-    jwkObj[QStringLiteral("n")] = nBase64Url;
-    jwkObj[QStringLiteral("e")] = eBase64Url;
-    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
-    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("encrypt");
-    jwkObj[QStringLiteral("ext")] = true;
+    jwkObj["kty"_L1] = u"RSA"_s;
+    jwkObj["n"_L1] = nBase64Url;
+    jwkObj["e"_L1] = eBase64Url;
+    jwkObj["alg"_L1] = u"RSA-OAEP-256"_s;
+    jwkObj["key_ops"_L1] = QJsonArray() << u"encrypt"_s;
+    jwkObj["ext"_L1] = true;
 
     const QJsonDocument doc(jwkObj);
     return doc.toJson(QJsonDocument::Compact);
@@ -120,10 +120,10 @@ QByteArray EncryptionUtils::exportJWKPrivateKey(RSA *rsaKey)
     };
 
     QJsonObject jwkObj;
-    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
-    jwkObj[QStringLiteral("n")] = toBase64Url(n);
-    jwkObj[QStringLiteral("e")] = toBase64Url(e);
-    jwkObj[QStringLiteral("d")] = toBase64Url(d);
+    jwkObj["kty"_L1] = u"RSA"_s;
+    jwkObj["n"_L1] = toBase64Url(n);
+    jwkObj["e"_L1] = toBase64Url(e);
+    jwkObj["d"_L1] = toBase64Url(d);
     // The CRT parameters are optional in JWK but every WebCrypto implementation exports them.
     const std::pair<const char *, const BIGNUM *> crtParameters[] = {
         {"p", RSA_get0_p(rsaKey)},
@@ -138,9 +138,9 @@ QByteArray EncryptionUtils::exportJWKPrivateKey(RSA *rsaKey)
             jwkObj[QLatin1StringView(name)] = encodedValue;
         }
     }
-    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
-    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("decrypt");
-    jwkObj[QStringLiteral("ext")] = true;
+    jwkObj["alg"_L1] = u"RSA-OAEP-256"_s;
+    jwkObj["key_ops"_L1] = QJsonArray() << u"decrypt"_s;
+    jwkObj["ext"_L1] = true;
 
     const QJsonDocument doc(jwkObj);
     return doc.toJson(QJsonDocument::Compact);
@@ -154,7 +154,7 @@ QByteArray EncryptionUtils::encryptPrivateKeyV2(const QByteArray &privateKey, co
     }
     // Port of Rocket.Chat's Keychain::encryptKey().
     constexpr int iterations = 100000;
-    const QString salt = QStringLiteral("v2:%1:%2").arg(userId, QUuid::createUuid().toString(QUuid::WithoutBraces));
+    const QString salt = u"v2:%1:%2"_s.arg(userId, QUuid::createUuid().toString(QUuid::WithoutBraces));
     const QByteArray masterKey = deriveMasterKey(salt, password, iterations);
     if (masterKey.isEmpty()) {
         return {};
@@ -168,24 +168,24 @@ QByteArray EncryptionUtils::encryptPrivateKeyV2(const QByteArray &privateKey, co
     }
 
     QJsonObject storedKey;
-    storedKey[QStringLiteral("iv")] = QString::fromLatin1(iv.toBase64());
-    storedKey[QStringLiteral("ciphertext")] = QString::fromLatin1(ciphertext.toBase64());
-    storedKey[QStringLiteral("salt")] = salt;
-    storedKey[QStringLiteral("iterations")] = iterations;
+    storedKey["iv"_L1] = QString::fromLatin1(iv.toBase64());
+    storedKey["ciphertext"_L1] = QString::fromLatin1(ciphertext.toBase64());
+    storedKey["salt"_L1] = salt;
+    storedKey["iterations"_L1] = iterations;
     return QJsonDocument(storedKey).toJson(QJsonDocument::Compact);
 }
 
 QByteArray EncryptionUtils::exportJWKEncryptedPrivateKey(const QByteArray &encryptedPrivateKey)
 {
     QJsonObject jwkObj;
-    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
-    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
-    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("decrypt");
-    jwkObj[QStringLiteral("ext")] = true;
+    jwkObj["kty"_L1] = u"RSA"_s;
+    jwkObj["alg"_L1] = u"RSA-OAEP-256"_s;
+    jwkObj["key_ops"_L1] = QJsonArray() << u"decrypt"_s;
+    jwkObj["ext"_L1] = true;
 
     // Store the encrypted private key as base64url
     const QString ePrivKeyBase64Url = QString::fromLatin1(encryptedPrivateKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    jwkObj[QStringLiteral("RSA-EPrivKey")] = ePrivKeyBase64Url;
+    jwkObj["RSA-EPrivKey"_L1] = ePrivKeyBase64Url;
 
     const QJsonDocument doc(jwkObj);
     return doc.toJson(QJsonDocument::Compact);
@@ -445,19 +445,19 @@ QByteArray EncryptionUtils::sessionKeyToJWK(const QByteArray &rawKey)
 {
     QString algorithm;
     if (rawKey.size() == 32) {
-        algorithm = QStringLiteral("A256GCM");
+        algorithm = u"A256GCM"_s;
     } else if (rawKey.size() == 16) {
-        algorithm = QStringLiteral("A128CBC");
+        algorithm = u"A128CBC"_s;
     } else {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "sessionKeyToJWK: expected a 16- or 32-byte key, got" << rawKey.size();
         return {};
     }
     QJsonObject jwk;
-    jwk[QStringLiteral("k")] = QString::fromLatin1(rawKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    jwk[QStringLiteral("alg")] = algorithm;
-    jwk[QStringLiteral("ext")] = true;
-    jwk[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("encrypt") << QStringLiteral("decrypt");
-    jwk[QStringLiteral("kty")] = QStringLiteral("oct");
+    jwk["k"_L1] = QString::fromLatin1(rawKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    jwk["alg"_L1] = algorithm;
+    jwk["ext"_L1] = true;
+    jwk["key_ops"_L1] = QJsonArray() << u"encrypt"_s << u"decrypt"_s;
+    jwk["kty"_L1] = u"oct"_s;
     return QJsonDocument(jwk).toJson(QJsonDocument::Compact);
 }
 
@@ -855,7 +855,7 @@ QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
         return {};
     }
     const QJsonObject obj = doc.object();
-    if (obj.value(QStringLiteral("kty")).toString() != QLatin1String("RSA")) {
+    if (obj.value("kty"_L1).toString() != "RSA"_L1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: not an RSA key";
         return {};
     }
@@ -875,14 +875,14 @@ QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
         return BN_bin2bn(reinterpret_cast<const unsigned char *>(bytes.constData()), bytes.size(), nullptr);
     };
 
-    BIGNUM *n = b64urlToBN(obj.value(QStringLiteral("n")).toString());
-    BIGNUM *e = b64urlToBN(obj.value(QStringLiteral("e")).toString());
-    BIGNUM *d = b64urlToBN(obj.value(QStringLiteral("d")).toString());
-    BIGNUM *p = b64urlToBN(obj.value(QStringLiteral("p")).toString());
-    BIGNUM *q = b64urlToBN(obj.value(QStringLiteral("q")).toString());
-    BIGNUM *dp = b64urlToBN(obj.value(QStringLiteral("dp")).toString());
-    BIGNUM *dq = b64urlToBN(obj.value(QStringLiteral("dq")).toString());
-    BIGNUM *qi = b64urlToBN(obj.value(QStringLiteral("qi")).toString());
+    BIGNUM *n = b64urlToBN(obj.value("n"_L1).toString());
+    BIGNUM *e = b64urlToBN(obj.value("e"_L1).toString());
+    BIGNUM *d = b64urlToBN(obj.value("d"_L1).toString());
+    BIGNUM *p = b64urlToBN(obj.value("p"_L1).toString());
+    BIGNUM *q = b64urlToBN(obj.value("q"_L1).toString());
+    BIGNUM *dp = b64urlToBN(obj.value("dp"_L1).toString());
+    BIGNUM *dq = b64urlToBN(obj.value("dq"_L1).toString());
+    BIGNUM *qi = b64urlToBN(obj.value("qi"_L1).toString());
 
     if (!n || !e || !d) {
         BN_free(n);
@@ -962,7 +962,7 @@ QByteArray EncryptionUtils::publicKeyJWKToPEM(const QByteArray &jwkJson)
         return {};
     }
     const QJsonObject obj = doc.object();
-    if (obj.value(QStringLiteral("kty")).toString() != QLatin1String("RSA")) {
+    if (obj.value("kty"_L1).toString() != "RSA"_L1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: not an RSA key";
         return {};
     }
@@ -980,8 +980,8 @@ QByteArray EncryptionUtils::publicKeyJWKToPEM(const QByteArray &jwkJson)
         return BN_bin2bn(reinterpret_cast<const unsigned char *>(bytes.constData()), bytes.size(), nullptr);
     };
 
-    BIGNUM *n = b64urlToBN(obj.value(QStringLiteral("n")).toString());
-    BIGNUM *e = b64urlToBN(obj.value(QStringLiteral("e")).toString());
+    BIGNUM *n = b64urlToBN(obj.value("n"_L1).toString());
+    BIGNUM *e = b64urlToBN(obj.value("e"_L1).toString());
     if (!n || !e) {
         BN_free(n);
         BN_free(e);

@@ -26,10 +26,10 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, o);
         setEditedAt(Utils::parseIsoDate(u"editedAt"_s, o));
         setTimeStamp(Utils::parseIsoDate(u"ts"_s, o));
-        if (o.contains(u"tlm"_s)) {
+        if (o.contains("tlm"_L1)) {
             setThreadLastMessage(Utils::parseIsoDate(u"tlm"_s, o));
         }
-        if (o.contains(u"dlm"_s)) {
+        if (o.contains("dlm"_L1)) {
             setDiscussionLastMessage(Utils::parseIsoDate(u"dlm"_s, o));
         }
     } else {
@@ -37,11 +37,11 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, o);
         setEditedAt(Utils::parseDate(u"editedAt"_s, o));
         // Verify if a day we will use not restapi for it.
-        if (o.contains(u"tlm"_s)) {
+        if (o.contains("tlm"_L1)) {
             setThreadLastMessage(Utils::parseDate(u"tlm"_s, o));
         }
         // Verify if a day we will use not restapi for it.
-        if (o.contains(u"dlm"_s)) {
+        if (o.contains("dlm"_L1)) {
             setDiscussionLastMessage(Utils::parseDate(u"dlm"_s, o));
         }
     }

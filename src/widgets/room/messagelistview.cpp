@@ -537,7 +537,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         options.rect = visualRect(index);
         options.index = index;
         const QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
-        if (url.isEmpty() || url.startsWith(u"ruqola:/"_s) || url.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())) {
+        if (url.isEmpty() || url.startsWith("ruqola:/"_L1) || url.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())) {
             return nullptr;
         }
         auto action = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy URL"), &menu);
@@ -557,7 +557,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             return {};
         }
         if (url.startsWith("ruqola:/user/"_L1)) {
-            url.remove(u"ruqola:/user/"_s);
+            url.remove("ruqola:/user/"_L1);
             if (!Utils::validUser(url)) {
                 return {};
             }
@@ -1028,8 +1028,8 @@ QString MessageListView::generatePermalink(const QString &messageId) const
         return {};
     }
     QString permalink = mCurrentRocketChatAccount->serverUrl() + u'/' + RoomUtil::generatePermalink(messageId, mRoom->name(), mRoom->channelType());
-    if (!permalink.startsWith(u"https://"_s)) {
-        permalink.prepend(u"https://"_s);
+    if (!permalink.startsWith("https://"_L1)) {
+        permalink.prepend("https://"_L1);
     }
     return permalink;
 }

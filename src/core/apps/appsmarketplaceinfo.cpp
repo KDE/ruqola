@@ -216,7 +216,7 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mIsEnterpriseOnly = replyObject["isEnterpriseOnly"_L1].toBool();
     mPurchaseType = replyObject["purchaseType"_L1].toString();
 
-    mModifiedDate = Utils::parseIsoDate("modifiedAt"_L1, replyObject);
+    mModifiedDate = Utils::parseIsoDate(u"modifiedAt"_s, replyObject);
 
     parsePrincingPlan(replyObject["pricingPlans"_L1].toArray());
     mPrice = replyObject["price"_L1].toInt();
@@ -419,11 +419,11 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     str += u"<b>%1</b><br/>"_s.arg(i18n("Version")) + versionnfo.toHtmlEscaped() + u"<br/><br/>"_s;
 
     if (!mCategories.isEmpty()) {
-        str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(u", "_s).toHtmlEscaped() + u"<br/><br/>"_s;
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Categories")) + mCategories.join(", "_L1).toHtmlEscaped() + u"<br/><br/>"_s;
     }
     if (!mDocumentationUrl.isEmpty()) {
         const QString escapedDocUrl = mDocumentationUrl.toHtmlEscaped();
-        const QString url = mDocumentationUrl.startsWith(u"http"_s) ? escapedDocUrl : u"https://%1"_s.arg(escapedDocUrl);
+        const QString url = mDocumentationUrl.startsWith("http"_L1) ? escapedDocUrl : u"https://%1"_s.arg(escapedDocUrl);
         str += u"<b>%1</b><br/>"_s.arg(i18n("Documentation")) + u"<a href=\"%2\">%1</a>"_s.arg(escapedDocUrl, url) + u"<br/><br/>"_s;
     }
 
@@ -447,7 +447,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
     if (!homePage.isEmpty()) {
         const QString escapedHomePage = homePage.toHtmlEscaped();
-        const QString url = homePage.startsWith(u"http"_s) ? escapedHomePage : u"https://%1"_s.arg(escapedHomePage);
+        const QString url = homePage.startsWith("http"_L1) ? escapedHomePage : u"https://%1"_s.arg(escapedHomePage);
         str += u"<b>%1</b><br/>"_s.arg(i18n("Homepage")) + u"<a href=\"%2\">%1</a>"_s.arg(escapedHomePage, url) + u"<br/><br/>"_s;
     }
 
@@ -460,7 +460,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
     if (!support.isEmpty()) {
         const QString escapedSupport = support.toHtmlEscaped();
-        const QString url = support.startsWith(u"http"_s) ? escapedSupport : u"mailto://%1"_s.arg(escapedSupport);
+        const QString url = support.startsWith("http"_L1) ? escapedSupport : u"mailto://%1"_s.arg(escapedSupport);
         str += u"<b>%1</b><br/>"_s.arg(i18n("Support")) + u"<a href=\"%2\">%1</a>"_s.arg(escapedSupport, url) + u"<br/><br/>"_s;
     }
 

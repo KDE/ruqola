@@ -52,7 +52,7 @@ bool E2ERoomsDataBase::saveKey(const QString &accountName,
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("INSERT OR REPLACE INTO E2EROOMSKEYS (roomKeyId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"));
+    query.prepare(u"INSERT OR REPLACE INTO E2EROOMSKEYS (roomKeyId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"_s);
     query.addBindValue(generateRoomKeyId(roomId, keyId));
     query.addBindValue(encryptedPrivateKey);
     query.addBindValue(publicKey);
@@ -70,7 +70,7 @@ bool E2ERoomsDataBase::loadKey(const QString &accountName, const QString &roomId
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT encryptedPrivateKey, publicKey FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
+    query.prepare(u"SELECT encryptedPrivateKey, publicKey FROM E2EROOMSKEYS WHERE roomKeyId = ?"_s);
     query.addBindValue(generateRoomKeyId(roomId, keyId));
     if (query.exec() && query.first()) {
         encryptedPrivateKey = query.value(0).toByteArray();
@@ -87,7 +87,7 @@ bool E2ERoomsDataBase::deleteKey(const QString &accountName, const QString &room
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("DELETE FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
+    query.prepare(u"DELETE FROM E2EROOMSKEYS WHERE roomKeyId = ?"_s);
     query.addBindValue(generateRoomKeyId(roomId, keyId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EROOMSKEYS table" << db.databaseName() << query.lastError();
@@ -103,7 +103,7 @@ bool E2ERoomsDataBase::deleteAllKeys(const QString &accountName)
         return false;
     }
     QSqlQuery query(db);
-    if (!query.exec(QStringLiteral("DELETE FROM E2EROOMSKEYS"))) {
+    if (!query.exec(u"DELETE FROM E2EROOMSKEYS"_s)) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete all keys from E2EROOMSKEYS table" << db.databaseName() << query.lastError();
         return false;
     }
@@ -117,7 +117,7 @@ bool E2ERoomsDataBase::hasKey(const QString &accountName, const QString &roomId,
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT 1 FROM E2EROOMSKEYS WHERE roomKeyId = ?"));
+    query.prepare(u"SELECT 1 FROM E2EROOMSKEYS WHERE roomKeyId = ?"_s);
     query.addBindValue(generateRoomKeyId(roomId, keyId));
     return query.exec() && query.first();
 }

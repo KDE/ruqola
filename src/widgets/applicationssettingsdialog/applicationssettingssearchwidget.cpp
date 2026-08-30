@@ -26,23 +26,23 @@ ApplicationsSettingsSearchWidget::ApplicationsSettingsSearchWidget(RocketChatAcc
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
 
-    mSearchLineEdit->setObjectName("mSearchLineEdit"_L1);
+    mSearchLineEdit->setObjectName(u"mSearchLineEdit"_s);
     mainLayout->addWidget(mSearchLineEdit);
     KLineEditEventHandler::catchReturnKey(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
 
-    mApplicationsSettingsCategoriesComboBox->setObjectName("mApplicationsSettingsCategoriesComboBox"_L1);
+    mApplicationsSettingsCategoriesComboBox->setObjectName(u"mApplicationsSettingsCategoriesComboBox"_s);
     mainLayout->addWidget(mApplicationsSettingsCategoriesComboBox);
 
-    mApplicationsSettingsPriceComboBox->setObjectName("mApplicationsSettingsPriceComboBox"_L1);
+    mApplicationsSettingsPriceComboBox->setObjectName(u"mApplicationsSettingsPriceComboBox"_s);
     mainLayout->addWidget(mApplicationsSettingsPriceComboBox);
 
-    mApplicationsSettingsStatusComboBox->setObjectName("mApplicationsSettingsStatusComboBox"_L1);
+    mApplicationsSettingsStatusComboBox->setObjectName(u"mApplicationsSettingsStatusComboBox"_s);
     mainLayout->addWidget(mApplicationsSettingsStatusComboBox);
 
-    mApplicationsSettingsSortingComboBox->setObjectName("mApplicationsSettingsSortingComboBox"_L1);
+    mApplicationsSettingsSortingComboBox->setObjectName(u"mApplicationsSettingsSortingComboBox"_s);
     mainLayout->addWidget(mApplicationsSettingsSortingComboBox);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ApplicationsSettingsSearchWidget::filterChanged);

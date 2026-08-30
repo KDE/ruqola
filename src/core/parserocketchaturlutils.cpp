@@ -28,10 +28,10 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
         if (urlPath == "/room"_L1) {
             // qDebug() << "queryItems " << queryItems;
 
-            mParsingInfo.serverHost = query.queryItemValue("host"_L1);
-            mParsingInfo.roomId = query.queryItemValue("rid"_L1);
-            mParsingInfo.messageId = query.queryItemValue("mid"_L1);
-            mParsingInfo.path = query.queryItemValue("path"_L1, QUrl::FullyDecoded);
+            mParsingInfo.serverHost = query.queryItemValue(u"host"_s);
+            mParsingInfo.roomId = query.queryItemValue(u"rid"_s);
+            mParsingInfo.messageId = query.queryItemValue(u"mid"_s);
+            mParsingInfo.path = query.queryItemValue(u"path"_s, QUrl::FullyDecoded);
             if (!mParsingInfo.path.isEmpty()) {
                 mParsingInfo.roomIdType = RoomIdType::RoomId;
                 if (mParsingInfo.path.startsWith("direct"_L1)) {
@@ -78,10 +78,10 @@ ParseRocketChatUrlUtils::UrlType ParseRocketChatUrlUtils::parseUrl(const QString
             mParsingInfo.roomId = urlPathDecoded.remove("/channel/"_L1);
             mParsingInfo.channelType = ChannelType::Channel;
         } else if (urlPathDecoded.contains("/direct/"_L1)) {
-            mParsingInfo.roomId = urlPathDecoded.remove(u"/direct/"_s);
+            mParsingInfo.roomId = urlPathDecoded.remove("/direct/"_L1);
             mParsingInfo.channelType = ChannelType::Direct;
         } else if (urlPathDecoded.contains("/group/"_L1)) {
-            mParsingInfo.roomId = urlPathDecoded.remove(u"/group/"_s);
+            mParsingInfo.roomId = urlPathDecoded.remove("/group/"_L1);
             mParsingInfo.channelType = ChannelType::Group;
         } else {
             mParsingInfo.serverHost.clear();

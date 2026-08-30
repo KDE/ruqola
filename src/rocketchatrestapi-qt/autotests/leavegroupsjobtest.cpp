@@ -47,7 +47,7 @@ void LeaveGroupsJobTest::shouldGenerateJson()
     info.identifier = roomId;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job.setChannelGroupInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1"})"_s.arg(roomId).toLatin1());
 }
 
 void LeaveGroupsJobTest::shouldNotStarting()

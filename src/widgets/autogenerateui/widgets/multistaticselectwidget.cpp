@@ -17,10 +17,10 @@ MultiStaticSelectWidget::MultiStaticSelectWidget(QWidget *parent)
     , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mLineEdit->setObjectName("mLineEdit"_L1);
+    mLineEdit->setObjectName(u"mLineEdit"_s);
     mainLayout->addWidget(mLineEdit);
 
     mFlowLayout->setObjectName(u"mFlowLayout"_s);

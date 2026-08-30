@@ -22,10 +22,10 @@ ApplicationsSettingsVersionWidget::ApplicationsSettingsVersionWidget(RocketChatA
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTextBrowser->setObjectName("mTextBrowser"_L1);
+    mTextBrowser->setObjectName(u"mTextBrowser"_s);
     mainLayout->addWidget(mTextBrowser);
     mTextBrowser->setOpenExternalLinks(true);
 }
@@ -67,7 +67,7 @@ void ApplicationsSettingsVersionWidget::fetchInfo()
 void ApplicationsSettingsVersionWidget::generateInfo(const QJsonObject &obj)
 {
     QString message;
-    const QJsonArray array = obj[u"apps"_s].toArray();
+    const QJsonArray array = obj["apps"_L1].toArray();
     for (const auto &info : array) {
         const QString version = info["version"_L1].toString();
         QString changesNote = info["changesNote"_L1].toString();

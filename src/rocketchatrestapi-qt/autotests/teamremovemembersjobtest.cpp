@@ -47,7 +47,7 @@ void TeamRemoveMembersJobTest::shouldGenerateJson()
     job.setTeamId(teamId);
     const QStringList rooms = {u"bla"_s, u"bla1"_s};
     job.setRoomsId(rooms);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rooms":["bla","bla1"],"teamId":"%1"})").arg(teamId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"rooms":["bla","bla1"],"teamId":"%1"})"_s.arg(teamId).toLatin1());
 }
 
 void TeamRemoveMembersJobTest::shouldNotStarting()

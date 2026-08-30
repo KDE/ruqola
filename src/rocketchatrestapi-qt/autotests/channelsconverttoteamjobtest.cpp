@@ -45,7 +45,7 @@ void ChannelsConvertToTeamJobTest::shouldGenerateJson()
     const QString channelId = u"foo2"_s;
     job.setChannelId(channelId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"channelId":"%1"})").arg(channelId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"channelId":"%1"})"_s.arg(channelId).toLatin1());
 }
 
 void ChannelsConvertToTeamJobTest::shouldNotStarting()

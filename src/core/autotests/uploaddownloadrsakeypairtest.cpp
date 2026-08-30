@@ -1,4 +1,5 @@
 /*
+
    SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -9,6 +10,7 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(UploadDownloadRsaKeyPairTest)
 
@@ -17,8 +19,8 @@ void UploadDownloadRsaKeyPairTest::uploadDownloadCompare()
     const auto app = QCoreApplication::instance();
     const auto loginManager = new LoginManager(app);
     const auto networkManager = new QNetworkAccessManager(app);
-    const auto url = QStringLiteral("http://localhost:3000");
-    const auto password = QStringLiteral("mypassword123");
+    const auto url = u"http://localhost:3000"_s;
+    const auto password = u"mypassword123"_s;
     bool testPassed = false;
 
     QObject::connect(loginManager, &LoginManager::loginSucceeded, this, [=, &testPassed](const QString &authToken, const QString &userId) {
@@ -34,7 +36,7 @@ void UploadDownloadRsaKeyPairTest::uploadDownloadCompare()
     });
 
     QObject::connect(loginManager, &LoginManager::loginFailed, this, [&](const QString &err) {
-        QFAIL(qPrintable(QStringLiteral("Login failed: %1").arg(err)));
+        QFAIL(qPrintable(u"Login failed: %1"_s.arg(err)));
         app->quit();
     });
 

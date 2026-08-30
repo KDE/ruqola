@@ -48,7 +48,7 @@ void ChangeGroupsTopicJobTest::shouldGenerateJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setTopic(topic);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1","topic":"%2"})").arg(roomId, topic).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","topic":"%2"})"_s.arg(roomId, topic).toLatin1());
 }
 
 #include "moc_changegroupstopicjobtest.cpp"

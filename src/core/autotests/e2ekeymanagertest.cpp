@@ -365,10 +365,10 @@ void E2eKeyManagerTest::shouldDecodeV2KeySealedTheOldRuqolaWay()
     QVERIFY(!ciphertext.isEmpty());
 
     QJsonObject storedKey;
-    storedKey[QStringLiteral("iv")] = QString::fromLatin1(iv.toBase64());
-    storedKey[QStringLiteral("ciphertext")] = QString::fromLatin1(ciphertext.toBase64());
-    storedKey[QStringLiteral("salt")] = salt;
-    storedKey[QStringLiteral("iterations")] = iterations;
+    storedKey[u"iv"_s] = QString::fromLatin1(iv.toBase64());
+    storedKey[u"ciphertext"_s] = QString::fromLatin1(ciphertext.toBase64());
+    storedKey[u"salt"_s] = salt;
+    storedKey[u"iterations"_s] = iterations;
     QVERIFY(account.localDatabaseManager()->e2EDatabase()->saveKey(account.accountName(),
                                                                    userId,
                                                                    QJsonDocument(storedKey).toJson(QJsonDocument::Compact),

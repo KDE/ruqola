@@ -45,7 +45,7 @@ void NotifyAdminsAppsJobTest::shouldGenerateJson()
     const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{"app1 id"_ba, u"app test"_s, u"app version"_s, u"test message"_s};
     job.setInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"appId":"app1 id","appName":"app test","appVersion":"app version","message":"test message"})").toLatin1());
+             uR"({"appId":"app1 id","appName":"app test","appVersion":"app version","message":"test message"})"_s.toLatin1());
 }
 
 void NotifyAdminsAppsJobTest::shouldNotStarting()

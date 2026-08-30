@@ -45,7 +45,7 @@ void BannersDismissJobTest::shouldGenerateJson()
     const QString bannerId = u"foo1"_s;
     job.setBannerId(bannerId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"bannerId":"%1"})").arg(bannerId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"bannerId":"%1"})"_s.arg(bannerId).toLatin1());
 }
 
 void BannersDismissJobTest::shouldNotStarting()

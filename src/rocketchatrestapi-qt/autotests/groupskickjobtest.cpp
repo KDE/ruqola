@@ -51,8 +51,7 @@ void GroupsKickJobTest::shouldGenerateJson()
     const QByteArray userkick("bla");
     job.setKickUserId(userkick);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomId":"%1","userId":"%2"})").arg(channelname, QLatin1StringView(userkick)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","userId":"%2"})"_s.arg(channelname, QLatin1StringView(userkick)).toLatin1());
 }
 
 void GroupsKickJobTest::shouldNotStarting()

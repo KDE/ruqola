@@ -46,10 +46,10 @@ void GeneratePersonalAccessTokenJobTest::shouldGenerateJson()
     const QString tokenName = u"foo1"_s;
     job.setTokenName(tokenName);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"bypassTwoFactor":false,"tokenName":"%1"})").arg(tokenName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"bypassTwoFactor":false,"tokenName":"%1"})"_s.arg(tokenName).toLatin1());
 
     job.setBypassTwoFactor(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"bypassTwoFactor":true,"tokenName":"%1"})").arg(tokenName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"bypassTwoFactor":true,"tokenName":"%1"})"_s.arg(tokenName).toLatin1());
 }
 
 void GeneratePersonalAccessTokenJobTest::shouldNotStarting()

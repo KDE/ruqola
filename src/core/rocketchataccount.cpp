@@ -556,7 +556,7 @@ void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &mes
         }
 
         QJsonObject payload;
-        payload.insert(u"msg"_s, message);
+        payload.insert("msg"_L1, message);
 
         MessageEncrypted encryptedMessage;
         const bool ok = encryptedMessage.encrypt(QJsonDocument(payload).toJson(QJsonDocument::Compact), sessionKey, keyId);
@@ -1219,7 +1219,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
         const auto listMessages = messages.listMessages();
         for (const auto &msg : listMessages) {
             QJsonObject params;
-            params.insert(u"tmid"_s, QString::fromLatin1(msg.messageId()));
+            params.insert("tmid"_L1, QString::fromLatin1(msg.messageId()));
             ddp()->getThreadMessages(params);
         }
         return;
@@ -2198,7 +2198,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
                 const QUrl url = QUrl::fromLocalFile(iconFileName);
                 QPixmap pix;
                 // qDebug() << "url.toLocalFile()" << url.toLocalFile();
-                const bool loaded = pix.load(url.toLocalFile().remove(u"file://"_s), "JPEG");
+                const bool loaded = pix.load(url.toLocalFile().remove("file://"_L1), "JPEG");
                 // qDebug() << " load pixmap : " << loaded;
                 // qDebug() << " pix " << pix.isNull();
                 std::ignore = loaded;

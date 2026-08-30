@@ -50,35 +50,34 @@ void TeamsCreateJobTest::shouldGenerateJson()
     const QString channelname = u"foo1"_s;
     info.name = channelname;
     job.setTeamsCreateJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"name":"%1","room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
     bool readOnly = false;
     info.readOnly = readOnly;
     job.setTeamsCreateJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"name":"%1","room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
     readOnly = true;
     info.readOnly = readOnly;
     job.setTeamsCreateJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
     const QStringList members = {u"foo"_s, u"bla"_s};
     info.members = members;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+             uR"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
     const bool privateTeam = true;
     info.privateChannel = privateTeam;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":1})").arg(channelname).toLatin1());
+             uR"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":1})"_s.arg(channelname).toLatin1());
 
     info.infoType = CreateChannelTeamInfo::CreateInfoType::Channel;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+             uR"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})"_s.arg(channelname).toLatin1());
 }
 
 void TeamsCreateJobTest::shouldNotStarting()

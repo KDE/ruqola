@@ -55,8 +55,8 @@ void ApplicationsSettingsSettingsInfoTest::shouldLoadApplicationSettingsInfo_dat
         info.setRequired(true);
         info.setMultiLine(true);
         info.setPackageValue(
-            QStringLiteral("[{\"search\": \"#(\\\\d+)\", \"replace\": \"[$&](https://www1.example.com/issues/$1)\"}, {\"search\": \"BUG-(\\\\d+)\", "
-                           "\"replace\": \"[$&](https://www2.example.com/issues/$1)\"}]"));
+            u"[{\"search\": \"#(\\\\d+)\", \"replace\": \"[$&](https://www1.example.com/issues/$1)\"}, {\"search\": \"BUG-(\\\\d+)\", "
+            u"\"replace\": \"[$&](https://www2.example.com/issues/$1)\"}]"_s);
         QTest::addRow("test2") << u"test2"_s << info;
     }
 }

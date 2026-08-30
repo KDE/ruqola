@@ -42,7 +42,7 @@ void EmojiCustomDeleteJobTest::shouldGenerateJson()
     EmojiCustomDeleteJob job;
     const QByteArray emojiId("foo1");
     job.setEmojiId(emojiId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emojiId":"%1"})").arg(QLatin1StringView(emojiId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"emojiId":"%1"})"_s.arg(QLatin1StringView(emojiId)).toLatin1());
 }
 
 #include "moc_emojicustomdeletejobtest.cpp"

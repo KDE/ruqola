@@ -207,20 +207,20 @@ void UsersInRoomMenu::updateUserInRoomMenu()
             if (mRoom->hasPermission(u"mute-user"_s)) {
                 const bool userIsMuted = mRoom->userIsMuted(mUserName);
                 auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), mMenu);
-                muteAction->setIcon(userIsMuted ? QIcon::fromTheme("mic-on"_L1) : QIcon::fromTheme("mic-off"_L1));
+                muteAction->setIcon(userIsMuted ? QIcon::fromTheme(u"mic-on"_s) : QIcon::fromTheme(u"mic-off"_s));
                 connect(muteAction, &QAction::triggered, this, &UsersInRoomMenu::slotMuteUser);
                 mMenu->addAction(muteAction);
             }
         }
 
         mMenu->addSeparator();
-        auto reportUserAction = new QAction(QIcon::fromTheme("emblem-warning"_L1), i18nc("@action", "Report User"), mMenu);
+        auto reportUserAction = new QAction(QIcon::fromTheme(u"emblem-warning"_s), i18nc("@action", "Report User"), mMenu);
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
         mMenu->addAction(reportUserAction);
 
         if (mRoom->hasPermission(u"ban-user"_s)) {
             mMenu->addSeparator();
-            auto banUserFromRoomAction = new QAction(QIcon::fromTheme("im-ban-user"_L1), i18nc("@action", "Ban User From Room"), mMenu);
+            auto banUserFromRoomAction = new QAction(QIcon::fromTheme(u"im-ban-user"_s), i18nc("@action", "Ban User From Room"), mMenu);
             connect(banUserFromRoomAction, &QAction::triggered, this, &UsersInRoomMenu::slotBanUserFromRoomAction);
             mMenu->addAction(banUserFromRoomAction);
         }

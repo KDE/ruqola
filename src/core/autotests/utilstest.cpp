@@ -71,8 +71,7 @@ void UtilsTest::shouldConvertTextWithUrl_data()
     QTest::newRow("test5") << u"bla bla [blo]"_s << u"bla bla [blo]"_s;
     QTest::newRow("test6") << u"bla bla [blo] bli"_s << u"bla bla [blo] bli"_s;
     // Test <https://www.kde.org|bla>
-    QTest::newRow("[https://www.kde.org|bla]") << QStringLiteral(
-        "bla [<a href=\"https://www.kde.org.|https://www.kde.org\">https://www.kde.org.|https://www.kde.org</a>]")
+    QTest::newRow("[https://www.kde.org|bla]") << u"bla [<a href=\"https://www.kde.org.|https://www.kde.org\">https://www.kde.org.|https://www.kde.org</a>]"_s
                                                << u"bla <a href=\"https://www.kde.org\">https://www.kde.org.</a>"_s;
 #if 0
     QTest::newRow("[https://www.kde.org|bla]") << u"[https://www.kde.org|https://www.kde.org/bla]"_s
@@ -84,11 +83,9 @@ void UtilsTest::shouldConvertTextWithUrl_data()
                                                                           << u"blabla <a href='https://www.kde.org/bla'>https://www.kde.org</a>"_s;
 
     QTest::newRow("blabla [https://www.kde.org|https://www.kde.org/bla] 2 ")
-        << QStringLiteral(
-               "ideas: [https://www.kde.com/pages/viewpage.action?pageId=11111.|https://www.kde.com/pages/viewpage.action?pageId=11111]\r\n [~vvvv] can")
-        << QStringLiteral(
-               "ideas: <a href='https://www.kde.com/pages/viewpage.action?pageId=11111'>https://www.kde.com/pages/viewpage.action?pageId=11111.</a>\r\n "
-               "[~vvvv] can");
+        << u"ideas: [https://www.kde.com/pages/viewpage.action?pageId=11111.|https://www.kde.com/pages/viewpage.action?pageId=11111]\r\n [~vvvv] can"_s
+        << u"ideas: <a href='https://www.kde.com/pages/viewpage.action?pageId=11111'>https://www.kde.com/pages/viewpage.action?pageId=11111.</a>\r\n "
+               u"[~vvvv] can"_s;
 #endif
     // Test [foo](http://www.kde.org_!!)
     QTest::newRow("[foo](http://www.kde.org!!)") << u"[foo](http://www.kde.org!!)"_s << u"<a href='http://www.kde.org!!'>foo</a>"_s;

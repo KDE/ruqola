@@ -52,12 +52,12 @@ void RoleCreateJobTest::shouldGenerateJson()
     info.scope = scope;
     job.setCreateRoleInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"description":"%3","mandatory2fa":false,"name":"%1","scope":"%2"})").arg(name, scope, description).toLatin1());
+             uR"({"description":"%3","mandatory2fa":false,"name":"%1","scope":"%2"})"_s.arg(name, scope, description).toLatin1());
 
     info.mandatory2fa = true;
     job.setCreateRoleInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"description":"%3","mandatory2fa":true,"name":"%1","scope":"%2"})").arg(name, scope, description).toLatin1());
+             uR"({"description":"%3","mandatory2fa":true,"name":"%1","scope":"%2"})"_s.arg(name, scope, description).toLatin1());
 }
 
 void RoleCreateJobTest::shouldNotStarting()

@@ -706,7 +706,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(u"room_favorite"_s, mRoomFavorite);
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    const QString defaultUrlPath = QStringLiteral("https://origin.cdn.kde.org/ci-builds/network/ruqola/");
+    const QString defaultUrlPath = u"https://origin.cdn.kde.org/ci-builds/network/ruqola/"_s;
     const QString stableBranch = u"2.8"_s;
     bool stableVersion = false;
 #if RUQOLA_STABLE_VERSION
@@ -1446,10 +1446,10 @@ void RuqolaMainWindow::updateOfflineAction()
 #if ADD_OFFLINE_SUPPORT
     if (Ruqola::self()->offlineMode()) {
         mOfflineMode->setText(i18nc("@action", "Work Online"));
-        mOfflineMode->setIcon(QIcon::fromTheme(QStringLiteral("user-online")));
+        mOfflineMode->setIcon(QIcon::fromTheme(u"user-online"_s));
     } else {
         mOfflineMode->setText(i18nc("@action", "Work Offline"));
-        mOfflineMode->setIcon(QIcon::fromTheme(QStringLiteral("user-offline")));
+        mOfflineMode->setIcon(QIcon::fromTheme(u"user-offline"_s));
     }
 #endif
 }

@@ -50,8 +50,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                                  R"(
+        authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -63,7 +62,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "resume"
             }
-        })")),
+        })"_s),
                                               RESTAuthenticationManager::Method::Login);
 
         QCOMPARE(spyStatusChanged.count(), 2);
@@ -83,8 +82,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                                  R"(
+        authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -96,7 +94,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "?????"
             }
-        })")),
+        })"_s),
                                               RESTAuthenticationManager::Method::Login); // TODO: check the type for non-ldap, non-2fa successful login messages
 
         QCOMPARE(spyStatusChanged.count(), 2);
@@ -116,8 +114,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                                  R"(
+        authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -129,7 +126,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "?????"
             }
-        })")),
+        })"_s),
                                               RESTAuthenticationManager::Method::Login); // TODO: check the type for non-ldap, non-2fa successful login messages
 
         QCOMPARE(spyStatusChanged.count(), 2);
@@ -149,8 +146,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                                  R"(
+        authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -162,7 +158,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "ldap"
             }
-        })")),
+        })"_s),
                                               RESTAuthenticationManager::Method::Login);
 
         QCOMPARE(spyStatusChanged.count(), 2);
@@ -182,8 +178,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
         QCOMPARE(spyStatusChanged.count(), 1);
         QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-        authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                                  R"(
+        authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
         {
             "msg": "result",
             "id": "0",
@@ -195,7 +190,7 @@ void RESTAuthenticationManagerTest::testLoginSuccess()
                 },
                 "type": "????"
             }
-        })")),
+        })"_s),
                                               RESTAuthenticationManager::Method::Login);
 
         QCOMPARE(spyStatusChanged.count(), 2);
@@ -216,8 +211,7 @@ void RESTAuthenticationManagerTest::testLoginInvalidLoginInfo()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
@@ -228,7 +222,7 @@ void RESTAuthenticationManagerTest::testLoginInvalidLoginInfo()
             "message": "User not found [403]",
             "errorType": "Meteor.Error"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);
@@ -246,8 +240,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpSuccess()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
@@ -265,7 +258,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpSuccess()
             "message": "TOTP Required [totp-required]",
             "errorType": "Meteor.Error"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);
@@ -275,8 +268,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpSuccess()
     QCOMPARE(spyStatusChanged.count(), 3);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "1",
@@ -288,7 +280,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpSuccess()
             },
             "type": "password"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::SendOtp);
 
     QCOMPARE(spyStatusChanged.count(), 4);
@@ -308,8 +300,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpFailure()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
@@ -327,7 +318,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpFailure()
             "message": "TOTP Required [totp-required]",
             "errorType": "Meteor.Error"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);
@@ -337,8 +328,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpFailure()
     QCOMPARE(spyStatusChanged.count(), 3);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(
-                                              R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "1",
@@ -352,7 +342,7 @@ void RESTAuthenticationManagerTest::testLoginWithOtpFailure()
             "message": "TOTP Invalid [totp-invalid]",
             "errorType": "Meteor.Error"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::SendOtp);
 
     QCOMPARE(spyStatusChanged.count(), 4);
@@ -370,14 +360,14 @@ void RESTAuthenticationManagerTest::testUnknownError()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "unknown-error"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);
@@ -395,14 +385,14 @@ void RESTAuthenticationManagerTest::testUserNotActivatedError()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-user-is-not-activated"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);
@@ -420,14 +410,14 @@ void RESTAuthenticationManagerTest::testLoginBlockForIpError()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-login-blocked-for-ip"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);
@@ -445,14 +435,14 @@ void RESTAuthenticationManagerTest::testLoginBlockedForUser()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-login-blocked-for-user"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);
@@ -470,14 +460,14 @@ void RESTAuthenticationManagerTest::testLoginAppUserAllowToLogin()
     QCOMPARE(spyStatusChanged.count(), 1);
     QCOMPARE(authManager.loginStatus(), AuthenticationManager::LoginStatus::LoginOngoing);
 
-    authManager.processMethodResponseImpl(Utils::strToJsonObject(QStringLiteral(R"(
+    authManager.processMethodResponseImpl(Utils::strToJsonObject(uR"(
     {
         "msg": "result",
         "id": "0",
         "error": {
             "error": "error-app-user-is-not-allowed-to-login"
         }
-    })")),
+    })"_s),
                                           RESTAuthenticationManager::Method::Login);
 
     QCOMPARE(spyStatusChanged.count(), 2);

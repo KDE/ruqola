@@ -95,17 +95,16 @@ void LoginJobTest::shouldGenerateJson()
         const QString username(u"foo"_s);
         job.setPassword(password);
         job.setUserName(username);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"password":"%1","user":"%2"})").arg(password, username).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"password":"%1","user":"%2"})"_s.arg(password, username).toLatin1());
         const QString code(u"1213"_s);
         job.setCode(code);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"code":"%3","password":"%1","user":"%2"})").arg(password, username, code).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"code":"%3","password":"%1","user":"%2"})"_s.arg(password, username, code).toLatin1());
     }
     {
         LoginJob job;
         const QString resume(u"bla"_s);
         job.setResume(resume);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"resume":"%1"})").arg(resume).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"resume":"%1"})"_s.arg(resume).toLatin1());
     }
 }
 

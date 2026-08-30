@@ -47,7 +47,7 @@ void SendInvitationEmailJobTest::shouldGenerateJson()
     emails.append(u"bla@kde.org"_s);
     emails.append(u"bli@kde.org"_s);
     job.setEmails(emails);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emails":["bla@kde.org","bli@kde.org"]})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"emails":["bla@kde.org","bli@kde.org"]})"_s.toLatin1());
 }
 
 void SendInvitationEmailJobTest::shouldNotStarting()

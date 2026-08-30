@@ -133,7 +133,7 @@ QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
     case AdminUsersPendingRoles::UserId:
         return user.userId();
     case AdminUsersPendingRoles::Administrator:
-        return user.roles().contains(u"admin"_s);
+        return user.roles().contains("admin"_L1);
     case AdminUsersPendingRoles::PendingActionInfo:
         return createPendingAction(user);
     case AdminUsersPendingRoles::PendingActionButton:

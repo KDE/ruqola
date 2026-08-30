@@ -52,8 +52,7 @@ void RoomsBanUserJobTest::shouldGenerateJson()
         const QString userName(u"foo1"_s);
         job.setUserName(userName);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"roomId":"%1","username":"%2"})").arg(QString::fromLatin1(roomId), userName).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","username":"%2"})"_s.arg(QString::fromLatin1(roomId), userName).toLatin1());
     }
 }
 

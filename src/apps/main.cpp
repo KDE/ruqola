@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
         while (it.hasNext()) {
             QString result = it.next();
             result.remove(configPath + u'/');
-            result.remove(u"/ruqola.conf"_s);
+            result.remove("/ruqola.conf"_L1);
             std::cout << "   " << result.toLocal8Bit().data() << '\n';
         }
         return 0;
@@ -151,13 +151,13 @@ int main(int argc, char *argv[])
         QJsonDocument doc;
 
         QJsonObject obj;
-        obj[QLatin1String("working_dir")] = QDir::currentPath();
-        obj[QLatin1String("args")] = QJsonArray::fromStringList(app.arguments());
+        obj["working_dir"_L1] = QDir::currentPath();
+        obj["args"_L1] = QJsonArray::fromStringList(app.arguments());
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS) && !defined(Q_OS_HAIKU)
         if (KWindowSystem::isPlatformWayland()) {
-            obj[QLatin1String("xdg_activation_token")] = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
+            obj["xdg_activation_token"_L1] = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
         } else if (KWindowSystem::isPlatformX11()) {
-            obj[QLatin1String("startup_id")] = QString::fromUtf8(QX11Info::nextStartupId());
+            obj["startup_id"_L1] = QString::fromUtf8(QX11Info::nextStartupId());
         }
 #endif
 
@@ -178,19 +178,19 @@ int main(int argc, char *argv[])
 
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS) && !defined(Q_OS_HAIKU)
         if (KWindowSystem::isPlatformWayland()) {
-            qputenv("XDG_ACTIVATION_TOKEN", message[QLatin1String("xdg_activation_token")].toString().toUtf8());
+            qputenv("XDG_ACTIVATION_TOKEN", message["xdg_activation_token"_L1].toString().toUtf8());
         } else if (KWindowSystem::isPlatformX11()) {
-            QX11Info::setNextStartupId(message[QLatin1String("startup_id")].toString().toUtf8());
+            QX11Info::setNextStartupId(message["startup_id"_L1].toString().toUtf8());
         }
 #endif
         QStringList arguments;
 
-        const auto argumentsJson = message[QLatin1String("args")].toArray();
+        const auto argumentsJson = message["args"_L1].toArray();
         for (const QJsonValue &val : argumentsJson) {
             arguments << val.toString();
         }
 
-        mw->slotActivateRequested(arguments, message[QLatin1String("working_dir")].toString());
+        mw->slotActivateRequested(arguments, message["working_dir"_L1].toString());
     });
 #endif
     mw->parseCommandLine(&parser);

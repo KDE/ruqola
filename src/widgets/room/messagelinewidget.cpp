@@ -560,7 +560,7 @@ void MessageLineWidget::slotAttachFiles()
             if (pattern == mimeTypeName) {
                 return true;
             }
-            if (pattern.endsWith(u"/*"_s) && mimeTypeName.startsWith(pattern.chopped(1))) {
+            if (pattern.endsWith("/*"_L1) && mimeTypeName.startsWith(pattern.chopped(1))) {
                 return true;
             }
         }

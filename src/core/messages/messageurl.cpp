@@ -20,7 +20,7 @@ MessageUrl::MessageUrl()
 
 QStringList MessageUrl::pageTitleElements()
 {
-    return {u"ogTitle"_s, u"twitterTitle"_s, u"title"_s, QStringLiteral("pageTitle"), QStringLiteral("oembedTitle")};
+    return {u"ogTitle"_s, u"twitterTitle"_s, u"title"_s, u"pageTitle"_s, u"oembedTitle"_s};
 }
 
 QStringList MessageUrl::descriptionElements()
@@ -30,7 +30,7 @@ QStringList MessageUrl::descriptionElements()
 
 QStringList MessageUrl::imageUrlElements()
 {
-    return {u"ogImage"_s, u"twitterImage"_s, u"msapplicationTileImage"_s, QStringLiteral("oembedThumbnailUrl")};
+    return {u"ogImage"_s, u"twitterImage"_s, u"msapplicationTileImage"_s, u"oembedThumbnailUrl"_s};
 }
 
 QStringList MessageUrl::siteUrlElements()
@@ -252,13 +252,13 @@ QString MessageUrl::contentTypeEnumToString(ContentType type)
     case ContentType::None:
         return {};
     case ContentType::Image:
-        return QStringLiteral("image");
+        return u"image"_s;
     case ContentType::ImageAnimated:
-        return QStringLiteral("image_animated");
+        return u"image_animated"_s;
     case ContentType::Audio:
-        return QStringLiteral("audio");
+        return u"audio"_s;
     case ContentType::Video:
-        return QStringLiteral("video");
+        return u"video"_s;
     }
     return {};
 }

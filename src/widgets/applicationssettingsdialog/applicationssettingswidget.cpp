@@ -22,16 +22,16 @@ ApplicationsSettingsWidget::ApplicationsSettingsWidget(RocketChatAccount *accoun
     , mStackedWidget(new QStackedWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mStackedWidget->setObjectName("mStackedWidget"_L1);
+    mStackedWidget->setObjectName(u"mStackedWidget"_s);
     mainLayout->addWidget(mStackedWidget);
 
-    mApplicationsSettingsInProgressWidget->setObjectName("mApplicationsSettingsInProgressWidget"_L1);
+    mApplicationsSettingsInProgressWidget->setObjectName(u"mApplicationsSettingsInProgressWidget"_s);
     mStackedWidget->addWidget(mApplicationsSettingsInProgressWidget);
 
-    mApplicationsSettingsListWidget->setObjectName("mApplicationsSettingsListWidget"_L1);
+    mApplicationsSettingsListWidget->setObjectName(u"mApplicationsSettingsListWidget"_s);
     mStackedWidget->addWidget(mApplicationsSettingsListWidget);
 }
 

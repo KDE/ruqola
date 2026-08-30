@@ -48,7 +48,7 @@ void GroupRemoveLeaderJobTest::shouldGenerateJson()
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     job.setChannelGroupInfo(info);
     job.setRemoveUserId(removeUserId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(removeUserId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%2","userId":"%1"})"_s.arg(removeUserId, roomId).toLatin1());
 }
 
 #include "moc_groupremoveleaderjobtest.cpp"

@@ -57,7 +57,7 @@ void MethodCallJobTest::shouldGenerateJson()
     info.anonymous = true;
     job.setMethodCallJobInfo(info);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"{}"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"{}"})"_s.toLatin1());
 
     QVariantMap map;
     map.insert(u"msg"_s, u"method"_s);

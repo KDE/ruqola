@@ -17,20 +17,20 @@ ApplicationsSettingsAskApplicationWidget::ApplicationsSettingsAskApplicationWidg
     , mMessage(new KTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTextAppLabel->setObjectName("mTextAppLabel"_L1);
+    mTextAppLabel->setObjectName(u"mTextAppLabel"_s);
     QFont labFont = mTextAppLabel->font();
     labFont.setBold(true);
     mTextAppLabel->setFont(labFont);
     mainLayout->addWidget(mTextAppLabel);
 
     auto label = new QLabel(i18nc("@label:textbox", "Let your admin know why this app would be useful"), this);
-    label->setObjectName("label"_L1);
+    label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
-    mMessage->setObjectName("mMessage"_L1);
+    mMessage->setObjectName(u"mMessage"_s);
     mainLayout->addWidget(mMessage);
     mMessage->setPlaceholderText(i18nc("@info:placeholder", "Message for workspace admin"));
     connect(mMessage, &KTextEdit::textChanged, this, &ApplicationsSettingsAskApplicationWidget::slotUpdateOkButton);

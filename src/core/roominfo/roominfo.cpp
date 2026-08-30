@@ -293,7 +293,7 @@ QString RoomInfo::roomName() const
         return mFName;
     }
     if (mName.isEmpty()) {
-        return mUserNames.join(u" x "_s);
+        return mUserNames.join(" x "_L1);
     }
     return mName;
 }

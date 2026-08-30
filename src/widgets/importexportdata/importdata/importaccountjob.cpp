@@ -248,11 +248,11 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
                 const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
                 QString newFileName = file;
                 if (renameFiles) {
-                    if (file.endsWith(u".sqlite-shm"_s)) {
+                    if (file.endsWith(".sqlite-shm"_L1)) {
                         newFileName = u"%1.sqlite-shm"_s.arg(accountName);
-                    } else if (file.endsWith(u".sqlite-wal"_s)) {
+                    } else if (file.endsWith(".sqlite-wal"_L1)) {
                         newFileName = u"%1.sqlite-wal"_s.arg(accountName);
-                    } else if (file.endsWith(u".sqlite"_s)) {
+                    } else if (file.endsWith(".sqlite"_L1)) {
                         newFileName = u"%1.sqlite"_s.arg(accountName);
                     } else {
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Invalid file " << file;

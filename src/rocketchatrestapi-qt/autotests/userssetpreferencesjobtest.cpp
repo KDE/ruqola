@@ -53,7 +53,7 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         info.userId = userId;
         job.setUsersSetPreferencesInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"data":{"desktopNotifications":"%2"},"userId":"%1"})").arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
+                 uR"({"data":{"desktopNotifications":"%2"},"userId":"%1"})"_s.arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
     }
     {
         UsersSetPreferencesJob job;
@@ -69,11 +69,10 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         info.featuresPreview = featuresPreview;
         job.setUsersSetPreferencesInfo(info);
 
-        QCOMPARE(
-            job.json().toJson(QJsonDocument::Compact),
-            QStringLiteral(R"({"data":{"featuresPreview":[{"name":"secondarySidebar","value":true},{"name":"sidebarDrafts","value":true}]},"userId":"%1"})")
-                .arg(QLatin1StringView(userId))
-                .toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 uR"({"data":{"featuresPreview":[{"name":"secondarySidebar","value":true},{"name":"sidebarDrafts","value":true}]},"userId":"%1"})"_s
+                     .arg(QLatin1StringView(userId))
+                     .toLatin1());
     }
 }
 

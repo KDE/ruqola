@@ -49,7 +49,7 @@ void SetJoinCodeChannelJobTest::shouldGenerateJson()
     job.setChannelGroupInfo(info);
     const QString joinCode = u"bli"_s;
     job.setJoinCode(joinCode);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"joinCode":"%2","roomId":"%1"})").arg(roomId, joinCode).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"joinCode":"%2","roomId":"%1"})"_s.arg(roomId, joinCode).toLatin1());
 }
 
 void SetJoinCodeChannelJobTest::shouldNotStarting()

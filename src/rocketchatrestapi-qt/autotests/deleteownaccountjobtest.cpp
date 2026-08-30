@@ -44,8 +44,7 @@ void DeleteOwnAccountJobTest::shouldGenerateJson()
     DeleteOwnAccountJob job;
     const QString password = u"foo1"_s;
     job.setPassword(password);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"password":"bb4eca334f61af3b67b5d528907d30285151610200539302f4c8cabe66225b53"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"password":"bb4eca334f61af3b67b5d528907d30285151610200539302f4c8cabe66225b53"})"_s.toLatin1());
 }
 
 void DeleteOwnAccountJobTest::shouldNotStarting()

@@ -44,7 +44,7 @@ void DeleteMessageFileJobTest::shouldGenerateJson()
     DeleteMessageFileJob job;
     const QByteArray fileId("foo1");
     job.setFileId(fileId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"fileId":"%1"})").arg(QLatin1StringView(fileId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"fileId":"%1"})"_s.arg(QLatin1StringView(fileId)).toLatin1());
 }
 
 void DeleteMessageFileJobTest::shouldNotStarting()

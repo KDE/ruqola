@@ -43,7 +43,7 @@ void UsersLogoutOtherClientsJobTest::shouldGenerateRequest()
 void UsersLogoutOtherClientsJobTest::shouldGenerateJson()
 {
     const UsersLogoutOtherClientsJob job;
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({})"_s.toLatin1());
 }
 
 void UsersLogoutOtherClientsJobTest::shouldNotStarting()

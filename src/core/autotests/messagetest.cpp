@@ -45,7 +45,7 @@ void MessageTest::shouldHaveDefaultValues()
 
 void MessageTest::shouldParseEncryptedContentVersions()
 {
-    const QString legacyPayload = QStringLiteral("a1b2c3d4e5f6MDEyMzQ1Njc4OWFiY2RlZps+T56cXa0c2AQQwbeyd5PcYf9WhRr3YpIuJZ3+mkmD");
+    const QString legacyPayload = u"a1b2c3d4e5f6MDEyMzQ1Njc4OWFiY2RlZps+T56cXa0c2AQQwbeyd5PcYf9WhRr3YpIuJZ3+mkmD"_s;
     const auto parsed = [](const QByteArray &json) {
         Message message;
         message.parseMessage(QJsonDocument::fromJson(json).object(), false, nullptr);

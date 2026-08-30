@@ -232,23 +232,22 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
     }
     {
         MessageUrl url;
-        url.setPageTitle(QStringLiteral(
-            " Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden #queenshanhadden #egirl #minecraft\""));
+        url.setPageTitle(
+            u" Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden #queenshanhadden #egirl #minecraft\""_s);
         url.setUrl(u"https://www.instagram.com/p/C0vwctGuxnI/"_s);
 
         url.setDescription(
-            QStringLiteral("19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden "
-                           "#queenshanhadden #egirl #minecraft\""));
+            u"19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden "
+            u"#queenshanhadden #egirl #minecraft\""_s);
 
         url.setSiteName(u"Instagram"_s);
         url.setSiteUrl(u"https://www.instagram.com/reel/C0vwctGuxnI/"_s);
 
         QTest::newRow("generateHtmlDescription-test5")
             << url
-            << QStringLiteral(
-                   "[ Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all. . . #shanhadden #queenshanhadden #egirl "
-                   "#minecraft\"](https://www.instagram.com/p/C0vwctGuxnI/)\n19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video "
-                   "that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\"");
+            << u"[ Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all. . . #shanhadden #queenshanhadden #egirl "
+               u"#minecraft\"](https://www.instagram.com/p/C0vwctGuxnI/)\n19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video "
+               u"that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\""_s;
     }
     {
         MessageUrl url;
@@ -256,18 +255,17 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
         url.setUrl(u"https://www.stereolabs.com/products/zed-2"_s);
 
         url.setDescription(
-            QStringLiteral("The ZED 2 family is a next-generation series of USB 3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI "
-                           "capabilities. This combination empowers you to develop cutting-edge spatial intelligence applications"));
+            u"The ZED 2 family is a next-generation series of USB 3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI "
+            u"capabilities. This combination empowers you to develop cutting-edge spatial intelligence applications"_s);
 
         url.setSiteName(QString());
         url.setSiteUrl(u"https://www.stereolabs.com/products/zed-"_s);
 
         QTest::newRow("generateHtmlDescription-test6")
             << url
-            << QStringLiteral(
-                   "[ZED 2 - AI Stereo Camera | Stereolabs](https://www.stereolabs.com/products/zed-2)\nThe ZED 2 family is a next-generation series of USB "
-                   "3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI capabilities. This combination empowers you to develop "
-                   "cutting-edge spatial intelligence applications");
+            << u"[ZED 2 - AI Stereo Camera | Stereolabs](https://www.stereolabs.com/products/zed-2)\nThe ZED 2 family is a next-generation series of USB "
+               u"3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI capabilities. This combination empowers you to develop "
+               u"cutting-edge spatial intelligence applications"_s;
     }
 }
 

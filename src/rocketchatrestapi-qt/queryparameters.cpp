@@ -111,9 +111,9 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
     }
     if (!queryParameters.searchString().isEmpty()) {
         if (queryParameters.useSyntaxRc70()) {
-            urlQuery.addQueryItem(QStringLiteral("name"), queryParameters.searchString());
+            urlQuery.addQueryItem(u"name"_s, queryParameters.searchString());
         } else {
-            const QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());
+            const QString str = uR"({"name":{"$regex":"%1","$options":"i"}})"_s.arg(queryParameters.searchString());
             urlQuery.addQueryItem(u"query"_s, str);
         }
     }

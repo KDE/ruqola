@@ -394,8 +394,8 @@ void MessageAttachment::generateAttachmentFieldsText()
     if (mAttachmentFields.isEmpty()) {
         mAttachmentFieldsText.clear();
     } else {
-        const QString formatFirstCell = QStringLiteral(R"( padding-left: 5px; border-left: 5px solid %1)").arg(color());
-        QString result = QStringLiteral(R"(<qt><table style="border-collapse: collapse; border-spacing: 0;" width="100%" align="center"><tr>)");
+        const QString formatFirstCell = uR"( padding-left: 5px; border-left: 5px solid %1)"_s.arg(color());
+        QString result = uR"(<qt><table style="border-collapse: collapse; border-spacing: 0;" width="100%" align="center"><tr>)"_s;
         QStringList values;
         values.reserve(mAttachmentFields.count());
         int i = 0;

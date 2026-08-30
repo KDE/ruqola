@@ -46,7 +46,7 @@ void RoleDeleteJobTest::shouldGenerateJson()
 
     const QString identifier = u"foo1"_s;
     job.setRoleId(identifier);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleId":"%1"})").arg(identifier).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roleId":"%1"})"_s.arg(identifier).toLatin1());
 }
 
 void RoleDeleteJobTest::shouldNotStarting()

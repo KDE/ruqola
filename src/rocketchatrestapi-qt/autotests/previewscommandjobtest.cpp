@@ -47,7 +47,7 @@ void PreviewsCommandJobTest::shouldGenerateJson()
     info.commandName = u"command1"_s;
     info.roomId = u"room1"_s;
     job.setPreviewsCommandInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"command":"%1","roomId":"%2"})").arg(info.commandName, info.roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"command":"%1","roomId":"%2"})"_s.arg(info.commandName, info.roomId).toLatin1());
 }
 
 void PreviewsCommandJobTest::shouldNotStarting()

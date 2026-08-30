@@ -47,7 +47,7 @@ void ResetTOTPJobTest::shouldGenerateJson()
     ResetTOTPJob job;
     const QByteArray resetUserId("foo");
     job.setResetUserId(resetUserId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QLatin1StringView(resetUserId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"userId":"%1"})"_s.arg(QLatin1StringView(resetUserId)).toLatin1());
 }
 
 void ResetTOTPJobTest::shouldNotStarting()

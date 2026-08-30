@@ -49,11 +49,11 @@ void ReactOnMessageJobTest::shouldGenerateJson()
     job.setMessageId(messageid);
     job.setEmoji(emoji);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":true})").arg(emoji, QLatin1StringView(messageid)).toLatin1());
+             uR"({"emoji":"%1","messageId":"%2","shouldReact":true})"_s.arg(emoji, QLatin1StringView(messageid)).toLatin1());
 
     job.setShouldReact(false);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":false})").arg(emoji, QLatin1StringView(messageid)).toLatin1());
+             uR"({"emoji":"%1","messageId":"%2","shouldReact":false})"_s.arg(emoji, QLatin1StringView(messageid)).toLatin1());
 }
 
 void ReactOnMessageJobTest::shouldNotStarting()

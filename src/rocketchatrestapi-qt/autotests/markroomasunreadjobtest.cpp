@@ -46,9 +46,9 @@ void MarkRoomAsUnReadJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     job.setObjectId(roomId.toLatin1());
     job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::Room);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1"})"_s.arg(roomId).toLatin1());
     job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"firstUnreadMessage":{"_id":"foo1"}})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"firstUnreadMessage":{"_id":"foo1"}})"_s.arg(roomId).toLatin1());
 }
 
 void MarkRoomAsUnReadJobTest::shouldNotStarting()
