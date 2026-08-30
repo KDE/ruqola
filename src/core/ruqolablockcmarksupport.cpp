@@ -133,6 +133,8 @@ QString generateRichTextCMark(const QString &str,
 
         static const QRegularExpression regularExpressionRoom(u"(^|\\s+)#([\\w._-]+)"_s, QRegularExpression::UseUnicodePropertiesOption);
         QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
+        const QList<Channels::ChannelInfo> channelsList = channels ? channels->channels() : QList<Channels::ChannelInfo>{};
+        int offset = 0;
         while (roomIterator.hasNext()) {
             const QRegularExpressionMatch match = roomIterator.next();
             const QStringView word = match.capturedView(2);
@@ -150,23 +152,24 @@ QString generateRichTextCMark(const QString &str,
 
             QString wordName = word.toString();
             QByteArray roomIdentifier;
-            if (channels) {
-                const auto channelsList = channels->channels();
-                auto it = std::find_if(channelsList.cbegin(), channelsList.cend(), [&wordName](const auto &channel) {
-                    return channel.name == wordName;
-                });
-                if (it == channelsList.cend()) {
-                    roomIdentifier = wordName.toLatin1();
-                } else {
-                    roomIdentifier = (*it).identifier;
-                    if (!(*it).fname.isEmpty()) {
-                        wordName = (*it).fname;
-                    }
-                }
-            } else {
+            const auto it = std::find_if(channelsList.cbegin(), channelsList.cend(), [&wordName](const auto &channel) {
+                return channel.name == wordName;
+            });
+            if (it == channelsList.cend()) {
                 roomIdentifier = wordName.toLatin1();
+            } else {
+                roomIdentifier = it->identifier;
+                if (!it->fname.isEmpty()) {
+                    wordName = it->fname;
+                }
             }
-            newStr.replace(u'#' + word.toString(), u"<a href=\'ruqola:/room/%2\'>#%1</a>"_s.arg(wordName, QString::fromLatin1(roomIdentifier)));
+            const QString replaceStr = u"<a href=\'ruqola:/room/%2\'>#%1</a>"_s.arg(wordName, QString::fromLatin1(roomIdentifier));
+            // Replace at the match position: replacing by value would rewrite every other
+            // occurrence of the same room, nesting the anchors we just inserted.
+            const int replaceWordLength = word.length() + 1; // '#' + word
+            newStr.replace(matchCapturedStart - 1 + offset, replaceWordLength, replaceStr);
+            // We added a new string => increase offset
+            offset += replaceStr.length() - replaceWordLength;
         }
     }
 

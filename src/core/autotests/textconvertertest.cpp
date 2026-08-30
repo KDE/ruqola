@@ -460,6 +460,17 @@ void TextConverterTest::shouldShowChannels_data()
                                        << u"<p>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></p>\n"_s << mentions
                                        << channels;
     }
+    {
+        const QMap<QString, QByteArray> mentions;
+        QList<Channels::ChannelInfo> channels;
+        Channels::ChannelInfo info;
+        info.name = u"bli"_s;
+        info.identifier = "112"_ba;
+        channels.append(info);
+        QTest::newRow("same channel twice") << u"foo #bli blass #bli"_s
+                                            << u"<p>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/112'>#bli</a></p>\n"_s << mentions
+                                            << channels;
+    }
 }
 
 void TextConverterTest::shouldShowChannels()
