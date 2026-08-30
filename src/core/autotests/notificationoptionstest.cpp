@@ -80,7 +80,7 @@ void NotificationOptionsTest::shouldParseNotification_data()
     QTest::addColumn<QByteArray>("mobilePushNotification");
     QTest::addColumn<QByteArray>("emailNotifications");
     const NotificationOptions notif;
-    QTest::addRow("notification1") << u"notification1"_s << QByteArrayLiteral("default") << QByteArrayLiteral("all") << "all"_ba;
+    QTest::addRow("notification1") << u"notification1"_s << "default"_ba << "all"_ba << "all"_ba;
 }
 
 void NotificationOptionsTest::shouldParseNotification()

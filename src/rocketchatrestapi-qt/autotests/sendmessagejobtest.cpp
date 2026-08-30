@@ -76,10 +76,10 @@ void SendMessageJobTest::shouldGenerateJsonEncrypted()
     SendMessageJob::SendMessageArguments args;
     args.roomId = roomId;
     const EncryptedInfo info{
-        .algorithm = "bla",
-        .keyId = "blo",
+        .algorithm = "bla"_ba,
+        .keyId = "blo"_ba,
         .ciphertext = u"foo"_s,
-        .iv = "kde",
+        .iv = "kde"_ba,
     };
     args.info = info;
     job.setSendMessageArguments(args);

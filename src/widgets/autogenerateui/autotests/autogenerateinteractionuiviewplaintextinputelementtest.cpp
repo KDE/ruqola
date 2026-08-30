@@ -54,8 +54,8 @@ void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson_data
         AutoGenerateInteractionUiViewPlainTextInputElement *textElement = new AutoGenerateInteractionUiViewPlainTextInputElement;
         textElement->setInitialValue("Hey, I received your message and will get back to you as soon as possible."_L1);
         textElement->setMultiLine(true);
-        textElement->setType("plain_text_input");
-        textElement->setActionId("AutoReplyMessage");
+        textElement->setType("plain_text_input"_ba);
+        textElement->setActionId("AutoReplyMessage"_ba);
         auto placeHolder = new AutoGenerateInteractionUiViewText;
         placeHolder->setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
         placeHolder->setText(u"Type your auto-reply message"_s);

@@ -44,7 +44,7 @@ void LogoutJob::onGetRequestResponse(const QString &replyErrorString, const QJso
         Q_EMIT logoutDone(); // connected to RestApiConnection::slotLogout
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Error during to logout" + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Error during to logout"_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

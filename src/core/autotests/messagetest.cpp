@@ -57,23 +57,23 @@ void MessageTest::shouldParseEncryptedContentVersions()
         const Message message = parsed(R"({"_id":"msgid","t":"e2e","content":{"algorithm":"rc.v2.aes-sha2","kid":"23e2720d-b3e0-4753-85ff-bad2caeb867b",)"
                                        R"("iv":"MDEyMzQ1Njc4OWFi","ciphertext":"ej0KsqEKP7tIhPFauxLZfLCDiI6PY2Ex68Kv4kt2sCFIA24="}})"_ba);
         QVERIFY(message.messageEncrypted());
-        QCOMPARE(message.messageEncrypted()->algorithm(), QByteArray("rc.v2.aes-sha2"));
-        QCOMPARE(message.messageEncrypted()->keyId(), QByteArray("23e2720d-b3e0-4753-85ff-bad2caeb867b"));
+        QCOMPARE(message.messageEncrypted()->algorithm(), "rc.v2.aes-sha2"_ba);
+        QCOMPARE(message.messageEncrypted()->keyId(), "23e2720d-b3e0-4753-85ff-bad2caeb867b"_ba);
     }
 
     // "rc.v1.aes-sha2": "content" is the payload string itself.
     {
         const Message message = parsed(R"({"_id":"msgid","t":"e2e","content":")"_ba + legacyPayload.toLatin1() + R"("})"_ba);
         QVERIFY(message.messageEncrypted());
-        QCOMPARE(message.messageEncrypted()->algorithm(), QByteArray("rc.v1.aes-sha2"));
-        QCOMPARE(message.messageEncrypted()->keyId(), QByteArray("a1b2c3d4e5f6"));
+        QCOMPARE(message.messageEncrypted()->algorithm(), "rc.v1.aes-sha2"_ba);
+        QCOMPARE(message.messageEncrypted()->keyId(), "a1b2c3d4e5f6"_ba);
     }
 
     // The oldest ones carry the payload in "msg" and have no "content" at all.
     {
         const Message message = parsed(R"({"_id":"msgid","t":"e2e","msg":")"_ba + legacyPayload.toLatin1() + R"("})"_ba);
         QVERIFY(message.messageEncrypted());
-        QCOMPARE(message.messageEncrypted()->keyId(), QByteArray("a1b2c3d4e5f6"));
+        QCOMPARE(message.messageEncrypted()->keyId(), "a1b2c3d4e5f6"_ba);
     }
 
     // An encrypted message whose "msg" already holds the plaintext must be left alone rather than
@@ -725,7 +725,7 @@ void MessageTest::shouldSerializeData()
 
         // Replies
         Replies replies;
-        const QList<QByteArray> bareplies({QByteArrayLiteral("reply1"), "reply2"_ba});
+        const QList<QByteArray> bareplies({"reply1"_ba, "reply2"_ba});
         replies.setReplies(bareplies);
         input.setReplies(replies);
 

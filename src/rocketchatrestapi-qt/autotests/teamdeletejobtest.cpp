@@ -46,7 +46,7 @@ void TeamDeleteJobTest::shouldGenerateJson()
     const QByteArray teamId("foo2");
     job.setTeamId(teamId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
-    const QList<QByteArray> rooms = {QByteArrayLiteral("bla"), "bla1"_ba};
+    const QList<QByteArray> rooms = {"bla"_ba, "bla1"_ba};
     job.setRoomsId(rooms);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"roomsToRemove":["bla","bla1"],"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
@@ -74,7 +74,7 @@ void TeamDeleteJobTest::shouldNotStarting()
     job.setTeamId(teamId);
     QVERIFY(job.canStart());
     // roomsId can be empty
-    const QList<QByteArray> rooms = {QByteArrayLiteral("bb"), "aa"_ba};
+    const QList<QByteArray> rooms = {"bb"_ba, "aa"_ba};
     job.setRoomsId(rooms);
     QVERIFY(job.canStart());
 }

@@ -275,7 +275,7 @@ void RoomModelTest::shouldClear()
     QCOMPARE(rowABTInserted.count(), 0);
 
     for (int i = 0; i < 15; i++) {
-        sampleModel.addRoom(QByteArray("RA151100ECE%1") + QByteArray::number(i), u"myRoom%1"_s.arg(i));
+        sampleModel.addRoom("RA151100ECE%1"_ba + QByteArray::number(i), u"myRoom%1"_s.arg(i));
     }
     QCOMPARE(sampleModel.rowCount(), 15);
 

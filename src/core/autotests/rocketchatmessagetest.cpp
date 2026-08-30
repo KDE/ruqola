@@ -42,10 +42,10 @@ void RocketChatMessageTest::shouldInformTypingStatus()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.informTypingStatus(QByteArray("roomId"), u"user1"_s, false, 42);
+    RocketChatMessage::RocketChatMessageResult r = m.informTypingStatus("roomId"_ba, u"user1"_s, false, 42);
     compareFile(r.result, u"informtypingstatusfalse"_s);
 
-    r = m.informTypingStatus(QByteArray("roomId2"), u"user2"_s, true, 43);
+    r = m.informTypingStatus("roomId2"_ba, u"user2"_s, true, 43);
     compareFile(r.result, u"informtypingstatustrue"_s);
 }
 
@@ -95,7 +95,7 @@ void RocketChatMessageTest::inputUserWithRoomIdAutocomplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    const RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QByteArray("RoomId25"), u"pattern"_s, u"exception"_s, 43);
+    const RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete("RoomId25"_ba, u"pattern"_s, u"exception"_s, 43);
     compareFile(r.result, u"inputUserWithRoomIdAutocomplete"_s);
 }
 

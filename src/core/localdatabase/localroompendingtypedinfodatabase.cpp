@@ -74,7 +74,7 @@ void LocalRoomPendingTypedInfoDatabase::updateRoomPendingTypedInfo(const QString
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("Update roomPendingTypedInfo roomId " + roomId + " in account " + accountName.toUtf8());
+            mRuqolaLogger->dataSaveFromDatabase("Update roomPendingTypedInfo roomId "_ba + roomId + " in account "_ba + accountName.toUtf8());
         }
     }
 }
@@ -90,7 +90,7 @@ void LocalRoomPendingTypedInfoDatabase::deleteRoomPendingTypedInfo(const QString
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete roomPendingTypedInfo " + roomId + " in account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete roomPendingTypedInfo "_ba + roomId + " in account "_ba + accountName.toUtf8());
     }
 }
 

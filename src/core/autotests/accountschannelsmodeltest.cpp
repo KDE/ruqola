@@ -50,7 +50,7 @@ void AccountsChannelsModelTest::accountsAndChannels()
 
     Ruqola::self()->setCurrentAccount(newAcctName);
 
-    const auto newRoomId = QByteArray("RoomId");
+    const auto newRoomId = "RoomId"_ba;
     const auto newRoomName = u"Room Name"_s;
     acct->roomModel()->addRoom(newRoomId, newRoomName);
     QCOMPARE(model.rowCount(newAcctIndex), 1);

@@ -47,7 +47,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
 
     {
         AppsMarketPlaceInfo appsMarketPlaceInfo;
-        appsMarketPlaceInfo.setAppId(QByteArray("9408b583-2f0e-4987-a341-daa171d761ce"));
+        appsMarketPlaceInfo.setAppId("9408b583-2f0e-4987-a341-daa171d761ce"_ba);
         appsMarketPlaceInfo.setIsEnterpriseOnly(false);
         appsMarketPlaceInfo.setAppName("YouTrack Linker"_L1);
         appsMarketPlaceInfo.setCategories({"Developer Tools"_L1, "Productivity"_L1, "Project Management"_L1});
@@ -66,7 +66,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
     }
     {
         AppsMarketPlaceInfo appsMarketPlaceInfo;
-        appsMarketPlaceInfo.setAppId(QByteArray("3b387ba9-f57c-44c6-9810-8c0256abd64c"));
+        appsMarketPlaceInfo.setAppId("3b387ba9-f57c-44c6-9810-8c0256abd64c"_ba);
         appsMarketPlaceInfo.setIsEnterpriseOnly(false);
         appsMarketPlaceInfo.setAppName("Jitsi"_L1);
         appsMarketPlaceInfo.setCategories({"Voice & Video"_L1, "Communication"_L1, "Productivity"_L1});
@@ -88,7 +88,7 @@ void AppsMarketPlaceInfoTest::shouldLoadAppsMarketPlaceInfo_data()
 
     {
         AppsMarketPlaceInfo appsMarketPlaceInfo;
-        appsMarketPlaceInfo.setAppId(QByteArray("6acc91d8-f7db-4c1f-91df-7fd8f84d716c"));
+        appsMarketPlaceInfo.setAppId("6acc91d8-f7db-4c1f-91df-7fd8f84d716c"_ba);
         appsMarketPlaceInfo.setIsEnterpriseOnly(false);
         appsMarketPlaceInfo.setAppName("InStatus Notifier"_L1);
         appsMarketPlaceInfo.setCategories({"Bots"_L1, "Developer Tools"_L1});

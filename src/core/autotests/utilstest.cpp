@@ -285,7 +285,7 @@ void UtilsTest::shouldParseDate_data()
 {
     QTest::addColumn<QByteArray>("json");
     QTest::addColumn<qint64>("expected");
-    QTest::newRow("missing") << QByteArray("{}") << qint64(-1);
+    QTest::newRow("missing") << "{}"_ba << qint64(-1);
     // EJSON object form (DDP method results)
     QTest::newRow("ejson-object") << QByteArray(R"({"ls":{"$date":1781619879849}})") << qint64(1781619879849);
     // ISO-8601 string form (REST / stream-notify-user events) - used to return -1 and wiped lastSeenAt
@@ -305,7 +305,7 @@ void UtilsTest::shouldParseIsoDate_data()
 {
     QTest::addColumn<QByteArray>("json");
     QTest::addColumn<qint64>("expected");
-    QTest::newRow("missing") << QByteArray("{}") << qint64(-1);
+    QTest::newRow("missing") << "{}"_ba << qint64(-1);
     QTest::newRow("iso-string") << QByteArray(R"({"createdAt":"2025-03-13T09:03:20.248Z"})") << qint64(1741856600248);
     // Unparsable values used to return 0, which callers accepted as a valid 1970-01-01 date
     QTest::newRow("invalid-string") << QByteArray(R"({"createdAt":"not-a-date"})") << qint64(-1);

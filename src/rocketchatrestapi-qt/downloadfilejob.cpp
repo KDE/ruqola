@@ -43,7 +43,7 @@ void DownloadFileJob::slotDownloadDone()
         const QByteArray data = reply->readAll();
         const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         if (status == 200) {
-            addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
+            addLoggerInfo("DownloadFileJob::slotDownloadDone finished"_ba);
 
             // Split between image/video/audio
             const QString newFilePath = mLocalFileUrl.toLocalFile();
@@ -58,7 +58,7 @@ void DownloadFileJob::slotDownloadDone()
             Q_EMIT downloadFileDone(reply->url(), mLocalFileUrl);
         } else {
             Q_EMIT failed(i18n("Download failed: %1", mUrl.toDisplayString()), reply->errorString());
-            addLoggerWarning("DownloadFileJob problem data: [" + data + "] :END");
+            addLoggerWarning("DownloadFileJob problem data: ["_ba + data + "] :END"_ba);
         }
         reply->deleteLater();
     } else {

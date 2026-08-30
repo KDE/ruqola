@@ -43,7 +43,7 @@ void LocalAccountsDatabase::updateAccount(const QString &accountName, const QByt
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("Update account " + accountName.toUtf8());
+            mRuqolaLogger->dataSaveFromDatabase("Update account "_ba + accountName.toUtf8());
         }
     }
 }
@@ -59,7 +59,7 @@ void LocalAccountsDatabase::deleteAccount(const QString &accountName)
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ACCOUNT table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete account "_ba + accountName.toUtf8());
     }
 }
 

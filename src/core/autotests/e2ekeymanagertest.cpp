@@ -66,7 +66,7 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBase64StringPayload()
     account.settings()->setUserId("test-e2e-user-string"_ba);
 
     E2eKeyManager manager(&account);
-    const QByteArray encryptedPrivateKey = "encrypted-private-key-data";
+    const QByteArray encryptedPrivateKey = "encrypted-private-key-data"_ba;
     const QByteArray encryptedPrivateKeyBase64 = encryptedPrivateKey.toBase64();
 
     QJsonObject json;
@@ -96,7 +96,7 @@ void E2eKeyManagerTest::shouldSetNeedToDecryptStatusFromBinaryObjectPayload()
     account.settings()->setUserId("test-e2e-user-binary"_ba);
 
     E2eKeyManager manager(&account);
-    const QByteArray encryptedPrivateKey = "binary-private-key-data";
+    const QByteArray encryptedPrivateKey = "binary-private-key-data"_ba;
 
     QJsonObject privateKeyObject;
     privateKeyObject["$binary"_L1] = QString::fromLatin1(encryptedPrivateKey.toBase64());

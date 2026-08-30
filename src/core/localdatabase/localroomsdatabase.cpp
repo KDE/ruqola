@@ -47,7 +47,7 @@ void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("Update room " + room->displayRoomName().toUtf8() + " in account " + accountName.toUtf8());
+            mRuqolaLogger->dataSaveFromDatabase("Update room "_ba + room->displayRoomName().toUtf8() + " in account "_ba + accountName.toUtf8());
         }
     }
 }
@@ -65,7 +65,7 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QByteArray
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMS table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete room " + roomId + " in account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete room "_ba + roomId + " in account "_ba + accountName.toUtf8());
     }
 }
 

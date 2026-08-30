@@ -52,11 +52,11 @@ void ForwardMessageWidgetTest::shouldAddChannelsWithIdenticalNames()
     // Two distinct rooms can share the same display name (two direct messages for example)
     const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo firstChannel{
         .name = u"same-name"_s,
-        .channelId = "channelid1",
+        .channelId = "channelid1"_ba,
     };
     const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo secondChannel{
         .name = u"same-name"_s,
-        .channelId = "channelid2",
+        .channelId = "channelid2"_ba,
     };
     Q_EMIT lineEdit->forwardToChannel(firstChannel);
     Q_EMIT lineEdit->forwardToChannel(secondChannel);
@@ -78,11 +78,11 @@ void ForwardMessageWidgetTest::shouldRemoveChannel()
     QVERIFY(lineEdit);
     const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo firstChannel{
         .name = u"same-name"_s,
-        .channelId = "channelid1",
+        .channelId = "channelid1"_ba,
     };
     const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo secondChannel{
         .name = u"same-name"_s,
-        .channelId = "channelid2",
+        .channelId = "channelid2"_ba,
     };
     Q_EMIT lineEdit->forwardToChannel(firstChannel);
     Q_EMIT lineEdit->forwardToChannel(secondChannel);

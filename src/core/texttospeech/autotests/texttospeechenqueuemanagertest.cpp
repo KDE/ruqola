@@ -15,7 +15,7 @@ namespace
 {
     TextToSpeechEnqueueInfo info;
     info.setAccountName(u"accountname"_s);
-    info.setRoomId("roomid");
+    info.setRoomId("roomid"_ba);
     info.setMessageId(messageId);
     return info;
 }
@@ -37,8 +37,8 @@ void TextToSpeechEnqueueManagerTest::shouldHaveDefaultValues()
 void TextToSpeechEnqueueManagerTest::shouldStoreInfoAtEnqueuePosition()
 {
     TextToSpeechEnqueueManager manager;
-    const auto first = createInfo("messageid1");
-    const auto second = createInfo("messageid2");
+    const auto first = createInfo("messageid1"_ba);
+    const auto second = createInfo("messageid2"_ba);
 
     // The synthesizer identifies each utterance by its position in the queue.
     manager.insert(first);
@@ -52,7 +52,7 @@ void TextToSpeechEnqueueManagerTest::shouldStoreInfoAtEnqueuePosition()
     QCOMPARE(manager.value(2), second);
     QVERIFY(manager.contains(first));
     QVERIFY(manager.contains(second));
-    QVERIFY(!manager.contains(createInfo("messageid3")));
+    QVERIFY(!manager.contains(createInfo("messageid3"_ba)));
 }
 
 void TextToSpeechEnqueueManagerTest::shouldNotContainsInvalidInfo()
@@ -66,7 +66,7 @@ void TextToSpeechEnqueueManagerTest::shouldNotContainsInvalidInfo()
 void TextToSpeechEnqueueManagerTest::shouldClearList()
 {
     TextToSpeechEnqueueManager manager;
-    manager.insert(createInfo("messageid1"));
+    manager.insert(createInfo("messageid1"_ba));
     manager.clear();
     QVERIFY(manager.enqueueList().isEmpty());
 }
@@ -77,9 +77,9 @@ void TextToSpeechEnqueueManagerTest::shouldRemoveLastInfo()
     manager.removeLast();
     QVERIFY(manager.enqueueList().isEmpty());
 
-    const auto first = createInfo("messageid1");
+    const auto first = createInfo("messageid1"_ba);
     manager.insert(first);
-    manager.insert(createInfo("messageid2"));
+    manager.insert(createInfo("messageid2"_ba));
     manager.removeLast();
     QCOMPARE(manager.enqueueList().count(), 1);
     QCOMPARE(manager.value(0), first);

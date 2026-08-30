@@ -46,7 +46,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         User user;
         user.setStatus(User::PresenceStatus::Unknown);
         user.setName("kde2"_L1);
-        user.setUserId("sddf5454");
+        user.setUserId("sddf5454"_ba);
         user.setUserName("kde2"_L1);
         user.setRoles({"user"_L1}, {});
         User::UserEmailsInfo userEmailInfo;
@@ -65,9 +65,9 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         {
             ModerationReportUserInfo info;
             info.setDescription("Test report user in ruqola"_L1);
-            info.setReportId("6638bf943b610b8aa5d35b3f");
+            info.setReportId("6638bf943b610b8aa5d35b3f"_ba);
             User reportedUser;
-            reportedUser.setUserId("sddf5454");
+            reportedUser.setUserId("sddf5454"_ba);
             reportedUser.setName("kde2"_L1);
             reportedUser.setUserName("kde2"_L1);
             reportedUser.setStatus(User::PresenceStatus::Unknown);
@@ -88,7 +88,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
             reportedBy.setName("bli bli"_L1);
             reportedBy.setUserName("blu"_L1);
             reportedBy.setStatus(User::PresenceStatus::Unknown);
-            reportedBy.setUserId("H7Q9djXQ4iShzD9T2");
+            reportedBy.setUserId("H7Q9djXQ4iShzD9T2"_ba);
 
             QDateTime createdTimeBy;
             createdTimeBy.setDate(QDate(2018, 03, 13));
@@ -103,14 +103,14 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
         {
             ModerationReportUserInfo info;
             info.setDescription("test only !"_L1);
-            info.setReportId("66361aa93b610b8aa5d35b3c");
+            info.setReportId("66361aa93b610b8aa5d35b3c"_ba);
             User reportedUser;
             QDateTime createdTime;
             createdTime.setDate(QDate(2024, 01, 31));
             createdTime.setTime(QTime(16, 8, 42, 339));
             createdTime.setTimeZone(QTimeZone::UTC);
             reportedUser.setCreatedAt(createdTime);
-            reportedUser.setUserId("sddf5454");
+            reportedUser.setUserId("sddf5454"_ba);
             reportedUser.setName("kde2"_L1);
             reportedUser.setUserName("kde2"_L1);
             reportedUser.setStatus(User::PresenceStatus::Unknown);
@@ -125,7 +125,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
             reportedBy.setName("bli bli"_L1);
             reportedBy.setUserName("blu"_L1);
             reportedBy.setStatus(User::PresenceStatus::Unknown);
-            reportedBy.setUserId("H7Q9djXQ4iShzD9T2");
+            reportedBy.setUserId("H7Q9djXQ4iShzD9T2"_ba);
 
             QDateTime createdTimeBy;
             createdTimeBy.setDate(QDate(2018, 03, 13));

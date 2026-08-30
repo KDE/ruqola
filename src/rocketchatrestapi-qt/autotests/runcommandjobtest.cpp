@@ -124,7 +124,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         // info.params;
-        QTest::addRow("test1") << u"/poll"_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test1") << u"/poll"_s << "bla"_ba << "bli"_ba << info << true;
     }
     {
         RunCommandJob::RunCommandInfo info;
@@ -133,7 +133,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         info.params = "test1"_L1;
-        QTest::addRow("test2") << u"/poll test1"_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test2") << u"/poll test1"_s << "bla"_ba << "bli"_ba << info << true;
     }
     {
         RunCommandJob::RunCommandInfo info;
@@ -142,7 +142,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         info.params = "test1 voiture"_L1;
-        QTest::addRow("test3") << u"/poll test1 voiture"_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test3") << u"/poll test1 voiture"_s << "bla"_ba << "bli"_ba << info << true;
     }
     {
         RunCommandJob::RunCommandInfo info;
@@ -151,7 +151,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         info.params = "test1 voiture"_L1;
-        QTest::addRow("test4") << u"/poll test1 voiture    "_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test4") << u"/poll test1 voiture    "_s << "bla"_ba << "bli"_ba << info << true;
     }
 }
 

@@ -47,7 +47,7 @@ void TeamConvertToChannelJobTest::shouldGenerateJson()
     job.setTeamId(teamId);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
-    const QList<QByteArray> roomsToRemove{QByteArrayLiteral("bla"), QByteArrayLiteral("bla1"), "bla2"_ba};
+    const QList<QByteArray> roomsToRemove{"bla"_ba, "bla1"_ba, "bla2"_ba};
     job.setRoomsToRemove(roomsToRemove);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              QStringLiteral(R"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());

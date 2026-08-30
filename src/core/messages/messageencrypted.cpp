@@ -199,7 +199,7 @@ bool MessageEncrypted::encrypt([[maybe_unused]] const QByteArray &plainText,
         return false;
     }
 
-    mAlgorithm = "rc.v2.aes-sha2";
+    mAlgorithm = "rc.v2.aes-sha2"_ba;
     mKeyId = effectiveKeyId;
     mIv = generatedIv.toBase64();
     mCiphertext = QString::fromLatin1(encryptedPayload.toBase64());
@@ -231,7 +231,7 @@ bool MessageEncrypted::parseLegacyPayload(const QString &prefixedCiphertext)
         return false;
     }
 
-    mAlgorithm = "rc.v1.aes-sha2";
+    mAlgorithm = "rc.v1.aes-sha2"_ba;
     mKeyId = prefixedCiphertext.left(legacyKeyIdLength).toLatin1();
     mIv = decoded.left(legacyIvLength).toBase64();
     mCiphertext = QString::fromLatin1(decoded.mid(legacyIvLength).toBase64());

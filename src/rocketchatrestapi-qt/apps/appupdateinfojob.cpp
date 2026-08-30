@@ -169,7 +169,7 @@ void AppUpdateInfoJob::onGetRequestResponse(const QString &replyErrorString, con
             Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
         } else {
             emitFailedMessage(replyErrorString, replyObject);
-            addLoggerWarning("AppUpdateInfoJob: Error" + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning("AppUpdateInfoJob: Error"_ba + replyJson.toJson(QJsonDocument::Indented));
         }
     }
 }

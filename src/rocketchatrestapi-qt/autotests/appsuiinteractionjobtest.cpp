@@ -113,13 +113,13 @@ void AppsUiInteractionJobTest::shouldTestGenerateMessageObj_data()
                                   "{\"actionId\":\"\",\"container\":{\"id\":\"\",\"type\":\"message\"},\"mid\":\"\",\"payload\":{\"blockId\":\"\",\"value\":"
                                   "\"\"},\"rid\":\"\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
 
-    QTest::addRow("test1") << u"act1"_s << QString() << u"blo1"_s << QByteArrayLiteral("room1") << "message1"_ba
+    QTest::addRow("test1") << u"act1"_s << QString() << u"blo1"_s << "room1"_ba << "message1"_ba
                            << QStringLiteral(
                                   "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
                                   "\"blockId\":\"blo1\",\"value\":\"\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
 
     QTest::addRow("test2") << u"act1"_s << u"[{\"_id\":\"HJ4EFjvEjYT73X\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"_s << u"blo1"_s
-                           << QByteArrayLiteral("room1") << "message1"_ba
+                           << "room1"_ba << "message1"_ba
                            << QStringLiteral(
                                   "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
                                   "\"blockId\":\"blo1\",\"value\":\"[{\\\"_id\\\":\\\"HJ4EFjvEjYT73X\\\",\\\"username\\\":\\\"service\\\",\\\"name\\\":"

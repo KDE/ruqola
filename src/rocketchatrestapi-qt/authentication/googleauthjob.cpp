@@ -65,7 +65,7 @@ void GoogleAuthJob::onPostRequestResponse(const QString &replyErrorString, const
         }
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Error during login"_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

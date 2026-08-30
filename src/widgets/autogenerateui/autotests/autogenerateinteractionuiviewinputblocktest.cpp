@@ -48,16 +48,16 @@ void AutoGenerateInteractionUiViewInputBlockTest::shouldLoadJson_data()
 
     {
         AutoGenerateInteractionUiViewInputBlock *textElement = new AutoGenerateInteractionUiViewInputBlock;
-        textElement->setBlockId("autoReplySettings");
-        textElement->setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
-        textElement->setType("input");
+        textElement->setBlockId("autoReplySettings"_ba);
+        textElement->setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6"_ba);
+        textElement->setType("input"_ba);
         AutoGenerateInteractionUiViewText text;
         text.setText("Auto-reply Message:"_L1);
         text.setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
         textElement->setLabel(text);
         auto element = new AutoGenerateInteractionUiViewPlainTextInputElement;
-        element->setType("plain_text_input");
-        element->setActionId("AutoReplyMessage");
+        element->setType("plain_text_input"_ba);
+        element->setActionId("AutoReplyMessage"_ba);
         element->setInitialValue("Hey, I received your message and will get back to you as soon as possible."_L1);
         element->setMultiLine(true);
         textElement->setElement(element);

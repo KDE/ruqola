@@ -92,7 +92,7 @@ void LocalMessagesDatabase::addMessages(const QString &accountName, const QByteA
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("add message in account " + accountName.toUtf8() + " in roomName " + roomId + " for message id "
+            mRuqolaLogger->dataSaveFromDatabase("add message in account "_ba + accountName.toUtf8() + " in roomName "_ba + roomId + " for message id "_ba
                                                 + m.messageId());
         }
     }
@@ -113,7 +113,7 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QByt
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("delete message in " + accountName.toUtf8() + " roomName " + roomId + " message id " + messageId.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("delete message in "_ba + accountName.toUtf8() + " roomName "_ba + roomId + " message id "_ba + messageId.toUtf8());
     }
 }
 

@@ -137,7 +137,7 @@ void BlockTest::shouldLoadBlock_data()
         info.setSectionText(u"ssdf"_s);
 
         BlockAccessory accessory;
-        accessory.setActionId("finish");
+        accessory.setActionId("finish"_ba);
         accessory.setType(BlockAccessory::AccessoryType::Overflow);
 
         QList<BlockAccessoryOption> options;
@@ -174,7 +174,7 @@ void BlockTest::shouldLoadBlock_data()
         info.setSectionText("zz"_L1);
 
         BlockAccessory accessory;
-        accessory.setActionId("vote");
+        accessory.setActionId("vote"_ba);
         accessory.setValue("0"_L1);
         accessory.setText("Vote"_L1);
         accessory.setType(BlockAccessory::AccessoryType::Button);

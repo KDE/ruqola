@@ -29,9 +29,9 @@ void TextToSpeechEnqueueInfoTest::shouldBeValidWhenAllValuesAreAssigned()
     TextToSpeechEnqueueInfo info;
     info.setAccountName(u"accountname"_s);
     QVERIFY(!info.isValid());
-    info.setRoomId("roomid");
+    info.setRoomId("roomid"_ba);
     QVERIFY(!info.isValid());
-    info.setMessageId("messageid");
+    info.setMessageId("messageid"_ba);
     QVERIFY(info.isValid());
     QCOMPARE(info.accountName(), u"accountname"_s);
     QCOMPARE(info.roomId(), "roomid");
@@ -42,17 +42,17 @@ void TextToSpeechEnqueueInfoTest::shouldCompareInfos()
 {
     TextToSpeechEnqueueInfo info;
     info.setAccountName(u"accountname"_s);
-    info.setRoomId("roomid");
-    info.setMessageId("messageid");
+    info.setRoomId("roomid"_ba);
+    info.setMessageId("messageid"_ba);
 
     TextToSpeechEnqueueInfo other = info;
     QCOMPARE(info, other);
 
-    other.setMessageId("anotherid");
+    other.setMessageId("anotherid"_ba);
     QVERIFY(!(info == other));
 
     other = info;
-    other.setRoomId("anotherroomid");
+    other.setRoomId("anotherroomid"_ba);
     QVERIFY(!(info == other));
 
     other = info;

@@ -43,8 +43,8 @@ void ActionButtonTest::shouldLoadActionButton_data()
 
     {
         ActionButton b;
-        b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
-        b.setActionId("auto-reply-room-action-id");
+        b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6"_ba);
+        b.setActionId("auto-reply-room-action-id"_ba);
         b.setLabelI18n("auto-reply-room-action-name"_L1);
         b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
@@ -53,8 +53,8 @@ void ActionButtonTest::shouldLoadActionButton_data()
 
     {
         ActionButton b;
-        b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
-        b.setActionId("manage_all_reminders_room_action");
+        b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"_ba);
+        b.setActionId("manage_all_reminders_room_action"_ba);
         b.setLabelI18n("manage_all_reminders_room_action"_L1);
         b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         b.setHasOneRole({"admin"_L1, "owner"_L1});
@@ -72,8 +72,8 @@ void ActionButtonTest::shouldLoadActionButton_data()
 
     {
         ActionButton b;
-        b.setAppId("ec284282-67ed-4401-ab8c-bdbe3c278543");
-        b.setActionId("omni_summarize");
+        b.setAppId("ec284282-67ed-4401-ab8c-bdbe3c278543"_ba);
+        b.setActionId("omni_summarize"_ba);
         b.setLabelI18n("summarize.omni"_L1);
         b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         ActionButton::RoomTypeFilters f;
@@ -86,8 +86,8 @@ void ActionButtonTest::shouldLoadActionButton_data()
     }
     {
         ActionButton b;
-        b.setAppId("ec284282-67ed-4401-ab8c-bdbe3c278543");
-        b.setActionId("thread_summarize");
+        b.setAppId("ec284282-67ed-4401-ab8c-bdbe3c278543"_ba);
+        b.setActionId("thread_summarize"_ba);
         b.setLabelI18n("summarize.thread"_L1);
         b.setButtonContext(ActionButton::ButtonContext::MessageAction);
         ActionButton::MessageActionContexts actionContexts;

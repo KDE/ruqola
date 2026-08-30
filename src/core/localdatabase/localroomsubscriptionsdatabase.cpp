@@ -72,7 +72,7 @@ void LocalRoomSubscriptionsDatabase::deleteRoomSubscription(const QString &accou
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMSUBSCRIPTIONS table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete subscriptionId " + subscriptionId + " in account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete subscriptionId "_ba + subscriptionId + " in account "_ba + accountName.toUtf8());
     }
 }
 
@@ -86,7 +86,8 @@ void LocalRoomSubscriptionsDatabase::insertRoomSubscription(const QString &accou
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMSUBSCRIPTIONS table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("Update subscriptionId " + subscriptionId + " for roomId " + roomId + " in account " + accountName.toUtf8());
+            mRuqolaLogger->dataSaveFromDatabase("Update subscriptionId "_ba + subscriptionId + " for roomId "_ba + roomId + " in account "_ba
+                                                + accountName.toUtf8());
         }
     }
 }

@@ -39,7 +39,7 @@ void MessagesModelTest::shouldHaveDefaultValue()
     const MessagesModel w("roomId"_ba, Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.searchText().isEmpty());
-    const MessagesModel::HighlightSearchStringIndexInMessage initValue = {.index = -1, .messageId = ""};
+    const MessagesModel::HighlightSearchStringIndexInMessage initValue = {.index = -1, .messageId = ""_ba};
     QCOMPARE(w.highlightSearchStringIndexInMessage(), initValue);
 }
 
@@ -323,18 +323,18 @@ void MessagesModelTest::shouldFindPrevNextMessage()
         input.setTimeStamp(timestamp);
         return input;
     };
-    messages << makeMessage(QByteArrayLiteral("msgA"), "userid1"_ba);
-    messages << makeMessage(QByteArrayLiteral("msgB"), "userid2"_ba);
-    messages << makeMessage(QByteArrayLiteral("msgC"), "userid1"_ba);
+    messages << makeMessage("msgA"_ba, "userid1"_ba);
+    messages << makeMessage("msgB"_ba, "userid2"_ba);
+    messages << makeMessage("msgC"_ba, "userid1"_ba);
     model.addMessages(messages);
 
     // WHEN/THEN
     QCOMPARE(model.findLastMessageBefore(QByteArray(), isByMe).messageId(), "msgC"_ba);
-    QCOMPARE(model.findLastMessageBefore(QByteArrayLiteral("msgC"), isByMe).messageId(), "msgA"_ba);
+    QCOMPARE(model.findLastMessageBefore("msgC"_ba, isByMe).messageId(), "msgA"_ba);
     QCOMPARE(model.findLastMessageBefore("msgA"_ba, isByMe).messageId(), QByteArray());
     QCOMPARE(model.findNextMessageAfter(QByteArray(), isByMe).messageId(), QByteArray());
     QCOMPARE(model.findNextMessageAfter("msgC"_ba, isByMe).messageId(), QByteArray());
-    QCOMPARE(model.findNextMessageAfter(QByteArrayLiteral("msgA"), isByMe).messageId(), "msgC"_ba);
+    QCOMPARE(model.findNextMessageAfter("msgA"_ba, isByMe).messageId(), "msgC"_ba);
 }
 
 #include "moc_messagesmodeltest.cpp"

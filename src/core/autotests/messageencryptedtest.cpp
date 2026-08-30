@@ -7,6 +7,7 @@
 #include "config-ruqola.h"
 #include "messages/messageencrypted.h"
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(MessageEncryptedTest)
 
@@ -34,7 +35,7 @@ void MessageEncryptedTest::shouldEncryptV2Payload()
     MessageEncrypted encrypted;
     const bool encryptedOk = encrypted.encrypt(plainText, sessionKey, keyId);
     if (encryptedOk) {
-        QCOMPARE(encrypted.algorithm(), QByteArray("rc.v2.aes-sha2"));
+        QCOMPARE(encrypted.algorithm(), "rc.v2.aes-sha2"_ba);
         QCOMPARE(encrypted.keyId(), keyId);
         QVERIFY(!QByteArray::fromBase64(encrypted.iv()).isEmpty());
         QVERIFY(!QByteArray::fromBase64(encrypted.ciphertext().toLatin1()).isEmpty());
@@ -54,8 +55,8 @@ void MessageEncryptedTest::shouldDecryptV2Payload()
     QVERIFY(!encryptedPayload.isEmpty());
 
     MessageEncrypted encrypted;
-    encrypted.setAlgorithm("rc.v2.aes-sha2");
-    encrypted.setKeyId("23e2720d-b3e0-4753-85ff-bad2caeb867b");
+    encrypted.setAlgorithm("rc.v2.aes-sha2"_ba);
+    encrypted.setKeyId("23e2720d-b3e0-4753-85ff-bad2caeb867b"_ba);
     encrypted.setIv(iv.toBase64());
     encrypted.setCiphertext(QString::fromLatin1(encryptedPayload.toBase64()));
 
@@ -79,7 +80,7 @@ void MessageEncryptedTest::shouldEncryptLegacyCbcPayload()
     const bool encryptedOk = encrypted.encrypt(plainText, sessionKey, keyId);
 #if USE_E2E_SUPPORT
     QVERIFY(encryptedOk);
-    QCOMPARE(encrypted.algorithm(), QByteArray("rc.v2.aes-sha2"));
+    QCOMPARE(encrypted.algorithm(), "rc.v2.aes-sha2"_ba);
     QCOMPARE(encrypted.keyId(), keyId);
     // AES-CBC takes a full-block IV, unlike the 12-byte one of AES-GCM.
     QCOMPARE(QByteArray::fromBase64(encrypted.iv()).size(), 16);
@@ -106,8 +107,8 @@ void MessageEncryptedTest::shouldDecryptLegacyCbcPayload()
     QVERIFY(!encryptedPayload.isEmpty());
 
     MessageEncrypted encrypted;
-    encrypted.setAlgorithm("rc.v2.aes-sha2");
-    encrypted.setKeyId("23e2720d-b3e0-4753-85ff-bad2caeb867b");
+    encrypted.setAlgorithm("rc.v2.aes-sha2"_ba);
+    encrypted.setKeyId("23e2720d-b3e0-4753-85ff-bad2caeb867b"_ba);
     encrypted.setIv(iv.toBase64());
     encrypted.setCiphertext(QString::fromLatin1(encryptedPayload.toBase64()));
 
@@ -133,7 +134,7 @@ void MessageEncryptedTest::shouldParseLegacyV1Payload()
 
     MessageEncrypted encrypted;
     QVERIFY(encrypted.parseLegacyPayload(payload));
-    QCOMPARE(encrypted.algorithm(), QByteArray("rc.v1.aes-sha2"));
+    QCOMPARE(encrypted.algorithm(), "rc.v1.aes-sha2"_ba);
     // The key id has to be readable, it is what selects the room key of that era.
     QCOMPARE(encrypted.keyId(), keyId.toLatin1());
     QCOMPARE(QByteArray::fromBase64(encrypted.iv()), iv);

@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(EncryptionUtilsTest)
 EncryptionUtilsTest::EncryptionUtilsTest(QObject *parent)
     : QObject{parent}
@@ -78,7 +79,7 @@ void EncryptionUtilsTest::shouldRoundTripGeneratedKeyPairAsRocketChatDoes()
 
     // A wrong password must not decrypt it.
     const QByteArray wrongMasterKey = EncryptionUtils::deriveKey(storedKeyObject.value(QStringLiteral("salt")).toString().toUtf8(),
-                                                                 QByteArrayLiteral("other password"),
+                                                                 "other password"_ba,
                                                                  storedKeyObject.value(QStringLiteral("iterations")).toInt(),
                                                                  32);
     QVERIFY(EncryptionUtils::decryptAES_GCM_256(ciphertext, wrongMasterKey, iv).isEmpty());
@@ -113,7 +114,7 @@ void EncryptionUtilsTest::shouldDeriveMasterKeyTheWayRocketChatDoes()
     QCOMPARE(EncryptionUtils::keyDerivationBytes(password), QByteArray::fromHex("70e4737377f67264"));
     QVERIFY(EncryptionUtils::keyDerivationBytes(password) != password.toUtf8());
     // ASCII is where the two encodings agree.
-    QCOMPARE(EncryptionUtils::keyDerivationBytes(QStringLiteral("password")), QByteArrayLiteral("password"));
+    QCOMPARE(EncryptionUtils::keyDerivationBytes(QStringLiteral("password")), "password"_ba);
 
     // A character that does not fit in a byte makes Rocket.Chat throw, so no key may be derived
     // from it: silently folding it into '?' would seal the key with something nothing reproduces.
@@ -143,12 +144,12 @@ void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData_data()
     }
     {
         const EncryptionUtils::EncryptionInfo info;
-        QTest::addRow("too-short") << QByteArray("1234567890123456") << info;
+        QTest::addRow("too-short") << "1234567890123456"_ba << info;
     }
     {
         EncryptionUtils::EncryptionInfo info;
-        info.vector = QByteArray("1234567890abcdef");
-        info.encryptedData = QByteArray("cipher-payload");
+        info.vector = "1234567890abcdef"_ba;
+        info.encryptedData = "cipher-payload"_ba;
         QTest::addRow("iv-and-payload") << QByteArray(info.vector + info.encryptedData) << info;
     }
 }
@@ -171,8 +172,8 @@ void EncryptionUtilsTest::shouldJoinVectorAndEcryptedData_data()
     }
     {
         EncryptionUtils::EncryptionInfo info;
-        info.encryptedData = "blafoo-z";
-        info.vector = "AAAPPLLLAPPPAPAPPAPA";
+        info.encryptedData = "blafoo-z"_ba;
+        info.vector = "AAAPPLLLAPPPAPAPPAPA"_ba;
         QTest::addRow("test1") << info << QByteArray(info.vector + info.encryptedData);
     }
 }

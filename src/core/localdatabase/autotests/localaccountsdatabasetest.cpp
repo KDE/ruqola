@@ -54,7 +54,7 @@ void LocalAccountsDatabaseTest::shouldStoreAccountSettings()
 {
     LocalAccountsDatabase accountDataBase;
     {
-        const QByteArray ba = "{}";
+        const QByteArray ba = "{}"_ba;
         accountDataBase.updateAccount(accountName(), ba);
 
         // WHEN
@@ -64,7 +64,7 @@ void LocalAccountsDatabaseTest::shouldStoreAccountSettings()
         QCOMPARE(getInfo, ba);
     }
     {
-        const QByteArray ba = "{bla:\"bli\"}";
+        const QByteArray ba = "{bla:\"bli\"}"_ba;
         accountDataBase.updateAccount(accountName(), ba);
 
         // WHEN
@@ -74,7 +74,7 @@ void LocalAccountsDatabaseTest::shouldStoreAccountSettings()
         QCOMPARE(getInfo, ba);
     }
     {
-        const QByteArray ba = "{}";
+        const QByteArray ba = "{}"_ba;
         accountDataBase.updateAccount(accountName(), ba);
 
         // WHEN
@@ -89,7 +89,7 @@ void LocalAccountsDatabaseTest::shouldRemoveAccountSettings()
 {
     {
         LocalAccountsDatabase accountDataBase;
-        const QByteArray ba = "{}";
+        const QByteArray ba = "{}"_ba;
         accountDataBase.updateAccount(accountName(), ba);
 
         // Verify that we have account info stored

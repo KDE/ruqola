@@ -1297,7 +1297,7 @@ bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::Encrypti
 QString EncryptionUtils::generateRandomPassword()
 {
     const int numberChar = 30;
-    const QByteArray charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?";
+    const QByteArray charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?"_ba;
     const int charsetSize = charset.size();
     // A plain 'byte % charsetSize' would favour the first (256 % charsetSize) characters, so drop the
     // bytes of the incomplete last range instead of folding them back into the charset.
