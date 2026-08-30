@@ -191,8 +191,8 @@ QString Utils::convertTextWithCheckMark(const QString &str)
     static const QRegularExpression regularUnCheckMark(u"(^|\\n)-\\s\\[\\s\\]\\s"_s);
     static const QRegularExpression regularCheckMark(u"(^|\\n)-\\s\\[x]\\s"_s);
     QString newStr = str;
-    newStr = newStr.replace(regularUnCheckMark, u"\\1:white_medium_square: "_s);
-    newStr = newStr.replace(regularCheckMark, u"\\1:ballot_box_with_check: "_s);
+    newStr.replace(regularUnCheckMark, u"\\1:white_medium_square: "_s);
+    newStr.replace(regularCheckMark, u"\\1:ballot_box_with_check: "_s);
     return newStr;
 }
 

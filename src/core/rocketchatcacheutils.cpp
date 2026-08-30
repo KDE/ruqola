@@ -21,7 +21,7 @@ QString RocketChatCacheUtils::fileCachePath(const QUrl &url, ManagerDataPaths::P
         relativePathInCache.prepend(host + u'/');
     }
     if (type == ManagerDataPaths::PathType::PreviewUrl) {
-        relativePathInCache = relativePathInCache.replace(u'/', u'_');
+        relativePathInCache.replace(u'/', u'_');
     }
     cachePath += u'/' + relativePathInCache;
     if (url.hasQuery()) {
@@ -32,7 +32,7 @@ QString RocketChatCacheUtils::fileCachePath(const QUrl &url, ManagerDataPaths::P
         if (query.hasQueryItem(u"file"_s)) {
             QString fileQuery = query.queryItemValue(u"file"_s);
             // qDebug() << " fileQuery "<< fileQuery << " url.query " << url.query();
-            fileQuery = fileQuery.replace(u'/', u'_');
+            fileQuery.replace(u'/', u'_');
             cachePath += fileQuery;
         }
     }
