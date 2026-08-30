@@ -56,7 +56,7 @@ void EncryptionUtilsTest::shouldRoundTripGeneratedKeyPairAsRocketChatDoes()
     const QString userId = u"userId"_s;
     const QByteArray storedKey = EncryptionUtils::encryptPrivateKeyV2(privateKeyJwk, password, userId);
     const QJsonObject storedKeyObject = QJsonDocument::fromJson(storedKey).object();
-    QVERIFY(storedKeyObject.value(u"salt"_s).toString().startsWith(u"v2:"_s + userId + QLatin1Char(':')));
+    QVERIFY(storedKeyObject.value(u"salt"_s).toString().startsWith(u"v2:"_s + userId + u':'));
     QCOMPARE(storedKeyObject.value(u"iterations"_s).toInt(), 100000);
 
     // Decrypting it the way every client does must give the JWK private key back. A 16-byte IV

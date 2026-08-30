@@ -102,7 +102,7 @@ QVector<QByteArray> encryptedKeyCandidates(const QString &fullE2EKey, const QStr
     if (fullE2EKey.size() > 36) {
         appendDecoded(fullE2EKey.mid(36));
         const QChar possibleSeparator = fullE2EKey.at(36);
-        if (possibleSeparator == QLatin1Char(':') || possibleSeparator == QLatin1Char('|') || possibleSeparator == QLatin1Char('.')) {
+        if (possibleSeparator == u':' || possibleSeparator == u'|' || possibleSeparator == u'.') {
             appendDecoded(fullE2EKey.mid(37));
         }
     }
@@ -110,7 +110,7 @@ QVector<QByteArray> encryptedKeyCandidates(const QString &fullE2EKey, const QStr
     if (!knownKeyId.isEmpty() && fullE2EKey.startsWith(knownKeyId)) {
         const QString suffix = fullE2EKey.mid(knownKeyId.size());
         appendDecoded(suffix);
-        if (!suffix.isEmpty() && (suffix.at(0) == QLatin1Char(':') || suffix.at(0) == QLatin1Char('|') || suffix.at(0) == QLatin1Char('.'))) {
+        if (!suffix.isEmpty() && (suffix.at(0) == u':' || suffix.at(0) == u'|' || suffix.at(0) == u'.')) {
             appendDecoded(suffix.mid(1));
         }
     }
@@ -221,8 +221,7 @@ void RoomEncryptionKey::parseSessionKey()
     if (!mE2eKeyId.isEmpty() && mE2EKey.startsWith(mE2eKeyId)) {
         prefixedKeyId = mE2eKeyId;
         prefixedCipherText = mE2EKey.mid(mE2eKeyId.size());
-        if (!prefixedCipherText.isEmpty()
-            && (prefixedCipherText.at(0) == QLatin1Char(':') || prefixedCipherText.at(0) == QLatin1Char('|') || prefixedCipherText.at(0) == QLatin1Char('.'))) {
+        if (!prefixedCipherText.isEmpty() && (prefixedCipherText.at(0) == u':' || prefixedCipherText.at(0) == u'|' || prefixedCipherText.at(0) == u'.')) {
             prefixedCipherText = prefixedCipherText.mid(1);
         }
         tailCandidate = decodeBase64Variants(prefixedCipherText.toLatin1());

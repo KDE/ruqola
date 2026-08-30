@@ -101,7 +101,7 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
                 if (!str.isEmpty()) {
                     str += u',';
                 }
-                str += QLatin1Char('"') + key + u'"' + u':';
+                str += u'"' + key + u'"' + u':';
                 str += u'"' + value + u'"';
             }
             str = u"{%1}"_s.arg(str);
@@ -125,7 +125,7 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
             if (!str.isEmpty()) {
                 str += u',';
             }
-            str += QLatin1Char('"') + key + u'"' + u':';
+            str += u'"' + key + u'"' + u':';
             switch (value) {
             case QueryParameters::SortOrder::Ascendant:
                 str += QString::number(1);

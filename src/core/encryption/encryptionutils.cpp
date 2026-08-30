@@ -864,9 +864,9 @@ QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
     const auto b64urlToBN = [](const QString &b64url) -> BIGNUM * {
         // Normalise: base64url → standard base64 with padding
         QString b64 = b64url;
-        b64.replace(QLatin1Char('-'), QLatin1Char('+')).replace(QLatin1Char('_'), QLatin1Char('/'));
+        b64.replace(u'-', u'+').replace(u'_', u'/');
         while (b64.size() % 4 != 0) {
-            b64.append(QLatin1Char('='));
+            b64.append(u'=');
         }
         const QByteArray bytes = QByteArray::fromBase64(b64.toLatin1());
         if (bytes.isEmpty()) {
@@ -969,9 +969,9 @@ QByteArray EncryptionUtils::publicKeyJWKToPEM(const QByteArray &jwkJson)
 
     const auto b64urlToBN = [](const QString &b64url) -> BIGNUM * {
         QString b64 = b64url;
-        b64.replace(QLatin1Char('-'), QLatin1Char('+')).replace(QLatin1Char('_'), QLatin1Char('/'));
+        b64.replace(u'-', u'+').replace(u'_', u'/');
         while (b64.size() % 4 != 0) {
-            b64.append(QLatin1Char('='));
+            b64.append(u'=');
         }
         const QByteArray bytes = QByteArray::fromBase64(b64.toLatin1());
         if (bytes.isEmpty()) {

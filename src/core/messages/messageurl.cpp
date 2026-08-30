@@ -66,7 +66,7 @@ void MessageUrl::setShowPreview(bool newShowPreview)
 QString MessageUrl::cleanText(const QString &str)
 {
     QString newStr = str;
-    newStr.remove(QLatin1Char('\n'));
+    newStr.remove(u'\n');
     return newStr;
 }
 
@@ -206,8 +206,8 @@ void MessageUrl::generateImageUrl()
             mImageBuildUrl = mImageUrl;
         } else {
             mImageBuildUrl = url();
-            if (!url().endsWith(QLatin1Char('/')) && !mImageUrl.startsWith(QLatin1Char('/'))) {
-                mImageBuildUrl += QLatin1Char('/');
+            if (!url().endsWith(u'/') && !mImageUrl.startsWith(u'/')) {
+                mImageBuildUrl += u'/';
             }
             mImageBuildUrl += mImageUrl;
 #if 0

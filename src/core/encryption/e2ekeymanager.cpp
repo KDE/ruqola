@@ -817,7 +817,7 @@ void E2eKeyManager::verifyExistingKey(const QJsonObject &json)
             QByteArray strBytes = str.toUtf8();
 
             // Check whether the string is itself a JSON object (server stringified it)
-            if (str.startsWith(QLatin1Char('{'))) {
+            if (str.startsWith(u'{')) {
                 const QJsonDocument doc = QJsonDocument::fromJson(strBytes);
                 if (!doc.isNull() && doc.isObject()) {
                     const QByteArray result = decodeObject(doc.object());

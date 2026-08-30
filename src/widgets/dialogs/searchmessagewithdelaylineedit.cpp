@@ -75,7 +75,7 @@ void SearchMessageWithDelayLineEdit::insertSearchString(bool needSpace, const QS
     }
     if (!currentText.isEmpty()) {
         QString newText = currentText;
-        if (!newText.endsWith(QLatin1Char(' '))) {
+        if (!newText.endsWith(u' ')) {
             newText += u' ';
         }
         newText += str;
