@@ -118,6 +118,8 @@ QString generateRichTextCMark(const QString &str,
         int start = 0;
         int end = 0;
     };
+    const auto schemeView = ColorsAndMessageViewStyle::self().schemeView();
+
     QList<HrefPos> lstPos;
     {
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
@@ -149,10 +151,11 @@ QString generateRichTextCMark(const QString &str,
             QString wordName = word.toString();
             QByteArray roomIdentifier;
             if (channels) {
-                auto it = std::find_if(channels->channels().cbegin(), channels->channels().cend(), [wordName](const auto &channel) {
+                const auto channelsList = channels->channels();
+                auto it = std::find_if(channelsList.cbegin(), channelsList.cend(), [&wordName](const auto &channel) {
                     return channel.name == wordName;
                 });
-                if (it == channels->channels().cend()) {
+                if (it == channelsList.cend()) {
                     roomIdentifier = wordName.toLatin1();
                 } else {
                     roomIdentifier = (*it).identifier;
@@ -168,8 +171,8 @@ QString generateRichTextCMark(const QString &str,
     }
 
     if (!highlightWords.isEmpty()) {
-        const auto userHighlightForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color().name();
-        const auto userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::PositiveBackground).color().name();
+        const auto userHighlightForegroundColor = schemeView.foreground(KColorScheme::PositiveText).color().name();
+        const auto userHighlightBackgroundColor = schemeView.background(KColorScheme::PositiveBackground).color().name();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -208,8 +211,8 @@ QString generateRichTextCMark(const QString &str,
     }
 
     if (!searchedText.isEmpty()) {
-        const auto userHighlightForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
-        const auto userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
+        const auto userHighlightForegroundColor = schemeView.foreground(KColorScheme::NeutralText).color().name();
+        const auto userHighlightBackgroundColor = schemeView.background(KColorScheme::NeutralBackground).color().name();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -247,11 +250,17 @@ QString generateRichTextCMark(const QString &str,
     static const QRegularExpression regularExpressionUser(u"(^|\\s+)@([\\w._-]+)"_s, QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
-    const auto userMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color().name();
-    const auto userMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color().name();
-    const auto hereAllMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
-    const auto hereAllMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
+    QString userMentionForegroundColor;
+    QString userMentionBackgroundColor;
+    QString hereAllMentionBackgroundColor;
+    QString hereAllMentionForegroundColor;
     while (userIterator.hasNext()) {
+        if (userMentionForegroundColor.isEmpty()) {
+            userMentionForegroundColor = schemeView.foreground(KColorScheme::NegativeText).color().name();
+            userMentionBackgroundColor = schemeView.background(KColorScheme::NegativeBackground).color().name();
+            hereAllMentionBackgroundColor = schemeView.background(KColorScheme::NeutralBackground).color().name();
+            hereAllMentionForegroundColor = schemeView.foreground(KColorScheme::NeutralText).color().name();
+        }
         const QRegularExpressionMatch match = userIterator.next();
         const QStringView word = match.capturedView(2);
         // Highlight only if it's yours
@@ -303,8 +312,9 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     }
     QString richText;
     QTextStream richTextStream(&richText);
-    const QColor codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color();
-    const auto codeBorderColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color().name();
+    const auto schemeView = ColorsAndMessageViewStyle::self().schemeView();
+    const QColor codeBackgroundColor = schemeView.background(KColorScheme::AlternateBackground).color();
+    const auto codeBorderColor = schemeView.foreground(KColorScheme::InactiveText).color().name();
 
     QString highlighted;
     QTextStream stream(&highlighted);
@@ -329,6 +339,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
         return highlighted;
     };
 
+    const QString codeBackgroundColorName = codeBackgroundColor.name();
     auto addCodeChunk = [&](const QString &chunk) {
         auto definition = TextUtils::TextUtilsSyntaxHighlightingManager::self()->def(language);
         if (!definition.isValid()) {
@@ -337,12 +348,12 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
         highlighter.setDefinition(definition);
         // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-        richTextStream << "<table><tr><td style='background-color:"_L1 << codeBackgroundColor.name() << "; padding: 5px; border: 1px solid "_L1
-                       << codeBorderColor << "'>"_L1 << highlight(chunk) << "</td></tr></table>"_L1;
+        richTextStream << "<table><tr><td style='background-color:"_L1 << codeBackgroundColorName << "; padding: 5px; border: 1px solid "_L1 << codeBorderColor
+                       << "'>"_L1 << highlight(chunk) << "</td></tr></table>"_L1;
     };
 
     auto addInlineCodeChunk = [&](const QString &chunk) {
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColor.name() << "'>"_L1 << chunk.toHtmlEscaped() << "</code>"_L1;
+        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColorName << "'>"_L1 << chunk.toHtmlEscaped() << "</code>"_L1;
     };
 
     auto addTextChunk = [&](const QString &chunk) {
@@ -359,7 +370,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
         if (mSettings->emojiManager) {
             mSettings->emojiManager->replaceEmojis(&htmlChunk);
         }
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColor.name() << "'>"_L1 << htmlChunk << "</code>"_L1;
+        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColorName << "'>"_L1 << htmlChunk << "</code>"_L1;
     };
 
     auto addInlineQuoteCodeNewLineChunk = [&]() {
