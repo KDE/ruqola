@@ -268,17 +268,18 @@ QString generateRichTextCMark(const QString &str,
         const QStringView word = match.capturedView(2);
         // Highlight only if it's yours
 
-        const QByteArray userIdentifier = mentions.value(word.toString());
+        const QString wordStr = word.toString();
+        const QByteArray userIdentifier = mentions.value(wordStr);
         QString wordFromUserIdentifier = QString::fromLatin1(userIdentifier);
         if (/*userIdentifier.isEmpty()*/ 1) {
-            wordFromUserIdentifier = word.toString();
+            wordFromUserIdentifier = wordStr;
         }
         const int capturedStart = match.capturedStart(2) - 1;
-        const int replaceWordLength = word.toString().length() + 1;
+        const int replaceWordLength = wordStr.length() + 1;
         if (word == username) {
             newStr.replace(capturedStart,
                            replaceWordLength,
-                           u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(word.toString(),
+                           u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(wordStr,
                                                                                                                                 userMentionForegroundColor,
                                                                                                                                 userMentionBackgroundColor,
                                                                                                                                 wordFromUserIdentifier));
@@ -287,11 +288,11 @@ QString generateRichTextCMark(const QString &str,
             if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
                 newStr.replace(capturedStart,
                                replaceWordLength,
-                               u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(word.toString(),
+                               u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(wordStr,
                                                                                                           hereAllMentionForegroundColor,
                                                                                                           hereAllMentionBackgroundColor));
             } else {
-                newStr.replace(capturedStart, replaceWordLength, u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(word, wordFromUserIdentifier));
+                newStr.replace(capturedStart, replaceWordLength, u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(wordStr, wordFromUserIdentifier));
             }
         }
         userIterator = regularExpressionUser.globalMatch(newStr);
