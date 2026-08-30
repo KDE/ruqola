@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:45+0000\n"
+"POT-Creation-Date: 2026-08-30 00:46+0000\n"
 "PO-Revision-Date: 2026-03-03 17:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -172,275 +172,275 @@ msgstr "Virheellinen kutsumerkki"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Kutsumerkki on virheellinen. Tilin luonti peruttu."
 
-#: core/apps/appsmarketplaceinfo.cpp:111
+#: core/apps/appsmarketplaceinfo.cpp:113
 #, kde-format
 msgid "per %1"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:160
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "month"
 msgstr "kuukausi"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:164
 #, kde-format
 msgid "year"
 msgstr "vuosi"
 
-#: core/apps/appsmarketplaceinfo.cpp:408 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:410 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Kuvaus"
 
-#: core/apps/appsmarketplaceinfo.cpp:417
+#: core/apps/appsmarketplaceinfo.cpp:419
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
 #, kde-format
 msgid "Version"
 msgstr "Versio"
 
-#: core/apps/appsmarketplaceinfo.cpp:420 core/model/appscategoriesmodel.cpp:35
+#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:35
 #, kde-format
 msgid "Categories"
 msgstr "Luokat"
 
-#: core/apps/appsmarketplaceinfo.cpp:425
+#: core/apps/appsmarketplaceinfo.cpp:427
 #, kde-format
 msgid "Documentation"
 msgstr "Ohjeistus"
 
-#: core/apps/appsmarketplaceinfo.cpp:436
+#: core/apps/appsmarketplaceinfo.cpp:438
 #, kde-format
 msgid "Author"
 msgstr "Tekijä"
 
-#: core/apps/appsmarketplaceinfo.cpp:449
+#: core/apps/appsmarketplaceinfo.cpp:451
 #, kde-format
 msgid "Homepage"
 msgstr "Kotisivu"
 
-#: core/apps/appsmarketplaceinfo.cpp:462
+#: core/apps/appsmarketplaceinfo.cpp:464
 #, kde-format
 msgid "Support"
 msgstr "Tuki"
 
-#: core/apps/appsmarketplaceinfo.cpp:467
+#: core/apps/appsmarketplaceinfo.cpp:469
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Yksityisyyden yhteenveto"
 
-#: core/apps/appsmarketplaceinfo.cpp:478
+#: core/apps/appsmarketplaceinfo.cpp:480
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
 msgstr "Käyttöoikeudet"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
-#: core/apps/appsmarketplaceinfo.cpp:614
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Access messages"
 msgstr "Pääsy viesteihin"
 
-#: core/apps/appsmarketplaceinfo.cpp:616
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Lähetä ja muokkaa viestejä"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
-#: core/apps/appsmarketplaceinfo.cpp:618
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, kde-format
 msgid "Access room information"
 msgstr "Pääsy huonetietoihin"
 
-#: core/apps/appsmarketplaceinfo.cpp:620
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Luo ja muuta huoneita"
 
-#: core/apps/appsmarketplaceinfo.cpp:622
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Access to this server network"
 msgstr "Käytä tämän palvelimen verkkoa"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
-#: core/apps/appsmarketplaceinfo.cpp:624
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, kde-format
 msgid "Access user information"
 msgstr "Pääsy käyttäjätietoihin"
 
-#: core/apps/appsmarketplaceinfo.cpp:626
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Modify user information"
 msgstr "Muuta käyttäjän tietoja"
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Rekisteröi uusia vinoviivakomentoja"
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Rekisteröi ja ylläpidä ajastettuja töitä"
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Rekisteröi uusia HTTP-päätepisteitä"
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Käytä tämän palvelimen asetuksia"
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Muuta tämän palvelimen asetuksia"
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Lähetä tiedostoja tähän palvelimeen"
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Käytä tähän palvelimeen lähetettyjä tiedostoja"
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Toimi pilvipalvelujen kanssa tämän palvelimen puolesta"
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Käytä tästä palvelinympäristöstä vähimmäistietoja"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Pääsy usean livekeskustelun osastotietoihin"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Pääsy livekeskustelun osastotietoihin"
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Muuta livekeskustelun osastotietoja"
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Muuta livekeskustelun huonetietoja"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?); ”livekeskustelu” on huono, mutta ainakin guuglattavissa (tosin yleensä muodossa ”Live-keskustelu”)
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Pääsy livekeskustelun huonetietoihin"
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Muuta livekeskustelun viestitietoja"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Pääsy livekeskustelun viestitietoihin"
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Muuta livekeskustelun vierailijatietoja"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?)
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Pääsy livekeskustelun vierailijatietoihin"
 
 # Tässä ja seuraavissa ”access” voisi olla myös käskymuoto (’käytä, nouda’…?); ”livekeskustelu” on huono, mutta ainakin guuglattavissa (tosin yleensä muodossa ”Live-keskustelu”)
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:666
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Pääsy livekeskustelun tilatietoihin"
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Toimi käyttöliittymän kanssa"
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:670
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Talleta sisäiset tiedot tietokantaan"
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:672
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Muuta livekeskustelun mukautetun kentän määritystä"
 
-#: core/apps/appsmarketplaceinfo.cpp:680
+#: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Salli kirjoittaa oauth-sovellusasetukset"
 
-#: core/apps/appsmarketplaceinfo.cpp:682
+#: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Salli lukea oauth-sovellusasetukset"
 
-#: core/apps/appsmarketplaceinfo.cpp:684
+#: core/apps/appsmarketplaceinfo.cpp:686
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr "Salli kirjoittaa videokokousasetukset"
 
-#: core/apps/appsmarketplaceinfo.cpp:686
+#: core/apps/appsmarketplaceinfo.cpp:688
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr "Salli lukea videokokousasetukset"
 
-#: core/apps/appsmarketplaceinfo.cpp:688
+#: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr "Salli muuttaa videokonferenssitarjoajan asetuksia"
 
-#: core/apps/appsmarketplaceinfo.cpp:690
+#: core/apps/appsmarketplaceinfo.cpp:692
 #, kde-format
 msgid "Allow to register button"
 msgstr "Salli rekisteröidä painike"
 
-#: core/apps/appsmarketplaceinfo.cpp:696
+#: core/apps/appsmarketplaceinfo.cpp:698
 #, kde-format
 msgid "Allow to send email"
 msgstr "Salli sähköpostin lähettäminen"
 
-#: core/apps/appsmarketplaceinfo.cpp:698
+#: core/apps/appsmarketplaceinfo.cpp:700
 #, kde-format
 msgid "Allow to write role"
 msgstr "Salli roolin kirjoittaminen"
 
-#: core/apps/appsmarketplaceinfo.cpp:700
+#: core/apps/appsmarketplaceinfo.cpp:702
 #, kde-format
 msgid "Allow to read role"
 msgstr "Salli roolin lukeminen"
 
-#: core/apps/appsmarketplaceinfo.cpp:702
+#: core/apps/appsmarketplaceinfo.cpp:704
 #, kde-format
 msgid "Out Bound Communication"
 msgstr "Lähtevä viestintä"
 
-#: core/apps/appsmarketplaceinfo.cpp:704
+#: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr "Näytä työtilan kaikki huoneet"
@@ -541,7 +541,7 @@ msgstr "Tuntematon tila"
 msgid "New version available %1"
 msgstr "Uusi versio saatavilla: %1"
 
-#: core/bannerinfo/bannerinfos.cpp:63
+#: core/bannerinfo/bannerinfos.cpp:64
 #, kde-format
 msgid "(link)"
 msgstr "(linkki)"
@@ -1548,7 +1548,7 @@ msgstr "Yksityisviestejä"
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:318
 #, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
@@ -1743,7 +1743,7 @@ msgstr "Liittyi tähän työryhmään"
 msgid "(Autojoin)"
 msgstr "(Liity automaattisesti)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1187
+#: core/model/usersforroommodel.cpp:308 core/room.cpp:1187
 #, kde-format
 msgid "Owner"
 msgstr "Omistaja"
@@ -1811,13 +1811,13 @@ msgstr "Ei yhteyttä"
 msgid "Not connected yet"
 msgstr "Ei vielä yhteyttä"
 
-#: core/rocketchataccount.cpp:3255
+#: core/rocketchataccount.cpp:3254
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Tili lisätty"
 
-#: core/rocketchataccount.cpp:3256
+#: core/rocketchataccount.cpp:3255
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -2322,7 +2322,7 @@ msgstr "Lataa kuva"
 msgid "No reply received"
 msgstr ""
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:141
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr "Mukautettu emoji tai jokin sen aliaksista on jo käytössä."
@@ -7691,7 +7691,7 @@ msgstr "Käyttäjätunnus tai sähköposti"
 msgid "Username or email:"
 msgstr "Käyttäjätunnus tai sähköposti:"
 
-#: widgets/common/authenticationloginwidget.cpp:162
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
@@ -7701,7 +7701,7 @@ msgstr ""
 "Sinulle on lähetetty sähköpostia rekisteröinnin vahvistamiseksi.\n"
 "Ellei viestiä pikapuoliin kuulu, palaa yrittämään uudestaan."
 
-#: widgets/common/authenticationloginwidget.cpp:163
+#: widgets/common/authenticationloginwidget.cpp:162
 #: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@title:window"

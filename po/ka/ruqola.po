@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:45+0000\n"
-"PO-Revision-Date: 2026-08-28 06:42+0200\n"
+"POT-Creation-Date: 2026-08-30 00:46+0000\n"
+"PO-Revision-Date: 2026-08-29 04:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -173,266 +173,266 @@ msgstr "არასწორი მოწვევის კოდი"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "მოწვევის კოდი არასწორია. ანგარიშის შექმნა გაუქმდა."
 
-#: core/apps/appsmarketplaceinfo.cpp:111
+#: core/apps/appsmarketplaceinfo.cpp:113
 #, kde-format
 msgid "per %1"
 msgstr "თითოეულ %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:160
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "month"
 msgstr "თვე"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:164
 #, kde-format
 msgid "year"
 msgstr "წელი"
 
-#: core/apps/appsmarketplaceinfo.cpp:408 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:410 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "აღწერა"
 
-#: core/apps/appsmarketplaceinfo.cpp:417
+#: core/apps/appsmarketplaceinfo.cpp:419
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
 #, kde-format
 msgid "Version"
 msgstr "ვერსია"
 
-#: core/apps/appsmarketplaceinfo.cpp:420 core/model/appscategoriesmodel.cpp:35
+#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:35
 #, kde-format
 msgid "Categories"
 msgstr "კატეგორიები"
 
-#: core/apps/appsmarketplaceinfo.cpp:425
+#: core/apps/appsmarketplaceinfo.cpp:427
 #, kde-format
 msgid "Documentation"
 msgstr "დოკუმენტაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:436
+#: core/apps/appsmarketplaceinfo.cpp:438
 #, kde-format
 msgid "Author"
 msgstr "ავტორი"
 
-#: core/apps/appsmarketplaceinfo.cpp:449
+#: core/apps/appsmarketplaceinfo.cpp:451
 #, kde-format
 msgid "Homepage"
 msgstr "საწყისი გვერდი"
 
-#: core/apps/appsmarketplaceinfo.cpp:462
+#: core/apps/appsmarketplaceinfo.cpp:464
 #, kde-format
 msgid "Support"
 msgstr "ანგარიში"
 
-#: core/apps/appsmarketplaceinfo.cpp:467
+#: core/apps/appsmarketplaceinfo.cpp:469
 #, kde-format
 msgid "Privacy Summary"
 msgstr "კონფიდენციალობის შეჯამება"
 
-#: core/apps/appsmarketplaceinfo.cpp:478
+#: core/apps/appsmarketplaceinfo.cpp:480
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
 msgstr "წვდომები"
 
-#: core/apps/appsmarketplaceinfo.cpp:614
+#: core/apps/appsmarketplaceinfo.cpp:616
 #, kde-format
 msgid "Access messages"
 msgstr "წვდომა შეტყობინებებზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:616
+#: core/apps/appsmarketplaceinfo.cpp:618
 #, kde-format
 msgid "Send and modify messages"
 msgstr "შეტყობინებების გაგზავნა და შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:618
+#: core/apps/appsmarketplaceinfo.cpp:620
 #, kde-format
 msgid "Access room information"
 msgstr "წვდომა ოთახის ინფორმაციასთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:620
+#: core/apps/appsmarketplaceinfo.cpp:622
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "ოთახების შექმნა და შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:622
+#: core/apps/appsmarketplaceinfo.cpp:624
 #, kde-format
 msgid "Access to this server network"
 msgstr "წვდომა ამ სერვერის ქსელთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:624
+#: core/apps/appsmarketplaceinfo.cpp:626
 #, kde-format
 msgid "Access user information"
 msgstr "წვდომა მომხმარებლის ინფორმაციასთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:626
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Modify user information"
 msgstr "მომხმარებლის ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Register new slash commands"
 msgstr "ახალი slash ბრძანებების რეგისტრაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "დაგეგმილი დავალებების რეგისტრაცია და მართვა"
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "ახალი HTTP ბოლოწერტილების რეგისტრაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Access settings in this server"
 msgstr "წვდომა პარამეტრებთან ამ სერვერზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "პარამეტრების შეცვლა ამ სერვერზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Upload files to this server"
 msgstr "ფაილების ატვირთვა ამ სერვერზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "წვდომა ამ სერვერზე ატვირთულ ფაილებზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "ღრუბლოვან სერვისებთან ურთერთობა ამ სერვერის სახელით"
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "წვდომა მინიმალურ ინფორმაციაზე ამ სერვერის გარემოს შესახებ"
 
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "წვდომა მრავალი ცოცხალი ჩატის დეპარტამენტების ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "წვდომა ცოცხალი ჩატის დეპარტამენტის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "ცოცხალი ჩატის დეპარტამენტის ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "ცოცხალი ჩატის ოთახის ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "წვდომა ცოცხალი ჩატის ოთახის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "ცოცხალი ჩატის შეტყობინების ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "წვდომა ცოცხალი ჩატის შეტყობინების ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "ცოცხალი ჩატის ვიზიტორების ინფორმაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "წვდომა ცოცხალი ჩატის ვიზიტორის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:666
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "წვდომა ცოცხალი ჩატის სტატუსის ინფორმაციაზე"
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, kde-format
 msgid "Interact with the UI"
 msgstr "ურთიერთობა ინტერფეისთან"
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:670
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "შიდა მონაცემების მონაცემთა ბაზაში შენახვა"
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:672
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "ცოცხალი ჩატის მორგებული ველის კონფიგურაციის შეცვლა"
 
-#: core/apps/appsmarketplaceinfo.cpp:680
+#: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "OAuth აპის პარამეტრების ჩაწერის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:682
+#: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "OAuth აპის პარამეტრების წაკითხვის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:684
+#: core/apps/appsmarketplaceinfo.cpp:686
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr "ვიდეოკონფერენციის პარამეტრების შენახვის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:686
+#: core/apps/appsmarketplaceinfo.cpp:688
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr "ვიდეოკონფერენციის პარამეტრების წაკითხვის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:688
+#: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr "ვიდეოკონფერენციის პროვაიდერის პარამეტრების შეცვლის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:690
+#: core/apps/appsmarketplaceinfo.cpp:692
 #, kde-format
 msgid "Allow to register button"
 msgstr "რეგისტრაციის დაშვების ღილაკი"
 
-#: core/apps/appsmarketplaceinfo.cpp:696
+#: core/apps/appsmarketplaceinfo.cpp:698
 #, kde-format
 msgid "Allow to send email"
 msgstr "ელფოსტის გაგზავნის დაშვება"
 
-#: core/apps/appsmarketplaceinfo.cpp:698
+#: core/apps/appsmarketplaceinfo.cpp:700
 #, kde-format
 msgid "Allow to write role"
 msgstr "როლის ჩაწერის უფლება"
 
-#: core/apps/appsmarketplaceinfo.cpp:700
+#: core/apps/appsmarketplaceinfo.cpp:702
 #, kde-format
 msgid "Allow to read role"
 msgstr "როლის წაკითხვის უფლება"
 
-#: core/apps/appsmarketplaceinfo.cpp:702
+#: core/apps/appsmarketplaceinfo.cpp:704
 #, kde-format
 msgid "Out Bound Communication"
 msgstr "გამავალი კომუნიკაცია"
 
-#: core/apps/appsmarketplaceinfo.cpp:704
+#: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr "სამუშაო სივრცეში არსებული ყველა ოთახის ნახვა"
@@ -533,7 +533,7 @@ msgstr "უცნობი მდგომარეობა"
 msgid "New version available %1"
 msgstr "ხელმისაწვდომია ახალი ვერსია: %1"
 
-#: core/bannerinfo/bannerinfos.cpp:63
+#: core/bannerinfo/bannerinfos.cpp:64
 #, kde-format
 msgid "(link)"
 msgstr "(ბმული)"
@@ -1536,7 +1536,7 @@ msgstr "პირადი შეტყობინებები"
 msgid "Draft"
 msgstr "მონახაზი"
 
-#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:317
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:318
 #, kde-format
 msgid "Unknown"
 msgstr "უცნობი"
@@ -1731,7 +1731,7 @@ msgstr "შეუერთდა ამ გუნდს"
 msgid "(Autojoin)"
 msgstr "(ავტომატური შეერთება)"
 
-#: core/model/usersforroommodel.cpp:307 core/room.cpp:1187
+#: core/model/usersforroommodel.cpp:308 core/room.cpp:1187
 #, kde-format
 msgid "Owner"
 msgstr "მფლობელი"
@@ -1799,12 +1799,12 @@ msgstr "არაა დაკავშირებული"
 msgid "Not connected yet"
 msgstr "არაა დაკავშირებული"
 
-#: core/rocketchataccount.cpp:3255
+#: core/rocketchataccount.cpp:3254
 #, kde-format
 msgid "Room Added"
 msgstr "დაემატა ოთახი"
 
-#: core/rocketchataccount.cpp:3256
+#: core/rocketchataccount.cpp:3255
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "'%1'-ში დაემატა ახალი ოთახი."
@@ -2297,18 +2297,16 @@ msgstr "ფაილი ვერ ვიპოვე: \"%1\""
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:60
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgid "Download failed: %1"
-msgstr "გამოსახულების გადმოწერა"
+msgstr "გადმოწერის შეცდომა: %1"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
 msgid "No reply received"
-msgstr ""
+msgstr "პასუხი მიღებული არაა"
 
-#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
+#: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:141
 #, kde-format
 msgid "The custom emoji or one of its aliases is already in use."
 msgstr "ჩასმული ემოჯი ან მისი მეტსახელები უკვე გამოიყენება."
@@ -7676,7 +7674,7 @@ msgstr "მომხმარებლის სახელი ან ელფ
 msgid "Username or email:"
 msgstr "მომხმარებლის სახელი ან ელფოსტა:"
 
-#: widgets/common/authenticationloginwidget.cpp:162
+#: widgets/common/authenticationloginwidget.cpp:161
 #: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
@@ -7686,7 +7684,7 @@ msgstr ""
 "ელფოსტის დასადასტურებლად შეტყობინება გამოგიგზავნეთ.\n"
 "თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
-#: widgets/common/authenticationloginwidget.cpp:163
+#: widgets/common/authenticationloginwidget.cpp:162
 #: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@title:window"
@@ -12600,521 +12598,3 @@ msgstr "მომხმარებლის სახელი:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "ანგარიშის დამატება…"
-
-#~ msgctxt "@action"
-#~ msgid "Add WebDav Server"
-#~ msgstr "WebDav სერვერის დამატება"
-
-#~ msgid "Encrypted Message"
-#~ msgstr "დაშიფრული შეტყობინება"
-
-#~ msgid "%1 has joined OTR chat."
-#~ msgstr "%1 შემოუერთდა OTR ჩატს."
-
-#~ msgid "%1 has requested key refresh."
-#~ msgstr "%1-ma გასაღების განახლება მოითხოვა."
-
-#~ msgid "OTR"
-#~ msgstr "OTR"
-
-#~ msgid "Ok"
-#~ msgstr "დიახ"
-
-#~ msgid "%1 ended the OTR session."
-#~ msgstr "%1 -მა OTR სესია დაასრულა."
-
-#~ msgid "%1 wants to start OTR. Do you want to accept?"
-#~ msgstr "%1-ს OTR-ის დაწყება უნდა. ეთანხმებით?"
-
-#~ msgid "%1 denied the OTR session."
-#~ msgstr "%1 -მა უარყო OTR სესია."
-
-#~ msgid "Room does not have retention policy"
-#~ msgstr "ოთახს შენახვის პოლიტიკა არ აქვს"
-
-#~ msgctxt "@option:check"
-#~ msgid "Enable OTR"
-#~ msgstr "OTR-ის ჩართვა"
-
-#~ msgid ""
-#~ "Enable option to use off-the-record (OTR) messages in direct messages "
-#~ "between 2 users. OTR messages are not recorded on the server and "
-#~ "exchanged directly and encrypted between the 2 users."
-#~ msgstr ""
-#~ "ჩართეთ ეს პარამეტრი, რომ გამოიყენოთ ჩანაწერისგარეშე (OTR) პირდაპირი "
-#~ "შეტყობინებები 2 მომხმარებელს შორის. OTR შეტყობინებების ჩაწერა, სერვერზე "
-#~ "არ ხდება და ის მიმოიცვლება და იშიფრება 2 მომხმარებელს შორის."
-
-#~ msgid "Otr Activated"
-#~ msgstr "Otr აქტივირებულია"
-
-#~ msgctxt "@action"
-#~ msgid "End OTR"
-#~ msgstr "OTR-ის დასრულება"
-
-#~ msgctxt "@action"
-#~ msgid "Refresh Keys"
-#~ msgstr "გასაღებების განახლება"
-
-#~ msgctxt "@action"
-#~ msgid "OTR"
-#~ msgstr "OTR"
-
-#~ msgid "Link Preview"
-#~ msgstr "ბმულის მინიატურა"
-
-#~ msgctxt "@action:button"
-#~ msgid "Ignore"
-#~ msgstr "იგნორი"
-
-#~ msgid "Rocket Chat Client"
-#~ msgstr "Rocket Chat -ის კლიენტი"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Do you want to unban user?"
-#~ msgstr "გნებავთ ბანის მოხსნა ამ მომხმარებლისთვის?"
-
-#~ msgid "Improve offline Mode"
-#~ msgstr "გაუმჯობესდა ქსელგარეშე რეჟიმი"
-
-#~ msgid "Allow to open saved file."
-#~ msgstr "შენახული ფაილის გახსნის უფლება."
-
-#~ msgid "Allow to rotate image in show image dialog."
-#~ msgstr "გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში."
-
-#~ msgid "Add new room info in notification history dialog."
-#~ msgstr "ახალი ოთახის ინფორმაციის დამატება გაფრთხილებების ისტორიის დიალოგში."
-
-#~ msgid "Use new textmessagewidget for error notification."
-#~ msgstr "ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის."
-
-#~ msgid "Implement Draft message sorting channel."
-#~ msgstr "განხორციელდა მონახაზი შეტყობინებების დალაგების არხი."
-
-#~ msgid "Implement Banned Users list dialog."
-#~ msgstr "განხორციელდა დაბანილი მომხმარებლების სიის დიალოგი."
-
-#~ msgid "Implement Banned/Unbanned Users."
-#~ msgstr "განხორციელდა დაბანილი მომხმარებლების სიის დიალოგი."
-
-#~ msgid "Store Message in Local Database (experimental)"
-#~ msgstr "შეტყობინების ლოკალურ ბაზაში შენახვა (საცდელი)"
-
-#~ msgid "Download Server Icon from Server"
-#~ msgstr "სერვერის ხატულის სერვერიდან გადმოწერა"
-
-#~ msgid "Show Server Error Info in Specific DialogBox"
-#~ msgstr "სერვერის შეცდომის ინფორმაციის ჩვენება მითითებულ ფანჯარაში"
-
-#~ msgid "Allow to Copy Image in Clipboard"
-#~ msgstr "გამოსახულების ბუფერში კოპირების დაშვება"
-
-#~ msgid "Improve debug support (Allow to show current account permissions)"
-#~ msgstr ""
-#~ "გამართვის მხარდაჭერის გაუმჯობესება (მიმდინარე ანგარიშის წვდომების "
-#~ "ჩვენების დაშვება)"
-
-#~ msgid "Add support for quoted text (text which starts by '>')"
-#~ msgstr ""
-#~ "ციტირებული ტექსტის (ტექსტის, რომელიც '>'-ით იწყება) მხარდაჭერის დამატება"
-
-#~ msgid "Show leader/moderator/owner in channel info."
-#~ msgstr "არხის ინფორმაციაში ლიდერის/მოდერატორის/მფლობელის ჩვენება."
-
-#~ msgid "Video/Sound Message support (kf6 only)."
-#~ msgstr "ვიდეო/ხმოვანი შეტყობინების მხარდაჭერა (მხოლოდ kf6)."
-
-#~ msgid "Import/Export Accounts."
-#~ msgstr "ანგარიშების გატანა/შემოტანა."
-
-#~ msgid "Fix avatar support"
-#~ msgstr "ავატარის მხარდაჭერის გასწორება"
-
-#~ msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-#~ msgstr "ემოჯის მხარდაჭერის გასწორება (იყენებს ახალ ktextaddon/textemoticon)"
-
-#~ msgid "Fix animated gif in reactions"
-#~ msgstr "რეაქციებში ანიმირებული GIF-ების მხარდაჭერის გასწორება"
-
-#~ msgid "Fix kf6 support"
-#~ msgstr "KF6-ის მხარდაჭერის გასწორება"
-
-#~ msgid "Add Moderation Console (Administration, RC server 6.2)"
-#~ msgstr "მოდერაცის კონსოლის დამატება (ადმინისტრაცია, RC სერვერი 6.2)"
-
-#~ msgid "Implement message style"
-#~ msgstr "შეტყობინებების სტილის განხორციელება"
-
-#~ msgid "Implement Url Preview"
-#~ msgstr "ბმულის მინიატურის განხორციელება"
-
-#~ msgid "Fix markdown support (header + check mark)"
-#~ msgstr "Markdown-ის მხარდაჭერის გაუქმება (თავსართი + თოლია)"
-
-#~ msgid "Fix mem leak"
-#~ msgstr "გასწორდა მეხსიერების გაჟონვა"
-
-#~ msgid "Cache message size (optimization)"
-#~ msgstr "კეშის შეტყობინების ზომა (ოპტიმიზაცია)"
-
-#~ msgid ""
-#~ "Improve select room or user in message line edit (show icon, inform if "
-#~ "user is in channel)"
-#~ msgstr ""
-#~ "ოთახის არჩევის ან მომხმარებლის ხაზის ჩასწორების გაუმჯობესება (ხატულის "
-#~ "ჩვენება, მომხმარებლის შეტყობინება, თუ მომხმარებელი არხზეა)"
-
-#~ msgid ""
-#~ "Fix show commands in message line edit (Hide action when room doesn't "
-#~ "support it)."
-#~ msgstr ""
-#~ "გასწორდა ბრძანებების ჩვენება შეტყობინების ხაზის ჩასწორებისას (ქმედების "
-#~ "დამალვა, როცა ოთახს მისი მხარდაჭერა არ აქვს)."
-
-#~ msgid "Fix download sound/video file when it's not in cache."
-#~ msgstr "ხმის/ვიდეოს ფაილის გადმოწერის გასწორება, როცა ის კეშში არაა."
-
-#~ msgid "Fix list of authentication method."
-#~ msgstr "ავთენტიკაციის მეთოდების სიის გასწორება."
-
-#~ msgid "Fix show avatar url."
-#~ msgstr "საჩვენებელი ავატარის ბმულის გასწორება."
-
-#~ msgid "Allow to increase/decrease font (CTRL++/CTRL+-)"
-#~ msgstr "ფონტის გადიდება/დაპატარავების (CTRL++/CTRL+-) დაშვება"
-
-#~ msgid "Add channel list style (Condensed/Medium/Extended)"
-#~ msgstr "არხების სიის სტილის დამატება (შესქელებული/საშაუალო/გაფართოებული)"
-
-#~ msgid "Add forward message"
-#~ msgstr "შეტყობინების გადაგზავნის დამატება"
-
-#~ msgid "Improve mentions support."
-#~ msgstr "ხსენებების მხარდაჭერის გაუმჯობესება."
-
-#~ msgid ""
-#~ "Add support for deep linking <a href=\"https://developer.rocket.chat/"
-#~ "getting-started/deep-linking\">Deep Linking</a>."
-#~ msgstr ""
-#~ "დაემატა ღრმა მიბმის მხარდაჭერა <a href=\"https://developer.rocket.chat/"
-#~ "getting-started/deep-linking\">ღრმა მიბმა</a>."
-
-#~ msgid "Implement block actions."
-#~ msgstr "დაბლოკვის ქმედებების განხორციელება."
-
-#~ msgid ""
-#~ "Implement personal token authentication. <a href=\"https://bugs.kde.org/"
-#~ "show_bug.cgi?id=481400\">Bug 481400</a>"
-#~ msgstr ""
-#~ "პირადი კოდით ავთენტიკაციის განხორციელება. <a href=\"https://bugs.kde.org/"
-#~ "show_bug.cgi?id=481400\">Bug 481400</a>"
-
-#~ msgid "Add Plasma Activities Support"
-#~ msgstr "Plasma-ის აქტივობების მხარდაჭერის დამატება"
-
-#~ msgid "Add Report User Support"
-#~ msgstr "მომხმარებლის დარეპორტების მხარდაჭერის დამატება"
-
-#~ msgid "Implement Channel Sound Notification."
-#~ msgstr "არხის ხმოვანი შეტყობინების ჩართვა."
-
-#~ msgid "Implement New Room Sound Notification."
-#~ msgstr "ახალი ოთახის ხმის გაფრთხილების განხორციელება."
-
-#~ msgid "Implement Sorted/Unsorted markdown list."
-#~ msgstr "დალაგებული/დაულაგებელი მარკდაუნის სიის განხორციელება."
-
-#~ msgid "Fix dark mode support."
-#~ msgstr "ბნელი რეჟიმის მხარდაჭერის გასწორება."
-
-#~ msgid "Fix jitsi support."
-#~ msgstr "JITSI-ის მხარდაჭერის გასწორება."
-
-#~ msgid "Fix translate message in direct channel."
-#~ msgstr "პირდაპირ არხში შეტყობინების თარგმნის გასწორება."
-
-#~ msgid "Don't show @here/@all as user."
-#~ msgstr "მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება."
-
-#~ msgid "Reduce memory footprint."
-#~ msgstr "მეხსიერებაში კვალის შემცირება."
-
-#~ msgid "Use RESTAPI for logging."
-#~ msgstr "ჟურნალისთვის RESTAPI-ის გამოყენება."
-
-#~ msgid "Allow to send multi files."
-#~ msgstr "ერთზე მეტი ფაილის გაგზავნის დაშვება."
-
-#~ msgid "Implement Rocket.Chat Marketplace."
-#~ msgstr "Rocket.Chat-ის მაღაზიის განხორციელება."
-
-#~ msgid "Allow to clean room history."
-#~ msgstr "ოთახის ისტორიის გასუფთავების დაშვება."
-
-#~ msgid "Allow to check new version."
-#~ msgstr "ახალი ვერსიის შემოწმების დაშვება."
-
-#~ msgid "Implement moderation (administrator mode)."
-#~ msgstr "მოდერაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)."
-
-#~ msgid "Add welcome page."
-#~ msgstr "მისალმების გვერდის დამატება."
-
-#~ msgid "Implement pending users info (administrator mode)."
-#~ msgstr ""
-#~ "დარჩენილი მომხმარებლების ინფორმაციის ფუნქციონალი (ადმინისტრატორის რეჟიმი)."
-
-#~ msgid ""
-#~ "Use cmark-rc (https://github.com/dfaure/cmark-rc) for markdown support."
-#~ msgstr ""
-#~ "მარკდაუნის მხარდაჭერისთვის cmark-rc-ის (https://github.com/dfaure/cmark-"
-#~ "rc) გამოყენება."
-
-#~ msgid ""
-#~ "Delete oldest files from some cache directories (file-upload and media) "
-#~ "so it doesn't grow forever."
-#~ msgstr ""
-#~ "ზოგიერთი კეშის საქაღალდიდან(file-upload და media) უძველესი ფაილების "
-#~ "წაშლა, რომ ისინი სულ არ იზრდებოდეს."
-
-#~ msgid ""
-#~ "Clean market application model after 30 minutes (reduce memory footprint)."
-#~ msgstr ""
-#~ "მარკეტის აპლიკაციის მოდელის გასუფთავება 30 წუთის შემდეგ (ამცირებს "
-#~ "დახარჯული მეხსიერების სიდიდეს)."
-
-#~ msgid "Fix show discussion name in completion."
-#~ msgstr "დასრულებისას კამათის სახელის ჩვენების გასწორება."
-
-#~ msgid "Fix duplicated messages in search message dialog."
-#~ msgstr "გასწორდა გამეორებული შეტყობინებები ძებნის შეტყობინების დიალოგში."
-
-#~ msgid "Add delegate in search rooms in team dialog."
-#~ msgstr "დაამატეთ დელეგატი საძებნ ოთახებში გუნდის დიალოგში."
-
-#~ msgid ""
-#~ "Allow to clean up room history when room was not opened from long time."
-#~ msgstr "ოთახის ისტორიის გაწმენდის დაშვება, როცა ოთახს დიდხანს არ გახსნით."
-
-#~ msgid "Add restore button in administrator server settings dialog."
-#~ msgstr ""
-#~ "აღდგენის ღილაკის დამატება ადმინისტრატორის სერვერის მორგების დიალოგში."
-
-#~ msgid "Improve changing password (show validation info)."
-#~ msgstr "პაროლის შეცვლის გაუმჯობესება (გადამოწმების ინფორმაციის ჩვენება)"
-
-#~ msgid "Improve register new account (Add reason support)."
-#~ msgstr ""
-#~ "ახალი ანგარიშის რეგისტრაციის გაუმჯობესება (მიზეზის მხარდაჭერის დამატება)"
-
-#~ msgid "Implement mute/unmute user."
-#~ msgstr "მომხმარებლის დადუმების/დადუმების მოხსნის ფუნქცია."
-
-#~ msgid "Add color to the text in the account tab"
-#~ msgstr "ანგარიშის ჩანართის ტექსტზე ფერის დამატება"
-
-#~ msgid "Allow to show private installed applications"
-#~ msgstr "პირადი დაყენებული აპლიკაციების ჩვენების დაშვება"
-
-#~ msgid "Fix editing message."
-#~ msgstr "შეტყობინების ჩასწორების გასწორება."
-
-#~ msgid "Show permissions in Rocket.Chat Marketplace."
-#~ msgstr "წვდომების ჩვენება Rocket.Chat-ის მაღაზიაში."
-
-#~ msgid "Fix reconnect server."
-#~ msgstr "გასწორდა სერვერთან ხელახლა დაკავშირება."
-
-#~ msgid "Fix single application on Windows/MacOs"
-#~ msgstr "აპლიკაციის ერთხელ გაშვვების გასწორება Wndows/MacOS-ზე"
-
-#~ msgid "Fix select created room/discussion/teams"
-#~ msgstr "გასწორდა შექმნილი ოთახის/კამათის/გუნდების მონიშვნა"
-
-#~ msgid "Fix filter discussion in administrator mode"
-#~ msgstr "გასწორდა დისკუსიის ფილტრი ადმინისტრატორის რეჟიმში"
-
-#~ msgid "Fix message video support"
-#~ msgstr "გასწორდა შეტყობინების ვიდეოს მხარდაჭერა"
-
-#~ msgid "Fix highlight text in quoted message"
-#~ msgstr "გასწორდა ტექსტის გამოკვეთა ციტირებულ შეტყობინებებში"
-
-#~ msgid "Fix open discussion channel"
-#~ msgstr "გასწორდა კამათის არხის გახსნა"
-
-#~ msgid "Allow to show application market settings"
-#~ msgstr "აპლიკაციის მარკეტის პარამეტრების ჩვენების დაშვება"
-
-#~ msgid "Add support for tools plugins"
-#~ msgstr "დაემატა მხარდაჭერა ხელსაწყოს დამატებებისთვის"
-
-#~ msgid "Plugin: Add screenshot button (near send message button)"
-#~ msgstr ""
-#~ "დამატება: დაემატა ეკრანის ანაბეჭდის ღილაკი (შეტყობინების გაგზავნის "
-#~ "ღილაკთან)"
-
-#~ msgid "Implement invite RC url support"
-#~ msgstr "განხორციელდა მოწვევის RC URL-ის მხარდაჭერა"
-
-#~ msgid "Implement verify if a new Ruqola version exist"
-#~ msgstr "შემოწმება, არსებობს თუ არა Ruqola-ის ახალი ვერსია"
-
-#~ msgid "Allow to search threads by unread/following"
-#~ msgstr "დისკუსიებში მოძებნის დაშვება წაკითხული/მიყოლების მიხედვით"
-
-#~ msgid "Show images from attachment dialog box"
-#~ msgstr "გამოსახულებების ჩვენება მიმაგრებული ფაილის დიალოგის ფანჯრიდან"
-
-#~ msgid "Implement Rocket.Chat application support."
-#~ msgstr "Rocket.Chat-ის აპლიკაციის მხარდაჭერის განხორციელება."
-
-#~ msgid "Implement command preview."
-#~ msgstr "ბმულის მინიატურის განხორციელება."
-
-#~ msgid "Debug: explore translation from RC server."
-#~ msgstr "გამართვა: თარგმანის დათვალიერება RC სერვერიდან."
-
-#~ msgid ""
-#~ "Implement plugin UI support (Create dialog box for configure settings)."
-#~ msgstr ""
-#~ "დამატების ინტერფეისის მხარდაჭერის განხორციელება (დიალოგური ფანჯარა "
-#~ "პარამეტრების მოსარგებად)."
-
-#~ msgid "Allow to search file from username and filename."
-#~ msgstr "ფაილის ძებნის დაშვება მომხმარებლის სახელიდან და ფაილის სახელიდან."
-
-#~ msgid "Fix copy action text when we copy a text selection."
-#~ msgstr ""
-#~ "გასწორდა კოპირების ქმედების ტექსტი, როცა მონიშნულ ტექსტს ვაკოპირებთ."
-
-#~ msgid "A command start with '/' and not /* or // "
-#~ msgstr "ბრძანება იწყება '/'-ით და არა /*-ით ან //-ით "
-
-#~ msgid "Allow to put command line in clipboard when an error occurred"
-#~ msgstr ""
-#~ "საშუალებას გაძლევთ, შეცდომის შემთხვევაში ბრძანების სტრიქონი ბუფერში "
-#~ "დააკოპიროთ"
-
-#~ msgid "Allow to activate/deactivate apps market."
-#~ msgstr "აპების მაღაზიის აქტივაციის/დეაქტივაციის დაშვება."
-
-#~ msgid "Improve list of user in room."
-#~ msgstr "გაუმჯობესდა ოთახის მომხმარებლების ჩამონათვალის გამოტანა."
-
-#~ msgid "Search in encrypted room is not possible."
-#~ msgstr "დაშიფრულ ოთახში ძებნა შეუძლებელია."
-
-#~ msgid "Show roles for users in rooms."
-#~ msgstr "როლების ჩვენება ოთახის მომხმარებლებისთვის."
-
-#~ msgid "Fix download languages apps."
-#~ msgstr "გასწორდა ენის აპების გადმოწერა."
-
-#~ msgid "Add AI plugin"
-#~ msgstr "ხი-ის დამატება"
-
-#~ msgid "Allow to dnd image."
-#~ msgstr "გამოსახულების დაგდების დაშვება."
-
-#~ msgid "Add restore button in administration settings."
-#~ msgstr "დაემატა აღდგენის ღილაკი ადმინისტრატორის პარამეტრებში."
-
-#~ msgid "Allow to activate plugins."
-#~ msgstr "დამატებების გააქტიურების დაშვება."
-
-#~ msgid "Add Open With button in show image."
-#~ msgstr "გამოსახულების ჩვენებისას \"გახსნა პროგრამით\" ღილაკის დამატება."
-
-#~ msgid "Add Quick Text Format."
-#~ msgstr "დაემატა სწრაფი ტექსტის ფორმატი."
-
-#~ msgid "Add Extension message line button."
-#~ msgstr "დაემატა გაფართოების შეტყობინების ხაზის ღილაკი."
-
-#~ msgid "Allow to Add WebDav Server."
-#~ msgstr "WebDav სერვერის დამატების დაშვება."
-
-#~ msgid ""
-#~ "Show room info (italic text) when there is some pending message typed."
-#~ msgstr "ოთახის ინფორმაციის ჩვენება (კურსივით) როცა იქ შეტყობინებას კრეფენ."
-
-#~ msgid "Allow to add emoticon from popup menu."
-#~ msgstr "ემოციების მხტუნარა მენიუდან დამატების დაშვება."
-
-#~ msgid "Fix show date info."
-#~ msgstr "გასწორდა თარიღის ინფორმაციის ჩვენება."
-
-#~ msgid "Fix save application settings."
-#~ msgstr "გასწორდა აპლიკაციის პარამეტრების შენახვა."
-
-#~ msgid "Fix text selection in attachment."
-#~ msgstr "გასწორდა ტექსტის მონიშვნა მიმაგრებულ ფაილში."
-
-#~ msgid "Fix display user."
-#~ msgstr "გასწორდა მომხმარებლის ჩვენება."
-
-#~ msgid "Display translate menu in thread dialog."
-#~ msgstr "თარგმანის მენიუს ჩვენება საუბრის დიალოგში."
-
-#~ msgid "Add AI Rocket Chat Actions support."
-#~ msgstr "დაემატა ხი-ის Rocket.Chat-ის ქმედებების მხარდაჭერა."
-
-#~ msgid "Fix apply, restore, cancel buttons in administration dialog."
-#~ msgstr ""
-#~ "დაემატა გადატარების, აღდგენის და გაუქმების ღილაკები ადმინისტრატორის "
-#~ "დიალოგში."
-
-#~ msgid "Fix search users."
-#~ msgstr "გასწორდა მომხმარებლების ძებნა."
-
-#~ msgid "Fix extract language from code block."
-#~ msgstr "გასწორდა ენის ამოღება კოდის ბლოკიდან."
-
-#~ msgid "Fix attachment info in \"Show Channel Log\" dialog."
-#~ msgstr ""
-#~ "გასწორდა \"არხის ჟურნალის ჩვენების\" დიალოგზე მიმაგრებული ფაილის "
-#~ "ინფორმაციის მიღება."
-
-#~ msgid "Fix icon on windows."
-#~ msgstr "გასწორდა ხატულა Windows-ზე."
-
-#~ msgid "Fix show file attachment size."
-#~ msgstr "გასწორდა მიმაგრებული ფაილის ზომის ჩვენება."
-
-#~ msgid "Copy block code more easily."
-#~ msgstr "დააკოპირეთ ბლოკის კოდი უფრო მარტივად."
-
-#~ msgid "Improve Text To Speech user interface."
-#~ msgstr "გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი."
-
-#~ msgid "Show attachment fields."
-#~ msgstr "მიმაგრებული ფაილის ველების ჩვენება."
-
-#~ msgid "Implement Offline Mode (experimental)."
-#~ msgstr "ხაზგარეშე რეჟიმი (ექსპერიმენტული)."
-
-#~ msgid "Implement Pending Typed database storage."
-#~ msgstr "განხორციელდა დარჩენილი აკრეფილი მონაცემთა ბაზის საცავი."
-
-#~ msgid "Fix RC 8.0.0 support."
-#~ msgstr "გასწორდა RC 8.0.0-ის მხარდაჭერა."
-
-#~ msgid "Add Attachment Actions Support."
-#~ msgstr "დაემატა ქმედებების მხარდაჭერა მიმაგრებული ფაილებისთვის."
-
-#~ msgid "Add TimeStamp support."
-#~ msgstr "დაემატა დროის შტამპის მხარდაჭერა."
-
-#~ msgid "Save local translation to local database."
-#~ msgstr "ლოკალური თარგმანის შენახვა ლოკალურ მონაცემთა ბაზაში."
-
-#~ msgid "Fix remove room (in local database)."
-#~ msgstr "გასწორდა ოთახის წაშლა (ლოკალურ მონაცემთა ბაზებში)."
-
-#~ msgid "Fix export database."
-#~ msgstr "გასწორდა მონაცემთა ბაზის გატანა."
-
-#~ msgid "Fix upload Custom Sound"
-#~ msgstr "გასწორდა მორგებული ხმის ატვირთვა"
