@@ -122,14 +122,14 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
     QModelIndex index = mListView->indexAt(pos);
     // TODO Remove add-team-channel when we will depend against RC 7.0
-    if (mRoom->hasPermission(u"add-team-channel"_s) || mRoom->hasPermission(u"move-room-to-team"_s) || mRoom->hasPermission(u"create-team-channel"_s)
-        || mRoom->hasPermission(u"create-team-group"_s)) {
+    if (mRoom->hasPermission(u"add-team-channel") || mRoom->hasPermission(u"move-room-to-team") || mRoom->hasPermission(u"create-team-channel")
+        || mRoom->hasPermission(u"create-team-group")) {
         menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(u"irc-join-channel"_s), i18nc("@action", "Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     }
     if (index.isValid()) {
-        if (mRoom->hasPermission(u"edit-team-channel"_s)) {
+        if (mRoom->hasPermission(u"edit-team-channel")) {
             menu.addSeparator();
             const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
             menu.addAction(autojoin ? i18nc("@action", "Remove Autojoin") : i18nc("@action", "Add Autojoin"), this, [this, index, autojoin]() {
@@ -137,7 +137,7 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 updateAutojoin(roomId, autojoin);
             });
         }
-        if (mRoom->hasPermission(u"remove-team-channel"_s)) {
+        if (mRoom->hasPermission(u"remove-team-channel")) {
             menu.addSeparator();
             menu.addAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Remove from Team"), this, [this, index]() {
                 const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();

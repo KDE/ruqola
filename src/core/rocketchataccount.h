@@ -304,8 +304,8 @@ public:
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
     [[nodiscard]] QStringList highlightWords() const;
     void setAvatarUrl(const QString &url);
-    [[nodiscard]] bool hasPermission(const QString &permissionId, const QByteArray &roomId = {}) const;
-    [[nodiscard]] QStringList permissions(const QString &permissionId) const;
+    [[nodiscard]] bool hasPermission(QStringView permissionId, const QByteArray &roomId = {}) const;
+    [[nodiscard]] QStringList permissions(QStringView permissionId) const;
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     [[nodiscard]] QStringList ownUserPermission() const;
     [[nodiscard]] bool hasAutotranslateSupport() const;

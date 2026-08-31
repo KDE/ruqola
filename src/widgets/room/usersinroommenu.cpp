@@ -129,7 +129,7 @@ void UsersInRoomMenu::updateUserInRoomMenu()
     const bool isAdirectChannel = mRoom->channelType() == Room::RoomType::Direct;
     const bool isNotMe = mUserId != ownUserId;
 
-    if (mRocketChatAccount->hasPermission(u"create-d"_s)) {
+    if (mRocketChatAccount->hasPermission(u"create-d")) {
         if (isNotMe && !isAdirectChannel) {
             auto conversationAction = new QAction(i18nc("@action", "Start Conversation"), mMenu);
             connect(conversationAction, &QAction::triggered, this, &UsersInRoomMenu::slotOpenConversation);
@@ -146,7 +146,7 @@ void UsersInRoomMenu::updateUserInRoomMenu()
         if (!mMenu->isEmpty()) {
             mMenu->addSeparator();
         }
-        if (isAdministrator || mRoom->hasPermission(u"set-owner"_s)) {
+        if (isAdministrator || mRoom->hasPermission(u"set-owner")) {
             const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
             auto removeAsOwner = new QAction(hasOwnerRole ? i18nc("@action", "Remove as Owner") : i18nc("@action", "Add as Owner"), mMenu);
             connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole]() {
@@ -159,7 +159,7 @@ void UsersInRoomMenu::updateUserInRoomMenu()
             mMenu->addAction(removeAsOwner);
         }
 
-        if (isAdministrator || mRoom->hasPermission(u"set-leader"_s)) {
+        if (isAdministrator || mRoom->hasPermission(u"set-leader")) {
             const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
             auto removeAsLeader = new QAction(hasLeaderRole ? i18nc("@action", "Remove as Leader") : i18nc("@action", "Add as Leader"), mMenu);
             connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole]() {
@@ -171,7 +171,7 @@ void UsersInRoomMenu::updateUserInRoomMenu()
             mMenu->addAction(removeAsLeader);
         }
 
-        if (isAdministrator || mRoom->hasPermission(u"set-moderator"_s)) {
+        if (isAdministrator || mRoom->hasPermission(u"set-moderator")) {
             const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
             auto removeAsModerator = new QAction(hasModeratorRole ? i18nc("@action", "Remove as Moderator") : i18nc("@action", "Add as Moderator"), mMenu);
             connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole]() {
@@ -182,7 +182,7 @@ void UsersInRoomMenu::updateUserInRoomMenu()
             });
             mMenu->addAction(removeAsModerator);
         }
-        if (isAdministrator || mRoom->hasPermission(u"remove-user"_s)) {
+        if (isAdministrator || mRoom->hasPermission(u"remove-user")) {
             mMenu->addSeparator();
             auto removeFromRoom = new QAction(i18nc("@action", "Remove from Room"), mMenu);
             connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
@@ -204,7 +204,7 @@ void UsersInRoomMenu::updateUserInRoomMenu()
             connect(ignoreAction, &QAction::triggered, this, &UsersInRoomMenu::slotIgnoreUser);
             mMenu->addAction(ignoreAction);
             mMenu->addSeparator();
-            if (mRoom->hasPermission(u"mute-user"_s)) {
+            if (mRoom->hasPermission(u"mute-user")) {
                 const bool userIsMuted = mRoom->userIsMuted(mUserName);
                 auto muteAction = new QAction(userIsMuted ? i18nc("@action", "Unmute User") : i18nc("@action", "Mute User"), mMenu);
                 muteAction->setIcon(userIsMuted ? QIcon::fromTheme(u"mic-on"_s) : QIcon::fromTheme(u"mic-off"_s));
@@ -218,7 +218,7 @@ void UsersInRoomMenu::updateUserInRoomMenu()
         connect(reportUserAction, &QAction::triggered, this, &UsersInRoomMenu::slotReportUser);
         mMenu->addAction(reportUserAction);
 
-        if (mRoom->hasPermission(u"ban-user"_s)) {
+        if (mRoom->hasPermission(u"ban-user")) {
             mMenu->addSeparator();
             auto banUserFromRoomAction = new QAction(QIcon::fromTheme(u"im-ban-user"_s), i18nc("@action", "Ban User From Room"), mMenu);
             connect(banUserFromRoomAction, &QAction::triggered, this, &UsersInRoomMenu::slotBanUserFromRoomAction);

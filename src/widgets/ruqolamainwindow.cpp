@@ -385,17 +385,17 @@ void RuqolaMainWindow::updateActions()
 
 bool RuqolaMainWindow::canCreateChannels() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-c"_s);
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-c");
 }
 
 bool RuqolaMainWindow::canCreateDirectMessages() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-d"_s);
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-d");
 }
 
 bool RuqolaMainWindow::canCreateTeams() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-team"_s);
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-team");
 }
 
 bool RuqolaMainWindow::hasBannerInfo() const

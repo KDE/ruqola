@@ -648,7 +648,7 @@ void RoomWidget::slotCallRequested()
             auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
             RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
             startInfo.roomId = mRoomWidgetBase->roomId();
-            startInfo.allowRinging = mRoom->hasPermission(u"videoconf-ring-users"_s);
+            startInfo.allowRinging = mRoom->hasPermission(u"videoconf-ring-users");
             job->setInfo(startInfo);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, conferenceCallInfo](const QJsonObject &obj) {
@@ -823,7 +823,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomAnnouncement(mRoom->displayAnnouncement());
         mRoomHeaderWidget->setRoomTopic(mRoom->displayTopic());
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
-        mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(u"edit-room"_s));
+        mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(u"edit-room"));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());

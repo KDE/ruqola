@@ -305,7 +305,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
                 if (roomOrUserId != mCurrentRocketChatAccount->userName()) {
-                    if (mCurrentRocketChatAccount->hasPermission(u"create-d"_s)) {
+                    if (mCurrentRocketChatAccount->hasPermission(u"create-d")) {
                         // Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
                         mCurrentRocketChatAccount->createDirectChannel({roomOrUserId});
                     }

@@ -291,10 +291,10 @@ void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyO
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    if (mRocketChatAccount->hasPermission(u"bulk-register-user"_s)) {
+    if (mRocketChatAccount->hasPermission(u"bulk-register-user")) {
         menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Invite…"), this, &AdministratorUsersWidget::slotInviteUsers);
     }
-    if (mRocketChatAccount->hasPermission(u"create-user"_s)) {
+    if (mRocketChatAccount->hasPermission(u"create-user")) {
         if (!menu.isEmpty()) {
             menu.addSeparator();
         }
@@ -304,14 +304,14 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
 
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-info"_s)) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-info")) {
             menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotModifyUser(modelIndex);
             });
             menu.addSeparator();
         }
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-active-status"_s)) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-active-status")) {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::ActiveUser);
             const bool activateUser = modelIndex.data().toBool();
             menu.addAction(activateUser ? i18nc("@action", "Deactivate") : i18nc("@action", "Active"), this, [this, newModelIndex, activateUser]() {
@@ -319,7 +319,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             });
             menu.addSeparator();
         }
-        if (mRocketChatAccount->hasPermission(u"assign-admin-role"_s)) {
+        if (mRocketChatAccount->hasPermission(u"assign-admin-role")) {
             const QModelIndex administratorIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::Administrator);
             const bool isAdministrator = administratorIndex.data().toBool();
 
@@ -328,19 +328,19 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 slotChangeAdmin(modelIndex, !isAdministrator);
             });
         }
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-e2ee"_s)) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-e2ee")) {
             menu.addAction(i18nc("@action", "Reset E2E Key"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetE2EKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-totp"_s) && mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-totp") && mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
             menu.addAction(i18nc("@action", "Reset Totp"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetTOTPKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(u"delete-user"_s)) {
+        if (mRocketChatAccount->hasPermission(u"delete-user")) {
             menu.addSeparator();
             menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
                 const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);

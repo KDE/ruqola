@@ -1158,7 +1158,7 @@ void Room::setRolesForRooms(const Roles &rolesForRooms)
     mRolesForRooms = rolesForRooms;
 }
 
-bool Room::hasPermission(const QString &permission) const
+bool Room::hasPermission(QStringView permission) const
 {
     if (mRocketChatAccount) {
         // qDebug() << " mRoles " << mRoles << " mRolesForRooms " << mRolesForRooms;
@@ -1174,7 +1174,7 @@ bool Room::hasPermission(const QString &permission) const
 
 bool Room::allowToPinMessage() const
 {
-    return hasPermission(u"pin-message"_s);
+    return hasPermission(u"pin-message");
 }
 
 QStringList Room::rolesForUserId(const QByteArray &userId)

@@ -186,7 +186,7 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
         mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->autoTranslateEnabled());
 
-        const bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(u"create-invite-links"_s);
+        const bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(u"create-invite-links");
         mInviteUsersGenerateUrl->setVisible(hasPermissionInviteUserSupport);
         mInviteUsersGenerateUrlSeparator->setVisible(hasPermissionInviteUserSupport);
         mStartVideoChat->setVisible(mCurrentRocketChatAccount->ruqolaServerConfig()->jitsiEnabled());
@@ -194,19 +194,19 @@ void ChannelActionPopupMenu::slotUpdateMenu()
         mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
         mAddUserInRooms->setVisible(mRoom && mRoom->canBeModify());
 
-        const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(u"clean-channel-history"_s);
+        const bool showPruneMessage = mCurrentRocketChatAccount->hasPermission(u"clean-channel-history");
         mPruneMessages->setVisible(showPruneMessage);
         mPruneMessagesSeparator->setVisible(showPruneMessage);
 
-        mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(u"mail-messages"_s));
+        mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(u"mail-messages"));
 
         mEncryptMessages->setVisible(mRoom && mRoom->encryptedEnabled()
                                      && (mRoom->channelType() == Room::RoomType::Direct || mRoom->channelType() == Room::RoomType::Private)
-                                     && mRoom->hasPermission(u"set-owner"_s));
+                                     && mRoom->hasPermission(u"set-owner"));
         mEncryptMessages->setChecked(mRoom && mRoom->encrypted());
 
-        const bool hasPermissionToBan = mRoom && mRoom->hasPermission(u"ban-user"_s)
-            && (mRoom->channelType() == Room::RoomType::Channel || mRoom->channelType() == Room::RoomType::Private);
+        const bool hasPermissionToBan =
+            mRoom && mRoom->hasPermission(u"ban-user") && (mRoom->channelType() == Room::RoomType::Channel || mRoom->channelType() == Room::RoomType::Private);
         mShowBannedUsers->setVisible(hasPermissionToBan);
     }
 }

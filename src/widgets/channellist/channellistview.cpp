@@ -159,7 +159,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
                 if (!mainTeam) {
                     const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
-                    if (mainTeamId.isEmpty() && room->hasPermission(u"convert-team"_s)) {
+                    if (mainTeamId.isEmpty() && room->hasPermission(u"convert-team")) {
                         menu.addSeparator();
                         auto convertToTeam = new QAction(i18nc("@action", "Convert to Team"), &menu);
                         connect(convertToTeam, &QAction::triggered, this, [this, index, roomType]() {
@@ -170,7 +170,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addAction(convertToTeam);
                     }
                 } else {
-                    if (room->hasPermission(u"edit-team-channel"_s)) {
+                    if (room->hasPermission(u"edit-team-channel")) {
                         menu.addSeparator();
                         auto convertToChanne = new QAction(i18nc("@action", "Convert to Channel"), &menu);
                         connect(convertToChanne, &QAction::triggered, this, [this, index]() {
@@ -190,7 +190,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                     }
                 }
                 const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
-                if (mainTeamId.isEmpty() && !mainTeam && (room->hasPermission(u"add-team-channel"_s) || room->hasPermission(u"move-room-to-team"_s))) {
+                if (mainTeamId.isEmpty() && !mainTeam && (room->hasPermission(u"add-team-channel") || room->hasPermission(u"move-room-to-team"))) {
                     menu.addSeparator();
                     auto moveToTeam = new QAction(i18nc("@action", "Move to Team"), &menu);
                     connect(moveToTeam, &QAction::triggered, this, [this, index]() {

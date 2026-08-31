@@ -571,7 +571,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         listActions.append(action);
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
-                if (mCurrentRocketChatAccount->hasPermission(u"create-d"_s)) {
+                if (mCurrentRocketChatAccount->hasPermission(u"create-d")) {
                     auto startPrivateConversationAction =
                         new QAction(QIcon::fromTheme(u"document-send-symbolic"_s), i18nc("@action", "Start a Private Conversation"), &menu);
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, url]() {

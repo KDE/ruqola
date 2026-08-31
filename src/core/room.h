@@ -278,7 +278,7 @@ public:
 
     [[nodiscard]] QStringList highlightsWord() const;
     void setHighlightsWord(const QStringList &highlightsWord);
-    [[nodiscard]] bool hasPermission(const QString &permission) const;
+    [[nodiscard]] bool hasPermission(QStringView permission) const;
 
     [[nodiscard]] QString displayTopic() const;
     [[nodiscard]] QString displayAnnouncement() const;

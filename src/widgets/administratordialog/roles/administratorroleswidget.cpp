@@ -69,7 +69,7 @@ AdministratorRolesWidget::~AdministratorRolesWidget() = default;
 void AdministratorRolesWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {
     if (index.isValid()) {
-        if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) {
+        if (mRocketChatAccount->hasPermission(u"access-permissions")) {
             modifyRole(index);
         }
     }
@@ -97,7 +97,7 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
 
-    if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) { // For delete
+    if (mRocketChatAccount->hasPermission(u"access-permissions")) { // For delete
         QMenu menu(this);
         const bool hasEntrepriseSupport = mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport();
         if (hasEntrepriseSupport) {

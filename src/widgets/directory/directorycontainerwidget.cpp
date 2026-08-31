@@ -25,13 +25,13 @@ DirectoryContainerWidget::DirectoryContainerWidget(RocketChatAccount *account, D
     switch (type) {
     case DirectoryWidget::DirectoryType::Room:
     case DirectoryWidget::DirectoryType::Team: {
-        if (account && !account->hasPermission(u"view-c-room"_s)) {
+        if (account && !account->hasPermission(u"view-c-room")) {
             mDirectoryStackedWidget->setIsAutorized(false);
         }
         break;
     }
     case DirectoryWidget::DirectoryType::User: {
-        if (account && (!account->hasPermission(u"view-outside-room"_s) || !account->hasPermission(u"view-d-room"_s))) {
+        if (account && (!account->hasPermission(u"view-outside-room") || !account->hasPermission(u"view-d-room"))) {
             mDirectoryStackedWidget->setIsAutorized(false);
         }
         break;

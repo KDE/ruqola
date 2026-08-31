@@ -968,7 +968,7 @@ void RocketChatAccount::initializeDirectChannel(const QByteArray &rid)
 
 void RocketChatAccount::openDirectChannel(const QString &roomId)
 {
-    if (hasPermission(u"create-d"_s)) {
+    if (hasPermission(u"create-d")) {
         auto job = new RocketChatRestApi::OpenDmJob(this);
         job->setDirectUserId(roomId);
         restApi()->initializeRestApiJob(job);
@@ -1911,7 +1911,7 @@ void RocketChatAccount::setServerVersion(const QString &version)
 
 bool RocketChatAccount::teamEnabled() const
 {
-    return hasPermission(u"create-team"_s);
+    return hasPermission(u"create-team");
 }
 
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
@@ -2088,7 +2088,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
         return false;
     }
 
-    const bool canEditMessage = hasPermission(u"edit-message"_s, message.roomId());
+    const bool canEditMessage = hasPermission(u"edit-message", message.roomId());
     const bool isEditAllowed = mRuqolaServerConfig->allowEditingMessages();
     const bool editOwn = message.userId() == userId();
 
@@ -2105,7 +2105,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
 {
-    if (hasPermission(u"force-delete-message"_s, message.roomId())) {
+    if (hasPermission(u"force-delete-message", message.roomId())) {
         // qDebug() << " force-delete-message implemented";
         return true;
     }
@@ -2115,8 +2115,8 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
         return false;
     }
 
-    const bool deleteAnyAllowed = hasPermission(u"delete-message"_s, message.roomId());
-    const bool deleteOwnAllowed = hasPermission(u"delete-own-message"_s);
+    const bool deleteAnyAllowed = hasPermission(u"delete-message", message.roomId());
+    const bool deleteOwnAllowed = hasPermission(u"delete-own-message");
     const bool deleteAllowed = deleteAnyAllowed || (deleteOwnAllowed && message.userId() == userId());
 
     // qDebug() << " deleteOwnAllowed " << deleteOwnAllowed << "message.userId()  " << message.userId() << " userId() " << userId();
@@ -2127,7 +2127,7 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
 
     constexpr int minutes = 60 * 1000;
     const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
-    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, message.roomId());
+    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete", message.roomId());
     const bool elapsedMinutes = (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
     const bool onTimeForDelete = bypassBlockTimeLimit || !blockDeleteInMinutes || elapsedMinutes;
 
@@ -2623,10 +2623,10 @@ QMap<QString, DownloadAppsLanguagesInfo> RocketChatAccount::languagesAppsMap() c
 // apps/meteor/client/views/room/contextualBar/RoomFiles/hooks/useMessageDeletionIsAllowed.ts
 bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArray &fileUserId, qint64 uploadedAt) const
 {
-    const bool canForceDelete = hasPermission(u"force-delete-message"_s, roomId);
+    const bool canForceDelete = hasPermission(u"force-delete-message", roomId);
     const bool deletionIsEnabled = mRuqolaServerConfig->allowMessageDeletingEnabled();
-    const bool userHasPermissionToDeleteAny = hasPermission(u"delete-message"_s, roomId);
-    const bool userHasPermissionToDeleteOwn = hasPermission(u"delete-own-message"_s);
+    const bool userHasPermissionToDeleteAny = hasPermission(u"delete-message", roomId);
+    const bool userHasPermissionToDeleteOwn = hasPermission(u"delete-own-message");
     if (canForceDelete) {
         return true;
     }
@@ -2641,7 +2641,7 @@ bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArr
 
     const bool isUserOwnFile = fileUserId == userId();
     if (userHasPermissionToDeleteAny || isUserOwnFile) {
-        const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, roomId);
+        const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete", roomId);
         const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
         if (!bypassBlockTimeLimit && blockDeleteInMinutes != 0) {
             if (!uploadedAt || !blockDeleteInMinutes) {
@@ -3060,7 +3060,7 @@ void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject
     }
 }
 
-QStringList RocketChatAccount::permissions(const QString &permissionId) const
+QStringList RocketChatAccount::permissions(QStringView permissionId) const
 {
     return mPermissionManager.roles(permissionId);
 }
@@ -3070,7 +3070,7 @@ QStringList RocketChatAccount::ownUserPermission() const
     return mOwnUser.roles();
 }
 
-bool RocketChatAccount::hasPermission(const QString &permissionId, const QByteArray &roomId) const
+bool RocketChatAccount::hasPermission(QStringView permissionId, const QByteArray &roomId) const
 {
     QStringList currentRoles;
     if (roomId.isEmpty()) {
@@ -3119,7 +3119,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 
 bool RocketChatAccount::hasAutotranslateSupport() const
 {
-    return mRuqolaServerConfig->autoTranslateEnabled() && hasPermission(u"auto-translate"_s);
+    return mRuqolaServerConfig->autoTranslateEnabled() && hasPermission(u"auto-translate");
 }
 
 MessageCache *RocketChatAccount::messageCache() const

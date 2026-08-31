@@ -18,14 +18,14 @@ public:
 
     void parsePermissions(const QJsonObject &replyObject);
 
-    [[nodiscard]] QStringList roles(const QString &permissionId) const;
+    [[nodiscard]] QStringList roles(QStringView permissionId) const;
     [[nodiscard]] int permissionCount() const;
-    [[nodiscard]] bool contains(const QString &permissionId) const;
+    [[nodiscard]] bool contains(QStringView permissionId) const;
 
     [[nodiscard]] bool updatePermission(const QJsonArray &updateArray);
     void parseUpdatePermission(const QJsonArray &removeArray);
 
-    [[nodiscard]] const Permission permission(const QString &permissionId) const;
+    [[nodiscard]] const Permission permission(QStringView permissionId) const;
 
     // Only for debugging permissions. (debug mode)
     [[nodiscard]] QList<Permission> permissions() const;

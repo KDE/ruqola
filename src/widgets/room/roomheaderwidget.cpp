@@ -351,7 +351,7 @@ void RoomHeaderWidget::setRoom(Room *room)
     } else {
         mRoomIcon->setPixmap({});
     }
-    const bool owner = mRoom->hasPermission(u"set-owner"_s);
+    const bool owner = mRoom->hasPermission(u"set-owner");
     mRoomHeaderLabel->setIsOwner(owner);
 }
 

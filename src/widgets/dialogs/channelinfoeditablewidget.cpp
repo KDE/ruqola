@@ -85,7 +85,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     mArchive->setObjectName(u"mArchive"_s);
     layout->addRow(i18n("Archive:"), mArchive);
     const bool canArchiveOrUnarchive =
-        mRocketChatAccount && (mRocketChatAccount->hasPermission(u"archive-room"_s) || mRocketChatAccount->hasPermission(u"unarchive-room"_s));
+        mRocketChatAccount && (mRocketChatAccount->hasPermission(u"archive-room") || mRocketChatAccount->hasPermission(u"unarchive-room"));
     mArchive->setEnabled(canArchiveOrUnarchive);
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
@@ -328,7 +328,7 @@ void ChannelInfoEditableWidget::updateUiFromPermission()
 
 bool ChannelInfoEditableWidget::hasRetentionPermission() const
 {
-    return mRoom->hasPermission(u"edit-room-retention-policy"_s);
+    return mRoom->hasPermission(u"edit-room-retention-policy");
 }
 
 #include "moc_channelinfoeditablewidget.cpp"
