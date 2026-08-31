@@ -1391,6 +1391,7 @@
     <release version="2.9.0" type="snapshot">
       <description>
         <ul>
+          <li>Update Emoji list</li>
           <li>Encryption support</li>
           <li xml:lang="ar">إتاحة التعمية</li>
           <li xml:lang="ca">Implementació d'encriptatge</li>
