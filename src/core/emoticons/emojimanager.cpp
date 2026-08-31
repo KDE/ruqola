@@ -175,14 +175,14 @@ QString EmojiManager::normalizedReactionEmoji(const QString &emojiIdentifier) co
     return emojiIdentifier;
 }
 
-QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction)
+QString EmojiManager::replaceEmojiIdentifier(QStringView emojiIdentifier, bool isReaction)
 {
     if (mServerUrl.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "Server Url not defined";
-        return emojiIdentifier;
+        return emojiIdentifier.toString();
     }
     if (mRocketChatAccount && !mRocketChatAccount->ownUserPreferences().convertAsciiEmoji()) {
-        return emojiIdentifier;
+        return emojiIdentifier.toString();
     }
     if (emojiIdentifier.startsWith(u':') && emojiIdentifier.endsWith(u':')) {
         for (const CustomEmoji &emoji : std::as_const(mCustomEmojiList)) {
@@ -211,12 +211,12 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         }
     }
 
-    const TextEmoticonsCore::UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier);
+    const TextEmoticonsCore::UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier.toString());
     if (unicodeEmoticon.isValid()) {
         return unicodeEmoticon.unicodeDisplay();
     }
 
-    return emojiIdentifier;
+    return emojiIdentifier.toString();
 }
 
 void EmojiManager::replaceEmojis(QString *str)
@@ -295,9 +295,11 @@ void EmojiManager::replaceEmojis(QString *str)
         if (!match.hasMatch()) {
             break;
         }
-        const auto word = match.captured();
-        const auto replaceWord = replaceEmojiIdentifier(word);
-        str->replace(match.capturedStart(), word.size(), replaceWord);
+        const QStringView word = match.capturedView();
+        // word points into *str, so its length has to be read before the replacement invalidates it.
+        const auto wordSize = word.size();
+        const QString replaceWord = replaceEmojiIdentifier(word);
+        str->replace(match.capturedStart(), wordSize, replaceWord);
         offset = match.capturedStart() + replaceWord.size();
     }
 }

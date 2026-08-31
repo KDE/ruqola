@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 #include <QRegularExpression>
+#include <QStringView>
 #include <TextEmoticonsCore/EmoticonCategory>
 #include <TextEmoticonsCore/UnicodeEmoticon>
 class RocketChatAccount;
@@ -24,7 +25,7 @@ public:
 
     [[nodiscard]] int count() const;
 
-    [[nodiscard]] QString replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction = false);
+    [[nodiscard]] QString replaceEmojiIdentifier(QStringView emojiIdentifier, bool isReaction = false);
     void replaceEmojis(QString *str);
     [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);

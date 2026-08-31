@@ -9,6 +9,7 @@
 #include "libruqola_private_export.h"
 #include <QMetaType>
 #include <QStringList>
+#include <QStringView>
 class QDebug;
 class QJsonObject;
 
@@ -42,7 +43,7 @@ public:
     [[nodiscard]] QString cachedHtml() const;
 
     void clearCachedHtml();
-    [[nodiscard]] bool hasEmoji(const QString &identifier) const;
+    [[nodiscard]] bool hasEmoji(QStringView identifier) const;
 
     [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);

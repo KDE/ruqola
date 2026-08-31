@@ -12,7 +12,7 @@
 using namespace Qt::Literals::StringLiterals;
 CustomEmoji::CustomEmoji() = default;
 
-bool CustomEmoji::hasEmoji(const QString &identifier) const
+bool CustomEmoji::hasEmoji(QStringView identifier) const
 {
     return (mEmojiIdentifier == identifier) || mAliases.contains(identifier);
 }
