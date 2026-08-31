@@ -31,7 +31,7 @@ public:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotAddUserInRooms();
-    LIBRUQOLACORE_NO_EXPORT [[nodiscard]] bool findUserNames();
+    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool findUserNames();
     LIBRUQOLACORE_NO_EXPORT void slotRoomsBannedUsersDone(const QJsonObject &obj, const QByteArray &roomId);
     LIBRUQOLACORE_NO_EXPORT void slotRoomsUnbanUserJobDone(RocketChatRestApi::RoomsUnbanUserJob *job);
     QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> mNeedUnbanUsers;
