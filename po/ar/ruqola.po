@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-30 00:46+0000\n"
-"PO-Revision-Date: 2026-08-29 17:33+0400\n"
+"PO-Revision-Date: 2026-08-30 17:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2343,16 +2343,14 @@ msgstr "الملف غير موجود '%1'"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:60
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgid "Download failed: %1"
-msgstr "نزّل الصورة"
+msgstr "فشل التنزيل: %1"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
 msgid "No reply received"
-msgstr ""
+msgstr "لم يصل رد"
 
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:141
 #, kde-format

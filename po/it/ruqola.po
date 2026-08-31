@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-30 00:46+0000\n"
-"PO-Revision-Date: 2026-08-18 14:48+0200\n"
+"PO-Revision-Date: 2026-08-30 17:46+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -586,10 +586,9 @@ msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Visualizza (╯°□°）╯︵ ┻━┻"
 
 #: core/commands/command.cpp:91
-#, fuzzy, kde-format
-#| msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+#, kde-format
 msgid "Displays ┬─┬ ノ( ゜-゜ノ)"
-msgstr "Visualizza ┬─┬<feff> ノ( ゜-゜ノ)"
+msgstr "Visualizza ┬─┬ ノ( ゜-゜ノ)"
 
 #: core/commands/command.cpp:93
 #, kde-format
@@ -1988,7 +1987,7 @@ msgstr[1] "%1 mesi"
 #: core/translatetext/translatetextjob.cpp:47
 #, kde-format
 msgid "No translator engine available."
-msgstr ""
+msgstr "Nessun motore di traduzione disponibile."
 
 #: core/translatetext/translatetextjob.cpp:55
 #, kde-format
@@ -1999,6 +1998,7 @@ msgstr "Informazioni mancanti sul traduttore. È un bug."
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
+"La traduzione è stata interrotta a causa del cambio del motore di traduzione."
 
 #: core/user.cpp:209
 #, kde-format
@@ -2302,16 +2302,14 @@ msgstr "File non trovato «%1»"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:60
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgid "Download failed: %1"
-msgstr "Scarica immagine"
+msgstr "Scaricamento non riuscito: %1"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
 msgid "No reply received"
-msgstr ""
+msgstr "Nessuna risposta ricevuta"
 
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:141
 #, kde-format
@@ -9544,13 +9542,7 @@ msgid "Reset encryption keys"
 msgstr "Reimposta le chiavi di cifratura"
 
 #: widgets/encryption/e2edisablewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Disabling E2EE will compromise the privacy of this groupe privé. Access "
-#| "to any encrypted content will be lost for all groupe privé members.\n"
-#| "Encryption can be re-enabled later. Proceed with caution.\n"
-#| "If no one is able to access the encrypted content you can reset "
-#| "encryption keys instead."
+#, kde-format
 msgid ""
 "Disabling E2EE will compromise the privacy of this private group. Access to "
 "any encrypted content will be lost for all private group members.\n"
@@ -9559,10 +9551,9 @@ msgid ""
 "keys instead."
 msgstr ""
 "La disattivazione di E2EE comprometterà la riservatezza di questo gruppo "
-"privato. L'accesso a qualsiasi contenuto cifrato andrà perso per tutti i "
-"membri del gruppo privato.\n"
-"La cifratura può essere riattivata in seguito. Procedi con cautela.\n"
-"Se nessuno è in grado di accedere al contenuto cifrato, è possibile "
+"privato. Tutti i membri del gruppo perderanno l'accesso a qualsiasi "
+"contenuto cifrato. La cifratura può essere riattivata in seguito. Procedi "
+"con cautela. Se nessuno riesce ad accedere al contenuto cifrato, puoi "
 "reimpostare le chiavi di cifratura."
 
 #: widgets/encryption/e2edisablewidget.cpp:41
@@ -10628,11 +10619,10 @@ msgid "Status"
 msgstr "Stato"
 
 #: widgets/notifications/notificationmanager.cpp:95
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 has %2 unread message"
 msgid_plural "%1 has %2 unread messages"
-msgstr[0] "%1 ha %2 messaggi non letti"
+msgstr[0] "%1 ha %2 messaggio non letto"
 msgstr[1] "%1 ha %2 messaggi non letti"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
@@ -10929,9 +10919,7 @@ msgid "Speak Text"
 msgstr "Pronuncia il testo"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add WebDAV Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDAV Server"
 msgstr "Aggiungi server WebDAV"
@@ -12025,16 +12013,14 @@ msgid "Could not start the remove moderator request."
 msgstr "Impossibile avviare la richiesta di rimozione del moderatore."
 
 #: widgets/serverchecks/abstractusercheck.cpp:149
-#, fuzzy, kde-format
-#| msgid "Could not start the add owner request."
+#, kde-format
 msgid "Could not start the add leader request."
-msgstr "Impossibile avviare la richiesta di aggiunta del proprietario."
+msgstr "Impossibile avviare la richiesta di aggiunta del leader."
 
 #: widgets/serverchecks/abstractusercheck.cpp:161
-#, fuzzy, kde-format
-#| msgid "Could not start the remove owner request."
+#, kde-format
 msgid "Could not start the remove leader request."
-msgstr "Impossibile avviare la richiesta di rimozione del proprietario."
+msgstr "Impossibile avviare la richiesta di rimozione del leader."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198

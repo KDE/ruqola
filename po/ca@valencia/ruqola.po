@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-30 00:46+0000\n"
-"PO-Revision-Date: 2026-08-27 08:48+0200\n"
+"PO-Revision-Date: 2026-08-29 08:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -592,10 +592,9 @@ msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Mostra (╯°□°）╯︵ ┻━┻"
 
 #: core/commands/command.cpp:91
-#, fuzzy, kde-format
-#| msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+#, kde-format
 msgid "Displays ┬─┬ ノ( ゜-゜ノ)"
-msgstr "Mostra ┬─┬<feff> ノ( ゜-゜ノ)"
+msgstr "Mostra ┬─┬ ノ( ゜-゜ノ)"
 
 #: core/commands/command.cpp:93
 #, kde-format
@@ -2304,16 +2303,14 @@ msgstr "No s'ha trobat el fitxer «%1»"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:60
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgid "Download failed: %1"
-msgstr "Baixada d'imatge"
+msgstr "Ha fallat la baixada: %1"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
 msgid "No reply received"
-msgstr ""
+msgstr "No s'ha rebut cap resposta"
 
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:141
 #, kde-format
