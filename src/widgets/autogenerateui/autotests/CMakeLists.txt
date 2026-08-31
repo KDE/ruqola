@@ -3,6 +3,8 @@
 add_definitions(-DRUQOLA_AUTOGENERATEUI_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 add_definitions(-DRUQOLA_BINARY_AUTOGENERATEUI_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
 
+ruqola_add_widgets_test_pch()
+
 macro(add_ruqola_autogenerateui_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
@@ -14,18 +16,12 @@ macro(add_ruqola_autogenerateui_test _source)
     add_test(NAME ${_name} COMMAND ${_name})
     ecm_mark_as_test(${_name})
     if(ENABLE_PCH)
-        target_precompile_headers(${_name} REUSE_FROM ruqolawidgetspch_tests)
+        target_precompile_headers(${_name} REUSE_FROM ${RUQOLA_TEST_PCH_TARGET})
     endif()
     target_link_libraries(
         ${_name}
         Qt::Test
         libruqolawidgets
-    )
-    set_target_properties(
-        ${_name}
-        PROPERTIES
-            DISABLE_PRECOMPILE_HEADERS
-                ON
     )
 endmacro()
 

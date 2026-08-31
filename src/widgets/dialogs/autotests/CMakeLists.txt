@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
+ruqola_add_widgets_test_pch()
+
 macro(add_ruqoladialog_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
@@ -10,19 +12,13 @@ macro(add_ruqoladialog_test _source)
     )
     add_test(NAME ${_name} COMMAND ${_name})
     if(ENABLE_PCH)
-        target_precompile_headers(${_name} REUSE_FROM ruqolawidgetspch_tests)
+        target_precompile_headers(${_name} REUSE_FROM ${RUQOLA_TEST_PCH_TARGET})
     endif()
     ecm_mark_as_test(${_name})
     target_link_libraries(
         ${_name}
         Qt::Test
         libruqolawidgets
-    )
-    set_target_properties(
-        ${_name}
-        PROPERTIES
-            DISABLE_PRECOMPILE_HEADERS
-                ON
     )
     set_tests_properties(
         ${_name}

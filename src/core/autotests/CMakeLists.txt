@@ -2,6 +2,9 @@
 # SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 # SPDX-License-Identifier: BSD-3-Clause
 
+add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+add_definitions(-DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
+
 if(ENABLE_PCH)
     file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp CONTENT "/*empty file*/")
     file(
@@ -37,8 +40,6 @@ target_link_libraries(
     Qt::Core
 )
 
-add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
-add_definitions(-DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
 macro(add_ruqola_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
@@ -59,12 +60,6 @@ macro(add_ruqola_test _source)
     if(ENABLE_PCH)
         target_precompile_headers(${_name} REUSE_FROM libruqolacore_test_pch)
     endif()
-    set_target_properties(
-        ${_name}
-        PROPERTIES
-            DISABLE_PRECOMPILE_HEADERS
-                ON
-    )
     set_tests_properties(
         ${_name}
         PROPERTIES

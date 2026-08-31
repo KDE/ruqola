@@ -15,6 +15,8 @@ target_link_libraries(
     Qt::Core
 )
 
+add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+
 if(ENABLE_PCH)
     file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp CONTENT "/*empty file*/")
     file(
@@ -36,7 +38,6 @@ if(ENABLE_PCH)
     target_precompile_headers(librocketchatrestapi-qt_test_pch PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/pch.h)
 endif()
 
-add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 macro(add_rocketchatrestapi_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
@@ -55,12 +56,6 @@ macro(add_rocketchatrestapi_test _source)
         Qt::Test
         librocketchatrestapi-qt
         rocketchatrestapiqthelper
-    )
-    set_target_properties(
-        ${_name}
-        PROPERTIES
-            DISABLE_PRECOMPILE_HEADERS
-                ON
     )
 endmacro()
 

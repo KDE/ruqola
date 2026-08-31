@@ -124,6 +124,7 @@ option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON
 option(OPTION_ADD_OFFLINE_SUPPORT "Allow to build with offline support (experimental)" ON)
 
 option(ENABLE_PCH "Enable Precompiled Headers support" ON)
+include(RuqolaTestPch)
 
 option(USE_MOLD_LINKER "Use the mold linker when available (much faster link times)" ON)
 if(USE_MOLD_LINKER AND NOT DEFINED CMAKE_LINKER_TYPE)

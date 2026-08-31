@@ -1274,9 +1274,6 @@ set_target_properties(
 )
 
 if(BUILD_TESTING)
-    if(ENABLE_PCH)
-        add_subdirectory(pch)
-    endif()
     add_subdirectory(autotests)
     add_subdirectory(tests)
     add_subdirectory(channellist/autotests)
