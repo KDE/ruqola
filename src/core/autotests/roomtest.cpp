@@ -62,7 +62,6 @@ void RoomTest::shouldHaveDefaultValue()
     QCOMPARE(input.lastSeenAt(), -1);
     QVERIFY(input.directChannelUserId().isEmpty());
     QVERIFY(input.displaySystemMessageTypes().isEmpty());
-    QVERIFY(input.highlightsWord().isEmpty());
     QCOMPARE(input.lastMessageAt(), -1);
     QCOMPARE(input.numberMessages(), 0);
     QVERIFY(input.uids().isEmpty());
@@ -235,9 +234,6 @@ void RoomTest::shouldSerialized()
 
         // setUpdatedAt
         input.setUpdatedAt(5555);
-
-        // setHighlightsWord
-        input.setHighlightsWord({u"highlight-bla"_s, u"highlight-foo"_s});
 
         // uids
         input.setUids({u"uids-bla"_s, u"uids-foo"_s});

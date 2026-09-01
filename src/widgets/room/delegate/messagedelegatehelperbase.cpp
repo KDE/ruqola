@@ -77,7 +77,7 @@ QTextDocument *MessageDelegateHelperBase::documentTypeForIndex(const DocumentTyp
         const TextConverter::ConvertMessageTextSettings settings(info.text,
                                                                  account ? account->userName() : QString(),
                                                                  {},
-                                                                 account ? account->highlightWords() : QStringList(),
+                                                                 account ? account->highlightWordsRegularExpressions() : QList<QRegularExpression>{},
                                                                  account ? account->emojiManager() : nullptr,
                                                                  account ? account->messageCache() : nullptr,
                                                                  {},

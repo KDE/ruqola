@@ -96,7 +96,22 @@ void OwnUserPreferences::updateHighlightWords(const QJsonArray &highlightsArray)
 
 void OwnUserPreferences::setHighlightWords(const QStringList &highlightWords)
 {
+    if (mHighlightWords == highlightWords) {
+        return;
+    }
     mHighlightWords = highlightWords;
+    mHighlightWordsRegularExpressions = generateRegularExpressions(mHighlightWords);
+}
+
+QList<QRegularExpression> OwnUserPreferences::generateRegularExpressions(const QStringList &highlightWords)
+{
+    QList<QRegularExpression> lst;
+    lst.reserve(highlightWords.count());
+    for (const QString &word : highlightWords) {
+        const QRegularExpression exp(u"(\\b%1\\b)"_s.arg(QRegularExpression::escape(word)), QRegularExpression::CaseInsensitiveOption);
+        lst.append(exp);
+    }
+    return lst;
 }
 
 QString OwnUserPreferences::emailNotificationMode() const
@@ -360,6 +375,11 @@ int OwnUserPreferences::masterVolume() const
 void OwnUserPreferences::setMasterVolume(int newMasterVolume)
 {
     mMasterVolume = newMasterVolume;
+}
+
+const QList<QRegularExpression> &OwnUserPreferences::highlightWordsRegularExpressions() const
+{
+    return mHighlightWordsRegularExpressions;
 }
 
 #include "moc_ownuserpreferences.cpp"

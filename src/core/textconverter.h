@@ -12,6 +12,7 @@
 #include "messages/message.h"
 #include <QList>
 #include <QMap>
+#include <QRegularExpression>
 
 #include <QStringList>
 
@@ -24,7 +25,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     ConvertMessageTextSettings(const QString &_str,
                                const QString &_userName,
                                const QList<Message> &_allMessages,
-                               const QStringList &_highlightWords,
+                               const QList<QRegularExpression> &_highlightWords,
                                EmojiManager *_emojiManager,
                                MessageCache *_messageCache,
                                const QMap<QString, QByteArray> &_mentions,
@@ -48,7 +49,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     const QString str;
     const QString userName;
     const QList<Message> allMessages;
-    const QStringList highlightWords;
+    const QList<QRegularExpression> highlightWords;
     EmojiManager *const emojiManager;
     MessageCache *const messageCache;
     const QMap<QString, QByteArray> mentions;

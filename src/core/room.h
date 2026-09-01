@@ -276,8 +276,6 @@ public:
     [[nodiscard]] QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
-    [[nodiscard]] QStringList highlightsWord() const;
-    void setHighlightsWord(const QStringList &highlightsWord);
     [[nodiscard]] bool hasPermission(QStringView permission) const;
 
     [[nodiscard]] QString displayTopic() const;
@@ -333,7 +331,6 @@ public:
     // Whether the room carries key material waiting for our private key.
     [[nodiscard]] bool hasEncryptedKeys() const;
 Q_SIGNALS:
-    void highlightsWordChanged();
     void nameChanged();
     void fnameChanged();
     void announcementChanged();

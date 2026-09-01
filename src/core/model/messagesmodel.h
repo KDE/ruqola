@@ -12,6 +12,7 @@
 #include "messages/message.h"
 #include <QAbstractListModel>
 #include <QPointer>
+class QRegularExpression;
 using namespace Qt::Literals::StringLiterals;
 class RocketChatAccount;
 class LoadRecentHistoryManager;
@@ -207,7 +208,7 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QByteArray &userId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
                                                                      const QString &userName,
-                                                                     const QStringList &highlightWords,
+                                                                     const QList<QRegularExpression> &highlightWords,
                                                                      const QString &searchedText,
                                                                      int &numberOfTextSearched,
                                                                      int hightLightStringIndex) const;

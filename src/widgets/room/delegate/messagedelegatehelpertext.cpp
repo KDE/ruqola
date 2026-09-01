@@ -93,7 +93,7 @@ MessageDelegateHelperText::MessageTextInfo MessageDelegateHelperText::makeMessag
                     const TextConverter::ConvertMessageTextSettings settings(contextText,
                                                                              mRocketChatAccount->userName(),
                                                                              {},
-                                                                             mRocketChatAccount->highlightWords(),
+                                                                             mRocketChatAccount->highlightWordsRegularExpressions(),
                                                                              mRocketChatAccount->emojiManager(),
                                                                              mRocketChatAccount->messageCache(),
                                                                              contextMessage.mentions(),

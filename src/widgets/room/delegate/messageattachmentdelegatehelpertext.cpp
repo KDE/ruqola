@@ -211,7 +211,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
         const TextConverter::ConvertMessageTextSettings settings(text,
                                                                  rcAccount ? rcAccount->userName() : QString(),
                                                                  {},
-                                                                 rcAccount ? rcAccount->highlightWords() : QStringList{},
+                                                                 rcAccount ? rcAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{},
                                                                  rcAccount ? rcAccount->emojiManager() : nullptr,
                                                                  rcAccount ? rcAccount->messageCache() : nullptr,
                                                                  {},

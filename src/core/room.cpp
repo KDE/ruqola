@@ -80,10 +80,10 @@ bool Room::isEqual(const Room &other) const
         && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt()) && (mRoles == other.roles()) && (ignoredUsers() == other.ignoredUsers())
         && (parentRid() == other.parentRid()) && (mFName == other.fName()) && (autoTranslateLanguage() == other.autoTranslateLanguage())
         && (mDirectChannelUserId == other.directChannelUserId()) && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
-        && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (highlightsWord() == other.highlightsWord())
-        && (mRetentionInfo == other.retentionInfo()) && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt())
-        && (mGroupMentions == other.groupMentions()) && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates())
-        && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId() && (autoTranslate() == other.autoTranslate());
+        && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (mRetentionInfo == other.retentionInfo())
+        && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
+        && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates()) && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId()
+        && (autoTranslate() == other.autoTranslate());
 }
 
 QString Room::displayRoomName() const
@@ -144,7 +144,6 @@ QDebug operator<<(QDebug d, const Room &t)
     d.space() << "AvatarEtag " << t.avatarETag();
     d.space() << "uids " << t.uids();
     d.space() << "usernames " << t.userNames();
-    d.space() << "highlightsWord " << t.highlightsWord();
     d.space() << "RetentionInfo " << t.retentionInfo();
     d.space() << "TeamInfo " << t.teamInfo();
     d.space() << "Number Of messages in room " << t.numberMessages();
@@ -287,8 +286,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains("msgs"_L1)) {
         mNumberMessages = json["msgs"_L1].toInt();
     }
-
-    setHighlightsWord(extractStringList(json, "userHighlights"_L1));
 
     if (json.contains("ignored"_L1)) {
         setIgnoredUsers(extractStringList(json, "ignored"_L1));
@@ -906,22 +903,6 @@ void Room::setRetentionInfo(RetentionInfo retentionInfo)
     }
 }
 
-QStringList Room::highlightsWord() const
-{
-    if (!mRoomExtra) {
-        return {};
-    }
-    return mRoomExtra->highlightsWord();
-}
-
-void Room::setHighlightsWord(const QStringList &words)
-{
-    if (highlightsWord() != words) {
-        roomExtra()->setHighlightsWord(words);
-        Q_EMIT highlightsWordChanged();
-    }
-}
-
 QStringList Room::userNames() const
 {
     return mUserNames;
@@ -1045,7 +1026,6 @@ void Room::parseCommonData(const QJsonObject &json)
     setIgnoredUsers(extractStringList(json, "ignored"_L1));
     setRoles(extractStringList(json, "roles"_L1));
     setThreadUnread(extractStringList(json, "tunread"_L1));
-    setHighlightsWord(extractStringList(json, "userHighlights"_L1));
 }
 
 QStringList Room::displaySystemMessageTypes() const
@@ -1448,8 +1428,6 @@ void Room::deserialize(Room *r, const QJsonObject &o)
 
     r->setIgnoredUsers(extractStringList(o, "ignored"_L1));
 
-    r->setHighlightsWord(extractStringList(o, "userHighlights"_L1));
-
     r->setRoles(extractStringList(o, "roles"_L1));
 
     r->setThreadUnread(extractStringList(o, "tunread"_L1));
@@ -1609,8 +1587,6 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
 
     serializeStringList(o, "systemMessages"_L1, r->displaySystemMessageTypes());
-
-    serializeStringList(o, "userHighlights"_L1, r->highlightsWord());
 
     if (const auto avatarETag = r->avatarETag(); !avatarETag.isEmpty()) {
         o["avatarETag"_L1] = QLatin1StringView(avatarETag);

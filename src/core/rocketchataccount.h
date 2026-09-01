@@ -30,6 +30,7 @@
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
 #include <QObject>
+#include <QRegularExpression>
 #include <TextEmoticonsCore/CustomEmoji>
 class QUrl;
 class TypingNotification;
@@ -302,7 +303,6 @@ public:
     [[nodiscard]] CustomUserStatuses customUserStatuses() const;
 
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
-    [[nodiscard]] QStringList highlightWords() const;
     void setAvatarUrl(const QString &url);
     [[nodiscard]] bool hasPermission(QStringView permissionId, const QByteArray &roomId = {}) const;
     [[nodiscard]] QStringList permissions(QStringView permissionId) const;
@@ -452,6 +452,7 @@ public:
 
     void resetE2eKey();
 
+    [[nodiscard]] const QList<QRegularExpression> &highlightWordsRegularExpressions() const;
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

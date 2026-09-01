@@ -8,6 +8,7 @@
 
 #include "emoticons/emojimanager.h"
 #include "messages/message.h"
+#include "ownuser/ownuserpreferences.h"
 #include "ruqola_autotest_helper.h"
 #include "textconverter.h"
 #include "utils.h"
@@ -209,7 +210,9 @@ void TextConverterTest::shouldHighlightWords()
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
     const int hightLightStringIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, {});
+
+    const TextConverter::ConvertMessageTextSettings
+        settings(input, username, {}, OwnUserPreferences::generateRegularExpressions(highlightWords), nullptr, nullptr, {}, {}, {});
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex), output);
 }
 
@@ -638,7 +641,8 @@ void TextConverterTest::shouldShowSearchedText()
     int recursiveIndex = 0;
     int numberOfTextSearched = 0;
     const int hightLightStringIndex = 0;
-    const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, nullptr, {}, searchedText);
+    const TextConverter::ConvertMessageTextSettings
+        settings(input, username, {}, OwnUserPreferences::generateRegularExpressions(highlightWords), nullptr, nullptr, {}, nullptr, {}, searchedText);
     QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, numberOfTextSearched, hightLightStringIndex), output);
 }
 

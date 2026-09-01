@@ -3022,9 +3022,9 @@ OwnUserPreferences RocketChatAccount::ownUserPreferences() const
     return mOwnUser.ownUserPreferences();
 }
 
-QStringList RocketChatAccount::highlightWords() const
+const QList<QRegularExpression> &RocketChatAccount::highlightWordsRegularExpressions() const
 {
-    return mOwnUser.ownUserPreferences().highlightWords();
+    return mOwnUser.ownUserPreferences().highlightWordsRegularExpressions();
 }
 
 void RocketChatAccount::setAvatarUrl(const QString &url)

@@ -59,7 +59,7 @@ public:
     [[nodiscard]] ServicePassword servicePassword() const;
     void setServicePassword(const ServicePassword &servicePassword);
 
-    [[nodiscard]] OwnUserPreferences ownUserPreferences() const;
+    [[nodiscard]] const OwnUserPreferences &ownUserPreferences() const;
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
 private:

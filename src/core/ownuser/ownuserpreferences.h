@@ -9,6 +9,7 @@
 #include "featurepreviewpreferences.h"
 #include "libruqolacore_export.h"
 #include <QMetaType>
+#include <QRegularExpression>
 #include <QStringList>
 class QDebug;
 
@@ -110,7 +111,12 @@ public:
     [[nodiscard]] int masterVolume() const;
     void setMasterVolume(int newMasterVolume);
 
+    [[nodiscard]] const QList<QRegularExpression> &highlightWordsRegularExpressions() const;
+
+    [[nodiscard]] static QList<QRegularExpression> generateRegularExpressions(const QStringList &highlightWords);
+
 private:
+    QList<QRegularExpression> mHighlightWordsRegularExpressions;
     FeaturePreviewPreferences mFeaturePreviewPreferences;
     QStringList mHighlightWords;
     QString mEmailNotificationMode;

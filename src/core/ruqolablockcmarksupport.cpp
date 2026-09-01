@@ -120,7 +120,7 @@ QString markdownToRichTextCMark(const QString &markDown)
 
 QString generateRichTextCMark(const QString &str,
                               const QString &username,
-                              const QStringList &highlightWords,
+                              const QList<QRegularExpression> &highlightWords,
                               const QMap<QString, QByteArray> &mentions,
                               const Channels *const channels,
                               const QRegularExpression &searchedTextRegularExpression)
@@ -199,8 +199,7 @@ QString generateRichTextCMark(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        for (const QString &word : highlightWords) {
-            const QRegularExpression exp(u"(\\b%1\\b)"_s.arg(QRegularExpression::escape(word)), QRegularExpression::CaseInsensitiveOption);
+        for (const auto &exp : highlightWords) {
             QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
             int offset = 0;
             while (userIterator.hasNext()) {

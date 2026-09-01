@@ -53,7 +53,7 @@ void OwnUser::setServicePassword(const ServicePassword &servicePassword)
     mServicePassword = servicePassword;
 }
 
-OwnUserPreferences OwnUser::ownUserPreferences() const
+const OwnUserPreferences &OwnUser::ownUserPreferences() const
 {
     return mOwnUserPreferences;
 }

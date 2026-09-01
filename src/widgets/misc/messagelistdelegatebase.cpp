@@ -227,7 +227,7 @@ MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const
     const TextConverter::ConvertMessageTextSettings settings(messageStr,
                                                              rcAccount ? rcAccount->userName() : QString(),
                                                              {},
-                                                             rcAccount ? rcAccount->highlightWords() : QStringList(),
+                                                             rcAccount ? rcAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{},
                                                              rcAccount ? rcAccount->emojiManager() : nullptr,
                                                              rcAccount ? rcAccount->messageCache() : nullptr,
                                                              {},

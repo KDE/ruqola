@@ -39,7 +39,6 @@ MessagesModel::MessagesModel(const QByteArray &roomID, RocketChatAccount *accoun
     if (mRoom) {
         connect(mRoom, &Room::rolesChanged, this, &MessagesModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessagesModel::refresh);
-        connect(mRoom, &Room::highlightsWordChanged, this, &MessagesModel::refresh);
     }
 }
 
@@ -507,20 +506,18 @@ QString MessagesModel::convertedText(const Message &message, const QString &sear
         }
         return message.systemMessageText();
     } else {
-        QStringList highlightWords;
         if (mRoom) {
             if (mRoom->channelType() != Room::RoomType::Direct) { // We can't ignore message but we can block user in direct message
                 if (mRoom->userIsIgnored(message.userId()) && !message.showIgnoredMessage()) {
                     return QString(u"<i>"_s + i18n("Ignored Message") + u"</i>"_s);
                 }
             }
-            highlightWords = mRoom->highlightsWord();
         }
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-        const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
+        const auto highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{};
         int numberOfTextSearched = 0;
         int hightLightStringIndex = 0;
-        QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText, numberOfTextSearched, hightLightStringIndex)};
+        const QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText, numberOfTextSearched, hightLightStringIndex)};
         if (message.privateMessage()) {
             return i18n("Only you can see this message") + convertedMessage;
         }
@@ -622,7 +619,7 @@ QStringList MessagesModel::roomRoles(const QByteArray &userId) const
 
 QString MessagesModel::convertMessageText(const Message &message,
                                           const QString &userName,
-                                          const QStringList &highlightWords,
+                                          const QList<QRegularExpression> &highlightWords,
                                           const QString &searchedText,
                                           int &numberOfTextSearched,
                                           int hightLightStringIndex) const
@@ -803,7 +800,7 @@ QString MessagesModel::threadMessagePreview(const QByteArray &threadMessageId) c
             int hightLightStringIndex = 0;
             QString str = convertMessageText((*it),
                                              userName,
-                                             mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
+                                             mRocketChatAccount ? mRocketChatAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{},
                                              QString(),
                                              numberOfTextSearched,
                                              hightLightStringIndex);
