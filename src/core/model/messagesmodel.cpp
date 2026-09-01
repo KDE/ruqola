@@ -310,15 +310,11 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return lst;
     }
     case MessagesModel::Date: {
-        const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
-        return QLocale().toString(currentDate.date());
+        return QLocale().toString(message.localDate());
     }
     case MessagesModel::DateDiffersFromPrevious:
         if (idx > 0) {
-            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::systemTimeZone());
-            const Message &previousMessage = mAllMessages.at(idx - 1);
-            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), QTimeZone::systemTimeZone());
-            return currentDate.date() != previousDate.date();
+            return message.localDate() != mAllMessages.at(idx - 1).localDate();
         }
         return true; // show date at the top
     case MessagesModel::CanEditMessage:

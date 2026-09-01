@@ -441,6 +441,11 @@ MessageExtra *Message::messageExtra()
     return mMessageExtra;
 }
 
+QDate Message::localDate() const
+{
+    return mLocalDate;
+}
+
 int Message::numberOfTextSearched() const
 {
     return mNumberOfTextSearched;
@@ -1084,7 +1089,9 @@ void Message::setTimeStamp(qint64 timeStamp)
 {
     if (mTimeStamp != timeStamp) {
         mTimeStamp = timeStamp;
-        mDisplayTime = QDateTime::fromMSecsSinceEpoch(mTimeStamp).time().toString(u"hh:mm"_s);
+        const QDateTime dt = QDateTime::fromMSecsSinceEpoch(mTimeStamp);
+        mDisplayTime = dt.time().toString(u"hh:mm"_s);
+        mLocalDate = dt.date();
     }
 }
 

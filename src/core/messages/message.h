@@ -21,6 +21,7 @@
 #include "replies.h"
 #include "systemmessagetypeutil.h"
 #include "utils.h"
+#include <QDate>
 #include <QString>
 
 class EmojiManager;
@@ -243,6 +244,8 @@ public:
 
     [[nodiscard]] bool hasDescriptedContent() const;
 
+    [[nodiscard]] QDate localDate() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
@@ -324,6 +327,7 @@ private:
     QString mEmoji;
 
     // ts
+    QDate mLocalDate;
     QString mDisplayTime;
     qint64 mTimeStamp = -1;
     // _updatedAt
