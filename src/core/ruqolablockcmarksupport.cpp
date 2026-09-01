@@ -23,6 +23,19 @@ RuqolaBlockCMarkSupport::~RuqolaBlockCMarkSupport() = default;
 
 namespace
 {
+// True when @p regionMarker starts a line of @p str, i.e. it sits at the very beginning or
+// right after a newline. Equivalent to str.startsWith(m) || str.contains(u'\n' + m), but
+// without allocating the concatenated marker on every call.
+[[nodiscard]] bool hasMarkerAtLineStart(const QString &str, const QString &regionMarker)
+{
+    for (qsizetype i = str.indexOf(regionMarker); i != -1; i = str.indexOf(regionMarker, i + 1)) {
+        if (i == 0 || str.at(i - 1) == u'\n') {
+            return true;
+        }
+    }
+    return false;
+}
+
 template<typename InRegionCallback, typename OutsideRegionCallback>
 void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
 {
@@ -56,8 +69,8 @@ void iterateOverEndLineRegions(const QString &str,
                                OutsideRegionCallback &&outsideRegion,
                                NewLineCallBack &&newLine)
 {
-    // We have quote text if text start with > or we have "\n>"
-    if (str.startsWith(regionMarker) || str.contains("\n"_L1 + regionMarker)) {
+    // We have quote text if the marker starts the text or starts any line of it
+    if (hasMarkerAtLineStart(str, regionMarker)) {
         int startFrom = 0;
         const auto markerSize = regionMarker.size();
         bool hasCode = false;
