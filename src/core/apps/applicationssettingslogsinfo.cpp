@@ -90,7 +90,7 @@ void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObjec
     severity = obj["severity"_L1].toString(); // TODO convert to enum !!!
     const QJsonArray arrayArgs = obj["args"_L1].toArray();
     const QJsonDocument r(arrayArgs);
-    args = r.toJson().replace("\n", "<br/>").replace(" ", "&nbsp;");
+    args = r.toJson().replace("\n"_ba, "<br/>"_ba).replace(" ", "&nbsp;");
 }
 
 bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const

@@ -6,7 +6,7 @@
 
 #include "notificationdesktopsoundpreferenceproxymodel.h"
 #include "notificationdesktopsoundpreferencemodel.h"
-
+using namespace Qt::Literals::StringLiterals;
 NotificationDesktopSoundPreferenceProxyModel::NotificationDesktopSoundPreferenceProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
 {
@@ -18,7 +18,7 @@ bool NotificationDesktopSoundPreferenceProxyModel::filterAcceptsRow(int source_r
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
     const QByteArray identifier = modelIndex.data(NotificationDesktopSoundPreferenceModel::NotificationPreference).toByteArray();
-    if (identifier == "none" || identifier == "default") {
+    if (identifier == "none"_ba || identifier == "default"_ba) {
         return false;
     }
     return true;
