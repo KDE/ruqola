@@ -612,6 +612,11 @@ void TextConverterTest::shouldShowSearchedText_data()
     QTest::newRow("wordinurl") << u"https://www.kde.org/~/bla/bli.txt"_s << u"bla"_s << highlightWords << QString()
                                << u"<p><a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a "
                                   u"style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a>.org/~/bla/bli.txt</a></p>\n"_s;
+    QTest::newRow("searched-text") << u"Ruqola bla"_s << u"foo"_s << QStringList{} << u"bla"_s
+                                   << u"<p>Ruqola <a style=\"color:$HERECOLOR$;background-color:$HEREBGCOLOR$;\">bla</a></p>\n"_s;
+    QTest::newRow("searched-text-with-highlight") << u"Ruqola bla"_s << u"foo"_s << highlightWords << u"bla"_s
+                                                  << u"<p><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> <a "
+                                                     u"style=\"color:$HERECOLOR$;background-color:$HEREBGCOLOR$;\">bla</a></p>\n"_s;
     QTest::newRow("channelruqola")
         << u"#ruqola-bla bla kde KDE."_s << u"foo"_s << highlightWords << QString()
         << u"<p><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "

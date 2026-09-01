@@ -123,7 +123,7 @@ QString generateRichTextCMark(const QString &str,
                               const QStringList &highlightWords,
                               const QMap<QString, QByteArray> &mentions,
                               const Channels *const channels,
-                              const QString &searchedText)
+                              const QRegularExpression &searchedTextRegularExpression)
 {
     QString newStr = markdownToRichTextCMark(str);
     static const QRegularExpression regularExpressionAHref(u"(<a href=\'.*\'>|<a href=\".*\">)"_s);
@@ -226,7 +226,7 @@ QString generateRichTextCMark(const QString &str,
         }
     }
 
-    if (!searchedText.isEmpty()) {
+    if (!searchedTextRegularExpression.pattern().isEmpty()) {
         const auto userHighlightForegroundColor = schemeView.foreground(KColorScheme::NeutralText).color().name();
         const auto userHighlightBackgroundColor = schemeView.background(KColorScheme::NeutralBackground).color().name();
         lstPos.clear();
@@ -239,8 +239,7 @@ QString generateRichTextCMark(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        const QRegularExpression exp(u"(%1)"_s.arg(QRegularExpression::escape(searchedText)), QRegularExpression::CaseInsensitiveOption);
-        QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
+        QRegularExpressionMatchIterator userIterator = searchedTextRegularExpression.globalMatch(newStr);
         int offset = 0;
         while (userIterator.hasNext()) {
             const QRegularExpressionMatch match = userIterator.next();
@@ -326,6 +325,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
         qCWarning(RUQOLA_TEXTTOHTML_CMARK_LOG) << " TextConverter::ConvertMessageTextSettings is null. IT's a bug";
         return {};
     }
+    regenerateSearchText();
     QString richText;
     QTextStream richTextStream(&richText);
     const auto schemeView = ColorsAndMessageViewStyle::self().schemeView();
@@ -374,7 +374,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
     auto addTextChunk = [&](const QString &chunk) {
         auto htmlChunk =
-            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSettings->searchedText);
+            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSearchRegularExpression);
         if (mSettings->emojiManager) {
             mSettings->emojiManager->replaceEmojis(&htmlChunk);
         }
@@ -382,7 +382,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     };
     auto addInlineQuoteCodeChunk = [&](const QString &chunk) {
         auto htmlChunk =
-            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSettings->searchedText);
+            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSearchRegularExpression);
         if (mSettings->emojiManager) {
             mSettings->emojiManager->replaceEmojis(&htmlChunk);
         }
@@ -408,6 +408,19 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
     qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " richText generated: " << richText;
     return richText;
+}
+
+void RuqolaBlockCMarkSupport::regenerateSearchText()
+{
+    if (mSearchText == mSettings->searchedText) {
+        return;
+    }
+    mSearchText = mSettings->searchedText;
+    // An empty searched text must clear the pattern: escaping it would build "()", which matches
+    // the empty string at every position.
+    mSearchRegularExpression = mSearchText.isEmpty()
+        ? QRegularExpression{}
+        : QRegularExpression(u"(%1)"_s.arg(QRegularExpression::escape(mSearchText)), QRegularExpression::CaseInsensitiveOption);
 }
 
 TextConverter::ConvertMessageTextSettings *RuqolaBlockCMarkSupport::settings() const
