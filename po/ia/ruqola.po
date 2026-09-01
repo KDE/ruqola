@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-30 00:46+0000\n"
-"PO-Revision-Date: 2026-07-28 10:54+0200\n"
+"PO-Revision-Date: 2026-08-31 17:45+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -586,10 +586,9 @@ msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Monstra (╯°□°）╯︵ ┻━┻"
 
 #: core/commands/command.cpp:91
-#, fuzzy, kde-format
-#| msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+#, kde-format
 msgid "Displays ┬─┬ ノ( ゜-゜ノ)"
-msgstr "Monstra ┬─┬<feff> ノ( ゜-゜ノ)"
+msgstr "Monstra ┬─┬ ノ( ゜-゜ノ)"
 
 #: core/commands/command.cpp:93
 #, kde-format
@@ -2296,11 +2295,9 @@ msgstr "File non trovate '%1'"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:60
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgid "Download failed: %1"
-msgstr "Discarga imagine"
+msgstr "Discargamento fallite: %1"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
@@ -9316,8 +9313,7 @@ msgid "Disable Encryption"
 msgstr "Dishabilita Cryptation"
 
 #: widgets/encryption/e2edisablewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset encryption keys"
 msgstr "Reinitia Claves de Cryptation"
@@ -9867,9 +9863,7 @@ msgid "The server refused to reset your E2E key: %1"
 msgstr ""
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E Key"
 msgstr "Refixa Clave E2E"
@@ -10374,7 +10368,7 @@ msgstr "Stato"
 msgid "%1 has %2 unread message"
 msgid_plural "%1 has %2 unread messages"
 msgstr[0] "%1 ha %2 Message non legite"
-msgstr[1] "%1 ha %2 Message non legite"
+msgstr[1] "Ha Messages non legite"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -10670,9 +10664,7 @@ msgid "Speak Text"
 msgstr "Pronuncia texto"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add WebDAV Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDAV Server"
 msgstr "Adde Servitor de WebDav"
