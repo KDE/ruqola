@@ -127,6 +127,7 @@ QString generateRichTextCMark(const QString &str,
 {
     QString newStr = markdownToRichTextCMark(str);
     static const QRegularExpression regularExpressionAHref(u"(<a href=\'.*\'>|<a href=\".*\">)"_s);
+    regularExpressionAHref.optimize();
     struct HrefPos {
         int start = 0;
         int end = 0;
