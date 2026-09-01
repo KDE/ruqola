@@ -176,3 +176,18 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
         layout.reactionsY = attachmentsY + attachmentsRect.height() + blocksRect.height() + messageUrlsRect.height();
     }
 }
+
+QSizeF MessageListLayoutBase::senderTextSize(const QFont &senderFont, const QString &senderText) const
+{
+    if (mSenderTextSizeCacheFont != senderFont) {
+        mSenderTextSizeCacheFont = senderFont;
+        mSenderTextSizeCache.clear();
+    }
+    const auto it = mSenderTextSizeCache.constFind(senderText);
+    if (it != mSenderTextSizeCache.cend()) {
+        return it.value();
+    }
+    const QSizeF size = QFontMetricsF(senderFont).size(Qt::TextSingleLine, senderText);
+    mSenderTextSizeCache.insert(senderText, size);
+    return size;
+}

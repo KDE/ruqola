@@ -164,7 +164,19 @@ QSize MessageDelegateUtils::timeStampSize(const QString &timeStampText, const QS
 {
     // This gives incorrect results (too small bounding rect), no idea why!
     // const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
-    return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
+    static QFontMetrics sFontMetrics{QFont()};
+    static QHash<QString, QSize> sCache;
+    if (sFontMetrics != option.fontMetrics || sCache.size() > 4096) {
+        sFontMetrics = option.fontMetrics;
+        sCache.clear();
+    }
+    const auto it = sCache.constFind(timeStampText);
+    if (it != sCache.cend()) {
+        return it.value();
+    }
+    const QSize size(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
+    sCache.insert(timeStampText, size);
+    return size;
 }
 
 QSize MessageDelegateUtils::textSizeHint(QTextDocument *doc, qreal *pBaseLine)

@@ -120,6 +120,7 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 protected:
+    [[nodiscard]] QSizeF senderTextSize(const QFont &senderFont, const QString &senderText) const;
     void generateSenderInfo(Layout &layout, const Message *message, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void generateAttachmentBlockAndUrlPreviewLayout(MessageListDelegate *delegate,
                                                     Layout &layout,
@@ -133,4 +134,8 @@ protected:
     [[nodiscard]] QString senderText(const Message *message) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
     MessageListDelegate *mDelegate = nullptr;
+
+private:
+    mutable QHash<QString, QSizeF> mSenderTextSizeCache;
+    mutable QFont mSenderTextSizeCacheFont;
 };

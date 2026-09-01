@@ -43,8 +43,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = layout.sameSenderAsPreviousMessage ? 0 : senderFontMetrics.ascent();
     const int senderLineHeight = layout.sameSenderAsPreviousMessage ? 0 : qCeil(senderFontMetrics.height());
-    const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
-
+    const QSizeF senderTextSize = this->senderTextSize(layout.senderFont, layout.senderText);
     if (mRocketChatAccount && mRocketChatAccount->displayAvatars()) {
         layout.avatarPixmap = mDelegate->makeAvatarPixmap(option.widget, index, senderTextSize.height() * 2);
     }
