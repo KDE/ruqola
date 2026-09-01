@@ -116,7 +116,7 @@ QByteArray MessageEncrypted::decrypt([[maybe_unused]] const QByteArray &sessionK
     // A "rc.v1.aes-sha2" payload was normalised into the same fields when it was parsed, so both
     // versions decrypt identically from here: what differs is the mode, and that comes from the
     // room key rather than from the content version.
-    if (mAlgorithm != "rc.v2.aes-sha2" && mAlgorithm != "rc.v1.aes-sha2") {
+    if (mAlgorithm != "rc.v2.aes-sha2"_ba && mAlgorithm != "rc.v1.aes-sha2"_ba) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: unsupported algorithm" << mAlgorithm;
         return {};
     }
