@@ -94,6 +94,10 @@ void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
     connect(restApi, &Connection::forgotPasswordDone, this, [restApi]() {
         restApi->deleteLater();
     });
+    connect(restApi, &Connection::failed, this, [restApi]() {
+        restApi->deleteLater();
+    });
+
     restApi->setServerUrl(mAccountInfo.serverUrl);
     restApi->forgotPassword(email);
 }
@@ -146,6 +150,9 @@ void AuthenticationLoginWidget::slotRegisterAccount()
         connect(restApi, &Connection::registerUserDone, this, [this, restApi]() {
             restApi->deleteLater();
             slotRegisterUserDone();
+        });
+        connect(restApi, &Connection::failed, this, [restApi]() {
+            restApi->deleteLater();
         });
         restApi->setServerUrl(mAccountInfo.serverUrl);
         restApi->registerNewUser(dlg->registerUserInfo());
