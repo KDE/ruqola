@@ -23,7 +23,7 @@ ApplicationsSettingsCategoriesComboBox::~ApplicationsSettingsCategoriesComboBox(
 
 QStringList ApplicationsSettingsCategoriesComboBox::categories() const
 {
-    return mRocketChatAccount->appsCategoriesModel()->categoriesSelected();
+    return mRocketChatAccount ? mRocketChatAccount->appsCategoriesModel()->categoriesSelected() : QStringList{};
 }
 
 #include "moc_applicationssettingscategoriescombobox.cpp"
