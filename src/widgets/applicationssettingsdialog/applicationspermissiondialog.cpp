@@ -39,7 +39,7 @@ ApplicationsPermissionDialog::ApplicationsPermissionDialog(QWidget *parent)
 
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsPermissionDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ApplicationsPermissionDialog::accept);
-    writeConfig();
+    readConfig();
 }
 
 ApplicationsPermissionDialog::~ApplicationsPermissionDialog()
