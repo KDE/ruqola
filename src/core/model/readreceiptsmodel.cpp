@@ -28,7 +28,7 @@ QVariant ReadReceiptsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mReadReceipts.count()) {
         return {};
     }
-    const ReadReceipt receiptInfo = mReadReceipts.at(index.row());
+    const ReadReceipt &receiptInfo = mReadReceipts.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case ReadReceiptsModel::ReadReceiptsInfo::UserName:

@@ -63,7 +63,7 @@ public:
     void setMuteGroupMentions(bool muteGroupMentions);
 
     [[nodiscard]] bool hideMentionStatus() const;
-    void setHideMentionStatus(bool newMhideMentionStatus);
+    void setHideMentionStatus(bool newHideMentionStatus);
 
 private:
     NotificationValue mDesktopNotifications;
