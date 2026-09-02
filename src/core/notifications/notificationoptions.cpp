@@ -11,11 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 NotificationOptions::NotificationOptions() = default;
 
-void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)
-{
-    parseNotificationOptions(obj);
-}
-
 void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
     // qDebug() << " parseNotificationOptions " << obj;

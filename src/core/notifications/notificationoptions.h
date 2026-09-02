@@ -30,14 +30,6 @@ public:
         [[nodiscard]] bool isEmpty() const;
     };
 
-    enum class NotificationType : uint8_t {
-        Default = 0,
-        AllMessages,
-        Mentions,
-        Nothing,
-    };
-    Q_ENUM(NotificationType)
-
     [[nodiscard]] bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool value);
 
@@ -63,7 +55,6 @@ public:
     [[nodiscard]] static NotificationOptions deserialize(const QJsonObject &o);
 
     void parseNotificationOptions(const QJsonObject &obj);
-    void updateNotificationOptions(const QJsonObject &obj);
 
     [[nodiscard]] bool operator==(const NotificationOptions &other) const;
     [[nodiscard]] bool operator!=(const NotificationOptions &other) const;
