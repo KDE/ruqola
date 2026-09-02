@@ -43,16 +43,10 @@ void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
 
 void DirectoryTeamsModel::parseElements(const QJsonObject &obj)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mRoomsInfo.clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mRoomsInfo.clear();
     mRoomsInfo.parseRooms(obj, RoomsInfo::ParseType::Directory);
-    if (!mRoomsInfo.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

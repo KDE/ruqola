@@ -39,7 +39,7 @@ public:
     [[nodiscard]] QList<int> hideColumns() const override;
 
     const CustomEmojisInfo &customEmojis() const;
-    void setCustomEmojis(const CustomEmojisInfo &newCustomEmojis);
+    void setCustomEmojis(CustomEmojisInfo newCustomEmojis);
 
     [[nodiscard]] QIcon createCustomIcon(const QByteArray &name) const;
 

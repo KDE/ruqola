@@ -66,14 +66,11 @@ void PersonalAccessTokenInfosModel::clear()
     }
 }
 
-void PersonalAccessTokenInfosModel::insertPersonalAccessTokenInfos(const PersonalAccessTokenInfos &infos)
+void PersonalAccessTokenInfosModel::insertPersonalAccessTokenInfos(PersonalAccessTokenInfos infos)
 {
-    clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mPersonalAccessTokenInfos = infos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mPersonalAccessTokenInfos = std::move(infos);
+    endResetModel();
 }
 
 QVariant PersonalAccessTokenInfosModel::headerData(int section, Qt::Orientation orientation, int role) const

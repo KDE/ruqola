@@ -38,14 +38,11 @@ QVariant JoinedChannelModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-void JoinedChannelModel::setRooms(const QList<ChannelUserCompleter> &rooms)
+void JoinedChannelModel::setRooms(QList<ChannelUserCompleter> rooms)
 {
-    clear();
-    if (!rooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, rooms.count() - 1);
-        mRooms = rooms;
-        endInsertRows();
-    }
+    beginResetModel();
+    mRooms = std::move(rooms);
+    endResetModel();
 }
 
 void JoinedChannelModel::clear()

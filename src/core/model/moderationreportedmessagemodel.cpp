@@ -108,12 +108,10 @@ void ModerationReportedMessageModel::clear()
 
 void ModerationReportedMessageModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mModerationInfos.clear();
     mModerationInfos.parseModerationInfos(obj);
-    if (!mModerationInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -128,14 +126,11 @@ const ModerationReportedMessageInfos &ModerationReportedMessageModel::moderation
     return mModerationInfos;
 }
 
-void ModerationReportedMessageModel::setModerationInfos(const ModerationReportedMessageInfos &newDeviceInfos)
+void ModerationReportedMessageModel::setModerationInfos(ModerationReportedMessageInfos newDeviceInfos)
 {
-    clear();
-    if (!newDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newDeviceInfos.count() - 1);
-        mModerationInfos = newDeviceInfos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mModerationInfos = std::move(newDeviceInfos);
+    endResetModel();
 }
 
 void ModerationReportedMessageModel::addMoreElements(const QJsonObject &obj)

@@ -67,14 +67,11 @@ void BannerInfosModel::clear()
     }
 }
 
-void BannerInfosModel::insertBannerInfos(const BannerInfos &infos)
+void BannerInfosModel::insertBannerInfos(BannerInfos infos)
 {
-    clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mBannerInfos = infos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mBannerInfos = std::move(infos);
+    endResetModel();
 }
 
 #include "moc_bannerinfosmodel.cpp"

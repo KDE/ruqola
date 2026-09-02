@@ -95,16 +95,10 @@ void DiscussionsModel::clear()
 void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QByteArray &roomId)
 {
     mRoomId = roomId;
-    if (!mDiscussions->isEmpty()) {
-        beginResetModel();
-        mDiscussions->clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mDiscussions->clear();
     mDiscussions->parseDiscussions(discussionsObj);
-    if (!mDiscussions->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
 }
 
@@ -138,16 +132,9 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
 
 void DiscussionsModel::setDiscussions(const Discussions &discussions)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mDiscussions->clear();
-        endResetModel();
-    }
-    if (!discussions.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, discussions.count() - 1);
-        mDiscussions->setDiscussions(discussions.discussions());
-        endInsertRows();
-    }
+    beginResetModel();
+    mDiscussions->setDiscussions(discussions.discussions());
+    endResetModel();
     checkFullList();
 }
 

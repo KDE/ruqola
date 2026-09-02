@@ -30,7 +30,7 @@ public:
     [[nodiscard]] QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
 
     [[nodiscard]] Permissions permissions() const;
-    void setPermissions(const Permissions &newPermissions);
+    void setPermissions(Permissions newPermissions);
 
 private:
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;

@@ -29,7 +29,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    void setBannedUsers(const QList<BannedUser> &files);
+    void setBannedUsers(QList<BannedUser> files);
 
     [[nodiscard]] BannedUsers *bannedUsers() const;
 

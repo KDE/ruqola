@@ -31,7 +31,7 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void addUsers(const QList<User> &users);
+    void addUsers(QList<User> users);
 
 private:
     [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString displayUserName(const User &user);

@@ -32,7 +32,7 @@ public:
     void setTotal(int total);
 
     [[nodiscard]] const QList<File> &fileAttachments() const;
-    void setFileAttachments(const QList<File> &fileAttachments);
+    void setFileAttachments(QList<File> fileAttachments);
 
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
     void parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj);

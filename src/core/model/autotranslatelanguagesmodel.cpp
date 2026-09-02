@@ -43,16 +43,10 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
 
 void AutotranslateLanguagesModel::parseLanguages(const QJsonObject &obj)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mAutoTranslateLanguages.clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mAutoTranslateLanguages.clear();
     mAutoTranslateLanguages.parseLanguages(obj);
-    if (!mAutoTranslateLanguages.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mAutoTranslateLanguages.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
 }
 
 int AutotranslateLanguagesModel::currentLanguage(const QString &lang) const

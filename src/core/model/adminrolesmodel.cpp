@@ -63,14 +63,11 @@ void AdminRolesModel::clear()
     }
 }
 
-void AdminRolesModel::setRoles(const QList<RoleInfo> &newRoles)
+void AdminRolesModel::setRoles(QList<RoleInfo> newRoles)
 {
-    clear();
-    if (!newRoles.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newRoles.count() - 1);
-        mListRoleInfos = newRoles;
-        endInsertRows();
-    }
+    beginResetModel();
+    mListRoleInfos = std::move(newRoles);
+    endResetModel();
 }
 
 QVariant AdminRolesModel::data(const QModelIndex &index, int role) const

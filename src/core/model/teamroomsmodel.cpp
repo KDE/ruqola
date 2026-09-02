@@ -69,18 +69,11 @@ QList<TeamRoom> TeamRoomsModel::teamRooms() const
     return mTeamRooms;
 }
 
-void TeamRoomsModel::setTeamRooms(const QList<TeamRoom> &teamRooms)
+void TeamRoomsModel::setTeamRooms(QList<TeamRoom> teamRooms)
 {
-    if (!mTeamRooms.isEmpty()) {
-        beginResetModel();
-        mTeamRooms.clear();
-        endResetModel();
-    }
-    if (!teamRooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, teamRooms.count() - 1);
-        mTeamRooms = teamRooms;
-        endInsertRows();
-    }
+    beginResetModel();
+    mTeamRooms = std::move(teamRooms);
+    endResetModel();
 }
 
 void TeamRoomsModel::setRoomChanged(const TeamRoom &t)

@@ -70,14 +70,11 @@ void InputCompleterModel::setDefaultUserCompletion()
     setChannels(customCompletion);
 }
 
-void InputCompleterModel::setChannels(const QList<ChannelUserCompleter> &channels)
+void InputCompleterModel::setChannels(QList<ChannelUserCompleter> channels)
 {
-    clear();
-    if (!channels.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, channels.count() - 1);
-        mChannelUserCompleters = channels;
-        endInsertRows();
-    }
+    beginResetModel();
+    mChannelUserCompleters = std::move(channels);
+    endResetModel();
 }
 
 QList<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
@@ -124,7 +121,7 @@ void InputCompleterModel::parseSearchChannels(const QJsonObject &obj)
     if (channelList.isEmpty()) {
         channelList.append(noFoundChannelUser());
     }
-    setChannels(channelList);
+    setChannels(std::move(channelList));
 }
 
 void InputCompleterModel::parseChannels(const QJsonObject &obj)

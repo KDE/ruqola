@@ -91,12 +91,10 @@ void ModerationReportedUserModel::clear()
 
 void ModerationReportedUserModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mModerationInfos.clear();
     mModerationInfos.parseModerationReportedUserInfos(obj);
-    if (!mModerationInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -111,14 +109,11 @@ const ModerationReportedUserInfos &ModerationReportedUserModel::moderationInfos(
     return mModerationInfos;
 }
 
-void ModerationReportedUserModel::setModerationInfos(const ModerationReportedUserInfos &newDeviceInfos)
+void ModerationReportedUserModel::setModerationInfos(ModerationReportedUserInfos newDeviceInfos)
 {
-    clear();
-    if (!newDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newDeviceInfos.count() - 1);
-        mModerationInfos = newDeviceInfos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mModerationInfos = std::move(newDeviceInfos);
+    endResetModel();
 }
 
 void ModerationReportedUserModel::addMoreElements(const QJsonObject &obj)

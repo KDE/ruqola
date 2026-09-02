@@ -49,18 +49,11 @@ Permissions PermissionsModel::permissions() const
     return mPermissions;
 }
 
-void PermissionsModel::setPermissions(const Permissions &newPermissions)
+void PermissionsModel::setPermissions(Permissions newPermissions)
 {
-    if (!mPermissions.isEmpty()) {
-        beginResetModel();
-        mPermissions.clear();
-        endResetModel();
-    }
-    if (!newPermissions.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newPermissions.count() - 1);
-        mPermissions = newPermissions;
-        endInsertRows();
-    }
+    beginResetModel();
+    mPermissions = std::move(newPermissions);
+    endResetModel();
 }
 
 QVariant PermissionsModel::data(const QModelIndex &index, int role) const

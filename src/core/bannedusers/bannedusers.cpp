@@ -86,9 +86,9 @@ QList<BannedUser> BannedUsers::bannedUsers() const
     return mBannedUsers;
 }
 
-void BannedUsers::setBannedUsers(const QList<BannedUser> &commands)
+void BannedUsers::setBannedUsers(QList<BannedUser> commands)
 {
-    mBannedUsers = commands;
+    mBannedUsers = std::move(commands);
 }
 
 void BannedUsers::parseBannedUsers(const QJsonObject &commandsObj)

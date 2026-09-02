@@ -94,18 +94,11 @@ void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &
     endResetModel();
 }
 
-void AppsMarketPlaceModel::setAppsMarketPlaceInfos(const QList<AppsMarketPlaceInfo> &appsMarketInfos)
+void AppsMarketPlaceModel::setAppsMarketPlaceInfos(QList<AppsMarketPlaceInfo> appsMarketInfos)
 {
-    if (!mAppsMarketPlaceInfos.isEmpty()) {
-        beginResetModel();
-        mAppsMarketPlaceInfos.clear();
-        endResetModel();
-    }
-    if (!appsMarketInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, appsMarketInfos.count() - 1);
-        mAppsMarketPlaceInfos = appsMarketInfos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mAppsMarketPlaceInfos = std::move(appsMarketInfos);
+    endResetModel();
 }
 
 QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo)

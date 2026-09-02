@@ -30,15 +30,13 @@ QList<PreviewCommand> PreviewCommandModel::previewCommands() const
     return mPreviewCommands;
 }
 
-void PreviewCommandModel::setPreviewCommands(const QList<PreviewCommand> &newPreviewCommands)
+void PreviewCommandModel::setPreviewCommands(QList<PreviewCommand> newPreviewCommands)
 {
-    clear();
-    if (!newPreviewCommands.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newPreviewCommands.count() - 1);
-        mPreviewCommands = newPreviewCommands;
-        endInsertRows();
-        fetchImages();
-    }
+    beginResetModel();
+    mMapUrlToImage.clear();
+    mPreviewCommands = std::move(newPreviewCommands);
+    endResetModel();
+    fetchImages();
 }
 
 void PreviewCommandModel::fetchImage(const PreviewCommand &command, int index)

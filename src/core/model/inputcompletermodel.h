@@ -44,7 +44,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    void setChannels(const QList<ChannelUserCompleter> &channels);
+    void setChannels(QList<ChannelUserCompleter> channels);
 
     void parseChannels(const QJsonObject &obj);
     void parseSearchChannels(const QJsonObject &obj);

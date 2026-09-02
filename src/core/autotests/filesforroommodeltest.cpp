@@ -40,11 +40,11 @@ void FilesForRoomModelTest::shouldAddFiles()
         f.setUserId(u"userid%1"_s.arg(i).toLatin1());
         mFiles.append(std::move(f));
     }
-    const QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
+    const QSignalSpy modelResetSpy(&w, &FilesForRoomModel::modelReset);
 
     w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 10);
-    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(modelResetSpy.count(), 1);
 
     mFiles.clear();
     for (int i = 0; i < 3; ++i) {
@@ -56,7 +56,7 @@ void FilesForRoomModelTest::shouldAddFiles()
     }
     w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 3);
-    QCOMPARE(rowInsertedSpy.count(), 2);
+    QCOMPARE(modelResetSpy.count(), 2);
 }
 
 void FilesForRoomModelTest::shouldVerifyData()

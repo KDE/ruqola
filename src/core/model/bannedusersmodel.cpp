@@ -75,14 +75,10 @@ void BannedUsersModel::initialize()
 void BannedUsersModel::parseBannedUsers(const QJsonObject &bannedUsersObj, const QByteArray &roomId)
 {
     mRoomId = roomId;
-    if (rowCount() != 0) {
-        clear();
-    }
+    beginResetModel();
+    mBannedUsers->clear();
     mBannedUsers->parseBannedUsers(bannedUsersObj);
-    if (!mBannedUsers->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mBannedUsers->bannedUsers().count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -97,14 +93,11 @@ void BannedUsersModel::setRoomId(const QByteArray &roomId)
     mRoomId = roomId;
 }
 
-void BannedUsersModel::setBannedUsers(const QList<BannedUser> &users)
+void BannedUsersModel::setBannedUsers(QList<BannedUser> users)
 {
-    clear();
-    if (!users.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, users.count() - 1);
-        mBannedUsers->setBannedUsers(users);
-        endInsertRows();
-    }
+    beginResetModel();
+    mBannedUsers->setBannedUsers(std::move(users));
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

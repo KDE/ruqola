@@ -55,14 +55,11 @@ void ServerErrorInfoHistoryModel::clear()
     }
 }
 
-void ServerErrorInfoHistoryModel::insertServerErrorInfos(const QList<ServerErrorInfo> &infos)
+void ServerErrorInfoHistoryModel::insertServerErrorInfos(QList<ServerErrorInfo> infos)
 {
-    clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mServerErrorInfo = infos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mServerErrorInfo = std::move(infos);
+    endResetModel();
 }
 
 void ServerErrorInfoHistoryModel::addServerErrorInfo(const ServerErrorInfo &info)

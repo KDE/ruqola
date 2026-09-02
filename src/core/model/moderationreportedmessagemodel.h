@@ -45,7 +45,7 @@ public:
     void removeElement(const QByteArray &identifier) override;
 
     [[nodiscard]] const ModerationReportedMessageInfos &moderationInfos() const;
-    void setModerationInfos(const ModerationReportedMessageInfos &newDeviceInfos);
+    void setModerationInfos(ModerationReportedMessageInfos newDeviceInfos);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList() override;

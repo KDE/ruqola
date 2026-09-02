@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "model/usercompletermodel.h"
-#include "test_model_helpers.h"
 #include <QSignalSpy>
 #include <QTest>
 
@@ -33,8 +32,8 @@ void UserCompleterModelTest::shouldAddValues()
 {
     UserCompleterModel w;
     QList<User> users;
-    const QSignalSpy rowInsertedSpy(&w, &UserCompleterModel::rowsInserted);
-    const QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
+    const QSignalSpy modelAboutToBeResetSpy(&w, &UserCompleterModel::modelAboutToBeReset);
+    const QSignalSpy modelResetSpy(&w, &UserCompleterModel::modelReset);
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(u"name%1"_s.arg(i));
@@ -45,10 +44,8 @@ void UserCompleterModelTest::shouldAddValues()
     }
     w.addUsers(users);
     QCOMPARE(w.rowCount(), 10);
-    QCOMPARE(rowInsertedSpy.count(), 1);
-    QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,9"_s);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,9"_s);
+    QCOMPARE(modelAboutToBeResetSpy.count(), 1);
+    QCOMPARE(modelResetSpy.count(), 1);
 
     users.clear();
     for (int i = 0; i < 3; ++i) {
@@ -61,10 +58,8 @@ void UserCompleterModelTest::shouldAddValues()
     }
     w.addUsers(users);
     QCOMPARE(w.rowCount(), 3);
-    QCOMPARE(rowInsertedSpy.count(), 2);
-    QCOMPARE(rowABTInserted.count(), 2);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,9;0,2"_s);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,9;0,2"_s);
+    QCOMPARE(modelAboutToBeResetSpy.count(), 2);
+    QCOMPARE(modelResetSpy.count(), 2);
 }
 
 void UserCompleterModelTest::shouldVerifyData()

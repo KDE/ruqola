@@ -43,16 +43,10 @@ void UsersInRoleModel::addMoreElements(const QJsonObject &obj)
 
 void UsersInRoleModel::parseElements(const QJsonObject &obj)
 {
-    if (!mUsers.isEmpty()) {
-        beginResetModel();
-        mUsers.clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mUsers.clear();
     mUsers.parseUsers(obj, Users::ParseType::UserInRoles, {});
-    if (!mUsers.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

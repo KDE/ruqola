@@ -78,12 +78,10 @@ void AdminCustomSoundModel::clear()
 
 void AdminCustomSoundModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mCustomSounds.clear();
     mCustomSounds.parseCustomSounds(obj);
-    if (!mCustomSounds.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -98,14 +96,11 @@ const CustomSoundsInfo &AdminCustomSoundModel::customSounds() const
     return mCustomSounds;
 }
 
-void AdminCustomSoundModel::setCustomSounds(const CustomSoundsInfo &newCustomSounds)
+void AdminCustomSoundModel::setCustomSounds(CustomSoundsInfo newCustomSounds)
 {
-    clear();
-    if (!newCustomSounds.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newCustomSounds.count() - 1);
-        mCustomSounds = newCustomSounds;
-        endInsertRows();
-    }
+    beginResetModel();
+    mCustomSounds = std::move(newCustomSounds);
+    endResetModel();
 }
 
 void AdminCustomSoundModel::addMoreElements(const QJsonObject &obj)

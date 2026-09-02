@@ -37,7 +37,7 @@ public:
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] const QList<OauthInfo> &adminOauth() const;
-    void setAdminOauth(const QList<OauthInfo> &newAdminInvites);
+    void setAdminOauth(QList<OauthInfo> newAdminInvites);
 
     void removeOauth(const QString &identifier);
 

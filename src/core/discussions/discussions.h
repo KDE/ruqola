@@ -17,7 +17,7 @@ public:
     Discussions();
 
     [[nodiscard]] QList<Discussion> discussions() const;
-    void setDiscussions(const QList<Discussion> &discussions);
+    void setDiscussions(QList<Discussion> discussions);
 
     void parseDiscussions(const QJsonObject &array);
 

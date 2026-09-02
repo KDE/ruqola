@@ -32,7 +32,7 @@ public:
 
     void clear();
 
-    void insertServerErrorInfos(const QList<ServerErrorInfo> &infos);
+    void insertServerErrorInfos(QList<ServerErrorInfo> infos);
 
     void addServerErrorInfo(const ServerErrorInfo &info);
 

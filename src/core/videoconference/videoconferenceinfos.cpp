@@ -61,9 +61,9 @@ const QList<VideoConferenceInfo> &VideoConferenceInfos::videoConferenceInfosList
     return mVideoConferenceInfosList;
 }
 
-void VideoConferenceInfos::setVideoConferenceInfosList(const QList<VideoConferenceInfo> &newVideoConferenceInfosList)
+void VideoConferenceInfos::setVideoConferenceInfosList(QList<VideoConferenceInfo> newVideoConferenceInfosList)
 {
-    mVideoConferenceInfosList = newVideoConferenceInfosList;
+    mVideoConferenceInfosList = std::move(newVideoConferenceInfosList);
 }
 
 bool VideoConferenceInfos::isEmpty() const

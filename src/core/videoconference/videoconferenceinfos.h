@@ -26,7 +26,7 @@ public:
     void setVideoConferenceInfosCount(int newVideoConferenceInfosCount);
 
     [[nodiscard]] const QList<VideoConferenceInfo> &videoConferenceInfosList() const;
-    void setVideoConferenceInfosList(const QList<VideoConferenceInfo> &newVideoConferenceInfosList);
+    void setVideoConferenceInfosList(QList<VideoConferenceInfo> newVideoConferenceInfosList);
 
     [[nodiscard]] bool isEmpty() const;
     void clear();

@@ -36,7 +36,7 @@ public:
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] const QList<InviteInfo> &adminInvites() const;
-    void setAdminInvites(const QList<InviteInfo> &newAdminInvites);
+    void setAdminInvites(QList<InviteInfo> newAdminInvites);
 
     void removeInvite(const QByteArray &identifier);
 

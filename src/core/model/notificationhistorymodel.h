@@ -41,7 +41,7 @@ public:
 
     void clear();
 
-    void insertNotifications(const QList<NotificationInfo> &infos);
+    void insertNotifications(QList<NotificationInfo> infos);
 
     void addNotification(const NotificationInfo &info);
 

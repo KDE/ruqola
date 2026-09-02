@@ -107,9 +107,9 @@ const QList<File> &FileAttachments::fileAttachments() const
     return mFileAttachments;
 }
 
-void FileAttachments::setFileAttachments(const QList<File> &fileAttachments)
+void FileAttachments::setFileAttachments(QList<File> fileAttachments)
 {
-    mFileAttachments = fileAttachments;
+    mFileAttachments = std::move(fileAttachments);
 }
 
 void FileAttachments::addFileAttachments(const QList<File> &fileAttachments)

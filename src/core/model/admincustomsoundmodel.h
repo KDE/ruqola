@@ -35,7 +35,7 @@ public:
     [[nodiscard]] QList<int> hideColumns() const override;
 
     [[nodiscard]] const CustomSoundsInfo &customSounds() const;
-    void setCustomSounds(const CustomSoundsInfo &newCustomSounds);
+    void setCustomSounds(CustomSoundsInfo newCustomSounds);
 
     void removeElement(const QByteArray &identifier) override;
 

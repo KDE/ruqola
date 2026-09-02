@@ -66,14 +66,11 @@ void AdminInviteModel::clear()
     }
 }
 
-void AdminInviteModel::setAdminInvites(const QList<InviteInfo> &newAdminInvites)
+void AdminInviteModel::setAdminInvites(QList<InviteInfo> newAdminInvites)
 {
-    clear();
-    if (!newAdminInvites.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);
-        mAdminInvites = newAdminInvites;
-        endInsertRows();
-    }
+    beginResetModel();
+    mAdminInvites = std::move(newAdminInvites);
+    endResetModel();
 }
 
 QVariant AdminInviteModel::data(const QModelIndex &index, int role) const

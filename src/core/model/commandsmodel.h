@@ -34,7 +34,7 @@ public:
 
     [[nodiscard]] Commands commands() const;
 
-    void setCommands(const Commands &emoticons);
+    void setCommands(Commands emoticons);
 
     [[nodiscard]] bool commandHasPreview(const QString &commandName) const;
 

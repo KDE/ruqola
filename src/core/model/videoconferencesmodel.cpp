@@ -59,14 +59,10 @@ void VideoConferencesModel::initialize()
 void VideoConferencesModel::parseVideoConferences(const QJsonObject &fileAttachmentsObj, const QString &roomId)
 {
     mRoomId = roomId;
-    if (rowCount() != 0) {
-        clear();
-    }
+    beginResetModel();
+    mVideoConferenceInfos.clear();
     mVideoConferenceInfos.parseVideoConferenceInfos(fileAttachmentsObj);
-    if (!mVideoConferenceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mVideoConferenceInfos.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -81,14 +77,11 @@ void VideoConferencesModel::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void VideoConferencesModel::setVideoConferenceInfos(const QList<VideoConferenceInfo> &files)
+void VideoConferencesModel::setVideoConferenceInfos(QList<VideoConferenceInfo> files)
 {
-    clear();
-    if (!files.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, files.count() - 1);
-        mVideoConferenceInfos.setVideoConferenceInfosList(files);
-        endInsertRows();
-    }
+    beginResetModel();
+    mVideoConferenceInfos.setVideoConferenceInfosList(std::move(files));
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

@@ -35,7 +35,7 @@ public:
 
     void clear();
 
-    void insertPersonalAccessTokenInfos(const PersonalAccessTokenInfos &infos);
+    void insertPersonalAccessTokenInfos(PersonalAccessTokenInfos infos);
 
     void removeToken(const QString &tokenName);
 

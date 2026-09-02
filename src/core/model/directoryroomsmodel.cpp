@@ -48,16 +48,10 @@ QList<int> DirectoryRoomsModel::hideColumns() const
 
 void DirectoryRoomsModel::parseElements(const QJsonObject &roomsObj)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mRoomsInfo.clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mRoomsInfo.clear();
     mRoomsInfo.parseRooms(roomsObj, RoomsInfo::ParseType::Directory);
-    if (!mRoomsInfo.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mRoomsInfo.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

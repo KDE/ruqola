@@ -23,14 +23,11 @@ void TeamRoomCompleterModel::clear()
     }
 }
 
-void TeamRoomCompleterModel::setRooms(const QList<TeamRoomCompleter> &teams)
+void TeamRoomCompleterModel::setRooms(QList<TeamRoomCompleter> teams)
 {
-    clear();
-    if (!teams.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, teams.count() - 1);
-        mRooms = teams;
-        endInsertRows();
-    }
+    beginResetModel();
+    mRooms = std::move(teams);
+    endResetModel();
 }
 
 int TeamRoomCompleterModel::rowCount(const QModelIndex &parent) const

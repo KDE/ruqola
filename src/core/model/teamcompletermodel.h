@@ -28,7 +28,7 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertTeams(const QList<TeamCompleter> &rooms);
+    void insertTeams(QList<TeamCompleter> rooms);
 
 private:
     QList<TeamCompleter> mTeams;

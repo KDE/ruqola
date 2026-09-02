@@ -82,14 +82,11 @@ void NotificationHistoryModel::clear()
     }
 }
 
-void NotificationHistoryModel::insertNotifications(const QList<NotificationInfo> &infos)
+void NotificationHistoryModel::insertNotifications(QList<NotificationInfo> infos)
 {
-    clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mNotificationInfo = infos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mNotificationInfo = std::move(infos);
+    endResetModel();
 }
 
 void NotificationHistoryModel::addNotification(const NotificationInfo &info)

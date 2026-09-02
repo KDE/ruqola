@@ -54,16 +54,10 @@ void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 
 void DirectoryUsersModel::parseElements(const QJsonObject &obj)
 {
-    if (!mUsers.isEmpty()) {
-        beginResetModel();
-        mUsers.clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mUsers.clear();
     mUsers.parseUsers(obj, parseType(), mRoleInfo);
-    if (!mUsers.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

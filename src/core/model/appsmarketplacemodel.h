@@ -46,7 +46,7 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     [[nodiscard]] QList<AppsMarketPlaceInfo> appsMarketPlaceInfos() const;
-    void setAppsMarketPlaceInfos(const QList<AppsMarketPlaceInfo> &appsCategories);
+    void setAppsMarketPlaceInfos(QList<AppsMarketPlaceInfo> appsCategories);
 
     [[nodiscard]] bool wasFilled() const;
 

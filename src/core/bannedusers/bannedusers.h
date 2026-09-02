@@ -30,7 +30,7 @@ public:
     void parseMoreBannedUsers(const QJsonObject &commandsObj);
 
     [[nodiscard]] QList<BannedUser> bannedUsers() const;
-    void setBannedUsers(const QList<BannedUser> &commands);
+    void setBannedUsers(QList<BannedUser> commands);
 
     [[nodiscard]] int bannedUsersCount() const;
     void setBannedUsersCount(int commandsCount);

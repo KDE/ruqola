@@ -63,14 +63,10 @@ void FilesForRoomModel::initialize()
 void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId)
 {
     mRoomId = roomId;
-    if (rowCount() != 0) {
-        clear();
-    }
+    beginResetModel();
+    mFileAttachments->clear();
     mFileAttachments->parseFileAttachments(fileAttachmentsObj);
-    if (!mFileAttachments->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -85,14 +81,11 @@ void FilesForRoomModel::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void FilesForRoomModel::setFiles(const QList<File> &files)
+void FilesForRoomModel::setFiles(QList<File> files)
 {
-    clear();
-    if (!files.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, files.count() - 1);
-        mFileAttachments->setFileAttachments(files);
-        endInsertRows();
-    }
+    beginResetModel();
+    mFileAttachments->setFileAttachments(std::move(files));
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

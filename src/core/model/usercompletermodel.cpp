@@ -24,15 +24,12 @@ void UserCompleterModel::clear()
     }
 }
 
-void UserCompleterModel::addUsers(const QList<User> &users)
+void UserCompleterModel::addUsers(QList<User> users)
 {
     // qDebug() << " users " << users;
-    clear();
-    if (!users.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, users.count() - 1);
-        mUsers = users;
-        endInsertRows();
-    }
+    beginResetModel();
+    mUsers = std::move(users);
+    endResetModel();
 }
 
 int UserCompleterModel::rowCount(const QModelIndex &parent) const

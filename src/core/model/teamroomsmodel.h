@@ -30,7 +30,7 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     [[nodiscard]] QList<TeamRoom> teamRooms() const;
-    void setTeamRooms(const QList<TeamRoom> &teamRooms);
+    void setTeamRooms(QList<TeamRoom> teamRooms);
 
     void setRoomChanged(const TeamRoom &teamRoom);
 

@@ -103,12 +103,10 @@ void AdminCustomEmojiModel::clear()
 
 void AdminCustomEmojiModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mCustomEmojiList.clear();
     mCustomEmojiList.parseCustomEmojis(obj);
-    if (!mCustomEmojiList.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -123,14 +121,11 @@ const CustomEmojisInfo &AdminCustomEmojiModel::customEmojis() const
     return mCustomEmojiList;
 }
 
-void AdminCustomEmojiModel::setCustomEmojis(const CustomEmojisInfo &newCustomEmojis)
+void AdminCustomEmojiModel::setCustomEmojis(CustomEmojisInfo newCustomEmojis)
 {
-    clear();
-    if (!newCustomEmojis.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newCustomEmojis.count() - 1);
-        mCustomEmojiList = newCustomEmojis;
-        endInsertRows();
-    }
+    beginResetModel();
+    mCustomEmojiList = std::move(newCustomEmojis);
+    endResetModel();
 }
 
 void AdminCustomEmojiModel::removeElement(const QByteArray &identifier)

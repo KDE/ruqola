@@ -106,18 +106,11 @@ RoomsInfo AdminRoomsModel::adminRooms() const
     return mAdminRooms;
 }
 
-void AdminRoomsModel::setAdminRooms(const RoomsInfo &adminrooms)
+void AdminRoomsModel::setAdminRooms(RoomsInfo adminrooms)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mAdminRooms.clear();
-        endResetModel();
-    }
-    if (!adminrooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, adminrooms.count() - 1);
-        mAdminRooms = adminrooms;
-        endInsertRows();
-    }
+    beginResetModel();
+    mAdminRooms = std::move(adminrooms);
+    endResetModel();
 }
 
 int AdminRoomsModel::total() const
@@ -127,16 +120,10 @@ int AdminRoomsModel::total() const
 
 void AdminRoomsModel::parseElements(const QJsonObject &obj)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
-        mAdminRooms.clear();
-        endRemoveRows();
-    }
+    beginResetModel();
+    mAdminRooms.clear();
     mAdminRooms.parseRooms(obj, RoomsInfo::ParseType::Administrator);
-    if (!mAdminRooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mAdminRooms.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

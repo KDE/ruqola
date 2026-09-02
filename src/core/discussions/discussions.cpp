@@ -24,9 +24,9 @@ void Discussions::append(const Discussion &discussion)
     mDiscussion.append(discussion);
 }
 
-void Discussions::setDiscussions(const QList<Discussion> &discussion)
+void Discussions::setDiscussions(QList<Discussion> discussion)
 {
-    mDiscussion = discussion;
+    mDiscussion = std::move(discussion);
 }
 
 void Discussions::parseDiscussions(const QJsonObject &discussionsObj)

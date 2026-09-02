@@ -33,7 +33,7 @@ public:
 
     void clear();
 
-    void insertBannerInfos(const BannerInfos &infos);
+    void insertBannerInfos(BannerInfos infos);
 
 private:
     [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString text(const BannerInfo &info);

@@ -24,7 +24,7 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     [[nodiscard]] QList<PreviewCommand> previewCommands() const;
-    void setPreviewCommands(const QList<PreviewCommand> &newPermissions);
+    void setPreviewCommands(QList<PreviewCommand> newPermissions);
     void clear();
 
 private:
