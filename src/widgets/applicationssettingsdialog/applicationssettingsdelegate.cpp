@@ -167,7 +167,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     } else {
         layout.status = Status::Unknown;
     }
-    QSizeF requestedTextSize;
+    QSizeF requestedTextSize = {0, 0};
     if (layout.status == Status::Unknown) {
         // Requested
         const int requested = index.data(AppsMarketPlaceModel::RequestedApps).toInt();
