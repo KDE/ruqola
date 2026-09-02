@@ -129,19 +129,6 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
     });
 }
 
-QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QString &lang, const QString &id) const
-{
-    if (id.isEmpty()) {
-        return {};
-    }
-    QString translatedString = mRocketChatAccount->getTranslatedIdentifier(lang, u"app-"_s + QString::fromLatin1(mAppId) + u'.' + id);
-    if (translatedString.isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << " Translated string not found: " << QString::fromLatin1(mAppId) + id;
-        return id;
-    }
-    return translatedString;
-}
-
 ApplictionSettingsCustomWidgetsBase *ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSettingsSettingsInfo &info)
 {
     auto checkBoxWidget = new ApplictionSettingsCustomWidgetsCheckBox(mAppId, mRocketChatAccount, info, this);
