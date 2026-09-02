@@ -319,7 +319,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     QString highlighted;
     QTextStream stream(&highlighted);
     TextUtils::TextUtilsSyntaxHighlighter highlighter(&stream);
-    const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
+    const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized() && language != "text"_L1;
 
     if (useHighlighter) {
         auto &repo = TextUtils::TextUtilsSyntaxHighlightingManager::self()->repo();
@@ -330,7 +330,7 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     }
     auto highlight = [&](const QString &codeBlock) {
         if (!useHighlighter) {
-            return codeBlock.toHtmlEscaped();
+            return codeBlock.toHtmlEscaped().replace(u'\n', u"<br />"_s);
         }
         stream.reset();
         stream.seek(0);
