@@ -53,7 +53,6 @@ QString Utils::extractRoomUserFromUrl(QString url)
 QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
 {
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-    const auto backgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = qApp->palette().link().color().name();
     QString dateTimeInfo;
     if (!info.displayTime.isEmpty()) {
@@ -63,8 +62,10 @@ QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
             dateTimeInfo = u'\n' + info.displayTime;
         }
     }
-    return u"<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>"_s.arg(backgroundColor, borderColor) + info.richText
-        + dateTimeInfo + u"</td></tr></table>"_s;
+    return u"<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>"_s.arg(
+               ColorsAndMessageViewStyle::self().alternateBackground(),
+               borderColor)
+        + info.richText + dateTimeInfo + u"</td></tr></table>"_s;
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)

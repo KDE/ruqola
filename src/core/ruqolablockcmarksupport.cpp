@@ -9,9 +9,7 @@
 #include "config-ruqola.h"
 #include "emoticons/emojimanager.h"
 #include "ruqola_texttohtml_cmark_debug.h"
-#include <KColorScheme>
 #include <KSyntaxHighlighting/Theme>
-#include <QColor>
 #include <QTextStream>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
 #include <TextUtils/TextUtilsSyntaxHighlightingManager>
@@ -132,8 +130,6 @@ QString generateRichTextCMark(const QString &str,
         int start = 0;
         int end = 0;
     };
-    const auto schemeView = ColorsAndMessageViewStyle::self().schemeView();
-
     QList<HrefPos> lstPos;
     {
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
@@ -188,8 +184,8 @@ QString generateRichTextCMark(const QString &str,
     }
 
     if (!highlightWords.isEmpty()) {
-        const auto userHighlightForegroundColor = schemeView.foreground(KColorScheme::PositiveText).color().name();
-        const auto userHighlightBackgroundColor = schemeView.background(KColorScheme::PositiveBackground).color().name();
+        const QString &userHighlightForegroundColor = ColorsAndMessageViewStyle::self().positiveText();
+        const QString &userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().positiveBackground();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -227,8 +223,8 @@ QString generateRichTextCMark(const QString &str,
     }
 
     if (!searchedTextRegularExpression.pattern().isEmpty()) {
-        const auto userHighlightForegroundColor = schemeView.foreground(KColorScheme::NeutralText).color().name();
-        const auto userHighlightBackgroundColor = schemeView.background(KColorScheme::NeutralBackground).color().name();
+        const QString &userHighlightForegroundColor = ColorsAndMessageViewStyle::self().neutralText();
+        const QString &userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().neutralBackground();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -265,18 +261,8 @@ QString generateRichTextCMark(const QString &str,
     static const QRegularExpression regularExpressionUser(u"(^|\\s+)@([\\w._-]+)"_s, QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
-    QString userMentionForegroundColor;
-    QString userMentionBackgroundColor;
-    QString hereAllMentionBackgroundColor;
-    QString hereAllMentionForegroundColor;
     int offset = 0;
     while (userIterator.hasNext()) {
-        if (userMentionForegroundColor.isEmpty()) {
-            userMentionForegroundColor = schemeView.foreground(KColorScheme::NegativeText).color().name();
-            userMentionBackgroundColor = schemeView.background(KColorScheme::NegativeBackground).color().name();
-            hereAllMentionBackgroundColor = schemeView.background(KColorScheme::NeutralBackground).color().name();
-            hereAllMentionForegroundColor = schemeView.foreground(KColorScheme::NeutralText).color().name();
-        }
         const QRegularExpressionMatch match = userIterator.next();
         const QStringView word = match.capturedView(2);
         // Highlight only if it's yours
@@ -291,14 +277,15 @@ QString generateRichTextCMark(const QString &str,
         const int replaceWordLength = wordStr.length() + 1; // '@' + word
         QString replaceStr;
         if (word == username) {
-            replaceStr = u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(wordStr,
-                                                                                                                              userMentionForegroundColor,
-                                                                                                                              userMentionBackgroundColor,
-                                                                                                                              wordFromUserIdentifier);
+            replaceStr = u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(
+                wordStr,
+                ColorsAndMessageViewStyle::self().negativeText(),
+                ColorsAndMessageViewStyle::self().negativeBackground(),
+                wordFromUserIdentifier);
         } else if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
             replaceStr = u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(wordStr,
-                                                                                                    hereAllMentionForegroundColor,
-                                                                                                    hereAllMentionBackgroundColor);
+                                                                                                    ColorsAndMessageViewStyle::self().neutralText(),
+                                                                                                    ColorsAndMessageViewStyle::self().neutralBackground());
         } else {
             replaceStr = u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(wordStr, wordFromUserIdentifier);
         }
@@ -328,9 +315,6 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     regenerateSearchText();
     QString richText;
     QTextStream richTextStream(&richText);
-    const auto schemeView = ColorsAndMessageViewStyle::self().schemeView();
-    const QColor codeBackgroundColor = schemeView.background(KColorScheme::AlternateBackground).color();
-    const auto codeBorderColor = schemeView.foreground(KColorScheme::InactiveText).color().name();
 
     QString highlighted;
     QTextStream stream(&highlighted);
@@ -339,8 +323,8 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
     if (useHighlighter) {
         auto &repo = TextUtils::TextUtilsSyntaxHighlightingManager::self()->repo();
-        const auto theme = (codeBackgroundColor.lightness() < 128) ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                                                   : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
+        const auto theme = ColorsAndMessageViewStyle::self().darkTheme() ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                                         : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
         // qDebug() << " theme .n am" << theme.name();
         highlighter.setTheme(theme);
     }
@@ -355,7 +339,6 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
         return highlighted;
     };
 
-    const QString codeBackgroundColorName = codeBackgroundColor.name();
     auto addCodeChunk = [&](const QString &chunk) {
         auto definition = TextUtils::TextUtilsSyntaxHighlightingManager::self()->def(language);
         if (!definition.isValid()) {
@@ -364,12 +347,14 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
         highlighter.setDefinition(definition);
         // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-        richTextStream << "<table><tr><td style='background-color:"_L1 << codeBackgroundColorName << "; padding: 5px; border: 1px solid "_L1 << codeBorderColor
-                       << "'>"_L1 << highlight(chunk) << "</td></tr></table>"_L1;
+        richTextStream << "<table><tr><td style='background-color:"_L1 << ColorsAndMessageViewStyle::self().alternateBackground()
+                       << "; padding: 5px; border: 1px solid "_L1 << ColorsAndMessageViewStyle::self().inactiveText() << "'>"_L1 << highlight(chunk)
+                       << "</td></tr></table>"_L1;
     };
 
     auto addInlineCodeChunk = [&](const QString &chunk) {
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColorName << "'>"_L1 << chunk.toHtmlEscaped() << "</code>"_L1;
+        richTextStream << "<code style='background-color:"_L1 << ColorsAndMessageViewStyle::self().alternateBackground() << "'>"_L1 << chunk.toHtmlEscaped()
+                       << "</code>"_L1;
     };
 
     auto addTextChunk = [&](const QString &chunk) {
@@ -386,7 +371,8 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
         if (mSettings->emojiManager) {
             mSettings->emojiManager->replaceEmojis(&htmlChunk);
         }
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColorName << "'>"_L1 << htmlChunk << "</code>"_L1;
+        richTextStream << "<code style='background-color:"_L1 << ColorsAndMessageViewStyle::self().alternateBackground() << "'>"_L1 << htmlChunk
+                       << "</code>"_L1;
     };
 
     auto addInlineQuoteCodeNewLineChunk = [&]() {

@@ -17,4 +17,34 @@ public:
     static ColorsAndMessageViewStyle &self();
 
     ColorsAndMessageViewStyle();
+
+    [[nodiscard]] const QString &positiveText() const;
+
+    [[nodiscard]] const QString &positiveBackground() const;
+
+    [[nodiscard]] const QString &neutralText() const;
+
+    [[nodiscard]] const QString &neutralBackground() const;
+
+    [[nodiscard]] const QString &negativeText() const;
+
+    [[nodiscard]] const QString &negativeBackground() const;
+
+    [[nodiscard]] const QString &alternateBackground() const;
+
+    [[nodiscard]] const QString &inactiveText() const;
+
+    [[nodiscard]] bool darkTheme() const;
+
+private:
+    LIBRUQOLACORE_NO_EXPORT void slotUpdateColors();
+    QString mPositiveText;
+    QString mPositiveBackground;
+    QString mNeutralText;
+    QString mNeutralBackground;
+    QString mNegativeText;
+    QString mNegativeBackground;
+    QString mAlternateBackground;
+    QString mInactiveText;
+    bool mDarkTheme = false;
 };
