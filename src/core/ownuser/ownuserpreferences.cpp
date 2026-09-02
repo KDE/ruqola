@@ -109,6 +109,7 @@ QList<QRegularExpression> OwnUserPreferences::generateRegularExpressions(const Q
     lst.reserve(highlightWords.count());
     for (const QString &word : highlightWords) {
         const QRegularExpression exp(u"(\\b%1\\b)"_s.arg(QRegularExpression::escape(word)), QRegularExpression::CaseInsensitiveOption);
+        exp.optimize();
         lst.append(exp);
     }
     return lst;
