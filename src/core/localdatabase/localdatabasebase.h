@@ -42,7 +42,7 @@ public:
     [[nodiscard]] QStringList allDatabaseFiles(const QString &accountName, const QByteArray &roomId) const;
 
 protected:
-    [[nodiscard]] virtual QString schemaDataBase() const;
+    [[nodiscard]] virtual QString schemaDataBase() const = 0;
     [[nodiscard]] bool initializeDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db);
     [[nodiscard]] bool initializeDataBase(const QString &accountName, QSqlDatabase &db);
     [[nodiscard]] bool checkDataBase(const QString &accountName, const QByteArray &roomId, QSqlDatabase &db);

@@ -57,12 +57,6 @@ QString LocalDatabaseBase::schemaDatabaseStr() const
     return schemaDataBase();
 }
 
-QString LocalDatabaseBase::schemaDataBase() const
-{
-    Q_ASSERT(false);
-    return {};
-}
-
 QString LocalDatabaseBase::databaseNamePrefix(DatabaseType type)
 {
     QString prefix;
