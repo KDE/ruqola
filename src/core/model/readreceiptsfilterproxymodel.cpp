@@ -23,11 +23,7 @@ bool ReadReceiptsFilterProxyModel::filterAcceptsRow(int source_row, const QModel
     auto match = [&](int role) {
         return contains(modelIndex.data(role).toString());
     };
-    if (!match(ReadReceiptsModel::UserName) && !match(ReadReceiptsModel::Name)) {
-        return false;
-    }
-
-    return true;
+    return match(ReadReceiptsModel::UserName) || match(ReadReceiptsModel::Name);
 }
 
 #include "moc_readreceiptsfilterproxymodel.cpp"
