@@ -5,7 +5,6 @@
 */
 
 #include "showreadreceiptsdialog.h"
-#include "rocketchataccount.h"
 #include "showreadreceiptswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -24,7 +23,6 @@ using namespace Qt::Literals::StringLiterals;
 ShowReadReceiptsDialog::ShowReadReceiptsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowReadReceiptsWidget(new ShowReadReceiptsWidget(account, this))
-    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Read Receipts"));
     auto mainLayout = new QVBoxLayout(this);
