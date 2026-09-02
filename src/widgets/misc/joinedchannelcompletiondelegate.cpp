@@ -31,7 +31,7 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     // [M] icon ? name
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 

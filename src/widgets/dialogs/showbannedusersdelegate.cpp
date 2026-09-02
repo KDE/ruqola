@@ -24,7 +24,7 @@ void ShowBannedUsersDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     // [M] icon ? name (username)
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 

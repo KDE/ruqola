@@ -28,7 +28,7 @@ void TeamChannelsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     // [M] icon ? name (username)
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 

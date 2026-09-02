@@ -23,7 +23,7 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
     // command <parameter> description at the end
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 

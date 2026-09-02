@@ -28,7 +28,7 @@ void UserAndChannelCompletionDelegate::paint(QPainter *painter, const QStyleOpti
     // [M] icon ? status name (username) (description if necessary)
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 

@@ -24,7 +24,7 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     // [M] icon ? name (username)                    timestamp
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 
