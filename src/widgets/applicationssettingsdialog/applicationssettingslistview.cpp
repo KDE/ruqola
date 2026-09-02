@@ -53,7 +53,7 @@ ApplicationsSettingsListView::~ApplicationsSettingsListView() = default;
 
 void ApplicationsSettingsListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    if (model()->rowCount() > 0) {
+    if (model() && model()->rowCount() > 0) {
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             QMenu menu(this);
