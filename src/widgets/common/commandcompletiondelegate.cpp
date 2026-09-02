@@ -42,7 +42,7 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
     painter->setFont(italicFont);
 
     const QPen oldPen = painter->pen();
-    QColor col = painter->pen().color();
+    QColor col = oldPen.color();
     col.setAlpha(128);
     painter->setPen(col);
 
