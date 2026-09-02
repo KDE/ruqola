@@ -30,7 +30,7 @@ void NotifierJob::start()
             title += u" (%1)"_s.arg(mInfo.accountName());
         }
         notification->setTitle(title);
-        const QString notificationText = i18n("%1: %2", userName, mInfo.message().toHtmlEscaped());
+        const QString notificationText = i18n("%1: %2", userName.toHtmlEscaped(), mInfo.message().toHtmlEscaped());
         notification->setText(notificationText);
         if (!mInfo.pixmap().isNull()) {
             notification->setPixmap(mInfo.pixmap());
