@@ -72,8 +72,7 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
 {
     // Update video conf info
     if (m.messageType() == Message::MessageType::VideoConference) {
-        if (m.blocks()) {
-            const auto blocks{m.blocks()};
+        if (const auto blocks = m.blocks(); blocks) {
             const auto &blocksElements = blocks->blocks();
             for (const auto &b : blocksElements) {
                 if (!b.callId().isEmpty()) {
