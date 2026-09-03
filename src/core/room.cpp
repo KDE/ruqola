@@ -1674,7 +1674,7 @@ bool Room::userIsIgnored(const QByteArray &userId) const
         return false;
     }
     // TODO Convert mIgnoredUsers to QList<QByteArray>
-    return users.contains(QString::fromLatin1(userId));
+    return users.contains(QLatin1StringView(userId));
 }
 
 bool Room::userIsMuted(const QString &username) const
