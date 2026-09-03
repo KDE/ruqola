@@ -38,11 +38,9 @@ void AppsMarketPlaceModel::clearInstalledAppsInformation()
             info.clearInstalledInfo();
         }
     }
-    for (const AppsMarketPlaceInfo &info : std::as_const(mAppsMarketPlaceInfos)) {
-        if (!info.isValid()) {
-            mAppsMarketPlaceInfos.removeAll(info);
-        }
-    }
+    mAppsMarketPlaceInfos.removeIf([](const AppsMarketPlaceInfo &info) {
+        return !info.isValid();
+    });
     endResetModel();
 }
 
