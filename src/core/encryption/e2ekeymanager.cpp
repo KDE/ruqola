@@ -609,7 +609,8 @@ void E2eKeyManager::sendRoomKeyToUsers([[maybe_unused]] const QByteArray &roomId
             continue;
         }
 
-        const QByteArray encryptedRecipientSessionKey = encryptSessionKeyForPublicKey(sessionKey, publicKey.toUtf8());
+        const QByteArray publicKeyUtf8 = publicKey.toUtf8();
+        const QByteArray encryptedRecipientSessionKey = encryptSessionKeyForPublicKey(sessionKey, publicKeyUtf8);
         if (encryptedRecipientSessionKey.isEmpty()) {
             qCWarning(RUQOLA_ENCRYPTION_LOG) << "sendRoomKeyToUsers: unable to encrypt room key for" << targetUserId;
             continue;
@@ -618,7 +619,7 @@ void E2eKeyManager::sendRoomKeyToUsers([[maybe_unused]] const QByteArray &roomId
         suggestedKeys.append({
             targetUserId,
             keyId + QString::fromLatin1(encryptedRecipientSessionKey.toBase64()),
-            encryptOldRoomKeysForPublicKey(oldRoomKeys, publicKey.toUtf8()),
+            encryptOldRoomKeysForPublicKey(oldRoomKeys, publicKeyUtf8),
         });
     }
 
