@@ -424,13 +424,10 @@ void Message::setBlocks(const Blocks &newBlocks)
 
 QString Message::originalMessageOrAttachmentDescription() const
 {
-    if (!attachments()) {
-        return text();
+    if (auto att = attachments(); att && !att->isEmpty()) {
+        return att->messageAttachments().constFirst().description();
     }
-    if (attachments()->isEmpty()) {
-        return text();
-    }
-    return attachments()->messageAttachments().constFirst().description();
+    return text();
 }
 
 MessageExtra *Message::messageExtra()
