@@ -126,5 +126,8 @@ void DeviceInfos::parseMoreDeviceInfos(const QJsonObject &deviceInfosObj)
 
 DeviceInfo DeviceInfos::takeAt(int index)
 {
+    if (index < 0 || index >= mDeviceInfosList.count()) {
+        return {};
+    }
     return mDeviceInfosList.takeAt(index);
 }

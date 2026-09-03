@@ -290,8 +290,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::Attachments: {
         QVariantList lst;
         if (message.attachments()) {
-            lst.reserve(message.attachments()->messageAttachments().count());
-            const auto attaches = message.attachments()->messageAttachments();
+            const auto atts = message.attachments()->messageAttachments();
+            lst.reserve(atts.count());
+            const auto attaches = atts;
             for (const MessageAttachment &att : attaches) {
                 lst.append(QVariant::fromValue(att));
             }

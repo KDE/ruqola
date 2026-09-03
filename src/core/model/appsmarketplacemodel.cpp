@@ -197,7 +197,9 @@ bool AppsMarketPlaceModel::wasFilled() const
 
 void AppsMarketPlaceModel::clear()
 {
+    beginResetModel();
     mAppsMarketPlaceInfos.clear();
+    endResetModel();
 }
 
 AppsCountInfo AppsMarketPlaceModel::appsCountInfo() const

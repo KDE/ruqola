@@ -76,7 +76,7 @@ int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(co
 
 QByteArray NotificationDesktopSoundPreferenceModel::currentPreference(int index) const
 {
-    if (index >= mCustomSoundManager->customSoundsInfo().count()) {
+    if (index < 0 || index >= mCustomSoundManager->customSoundsInfo().count()) {
         return {};
     }
     const QByteArray str = mCustomSoundManager->customSoundsInfo().at(index).identifier();
