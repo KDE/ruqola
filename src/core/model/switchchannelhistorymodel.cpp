@@ -43,13 +43,13 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
 void SwitchChannelHistoryModel::addHistory(const SwitchChannelInfo &info)
 {
     if (!mSwichChannelsInfo.isEmpty()) {
-        if (mSwichChannelsInfo.at(mSwichChannelsInfo.count() - 1) == info) {
+        if (mSwichChannelsInfo.constFirst() == info) {
             return;
         }
     }
     beginResetModel();
     if (mSwichChannelsInfo.count() > 10) {
-        mSwichChannelsInfo.takeFirst();
+        mSwichChannelsInfo.takeLast();
     }
     mSwichChannelsInfo.removeAll(info);
     mSwichChannelsInfo.prepend(info);
