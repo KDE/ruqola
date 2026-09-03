@@ -494,9 +494,8 @@ bool MessageUrl::operator==(const MessageUrl &other) const
 {
     return (mUrl == other.mUrl) && (mPageTitle == other.mPageTitle) && (mDescription == other.mDescription) && (mImageUrl == other.mImageUrl)
         && (mAuthorName == other.mAuthorName) && (mAuthorUrl == other.mAuthorUrl) && (mSiteUrl == other.mSiteUrl) && (mSiteName == other.mSiteName)
-        && (mImageHeight == other.mImageHeight) && (mImageWidth == other.mImageWidth)
-        && (mUrlId == other.mUrlId && (mHtmlDescription == other.mHtmlDescription) && (mImageBuildUrl == other.mImageBuildUrl))
-        && (mContentType == other.mContentType);
+        && (mImageHeight == other.mImageHeight) && (mImageWidth == other.mImageWidth) && (mUrlId == other.mUrlId)
+        && (mHtmlDescription == other.mHtmlDescription) && (mImageBuildUrl == other.mImageBuildUrl) && (mContentType == other.mContentType);
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)
