@@ -18,6 +18,7 @@ bool MessageAttachmentActions::isValid() const
 
 void MessageAttachmentActions::parse(const QJsonObject &obj)
 {
+    mActions.clear();
     mAlignment = convertStringToAlignmentButton(obj["button_alignment"_L1].toString());
     const QJsonArray array = obj["actions"_L1].toArray();
     mActions.reserve(array.count());
