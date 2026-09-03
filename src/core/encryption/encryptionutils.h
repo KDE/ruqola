@@ -67,7 +67,6 @@ struct RSAKeyPair {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString generateRandomText(int size);
 [[nodiscard]] LIBRUQOLACORE_EXPORT EncryptionUtils::EncryptionInfo splitVectorAndEcryptedData(const QByteArray &cipherText);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QByteArray joinVectorAndEcryptedData(const EncryptionUtils::EncryptionInfo &info);
-[[nodiscard]] LIBRUQOLACORE_EXPORT QVector<uint8_t> toArrayBuffer(const QByteArray &ba);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString generateRandomPassword();
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString generateRoomKeyId();
 }
