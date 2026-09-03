@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:43+0000\n"
+"POT-Creation-Date: 2026-09-03 00:43+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1036,13 +1036,13 @@ msgstr "%1 kaj %2"
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
-#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:92
-#: core/model/directoryusersmodel.cpp:103
+#: core/model/directoryroomsmodel.cpp:112 core/model/directoryteamsmodel.cpp:86
+#: core/model/directoryusersmodel.cpp:97
 #: core/model/moderationreportedmessagemodel.cpp:32
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:32
-#: core/model/personalaccesstokeninfosmodel.cpp:84
-#: core/model/usersinrolemodel.cpp:88
+#: core/model/personalaccesstokeninfosmodel.cpp:81
+#: core/model/usersinrolemodel.cpp:82
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:46
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
@@ -1052,7 +1052,7 @@ msgstr "Nomo"
 #: core/model/admincustomemojimodel.cpp:38
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
-#: core/model/directoryroomsmodel.cpp:124 core/model/directoryteamsmodel.cpp:96
+#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:90
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
 #, kde-format
 msgid "Identifier"
@@ -1088,17 +1088,17 @@ msgstr "Uzoj maldekstre"
 msgid "Expiration"
 msgstr "Eksvalidiĝo"
 
-#: core/model/admininvitemodel.cpp:116
+#: core/model/admininvitemodel.cpp:113
 #, kde-format
 msgid "Unlimited"
 msgstr ""
 
-#: core/model/admininvitemodel.cpp:124
+#: core/model/admininvitemodel.cpp:121
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "Eksvalidiĝo post %1 tagoj"
 
-#: core/model/admininvitemodel.cpp:126
+#: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expired"
 msgstr "Eksvalidiĝis"
@@ -1160,17 +1160,17 @@ msgstr "Nombro da Mesaĝoj"
 msgid "Number of Users"
 msgstr "Nombro de Uzantoj"
 
-#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:122
+#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:116
 #, kde-format
 msgid "Topic"
 msgstr "Temo"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:120
 #, kde-format
 msgid "Read-only"
 msgstr "Nurlegebla"
 
-#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:128
+#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Default Room"
 msgstr "Defaŭlta Ĉambro"
@@ -1300,44 +1300,44 @@ msgstr "Ip"
 msgid "Login At"
 msgstr "Ensaluti Ĉe"
 
-#: core/model/directoryroomsmodel.cpp:120
+#: core/model/directoryroomsmodel.cpp:114
 #, kde-format
 msgid "Number Of Users"
 msgstr "Nombro De Uzantoj"
 
-#: core/model/directoryroomsmodel.cpp:130
+#: core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Last Message"
 msgstr "Lasta Mesaĝo"
 
-#: core/model/directoryroomsmodel.cpp:132 core/model/directoryteamsmodel.cpp:98
+#: core/model/directoryroomsmodel.cpp:126 core/model/directoryteamsmodel.cpp:92
 #, kde-format
 msgid "Created"
 msgstr "Kreita"
 
-#: core/model/directoryroomsmodel.cpp:135
+#: core/model/directoryroomsmodel.cpp:129
 #, kde-format
 msgid "Channel Type"
 msgstr "Kanala Tipo"
 
-#: core/model/directoryroomsmodel.cpp:137
+#: core/model/directoryroomsmodel.cpp:131
 #, kde-format
 msgid "Belongs To"
 msgstr "Apartenas Al"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
+#: core/model/directoryteamsmodel.cpp:88 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
 msgstr "Ĉambroj"
 
-#: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:90
+#: core/model/directoryusersmodel.cpp:99 core/model/usersinrolemodel.cpp:84
 #, kde-format
 msgid "Emails"
 msgstr "Retpoŝtoj"
 
-#: core/model/directoryusersmodel.cpp:107
+#: core/model/directoryusersmodel.cpp:101
 #, kde-format
 msgid "Join At"
 msgstr "Aliĝi Ĉe"
@@ -1453,17 +1453,17 @@ msgstr "Ignorita"
 msgid "Required"
 msgstr "Bezonata"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:86
+#: core/model/personalaccesstokeninfosmodel.cpp:83
 #, kde-format
 msgid "Create At"
 msgstr "Krei Ĉe"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:88
+#: core/model/personalaccesstokeninfosmodel.cpp:85
 #, kde-format
 msgid "Two Factor Authentication"
 msgstr "Dufaktora Aŭtentigo"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:90
+#: core/model/personalaccesstokeninfosmodel.cpp:87
 #, kde-format
 msgid "Last token part"
 msgstr "Lasta simbola parto"
@@ -1746,7 +1746,7 @@ msgstr "(Aŭtomata aliĝo)"
 msgid "Owner"
 msgstr "Posedanto"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
+#: core/model/usersmodel.cpp:77 core/utils.cpp:99 core/utils.cpp:374
 #, kde-format
 msgid "Offline"
 msgstr "Senrete"
@@ -2029,17 +2029,17 @@ msgstr "Administranto"
 msgid "Bot"
 msgstr "Bot (roboto)"
 
-#: core/utils.cpp:92 core/utils.cpp:367
+#: core/utils.cpp:93 core/utils.cpp:368
 #, kde-format
 msgid "Online"
 msgstr "Rete"
 
-#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:95 core/utils.cpp:370 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Okupita"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "For"
@@ -7727,7 +7727,7 @@ msgstr "Uzantnomo aŭ retpoŝto"
 msgid "Username or email:"
 msgstr "Uzantnomo aŭ retpoŝto:"
 
-#: widgets/common/authenticationloginwidget.cpp:161
+#: widgets/common/authenticationloginwidget.cpp:168
 #: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
@@ -7737,7 +7737,7 @@ msgstr ""
 "Ni sendis al vi retmesaĝon por konfirmi vian registradon.\n"
 "Se vi ne ricevas retmesaĝon baldaŭ, bonvolu reveni kaj provi denove."
 
-#: widgets/common/authenticationloginwidget.cpp:162
+#: widgets/common/authenticationloginwidget.cpp:169
 #: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@title:window"
@@ -9300,7 +9300,7 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Montri Alpinglitajn Mesaĝojn - %1"
 
-#: widgets/dialogs/showreadreceiptsdialog.cpp:29
+#: widgets/dialogs/showreadreceiptsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@title:window"

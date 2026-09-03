@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:43+0000\n"
+"POT-Creation-Date: 2026-09-03 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1040,13 +1040,13 @@ msgstr "%1 तथा %2"
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
-#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:92
-#: core/model/directoryusersmodel.cpp:103
+#: core/model/directoryroomsmodel.cpp:112 core/model/directoryteamsmodel.cpp:86
+#: core/model/directoryusersmodel.cpp:97
 #: core/model/moderationreportedmessagemodel.cpp:32
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:32
-#: core/model/personalaccesstokeninfosmodel.cpp:84
-#: core/model/usersinrolemodel.cpp:88
+#: core/model/personalaccesstokeninfosmodel.cpp:81
+#: core/model/usersinrolemodel.cpp:82
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:46
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
@@ -1056,7 +1056,7 @@ msgstr "नामः"
 #: core/model/admincustomemojimodel.cpp:38
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
-#: core/model/directoryroomsmodel.cpp:124 core/model/directoryteamsmodel.cpp:96
+#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:90
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
 #, kde-format
 msgid "Identifier"
@@ -1092,17 +1092,17 @@ msgstr "वामस्य उपयोगं करोति"
 msgid "Expiration"
 msgstr "समाप्ति"
 
-#: core/model/admininvitemodel.cpp:116
+#: core/model/admininvitemodel.cpp:113
 #, kde-format
 msgid "Unlimited"
 msgstr "असीमित"
 
-#: core/model/admininvitemodel.cpp:124
+#: core/model/admininvitemodel.cpp:121
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "%1 दिवसेषु समाप्तं भवति"
 
-#: core/model/admininvitemodel.cpp:126
+#: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expired"
 msgstr "परीत"
@@ -1164,17 +1164,17 @@ msgstr "सन्देशानां संख्या"
 msgid "Number of Users"
 msgstr "उपयोक्तृणां संख्या"
 
-#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:122
+#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:116
 #, kde-format
 msgid "Topic"
 msgstr "विषय"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:120
 #, kde-format
 msgid "Read-only"
 msgstr "केवलं पठनीयः"
 
-#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:128
+#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Default Room"
 msgstr "पूर्वनिर्धारित कक्ष"
@@ -1304,44 +1304,44 @@ msgstr "इप"
 msgid "Login At"
 msgstr "प्रवेशः At"
 
-#: core/model/directoryroomsmodel.cpp:120
+#: core/model/directoryroomsmodel.cpp:114
 #, kde-format
 msgid "Number Of Users"
 msgstr "Number Of Users इति"
 
-#: core/model/directoryroomsmodel.cpp:130
+#: core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Last Message"
 msgstr "अन्तिमः सन्देशः"
 
-#: core/model/directoryroomsmodel.cpp:132 core/model/directoryteamsmodel.cpp:98
+#: core/model/directoryroomsmodel.cpp:126 core/model/directoryteamsmodel.cpp:92
 #, kde-format
 msgid "Created"
 msgstr "निर्मितम्"
 
-#: core/model/directoryroomsmodel.cpp:135
+#: core/model/directoryroomsmodel.cpp:129
 #, kde-format
 msgid "Channel Type"
 msgstr "चैनल प्रकार"
 
-#: core/model/directoryroomsmodel.cpp:137
+#: core/model/directoryroomsmodel.cpp:131
 #, kde-format
 msgid "Belongs To"
 msgstr "Belongs To इति"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
+#: core/model/directoryteamsmodel.cpp:88 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
 msgstr "कक्ष्याः"
 
-#: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:90
+#: core/model/directoryusersmodel.cpp:99 core/model/usersinrolemodel.cpp:84
 #, kde-format
 msgid "Emails"
 msgstr "ईमेल"
 
-#: core/model/directoryusersmodel.cpp:107
+#: core/model/directoryusersmodel.cpp:101
 #, kde-format
 msgid "Join At"
 msgstr "Join At"
@@ -1457,17 +1457,17 @@ msgstr "उपेक्षितम्"
 msgid "Required"
 msgstr "आवश्यकः"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:86
+#: core/model/personalaccesstokeninfosmodel.cpp:83
 #, kde-format
 msgid "Create At"
 msgstr "रचयतु At"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:88
+#: core/model/personalaccesstokeninfosmodel.cpp:85
 #, kde-format
 msgid "Two Factor Authentication"
 msgstr "द्वौ कारकप्रमाणीकरणं"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:90
+#: core/model/personalaccesstokeninfosmodel.cpp:87
 #, kde-format
 msgid "Last token part"
 msgstr "अन्तिमः टोकन भागः"
@@ -1750,7 +1750,7 @@ msgstr "(स्वयं संयोगः)"
 msgid "Owner"
 msgstr "स्वामी"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
+#: core/model/usersmodel.cpp:77 core/utils.cpp:99 core/utils.cpp:374
 #, kde-format
 msgid "Offline"
 msgstr "अफलाइन"
@@ -2035,17 +2035,17 @@ msgstr "प्रशासकः"
 msgid "Bot"
 msgstr "बोट्"
 
-#: core/utils.cpp:92 core/utils.cpp:367
+#: core/utils.cpp:93 core/utils.cpp:368
 #, kde-format
 msgid "Online"
 msgstr "लब्धसम्पर्क"
 
-#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:95 core/utils.cpp:370 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "व्यस्तः"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "दुरे"
@@ -7701,7 +7701,7 @@ msgstr "उपयोक्तृनाम वा ईमेल वा"
 msgid "Username or email:"
 msgstr "उपयोक्तृनाम अथवा ईमेल :"
 
-#: widgets/common/authenticationloginwidget.cpp:161
+#: widgets/common/authenticationloginwidget.cpp:168
 #: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
@@ -7711,7 +7711,7 @@ msgstr ""
 "भवतः पञ्जीकरणस्य पुष्ट्यर्थं वयं भवतः ईमेल प्रेषितवन्तः।\n"
 "यदि भवान् शीघ्रमेव ईमेल न प्राप्नोति तर्हि कृपया पुनः आगत्य पुनः प्रयासं कुर्वन्तु।"
 
-#: widgets/common/authenticationloginwidget.cpp:162
+#: widgets/common/authenticationloginwidget.cpp:169
 #: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@title:window"
@@ -9288,7 +9288,7 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "पिनकृतसन्देशान् दर्शयतु - %1"
 
-#: widgets/dialogs/showreadreceiptsdialog.cpp:29
+#: widgets/dialogs/showreadreceiptsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@title:window"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:43+0000\n"
+"POT-Creation-Date: 2026-09-03 00:43+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1033,13 +1033,13 @@ msgstr "%1 和 %2"
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
-#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:92
-#: core/model/directoryusersmodel.cpp:103
+#: core/model/directoryroomsmodel.cpp:112 core/model/directoryteamsmodel.cpp:86
+#: core/model/directoryusersmodel.cpp:97
 #: core/model/moderationreportedmessagemodel.cpp:32
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:32
-#: core/model/personalaccesstokeninfosmodel.cpp:84
-#: core/model/usersinrolemodel.cpp:88
+#: core/model/personalaccesstokeninfosmodel.cpp:81
+#: core/model/usersinrolemodel.cpp:82
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:46
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
@@ -1049,7 +1049,7 @@ msgstr "名稱"
 #: core/model/admincustomemojimodel.cpp:38
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
-#: core/model/directoryroomsmodel.cpp:124 core/model/directoryteamsmodel.cpp:96
+#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:90
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
 #, kde-format
 msgid "Identifier"
@@ -1085,17 +1085,17 @@ msgstr "剩餘使用次數"
 msgid "Expiration"
 msgstr "使用期限"
 
-#: core/model/admininvitemodel.cpp:116
+#: core/model/admininvitemodel.cpp:113
 #, kde-format
 msgid "Unlimited"
 msgstr "無限制"
 
-#: core/model/admininvitemodel.cpp:124
+#: core/model/admininvitemodel.cpp:121
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "將在 %1 天內過期"
 
-#: core/model/admininvitemodel.cpp:126
+#: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expired"
 msgstr "已過期"
@@ -1157,17 +1157,17 @@ msgstr "訊息數量"
 msgid "Number of Users"
 msgstr "使用者數量"
 
-#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:122
+#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:116
 #, kde-format
 msgid "Topic"
 msgstr "主題"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:126
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:120
 #, kde-format
 msgid "Read-only"
 msgstr "唯讀"
 
-#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:128
+#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Default Room"
 msgstr "預設聊天室"
@@ -1297,44 +1297,44 @@ msgstr "IP"
 msgid "Login At"
 msgstr "登入時間"
 
-#: core/model/directoryroomsmodel.cpp:120
+#: core/model/directoryroomsmodel.cpp:114
 #, kde-format
 msgid "Number Of Users"
 msgstr "使用者數量"
 
-#: core/model/directoryroomsmodel.cpp:130
+#: core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Last Message"
 msgstr "最後訊息"
 
-#: core/model/directoryroomsmodel.cpp:132 core/model/directoryteamsmodel.cpp:98
+#: core/model/directoryroomsmodel.cpp:126 core/model/directoryteamsmodel.cpp:92
 #, kde-format
 msgid "Created"
 msgstr "已建立"
 
-#: core/model/directoryroomsmodel.cpp:135
+#: core/model/directoryroomsmodel.cpp:129
 #, kde-format
 msgid "Channel Type"
 msgstr "頻道類型"
 
-#: core/model/directoryroomsmodel.cpp:137
+#: core/model/directoryroomsmodel.cpp:131
 #, kde-format
 msgid "Belongs To"
 msgstr "屬於"
 
-#: core/model/directoryteamsmodel.cpp:94 core/model/roommodel.cpp:683
+#: core/model/directoryteamsmodel.cpp:88 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
 msgstr "聊天室"
 
-#: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:90
+#: core/model/directoryusersmodel.cpp:99 core/model/usersinrolemodel.cpp:84
 #, kde-format
 msgid "Emails"
 msgstr "電子郵件"
 
-#: core/model/directoryusersmodel.cpp:107
+#: core/model/directoryusersmodel.cpp:101
 #, kde-format
 msgid "Join At"
 msgstr "加入於"
@@ -1449,17 +1449,17 @@ msgstr "已忽略"
 msgid "Required"
 msgstr "必要"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:86
+#: core/model/personalaccesstokeninfosmodel.cpp:83
 #, kde-format
 msgid "Create At"
 msgstr "建立於"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:88
+#: core/model/personalaccesstokeninfosmodel.cpp:85
 #, kde-format
 msgid "Two Factor Authentication"
 msgstr "兩步驟驗證"
 
-#: core/model/personalaccesstokeninfosmodel.cpp:90
+#: core/model/personalaccesstokeninfosmodel.cpp:87
 #, kde-format
 msgid "Last token part"
 msgstr "權杖最後的部分"
@@ -1738,7 +1738,7 @@ msgstr "（自動加入）"
 msgid "Owner"
 msgstr "擁有者"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:98 core/utils.cpp:373
+#: core/model/usersmodel.cpp:77 core/utils.cpp:99 core/utils.cpp:374
 #, kde-format
 msgid "Offline"
 msgstr "離線"
@@ -2014,17 +2014,17 @@ msgstr "管理員"
 msgid "Bot"
 msgstr "機器人"
 
-#: core/utils.cpp:92 core/utils.cpp:367
+#: core/utils.cpp:93 core/utils.cpp:368
 #, kde-format
 msgid "Online"
 msgstr "線上"
 
-#: core/utils.cpp:94 core/utils.cpp:369 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:95 core/utils.cpp:370 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "忙碌"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "離席"
@@ -7541,7 +7541,7 @@ msgstr "使用者名稱或電子郵件"
 msgid "Username or email:"
 msgstr "使用者名稱或電子郵件："
 
-#: widgets/common/authenticationloginwidget.cpp:161
+#: widgets/common/authenticationloginwidget.cpp:168
 #: widgets/ruqolamainwindow.cpp:1116
 #, kde-format
 msgid ""
@@ -7551,7 +7551,7 @@ msgstr ""
 "已寄出註冊確認郵件。\n"
 "如果您沒有收到該郵件，請回來再試一次。"
 
-#: widgets/common/authenticationloginwidget.cpp:162
+#: widgets/common/authenticationloginwidget.cpp:169
 #: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgctxt "@title:window"
@@ -9082,7 +9082,7 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "顯示置頂訊息 - %1"
 
-#: widgets/dialogs/showreadreceiptsdialog.cpp:29
+#: widgets/dialogs/showreadreceiptsdialog.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search device…"
