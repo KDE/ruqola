@@ -166,7 +166,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     }
 #endif
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
-        mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
+        mRuqolaLogger = new RuqolaLogger(mSettings->accountName(), this);
     }
 
     if (mRuqolaLogger) {
