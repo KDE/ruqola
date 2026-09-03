@@ -41,9 +41,9 @@ void InputCompleterModelTest::shouldAssignValues()
     }
     w.setChannels(channelList);
     QCOMPARE(w.rowCount(), 10);
-    QCOMPARE(rowInsertedSpy.count(), 0);
-    QCOMPARE(modelAboutToResetSpy.count(), 1);
-    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 0);
 
     // add Empty list
     channelList.clear();
@@ -67,8 +67,8 @@ void InputCompleterModelTest::shouldAssignValues()
 
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
-    QCOMPARE(modelAboutToResetSpy.count(), 1);
-    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 0);
 
     // Test add same number of element.
     channelList.clear();
@@ -83,9 +83,9 @@ void InputCompleterModelTest::shouldAssignValues()
     }
     w.setChannels(channelList);
     QCOMPARE(w.rowCount(), 5);
-    QCOMPARE(rowInsertedSpy.count(), 0);
-    QCOMPARE(modelAboutToResetSpy.count(), 1);
-    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 0);
 
     rowInsertedSpy.clear();
     modelAboutToResetSpy.clear();
@@ -93,7 +93,7 @@ void InputCompleterModelTest::shouldAssignValues()
     w.setChannels(channelList);
 
     QCOMPARE(w.rowCount(), 5);
-    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(modelAboutToResetSpy.count(), 1);
     QCOMPARE(modelResetSpy.count(), 1);
 }
@@ -127,9 +127,9 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     w.setSearchInfo(info);
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
-    QCOMPARE(rowInsertedSpy.count(), 0);
-    QCOMPARE(modelAboutToResetSpy.count(), 1);
-    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(modelAboutToResetSpy.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 0);
 
     rowInsertedSpy.clear();
     modelAboutToResetSpy.clear();
@@ -153,7 +153,7 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
     obj = loadFile(u"channelparentempty.json"_s);
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 1); // "No found result" item
-    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 1);
     QCOMPARE(modelAboutToResetSpy.count(), 1);
     QCOMPARE(modelResetSpy.count(), 1);
 }
@@ -170,8 +170,8 @@ void InputCompleterModelTest::shouldClearModel()
     w.setSearchInfo(info);
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
-    QCOMPARE(rowInsertedSpy.count(), 0);
-    QCOMPARE(modelAboutToBeResetSpy.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(modelAboutToBeResetSpy.count(), 0);
 
     rowInsertedSpy.clear();
     modelAboutToBeResetSpy.clear();
