@@ -2198,7 +2198,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
                 const QUrl url = QUrl::fromLocalFile(iconFileName);
                 QPixmap pix;
                 // qDebug() << "url.toLocalFile()" << url.toLocalFile();
-                const bool loaded = pix.load(url.toLocalFile().remove("file://"_L1), "JPEG");
+                const bool loaded = pix.load(url.toLocalFile(), "JPEG");
                 // qDebug() << " load pixmap : " << loaded;
                 // qDebug() << " pix " << pix.isNull();
                 std::ignore = loaded;
