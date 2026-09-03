@@ -11,6 +11,7 @@
 #include "utils.h"
 #include <QAbstractListModel>
 #include <QList>
+#include <QSet>
 class UsersModel;
 class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
@@ -79,6 +80,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT UsersForRoomModel::SectionStatus section(const User &user);
     QList<User> mUsers;
+    QSet<QByteArray> mUserIds;
     int mTotal = 0;
     int mOffset = 0;
     int mNumberUsersWithoutFilter = 0;

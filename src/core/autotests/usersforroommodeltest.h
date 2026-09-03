@@ -17,6 +17,7 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAddValues();
+    void shouldNotAddDuplicatedUsers();
     void shouldVerifyData();
 
     void shouldParseUsers_data();

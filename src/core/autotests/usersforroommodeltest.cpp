@@ -84,6 +84,67 @@ void UsersForRoomModelTest::shouldAddValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
 }
 
+void UsersForRoomModelTest::shouldNotAddDuplicatedUsers()
+{
+    // setUsers() is incremental (one call per loadMoreUsers page), so a user already
+    // in the model must not be appended again, even when the server reports him with
+    // a different status/roles than in the previous page.
+    auto createUser = [](int i, User::PresenceStatus status) {
+        User user;
+        user.setName(u"name%1"_s.arg(i));
+        user.setStatus(status);
+        user.setUserId(u"userId%1"_s.arg(i).toLatin1());
+        user.setUserName(u"username%1"_s.arg(i));
+        return user;
+    };
+
+    UsersForRoomModel w;
+    QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
+
+    QList<User> firstPage;
+    for (int i = 0; i < 5; ++i) {
+        firstPage.append(createUser(i, User::PresenceStatus::Online));
+    }
+    w.setUsers(firstPage);
+    QCOMPARE(w.rowCount(), 5);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,4"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,4"_s);
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+
+    // Second page overlaps on userId3/userId4 and their status changed in between.
+    QList<User> secondPage;
+    for (int i = 3; i < 8; ++i) {
+        secondPage.append(createUser(i, User::PresenceStatus::Offline));
+    }
+    w.setUsers(secondPage);
+    QCOMPARE(w.rowCount(), 8);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"5,7"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"5,7"_s);
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+
+    // The already known users kept their original value, they were not updated.
+    for (int i = 0; i < 8; ++i) {
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserId).toString(), u"userId%1"_s.arg(i));
+    }
+
+    // Re-sending an already fully known page must not insert anything.
+    w.setUsers(secondPage);
+    QCOMPARE(w.rowCount(), 8);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+
+    // clear() must forget the known ids, otherwise a reload shows an empty list.
+    w.clear();
+    QCOMPARE(w.rowCount(), 0);
+    w.setUsers(firstPage);
+    QCOMPARE(w.rowCount(), 5);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), u"0,4"_s);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), u"0,4"_s);
+}
+
 void UsersForRoomModelTest::shouldVerifyData()
 {
     UsersForRoomModel w;

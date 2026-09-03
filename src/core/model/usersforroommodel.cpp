@@ -25,23 +25,18 @@ UsersForRoomModel::~UsersForRoomModel() = default;
 
 void UsersForRoomModel::setUsers(const QList<User> &users)
 {
-    if (mUsers.isEmpty()) {
-        if (!users.isEmpty()) {
-            beginInsertRows(QModelIndex(), 0, users.count() - 1);
-            mUsers = users;
-            endInsertRows();
+    const int numberOfElement = mUsers.count();
+    mUsers.reserve(numberOfElement + users.count());
+    for (const auto &u : users) {
+        const QByteArray userId = u.userId();
+        if (!mUserIds.contains(userId)) {
+            mUsers << u;
+            mUserIds.insert(userId);
         }
-    } else {
-        const int numberOfElement = mUsers.count();
-        for (const auto &u : users) {
-            if (!mUsers.contains(u)) {
-                mUsers << u;
-            }
-        }
-        if (mUsers.count() > numberOfElement) {
-            beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
-            endInsertRows();
-        }
+    }
+    if (mUsers.count() > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
+        endInsertRows();
     }
     checkFullList();
 }
@@ -51,6 +46,7 @@ void UsersForRoomModel::clear()
     if (!mUsers.isEmpty()) {
         beginResetModel();
         mUsers.clear();
+        mUserIds.clear();
         endResetModel();
     }
 }
