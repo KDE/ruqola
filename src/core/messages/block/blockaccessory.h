@@ -43,7 +43,7 @@ public:
     [[nodiscard]] BlockAccessory::AccessoryType type() const;
     void setType(BlockAccessory::AccessoryType newType);
 
-    [[nodiscard]] QList<BlockAccessoryOption> options() const;
+    [[nodiscard]] const QList<BlockAccessoryOption> &options() const;
     void setOptions(const QList<BlockAccessoryOption> &newOptions);
 
     [[nodiscard]] QString text() const;

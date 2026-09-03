@@ -35,7 +35,7 @@ void Reactions::setReactions(const QList<Reaction> &reactions)
     mReactions = reactions;
 }
 
-QList<Reaction> Reactions::reactions() const
+const QList<Reaction> &Reactions::reactions() const
 {
     return mReactions;
 }

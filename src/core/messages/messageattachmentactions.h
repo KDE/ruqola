@@ -25,11 +25,11 @@ public:
 
     void parse(const QJsonObject &obj);
     [[nodiscard]] AlignmentButton alignment() const;
-    void setAlignment(const AlignmentButton &newAlignment);
+    void setAlignment(AlignmentButton newAlignment);
 
     [[nodiscard]] bool operator==(const MessageAttachmentActions &other) const;
 
-    [[nodiscard]] QList<MessageAttachmentAction> actions() const;
+    [[nodiscard]] const QList<MessageAttachmentAction> &actions() const;
     void setActions(const QList<MessageAttachmentAction> &newActions);
 
     [[nodiscard]] static AlignmentButton convertStringToAlignmentButton(const QString &str);

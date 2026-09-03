@@ -83,7 +83,7 @@ std::unique_ptr<MessageTranslations> MessageTranslations::deserialize(const QJso
     for (int i = 0, total = array.count(); i < total; ++i) {
         const QJsonObject o = array.at(i).toObject();
         if (o.count() == 1) {
-            translationStrings.insert(o.keys().at(0), o.value(o.keys().at(0)).toString());
+            translationStrings.insert(*o.keys().constBegin(), o.value(*o.keys().constBegin()).toString());
         }
     }
     translationMessage->setTranslatedString(translationStrings);

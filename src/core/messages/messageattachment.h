@@ -69,7 +69,7 @@ public:
     [[nodiscard]] AttachmentType attachmentType() const;
     void setAttachmentType(AttachmentType attachmentType);
 
-    [[nodiscard]] QList<MessageAttachmentField> attachmentFields() const;
+    [[nodiscard]] const QList<MessageAttachmentField> &attachmentFields() const;
     void setAttachmentFields(const QList<MessageAttachmentField> &attachmentFields);
 
     [[nodiscard]] bool collapsed() const;

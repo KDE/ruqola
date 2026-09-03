@@ -28,7 +28,7 @@ Replies::~Replies()
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Replies deleted " << this;
 }
 
-QList<QByteArray> Replies::replies() const
+const QList<QByteArray> &Replies::replies() const
 {
     return mReplies;
 }

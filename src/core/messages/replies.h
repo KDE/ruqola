@@ -30,7 +30,7 @@ public:
     [[nodiscard]] bool isEmpty() const;
 
     void setReplies(const QList<QByteArray> &replies);
-    [[nodiscard]] QList<QByteArray> replies() const;
+    [[nodiscard]] const QList<QByteArray> &replies() const;
 
 private:
     QList<QByteArray> mReplies;

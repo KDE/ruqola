@@ -34,7 +34,7 @@ void MessageAttachments::setMessageAttachments(const QList<MessageAttachment> &a
     mMessageAttachments = attachments;
 }
 
-QList<MessageAttachment> MessageAttachments::messageAttachments() const
+const QList<MessageAttachment> &MessageAttachments::messageAttachments() const
 {
     return mMessageAttachments;
 }
@@ -42,8 +42,10 @@ QList<MessageAttachment> MessageAttachments::messageAttachments() const
 void MessageAttachments::parseMessageAttachments(const QJsonArray &attachments, const QByteArray &messageId)
 {
     mMessageAttachments.clear();
+    const int number = attachments.size();
+    mMessageAttachments.reserve(number);
     // qDebug() << " void Message::parseAttachment(const QJsonObject &attachments)"<<attachments;
-    for (int i = 0; i < attachments.size(); i++) {
+    for (int i = 0; i < number; i++) {
         const QJsonObject attachment = attachments.at(i).toObject();
         MessageAttachment messageAttachement;
         messageAttachement.parseAttachment(attachment);

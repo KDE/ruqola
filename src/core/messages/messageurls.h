@@ -19,7 +19,7 @@ public:
     ~MessageUrls();
 
     void setMessageUrls(const QList<MessageUrl> &messageUrls);
-    [[nodiscard]] QList<MessageUrl> messageUrls() const;
+    [[nodiscard]] const QList<MessageUrl> &messageUrls() const;
 
     void parseMessageUrls(const QJsonArray &urls, const QByteArray &messageId);
 

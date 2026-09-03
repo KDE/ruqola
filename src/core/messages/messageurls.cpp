@@ -35,7 +35,7 @@ void MessageUrls::setMessageUrls(const QList<MessageUrl> &messageUrls)
     mMessageUrls = messageUrls;
 }
 
-QList<MessageUrl> MessageUrls::messageUrls() const
+const QList<MessageUrl> &MessageUrls::messageUrls() const
 {
     return mMessageUrls;
 }
@@ -43,6 +43,7 @@ QList<MessageUrl> MessageUrls::messageUrls() const
 void MessageUrls::parseMessageUrls(const QJsonArray &urls, const QByteArray &messageId)
 {
     mMessageUrls.clear();
+    mMessageUrls.reserve(urls.size());
     for (int i = 0; i < urls.size(); i++) {
         const QJsonObject url = urls.at(i).toObject();
         MessageUrl messageUrl;

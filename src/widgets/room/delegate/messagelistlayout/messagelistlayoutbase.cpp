@@ -90,14 +90,14 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                                                                        const QStyleOptionViewItem &option,
                                                                        const QModelIndex &index) const
 {
-    if ((!message->attachments() || message->attachments()->messageAttachments().isEmpty()) && (!message->blocks() || message->blocks()->isEmpty())
+    if ((!message->attachments() || message->attachments()->isEmpty()) && (!message->blocks() || message->blocks()->isEmpty())
         && (!message->urls() || message->urls()->isEmpty())) {
         layout.reactionsY = attachmentsY;
     } else {
         int topAttachment = attachmentsY;
         QRect attachmentsRect;
-        if (message->attachments() && !message->attachments()->messageAttachments().isEmpty()) {
-            const auto attachments = message->attachments()->messageAttachments();
+        if (message->attachments() && !message->attachments()->isEmpty()) {
+            const auto &attachments = message->attachments()->messageAttachments();
             QSize attachmentsSize;
             // TODO add spacing between attachment
             for (const MessageAttachment &msgAttach : attachments) {
@@ -127,8 +127,8 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
         }
         int topBlock = topAttachment;
         QRect blocksRect;
-        if (message->blocks() && !message->blocks()->blocks().isEmpty()) {
-            const auto blocks = message->blocks()->blocks();
+        if (message->blocks() && !message->blocks()->isEmpty()) {
+            const auto &blocks = message->blocks()->blocks();
             QSize blocksSize;
             for (const Block &block : blocks) {
                 const MessageBlockDelegateHelperBase *helper = delegate->blocksHelper(block);
@@ -149,7 +149,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
         QRect messageUrlsRect;
         if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->previewEmbed()) {
             if (message->urls() && !message->urls()->isEmpty()) {
-                const auto urls = message->urls()->messageUrls();
+                const auto &urls = message->urls()->messageUrls();
                 QSize urlsPreviewSize;
                 int topUrlPreview = topBlock;
                 for (const MessageUrl &url : urls) {

@@ -21,7 +21,7 @@ public:
     [[nodiscard]] QString reactionName() const;
     void setReactionName(const QString &reactionName, EmojiManager *emojiManager = nullptr);
 
-    [[nodiscard]] QStringList userNames() const;
+    [[nodiscard]] const QStringList &userNames() const;
     void setUserNames(const QStringList &userNames);
 
     [[nodiscard]] int count() const;

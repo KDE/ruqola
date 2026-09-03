@@ -112,7 +112,7 @@ void Block::setBlockAccessory(const BlockAccessory &newBlockAccessory)
     mBlockAccessory = newBlockAccessory;
 }
 
-QList<BlockAction> Block::blockActions() const
+const QList<BlockAction> &Block::blockActions() const
 {
     return mBlockActions;
 }

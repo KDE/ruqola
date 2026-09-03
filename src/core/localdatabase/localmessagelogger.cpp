@@ -91,7 +91,7 @@ QString LocalMessageLogger::generateTextFromMessage(const Message &m)
         message = txt;
     }
     if (m.attachments() && !m.attachments()->isEmpty()) {
-        const auto attachments = m.attachments()->messageAttachments();
+        const auto &attachments = m.attachments()->messageAttachments();
         for (const MessageAttachment &att : attachments) {
             if (!message.isEmpty()) {
                 message += u'\n';

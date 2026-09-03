@@ -179,7 +179,6 @@ public:
 
     [[nodiscard]] const MessageTranslations *messageTranslation() const;
     void setMessageTranslation(const MessageTranslations &messageTranslation);
-    void setMessageTranslation(MessageTranslations *messageTranslation);
 
     [[nodiscard]] bool showTranslatedMessage() const;
     void setShowTranslatedMessage(bool showTranslatedMessage);

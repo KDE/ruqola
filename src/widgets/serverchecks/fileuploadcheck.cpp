@@ -69,7 +69,7 @@ void FileUploadCheck::checkState()
         if (message.pendingMessage() || !message.attachments()) {
             continue;
         }
-        const QList<MessageAttachment> attachments = message.attachments()->messageAttachments();
+        const QList<MessageAttachment> &attachments = message.attachments()->messageAttachments();
         for (const MessageAttachment &attachment : attachments) {
             if (attachment.title() != mFileName && !attachment.link().contains(mFileName)) {
                 continue;

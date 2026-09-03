@@ -53,7 +53,7 @@ void LinkPreviewCheck::checkState()
         if (message.pendingMessage() || !message.text().contains(mMarker) || !message.urls()) {
             continue;
         }
-        const QList<MessageUrl> urls = message.urls()->messageUrls();
+        const QList<MessageUrl> &urls = message.urls()->messageUrls();
         for (const MessageUrl &url : urls) {
             // A populated preview means the server successfully unfurled the URL
             // (the raw URL is always present; the meta fields only after unfurling).

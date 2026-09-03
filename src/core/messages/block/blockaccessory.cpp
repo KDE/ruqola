@@ -155,7 +155,7 @@ void BlockAccessory::setText(const QString &newText)
     mText = newText;
 }
 
-QList<BlockAccessoryOption> BlockAccessory::options() const
+const QList<BlockAccessoryOption> &BlockAccessory::options() const
 {
     return mOptions;
 }

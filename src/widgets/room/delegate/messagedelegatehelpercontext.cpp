@@ -72,7 +72,7 @@ MessageDelegateHelperContext::layoutContext(const Block &block, const QStyleOpti
     ContextLayout layout;
 
     qreal x = 0;
-    const auto actions = block.blockActions();
+    const auto &actions = block.blockActions();
     for (const auto &act : actions) {
         ButtonLayout buttonLayout;
         buttonLayout.text = act.text();

@@ -104,7 +104,7 @@ QString TextSelection::selectedText(Format format) const
         const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         if (message) {
             if (message->attachments()) {
-                const auto attachments = message->attachments()->messageAttachments();
+                const auto &attachments = message->attachments()->messageAttachments();
                 for (const auto &att : attachments) {
                     for (auto factory : std::as_const(mAttachmentFactories)) {
                         doc = factory->documentForAttachement(att);
@@ -120,7 +120,7 @@ QString TextSelection::selectedText(Format format) const
             }
 
             if (message->urls() && mMessageUrlHelperFactory) {
-                const auto messageUrls = message->urls()->messageUrls();
+                const auto &messageUrls = message->urls()->messageUrls();
                 for (const auto &url : messageUrls) {
                     if (url.showPreview()) {
                         doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
@@ -516,7 +516,7 @@ void TextSelection::selectMessage(const QModelIndex &index)
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     if (message) {
         if (message->attachments()) {
-            const auto attachments = message->attachments()->messageAttachments();
+            const auto &attachments = message->attachments()->messageAttachments();
             for (const auto &att : attachments) {
                 for (auto factory : std::as_const(mAttachmentFactories)) {
                     doc = factory->documentForAttachement(att);
@@ -532,7 +532,7 @@ void TextSelection::selectMessage(const QModelIndex &index)
             }
         }
         if (message->urls() && mMessageUrlHelperFactory) {
-            const auto urls = message->urls()->messageUrls();
+            const auto &urls = message->urls()->messageUrls();
             for (const auto &url : urls) {
                 if (url.hasHtmlDescription()) {
                     QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(url);

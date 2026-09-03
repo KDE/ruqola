@@ -290,10 +290,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::Attachments: {
         QVariantList lst;
         if (message.attachments()) {
-            const auto atts = message.attachments()->messageAttachments();
+            const auto &atts = message.attachments()->messageAttachments();
             lst.reserve(atts.count());
-            const auto attaches = atts;
-            for (const MessageAttachment &att : attaches) {
+            for (const MessageAttachment &att : atts) {
                 lst.append(QVariant::fromValue(att));
             }
         }
@@ -302,8 +301,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::Urls: {
         QVariantList lst;
         if (message.urls()) {
-            lst.reserve(message.urls()->messageUrls().count());
-            const auto urls = message.urls()->messageUrls();
+            const auto &urls = message.urls()->messageUrls();
+            lst.reserve(urls.count());
             for (const MessageUrl &url : urls) {
                 lst.append(QVariant::fromValue(url));
             }
@@ -338,7 +337,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::Reactions: {
         QVariantList lst;
         if (auto reactionsMessages = message.reactions()) {
-            const auto reactions = reactionsMessages->reactions();
+            const auto &reactions = reactionsMessages->reactions();
             lst.reserve(reactions.count());
             for (const Reaction &react : reactions) {
                 // Convert reactions
@@ -707,14 +706,14 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
             != msgAttachments.end();
     };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
-        if (msg.attachments() && !msg.attachments()->messageAttachments().isEmpty()) {
+        if (msg.attachments() && !msg.attachments()->isEmpty()) {
             if (matchesFilePath(msg.attachments()->messageAttachments())) {
                 matchedAttachment = true;
                 return true;
             }
         }
         if (auto urls = msg.urls()) {
-            const auto messageUrls = urls->messageUrls();
+            const auto &messageUrls = urls->messageUrls();
             for (const MessageUrl &url : messageUrls) {
                 const QString imageUrl = url.buildImageUrl();
                 if (!imageUrl.isEmpty() && mRocketChatAccount->urlForLink(imageUrl).path() == filePath) {
@@ -725,7 +724,7 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();
         if (auto reactionsMessages = msg.reactions()) {
-            const auto reactions = reactionsMessages->reactions();
+            const auto &reactions = reactionsMessages->reactions();
             for (const Reaction &reaction : reactions) {
                 const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
                 if (!fileName.isEmpty() && mRocketChatAccount->urlForLink(fileName).path() == filePath) {

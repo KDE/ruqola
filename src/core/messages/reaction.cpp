@@ -62,7 +62,7 @@ void Reaction::setReactionName(const QString &reactionName, EmojiManager *emojiM
     }
 }
 
-QStringList Reaction::userNames() const
+const QStringList &Reaction::userNames() const
 {
     return mUserNames;
 }

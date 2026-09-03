@@ -20,7 +20,7 @@ public:
     ~Reactions();
 
     void setReactions(const QList<Reaction> &reactions);
-    [[nodiscard]] QList<Reaction> reactions() const;
+    [[nodiscard]] const QList<Reaction> &reactions() const;
 
     void parseReactions(const QJsonObject &array, EmojiManager *emojiManager = nullptr);
 

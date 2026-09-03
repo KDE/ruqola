@@ -27,7 +27,7 @@ public:
     };
 
     void setChannels(const QList<ChannelInfo> &channels);
-    [[nodiscard]] QList<ChannelInfo> channels() const;
+    [[nodiscard]] const QList<ChannelInfo> &channels() const;
 
     void parseChannels(const QJsonArray &array);
 

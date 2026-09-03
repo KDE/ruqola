@@ -35,7 +35,7 @@ void Blocks::setBlocks(const QList<Block> &blocks)
     mBlocks = blocks;
 }
 
-QList<Block> Blocks::blocks() const
+const QList<Block> &Blocks::blocks() const
 {
     return mBlocks;
 }
@@ -54,7 +54,9 @@ void Blocks::parseBlocks(const QJsonArray &blocks)
 {
     // qDebug() << "blocks ************************************************* " << blocks;
     mBlocks.clear();
-    for (int i = 0, total = blocks.count(); i < total; ++i) {
+    const int total = blocks.count();
+    mBlocks.reserve(total);
+    for (int i = 0; i < total; ++i) {
         const QJsonObject blockObject = blocks.at(i).toObject();
         Block b;
         b.parseBlock(blockObject);
@@ -92,7 +94,9 @@ QJsonArray Blocks::serialize(const Blocks &blocks)
 std::unique_ptr<Blocks> Blocks::deserialize(const QJsonArray &blocksArray)
 {
     QList<Block> blocks;
-    for (int i = 0, total = blocksArray.count(); i < total; ++i) {
+    const int blocksArrayCount = blocksArray.count();
+    blocks.reserve(blocksArrayCount);
+    for (int i = 0; i < blocksArrayCount; ++i) {
         Block block = Block::deserialize(blocksArray.at(i).toObject());
         blocks.append(std::move(block));
     }

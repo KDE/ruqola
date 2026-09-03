@@ -78,7 +78,7 @@ void ImageDescriptionCheck::checkState()
         if (message.pendingMessage() || !message.attachments()) {
             continue;
         }
-        const QList<MessageAttachment> attachments = message.attachments()->messageAttachments();
+        const QList<MessageAttachment> &attachments = message.attachments()->messageAttachments();
         for (const MessageAttachment &attachment : attachments) {
             const bool matchesOurUpload = attachment.title() == mFileName || attachment.link().contains(mFileName);
             if (!matchesOurUpload) {

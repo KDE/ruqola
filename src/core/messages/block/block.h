@@ -59,7 +59,7 @@ public:
     [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
     void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
-    [[nodiscard]] QList<BlockAction> blockActions() const;
+    [[nodiscard]] const QList<BlockAction> &blockActions() const;
     void setBlockActions(const QList<BlockAction> &newBlockActions);
 
     [[nodiscard]] BlockAccessory blockAccessory() const;

@@ -346,7 +346,7 @@ void MessageListDelegate::removeMessageCache(const Message *message)
     mHelperText->removeMessageCache(messageId);
 
     if (message->attachments()) {
-        const auto attachments{message->attachments()->messageAttachments()};
+        const auto &attachments = message->attachments()->messageAttachments();
         for (const auto &attachment : attachments) {
             mHelperAttachmentImage->removeMessageDescriptionTitleCache(attachment);
             mHelperAttachmentFile->removeMessageDescriptionTitleCache(attachment);
@@ -357,7 +357,7 @@ void MessageListDelegate::removeMessageCache(const Message *message)
     }
     if (mPreviewEmbed) {
         if (message->urls()) {
-            const auto messageUrls{message->urls()->messageUrls()};
+            const auto &messageUrls = message->urls()->messageUrls();
             for (const auto &url : messageUrls) {
                 mHelperUrlPreview->removeMessageCache(url.urlId());
             }
@@ -393,7 +393,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
         const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         Q_ASSERT(message);
         if (message->attachments()) {
-            const auto attachments = message->attachments()->messageAttachments();
+            const auto &attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             for (const MessageAttachment &msgAttach : attachments) {
                 MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
@@ -409,7 +409,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
 
         if (mPreviewEmbed) {
             if (message->urls()) {
-                const auto urlsMessage = message->urls()->messageUrls();
+                const auto &urlsMessage = message->urls()->messageUrls();
                 int messageUrlIndex = 0;
                 for (const MessageUrl &messageUrl : urlsMessage) {
                     url = mHelperUrlPreview->urlAt(option, messageUrl, layout.messageUrlsRectList.at(messageUrlIndex), pos);
@@ -482,7 +482,7 @@ void MessageListDelegate::attachmentContextMenu(const QStyleOptionViewItem &opti
     }
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
     if (message->attachments()) {
-        const auto attachments = message->attachments()->messageAttachments();
+        const auto &attachments = message->attachments()->messageAttachments();
         int attachmentIdx = 0;
         for (const MessageAttachment &msgAttach : attachments) {
             MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
@@ -659,7 +659,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Attachments
     if (message->attachments()) {
-        const auto attachments = message->attachments()->messageAttachments();
+        const auto &attachments = message->attachments()->messageAttachments();
         int attachmentIdx = 0;
         int attachmentActionsIdx = 0;
         for (const MessageAttachment &att : attachments) {
@@ -686,7 +686,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     // Blocks
     if (message->blocks()) {
-        const auto blocks = message->blocks()->blocks();
+        const auto &blocks = message->blocks()->blocks();
         int blockIndex = 0;
         for (const Block &block : blocks) {
             const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
@@ -706,7 +706,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (mPreviewEmbed) {
         // Preview Url
         if (message->urls()) {
-            const QList<MessageUrl> messageUrls = message->urls()->messageUrls();
+            const QList<MessageUrl> &messageUrls = message->urls()->messageUrls();
             int messageUrlIndex = 0;
             for (const MessageUrl &messageUrl : messageUrls) {
                 if (messageUrl.hasRichPreview()) {
@@ -894,6 +894,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
 
         if (message->attachments()) {
+            // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
             const auto attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             int attachmentActionsIdx = 0;
@@ -916,6 +917,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
 
         if (message->blocks()) {
+            // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
             const auto blocks = message->blocks()->blocks();
             int blockIndex = 0;
             for (const Block &block : blocks) {
@@ -928,6 +930,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
         if (mPreviewEmbed) {
             if (auto urls = message->urls()) {
+                // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
                 const auto messageUrls = urls->messageUrls();
                 int messageUrlsIndex = 0;
                 for (const MessageUrl &url : messageUrls) {
@@ -948,6 +951,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
             const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
             if (auto messageAttachments = message->attachments()) {
+                // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
                 const auto attachments = messageAttachments->messageAttachments();
                 int attachmentIdx = 0;
                 for (const MessageAttachment &att : attachments) {
@@ -960,6 +964,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
             if (mPreviewEmbed) {
                 if (auto urls = message->urls()) {
+                    // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
                     const auto messageUrls = urls->messageUrls();
                     int messageUrlsIndex = 0;
                     for (const MessageUrl &url : messageUrls) {
@@ -985,6 +990,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     {
         if (message->attachments()) {
+            // Deliberate copy: maybeStartDrag() runs a nested event loop, the message's list can be replaced meanwhile.
             const auto attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             for (const MessageAttachment &att : attachments) {
@@ -999,6 +1005,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     {
         if (mPreviewEmbed) {
             if (auto messageUrls = message->urls()) {
+                // Deliberate copy: maybeStartDrag() runs a nested event loop, the message's list can be replaced meanwhile.
                 const auto urls = messageUrls->messageUrls();
                 int i = 0;
                 for (const MessageUrl &url : urls) {
@@ -1092,7 +1099,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         }
         // Attachments
         if (message->attachments()) {
-            const auto attachments = message->attachments()->messageAttachments();
+            const auto &attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             for (const MessageAttachment &att : attachments) {
                 MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
@@ -1108,7 +1115,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 
         // Block
         if (message->blocks()) {
-            const auto blocks = message->blocks()->blocks();
+            const auto &blocks = message->blocks()->blocks();
             int blockIndex = 0;
             for (const Block &block : blocks) {
                 MessageBlockDelegateHelperBase *helper = blocksHelper(block);
@@ -1125,7 +1132,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         if (mPreviewEmbed) {
             // messageurls
             if (message->urls()) {
-                const auto messageUrls = message->urls()->messageUrls();
+                const auto &messageUrls = message->urls()->messageUrls();
                 int messageUrlsIndex = 0;
                 for (const MessageUrl &url : messageUrls) {
                     if (layout.messageUrlsRectList.at(messageUrlsIndex).contains(helpEventPos)

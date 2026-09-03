@@ -94,17 +94,12 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
-    QList<Reaction> reactions;
-    if (auto react = message->reactions()) {
-        reactions = react->reactions();
-    } else {
+    const auto react = message->reactions();
+    if (!react || react->isEmpty()) {
         removeRunningAnimatedImages(index);
         return;
     }
-    if (reactions.isEmpty()) {
-        removeRunningAnimatedImages(index);
-        return;
-    }
+    const QList<Reaction> &reactions = react->reactions();
 #if 0
     painter->save();
     painter->setPen(Qt::red);
@@ -212,7 +207,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     int reactionsHeight = 0;
     if (auto react = message->reactions()) {
-        if (!react->reactions().isEmpty()) {
+        if (!react->isEmpty()) {
             const QFontMetrics emojiFontMetrics(mEmojiFont);
             // const QList<ReactionLayout> layouts = layoutReactions(message->reactions().reactions(), QRect(0, 0, maxWidth, emojiFontMetrics.height()),
             // option); for (auto t : layouts) {

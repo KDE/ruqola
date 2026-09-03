@@ -35,7 +35,7 @@ void Channels::setChannels(const QList<ChannelInfo> &channels)
     mChannels = channels;
 }
 
-QList<Channels::ChannelInfo> Channels::channels() const
+const QList<Channels::ChannelInfo> &Channels::channels() const
 {
     return mChannels;
 }
