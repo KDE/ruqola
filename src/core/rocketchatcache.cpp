@@ -224,11 +224,12 @@ void RocketChatCache::downloadFileFromServer(const QString &filename, bool needA
 {
     const QUrl downloadUrl = mAccount->urlForLink(filename);
     if (!mFileInDownload.contains(downloadUrl)) {
-        mFileInDownload.insert(downloadUrl);
         const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl, type));
         auto job = mAccount->restApi()->downloadFile(downloadUrl, destFileUrl, "text/plain", needAuthentication);
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start DownloadFileJob job";
+        } else {
+            mFileInDownload.insert(downloadUrl);
         }
 
         // this will call slotDataDownloaded
