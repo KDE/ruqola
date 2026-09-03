@@ -90,16 +90,16 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QList<QByteArray> &
         return;
     }
     auto messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+    Room *room = mRocketChatAccount->room(roomId);
+    MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
     for (const auto &messageId : messageIds) {
         if (messageModel) {
             messageModel->deleteMessage(messageId);
         }
-        Room *room = mRocketChatAccount->room(roomId);
         if (room) {
             mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
         }
         // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
-        MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
         threadMessageModel->deleteMessage(messageId);
     }
 }
