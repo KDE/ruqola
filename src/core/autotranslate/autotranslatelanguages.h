@@ -10,13 +10,14 @@
 #include "libruqola_private_export.h"
 #include <QList>
 class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguages
 {
 public:
     AutotranslateLanguages();
 
-    [[nodiscard]] QList<AutotranslateLanguage> autotranslateLanguage() const;
+    [[nodiscard]] const QList<AutotranslateLanguage> &autotranslateLanguage() const;
     void setAutotranslateLanguages(const QList<AutotranslateLanguage> &autotranslateLanguage);
 
     [[nodiscard]] bool isEmpty() const;

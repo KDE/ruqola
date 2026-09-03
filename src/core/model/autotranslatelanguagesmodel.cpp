@@ -27,7 +27,7 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
     if (index.row() < 0 || index.row() >= mAutoTranslateLanguages.count()) {
         return {};
     }
-    const AutotranslateLanguage &language = mAutoTranslateLanguages.at(index.row());
+    const AutotranslateLanguage language = mAutoTranslateLanguages.at(index.row());
 
     switch (role) {
     case AutotranslateLanguagesModel::LanguageName:
@@ -44,14 +44,13 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
 void AutotranslateLanguagesModel::parseLanguages(const QJsonObject &obj)
 {
     beginResetModel();
-    mAutoTranslateLanguages.clear();
     mAutoTranslateLanguages.parseLanguages(obj);
     endResetModel();
 }
 
 int AutotranslateLanguagesModel::currentLanguage(const QString &lang) const
 {
-    const auto list = mAutoTranslateLanguages.autotranslateLanguage();
+    const auto &list = mAutoTranslateLanguages.autotranslateLanguage();
     for (int i = 0, total = list.count(); i < total; ++i) {
         if (list.at(i).language() == lang) {
             return i;
@@ -62,7 +61,7 @@ int AutotranslateLanguagesModel::currentLanguage(const QString &lang) const
 
 QString AutotranslateLanguagesModel::selectedLanguage(int index) const
 {
-    return mAutoTranslateLanguages.autotranslateLanguage().at(index).language();
+    return mAutoTranslateLanguages.at(index).language();
 }
 
 #include "moc_autotranslatelanguagesmodel.cpp"
