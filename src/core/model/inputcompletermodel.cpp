@@ -72,9 +72,13 @@ void InputCompleterModel::setDefaultUserCompletion()
 
 void InputCompleterModel::setChannels(QList<ChannelUserCompleter> channels)
 {
-    beginResetModel();
-    mChannelUserCompleters = std::move(channels);
-    endResetModel();
+    clear();
+    // We can't use modelReset here otherwise popup is show at starting apps
+    if (!channels.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, channels.count() - 1);
+        mChannelUserCompleters = std::move(channels);
+        endInsertRows();
+    }
 }
 
 QList<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
