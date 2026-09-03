@@ -146,9 +146,16 @@ void AdminCustomEmojiModel::removeElement(const QByteArray &identifier)
 void AdminCustomEmojiModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mCustomEmojiList.count();
-    mCustomEmojiList.parseCustomEmojis(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mCustomEmojiList.count() - 1);
-    endInsertRows();
+    CustomEmojisInfo customEmojiList = mCustomEmojiList;
+    customEmojiList.parseMoreCustomEmojis(obj);
+    const int newNumberOfElement = customEmojiList.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mCustomEmojiList = std::move(customEmojiList);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mCustomEmojiList = std::move(customEmojiList);
+    }
     checkFullList();
 }
 

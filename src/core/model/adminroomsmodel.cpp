@@ -136,9 +136,16 @@ void AdminRoomsModel::checkFullList()
 void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mAdminRooms.count();
-    mAdminRooms.parseMoreRooms(obj, RoomsInfo::ParseType::Administrator);
-    beginInsertRows(QModelIndex(), numberOfElement, mAdminRooms.count() - 1);
-    endInsertRows();
+    RoomsInfo adminRooms = mAdminRooms;
+    adminRooms.parseMoreRooms(obj, RoomsInfo::ParseType::Administrator);
+    const int newNumberOfElement = adminRooms.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mAdminRooms = std::move(adminRooms);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mAdminRooms = std::move(adminRooms);
+    }
     checkFullList();
 }
 

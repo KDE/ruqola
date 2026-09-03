@@ -46,10 +46,17 @@ void FilesForRoomModel::clear()
 
 void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
-    const int numberOfElement = mFileAttachments->fileAttachments().count();
-    mFileAttachments->parseMoreFileAttachments(fileAttachmentsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mFileAttachments->fileAttachments().count() - 1);
-    endInsertRows();
+    const int numberOfElement = mFileAttachments->count();
+    FileAttachments fileAttachments = *mFileAttachments;
+    fileAttachments.parseMoreFileAttachments(fileAttachmentsObj);
+    const int newNumberOfElement = fileAttachments.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        *mFileAttachments = std::move(fileAttachments);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        *mFileAttachments = std::move(fileAttachments);
+    }
     checkFullList();
 }
 

@@ -132,9 +132,16 @@ void DeviceInfoModel::setDeviceInfos(DeviceInfos newDeviceInfos)
 void DeviceInfoModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mDeviceInfos.count();
-    mDeviceInfos.parseDeviceInfos(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mDeviceInfos.count() - 1);
-    endInsertRows();
+    DeviceInfos deviceInfos = mDeviceInfos;
+    deviceInfos.parseMoreDeviceInfos(obj);
+    const int newNumberOfElement = deviceInfos.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mDeviceInfos = std::move(deviceInfos);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mDeviceInfos = std::move(deviceInfos);
+    }
     checkFullList();
 }
 

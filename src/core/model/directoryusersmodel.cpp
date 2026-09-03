@@ -46,9 +46,16 @@ void DirectoryUsersModel::setRoles(const QList<RoleInfo> &newRoles)
 void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mUsers.count();
-    mUsers.parseMoreUsers(obj, parseType(), mRoleInfo);
-    beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
-    endInsertRows();
+    Users users = mUsers;
+    users.parseMoreUsers(obj, parseType(), mRoleInfo);
+    const int newNumberOfElement = users.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mUsers = std::move(users);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mUsers = std::move(users);
+    }
     checkFullList();
 }
 

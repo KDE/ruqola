@@ -43,9 +43,16 @@ void VideoConferencesModel::clear()
 void VideoConferencesModel::addMoreVideoConferences(const QJsonObject &fileAttachmentsObj)
 {
     const int numberOfElement = mVideoConferenceInfos.count();
-    mVideoConferenceInfos.parseMoreVideoConferenceInfos(fileAttachmentsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mVideoConferenceInfos.count() - 1);
-    endInsertRows();
+    VideoConferenceInfos videoConferenceInfos = mVideoConferenceInfos;
+    videoConferenceInfos.parseMoreVideoConferenceInfos(fileAttachmentsObj);
+    const int newNumberOfElement = videoConferenceInfos.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mVideoConferenceInfos = std::move(videoConferenceInfos);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mVideoConferenceInfos = std::move(videoConferenceInfos);
+    }
     checkFullList();
 }
 

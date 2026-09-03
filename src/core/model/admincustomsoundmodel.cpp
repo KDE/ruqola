@@ -106,9 +106,16 @@ void AdminCustomSoundModel::setCustomSounds(CustomSoundsInfo newCustomSounds)
 void AdminCustomSoundModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mCustomSounds.count();
-    mCustomSounds.parseCustomSounds(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mCustomSounds.count() - 1);
-    endInsertRows();
+    CustomSoundsInfo customSounds = mCustomSounds;
+    customSounds.parseMoreCustomSounds(obj);
+    const int newNumberOfElement = customSounds.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mCustomSounds = std::move(customSounds);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mCustomSounds = std::move(customSounds);
+    }
     checkFullList();
 }
 

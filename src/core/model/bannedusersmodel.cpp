@@ -58,10 +58,17 @@ void BannedUsersModel::removeBannedUsers(const QString &userName)
 
 void BannedUsersModel::addMoreBannedUsers(const QJsonObject &bannedUsersObj)
 {
-    const int numberOfElement = mBannedUsers->bannedUsers().count();
-    mBannedUsers->parseMoreBannedUsers(bannedUsersObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mBannedUsers->bannedUsers().count() - 1);
-    endInsertRows();
+    const int numberOfElement = mBannedUsers->count();
+    BannedUsers bannedUsers = *mBannedUsers;
+    bannedUsers.parseMoreBannedUsers(bannedUsersObj);
+    const int newNumberOfElement = bannedUsers.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        *mBannedUsers = std::move(bannedUsers);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        *mBannedUsers = std::move(bannedUsers);
+    }
     checkFullList();
 }
 

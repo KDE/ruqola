@@ -35,9 +35,16 @@ QList<int> DirectoryTeamsModel::hideColumns() const
 void DirectoryTeamsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mRoomsInfo.count();
-    mRoomsInfo.parseMoreRooms(obj, RoomsInfo::ParseType::Directory);
-    beginInsertRows(QModelIndex(), numberOfElement, mRoomsInfo.count() - 1);
-    endInsertRows();
+    RoomsInfo roomsInfo = mRoomsInfo;
+    roomsInfo.parseMoreRooms(obj, RoomsInfo::ParseType::Directory);
+    const int newNumberOfElement = roomsInfo.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mRoomsInfo = std::move(roomsInfo);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mRoomsInfo = std::move(roomsInfo);
+    }
     checkFullList();
 }
 

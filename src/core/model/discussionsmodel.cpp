@@ -64,10 +64,17 @@ int DiscussionsModel::rowCount(const QModelIndex &parent) const
 
 void DiscussionsModel::addMoreDiscussions(const QJsonObject &discussionsObj)
 {
-    const int numberOfElement = mDiscussions->discussions().count();
-    mDiscussions->parseMoreDiscussions(discussionsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mDiscussions->discussions().count() - 1);
-    endInsertRows();
+    const int numberOfElement = mDiscussions->count();
+    Discussions discussions = *mDiscussions;
+    discussions.parseMoreDiscussions(discussionsObj);
+    const int newNumberOfElement = discussions.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        *mDiscussions = std::move(discussions);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        *mDiscussions = std::move(discussions);
+    }
     checkFullList();
 }
 

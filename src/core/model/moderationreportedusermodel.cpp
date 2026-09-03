@@ -119,9 +119,16 @@ void ModerationReportedUserModel::setModerationInfos(ModerationReportedUserInfos
 void ModerationReportedUserModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mModerationInfos.count();
-    mModerationInfos.parseMoreModerationReportedUserInfos(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mModerationInfos.count() - 1);
-    endInsertRows();
+    ModerationReportedUserInfos moderationInfos = mModerationInfos;
+    moderationInfos.parseMoreModerationReportedUserInfos(obj);
+    const int newNumberOfElement = moderationInfos.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mModerationInfos = std::move(moderationInfos);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mModerationInfos = std::move(moderationInfos);
+    }
     checkFullList();
 }
 
