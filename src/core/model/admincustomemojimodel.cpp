@@ -71,14 +71,7 @@ QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
     case CustomEmojiRoles::Aliases:
         return customEmoji.aliases().join(u',');
     case CustomEmojiRoles::AliasesWithoutDoublePoint: {
-        const QStringList aliases = customEmoji.aliases();
-        QString aliasStr;
-        for (QString alias : aliases) {
-            if (!aliasStr.isEmpty()) {
-                aliasStr += u',';
-            }
-            aliasStr += alias.remove(u':');
-        }
+        const QString aliasStr = customEmoji.aliases().join(u',').remove(u':');
         return aliasStr;
     }
     case CustomEmojiRoles::Icon:
