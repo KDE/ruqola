@@ -291,19 +291,15 @@ MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)
 MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHeader) const
 {
     if (!typeHeader.isEmpty()) {
-        const static QRegularExpression rimage(u"image/.*"_s);
-        const static QRegularExpression raudio(u"audio/.*"_s);
-        const static QRegularExpression rvideo(u"video/.*"_s);
-        const static QRegularExpression rhtml(u"text/html.*"_s);
         if (typeHeader.contains("image/gif"_L1)) {
             return MessageUrl::ContentType::ImageAnimated;
-        } else if (typeHeader.contains(rimage)) {
+        } else if (typeHeader.startsWith(u"image/"_s)) {
             return MessageUrl::ContentType::Image;
-        } else if (typeHeader.contains(raudio)) {
+        } else if (typeHeader.startsWith(u"audio/"_s)) {
             return MessageUrl::ContentType::Audio;
-        } else if (typeHeader.contains(rvideo)) {
+        } else if (typeHeader.startsWith(u"video/"_s)) {
             return MessageUrl::ContentType::Video;
-        } else if (typeHeader.contains(rhtml)) {
+        } else if (typeHeader.startsWith(u"text/html"_s)) {
             return MessageUrl::ContentType::None;
         } else {
             qCDebug(RUQOLA_MESSAGE_URL_LOG) << "Invalid content type " << typeHeader << " this " << *this;
