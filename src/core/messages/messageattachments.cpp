@@ -5,6 +5,8 @@
 */
 
 #include "messageattachments.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(MessageAttachments, Ruqola_MessageAttachments)
+
 #include "messageutils.h"
 
 #include "ruqola_message_memory_debug.h"

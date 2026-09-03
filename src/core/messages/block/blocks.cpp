@@ -5,6 +5,7 @@
 */
 
 #include "blocks.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Blocks, Ruqola_Blocks)
 
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>

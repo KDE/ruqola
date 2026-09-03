@@ -5,6 +5,7 @@
 */
 
 #include "messageurls.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(MessageUrls, Ruqola_MessageUrls)
 
 #include "messageutils.h"
 #include "ruqola_message_memory_debug.h"
