@@ -32,3 +32,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(AutotranslateLanguages, Ruqola_AutotranslateLanguages, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguages &t);
+Q_DECLARE_TYPEINFO(AutotranslateLanguages, Q_RELOCATABLE_TYPE);
