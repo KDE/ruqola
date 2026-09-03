@@ -106,13 +106,13 @@ bool TeamRoomsModel::setData(const QModelIndex &index, const QVariant &value, in
     if (mIsCheckable) {
         if (role == Qt::CheckStateRole) {
             if (index.isValid()) {
-                Q_EMIT dataChanged(index, index);
                 const QByteArray roomId = data(index, TeamRoomsModel::Identifier).toByteArray();
                 if (value == Qt::Checked) {
                     mRoomSelected.append(roomId);
                 } else {
                     mRoomSelected.removeAll(roomId);
                 }
+                Q_EMIT dataChanged(index, index);
                 return true;
             }
         }
