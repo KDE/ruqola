@@ -45,7 +45,7 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mUsers.count()) {
         return {};
     }
-    const User user = mUsers.at(index.row());
+    const User &user = mUsers.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case DisplayName:

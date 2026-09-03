@@ -27,7 +27,7 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
     if (index.row() < 0 || index.row() >= mAutoTranslateLanguages.count()) {
         return {};
     }
-    const AutotranslateLanguage language = mAutoTranslateLanguages.at(index.row());
+    const AutotranslateLanguage &language = mAutoTranslateLanguages.at(index.row());
 
     switch (role) {
     case AutotranslateLanguagesModel::LanguageName:

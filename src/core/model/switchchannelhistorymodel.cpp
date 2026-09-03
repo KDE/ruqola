@@ -27,7 +27,7 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
     if (index.row() < 0 || index.row() >= mSwichChannelsInfo.count()) {
         return {};
     }
-    const SwitchChannelInfo info = mSwichChannelsInfo.at(index.row());
+    const SwitchChannelInfo &info = mSwichChannelsInfo.at(index.row());
     switch (role) {
     case SwitchChannelHistoryRoles::Name:
     case Qt::DisplayRole:

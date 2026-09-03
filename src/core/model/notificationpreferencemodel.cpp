@@ -28,7 +28,7 @@ QVariant NotificationPreferenceModel::data(const QModelIndex &index, int role) c
     if (index.row() < 0 || index.row() >= mNotificationPreferenceList.count()) {
         return {};
     }
-    NotificationPreferenceInfo preferenceInfo = mNotificationPreferenceList.at(index.row());
+    const NotificationPreferenceInfo &preferenceInfo = mNotificationPreferenceList.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case NotificationPreferenceI18nRole:

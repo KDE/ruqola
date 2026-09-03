@@ -107,7 +107,7 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mDiscussions->count()) {
         return {};
     }
-    const Discussion discussion = mDiscussions->at(index.row());
+    const Discussion &discussion = mDiscussions->at(index.row());
     switch (role) {
     case ParentId:
         return discussion.parentRoomId();
