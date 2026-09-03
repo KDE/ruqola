@@ -1392,6 +1392,14 @@
       <description>
         <ul>
           <li>Update Emoji list</li>
+          <li xml:lang="ar">تحديث قائمة الإيموجي</li>
+          <li xml:lang="ca">Actualitza la llista d'emojis</li>
+          <li xml:lang="ca-valencia">Actualitza la llista d'emoji</li>
+          <li xml:lang="ka">განახლდა ემოჯიების სია</li>
+          <li xml:lang="pt-BR">Atualizar lista de emojis</li>
+          <li xml:lang="sl">Posodobi seznam čustvenčkov</li>
+          <li xml:lang="sv">Uppdatera emoji-lista</li>
+          <li xml:lang="uk">Оновлено список емодзі</li>
           <li>Encryption support</li>
           <li xml:lang="ar">إتاحة التعمية</li>
           <li xml:lang="ca">Implementació d'encriptatge</li>
