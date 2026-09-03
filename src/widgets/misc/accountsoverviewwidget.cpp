@@ -167,7 +167,7 @@ void AccountsOverviewWidget::updateButtons()
             updateTabText();
             updateTabIcon();
         });
-        connect(account->roomModel(), &RoomModel::roomNeedAttention, this, [=]() {
+        connect(account->roomModel(), &RoomModel::roomNeedAttention, this, [updateTabText, updateTabIcon]() {
             updateTabText();
             updateTabIcon();
         });

@@ -93,7 +93,7 @@ QList<TextAddonsWidgets::PluginUtilData> TextPluginManager::pluginDataList() con
 
 PluginText *TextPluginManager::pluginFromIdentifier(const QString &identifier) const
 {
-    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [identifier](const TextPluginManagerInfo &info) {
+    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [&identifier](const TextPluginManagerInfo &info) {
         return info.pluginData.mIdentifier == identifier;
     });
     if (it != mPluginList.end()) {

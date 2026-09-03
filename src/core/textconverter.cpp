@@ -55,7 +55,7 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
         const QByteArray messageId = QStringView(quoteUrl).mid(quoteUrl.indexOf("msg="_L1) + 4).toLatin1();
         // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
-        auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
+        auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [&messageId](const Message &msg) {
             return msg.messageId() == messageId;
         });
         if (it != settings.allMessages.cend()) {

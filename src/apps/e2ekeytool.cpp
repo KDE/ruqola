@@ -114,7 +114,7 @@ void downloadKeys(const QString &password)
         QCoreApplication::quit();
     });
 
-    QObject::connect(fetchJob, &RestApiAbstractJob::failed, nullptr, [=](const QString &err) {
+    QObject::connect(fetchJob, &RestApiAbstractJob::failed, nullptr, [](const QString &err) {
         qCritical() << "Key fetch failed:" << err;
         QCoreApplication::quit();
     });

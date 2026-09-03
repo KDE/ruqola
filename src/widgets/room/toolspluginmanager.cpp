@@ -87,7 +87,7 @@ void ToolsPluginManager::loadPlugin(ToolsPluginManagerInfo *item)
 
 PluginTool *ToolsPluginManager::pluginFromIdentifier(const QString &identifier) const
 {
-    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [identifier](const ToolsPluginManagerInfo &info) {
+    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [&identifier](const ToolsPluginManagerInfo &info) {
         return info.pluginData.mIdentifier == identifier;
     });
     if (it != mPluginList.end()) {

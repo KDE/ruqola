@@ -67,7 +67,7 @@ QList<Room *> RoomModel::findRoomNameConstains(const QString &str) const
 Room *RoomModel::findRoom(const QByteArray &roomID) const
 {
 #ifndef NDEBUG
-    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [roomID](Room *r) {
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [&roomID](Room *r) {
         return r->roomId() == roomID;
     });
     if (nbRoomWithSameRoomId > 1) {
@@ -266,7 +266,7 @@ QByteArray RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
         rId = roomData.value("_id"_L1).toString().toLatin1();
     }
 #ifndef NDEBUG
-    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [rId](Room *r) {
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [&rId](Room *r) {
         return r->roomId() == rId;
     });
     if (nbRoomWithSameRoomId > 1) {
@@ -481,7 +481,7 @@ QByteArray RoomModel::updateRoom(const QJsonObject &roomData)
         rId = roomData.value("_id"_L1).toString().toLatin1();
     }
 #ifndef NDEBUG
-    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [rId](Room *r) {
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [&rId](Room *r) {
         return r->roomId() == rId;
     });
     if (nbRoomWithSameRoomId > 1) {

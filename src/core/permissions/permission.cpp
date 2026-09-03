@@ -38,7 +38,7 @@ bool Permission::parsePermission(const QJsonObject &replyObject, const QList<Rol
         if (roleInfo.isEmpty()) {
             mRolesStr.append(role);
         } else {
-            auto index = std::find_if(roleInfo.begin(), roleInfo.end(), [role](const RoleInfo &info) {
+            auto index = std::find_if(roleInfo.begin(), roleInfo.end(), [&role](const RoleInfo &info) {
                 return (role == info.identifier());
             });
             if (index != roleInfo.end()) {

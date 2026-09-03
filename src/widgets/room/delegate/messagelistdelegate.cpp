@@ -331,7 +331,7 @@ void MessageListDelegate::needUpdateIndexBackground(const QPersistentModelIndex 
 
 void MessageListDelegate::removeNeedUpdateIndexBackground(const QPersistentModelIndex &index)
 {
-    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
+    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [&index](const IndexBackgroundColor &key) {
         return key.index == index;
     });
     if (it != mIndexBackgroundColorList.cend()) {
@@ -520,7 +520,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
-    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
+    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [&index](const IndexBackgroundColor &key) {
         return key.index == index;
     });
     QColor goToMessageBackgroundColor;

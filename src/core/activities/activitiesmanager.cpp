@@ -46,7 +46,7 @@ bool ActivitiesManager::isInCurrentActivity(const QStringList &lst) const
             return true;
         } else {
             const QStringList activities = mActivitiesConsumer->activities();
-            auto index = std::find_if(activities.constBegin(), activities.constEnd(), [lst](const QString &str) {
+            auto index = std::find_if(activities.constBegin(), activities.constEnd(), [&lst](const QString &str) {
                 return lst.contains(str);
             });
             // Account doesn't contains valid activities => show it.
