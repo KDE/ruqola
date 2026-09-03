@@ -387,9 +387,11 @@ void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Invalid encryptedKey size candidates:" << candidateSizes << "(expected" << rsaSize
                                          << "for current RSA private key)";
     } else {
+        /*
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Invalid decrypted session key size:" << mSessionKey.size()
                                          << "(expected 16 or 32), payloadLen=" << lastDecryptedPayload.size()
                                          << "payloadPreview=" << QString::fromLatin1(lastDecryptedPayload.left(48));
+                                         */
     }
     mSessionKey.clear();
 }

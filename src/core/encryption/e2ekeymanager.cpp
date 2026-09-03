@@ -536,7 +536,7 @@ QByteArray E2eKeyManager::ownPublicKey() const
     const QString userId = QString::fromLatin1(mAccount->settings()->userId());
     QByteArray encryptedOwnPrivateKey;
     QByteArray ownPublicKeyValue;
-    if (!mAccount->localDatabaseManager()->e2EDatabase()->loadKey(mAccount->accountName(), userId, encryptedOwnPrivateKey, ownPublicKeyValue)) {
+    if (mAccount && !mAccount->localDatabaseManager()->e2EDatabase()->loadKey(mAccount->accountName(), userId, encryptedOwnPrivateKey, ownPublicKeyValue)) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "own public key not found in local database";
         return {};
     }
