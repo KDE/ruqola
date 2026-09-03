@@ -123,11 +123,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
 void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
 {
     if (!reacts.isEmpty()) {
-        if (!mReactions) {
-            mReactions = new Reactions;
-        } else {
-            mReactions.reset(new Reactions);
-        }
+        mReactions.reset(new Reactions);
         mReactions->parseReactions(reacts, emojiManager);
     } else {
         mReactions.reset();
@@ -184,11 +180,7 @@ const Replies *Message::replies() const
 
 void Message::setReplies(const Replies &replies)
 {
-    if (!mReplies) {
-        mReplies = new Replies(replies);
-    } else {
-        mReplies.reset(new Replies(replies));
-    }
+    mReplies.reset(new Replies(replies));
 }
 
 QString Message::name() const
@@ -237,11 +229,7 @@ const MessageTranslations *Message::messageTranslation() const
 
 void Message::setMessageTranslation(const MessageTranslations &messageTranslation)
 {
-    if (!mMessageTranslation) {
-        mMessageTranslation = new MessageTranslations(messageTranslation);
-    } else {
-        mMessageTranslation.reset(new MessageTranslations(messageTranslation));
-    }
+    mMessageTranslation.reset(new MessageTranslations(messageTranslation));
 }
 
 QString Message::displayTime() const
@@ -347,11 +335,7 @@ const MessagePinned *Message::messagePinned() const
 
 void Message::setMessageEncrypted(const MessageEncrypted &messageEncrypted)
 {
-    if (!mMessageEncrypted) {
-        mMessageEncrypted = new MessageEncrypted(messageEncrypted);
-    } else {
-        mMessageEncrypted.reset(new MessageEncrypted(messageEncrypted));
-    }
+    mMessageEncrypted.reset(new MessageEncrypted(messageEncrypted));
 }
 
 const MessageEncrypted *Message::messageEncrypted() const
@@ -364,11 +348,7 @@ const MessageEncrypted *Message::messageEncrypted() const
 
 void Message::setMessagePinned(const MessagePinned &messagePinned)
 {
-    if (!mMessagePinned) {
-        mMessagePinned = new MessagePinned(messagePinned);
-    } else {
-        mMessagePinned.reset(new MessagePinned(messagePinned));
-    }
+    mMessagePinned.reset(new MessagePinned(messagePinned));
 }
 
 bool Message::unread() const
@@ -394,11 +374,7 @@ void Message::setRole(const QString &role)
 void Message::parseChannels(const QJsonArray &channels)
 {
     if (!channels.isEmpty()) {
-        if (!mChannels) {
-            mChannels = new Channels;
-        } else {
-            mChannels.reset(new Channels);
-        }
+        mChannels.reset(new Channels);
         mChannels->parseChannels(channels);
     } else {
         mChannels.reset();
@@ -415,11 +391,7 @@ const Blocks *Message::blocks() const
 
 void Message::setBlocks(const Blocks &newBlocks)
 {
-    if (!mBlocks) {
-        mBlocks = new Blocks(newBlocks);
-    } else {
-        mBlocks.reset(new Blocks(newBlocks));
-    }
+    mBlocks.reset(new Blocks(newBlocks));
 }
 
 QString Message::originalMessageOrAttachmentDescription() const
@@ -491,21 +463,13 @@ const Channels *Message::channels() const
 
 void Message::setChannels(const Channels &channels)
 {
-    if (!mChannels) {
-        mChannels = new Channels(channels);
-    } else {
-        mChannels.reset(new Channels(channels));
-    }
+    mChannels.reset(new Channels(channels));
 }
 
 void Message::parseReplies(const QJsonArray &replies)
 {
     if (!replies.isEmpty()) {
-        if (!mReplies) {
-            mReplies = new Replies;
-        } else {
-            mReplies.reset(new Replies);
-        }
+        mReplies.reset(new Replies);
         mReplies->parseReplies(replies);
     } else {
         mReplies.reset();
@@ -544,21 +508,13 @@ void Message::parseEncrypted(const QJsonObject &o)
 
 void Message::resetEncrypted()
 {
-    if (!mMessageEncrypted) {
-        mMessageEncrypted = new MessageEncrypted;
-    } else {
-        mMessageEncrypted.reset(new MessageEncrypted);
-    }
+    mMessageEncrypted.reset(new MessageEncrypted);
 }
 
 void Message::parseBlocks(const QJsonArray &blocks)
 {
     if (!blocks.isEmpty()) {
-        if (!mBlocks) {
-            mBlocks = new Blocks;
-        } else {
-            mBlocks.reset(new Blocks);
-        }
+        mBlocks.reset(new Blocks);
         mBlocks->parseBlocks(blocks);
     } else {
         mBlocks.reset();
@@ -585,11 +541,7 @@ const ModerationMessage *Message::moderationMessage() const
 
 void Message::setModerationMessage(const ModerationMessage &newModerationMessage)
 {
-    if (!mModerationMessage) {
-        mModerationMessage = new ModerationMessage(newModerationMessage);
-    } else {
-        mModerationMessage.reset(new ModerationMessage(newModerationMessage));
-    }
+    mModerationMessage.reset(new ModerationMessage(newModerationMessage));
 }
 
 void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
@@ -613,11 +565,7 @@ void Message::parseMentions(const QJsonArray &mentions)
 void Message::parseMessageUrls(const QJsonArray &urls)
 {
     if (!urls.isEmpty()) {
-        if (!mUrls) {
-            mUrls = new MessageUrls;
-        } else {
-            mUrls.reset(new MessageUrls);
-        }
+        mUrls.reset(new MessageUrls);
         mUrls->parseMessageUrls(urls, mMessageId);
     } else {
         mUrls.reset();
@@ -634,11 +582,7 @@ const Reactions *Message::reactions() const
 
 void Message::setReactions(const Reactions &reactions)
 {
-    if (!mReactions) {
-        mReactions = new Reactions(reactions);
-    } else {
-        mReactions.reset(new Reactions(reactions));
-    }
+    mReactions.reset(new Reactions(reactions));
 }
 
 bool Message::isPinned() const
@@ -672,11 +616,7 @@ void Message::setMentions(const QMap<QString, QByteArray> &mentions)
 void Message::parseAttachment(const QJsonArray &attachments)
 {
     if (!attachments.isEmpty()) {
-        if (!mAttachments) {
-            mAttachments = new MessageAttachments;
-        } else {
-            mAttachments.reset(new MessageAttachments);
-        }
+        mAttachments.reset(new MessageAttachments);
         mAttachments->parseMessageAttachments(attachments, messageId());
         if (mAttachments->isEmpty()) {
             mAttachments.reset();
@@ -984,11 +924,7 @@ const MessageAttachments *Message::attachments() const
 
 void Message::setAttachments(const MessageAttachments &attachment)
 {
-    if (!mAttachments) {
-        mAttachments = new MessageAttachments(attachment);
-    } else {
-        mAttachments.reset(new MessageAttachments(attachment));
-    }
+    mAttachments.reset(new MessageAttachments(attachment));
 }
 
 const MessageUrls *Message::urls() const
@@ -1005,11 +941,7 @@ void Message::setUrls(const MessageUrls &urls)
         mUrls.reset();
         return;
     }
-    if (!mUrls) {
-        mUrls = new MessageUrls(urls);
-    } else {
-        mUrls.reset(new MessageUrls(urls));
-    }
+    mUrls.reset(new MessageUrls(urls));
 }
 
 QString Message::alias() const
