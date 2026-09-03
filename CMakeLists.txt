@@ -126,11 +126,37 @@ option(OPTION_ADD_OFFLINE_SUPPORT "Allow to build with offline support (experime
 option(ENABLE_PCH "Enable Precompiled Headers support" ON)
 include(RuqolaTestPch)
 
-option(USE_MOLD_LINKER "Use the mold linker when available (much faster link times)" ON)
-if(USE_MOLD_LINKER AND NOT DEFINED CMAKE_LINKER_TYPE)
-    find_program(MOLD_EXECUTABLE mold)
-    if(MOLD_EXECUTABLE)
-        set(CMAKE_LINKER_TYPE MOLD)
+option(USE_FASTER_LINKER "Use the wild or mold linker when available (much faster link times)" ON)
+if(USE_FASTER_LINKER AND NOT DEFINED CMAKE_LINKER_TYPE)
+    # NOTE: this has to be a macro, not a function: set() inside a function()
+    # only affects the function scope, so CMAKE_LINKER_TYPE would never be set.
+    macro(use_mold_linker)
+        find_program(MOLD_EXECUTABLE mold)
+        if(MOLD_EXECUTABLE)
+            message(STATUS "USE MOLD LINKER")
+            set(CMAKE_LINKER_TYPE MOLD)
+        endif()
+    endmacro()
+    # CMAKE_LINKER_TYPE only knows about WILD since CMake 4.4.
+    #
+    # WARNING: wild up to and including 0.10.0 miscompiles non-PIE executables:
+    # it does not create a canonical PLT entry for functions whose address is
+    # taken across a shared library boundary, so &Foo::bar differs between the
+    # executable and the library. This breaks QMetaMethod::fromSignal(), hence
+    # every QSignalSpy and every PMF-based connect (41 autotests fail).
+    # Fixed upstream by wild-linker/wild#2480 ("Preserve function identity with
+    # canonical PLT entries"), not in a release yet. Pass -DUSE_FASTER_LINKER=OFF
+    # or -DCMAKE_LINKER_TYPE=MOLD if your wild is older than that.
+    if(CMAKE_VERSION VERSION_GREATER_EQUAL 4.4.0)
+        find_program(WILD_EXECUTABLE wild)
+        if(WILD_EXECUTABLE)
+            message(STATUS "USE WILD LINKER")
+            set(CMAKE_LINKER_TYPE WILD)
+        else()
+            use_mold_linker()
+        endif()
+    else()
+        use_mold_linker()
     endif()
 endif()
 
