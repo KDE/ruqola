@@ -57,15 +57,6 @@ const QList<InviteInfo> &AdminInviteModel::adminInvites() const
     return mAdminInvites;
 }
 
-void AdminInviteModel::clear()
-{
-    if (!mAdminInvites.isEmpty()) {
-        beginResetModel();
-        mAdminInvites.clear();
-        endResetModel();
-    }
-}
-
 void AdminInviteModel::setAdminInvites(QList<InviteInfo> newAdminInvites)
 {
     beginResetModel();
