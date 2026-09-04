@@ -13,6 +13,7 @@
 #include <KLocalizedString>
 #include <QMenu>
 #include <QMouseEvent>
+#include <QScrollBar>
 
 #include "config-ruqola.h"
 
@@ -34,13 +35,14 @@ ServerErrorInfoMessageHistoryListView::ServerErrorInfoMessageHistoryListView(QWi
             &ServerErrorInfoMessageHistoryListView::needToClearSizeHintCache,
             mListServerErrorInfosDelegate,
             &ServerErrorInfoHistoryDelegate::clearSizeHintCache);
+    connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListViewBase::maybeScrollToBottom);
 }
 
 ServerErrorInfoMessageHistoryListView::~ServerErrorInfoMessageHistoryListView() = default;
 
 void ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    if (model()->rowCount() > 0) {
+    if (model() && model()->rowCount() > 0) {
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(u"edit-clear-history"_s), i18nc("@action", "Clear"), this, &ServerErrorInfoMessageHistoryListView::slotClearList);
         const QModelIndex index = indexAt(pos);

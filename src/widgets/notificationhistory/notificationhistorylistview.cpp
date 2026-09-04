@@ -14,6 +14,7 @@
 
 #include <QMenu>
 #include <QMouseEvent>
+#include <QScrollBar>
 
 #include "config-ruqola.h"
 
@@ -31,6 +32,7 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     });
     connect(this, &QListView::customContextMenuRequested, this, &NotificationHistoryListView::slotCustomContextMenuRequested);
     connect(this, &NotificationHistoryListView::needToClearSizeHintCache, mListNotificationsDelegate, &NotificationHistoryDelegate::clearSizeHintCache);
+    connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListViewBase::maybeScrollToBottom);
 }
 
 NotificationHistoryListView::~NotificationHistoryListView() = default;
