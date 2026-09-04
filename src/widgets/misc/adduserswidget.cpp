@@ -34,7 +34,6 @@ AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
 
 AddUsersWidget::~AddUsersWidget()
 {
-    delete mFlowLayout;
 }
 
 void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info)

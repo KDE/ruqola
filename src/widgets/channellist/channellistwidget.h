@@ -22,7 +22,7 @@ public:
     explicit ChannelListWidget(QWidget *parent = nullptr);
     ~ChannelListWidget() override;
 
-    ChannelListView *channelListView() const;
+    [[nodiscard]] ChannelListView *channelListView() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
