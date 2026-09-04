@@ -44,7 +44,7 @@ void GrabScreenPluginToolInterface::activateTool()
         if (fi.size() == 0) { // Canceled
             return;
         }
-        QPointer<UploadFileDialog> dlg = new UploadFileDialog();
+        QPointer<UploadFileDialog> dlg = new UploadFileDialog(mParentWidget);
         dlg->setFileUrl(QUrl::fromLocalFile(imagePath));
         if (dlg->exec()) {
             const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
