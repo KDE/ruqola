@@ -18,12 +18,13 @@ RuqolaSwitchOfflineModeWidget::RuqolaSwitchOfflineModeWidget(QWidget *parent)
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    auto label = new QLabel(i18n("Not network found."), this);
+    auto label = new QLabel(i18n("No network found."), this);
     label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
     auto button = new QPushButton(i18nc("@action:button", "Switch Offline Mode"), this);
     button->setObjectName(u"button"_s);
+    mainLayout->addWidget(button);
     connect(button, &QPushButton::clicked, this, &RuqolaSwitchOfflineModeWidget::switchOfflineMode);
 }
 
