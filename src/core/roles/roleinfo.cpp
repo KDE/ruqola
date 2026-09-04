@@ -7,6 +7,7 @@
 #include "roleinfo.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(RoleInfo, Ruqola_RoleInfo)
 
+#include <QDebug>
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;

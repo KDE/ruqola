@@ -7,7 +7,10 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "role.h"
+
 #include <QList>
+
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT Roles

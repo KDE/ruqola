@@ -23,16 +23,21 @@ bool Roles::isEmpty() const
     return mRoles.isEmpty();
 }
 
-void Roles::setRoles(const QList<Role> &roles)
+void Roles::setRoles(QList<Role> roles)
 {
-    mRoles = roles;
+    mRoles = std::move(roles);
 }
 
 void Roles::updateRoles(const QJsonObject &obj)
 {
     const QString type = obj["type"_L1].toString();
     const QString id = obj["_id"_L1].toString();
-    const QByteArray userId = obj["u"_L1].toObject().value("_id"_L1).toString().toLatin1();
+    const QJsonObject userObject = obj["u"_L1].toObject();
+    const QByteArray userId = userObject.value("_id"_L1).toString().toLatin1();
+    if (userId.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to update role. UserId is empty" << obj;
+        return;
+    }
     bool foundUser = false;
     // qDebug() << " type " << type << " id " << id << " userId" << userId;
     if (type == "added"_L1) {
@@ -47,16 +52,19 @@ void Roles::updateRoles(const QJsonObject &obj)
         if (!foundUser) {
             Role r;
             r.setUserId(userId);
+            r.setUserName(userObject.value("username"_L1).toString());
             r.updateRole(id, true);
-            mRoles.append(std::move(r));
+            if (r.hasARole()) {
+                mRoles.append(std::move(r));
+            }
         }
     } else if (type == "removed"_L1) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
-                Role r = mRoles.takeAt(i);
+                Role &r = mRoles[i];
                 r.updateRole(id, false);
-                if (r.hasARole()) {
-                    mRoles.append(std::move(r));
+                if (!r.hasARole()) {
+                    mRoles.removeAt(i);
                 }
                 foundUser = true;
                 break;

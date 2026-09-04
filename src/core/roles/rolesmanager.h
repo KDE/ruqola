@@ -12,6 +12,8 @@
 #include <QObject>
 
 #include "libruqola_private_export.h"
+
+class QJsonArray;
 class QJsonObject;
 
 class LIBRUQOLACORE_TESTS_EXPORT RolesManager : public QObject
