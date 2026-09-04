@@ -200,7 +200,7 @@ QPixmap AvatarCacheManager::makeRoundedAvatarPixmap(const QWidget *widget, const
 
         p.setClipPath(path);
         p.drawPixmap(QPoint(0, 0), pix);
-
+        p.end();
         cache.insertCachedPixmap(iconUrlStr, downScaled);
     }
     return downScaled;
