@@ -8,6 +8,7 @@
 
 #include "utils.h"
 
+#include <QDateTime>
 #include <QJsonObject>
 #include <QLocale>
 

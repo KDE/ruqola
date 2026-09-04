@@ -8,14 +8,15 @@
 #include "libruqolacore_export.h"
 #include "personalaccesstokeninfo.h"
 #include <QList>
-
+class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfos
 {
 public:
     PersonalAccessTokenInfos();
 
     [[nodiscard]] const QList<PersonalAccessTokenInfo> &personalAccessTokenInfos() const;
-    void setPersonalAccessTokenInfos(const QList<PersonalAccessTokenInfo> &tokenInfos);
+    void setPersonalAccessTokenInfos(QList<PersonalAccessTokenInfo> tokenInfos);
 
     void parsePersonalAccessTokenInfos(const QJsonObject &obj);
     [[nodiscard]] bool isEmpty() const;

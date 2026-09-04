@@ -5,10 +5,12 @@
 */
 
 #pragma once
-#include "libruqola_private_export.h"
-#include <QObject>
+#include "libruqolacore_export.h"
+#include <QMetaType>
+#include <QString>
 class QDebug;
-class LIBRUQOLACORE_TESTS_EXPORT PersonalAccessTokenInfo
+class QJsonObject;
+class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfo
 {
 public:
     PersonalAccessTokenInfo();
