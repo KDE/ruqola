@@ -5,7 +5,6 @@
 */
 #include "grabscreenplugintoolinterface.h"
 
-#include "accountmanager.h"
 #include "grabscreenplugin_debug.h"
 #include "grabscreenpluginjob.h"
 #include "grabscreenplugintoolutil.h"
@@ -16,7 +15,6 @@
 #include "uploadfilemanager.h"
 
 #include <QFileInfo>
-#include <QPixmap>
 #include <QPointer>
 #include <QUrl>
 

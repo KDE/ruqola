@@ -10,7 +10,6 @@
 #include "grabscreenplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <QStandardPaths>
 #include <TextAddonsWidgets/ExecutableUtils>
 
 using namespace Qt::Literals::StringLiterals;

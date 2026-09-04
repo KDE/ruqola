@@ -9,7 +9,6 @@
 #include "aiactionsplugintoolinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <QStandardPaths>
 
 using namespace Qt::Literals::StringLiterals;
 K_PLUGIN_CLASS_WITH_JSON(AiActionsPluginTool, "ruqola_aiactionstoolsplugin.json")
