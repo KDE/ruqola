@@ -27,7 +27,7 @@ public:
     [[nodiscard]] int moderationReportedUserInfosCount() const;
     void setModerationReportedUserInfosCount(int newModerationReportedUserInfosCount);
 
-    [[nodiscard]] const QList<ModerationReportedUserInfo> &ModerationReportedUserInfosList() const;
+    [[nodiscard]] const QList<ModerationReportedUserInfo> &moderationReportedUserInfosList() const;
     void setModerationReportedUserInfosList(const QList<ModerationReportedUserInfo> &newModerationReportedUserInfosList);
 
     [[nodiscard]] bool isEmpty() const;

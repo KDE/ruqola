@@ -20,8 +20,8 @@ QDebug operator<<(QDebug d, const ModerationReportedUserInfos &t)
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
     d.space() << "ModerationReportedUserInfosCount" << t.moderationReportedUserInfosCount() << "\n";
-    for (int i = 0, total = t.ModerationReportedUserInfosList().count(); i < total; ++i) {
-        d.space() << t.ModerationReportedUserInfosList().at(i) << "\n";
+    for (int i = 0, total = t.moderationReportedUserInfosList().count(); i < total; ++i) {
+        d.space() << t.moderationReportedUserInfosList().at(i) << "\n";
     }
     return d;
 }
@@ -56,7 +56,7 @@ void ModerationReportedUserInfos::setModerationReportedUserInfosCount(int newMod
     mModerationReportedUserInfosCount = newModerationReportedUserInfosCount;
 }
 
-const QList<ModerationReportedUserInfo> &ModerationReportedUserInfos::ModerationReportedUserInfosList() const
+const QList<ModerationReportedUserInfo> &ModerationReportedUserInfos::moderationReportedUserInfosList() const
 {
     return mModerationReportedUserInfosList;
 }

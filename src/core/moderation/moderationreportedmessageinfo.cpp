@@ -39,7 +39,10 @@ bool ModerationReportedMessageInfo::operator==(const ModerationReportedMessageIn
 
 void ModerationReportedMessageInfo::parseRoomList(const QJsonArray &rooms)
 {
-    for (int i = 0; i < rooms.size(); i++) {
+    mRoomList.clear();
+    const int roomSize = rooms.size();
+    mRoomList.reserve(roomSize);
+    for (int i = 0; i < roomSize; i++) {
         const QJsonObject o = rooms.at(i).toObject();
         const QString fname = o["fname"_L1].toString();
         const QString name = o["name"_L1].toString();
