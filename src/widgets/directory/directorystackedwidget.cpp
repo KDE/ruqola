@@ -5,6 +5,7 @@
 */
 
 #include "directorystackedwidget.h"
+#include "directorywidget.h"
 
 #include "directorynotauthorizedwidget.h"
 
@@ -33,9 +34,7 @@ bool DirectoryStackedWidget::isAutorized() const
 void DirectoryStackedWidget::setIsAutorized(bool newIsAutorized)
 {
     mIsAutorized = newIsAutorized;
-    if (!mIsAutorized) {
-        setCurrentWidget(mDirectoryNotAutorizedWidget);
-    }
+    setCurrentWidget(mIsAutorized ? static_cast<QWidget *>(mDirectoryWidget) : mDirectoryNotAutorizedWidget);
 }
 
 void DirectoryStackedWidget::slotJoin()
