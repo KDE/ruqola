@@ -294,14 +294,14 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
             }
             delete dlg;
         }
-        auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
-        job->setTeamId(teamId);
-        job->setRoomsToRemove(listRoomIdToDelete);
-        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        auto teamConvertToChannelJob = new RocketChatRestApi::TeamConvertToChannelJob(this);
+        teamConvertToChannelJob->setTeamId(teamId);
+        teamConvertToChannelJob->setRoomsToRemove(listRoomIdToDelete);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(teamConvertToChannelJob);
         // connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
         //     // TODO ?
         // });
-        if (!job->start()) {
+        if (!teamConvertToChannelJob->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
         }
     });
@@ -341,7 +341,7 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
             job->setRoomId(roomId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GroupsConvertToTeamJob job";
             }
             break;
         }
