@@ -30,6 +30,10 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
@@ -81,6 +85,7 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
         }
     }
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 void ShowReadReceiptsDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)

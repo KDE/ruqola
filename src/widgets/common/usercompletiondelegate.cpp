@@ -32,6 +32,10 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
@@ -72,6 +76,7 @@ void UserCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         }
     }
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 void UserCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)

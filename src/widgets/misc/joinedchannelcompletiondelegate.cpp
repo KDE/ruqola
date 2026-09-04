@@ -37,6 +37,10 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
@@ -61,6 +65,7 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     painter->drawText(xPos + margin, defaultCharHeight, name);
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 void JoinedChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)

@@ -34,6 +34,10 @@ void TeamChannelsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
@@ -58,6 +62,7 @@ void TeamChannelsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
     painter->drawText(xPos + margin, defaultCharHeight, name);
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 QSize TeamChannelsDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

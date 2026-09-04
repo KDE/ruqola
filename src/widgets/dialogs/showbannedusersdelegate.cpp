@@ -30,6 +30,10 @@ void ShowBannedUsersDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
@@ -71,6 +75,7 @@ void ShowBannedUsersDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 void ShowBannedUsersDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)

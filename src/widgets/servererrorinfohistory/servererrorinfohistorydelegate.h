@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "delegateutils/textselection.h"
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistdelegatebase.h"
 class QListView;

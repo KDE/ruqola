@@ -13,6 +13,8 @@
 #include <QAbstractItemModel>
 #include <QApplication>
 #include <QClipboard>
+#include <QKeyEvent>
+#include <QLineEdit>
 #include <QMouseEvent>
 #include <QScrollBar>
 #include <TextEditTextToSpeech/TextToSpeech>

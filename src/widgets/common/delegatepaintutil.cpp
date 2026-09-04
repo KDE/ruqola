@@ -7,6 +7,16 @@
 #include "delegatepaintutil.h"
 #include <QPainter>
 #include <QPainterPath>
+#include <QStyleOptionViewItem>
+
+void DelegatePaintUtil::setTextPen(QPainter *painter, const QStyleOptionViewItem &option)
+{
+    QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+    painter->setPen(option.palette.color(cg, (option.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
+}
 
 void DelegatePaintUtil::drawLighterText(QPainter *painter, const QString &text, QPoint pos)
 {

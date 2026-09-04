@@ -29,6 +29,10 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
     const QFontMetrics commandFontMetrics(oldFont);
     const QString commandText = index.data(CommandsModel::CommandName).toString();
     const int commandWidth = commandFontMetrics.horizontalAdvance(commandText);
@@ -41,8 +45,7 @@ void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewI
     italicFont.setItalic(true);
     painter->setFont(italicFont);
 
-    const QPen oldPen = painter->pen();
-    QColor col = oldPen.color();
+    QColor col = painter->pen().color();
     col.setAlpha(128);
     painter->setPen(col);
 

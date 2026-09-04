@@ -35,6 +35,9 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     optionCopy.showDecorationSelected = true;
 
     drawBackground(painter, optionCopy, index);
+    // The texts are painted with QPainter::drawText(), so unlike drawDisplay() they don't switch
+    // to QPalette::HighlightedText by themselves.
+    DelegatePaintUtil::setTextPen(painter, optionCopy);
 
     // Draw Mimetype Icon
     const Layout layout = doLayout(option, index);

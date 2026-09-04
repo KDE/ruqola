@@ -43,6 +43,10 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
@@ -85,6 +89,7 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
         }
     }
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 void UsersForRoomModelDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)

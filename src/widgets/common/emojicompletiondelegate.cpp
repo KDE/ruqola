@@ -25,6 +25,10 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 {
     // [M] <unicode emoji> <:identifier:>     ([M] = margin)
     drawBackground(painter, option, index);
+    const QPen oldPen = painter->pen();
+    // The emoji is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
     const int margin = DelegatePaintUtil::margin();
     const QFontMetricsF emojiFontMetrics(mEmojiFont);
 
@@ -50,6 +54,7 @@ void EmojiCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         const QRect displayRect(xEmoji + emojiWidth, option.rect.y(), option.rect.width() - margin - emojiWidth, option.rect.height());
         drawDisplay(painter, option, displayRect, text);
     }
+    painter->setPen(oldPen);
 }
 
 #include "moc_emojicompletiondelegate.cpp"
