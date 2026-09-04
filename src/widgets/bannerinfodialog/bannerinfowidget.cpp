@@ -41,6 +41,8 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
     mBannerInfoListView->setObjectName(u"mBannerInfoListView"_s);
     mainLayout->addWidget(mBannerInfoListView);
 
+    mBannerInfoListView->forwardCopyShortcut(mBannerInfoListSearchLineWidget->searchLineEdit());
+
     connect(mBannerInfoListSearchLineWidget, &BannerInfoListSearchLineWidget::filterChanged, this, &BannerInfoWidget::initializeProxyModel);
     initializeProxyModel();
 }

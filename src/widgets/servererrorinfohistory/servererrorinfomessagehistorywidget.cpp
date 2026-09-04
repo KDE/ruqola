@@ -76,8 +76,9 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
             });
 #endif
 
-    mListServerInfosListView->setObjectName(u"mListServerInfosListView"_s);
     mainLayout->addWidget(mListServerInfosListView);
+
+    mListServerInfosListView->forwardCopyShortcut(mSearchLineEdit);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ServerErrorInfoMessageHistoryWidget::slotTextChanged);
 

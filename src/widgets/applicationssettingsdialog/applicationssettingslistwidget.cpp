@@ -55,6 +55,8 @@ ApplicationsSettingsListWidget::ApplicationsSettingsListWidget(RocketChatAccount
     splitter->addWidget(mApplicationsSettingsDescriptionTabWidget);
     splitter->setChildrenCollapsible(false);
 
+    mApplicationsSettingsListView->forwardCopyShortcut(mApplicationsSettingsSearchWidget->searchLineEdit());
+
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::filterChanged, this, &ApplicationsSettingsListWidget::slotFilterChanged);
     connect(mApplicationsSettingsSearchWidget, &ApplicationsSettingsSearchWidget::sortingChanged, this, &ApplicationsSettingsListWidget::slotSortingChanged);
     connect(mApplicationsSettingsListView,

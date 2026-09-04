@@ -79,6 +79,8 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
 
+    mListNotificationsListView->forwardCopyShortcut(mSearchLineEdit);
+
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
 
     connect(mServersComboBox, &ServersComboBox::accountSelected, this, &NotificationHistoryWidget::slotFilterAccount);

@@ -203,6 +203,26 @@ bool MessageListViewBase::hasSelection() const
     return false;
 }
 
+void MessageListViewBase::forwardCopyShortcut(QLineEdit *lineEdit)
+{
+    Q_ASSERT(lineEdit);
+    mCopyShortcutLineEdit = lineEdit;
+    mCopyShortcutLineEdit->installEventFilter(this);
+}
+
+bool MessageListViewBase::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == mCopyShortcutLineEdit && event->type() == QEvent::KeyPress) {
+        const auto keyEvent = static_cast<QKeyEvent *>(event);
+        // Copy the selected message text, unless the lineedit has something to copy itself
+        if (keyEvent->matches(QKeySequence::Copy) && mCopyShortcutLineEdit->selectedText().isEmpty()) {
+            copyMessageToClipboard();
+            return true;
+        }
+    }
+    return QListView::eventFilter(watched, event);
+}
+
 void MessageListViewBase::copyMessageToClipboard(const QModelIndex &index)
 {
     const QString messageText = selectedText(index);

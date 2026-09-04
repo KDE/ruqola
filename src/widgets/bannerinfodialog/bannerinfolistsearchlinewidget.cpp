@@ -46,4 +46,9 @@ bool BannerInfoListSearchLineWidget::showOnlyUnread() const
     return mOnlyUnReadCheckBox->isChecked();
 }
 
+QLineEdit *BannerInfoListSearchLineWidget::searchLineEdit() const
+{
+    return mSearchLineEdit;
+}
+
 #include "moc_bannerinfolistsearchlinewidget.cpp"

@@ -96,6 +96,7 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
             } else {
                 copyAction->setText(i18nc("@action", "Copy Message"));
             }
+            copyAction->setShortcut(QKeySequence::Copy);
             connect(copyAction, &QAction::triggered, this, [this, index]() {
                 copyMessageToClipboard(index);
             });

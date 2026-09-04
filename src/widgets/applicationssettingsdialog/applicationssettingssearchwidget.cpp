@@ -90,4 +90,9 @@ void ApplicationsSettingsSearchWidget::setFeature(Feature feature)
     }
 }
 
+QLineEdit *ApplicationsSettingsSearchWidget::searchLineEdit() const
+{
+    return mSearchLineEdit;
+}
+
 #include "moc_applicationssettingssearchwidget.cpp"

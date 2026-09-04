@@ -58,6 +58,8 @@ ModerationReportInfoWidget::ModerationReportInfoWidget(RocketChatAccount *accoun
     connect(mModerationReportInfoModel, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(mModerationReportInfoModel, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(mModerationReportInfoModel, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
+    mListNotificationsListView->forwardCopyShortcut(mSearchLineEdit);
+
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ModerationReportInfoWidget::slotTextChanged);
 }
 
