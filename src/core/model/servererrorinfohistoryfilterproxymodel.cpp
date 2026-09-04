@@ -21,7 +21,7 @@ bool ServerErrorInfoHistoryFilterProxyModel::filterAcceptsRow(int source_row, co
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
 
     if (!mAccountNameFilter.isEmpty()) {
-        if (!modelIndex.data(ServerErrorInfoHistoryModel::AccountName).toString().contains(mAccountNameFilter, Qt::CaseInsensitive)) {
+        if (modelIndex.data(ServerErrorInfoHistoryModel::AccountName).toString().compare(mAccountNameFilter, Qt::CaseInsensitive) != 0) {
             return false;
         }
     }
