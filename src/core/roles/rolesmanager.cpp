@@ -23,6 +23,8 @@ void RolesManager::parseRoles(const QJsonObject &obj)
 {
     const QJsonArray array = obj["roles"_L1].toArray();
 
+    // parseRoles() is called again on each (re)connection => don't accumulate duplicates.
+    mRoleInfo.clear();
     mRoleInfo.reserve(array.count());
     for (const auto &current : array) {
         const QJsonObject roleObject = current.toObject();
@@ -30,6 +32,7 @@ void RolesManager::parseRoles(const QJsonObject &obj)
         info.parseRoleInfo(roleObject);
         mRoleInfo.append(std::move(info));
     }
+    Q_EMIT rolesChanged();
 }
 
 void RolesManager::updateRoles(const QJsonArray &contents)
@@ -53,8 +56,8 @@ void RolesManager::updateRoles(const QJsonArray &contents)
             info.parseRoleInfo(roleObject);
             for (int i = 0, total = mRoleInfo.count(); i < total; ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {
-                    mRoleInfo.removeAt(i);
-                    mRoleInfo.append(std::move(info));
+                    // Replace in place, otherwise the list order changes on each update.
+                    mRoleInfo[i] = std::move(info);
                     found = true;
                     wasChanged = true;
                     break;

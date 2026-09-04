@@ -8,13 +8,12 @@
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
-
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 Roles::Roles() = default;
 
-QList<Role> Roles::roles() const
+const QList<Role> &Roles::roles() const
 {
     return mRoles;
 }

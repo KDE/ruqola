@@ -43,6 +43,10 @@ void RolesManagerTest::shouldLoadRoles()
     RolesManager m;
     m.parseRoles(obj);
     QCOMPARE(m.roleInfo().count(), numberOfRoles);
+
+    // parseRoles() is called again on each reconnection: it must not duplicate the roles.
+    m.parseRoles(obj);
+    QCOMPARE(m.roleInfo().count(), numberOfRoles);
 }
 
 void RolesManagerTest::shouldUpdateRoles_data()
@@ -82,9 +86,10 @@ void RolesManagerTest::shouldUpdateRoles()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     RolesManager m;
-    const QSignalSpy spy(&m, &RolesManager::rolesChanged);
     m.parseRoles(obj);
     QCOMPARE(m.roleInfo().count(), numberOfRolesBefore);
+
+    const QSignalSpy spy(&m, &RolesManager::rolesChanged);
 
     const QString updateJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/rolesmanager/"_L1 + updateName + ".json"_L1;
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updateJsonFile);

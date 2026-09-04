@@ -6,9 +6,13 @@
 
 #pragma once
 #include "libruqolacore_export.h"
-#include <QObject>
+
+#include <QByteArray>
+#include <QMetaType>
 #include <QString>
+
 class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT Role
 {
 public:

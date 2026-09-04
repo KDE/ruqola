@@ -74,4 +74,43 @@ void RolesTest::shouldLoadRoles()
     QCOMPARE(r.roles().count(), rolesCount);
 }
 
+void RolesTest::shouldUpdateRoles()
+{
+    Roles r;
+    QJsonObject user;
+    user["_id"_L1] = u"id1"_s;
+    user["username"_L1] = u"bla"_s;
+
+    QJsonObject added;
+    added["type"_L1] = u"added"_s;
+    added["_id"_L1] = u"owner"_s;
+    added["u"_L1] = user;
+    r.updateRoles(added);
+
+    QCOMPARE(r.count(), 1);
+    QVERIFY(r.at(0).isOwner());
+    // The username must be stored too, otherwise the channel role dialog shows empty names.
+    QCOMPARE(r.at(0).userName(), u"bla"_s);
+
+    QJsonObject added2 = added;
+    added2["_id"_L1] = u"moderator"_s;
+    r.updateRoles(added2);
+    QCOMPARE(r.count(), 1);
+    QVERIFY(r.at(0).isOwner());
+    QVERIFY(r.at(0).isModerator());
+
+    QJsonObject removed = added;
+    removed["type"_L1] = u"removed"_s;
+    r.updateRoles(removed);
+    QCOMPARE(r.count(), 1);
+    QVERIFY(!r.at(0).isOwner());
+    QVERIFY(r.at(0).isModerator());
+    QCOMPARE(r.at(0).userName(), u"bla"_s);
+
+    QJsonObject removed2 = added2;
+    removed2["type"_L1] = u"removed"_s;
+    r.updateRoles(removed2);
+    QCOMPARE(r.count(), 0);
+}
+
 #include "moc_rolestest.cpp"
