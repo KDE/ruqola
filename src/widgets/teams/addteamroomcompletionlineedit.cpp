@@ -87,26 +87,32 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
     // qDebug() << " obj " << obj;
     const QJsonArray items = obj["items"_L1].toArray();
     QList<TeamRoomCompleter> teams;
-    for (int i = 0, total = items.count(); i < total; ++i) {
+    const int total = items.count();
+    teams.reserve(total);
+    for (int i = 0; i < total; ++i) {
         TeamRoomCompleter teamCompleter;
         teamCompleter.parse(items.at(i).toObject());
         teams.append(std::move(teamCompleter));
     }
-    mTeamRoomCompleterModel->setRooms(teams);
     if (teams.isEmpty()) {
         mCompletionListView->hide();
     }
+    mTeamRoomCompleterModel->setRooms(teams);
 }
 
 void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(TeamRoomCompleterModel::TeamName).toString();
     const QByteArray roomId = index.data(TeamRoomCompleterModel::TeamId).toByteArray();
+    if (completerName.isEmpty() || roomId.isEmpty()) {
+        return;
+    }
     const RoomCompletionInfo info{
         .roomId = roomId,
         .roomName = completerName,
     };
     mCompletionListView->hide();
+    mSearchTimer->stop();
     disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT newRoomName(info);
     clear();

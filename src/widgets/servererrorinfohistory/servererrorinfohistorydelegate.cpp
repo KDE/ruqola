@@ -11,7 +11,6 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "model/servererrorinfohistorymodel.h"
-#include "rocketchataccount.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
@@ -115,12 +114,12 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ServerErrorInfoHistoryDelegate::Layout layout;
-    const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
     const auto sameAccountAsPreviousMessage = [&] {
         if (index.row() < 1) {
             return false;
         }
 
+        const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
         const auto previousIndex = index.siblingAtRow(index.row() - 1);
         const auto previousAccountName = previousIndex.data(ServerErrorInfoHistoryModel::AccountName).toString();
         return previousAccountName == accountName;

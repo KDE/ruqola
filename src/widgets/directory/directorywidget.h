@@ -6,8 +6,6 @@
 
 #pragma once
 
-class QWidget;
-
 #include "misc/searchtreebasewidget.h"
 
 #include "libruqolawidgets_private_export.h"

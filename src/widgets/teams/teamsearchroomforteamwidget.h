@@ -26,7 +26,6 @@ public:
     [[nodiscard]] QList<QByteArray> roomIds() const;
 
 Q_SIGNALS:
-    void textChanged(const QString &str);
     void roomListChanged(bool isNotEmpty);
 
 private:

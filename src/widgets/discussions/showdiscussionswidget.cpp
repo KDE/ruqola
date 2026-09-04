@@ -8,7 +8,6 @@
 
 #include "discussionlistview.h"
 #include "model/discussionsfilterproxymodel.h"
-#include "rocketchataccount.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>

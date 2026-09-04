@@ -5,8 +5,6 @@
 */
 
 #include "forwardmessageaddchannelcompletionlineedit.h"
-#include "misc/joinedchannelcompletiondelegate.h"
-#include "rocketchataccount.h"
 
 ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : JoinedChannelCompletionLineEditBase(account, parent)
