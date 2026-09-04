@@ -28,9 +28,9 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
     , mInviteTreeView(new InviteTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
+    , mAdminInviteFilterProxyModel(new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this))
     , mRocketChatAccount(account)
 {
-    mAdminInviteFilterProxyModel = new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this);
     mAdminInviteFilterProxyModel->setObjectName(u"mAdminInviteFilterProxyModel"_s);
     mAdminInviteFilterProxyModel->setFilterKeyColumn(AdminInviteModel::AdminInviteRoles::Identifier);
     auto mainLayout = new QVBoxLayout(this);
