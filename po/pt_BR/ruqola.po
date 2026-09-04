@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-03 00:43+0000\n"
+"POT-Creation-Date: 2026-09-04 00:44+0000\n"
 "PO-Revision-Date: 2026-08-29 06:48-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -766,120 +766,120 @@ msgstr "Sem url do servidor."
 msgid "Socket was unexpectedly closed."
 msgstr "O soquete foi fechado inesperadamente."
 
-#: core/messages/block/block.cpp:160 core/messages/message.cpp:963
+#: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:133
 #, kde-format
 msgid "Conference Call"
 msgstr "Chamada de conferência"
 
-#: core/messages/message.cpp:863
+#: core/messages/message.cpp:800
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 entrou no canal"
 
-#: core/messages/message.cpp:865
+#: core/messages/message.cpp:802
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 saiu do canal"
 
-#: core/messages/message.cpp:867
+#: core/messages/message.cpp:804
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 saiu desta equipe"
 
-#: core/messages/message.cpp:870
+#: core/messages/message.cpp:807
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "O tópico foi limpo por: %1"
 
-#: core/messages/message.cpp:872
+#: core/messages/message.cpp:809
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 alterou o tópico para: <i>%1</i>"
 
-#: core/messages/message.cpp:875
+#: core/messages/message.cpp:812
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 adicionou %1 à conversa"
 
-#: core/messages/message.cpp:877
+#: core/messages/message.cpp:814
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 alterou o nome da sala para <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:879
+#: core/messages/message.cpp:816
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 excluiu o usuário %1"
 
-#: core/messages/message.cpp:882
+#: core/messages/message.cpp:819
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "A descrição foi limpa por %1"
 
-#: core/messages/message.cpp:884
+#: core/messages/message.cpp:821
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 alterou a descrição da sala para %1"
 
-#: core/messages/message.cpp:888
+#: core/messages/message.cpp:825
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "O anúncio foi limpo por %1"
 
-#: core/messages/message.cpp:890
+#: core/messages/message.cpp:827
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 alterou o anúncio da sala para %1"
 
-#: core/messages/message.cpp:893
+#: core/messages/message.cpp:830
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 alterou a privacidade da sala para %1"
 
-#: core/messages/message.cpp:895
+#: core/messages/message.cpp:832
 #, kde-format
 msgid "Click to join to video"
 msgstr "Clique para participar do vídeo"
 
-#: core/messages/message.cpp:898
+#: core/messages/message.cpp:835
 #, kde-format
 msgid "Message Deleted"
 msgstr "Mensagem excluída"
 
-#: core/messages/message.cpp:900
+#: core/messages/message.cpp:837
 #, kde-format
 msgid "Message Pinned"
 msgstr "Mensagem fixada"
 
-#: core/messages/message.cpp:902
+#: core/messages/message.cpp:839
 #, kde-format
 msgid "Message Pinned by %1"
 msgstr "Mensagem fixada por %1"
 
-#: core/messages/message.cpp:904
+#: core/messages/message.cpp:841
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 teve o som ativado por %2"
 
-#: core/messages/message.cpp:906
+#: core/messages/message.cpp:843
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 foi silenciado por %2"
 
-#: core/messages/message.cpp:908
+#: core/messages/message.cpp:845
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "A função '%3' foi adicionada para %1 por %2"
 
-#: core/messages/message.cpp:910
+#: core/messages/message.cpp:847
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "A função '%3' foi excluída de %1 por %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:914
+#: core/messages/message.cpp:851
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -888,122 +888,122 @@ msgstr ""
 "Esta mensagem é criptografada de ponta a ponta. Para visualizá-la, você "
 "precisa inserir sua chave de criptografia nas configurações da sua conta."
 
-#: core/messages/message.cpp:916
+#: core/messages/message.cpp:853
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Discussão criada sobre \"%1\""
 
-#: core/messages/message.cpp:918
+#: core/messages/message.cpp:855
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 entrou na conversa"
 
-#: core/messages/message.cpp:920
+#: core/messages/message.cpp:857
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Esta sala foi arquivada por %1"
 
-#: core/messages/message.cpp:922
+#: core/messages/message.cpp:859
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Esta sala foi desarquivada por %1"
 
-#: core/messages/message.cpp:925 core/messages/message.cpp:972
+#: core/messages/message.cpp:862 core/messages/message.cpp:909
 #, kde-format
 msgid "Unknown action!"
 msgstr "Ação desconhecida!"
 
-#: core/messages/message.cpp:929
+#: core/messages/message.cpp:866
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Bem-vindo ao %1!"
 
-#: core/messages/message.cpp:931
+#: core/messages/message.cpp:868
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Avatar da sala alterado por %1"
 
-#: core/messages/message.cpp:933
+#: core/messages/message.cpp:870
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "A criptografia desta sala foi habilitada por %1"
 
-#: core/messages/message.cpp:935
+#: core/messages/message.cpp:872
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "A criptografia desta sala foi desabilitada por %1"
 
-#: core/messages/message.cpp:937
+#: core/messages/message.cpp:874
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "A sala foi definida como somente leitura por %1"
 
-#: core/messages/message.cpp:939
+#: core/messages/message.cpp:876
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "A sala adicionou permissões de escrita por %1"
 
-#: core/messages/message.cpp:941
+#: core/messages/message.cpp:878
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 adicionou @%2 a esta equipe"
 
-#: core/messages/message.cpp:943
+#: core/messages/message.cpp:880
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 removeu @%2 desta equipe"
 
-#: core/messages/message.cpp:945
+#: core/messages/message.cpp:882
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 converteu #%2 para uma equipe"
 
-#: core/messages/message.cpp:947
+#: core/messages/message.cpp:884
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1 converteu #%2 para um canal"
 
-#: core/messages/message.cpp:949
+#: core/messages/message.cpp:886
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 removeu #%2 desta equipe"
 
-#: core/messages/message.cpp:951
+#: core/messages/message.cpp:888
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 excluiu #%2"
 
-#: core/messages/message.cpp:953
+#: core/messages/message.cpp:890
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 adicionou #%2 a esta equipe"
 
-#: core/messages/message.cpp:955
+#: core/messages/message.cpp:892
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "Sala permitiu reagir por %1"
 
-#: core/messages/message.cpp:957
+#: core/messages/message.cpp:894
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "Sala não permitiu reagir por %1"
 
-#: core/messages/message.cpp:959
+#: core/messages/message.cpp:896
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 juntou-se a esta equipe"
 
-#: core/messages/message.cpp:961
+#: core/messages/message.cpp:898
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 chave atualizada com sucesso"
 
-#: core/messages/message.cpp:965
+#: core/messages/message.cpp:902
 #, kde-format
 msgid "%1 banned %2"
 msgstr "%1 baniu %2"
 
-#: core/messages/message.cpp:967
+#: core/messages/message.cpp:904
 #, kde-format
 msgid "%1 unbanned %2"
 msgstr "%1 removeu banimento de %2"
@@ -1029,13 +1029,13 @@ msgstr "%1 e %2"
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
-#: core/model/directoryroomsmodel.cpp:112 core/model/directoryteamsmodel.cpp:86
-#: core/model/directoryusersmodel.cpp:97
+#: core/model/directoryroomsmodel.cpp:119 core/model/directoryteamsmodel.cpp:93
+#: core/model/directoryusersmodel.cpp:104
 #: core/model/moderationreportedmessagemodel.cpp:32
 #: core/model/moderationreportedusermodel.cpp:39
 #: core/model/permissionsmodel.cpp:32
 #: core/model/personalaccesstokeninfosmodel.cpp:81
-#: core/model/usersinrolemodel.cpp:82
+#: core/model/usersinrolemodel.cpp:89
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:46
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:47
 #, kde-format
@@ -1045,7 +1045,7 @@ msgstr "Nome"
 #: core/model/admincustomemojimodel.cpp:38
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
-#: core/model/directoryroomsmodel.cpp:118 core/model/directoryteamsmodel.cpp:90
+#: core/model/directoryroomsmodel.cpp:125 core/model/directoryteamsmodel.cpp:97
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
 #, kde-format
 msgid "Identifier"
@@ -1153,17 +1153,17 @@ msgstr "Número de mensagens"
 msgid "Number of Users"
 msgstr "Número de usuários"
 
-#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:116
+#: core/model/adminroomsmodel.cpp:38 core/model/directoryroomsmodel.cpp:123
 #, kde-format
 msgid "Topic"
 msgstr "Tópico"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:120
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:127
 #, kde-format
 msgid "Read-only"
 msgstr "Somente leitura"
 
-#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:122
+#: core/model/adminroomsmodel.cpp:44 core/model/directoryroomsmodel.cpp:129
 #, kde-format
 msgid "Default Room"
 msgstr "Sala padrão"
@@ -1293,44 +1293,44 @@ msgstr "IP"
 msgid "Login At"
 msgstr "Entrar em"
 
-#: core/model/directoryroomsmodel.cpp:114
+#: core/model/directoryroomsmodel.cpp:121
 #, kde-format
 msgid "Number Of Users"
 msgstr "Número de usuários"
 
-#: core/model/directoryroomsmodel.cpp:124
+#: core/model/directoryroomsmodel.cpp:131
 #, kde-format
 msgid "Last Message"
 msgstr "Última mensagem"
 
-#: core/model/directoryroomsmodel.cpp:126 core/model/directoryteamsmodel.cpp:92
+#: core/model/directoryroomsmodel.cpp:133 core/model/directoryteamsmodel.cpp:99
 #, kde-format
 msgid "Created"
 msgstr "Criado em"
 
-#: core/model/directoryroomsmodel.cpp:129
+#: core/model/directoryroomsmodel.cpp:136
 #, kde-format
 msgid "Channel Type"
 msgstr "Tipo de canal"
 
-#: core/model/directoryroomsmodel.cpp:131
+#: core/model/directoryroomsmodel.cpp:138
 #, kde-format
 msgid "Belongs To"
 msgstr "Pertence a"
 
-#: core/model/directoryteamsmodel.cpp:88 core/model/roommodel.cpp:683
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:683
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
 msgid "Rooms"
 msgstr "Salas"
 
-#: core/model/directoryusersmodel.cpp:99 core/model/usersinrolemodel.cpp:84
+#: core/model/directoryusersmodel.cpp:106 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
 msgstr "E-mails"
 
-#: core/model/directoryusersmodel.cpp:101
+#: core/model/directoryusersmodel.cpp:108
 #, kde-format
 msgid "Join At"
 msgstr "Entrar em"
@@ -1539,7 +1539,7 @@ msgstr "Mensagens privadas"
 msgid "Draft"
 msgstr "Rascunho"
 
-#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:318
+#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -1734,7 +1734,7 @@ msgstr "Juntou-se a esta equipe"
 msgid "(Autojoin)"
 msgstr "(Entrada automática)"
 
-#: core/model/usersforroommodel.cpp:308 core/room.cpp:1167
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1167
 #, kde-format
 msgid "Owner"
 msgstr "Proprietário"
@@ -7663,19 +7663,19 @@ msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Canais de filtro (%1)"
 
-#: widgets/channellist/channellistwidget.cpp:72
+#: widgets/channellist/channellistwidget.cpp:71
 #, kde-format
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "Pesquisar canais"
 
-#: widgets/channellist/channellistwidget.cpp:79
+#: widgets/channellist/channellistwidget.cpp:78
 #, kde-format
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Canal anterior"
 
-#: widgets/channellist/channellistwidget.cpp:87
+#: widgets/channellist/channellistwidget.cpp:86
 #, kde-format
 msgctxt "@action"
 msgid "Next Channel"
@@ -10846,49 +10846,49 @@ msgstr[1] "%1 mensagens"
 msgid "No message yet"
 msgstr "Nenhuma mensagem ainda"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1059
+#: widgets/room/delegate/messagelistdelegate.cpp:1066
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Seguindo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1063
+#: widgets/room/delegate/messagelistdelegate.cpp:1070
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Mensagem fixada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1067
+#: widgets/room/delegate/messagelistdelegate.cpp:1074
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Mensagem recebeu estrela"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1071
+#: widgets/room/delegate/messagelistdelegate.cpp:1078
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Mensagem possui um texto traduzido"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1075
+#: widgets/room/delegate/messagelistdelegate.cpp:1082
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responder no tópico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1079
+#: widgets/room/delegate/messagelistdelegate.cpp:1086
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Adicionar reação"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1085
+#: widgets/room/delegate/messagelistdelegate.cpp:1092
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Parar"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1085
+#: widgets/room/delegate/messagelistdelegate.cpp:1092
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
