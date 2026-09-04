@@ -50,12 +50,12 @@ QMap<QString, DownloadAppsLanguagesInfo> DownloadAppsLanguagesManager::languages
     return mLanguageMap;
 }
 
-QString DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &id)
+QString DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &id) const
 {
     QMap<QString, DownloadAppsLanguagesInfo>::const_iterator i = mLanguageMap.constBegin();
     while (i != mLanguageMap.constEnd()) {
         if (id.contains(i.key())) {
-            const DownloadAppsLanguagesInfo info = i.value();
+            const DownloadAppsLanguagesInfo &info = i.value();
             const QMap<QString, QMap<QString, QString>> mapLangId = info.languageMap();
             QMap<QString, QString> mapId = mapLangId.value(language);
             if (mapId.isEmpty()) {
