@@ -32,6 +32,12 @@ void GrabScreenPluginJob::start()
         return;
     }
     const QString path = TextAddonsWidgets::ExecutableUtils::findExecutable(u"spectacle"_s);
+    if (path.isEmpty()) {
+        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Impossible to find spectable";
+        Q_EMIT captureCanceled();
+        deleteLater();
+        return;
+    }
     auto proc = new QProcess(this);
     const QStringList arguments = QStringList() << u"-n"_s << u"-d"_s << QString::number(GrabScreenPluginToolConfig::self()->delay()) << u"-bro"_s << mFilePath;
     connect(proc, &QProcess::finished, this, [this]([[maybe_unused]] int exitCode, [[maybe_unused]] QProcess::ExitStatus exitStatus) {
