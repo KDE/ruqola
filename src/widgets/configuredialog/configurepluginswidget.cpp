@@ -31,7 +31,8 @@ void ConfigurePluginsWidget::restoreToDefaults()
 {
     // TODO
 }
-
+namespace
+{
 QString toolsPluginGroupName()
 {
     return u"pluginToolsPluginGroupName"_s;
@@ -40,6 +41,7 @@ QString toolsPluginGroupName()
 QString textPluginGroupName()
 {
     return u"pluginTextPluginGroupName"_s;
+}
 }
 
 void ConfigurePluginsWidget::initialize()
