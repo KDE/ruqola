@@ -14,7 +14,6 @@
 #include "ruqola.h"
 #include <KActionCollection>
 #include <KLocalizedString>
-#include <QActionGroup>
 #include <QMenu>
 
 using namespace Qt::Literals::StringLiterals;

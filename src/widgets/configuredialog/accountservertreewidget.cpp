@@ -5,7 +5,7 @@
 */
 
 #include "accountservertreewidget.h"
-using namespace Qt::Literals::StringLiterals;
+#include "config-ruqola.h"
 
 #include "activities/activitiesmanager.h"
 #include "configurenewserver/createnewserverdialog.h"
@@ -21,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPointer>
 #include <QTreeWidgetItem>
 
+using namespace Qt::Literals::StringLiterals;
 AccountServerTreeWidget::AccountServerTreeWidget(QWidget *parent)
     : QTreeWidget(parent)
 {

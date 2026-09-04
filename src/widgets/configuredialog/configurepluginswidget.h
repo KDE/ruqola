@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include <TextAddonsWidgets/ConfigurePluginsWidget>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigurePluginsWidget : public TextAddonsWidgets::ConfigurePluginsWidget

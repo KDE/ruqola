@@ -9,7 +9,6 @@
 
 #include "accountmanager.h"
 #include "colorsandmessageviewstyle.h"
-#include "ddpapi/ddpclient.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "model/roommodel.h"

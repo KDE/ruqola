@@ -5,7 +5,6 @@
 */
 
 #include "messagelistviewbase.h"
-#include "config-ruqola.h"
 #include "model/messagesmodel.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintextinterface.h"

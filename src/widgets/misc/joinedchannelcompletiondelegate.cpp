@@ -9,8 +9,6 @@
 #include "misc/avatarcachemanager.h"
 #include "model/joinedchannelmodel.h"
 
-#include <KLocalizedString>
-
 #include <QPainter>
 
 namespace
