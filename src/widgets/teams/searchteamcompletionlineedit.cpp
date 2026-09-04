@@ -85,10 +85,10 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
         teamCompleter.parse(items.at(i).toObject());
         teams.append(std::move(teamCompleter));
     }
-    mTeamCompleterModel->insertTeams(teams);
     if (teams.isEmpty()) {
         mCompletionListView->hide();
     }
+    mTeamCompleterModel->insertTeams(teams);
 }
 
 void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
@@ -99,6 +99,7 @@ void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
     disconnect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
     setText(completerName);
     mTeamId = teamIdentifier;
+    mSearchTimer->stop();
     connect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT teamIdChanged(mTeamId.isEmpty());
 }

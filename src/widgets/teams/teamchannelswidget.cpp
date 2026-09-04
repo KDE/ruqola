@@ -82,7 +82,7 @@ TeamChannelsWidget::~TeamChannelsWidget() = default;
 
 void TeamChannelsWidget::slotTypeTeamListChanged(int index)
 {
-    mTeamRoomFilterProxyModel->setSortByAutoJoin(index == 1 ? true : false);
+    mTeamRoomFilterProxyModel->setSortByAutoJoin(index == 1);
 }
 
 void TeamChannelsWidget::setRoom(Room *room)
@@ -105,7 +105,7 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     mTeamRoomsModel->setTeamRooms(teamRooms);
 }
 

@@ -59,16 +59,13 @@ void ForwardMessageWidget::slotForwardToChannel(const JoinedChannelCompletionLin
 
 void ForwardMessageWidget::slotRemoveRoom(const QByteArray &channelId)
 {
-    ClickableWidget *userWidget = mMap.value(channelId);
-    if (userWidget) {
-        const int index = mFlowLayout->indexOf(userWidget);
-        if (index != -1) {
+    if (ClickableWidget *const roomWidget = mMap.take(channelId)) {
+        if (const int index = mFlowLayout->indexOf(roomWidget); index != -1) {
             delete mFlowLayout->takeAt(index);
-            mMap.remove(channelId);
-            userWidget->deleteLater();
         }
+        roomWidget->deleteLater();
+        Q_EMIT updateOkButton(!mMap.isEmpty());
     }
-    Q_EMIT updateOkButton(!mMap.isEmpty());
 }
 
 QList<QByteArray> ForwardMessageWidget::channelIdentifiers() const
