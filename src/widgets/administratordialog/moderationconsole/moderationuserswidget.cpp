@@ -45,11 +45,11 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     }
 
     const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.moderationReportUserInfosList();
+    QLocale l;
     int i = 1;
     for (const auto &info : moderationReportUserInfosList) {
         html += u"<div><a style='background-color:"_s + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + u"</a></div>"_s;
         html += u"<div>"_s + info.description() + u"</div>"_s;
-        QLocale l;
         const QString createAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(info.timeStamp()), QLocale::ShortFormat);
         html += u"<div><i>"_s + info.reportedBy().userName() + u' ' + createAtDisplayDateTime + u"</i></div>"_s;
         html += u"<br/>"_s;

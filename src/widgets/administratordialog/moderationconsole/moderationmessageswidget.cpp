@@ -34,6 +34,8 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
+    mainLayout->addWidget(mSearchLabel);
+
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
