@@ -1395,10 +1395,13 @@
           <li xml:lang="ar">تحديث قائمة الإيموجي</li>
           <li xml:lang="ca">Actualitza la llista d'emojis</li>
           <li xml:lang="ca-valencia">Actualitza la llista d'emoji</li>
+          <li xml:lang="ia">Actualisa lista de Emoji</li>
           <li xml:lang="ka">განახლდა ემოჯიების სია</li>
+          <li xml:lang="nl">Emoji-lijst bijwerken</li>
           <li xml:lang="pt-BR">Atualizar lista de emojis</li>
           <li xml:lang="sl">Posodobi seznam čustvenčkov</li>
           <li xml:lang="sv">Uppdatera emoji-lista</li>
+          <li xml:lang="tr">Emoji listesini güncelle</li>
           <li xml:lang="uk">Оновлено список емодзі</li>
           <li>Encryption support</li>
           <li xml:lang="ar">إتاحة التعمية</li>
@@ -1406,6 +1409,7 @@
           <li xml:lang="ca-valencia">Implementació d'encriptació</li>
           <li xml:lang="es">Soporte de cifrado</li>
           <li xml:lang="he">תמיכה בהצפנה</li>
+          <li xml:lang="ia">Supporto cryptation</li>
           <li xml:lang="it">Supporto della cifratura</li>
           <li xml:lang="ka">დაშიფვრის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor versleuteling</li>
