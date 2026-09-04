@@ -120,7 +120,7 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
         return;
     }
     QMenu menu(this);
-    QModelIndex index = mListView->indexAt(pos);
+    const QModelIndex index = mListView->indexAt(pos);
     // TODO Remove add-team-channel when we will depend against RC 7.0
     if (mRoom->hasPermission(u"add-team-channel") || mRoom->hasPermission(u"move-room-to-team") || mRoom->hasPermission(u"create-team-channel")
         || mRoom->hasPermission(u"create-team-group")) {

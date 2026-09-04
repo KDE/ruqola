@@ -220,10 +220,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
-    const QPixmap pix = makeAvatarPixmap(option.widget, index, senderTextSize.height());
-    if (!pix.isNull()) {
-        layout.avatarPixmap = pix;
-    }
+    layout.avatarPixmap = makeAvatarPixmap(option.widget, index, senderTextSize.height());
 
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
 

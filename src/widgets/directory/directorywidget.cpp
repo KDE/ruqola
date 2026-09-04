@@ -46,7 +46,8 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
         mProxyModelModel = new DirectoryTeamsProxyModel(mModel, this);
         break;
     case DirectoryType::Unknown:
-        break;
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";
+        return;
     }
     mTreeView->setModel(mProxyModelModel);
 
@@ -68,59 +69,53 @@ DirectoryWidget::~DirectoryWidget() = default;
 
 void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
-    if (index.isValid()) {
-        const QModelIndex i = mProxyModelModel->mapToSource(index);
-        QString actionName;
-        switch (mType) {
-        case DirectoryType::Room:
-        case DirectoryType::Team:
-            actionName = i18nc("@action", "Join…");
-            break;
-        case DirectoryType::User:
-            actionName = i18nc("@action", "Open Private Message…");
-            break;
-        case DirectoryType::Unknown:
-            return;
-        }
-        menu.addAction(actionName, this, [this, i]() {
-            slotOpen(i);
-        });
+    if (!index.isValid()) {
+        return;
     }
-    if (!menu.isEmpty()) {
-        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    QString actionName;
+    switch (mType) {
+    case DirectoryType::Room:
+    case DirectoryType::Team:
+        actionName = i18nc("@action", "Join…");
+        break;
+    case DirectoryType::User:
+        actionName = i18nc("@action", "Open Private Message…");
+        break;
+    case DirectoryType::Unknown:
+        return;
     }
+    const QModelIndex sourceIndex = mProxyModelModel->mapToSource(index);
+    QMenu menu(this);
+    menu.addAction(actionName, this, [this, sourceIndex]() {
+        slotOpen(sourceIndex);
+    });
+    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
 }
 
 void DirectoryWidget::slotOpen(const QModelIndex &index)
 {
     switch (mType) {
     case DirectoryType::Room: {
-        QModelIndex modelIndex = mModel->index(index.row(), DirectoryRoomsModel::Identifier);
-        const QByteArray channelId = modelIndex.data().toByteArray();
-        modelIndex = mModel->index(index.row(), DirectoryRoomsModel::ChannelType);
-        const QString channelType = modelIndex.data().toString();
+        const QString channelId = QString::fromLatin1(mModel->index(index.row(), DirectoryRoomsModel::Identifier).data().toByteArray());
+        const QString channelType = mModel->index(index.row(), DirectoryRoomsModel::ChannelType).data().toString();
         if (channelType == "p"_L1) {
-            mRocketChatAccount->openPrivateGroup(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
+            mRocketChatAccount->openPrivateGroup(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
         } else if (channelType == "c"_L1) {
-            mRocketChatAccount->openChannel(QString::fromLatin1(channelId), RocketChatAccount::ChannelTypeInfo::RoomId);
+            mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
         } else {
             qCWarning(RUQOLAWIDGETS_LOG) << " Unknown channel type " << channelType;
         }
         break;
     }
     case DirectoryType::User: {
-        const QModelIndex modelIndex = mModel->index(index.row(), DirectoryUsersModel::UserName);
-        const QString userName = modelIndex.data().toString();
         //  Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
-        // qDebug() << " DirectoryType::User " << userName;
+        const QString userName = mModel->index(index.row(), DirectoryUsersModel::UserName).data().toString();
         mRocketChatAccount->createDirectChannel({userName});
         break;
     }
     case DirectoryType::Team: {
-        const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::RoomIdentifier);
-        const QString roomId = QString::fromLatin1(modelIndex.data().toByteArray());
+        const QString roomId = QString::fromLatin1(mModel->index(index.row(), DirectoryTeamsModel::RoomIdentifier).data().toByteArray());
         mRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
         break;
     }
@@ -162,10 +157,7 @@ void DirectoryWidget::slotLoadElements(int offset, int count, const QString &sea
     }
     job->setDirectoryInfo(info);
     RocketChatRestApi::QueryParameters parameters;
-
-    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
-    parameters.setSorting(map);
+    parameters.setSorting({{u"name"_s, RocketChatRestApi::QueryParameters::SortOrder::Ascendant}});
     if (offset != -1) {
         parameters.setOffset(offset);
     }
@@ -230,7 +222,7 @@ QString DirectoryWidget::displayShowMessageInRoom() const
 
 void DirectoryWidget::showEvent(QShowEvent *event)
 {
-    if (!event->spontaneous() && !mWasInitialized) {
+    if (!event->spontaneous() && !mWasInitialized && mModel) {
         mWasInitialized = true;
         initialize();
     }

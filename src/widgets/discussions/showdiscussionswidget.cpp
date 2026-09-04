@@ -73,21 +73,35 @@ ShowDiscussionsWidget::~ShowDiscussionsWidget()
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {
     mListDiscussionsListView->setSearchText(str);
-    mDiscussionModel->setFilterString(str);
+    if (mDiscussionModel) {
+        mDiscussionModel->setFilterString(str);
+    }
     updateLabel();
 }
 
 void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
 {
+    if (mDiscussionModel == model) {
+        return;
+    }
+    if (mDiscussionModel) {
+        disconnect(mDiscussionModel, nullptr, this, nullptr);
+    }
     mListDiscussionsListView->setModel(model);
     mDiscussionModel = model;
-    connect(mDiscussionModel, &DiscussionsFilterProxyModel::hasFullListChanged, this, &ShowDiscussionsWidget::updateLabel);
-    connect(mDiscussionModel, &DiscussionsFilterProxyModel::loadingInProgressChanged, this, &ShowDiscussionsWidget::updateLabel);
+    if (mDiscussionModel) {
+        connect(mDiscussionModel, &DiscussionsFilterProxyModel::hasFullListChanged, this, &ShowDiscussionsWidget::updateLabel);
+        connect(mDiscussionModel, &DiscussionsFilterProxyModel::loadingInProgressChanged, this, &ShowDiscussionsWidget::updateLabel);
+    }
     updateLabel();
 }
 
 void ShowDiscussionsWidget::updateLabel()
 {
+    if (!mDiscussionModel) {
+        mDiscussionInfoLabel->clear();
+        return;
+    }
     if (mDiscussionModel->loadMoreDiscussionsInProgress()) {
         mDiscussionInfoLabel->setText(i18n("Loading…"));
     } else {
