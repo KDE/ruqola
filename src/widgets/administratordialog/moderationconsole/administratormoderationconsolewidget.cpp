@@ -9,7 +9,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "administratormoderationreportedmessageconsoletreewidget.h"
 #include "administratormoderationreporteduserconsoletreewidget.h"
-#include "rocketchataccount.h"
 
 #include <KLocalizedString>
 #include <QTabWidget>

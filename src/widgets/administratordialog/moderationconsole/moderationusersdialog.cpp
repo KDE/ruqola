@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "moderationuserswidget.h"
-#include "rocketchataccount.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>

@@ -18,6 +18,7 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QLineEdit>
 
 #include <QVBoxLayout>
@@ -73,19 +74,15 @@ void AdministratorInvitesWidget::initialize()
 
 void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
 {
-    QList<InviteInfo> lstInvite;
     const QJsonArray array = obj.array();
-    const auto arrayCount{array.count()};
-    lstInvite.reserve(arrayCount);
-    for (auto i = 0; i < arrayCount; ++i) {
-        const QJsonObject o = array.at(i).toObject();
+    QList<InviteInfo> lstInvite;
+    lstInvite.reserve(array.count());
+    for (const QJsonValue &current : array) {
         InviteInfo invite;
-        invite.parseInviteInfo(o);
+        invite.parseInviteInfo(current.toObject());
         lstInvite.append(std::move(invite));
     }
-    mAdminInviteModel->setAdminInvites(lstInvite);
-    // qDebug() << " lstInvite " << lstInvite;
-    // qDebug() << " obj " << obj;
+    mAdminInviteModel->setAdminInvites(std::move(lstInvite));
     for (int i : {AdminInviteModel::AdminInviteRoles::CreateAtStr, AdminInviteModel::AdminInviteRoles::Identifier}) {
         mInviteTreeView->resizeColumnToContents(i);
     }

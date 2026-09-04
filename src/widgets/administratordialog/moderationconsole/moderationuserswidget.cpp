@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
-#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QTextBrowser>
 #include <QVBoxLayout>

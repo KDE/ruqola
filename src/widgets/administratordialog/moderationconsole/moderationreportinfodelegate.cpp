@@ -12,7 +12,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "delegateutils/textselectionimpl.h"
 #include "model/moderationreportinfomodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <QAbstractItemView>
 #include <QListView>
 #include <QPainter>

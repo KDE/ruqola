@@ -9,6 +9,7 @@
 #include "model/admininvitemodel.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QIcon>
 #include <QMenu>
 
 using namespace Qt::Literals::StringLiterals;
@@ -22,16 +23,10 @@ InviteTreeView::InviteTreeView(QWidget *parent)
     setRootIsDecorated(false);
     setSortingEnabled(true);
     connect(this, &InviteTreeView::customContextMenuRequested, this, &InviteTreeView::slotCustomContextMenuRequested);
-    initialize();
+    sortByColumn(AdminInviteModel::Identifier, Qt::AscendingOrder);
 }
 
 InviteTreeView::~InviteTreeView() = default;
-
-void InviteTreeView::initialize()
-{
-    //    clear();
-    sortByColumn(0, Qt::AscendingOrder);
-}
 
 void InviteTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 {
@@ -39,8 +34,7 @@ void InviteTreeView::slotCustomContextMenuRequested(const QPoint &pos)
     if (index.isValid()) {
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, index]() {
-            const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
-            removeClicked(modelIndex.data().toByteArray());
+            removeClicked(index.siblingAtColumn(AdminInviteModel::Identifier).data().toByteArray());
         });
         menu.exec(viewport()->mapToGlobal(pos));
     }

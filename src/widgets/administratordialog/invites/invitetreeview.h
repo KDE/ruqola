@@ -20,7 +20,6 @@ Q_SIGNALS:
     void removeInvite(const QByteArray &identifier);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void initialize();
     LIBRUQOLAWIDGETS_NO_EXPORT void removeClicked(const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCustomContextMenuRequested(const QPoint &pos);
 };

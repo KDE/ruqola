@@ -13,6 +13,7 @@ class QLineEdit;
 class AdminInviteModel;
 class SearchTreeBaseFilterProxyModel;
 class RocketChatAccount;
+class QJsonDocument;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInvitesWidget : public QWidget
 {
     Q_OBJECT
