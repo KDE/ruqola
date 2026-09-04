@@ -157,8 +157,8 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         if (mCurrentRocketChatAccount->teamEnabled()) {
             if (room) {
                 const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
+                const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
                 if (!mainTeam) {
-                    const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
                     if (mainTeamId.isEmpty() && room->hasPermission(u"convert-team")) {
                         menu.addSeparator();
                         auto convertToTeam = new QAction(i18nc("@action", "Convert to Team"), &menu);
@@ -189,7 +189,6 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addAction(convertToChanne);
                     }
                 }
-                const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
                 if (mainTeamId.isEmpty() && !mainTeam && (room->hasPermission(u"add-team-channel") || room->hasPermission(u"move-room-to-team"))) {
                     menu.addSeparator();
                     auto moveToTeam = new QAction(i18nc("@action", "Move to Team"), &menu);

@@ -121,11 +121,11 @@ QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QSt
 
     auto &cache = mAvatarCache.cache;
 
-    auto downScaled = cache.findCachedPixmap(iconUrl.toLocalFile());
+    const QString iconUrlLocalFile = iconUrl.toLocalFile();
+    auto downScaled = cache.findCachedPixmap(iconUrlLocalFile);
     if (downScaled.isNull()) {
         Q_ASSERT(iconUrl.isLocalFile());
         QPixmap fullScale;
-        const QString iconUrlLocalFile = iconUrl.toLocalFile();
         if (!fullScale.load(iconUrlLocalFile)) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrlLocalFile;
             return {};

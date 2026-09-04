@@ -80,7 +80,7 @@ void AccountServerTreeWidget::save()
 #if HAVE_ACTIVITY_SUPPORT
     QString currentActivity;
     if (columnCount() == 2) { // Configure activity
-        currentActivity = Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity();
+        currentActivity = accountManager->rocketChatAccountProxyModel()->activitiesManager()->currentActivity();
     }
 #endif
     // Add account or modify it
@@ -102,7 +102,7 @@ void AccountServerTreeWidget::save()
             accountManager->modifyAccount(std::move(info));
         }
     }
-    Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->setAccountOrder(order);
+    accountManager->rocketChatAccountProxyModel()->setAccountOrder(order);
     RuqolaGlobalConfig::self()->setAccountOrder(order);
 }
 
@@ -118,8 +118,7 @@ void AccountServerTreeWidget::modifyAccountConfig()
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     dlg->setAccountInfo(accountInfo);
     if (dlg->exec()) {
-        const AccountManager::AccountManagerInfo info = dlg->accountInfo();
-        serverListItem->setAccountInfo(info);
+        serverListItem->setAccountInfo(dlg->accountInfo());
     }
     delete dlg;
 }

@@ -64,6 +64,7 @@ void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
             if (rooms.isEmpty()) {
                 mCompletionListView->hide();
             } else {
+                channels.reserve(rooms.count());
                 for (const Room *room : rooms) {
                     ChannelUserCompleter channel;
                     switch (room->channelType()) {
@@ -86,7 +87,7 @@ void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
             mCompletionListView->hide();
         }
     }
-    mJoinedChannelModel->setRooms(channels);
+    mJoinedChannelModel->setRooms(std::move(channels));
 }
 
 void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
