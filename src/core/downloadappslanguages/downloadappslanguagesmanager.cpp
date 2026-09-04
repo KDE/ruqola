@@ -26,10 +26,15 @@ void DownloadAppsLanguagesManager::parse()
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Languages);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
+        connect(job, &RocketChatRestApi::RestApiAbstractJob::failed, this, [this] {
+            Q_EMIT fileLanguagesParseFailed();
+        });
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start AppInfoJob";
             Q_EMIT fileLanguagesParseFailed();
         }
+    } else {
+        Q_EMIT fileLanguagesParseFailed();
     }
 }
 
