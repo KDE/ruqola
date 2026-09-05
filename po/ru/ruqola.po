@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:44+0000\n"
+"POT-Creation-Date: 2026-09-05 00:45+0000\n"
 "PO-Revision-Date: 2026-06-27 15:38+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1090,17 +1090,17 @@ msgstr "Осталось использований"
 msgid "Expiration"
 msgstr "Срок действия"
 
-#: core/model/admininvitemodel.cpp:113
+#: core/model/admininvitemodel.cpp:104
 #, kde-format
 msgid "Unlimited"
 msgstr "Без ограничений"
 
-#: core/model/admininvitemodel.cpp:121
+#: core/model/admininvitemodel.cpp:112
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "Дней до истечения срока действия: %1"
 
-#: core/model/admininvitemodel.cpp:123
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expired"
 msgstr "Срок действия истёк"
@@ -2170,7 +2170,7 @@ msgstr "Файл был опубликован."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новый запрос доступен здесь:<br /><a href='%1'>%1</a> </qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:39
 #, kde-format
 msgid "AI Actions"
 msgstr "Действия ИИ"
@@ -2180,17 +2180,17 @@ msgstr "Действия ИИ"
 msgid "Summarize Unreads"
 msgstr "Обобщить непрочитанные"
 
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:40
 #, kde-format
 msgid "Ask to AI"
 msgstr "Спросить у ИИ"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:42
 #, kde-format
 msgid "Create a screenshot"
 msgstr "Сделать снимок экрана"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:47
 #, kde-format
 msgid "This tool allows to create screenshot."
 msgstr "Это средство позволяет создавать снимки экрана."
@@ -3227,7 +3227,7 @@ msgstr "Изменить…"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:189
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:332
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
-#: widgets/administratordialog/invites/invitetreeview.cpp:41
+#: widgets/administratordialog/invites/invitetreeview.cpp:36
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
@@ -3360,18 +3360,18 @@ msgctxt "@option:check"
 msgid "Draft Messages"
 msgstr "Черновики сообщений"
 
-#: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
+#: widgets/administratordialog/invites/administratorinviteswidget.cpp:44
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search invite…"
 msgstr "Поиск приглашения…"
 
-#: widgets/administratordialog/invites/invitetreeview.cpp:53
+#: widgets/administratordialog/invites/invitetreeview.cpp:47
 #, kde-format
 msgid "Are you sure that you want to delete this invite?"
 msgstr "Удалить это приглашение?"
 
-#: widgets/administratordialog/invites/invitetreeview.cpp:54
+#: widgets/administratordialog/invites/invitetreeview.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Invite"
@@ -3400,12 +3400,12 @@ msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Ошибка сохранения файла"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:33
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:32
 #, kde-format
 msgid "Reported Messages"
 msgstr "Сообщения, на которые поступили жалобы"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:36
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:35
 #, kde-format
 msgid "Reported Users"
 msgstr "Пользователи, на которых поступили жалобы"
@@ -3470,23 +3470,23 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Показ жалобы для модерации"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:30
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Показ сообщений для модерации"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
 #: widgets/dialogs/searchmessagewidget.cpp:218
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:93
+#: widgets/discussions/showdiscussionswidget.cpp:106
 #: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, kde-format
 msgid "Loading…"
 msgstr "Загрузка…"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:59
 #: widgets/dialogs/searchmessagewidget.cpp:222
 #: widgets/dialogs/showlistmessagebasewidget.cpp:109
 #: widgets/room/usersinroomwidget.cpp:180
@@ -3494,7 +3494,7 @@ msgstr "Загрузка…"
 msgid "No Message found"
 msgstr "Сообщений не найдено"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:65
 #: widgets/dialogs/searchmessagewidget.cpp:228
 #, kde-format
 msgid "%1 Message in room"
@@ -3626,40 +3626,40 @@ msgctxt "@title:window"
 msgid "Dismiss All Reports"
 msgstr "Отклонение всех жалоб"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
-#: widgets/notificationhistory/notificationhistorylistview.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
+#: widgets/notificationhistory/notificationhistorylistview.cpp:97
 #: widgets/room/messagelistview.cpp:448
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
 msgstr "Копировать выбранное"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
-#: widgets/notificationhistory/notificationhistorylistview.cpp:97
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:85
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:450
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, kde-format
 msgctxt "@action"
 msgid "Copy Message"
 msgstr "Копировать сообщение"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:97
 #: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:111
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "Зачитать текст"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:103
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
-#: widgets/notificationhistory/notificationhistorylistview.cpp:114
+#: widgets/notificationhistory/notificationhistorylistview.cpp:117
 #: widgets/room/messagelistview.cpp:481
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Select All"
@@ -3676,13 +3676,13 @@ msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Найти…"
 
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:30
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Показ пользователей для модерации"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
@@ -3691,7 +3691,7 @@ msgstr "Показ пользователей для модерации"
 msgid "Email:"
 msgstr "Адрес эл. почты:"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
@@ -3886,7 +3886,7 @@ msgstr "Пользователей не найдено"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:209
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -4023,7 +4023,7 @@ msgid "No room found"
 msgstr "Комнат не найдено"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:206
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7691,41 +7691,41 @@ msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Преобразование в канал"
 
-#: widgets/channellist/channellistview.cpp:195
+#: widgets/channellist/channellistview.cpp:194
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Переместить в команду"
 
-#: widgets/channellist/channellistview.cpp:211
+#: widgets/channellist/channellistview.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Настроить уведомление…"
 
-#: widgets/channellist/channellistview.cpp:228
+#: widgets/channellist/channellistview.cpp:227
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Покинуть канал"
 
-#: widgets/channellist/channellistview.cpp:270
+#: widgets/channellist/channellistview.cpp:269
 #, kde-format
 msgid "Any team selected."
 msgstr "Любая выбранная команда."
 
-#: widgets/channellist/channellistview.cpp:270
+#: widgets/channellist/channellistview.cpp:269
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Перемещение в команду"
 
-#: widgets/channellist/channellistview.cpp:319
+#: widgets/channellist/channellistview.cpp:318
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Преобразовать в команду? Это действие нельзя отменить."
 
-#: widgets/channellist/channellistview.cpp:320
+#: widgets/channellist/channellistview.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -7800,7 +7800,7 @@ msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Регистрация нового пользователя"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:96
+#: widgets/common/userandchannelcompletiondelegate.cpp:100
 #, kde-format
 msgid "Not in channel"
 msgstr "Не на канале"
@@ -7976,12 +7976,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Включить интеграцию с комнатами Plasma"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:50
+#: widgets/configuredialog/configurepluginswidget.cpp:52
 #, kde-format
 msgid "Tools Plugins"
 msgstr "Модули инструментов"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:57
+#: widgets/configuredialog/configurepluginswidget.cpp:59
 #, kde-format
 msgid "Text Plugins"
 msgstr "Модули текста"
@@ -8200,18 +8200,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Сведения о канале"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:91
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Сохранение вложения"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:118
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:121
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Удалить этот файл?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:119
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:122
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -9211,7 +9211,7 @@ msgstr[3] "%1 вложение в комнате (всего: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:103
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
-#: widgets/discussions/showdiscussionswidget.cpp:104
+#: widgets/discussions/showdiscussionswidget.cpp:117
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:194
@@ -9465,34 +9465,34 @@ msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Поиск команд…"
 
-#: widgets/directory/directorywidget.cpp:79
+#: widgets/directory/directorywidget.cpp:80
 #, kde-format
 msgctxt "@action"
 msgid "Join…"
 msgstr "Присоединиться…"
 
-#: widgets/directory/directorywidget.cpp:82
+#: widgets/directory/directorywidget.cpp:83
 #, kde-format
 msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Открыть конфиденциальное сообщение…"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:190
 #, kde-format
 msgid "No Room found"
 msgstr "Комнат не найдено"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:192
 #, kde-format
 msgid "No User found"
 msgstr "Пользователей не найдено"
 
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:194
 #, kde-format
 msgid "No Team found"
 msgstr "Команд не найдено"
 
-#: widgets/directory/directorywidget.cpp:220
+#: widgets/directory/directorywidget.cpp:212
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
@@ -9501,7 +9501,7 @@ msgstr[1] "%1 команды (всего: %2)"
 msgstr[2] "%1 команд (всего: %2)"
 msgstr[3] "%1 команда (всего: %2)"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
@@ -9510,7 +9510,7 @@ msgstr[1] "%1 сообщения"
 msgstr[2] "%1 сообщений"
 msgstr[3] "%1 сообщение"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:252
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:248
 #, kde-format
 msgid "Open Discussion"
 msgstr "Открыть обсуждение"
@@ -9521,18 +9521,18 @@ msgctxt "@title:window"
 msgid "Show Discussions - %1"
 msgstr "Показ обсуждений — %1"
 
-#: widgets/discussions/showdiscussionswidget.cpp:42
+#: widgets/discussions/showdiscussionswidget.cpp:41
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Поиск обсуждения…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:108
 #, kde-format
 msgid "No Discussion found"
 msgstr "Обсуждений не найдено"
 
-#: widgets/discussions/showdiscussionswidget.cpp:102
+#: widgets/discussions/showdiscussionswidget.cpp:115
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -9744,7 +9744,7 @@ msgstr "Перевод"
 msgid "Own Roles:"
 msgstr "Собственные роли:"
 
-#: widgets/exportmessages/exportmessagesdialog.cpp:28
+#: widgets/exportmessages/exportmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Messages"
@@ -9944,8 +9944,9 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "Ошибка входа: пользователю приложения запрещён вход."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, kde-format
-msgid "Not network found."
+#, fuzzy, kde-format
+#| msgid "Not network found."
+msgid "No network found."
 msgstr "Сеть не найдена."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
@@ -9965,7 +9966,7 @@ msgstr "Преобразование сообщения во вложение"
 msgid "Filename:"
 msgstr "Имя файла:"
 
-#: widgets/misc/accountsoverviewwidget.cpp:46
+#: widgets/misc/accountsoverviewwidget.cpp:45
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Без имени)"
@@ -10115,7 +10116,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Поиск слова…"
 
-#: widgets/misc/servermenu.cpp:24
+#: widgets/misc/servermenu.cpp:23
 #, kde-format
 msgid "Server"
 msgstr "Сервер"
@@ -10679,20 +10680,20 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Уведомление"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:77
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#: widgets/notificationhistory/notificationhistorylistview.cpp:79
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:47
 #, kde-format
 msgctxt "@action"
 msgid "Clear"
 msgstr "Очистить"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/notificationhistory/notificationhistorylistview.cpp:85
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
 msgstr "Перейти в новую комнату"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:87
+#: widgets/notificationhistory/notificationhistorylistview.cpp:89
 #: widgets/room/messagelistview.cpp:843
 #, kde-format
 msgctxt "@action"

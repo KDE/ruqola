@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:44+0000\n"
+"POT-Creation-Date: 2026-09-05 00:45+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1098,17 +1098,17 @@ msgstr "Maradék használatok"
 msgid "Expiration"
 msgstr "Lejárat"
 
-#: core/model/admininvitemodel.cpp:113
+#: core/model/admininvitemodel.cpp:104
 #, kde-format
 msgid "Unlimited"
 msgstr "Korlátlan"
 
-#: core/model/admininvitemodel.cpp:121
+#: core/model/admininvitemodel.cpp:112
 #, kde-format
 msgid "Expire in %1 days"
 msgstr "%1 napon belül lejár"
 
-#: core/model/admininvitemodel.cpp:123
+#: core/model/admininvitemodel.cpp:114
 #, kde-format
 msgid "Expired"
 msgstr "Lejárt"
@@ -2165,7 +2165,7 @@ msgstr "A fájl megosztva."
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Az új kérést itt találhatja meg:<br /><a href='%1'>%1</a> </qt>"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:40
+#: plugins/toolsplugin/aiactions/aiactionsplugintool.cpp:39
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
@@ -2177,18 +2177,18 @@ msgstr "Alkalmazás kérése"
 msgid "Summarize Unreads"
 msgstr ""
 
-#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:41
+#: plugins/toolsplugin/autogeneratetext/autogeneratetextplugintool.cpp:40
 #, kde-format
 msgid "Ask to AI"
 msgstr ""
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:43
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:42
 #, fuzzy, kde-format
 #| msgid "Created at"
 msgid "Create a screenshot"
 msgstr "Létrehozva"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
+#: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:47
 #, kde-format
 msgid "This tool allows to create screenshot."
 msgstr ""
@@ -3230,7 +3230,7 @@ msgstr "Módosítás…"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:189
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:332
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:176
-#: widgets/administratordialog/invites/invitetreeview.cpp:41
+#: widgets/administratordialog/invites/invitetreeview.cpp:36
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:57
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
@@ -3367,18 +3367,18 @@ msgctxt "@option:check"
 msgid "Draft Messages"
 msgstr "Személyes üzenetek"
 
-#: widgets/administratordialog/invites/administratorinviteswidget.cpp:43
+#: widgets/administratordialog/invites/administratorinviteswidget.cpp:44
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search invite…"
 msgstr "Meghívó keresése…"
 
-#: widgets/administratordialog/invites/invitetreeview.cpp:53
+#: widgets/administratordialog/invites/invitetreeview.cpp:47
 #, kde-format
 msgid "Are you sure that you want to delete this invite?"
 msgstr "Biztosan törölni szeretné ezt a meghívót?"
 
-#: widgets/administratordialog/invites/invitetreeview.cpp:54
+#: widgets/administratordialog/invites/invitetreeview.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Invite"
@@ -3407,12 +3407,12 @@ msgctxt "@title:window"
 msgid "Save File Error"
 msgstr "Fájlmentési hiba"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:33
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:32
 #, kde-format
 msgid "Reported Messages"
 msgstr "Jelentett üzenetek"
 
-#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:36
+#: widgets/administratordialog/moderationconsole/administratormoderationconsolewidget.cpp:35
 #, kde-format
 msgid "Reported Users"
 msgstr "Jelentett felhasználók"
@@ -3478,23 +3478,23 @@ msgctxt "@title:window"
 msgid "Show Moderation Report"
 msgstr "Moderációs jelentés megjelenítése"
 
-#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:30
+#: widgets/administratordialog/moderationconsole/moderationmessagesdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Messages"
 msgstr "Moderációs üzenetek megjelenítése"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:55
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
 #: widgets/dialogs/searchmessagewidget.cpp:218
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:93
+#: widgets/discussions/showdiscussionswidget.cpp:106
 #: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, kde-format
 msgid "Loading…"
 msgstr "Betöltés…"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:57
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:59
 #: widgets/dialogs/searchmessagewidget.cpp:222
 #: widgets/dialogs/showlistmessagebasewidget.cpp:109
 #: widgets/room/usersinroomwidget.cpp:180
@@ -3502,7 +3502,7 @@ msgstr "Betöltés…"
 msgid "No Message found"
 msgstr "Nem található üzenet"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:63
+#: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:65
 #: widgets/dialogs/searchmessagewidget.cpp:228
 #, kde-format
 msgid "%1 Message in room"
@@ -3626,40 +3626,40 @@ msgctxt "@title:window"
 msgid "Dismiss All Reports"
 msgstr "Összes jelentés bezárása"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:81
-#: widgets/notificationhistory/notificationhistorylistview.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
+#: widgets/notificationhistory/notificationhistorylistview.cpp:97
 #: widgets/room/messagelistview.cpp:448
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:52
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
 msgid "Copy Selection"
 msgstr "Kijelölés másolása"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
-#: widgets/notificationhistory/notificationhistorylistview.cpp:97
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:85
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:450
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, kde-format
 msgctxt "@action"
 msgid "Copy Message"
 msgstr "Üzenet másolása"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:95
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:97
 #: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:108
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:111
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
 msgid "Speak Text"
 msgstr "Szöveg felolvasása"
 
-#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:101
+#: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:103
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
-#: widgets/notificationhistory/notificationhistorylistview.cpp:114
+#: widgets/notificationhistory/notificationhistorylistview.cpp:117
 #: widgets/room/messagelistview.cpp:481
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:74
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, kde-format
 msgctxt "@action"
 msgid "Select All"
@@ -3676,13 +3676,13 @@ msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Keresés…"
 
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:30
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Moderációs üzenetek megjelenítése"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
@@ -3691,7 +3691,7 @@ msgstr "Moderációs üzenetek megjelenítése"
 msgid "Email:"
 msgstr "E-mail:"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
 #: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
@@ -3886,7 +3886,7 @@ msgstr "Nem található felhasználó"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:136
 #: widgets/administratordialog/users/administratoruserswidget.cpp:363
-#: widgets/directory/directorywidget.cpp:217
+#: widgets/directory/directorywidget.cpp:209
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
@@ -4019,7 +4019,7 @@ msgid "No room found"
 msgstr "Nem található szoba"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:84
-#: widgets/directory/directorywidget.cpp:214
+#: widgets/directory/directorywidget.cpp:206
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
@@ -7705,41 +7705,41 @@ msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Átalakítás csatornára"
 
-#: widgets/channellist/channellistview.cpp:195
+#: widgets/channellist/channellistview.cpp:194
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Áthelyezés csapatba"
 
-#: widgets/channellist/channellistview.cpp:211
+#: widgets/channellist/channellistview.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Értesítések beállítása…"
 
-#: widgets/channellist/channellistview.cpp:228
+#: widgets/channellist/channellistview.cpp:227
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Kilépés a csatornából"
 
-#: widgets/channellist/channellistview.cpp:270
+#: widgets/channellist/channellistview.cpp:269
 #, kde-format
 msgid "Any team selected."
 msgstr "Bármelyik kiválasztott csapat."
 
-#: widgets/channellist/channellistview.cpp:270
+#: widgets/channellist/channellistview.cpp:269
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Áthelyezés csapatba"
 
-#: widgets/channellist/channellistview.cpp:319
+#: widgets/channellist/channellistview.cpp:318
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Biztosan átalakítja csapattá? Nem visszavonható."
 
-#: widgets/channellist/channellistview.cpp:320
+#: widgets/channellist/channellistview.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -7818,7 +7818,7 @@ msgctxt "@title:window"
 msgid "Register New User"
 msgstr "Új felhasználó regisztrálása"
 
-#: widgets/common/userandchannelcompletiondelegate.cpp:96
+#: widgets/common/userandchannelcompletiondelegate.cpp:100
 #, kde-format
 msgid "Not in channel"
 msgstr "Nincs a csatornában"
@@ -8004,12 +8004,12 @@ msgctxt "@option:check"
 msgid "Enable Plasma Activities integration"
 msgstr "Plasma Aktivitások integráció bekapcsolása"
 
-#: widgets/configuredialog/configurepluginswidget.cpp:50
+#: widgets/configuredialog/configurepluginswidget.cpp:52
 #, kde-format
 msgid "Tools Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configurepluginswidget.cpp:57
+#: widgets/configuredialog/configurepluginswidget.cpp:59
 #, kde-format
 msgid "Text Plugins"
 msgstr ""
@@ -8245,18 +8245,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Csatornainformációk"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:91
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Attachment"
 msgstr "Melléklet mentése"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:118
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:121
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Szeretné törölni ezt a fájlt?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:119
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:122
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -9262,7 +9262,7 @@ msgstr[1] "%1 melléklet a szobában (Összesen: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:103
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
-#: widgets/discussions/showdiscussionswidget.cpp:104
+#: widgets/discussions/showdiscussionswidget.cpp:117
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:194
@@ -9528,13 +9528,13 @@ msgctxt "@info:placeholder"
 msgid "Search teams…"
 msgstr "Csapatok keresése…"
 
-#: widgets/directory/directorywidget.cpp:79
+#: widgets/directory/directorywidget.cpp:80
 #, kde-format
 msgctxt "@action"
 msgid "Join…"
 msgstr "Csatlakozás…"
 
-#: widgets/directory/directorywidget.cpp:82
+#: widgets/directory/directorywidget.cpp:83
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Open Private Messages…"
@@ -9542,36 +9542,36 @@ msgctxt "@action"
 msgid "Open Private Message…"
 msgstr "Személyes üzenetek megnyitása…"
 
-#: widgets/directory/directorywidget.cpp:198
+#: widgets/directory/directorywidget.cpp:190
 #, kde-format
 msgid "No Room found"
 msgstr "Nem található szoba"
 
-#: widgets/directory/directorywidget.cpp:200
+#: widgets/directory/directorywidget.cpp:192
 #, kde-format
 msgid "No User found"
 msgstr "Nem található felhasználó"
 
-#: widgets/directory/directorywidget.cpp:202
+#: widgets/directory/directorywidget.cpp:194
 #, kde-format
 msgid "No Team found"
 msgstr "Nem található csapat"
 
-#: widgets/directory/directorywidget.cpp:220
+#: widgets/directory/directorywidget.cpp:212
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
 msgstr[0] "%1 csapat (Összesen: %2)"
 msgstr[1] "%1 csapat (Összesen: %2)"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:82
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
 msgstr[0] "%1 üzenet"
 msgstr[1] "%1 üzenet"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:252
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:248
 #, kde-format
 msgid "Open Discussion"
 msgstr "Megbeszélés megnyitása"
@@ -9582,18 +9582,18 @@ msgctxt "@title:window"
 msgid "Show Discussions - %1"
 msgstr "Megbeszélések megjelenítése - %1"
 
-#: widgets/discussions/showdiscussionswidget.cpp:42
+#: widgets/discussions/showdiscussionswidget.cpp:41
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Keresés a megbeszélésben…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:95
+#: widgets/discussions/showdiscussionswidget.cpp:108
 #, kde-format
 msgid "No Discussion found"
 msgstr "Nem található megbeszélés"
 
-#: widgets/discussions/showdiscussionswidget.cpp:102
+#: widgets/discussions/showdiscussionswidget.cpp:115
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -9799,7 +9799,7 @@ msgstr "Fordítás"
 msgid "Own Roles:"
 msgstr "Saját szerepek:"
 
-#: widgets/exportmessages/exportmessagesdialog.cpp:28
+#: widgets/exportmessages/exportmessagesdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Messages"
@@ -10013,7 +10013,7 @@ msgstr ""
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "No room found"
-msgid "Not network found."
+msgid "No network found."
 msgstr "Nem található szoba"
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
@@ -10034,7 +10034,7 @@ msgstr "Üzenet átalakítása mellékletté"
 msgid "Filename:"
 msgstr "Fájlnév:"
 
-#: widgets/misc/accountsoverviewwidget.cpp:46
+#: widgets/misc/accountsoverviewwidget.cpp:45
 #, kde-format
 msgid "(Unnamed)"
 msgstr "(Névtelen)"
@@ -10195,7 +10195,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Szó keresése…"
 
-#: widgets/misc/servermenu.cpp:24
+#: widgets/misc/servermenu.cpp:23
 #, kde-format
 msgid "Server"
 msgstr "Kiszolgáló"
@@ -10761,20 +10761,20 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Értesítések"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:77
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
+#: widgets/notificationhistory/notificationhistorylistview.cpp:79
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:47
 #, kde-format
 msgctxt "@action"
 msgid "Clear"
 msgstr "Törlés"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:83
+#: widgets/notificationhistory/notificationhistorylistview.cpp:85
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
 msgstr ""
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:87
+#: widgets/notificationhistory/notificationhistorylistview.cpp:89
 #: widgets/room/messagelistview.cpp:843
 #, kde-format
 msgctxt "@action"
