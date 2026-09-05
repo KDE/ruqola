@@ -132,7 +132,7 @@ void E2eKeyManager::decodeEncryptionKey()
     }
 }
 
-bool E2eKeyManager::decodeEncryptionKey(const QString &password)
+bool E2eKeyManager::decodeEncryptionKey([[maybe_unused]] const QString &password)
 {
 #if USE_E2E_SUPPORT
     if (!mAccount || password.isEmpty()) {
@@ -270,7 +270,6 @@ bool E2eKeyManager::decodeEncryptionKey(const QString &password)
     storePassword(password);
     return true;
 #else
-    Q_UNUSED(password)
     return false;
 #endif
 }
@@ -464,7 +463,7 @@ bool E2eKeyManager::initializeRoomE2EKey([[maybe_unused]] const QByteArray &room
 #endif
 }
 
-bool E2eKeyManager::distributeExistingRoomE2EKey(const QByteArray &roomId)
+bool E2eKeyManager::distributeExistingRoomE2EKey([[maybe_unused]] const QByteArray &roomId)
 {
 #if USE_E2E_SUPPORT
     if (!mAccount || roomId.isEmpty()) {
@@ -497,7 +496,6 @@ bool E2eKeyManager::distributeExistingRoomE2EKey(const QByteArray &roomId)
     distributeRoomSessionKey(roomId, sessionKey, keyId);
     return true;
 #else
-    Q_UNUSED(roomId)
     return false;
 #endif
 }

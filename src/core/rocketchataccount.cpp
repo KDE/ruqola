@@ -642,8 +642,7 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi.get(), &Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         connect(mRestApi.get(), &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi.get(), &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
-        const auto redistributeRoomKeyIfEncrypted = [this](const QByteArray &roomId, const QByteArray &userId) {
-            Q_UNUSED(userId)
+        const auto redistributeRoomKeyIfEncrypted = [this](const QByteArray &roomId, [[maybe_unused]] const QByteArray &userId) {
             Room *const r = room(roomId);
             if (!r || !r->encrypted()) {
                 return;

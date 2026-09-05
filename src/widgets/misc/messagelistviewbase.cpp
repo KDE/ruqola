@@ -169,19 +169,17 @@ QStyleOptionViewItem MessageListViewBase::listViewOptions() const
     return option;
 }
 
-bool MessageListViewBase::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListViewBase::maybeStartDrag([[maybe_unused]] QMouseEvent *event,
+                                         [[maybe_unused]] const QStyleOptionViewItem &option,
+                                         [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(event);
-    Q_UNUSED(option);
-    Q_UNUSED(index);
     return false;
 }
 
-bool MessageListViewBase::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListViewBase::mouseEvent([[maybe_unused]] QMouseEvent *event,
+                                     [[maybe_unused]] const QStyleOptionViewItem &option,
+                                     [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(event);
-    Q_UNUSED(option);
-    Q_UNUSED(index);
     return false;
 }
 
@@ -193,9 +191,8 @@ void MessageListViewBase::addTextPlugins(QMenu *menu, const QString &selectedTex
     }
 }
 
-QString MessageListViewBase::selectedText(const QModelIndex &index)
+QString MessageListViewBase::selectedText([[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(index);
     return {};
 }
 
