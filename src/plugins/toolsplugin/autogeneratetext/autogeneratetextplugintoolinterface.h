@@ -7,7 +7,10 @@
 #pragma once
 #include "room/plugins/plugintoolinterface.h"
 #include <QPointer>
-#include <TextAutoGenerateText/TextAutoGenerateQuickAskDialog>
+namespace TextAutoGenerateText
+{
+class TextAutoGenerateQuickAskDialog;
+}
 class AutoGenerateTextPluginToolInterface : public PluginToolInterface
 {
     Q_OBJECT

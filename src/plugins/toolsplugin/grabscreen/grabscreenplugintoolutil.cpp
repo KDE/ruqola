@@ -9,6 +9,7 @@
 #include "grabscreenplugin_debug.h"
 
 #include <QDir>
+#include <QFile>
 #include <QStandardPaths>
 
 using namespace Qt::Literals::StringLiterals;
@@ -25,11 +26,10 @@ QString GrabScreenPluginToolUtil::picturePath(const QString &accountName)
 
 QString GrabScreenPluginToolUtil::generateFileName(const QString &dirPath)
 {
-    const QString filename = u"screenshot"_s;
     int index = 1;
     QString newName;
     do {
-        newName = dirPath + u'/' + u"%1-%2.png"_s.arg(filename, QString::number(index));
+        newName = dirPath + u"/screenshot-%1.png"_s.arg(index);
         index++;
     } while (QFile::exists(newName));
     return newName;

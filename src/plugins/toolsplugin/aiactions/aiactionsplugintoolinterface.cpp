@@ -7,6 +7,7 @@
 #include "aiactionsplugin_debug.h"
 #include "ruqola.h"
 #include <KLocalizedString>
+#include <QAction>
 #include <QMenu>
 #include <TextAutoGenerateText/TextAutoGenerateQuickAskDialog>
 AiActionsPluginToolInterface::AiActionsPluginToolInterface(QWidget *parentWidget, QObject *parent)
@@ -18,7 +19,6 @@ AiActionsPluginToolInterface::~AiActionsPluginToolInterface() = default;
 
 void AiActionsPluginToolInterface::activateTool()
 {
-    qDebug() << " void AiActionsPluginToolInterface::activateTool()";
     switch (mActionAi) {
     case ActionAi::Unknown:
         qCWarning(RUQOLA_AUTOGENERATETEXT_AIACTIONS_LOG) << "ActionAi::Unknown it's a bug";
@@ -27,6 +27,7 @@ void AiActionsPluginToolInterface::activateTool()
         slotSummarizeUnreadMessages();
         break;
     }
+    mActionAi = ActionAi::Unknown;
 }
 
 QMenu *AiActionsPluginToolInterface::menu() const

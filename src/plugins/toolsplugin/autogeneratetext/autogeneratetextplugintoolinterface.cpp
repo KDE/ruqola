@@ -5,6 +5,7 @@
 */
 #include "autogeneratetextplugintoolinterface.h"
 #include "ruqola.h"
+#include <TextAutoGenerateText/TextAutoGenerateQuickAskDialog>
 AutoGenerateTextPluginToolInterface::AutoGenerateTextPluginToolInterface(QWidget *parentWidget, QObject *parent)
     : PluginToolInterface{parentWidget, parent}
 {

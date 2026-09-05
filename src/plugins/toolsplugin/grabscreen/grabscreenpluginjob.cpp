@@ -9,7 +9,6 @@
 #include "grabscreenplugintoolconfig.h"
 #include <QProcess>
 #include <TextAddonsWidgets/ExecutableUtils>
-#include <qloggingcategory.h>
 
 using namespace Qt::Literals::StringLiterals;
 GrabScreenPluginJob::GrabScreenPluginJob(QObject *parent)
@@ -33,19 +32,27 @@ void GrabScreenPluginJob::start()
     }
     const QString path = TextAddonsWidgets::ExecutableUtils::findExecutable(u"spectacle"_s);
     if (path.isEmpty()) {
-        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Impossible to find spectable";
+        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Impossible to find spectacle";
         Q_EMIT captureCanceled();
         deleteLater();
         return;
     }
     auto proc = new QProcess(this);
-    const QStringList arguments = QStringList() << u"-n"_s << u"-d"_s << QString::number(GrabScreenPluginToolConfig::self()->delay()) << u"-bro"_s << mFilePath;
-    connect(proc, &QProcess::finished, this, [this]([[maybe_unused]] int exitCode, [[maybe_unused]] QProcess::ExitStatus exitStatus) {
-        Q_EMIT captureDone();
+    const QStringList arguments{u"-n"_s, u"-d"_s, QString::number(GrabScreenPluginToolConfig::self()->delay()), u"-bro"_s, mFilePath};
+    connect(proc, &QProcess::finished, this, [this, proc](int exitCode, QProcess::ExitStatus exitStatus) {
+        // finished() and errorOccurred() can both be emitted (e.g. on crash): only react to the first one.
+        proc->disconnect(this);
+        if (exitStatus != QProcess::NormalExit) {
+            qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "spectacle crashed. Exit code:" << exitCode;
+            Q_EMIT captureCanceled();
+        } else {
+            Q_EMIT captureDone();
+        }
         deleteLater();
     });
 
-    connect(proc, &QProcess::errorOccurred, this, [this](QProcess::ProcessError errors) {
+    connect(proc, &QProcess::errorOccurred, this, [this, proc](QProcess::ProcessError errors) {
+        proc->disconnect(this);
         qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Error occurred " << errors;
         Q_EMIT captureCanceled();
         deleteLater();
