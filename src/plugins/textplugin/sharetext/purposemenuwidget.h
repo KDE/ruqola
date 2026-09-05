@@ -7,12 +7,14 @@
 #pragma once
 
 #include <QObject>
+#include <memory>
 namespace Purpose
 {
 class Menu;
 }
 class QMenu;
 class QTemporaryFile;
+class QJsonObject;
 class PurposeMenuWidget : public QObject
 {
     Q_OBJECT
@@ -34,5 +36,5 @@ private:
     void slotShareActionFinished(const QJsonObject &output, int error, const QString &message);
     QString mSelectedText;
     Purpose::Menu *const mShareMenu;
-    QTemporaryFile *mTemporaryShareFile = nullptr;
+    std::unique_ptr<QTemporaryFile> mTemporaryShareFile;
 };
