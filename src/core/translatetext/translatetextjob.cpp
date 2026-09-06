@@ -62,9 +62,9 @@ const TranslatorEngineManager::TranslateRequest &TranslateTextJob::translateRequ
     return mTranslateRequest;
 }
 
-void TranslateTextJob::setTranslateRequest(const TranslatorEngineManager::TranslateRequest &newInfo)
+void TranslateTextJob::setTranslateRequest(TranslatorEngineManager::TranslateRequest newInfo)
 {
-    mTranslateRequest = newInfo;
+    mTranslateRequest = std::move(newInfo);
 }
 
 #include "moc_translatetextjob.cpp"

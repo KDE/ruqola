@@ -29,7 +29,7 @@ TranslatorEngineManager *TranslatorEngineManager::self()
 
 bool TranslatorEngineManager::TranslateRequest::operator==(const TranslatorEngineManager::TranslateRequest &other) const = default;
 
-void TranslatorEngineManager::addPendingTranslation(const TranslateRequest &request)
+void TranslatorEngineManager::addPendingTranslation(TranslateRequest request)
 {
     if (!request.isValid()) {
         qCWarning(RUQOLA_LOG) << " Invalid translate request " << request;
@@ -39,7 +39,7 @@ void TranslatorEngineManager::addPendingTranslation(const TranslateRequest &requ
         // Queued already, or being translated right now: don't translate it twice.
         return;
     }
-    mPendingTranslateRequests.append(request);
+    mPendingTranslateRequests.append(std::move(request));
     // mCurrentJob, not the list, tells whether something is in flight: the request being
     // translated stays in the list so that the check above can see it.
     if (!mCurrentJob) {
@@ -54,9 +54,8 @@ void TranslatorEngineManager::startNextTranslation()
     }
     // The engine plugin is shared and holds the text being translated, so it can only
     // carry one translation at a time: they are run one after the other.
-    const TranslateRequest request = mPendingTranslateRequests.constFirst();
     mCurrentJob = new TranslateTextJob(this);
-    mCurrentJob->setTranslateRequest(request);
+    mCurrentJob->setTranslateRequest(mPendingTranslateRequests.constFirst());
     connect(mCurrentJob, &TranslateTextJob::translateDone, this, [this](const QByteArray &messageId, const QString &str) {
         finishCurrentTranslation();
         Q_EMIT translateDone(messageId, str);

@@ -1297,14 +1297,14 @@ void MessageListView::slotTranslate([[maybe_unused]] const QString &from,
             const QByteArray messageId = modelIndex.data(MessagesModel::MessageId).toByteArray();
             qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " originalMessage " << originalMessage;
             qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " from " << from << " to " << to;
-            const TranslatorEngineManager::TranslateRequest info{
+            TranslatorEngineManager::TranslateRequest info{
                 .from = from,
                 .to = to,
                 .inputText = originalMessage,
                 .messageId = messageId,
             };
             if (info.isValid()) {
-                TranslatorEngineManager::self()->addPendingTranslation(info);
+                TranslatorEngineManager::self()->addPendingTranslation(std::move(info));
             }
         }
     }

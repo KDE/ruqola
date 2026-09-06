@@ -31,7 +31,7 @@ public:
         [[nodiscard]] bool operator==(const TranslatorEngineManager::TranslateRequest &other) const;
     };
 
-    void addPendingTranslation(const TranslateRequest &request);
+    void addPendingTranslation(TranslateRequest request);
 
     void translatorConfigChanged();
 
@@ -54,3 +54,4 @@ private:
     TranslateTextJob *mCurrentJob = nullptr;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TranslatorEngineManager::TranslateRequest &t);
+Q_DECLARE_TYPEINFO(TranslatorEngineManager::TranslateRequest, Q_RELOCATABLE_TYPE);

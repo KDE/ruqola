@@ -8,7 +8,6 @@
 #include "libruqolacore_export.h"
 #include "translatorenginemanager.h"
 #include <QObject>
-class QDebug;
 namespace TextTranslator
 {
 class TranslatorEnginePlugin;
@@ -23,7 +22,7 @@ public:
     void translate();
 
     [[nodiscard]] const TranslatorEngineManager::TranslateRequest &translateRequest() const;
-    void setTranslateRequest(const TranslatorEngineManager::TranslateRequest &newInfo);
+    void setTranslateRequest(TranslatorEngineManager::TranslateRequest newInfo);
 
 Q_SIGNALS:
     void translateDone(const QByteArray &messageId, const QString &translatedText);
