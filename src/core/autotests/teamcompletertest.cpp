@@ -17,7 +17,9 @@ TeamCompleterTest::TeamCompleterTest(QObject *parent)
 void TeamCompleterTest::shouldHaveDefaultValues()
 {
     const TeamCompleter t;
-    // TODO
+    QVERIFY(t.name().isEmpty());
+    QVERIFY(t.fname().isEmpty());
+    QVERIFY(t.teamId().isEmpty());
 }
 
 #include "moc_teamcompletertest.cpp"

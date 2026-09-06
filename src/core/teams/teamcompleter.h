@@ -23,10 +23,10 @@ public:
     [[nodiscard]] QString fname() const;
     void setFname(const QString &fname);
 
-    void parse(const QJsonObject &obj);
-
     [[nodiscard]] QByteArray teamId() const;
     void setTeamId(const QByteArray &identifier);
+
+    void parse(const QJsonObject &obj);
 
 private:
     QString mName;
