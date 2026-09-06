@@ -8,6 +8,7 @@
 #include "libruqolacore_export.h"
 #include "translatorenginemanager.h"
 #include <QObject>
+#include <QPointer>
 namespace TextTranslator
 {
 class TranslatorEnginePlugin;
@@ -31,5 +32,5 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void disconnectFromEngine();
     TranslatorEngineManager::TranslateRequest mTranslateRequest;
-    TextTranslator::TranslatorEnginePlugin *mTranslatorEnginePlugin = nullptr;
+    QPointer<TextTranslator::TranslatorEnginePlugin> mTranslatorEnginePlugin;
 };
