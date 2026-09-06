@@ -58,9 +58,7 @@ void AppsMarketPlaceInfo::parsePermissions(const QJsonArray &array)
     mPermissions.clear();
     mPermissions.reserve(array.count());
     for (const auto &current : array) {
-        Permission perm;
-        perm.type = perm.convertStringToPermissionType(current["name"_L1].toString());
-        mPermissions.append(std::move(perm));
+        mPermissions.emplace_back().type = Permission::convertStringToPermissionType(current["name"_L1].toString());
     }
 }
 
@@ -94,7 +92,7 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
         priceElement.trialDays = current["trialDays"_L1].toInt();
         priceElement.enabled = current["enabled"_L1].toBool();
         priceElement.isPerSeat = current["isPerSeat"_L1].toBool();
-        priceElement.strategy = priceElement.convertStringToStrategy(current["strategy"_L1].toString());
+        priceElement.strategy = PricePlan::convertStringToStrategy(current["strategy"_L1].toString());
         mPricePlan.append(std::move(priceElement));
     }
 }
@@ -225,12 +223,11 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     const QJsonArray categoriesArray = latestObj["categories"_L1].toArray();
     parsePermissions(latestObj["permissions"_L1].toArray());
 
-    QStringList lst;
-    lst.reserve(categoriesArray.count());
+    mCategories.clear();
+    mCategories.reserve(categoriesArray.count());
     for (const auto &current : categoriesArray) {
-        lst.append(current.toString());
+        mCategories.append(current.toString());
     }
-    mCategories = lst;
 
     parseAuthor(latestObj["author"_L1].toObject());
 
@@ -244,8 +241,11 @@ void AppsMarketPlaceInfo::parseAppsMarketPlaceInfo(const QJsonObject &replyObjec
     mVersion = latestObj["version"_L1].toString();
     mAppName = latestObj["name"_L1].toString();
     mDocumentationUrl = latestObj["documentationUrl"_L1].toString();
+    mPixmap = QPixmap();
     const QByteArray baImageBase64 = latestObj["iconFileData"_L1].toString().toLatin1();
-    mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG");
+    if (!baImageBase64.isEmpty() && !mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG")) {
+        qCWarning(RUQOLA_LOG) << "Impossible to load pixmap for " << mAppId;
+    }
 
     mPrivacyPolicySummary = latestObj["privacyPolicySummary"_L1].toString();
     parseAppRequestStats(replyObject["appRequestStats"_L1].toObject());
@@ -373,7 +373,7 @@ bool AppsMarketPlaceInfo::operator==(const AppsMarketPlaceInfo &other) const
         && mShortDescription == other.mShortDescription /*&& mPixmap.isNull() == other.mPixmap.isNull()*/ && mPrice == other.mPrice
         && mIsEnterpriseOnly == other.mIsEnterpriseOnly && mModifiedDate == other.mModifiedDate && mPricePlan == other.mPricePlan
         && mHomePage == other.mHomePage && mSupport == other.mSupport && mPrivacyPolicySummary == other.mPrivacyPolicySummary && mRequested == other.mRequested
-        && mAuthorName == other.mAuthorName;
+        && mAuthorName == other.mAuthorName && mPermissions == other.mPermissions && mInstalledInfo == other.mInstalledInfo;
 }
 
 qint64 AppsMarketPlaceInfo::modifiedDate() const
@@ -480,7 +480,9 @@ QString AppsMarketPlaceInfo::permissionsDescription() const
         str = u"<b>%1</b><br/>"_s.arg(i18n("Permissions"));
         str += u"<ol>"_s;
         for (const Permission &p : mPermissions) {
-            str += u"<li>%1</li>"_s.arg(p.convertTypeToI18n());
+            if (const QString description = p.convertTypeToI18n(); !description.isEmpty()) {
+                str += u"<li>%1</li>"_s.arg(description);
+            }
         }
         str += u"</ol>"_s;
     }
@@ -500,6 +502,16 @@ QList<AppsMarketPlaceInfo::PricePlan> AppsMarketPlaceInfo::pricePlan() const
 void AppsMarketPlaceInfo::setPricePlan(const QList<PricePlan> &newPricePlan)
 {
     mPricePlan = newPricePlan;
+}
+
+QList<AppsMarketPlaceInfo::Permission> AppsMarketPlaceInfo::permissions() const
+{
+    return mPermissions;
+}
+
+void AppsMarketPlaceInfo::setPermissions(const QList<Permission> &newPermissions)
+{
+    mPermissions = newPermissions;
 }
 
 bool AppsMarketPlaceInfo::Permission::operator==(const Permission &other) const
@@ -671,13 +683,13 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
     case Permission::PermissionType::LiveChatCustomFieldsWrite:
         return i18n("Modify Livechat custom field configuration");
     case Permission::PermissionType::LiveChatMessageMultiple:
-        break;
+        return i18n("Access to multiple Livechat messages information");
     case Permission::PermissionType::ThreadsRead:
-        break;
+        return i18n("Access thread information");
     case Permission::PermissionType::ModerationWrite:
-        break;
+        return i18n("Modify moderation information");
     case Permission::PermissionType::ModerationRead:
-        break;
+        return i18n("Access moderation information");
     case Permission::PermissionType::OauthAppWrite:
         return i18n("Allow to write oauth app settings");
     case Permission::PermissionType::OauthAppRead:
@@ -691,9 +703,9 @@ QString AppsMarketPlaceInfo::Permission::convertTypeToI18n() const
     case Permission::PermissionType::UiRegistrerButtons:
         return i18n("Allow to register button");
     case Permission::PermissionType::ContactRead:
-        break;
+        return i18n("Access contact information");
     case Permission::PermissionType::ContactWrite:
-        break;
+        return i18n("Modify contact information");
     case Permission::PermissionType::EmailSend:
         return i18n("Allow to send email");
     case Permission::PermissionType::RoleWrite:

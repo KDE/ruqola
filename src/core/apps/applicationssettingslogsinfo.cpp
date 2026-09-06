@@ -22,10 +22,10 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
     mTotalTime = obj["totalTime"_L1].toInteger();
     mCreatedAt = QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"_createdAt"_s, obj), QTimeZone::utc());
     const QJsonArray array = obj["entries"_L1].toArray();
+    mArguments.clear();
+    mArguments.reserve(array.count());
     for (const auto &current : array) {
-        ApplicationsSettingsLogsInfo::LogsArgument log;
-        log.parseArguments(current.toObject());
-        mArguments.append(std::move(log));
+        mArguments.emplace_back().parseArguments(current.toObject());
     }
 }
 
@@ -90,7 +90,7 @@ void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObjec
     severity = obj["severity"_L1].toString(); // TODO convert to enum !!!
     const QJsonArray arrayArgs = obj["args"_L1].toArray();
     const QJsonDocument r(arrayArgs);
-    args = r.toJson().replace("\n"_ba, "<br/>"_ba).replace(" ", "&nbsp;");
+    args = r.toJson().replace("\n"_ba, "<br/>"_ba).replace(" "_ba, "&nbsp;"_ba);
 }
 
 bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const

@@ -9,6 +9,7 @@
 
 #include <QDateTime>
 class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT ApplicationsSettingsLogsInfo
 {

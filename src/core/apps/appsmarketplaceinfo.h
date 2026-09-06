@@ -11,6 +11,7 @@
 #include <QMetaType>
 #include <QPixmap>
 class QDebug;
+class QJsonArray;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
@@ -156,6 +157,9 @@ public:
 
     [[nodiscard]] AppsMarketPlaceInstalledInfo installedInfo() const;
     void setInstalledInfo(const AppsMarketPlaceInstalledInfo &newInstalledInfo);
+
+    [[nodiscard]] QList<Permission> permissions() const;
+    void setPermissions(const QList<Permission> &newPermissions);
 
     void clearInstalledInfo();
     void changeApplicationStatus(const QString &str);
