@@ -1395,7 +1395,9 @@
           <li xml:lang="ar">تحديث قائمة الإيموجي</li>
           <li xml:lang="ca">Actualitza la llista d'emojis</li>
           <li xml:lang="ca-valencia">Actualitza la llista d'emoji</li>
+          <li xml:lang="he">עודכנה רשימת האמוג׳י</li>
           <li xml:lang="ia">Actualisa lista de Emoji</li>
+          <li xml:lang="it">Aggiorna l'elenco delle emoji</li>
           <li xml:lang="ka">განახლდა ემოჯიების სია</li>
           <li xml:lang="nl">Emoji-lijst bijwerken</li>
           <li xml:lang="pt-BR">Atualizar lista de emojis</li>
@@ -1842,6 +1844,7 @@
           <li xml:lang="ca">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
           <li xml:lang="ca-valencia">Implementa l'emmagatzematge a la base de dades del tecleig pendent</li>
           <li xml:lang="es">Implementado almacenamiento en base de datos  pendiente de tipos</li>
+          <li xml:lang="he">מומש אחסון מסד נתונים מוקלד וממתין</li>
           <li xml:lang="ia">Implementar immagazinage de base de datos typate pendente</li>
           <li xml:lang="it">Implementa l'archiviazione della banca di dati per le informazioni in attesa di digitazione</li>
           <li xml:lang="ka">განხორციელდა რიგში მყოფი აკრეფილი მონაცემთა ბაზის საცავი</li>
@@ -2069,6 +2072,7 @@
           <li xml:lang="ca">Afegeix el format del text ràpid</li>
           <li xml:lang="ca-valencia">Afig el format ràpid del text</li>
           <li xml:lang="es">Añadido formato rápido de texto</li>
+          <li xml:lang="he">הוספת עיצוב טקסט מהיר</li>
           <li xml:lang="ia">Adde Formato de Texto  Rapide</li>
           <li xml:lang="it">Aggiunge il formato di testo rapido</li>
           <li xml:lang="ka">სწრაფი ტექსტის დაფორმატების დამატება</li>
@@ -2119,6 +2123,7 @@
           <li xml:lang="ca">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
           <li xml:lang="ca-valencia">Mostra la informació de la sala (text en cursiva) quan hi ha algun missatge escrit pendent</li>
           <li xml:lang="es">Mostrar información de la sala (texto en cursiva) cuando hay algún mensaje siendo escrito</li>
+          <li xml:lang="he">פרטי חדר (כתב נטוי) מופיעים כשיש הודעה מוקלדת ממתינה</li>
           <li xml:lang="ia">Monstra info del sala (texto italic) quando il ha alcun message pendente typate.</li>
           <li xml:lang="it">Se hai problemi con determinati colori sullo schermo, questi filtri possono trasformarli in altri colori</li>
           <li xml:lang="ka">ოთახის ინფორმაციის ჩვენება (კურსივი), როცა მიმდინარეობს დარჩენილი შეტყობინებების აკრეფა</li>
@@ -2135,6 +2140,7 @@
           <li xml:lang="ca">Permet afegir emoticones des d'un menú emergent</li>
           <li xml:lang="ca-valencia">Permet afegir emoticones des d'un menú emergent</li>
           <li xml:lang="es">Soporte para añadir emoticono desde el menú emergente</li>
+          <li xml:lang="he">אפשרות להוסיף פרצופון מתפריט קופץ</li>
           <li xml:lang="ia">Permitte adder emoticon ex menu de popup</li>
           <li xml:lang="it">Consenti di aggiungere emoticon dal menu a comparsa</li>
           <li xml:lang="ka">ემოციების მხტუნარა მენიუდან დამატების დაშვება</li>
@@ -2686,6 +2692,7 @@
           <li xml:lang="ca">Corregeix les aplicacions de baixada d'idiomes</li>
           <li xml:lang="ca-valencia">Corregix les aplicacions de baixada d'idiomes</li>
           <li xml:lang="es">Corrección al descargar aplicaciones de lenguaje</li>
+          <li xml:lang="he">תוקנו יישומי הורדת שפות</li>
           <li xml:lang="ia">Corrige apps de discargar linguages</li>
           <li xml:lang="it">Correggi le applicazioni per le lingue scaricate</li>
           <li xml:lang="ka">გასწორდა აპების ენის გადმოწერა</li>
