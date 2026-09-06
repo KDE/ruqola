@@ -40,14 +40,14 @@ public:
         UserDropDownAction,
         RoomSideBarAction,
     };
-    Q_ENUM(ButtonContext);
+    Q_ENUM(ButtonContext)
 
     enum class Category : uint8_t {
         Unknown,
         Default,
         AI,
     };
-    Q_ENUM(Category);
+    Q_ENUM(Category)
 
     enum class MessageActionContext : uint8_t {
         Unknown = 0,
