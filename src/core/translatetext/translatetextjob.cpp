@@ -6,7 +6,7 @@
 
 #include "translatetextjob.h"
 #include "ruqola_debug.h"
-#include "translatetext/translatorenginemanager.h"
+#include "translatorenginemanager.h"
 #include <KLocalizedString>
 #include <TextTranslator/TranslatorEnginePlugin>
 
