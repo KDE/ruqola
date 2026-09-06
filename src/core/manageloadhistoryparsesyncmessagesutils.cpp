@@ -47,13 +47,11 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
         mDeletedMessages.append(o["_id"_L1].toString().toLatin1());
     }
 
-    QList<Message> updatedMessages;
     const QJsonArray updatedArray = result["updated"_L1].toArray();
-    for (int i = 0, total = updatedArray.size(); i < total; ++i) {
-        const QJsonObject o = updatedArray.at(i).toObject();
-        Message m;
-        m.parseMessage(o, true, mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
-        updatedMessages.append(std::move(m));
+    QList<Message> updatedMessages;
+    updatedMessages.reserve(updatedArray.size());
+    for (const auto &current : updatedArray) {
+        updatedMessages.emplace_back().parseMessage(current.toObject(), true, mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
     }
     mUpdatesMessages = std::move(updatedMessages);
 }

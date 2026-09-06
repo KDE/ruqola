@@ -18,16 +18,15 @@ ModerationListMessages::~ModerationListMessages() = default;
 void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName)
 {
     const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? u"messages"_s : arrayName].toArray();
-    mListMessages.reserve(messagesArray.count());
+    mListMessages.reserve(mListMessages.count() + messagesArray.count());
     for (const auto &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject messageModerationObject = current.toObject();
-            Message m;
             ModerationMessage moderationMessage;
             moderationMessage.parse(messageModerationObject);
+            Message &m = mListMessages.emplace_back();
             m.parseMessage(messageModerationObject["message"_L1].toObject(), true, nullptr);
             m.setModerationMessage(moderationMessage);
-            mListMessages.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing moderation message" << current;
         }

@@ -78,9 +78,7 @@ void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
     QList<InviteInfo> lstInvite;
     lstInvite.reserve(array.count());
     for (const QJsonValue &current : array) {
-        InviteInfo invite;
-        invite.parseInviteInfo(current.toObject());
-        lstInvite.append(std::move(invite));
+        lstInvite.emplace_back().parseInviteInfo(current.toObject());
     }
     mAdminInviteModel->setAdminInvites(std::move(lstInvite));
     for (int i : {AdminInviteModel::AdminInviteRoles::CreateAtStr, AdminInviteModel::AdminInviteRoles::Identifier}) {

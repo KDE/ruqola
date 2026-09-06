@@ -81,9 +81,7 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
     const auto total = items.count();
     teams.reserve(total);
     for (auto i = 0; i < total; ++i) {
-        TeamCompleter teamCompleter;
-        teamCompleter.parse(items.at(i).toObject());
-        teams.append(std::move(teamCompleter));
+        teams.emplace_back().parse(items.at(i).toObject());
     }
     if (teams.isEmpty()) {
         mCompletionListView->hide();

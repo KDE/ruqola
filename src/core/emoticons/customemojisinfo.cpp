@@ -54,10 +54,7 @@ void CustomEmojisInfo::parseListCustomEmoji(const QJsonObject &obj)
     mCustomEmojiInfos.reserve(mCustomEmojiInfos.count() + adminRoomsArray.count());
     for (const auto &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject adminRoomObject = current.toObject();
-            CustomEmoji m;
-            m.parseEmoji(adminRoomObject);
-            mCustomEmojiInfos.append(std::move(m));
+            mCustomEmojiInfos.emplace_back().parseEmoji(current.toObject());
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing Rooms" << current;
         }

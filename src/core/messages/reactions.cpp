@@ -55,10 +55,9 @@ void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiMan
                 users.append(array.at(i).toString());
             }
             if (!users.isEmpty()) {
-                Reaction r;
+                Reaction &r = mReactions.emplace_back();
                 r.setReactionName(str, emojiManager);
                 r.setUserNames(users);
-                mReactions.append(std::move(r));
             }
         }
     }
@@ -103,10 +102,9 @@ std::unique_ptr<Reactions> Reactions::deserialize(const QJsonObject &o, EmojiMan
                 users.append(array.at(i).toString());
             }
             if (!users.isEmpty()) {
-                Reaction r;
+                Reaction &r = reacts.emplace_back();
                 r.setReactionName(str, emojiManager);
                 r.setUserNames(users);
-                reacts.append(std::move(r));
             }
         }
         users.clear();

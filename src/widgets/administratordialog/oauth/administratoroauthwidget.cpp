@@ -90,10 +90,7 @@ void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
     const auto arrayCount{array.count()};
     lstOauth.reserve(arrayCount);
     for (auto i = 0; i < arrayCount; ++i) {
-        const QJsonObject o = array.at(i).toObject();
-        OauthInfo info;
-        info.parseOauthInfo(o);
-        lstOauth.append(std::move(info));
+        lstOauth.emplace_back().parseOauthInfo(array.at(i).toObject());
     }
     mAdminOauthModel->setAdminOauth(lstOauth);
     // qDebug() << " lstOauth " << lstOauth;

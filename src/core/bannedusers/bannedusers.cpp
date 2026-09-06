@@ -53,10 +53,7 @@ void BannedUsers::parseListBannedUsers(const QJsonObject &commandsObj)
     mBannedUsers.reserve(mBannedUsers.count() + bannedUsesArray.count());
     for (const auto &current : bannedUsesArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject bannedUsersObj = current.toObject();
-            BannedUser m;
-            m.parseBannedUser(bannedUsersObj);
-            mBannedUsers.append(std::move(m));
+            mBannedUsers.emplace_back().parseBannedUser(current.toObject());
         } else {
             qCWarning(RUQOLA_COMMANDS_LOG) << "Problem when parsing bannedusers" << current.type();
         }

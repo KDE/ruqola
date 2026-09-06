@@ -27,10 +27,7 @@ void RolesManager::parseRoles(const QJsonObject &obj)
     mRoleInfo.clear();
     mRoleInfo.reserve(array.count());
     for (const auto &current : array) {
-        const QJsonObject roleObject = current.toObject();
-        RoleInfo info;
-        info.parseRoleInfo(roleObject);
-        mRoleInfo.append(std::move(info));
+        mRoleInfo.emplace_back().parseRoleInfo(current.toObject());
     }
     Q_EMIT rolesChanged();
 }

@@ -106,10 +106,7 @@ void ModerationReportInfos::parseModerationReportInfosObj(const QJsonObject &mod
     const QJsonArray moderationsArray = moderationReportInfosObj["reports"_L1].toArray();
     for (const auto &current : moderationsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject moderationObject = current.toObject();
-            ModerationReportInfo m;
-            m.parseModerationReportInfo(moderationObject);
-            mModerationReportInfosList.append(std::move(m));
+            mModerationReportInfosList.emplace_back().parseModerationReportInfo(current.toObject());
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing moderations" << current;
         }

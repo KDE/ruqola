@@ -26,13 +26,10 @@ void ListMessages::parseListInfo(const QJsonObject &messagesObj)
 void ListMessages::parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName)
 {
     const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? u"messages"_s : arrayName].toArray();
-    mListMessages.reserve(messagesArray.count());
+    mListMessages.reserve(mListMessages.count() + messagesArray.count());
     for (const auto &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject messageObject = current.toObject();
-            Message m;
-            m.parseMessage(messageObject, true, nullptr);
-            mListMessages.append(std::move(m));
+            mListMessages.emplace_back().parseMessage(current.toObject(), true, nullptr);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
         }

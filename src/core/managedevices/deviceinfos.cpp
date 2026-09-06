@@ -105,10 +105,7 @@ void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
     const QJsonArray discussionsArray = deviceInfosObj["sessions"_L1].toArray();
     for (const auto &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject discussionObject = current.toObject();
-            DeviceInfo m;
-            m.parseDeviceInfo(discussionObject);
-            mDeviceInfosList.append(std::move(m));
+            mDeviceInfosList.emplace_back().parseDeviceInfo(current.toObject());
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing device infos" << current;
         }

@@ -90,9 +90,7 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
     const int total = items.count();
     teams.reserve(total);
     for (int i = 0; i < total; ++i) {
-        TeamRoomCompleter teamCompleter;
-        teamCompleter.parse(items.at(i).toObject());
-        teams.append(std::move(teamCompleter));
+        teams.emplace_back().parse(items.at(i).toObject());
     }
     if (teams.isEmpty()) {
         mCompletionListView->hide();

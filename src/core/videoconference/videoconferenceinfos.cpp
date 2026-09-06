@@ -105,10 +105,7 @@ void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &video
     const QJsonArray videoConferencesArray = videoConferenceInfosObj["data"_L1].toArray();
     for (const auto &current : videoConferencesArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject videoConferenceObject = current.toObject();
-            VideoConferenceInfo m;
-            m.parse(videoConferenceObject);
-            mVideoConferenceInfosList.append(std::move(m));
+            mVideoConferenceInfosList.emplace_back().parse(current.toObject());
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing video conference infos" << current;
         }

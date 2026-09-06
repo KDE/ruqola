@@ -63,10 +63,7 @@ void RoomsInfo::parseListRooms(const QJsonObject &adminRoomsObj, RoomsInfo::Pars
     mRooms.reserve(mRooms.count() + adminRoomsArray.count());
     for (const auto &current : adminRoomsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject adminRoomObject = current.toObject();
-            RoomInfo m;
-            m.parseRoomInfo(adminRoomObject);
-            mRooms.append(std::move(m));
+            mRooms.emplace_back().parseRoomInfo(current.toObject());
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing Rooms" << current;
         }
