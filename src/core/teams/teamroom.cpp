@@ -71,11 +71,8 @@ QList<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
     QList<TeamRoom> teamRooms;
     const QJsonArray rooms = obj.value("rooms"_L1).toArray();
     teamRooms.reserve(rooms.count());
-    for (int i = 0, total = rooms.count(); i < total; ++i) {
-        const QJsonObject r = rooms.at(i).toObject();
-        TeamRoom teamRoom;
-        teamRoom.parse(r);
-        teamRooms.append(std::move(teamRoom));
+    for (const auto &current : rooms) {
+        teamRooms.emplace_back().parse(current.toObject());
     }
     return teamRooms;
 }
