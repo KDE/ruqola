@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QList>
 #include <QObject>
+#include <memory>
 namespace TextTranslator
 {
 class TranslatorEnginePlugin;
@@ -48,7 +49,7 @@ private:
     LIBRUQOLACORE_NO_EXPORT void scheduleNextTranslation();
     LIBRUQOLACORE_NO_EXPORT void finishCurrentTranslation();
     LIBRUQOLACORE_NO_EXPORT void cancelCurrentTranslation();
-    TextTranslator::TranslatorEnginePlugin *mTranslatorEnginePlugin = nullptr;
+    std::unique_ptr<TextTranslator::TranslatorEnginePlugin> mTranslatorEnginePlugin;
     // The request being translated stays at the front of the list until it's done.
     QList<TranslateRequest> mPendingTranslateRequests;
     TranslateTextJob *mCurrentJob = nullptr;

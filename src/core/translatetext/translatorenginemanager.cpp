@@ -114,14 +114,13 @@ void TranslatorEngineManager::translatorConfigChanged()
 
 void TranslatorEngineManager::initializeTranslateEngine()
 {
-    delete mTranslatorEnginePlugin;
     // Clear it right away: createTranslatorClient() can emit loadingTranslatorFailed()
     // and translatorEngineBase() must not hand out a dangling pointer in between.
     mTranslatorEnginePlugin = nullptr;
     const QString engineName = TextTranslator::TranslatorUtil::loadEngine();
     TextTranslator::TranslatorEngineClient *translatorClient = TextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(engineName);
     if (translatorClient) {
-        mTranslatorEnginePlugin = translatorClient->createTranslator();
+        mTranslatorEnginePlugin.reset(translatorClient->createTranslator());
     }
     // Deleting the previous plugin also destroyed the network reply of the translation
     // which was still in flight, together with the connections carrying its result: the
@@ -132,7 +131,7 @@ void TranslatorEngineManager::initializeTranslateEngine()
 
 TextTranslator::TranslatorEnginePlugin *TranslatorEngineManager::translatorEngineBase() const
 {
-    return mTranslatorEnginePlugin;
+    return mTranslatorEnginePlugin.get();
 }
 
 QDebug operator<<(QDebug d, const TranslatorEngineManager::TranslateRequest &t)
