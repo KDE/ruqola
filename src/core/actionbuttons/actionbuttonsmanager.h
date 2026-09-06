@@ -8,6 +8,7 @@
 #include "actionbutton.h"
 #include "libruqolacore_export.h"
 #include <QObject>
+class QJsonArray;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT ActionButtonsManager : public QObject
 {

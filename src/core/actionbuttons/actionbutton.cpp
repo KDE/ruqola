@@ -89,33 +89,33 @@ ActionButton::Category ActionButton::convertCategoryFromString(const QString &st
     }
 }
 
+namespace
+{
+[[nodiscard]] QStringList convertJsonArrayToStringList(const QJsonArray &array)
+{
+    QStringList list;
+    list.reserve(array.count());
+    for (const auto &r : array) {
+        list.append(r.toString());
+    }
+    return list;
+}
+}
+
 void ActionButton::parseWhen(const QJsonObject &json)
 {
+    mRoomTypeFilters = RoomTypeFilter::Unknown;
     const QJsonArray roomTypes = json["roomTypes"_L1].toArray();
     for (const auto &r : roomTypes) {
         mRoomTypeFilters |= convertRoomTypeFiltersFromString(r.toString());
     }
 
-    const QJsonArray hasOneRole = json["hasOneRole"_L1].toArray();
-    for (const auto &r : hasOneRole) {
-        mHasOneRole.append(r.toString());
-    }
+    mHasOneRole = convertJsonArrayToStringList(json["hasOneRole"_L1].toArray());
+    mHasAllRoles = convertJsonArrayToStringList(json["hasAllRoles"_L1].toArray());
+    mHasOnePermission = convertJsonArrayToStringList(json["hasOnePermission"_L1].toArray());
+    mHasAllPermissions = convertJsonArrayToStringList(json["hasAllPermissions"_L1].toArray());
 
-    const QJsonArray hasAllRoles = json["hasAllRoles"_L1].toArray();
-    for (const auto &r : hasAllRoles) {
-        mHasAllRoles.append(r.toString());
-    }
-
-    const QJsonArray hasOnePermission = json["hasOnePermission"_L1].toArray();
-    for (const auto &r : hasOnePermission) {
-        mHasOnePermission.append(r.toString());
-    }
-
-    const QJsonArray hasAllPermissions = json["hasAllPermissions"_L1].toArray();
-    for (const auto &r : hasAllPermissions) {
-        mHasAllPermissions.append(r.toString());
-    }
-
+    mMessageActionContexts = MessageActionContext::Unknown;
     const QJsonArray messageActionContexts = json["messageActionContext"_L1].toArray();
     for (const auto &r : messageActionContexts) {
         mMessageActionContexts |= convertMessageActionContextsFromString(r.toString());

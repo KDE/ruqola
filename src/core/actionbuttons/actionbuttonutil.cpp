@@ -45,7 +45,5 @@ ActionButton::RoomTypeFilter ActionButtonUtil::convertRoomTypeToActionButtonRoom
 
 QString ActionButtonUtil::generateTranslateIdentifier(const ActionButton &actionButton)
 {
-    const QString appId = QString::fromLatin1(actionButton.appId());
-    const QString translateIdentifier = u"app-"_s + appId + u'.' + actionButton.labelI18n();
-    return translateIdentifier;
+    return u"app-"_s + QString::fromLatin1(actionButton.appId()) + u'.' + actionButton.labelI18n();
 }

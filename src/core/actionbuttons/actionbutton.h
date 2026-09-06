@@ -10,6 +10,7 @@
 #include <QMetaType>
 #include <QStringList>
 class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT ActionButton
 {
     Q_GADGET
