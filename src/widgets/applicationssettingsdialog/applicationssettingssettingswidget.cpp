@@ -43,11 +43,10 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
 void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
     const QJsonObject settings = obj["settings"_L1].toObject();
+    mSettingsInfo.reserve(mSettingsInfo.count() + settings.count());
     for (const auto &current : settings) {
         // TODO store json => update it when widget settings change
-        ApplicationsSettingsSettingsInfo i;
-        i.parseSettings(current.toObject());
-        mSettingsInfo.append(std::move(i));
+        mSettingsInfo.emplace_back().parseSettings(current.toObject());
     }
     if (mSettingsInfo.isEmpty()) {
         auto label = new QLabel(i18n("Application does not have settings."), this);

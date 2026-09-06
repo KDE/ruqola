@@ -29,10 +29,7 @@ void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customSt
     mCustomUserStatusList.reserve(mCustomUserStatusList.count() + customsUserArray.count());
     for (const auto &current : customsUserArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject customUserObj = current.toObject();
-            CustomUserStatus m;
-            m.parseCustomStatus(customUserObj);
-            mCustomUserStatusList.append(std::move(m));
+            mCustomUserStatusList.emplace_back().parseCustomStatus(current.toObject());
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing customStatusUser" << current;
         }

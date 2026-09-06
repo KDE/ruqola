@@ -23,9 +23,7 @@ void MessageAttachmentActions::parse(const QJsonObject &obj)
     const QJsonArray array = obj["actions"_L1].toArray();
     mActions.reserve(array.count());
     for (const auto &a : array) {
-        MessageAttachmentAction act;
-        act.parse(a.toObject());
-        mActions.append(std::move(act));
+        mActions.emplace_back().parse(a.toObject());
     }
 }
 

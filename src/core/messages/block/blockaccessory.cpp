@@ -75,9 +75,7 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
     mOptions.clear();
     mOptions.reserve(qsizetype(optionsArray.count()));
     for (const auto &r : optionsArray) {
-        BlockAccessoryOption option;
-        option.parse(r.toObject());
-        mOptions.append(std::move(option));
+        mOptions.emplace_back().parse(r.toObject());
     }
 }
 
