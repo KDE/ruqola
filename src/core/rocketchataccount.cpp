@@ -3410,7 +3410,7 @@ void RocketChatAccount::loadAppMarketPlace()
                 // qDebug() << " info " << info;
             }
         }
-        mAppsMarketPlaceModel->setAppsMarketPlaceInfos(listAppsMarketPlaceInfo);
+        mAppsMarketPlaceModel->setAppsMarketPlaceInfos(std::move(listAppsMarketPlaceInfo));
         loadAppCount();
     });
     if (!job->start()) {

@@ -123,8 +123,8 @@ QDebug operator<<(QDebug d, const FileAttachments &t)
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
     d.space() << "fileAttachmentsCount" << t.filesCount() << "\n";
-    for (int i = 0, total = t.fileAttachments().count(); i < total; ++i) {
-        d.space() << t.fileAttachments().at(i) << "\n";
+    for (const auto &t : t.fileAttachments()) {
+        d.space() << t << "\n";
     }
     return d;
 }
