@@ -97,7 +97,7 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
     if (teams.isEmpty()) {
         mCompletionListView->hide();
     }
-    mTeamRoomCompleterModel->setRooms(teams);
+    mTeamRoomCompleterModel->setRooms(std::move(teams));
 }
 
 void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)

@@ -88,7 +88,7 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
     if (teams.isEmpty()) {
         mCompletionListView->hide();
     }
-    mTeamCompleterModel->insertTeams(teams);
+    mTeamCompleterModel->insertTeams(std::move(teams));
 }
 
 void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
