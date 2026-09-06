@@ -28,7 +28,7 @@ void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
 void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
 {
     if (teams.isValid()) {
-        obj["teamId"_L1] = QLatin1StringView(teams.teamId());
+        obj["teamId"_L1] = QString::fromLatin1(teams.teamId());
         obj["teamMain"_L1] = teams.mainTeam();
         if (teams.autoJoin()) {
             obj["teamDefault"_L1] = true;
