@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
-"PO-Revision-Date: 2026-08-29 21:57+0300\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"PO-Revision-Date: 2026-09-05 18:11+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1795,7 +1795,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:789
+#: core/rocketchataccount.cpp:788
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1804,22 +1804,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:797 core/rocketchataccount.cpp:810
+#: core/rocketchataccount.cpp:796 core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected"
 msgstr "Не з'єднано"
 
-#: core/rocketchataccount.cpp:804
+#: core/rocketchataccount.cpp:803
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ще не з'єднано"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3253
 #, kde-format
 msgid "Room Added"
 msgstr "Додано кімнату"
 
-#: core/rocketchataccount.cpp:3255
+#: core/rocketchataccount.cpp:3254
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "У «%1» додано нову кімнату."
@@ -2146,17 +2146,17 @@ msgstr "Особистий жетон доступу"
 msgid "Share Text…"
 msgstr "Оприлюднити текст…"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Під час спроби оприлюднити документ виникла проблема: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "Файл оприлюднено."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Новий запит можна знайти тут:<br /><a href='%1'>%1</a> </qt>"
@@ -2166,7 +2166,7 @@ msgstr "<qt>Новий запит можна знайти тут:<br /><a href='
 msgid "AI Actions"
 msgstr "Дії ШІ"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:36
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Резюме непрочитаних"
@@ -2192,12 +2192,12 @@ msgctxt "@title:window"
 msgid "Configure Grab Screen"
 msgstr "Налаштовування захоплення екрана"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
 #, kde-format
 msgid "Delay:"
 msgstr "Затримка:"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:27
 #, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
@@ -9928,8 +9928,7 @@ msgstr ""
 "Не вдалося увійти: користувачу програми не дозволено входити до системи."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Not network found."
+#, kde-format
 msgid "No network found."
 msgstr "Мережі не знайдено."
 

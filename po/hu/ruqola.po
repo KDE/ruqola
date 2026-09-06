@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1800,7 +1800,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:789
+#: core/rocketchataccount.cpp:788
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1809,24 +1809,24 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:797 core/rocketchataccount.cpp:810
+#: core/rocketchataccount.cpp:796 core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:804
+#: core/rocketchataccount.cpp:803
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3253
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Fiók hozzáadva"
 
-#: core/rocketchataccount.cpp:3255
+#: core/rocketchataccount.cpp:3254
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -2150,17 +2150,17 @@ msgstr "Személyes hozzáférési token"
 msgid "Share Text…"
 msgstr "Szöveg megosztása…"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Hiba történt a dokumentum megosztásakor: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "A fájl megosztva."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Az új kérést itt találhatja meg:<br /><a href='%1'>%1</a> </qt>"
@@ -2172,7 +2172,7 @@ msgstr "<qt>Az új kérést itt találhatja meg:<br /><a href='%1'>%1</a> </qt>"
 msgid "AI Actions"
 msgstr "Alkalmazás kérése"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:36
 #, kde-format
 msgid "Summarize Unreads"
 msgstr ""
@@ -2201,12 +2201,12 @@ msgctxt "@title:window"
 msgid "Configure Grab Screen"
 msgstr "Saját fiók beállítása"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
 #, kde-format
 msgid "Delay:"
 msgstr ""
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "1 second"
 #| msgid_plural "%1 seconds"

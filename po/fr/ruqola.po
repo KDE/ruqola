@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
 "PO-Revision-Date: 2026-06-03 22:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -1791,7 +1791,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> sont en train d'écrire des messages..."
 
-#: core/rocketchataccount.cpp:789
+#: core/rocketchataccount.cpp:788
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1800,23 +1800,23 @@ msgstr ""
 "REST : %1\n"
 "DDP : %2"
 
-#: core/rocketchataccount.cpp:797 core/rocketchataccount.cpp:810
+#: core/rocketchataccount.cpp:796 core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected"
 msgstr "Non connecté"
 
-#: core/rocketchataccount.cpp:804
+#: core/rocketchataccount.cpp:803
 #, kde-format
 msgid "Not connected yet"
 msgstr "Pas encore connecté"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3253
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Ajout d'un compte"
 
-#: core/rocketchataccount.cpp:3255
+#: core/rocketchataccount.cpp:3254
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -2134,17 +2134,17 @@ msgstr "Jeton d'accès personnel"
 msgid "Share Text…"
 msgstr "Partager du texte..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Il y a eu un problème durant le partage du document : %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "Le fichier a été partagé."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
@@ -2156,7 +2156,7 @@ msgstr ""
 msgid "AI Actions"
 msgstr "Actions de l'IA"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:36
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Résumer les messages non lus"
@@ -2182,12 +2182,12 @@ msgctxt "@title:window"
 msgid "Configure Grab Screen"
 msgstr "Configurer l'écran de Grab"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
 #, kde-format
 msgid "Delay:"
 msgstr "Délai :"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:27
 #, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"

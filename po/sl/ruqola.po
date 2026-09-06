@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
-"PO-Revision-Date: 2026-08-29 12:38+0200\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"PO-Revision-Date: 2026-09-05 15:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1792,7 +1792,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:789
+#: core/rocketchataccount.cpp:788
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1801,22 +1801,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:797 core/rocketchataccount.cpp:810
+#: core/rocketchataccount.cpp:796 core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:804
+#: core/rocketchataccount.cpp:803
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3253
 #, kde-format
 msgid "Room Added"
 msgstr "Soba je bila dodana"
 
-#: core/rocketchataccount.cpp:3255
+#: core/rocketchataccount.cpp:3254
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Novi soba je bila dodana v '%1'."
@@ -2143,17 +2143,17 @@ msgstr "Žeton osebnega dostopa"
 msgid "Share Text…"
 msgstr "Deli besedilo…"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Bila je težava pri deljenju dokumenta: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "Datoteka je bila deljena."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Novi zahtevek lahko najdete na:<br /><a href='%1'>%1</a> </qt>"
@@ -2163,7 +2163,7 @@ msgstr "<qt>Novi zahtevek lahko najdete na:<br /><a href='%1'>%1</a> </qt>"
 msgid "AI Actions"
 msgstr "Dejavnosti umetne inteligence"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:36
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Povzemi neprebrane"
@@ -2189,12 +2189,12 @@ msgctxt "@title:window"
 msgid "Configure Grab Screen"
 msgstr "Konfiguriraj zajem zaslona"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
 #, kde-format
 msgid "Delay:"
 msgstr "Zamik:"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:27
 #, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
@@ -9852,8 +9852,7 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "Prijava ni uspela: Uporabniku aplikacije ni dovoljena prijava."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Not network found."
+#, kde-format
 msgid "No network found."
 msgstr "Ni najdenega omrežja."
 

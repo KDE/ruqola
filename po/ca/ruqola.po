@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:45+0000\n"
-"PO-Revision-Date: 2026-08-29 08:52+0200\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"PO-Revision-Date: 2026-09-05 11:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1787,7 +1787,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:789
+#: core/rocketchataccount.cpp:788
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1796,22 +1796,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:797 core/rocketchataccount.cpp:810
+#: core/rocketchataccount.cpp:796 core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:804
+#: core/rocketchataccount.cpp:803
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3253
 #, kde-format
 msgid "Room Added"
 msgstr "S'ha afegit una sala"
 
-#: core/rocketchataccount.cpp:3255
+#: core/rocketchataccount.cpp:3254
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "S'ha afegit una sala nova a «%1»."
@@ -2126,17 +2126,17 @@ msgstr "Testimoni d'accés personal"
 msgid "Share Text…"
 msgstr "Comparteix el text…"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "S'ha produït un problema en compartir el document: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, kde-format
 msgid "File was shared."
 msgstr "S'ha compartit el fitxer."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Trobareu la sol·licitud nova a:<br /><a href='%1'>%1</a></qt>"
@@ -2146,7 +2146,7 @@ msgstr "<qt>Trobareu la sol·licitud nova a:<br /><a href='%1'>%1</a></qt>"
 msgid "AI Actions"
 msgstr "Accions d'IA"
 
-#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:35
+#: plugins/toolsplugin/aiactions/aiactionsplugintoolinterface.cpp:36
 #, kde-format
 msgid "Summarize Unreads"
 msgstr "Resumeix els no llegits"
@@ -2172,12 +2172,12 @@ msgctxt "@title:window"
 msgid "Configure Grab Screen"
 msgstr "Configuració de l'enregistrament de pantalla"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
 #, kde-format
 msgid "Delay:"
 msgstr "Retard:"
 
-#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
+#: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:27
 #, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
@@ -9859,8 +9859,7 @@ msgstr ""
 "la sessió."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Not network found."
+#, kde-format
 msgid "No network found."
 msgstr "No s'ha trobat cap xarxa."
 
