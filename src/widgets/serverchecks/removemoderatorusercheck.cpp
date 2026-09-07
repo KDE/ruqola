@@ -33,7 +33,7 @@ void RemoveModeratorUserCheck::doStart()
                     [this, user, userId](bool, const QString &) {
                         changeChannelModeratorUser(
                             userId,
-                            [this, user, userId](bool ok, const QString &error) {
+                            [this, user](bool ok, const QString &error) {
                                 if (ok) {
                                     reportPassed();
                                 } else {

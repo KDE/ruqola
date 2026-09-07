@@ -33,7 +33,7 @@ void RemoveLeaderUserCheck::doStart()
                     [this, user, userId](bool, const QString &) {
                         changeChannelLeaderUser(
                             userId,
-                            [this, user, userId](bool ok, const QString &error) {
+                            [this, user](bool ok, const QString &error) {
                                 if (ok) {
                                     reportPassed();
                                 } else {
