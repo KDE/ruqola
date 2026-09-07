@@ -4,9 +4,9 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "timestampinmessagesdialog.h"
+#include "timestampinmessageswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesDialog::TimeStampInMessagesDialog(QWidget *parent)

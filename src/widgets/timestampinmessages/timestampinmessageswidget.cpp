@@ -7,8 +7,8 @@
 #include "timestampinmessages/timestampinmessagesformatcombobox.h"
 #include "timestampinmessages/timestampinmessagestimezonecombobox.h"
 #include <KLocalizedString>
-#include <QDateEdit>
 #include <QFormLayout>
+#include <TimeEdit>
 using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
     : QWidget{parent}
@@ -40,10 +40,10 @@ TimeStampInMessagesWidget::~TimeStampInMessagesWidget() = default;
 
 TimeStampInMessagesUtils::TimeStampInfo TimeStampInMessagesWidget::timeStampInfo() const
 {
-    const TimeStampInMessagesUtils::TimeStampInfo info{.format = mTimeStampInMessagesFormatComboBox->currentFormat(),
-                                                       .date = mDateEdit->date(),
-                                                       .time = mTimeEdit->time(),
-                                                       .timeZone = mTimeStampInMessagesTimeZoneComboBox->currentTimeZone()};
+    TimeStampInMessagesUtils::TimeStampInfo info{.format = mTimeStampInMessagesFormatComboBox->currentFormat(),
+                                                 .date = mDateEdit->date(),
+                                                 .time = mTimeEdit->time(),
+                                                 .timeZone = mTimeStampInMessagesTimeZoneComboBox->currentTimeZone()};
     return info;
 }
 
