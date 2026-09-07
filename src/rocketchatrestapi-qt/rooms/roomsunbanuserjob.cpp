@@ -35,14 +35,8 @@ bool RoomsUnbanUserJob::start()
 
 void RoomsUnbanUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsUnbanUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsUnbanUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsUnbanUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsUnbanUserJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

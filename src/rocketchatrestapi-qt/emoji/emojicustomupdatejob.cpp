@@ -81,14 +81,8 @@ bool EmojiCustomUpdateJob::start()
 
 void EmojiCustomUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("EmojiCustomUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT emojiCustomUpdateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("EmojiCustomUpdateJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("EmojiCustomUpdateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT emojiCustomUpdateDone(*replyObject);
     }
 }
 

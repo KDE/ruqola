@@ -54,13 +54,8 @@ bool GetDiscussionsJob::start()
 
 void GetDiscussionsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetDiscussionsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getDiscussionsDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetDiscussionsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetDiscussionsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getDiscussionsDone(*replyObject, mRoomId);
     }
 }
 

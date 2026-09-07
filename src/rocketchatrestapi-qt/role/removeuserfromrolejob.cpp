@@ -37,13 +37,8 @@ bool RemoveUserFromRoleJob::start()
 
 void RemoveUserFromRoleJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RemoveUsersFromRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT removeUsersFromRoleDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RemoveUsersFromRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RemoveUserFromRoleJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT removeUsersFromRoleDone(*replyObject);
     }
 }
 

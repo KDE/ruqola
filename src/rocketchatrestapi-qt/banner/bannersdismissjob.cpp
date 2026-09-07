@@ -36,14 +36,8 @@ bool BannersDismissJob::start()
 
 void BannersDismissJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("BannersDismissJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("BannersDismissJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT dimissBannerDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("BannersDismissJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

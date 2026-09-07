@@ -35,14 +35,8 @@ bool FetchMyKeysJob::start()
 
 void FetchMyKeysJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("FetchMyKeysJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT fetchMyKeysDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("FetchMyKeysJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("FetchMyKeysJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT fetchMyKeysDone(*replyObject);
     }
 }
 

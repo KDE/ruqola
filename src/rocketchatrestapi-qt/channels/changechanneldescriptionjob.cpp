@@ -34,14 +34,8 @@ bool ChangeChannelDescriptionJob::start()
 
 void ChangeChannelDescriptionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Change description success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeChannelDescriptionJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeDescriptionDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to change description: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

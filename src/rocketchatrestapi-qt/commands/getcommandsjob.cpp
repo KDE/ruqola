@@ -42,13 +42,8 @@ bool GetCommandsJob::start()
 
 void GetCommandsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetCommandsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getCommandsDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetCommandsJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetCommandsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getCommandsDone(*replyObject);
     }
 }
 

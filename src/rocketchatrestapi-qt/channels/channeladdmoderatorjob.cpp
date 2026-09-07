@@ -35,14 +35,8 @@ bool ChannelAddModeratorJob::start()
 
 void ChannelAddModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Add moderator success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelAddModeratorJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addModeratorDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to add moderator: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

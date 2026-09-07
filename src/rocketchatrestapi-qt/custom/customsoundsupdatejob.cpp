@@ -76,14 +76,8 @@ bool CustomSoundsUpdateJob::start()
 
 void CustomSoundsUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CustomSoundsUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT customSoundUpdateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CustomSoundsUpdateJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("CustomSoundsUpdateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT customSoundUpdateDone(*replyObject);
     }
 }
 

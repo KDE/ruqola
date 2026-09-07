@@ -35,13 +35,8 @@ bool UseInviteTokenJob::start()
 
 void UseInviteTokenJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UseInviteTokenJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("UseInviteTokenJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT useInviteTokenDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UseInviteTokenJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -38,13 +38,8 @@ bool UsersSetPreferencesJob::start()
 
 void UsersSetPreferencesJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersSetPreferencesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersSetPreferencesDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersSetPreferencesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersSetPreferencesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersSetPreferencesDone(*replyObject);
     }
 }
 

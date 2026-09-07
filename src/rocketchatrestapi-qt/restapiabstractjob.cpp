@@ -211,6 +211,18 @@ void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, cons
     }
 }
 
+std::optional<QJsonObject> RestApiAbstractJob::checkResponse(QByteArrayView name, const QString &replyErrorString, const QJsonDocument &replyJson)
+{
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject["success"_L1].toBool()) {
+        addLoggerInfo(name.toByteArray() + ": success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        return replyObject;
+    }
+    emitFailedMessage(replyErrorString, replyObject);
+    addLoggerWarning(name.toByteArray() + ": problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    return {};
+}
+
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
 {
     // JSon-level error

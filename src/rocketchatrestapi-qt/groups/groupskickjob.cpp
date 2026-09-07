@@ -35,14 +35,8 @@ bool GroupsKickJob::start()
 
 void GroupsKickJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupsKickJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT kickUserDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupsKickJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GroupsKickJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT kickUserDone(*replyObject);
     }
 }
 

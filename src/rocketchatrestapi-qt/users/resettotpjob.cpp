@@ -37,13 +37,8 @@ bool ResetTOTPJob::start()
 
 void ResetTOTPJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ResetTOTPJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ResetTOTPJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT resetTOTPDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ResetTOTPJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

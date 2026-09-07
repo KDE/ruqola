@@ -135,25 +135,15 @@ QNetworkRequest AppUpdateInfoJob::request() const
 
 void AppUpdateInfoJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AppUpdateInfoJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AppUpdateInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AppUpdateInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT appUpdateInfoDone(replyObject->value("data"_L1).toObject());
     }
 }
 
 void AppUpdateInfoJob::onDeleteRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Delete AppUpdateInfoJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Delete AppUpdateInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AppUpdateInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT appUpdateInfoDone(replyObject->value("data"_L1).toObject());
     }
 }
 

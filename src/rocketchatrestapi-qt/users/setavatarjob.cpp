@@ -87,13 +87,8 @@ void SetAvatarJob::slotSetAvatar()
 
 void SetAvatarJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetAvatarJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetAvatarJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setAvatarDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetAvatarJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

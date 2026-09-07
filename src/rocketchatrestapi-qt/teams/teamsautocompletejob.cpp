@@ -42,13 +42,8 @@ bool TeamsAutoCompleteJob::start()
 
 void TeamsAutoCompleteJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamsAutoCompleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT teamAutoCompleteDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamsAutoCompleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("TeamsAutoCompleteJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT teamAutoCompleteDone(*replyObject);
     }
 }
 

@@ -65,13 +65,8 @@ bool ChannelGetCountersJob::requireHttpAuthentication() const
 
 void ChannelGetCountersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelGetCountersJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelGetCountersDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelGetCountersJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelGetCountersJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelGetCountersDone(*replyObject, channelGroupInfo());
     }
 }
 

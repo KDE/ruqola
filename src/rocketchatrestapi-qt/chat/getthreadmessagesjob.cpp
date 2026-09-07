@@ -55,13 +55,8 @@ bool GetThreadMessagesJob::start()
 
 void GetThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetThreadMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getThreadMessagesDone(replyObject, mThreadMessageId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetThreadMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetThreadMessagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getThreadMessagesDone(*replyObject, mThreadMessageId);
     }
 }
 

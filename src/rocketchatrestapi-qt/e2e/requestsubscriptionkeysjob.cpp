@@ -34,14 +34,8 @@ bool RequestSubscriptionKeysJob::start()
 
 void RequestSubscriptionKeysJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RequestSubscriptionKeysJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RequestSubscriptionKeysJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT requestSubscriptionKeysDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RequestSubscriptionKeysJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

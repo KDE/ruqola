@@ -36,14 +36,8 @@ bool DeleteMessageFileJob::start()
 
 void DeleteMessageFileJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("DeleteMessageFileJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("DeleteMessageFileJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deleteMessageFileDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("DeleteMessageFileJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -34,13 +34,8 @@ bool ChangeChannelNameJob::start()
 
 void ChangeChannelNameJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Change name success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeChannelNameJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeNameDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to change name: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

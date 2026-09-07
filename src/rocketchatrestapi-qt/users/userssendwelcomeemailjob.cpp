@@ -35,13 +35,8 @@ bool UsersSendWelcomeEmailJob::start()
 
 void UsersSendWelcomeEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersSendWelcomeEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("UsersSendWelcomeEmailJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT sendWelcomeEmailDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersSendWelcomeEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

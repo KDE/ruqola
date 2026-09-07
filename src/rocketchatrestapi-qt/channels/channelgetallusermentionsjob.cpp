@@ -69,13 +69,8 @@ bool ChannelGetAllUserMentionsJob::requireHttpAuthentication() const
 
 void ChannelGetAllUserMentionsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelGetAllUserMentionsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelGetAllUserMentionsDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelGetAllUserMentionsJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelGetAllUserMentionsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelGetAllUserMentionsDone(*replyObject, mRoomId);
     }
 }
 

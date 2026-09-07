@@ -36,14 +36,8 @@ bool ModerationDismissReportsJob::start()
 
 void ModerationDismissReportsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationDismissReportsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ModerationDismissReportsJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT moderationDismissReportsDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationDismissReportsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

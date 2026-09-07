@@ -55,14 +55,8 @@ bool VideoConferenceListJob::start()
 
 void VideoConferenceListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("VideoConferenceListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT videoConferenceInfoDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("VideoConferenceListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("VideoConferenceListJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT videoConferenceInfoDone(*replyObject);
     }
 }
 

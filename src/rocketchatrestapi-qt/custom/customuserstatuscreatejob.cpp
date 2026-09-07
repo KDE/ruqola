@@ -36,13 +36,8 @@ bool CustomUserStatusCreateJob::start()
 
 void CustomUserStatusCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CustomUserStatusCreateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("CustomUserStatusCreateJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT createUserStatusDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CustomUserStatusCreateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

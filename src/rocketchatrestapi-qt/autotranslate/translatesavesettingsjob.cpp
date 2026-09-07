@@ -34,14 +34,8 @@ bool TranslateSaveSettingsJob::start()
 
 void TranslateSaveSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TranslateSaveSettingsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("TranslateSaveSettingsJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT translateSavesettingsDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TranslateSaveSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

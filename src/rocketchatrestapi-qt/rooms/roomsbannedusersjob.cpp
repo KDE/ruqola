@@ -54,13 +54,8 @@ bool RoomsBannedUsersJob::start()
 
 void RoomsBannedUsersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsBannedUsersJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsBannedUsersDone(replyObject, mRoomsBannedUsersJobInfo.roomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsBannedUsersJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomsBannedUsersJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT roomsBannedUsersDone(*replyObject, mRoomsBannedUsersJobInfo.roomId);
     }
 }
 

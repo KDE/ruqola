@@ -35,14 +35,8 @@ bool ChannelsModeratorsJob::start()
 
 void ChannelsModeratorsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("channelModeratorsDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelModeratorsDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("channelModeratorsDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelsModeratorsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelModeratorsDone(*replyObject, channelGroupInfo());
     }
 }
 

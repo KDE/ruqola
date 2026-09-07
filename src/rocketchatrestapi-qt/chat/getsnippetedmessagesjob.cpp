@@ -55,13 +55,8 @@ bool GetSnippetedMessagesJob::start()
 
 void GetSnippetedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetSnippetedMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getSnippetedMessagesDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetSnippetedMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetSnippetedMessagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getSnippetedMessagesDone(*replyObject, mRoomId);
     }
 }
 

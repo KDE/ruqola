@@ -40,14 +40,8 @@ bool SendMessageJob::requireHttpAuthentication() const
 
 void SendMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SendMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SendMessageJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT sendMessageDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SendMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

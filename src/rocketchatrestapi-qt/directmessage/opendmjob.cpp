@@ -35,15 +35,9 @@ bool OpenDmJob::start()
 
 void OpenDmJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Create direct message success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("OpenDmJob"_ba, replyErrorString, replyJson)) {
         // qDebug() << " replyJson " << replyJson;
         Q_EMIT openDmDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Create direct message Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

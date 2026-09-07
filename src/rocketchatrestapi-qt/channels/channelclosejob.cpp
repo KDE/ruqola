@@ -35,14 +35,8 @@ bool ChannelCloseJob::start()
 
 void ChannelCloseJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelCloseJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelCloseJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT closeChannelDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelCloseJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

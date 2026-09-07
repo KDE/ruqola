@@ -42,13 +42,8 @@ bool SubscriptionGetAllJob::start()
 
 void SubscriptionGetAllJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SubscriptionGetAllJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT subscriptionGetAllDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SubscriptionGetAllJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SubscriptionGetAllJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT subscriptionGetAllDone(*replyObject);
     }
 }
 

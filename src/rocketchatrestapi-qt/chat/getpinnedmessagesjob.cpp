@@ -55,13 +55,8 @@ bool GetPinnedMessagesJob::start()
 
 void GetPinnedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetPinnedMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetPinnedMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetPinnedMessagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getPinnedMessagesDone(*replyObject, mRoomId);
     }
 }
 

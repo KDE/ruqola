@@ -36,14 +36,8 @@ bool ModerationUserDeleteReportedMessagesJob::start()
 
 void ModerationUserDeleteReportedMessagesJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationUserDeleteReportedMessagesJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ModerationUserDeleteReportedMessagesJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT moderationUserDeleteReportedMessagesDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationUserDeleteReportedMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

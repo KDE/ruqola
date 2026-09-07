@@ -36,13 +36,8 @@ bool TeamUpdateRoomJob::start()
 
 void TeamUpdateRoomJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamUpdateRoomJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT teamUpdateRoomDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamUpdateRoomJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("TeamUpdateRoomJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT teamUpdateRoomDone(*replyObject);
     }
 }
 

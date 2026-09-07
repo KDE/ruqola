@@ -37,14 +37,8 @@ bool TeamRemoveMembersJob::start()
 
 void TeamRemoveMembersJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamRemoveMembersJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("TeamRemoveMembersJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT removeTeamMembersDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamRemoveMembersJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

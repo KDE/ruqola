@@ -8,8 +8,12 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "queryparameters.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QObject>
 #include <QPointer>
+
+#include <optional>
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -89,6 +93,13 @@ protected:
     void submitGetRequest();
     void submitPostRequest(const QJsonDocument &doc);
     void submitDeleteRequest();
+
+    // Shared shape of every on*RequestResponse() slot: log, and on failure report the error.
+    // Returns the reply object on success, nullopt otherwise, so a slot reduces to:
+    //   if (const auto replyObject = checkResponse("FooJob"_ba, replyErrorString, replyJson)) {
+    //       Q_EMIT fooDone(*replyObject);
+    //   }
+    [[nodiscard]] std::optional<QJsonObject> checkResponse(QByteArrayView name, const QString &replyErrorString, const QJsonDocument &replyJson);
 
     RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
     QPointer<QNetworkReply> mReply;

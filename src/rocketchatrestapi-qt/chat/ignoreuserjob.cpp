@@ -42,13 +42,8 @@ bool IgnoreUserJob::start()
 
 void IgnoreUserJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("IgnoreUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT ignoreUserDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to ignore user message: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("IgnoreUserJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT ignoreUserDone(*replyObject, mRoomId);
     }
 }
 

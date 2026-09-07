@@ -36,13 +36,8 @@ bool RoomsExportJob::start()
 
 void RoomsExportJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsExportJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsExportJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomExportDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsExportJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

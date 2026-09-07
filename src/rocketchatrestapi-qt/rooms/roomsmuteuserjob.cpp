@@ -35,14 +35,8 @@ bool RoomsMuteUserJob::start()
 
 void RoomsMuteUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsMuteUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsMuteUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsMuteUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsMuteUserJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

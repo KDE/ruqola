@@ -37,14 +37,8 @@ bool EmojiCustomAllJob::start()
 
 void EmojiCustomAllJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("EmojiCustomAllJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT emojiCustomAllDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("EmojiCustomAllJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("EmojiCustomAllJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT emojiCustomAllDone(*replyObject);
     }
 }
 

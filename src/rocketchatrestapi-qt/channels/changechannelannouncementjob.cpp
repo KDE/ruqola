@@ -34,14 +34,8 @@ bool ChangeChannelAnnouncementJob::start()
 
 void ChangeChannelAnnouncementJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Change announcement success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeChannelAnnouncementJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeAnnouncementDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to change announcement: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

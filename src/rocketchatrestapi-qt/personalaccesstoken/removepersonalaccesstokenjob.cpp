@@ -38,14 +38,8 @@ bool RemovePersonalAccessTokenJob::start()
 
 void RemovePersonalAccessTokenJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RemovePersonalAccessTokenJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT removeTokenDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RemovePersonalAccessTokenJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RemovePersonalAccessTokenJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT removeTokenDone(*replyObject);
     }
 }
 

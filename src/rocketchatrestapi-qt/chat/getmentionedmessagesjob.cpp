@@ -55,13 +55,8 @@ bool GetMentionedMessagesJob::start()
 
 void GetMentionedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("getMentionedMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getMentionedMessagesDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("getMentionedMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetMentionedMessagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getMentionedMessagesDone(*replyObject, mRoomId);
     }
 }
 

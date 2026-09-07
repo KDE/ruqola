@@ -35,13 +35,8 @@ bool RoleUpdateJob::start()
 
 void RoleUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoleUpdateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoleUpdateJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT updateRoleDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoleUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

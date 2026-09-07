@@ -41,14 +41,8 @@ bool RolesListJob::start()
 
 void RolesListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RolesListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT rolesListDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RolesListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RolesListJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT rolesListDone(*replyObject);
     }
 }
 

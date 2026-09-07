@@ -35,14 +35,8 @@ bool CreateChannelJob::start()
 
 void CreateChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CreateChannelJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT createChannelDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CreateChannelJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("CreateChannelJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT createChannelDone(*replyObject);
     }
 }
 

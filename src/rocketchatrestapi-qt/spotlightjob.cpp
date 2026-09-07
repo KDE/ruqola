@@ -36,13 +36,8 @@ bool SpotlightJob::start()
 
 void SpotlightJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SpotlightJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT spotlightDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SpotlightJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SpotlightJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT spotlightDone(*replyObject);
     }
 }
 

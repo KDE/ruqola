@@ -35,14 +35,8 @@ bool ChannelFilesJob::start()
 
 void ChannelFilesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("channelFilesDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelFilesDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("channelFilesDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelFilesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelFilesDone(*replyObject, channelGroupInfo());
     }
 }
 

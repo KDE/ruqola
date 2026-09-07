@@ -58,13 +58,8 @@ bool AppInfoJob::canStart() const
 
 void AppInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AppInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appInfoDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AppInfoJob: Problem when we tried to get app info : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AppInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT appInfoDone(*replyObject);
     }
 }
 

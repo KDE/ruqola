@@ -39,14 +39,8 @@ bool SaveRoomSettingsJob::start()
 
 void SaveRoomSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SaveRoomSettingsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT saveRoomSettingsDone(replyObject.value("rid"_L1).toString());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SaveRoomSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SaveRoomSettingsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT saveRoomSettingsDone(replyObject->value("rid"_L1).toString());
     }
 }
 

@@ -35,14 +35,8 @@ bool ChangeGroupsEncryptedJob::start()
 
 void ChangeGroupsEncryptedJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Change encrypted success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeGroupsEncryptedJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeEncryptedDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to change encrypted status: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

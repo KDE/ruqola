@@ -36,13 +36,8 @@ bool SetStatusJob::start()
 
 void SetStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetStatusJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetStatusJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setStatusDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

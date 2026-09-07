@@ -38,14 +38,8 @@ bool RoomFavoriteJob::start()
 
 void RoomFavoriteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomFavoriteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomFavoriteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeFavoriteDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomFavoriteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

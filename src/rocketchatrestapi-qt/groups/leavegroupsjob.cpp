@@ -35,14 +35,8 @@ bool LeaveGroupsJob::start()
 
 void LeaveGroupsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("LeaveGroupsJob: Success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("LeaveGroupsJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT leaveGroupsDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("LeaveGroupsJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

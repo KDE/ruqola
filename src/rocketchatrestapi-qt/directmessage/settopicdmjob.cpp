@@ -35,14 +35,8 @@ bool SetTopicDmJob::start()
 
 void SetTopicDmJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Create direct message success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetTopicDmJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setTopicDmDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Create direct message Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -70,13 +70,8 @@ QString GetGroupRolesJob::jobName() const
 
 void GetGroupRolesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetGroupRolesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT groupRolesDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetGroupRolesJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetGroupRolesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT groupRolesDone(*replyObject, channelGroupInfo());
     }
 }
 

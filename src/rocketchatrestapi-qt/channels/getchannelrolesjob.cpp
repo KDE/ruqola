@@ -66,13 +66,8 @@ bool GetChannelRolesJob::requireHttpAuthentication() const
 
 void GetChannelRolesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetChannelRolesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelRolesDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetChannelRolesJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetChannelRolesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelRolesDone(*replyObject, channelGroupInfo());
     }
 }
 

@@ -36,14 +36,8 @@ bool SetUserPublicAndPrivateKeysJob::start()
 
 void SetUserPublicAndPrivateKeysJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetUserPublicAndPrivateKeysJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetUserPublicAndPrivateKeysJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setUserPublicAndPrivateKeysDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetUserPublicAndPrivateKeysJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -35,14 +35,8 @@ bool ChangeGroupsDescriptionJob::start()
 
 void ChangeGroupsDescriptionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChangeGroupsDescriptionJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeGroupsDescriptionJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeDescriptionDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChangeGroupsDescriptionJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -54,13 +54,8 @@ bool AdminRoomsGetRoomJob::start()
 
 void AdminRoomsGetRoomJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AdminRoomsGetRoomJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT adminRoomGetRoomDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AdminRoomsGetRoomJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AdminRoomsGetRoomJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT adminRoomGetRoomDone(*replyObject);
     }
 }
 

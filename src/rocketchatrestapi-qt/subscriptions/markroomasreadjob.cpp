@@ -36,14 +36,8 @@ bool MarkRoomAsReadJob::start()
 
 void MarkRoomAsReadJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("MarkRoomAsReadJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("MarkRoomAsReadJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT markAsReadDone(mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("MarkRoomAsReadJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

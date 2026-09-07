@@ -40,14 +40,8 @@ bool LicensesMaxActiveUsersJob::start()
 
 void LicensesMaxActiveUsersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("LicensesMaxActiveUsers: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT licensesMaxActiveUsersDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("LicensesMaxActiveUsers: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("LicensesMaxActiveUsersJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT licensesMaxActiveUsersDone(*replyObject);
     }
 }
 

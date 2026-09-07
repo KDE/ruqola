@@ -35,13 +35,8 @@ bool User2FADisableEmailJob::start()
 
 void User2FADisableEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("User2FADisableEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("User2FADisableEmailJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT disableEmailDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("User2FADisableEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -35,14 +35,8 @@ bool CreateGroupsJob::start()
 
 void CreateGroupsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CreateGroupsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT createGroupsDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CreateGroupsJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("CreateGroupsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT createGroupsDone(*replyObject);
     }
 }
 

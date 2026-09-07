@@ -35,14 +35,8 @@ bool DeleteUserJob::start()
 
 void DeleteUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("DeleteUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("DeleteUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deleteUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("DeleteUserJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

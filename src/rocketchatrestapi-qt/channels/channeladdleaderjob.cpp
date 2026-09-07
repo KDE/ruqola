@@ -34,13 +34,8 @@ bool ChannelAddLeaderJob::start()
 
 void ChannelAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelAddLeaderJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelAddLeaderJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addLeaderDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelAddLeaderJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

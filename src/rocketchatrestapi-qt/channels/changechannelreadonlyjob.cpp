@@ -34,14 +34,8 @@ bool ChangeChannelReadonlyJob::start()
 
 void ChangeChannelReadonlyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Change read only success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeChannelReadonlyJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeReadonlyDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to change read only status: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

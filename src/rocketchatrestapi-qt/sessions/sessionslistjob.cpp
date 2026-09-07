@@ -37,14 +37,8 @@ bool SessionsListJob::start()
 
 void SessionsListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SessionsListJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT sessionsListDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SessionsListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SessionsListJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT sessionsListDone(*replyObject);
     }
 }
 

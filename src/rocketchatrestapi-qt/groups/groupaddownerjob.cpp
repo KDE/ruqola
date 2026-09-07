@@ -35,14 +35,8 @@ bool GroupAddOwnerJob::start()
 
 void GroupAddOwnerJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupAddOwnerJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupAddOwnerJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addOwnerDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupAddOwnerJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

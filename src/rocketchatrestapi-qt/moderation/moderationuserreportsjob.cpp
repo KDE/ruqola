@@ -42,13 +42,8 @@ bool ModerationUserReportsJob::start()
 
 void ModerationUserReportsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationReportJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationUserReportJobDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationReportJob: Problem when we tried to getmoderation user report : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ModerationUserReportsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT moderationUserReportJobDone(*replyObject);
     }
 }
 

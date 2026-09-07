@@ -35,14 +35,8 @@ bool SetJoinCodeChannelJob::start()
 
 void SetJoinCodeChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetJoinCodeChannelJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetJoinCodeChannelJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setJoinCodeDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetJoinCodeChannelJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

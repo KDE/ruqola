@@ -36,13 +36,8 @@ bool CustomUserStatusDeleteJob::start()
 
 void CustomUserStatusDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CustomUserStatusDeleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("CustomUserStatusDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT userStatusDeletedDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CustomUserStatusDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

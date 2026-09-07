@@ -36,14 +36,8 @@ bool PrivateInfoJob::start()
 
 void PrivateInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("PrivateInfoJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT privateInfoDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("PrivateInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("PrivateInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT privateInfoDone(*replyObject);
     }
 }
 

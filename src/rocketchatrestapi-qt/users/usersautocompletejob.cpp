@@ -41,13 +41,8 @@ bool UsersAutocompleteJob::start()
 
 void UsersAutocompleteJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersAutocompleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersAutocompleteDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersAutocompleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersAutocompleteJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersAutocompleteDone(*replyObject);
     }
 }
 

@@ -35,14 +35,8 @@ bool GroupAddModeratorJob::start()
 
 void GroupAddModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupAddModeratorJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupAddModeratorJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addModeratorDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupAddModeratorJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

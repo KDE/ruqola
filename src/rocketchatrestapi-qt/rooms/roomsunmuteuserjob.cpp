@@ -35,14 +35,8 @@ bool RoomsUnmuteUserJob::start()
 
 void RoomsUnmuteUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsUnmuteUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsUnmuteUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsUnmuteUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsUnmuteUserJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

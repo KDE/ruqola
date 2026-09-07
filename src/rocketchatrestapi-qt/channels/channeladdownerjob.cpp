@@ -35,14 +35,8 @@ bool ChannelAddOwnerJob::start()
 
 void ChannelAddOwnerJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Add owner success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelAddOwnerJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addOwnerDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to add owner: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

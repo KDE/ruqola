@@ -54,13 +54,8 @@ bool RoomsImagesJob::start()
 
 void RoomsImagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsImagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsImagesDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsImagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomsImagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT roomsImagesDone(*replyObject);
     }
 }
 

@@ -35,14 +35,8 @@ bool ChangeGroupsTopicJob::start()
 
 void ChangeGroupsTopicJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChangeGroupsTopicJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeGroupsTopicJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeTopicDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChangeGroupsTopicJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

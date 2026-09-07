@@ -37,14 +37,8 @@ bool TeamConvertToChannelJob::start()
 
 void TeamConvertToChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamConvertToChannelJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("TeamConvertToChannelJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT teamConvertToChannelDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamConvertToChannelJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

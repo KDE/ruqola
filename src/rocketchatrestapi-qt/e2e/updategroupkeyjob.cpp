@@ -36,14 +36,8 @@ bool UpdateGroupKeyJob::start()
 
 void UpdateGroupKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UpdateGroupKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("UpdateGroupKeyJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT updateGroupKeyDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UpdateGroupKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

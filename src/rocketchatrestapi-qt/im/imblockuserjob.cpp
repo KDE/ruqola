@@ -36,13 +36,8 @@ bool ImBlockUserJob::start()
 
 void ImBlockUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ImBlockUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ImBlockUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT userBlockDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ImBlockUserJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

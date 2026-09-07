@@ -36,14 +36,8 @@ bool ChannelRemoveModeratorJob::start()
 
 void ChannelRemoveModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelRemoveModeratorJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelRemoveModeratorJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT removeModeratorDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelRemoveModeratorJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

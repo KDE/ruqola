@@ -42,14 +42,8 @@ bool StatisticsJob::start()
 
 void StatisticsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("StatisticsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT statisticDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("StatisticsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("StatisticsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT statisticDone(*replyObject);
     }
 }
 

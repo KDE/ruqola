@@ -42,13 +42,8 @@ bool GetSupportedLanguagesJob::start()
 
 void GetSupportedLanguagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetSupportedLanguagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getSupportedLanguagesDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetSupportedLanguagesJob: Problem when we tried to GetSupportedLanguages : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetSupportedLanguagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getSupportedLanguagesDone(*replyObject);
     }
 }
 

@@ -36,18 +36,12 @@ bool PinMessageJob::start()
 
 void PinMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("PinMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("PinMessageJob"_ba, replyErrorString, replyJson)) {
         if (mPinMessage) {
             Q_EMIT pinMessageDone();
         } else {
             Q_EMIT unPinMessageDone();
         }
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("PinMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

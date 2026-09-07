@@ -38,14 +38,8 @@ bool RoomStartDiscussionJob::start()
 
 void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomStartDiscussionJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT startDiscussionDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomStartDiscussionJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomStartDiscussionJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT startDiscussionDone(*replyObject);
     }
 }
 

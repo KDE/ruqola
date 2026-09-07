@@ -47,13 +47,8 @@ bool RegisterUserJob::start()
 
 void RegisterUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RegisterUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RegisterUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT registerUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RegisterUserJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

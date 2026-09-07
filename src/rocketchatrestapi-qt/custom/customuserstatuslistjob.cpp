@@ -36,14 +36,8 @@ bool CustomUserStatusListJob::start()
 
 void CustomUserStatusListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CustomUserStatusJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT customUserStatusDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CustomUserStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("CustomUserStatusListJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT customUserStatusDone(*replyObject);
     }
 }
 

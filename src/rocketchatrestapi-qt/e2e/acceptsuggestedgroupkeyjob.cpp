@@ -35,14 +35,8 @@ bool AcceptSuggestedGroupKeyJob::start()
 
 void AcceptSuggestedGroupKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AcceptSuggestedGroupKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT acceptSuggestedGroupKeyDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AcceptSuggestedGroupKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AcceptSuggestedGroupKeyJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT acceptSuggestedGroupKeyDone(*replyObject);
     }
 }
 

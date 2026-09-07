@@ -37,14 +37,8 @@ bool GetPersonalAccessTokensJob::start()
 
 void GetPersonalAccessTokensJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetPersonalAccessTokensJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getPersonalAccessTokensDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetPersonalAccessTokensJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetPersonalAccessTokensJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getPersonalAccessTokensDone(*replyObject);
     }
 }
 

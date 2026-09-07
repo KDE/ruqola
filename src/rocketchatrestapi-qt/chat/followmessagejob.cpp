@@ -35,14 +35,8 @@ bool FollowMessageJob::start()
 
 void FollowMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("FollowMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("FollowMessageJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT followMessageDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("FollowMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

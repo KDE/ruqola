@@ -35,14 +35,8 @@ bool ChannelRemoveLeaderJob::start()
 
 void ChannelRemoveLeaderJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelRemoveLeaderJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelRemoveLeaderJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT removeLeaderDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelRemoveLeaderJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

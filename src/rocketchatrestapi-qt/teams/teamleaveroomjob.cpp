@@ -36,14 +36,8 @@ bool TeamLeaveRoomJob::start()
 
 void TeamLeaveRoomJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamLeaveRoomJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("TeamLeaveRoomJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT removeLeaveRoomDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamLeaveRoomJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

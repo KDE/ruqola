@@ -36,14 +36,8 @@ bool GroupsConvertToTeamJob::start()
 
 void GroupsConvertToTeamJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupsConvertToTeamJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT groupConvertToTeamDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupsConvertToTeamJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GroupsConvertToTeamJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT groupConvertToTeamDone(*replyObject);
     }
 }
 

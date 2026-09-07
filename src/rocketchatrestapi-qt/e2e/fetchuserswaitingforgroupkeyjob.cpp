@@ -36,14 +36,8 @@ bool FetchUsersWaitingForGroupKeyJob::start()
 
 void FetchUsersWaitingForGroupKeyJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("FetchUsersWaitingForGroupKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT fetchUsersWaitingForGroupKeyDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("FetchUsersWaitingForGroupKeyJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("FetchUsersWaitingForGroupKeyJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT fetchUsersWaitingForGroupKeyDone(*replyObject);
     }
 }
 

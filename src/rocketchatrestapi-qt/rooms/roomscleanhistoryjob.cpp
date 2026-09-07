@@ -36,14 +36,8 @@ bool RoomsCleanHistoryJob::start()
 
 void RoomsCleanHistoryJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsCleanHistoryJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsCleanHistoryJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT cleanHistoryDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsCleanHistoryJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -36,14 +36,8 @@ bool GetUsersOfRoomWithoutKeyJob::start()
 
 void GetUsersOfRoomWithoutKeyJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetUsersOfRoomWithoutKey: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getUsersOfRoomWithoutKeyDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetUsersOfRoomWithoutKey: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetUsersOfRoomWithoutKeyJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getUsersOfRoomWithoutKeyDone(*replyObject);
     }
 }
 

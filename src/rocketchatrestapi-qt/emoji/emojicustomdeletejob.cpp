@@ -34,14 +34,8 @@ bool EmojiCustomDeleteJob::start()
 
 void EmojiCustomDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("DeleteEmojiCustomJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("EmojiCustomDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT emojiCustomDeleteDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("DeleteEmojiCustomJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

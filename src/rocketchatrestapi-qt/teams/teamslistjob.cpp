@@ -42,13 +42,8 @@ bool TeamsListJob::start()
 
 void TeamsListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamsListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT teamsListDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamsListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("TeamsListJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT teamsListDone(*replyObject);
     }
 }
 

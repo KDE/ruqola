@@ -40,14 +40,8 @@ bool LicensesInfoJob::start()
 
 void LicensesInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("LicensesInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT licensesInfoDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("LicensesInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("LicensesInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT licensesInfoDone(*replyObject);
     }
 }
 

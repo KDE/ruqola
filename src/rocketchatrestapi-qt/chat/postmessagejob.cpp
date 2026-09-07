@@ -42,14 +42,8 @@ bool PostMessageJob::requireHttpAuthentication() const
 
 void PostMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("PostMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT postMessageDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("PostMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("PostMessageJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT postMessageDone(*replyObject);
     }
 }
 

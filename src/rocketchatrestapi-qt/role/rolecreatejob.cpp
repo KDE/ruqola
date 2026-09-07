@@ -37,13 +37,8 @@ bool RoleCreateJob::start()
 
 void RoleCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoleCreateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoleCreateJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT createRoleDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoleCreateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

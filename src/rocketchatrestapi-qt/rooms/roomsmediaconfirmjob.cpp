@@ -35,14 +35,8 @@ bool RoomsMediaConfirmJob::start()
 
 void RoomsMediaConfirmJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsMediaConfirmJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsMediaConfirmJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsMediaConfirmDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsMediaConfirmJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

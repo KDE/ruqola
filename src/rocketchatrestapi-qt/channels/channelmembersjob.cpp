@@ -35,13 +35,8 @@ bool ChannelMembersJob::start()
 
 void ChannelMembersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("channelMembersDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelMembersDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("channelMembersDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelMembersJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelMembersDone(*replyObject, channelGroupInfo());
     }
 }
 

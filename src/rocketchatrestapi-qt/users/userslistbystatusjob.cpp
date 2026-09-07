@@ -41,13 +41,8 @@ bool UsersListByStatusJob::start()
 
 void UsersListByStatusJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersListByStatusJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersListByStatusDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersListByStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersListByStatusJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersListByStatusDone(*replyObject);
     }
 }
 
