@@ -5,13 +5,13 @@
 */
 #pragma once
 
-#include "abstractusercheck.h"
+#include "abstractservercheck.h"
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MarkAsFavoriteRoomCheck : public AbstractUserCheck
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MarkAsFavoriteRoomCheck : public AbstractServerCheck
 {
     Q_OBJECT
 public:
-    using AbstractUserCheck::AbstractUserCheck;
+    using AbstractServerCheck::AbstractServerCheck;
 
     [[nodiscard]] QString name() const override;
 
