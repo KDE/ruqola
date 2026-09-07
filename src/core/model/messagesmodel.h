@@ -147,8 +147,9 @@ public:
     [[nodiscard]] Message findNextMessageAfter(const QByteArray &messageId, const std::function<bool(const Message &)> &predicate) const;
     [[nodiscard]] Message findMessageById(const QByteArray &messageId) const;
     [[nodiscard]] QModelIndex indexForMessage(const QByteArray &messageId) const;
+    [[nodiscard]] const Message &messageAt(int index) const;
 
-    [[nodiscard]] QByteArray messageIdFromIndex(int rowIndex);
+    [[nodiscard]] QByteArray messageIdFromIndex(int rowIndex) const;
 
     [[nodiscard]] QString searchText() const;
     void setSearchText(const QString &searchText);

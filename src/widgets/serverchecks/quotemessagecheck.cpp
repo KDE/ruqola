@@ -70,13 +70,14 @@ void QuoteMessageCheck::checkState()
         const QString originalId = QString::fromLatin1(mOriginalId);
         const int rows = model->rowCount();
         for (int row = 0; row < rows; ++row) {
-            const QByteArray messageId = model->messageIdFromIndex(row);
-            const Message message = model->findMessageById(messageId);
+            const Message &message = model->messageAt(row);
             if (message.pendingMessage()) {
                 continue;
             }
             const QString text = message.text();
             if (text.contains(mQuoteMarker) && text.contains(originalId)) {
+                // Copy the id out before report*(): the reference points into the model's message list.
+                const QByteArray messageId = message.messageId();
                 reportPassed();
                 deleteTestMessage(messageId);
                 deleteTestMessage(mOriginalId);

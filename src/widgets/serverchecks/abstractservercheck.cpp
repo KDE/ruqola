@@ -14,6 +14,7 @@
 #include <KLocalizedString>
 #include <QDateTime>
 #include <QTimer>
+#include <tuple>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -104,8 +105,7 @@ Message AbstractServerCheck::findConfirmedMessageByText(const QString &text) con
     }
     const int rows = model->rowCount();
     for (int row = 0; row < rows; ++row) {
-        const QByteArray messageId = model->messageIdFromIndex(row);
-        const Message message = model->findMessageById(messageId);
+        const Message &message = model->messageAt(row);
         if (!message.pendingMessage() && message.text() == text) {
             return message;
         }

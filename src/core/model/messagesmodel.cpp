@@ -82,6 +82,15 @@ Message MessagesModel::findNextMessageAfter(const QByteArray &messageId, const s
     return it == mAllMessages.end() ? Message() : *it;
 }
 
+const Message &MessagesModel::messageAt(int index) const
+{
+    if (index >= 0 && index < mAllMessages.count()) {
+        return mAllMessages.at(index);
+    }
+    static const Message dummy;
+    return dummy;
+}
+
 Message MessagesModel::findMessageById(const QByteArray &messageId) const
 {
     auto it = findMessage(messageId);
@@ -98,7 +107,7 @@ QModelIndex MessagesModel::indexForMessage(const QByteArray &messageId) const
     return idx;
 }
 
-QByteArray MessagesModel::messageIdFromIndex(int rowIndex)
+QByteArray MessagesModel::messageIdFromIndex(int rowIndex) const
 {
     if (rowIndex >= 0 && rowIndex < mAllMessages.count()) {
         return mAllMessages.at(rowIndex).messageId();
