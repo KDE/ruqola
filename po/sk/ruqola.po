@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"POT-Creation-Date: 2026-09-07 00:44+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -170,17 +170,17 @@ msgstr "Neplatný token pozvánky"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Pozvánkový token je neplatný. Vytvorenie účtu bolo zrušené."
 
-#: core/apps/appsmarketplaceinfo.cpp:113
+#: core/apps/appsmarketplaceinfo.cpp:111
 #, kde-format
 msgid "per %1"
 msgstr "per %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "month"
 msgstr "Opustiť kanál"
 
-#: core/apps/appsmarketplaceinfo.cpp:164
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "year"
 msgstr "year"
@@ -234,202 +234,238 @@ msgstr "Prehľad súkromia"
 msgid "Permissions"
 msgstr "Prístupové práva"
 
-#: core/apps/appsmarketplaceinfo.cpp:616
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Access messages"
 msgstr "Prístup k správam"
 
-#: core/apps/appsmarketplaceinfo.cpp:618
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Hľadať súbor..."
 
-#: core/apps/appsmarketplaceinfo.cpp:620
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Access room information"
 msgstr "Prístup k informáciám o miestnosti"
 
-#: core/apps/appsmarketplaceinfo.cpp:622
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Vytvárať a upravovať miestnosti"
 
-#: core/apps/appsmarketplaceinfo.cpp:624
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Access to this server network"
 msgstr "Prístup k sieti tohto servera"
 
-#: core/apps/appsmarketplaceinfo.cpp:626
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Access user information"
 msgstr "Prístup k informáciám o používateľovi"
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Modify user information"
 msgstr "Meno účtu"
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Register new slash commands"
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Registrovať a udržiavať naplánované úlohy"
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Register new HTTP endpoints"
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Prístup k nastaveniam na tomto serveri"
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Upravovať nastavenia na tomto serveri"
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Nahrávanie súborov na tento server"
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Prístup k súborom nahraným na tento server"
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Interact with Cloud Services v mene this server"
 
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Prístup k minimálnym informáciám o prostredí tohto servera"
 
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Prístup k informáciám o viacerých oddeleniach Livechatu"
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Access Livechat department information"
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Modify Livechat department information"
 
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:666
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Modify Livechat room information"
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Prístup k informáciám o miestnosti Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:670
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Modify Livechat message information"
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:672
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Access Livechat message information"
 
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Modify Livechat visitor information"
 
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:676
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Access Livechat visitor information"
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:678
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Prístup k informáciám o stave Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:680
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Interakcia s používateľským rozhraním"
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Ukladať interné dáta do databázy"
 
-#: core/apps/appsmarketplaceinfo.cpp:672
+#: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Modify Livechat custom field configuration"
 
-#: core/apps/appsmarketplaceinfo.cpp:682
+#: core/apps/appsmarketplaceinfo.cpp:686
+#, fuzzy, kde-format
+#| msgid "Access to multiple Livechat departments information"
+msgid "Access to multiple Livechat messages information"
+msgstr "Prístup k informáciám o viacerých oddeleniach Livechatu"
+
+#: core/apps/appsmarketplaceinfo.cpp:688
+#, fuzzy, kde-format
+#| msgid "Access room information"
+msgid "Access thread information"
+msgstr "Prístup k informáciám o miestnosti"
+
+#: core/apps/appsmarketplaceinfo.cpp:690
+#, fuzzy, kde-format
+#| msgid "Modify user information"
+msgid "Modify moderation information"
+msgstr "Meno účtu"
+
+#: core/apps/appsmarketplaceinfo.cpp:692
+#, fuzzy, kde-format
+#| msgid "Access room information"
+msgid "Access moderation information"
+msgstr "Prístup k informáciám o miestnosti"
+
+#: core/apps/appsmarketplaceinfo.cpp:694
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Povoliť zápis nastavení aplikácie OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:684
+#: core/apps/appsmarketplaceinfo.cpp:696
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Povoliť čítanie nastavení aplikácie OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:686
+#: core/apps/appsmarketplaceinfo.cpp:698
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr "Povoliť zápis nastavení videokonferencie"
 
-#: core/apps/appsmarketplaceinfo.cpp:688
+#: core/apps/appsmarketplaceinfo.cpp:700
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr "Povoliť čítanie nastavení videokonferencie"
 
-#: core/apps/appsmarketplaceinfo.cpp:690
+#: core/apps/appsmarketplaceinfo.cpp:702
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr "Povoliť zmenu nastavení poskytovateľa videokonferencie"
 
-#: core/apps/appsmarketplaceinfo.cpp:692
+#: core/apps/appsmarketplaceinfo.cpp:704
 #, kde-format
 msgid "Allow to register button"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:698
+#: core/apps/appsmarketplaceinfo.cpp:706
+#, fuzzy, kde-format
+#| msgid "Access room information"
+msgid "Access contact information"
+msgstr "Prístup k informáciám o miestnosti"
+
+#: core/apps/appsmarketplaceinfo.cpp:708
+#, fuzzy, kde-format
+#| msgid "Modify user information"
+msgid "Modify contact information"
+msgstr "Meno účtu"
+
+#: core/apps/appsmarketplaceinfo.cpp:710
 #, kde-format
 msgid "Allow to send email"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:700
+#: core/apps/appsmarketplaceinfo.cpp:712
 #, kde-format
 msgid "Allow to write role"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:702
+#: core/apps/appsmarketplaceinfo.cpp:714
 #, kde-format
 msgid "Allow to read role"
 msgstr "Všetky správy"
 
-#: core/apps/appsmarketplaceinfo.cpp:704
+#: core/apps/appsmarketplaceinfo.cpp:716
 #, kde-format
 msgid "Out Bound Communication"
 msgstr "Odchádzajúca komunikácia"
 
-#: core/apps/appsmarketplaceinfo.cpp:706
+#: core/apps/appsmarketplaceinfo.cpp:718
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr "Zobraziť všetky miestnosti v pracovnom priestore"
@@ -2000,7 +2036,7 @@ msgstr ""
 msgid "Missing translator info. It's a bug"
 msgstr "Chýbajú informácie o prekladateľovi. Je to chyba"
 
-#: core/translatetext/translatorenginemanager.cpp:105
+#: core/translatetext/translatorenginemanager.cpp:104
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
@@ -7456,17 +7492,17 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "Hľadať súbor..."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:53
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Application does not have settings."
 msgstr "Aplikácia nemá nastavenia."
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:102
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:101
 #, kde-format
 msgid "Apply"
 msgstr "Použiť"

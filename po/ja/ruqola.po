@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"POT-Creation-Date: 2026-09-07 00:44+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -169,17 +169,17 @@ msgstr ""
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:113
+#: core/apps/appsmarketplaceinfo.cpp:111
 #, kde-format
 msgid "per %1"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "month"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:164
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "year"
 msgstr ""
@@ -233,202 +233,232 @@ msgstr ""
 msgid "Permissions"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:616
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Access messages"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:618
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Send and modify messages"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:620
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Access room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:622
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Create and modify rooms"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:624
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Access to this server network"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:626
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Access user information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Modify user information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Register new slash commands"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Upload files to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Access Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:666
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, kde-format
 msgid "Access Livechat room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:670
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:672
 #, kde-format
 msgid "Access Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:676
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:678
 #, kde-format
 msgid "Access Livechat status information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:680
 #, kde-format
 msgid "Interact with the UI"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Store internal data in the database"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:672
+#: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:682
-#, kde-format
-msgid "Allow to write oauth app settings"
-msgstr ""
-
-#: core/apps/appsmarketplaceinfo.cpp:684
-#, kde-format
-msgid "Allow to read oauth app settings"
-msgstr ""
-
 #: core/apps/appsmarketplaceinfo.cpp:686
 #, kde-format
-msgid "Allow to write video conference settings"
+msgid "Access to multiple Livechat messages information"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:688
 #, kde-format
-msgid "Allow to read video conference settings"
+msgid "Access thread information"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
-msgid "Allow to change video conference provider settings"
+msgid "Modify moderation information"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:692
 #, kde-format
-msgid "Allow to register button"
+msgid "Access moderation information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:694
+#, kde-format
+msgid "Allow to write oauth app settings"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:696
+#, kde-format
+msgid "Allow to read oauth app settings"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:698
 #, kde-format
-msgid "Allow to send email"
+msgid "Allow to write video conference settings"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:700
 #, kde-format
-msgid "Allow to write role"
+msgid "Allow to read video conference settings"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:702
 #, kde-format
-msgid "Allow to read role"
+msgid "Allow to change video conference provider settings"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:704
 #, kde-format
-msgid "Out Bound Communication"
+msgid "Allow to register button"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:706
+#, kde-format
+msgid "Access contact information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:708
+#, kde-format
+msgid "Modify contact information"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:710
+#, kde-format
+msgid "Allow to send email"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:712
+#, kde-format
+msgid "Allow to write role"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:714
+#, kde-format
+msgid "Allow to read role"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:716
+#, kde-format
+msgid "Out Bound Communication"
+msgstr ""
+
+#: core/apps/appsmarketplaceinfo.cpp:718
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr ""
@@ -1972,7 +2002,7 @@ msgstr ""
 msgid "Missing translator info. It's a bug"
 msgstr ""
 
-#: core/translatetext/translatorenginemanager.cpp:105
+#: core/translatetext/translatorenginemanager.cpp:104
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
@@ -7222,17 +7252,17 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:53
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, kde-format
 msgid "Application does not have settings."
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:102
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:101
 #, kde-format
 msgid "Apply"
 msgstr ""

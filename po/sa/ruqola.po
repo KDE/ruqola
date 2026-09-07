@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"POT-Creation-Date: 2026-09-07 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -176,17 +176,17 @@ msgstr "अमान्य टोकन"
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:113
+#: core/apps/appsmarketplaceinfo.cpp:111
 #, kde-format
 msgid "per %1"
 msgstr "प्रति %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:160
 #, kde-format
 msgid "month"
 msgstr "माह"
 
-#: core/apps/appsmarketplaceinfo.cpp:164
+#: core/apps/appsmarketplaceinfo.cpp:162
 #, kde-format
 msgid "year"
 msgstr "वर्ष"
@@ -240,209 +240,245 @@ msgstr "गोपनीयता सारांश"
 msgid "Permissions"
 msgstr "अनुमतिः"
 
-#: core/apps/appsmarketplaceinfo.cpp:616
+#: core/apps/appsmarketplaceinfo.cpp:628
 #, kde-format
 msgid "Access messages"
 msgstr "सन्देशान् अभिगन्तुम्"
 
-#: core/apps/appsmarketplaceinfo.cpp:618
+#: core/apps/appsmarketplaceinfo.cpp:630
 #, kde-format
 msgid "Send and modify messages"
 msgstr "सन्देशान् प्रेषयन्तु परिवर्तनं च कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:620
+#: core/apps/appsmarketplaceinfo.cpp:632
 #, kde-format
 msgid "Access room information"
 msgstr "कक्षस्य सूचनां प्राप्नुवन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:622
+#: core/apps/appsmarketplaceinfo.cpp:634
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "कक्ष्याः निर्माणं परिवर्तनं च कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:624
+#: core/apps/appsmarketplaceinfo.cpp:636
 #, kde-format
 msgid "Access to this server network"
 msgstr "अस्मिन् सर्वरजालस्य प्रवेशः"
 
-#: core/apps/appsmarketplaceinfo.cpp:626
+#: core/apps/appsmarketplaceinfo.cpp:638
 #, kde-format
 msgid "Access user information"
 msgstr "उपयोक्तृसूचनाः प्राप्तुं शक्नुवन्ति"
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:640
 #, kde-format
 msgid "Modify user information"
 msgstr "उपयोक्तृसूचना परिवर्तयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:642
 #, kde-format
 msgid "Register new slash commands"
 msgstr "नूतनानि slash आदेशानि पञ्जीकरणं कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:644
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "अनुसूचितकार्यस्य पञ्जीकरणं कृत्वा परिपालनं कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:646
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "नवीन HTTP अन्त्यबिन्दून् पञ्जीकरणं कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:648
 #, kde-format
 msgid "Access settings in this server"
 msgstr "अस्मिन् सर्वरे अभिगमनसेटिंग्स्"
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:650
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "अस्मिन् सर्वरे सेटिङ्ग्स् परिवर्तयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:652
 #, kde-format
 msgid "Upload files to this server"
 msgstr "अस्मिन् सर्वरे सञ्चिकाः अपलोड् कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:654
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "अस्मिन् सर्वरे अपलोड् कृताः सञ्चिकाः अभिगच्छन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:656
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "अस्य सर्वरस्य पक्षतः मेघसेवाभिः सह अन्तरक्रियां कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:658
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "अस्य सर्वर-वातावरणस्य विषये न्यूनतम-सूचनाः प्राप्नुवन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:660
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "अनेक Livechat विभागानां सूचनानां प्रवेशः"
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:662
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Livechat विभागस्य सूचनां प्राप्तुं शक्नुवन्ति"
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:664
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Livechat विभागस्य सूचनां परिवर्तयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:666
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Livechat कक्षस्य सूचनां परिवर्तयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:668
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Livechat कक्षस्य सूचनां प्राप्तुं शक्नुवन्ति"
 
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:670
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Livechat सन्देशसूचना परिवर्तयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:672
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Livechat सन्देशसूचनाम् अभिगच्छतु"
 
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:674
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Livechat आगन्तुकानां सूचनां परिवर्तयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:676
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Livechat आगन्तुकानां सूचनां प्राप्तुं शक्नुवन्ति"
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:678
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Livechat स्थितिसूचनाम् अभिगच्छन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:680
 #, kde-format
 msgid "Interact with the UI"
 msgstr "UI इत्यनेन सह अन्तरक्रियां कुर्वन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:682
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "आन्तरिकदत्तांशं दत्तांशकोशे संग्रहयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:672
+#: core/apps/appsmarketplaceinfo.cpp:684
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Livechat कस्टम् क्षेत्रविन्यासं परिवर्तयन्तु"
 
-#: core/apps/appsmarketplaceinfo.cpp:682
+#: core/apps/appsmarketplaceinfo.cpp:686
+#, fuzzy, kde-format
+#| msgid "Access to multiple Livechat departments information"
+msgid "Access to multiple Livechat messages information"
+msgstr "अनेक Livechat विभागानां सूचनानां प्रवेशः"
+
+#: core/apps/appsmarketplaceinfo.cpp:688
+#, fuzzy, kde-format
+#| msgid "Access room information"
+msgid "Access thread information"
+msgstr "कक्षस्य सूचनां प्राप्नुवन्तु"
+
+#: core/apps/appsmarketplaceinfo.cpp:690
+#, fuzzy, kde-format
+#| msgid "Modify user information"
+msgid "Modify moderation information"
+msgstr "उपयोक्तृसूचना परिवर्तयन्तु"
+
+#: core/apps/appsmarketplaceinfo.cpp:692
+#, fuzzy, kde-format
+#| msgid "Access room information"
+msgid "Access moderation information"
+msgstr "कक्षस्य सूचनां प्राप्नुवन्तु"
+
+#: core/apps/appsmarketplaceinfo.cpp:694
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "oauth app सेटिंग्स् लिखितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:684
+#: core/apps/appsmarketplaceinfo.cpp:696
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "oauth app सेटिंग्स् पठितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:686
+#: core/apps/appsmarketplaceinfo.cpp:698
 #, fuzzy, kde-format
 #| msgid "Allow to write oauth app settings"
 msgid "Allow to write video conference settings"
 msgstr "oauth app सेटिंग्स् लिखितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:688
+#: core/apps/appsmarketplaceinfo.cpp:700
 #, fuzzy, kde-format
 #| msgid "Allow to read oauth app settings"
 msgid "Allow to read video conference settings"
 msgstr "oauth app सेटिंग्स् पठितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:690
+#: core/apps/appsmarketplaceinfo.cpp:702
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:692
+#: core/apps/appsmarketplaceinfo.cpp:704
 #, fuzzy, kde-format
 #| msgid "Allow to write oauth app settings"
 msgid "Allow to register button"
 msgstr "oauth app सेटिंग्स् लिखितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:698
+#: core/apps/appsmarketplaceinfo.cpp:706
+#, fuzzy, kde-format
+#| msgid "Access room information"
+msgid "Access contact information"
+msgstr "कक्षस्य सूचनां प्राप्नुवन्तु"
+
+#: core/apps/appsmarketplaceinfo.cpp:708
+#, fuzzy, kde-format
+#| msgid "Modify user information"
+msgid "Modify contact information"
+msgstr "उपयोक्तृसूचना परिवर्तयन्तु"
+
+#: core/apps/appsmarketplaceinfo.cpp:710
 #, kde-format
 msgid "Allow to send email"
 msgstr "ईमेल प्रेषयितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:700
+#: core/apps/appsmarketplaceinfo.cpp:712
 #, fuzzy, kde-format
 #| msgid "Allow to write oauth app settings"
 msgid "Allow to write role"
 msgstr "oauth app सेटिंग्स् लिखितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:702
+#: core/apps/appsmarketplaceinfo.cpp:714
 #, fuzzy, kde-format
 #| msgid "Allow to send email"
 msgid "Allow to read role"
 msgstr "ईमेल प्रेषयितुं अनुमतिं ददातु"
 
-#: core/apps/appsmarketplaceinfo.cpp:704
+#: core/apps/appsmarketplaceinfo.cpp:716
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Mute Focused Conversations"
 msgid "Out Bound Communication"
 msgstr "मूक केन्द्रित वार्तालाप"
 
-#: core/apps/appsmarketplaceinfo.cpp:706
+#: core/apps/appsmarketplaceinfo.cpp:718
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr ""
@@ -2015,7 +2051,7 @@ msgstr ""
 msgid "Missing translator info. It's a bug"
 msgstr "अनुवादक सूचना अनुपलब्धा। इदं बग् अस्ति"
 
-#: core/translatetext/translatorenginemanager.cpp:105
+#: core/translatetext/translatorenginemanager.cpp:104
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
 msgstr ""
@@ -7470,20 +7506,20 @@ msgctxt "@info:placeholder"
 msgid "Search Private Applications"
 msgstr "निजी अनुप्रयोगों खोजें"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:53
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "Application does not have settings."
 msgstr "आवेदनपत्रं न लब्धम्"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:94
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:93
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Cancel"
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:102
+#: widgets/applicationssettingsdialog/applicationssettingssettingswidget.cpp:101
 #, kde-format
 msgid "Apply"
 msgstr "आचरतु"
