@@ -126,10 +126,8 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
         auto dialog = new AutoGenerateInteractionUiDialog(mRocketChatAccount);
         if (dialog->parse(replyObject)) {
             dialog->exec();
-            delete dialog;
-        } else {
-            delete dialog;
         }
+        delete dialog;
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";

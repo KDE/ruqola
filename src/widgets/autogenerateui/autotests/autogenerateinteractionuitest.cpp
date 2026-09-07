@@ -34,10 +34,10 @@ void AutoGenerateInteractionUiTest::shouldLoadJson()
 
     const QString originalJsonFile = QLatin1StringView(RUQOLA_AUTOGENERATEUI_DATA_DIR) + "/autogenerateinteractionui/"_L1 + fileNameinit + ".json"_L1;
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
-    QWidget *parent = new QWidget;
+    QWidget parent;
     AutoGenerateInteractionUi ui(nullptr, nullptr);
     QVERIFY(ui.parseInteractionUi(obj));
-    QWidget *w = ui.generateWidget(parent);
+    QWidget *w = ui.generateWidget(&parent);
     QVERIFY(w);
 
     const QJsonObject objUi = ui.generateJson(true);
@@ -47,8 +47,6 @@ void AutoGenerateInteractionUiTest::shouldLoadJson()
     QCOMPARE(QJsonDocument(ui.serializeState()).toJson(), serializeState);
 
     AutoTestHelper::compareFile("/autogenerateinteractionui/"_L1, jsonIndented, fileNameinit);
-    parent->deleteLater();
-    parent = nullptr;
 }
 
 void AutoGenerateInteractionUiTest::shouldLoadJson_data()
