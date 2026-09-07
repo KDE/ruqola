@@ -79,6 +79,12 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
 
+    // Appending a row makes the previously last row lose the extra margin the delegate
+    // gives to the last item, and a reset renumbers everything, so both invalidate the
+    // cached size hints.
+    connect(model, &QAbstractItemModel::rowsInserted, mListNotificationsListView, &NotificationHistoryListView::clearSizeHintCache);
+    connect(model, &QAbstractItemModel::modelReset, mListNotificationsListView, &NotificationHistoryListView::clearSizeHintCache);
+
     mListNotificationsListView->forwardCopyShortcut(mSearchLineEdit);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
@@ -90,13 +96,17 @@ NotificationHistoryWidget::~NotificationHistoryWidget() = default;
 
 void NotificationHistoryWidget::slotFilterAccount(const QString &accountName)
 {
+    // Filtering changes which row starts an account/room group, and so the row heights.
+    // Drop the cached size hints before the proxy re-filters.
+    mListNotificationsListView->clearSizeHintCache();
     mNotificationFilterProxyModel->setAccountNameFilter(accountName);
 }
 
 void NotificationHistoryWidget::slotTextChanged(const QString &str)
 {
-    mNotificationFilterProxyModel->setFilterString(str);
+    // setSearchText() clears the caches, so it must come before the proxy re-filters.
     mListNotificationsListView->setSearchText(str);
+    mNotificationFilterProxyModel->setFilterString(str);
 }
 
 void NotificationHistoryWidget::slotSwitchToRoom(const QModelIndex &index)

@@ -21,6 +21,11 @@ public:
 
     [[nodiscard]] QString selectedText() const;
 
+    // The size hint depends on the previous row (account/room grouping) and on which
+    // row is the last one, so the cache must be dropped whenever the set of displayed
+    // rows changes, not only when the view is resized.
+    void clearSizeHintCache();
+
 protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;

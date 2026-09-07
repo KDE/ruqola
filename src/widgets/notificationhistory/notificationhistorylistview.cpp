@@ -50,6 +50,12 @@ bool NotificationHistoryListView::mouseEvent(QMouseEvent *event, const QStyleOpt
 void NotificationHistoryListView::clearCache()
 {
     mListNotificationsDelegate->clearCache();
+    mListNotificationsDelegate->clearSizeHintCache();
+}
+
+void NotificationHistoryListView::clearSizeHintCache()
+{
+    mListNotificationsDelegate->clearSizeHintCache();
 }
 
 void NotificationHistoryListView::slotSelectAll(const QModelIndex &index)
@@ -65,6 +71,7 @@ const QString &NotificationHistoryListView::searchText() const
 void NotificationHistoryListView::setSearchText(const QString &newSearchText)
 {
     mListNotificationsDelegate->setSearchText(newSearchText);
+    clearSizeHintCache();
 }
 
 QString NotificationHistoryListView::selectedText() const

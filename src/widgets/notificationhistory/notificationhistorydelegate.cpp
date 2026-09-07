@@ -33,12 +33,11 @@ NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
 static NotificationHistoryDelegate::RoomAccount roomAccountInfo(const QModelIndex &index)
 {
     NotificationHistoryDelegate::RoomAccount info;
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
     if (channelName.isEmpty()) {
         channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
     }
-    info.accountName = accountName;
+    info.accountName = index.data(NotificationHistoryModel::AccountName).toString();
     info.channelName = std::move(channelName);
     return info;
 }
@@ -119,11 +118,13 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    auto it = mSizeHintCache.find(identifier);
-    if (it != mSizeHintCache.end()) {
-        const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "NotificationHistoryDelegate: SizeHint found in cache: " << result;
-        return result;
+    if (identifier.isEmpty()) {
+        auto it = mSizeHintCache.find(identifier);
+        if (it != mSizeHintCache.end()) {
+            const QSize result = it->value;
+            qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "NotificationHistoryDelegate: SizeHint found in cache: " << result;
+            return result;
+        }
     }
 #endif
 
@@ -145,7 +146,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if (!size.isEmpty()) {
+    if (!identifier.isEmpty() && !size.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif
@@ -226,9 +227,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
 
 QByteArray NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index)
 {
-    const QByteArray identifier = index.data(NotificationHistoryModel::Identifier).toByteArray();
-    Q_ASSERT(!identifier.isEmpty());
-    return identifier;
+    return index.data(NotificationHistoryModel::Identifier).toByteArray();
 }
 
 QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
@@ -251,10 +250,6 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
     }
 
     const Layout layout = doLayout(option, index);
-    const auto *doc = documentForModelIndex(index, layout.textRect.width());
-    if (!doc) {
-        return false;
-    }
 
     const QPoint helpEventPos{helpEvent->pos()};
     if (layout.senderRect.contains(helpEventPos)) {
@@ -277,6 +272,11 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
         const QString dateStr = index.data(NotificationHistoryModel::Date).toString();
         QToolTip::showText(helpEvent->globalPos(), dateStr, view);
         return true;
+    }
+
+    const auto *doc = documentForModelIndex(index, layout.textRect.width());
+    if (!doc) {
+        return false;
     }
 
     const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);
