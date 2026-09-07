@@ -7,8 +7,9 @@
 #include "timestampinmessages/timestampinmessagesformatcombobox.h"
 #include "timestampinmessages/timestampinmessagestimezonecombobox.h"
 #include <KLocalizedString>
+#include <QDateEdit>
 #include <QFormLayout>
-#include <TimeEdit>
+#include <QTimeEdit>
 using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesWidget::TimeStampInMessagesWidget(QWidget *parent)
     : QWidget{parent}
