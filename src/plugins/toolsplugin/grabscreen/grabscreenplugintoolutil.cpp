@@ -5,8 +5,8 @@
 */
 
 #include "grabscreenplugintoolutil.h"
-
 #include "grabscreenplugin_debug.h"
+#include <TextAddonsWidgets/ExecutableUtils>
 
 #include <QDir>
 #include <QFile>
@@ -15,7 +15,7 @@
 using namespace Qt::Literals::StringLiterals;
 QString GrabScreenPluginToolUtil::picturePath(const QString &accountName)
 {
-    QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + u"/ruqola/"_s + accountName;
+    const QString imagePath = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + u"/ruqola/"_s + accountName;
 
     if (!QDir().mkpath(imagePath)) {
         qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Unable to create image folder: " << imagePath;
@@ -33,4 +33,10 @@ QString GrabScreenPluginToolUtil::generateFileName(const QString &dirPath)
         index++;
     } while (QFile::exists(newName));
     return newName;
+}
+
+QString GrabScreenPluginToolUtil::grabScreenPath()
+{
+    // TODO use other apps on windows/mac ?
+    return TextAddonsWidgets::ExecutableUtils::findExecutable(u"spectacle"_s);
 }

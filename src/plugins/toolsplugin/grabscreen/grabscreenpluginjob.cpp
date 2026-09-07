@@ -7,6 +7,7 @@
 
 #include "grabscreenplugin_debug.h"
 #include "grabscreenplugintoolconfig.h"
+#include "grabscreenplugintoolutil.h"
 #include <QProcess>
 #include <TextAddonsWidgets/ExecutableUtils>
 
@@ -30,7 +31,7 @@ void GrabScreenPluginJob::start()
         deleteLater();
         return;
     }
-    const QString path = TextAddonsWidgets::ExecutableUtils::findExecutable(u"spectacle"_s);
+    const QString path = GrabScreenPluginToolUtil::grabScreenPath();
     if (path.isEmpty()) {
         qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Impossible to find spectacle";
         Q_EMIT captureCanceled();
