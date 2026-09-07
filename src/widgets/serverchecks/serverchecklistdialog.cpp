@@ -9,6 +9,7 @@
 #include "serverchecklistmanager.h"
 
 #include "rocketchataccount.h"
+#include "room.h"
 #include "ruqolaserverconfig.h"
 
 #include <KConfigGroup>
@@ -87,7 +88,7 @@ ServerCheckListDialog::ServerCheckListDialog(RocketChatAccount *account, const Q
     }
     if (mAccount) {
         auto room = mAccount->room(roomId);
-        if (room->channelType() == Room::RoomType::Direct) {
+        if (room && room->channelType() == Room::RoomType::Direct) {
             explanation->setText(i18n("<b>Check can not executed in direct channel.</b>"));
             mRunButton->setEnabled(false);
         }
