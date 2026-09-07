@@ -35,8 +35,18 @@ QString GrabScreenPluginToolUtil::generateFileName(const QString &dirPath)
     return newName;
 }
 
+QString GrabScreenPluginToolUtil::grabScreenAppName()
+{
+    return u"spectacle"_s;
+}
+
 QString GrabScreenPluginToolUtil::grabScreenPath()
 {
     // TODO use other apps on windows/mac ?
-    return TextAddonsWidgets::ExecutableUtils::findExecutable(u"spectacle"_s);
+    return TextAddonsWidgets::ExecutableUtils::findExecutable(grabScreenAppName());
+}
+
+bool GrabScreenPluginToolUtil::grabScreenExecutableFound()
+{
+    return TextAddonsWidgets::ExecutableUtils::executableFound(grabScreenAppName());
 }

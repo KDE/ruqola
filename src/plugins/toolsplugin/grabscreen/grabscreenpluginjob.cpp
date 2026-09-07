@@ -9,7 +9,6 @@
 #include "grabscreenplugintoolconfig.h"
 #include "grabscreenplugintoolutil.h"
 #include <QProcess>
-#include <TextAddonsWidgets/ExecutableUtils>
 
 using namespace Qt::Literals::StringLiterals;
 GrabScreenPluginJob::GrabScreenPluginJob(QObject *parent)
