@@ -21,15 +21,13 @@ QString AnnouncementChangeCheck::name() const
     return i18n("Change channel announcement");
 }
 
-void AnnouncementChangeCheck::sendAnnouncement(const QString &topic)
+void AnnouncementChangeCheck::sendAnnouncement(const QString &announcement)
 {
     auto job = new RocketChatRestApi::ChangeChannelAnnouncementJob(this);
     mAccount->restApi()->initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(mRoomId));
-    job->setAnnouncement(topic);
-    if (!job->start()) {
-        job->deleteLater();
-    }
+    job->setAnnouncement(announcement);
+    std::ignore = job->start();
 }
 
 void AnnouncementChangeCheck::doStart()

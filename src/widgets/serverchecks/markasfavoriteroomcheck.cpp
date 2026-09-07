@@ -22,9 +22,7 @@ void MarkAsFavoriteRoomCheck::changeFavorite(bool state)
     mAccount->restApi()->initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(mRoomId));
     job->setFavorite(state);
-    if (!job->start()) {
-        job->deleteLater();
-    }
+    std::ignore = job->start();
 }
 
 void MarkAsFavoriteRoomCheck::doStart()

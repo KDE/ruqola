@@ -27,9 +27,7 @@ void TopicChangeCheck::sendTopic(const QString &topic)
     mAccount->restApi()->initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(mRoomId));
     job->setTopic(topic);
-    if (!job->start()) {
-        job->deleteLater();
-    }
+    std::ignore = job->start();
 }
 
 void TopicChangeCheck::doStart()

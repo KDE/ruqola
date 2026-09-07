@@ -122,9 +122,7 @@ void AbstractServerCheck::deleteTestMessage(const QByteArray &messageId)
     mAccount->restApi()->initializeRestApiJob(job);
     job->setRoomId(mRoomId);
     job->setMessageId(messageId);
-    if (!job->start()) {
-        job->deleteLater();
-    }
+    std::ignore = job->start();
 }
 
 QString AbstractServerCheck::generateMarker()
