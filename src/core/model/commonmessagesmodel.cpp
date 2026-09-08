@@ -28,8 +28,8 @@ void CommonMessagesModel::clearModel()
 QList<Message> CommonMessagesModel::extractMessages(const QJsonObject &obj)
 {
     ListMessages messages;
-    messages.parseMessages(obj, u"messages"_s);
-    return messages.listMessages();
+    messages.parseMessages(obj, "messages"_L1);
+    return messages.list();
 }
 
 bool CommonMessagesModel::parse(const QJsonObject &obj, bool clearMessages, bool insertListMessages)

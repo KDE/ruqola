@@ -72,7 +72,7 @@ void CommandsModel::setCommands(Commands commands)
 
 bool CommandsModel::commandHasPreview(const QString &commandName) const
 {
-    const auto commands = mCommands.commands();
+    const QList<Command> &commands = mCommands.list();
     const QString compareCommand = u'/' + commandName;
     const auto index = std::find_if(commands.begin(), commands.end(), [&compareCommand](const Command &command) {
         return (command.providesPreview() && (command.commandName() == compareCommand));

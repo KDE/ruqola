@@ -8,42 +8,16 @@
 
 #include "discussion.h"
 #include "libruqola_private_export.h"
-#include <QList>
+#include "paginatedinfolist.h"
 class QDebug;
 
-class LIBRUQOLACORE_TESTS_EXPORT Discussions
+class LIBRUQOLACORE_TESTS_EXPORT Discussions : public PaginatedInfoList<Discussion, &Discussion::parseDiscussion>
 {
 public:
-    Discussions();
-
-    [[nodiscard]] QList<Discussion> discussions() const;
-    void setDiscussions(QList<Discussion> discussions);
-
-    void parseDiscussions(const QJsonObject &array);
-
-    void parseMoreDiscussions(const QJsonObject &discussionsObj);
-
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] Discussion at(int index) const;
-    [[nodiscard]] int discussionsCount() const;
-    void setDiscussionsCount(int discussionsCount);
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
+    void parseDiscussions(const QJsonObject &obj);
+    void parseMoreDiscussions(const QJsonObject &obj);
 
     void append(const Discussion &discussion);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseDiscussionsObj(const QJsonObject &discussionsObj);
-    QList<Discussion> mDiscussion;
-    int mDiscussionsCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Discussions, Ruqola_Discussions, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussions &t);

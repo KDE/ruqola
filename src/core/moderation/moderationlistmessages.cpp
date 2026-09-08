@@ -7,24 +7,22 @@
 
 #include "moderationmessage.h"
 #include "ruqola_debug.h"
-#include <QJsonArray>
-#include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 ModerationListMessages::ModerationListMessages() = default;
 
 ModerationListMessages::~ModerationListMessages() = default;
 
-void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName)
+void ModerationListMessages::parseMessagesList(const QJsonObject &messagesObj, QLatin1StringView arrayName)
 {
-    const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? u"messages"_s : arrayName].toArray();
-    mListMessages.reserve(mListMessages.count() + messagesArray.count());
-    for (const auto &current : messagesArray) {
+    const QJsonArray messagesArray = messagesObj[arrayName].toArray();
+    mList.reserve(mList.count() + messagesArray.count());
+    for (const QJsonValue &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject messageModerationObject = current.toObject();
             ModerationMessage moderationMessage;
             moderationMessage.parse(messageModerationObject);
-            Message &m = mListMessages.emplace_back();
+            Message &m = mList.emplace_back();
             m.parseMessage(messageModerationObject["message"_L1].toObject(), true, nullptr);
             m.setModerationMessage(moderationMessage);
         } else {

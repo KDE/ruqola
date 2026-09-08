@@ -21,7 +21,7 @@ FilesForRoomModel::~FilesForRoomModel()
 
 void FilesForRoomModel::checkFullList()
 {
-    setHasFullList(mFileAttachments->fileAttachments().count() == mFileAttachments->total());
+    setHasFullList(mFileAttachments->list().count() == mFileAttachments->total());
 }
 
 bool FilesForRoomModel::loadMoreFilesInProgress() const
@@ -91,7 +91,7 @@ void FilesForRoomModel::setRoomId(const QString &roomId)
 void FilesForRoomModel::setFiles(QList<File> files)
 {
     beginResetModel();
-    mFileAttachments->setFileAttachments(std::move(files));
+    mFileAttachments->setList(std::move(files));
     endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
@@ -103,16 +103,16 @@ int FilesForRoomModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    return mFileAttachments->fileAttachments().count();
+    return mFileAttachments->list().count();
 }
 
 QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mFileAttachments->fileAttachments().count()) {
+    if (index.row() < 0 || index.row() >= mFileAttachments->list().count()) {
         return {};
     }
 
-    const File &file = mFileAttachments->fileAttachments()[index.row()];
+    const File &file = mFileAttachments->list()[index.row()];
     switch (role) {
     case FilePointer:
         return QVariant::fromValue(&file);

@@ -8,46 +8,14 @@
 
 #include "customsoundinfo.h"
 #include "libruqolacore_export.h"
-#include <QList>
+#include "paginatedinfolist.h"
 class QDebug;
-class LIBRUQOLACORE_EXPORT CustomSoundsInfo
+
+class LIBRUQOLACORE_EXPORT CustomSoundsInfo : public PaginatedInfoList<CustomSoundInfo, &CustomSoundInfo::parseCustomSoundInfo>
 {
 public:
-    enum class ParseType : uint8_t {
-        Administrator,
-        Directory,
-    };
-    CustomSoundsInfo();
-
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] CustomSoundInfo at(int index) const;
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
-
     void parseCustomSounds(const QJsonObject &obj);
     void parseMoreCustomSounds(const QJsonObject &obj);
-
-    [[nodiscard]] int roomsCount() const;
-    void setRoomsCount(int adminroomsCount);
-
-    [[nodiscard]] const QList<CustomSoundInfo> &customSoundInfos() const;
-    void setCustomSoundInfos(const QList<CustomSoundInfo> &newCustomSoundInfos);
-
-    CustomSoundInfo takeAt(int index);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseListCustomSound(const QJsonObject &obj);
-    QList<CustomSoundInfo> mCustomSoundInfos;
-    int mRoomsCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
-
 QT_DECL_METATYPE_EXTERN_TAGGED(CustomSoundsInfo, Ruqola_CustomSoundsInfo, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomSoundsInfo &t);

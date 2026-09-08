@@ -8,43 +8,27 @@
 
 #include "file.h"
 #include "libruqolacore_export.h"
-#include <QList>
+#include "paginatedinfolist.h"
 class QDebug;
-class QJsonObject;
 
-class LIBRUQOLACORE_EXPORT FileAttachments
+namespace FileAttachmentsUtils
+{
+// File::parseFile() also wants to know the object comes from the REST API, while the container
+// calls its element parser with the element and its json object only. This has to stay in the
+// header: it is the base class's template argument below.
+inline void parseRestApiFile(File &file, const QJsonObject &obj)
+{
+    file.parseFile(obj, true);
+}
+}
+
+class LIBRUQOLACORE_EXPORT FileAttachments : public PaginatedInfoList<File, &FileAttachmentsUtils::parseRestApiFile>
 {
 public:
-    FileAttachments();
-
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] File at(int index) const;
-
-    [[nodiscard]] int filesCount() const;
-    void setFilesCount(int filesCount);
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
-
-    [[nodiscard]] const QList<File> &fileAttachments() const;
-    void setFileAttachments(QList<File> fileAttachments);
-
-    void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
-    void parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
+    void parseFileAttachments(const QJsonObject &obj);
+    void parseMoreFileAttachments(const QJsonObject &obj);
 
     void addFileAttachments(const QList<File> &fileAttachments);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseFiles(const QJsonObject &fileAttachmentsObj);
-    QList<File> mFileAttachments;
-    int mFilesCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(FileAttachments, Ruqola_FileAttachments, LIBRUQOLACORE_EXPORT)

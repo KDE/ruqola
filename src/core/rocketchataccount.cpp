@@ -1214,8 +1214,8 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
         mMarkUnreadThreadsAsReadOnNextReply = false;
 
         ListMessages messages;
-        messages.parseMessages(obj, u"threads"_s);
-        const auto listMessages = messages.listMessages();
+        messages.parseMessages(obj, "threads"_L1);
+        const auto listMessages = messages.list();
         for (const auto &msg : listMessages) {
             QJsonObject params;
             params.insert("tmid"_L1, QString::fromLatin1(msg.messageId()));
@@ -1329,7 +1329,7 @@ void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
 void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType)
 {
     if (!mFilesModelForRoom->loadMoreFilesInProgress()) {
-        const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
+        const int offset = mFilesModelForRoom->fileAttachments()->loadedCount();
         if (offset < mFilesModelForRoom->fileAttachments()->total()) {
             mFilesModelForRoom->setLoadMoreFilesInProgress(true);
             restApi()->filesInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset));
@@ -1340,7 +1340,7 @@ void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::
 void RocketChatAccount::loadMoreDiscussions(const QByteArray &roomId)
 {
     if (!mDiscussionsModel->loadMoreDiscussionsInProgress()) {
-        const int offset = mDiscussionsModel->discussions()->discussionsCount();
+        const int offset = mDiscussionsModel->discussions()->loadedCount();
         if (offset < mDiscussionsModel->discussions()->total()) {
             mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
             Utils::ListMessagesInfo info;
@@ -3128,7 +3128,7 @@ MessageCache *RocketChatAccount::messageCache() const
 
 void RocketChatAccount::slotUpdateCustomUserStatus()
 {
-    mStatusModel->updateCustomStatus(mCustomUserStatuses.customUserStatusList());
+    mStatusModel->updateCustomStatus(mCustomUserStatuses.list());
     Q_EMIT customStatusChanged();
 }
 

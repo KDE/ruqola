@@ -264,8 +264,8 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         // qDebug() << " replyObject " << replyObject;
         FileAttachments imagesList;
         imagesList.parseFileAttachments(replyObject);
-        mImageListInfo.imageAttachments.setFilesCount(mImageListInfo.imageAttachments.filesCount() + imagesList.filesCount());
-        mImageListInfo.imageAttachments.addFileAttachments(imagesList.fileAttachments());
+        mImageListInfo.imageAttachments.setLoadedCount(mImageListInfo.imageAttachments.loadedCount() + imagesList.loadedCount());
+        mImageListInfo.imageAttachments.addFileAttachments(imagesList.list());
         mImageListInfo.imageAttachments.setTotal(imagesList.total());
         mImageListInfo.imageAttachments.setOffset(imagesList.offset());
         mImageListInfo.roomId = info.roomId;

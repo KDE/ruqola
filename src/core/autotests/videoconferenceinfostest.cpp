@@ -22,7 +22,7 @@ void VideoConferenceInfosTest::shouldHaveDefaultValues()
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);
-    QCOMPARE(w.videoConferenceInfosCount(), 0);
+    QCOMPARE(w.loadedCount(), 0);
 }
 
 void VideoConferenceInfosTest::shouldLoadVideoConferenceInfos_data()
@@ -46,7 +46,7 @@ void VideoConferenceInfosTest::shouldLoadVideoConferenceInfos()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     VideoConferenceInfos m;
     m.parseVideoConferenceInfos(obj);
-    QCOMPARE(m.videoConferenceInfosCount(), videoConferenceInfosCount);
+    QCOMPARE(m.loadedCount(), videoConferenceInfosCount);
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
 }

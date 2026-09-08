@@ -8,42 +8,24 @@
 
 #include "customemoji.h"
 #include "libruqolacore_export.h"
-#include <QList>
+#include "paginatedinfolist.h"
 class QDebug;
-class LIBRUQOLACORE_EXPORT CustomEmojisInfo
+
+namespace CustomEmojisInfoUtils
+{
+// CustomEmoji::parseEmoji() has a second, defaulted argument, which a member pointer can't carry.
+// This has to stay in the header: it is the base class's template argument below.
+inline void parseCustomEmoji(CustomEmoji &emoji, const QJsonObject &obj)
+{
+    emoji.parseEmoji(obj);
+}
+}
+
+class LIBRUQOLACORE_EXPORT CustomEmojisInfo : public PaginatedInfoList<CustomEmoji, &CustomEmojisInfoUtils::parseCustomEmoji>
 {
 public:
-    CustomEmojisInfo();
-
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] CustomEmoji at(int index) const;
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
-
     void parseCustomEmojis(const QJsonObject &obj);
     void parseMoreCustomEmojis(const QJsonObject &obj);
-
-    [[nodiscard]] int roomsCount() const;
-    void setRoomsCount(int adminroomsCount);
-
-    [[nodiscard]] const QList<CustomEmoji> &customSoundInfos() const;
-    void setCustomSoundInfos(const QList<CustomEmoji> &newCustomSoundInfos);
-
-    CustomEmoji takeAt(int index);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseListCustomEmoji(const QJsonObject &obj);
-    QList<CustomEmoji> mCustomEmojiInfos;
-    int mRoomsCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
-
 QT_DECL_METATYPE_EXTERN_TAGGED(CustomEmojisInfo, Ruqola_CustomEmojisInfo, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmojisInfo &t);

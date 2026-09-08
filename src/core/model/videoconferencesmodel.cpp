@@ -87,7 +87,7 @@ void VideoConferencesModel::setRoomId(const QString &roomId)
 void VideoConferencesModel::setVideoConferenceInfos(QList<VideoConferenceInfo> files)
 {
     beginResetModel();
-    mVideoConferenceInfos.setVideoConferenceInfosList(std::move(files));
+    mVideoConferenceInfos.setList(std::move(files));
     endResetModel();
     checkFullList();
     Q_EMIT totalChanged();

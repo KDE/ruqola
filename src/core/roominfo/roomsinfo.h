@@ -7,47 +7,22 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "paginatedinfolist.h"
 #include "roominfo.h"
-#include <QList>
 class QDebug;
-class LIBRUQOLACORE_EXPORT RoomsInfo
+
+class LIBRUQOLACORE_EXPORT RoomsInfo : public PaginatedInfoList<RoomInfo, &RoomInfo::parseRoomInfo>
 {
 public:
     enum class ParseType : uint8_t {
         Administrator,
         Directory,
     };
-    RoomsInfo();
 
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] RoomInfo at(int index) const;
+    void parseRooms(const QJsonObject &obj, ParseType type);
+    void parseMoreRooms(const QJsonObject &obj, ParseType type);
 
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
-
-    void parseRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
-    void parseMoreRooms(const QJsonObject &obj, RoomsInfo::ParseType type);
-
-    [[nodiscard]] QList<RoomInfo> rooms() const;
-    void setRooms(const QList<RoomInfo> &rooms);
-
-    [[nodiscard]] int roomsCount() const;
-    void setRoomsCount(int adminroomsCount);
-
-    RoomInfo takeAt(int index);
     void insertRoom(int index, const RoomInfo &room);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseListRooms(const QJsonObject &commandsObj, ParseType type);
-    QList<RoomInfo> mRooms;
-    int mRoomsCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(RoomsInfo, Ruqola_RoomsInfo, LIBRUQOLACORE_EXPORT)

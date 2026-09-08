@@ -19,8 +19,8 @@ ModerationMessagesModel::~ModerationMessagesModel() = default;
 QList<Message> ModerationMessagesModel::extractMessages(const QJsonObject &obj)
 {
     ModerationListMessages messages;
-    messages.parseMessages(obj, u"messages"_s);
-    return messages.listMessages();
+    messages.parseMessages(obj, "messages"_L1);
+    return messages.list();
 }
 
 #include "moc_moderationmessagesmodel.cpp"

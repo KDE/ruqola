@@ -19,10 +19,10 @@ ModerationReportUserInfosTest::ModerationReportUserInfosTest(QObject *parent)
 void ModerationReportUserInfosTest::shouldHaveDefaultValues()
 {
     const ModerationReportUserInfos infos;
-    QCOMPARE(infos.moderationReportUserInfosCount(), 0);
+    QCOMPARE(infos.loadedCount(), 0);
     QCOMPARE(infos.offset(), 0);
     QCOMPARE(infos.total(), 0);
-    QVERIFY(infos.moderationReportUserInfosList().isEmpty());
+    QVERIFY(infos.list().isEmpty());
     QVERIFY(!infos.user().isValid());
 }
 
@@ -42,7 +42,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
     {
         ModerationReportUserInfos moderationReportUserInfos;
         moderationReportUserInfos.setTotal(2);
-        moderationReportUserInfos.setModerationReportUserInfosCount(2);
+        moderationReportUserInfos.setLoadedCount(2);
         User user;
         user.setStatus(User::PresenceStatus::Unknown);
         user.setName("kde2"_L1);
@@ -137,7 +137,7 @@ void ModerationReportUserInfosTest::shouldLoadReportUserInfos_data()
             lstUserInfo.append(std::move(info));
         }
 
-        moderationReportUserInfos.setModerationReportUserInfosList(lstUserInfo);
+        moderationReportUserInfos.setList(lstUserInfo);
 #if 0
       reportedUser    userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""
       reportedUser   userEmailsInfo  email  "" verified  false  active  true  mRequirePasswordChange  false  mBio  ""  mNickName  ""

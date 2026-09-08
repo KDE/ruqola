@@ -22,7 +22,7 @@ void DiscussionsTest::shouldHaveDefaultValues()
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);
-    QCOMPARE(w.discussionsCount(), 0);
+    QCOMPARE(w.loadedCount(), 0);
 }
 
 void DiscussionsTest::shouldLoadDiscussions_data()
@@ -46,7 +46,7 @@ void DiscussionsTest::shouldLoadDiscussions()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     Discussions m;
     m.parseDiscussions(obj);
-    QCOMPARE(m.discussionsCount(), discussionsCount);
+    QCOMPARE(m.loadedCount(), discussionsCount);
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
 }

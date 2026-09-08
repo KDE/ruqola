@@ -8,43 +8,14 @@
 
 #include "libruqolacore_export.h"
 #include "moderationreportinfo.h"
-#include <QList>
+#include "paginatedinfolist.h"
 class QDebug;
 
-class LIBRUQOLACORE_EXPORT ModerationReportInfos
+class LIBRUQOLACORE_EXPORT ModerationReportInfos : public PaginatedInfoList<ModerationReportInfo, &ModerationReportInfo::parseModerationReportInfo>
 {
 public:
-    ModerationReportInfos();
-
-    void clear();
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int newOffset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int newTotal);
-
-    [[nodiscard]] int moderationReportInfosCount() const;
-    void setModerationReportInfosCount(int newModerationReportInfosCount);
-
-    [[nodiscard]] const QList<ModerationReportInfo> &moderationReportInfosList() const;
-    void setModerationReportInfosList(const QList<ModerationReportInfo> &newModerationReportInfosList);
-
-    [[nodiscard]] bool isEmpty() const;
-    [[nodiscard]] int count() const;
-    [[nodiscard]] ModerationReportInfo at(int index) const;
-
-    void parseModerationReportInfos(const QJsonObject &moderationReportInfosObj);
-    void parseMoreModerationReportInfos(const QJsonObject &moderationReportInfosObj);
-
-    ModerationReportInfo takeAt(int index);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseModerationReportInfosObj(const QJsonObject &moderationReportInfosObj);
-    QList<ModerationReportInfo> mModerationReportInfosList;
-    int mModerationReportInfosCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
+    void parseModerationReportInfos(const QJsonObject &obj);
+    void parseMoreModerationReportInfos(const QJsonObject &obj);
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportInfos, Ruqola_ModerationReportInfos, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfos &t);

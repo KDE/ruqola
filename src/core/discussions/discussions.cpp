@@ -7,121 +7,30 @@
 #include "discussions/discussions.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(Discussions, Ruqola_Discussions)
 
-#include "ruqola_debug.h"
-#include <QJsonArray>
-#include <QJsonObject>
-
 using namespace Qt::Literals::StringLiterals;
-Discussions::Discussions() = default;
 
-QList<Discussion> Discussions::discussions() const
+void Discussions::parseDiscussions(const QJsonObject &obj)
 {
-    return mDiscussion;
+    parseInfos(obj, "discussions"_L1);
+}
+
+void Discussions::parseMoreDiscussions(const QJsonObject &obj)
+{
+    parseMoreInfos(obj, "discussions"_L1);
 }
 
 void Discussions::append(const Discussion &discussion)
 {
-    mDiscussion.append(discussion);
-}
-
-void Discussions::setDiscussions(QList<Discussion> discussion)
-{
-    mDiscussion = std::move(discussion);
-}
-
-void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
-{
-    mDiscussion.clear();
-    mDiscussionsCount = discussionsObj["count"_L1].toInt();
-    mOffset = discussionsObj["offset"_L1].toInt();
-    mTotal = discussionsObj["total"_L1].toInt();
-    mDiscussion.reserve(mDiscussionsCount);
-    parseDiscussionsObj(discussionsObj);
-}
-
-void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
-{
-    const QJsonArray discussionsArray = discussionsObj["discussions"_L1].toArray();
-    for (const auto &current : discussionsArray) {
-        if (current.type() == QJsonValue::Object) {
-            mDiscussion.emplace_back().parseDiscussion(current.toObject());
-        } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing discussions" << current;
-        }
-    }
-}
-
-void Discussions::parseMoreDiscussions(const QJsonObject &discussionsObj)
-{
-    const int discussionsCount = discussionsObj["count"_L1].toInt();
-    mOffset = discussionsObj["offset"_L1].toInt();
-    mTotal = discussionsObj["total"_L1].toInt();
-    parseDiscussionsObj(discussionsObj);
-    mDiscussionsCount += discussionsCount;
-}
-
-bool Discussions::isEmpty() const
-{
-    return mDiscussion.isEmpty();
-}
-
-void Discussions::clear()
-{
-    mDiscussion.clear();
-}
-
-int Discussions::count() const
-{
-    return mDiscussion.count();
-}
-
-Discussion Discussions::at(int index) const
-{
-    if (index < 0 || index >= mDiscussion.count()) {
-        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return {};
-    }
-    return mDiscussion.at(index);
-}
-
-int Discussions::discussionsCount() const
-{
-    return mDiscussionsCount;
-}
-
-void Discussions::setDiscussionsCount(int discussionsCount)
-{
-    mDiscussionsCount = discussionsCount;
-}
-
-int Discussions::offset() const
-{
-    return mOffset;
-}
-
-void Discussions::setOffset(int offset)
-{
-    mOffset = offset;
-}
-
-int Discussions::total() const
-{
-    return mTotal;
-}
-
-void Discussions::setTotal(int total)
-{
-    mTotal = total;
+    mList.append(discussion);
 }
 
 QDebug operator<<(QDebug d, const Discussions &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "discussionsCount" << t.discussionsCount() << "\n";
-    const auto list = t.discussions();
-    for (int i = 0, total = list.count(); i < total; ++i) {
-        d.space() << list.at(i) << "\n";
+    d.space() << "discussionsCount" << t.loadedCount() << "\n";
+    for (const Discussion &discussion : t.list()) {
+        d.space() << discussion << "\n";
     }
     return d;
 }

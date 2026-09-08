@@ -8,106 +8,36 @@
 QT_IMPL_METATYPE_EXTERN_TAGGED(ListMessages, Ruqola_ListMessages)
 
 #include "ruqola_debug.h"
-#include <QJsonArray>
-#include <QJsonObject>
 
-using namespace Qt::Literals::StringLiterals;
 ListMessages::ListMessages() = default;
 ListMessages::~ListMessages() = default;
 
-void ListMessages::parseListInfo(const QJsonObject &messagesObj)
+void ListMessages::parseMessages(const QJsonObject &messagesObj, QLatin1StringView arrayName)
 {
-    mListMessages.clear();
-    mMessagesCount = messagesObj["count"_L1].toInt();
-    mOffset = messagesObj["offset"_L1].toInt();
-    mTotal = messagesObj["total"_L1].toInt();
+    parseFirstPageCounters(messagesObj);
+    parseMessagesList(messagesObj, arrayName);
 }
 
-void ListMessages::parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName)
+void ListMessages::parseMessagesList(const QJsonObject &messagesObj, QLatin1StringView arrayName)
 {
-    const QJsonArray messagesArray = messagesObj[arrayName.isEmpty() ? u"messages"_s : arrayName].toArray();
-    mListMessages.reserve(mListMessages.count() + messagesArray.count());
-    for (const auto &current : messagesArray) {
+    const QJsonArray messagesArray = messagesObj[arrayName].toArray();
+    mList.reserve(mList.count() + messagesArray.count());
+    for (const QJsonValue &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
-            mListMessages.emplace_back().parseMessage(current.toObject(), true, nullptr);
+            mList.emplace_back().parseMessage(current.toObject(), true, nullptr);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
         }
     }
 }
 
-void ListMessages::parseMessages(const QJsonObject &messagesObj, const QString &arrayName)
-{
-    parseListInfo(messagesObj);
-    parseMessagesList(messagesObj, arrayName);
-}
-
-int ListMessages::offset() const
-{
-    return mOffset;
-}
-
-void ListMessages::setOffset(int offset)
-{
-    mOffset = offset;
-}
-
-int ListMessages::total() const
-{
-    return mTotal;
-}
-
-void ListMessages::setTotal(int total)
-{
-    mTotal = total;
-}
-
-int ListMessages::messagesCount() const
-{
-    return mMessagesCount;
-}
-
-void ListMessages::setMessagesCount(int count)
-{
-    mMessagesCount = count;
-}
-
-bool ListMessages::isEmpty() const
-{
-    return mListMessages.isEmpty();
-}
-
-void ListMessages::clear()
-{
-    mListMessages.clear();
-}
-
-int ListMessages::count() const
-{
-    return mListMessages.count();
-}
-
-Message ListMessages::at(int index) const
-{
-    if (index < 0 || index >= mListMessages.count()) {
-        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return Message();
-    }
-    return mListMessages.at(index);
-}
-
-QList<Message> ListMessages::listMessages() const
-{
-    return mListMessages;
-}
-
 QDebug operator<<(QDebug d, const ListMessages &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "MessagesCount" << t.messagesCount() << "\n";
-    for (int i = 0, total = t.count(); i < total; ++i) {
-        d.space() << t.at(i) << "\n";
+    d.space() << "MessagesCount" << t.loadedCount() << "\n";
+    for (const Message &message : t.list()) {
+        d.space() << message << "\n";
     }
     return d;
 }

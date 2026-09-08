@@ -19,23 +19,23 @@ ListMessagesModel::~ListMessagesModel() = default;
 void ListMessagesModel::parse(const QJsonObject &obj)
 {
     ListMessages messages;
-    QString parseMessageName;
+    QLatin1StringView parseMessageName;
     switch (mListMessageType) {
     case ThreadsMessages:
     case UnreadThreadsMessages:
-        parseMessageName = u"threads"_s;
+        parseMessageName = "threads"_L1;
         break;
     case Unknown:
     case StarredMessages:
     case PinnedMessages:
     case MentionsMessages:
-        parseMessageName = u"messages"_s;
+        parseMessageName = "messages"_L1;
         break;
     }
 
     messages.parseMessages(obj, parseMessageName);
     mTotal = messages.total();
-    addMessages(messages.listMessages(), true);
+    addMessages(messages.list(), true);
     setHasFullList(rowCount() == total());
 }
 

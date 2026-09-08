@@ -61,7 +61,7 @@ void CustomUserStatusTreeWidget::initialize()
 {
     clear();
     const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
-    const QList<CustomUserStatus> customUserses = statuses.customUserStatusList();
+    const QList<CustomUserStatus> customUserses = statuses.list();
     for (const CustomUserStatus &status : customUserses) {
         auto item = new CustomUserStatusTreeWidgetItem(this);
         item->setUserStatus(status);
@@ -78,7 +78,7 @@ void CustomUserStatusTreeWidget::addClicked()
 {
     QPointer<AdministratorCustomUserStatusCreateDialog> dlg = new AdministratorCustomUserStatusCreateDialog(this);
     const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
-    const QList<CustomUserStatus> customUserses = statuses.customUserStatusList();
+    const QList<CustomUserStatus> customUserses = statuses.list();
     QStringList names;
     names.reserve(customUserses.count());
     for (const CustomUserStatus &status : customUserses) {
@@ -114,7 +114,7 @@ void CustomUserStatusTreeWidget::editClicked()
     userStatusinfo.statusType = userStatus.statusType();
 
     const CustomUserStatuses statuses = mRocketChatAccount->customUserStatuses();
-    const QList<CustomUserStatus> customUserses = statuses.customUserStatusList();
+    const QList<CustomUserStatus> customUserses = statuses.list();
     QStringList names;
     for (const CustomUserStatus &status : customUserses) {
         if (userStatus.name() != status.name()) {

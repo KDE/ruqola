@@ -6,41 +6,23 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "moderationreportuserinfo.h"
+#include "paginatedinfolist.h"
 #include "user.h"
 class QDebug;
-class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT ModerationReportUserInfos
+    : public PaginatedInfoList<ModerationReportUserInfo, &ModerationReportUserInfo::parseModerationReportUserInfo>
 {
 public:
-    ModerationReportUserInfos();
-
-    [[nodiscard]] bool operator==(const ModerationReportUserInfos &other) const;
-
-    [[nodiscard]] QList<ModerationReportUserInfo> moderationReportUserInfosList() const;
-    void setModerationReportUserInfosList(const QList<ModerationReportUserInfo> &newModerationReportUserInfosList);
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int newOffset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int newTotal);
+    [[nodiscard]] bool operator==(const ModerationReportUserInfos &other) const = default;
 
     [[nodiscard]] User user() const;
     void setUser(const User &newUser);
 
-    [[nodiscard]] int moderationReportUserInfosCount() const;
-    void setModerationReportUserInfosCount(int newModerationReportUserInfosCount);
-
-    void parseModerationReportUserInfos(const QJsonObject &moderationReportedUserInfosObj);
+    void parseModerationReportUserInfos(const QJsonObject &obj);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void parseModerationReportUserInfosObj(const QJsonObject &ModerationReportedUserInfosObj);
-    QList<ModerationReportUserInfo> mModerationReportUserInfosList;
     User mUser;
-    int mOffset = 0;
-    int mTotal = 0;
-    int mModerationReportUserInfosCount = 0;
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfos, Ruqola_ModerationReportUserInfos, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfos &t);

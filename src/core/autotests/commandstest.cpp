@@ -20,7 +20,7 @@ CommandsTest::CommandsTest(QObject *parent)
 void CommandsTest::shouldHaveDefaultValue()
 {
     const Commands r;
-    QVERIFY(r.commands().isEmpty());
+    QVERIFY(r.list().isEmpty());
     QVERIFY(r.isEmpty());
 }
 
@@ -45,7 +45,7 @@ void CommandsTest::shouldLoadCommands()
 
     Commands r;
     r.parseCommands(obj);
-    QCOMPARE(r.commandsCount(), commandsCount);
+    QCOMPARE(r.loadedCount(), commandsCount);
     QCOMPARE(r.total(), total);
 }
 
@@ -56,7 +56,7 @@ void CommandsTest::shouldLoadPermissions()
 
     Commands r;
     r.parseCommands(obj);
-    QCOMPARE(r.commandsCount(), 3);
+    QCOMPARE(r.loadedCount(), 3);
 
     QList<Command> result;
     {
@@ -80,10 +80,10 @@ void CommandsTest::shouldLoadPermissions()
         result.append(std::move(d));
     }
 
-    const bool equalResult = r.commands() == result;
+    const bool equalResult = r.list() == result;
     if (!equalResult) {
         qDebug() << " Expected " << result;
-        qDebug() << " result   " << r.commands();
+        qDebug() << " result   " << r.list();
     }
     QVERIFY(equalResult);
 }

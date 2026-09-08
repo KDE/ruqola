@@ -91,6 +91,8 @@ target_sources(
         loadrecenthistorymanager.cpp
         loadrecenthistorymanager.h
         lrucache.h
+        paginatedinfolist.cpp
+        paginatedinfolist.h
         licenses/licensesmanager.h
         licenses/licensesmanager.cpp
         managechannels.cpp

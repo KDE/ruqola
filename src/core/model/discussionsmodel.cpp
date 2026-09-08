@@ -20,7 +20,7 @@ DiscussionsModel::~DiscussionsModel()
 
 void DiscussionsModel::checkFullList()
 {
-    setHasFullList(mDiscussions->discussions().count() == mDiscussions->total());
+    setHasFullList(mDiscussions->list().count() == mDiscussions->total());
 }
 
 bool DiscussionsModel::loadMoreDiscussionsInProgress() const
@@ -140,7 +140,7 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
 void DiscussionsModel::setDiscussions(const Discussions &discussions)
 {
     beginResetModel();
-    mDiscussions->setDiscussions(discussions.discussions());
+    mDiscussions->setList(discussions.list());
     endResetModel();
     checkFullList();
 }

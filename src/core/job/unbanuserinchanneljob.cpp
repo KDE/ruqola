@@ -86,7 +86,7 @@ void UnbanUserInChannelJob::slotRoomsBannedUsersDone(const QJsonObject &obj, [[m
 {
     BannedUsers bannedUsers;
     bannedUsers.parseBannedUsers(obj);
-    const QList<BannedUser> bannedUsersList = bannedUsers.bannedUsers();
+    const QList<BannedUser> bannedUsersList = bannedUsers.list();
     for (const auto &user : std::as_const(mNeedUnbanUsers)) {
         for (const auto &bannedUser : bannedUsersList) {
             if (bannedUser.identifier() == user.userName) {

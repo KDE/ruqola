@@ -24,7 +24,7 @@ CustomUserStatusesTest::CustomUserStatusesTest(QObject *parent)
 void CustomUserStatusesTest::shouldHaveDefaultValues()
 {
     const CustomUserStatuses w;
-    QVERIFY(w.customUserStatusList().isEmpty());
+    QVERIFY(w.list().isEmpty());
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.count(), 0);
@@ -69,9 +69,9 @@ void CustomUserStatusesTest::shouldLoadUserCustomStatuses()
 
     CustomUserStatuses r;
     r.parseCustomUserStatuses(obj);
-    const bool compareCustom = r.customUserStatusList() == customUserStatus;
+    const bool compareCustom = r.list() == customUserStatus;
     if (!compareCustom) {
-        qDebug() << "current : " << r.customUserStatusList();
+        qDebug() << "current : " << r.list();
         qDebug() << "expected: " << customUserStatus;
     }
     QVERIFY(compareCustom);
@@ -185,9 +185,9 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
     // Compare init
     CustomUserStatuses r;
     r.parseCustomUserStatuses(obj);
-    bool compareCustom = r.customUserStatusList() == customUserStatusInit;
+    bool compareCustom = r.list() == customUserStatusInit;
     if (!compareCustom) {
-        qDebug() << "current : " << r.customUserStatusList();
+        qDebug() << "current : " << r.list();
         qDebug() << "expected: " << customUserStatusInit;
     }
     QVERIFY(compareCustom);
@@ -197,9 +197,9 @@ void CustomUserStatusesTest::shouldUpdateUserCustomStatuses()
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updatingJsonFile);
 
     r.updateCustomUserStatues(array);
-    compareCustom = r.customUserStatusList() == customUserStatusAfterUpdating;
+    compareCustom = r.list() == customUserStatusAfterUpdating;
     if (!compareCustom) {
-        qDebug() << "current : " << r.customUserStatusList();
+        qDebug() << "current : " << r.list();
         qDebug() << "expected: " << customUserStatusAfterUpdating;
     }
     QVERIFY(compareCustom);
@@ -256,9 +256,9 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
     // Compare init
     CustomUserStatuses r;
     r.parseCustomUserStatuses(obj);
-    bool compareCustom = r.customUserStatusList() == customUserStatusInit;
+    bool compareCustom = r.list() == customUserStatusInit;
     if (!compareCustom) {
-        qDebug() << "current : " << r.customUserStatusList();
+        qDebug() << "current : " << r.list();
         qDebug() << "expected: " << customUserStatusInit;
     }
     QVERIFY(compareCustom);
@@ -268,9 +268,9 @@ void CustomUserStatusesTest::shouldDeleteUserCustomStatuses()
     const QJsonArray array = AutoTestHelper::loadJsonArrayObject(updatingJsonFile);
 
     r.deleteCustomUserStatuses(array);
-    compareCustom = r.customUserStatusList() == customUserStatusAfterDeleting;
+    compareCustom = r.list() == customUserStatusAfterDeleting;
     if (!compareCustom) {
-        qDebug() << "current : " << r.customUserStatusList();
+        qDebug() << "current : " << r.list();
         qDebug() << "expected: " << customUserStatusAfterDeleting;
     }
     QVERIFY(compareCustom);

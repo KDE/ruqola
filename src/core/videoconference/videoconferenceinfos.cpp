@@ -7,121 +7,25 @@
 #include "videoconferenceinfos.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(VideoConferenceInfos, Ruqola_VideoConferenceInfos)
 
-#include "ruqola_debug.h"
-
-#include <QJsonArray>
-#include <QJsonObject>
-
 using namespace Qt::Literals::StringLiterals;
-VideoConferenceInfos::VideoConferenceInfos() = default;
+
+void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &obj)
+{
+    parseInfos(obj, "data"_L1);
+}
+
+void VideoConferenceInfos::parseMoreVideoConferenceInfos(const QJsonObject &obj)
+{
+    parseMoreInfos(obj, "data"_L1);
+}
 
 QDebug operator<<(QDebug d, const VideoConferenceInfos &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "VideoConferenceInfosCount" << t.videoConferenceInfosCount() << "\n";
-    for (int i = 0, total = t.videoConferenceInfosList().count(); i < total; ++i) {
-        d.space() << t.videoConferenceInfosList().at(i) << "\n";
+    d.space() << "VideoConferenceInfosCount" << t.loadedCount() << "\n";
+    for (const VideoConferenceInfo &info : t.list()) {
+        d.space() << info << "\n";
     }
     return d;
-}
-
-int VideoConferenceInfos::offset() const
-{
-    return mOffset;
-}
-
-void VideoConferenceInfos::setOffset(int newOffset)
-{
-    mOffset = newOffset;
-}
-
-int VideoConferenceInfos::total() const
-{
-    return mTotal;
-}
-
-void VideoConferenceInfos::setTotal(int newTotal)
-{
-    mTotal = newTotal;
-}
-
-int VideoConferenceInfos::videoConferenceInfosCount() const
-{
-    return mVideoConferenceInfosCount;
-}
-
-void VideoConferenceInfos::setVideoConferenceInfosCount(int newVideoConferenceInfosCount)
-{
-    mVideoConferenceInfosCount = newVideoConferenceInfosCount;
-}
-
-const QList<VideoConferenceInfo> &VideoConferenceInfos::videoConferenceInfosList() const
-{
-    return mVideoConferenceInfosList;
-}
-
-void VideoConferenceInfos::setVideoConferenceInfosList(QList<VideoConferenceInfo> newVideoConferenceInfosList)
-{
-    mVideoConferenceInfosList = std::move(newVideoConferenceInfosList);
-}
-
-bool VideoConferenceInfos::isEmpty() const
-{
-    return mVideoConferenceInfosList.isEmpty();
-}
-
-void VideoConferenceInfos::clear()
-{
-    mVideoConferenceInfosList.clear();
-}
-
-int VideoConferenceInfos::count() const
-{
-    return mVideoConferenceInfosList.count();
-}
-
-VideoConferenceInfo VideoConferenceInfos::at(int index) const
-{
-    if (index < 0 || index >= mVideoConferenceInfosList.count()) {
-        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return {};
-    }
-    return mVideoConferenceInfosList.at(index);
-}
-
-void VideoConferenceInfos::parseVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
-{
-    mVideoConferenceInfosList.clear();
-    mVideoConferenceInfosCount = videoConferenceInfosObj["count"_L1].toInt();
-    mOffset = videoConferenceInfosObj["offset"_L1].toInt();
-    mTotal = videoConferenceInfosObj["total"_L1].toInt();
-    mVideoConferenceInfosList.reserve(mVideoConferenceInfosCount);
-    parseVideoConferenceInfosObj(videoConferenceInfosObj);
-}
-
-void VideoConferenceInfos::parseVideoConferenceInfosObj(const QJsonObject &videoConferenceInfosObj)
-{
-    const QJsonArray videoConferencesArray = videoConferenceInfosObj["data"_L1].toArray();
-    for (const auto &current : videoConferencesArray) {
-        if (current.type() == QJsonValue::Object) {
-            mVideoConferenceInfosList.emplace_back().parse(current.toObject());
-        } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing video conference infos" << current;
-        }
-    }
-}
-
-void VideoConferenceInfos::parseMoreVideoConferenceInfos(const QJsonObject &videoConferenceInfosObj)
-{
-    const int videoConferenceInfosCount = videoConferenceInfosObj["count"_L1].toInt();
-    mOffset = videoConferenceInfosObj["offset"_L1].toInt();
-    mTotal = videoConferenceInfosObj["total"_L1].toInt();
-    parseVideoConferenceInfosObj(videoConferenceInfosObj);
-    mVideoConferenceInfosCount += videoConferenceInfosCount;
-}
-
-VideoConferenceInfo VideoConferenceInfos::takeAt(int index)
-{
-    return mVideoConferenceInfosList.takeAt(index);
 }

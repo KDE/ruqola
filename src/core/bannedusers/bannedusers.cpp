@@ -5,126 +5,33 @@
 */
 
 #include "bannedusers.h"
-
-#include "ruqola_commands_debug.h"
-#include <QJsonArray>
-#include <QJsonObject>
-
 QT_IMPL_METATYPE_EXTERN_TAGGED(BannedUsers, Ruqola_BannedUsers)
+
 using namespace Qt::Literals::StringLiterals;
-BannedUsers::BannedUsers() = default;
 
-bool BannedUsers::isEmpty() const
+void BannedUsers::parseBannedUsers(const QJsonObject &obj)
 {
-    return mBannedUsers.isEmpty();
+    parseInfos(obj, "bannedUsers"_L1);
 }
 
-void BannedUsers::clear()
+void BannedUsers::parseMoreBannedUsers(const QJsonObject &obj)
 {
-    mBannedUsers.clear();
+    parseMoreInfos(obj, "bannedUsers"_L1);
 }
-
-int BannedUsers::count() const
-{
-    return mBannedUsers.count();
-}
-
-BannedUser BannedUsers::at(int index) const
-{
-    if (index < 0 || index >= mBannedUsers.count()) {
-        qCWarning(RUQOLA_COMMANDS_LOG) << "Invalid index " << index;
-        return {};
-    }
-    return mBannedUsers.at(index);
-}
-
-void BannedUsers::parseMoreBannedUsers(const QJsonObject &bannerObj)
-{
-    const int commandsCount = bannerObj["count"_L1].toInt();
-    mOffset = bannerObj["offset"_L1].toInt();
-    mTotal = bannerObj["total"_L1].toInt();
-    parseListBannedUsers(bannerObj);
-    mBannedUsersCount += commandsCount;
-}
-
-void BannedUsers::parseListBannedUsers(const QJsonObject &commandsObj)
-{
-    const QJsonArray bannedUsesArray = commandsObj["bannedUsers"_L1].toArray();
-    mBannedUsers.reserve(mBannedUsers.count() + bannedUsesArray.count());
-    for (const auto &current : bannedUsesArray) {
-        if (current.type() == QJsonValue::Object) {
-            mBannedUsers.emplace_back().parseBannedUser(current.toObject());
-        } else {
-            qCWarning(RUQOLA_COMMANDS_LOG) << "Problem when parsing bannedusers" << current.type();
-        }
-    }
-}
-
-bool BannedUsers::operator==(const BannedUsers &other) const = default;
 
 BannedUser BannedUsers::takeAt(int index)
 {
-    mTotal--;
-    return mBannedUsers.takeAt(index);
-}
-
-int BannedUsers::bannedUsersCount() const
-{
-    return mBannedUsersCount;
-}
-
-void BannedUsers::setBannedUsersCount(int commandsCount)
-{
-    mBannedUsersCount = commandsCount;
-}
-
-QList<BannedUser> BannedUsers::bannedUsers() const
-{
-    return mBannedUsers;
-}
-
-void BannedUsers::setBannedUsers(QList<BannedUser> commands)
-{
-    mBannedUsers = std::move(commands);
-}
-
-void BannedUsers::parseBannedUsers(const QJsonObject &commandsObj)
-{
-    mBannedUsersCount = commandsObj["count"_L1].toInt();
-    mOffset = commandsObj["offset"_L1].toInt();
-    mTotal = commandsObj["total"_L1].toInt();
-    mBannedUsers.clear();
-    parseListBannedUsers(commandsObj);
-}
-
-int BannedUsers::offset() const
-{
-    return mOffset;
-}
-
-void BannedUsers::setOffset(int offset)
-{
-    mOffset = offset;
-}
-
-int BannedUsers::total() const
-{
-    return mTotal;
-}
-
-void BannedUsers::setTotal(int total)
-{
-    mTotal = total;
+    --mTotal;
+    return PaginatedInfoList::takeAt(index);
 }
 
 QDebug operator<<(QDebug d, const BannedUsers &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "bannedUsersCount" << t.bannedUsersCount() << "\n";
-    const auto list = t.bannedUsers();
-    for (int i = 0, total = list.count(); i < total; ++i) {
-        d.space() << list.at(i) << "\n";
+    d.space() << "bannedUsersCount" << t.loadedCount() << "\n";
+    for (const BannedUser &bannedUser : t.list()) {
+        d.space() << bannedUser << "\n";
     }
     return d;
 }

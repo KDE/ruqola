@@ -8,146 +8,65 @@
 QT_IMPL_METATYPE_EXTERN_TAGGED(Users, Ruqola_Users)
 
 #include "ruqola_debug.h"
-#include <QJsonArray>
-#include <QJsonObject>
-
-using namespace Qt::Literals::StringLiterals;
-Users::Users() = default;
-
-bool Users::isEmpty() const
-{
-    return mUsers.isEmpty();
-}
-
-void Users::clear()
-{
-    mUsers.clear();
-}
-
-int Users::count() const
-{
-    return mUsers.count();
-}
-
-User Users::at(int index) const
-{
-    if (index < 0 || index >= mUsers.count()) {
-        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return {};
-    }
-    return mUsers.at(index);
-}
 
 User &Users::operator[](int i)
 {
-    return mUsers[i];
+    return mList[i];
+}
+
+void Users::insertUser(int index, const User &user)
+{
+    mList.insert(index, user);
+}
+
+void Users::appendUser(const User &user)
+{
+    mList.append(user);
+}
+
+void Users::parseUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
+{
+    parseFirstPageCounters(obj);
+    parseListUsers(obj, type, roleInfo);
 }
 
 void Users::parseMoreUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
 {
-    const int usersCount = obj["count"_L1].toInt();
-    mOffset = obj["offset"_L1].toInt();
-    mTotal = obj["total"_L1].toInt();
+    parseNextPageCounters(obj);
     parseListUsers(obj, type, roleInfo);
-    mUsersCount += usersCount;
 }
 
 void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
 {
-    QString parseTypeStr;
+    QLatin1StringView arrayKey;
     switch (type) {
     case ParseType::UserInRoles:
     case ParseType::Administrator:
-        parseTypeStr = u"users"_s;
+        arrayKey = QLatin1StringView("users");
         break;
     case ParseType::Directory:
-        parseTypeStr = u"result"_s;
+        arrayKey = QLatin1StringView("result");
         break;
     }
 
-    const QJsonArray adminRoomsArray = obj[parseTypeStr].toArray();
-    mUsers.reserve(mUsers.count() + adminRoomsArray.count());
-    for (const auto &current : adminRoomsArray) {
+    const QJsonArray usersArray = obj[arrayKey].toArray();
+    mList.reserve(mList.count() + usersArray.count());
+    for (const QJsonValue &current : usersArray) {
         if (current.type() == QJsonValue::Object) {
-            mUsers.emplace_back().parseUserRestApi(current.toObject(), roleInfo);
+            mList.emplace_back().parseUserRestApi(current.toObject(), roleInfo);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing Users" << current;
         }
     }
 }
 
-int Users::usersCount() const
-{
-    return mUsersCount;
-}
-
-void Users::setUsersCount(int count)
-{
-    mUsersCount = count;
-}
-
-void Users::insertUser(int index, const User &user)
-{
-    mUsers.insert(index, user);
-}
-
-void Users::appendUser(const User &user)
-{
-    mUsers.append(user);
-}
-
-QList<User> Users::users() const
-{
-    return mUsers;
-}
-
-void Users::setUsers(const QList<User> &rooms)
-{
-    mUsers = rooms;
-}
-
-void Users::parseUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo)
-{
-    mUsersCount = obj["count"_L1].toInt();
-    mOffset = obj["offset"_L1].toInt();
-    mTotal = obj["total"_L1].toInt();
-    mUsers.clear();
-    parseListUsers(obj, type, roleInfo);
-}
-
-int Users::offset() const
-{
-    return mOffset;
-}
-
-void Users::setOffset(int offset)
-{
-    mOffset = offset;
-}
-
-int Users::total() const
-{
-    return mTotal;
-}
-
-void Users::setTotal(int total)
-{
-    mTotal = total;
-}
-
-User Users::takeAt(int index)
-{
-    return mUsers.takeAt(index);
-}
-
 QDebug operator<<(QDebug d, const Users &t)
 {
     d.space() << "total " << t.total();
     d.space() << "offset " << t.offset();
-    d.space() << "usersCount " << t.usersCount() << "\n";
-    const auto list = t.users();
-    for (int i = 0, total = list.count(); i < total; ++i) {
-        d.space() << list.at(i) << "\n";
+    d.space() << "usersCount " << t.loadedCount() << "\n";
+    for (const User &user : t.list()) {
+        d.space() << user << "\n";
     }
     return d;
 }

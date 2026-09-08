@@ -7,10 +7,14 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "paginatedinfolist.h"
 #include "user.h"
-#include <QList>
 class QDebug;
-class LIBRUQOLACORE_EXPORT Users
+
+// User::parseUserRestApi() also needs the server's role list, which PaginatedInfoList knows
+// nothing about, so the elements are parsed by parseListUsers() below rather than by
+// PaginatedInfoList::parseElements().
+class LIBRUQOLACORE_EXPORT Users : public PaginatedInfoList<User, &User::parseUserRestApi>
 {
 public:
     enum class ParseType : uint8_t {
@@ -18,41 +22,17 @@ public:
         Administrator,
         Directory,
     };
-    Users();
-
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] User at(int index) const;
 
     [[nodiscard]] User &operator[](int i);
 
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
-
-    User takeAt(int index);
-
     void parseUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo);
     void parseMoreUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo);
-
-    [[nodiscard]] QList<User> users() const;
-    void setUsers(const QList<User> &rooms);
-
-    [[nodiscard]] int usersCount() const;
-    void setUsersCount(int adminroomsCount);
 
     void insertUser(int index, const User &user);
     void appendUser(const User &user);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseListUsers(const QJsonObject &obj, ParseType type, const QList<RoleInfo> &roleInfo);
-    QList<User> mUsers;
-    int mUsersCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(Users, Ruqola_Users, LIBRUQOLACORE_EXPORT)

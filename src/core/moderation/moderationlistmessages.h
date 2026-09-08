@@ -16,5 +16,5 @@ public:
     ~ModerationListMessages() override;
 
 protected:
-    void parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName) override;
+    void parseMessagesList(const QJsonObject &messagesObj, QLatin1StringView arrayName) override;
 };

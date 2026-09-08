@@ -8,39 +8,22 @@
 #include "libruqola_private_export.h"
 
 #include "messages/message.h"
+#include "paginatedinfolist.h"
 class QDebug;
-using namespace Qt::Literals::StringLiterals;
-class LIBRUQOLACORE_TESTS_EXPORT ListMessages
+
+// Message::parseMessage() takes more than the element's json object, and a subclass may pick the
+// elements apart differently, so the elements go through parseMessagesList() below rather than
+// through PaginatedInfoList::parseElements().
+class LIBRUQOLACORE_TESTS_EXPORT ListMessages : public PaginatedInfoList<Message, &Message::parseMessage>
 {
 public:
     ListMessages();
     virtual ~ListMessages();
-    void parseMessages(const QJsonObject &messagesObj, const QString &arrayName = u"messages"_s);
 
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
-
-    [[nodiscard]] int messagesCount() const;
-    void setMessagesCount(int listMessagesCount);
-
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] Message at(int index) const;
-    [[nodiscard]] QList<Message> listMessages() const;
+    void parseMessages(const QJsonObject &messagesObj, QLatin1StringView arrayName = QLatin1StringView("messages"));
 
 protected:
-    virtual void parseMessagesList(const QJsonObject &messagesObj, const QString &arrayName);
-    QList<Message> mListMessages;
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseListInfo(const QJsonObject &messagesObj);
-    int mMessagesCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
+    virtual void parseMessagesList(const QJsonObject &messagesObj, QLatin1StringView arrayName);
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(ListMessages, Ruqola_ListMessages, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ListMessages &t);

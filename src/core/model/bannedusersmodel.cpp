@@ -20,7 +20,7 @@ BannedUsersModel::~BannedUsersModel()
 
 void BannedUsersModel::checkFullList()
 {
-    setHasFullList(mBannedUsers->bannedUsers().count() == mBannedUsers->total());
+    setHasFullList(mBannedUsers->list().count() == mBannedUsers->total());
 }
 
 bool BannedUsersModel::loadMoreBannedUsersInProgress() const
@@ -103,7 +103,7 @@ void BannedUsersModel::setRoomId(const QByteArray &roomId)
 void BannedUsersModel::setBannedUsers(QList<BannedUser> users)
 {
     beginResetModel();
-    mBannedUsers->setBannedUsers(std::move(users));
+    mBannedUsers->setList(std::move(users));
     endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
@@ -115,16 +115,16 @@ int BannedUsersModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    return mBannedUsers->bannedUsers().count();
+    return mBannedUsers->list().count();
 }
 
 QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mBannedUsers->bannedUsers().count()) {
+    if (index.row() < 0 || index.row() >= mBannedUsers->list().count()) {
         return {};
     }
 
-    const BannedUser user = mBannedUsers->bannedUsers().at(index.row());
+    const BannedUser user = mBannedUsers->list().at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case BannedUserRoles::Name:

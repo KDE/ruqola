@@ -8,86 +8,11 @@
 
 #include "ruqola_debug.h"
 
-#include <QJsonArray>
-#include <QJsonObject>
-
 using namespace Qt::Literals::StringLiterals;
-CustomUserStatuses::CustomUserStatuses() = default;
 
-void CustomUserStatuses::parseCustomUserStatuses(const QJsonObject &customStatusObj)
+void CustomUserStatuses::parseCustomUserStatuses(const QJsonObject &obj)
 {
-    mCustomUserCount = customStatusObj["count"_L1].toInt();
-    mOffset = customStatusObj["offset"_L1].toInt();
-    mTotal = customStatusObj["total"_L1].toInt();
-    mCustomUserStatusList.clear();
-    parseListCustomUserStatuses(customStatusObj);
-}
-
-void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customStatusObj)
-{
-    const QJsonArray customsUserArray = customStatusObj["statuses"_L1].toArray();
-    mCustomUserStatusList.reserve(mCustomUserStatusList.count() + customsUserArray.count());
-    for (const auto &current : customsUserArray) {
-        if (current.type() == QJsonValue::Object) {
-            mCustomUserStatusList.emplace_back().parseCustomStatus(current.toObject());
-        } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing customStatusUser" << current;
-        }
-    }
-}
-
-bool CustomUserStatuses::isEmpty() const
-{
-    return mCustomUserStatusList.isEmpty();
-}
-
-void CustomUserStatuses::clear()
-{
-    mCustomUserStatusList.clear();
-}
-
-int CustomUserStatuses::count() const
-{
-    return mCustomUserStatusList.count();
-}
-
-CustomUserStatus CustomUserStatuses::at(int index) const
-{
-    if (index < 0 || index >= mCustomUserStatusList.count()) {
-        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return {};
-    }
-    return mCustomUserStatusList.at(index);
-}
-
-int CustomUserStatuses::offset() const
-{
-    return mOffset;
-}
-
-void CustomUserStatuses::setOffset(int offset)
-{
-    mOffset = offset;
-}
-
-int CustomUserStatuses::total() const
-{
-    return mTotal;
-}
-
-void CustomUserStatuses::setTotal(int total)
-{
-    mTotal = total;
-}
-
-QList<CustomUserStatus> CustomUserStatuses::customUserStatusList() const
-{
-    return mCustomUserStatusList;
-}
-
-void CustomUserStatuses::setCustomUserStatusList(const QList<CustomUserStatus> &customUserses)
-{
-    mCustomUserStatusList = customUserses;
+    parseInfos(obj, "statuses"_L1);
 }
 
 void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
@@ -98,9 +23,9 @@ void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
         if (!customStatusObj.isEmpty()) {
             if (customStatusObj.contains("_id"_L1)) {
                 const QByteArray identifier = customStatusObj.value("_id"_L1).toString().toLatin1();
-                for (const CustomUserStatus &status : std::as_const(mCustomUserStatusList)) {
+                for (const CustomUserStatus &status : std::as_const(mList)) {
                     if (status.identifier() == identifier) {
-                        mCustomUserStatusList.removeOne(status);
+                        mList.removeOne(status);
                         break;
                     }
                 }
@@ -125,7 +50,7 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
                 //=> update otherwise add
                 bool found = false;
                 const QByteArray identifier = customStatusObj.value("_id"_L1).toString().toLatin1();
-                for (CustomUserStatus &status : mCustomUserStatusList) {
+                for (CustomUserStatus &status : mList) {
                     if (status.identifier() == identifier) {
                         status.parseCustomStatus(customStatusObj);
                         found = true;
@@ -137,7 +62,7 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
                     CustomUserStatus newStatus;
                     newStatus.parseCustomStatus(customStatusObj, false);
                     if (newStatus.isValid()) {
-                        mCustomUserStatusList.append(std::move(newStatus));
+                        mList.append(std::move(newStatus));
                     }
                 }
             } else {
@@ -154,9 +79,8 @@ QDebug operator<<(QDebug d, const CustomUserStatuses &t)
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
     d.space() << "customStatus Count" << t.count() << "\n";
-    const auto list = t.customUserStatusList();
-    for (int i = 0, total = list.count(); i < total; ++i) {
-        d.space() << list.at(i) << "\n";
+    for (const CustomUserStatus &status : t.list()) {
+        d.space() << status << "\n";
     }
     return d;
 }

@@ -8,42 +8,14 @@
 
 #include "deviceinfo.h"
 #include "libruqolacore_export.h"
-#include <QList>
+#include "paginatedinfolist.h"
 class QDebug;
 
-class LIBRUQOLACORE_EXPORT DeviceInfos
+class LIBRUQOLACORE_EXPORT DeviceInfos : public PaginatedInfoList<DeviceInfo, &DeviceInfo::parseDeviceInfo>
 {
 public:
-    DeviceInfos();
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int newOffset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int newTotal);
-
-    [[nodiscard]] int deviceInfosCount() const;
-    void setDeviceInfosCount(int newDeviceInfosCount);
-
-    [[nodiscard]] const QList<DeviceInfo> &deviceInfosList() const;
-    void setDeviceInfosList(const QList<DeviceInfo> &newDeviceInfosList);
-
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] DeviceInfo at(int index) const;
-
-    void parseDeviceInfos(const QJsonObject &discussionsObj);
-    void parseMoreDeviceInfos(const QJsonObject &deviceInfosObj);
-
-    DeviceInfo takeAt(int index);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseDeviceInfosObj(const QJsonObject &discussionsObj);
-    QList<DeviceInfo> mDeviceInfosList;
-    int mDeviceInfosCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
+    void parseDeviceInfos(const QJsonObject &obj);
+    void parseMoreDeviceInfos(const QJsonObject &obj);
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(DeviceInfos, Ruqola_DeviceInfos, LIBRUQOLACORE_EXPORT)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const DeviceInfos &t);

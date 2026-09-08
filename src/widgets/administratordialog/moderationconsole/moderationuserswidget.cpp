@@ -44,7 +44,7 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
         html += u"<br/>"_s;
     }
 
-    const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.moderationReportUserInfosList();
+    const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.list();
     QLocale l;
     int i = 1;
     for (const auto &info : moderationReportUserInfosList) {

@@ -21,7 +21,7 @@ void FileAttachmentsTest::shouldHaveDefaultValues()
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);
-    QCOMPARE(w.filesCount(), 0);
+    QCOMPARE(w.loadedCount(), 0);
 }
 
 // TODO implement it

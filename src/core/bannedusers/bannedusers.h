@@ -8,43 +8,17 @@
 
 #include "banneduser.h"
 #include "libruqola_private_export.h"
-#include <QList>
+#include "paginatedinfolist.h"
 class QDebug;
-class LIBRUQOLACORE_TESTS_EXPORT BannedUsers
+
+class LIBRUQOLACORE_TESTS_EXPORT BannedUsers : public PaginatedInfoList<BannedUser, &BannedUser::parseBannedUser>
 {
 public:
-    BannedUsers();
+    void parseBannedUsers(const QJsonObject &obj);
+    void parseMoreBannedUsers(const QJsonObject &obj);
 
-    [[nodiscard]] bool isEmpty() const;
-    void clear();
-    [[nodiscard]] int count() const;
-    [[nodiscard]] BannedUser at(int index) const;
-
-    [[nodiscard]] int offset() const;
-    void setOffset(int offset);
-
-    [[nodiscard]] int total() const;
-    void setTotal(int total);
-
-    void parseBannedUsers(const QJsonObject &commandsObj);
-    void parseMoreBannedUsers(const QJsonObject &commandsObj);
-
-    [[nodiscard]] QList<BannedUser> bannedUsers() const;
-    void setBannedUsers(QList<BannedUser> commands);
-
-    [[nodiscard]] int bannedUsersCount() const;
-    void setBannedUsersCount(int commandsCount);
-
-    [[nodiscard]] bool operator==(const BannedUsers &other) const;
-
+    // Unbanning a user removes them from the server side too, so the total shrinks with the list.
     BannedUser takeAt(int index);
-
-private:
-    LIBRUQOLACORE_NO_EXPORT void parseListBannedUsers(const QJsonObject &commandsObj);
-    QList<BannedUser> mBannedUsers;
-    int mBannedUsersCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(BannedUsers, Ruqola_BannedUsers, LIBRUQOLACORE_EXPORT)

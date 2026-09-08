@@ -22,7 +22,7 @@ void DeviceInfosTest::shouldHaveDefaultValues()
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);
-    QCOMPARE(w.deviceInfosCount(), 0);
+    QCOMPARE(w.loadedCount(), 0);
 }
 
 void DeviceInfosTest::shouldLoadDeviceInfos_data()
@@ -73,10 +73,10 @@ void DeviceInfosTest::shouldLoadDeviceInfos()
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     DeviceInfos m;
     m.parseDeviceInfos(obj);
-    QCOMPARE(m.deviceInfosCount(), deviceInfosCount);
+    QCOMPARE(m.loadedCount(), deviceInfosCount);
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
-    QCOMPARE(m.deviceInfosList(), deviceInfo);
+    QCOMPARE(m.list(), deviceInfo);
 }
 
 #include "moc_deviceinfostest.cpp"
