@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT VideoConference
 {

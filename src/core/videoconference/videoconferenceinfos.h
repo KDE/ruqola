@@ -10,7 +10,7 @@
 #include "videoconferenceinfo.h"
 #include <QList>
 class QDebug;
-
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT VideoConferenceInfos
 {
 public:
