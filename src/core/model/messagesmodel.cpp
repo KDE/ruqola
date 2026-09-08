@@ -545,7 +545,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
         if (message.attachments()) {
             auto attachments = message.attachments()->messageAttachments();
             for (int i = 0, total = attachments.count(); i < total; ++i) {
-                const MessageAttachment att = attachments.at(i);
+                const MessageAttachment &att = attachments.at(i);
                 if (att.attachmentId() == visibility.elementId) {
                     MessageAttachment changeAttachment = attachments.takeAt(i);
                     changeAttachment.setShowAttachment(visibility.show);
@@ -567,7 +567,7 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
         if (message.urls()) {
             auto urls = message.urls()->messageUrls();
             for (int i = 0, total = urls.count(); i < total; ++i) {
-                const MessageUrl att = urls.at(i);
+                const MessageUrl &att = urls.at(i);
                 if (att.urlId() == visibility.elementId) {
                     MessageUrl changeUrlPreview = urls.takeAt(i);
                     changeUrlPreview.setShowPreview(visibility.show);

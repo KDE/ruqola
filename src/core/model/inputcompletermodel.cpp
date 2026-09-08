@@ -67,7 +67,7 @@ void InputCompleterModel::setDefaultUserCompletion()
     customCompletion.append(createHereChannel());
     customCompletion.append(createAllChannel());
 
-    setChannels(customCompletion);
+    setChannels(std::move(customCompletion));
 }
 
 void InputCompleterModel::setChannels(QList<ChannelUserCompleter> channels)
