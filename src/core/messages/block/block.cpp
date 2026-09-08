@@ -257,9 +257,9 @@ Block Block::deserialize(const QJsonObject &o)
     block.setAppId(o["appId"_L1].toString());
     block.setBlockType(Block::convertBlockTypeToEnum(o["type"_L1].toString()));
     block.setSectionText(o["sectionText"_L1].toString());
-    const VideoConferenceInfo info = VideoConferenceInfo::deserialize(o["videoconferenceinfo"_L1].toObject());
+    VideoConferenceInfo info = VideoConferenceInfo::deserialize(o["videoconferenceinfo"_L1].toObject());
     if (info.isValid()) {
-        block.mVideoConferenceInfo = info;
+        block.mVideoConferenceInfo = std::move(info);
     } else {
         qCWarning(RUQOLA_LOG) << "info is invalid " << info;
     }

@@ -59,7 +59,7 @@ void VideoConferenceMessageInfoManager::updateVideoConferenceInfo(const QString 
         info.parse(videoConfObj);
         UpdateVideoConferenceMessageJob *job = new UpdateVideoConferenceMessageJob(this);
         job->setRocketChatAccount(mRocketChatAccount);
-        job->setVideoConferenceInfo(info);
+        job->setVideoConferenceInfo(std::move(info));
         job->start();
     });
     if (!conferenceInfoJob->start()) {

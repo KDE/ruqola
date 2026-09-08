@@ -52,7 +52,7 @@ public:
     [[nodiscard]] bool operator==(const VideoConferenceInfo &other) const;
 
     [[nodiscard]] QList<User> users() const;
-    void setUsers(const QList<User> &newUsers);
+    void setUsers(QList<User> newUsers);
 
     [[nodiscard]] QString statusInformation() const;
 

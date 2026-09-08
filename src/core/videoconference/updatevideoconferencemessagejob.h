@@ -20,7 +20,7 @@ public:
     void start();
 
     [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
-    void setVideoConferenceInfo(const VideoConferenceInfo &newVideoConferenceInfo);
+    void setVideoConferenceInfo(VideoConferenceInfo newVideoConferenceInfo);
 
     [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);

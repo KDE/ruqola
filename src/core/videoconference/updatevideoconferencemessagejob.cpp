@@ -53,9 +53,9 @@ VideoConferenceInfo UpdateVideoConferenceMessageJob::videoConferenceInfo() const
     return mVideoConferenceInfo;
 }
 
-void UpdateVideoConferenceMessageJob::setVideoConferenceInfo(const VideoConferenceInfo &newVideoConferenceInfo)
+void UpdateVideoConferenceMessageJob::setVideoConferenceInfo(VideoConferenceInfo newVideoConferenceInfo)
 {
-    mVideoConferenceInfo = newVideoConferenceInfo;
+    mVideoConferenceInfo = std::move(newVideoConferenceInfo);
 }
 
 RocketChatAccount *UpdateVideoConferenceMessageJob::rocketChatAccount() const

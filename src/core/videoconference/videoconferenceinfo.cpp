@@ -170,9 +170,9 @@ QList<User> VideoConferenceInfo::users() const
     return mUsers;
 }
 
-void VideoConferenceInfo::setUsers(const QList<User> &newUsers)
+void VideoConferenceInfo::setUsers(QList<User> newUsers)
 {
-    mUsers = newUsers;
+    mUsers = std::move(newUsers);
 }
 
 QString VideoConferenceInfo::providerName() const
