@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:44+0000\n"
+"POT-Creation-Date: 2026-09-08 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1386,17 +1386,17 @@ msgstr "Súkromné adresy"
 msgid "Notify all in this room"
 msgstr "Upozorniť všetkých v tejto miestnosti"
 
-#: core/model/messagesmodel.cpp:288
+#: core/model/messagesmodel.cpp:297
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Upravené o %1 používateľom %2"
 
-#: core/model/messagesmodel.cpp:508
+#: core/model/messagesmodel.cpp:517
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignored Message"
 
-#: core/model/messagesmodel.cpp:518
+#: core/model/messagesmodel.cpp:527
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Only môžete see this message"
@@ -2224,17 +2224,17 @@ msgstr[0] "%v second"
 msgstr[1] "%v seconds"
 msgstr[2] "%v seconds"
 
-#: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:200
+#: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:190
 #, kde-format
 msgid "License not authorized it."
 msgstr "Licencia to nepovoľuje."
 
-#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
+#: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:77
 #, kde-format
 msgid "Invalid Parameters"
 msgstr "Neplatné argumenty"
 
-#: rocketchatrestapi-qt/channels/channelinvitejob.cpp:112
+#: rocketchatrestapi-qt/channels/channelinvitejob.cpp:106
 #, kde-format
 msgid "User is banned from this room"
 msgstr "Používateľ je v tejto miestnosti zablokovaný"
@@ -2249,82 +2249,82 @@ msgstr "Zadaný požadovaný parameter „%1” nezodpovedá žiadnemu kanálu"
 msgid "The room required a password."
 msgstr "Miestnosť vyžaduje heslo."
 
-#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:51
+#: rocketchatrestapi-qt/channels/channelmembersjob.cpp:46
 #, kde-format
 msgid "Get Members not authorized in this room"
 msgstr "Získanie členov nie je v tejto miestnosti autorizované"
 
-#: rocketchatrestapi-qt/channels/channelopenjob.cpp:79
+#: rocketchatrestapi-qt/channels/channelopenjob.cpp:73
 #, kde-format
 msgid "The required channel is not found."
 msgstr "Požadovaný kanál sa nenašiel."
 
-#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:103
+#: rocketchatrestapi-qt/channels/channelremovemoderatorjob.cpp:97
 #, kde-format
 msgid "User is not a moderator."
 msgstr "Používateľ nie je moderátor."
 
-#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:103
+#: rocketchatrestapi-qt/channels/channelremoveownerjob.cpp:97
 #, kde-format
 msgid "User is not an owner."
 msgstr "Používateľ nie je vlastníkom."
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:62
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:56
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "Kanál s názvom „%1” už existuje"
 
-#: rocketchatrestapi-qt/channels/createchanneljob.cpp:64
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:66
+#: rocketchatrestapi-qt/channels/createchanneljob.cpp:58
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:60
 #, kde-format
 msgid "'%1' is not a valid room name"
 msgstr "„%1“ nie je platný názov miestnosti"
 
-#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:81
+#: rocketchatrestapi-qt/channels/getchannelrolesjob.cpp:76
 #: rocketchatrestapi-qt/groups/getgrouprolesjob.cpp:68
 #, kde-format
 msgid "Extract Roles"
 msgstr "Extract Roles"
 
-#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:118
+#: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
 msgid "Message deletion is not allowed."
 msgstr "Vymazanie správy nie je povolené."
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:105
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:100
 #, kde-format
 msgid "Not allowed to get message %1"
 msgstr "Nie je povolené získať správu %1"
 
-#: rocketchatrestapi-qt/chat/getmessagejob.cpp:107
+#: rocketchatrestapi-qt/chat/getmessagejob.cpp:102
 #, kde-format
 msgid "Not allowed to get message %2 in room %1"
 msgstr "Nie je povolené získať správu %2 v miestnosti %1"
 
-#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:95
+#: rocketchatrestapi-qt/chat/getthreadmessagesjob.cpp:90
 #, kde-format
 msgid "Invalid message: '%1'"
 msgstr "Invalid message: '%1'"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:141
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:135
 #, kde-format
 msgid "This room is blocked"
 msgstr "Táto miestnosť je zablokovaná"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:143
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:137
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
 msgstr "Boli ste stlmený a nemôžete hovoriť v tejto miestnosti"
 
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:145
-#: rocketchatrestapi-qt/chat/postmessagejob.cpp:153
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:139
+#: rocketchatrestapi-qt/chat/postmessagejob.cpp:147
 #, kde-format
 msgid "Invalid channel"
 msgstr "Neplatný kanál."
 
-#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:125
+#: rocketchatrestapi-qt/chat/reactonmessagejob.cpp:119
 #, kde-format
 msgid "Invalid emoji provided."
 msgstr "Zadaná neplatná emodži."
@@ -2358,174 +2358,174 @@ msgid "The custom emoji or one of its aliases is already in use."
 msgstr "The custom emoji or jedna z its aliases is already in use."
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:411
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:423
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
 msgstr ""
 "Toto je the last owner. Please set a new owner before removing this one."
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:140
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:134
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "Generovanie odkazu nie je v tomto kanáli autorizované."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:225
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:237
 #, kde-format
 msgid "Unauthorized"
 msgstr "Neautorizovaný"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:243
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:251
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:263
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "„%1“ nie je povolené"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:253
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:265
 #, kde-format
 msgid "Application not found"
 msgstr "Aplikácia nenájdená"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:256
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "Existuje archivovaný kanál s názvom „%1”"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:258
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 #, kde-format
 msgid "Can't invite user to direct rooms"
 msgstr "Používateľa nie je možné pozvať do priamych miestností"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:260
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr "Predvolené nastavenie kanála je rovnaké ako to, na čo by sa zmenilo."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:262
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 #, kde-format
 msgid "The bodyParam 'default' is required"
 msgstr "Parameter tela „default” je povinný"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:264
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 #, kde-format
 msgid "Could not change email"
 msgstr "Nepodarilo sa zmeniť e-mailovú adresu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 #, kde-format
 msgid "Could not change name"
 msgstr "Nepodarilo sa zmeniť názov"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 #, kde-format
 msgid "Could not change username"
 msgstr "Nepodarilo sa zmeniť meno používateľa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 #, kde-format
 msgid "Cannot delete a protected role"
 msgstr "Chránenú rolu nie je možné vymazať"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
 #, kde-format
 msgid "Department not found"
 msgstr "Oddelenie sa nenašlo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 #, kde-format
 msgid "File sharing not allowed in direct messages"
 msgstr "Zdieľanie súborov v priamych správach nie je povolené"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 #, kde-format
 msgid "Editing permissions is not allowed"
 msgstr "Úprava oprávnení nie je povolená"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 #, kde-format
 msgid "The email domain is blacklisted"
 msgstr "Doména e-mailu je na čiernej listine"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Chyba pri pokuse o odoslanie e-mailu: %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "„%1” sa už používa :("
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 #, kde-format
 msgid "File is too large"
 msgstr "Súbor je príliš veľký"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 #, kde-format
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "Importér nebol definovaný správne, chýba mu trieda Import."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 #, kde-format
 msgid "Failed to extract import file."
 msgstr "Nepodarilo sa extract import file."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #, kde-format
 msgid "Imported file seems to be empty."
 msgstr "Importovaný súbor sa zdá byť prázdny."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
 msgstr "Súbor, ktorý sa má importovať, sa nenašiel na zadanej ceste."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "%1 nie je platné %2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 #, kde-format
 msgid "Invalid action link"
 msgstr "Invalid action link"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 #, kde-format
 msgid "Invalid Account"
 msgstr "Neplatný účet"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 #, kde-format
 msgid "Invalid arguments"
 msgstr "Neplatné argumenty"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 #, kde-format
 msgid "Invalid asset"
 msgstr "Invalid asset"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid channel."
 msgstr "Neplatný kanál."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
 msgstr "Neplatný kanál. Začnite s @ alebo #"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 #, kde-format
 msgid "Invalid custom field"
 msgstr "Invalid custom field"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 #, kde-format
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
@@ -2534,183 +2534,183 @@ msgstr ""
 "Neplatný názov vlastného poľa. Používajte iba písmená, číslice, pomlčky a "
 "podčiarkovníky."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 #, kde-format
 msgid "Invalid date provided."
 msgstr "Invalid date provided."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 #, kde-format
 msgid "Invalid description"
 msgstr "Invalid description"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid domain"
 msgstr "Invalid domain"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "Invalid email '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
 #, kde-format
 msgid "Invalid email address"
 msgstr "Neplatná e-mailová adresa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
 #, kde-format
 msgid "Invalid file height"
 msgstr "Invalid file height"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
 #, kde-format
 msgid "Invalid file type"
 msgstr "Invalid file type"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
 #, kde-format
 msgid "Invalid file width"
 msgstr "Invalid file width"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 #, kde-format
 msgid "You informed an invalid FROM address."
 msgstr "Zadali ste neplatnú adresu odosielateľa."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 #, kde-format
 msgid "Invalid integration"
 msgstr "Invalid integration"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
 #, kde-format
 msgid "Invalid message"
 msgstr "Invalid message"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
 #, kde-format
 msgid "Invalid method"
 msgstr "Invalid method"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
 #, kde-format
 msgid "Invalid name"
 msgstr "Neplatný názov"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
 #, kde-format
 msgid "Invalid password"
 msgstr "Neplatné heslo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
 #, kde-format
 msgid "Invalid permission"
 msgstr "Invalid permission"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
 #, kde-format
 msgid "Invalid redirectUri"
 msgstr "Invalid redirectUri"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
 #, kde-format
 msgid "Invalid role"
 msgstr "Neplatné pravidlo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
-#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:187
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:181
 #, kde-format
 msgid "Invalid room"
 msgstr "Invalid room"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "„%1” nie je platný typ miestnosti."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
 #, kde-format
 msgid "Invalid settings provided"
 msgstr "Invalid settings provided"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
 #, kde-format
 msgid "Invalid subscription"
 msgstr "Invalid subscription"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
 #, kde-format
 msgid "Invalid token"
 msgstr "Invalid token"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:368
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
 #, kde-format
 msgid "Invalid triggerWords"
 msgstr "Invalid triggerWords"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:370
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
 #, kde-format
 msgid "Invalid URLs"
 msgstr "Invalid URLs"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
 #, kde-format
 msgid "Invalid user"
 msgstr "Invalid user"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
 #, kde-format
 msgid "Invalid username"
 msgstr "Invalid username"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
 msgstr "URL adresa webhooku odpovedala stavom iným ako 200"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
 #, kde-format
 msgid "Message deleting is blocked"
 msgstr "Vymazávanie správ je zablokované"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
 #, kde-format
 msgid "Message editing is blocked"
 msgstr "Úprava správ je zablokovaná"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
 #, kde-format
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Message size exceeds Message_MaxAllowedSize"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
 #, kde-format
 msgid "You must provide the [unsubscribe] link."
 msgstr "Musíte poskytnúť odkaz [odhlásiť sa]."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
 #, kde-format
 msgid "There are no tokens for this user"
 msgstr "Pre tohto používateľa neexistujú žiadne tokeny"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
 #, kde-format
 msgid "Not allowed"
 msgstr "Nepovolené"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
 #, kde-format
 msgid "Not authorized"
 msgstr "Nemá oprávnenie"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
 #, kde-format
 msgid "Password does not meet the server's policy"
 msgstr "Heslo nespĺňa zásady servera"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:406
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
@@ -2719,7 +2719,7 @@ msgstr ""
 "Heslo nespĺňa zásady servera týkajúce sa maximálnej dĺžky (heslo je príliš "
 "dlhé)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:408
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
@@ -2728,34 +2728,34 @@ msgstr ""
 "Heslo nespĺňa zásady servera týkajúce sa minimálnej dĺžky (heslo je príliš "
 "krátke)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
 msgstr "Heslo nespĺňa požiadavku servera mať aspoň jeden malý znak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr "Heslo nespĺňa požiadavku servera mať aspoň jeden číselný znak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr "Heslo nespĺňa požiadavku servera na aspoň jeden špeciálny znak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
 msgstr "Heslo nespĺňa požiadavku servera na aspoň jeden veľký znak"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:407
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
@@ -2764,57 +2764,57 @@ msgstr ""
 "Heslo nespĺňa požiadavku servera zakazujúcu opakujúce sa znaky (máte príliš "
 "veľa rovnakých znakov vedľa seba)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:409
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
 #, kde-format
 msgid "Push is disabled"
 msgstr "Push upozornenia sú deaktivované"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:413
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:425
 #, kde-format
 msgid "Cannot delete role because it's in use"
 msgstr "Rolu nie je možné vymazať, pretože sa používa"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:415
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:427
 #, kde-format
 msgid "Role name is required"
 msgstr "Názov roly je povinný"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:417
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:429
 #, kde-format
 msgid "Room is not closed"
 msgstr "Miestnosť nie je zatvorená"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
 #, kde-format
 msgid "The room already has an end-to-end encryption key ID"
 msgstr "Miestnosť už má ID kľúča koncového šifrovania"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:422
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "Pole „%1” je povinné."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:424
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
 #, kde-format
 msgid "This is not a Livechat room"
 msgstr "Toto je not a Livechat room"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:426
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Osobné prístupové tokeny sú momentálne deaktivované"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:428
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
 #, kde-format
 msgid "A token with this name already exists"
 msgstr "Token s týmto názvom už existuje"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:430
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
 #, kde-format
 msgid "Token does not exists"
 msgstr "Token neexistuje"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:433
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -2823,17 +2823,17 @@ msgstr ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
 "trying again."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:435
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
 #, kde-format
 msgid "User has no roles"
 msgstr "Používateľ nemá žiadne roly"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:437
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
 #, kde-format
 msgid "User is not activated"
 msgstr "Používateľ nie je aktivovaný"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:439
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
 #, kde-format
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
@@ -2842,90 +2842,90 @@ msgstr ""
 "Počet používateľov, ktorých sa pokúšate pozvať do #channel_name, prekračuje "
 "limit nastavený správcom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:441
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
 #, kde-format
 msgid "User is not in this room"
 msgstr "Používateľ nie je v tejto miestnosti"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:443
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
 #, kde-format
 msgid "You are not in the room `%s`"
 msgstr "Nie ste v miestnosti `%s`"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
 #, kde-format
 msgid "User registration is disabled"
 msgstr "Registrácia používateľov je deaktivovaná"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
 msgstr ""
 "Registrácia používateľa je povolená iba prostredníctvom tajnej URL adresy"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "Ste posledným vlastníkom. Pred opustením miestnosti nastavte nového "
 "vlastníka."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
 #, kde-format
 msgid "The private group is archived"
 msgstr "Súkromná skupina je archivovaná"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
 #, kde-format
 msgid "User is already an owner"
 msgstr "Používateľ je už vlastníkom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
 #, kde-format
 msgid "User is already a leader"
 msgstr "Používateľ je už vedúci"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
 #, kde-format
 msgid "User is already a moderator"
 msgstr "Používateľ je už moderátor"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
 #, kde-format
 msgid "Invalid message id"
 msgstr "Neplatné ID správy"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
 #, kde-format
 msgid "User is not a leader"
 msgstr "Používateľ nie je vedúci"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
 #, kde-format
 msgid "App user is not allowed to login"
 msgstr "Používateľ aplikácie sa nemôže prihlásiť"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
 #, kde-format
 msgid "Direct Messages can not be archived"
 msgstr "Priame správy nie je možné archivovať"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
 #, kde-format
 msgid "Message not found."
 msgstr "Správa sa nenašla."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
 #, kde-format
 msgid "Two Authentication Password Required"
 msgstr "Autentifikačná metóda"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:483
 #, kde-format
 msgid "Invalid Password"
 msgstr "Neplatné heslo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:485
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -2934,82 +2934,82 @@ msgstr ""
 "Zadaný požadovaný parameter \\\"roomId\\\" alebo \\\"roomName\\\" "
 "nezodpovedá žiadnemu kanálu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:487
 #, kde-format
 msgid "A role with this name already exists"
 msgstr "Rola s týmto názvom už existuje"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:489
 #, kde-format
 msgid "Message could not be pinned"
 msgstr "Súkromné adresy"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:491
 #, kde-format
 msgid "Entered password has been previously used"
 msgstr "Zadané heslo bolo predtým použité"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:493
 #, kde-format
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Bol dosiahnutý maximálny počet miestností na hosťa."
 
-#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:73
+#: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:68
 #, kde-format
 msgid "This user is not in this role."
 msgstr "Tento používateľ nemá túto rolu."
 
-#: rocketchatrestapi-qt/role/rolecreatejob.cpp:101
+#: rocketchatrestapi-qt/role/rolecreatejob.cpp:96
 #, kde-format
 msgid "This is an enterprise feature"
 msgstr "Toto je an enterprise feature"
 
-#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:65
+#: rocketchatrestapi-qt/rooms/roomfavoritejob.cpp:59
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "Neplatné predplatné"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:71
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:65
 #, kde-format
 msgid "Only groups or direct channels can enable encryption"
 msgstr "Šifrovanie môžu aktivovať iba skupiny alebo priame kanály"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:73
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:67
 #, kde-format
 msgid "Editing room is not allowed"
 msgstr "Úprava miestnosti nie je povolená"
 
-#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:75
+#: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
 #, kde-format
 msgid "Changing room type is not allowed"
 msgstr "Zmena typu miestnosti nie je povolená"
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:64
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:58
 #, kde-format
 msgid "Unread message not authorized."
 msgstr "Neprečítaná správa nie je autorizovaná."
 
-#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:66
+#: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:60
 #, kde-format
 msgid "There are no messages to mark unread."
 msgstr "Existujú no messages to mark unread."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:99
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:93
 #, kde-format
 msgid "Channel can not convert to Team."
 msgstr "Kanál sa nedá konvertovať na tím."
 
-#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:101
+#: rocketchatrestapi-qt/teams/channelsconverttoteamjob.cpp:95
 #, kde-format
 msgid "Team already exists."
 msgstr "Team already exists."
 
-#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:121
+#: rocketchatrestapi-qt/teams/teamaddroomsjob.cpp:115
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
 msgstr "Nemáte oprávnenie pridať tento kanál do tímu"
 
-#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:96
+#: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
 #, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
@@ -3023,37 +3023,37 @@ msgstr ""
 msgid "Get Avatar"
 msgstr "Get Avatar"
 
-#: rocketchatrestapi-qt/users/registeruserjob.cpp:74
+#: rocketchatrestapi-qt/users/registeruserjob.cpp:69
 #, kde-format
 msgid "Invalid Email '%1'."
 msgstr "Invalid Email '%1'."
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:114
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:109
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "Invalid avatar URL: %1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:118
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:113
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Chyba pri spracovaní nastavenia avatara z URL adresy „%1“ pre %2"
 
-#: rocketchatrestapi-qt/users/setstatusjob.cpp:140
+#: rocketchatrestapi-qt/users/setstatusjob.cpp:135
 #, kde-format
 msgid "Invisible status is disabled"
 msgstr "Neviditeľný stav je deaktivovaný"
 
-#: rocketchatrestapi-qt/users/userscreatejob.cpp:96
+#: rocketchatrestapi-qt/users/userscreatejob.cpp:91
 #, kde-format
 msgid "%1 is already in use."
 msgstr "%1 sa už používa."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:180
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:175
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Neplatné argumenty"
 
-#: rocketchatrestapi-qt/users/usersupdatejob.cpp:67
+#: rocketchatrestapi-qt/users/usersupdatejob.cpp:62
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr "Chyba pri pokuse o odoslanie e-mailu %1"
@@ -3613,7 +3613,7 @@ msgid "Dismiss All Reports"
 msgstr "Zamietnuť všetky hlásenia"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
-#: widgets/notificationhistory/notificationhistorylistview.cpp:97
+#: widgets/notificationhistory/notificationhistorylistview.cpp:104
 #: widgets/room/messagelistview.cpp:448
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
@@ -3622,7 +3622,7 @@ msgid "Copy Selection"
 msgstr "Kopírovať výber"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:85
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
+#: widgets/notificationhistory/notificationhistorylistview.cpp:106
 #: widgets/room/messagelistview.cpp:450
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, kde-format
@@ -3632,7 +3632,7 @@ msgstr "Kopírovať správu"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:97
 #: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:111
+#: widgets/notificationhistory/notificationhistorylistview.cpp:118
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -3643,7 +3643,7 @@ msgstr "Povedať text"
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
-#: widgets/notificationhistory/notificationhistorylistview.cpp:117
+#: widgets/notificationhistory/notificationhistorylistview.cpp:124
 #: widgets/room/messagelistview.cpp:481
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, kde-format
@@ -5656,7 +5656,7 @@ msgstr ""
 "both visible only for administrators."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:36
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:37
 #, kde-format
 msgid "TimeZone"
 msgstr "TimeZone"
@@ -10592,20 +10592,20 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Upozornenia"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:79
+#: widgets/notificationhistory/notificationhistorylistview.cpp:86
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:47
 #, kde-format
 msgctxt "@action"
 msgid "Clear"
 msgstr "Vyčistiť"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:85
+#: widgets/notificationhistory/notificationhistorylistview.cpp:92
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
 msgstr "Prepnúť na novú miestnosť"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:89
+#: widgets/notificationhistory/notificationhistorylistview.cpp:96
 #: widgets/room/messagelistview.cpp:843
 #, kde-format
 msgctxt "@action"
@@ -11995,7 +11995,7 @@ msgstr "&Pomocník"
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
-#: widgets/serverchecks/abstractservercheck.cpp:46
+#: widgets/serverchecks/abstractservercheck.cpp:47
 #, kde-format
 msgid "Timed out waiting for the server to answer."
 msgstr "Vypršal čas čakania na odpoveď servera."
@@ -12059,14 +12059,14 @@ msgstr "Pridať používateľa ako vedúceho"
 #: widgets/serverchecks/fileuploadcheck.cpp:31
 #: widgets/serverchecks/imagedescriptioncheck.cpp:37
 #: widgets/serverchecks/linkpreviewcheck.cpp:32
-#: widgets/serverchecks/pinmessagecheck.cpp:28
+#: widgets/serverchecks/pinmessagecheck.cpp:29
 #: widgets/serverchecks/quotemessagecheck.cpp:26
 #: widgets/serverchecks/reactioncheck.cpp:25
 #: widgets/serverchecks/removeleaderusercheck.cpp:19
 #: widgets/serverchecks/removemoderatorusercheck.cpp:19
 #: widgets/serverchecks/removeownerusercheck.cpp:19
 #: widgets/serverchecks/removeuserscheck.cpp:19
-#: widgets/serverchecks/searchmessagecheck.cpp:36
+#: widgets/serverchecks/searchmessagecheck.cpp:35
 #: widgets/serverchecks/sendmessagecheck.cpp:21
 #: widgets/serverchecks/threadreplycheck.cpp:22
 #, kde-format
@@ -12125,11 +12125,11 @@ msgstr "Nepodarilo sa pridať \"%1\": %2"
 msgid "Change channel announcement"
 msgstr "Zmeniť oznam kanála"
 
-#: widgets/serverchecks/announcementchangecheck.cpp:39
-#: widgets/serverchecks/descriptionchangecheck.cpp:39
-#: widgets/serverchecks/markasfavoriteroomcheck.cpp:34
+#: widgets/serverchecks/announcementchangecheck.cpp:37
+#: widgets/serverchecks/descriptionchangecheck.cpp:37
+#: widgets/serverchecks/markasfavoriteroomcheck.cpp:32
 #: widgets/serverchecks/quotemessagecheck.cpp:51
-#: widgets/serverchecks/topicchangecheck.cpp:39
+#: widgets/serverchecks/topicchangecheck.cpp:37
 #, kde-format
 msgid "Could not find the room."
 msgstr "Nepodarilo sa nájsť miestnosť."
@@ -12179,7 +12179,7 @@ msgstr "Odoslanie súborovej prílohy"
 msgid "Cannot create a temporary file."
 msgstr "Nedá sa vytvoriť dočasný súbor."
 
-#: widgets/serverchecks/fileuploadcheck.cpp:80
+#: widgets/serverchecks/fileuploadcheck.cpp:81
 #, kde-format
 msgid "The file arrived but was not recognized as a file attachment."
 msgstr "Súbor prišiel, ale nebol rozpoznaný ako súborová príloha."
@@ -12194,12 +12194,12 @@ msgstr "Popis obrázka"
 msgid "Cannot create a temporary image file."
 msgstr "Nedá sa vytvoriť dočasný súbor obrázka."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:90
+#: widgets/serverchecks/imagedescriptioncheck.cpp:91
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
 msgstr "Obrázok prišiel, ale server zahodil jeho popis."
 
-#: widgets/serverchecks/imagedescriptioncheck.cpp:92
+#: widgets/serverchecks/imagedescriptioncheck.cpp:93
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
 msgstr "Obrázok prišiel s nesprávnym popisom: \"%1\"."
@@ -12214,22 +12214,22 @@ msgstr "Náhľad odkazu (rozbalenie URL)"
 msgid "Change Favorite Room State"
 msgstr "Zmeniť stav obľúbenej miestnosti"
 
-#: widgets/serverchecks/pinmessagecheck.cpp:22
+#: widgets/serverchecks/pinmessagecheck.cpp:23
 #, kde-format
 msgid "Pin message"
 msgstr "Súkromné adresy"
 
-#: widgets/serverchecks/pinmessagecheck.cpp:63
+#: widgets/serverchecks/pinmessagecheck.cpp:64
 #, kde-format
 msgid "Could not start the pin-message request."
 msgstr "Nepodarilo sa spustiť požiadavku na pripnutie správy."
 
-#: widgets/serverchecks/pinmessagecheck.cpp:85
+#: widgets/serverchecks/pinmessagecheck.cpp:86
 #, kde-format
 msgid "The message was not found among the server's pinned messages."
 msgstr "Správa sa nenašla medzi pripnutými správami na serveri."
 
-#: widgets/serverchecks/pinmessagecheck.cpp:92
+#: widgets/serverchecks/pinmessagecheck.cpp:93
 #, kde-format
 msgid "Could not start the pinned-messages request."
 msgstr "Nepodarilo sa spustiť požiadavku na pripnuté správy."
@@ -12289,12 +12289,12 @@ msgstr "Odstrániť používateľa z miestnosti"
 msgid "Could not remove \"%1\": %2"
 msgstr "Nepodarilo sa odstrániť \"%1\": %2"
 
-#: widgets/serverchecks/searchmessagecheck.cpp:24
+#: widgets/serverchecks/searchmessagecheck.cpp:23
 #, kde-format
 msgid "Message search"
 msgstr "Hľadanie správ"
 
-#: widgets/serverchecks/searchmessagecheck.cpp:86
+#: widgets/serverchecks/searchmessagecheck.cpp:85
 #, kde-format
 msgid "Could not start the search request."
 msgstr "Nepodarilo sa spustiť požiadavku na hľadanie."
@@ -12304,13 +12304,13 @@ msgstr "Nepodarilo sa spustiť požiadavku na hľadanie."
 msgid "Send message"
 msgstr "Súkromné adresy"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:42
+#: widgets/serverchecks/serverchecklistdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
 msgstr "Kontrolný zoznam servera"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:46
+#: widgets/serverchecks/serverchecklistdialog.cpp:47
 #, kde-format
 msgid ""
 "Runs a series of checks against the current server and reports whether each "
@@ -12321,37 +12321,37 @@ msgstr ""
 "správa podľa očakávania. Do vybraného kanála sa pošlú dočasné testovacie "
 "správy, ktoré sa potom odstránia, preto si najprv vyberte pomocný kanál."
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:57
+#: widgets/serverchecks/serverchecklistdialog.cpp:58
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
 msgstr "Kontrola"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:57
+#: widgets/serverchecks/serverchecklistdialog.cpp:58
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
 msgstr "Výsledok"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:63
+#: widgets/serverchecks/serverchecklistdialog.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
 msgstr "Spustiť kontroly"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:68
+#: widgets/serverchecks/serverchecklistdialog.cpp:69
 #, kde-format
 msgctxt "@action:button"
 msgid "Post Results to Channel"
 msgstr "Uverejniť výsledky do kanála"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:71
+#: widgets/serverchecks/serverchecklistdialog.cpp:72
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
 msgstr "Uverejniť výsledky kontrolného zoznamu ako správu v aktuálnom kanáli."
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:85
+#: widgets/serverchecks/serverchecklistdialog.cpp:86
 #, kde-format
 msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
@@ -12360,54 +12360,54 @@ msgstr ""
 "<b>Najprv otvorte kanál: kontroly potrebujú miestnosť, kam pošlú testovacie "
 "správy.</b>"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:91
+#: widgets/serverchecks/serverchecklistdialog.cpp:92
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
 msgstr "<b>Kontrolu nemožno vykonať v priamom kanáli.</b>"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:111
+#: widgets/serverchecks/serverchecklistdialog.cpp:112
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
 msgstr "Nespustené"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:123
+#: widgets/serverchecks/serverchecklistdialog.cpp:124
 #, kde-format
 msgctxt "@info:status"
 msgid "Waiting…"
 msgstr "Čaká sa…"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:133
+#: widgets/serverchecks/serverchecklistdialog.cpp:134
 #, kde-format
 msgctxt "@info:status"
 msgid "Running…"
 msgstr "Prebieha…"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:142
+#: widgets/serverchecks/serverchecklistdialog.cpp:143
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
 msgstr "OK"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:145
+#: widgets/serverchecks/serverchecklistdialog.cpp:146
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed"
 msgstr "Zlyhalo"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:145
+#: widgets/serverchecks/serverchecklistdialog.cpp:146
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed: %1"
 msgstr "Zlyhalo: %1"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:163
+#: widgets/serverchecks/serverchecklistdialog.cpp:164
 #, kde-format
 msgctxt "Unknown server version"
 msgid "unknown"
 msgstr "Neznáme"
 
-#: widgets/serverchecks/serverchecklistdialog.cpp:166
+#: widgets/serverchecks/serverchecklistdialog.cpp:167
 #, kde-format
 msgid ""
 "RC %1\n"
@@ -12426,7 +12426,7 @@ msgstr "Odpoveď vo vlákne"
 msgid " (thread reply)"
 msgstr " (odpoveď vo vlákne)"
 
-#: widgets/serverchecks/threadreplycheck.cpp:62
+#: widgets/serverchecks/threadreplycheck.cpp:63
 #, kde-format
 msgid "The reply arrived but is not linked to the parent thread."
 msgstr "Odpoveď prišla, ale nie je prepojená s nadradeným vláknom."
@@ -12620,17 +12620,17 @@ msgstr "Relative time (%1)"
 msgid "Locale"
 msgstr "Miestne nastavenia"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:25
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:26
 #, kde-format
 msgid "Date"
 msgstr "Dátum"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:29
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:30
 #, kde-format
 msgid "Time"
 msgstr "Čas"
 
-#: widgets/timestampinmessages/timestampinmessageswidget.cpp:33
+#: widgets/timestampinmessages/timestampinmessageswidget.cpp:34
 #, kde-format
 msgid "Format"
 msgstr "Formát"
