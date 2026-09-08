@@ -43,6 +43,9 @@ void VideoConferenceNotificationJob::start()
 
 QString VideoConferenceNotificationJob::generateText() const
 {
+    if (!mRocketChatAccount) {
+        return {};
+    }
     const QString str = mRocketChatAccount->accountName() + u'\n';
     // Add user name!
     return str;
