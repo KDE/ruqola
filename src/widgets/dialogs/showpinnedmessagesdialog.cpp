@@ -34,14 +34,20 @@ ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
 
 void ShowPinnedMessagesDialog::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowPinnedMessagesDialogGroupName), QSize(800, 600));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowPinnedMessagesDialogGroupName), 800, 600);
+#endif
 }
 
 void ShowPinnedMessagesDialog::writeConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowPinnedMessagesDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
 }
 
 #include "moc_showpinnedmessagesdialog.cpp"

@@ -81,14 +81,20 @@ void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 
 void CreateNewServerDialog::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigCreateNewAccountDialogGroupName), QSize(800, 600));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigCreateNewAccountDialogGroupName), 800, 600);
+#endif
 }
 
 void CreateNewServerDialog::writeConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateNewAccountDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
 }
 
 #include "moc_createnewserverdialog.cpp"

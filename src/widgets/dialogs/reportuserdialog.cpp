@@ -54,14 +54,20 @@ ReportUserDialog::~ReportUserDialog()
 
 void ReportUserDialog::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myReportUserDialogGroupName), QSize(400, 300));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myReportUserDialogGroupName), 400, 300);
+#endif
 }
 
 void ReportUserDialog::writeConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myReportUserDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
 }
 
 QString ReportUserDialog::message() const

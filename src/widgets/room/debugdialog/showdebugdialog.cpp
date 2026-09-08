@@ -48,14 +48,20 @@ void ShowDebugDialog::setPlainText(const QString &text)
 
 void ShowDebugDialog::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowDebugDialogGroupName), QSize(400, 300));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowDebugDialogGroupName), 400, 300);
+#endif
 }
 
 void ShowDebugDialog::writeConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDebugDialogGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
 }
 
 #include "moc_showdebugdialog.cpp"

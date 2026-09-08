@@ -51,14 +51,20 @@ void TeamSelectDeletedRoomDialog::setTeamRooms(const QList<TeamRoom> &rooms)
 
 void TeamSelectDeletedRoomDialog::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myTeamSelectDeletedRoomDialogConfigGroupName), QSize(400, 300));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myTeamSelectDeletedRoomDialogConfigGroupName), 400, 300);
+#endif
 }
 
 void TeamSelectDeletedRoomDialog::writeConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamSelectDeletedRoomDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
 }
 
 QList<QByteArray> TeamSelectDeletedRoomDialog::roomsId() const

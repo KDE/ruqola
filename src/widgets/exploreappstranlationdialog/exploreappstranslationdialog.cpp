@@ -46,8 +46,12 @@ ExploreAppsTranslationDialog::~ExploreAppsTranslationDialog()
 
 void ExploreAppsTranslationDialog::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName), QSize(400, 300));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName), 400, 300);
+#endif
     const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName));
     mExploreAppsTranslationWidget->restoreState(group.readEntry("HeaderView", QByteArray()));
 }
@@ -55,7 +59,9 @@ void ExploreAppsTranslationDialog::readConfig()
 void ExploreAppsTranslationDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreAppsTranslationDialogConfigGroupName));
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
     group.writeEntry("HeaderView", mExploreAppsTranslationWidget->saveState());
 }
 

@@ -69,14 +69,20 @@ CreateVideoMessageWizard::CreateVideoMessageInfo CreateVideoMessageWizard::video
 
 void CreateVideoMessageWizard::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigCreateVideoMessageWizardGroupName), QSize(800, 600));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigCreateVideoMessageWizardGroupName), 800, 600);
+#endif
 }
 
 void CreateVideoMessageWizard::writeConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateVideoMessageWizardGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
 }
 
 CreateVideoMessagePage::CreateVideoMessagePage(QWidget *parent)

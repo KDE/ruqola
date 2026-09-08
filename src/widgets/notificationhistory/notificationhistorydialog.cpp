@@ -50,14 +50,20 @@ NotificationHistoryDialog::~NotificationHistoryDialog()
 
 void NotificationHistoryDialog::readConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myNotificationHistoryDialogConfigGroupName), QSize(400, 300));
+#else
     create(); // ensure a window is created
     TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myNotificationHistoryDialogConfigGroupName), 400, 300);
+#endif
 }
 
 void NotificationHistoryDialog::writeConfig()
 {
+#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
     KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myNotificationHistoryDialogConfigGroupName));
     KWindowConfig::saveWindowSize(windowHandle(), group);
+#endif
 }
 
 void NotificationHistoryDialog::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
