@@ -134,8 +134,8 @@ VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
     info.mRoomId = o["rid"_L1].toString();
     info.mProviderName = o["providerName"_L1].toString();
     info.mMessageId = o["messageId"_L1].toString();
-    info.mCreatedAtDateTime = o["createdAt"_L1].toInt();
-    info.mEndedAtDateTime = o["endedAt"_L1].toInt();
+    info.mCreatedAtDateTime = o["createdAt"_L1].toInteger();
+    info.mEndedAtDateTime = o["endedAt"_L1].toInteger();
 
     info.mConferenceType = info.convertTypeToEnum(o["type"_L1].toString());
     const QJsonArray usersArray = o["users"_L1].toArray();

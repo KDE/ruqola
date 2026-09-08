@@ -284,7 +284,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
 
     if (json.contains("msgs"_L1)) {
-        mNumberMessages = json["msgs"_L1].toInt();
+        mNumberMessages = json["msgs"_L1].toInteger();
     }
 
     if (json.contains("ignored"_L1)) {
@@ -1420,7 +1420,7 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setUpdatedAt(static_cast<qint64>(o["updatedAt"_L1].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o["lastSeenAt"_L1].toDouble()));
     r->setLastMessageAt(static_cast<qint64>(o["lastMessageAt"_L1].toDouble(-1)));
-    r->setNumberMessages(static_cast<qint64>(o["msgs"_L1].toInt()));
+    r->setNumberMessages(o["msgs"_L1].toInteger());
 
     r->setMutedUsers(extractStringList(o, "muted"_L1));
 

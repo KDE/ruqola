@@ -205,7 +205,7 @@ void AdministratorServerInfoWidget::createItemFromIntValue(QTreeWidgetItem *usag
         if (!iconName.isEmpty()) {
             item->setIcon(0, QIcon::fromTheme(iconName));
         }
-        item->setText(1, QString::number(totalDirectMessages.toInt()));
+        item->setText(1, QString::number(totalDirectMessages.toInteger()));
     }
 }
 
