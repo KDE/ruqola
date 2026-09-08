@@ -69,8 +69,8 @@ public:
 
     [[nodiscard]] QString title() const;
 
-    static QJsonObject serialize(const VideoConferenceInfo &videoConfInfo);
-    static VideoConferenceInfo deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const VideoConferenceInfo &videoConfInfo);
+    [[nodiscard]] static VideoConferenceInfo deserialize(const QJsonObject &o);
 
     [[nodiscard]] static QString convertEnumToString(const VideoConferenceInfo &info);
 
