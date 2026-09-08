@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "permissions/permissionupdatejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -55,19 +54,7 @@ void PermissionUpdateJobTest::shouldNotStarting()
 {
     PermissionUpdateJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     QMap<QString, QStringList> lst;
     lst.insert(u"bla"_s, {u"user"_s, u"admin"_s});
     lst.insert(u"team"_s, {u"user"_s, u"admin"_s, u"owner"_s});

@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "moderation/moderationreportuserjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
@@ -65,19 +64,7 @@ void ModerationReportUserJobTest::shouldNotStarting()
 {
     ModerationReportUserJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray reportedUserId("foo2");
     job.setReportedUserId(reportedUserId);
     QVERIFY(!job.canStart());

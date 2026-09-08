@@ -6,7 +6,6 @@
 
 #include "removeuserfromrolejobtest.h"
 
-#include "restapimethod.h"
 #include "role/removeuserfromrolejob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -72,18 +71,7 @@ void RemoveUserFromRoleJobTest::shouldNotStarting()
     RemoveUserFromRoleJob job;
     job.setUseRC80(false);
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     QVERIFY(!job.canStart());
     const QString username = u"foo1"_s;

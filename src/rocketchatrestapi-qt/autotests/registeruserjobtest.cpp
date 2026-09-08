@@ -88,19 +88,7 @@ void RegisterUserJobTest::shouldNotStarting()
 {
     RegisterUserJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     RegisterUserJob::RegisterUserInfo info;
     const QString password = u"foo1"_s;
     const QString email = u"bla@bli.com"_s;

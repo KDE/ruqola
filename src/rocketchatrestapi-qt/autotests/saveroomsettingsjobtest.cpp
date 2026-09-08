@@ -7,7 +7,6 @@
 #include "saveroomsettingsjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "rooms/saveroomsettingsjob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -74,19 +73,7 @@ void SaveRoomSettingsJobTest::shouldNotStarting()
 {
     SaveRoomSettingsJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId("foo1");
     SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.roomId = roomId;
