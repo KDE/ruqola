@@ -171,7 +171,7 @@ protected:
     {
         const QJsonArray array = obj[arrayKey].toArray();
         mList.reserve(mList.count() + array.count());
-        for (const QJsonValue &current : array) {
+        for (const auto &current : array) {
             if (current.type() == QJsonValue::Object) {
                 std::invoke(ParseElement, mList.emplace_back(), current.toObject());
             } else {
