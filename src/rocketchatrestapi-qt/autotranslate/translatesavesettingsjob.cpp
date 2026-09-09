@@ -44,7 +44,7 @@ TranslateSaveSettingsJob::SettingType TranslateSaveSettingsJob::type() const
     return mType;
 }
 
-void TranslateSaveSettingsJob::setType(RocketChatRestApi::TranslateSaveSettingsJob::SettingType type)
+void TranslateSaveSettingsJob::setType(SettingType type)
 {
     mType = type;
 }

@@ -51,7 +51,7 @@ protected:
 private:
     QString mRoomId;
     QString mLanguage;
-    TranslateSaveSettingsJob::SettingType mType = SettingType::Undefined;
+    SettingType mType = SettingType::Undefined;
     bool mAutoTranslate = false;
 };
 }
