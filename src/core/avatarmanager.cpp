@@ -26,12 +26,11 @@ AvatarManager::~AvatarManager() = default;
 
 void AvatarManager::slotLoadNextAvatar()
 {
-    const Utils::AvatarInfo info = mAvatarDownloadIdentifer.constFirst();
-    const QUrl url = info.avatarUrl(mAccount->serverUrl());
-    // qDebug() << " url " << url;
-    if (url.isEmpty()) {
+    if (mAvatarDownloadIdentifer.isEmpty()) {
         return;
     }
+    const Utils::AvatarInfo info = mAvatarDownloadIdentifer.constFirst();
+    const QUrl url = info.avatarUrl(mAccount->serverUrl());
     slotInsertAvatarUrl(info, url);
 }
 
