@@ -19,8 +19,8 @@ public:
 
     explicit AccountServerListWidgetItem(QTreeWidget *parent = nullptr);
     ~AccountServerListWidgetItem() override;
-    [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
-    void setAccountInfo(const AccountManager::AccountManagerInfo &accountInfo);
+    [[nodiscard]] const AccountManager::AccountManagerInfo &accountInfo() const;
+    void setAccountInfo(AccountManager::AccountManagerInfo accountInfo);
 
     [[nodiscard]] bool newAccount() const;
     void setNewAccount(bool newAccount);

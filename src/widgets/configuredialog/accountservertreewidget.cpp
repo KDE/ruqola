@@ -63,7 +63,7 @@ void AccountServerTreeWidget::load()
         item->setToolTip(0, info.serverUrl);
         item->setNewAccount(false);
         item->setCheckState(0, account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
-        item->setAccountInfo(info);
+        item->setAccountInfo(std::move(info));
     }
     resizeColumnToContents(0);
 }
@@ -116,7 +116,7 @@ void AccountServerTreeWidget::modifyAccountConfig()
     }
 
     auto serverListItem = static_cast<AccountServerListWidgetItem *>(item);
-    const auto accountInfo = serverListItem->accountInfo();
+    const auto &accountInfo = serverListItem->accountInfo();
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
     dlg->setAccountInfo(accountInfo);
     if (dlg->exec()) {
@@ -154,7 +154,7 @@ void AccountServerTreeWidget::addAccountConfig()
         info.accountName = newAccountName;
         auto accountServeritem = new AccountServerListWidgetItem(this);
         accountServeritem->setCheckState(0, Qt::Checked);
-        accountServeritem->setAccountInfo(info);
+        accountServeritem->setAccountInfo(std::move(info));
         accountServeritem->setNewAccount(true);
     }
     delete dlg;
@@ -203,20 +203,20 @@ AccountServerListWidgetItem::AccountServerListWidgetItem(QTreeWidget *parent)
 
 AccountServerListWidgetItem::~AccountServerListWidgetItem() = default;
 
-AccountManager::AccountManagerInfo AccountServerListWidgetItem::accountInfo() const
+const AccountManager::AccountManagerInfo &AccountServerListWidgetItem::accountInfo() const
 {
     return mInfo;
 }
 
-void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountManagerInfo &info)
+void AccountServerListWidgetItem::setAccountInfo(AccountManager::AccountManagerInfo info)
 {
-    mInfo = info;
-    setText(0, info.displayName);
-    setData(0, AccountServerListWidgetItem::AccountInfoRole::AccountName, info.accountName);
+    mInfo = std::move(info);
+    setText(0, mInfo.displayName);
+    setData(0, AccountServerListWidgetItem::AccountInfoRole::AccountName, mInfo.accountName);
 #if HAVE_ACTIVITY_SUPPORT
     setText(1, i18n("Display Account in Current Activity"));
     setCheckState(1,
-                  info.activitiesSettings.contains(Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity())
+                  mInfo.activitiesSettings.contains(Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->activitiesManager()->currentActivity())
                       ? Qt::Checked
                       : Qt::Unchecked);
 #endif
