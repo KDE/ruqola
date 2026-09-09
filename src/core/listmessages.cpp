@@ -22,7 +22,7 @@ void ListMessages::parseMessagesList(const QJsonObject &messagesObj, QLatin1Stri
 {
     const QJsonArray messagesArray = messagesObj[arrayName].toArray();
     mList.reserve(mList.count() + messagesArray.count());
-    for (const QJsonValue &current : messagesArray) {
+    for (const auto &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
             mList.emplace_back().parseMessage(current.toObject(), true, nullptr);
         } else {

@@ -428,7 +428,7 @@ void RoomEncryptionKey::parseOldRoomKeys(const QJsonArray &array)
 {
     // Rocket.Chat stores them as [ { "e2eKeyId": …, "E2EKey": …, "ts": … } ]. A key already known
     // is left untouched: it may carry a session key an earlier payload let us decrypt.
-    for (const QJsonValue &value : array) {
+    for (const auto &value : array) {
         const QJsonObject obj = value.toObject();
         const QString keyId = obj.value("e2eKeyId"_L1).toString();
         const QString encryptedKey = obj.value("E2EKey"_L1).toString();

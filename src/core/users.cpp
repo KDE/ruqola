@@ -51,7 +51,7 @@ void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QList<R
 
     const QJsonArray usersArray = obj[arrayKey].toArray();
     mList.reserve(mList.count() + usersArray.count());
-    for (const QJsonValue &current : usersArray) {
+    for (const auto &current : usersArray) {
         if (current.type() == QJsonValue::Object) {
             mList.emplace_back().parseUserRestApi(current.toObject(), roleInfo);
         } else {
