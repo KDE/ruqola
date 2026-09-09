@@ -127,7 +127,7 @@ void AccountServerTreeWidget::modifyAccountConfig()
 
 void AccountServerTreeWidget::deleteAccountConfig(QTreeWidgetItem *item, bool removeLogs)
 {
-    mListRemovedAccount.insert(item->text(0), removeLogs);
+    mListRemovedAccount.insert(item->data(0, AccountServerListWidgetItem::AccountInfoRole::AccountName).toString(), removeLogs);
 }
 
 void AccountServerTreeWidget::addAccountConfig()
@@ -143,12 +143,12 @@ void AccountServerTreeWidget::addAccountConfig()
         QStringList accountList;
         accountList.reserve(topLevelItemCount());
         for (int i = 0; i < topLevelItemCount(); ++i) {
-            accountList << topLevelItem(i)->text(0);
+            accountList << topLevelItem(i)->data(0, AccountServerListWidgetItem::AccountInfoRole::AccountName).toString();
         }
         QString newAccountName = info.accountName;
         int i = 1;
         while (accountList.contains(newAccountName)) {
-            newAccountName = u"%1_%2"_s.arg(newAccountName).arg(i);
+            newAccountName = u"%1_%2"_s.arg(info.accountName).arg(i);
             ++i;
         }
         info.accountName = newAccountName;
@@ -212,6 +212,7 @@ void AccountServerListWidgetItem::setAccountInfo(const AccountManager::AccountMa
 {
     mInfo = info;
     setText(0, info.displayName);
+    setData(0, AccountServerListWidgetItem::AccountInfoRole::AccountName, info.accountName);
 #if HAVE_ACTIVITY_SUPPORT
     setText(1, i18n("Display Account in Current Activity"));
     setCheckState(1,

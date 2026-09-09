@@ -8,10 +8,15 @@
 
 #include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
+#include <QMap>
 #include <QTreeWidget>
 class AccountServerListWidgetItem : public QTreeWidgetItem
 {
 public:
+    enum AccountInfoRole {
+        AccountName = Qt::UserRole + 1,
+    };
+
     explicit AccountServerListWidgetItem(QTreeWidget *parent = nullptr);
     ~AccountServerListWidgetItem() override;
     [[nodiscard]] AccountManager::AccountManagerInfo accountInfo() const;
