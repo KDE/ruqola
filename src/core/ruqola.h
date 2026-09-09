@@ -15,10 +15,6 @@
 #include <QObject>
 
 class RocketChatAccount;
-namespace TextAutoCorrection
-{
-class AutoCorrection;
-}
 namespace TextAutoCorrectionCore
 {
 class AutoCorrection;
@@ -30,7 +26,7 @@ namespace TextAutoGenerateText
 class TextAutoGenerateManager;
 }
 #endif
-
+class QWidget;
 class CustomEmojiIconManager;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
