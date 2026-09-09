@@ -54,7 +54,6 @@ void BannerInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addSeparator();
             menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });
