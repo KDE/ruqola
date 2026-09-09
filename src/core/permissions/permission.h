@@ -9,6 +9,7 @@
 #include "libruqola_private_export.h"
 #include "roles/roleinfo.h"
 #include <QString>
+#include <QStringList>
 class QDebug;
 
 class LIBRUQOLACORE_TESTS_EXPORT Permission
