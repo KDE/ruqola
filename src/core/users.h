@@ -14,7 +14,7 @@ class QDebug;
 // User::parseUserRestApi() also needs the server's role list, which PaginatedInfoList knows
 // nothing about, so the elements are parsed by parseListUsers() below rather than by
 // PaginatedInfoList::parseElements().
-class LIBRUQOLACORE_EXPORT Users : public PaginatedInfoList<User, &User::parseUserRestApi>
+class LIBRUQOLACORE_EXPORT Users : public PaginatedInfoListBase<User>
 {
 public:
     enum class ParseType : uint8_t {

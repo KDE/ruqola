@@ -14,7 +14,7 @@ class QDebug;
 // Message::parseMessage() takes more than the element's json object, and a subclass may pick the
 // elements apart differently, so the elements go through parseMessagesList() below rather than
 // through PaginatedInfoList::parseElements().
-class LIBRUQOLACORE_TESTS_EXPORT ListMessages : public PaginatedInfoList<Message, &Message::parseMessage>
+class LIBRUQOLACORE_TESTS_EXPORT ListMessages : public PaginatedInfoListBase<Message>
 {
 public:
     ListMessages();

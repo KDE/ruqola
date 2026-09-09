@@ -12,7 +12,9 @@
 class QDebug;
 class DownloadAppsLanguagesManager;
 
-class LIBRUQOLACORE_TESTS_EXPORT Commands : public PaginatedInfoList<Command, &Command::parseCommand>
+// Commands drop the invalid entries and get their description translated, so they don't go
+// through PaginatedInfoList::parseElements().
+class LIBRUQOLACORE_TESTS_EXPORT Commands : public PaginatedInfoListBase<Command>
 {
 public:
     void parseCommands(const QJsonObject &commandsObj);
@@ -22,8 +24,6 @@ public:
     void setDownloadManager(DownloadAppsLanguagesManager *downloadManager);
 
 private:
-    // Commands drop the invalid entries and get their description translated, so they don't go
-    // through PaginatedInfoList::parseElements().
     LIBRUQOLACORE_NO_EXPORT void parseListCommands(const QJsonObject &commandsObj);
     DownloadAppsLanguagesManager *mDownloadManager = nullptr;
 };

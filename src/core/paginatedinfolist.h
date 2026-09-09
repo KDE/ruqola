@@ -34,27 +34,14 @@ LIBRUQOLACORE_EXPORT void warnInvalidElement(QLatin1StringView arrayKey, const Q
  * and every "<Something>Infos" container in Ruqola stores such a reply the same way, so the
  * storage, the pagination counters and the parsing live here.
  *
- * A subclass only names the element type and how one element is parsed, then exposes its
- * domain-named entry points, which is where the key holding the array belongs:
- * @code
- * class DeviceInfos : public PaginatedInfoList<DeviceInfo, &DeviceInfo::parseDeviceInfo>
- * {
- * public:
- *     void parseDeviceInfos(const QJsonObject &obj) { parseInfos(obj, QLatin1StringView("sessions")); }
- * };
- * @endcode
- *
- * @p ParseElement is anything std::invoke() accepts as parse(element, jsonObject): a member
- * function of @p T taking the element's QJsonObject, or a free function when the element needs
- * more than that object to parse itself.
- *
- * A subclass whose elements need more than that (a validity check, an extra parse argument…)
- * still inherits the storage and the counters: it parses the array itself and calls
- * parseFirstPageCounters()/parseNextPageCounters() around its own loop.
+ * This class holds the storage and the counters only: it is what a subclass whose elements need
+ * more than their own QJsonObject to be parsed (a validity check, the server's role list, an
+ * EmojiManager…) derives from, parsing the array itself and calling
+ * parseFirstPageCounters()/parseNextPageCounters() around its own loop. A subclass whose elements
+ * do parse themselves derives from PaginatedInfoList below instead.
  */
-
-template<typename T, auto ParseElement>
-class PaginatedInfoList
+template<typename T>
+class PaginatedInfoListBase
 {
 public:
     [[nodiscard]] bool isEmpty() const
@@ -133,23 +120,9 @@ public:
         mTotal = newTotal;
     }
 
-    [[nodiscard]] bool operator==(const PaginatedInfoList &other) const = default;
+    [[nodiscard]] bool operator==(const PaginatedInfoListBase &other) const = default;
 
 protected:
-    // First page: replaces what is held.
-    void parseInfos(const QJsonObject &obj, QLatin1StringView arrayKey)
-    {
-        parseFirstPageCounters(obj);
-        parseElements(obj, arrayKey);
-    }
-
-    // Next page: appends to what is held.
-    void parseMoreInfos(const QJsonObject &obj, QLatin1StringView arrayKey)
-    {
-        parseNextPageCounters(obj);
-        parseElements(obj, arrayKey);
-    }
-
     void parseFirstPageCounters(const QJsonObject &obj)
     {
         mList.clear();
@@ -166,6 +139,52 @@ protected:
         mTotal = obj[QLatin1StringView("total")].toInt();
     }
 
+    QList<T> mList;
+    int mLoadedCount = 0;
+    int mOffset = 0;
+    int mTotal = 0;
+};
+
+/**
+ * A subclass only names the element type and how one element is parsed, then exposes its
+ * domain-named entry points, which is where the key holding the array belongs:
+ * @code
+ * class DeviceInfos : public PaginatedInfoList<DeviceInfo, &DeviceInfo::parseDeviceInfo>
+ * {
+ * public:
+ *     void parseDeviceInfos(const QJsonObject &obj) { parseInfos(obj, QLatin1StringView("sessions")); }
+ * };
+ * @endcode
+ *
+ * @p ParseElement is anything std::invoke() accepts as parse(element, jsonObject): a member
+ * function of @p T taking the element's QJsonObject, or a free function when the element needs
+ * more than that object to parse itself. A subclass that parses its own elements derives from
+ * PaginatedInfoListBase instead: naming a parse function it cannot use would still have to
+ * compile, as MSVC instantiates every member of an exported class.
+ */
+template<typename T, auto ParseElement>
+class PaginatedInfoList : public PaginatedInfoListBase<T>
+{
+protected:
+    using Base = PaginatedInfoListBase<T>;
+    using Base::mList;
+    using Base::parseFirstPageCounters;
+    using Base::parseNextPageCounters;
+
+    // First page: replaces what is held.
+    void parseInfos(const QJsonObject &obj, QLatin1StringView arrayKey)
+    {
+        parseFirstPageCounters(obj);
+        parseElements(obj, arrayKey);
+    }
+
+    // Next page: appends to what is held.
+    void parseMoreInfos(const QJsonObject &obj, QLatin1StringView arrayKey)
+    {
+        parseNextPageCounters(obj);
+        parseElements(obj, arrayKey);
+    }
+
     // Appends the elements found under @p arrayKey, leaving the counters alone.
     void parseElements(const QJsonObject &obj, QLatin1StringView arrayKey)
     {
@@ -179,9 +198,4 @@ protected:
             }
         }
     }
-
-    QList<T> mList;
-    int mLoadedCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
 };
