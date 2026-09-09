@@ -20,6 +20,7 @@
 #include <QHeaderView>
 #include <QPointer>
 #include <QTreeWidgetItem>
+#include <memory>
 
 using namespace Qt::Literals::StringLiterals;
 AccountServerTreeWidget::AccountServerTreeWidget(QWidget *parent)
@@ -36,7 +37,8 @@ AccountServerTreeWidget::~AccountServerTreeWidget() = default;
 
 void AccountServerTreeWidget::load()
 {
-    auto model = new RocketChatAccountFilterProxyModel(this);
+    clear();
+    auto model = std::make_unique<RocketChatAccountFilterProxyModel>();
     model->setFilterActivities(false);
     model->setAccountOrder(Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->accountOrder());
     model->setSourceModel(Ruqola::self()->accountManager()->rocketChatAccountModel());
