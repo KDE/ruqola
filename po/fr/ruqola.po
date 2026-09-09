@@ -1011,12 +1011,12 @@ msgstr "%1 a rejoint une discussion « OTR »."
 #: core/messages/message.cpp:882
 #, kde-format
 msgid "%1 key refreshed successfully"
-msgstr "La clé %1 a été rafraîchie avec succès."
+msgstr "La clé %1 a été rafraichie avec succès."
 
 #: core/messages/message.cpp:884
 #, kde-format
 msgid "%1 has requested key refresh."
-msgstr "%1 a demandé un rafraîchissement de clés."
+msgstr "%1 a demandé un rafraichissement de clés."
 
 #: core/messages/message.cpp:888
 #, fuzzy, kde-format
@@ -4009,7 +4009,7 @@ msgstr "Supprimer un salon"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Refresh"
-msgstr "Rafraîchir"
+msgstr "Rafraichir"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:51
@@ -7172,7 +7172,7 @@ msgid ""
 msgstr ""
 "Ce paramètre arrête le traitement de toutes les statistiques rendant la page "
 "d'informations obsolète jusqu'à ce que quelqu'un clique sur le bouton de "
-"rafraîchissement. Cela peut conduire à d'autres informations manquantes au "
+"rafraichissement. Cela peut conduire à d'autres informations manquantes au "
 "sein du système !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:60
@@ -10645,7 +10645,7 @@ msgstr "Terminer une session « OTR »"
 #, kde-format
 msgctxt "@action"
 msgid "Refresh Keys"
-msgstr "Rafraîchir les clés"
+msgstr "Rafraichir les clés"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:30
 #, kde-format

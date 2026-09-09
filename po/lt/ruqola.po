@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 02:47+0000\n"
-"PO-Revision-Date: 2025-10-16 00:32+0300\n"
+"PO-Revision-Date: 2026-09-08 14:50+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #: apps/main.cpp:61 apps/main.cpp:70
 #, fuzzy, kde-format
@@ -96,7 +96,7 @@ msgstr "Milian Wolff"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Till Adam"
-msgstr ""
+msgstr "Till Adam"
 
 #: apps/main.cpp:82
 #, kde-format
@@ -107,7 +107,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Shantanu Tushar"
-msgstr ""
+msgstr "Shantanu Tushar"
 
 #: apps/main.cpp:84
 #, kde-format
@@ -130,7 +130,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
-msgstr ""
+msgstr "Allen Winter"
 
 #: apps/main.cpp:86
 #, kde-format
@@ -141,7 +141,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
-msgstr ""
+msgstr "Waqar Ahmed"
 
 #: apps/main.cpp:87
 #, kde-format
@@ -163,12 +163,12 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Daniele E. Domenichelli"
-msgstr ""
+msgstr "Daniele E. Domenichelli"
 
 #: apps/main.cpp:89
 #, kde-format
 msgid "New feature"
-msgstr ""
+msgstr "Nauja ypatybė"
 
 #: apps/main.cpp:116
 #, kde-format
@@ -217,7 +217,7 @@ msgstr "Versija"
 #: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:35
 #, kde-format
 msgid "Categories"
-msgstr ""
+msgstr "Kategorijos"
 
 #: core/apps/appsmarketplaceinfo.cpp:427
 #, kde-format
@@ -227,12 +227,12 @@ msgstr "Dokumentacija"
 #: core/apps/appsmarketplaceinfo.cpp:438
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Autorius"
 
 #: core/apps/appsmarketplaceinfo.cpp:451
 #, kde-format
 msgid "Homepage"
-msgstr ""
+msgstr "Internetinė svetainė"
 
 #: core/apps/appsmarketplaceinfo.cpp:464
 #, kde-format
@@ -803,12 +803,12 @@ msgstr ""
 #: core/messages/message.cpp:782
 #, kde-format
 msgid "%1 has joined the channel"
-msgstr ""
+msgstr "%1 prisijungė prie kanalo"
 
 #: core/messages/message.cpp:784
 #, kde-format
 msgid "%1 has left the channel"
-msgstr ""
+msgstr "%1 išėjo iš kanalo"
 
 #: core/messages/message.cpp:786
 #, kde-format
@@ -926,12 +926,12 @@ msgstr ""
 #: core/messages/message.cpp:839
 #, kde-format
 msgid "This room has been archived by %1"
-msgstr ""
+msgstr "%1 archyvavo šį kambarį"
 
 #: core/messages/message.cpp:841
 #, kde-format
 msgid "This room has been unarchived by %1"
-msgstr ""
+msgstr "%1 išarchyvavo šį kambarį"
 
 #: core/messages/message.cpp:844 core/messages/message.cpp:895
 #, kde-format
@@ -951,12 +951,12 @@ msgstr ""
 #: core/messages/message.cpp:852
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
-msgstr ""
+msgstr "%1 įjungė šio kambario šifravimą"
 
 #: core/messages/message.cpp:854
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
-msgstr ""
+msgstr "%1 išjungė šio kambario šifravimą"
 
 #: core/messages/message.cpp:856
 #, kde-format
@@ -1088,7 +1088,7 @@ msgstr "Pavadinimas:"
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
 #, kde-format
 msgid "Identifier"
-msgstr ""
+msgstr "Identifikatorius"
 
 #: core/model/admincustomemojimodel.cpp:41
 #, kde-format
@@ -1330,12 +1330,12 @@ msgstr ""
 #: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
-msgstr ""
+msgstr "Seanso ID"
 
 #: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
-msgstr ""
+msgstr "IP"
 
 #: core/model/deviceinfomodel.cpp:45
 #, fuzzy, kde-format
@@ -1346,7 +1346,7 @@ msgstr "Prisijungti nepavyko"
 #: core/model/directoryroomsmodel.cpp:120
 #, kde-format
 msgid "Number Of Users"
-msgstr ""
+msgstr "Naudotojų skaičius"
 
 #: core/model/directoryroomsmodel.cpp:130
 #, kde-format
@@ -1610,12 +1610,12 @@ msgstr ""
 #: core/model/roommodel.cpp:675
 #, kde-format
 msgid "Private Messages"
-msgstr ""
+msgstr "Privačios žinutės"
 
 #: core/model/roommodel.cpp:677
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Juodraštis"
 
 #: core/model/roommodel.cpp:679 core/model/usersforroommodel.cpp:317
 #, kde-format
@@ -1839,7 +1839,7 @@ msgstr ""
 #: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: core/notifications/notifierjob.cpp:44
 #, fuzzy, kde-format
@@ -1929,7 +1929,7 @@ msgstr "Paskyra pridėta"
 #: core/rocketchaturlutils.cpp:44
 #, kde-format
 msgid "A new account was added."
-msgstr ""
+msgstr "Buvo pridėta nauja paskyra."
 
 #: core/room.cpp:1170
 #, kde-format
@@ -2116,7 +2116,7 @@ msgstr[3] "Sukurti kanalą"
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "Trūksta informacijos apie vertėją. Tai yra klaida"
 
 #: core/user.cpp:211
 #, kde-format
@@ -2126,7 +2126,7 @@ msgstr "Naudotojas"
 #: core/user.cpp:213
 #, kde-format
 msgid "Administrator"
-msgstr ""
+msgstr "Administratorius"
 
 #: core/user.cpp:215
 #, kde-format
@@ -2240,7 +2240,7 @@ msgstr "Bendrinti tekstą…"
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:66
 #, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr ""
+msgstr "Bendrinant dokumentą atsirado problemų: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, fuzzy, kde-format
@@ -2277,7 +2277,7 @@ msgstr "Sukurti ekrano kopiją"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintool.cpp:48
 #, kde-format
 msgid "This tool allows to create screenshot."
-msgstr ""
+msgstr "Šis įrankis jums leidžia daryti ekrano kopiją."
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfiguredialog.cpp:18
 #, fuzzy, kde-format
@@ -2289,17 +2289,17 @@ msgstr "Konfigūruoti paskyrą"
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:25
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Delsa:"
 
 #: plugins/toolsplugin/grabscreen/grabscreenplugintoolconfigurewidget.cpp:26
 #, kde-format
 msgctxt "@item %v is a number"
 msgid "%v second"
 msgid_plural "%v seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%v sekundė"
+msgstr[1] "%v sekundės"
+msgstr[2] "%v sekundžių"
+msgstr[3] "%v sekundė"
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:82
 #, kde-format
@@ -2350,7 +2350,7 @@ msgstr "Naudotojas nėra savininkas."
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 #, kde-format
 msgid "A channel with name '%1' exists"
-msgstr ""
+msgstr "Kanalas pavadinimu „%1“ jau yra"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:64
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:357
@@ -2390,7 +2390,7 @@ msgstr "Šifruota žinutė: %1"
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:126
 #, kde-format
 msgid "This room is blocked"
-msgstr ""
+msgstr "Šis kambarys yra užblokuotas"
 
 #: rocketchatrestapi-qt/chat/postmessagejob.cpp:128
 #, kde-format
@@ -2417,7 +2417,7 @@ msgstr ""
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:45
 #, kde-format
 msgid "File not found '%1'"
-msgstr ""
+msgstr "Failas „%1“ nerastas"
 
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:142
 #, kde-format
