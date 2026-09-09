@@ -20,7 +20,6 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
     , mBannerInfoListSearchLineWidget(new BannerInfoListSearchLineWidget(this))
     , mBannerInfoListView(new BannerInfoListView(account, this))
     , mBannerInfosFilterProxyModel(new BannerInfosFilterProxyModel(this))
-    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -28,8 +27,8 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
 
     mBannerInfosFilterProxyModel->setObjectName(u"mBannerInfosFilterProxyModel"_s);
     auto model = new BannerInfosModel(this);
-    if (mRocketChatAccount) {
-        model->insertBannerInfos(mRocketChatAccount->bannerInfos());
+    if (account) {
+        model->insertBannerInfos(account->bannerInfos());
     }
 
     mBannerInfosFilterProxyModel->setSourceModel(model);

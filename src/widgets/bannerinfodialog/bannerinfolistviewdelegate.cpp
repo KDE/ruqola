@@ -153,21 +153,17 @@ QPoint BannerInfoListViewDelegate::adaptMousePosition(const QPoint &pos, QRect t
 BannerInfoListViewDelegate::Layout BannerInfoListViewDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Layout layout;
-    // Message (using the rest of the available width)
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
     const int senderX = option.rect.x();
     const int margin = MessageDelegateUtils::basicMargin();
     const int textLeft = senderX + margin;
-    const int widthAfterMessage = iconSize + margin + margin / 2;
-    const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+    const int maxWidth = qMax(30, option.rect.width() - textLeft);
 
     layout.baseLine = 0;
     const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
 
     const int textVMargin = 3; // adjust this for "compactness"
-    QRect usableRect = option.rect;
-    layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
+    layout.textRect = QRect(textLeft, option.rect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute
     return layout;
 }

@@ -47,10 +47,10 @@ const QList<BannerInfos::UnreadInformation> &BannerMessageWidget::bannerInfos() 
     return mBannerInfos;
 }
 
-void BannerMessageWidget::setBannerInfos(const QList<BannerInfos::UnreadInformation> &newBannerInfo)
+void BannerMessageWidget::setBannerInfos(QList<BannerInfos::UnreadInformation> newBannerInfo)
 {
     if (mBannerInfos != newBannerInfo) {
-        mBannerInfos = newBannerInfo;
+        mBannerInfos = std::move(newBannerInfo);
         updateInfo();
     }
 }

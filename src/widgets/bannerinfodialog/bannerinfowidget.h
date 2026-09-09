@@ -25,5 +25,4 @@ private:
     BannerInfoListSearchLineWidget *const mBannerInfoListSearchLineWidget;
     BannerInfoListView *const mBannerInfoListView;
     BannerInfosFilterProxyModel *const mBannerInfosFilterProxyModel;
-    RocketChatAccount *const mRocketChatAccount;
 };
