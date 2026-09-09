@@ -50,9 +50,10 @@ BannerInfoWidget::~BannerInfoWidget() = default;
 
 void BannerInfoWidget::initializeProxyModel()
 {
-    mBannerInfosFilterProxyModel->setFilterFixedString(mBannerInfoListSearchLineWidget->searchText());
+    const QString searchText = mBannerInfoListSearchLineWidget->searchText();
+    mBannerInfoListView->setSearchText(searchText);
+    mBannerInfosFilterProxyModel->setFilterFixedString(searchText);
     mBannerInfosFilterProxyModel->setShowUnread(mBannerInfoListSearchLineWidget->showOnlyUnread());
-    mBannerInfoListView->setSearchText(mBannerInfoListSearchLineWidget->searchText());
 }
 
 #include "moc_bannerinfowidget.cpp"
