@@ -44,8 +44,8 @@ BannerInfo BannerInfos::at(int index) const
 QList<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() const
 {
     QList<BannerInfos::UnreadInformation> infos;
-    for (int i = 0; i < mBanners.size(); ++i) {
-        const auto banner = mBanners.at(i);
+    infos.reserve(mBanners.count());
+    for (const auto &banner : mBanners) {
         if (!banner.read()) {
             BannerInfos::UnreadInformation info{
                 .identifier = banner.identifier(),
@@ -87,8 +87,8 @@ int BannerInfos::count() const
 
 QDebug operator<<(QDebug d, const BannerInfos &t)
 {
-    for (int i = 0, total = t.banners().count(); i < total; ++i) {
-        d.space() << t.banners().at(i) << "\n";
+    for (const auto &banner : t.banners()) {
+        d.space() << banner << "\n";
     }
     return d;
 }

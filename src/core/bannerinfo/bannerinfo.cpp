@@ -22,13 +22,12 @@ bool BannerInfo::isValid() const
 
 void BannerInfo::parseBannerInfo(const QJsonObject &object)
 {
-    QStringList lst;
     const QJsonArray array = object["textArguments"_L1].toArray();
-    lst.reserve(array.count());
+    mTextArguments.clear();
+    mTextArguments.reserve(array.count());
     for (const auto &current : array) {
-        lst.append(current.toString());
+        mTextArguments.append(current.toString());
     }
-    mTextArguments = lst;
     mText = object["text"_L1].toString();
     mTitle = object["title"_L1].toString();
     mLink = object["link"_L1].toString();

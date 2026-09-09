@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QByteArray>
 #include <QMetaType>
 #include <QStringList>
 
