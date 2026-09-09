@@ -92,7 +92,7 @@ struct LIBRUQOLACORE_EXPORT AvatarInfo {
 
 [[nodiscard]] LIBRUQOLACORE_EXPORT QIcon iconFromAccount(RocketChatAccount *account);
 }
-Q_DECLARE_METATYPE(Utils::AvatarInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(Utils::AvatarInfo, Ruqola_AvatarInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(Utils::QuotedRichTextInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Utils::AvatarInfo &t);

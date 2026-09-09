@@ -26,6 +26,7 @@
 #include <QUrl>
 #include <TextEmoticonsCore/EmoticonUnicodeUtils>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(Utils::AvatarInfo, Ruqola_AvatarInfo)
 using namespace Qt::Literals::StringLiterals;
 QUrl Utils::generateServerUrl(const QString &url)
 {
