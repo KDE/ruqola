@@ -7,10 +7,8 @@
 #include "adduserinchanneljob.h"
 
 #include "connection.h"
-#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 using namespace RocketChatRestApi;
-using namespace Qt::Literals::StringLiterals;
 
 AddUserInChannelJob::AddUserInChannelJob(Connection *restApiConnection, QObject *parent)
     : QObject{parent}

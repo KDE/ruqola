@@ -1803,6 +1803,22 @@ bool RocketChatAccount::accountEnabled() const
     return mSettings->accountEnabled();
 }
 
+void RocketChatAccount::setAccountEnabled(bool enabled)
+{
+    if (mSettings->accountEnabled() == enabled) {
+        return;
+    }
+    mSettings->setAccountEnabled(enabled);
+    // Enabling/disabling is a network-state matter: a disabled account has to stop talking to the
+    // server, not merely stop being listened to. reconnectToServer() only builds the DDP client for
+    // an account already marked enabled, hence the order.
+    if (enabled) {
+        reconnectToServer();
+    } else {
+        forceDisconnect();
+    }
+}
+
 QString RocketChatAccount::serverUrl() const
 {
     return mSettings->serverUrl();

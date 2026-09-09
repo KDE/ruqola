@@ -33,6 +33,7 @@
 #include <KNotification>
 #include <QDir>
 #include <QDirIterator>
+#include <QPointer>
 #include <QSettings>
 #include <TextEmoticonsCore/EmojiModelManager>
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
@@ -104,11 +105,9 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
 
 void AccountManager::disconnectAccount(RocketChatAccount *account)
 {
-    disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
-    disconnect(account, &RocketChatAccount::roomNeedAttention, this, &AccountManager::roomNeedAttention);
-    disconnect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
-    disconnect(account, &RocketChatAccount::activitiesChanged, this, &AccountManager::activitiesChanged);
-    // TODO connect(account, &RocketChatAccount::notification
+    // Everything linking this account to us, lambdas included: enumerating the signals one by one is
+    // what let the notification lambda survive a disconnect.
+    disconnect(account, nullptr, this, nullptr);
 }
 
 #if HAVE_ACTIVITY_SUPPORT
@@ -138,20 +137,23 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             }
             job->setInfo(newNotification);
             connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
-            connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QByteArray &roomId, const QByteArray &tmId) {
+            // The notification outlives the job, and the account can be removed while it is still on
+            // screen, so don't capture it raw.
+            connect(job, &NotifierJob::sendReply, this, [accountPtr = QPointer(account)](const QString &str, const QByteArray &roomId, const QByteArray &tmId) {
+                if (!accountPtr) {
+                    return;
+                }
                 if (tmId.isEmpty()) {
-                    account->sendMessage(roomId, str);
+                    accountPtr->sendMessage(roomId, str);
                 } else {
-                    account->replyOnThread(roomId, tmId, str);
+                    accountPtr->replyOnThread(roomId, tmId, str);
                 }
                 // qDebug() << " str" << str << " Room Name " << roomName;
             });
             job->start();
             break;
         }
-        case NotificationInfo::NotificationType::ConferenceCall: {
-            break;
-        }
+        case NotificationInfo::NotificationType::ConferenceCall:
         case NotificationInfo::NotificationType::NewRoom: {
             break;
         }
@@ -290,9 +292,7 @@ void AccountManager::loadAccount()
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
         auto account = new RocketChatAccount(val);
         if (account->settings()->isValid()) {
-            if (account->accountEnabled()) {
-                connectToAccount(account);
-            }
+            connectToAccount(account);
             lstAccounts.append(account);
         } else {
             account->deleteLater();
@@ -330,15 +330,6 @@ RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel()
 RocketChatAccount *AccountManager::account() const
 {
     return mCurrentAccount;
-}
-
-void AccountManager::changeEnableState(RocketChatAccount *account, bool enabled)
-{
-    if (enabled) {
-        connectToAccount(account);
-    } else {
-        disconnectAccount(account);
-    }
 }
 
 void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
@@ -382,9 +373,7 @@ void AccountManager::addAccount(AccountManagerInfo &&info)
         // GitHub ?
     }
     settings->setAuthMethodType(info.authMethodType);
-    if (info.enabled) {
-        connectToAccount(account);
-    }
+    connectToAccount(account);
     addAccount(account);
 }
 
@@ -395,7 +384,6 @@ void AccountManager::modifyAccount(AccountManagerInfo &&info)
         auto settings = account->settings();
         settings->setDisplayName(info.displayName);
         account->setServerUrl(info.serverUrl);
-        settings->setAccountEnabled(info.enabled);
         settings->setAuthMethodType(info.authMethodType);
         settings->setActivities(info.activitiesSettings.activities);
         settings->setActivityEnabled(info.activitiesSettings.enabled);
@@ -408,11 +396,9 @@ void AccountManager::modifyAccount(AccountManagerInfo &&info)
         } else {
             // TODO ????
         }
-        if (!info.enabled && account->accountEnabled()) {
-            changeEnableState(account, false);
-        } else if (info.enabled && !account->accountEnabled()) {
-            changeEnableState(account, true);
-        }
+        // Last, so that a reconnection picks up the settings written above. Enabling/disabling is a
+        // network-state matter, not a signal-wiring one: a disconnected account emits nothing.
+        account->setAccountEnabled(info.enabled);
     }
 }
 

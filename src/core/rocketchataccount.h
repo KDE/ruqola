@@ -282,6 +282,7 @@ public:
     [[nodiscard]] QString recordingImagePath() const;
 
     [[nodiscard]] bool accountEnabled() const;
+    void setAccountEnabled(bool enabled);
 
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 

@@ -60,6 +60,7 @@ void ExtractServerInfoJob::start()
 
             const QList<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
             QList<AuthenticationInfo> authenticationMethodInfos;
+            authenticationMethodInfos.reserve(lstPlugins.count());
             for (PluginAuthentication *abstractPlugin : lstPlugins) {
                 AuthenticationInfo authenticationInfo;
                 authenticationInfo.setIconName(abstractPlugin->iconName());
@@ -68,17 +69,17 @@ void ExtractServerInfoJob::start()
                 if (authenticationInfo.isValid()) {
                     authenticationMethodInfos.append(std::move(authenticationInfo));
                 }
+                // The filtering below needs all the plugins to be registered first, so it can't be done in this loop.
                 config.addRuqolaAuthenticationSupport(abstractPlugin->authenticationType());
             }
-            QList<AuthenticationInfo> fillModel;
             // qDebug() << " before " << authenticationMethodInfos;
-            for (int i = 0, total = authenticationMethodInfos.count(); i < total; ++i) {
-                if (config.canShowAuthMethod(authenticationMethodInfos.at(i).oauthType())
-                    || (authenticationMethodInfos.at(i).oauthType() == AuthenticationManager::AuthMethodType::PersonalAccessToken)) {
-                    fillModel.append(authenticationMethodInfos.at(i));
+            info.authenticationInfos.reserve(authenticationMethodInfos.count());
+            for (auto &authenticationInfo : authenticationMethodInfos) {
+                const auto oauthType = authenticationInfo.oauthType();
+                if (config.canShowAuthMethod(oauthType) || (oauthType == AuthenticationManager::AuthMethodType::PersonalAccessToken)) {
+                    info.authenticationInfos.append(std::move(authenticationInfo));
                 }
             }
-            info.authenticationInfos = fillModel;
 
             Q_EMIT serverInfoFound(info);
             ddpClient->deleteLater();
