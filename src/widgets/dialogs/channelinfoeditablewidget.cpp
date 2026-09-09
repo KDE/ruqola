@@ -173,13 +173,13 @@ void ChannelInfoEditableWidget::deleteTeam(const QByteArray &teamId, const QList
 
 void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     const QByteArray teamId = mRoom->teamInfo().teamId();
     if (teamRooms.isEmpty()) {
         deleteTeam(teamId, {});
     } else {
         QPointer<TeamSelectDeletedRoomDialog> dlg = new TeamSelectDeletedRoomDialog(this);
-        dlg->setTeamRooms(teamRooms);
+        dlg->setTeamRooms(std::move(teamRooms));
         if (dlg->exec()) {
             const QList<QByteArray> roomIds = dlg->roomsId();
             auto job = new RocketChatRestApi::TeamDeleteJob(this);
