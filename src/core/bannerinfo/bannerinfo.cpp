@@ -43,15 +43,17 @@ QString BannerInfo::defaultText(const BannerInfo &info)
 {
     QString str{info.text()};
     if (str == "New_version_available_(s)"_L1) {
-        str = i18n("New version available %1", info.textArguments().at(0));
+        if (const auto &arguments = info.textArguments(); !arguments.isEmpty()) {
+            str = i18n("New version available %1", arguments.constFirst());
+        }
     }
     return str;
 }
 
 bool BannerInfo::operator==(const BannerInfo &other) const
 {
-    return mText == other.mText && mTitle == other.mTitle && mLink == other.mLink && mRead == other.mRead && mRead == other.mRead
-        && mTextArguments == other.mTextArguments && mIdentifier == other.mIdentifier && mPriority == other.mPriority;
+    return mText == other.mText && mTitle == other.mTitle && mLink == other.mLink && mRead == other.mRead && mTextArguments == other.mTextArguments
+        && mIdentifier == other.mIdentifier && mPriority == other.mPriority;
 }
 
 const QString &BannerInfo::text() const
