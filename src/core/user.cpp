@@ -191,7 +191,7 @@ void User::parseUser(const QVariantList &list)
         qCWarning(RUQOLA_LOG) << " Invalid status value" << valueStatus;
         return;
     }
-    const QVariant customText = list.at(3);
+    const QVariant &customText = list.at(3);
     if (customText.isValid()) {
         setStatusText(customText.toString());
     }
