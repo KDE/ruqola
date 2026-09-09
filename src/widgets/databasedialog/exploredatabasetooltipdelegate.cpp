@@ -17,8 +17,9 @@ ExploreDatabaseTooltipDelegate::~ExploreDatabaseTooltipDelegate() = default;
 
 bool ExploreDatabaseTooltipDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    if (!event || !view)
+    if (!event || !view) {
         return false;
+    }
 
     if (event->type() == QEvent::ToolTip) {
         const QString tooltip = index.data(Qt::DisplayRole).toString();
