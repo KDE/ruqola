@@ -195,8 +195,7 @@ void RuqolaMainWidget::updateBannerInfo()
     if (!mBannerMessageWidget) {
         createBannerMessageWidget();
     }
-    const auto bannerUnreadInformations = mCurrentRocketChatAccount->bannerInfos().bannerUnreadInformations();
-    mBannerMessageWidget->setBannerInfos(bannerUnreadInformations);
+    mBannerMessageWidget->setBannerInfos(mCurrentRocketChatAccount->bannerInfos().bannerUnreadInformations());
 }
 
 void RuqolaMainWidget::showEvent(QShowEvent *event)
