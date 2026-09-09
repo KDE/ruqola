@@ -12,8 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
+#include "ruqolawidgets_debug.h"
 
-#include <KLocalizedString>
 #include <QAbstractItemView>
 #include <QListView>
 #include <QPainter>
@@ -64,11 +64,13 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    auto it = mSizeHintCache.find(identifier);
-    if (it != mSizeHintCache.end()) {
-        const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "BannerInfoListViewDelegate: SizeHint found in cache: " << result;
-        return result;
+    if (!identifier.isEmpty()) {
+        auto it = mSizeHintCache.find(identifier);
+        if (it != mSizeHintCache.end()) {
+            const QSize result = it->value;
+            qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "BannerInfoListViewDelegate: SizeHint found in cache: " << result;
+            return result;
+        }
     }
 #endif
     // Note: option.rect in this method is huge (as big as the viewport)
@@ -88,7 +90,7 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
 
     const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if (!size.isEmpty()) {
+    if (!size.isEmpty() && !identifier.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif
@@ -173,14 +175,19 @@ BannerInfoListViewDelegate::Layout BannerInfoListViewDelegate::doLayout(const QS
 QByteArray BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(BannerInfosModel::Identifier).toByteArray();
-    Q_ASSERT(!identifier.isEmpty());
     return identifier;
 }
 
 QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
-    Q_ASSERT(index.isValid());
+    if (!index.isValid()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Index is not valid. It's a bug";
+        return {};
+    }
     const QByteArray messageId = cacheIdentifier(index);
+    if (messageId.isEmpty()) {
+        return {};
+    }
     const QString messageBannerStr = index.data(BannerInfosModel::Text).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageBannerStr, width);
 }
