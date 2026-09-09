@@ -2670,10 +2670,10 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     commands.parseCommands(obj);
     if (!mCommandsModel->commands().isEmpty()) { // Don't show command listview if we already have command (for example when we logout/login)
         const QSignalBlocker blockSignal(mCommandsModel);
-        mCommandsModel->setCommands(commands);
+        mCommandsModel->setCommands(std::move(commands));
     } else {
         // Initialize it after loading otherwise we will see listview at startup
-        mCommandsModel->setCommands(commands);
+        mCommandsModel->setCommands(std::move(commands));
         mInputTextManager->setCommandModel(mCommandsModel);
         mInputThreadMessageTextManager->setCommandModel(mCommandsModel);
     }

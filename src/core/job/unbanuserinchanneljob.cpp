@@ -12,6 +12,7 @@
 #include "rooms/roomsunbanuserjob.h"
 #include "ruqola_debug.h"
 #include <QJsonArray>
+using namespace Qt::Literals::StringLiterals;
 
 UnbanUserInChannelJob::UnbanUserInChannelJob(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
@@ -86,7 +87,7 @@ void UnbanUserInChannelJob::slotRoomsBannedUsersDone(const QJsonObject &obj, [[m
 {
     BannedUsers bannedUsers;
     bannedUsers.parseBannedUsers(obj);
-    const QList<BannedUser> bannedUsersList = bannedUsers.list();
+    const QList<BannedUser> &bannedUsersList = bannedUsers.list();
     for (const auto &user : std::as_const(mNeedUnbanUsers)) {
         for (const auto &bannedUser : bannedUsersList) {
             if (bannedUser.identifier() == user.userName) {
