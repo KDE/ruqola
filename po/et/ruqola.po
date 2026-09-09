@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-09 00:46+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -2252,17 +2252,17 @@ msgstr "Sinu vastus:"
 msgid "Call ongoing"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/videoconference/videoconferencenotificationjob.cpp:57
 #, kde-format
 msgid "InComing Call"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:58
+#: core/videoconference/videoconferencenotificationjob.cpp:61
 #, kde-format
 msgid "Accept"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:64
+#: core/videoconference/videoconferencenotificationjob.cpp:67
 #, kde-format
 msgid "Reject"
 msgstr ""
@@ -3511,7 +3511,7 @@ msgctxt "@title:window"
 msgid "Create New User Status"
 msgstr "Kasutaja kohandatud olek"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:70
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:78
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgctxt "@title:window"
@@ -9164,7 +9164,7 @@ msgid "Send"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:133
+#: widgets/dialogs/createvideomessagewizard.cpp:139
 #, fuzzy, kde-format
 #| msgid "File:"
 msgctxt "@label:textbox"
@@ -9172,7 +9172,7 @@ msgid "Filename:"
 msgstr "Fail:"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:146
+#: widgets/dialogs/createvideomessagewizard.cpp:152
 #, fuzzy, kde-format
 #| msgid "Description:"
 msgctxt "@label:textbox"
@@ -9538,7 +9538,7 @@ msgctxt "@title:window"
 msgid "Search Messages"
 msgstr "Sõnumite otsimine"
 
-#: widgets/dialogs/searchmessagedialog.cpp:72
+#: widgets/dialogs/searchmessagedialog.cpp:78
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -9738,7 +9738,7 @@ msgstr ""
 msgid "Copy Location to Clipboard"
 msgstr ""
 
-#: widgets/dialogs/showimagedialog.cpp:150
+#: widgets/dialogs/showimagedialog.cpp:156
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgid "Other Application..."
@@ -9898,33 +9898,33 @@ msgstr "Pildi näitamine"
 msgid "File Name:"
 msgstr "Fail:"
 
-#: widgets/directory/directorydialog.cpp:32
+#: widgets/directory/directorydialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Room - %1"
 msgstr ""
 
-#: widgets/directory/directorydialog.cpp:35
+#: widgets/directory/directorydialog.cpp:36
 #, fuzzy, kde-format
 #| msgid "Open Conversation with \"%1\"?"
 msgctxt "@title:window"
 msgid "Open Private Conversation - %1"
 msgstr "Kas avada vestlus kasutajaga \"%1\"?"
 
-#: widgets/directory/directorydialog.cpp:38
+#: widgets/directory/directorydialog.cpp:39
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgctxt "@title:window"
 msgid "Join Team - %1"
 msgstr "%2 lisas %1 vestlusse"
 
-#: widgets/directory/directorydialog.cpp:62
+#: widgets/directory/directorydialog.cpp:63
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr ""
 
-#: widgets/directory/directorydialog.cpp:65
+#: widgets/directory/directorydialog.cpp:66
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgctxt "@action:button"

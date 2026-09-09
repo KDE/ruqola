@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
+"POT-Creation-Date: 2026-09-09 00:46+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -2107,17 +2107,17 @@ msgstr "जवाब का इंतज़ार रहा हूँ"
 msgid "Call ongoing"
 msgstr "कॉल जारी है"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/videoconference/videoconferencenotificationjob.cpp:57
 #, kde-format
 msgid "InComing Call"
 msgstr "एक फोन आ रहा है"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:58
+#: core/videoconference/videoconferencenotificationjob.cpp:61
 #, kde-format
 msgid "Accept"
 msgstr "स्वीकार करना"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:64
+#: core/videoconference/videoconferencenotificationjob.cpp:67
 #, kde-format
 msgid "Reject"
 msgstr "अस्वीकार करना"
@@ -3296,7 +3296,7 @@ msgctxt "@title:window"
 msgid "Create New User Status"
 msgstr "नया उपयोगकर्ता स्टेटस बनाएं"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:70
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit User Status"
@@ -8711,14 +8711,14 @@ msgid "Send"
 msgstr "भेजना"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:133
+#: widgets/dialogs/createvideomessagewizard.cpp:139
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "फ़ाइल नाम:"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:146
+#: widgets/dialogs/createvideomessagewizard.cpp:152
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
@@ -9071,7 +9071,7 @@ msgctxt "@title:window"
 msgid "Search Messages"
 msgstr "संदेश खोजें"
 
-#: widgets/dialogs/searchmessagedialog.cpp:72
+#: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
@@ -9263,7 +9263,7 @@ msgstr "छवि को क्लिपबोर्ड पर कॉपी क�
 msgid "Copy Location to Clipboard"
 msgstr "स्थान को क्लिपबोर्ड पर कॉपी करें"
 
-#: widgets/dialogs/showimagedialog.cpp:150
+#: widgets/dialogs/showimagedialog.cpp:156
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search Applications"
@@ -9418,31 +9418,31 @@ msgstr "तस्विर अपलोड करना"
 msgid "File Name:"
 msgstr "फ़ाइल का नाम:"
 
-#: widgets/directory/directorydialog.cpp:32
+#: widgets/directory/directorydialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Room - %1"
 msgstr "रूम में शामिल हों - %1"
 
-#: widgets/directory/directorydialog.cpp:35
+#: widgets/directory/directorydialog.cpp:36
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Private Conversation - %1"
 msgstr "निजी वार्तालाप खोलें - %1"
 
-#: widgets/directory/directorydialog.cpp:38
+#: widgets/directory/directorydialog.cpp:39
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Team - %1"
 msgstr "टीम में शामिल हों - %1"
 
-#: widgets/directory/directorydialog.cpp:62
+#: widgets/directory/directorydialog.cpp:63
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "जोड़ना"
 
-#: widgets/directory/directorydialog.cpp:65
+#: widgets/directory/directorydialog.cpp:66
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Private Message"

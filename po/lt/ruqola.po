@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:45+0000\n"
-"PO-Revision-Date: 2025-12-29 17:10+0200\n"
+"POT-Creation-Date: 2026-09-09 00:46+0000\n"
+"PO-Revision-Date: 2026-09-08 14:50+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: apps/main.cpp:60
 #, fuzzy, kde-format
@@ -955,12 +955,12 @@ msgstr ""
 #: core/messages/message.cpp:857
 #, kde-format
 msgid "This room has been archived by %1"
-msgstr ""
+msgstr "%1 archyvavo šį kambarį"
 
 #: core/messages/message.cpp:859
 #, kde-format
 msgid "This room has been unarchived by %1"
-msgstr ""
+msgstr "%1 išarchyvavo šį kambarį"
 
 #: core/messages/message.cpp:862 core/messages/message.cpp:909
 #, kde-format
@@ -980,12 +980,12 @@ msgstr ""
 #: core/messages/message.cpp:870
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
-msgstr ""
+msgstr "%1 įjungė šio kambario šifravimą"
 
 #: core/messages/message.cpp:872
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
-msgstr ""
+msgstr "%1 išjungė šio kambario šifravimą"
 
 #: core/messages/message.cpp:874
 #, kde-format
@@ -1351,12 +1351,12 @@ msgstr ""
 #: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
-msgstr ""
+msgstr "Seanso ID"
 
 #: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
-msgstr ""
+msgstr "IP"
 
 #: core/model/deviceinfomodel.cpp:45
 #, fuzzy, kde-format
@@ -1367,7 +1367,7 @@ msgstr "Prisijungti nepavyko"
 #: core/model/directoryroomsmodel.cpp:121
 #, kde-format
 msgid "Number Of Users"
-msgstr ""
+msgstr "Naudotojų skaičius"
 
 #: core/model/directoryroomsmodel.cpp:131
 #, kde-format
@@ -1631,12 +1631,12 @@ msgstr ""
 #: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Private Messages"
-msgstr ""
+msgstr "Privačios žinutės"
 
 #: core/model/roommodel.cpp:689
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "Juodraštis"
 
 #: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:314
 #, kde-format
@@ -2130,7 +2130,7 @@ msgstr ""
 #: core/translatetext/translatetextjob.cpp:55
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "Trūksta informacijos apie vertėją. Tai yra klaida"
 
 #: core/translatetext/translatorenginemanager.cpp:104
 #, kde-format
@@ -2188,17 +2188,17 @@ msgstr "Laukiama atsakymo"
 msgid "Call ongoing"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:54
+#: core/videoconference/videoconferencenotificationjob.cpp:57
 #, kde-format
 msgid "InComing Call"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:58
+#: core/videoconference/videoconferencenotificationjob.cpp:61
 #, kde-format
 msgid "Accept"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:64
+#: core/videoconference/videoconferencenotificationjob.cpp:67
 #, kde-format
 msgid "Reject"
 msgstr ""
@@ -2264,7 +2264,7 @@ msgstr "Bendrinti tekstą…"
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr ""
+msgstr "Bendrinant dokumentą atsirado problemų: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
 #, fuzzy, kde-format
@@ -2447,7 +2447,7 @@ msgstr ""
 #: rocketchatrestapi-qt/users/setavatarjob.cpp:45
 #, kde-format
 msgid "File not found '%1'"
-msgstr ""
+msgstr "Failas „%1“ nerastas"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:60
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
@@ -3387,7 +3387,7 @@ msgctxt "@title:window"
 msgid "Create New User Status"
 msgstr "Tinkinta naudotojo būsena"
 
-#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:70
+#: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:78
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgctxt "@title:window"
@@ -8938,14 +8938,14 @@ msgid "Send"
 msgstr ""
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:133
+#: widgets/dialogs/createvideomessagewizard.cpp:139
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "Failo pavadinimas:"
 
 #: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:146
+#: widgets/dialogs/createvideomessagewizard.cpp:152
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
@@ -9312,7 +9312,7 @@ msgctxt "@title:window"
 msgid "Search Messages"
 msgstr ""
 
-#: widgets/dialogs/searchmessagedialog.cpp:72
+#: widgets/dialogs/searchmessagedialog.cpp:78
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgctxt "@title:window"
@@ -9504,7 +9504,7 @@ msgstr ""
 msgid "Copy Location to Clipboard"
 msgstr ""
 
-#: widgets/dialogs/showimagedialog.cpp:150
+#: widgets/dialogs/showimagedialog.cpp:156
 #, kde-format
 msgid "Other Application..."
 msgstr "Kita programa..."
@@ -9658,33 +9658,33 @@ msgstr "Įrašyti paveikslą"
 msgid "File Name:"
 msgstr "Failo pavadinimas:"
 
-#: widgets/directory/directorydialog.cpp:32
+#: widgets/directory/directorydialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
 msgid "Join Room - %1"
 msgstr ""
 
-#: widgets/directory/directorydialog.cpp:35
+#: widgets/directory/directorydialog.cpp:36
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgctxt "@title:window"
 msgid "Open Private Conversation - %1"
 msgstr "Šifruotas pokalbis"
 
-#: widgets/directory/directorydialog.cpp:38
+#: widgets/directory/directorydialog.cpp:39
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title:window"
 msgid "Join Team - %1"
 msgstr "Šalinti iš kambario"
 
-#: widgets/directory/directorydialog.cpp:62
+#: widgets/directory/directorydialog.cpp:63
 #, kde-format
 msgctxt "@action:button"
 msgid "Join"
 msgstr "Prisijungti"
 
-#: widgets/directory/directorydialog.cpp:65
+#: widgets/directory/directorydialog.cpp:66
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgctxt "@action:button"
