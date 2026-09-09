@@ -5,6 +5,9 @@
 */
 
 #include "deviceinfos.h"
+
+#include <QDebug>
+
 QT_IMPL_METATYPE_EXTERN_TAGGED(DeviceInfos, Ruqola_DeviceInfos)
 
 using namespace Qt::Literals::StringLiterals;
@@ -23,7 +26,7 @@ QDebug operator<<(QDebug d, const DeviceInfos &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "deviceInfosCount" << t.loadedCount() << "\n";
+    d.space() << "loadedCount" << t.loadedCount() << "\n";
     for (const DeviceInfo &info : t.list()) {
         d.space() << info << "\n";
     }

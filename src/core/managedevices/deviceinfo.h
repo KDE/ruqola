@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QByteArray>
 #include <QMetaType>
 #include <QString>
 class QDebug;
@@ -15,8 +16,6 @@ class QJsonObject;
 class LIBRUQOLACORE_EXPORT DeviceInfo
 {
 public:
-    DeviceInfo();
-
     void parseDeviceInfo(const QJsonObject &object);
 
     [[nodiscard]] bool operator==(const DeviceInfo &other) const;

@@ -7,11 +7,14 @@
 #include "deviceinfo.h"
 #include "utils.h"
 
+#include <QDateTime>
+#include <QDebug>
 #include <QJsonObject>
+#include <QLocale>
 
 QT_IMPL_METATYPE_EXTERN_TAGGED(DeviceInfo, Ruqola_DeviceInfo)
+
 using namespace Qt::Literals::StringLiterals;
-DeviceInfo::DeviceInfo() = default;
 
 QDebug operator<<(QDebug d, const DeviceInfo &t)
 {
@@ -42,9 +45,8 @@ void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
         mClient = deviceObj["name"_L1].toString();
     }
     setLoginAt(Utils::parseIsoDate(u"loginAt"_s, obj));
+    // The rest of "device" is not shown by the manage-devices dialog:
     //"device":{"longVersion":"103.0","name":"Firefox","os":{"name":"Linux","version":"x86_64"},"type":"browser","version":"103.0"}
-    // TODO LoginAt
-    // TODO
 }
 
 bool DeviceInfo::operator==(const DeviceInfo &other) const
