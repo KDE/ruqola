@@ -14,11 +14,9 @@ class QDebug;
 namespace CustomEmojisInfoUtils
 {
 // CustomEmoji::parseEmoji() has a second, defaulted argument, which a member pointer can't carry.
-// This has to stay in the header: it is the base class's template argument below.
-inline void parseCustomEmoji(CustomEmoji &emoji, const QJsonObject &obj)
-{
-    emoji.parseEmoji(obj);
-}
+// This has to be declared here: it is the base class's template argument below. The body stays in
+// the .cpp, as CustomEmoji itself is only exported for the unit tests.
+LIBRUQOLACORE_EXPORT void parseCustomEmoji(CustomEmoji &emoji, const QJsonObject &obj);
 }
 
 class LIBRUQOLACORE_EXPORT CustomEmojisInfo : public PaginatedInfoList<CustomEmoji, &CustomEmojisInfoUtils::parseCustomEmoji>

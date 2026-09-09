@@ -9,6 +9,11 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(CustomEmojisInfo, Ruqola_CustomEmojisInfo)
 
 using namespace Qt::Literals::StringLiterals;
 
+void CustomEmojisInfoUtils::parseCustomEmoji(CustomEmoji &emoji, const QJsonObject &obj)
+{
+    emoji.parseEmoji(obj);
+}
+
 void CustomEmojisInfo::parseCustomEmojis(const QJsonObject &obj)
 {
     parseInfos(obj, "emojis"_L1);
