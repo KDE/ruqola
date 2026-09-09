@@ -11,6 +11,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfos, Ruqola_PersonalAccessTokenInfos)
 using namespace Qt::Literals::StringLiterals;
 PersonalAccessTokenInfos::PersonalAccessTokenInfos() = default;
 
@@ -63,7 +64,7 @@ void PersonalAccessTokenInfos::parsePersonalAccessTokenInfos(const QJsonObject &
     mPersonalAccessTokenInfos.clear();
     const QJsonArray tokensArray = obj["tokens"_L1].toArray();
     mPersonalAccessTokenInfos.reserve(tokensArray.count());
-    for (const QJsonValue &current : tokensArray) {
+    for (const auto &current : tokensArray) {
         const QJsonObject tokenObject = current.toObject();
         PersonalAccessTokenInfo r;
         r.parsePersonalAccessTokenInfo(tokenObject);

@@ -2389,9 +2389,8 @@ void RocketChatAccount::discussionsInRoom(const QByteArray &roomId)
 void RocketChatAccount::getSupportedLanguages()
 {
     if (mRuqolaServerConfig->autoTranslateEnabled()) {
-        const bool needTargetLanguage = true;
         auto job = new RocketChatRestApi::GetSupportedLanguagesJob(this);
-        job->setNeedTargetLanguage(needTargetLanguage);
+        job->setNeedTargetLanguage(true);
         restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::GetSupportedLanguagesJob::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         if (!job->start()) {

@@ -33,4 +33,7 @@ public:
 private:
     QList<PersonalAccessTokenInfo> mPersonalAccessTokenInfos;
 };
+
+QT_DECL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfos, Ruqola_PersonalAccessTokenInfos, LIBRUQOLACORE_EXPORT)
+Q_DECLARE_TYPEINFO(PersonalAccessTokenInfos, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t);
