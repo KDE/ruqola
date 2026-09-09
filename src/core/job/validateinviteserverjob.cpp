@@ -9,7 +9,6 @@
 #include "invite/validateinvitetokenjob.h"
 #include "ruqola_debug.h"
 
-#include <KLocalizedString>
 ValidateInviteServerJob::ValidateInviteServerJob(QObject *parent)
     : QObject{parent}
 {
