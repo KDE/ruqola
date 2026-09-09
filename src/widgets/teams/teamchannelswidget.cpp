@@ -106,7 +106,7 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
     QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
-    mTeamRoomsModel->setTeamRooms(teamRooms);
+    mTeamRoomsModel->setTeamRooms(std::move(teamRooms));
 }
 
 void TeamChannelsWidget::slotTextChanged(const QString &str)

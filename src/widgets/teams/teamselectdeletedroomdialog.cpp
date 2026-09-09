@@ -44,9 +44,9 @@ TeamSelectDeletedRoomDialog::~TeamSelectDeletedRoomDialog()
     writeConfig();
 }
 
-void TeamSelectDeletedRoomDialog::setTeamRooms(const QList<TeamRoom> &rooms)
+void TeamSelectDeletedRoomDialog::setTeamRooms(QList<TeamRoom> rooms)
 {
-    mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
+    mTeamSelectDeletedRoomWidget->setTeamRooms(std::move(rooms));
 }
 
 void TeamSelectDeletedRoomDialog::readConfig()

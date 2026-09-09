@@ -40,9 +40,9 @@ QList<QByteArray> TeamConvertToChannelWidget::roomIdsToDelete() const
     return mTeamSelectDeletedRoomWidget->roomsId();
 }
 
-void TeamConvertToChannelWidget::setTeamRooms(const QList<TeamRoom> &rooms)
+void TeamConvertToChannelWidget::setTeamRooms(QList<TeamRoom> rooms)
 {
-    mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
+    mTeamSelectDeletedRoomWidget->setTeamRooms(std::move(rooms));
 }
 
 #include "moc_teamconverttochannelwidget.cpp"

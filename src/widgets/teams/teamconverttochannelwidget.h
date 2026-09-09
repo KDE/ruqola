@@ -5,11 +5,11 @@
 */
 #pragma once
 
+#include "teams/teamroom.h"
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
 class TeamSelectDeletedRoomWidget;
-class TeamRoom;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamConvertToChannelWidget : public QWidget
 {
     Q_OBJECT
@@ -17,7 +17,7 @@ public:
     explicit TeamConvertToChannelWidget(QWidget *parent = nullptr);
     ~TeamConvertToChannelWidget() override;
     [[nodiscard]] QList<QByteArray> roomIdsToDelete() const;
-    void setTeamRooms(const QList<TeamRoom> &rooms);
+    void setTeamRooms(QList<TeamRoom> rooms);
 
 private:
     TeamSelectDeletedRoomWidget *const mTeamSelectDeletedRoomWidget;

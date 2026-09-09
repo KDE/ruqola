@@ -17,7 +17,7 @@ public:
     explicit TeamSelectDeletedRoomDialog(QWidget *parent = nullptr);
     ~TeamSelectDeletedRoomDialog() override;
 
-    void setTeamRooms(const QList<TeamRoom> &rooms);
+    void setTeamRooms(QList<TeamRoom> rooms);
 
     [[nodiscard]] QList<QByteArray> roomsId() const;
 
