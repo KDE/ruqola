@@ -18,4 +18,6 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadPersonalAccessTokenInfos_data();
     void shouldLoadPersonalAccessTokenInfos();
+    void shouldRemoveToken();
+    void shouldReturnInvalidTokenOnOutOfRangeIndex();
 };

@@ -22,6 +22,7 @@ QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t)
     d.space() << "mName" << t.name();
     d.space() << "mLastTokenPart" << t.lastTokenPart();
     d.space() << "mCreatedAt" << t.createdAt();
+    d.space() << "mCreateAtDisplayDateTime" << t.createAtDisplayDateTime();
     return d;
 }
 

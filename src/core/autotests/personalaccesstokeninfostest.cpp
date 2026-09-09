@@ -67,7 +67,7 @@ void PersonalAccessTokenInfosTest::shouldLoadPersonalAccessTokenInfos_data()
             i.setCreatedAt(1741856839672);
             lst.append(i);
         }
-        info.setPersonalAccessTokenInfos(lst);
+        info.setPersonalAccessTokenInfos(std::move(lst));
         QTest::addRow("four-tokens") << u"four-tokens"_s << info;
     }
 }
@@ -87,6 +87,46 @@ void PersonalAccessTokenInfosTest::shouldLoadPersonalAccessTokenInfos()
         qDebug() << "EXPECTED " << personalAccessTokenInfos;
     }
     QVERIFY(equal);
+}
+
+static PersonalAccessTokenInfos createTokenInfos(int count)
+{
+    QList<PersonalAccessTokenInfo> lst;
+    lst.reserve(count);
+    for (int i = 0; i < count; ++i) {
+        PersonalAccessTokenInfo info;
+        info.setName(u"test%1"_s.arg(i));
+        info.setLastTokenPart(u"part%1"_s.arg(i));
+        info.setCreatedAt(1741856600248 + i);
+        lst.append(std::move(info));
+    }
+    PersonalAccessTokenInfos infos;
+    infos.setPersonalAccessTokenInfos(std::move(lst));
+    return infos;
+}
+
+void PersonalAccessTokenInfosTest::shouldRemoveToken()
+{
+    PersonalAccessTokenInfos infos = createTokenInfos(3);
+    QCOMPARE(infos.count(), 3);
+
+    infos.removeAt(1);
+    QCOMPARE(infos.count(), 2);
+    QCOMPARE(infos.at(0).name(), u"test0"_s);
+    QCOMPARE(infos.at(1).name(), u"test2"_s);
+
+    // Out of range: the list is left untouched.
+    infos.removeAt(-1);
+    infos.removeAt(2);
+    QCOMPARE(infos.count(), 2);
+}
+
+void PersonalAccessTokenInfosTest::shouldReturnInvalidTokenOnOutOfRangeIndex()
+{
+    const PersonalAccessTokenInfos infos = createTokenInfos(2);
+    QVERIFY(!infos.at(-1).isValid());
+    QVERIFY(!infos.at(2).isValid());
+    QVERIFY(infos.at(0).isValid());
 }
 
 #include "moc_personalaccesstokeninfostest.cpp"

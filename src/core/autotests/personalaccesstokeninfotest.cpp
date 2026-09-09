@@ -19,6 +19,8 @@ void PersonalAccessTokenInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.lastTokenPart().isEmpty());
     QVERIFY(!w.isValid());
+    QCOMPARE(w.createdAt(), -1);
+    QVERIFY(w.createAtDisplayDateTime().isEmpty());
 }
 
 #include "moc_personalaccesstokeninfotest.cpp"
