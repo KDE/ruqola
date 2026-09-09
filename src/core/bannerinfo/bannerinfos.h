@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QList>
 class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT BannerInfos
 {
