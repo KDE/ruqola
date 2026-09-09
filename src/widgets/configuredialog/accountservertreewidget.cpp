@@ -166,6 +166,9 @@ void AccountServerTreeWidget::slotMoveAccountUp()
         return;
     }
     const int pos = indexOfTopLevelItem(currentItem());
+    if (pos <= 0) {
+        return;
+    }
     blockSignals(true);
     QTreeWidgetItem *item = takeTopLevelItem(pos);
     // now selected item is at idx(idx-1), so
@@ -181,6 +184,9 @@ void AccountServerTreeWidget::slotMoveAccountDown()
         return;
     }
     const int pos = indexOfTopLevelItem(currentItem());
+    if (pos < 0 || pos >= topLevelItemCount() - 1) {
+        return;
+    }
     blockSignals(true);
     QTreeWidgetItem *item = takeTopLevelItem(pos);
     // now selected item is at idx(idx-1), so
