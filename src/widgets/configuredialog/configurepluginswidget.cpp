@@ -64,23 +64,6 @@ void ConfigurePluginsWidget::initialize()
     mTreePluginWidget->expandAll();
 }
 
-void ConfigurePluginsWidget::savePlugins(const QString &groupName, const QString &prefixSettingKey, const QList<PluginItem *> &listItems)
-{
-    if (listItems.isEmpty()) {
-        return;
-    }
-    QStringList enabledPlugins;
-    QStringList disabledPlugins;
-    for (PluginItem *item : listItems) {
-        if (item->checkState(0) == Qt::Checked) {
-            enabledPlugins << item->mIdentifier;
-        } else {
-            disabledPlugins << item->mIdentifier;
-        }
-    }
-    TextAddonsWidgets::PluginUtil::savePluginSettings(groupName, prefixSettingKey, enabledPlugins, disabledPlugins);
-}
-
 void ConfigurePluginsWidget::slotConfigureClicked(const QString &groupName, const QString &identifier)
 {
     if (!groupName.isEmpty() && !identifier.isEmpty()) {
