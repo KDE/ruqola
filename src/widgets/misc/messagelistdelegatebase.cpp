@@ -26,7 +26,7 @@ MessageListDelegateBase::MessageListDelegateBase(QAbstractItemView *view, QObjec
     : QItemDelegate{parent}
     , MessageListTextUi(new TextSelectionImpl, view)
 {
-    TextUiBase::setCacheMaxEntries(32); // Enough?
+    MessageListTextUi::setCacheMaxEntries(32); // Enough?
     auto textSelection = mTextSelectionImpl->textSelection();
     textSelection->setTextHelperFactory(this);
     connect(textSelection, &TextSelection::repaintNeeded, this, &MessageListDelegateBase::updateView);
@@ -44,7 +44,7 @@ void MessageListDelegateBase::clearSizeHintCache()
 
 void MessageListDelegateBase::clearCache()
 {
-    TextUiBase::clearCache();
+    MessageListTextUi::clearCache();
 }
 
 bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
