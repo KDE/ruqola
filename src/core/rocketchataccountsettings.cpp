@@ -36,7 +36,6 @@ RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileN
 RocketChatAccountSettings::~RocketChatAccountSettings()
 {
     mSetting->sync();
-    delete mSetting;
 }
 
 bool RocketChatAccountSettings::isValid() const
@@ -53,8 +52,7 @@ bool RocketChatAccountSettings::isValid() const
 
 void RocketChatAccountSettings::initializeSettings(const QString &accountFileName)
 {
-    delete mSetting;
-    mSetting = new QSettings(accountFileName, QSettings::IniFormat);
+    mSetting.reset(new QSettings(accountFileName, QSettings::IniFormat));
     qCDebug(RUQOLA_LOG) << "accountFileName " << accountFileName;
 
     const QString storedServerUrl = mSetting->value("serverURL"_L1, "open.rocket.chat"_L1).toString();

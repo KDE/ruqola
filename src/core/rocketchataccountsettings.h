@@ -11,6 +11,7 @@
 #include <QDate>
 #include <QObject>
 #include <QString>
+#include <memory>
 
 namespace QKeychain
 {
@@ -116,7 +117,7 @@ private:
     QDate mLastCheckedPreviewUrlCacheDate;
     QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;
-    QSettings *mSetting = nullptr;
+    std::unique_ptr<QSettings> mSetting;
     bool mKeySaved = false;
     bool mUseLdap = false;
     bool mAccountEnabled = true;
