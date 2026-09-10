@@ -160,8 +160,10 @@ bool E2eKeyManager::decodeEncryptionKey([[maybe_unused]] const QString &password
 
     // Decrypt the stored private key.  Two storage layouts are possible:
     //
-    //  V2 JSON  – starts with '{'; contains its own PBKDF2 salt/iterations
-    //             and was encrypted with AES-GCM.
+    //  V2 JSON  – starts with '{'; contains its own PBKDF2 salt/iterations. The mode comes from
+    //             the length of its IV, exactly as Rocket.Chat's Keychain::decryptKey() does
+    //             (`content.iv.length === 16 ? 'AES-CBC' : 'AES-GCM'`): 12 bytes is the AES-GCM
+    //             every client writes nowadays, 16 the AES-CBC-256 it still accepts.
     //  Binary   – raw bytes: iv[16] + AES-CBC-256 ciphertext; PBKDF2 uses
     //             the userId as salt with 1 000 iterations.
     //
@@ -191,7 +193,14 @@ bool E2eKeyManager::decodeEncryptionKey([[maybe_unused]] const QString &password
                 return false;
             }
 
-            decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, v2MasterKey, v2Iv);
+            // The IV length picks the mode, not the envelope version: a 16-byte one means the
+            // AES-CBC-256 layout Rocket.Chat still reads back, anything else AES-GCM.
+            const auto decryptV2Envelope = [&v2Ciphertext, &v2Iv](const QByteArray &masterKey) {
+                return v2Iv.size() == 16 ? EncryptionUtils::decryptAES_CBC_256(v2Ciphertext, masterKey, v2Iv)
+                                         : EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, masterKey, v2Iv);
+            };
+
+            decryptedPrivateKey = decryptV2Envelope(v2MasterKey);
             decryptedAsV2 = true;
             if (decryptedPrivateKey.isEmpty()) {
                 // Keys a previous Ruqola version sealed derived the master key from the UTF-8
@@ -200,7 +209,7 @@ bool E2eKeyManager::decodeEncryptionKey([[maybe_unused]] const QString &password
                 // password both derivations agree, so this costs nothing in the common case.
                 const QByteArray legacyMasterKey = EncryptionUtils::deriveKey(v2Salt.toUtf8(), password.toUtf8(), v2Iterations, 32);
                 if (!legacyMasterKey.isEmpty() && legacyMasterKey != v2MasterKey) {
-                    decryptedPrivateKey = EncryptionUtils::decryptAES_GCM_256(v2Ciphertext, legacyMasterKey, v2Iv);
+                    decryptedPrivateKey = decryptV2Envelope(legacyMasterKey);
                     if (!decryptedPrivateKey.isEmpty()) {
                         qCWarning(RUQOLA_ENCRYPTION_LOG) << "The private key was sealed with a non-ASCII password encoded the way Ruqola used to: it has "
                                                             "to be re-uploaded before another client can unlock it";
@@ -531,10 +540,14 @@ bool E2eKeyManager::provideRoomKeyToUsers([[maybe_unused]] const QByteArray &roo
 
 QByteArray E2eKeyManager::ownPublicKey() const
 {
+    if (!mAccount) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "ownPublicKey: no account";
+        return {};
+    }
     const QString userId = QString::fromLatin1(mAccount->settings()->userId());
     QByteArray encryptedOwnPrivateKey;
     QByteArray ownPublicKeyValue;
-    if (mAccount && !mAccount->localDatabaseManager()->e2EDatabase()->loadKey(mAccount->accountName(), userId, encryptedOwnPrivateKey, ownPublicKeyValue)) {
+    if (!mAccount->localDatabaseManager()->e2EDatabase()->loadKey(mAccount->accountName(), userId, encryptedOwnPrivateKey, ownPublicKeyValue)) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "own public key not found in local database";
         return {};
     }
@@ -1272,7 +1285,7 @@ void E2eKeyManager::requestMissingRoomKeys()
 bool E2eKeyManager::decryptRoomSessionKeys(Room *r) const
 {
 #if USE_E2E_SUPPORT
-    if (mDecodedPrivateKey.isEmpty()) {
+    if (!r || mDecodedPrivateKey.isEmpty()) {
         return false;
     }
 

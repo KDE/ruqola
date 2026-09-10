@@ -137,6 +137,12 @@ QByteArray MessageEncrypted::decrypt([[maybe_unused]] const QByteArray &sessionK
     // key.algorithm.name), not from the content version: a room still keyed with a legacy
     // 16-byte A128CBC key produces AES-CBC-128 payloads inside a "rc.v2.aes-sha2" content.
     if (sessionKey.size() == 16) {
+        // The "iv" of the message is whatever the server sent us, while AES-CBC always needs a
+        // full 16-byte block: EncryptionUtils refuses anything else, this only says why.
+        if (decodedIv.size() != 16) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "MessageEncrypted::decrypt: AES-CBC-128 expects a 16 byte iv, got" << decodedIv.size();
+            return {};
+        }
         return EncryptionUtils::decryptAES_CBC_128(decodedCiphertext, sessionKey, decodedIv);
     }
     if (sessionKey.size() != 32) {

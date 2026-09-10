@@ -20,6 +20,34 @@
 
 using namespace Qt::Literals::StringLiterals;
 
+namespace
+{
+// OpenSSL reads exactly as many bytes as the cipher needs straight from the pointers we hand it,
+// so a QByteArray shorter than that makes it read past the end of the buffer. Every key, IV and
+// ciphertext below can come from the server (a message "iv", a stored private key envelope...),
+// which makes their length something to check rather than to assume.
+[[nodiscard]] bool
+hasExpectedKeyAndIvSize(const char *context, const QByteArray &key, qsizetype expectedKeySize, const QByteArray &iv, qsizetype expectedIvSize)
+{
+    if (key.size() != expectedKeySize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << context << "expected a" << expectedKeySize << "byte key, got" << key.size();
+        return false;
+    }
+    if (iv.size() != expectedIvSize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << context << "expected a" << expectedIvSize << "byte iv, got" << iv.size();
+        return false;
+    }
+    return true;
+}
+
+// AES-CBC and AES-GCM both work on 16-byte blocks.
+constexpr qsizetype aesBlockSize = 16;
+// Rocket.Chat only ever produces the two AES flavours of its ALGORITHM_MAP: AES-GCM with a
+// 256-bit key, and the legacy AES-CBC with a 128-bit one.
+constexpr qsizetype aes256KeySize = 32;
+constexpr qsizetype aes128KeySize = 16;
+}
+
 /**
  * @brief Exports an RSA public key in JWK (JSON Web Key) format.
  *
@@ -173,22 +201,6 @@ QByteArray EncryptionUtils::encryptPrivateKeyV2(const QByteArray &privateKey, co
     storedKey["salt"_L1] = salt;
     storedKey["iterations"_L1] = iterations;
     return QJsonDocument(storedKey).toJson(QJsonDocument::Compact);
-}
-
-QByteArray EncryptionUtils::exportJWKEncryptedPrivateKey(const QByteArray &encryptedPrivateKey)
-{
-    QJsonObject jwkObj;
-    jwkObj["kty"_L1] = u"RSA"_s;
-    jwkObj["alg"_L1] = u"RSA-OAEP-256"_s;
-    jwkObj["key_ops"_L1] = QJsonArray() << u"decrypt"_s;
-    jwkObj["ext"_L1] = true;
-
-    // Store the encrypted private key as base64url
-    const QString ePrivKeyBase64Url = QString::fromLatin1(encryptedPrivateKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    jwkObj["RSA-EPrivKey"_L1] = ePrivKeyBase64Url;
-
-    const QJsonDocument doc(jwkObj);
-    return doc.toJson(QJsonDocument::Compact);
 }
 
 EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
@@ -415,9 +427,12 @@ QByteArray EncryptionUtils::deriveMasterKey(const QString &salt, const QString &
 }
 
 /**
- * @brief Generates a random 16-byte (128-bit) session key for AES encryption.
+ * @brief Generates a random 32-byte (256-bit) room session key.
  *
- * @return A QByteArray containing 16 random bytes suitable for use as an AES-128 session key.
+ * Rocket.Chat's Aes.generate() creates an AES-GCM-256 key, and the key length is what tells the
+ * other clients which algorithm to import it as ("A256GCM"), so this size is load-bearing.
+ *
+ * @return A QByteArray containing 32 random bytes.
  */
 QByteArray EncryptionUtils::generateSessionKey()
 {
@@ -635,79 +650,6 @@ QByteArray EncryptionUtils::decryptSessionKey(const QByteArray &encryptedSession
     return decryptedSessionKey;
 }
 
-/**
- * @brief Encrypts a message with the room key, AES-CBC in the mode the key length dictates.
- * @param plainText The message to encrypt.
- * @param sessionKey The session key: 32 bytes (AES-256) or 16 bytes (AES-128).
- * @return The IV prepended to the ciphertext.
- */
-QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QByteArray &sessionKey)
-{
-    if (plainText.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, plaintext is empty!";
-        return {};
-    }
-    if (sessionKey.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, session key is empty!";
-        return {};
-    }
-
-    // The mode follows the key, as everywhere else: passing a 32-byte key to the AES-128 helper
-    // silently threw away half of it and produced something no Rocket.Chat client could read.
-    if (sessionKey.size() != 32 && sessionKey.size() != 16) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, unexpected session key size" << sessionKey.size();
-        return {};
-    }
-
-    QByteArray iv = generateRandomIV(16);
-    QByteArray cipherText = sessionKey.size() == 32 ? encryptAES_CBC_256(plainText, sessionKey, iv) : encryptAES_CBC_128(plainText, sessionKey, iv);
-
-    if (cipherText.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, message encryption failed, cipher text is empty!";
-        return {};
-    }
-
-    QByteArray result;
-    result.append(std::move(iv));
-    result.append(std::move(cipherText));
-    return result;
-}
-
-/**
- * @brief Decrypts a message with the room key, AES-CBC in the mode the key length dictates.
- * @param encrypted The message to decrypt.
- * @param sessionKey The session key: 32 bytes (AES-256) or 16 bytes (AES-128).
- * @return The decrypted message.
- */
-QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QByteArray &sessionKey)
-{
-    if (encrypted.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, encrypted message is empty!";
-        return {};
-    }
-    if (sessionKey.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, session key is empty!";
-        return {};
-    }
-
-    if (sessionKey.size() != 32 && sessionKey.size() != 16) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, unexpected session key size" << sessionKey.size();
-        return {};
-    }
-
-    const QByteArray iv = encrypted.left(16);
-    const QByteArray cipherText = encrypted.mid(16);
-
-    QByteArray plainText = sessionKey.size() == 32 ? decryptAES_CBC_256(cipherText, sessionKey, iv) : decryptAES_CBC_128(cipherText, sessionKey, iv);
-
-    if (plainText.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, message decryption failed, plain text is empty";
-        return {};
-    }
-
-    return plainText;
-}
-
 QByteArray EncryptionUtils::encryptAES_GCM_256(const QByteArray &plainText, const QByteArray &key, const QByteArray &iv)
 {
     if (plainText.isEmpty()) {
@@ -715,8 +657,10 @@ QByteArray EncryptionUtils::encryptAES_GCM_256(const QByteArray &plainText, cons
         return {};
     }
 
-    if (key.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: key is empty";
+    // The IV length is the one thing AES-GCM takes from the payload (EVP_CTRL_GCM_SET_IVLEN
+    // below), so only the key has a length to enforce here.
+    if (key.size() != aes256KeySize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: expected a" << aes256KeySize << "byte key, got" << key.size();
         return {};
     }
 
@@ -781,6 +725,15 @@ QByteArray EncryptionUtils::decryptAES_GCM_256(const QByteArray &ciphertext, con
     constexpr int tagLen = 16;
     if (ciphertext.size() <= tagLen) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: ciphertext too short";
+        return {};
+    }
+
+    if (key.size() != aes256KeySize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: expected a" << aes256KeySize << "byte key, got" << key.size();
+        return {};
+    }
+    if (iv.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: iv is empty";
         return {};
     }
 
@@ -1024,6 +977,10 @@ QByteArray EncryptionUtils::publicKeyJWKToPEM(const QByteArray &jwkJson)
 
 QByteArray EncryptionUtils::decryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("decryptAES_CBC_256:", key, aes256KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int plaintext_len;
@@ -1069,6 +1026,10 @@ QByteArray EncryptionUtils::decryptAES_CBC_256(const QByteArray &data, const QBy
 
 QByteArray EncryptionUtils::encryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("encryptAES_CBC_256:", key, aes256KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int ciphertext_len;
@@ -1114,6 +1075,10 @@ QByteArray EncryptionUtils::encryptAES_CBC_256(const QByteArray &data, const QBy
 
 QByteArray EncryptionUtils::encryptAES_CBC_128(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("encryptAES_CBC_128:", key, aes128KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int ciphertext_len;
@@ -1159,6 +1124,10 @@ QByteArray EncryptionUtils::encryptAES_CBC_128(const QByteArray &data, const QBy
 
 QByteArray EncryptionUtils::decryptAES_CBC_128(const QByteArray &cipherText, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("decryptAES_CBC_128:", key, aes128KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int plainTextLen;
@@ -1261,31 +1230,6 @@ QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &
     }
 
     return derivedKey;
-}
-
-EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
-{
-    EncryptionUtils::EncryptionInfo info;
-    if (cipherText.size() > 16) {
-        info.vector = cipherText.left(16);
-        info.encryptedData = cipherText.mid(16);
-    }
-    return info;
-}
-
-QByteArray EncryptionUtils::joinVectorAndEcryptedData(const EncryptionUtils::EncryptionInfo &info)
-{
-    return info.vector + info.encryptedData;
-}
-
-bool EncryptionUtils::EncryptionInfo::isValid() const
-{
-    return !vector.isEmpty() && !encryptedData.isEmpty();
-}
-
-bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::EncryptionInfo &other) const
-{
-    return other.vector == vector && other.encryptedData == encryptedData;
 }
 
 QString EncryptionUtils::generateRandomPassword()

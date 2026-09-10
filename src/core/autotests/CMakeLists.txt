@@ -220,7 +220,6 @@ if(USE_E2E_SUPPORT)
     add_ruqola_test(masterkeytest.cpp)
     add_ruqola_test(rsapairtest.cpp)
     add_ruqola_test(sessionkeytest.cpp)
-    add_ruqola_test(messageencryptiondecryptiontest.cpp)
     #add_ruqola_test(uploaddownloadrsakeypairtest.cpp)
     add_ruqola_test(sessionkeydistributiontest.cpp)
 

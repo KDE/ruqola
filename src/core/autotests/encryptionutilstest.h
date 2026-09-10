@@ -21,10 +21,7 @@ private Q_SLOTS:
     void shouldExportSessionKeyJwkForBothAesFlavours();
     void shouldDeriveMasterKeyTheWayRocketChatDoes();
 
-    void shouldSplitVectorAndEcryptedData_data();
-    void shouldSplitVectorAndEcryptedData();
-    void shouldJoinVectorAndEcryptedData_data();
-    void shouldJoinVectorAndEcryptedData();
+    void shouldRejectWrongKeyAndIvSizes();
     void shouldGenerateRandomPassword();
     void shouldGenerateRoomKeyId();
 };

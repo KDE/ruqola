@@ -526,8 +526,6 @@ target_sources(
         previewurlcachemanager.cpp
         encryption/e2ekeymanager.cpp
         encryption/e2ekeymanager.h
-        encryption/e2ekey.h
-        encryption/e2ekey.cpp
         soundmanager.h
         soundmanager.cpp
         apps/appscategoryinfo.h

@@ -124,56 +124,45 @@ void EncryptionUtilsTest::shouldDeriveMasterKeyTheWayRocketChatDoes()
     QVERIFY(EncryptionUtils::deriveMasterKey({}, password, 1000).isEmpty());
 }
 
-void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData_data()
+// OpenSSL reads the key and IV length its cipher requires straight from the pointers it is given,
+// so a short QByteArray would make it read past the end of the buffer. Both come from the server
+// in the real flows (a message "iv", a stored private key envelope), so a wrong length has to be
+// refused rather than forwarded.
+void EncryptionUtilsTest::shouldRejectWrongKeyAndIvSizes()
 {
-    QTest::addColumn<QByteArray>("encryptedData");
-    QTest::addColumn<EncryptionUtils::EncryptionInfo>("encryptionInfo");
+    const QByteArray key32 = EncryptionUtils::generateRandomIV(32);
+    const QByteArray key16 = EncryptionUtils::generateRandomIV(16);
+    const QByteArray iv16 = EncryptionUtils::generateRandomIV(16);
+    const QByteArray iv12 = EncryptionUtils::generateRandomIV(12);
+    const QByteArray shortIv = EncryptionUtils::generateRandomIV(4);
+    const QByteArray payload = "some payload to protect"_ba;
 
-    {
-        const EncryptionUtils::EncryptionInfo info;
-        QTest::addRow("empty") << QByteArray() << info;
-    }
-    {
-        const EncryptionUtils::EncryptionInfo info;
-        QTest::addRow("too-short") << "1234567890123456"_ba << info;
-    }
-    {
-        EncryptionUtils::EncryptionInfo info;
-        info.vector = "1234567890abcdef"_ba;
-        info.encryptedData = "cipher-payload"_ba;
-        QTest::addRow("iv-and-payload") << QByteArray(info.vector + info.encryptedData) << info;
-    }
-}
+    // A short IV is the reachable case: it comes verbatim from the "iv" field of a message.
+    QVERIFY(EncryptionUtils::encryptAES_CBC_256(payload, key32, shortIv).isEmpty());
+    QVERIFY(EncryptionUtils::decryptAES_CBC_256(payload, key32, shortIv).isEmpty());
+    QVERIFY(EncryptionUtils::encryptAES_CBC_128(payload, key16, shortIv).isEmpty());
+    QVERIFY(EncryptionUtils::decryptAES_CBC_128(payload, key16, shortIv).isEmpty());
 
-void EncryptionUtilsTest::shouldSplitVectorAndEcryptedData()
-{
-    QFETCH(QByteArray, encryptedData);
-    QFETCH(EncryptionUtils::EncryptionInfo, encryptionInfo);
-    QCOMPARE(EncryptionUtils::splitVectorAndEcryptedData(encryptedData), encryptionInfo);
-}
+    // A key of the wrong flavour must not be silently truncated or read past either.
+    QVERIFY(EncryptionUtils::encryptAES_CBC_256(payload, key16, iv16).isEmpty());
+    QVERIFY(EncryptionUtils::decryptAES_CBC_256(payload, key16, iv16).isEmpty());
+    QVERIFY(EncryptionUtils::encryptAES_CBC_128(payload, key32, iv16).isEmpty());
+    QVERIFY(EncryptionUtils::decryptAES_CBC_128(payload, key32, iv16).isEmpty());
+    QVERIFY(EncryptionUtils::encryptAES_GCM_256(payload, key16, iv12).isEmpty());
 
-void EncryptionUtilsTest::shouldJoinVectorAndEcryptedData_data()
-{
-    QTest::addColumn<EncryptionUtils::EncryptionInfo>("encryptionInfo");
-    QTest::addColumn<QByteArray>("encryptedData");
+    // AES-GCM is the one that takes its IV length from the payload, so only the key is fixed.
+    const QByteArray gcm = EncryptionUtils::encryptAES_GCM_256(payload, key32, iv12);
+    QVERIFY(!gcm.isEmpty());
+    QVERIFY(EncryptionUtils::decryptAES_GCM_256(gcm, key16, iv12).isEmpty());
+    QCOMPARE(EncryptionUtils::decryptAES_GCM_256(gcm, key32, iv12), payload);
 
-    {
-        const EncryptionUtils::EncryptionInfo info;
-        QTest::addRow("empty") << info << QByteArray();
-    }
-    {
-        EncryptionUtils::EncryptionInfo info;
-        info.encryptedData = "blafoo-z"_ba;
-        info.vector = "AAAPPLLLAPPPAPAPPAPA"_ba;
-        QTest::addRow("test1") << info << QByteArray(info.vector + info.encryptedData);
-    }
-}
-
-void EncryptionUtilsTest::shouldJoinVectorAndEcryptedData()
-{
-    QFETCH(EncryptionUtils::EncryptionInfo, encryptionInfo);
-    QFETCH(QByteArray, encryptedData);
-    QCOMPARE(EncryptionUtils::joinVectorAndEcryptedData(encryptionInfo), encryptedData);
+    // And the legitimate lengths still round-trip.
+    const QByteArray cbc256 = EncryptionUtils::encryptAES_CBC_256(payload, key32, iv16);
+    QVERIFY(!cbc256.isEmpty());
+    QCOMPARE(EncryptionUtils::decryptAES_CBC_256(cbc256, key32, iv16), payload);
+    const QByteArray cbc128 = EncryptionUtils::encryptAES_CBC_128(payload, key16, iv16);
+    QVERIFY(!cbc128.isEmpty());
+    QCOMPARE(EncryptionUtils::decryptAES_CBC_128(cbc128, key16, iv16), payload);
 }
 
 void EncryptionUtilsTest::shouldGenerateRandomPassword()

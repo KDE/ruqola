@@ -41,8 +41,10 @@ public:
     [[nodiscard]] bool hasPendingUploadFailure() const;
 
     void fetchMyKeys();
-    // Forget every trace of the current key: cached key material, the E2E password kept in the
-    // keychain (it cannot decrypt the key the server hands out after a reset) and the status.
+    // Forget the in-memory key material, the E2E password kept in the keychain (it cannot decrypt
+    // the key the server hands out after a reset) and the status. The key pair cached in the local
+    // database is *not* touched: dropping it is the caller's job, and ownPublicKey() reads it, so
+    // it has to go before anything encrypts a room key again (see RocketChatAccount::resetE2eKey()).
     void resetKeys();
     [[nodiscard]] bool initializeRoomE2EKey(const QByteArray &roomId, const QString &existingKeyId = {});
     [[nodiscard]] bool distributeExistingRoomE2EKey(const QByteArray &roomId);
