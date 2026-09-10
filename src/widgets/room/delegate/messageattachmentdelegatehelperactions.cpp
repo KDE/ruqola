@@ -154,7 +154,7 @@ MessageAttachmentDelegateHelperActions::ActionsLayout MessageAttachmentDelegateH
     qreal y = 0;
     const MessageAttachmentActions::AlignmentButton alignment = act.alignment();
     const bool horizontal = (alignment == MessageAttachmentActions::AlignmentButton::Horizontal);
-    const auto actions = act.actions();
+    const auto &actions = act.actions();
     for (const auto &action : actions) {
         ButtonLayout buttonLayout;
         buttonLayout.text = action.text();
