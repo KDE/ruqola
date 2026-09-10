@@ -74,7 +74,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     int positionIcon = senderX + senderTextSize.width() + margin;
     // Roles icon
     const qreal iconSizeMargin = iconSize + margin;
-    const bool hasRoles = !index.data(MessagesModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
+    const bool hasRoles = mRocketChatAccount && !mRocketChatAccount->hideRoles() && !index.data(MessagesModel::Roles).toString().isEmpty();
     if (hasRoles) {
         positionIcon += iconSizeMargin;
     }
