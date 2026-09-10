@@ -288,7 +288,10 @@ void MessageListView::setChannelSelected(Room *room)
 
 void MessageListView::setModel(QAbstractItemModel *newModel)
 {
-    QAbstractItemModel *oldModel = model();
+    const QAbstractItemModel *oldModel = QListView::model();
+    if (newModel == oldModel) {
+        return;
+    }
     if (oldModel) {
         disconnect(oldModel, nullptr, this, nullptr);
     }

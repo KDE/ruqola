@@ -226,14 +226,13 @@ void RoomWidget::createE2eSaveEncryptionKeyWidget()
 {
     if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
         mE2eSaveEncryptionKeyWidget = new E2eSaveEncryptionKeyWidget(this);
-        mE2eSaveEncryptionKeyWidget->setObjectName(u"mE2eDecodeEncryptionKeyWidget"_s);
+        mE2eSaveEncryptionKeyWidget->setObjectName(u"mE2eSaveEncryptionKeyWidget"_s);
         connect(mE2eSaveEncryptionKeyWidget, &E2eSaveEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
         // After mUsersInRoomFlowWidget
         mRoomWidgetLayout->insertWidget(1, mE2eSaveEncryptionKeyWidget);
     }
 }
 
-// TODO use it
 void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
 {
     mE2eDecodeEncryptionKeyFailedWidget = new E2eDecodeEncryptionKeyFailedWidget(this);
