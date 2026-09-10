@@ -406,6 +406,9 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
         job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Groups);
     } else if (type == u'c') {
         job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Channel);
+    } else {
+        job->deleteLater();
+        return;
     }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelCloseJob job";
