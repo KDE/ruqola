@@ -216,15 +216,15 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
         listMessages.reserve(numberElements);
     }
     while (resultQuery.next()) {
-        const QString json = resultQuery.value(u"json"_s).toString();
+        const QByteArray json = resultQuery.value(0).toByteArray();
         listMessages.append(convertJsonToMessage(json, emojiManager));
     }
     return listMessages;
 }
 
-Message LocalMessagesDatabase::convertJsonToMessage(const QString &json, EmojiManager *emojiManager)
+Message LocalMessagesDatabase::convertJsonToMessage(const QByteArray &json, EmojiManager *emojiManager)
 {
-    const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    const QJsonDocument doc = QJsonDocument::fromJson(json);
     const Message msg = Message::deserialize(doc.object(), emojiManager);
     return msg;
 }

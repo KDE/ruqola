@@ -35,7 +35,7 @@ public:
                                               qint64 numberElements = -1,
                                               EmojiManager *emojiManager = nullptr) const;
 
-    [[nodiscard]] static Message convertJsonToMessage(const QString &json, EmojiManager *emojiManager);
+    [[nodiscard]] static Message convertJsonToMessage(const QByteArray &json, EmojiManager *emojiManager);
 
     [[nodiscard]] static QString generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements);
 

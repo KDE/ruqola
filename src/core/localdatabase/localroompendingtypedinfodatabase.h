@@ -27,5 +27,5 @@ protected:
     [[nodiscard]] QString schemaDataBase() const override;
 
 private:
-    [[nodiscard]] static AccountRoomSettings::PendingTypedInfo convertJsonToRoomPendingTypedInfo(const QString &json);
+    [[nodiscard]] static AccountRoomSettings::PendingTypedInfo convertJsonToRoomPendingTypedInfo(const QByteArray &json);
 };

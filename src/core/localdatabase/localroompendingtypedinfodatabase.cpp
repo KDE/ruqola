@@ -123,16 +123,16 @@ QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalRoomPend
     }
 
     while (resultQuery.next()) {
-        const QString json = resultQuery.value(u"json"_s).toString();
-        const QByteArray roomId = resultQuery.value(u"roomId"_s).toByteArray();
+        const QByteArray json = resultQuery.value(1).toByteArray();
+        const QByteArray roomId = resultQuery.value(0).toByteArray();
         info.insert(roomId, convertJsonToRoomPendingTypedInfo(json));
     }
     return info;
 }
 
-AccountRoomSettings::PendingTypedInfo LocalRoomPendingTypedInfoDatabase::convertJsonToRoomPendingTypedInfo(const QString &json)
+AccountRoomSettings::PendingTypedInfo LocalRoomPendingTypedInfoDatabase::convertJsonToRoomPendingTypedInfo(const QByteArray &json)
 {
-    const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    const QJsonDocument doc = QJsonDocument::fromJson(json);
     const AccountRoomSettings::PendingTypedInfo msg = AccountRoomSettings::PendingTypedInfo::deserialize(doc.object());
     return msg;
 }
