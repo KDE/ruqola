@@ -18,7 +18,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlTableModel>
-#include <QStandardPaths>
 #include <QTextStream>
 
 LocalMessageLogger::LocalMessageLogger()

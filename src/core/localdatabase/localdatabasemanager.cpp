@@ -17,7 +17,6 @@
 #include "messages/message.h"
 #include "room.h"
 #include "ruqolaglobalconfig.h"
-#include <QDir>
 
 LocalDatabaseManager::LocalDatabaseManager()
     : mMessageLogger(std::make_unique<LocalMessageLogger>())
