@@ -44,4 +44,4 @@ protected:
     QString mSearchText;
 };
 Q_DECLARE_TYPEINFO(MessageDelegateHelperBase::DocumentTypeInfo, Q_RELOCATABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentTypeInfo &t);
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const MessageDelegateHelperBase::DocumentTypeInfo &t);
