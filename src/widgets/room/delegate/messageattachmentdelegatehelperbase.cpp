@@ -301,7 +301,7 @@ bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
         return true;
     }
-    return true;
+    return false;
 }
 
 QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos)
