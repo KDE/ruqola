@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 02:47+0000\n"
-"PO-Revision-Date: 2026-08-10 18:34+0400\n"
+"PO-Revision-Date: 2026-09-09 18:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -4147,7 +4147,7 @@ msgstr "إجمالي غرف الرسائل المباشرة"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Threads"
-msgstr "مجموع السلاسل المحادثات"
+msgstr "مجموع سلاسل المحادثات"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
