@@ -326,7 +326,7 @@ QRect MessageListNormalLayout::iconRect(int iconIndex, int senderX, int iconPosi
     case 4:
         return QRect(senderX - margin - avatarWidth / 2, iconPosition + 2 * iconSize, iconSize, iconSize);
     case 5:
-        return QRect(senderX - margin - avatarWidth, iconPosition + 3 * iconSize, iconSize, iconSize);
+        return QRect(senderX - margin - avatarWidth, iconPosition + 2 * iconSize, iconSize, iconSize);
     default:
         break;
     }
