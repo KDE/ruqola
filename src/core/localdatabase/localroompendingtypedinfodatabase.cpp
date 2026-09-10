@@ -17,10 +17,13 @@
 using namespace Qt::Literals::StringLiterals;
 
 static const char s_schemaRoomPendingTypedDataBase[] = "CREATE TABLE ROOMPENDINGTYPED (roomId TEXT PRIMARY KEY NOT NULL, json TEXT)";
-enum class RoomSubscriptionFields {
+namespace
+{
+enum class RoomPendingTypeFields {
     RoomId,
     Json,
 }; // in the same order as the table
+}
 
 LocalRoomPendingTypedInfoDatabase::LocalRoomPendingTypedInfoDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath(), LocalDatabaseBase::DatabaseType::PendingTypedInfo)

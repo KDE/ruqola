@@ -16,10 +16,13 @@
 using namespace Qt::Literals::StringLiterals;
 
 static const char s_schemaRoomPSubscriptionsDataBase[] = "CREATE TABLE ROOMSUBSCRIPTIONS (subscriptionId TEXT PRIMARY KEY NOT NULL, roomId TEXT)";
+namespace
+{
 enum class RoomSubscriptionFields {
     SubscriptionId,
     RoomId,
 }; // in the same order as the table
+}
 
 LocalRoomSubscriptionsDatabase::LocalRoomSubscriptionsDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath(), LocalDatabaseBase::DatabaseType::RoomSubscriptions)

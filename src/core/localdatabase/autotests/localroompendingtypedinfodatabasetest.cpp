@@ -22,7 +22,7 @@ static QString otherAccountName()
     return u"myOtherAccount"_s;
 }
 
-enum class RoomSubscriptionFields {
+enum class RoomPendingTypeFields {
     RoomId,
     Json,
 }; // in the same order as the table

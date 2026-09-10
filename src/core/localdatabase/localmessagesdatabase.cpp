@@ -20,11 +20,14 @@
 
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaMessagesDataBase[] = "CREATE TABLE MESSAGES (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+namespace
+{
 enum class MessagesFields {
     MessageId,
     TimeStamp,
     Json,
 }; // in the same order as the table
+}
 
 LocalMessagesDatabase::LocalMessagesDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath(), LocalDatabaseBase::DatabaseType::Messages)

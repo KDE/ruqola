@@ -17,11 +17,14 @@
 #include <QSqlTableModel>
 
 static const char s_schemaRoomDataBase[] = "CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+namespace
+{
 enum class RoomFields {
     RoomId,
     TimeStamp,
     Json,
 }; // in the same order as the table
+}
 
 using namespace Qt::Literals::StringLiterals;
 LocalRoomsDatabase::LocalRoomsDatabase()

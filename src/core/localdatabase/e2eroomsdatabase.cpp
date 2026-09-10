@@ -14,11 +14,14 @@
 #include <QSqlTableModel>
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaE2ERoomsKeysStore[] = "CREATE TABLE E2EROOMSKEYS (roomKeyId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
-enum class E2ERoomsFields {
+namespace
+{
+enum class E2ERoomsKeysFields {
     RoomKeyId,
     EncryptedPrivateKey,
     PublicKey
 }; // in the same order as the table
+}
 
 E2ERoomsDataBase::E2ERoomsDataBase()
     : LocalDatabaseBase(LocalDatabaseUtils::localE2ERoomsDatabasePath(), LocalDatabaseBase::DatabaseType::E2ERooms)

@@ -16,10 +16,13 @@
 
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaGlobalDataBase[] = "CREATE TABLE GLOBAL (identifier TEXT PRIMARY KEY NOT NULL, timestamp INTEGER)";
+namespace
+{
 enum class GlobalFields {
     Identifier,
     TimeStamp,
 }; // in the same order as the table
+}
 
 GlobalDatabase::GlobalDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localGlobalDatabasePath(), LocalDatabaseBase::DatabaseType::Global)

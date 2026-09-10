@@ -16,10 +16,13 @@
 
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaAccountsDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, json TEXT)";
+namespace
+{
 enum class AccountFields {
     AccountName,
     Json,
 }; // in the same order as the table
+}
 
 LocalAccountsDatabase::LocalAccountsDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localAccountsDatabasePath(), LocalDatabaseBase::DatabaseType::Accounts)
