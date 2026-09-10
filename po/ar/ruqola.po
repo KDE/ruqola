@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-09 00:46+0000\n"
-"PO-Revision-Date: 2026-08-30 17:49+0400\n"
+"POT-Creation-Date: 2026-09-10 00:46+0000\n"
+"PO-Revision-Date: 2026-09-09 18:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -163,12 +163,12 @@ msgstr "ميزة جديدة"
 msgid "The following accounts are available:"
 msgstr "الحسابات التالية متاحة:"
 
-#: core/accountmanager.cpp:350
+#: core/accountmanager.cpp:341
 #, kde-format
 msgid "Invalid invite token"
 msgstr "رمز الدعوة غير صالح"
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:342
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "رمز الدعوة غير صالح. ألغي إنشاء الحساب."
@@ -383,28 +383,24 @@ msgid "Modify Livechat custom field configuration"
 msgstr "تعديل ضبط الحقل المخصص للدردشة المباشرة"
 
 #: core/apps/appsmarketplaceinfo.cpp:686
-#, fuzzy, kde-format
-#| msgid "Access to multiple Livechat departments information"
+#, kde-format
 msgid "Access to multiple Livechat messages information"
-msgstr "الوصول إلى معلومات أقسام الدردشة المباشرة"
+msgstr "الوصول إلى معلومات رسائل الدردشة المباشرة المتعددة"
 
 #: core/apps/appsmarketplaceinfo.cpp:688
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#, kde-format
 msgid "Access thread information"
-msgstr "الوصول إلى معلومات الغرفة"
+msgstr "الوصول إلى معلومات سلسلة المحادثات"
 
 #: core/apps/appsmarketplaceinfo.cpp:690
-#, fuzzy, kde-format
-#| msgid "Modify user information"
+#, kde-format
 msgid "Modify moderation information"
-msgstr "تعديل معلومات المستخدم"
+msgstr "تعديل معلومات الإشراف"
 
 #: core/apps/appsmarketplaceinfo.cpp:692
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#, kde-format
 msgid "Access moderation information"
-msgstr "الوصول إلى معلومات الغرفة"
+msgstr "الوصول إلى معلومات الإشراف"
 
 #: core/apps/appsmarketplaceinfo.cpp:694
 #, kde-format
@@ -437,16 +433,14 @@ msgid "Allow to register button"
 msgstr "اسمح بزر التسجيل"
 
 #: core/apps/appsmarketplaceinfo.cpp:706
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#, kde-format
 msgid "Access contact information"
-msgstr "الوصول إلى معلومات الغرفة"
+msgstr "الوصول إلى معلومات التواصل"
 
 #: core/apps/appsmarketplaceinfo.cpp:708
-#, fuzzy, kde-format
-#| msgid "Modify user information"
+#, kde-format
 msgid "Modify contact information"
-msgstr "تعديل معلومات المستخدم"
+msgstr "تعديل معلومات التواصل"
 
 #: core/apps/appsmarketplaceinfo.cpp:710
 #, kde-format
@@ -1792,7 +1786,7 @@ msgstr "(انضمام آليّ)"
 msgid "Owner"
 msgstr "مالك"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:99 core/utils.cpp:374
+#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
 #, kde-format
 msgid "Offline"
 msgstr "غير متّصل"
@@ -1855,12 +1849,12 @@ msgstr "غير متّصل"
 msgid "Not connected yet"
 msgstr "غير متّصل حتى الآن"
 
-#: core/rocketchataccount.cpp:3253
+#: core/rocketchataccount.cpp:3268
 #, kde-format
 msgid "Room Added"
 msgstr "أُضيفت الغرفة"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3269
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "أضيف غرفة جديدة في '%1'."
@@ -2091,17 +2085,17 @@ msgstr "إداري"
 msgid "Bot"
 msgstr "آليّ"
 
-#: core/utils.cpp:93 core/utils.cpp:368
+#: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
 msgstr "متصل"
 
-#: core/utils.cpp:95 core/utils.cpp:370 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "مشغول"
 
-#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "بالخارج"
@@ -3686,7 +3680,7 @@ msgstr "نطق النص"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:103
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
 #: widgets/room/messagelistview.cpp:481
@@ -4202,7 +4196,7 @@ msgstr "إجمالي غرف الرسائل المباشرة"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Total Threads"
-msgstr "مجموع السلاسل المحادثات"
+msgstr "مجموع سلاسل المحادثات"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
@@ -7455,7 +7449,7 @@ msgid "Enable"
 msgstr "مكّن"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:61
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -7837,7 +7831,7 @@ msgstr "رابط الاجتماع:"
 msgid "Provider:"
 msgstr "المزود:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:208
+#: widgets/configuredialog/accountservertreewidget.cpp:217
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "اعرض الحساب في النشاط الحالي"
@@ -9910,8 +9904,7 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "فشل الولوج: لا يسمح لمستخدم التطبيق بالولوج."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Not network found."
+#, kde-format
 msgid "No network found."
 msgstr "لم يُعثر علي شبكة."
 

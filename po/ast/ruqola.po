@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-09 00:46+0000\n"
+"POT-Creation-Date: 2026-09-10 00:46+0000\n"
 "PO-Revision-Date: 2024-03-27 23:08+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -162,12 +162,12 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/accountmanager.cpp:350
+#: core/accountmanager.cpp:341
 #, kde-format
 msgid "Invalid invite token"
 msgstr ""
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:342
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1763,7 +1763,7 @@ msgstr ""
 msgid "Owner"
 msgstr ""
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:99 core/utils.cpp:374
+#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
 #, kde-format
 msgid "Offline"
 msgstr ""
@@ -1824,12 +1824,12 @@ msgstr ""
 msgid "Not connected yet"
 msgstr ""
 
-#: core/rocketchataccount.cpp:3253
+#: core/rocketchataccount.cpp:3268
 #, kde-format
 msgid "Room Added"
 msgstr ""
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3269
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr ""
@@ -2036,17 +2036,17 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:93 core/utils.cpp:368
+#: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
 msgstr ""
 
-#: core/utils.cpp:95 core/utils.cpp:370 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr ""
 
-#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr ""
@@ -3584,7 +3584,7 @@ msgstr ""
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:103
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
 #: widgets/room/messagelistview.cpp:481
@@ -7208,7 +7208,7 @@ msgid "Enable"
 msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:61
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -7580,7 +7580,7 @@ msgstr ""
 msgid "Provider:"
 msgstr ""
 
-#: widgets/configuredialog/accountservertreewidget.cpp:208
+#: widgets/configuredialog/accountservertreewidget.cpp:217
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-09 00:46+0000\n"
+"POT-Creation-Date: 2026-09-10 00:46+0000\n"
 "PO-Revision-Date: 2026-09-07 10:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -165,12 +165,12 @@ msgstr "Nova zmožnost"
 msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
 
-#: core/accountmanager.cpp:350
+#: core/accountmanager.cpp:341
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Neveljaven žeton povabila"
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:342
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Žeton povabila je neveljaven. Kreiranje računa preklicano."
@@ -1778,7 +1778,7 @@ msgstr "(Samodejno pridruži)"
 msgid "Owner"
 msgstr "Lastnik"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:99 core/utils.cpp:374
+#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
 #, kde-format
 msgid "Offline"
 msgstr "Brez povezave"
@@ -1841,12 +1841,12 @@ msgstr "Brez povezave"
 msgid "Not connected yet"
 msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3253
+#: core/rocketchataccount.cpp:3268
 #, kde-format
 msgid "Room Added"
 msgstr "Soba je bila dodana"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3269
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Novi soba je bila dodana v '%1'."
@@ -2065,17 +2065,17 @@ msgstr "Skrbnik"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:93 core/utils.cpp:368
+#: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
 msgstr "Povezan"
 
-#: core/utils.cpp:95 core/utils.cpp:370 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Zaseden"
 
-#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Odsoten"
@@ -3655,7 +3655,7 @@ msgstr "Govori besedilo"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:103
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
 #: widgets/room/messagelistview.cpp:481
@@ -7442,7 +7442,7 @@ msgid "Enable"
 msgstr "Omogoči"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:61
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -7822,7 +7822,7 @@ msgstr "Url srečanja:"
 msgid "Provider:"
 msgstr "Dobavitelj:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:208
+#: widgets/configuredialog/accountservertreewidget.cpp:217
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "Prikaži račun v trenutni dejavnosti"

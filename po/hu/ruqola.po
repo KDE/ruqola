@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-09 00:46+0000\n"
+"POT-Creation-Date: 2026-09-10 00:46+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -163,12 +163,12 @@ msgstr "Új funkció"
 msgid "The following accounts are available:"
 msgstr "A következő fiókok érhetők el:"
 
-#: core/accountmanager.cpp:350
+#: core/accountmanager.cpp:341
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Érvénytelen meghívási token"
 
-#: core/accountmanager.cpp:351
+#: core/accountmanager.cpp:342
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -1792,7 +1792,7 @@ msgstr "(Automatikus csatlakozás)"
 msgid "Owner"
 msgstr "Tulajdonos"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:99 core/utils.cpp:374
+#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
 #, kde-format
 msgid "Offline"
 msgstr "Kilépett"
@@ -1856,13 +1856,13 @@ msgstr "Nincs kapcsolódva"
 msgid "Not connected yet"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:3253
+#: core/rocketchataccount.cpp:3268
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Fiók hozzáadva"
 
-#: core/rocketchataccount.cpp:3254
+#: core/rocketchataccount.cpp:3269
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -2078,17 +2078,17 @@ msgstr "Adminisztrátor"
 msgid "Bot"
 msgstr "Robot"
 
-#: core/utils.cpp:93 core/utils.cpp:368
+#: core/utils.cpp:94 core/utils.cpp:369
 #, kde-format
 msgid "Online"
 msgstr "Elérhető"
 
-#: core/utils.cpp:95 core/utils.cpp:370 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Elfoglalt"
 
-#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Távol"
@@ -3691,7 +3691,7 @@ msgstr "Szöveg felolvasása"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:103
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:58
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
 #: widgets/room/messagelistview.cpp:481
@@ -7530,7 +7530,7 @@ msgid "Enable"
 msgstr "Engedélyezés"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:98
-#: widgets/bannerinfodialog/bannerinfolistview.cpp:62
+#: widgets/bannerinfodialog/bannerinfolistview.cpp:61
 #, kde-format
 msgctxt "@action"
 msgid "Copy Text"
@@ -7917,7 +7917,7 @@ msgstr "Értekezlet URL-je:"
 msgid "Provider:"
 msgstr "Szolgáltató:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:208
+#: widgets/configuredialog/accountservertreewidget.cpp:217
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "Fiók megjelenítése a jelenlegi aktivitásban"
