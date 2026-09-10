@@ -71,7 +71,8 @@ void LocalRoomPendingTypedInfoDatabase::updateRoomPendingTypedInfo(const QString
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo(), db);
+        QSqlQuery query(db);
+        query.prepare(LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo());
         query.addBindValue(QString::fromLatin1(roomId));
         query.addBindValue(QJsonDocument(AccountRoomSettings::PendingTypedInfo::serialize(room)).toJson(QJsonDocument::Compact));
         if (!query.exec()) {
@@ -88,7 +89,8 @@ void LocalRoomPendingTypedInfoDatabase::deleteRoomPendingTypedInfo(const QString
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteRoomPendingTypedInfo(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteRoomPendingTypedInfo());
     query.addBindValue(QString::fromLatin1(roomId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();

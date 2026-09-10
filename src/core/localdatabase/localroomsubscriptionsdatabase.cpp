@@ -70,7 +70,8 @@ void LocalRoomSubscriptionsDatabase::deleteRoomSubscription(const QString &accou
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteRoomSubscription(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteRoomSubscription());
     query.addBindValue(QString::fromLatin1(subscriptionId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMSUBSCRIPTIONS table" << db.databaseName() << query.lastError();
@@ -83,7 +84,8 @@ void LocalRoomSubscriptionsDatabase::insertRoomSubscription(const QString &accou
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertRoomSubscription(), db);
+        QSqlQuery query(db);
+        query.prepare(LocalDatabaseUtils::insertRoomSubscription());
         query.addBindValue(QString::fromLatin1(subscriptionId));
         query.addBindValue(QString::fromLatin1(roomId));
         if (!query.exec()) {

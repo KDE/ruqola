@@ -40,7 +40,8 @@ void LocalAccountsDatabase::updateAccount(const QString &accountName, const QByt
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        QSqlQuery query(LocalDatabaseUtils::updateAccount(), db);
+        QSqlQuery query(db);
+        query.prepare(LocalDatabaseUtils::updateAccount());
         query.addBindValue(accountName);
         query.addBindValue(ba);
         if (!query.exec()) {
@@ -57,7 +58,8 @@ void LocalAccountsDatabase::deleteAccount(const QString &accountName)
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteAccount(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteAccount());
     query.addBindValue(accountName);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ACCOUNT table" << db.databaseName() << query.lastError();

@@ -111,7 +111,8 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QByt
     if (!checkDataBase(accountName, roomId, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteMessage(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteMessage());
     query.addBindValue(messageId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
