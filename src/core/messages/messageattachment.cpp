@@ -351,7 +351,7 @@ bool MessageAttachment::hasMessageAttachmentActions() const
     return mMessageAttachmentActions.isValid();
 }
 
-MessageAttachmentActions MessageAttachment::messageAttachmentActions() const
+const MessageAttachmentActions &MessageAttachment::messageAttachmentActions() const
 {
     return mMessageAttachmentActions;
 }

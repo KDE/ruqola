@@ -101,7 +101,7 @@ public:
     [[nodiscard]] QString format() const;
     void setFormat(const QString &newFormat);
 
-    [[nodiscard]] MessageAttachmentActions messageAttachmentActions() const;
+    [[nodiscard]] const MessageAttachmentActions &messageAttachmentActions() const;
     void setMessageAttachmentActions(const MessageAttachmentActions &newMessageAttachmentAction);
 
     [[nodiscard]] bool hasMessageAttachmentActions() const;

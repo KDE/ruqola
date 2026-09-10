@@ -113,7 +113,7 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                     topAttachment += attSize.height();
                 }
                 if (msgAttach.hasMessageAttachmentActions()) {
-                    const auto actions = msgAttach.messageAttachmentActions();
+                    const auto &actions = msgAttach.messageAttachmentActions();
                     const MessageAttachmentDelegateHelperActions *helper = delegate->helperAttachmentActions();
                     const QSize attachmentsActionSize = helper ? helper->sizeHint(actions, index, maxWidth, option) : QSize(0, 0);
                     layout.attachmentsActionRectList.append(
