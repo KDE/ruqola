@@ -112,11 +112,10 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     info.setAccountName(accountName);
     info.setDetails(descriptionError);
     info.setMessage(messageError);
-    bool showMessageWidget = true;
-    showMessageWidget = descriptionError.isEmpty();
+    const bool showMessageWidget = descriptionError.isEmpty();
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info, showMessageWidget);
     if (!descriptionError.isEmpty()) {
-        const QString message = u"<b>%1</b><br/>%2"_s.arg(accountName, descriptionError);
+        const QString message = u"<b>%1</b><br/>%2"_s.arg(accountName.toHtmlEscaped(), descriptionError.toHtmlEscaped());
         mTextMessageWidget->showMessage(message, {}, KMessageWidget::Error);
     }
 }
