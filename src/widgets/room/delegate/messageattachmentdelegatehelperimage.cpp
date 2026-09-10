@@ -31,6 +31,9 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
+    , mCloudDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
+    , mVisibilityIcon(QIcon::fromTheme(u"visibility"_s))
+    , mHintIcon(QIcon::fromTheme(u"hint"_s))
 {
     mPixmapCache.setMaxEntries(32); // Enough ?
 }
@@ -52,12 +55,14 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
     // drawTitle(msgAttach, painter, );
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-    const QIcon downloadIcon = QIcon::fromTheme(u"cloud-download"_s);
     if (!layout.pixmap.isNull()) {
         // Draw title and buttons
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
-        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
-        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+        if (layout.isShown) {
+            mVisibilityIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        } else {
+            mHintIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        }
+        mCloudDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
         // Draw main pixmap (if shown)
         if (layout.isShown) {
@@ -101,7 +106,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
             // Not a bug, it's just that the image is currently being downloaded by RocketChatCache::downloadFileFromServer
         } else {
             qCWarning(RUQOLAWIDGETS_LOG) << "Invalid image (Qt bug or others). It will not render: " << layout.imagePreviewPath;
-            downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+            mCloudDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
         }
     }
 

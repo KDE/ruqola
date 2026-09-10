@@ -73,4 +73,6 @@ private:
 
     QPersistentModelIndex mCurrentIndex;
     mutable PixmapCache mPixmapCache;
+    const QIcon mVisibilityIcon;
+    const QIcon mHintIcon;
 };

@@ -42,6 +42,11 @@ constexpr int PreviewTopGap = 6;
 
 MessageDelegateHelperUrlPreview::MessageDelegateHelperUrlPreview(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
+    // A subtle collapse/expand affordance, right-aligned. A chevron reads as
+    // "there is more/less to see" without the eye icon's visual weight; fall
+    // back to the previous icons should the theme lack the chevrons.
+    , mVisibilityIcon(QIcon::fromTheme(u"go-up"_s, QIcon::fromTheme(u"visibility"_s)))
+    , mHintIcon(QIcon::fromTheme(u"go-down"_s, QIcon::fromTheme(u"hint"_s)))
 {
 }
 
@@ -74,14 +79,11 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
 
     const QPoint contentTopLeft = previewRect.topLeft() + QPoint(PreviewPadding, PreviewTopGap + PreviewPadding);
 
-    // A subtle collapse/expand affordance, right-aligned. A chevron reads as
-    // "there is more/less to see" without the eye icon's visual weight; fall
-    // back to the previous icons should the theme lack the chevrons.
-    QIcon toggleIcon = QIcon::fromTheme(layout.isShown ? u"go-up"_s : u"go-down"_s);
-    if (toggleIcon.isNull()) {
-        toggleIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
+    if (layout.isShown) {
+        mVisibilityIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
+    } else {
+        mHintIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
     }
-    toggleIcon.paint(painter, layout.hideShowButtonRect.translated(previewRect.topLeft()));
 
     if (!layout.isShown) {
         // Collapsed: just the page title on one line, drawn as a clickable link

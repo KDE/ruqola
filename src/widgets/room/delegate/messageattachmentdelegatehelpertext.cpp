@@ -24,6 +24,8 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
+    , mVisibilityIcon(QIcon::fromTheme(u"visibility"_s))
+    , mHintIcon(QIcon::fromTheme(u"hint"_s))
 {
 }
 
@@ -48,8 +50,11 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         painter->setFont(layout.textFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         painter->setFont(oldFont);
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
-        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        if (layout.isShown) {
+            mVisibilityIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        } else {
+            mHintIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        }
         nextY += layout.titleRect.height() + DelegatePaintUtil::margin();
     }
     if (layout.isShown || layout.title.isEmpty()) {

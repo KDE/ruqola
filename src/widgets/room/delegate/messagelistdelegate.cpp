@@ -72,6 +72,8 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mTextToSpeechIcon(QIcon::fromTheme(u"player-volume"_s))
     , mSingleCheckIcon(QIcon(u":/messages_icons/icons/single-check.svg"_s))
     , mDoubleCheckIcon(QIcon(u":/messages_icons/icons/double-check.svg"_s))
+    , mVisibilityIcon(QIcon::fromTheme(u"visibility"_s))
+    , mHintIcon(QIcon::fromTheme(u"hint"_s))
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
     , mHelperText(new MessageDelegateHelperText(account, view, mTextSelectionImpl))
@@ -653,8 +655,11 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     if (MessageDelegateUtils::showIgnoreMessages(index)) {
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? u"visibility"_s : u"hint"_s);
-        hideShowIcon.paint(painter, layout.showIgnoredMessageIconRect);
+        if (layout.showIgnoreMessage) {
+            mVisibilityIcon.paint(painter, layout.showIgnoredMessageIconRect);
+        } else {
+            mHintIcon.paint(painter, layout.showIgnoredMessageIconRect);
+        }
     }
 
     // Attachments
