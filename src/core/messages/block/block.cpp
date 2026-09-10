@@ -33,14 +33,14 @@ void Block::parseBlock(const QJsonObject &block)
     const QJsonArray elements = block["elements"_L1].toArray();
     const auto elementsCount = elements.count();
     mBlockActions.reserve(elementsCount);
-    for (auto i = 0; i < elementsCount; ++i) {
+    for (const auto &e : elements) {
+        const QJsonObject o = e.toObject();
         BlockAction action;
-        action.parseAction(elements.at(i).toObject());
+        action.parseAction(o);
         if (action.isValid()) {
             mBlockActions.append(std::move(action));
         } else {
-            // qDebug() << "Invalid elements" << elements.at(i).toObject() << " action " << action;
-            qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
+            qCWarning(RUQOLA_LOG) << "Invalid elements" << o;
         }
     }
     if (block.contains("accessory"_L1)) {
@@ -236,8 +236,9 @@ QJsonObject Block::serialize(const Block &block)
     } else {
         qCWarning(RUQOLA_LOG) << "block.mVideoConferenceInfo is invalid " << block.mVideoConferenceInfo;
     }
-    if (block.blockAccessory().isValid()) {
-        o["accessory"_L1] = BlockAccessory::serialize(block.blockAccessory());
+    const auto blockAccessory = block.blockAccessory();
+    if (blockAccessory.isValid()) {
+        o["accessory"_L1] = BlockAccessory::serialize(blockAccessory);
     }
     if (!block.blockActions().isEmpty()) {
         QJsonArray array;
@@ -271,13 +272,13 @@ Block Block::deserialize(const QJsonObject &o)
         const QJsonArray elements = o["elements"_L1].toArray();
         const auto elementsCount = elements.count();
         blockActions.reserve(elementsCount);
-        for (auto i = 0; i < elementsCount; ++i) {
-            BlockAction action = BlockAction::deserialize(elements.at(i).toObject());
+        for (const auto &e : elements) {
+            const QJsonObject elementObject = e.toObject();
+            BlockAction action = BlockAction::deserialize(elementObject);
             if (action.isValid()) {
                 blockActions.append(std::move(action));
             } else {
-                // qDebug() << "Invalid elements" << elements.at(i).toObject() << " action " << action;
-                qCWarning(RUQOLA_LOG) << "Invalid elements" << elements.at(i).toObject();
+                qCWarning(RUQOLA_LOG) << "Invalid elements" << elementObject;
             }
         }
         block.setBlockActions(blockActions);

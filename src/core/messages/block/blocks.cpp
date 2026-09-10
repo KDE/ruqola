@@ -7,6 +7,7 @@
 #include "blocks.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(Blocks, Ruqola_Blocks)
 
+#include "ruqola_message_debug.h"
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -64,7 +65,7 @@ void Blocks::parseBlocks(const QJsonArray &blocks)
         if (b.isValid()) {
             mBlocks.append(std::move(b));
         } else {
-            qWarning() << " Invalid b " << blockObject;
+            qCWarning(RUQOLA_MESSAGE_LOG) << " Invalid b " << blockObject;
         }
     }
     // qDebug() << "Blocks::parseBlocks " << mBlocks;
@@ -99,7 +100,9 @@ std::unique_ptr<Blocks> Blocks::deserialize(const QJsonArray &blocksArray)
     blocks.reserve(blocksArrayCount);
     for (int i = 0; i < blocksArrayCount; ++i) {
         Block block = Block::deserialize(blocksArray.at(i).toObject());
-        blocks.append(std::move(block));
+        if (block.isValid()) {
+            blocks.append(std::move(block));
+        }
     }
     auto final = std::make_unique<Blocks>();
     final->setBlocks(blocks);

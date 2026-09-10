@@ -160,7 +160,7 @@ MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOpti
     SectionLayout layout;
     layout.sectionText = block.sectionText();
     layout.sectionTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.sectionText);
-    const auto blockAccessory = block.blockAccessory();
+    const auto &blockAccessory = block.blockAccessory();
     switch (blockAccessory.type()) {
     case BlockAccessory::AccessoryType::Overflow: {
         if (!blockAccessory.options().isEmpty()) {
