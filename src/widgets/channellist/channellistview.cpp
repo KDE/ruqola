@@ -107,6 +107,9 @@ void ChannelListView::slotClicked(const QModelIndex &index)
 
 void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 {
+    if (!mCurrentRocketChatAccount) {
+        return;
+    }
     if (mCurrentRocketChatAccount->offlineMode()) {
         return;
     }
