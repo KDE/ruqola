@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "channellist/channellistwidget.h"
+#include "channellist/channellistview.h"
 #include "libruqolawidgets_private_export.h"
 #include "room.h"
 #include <QPointer>
@@ -18,6 +18,7 @@ class QSplitter;
 class RocketChatAccount;
 class BannerMessageWidget;
 class MessageTextEdit;
+class ChannelListWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT

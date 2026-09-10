@@ -8,6 +8,7 @@
 
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
+#include "channellist/channellistwidget.h"
 #include "config-ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "model/switchchannelhistorymodel.h"
@@ -28,8 +29,6 @@
 #include <QTextBlock>
 #include <QTextLayout>
 #include <QTimer>
-
-#include "model/roommodel.h"
 
 #include <algorithm>
 #include <utility>

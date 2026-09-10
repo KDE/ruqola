@@ -21,7 +21,6 @@
 
 #include <TextAddonsWidgets/TextMessageWidget>
 
-#include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
