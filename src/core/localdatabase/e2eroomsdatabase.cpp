@@ -148,7 +148,7 @@ std::unique_ptr<QSqlTableModel> E2ERoomsDataBase::createE2eRoomsModel(const QStr
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"E2EROOMSKEYS"_s);
-    model->setSort(int(E2ERoomsFields::RoomKeyId), Qt::AscendingOrder);
+    model->setSort(int(E2ERoomsKeysFields::RoomKeyId), Qt::AscendingOrder);
     model->select();
     return model;
 }

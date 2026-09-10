@@ -126,7 +126,7 @@ std::unique_ptr<QSqlTableModel> E2EDataBase::createE2eModel(const QString &accou
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"E2EKEYS"_s);
-    model->setSort(int(E2ERoomsFields::UserId), Qt::AscendingOrder);
+    model->setSort(int(E2EKeysFields::UserId), Qt::AscendingOrder);
     model->select();
     return model;
 }

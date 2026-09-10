@@ -250,17 +250,17 @@ void LocalMessagesDatabaseTest::shouldGenerateQuery_data()
     QTest::addColumn<QString>("result");
 
     QTest::addRow("test1") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(5)
-                           << u"SELECT * FROM MESSAGES ORDER BY timestamp DESC LIMIT :limit"_s;
+                           << u"SELECT json FROM MESSAGES ORDER BY timestamp DESC LIMIT :limit"_s;
     QTest::addRow("test2") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES ORDER BY timestamp DESC"_s;
     QTest::addRow("test3") << static_cast<qint64>(5) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp >= :startId ORDER BY timestamp DESC"_s;
     QTest::addRow("test4") << static_cast<qint64>(-1) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp <= :endId ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp <= :endId ORDER BY timestamp DESC"_s;
     QTest::addRow("test5") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC"_s;
     QTest::addRow("test6") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(30)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit"_s;
 }
 
 void LocalMessagesDatabaseTest::shouldVerifyDbFileName()

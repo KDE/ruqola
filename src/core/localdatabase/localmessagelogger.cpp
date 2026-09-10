@@ -158,7 +158,7 @@ std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QSt
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"LOGS"_s);
-    model->setSort(int(Fields::TimeStamp), Qt::AscendingOrder);
+    model->setSort(int(LogsFields::TimeStamp), Qt::AscendingOrder);
     model->select();
     return model;
 }
@@ -175,9 +175,9 @@ bool LocalMessageLogger::saveToFile(QFile &file, const QString &accountName, con
     int rows = model->rowCount();
     for (int row = 0; row < rows; ++row) {
         const QSqlRecord record = model->record(row);
-        const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
-        const QString userName = record.value(int(Fields::UserName)).toString();
-        const QString text = record.value(int(Fields::Text)).toString();
+        const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(LogsFields::TimeStamp)).toULongLong());
+        const QString userName = record.value(int(LogsFields::UserName)).toString();
+        const QString text = record.value(int(LogsFields::Text)).toString();
         stream << "[" << timeStamp.toString(Qt::ISODate) << "] <" << userName << "> " << text << '\n';
         if (row == rows - 1 && model->canFetchMore()) {
             model->fetchMore();

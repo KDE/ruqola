@@ -131,7 +131,7 @@ QList<QByteArray> LocalRoomsDatabase::loadRooms(const QString &accountName)
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
 
-    const QString query = u"SELECT * FROM ROOMS"_s;
+    const QString query = u"SELECT json FROM ROOMS"_s;
     QSqlQuery resultQuery(db);
     if (!resultQuery.prepare(query)) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Invalid query" << query << " resultQuery " << resultQuery.lastError().text();

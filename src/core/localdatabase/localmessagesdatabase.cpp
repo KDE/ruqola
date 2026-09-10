@@ -124,7 +124,7 @@ QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qi
 {
     qCDebug(RUQOLA_DATABASE_LOG) << " startId " << QDateTime::fromMSecsSinceEpoch(startId) << "endId " << QDateTime::fromMSecsSinceEpoch(endId)
                                  << " numberOfElement " << numberElements;
-    QString query = u"SELECT * FROM MESSAGES"_s;
+    QString query = u"SELECT json FROM MESSAGES"_s;
 
     if (startId != -1) {
         query += u" WHERE timestamp >= :startId"_s;

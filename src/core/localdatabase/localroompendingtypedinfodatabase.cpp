@@ -60,7 +60,7 @@ std::unique_ptr<QSqlTableModel> LocalRoomPendingTypedInfoDatabase::createRoomsMo
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"ROOMPENDINGTYPED"_s);
-    model->setSort(int(RoomSubscriptionFields::RoomId), Qt::AscendingOrder);
+    model->setSort(int(RoomPendingTypeFields::RoomId), Qt::AscendingOrder);
     model->select();
     return model;
 }
@@ -109,7 +109,7 @@ QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalRoomPend
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
 
-    const QString query = u"SELECT * FROM ROOMPENDINGTYPED"_s;
+    const QString query = u"SELECT roomId, json FROM ROOMPENDINGTYPED"_s;
     QSqlQuery resultQuery(db);
     if (!resultQuery.prepare(query)) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Invalid query" << query << " resultQuery " << resultQuery.lastError().text();
