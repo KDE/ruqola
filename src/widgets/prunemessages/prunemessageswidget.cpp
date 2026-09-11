@@ -125,7 +125,10 @@ RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::c
 
 void PruneMessagesWidget::setRoomName(const QString &roomName)
 {
-    mRoomName = roomName;
+    if (mRoomName != roomName) {
+        mRoomName = roomName;
+        updateLabelInfo();
+    }
 }
 
 #include "moc_prunemessageswidget.cpp"
