@@ -114,8 +114,9 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                 }
                 if (msgAttach.hasMessageAttachmentActions()) {
                     const auto &actions = msgAttach.messageAttachmentActions();
-                    const MessageAttachmentDelegateHelperActions *helper = delegate->helperAttachmentActions();
-                    const QSize attachmentsActionSize = helper ? helper->sizeHint(actions, index, maxWidth, option) : QSize(0, 0);
+                    const MessageAttachmentDelegateHelperActions *attachmentDeletegateHelper = delegate->helperAttachmentActions();
+                    const QSize attachmentsActionSize =
+                        attachmentDeletegateHelper ? attachmentDeletegateHelper->sizeHint(actions, index, maxWidth, option) : QSize(0, 0);
                     layout.attachmentsActionRectList.append(
                         QRect(layout.senderRect.x(), topAttachment, attachmentsActionSize.width(), attachmentsActionSize.height()));
                     attachmentsSize =
