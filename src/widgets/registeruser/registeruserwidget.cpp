@@ -25,36 +25,35 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
     , mReasonTextEdit(new QPlainTextEdit(this))
     , mReasonLabel(new QLabel(i18n("Reason:"), this))
+    , mMainLayout(new QFormLayout(this))
 {
-    auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(u"mainLayout"_s);
-    mainLayout->setContentsMargins({});
+    mMainLayout->setObjectName(u"mainLayout"_s);
+    mMainLayout->setContentsMargins({});
 
     mUserName->setObjectName(u"mUserName"_s);
-    mainLayout->addRow(i18n("Username:"), mUserName);
+    mMainLayout->addRow(i18n("Username:"), mUserName);
     mUserName->setClearButtonEnabled(true);
     connect(mUserName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mEmail->setObjectName(u"mEmail"_s);
     mEmail->setClearButtonEnabled(true);
-    mainLayout->addRow(i18n("Email:"), mEmail);
+    mMainLayout->addRow(i18n("Email:"), mEmail);
     connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mPasswordConfirmWidget->setObjectName(u"mPasswordConfirmWidget"_s);
-    mainLayout->addRow(mPasswordConfirmWidget);
+    mMainLayout->addRow(mPasswordConfirmWidget);
     connect(mPasswordConfirmWidget, &PasswordConfirmWidget::passwordValidated, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mReasonTextEdit->setObjectName(u"mReasonTextEdit"_s);
     mReasonLabel->setObjectName(u"mReasonLabel"_s);
-    mainLayout->addRow(mReasonLabel, mReasonTextEdit);
+    mMainLayout->addRow(mReasonLabel, mReasonTextEdit);
     // Hide by default
-    mReasonLabel->setVisible(mManuallyApproveNewUsersRequired);
-    mReasonTextEdit->setVisible(mManuallyApproveNewUsersRequired);
+    mMainLayout->setRowVisible(mReasonTextEdit, mManuallyApproveNewUsersRequired);
     connect(mReasonTextEdit, &QPlainTextEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mRegisterButton->setObjectName(u"mRegisterButton"_s);
     connect(mRegisterButton, &QPushButton::clicked, this, &RegisterUserWidget::slotRegisterNewUser);
-    mainLayout->addWidget(mRegisterButton);
+    mMainLayout->addWidget(mRegisterButton);
     mRegisterButton->setEnabled(false);
 }
 
@@ -68,8 +67,7 @@ void RegisterUserWidget::setPasswordValidChecks(const RuqolaServerConfig::Passwo
 void RegisterUserWidget::setManuallyApproveNewUsersRequired(bool manual)
 {
     mManuallyApproveNewUsersRequired = manual;
-    mReasonTextEdit->setVisible(mManuallyApproveNewUsersRequired);
-    mReasonLabel->setVisible(mManuallyApproveNewUsersRequired);
+    mMainLayout->setRowVisible(mReasonTextEdit, mManuallyApproveNewUsersRequired);
 }
 
 void RegisterUserWidget::slotUpdateRegisterButton()

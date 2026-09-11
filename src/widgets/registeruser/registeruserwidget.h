@@ -40,4 +40,5 @@ private:
     QPlainTextEdit *const mReasonTextEdit;
     QLabel *const mReasonLabel;
     bool mManuallyApproveNewUsersRequired = false;
+    QFormLayout *const mMainLayout;
 };
