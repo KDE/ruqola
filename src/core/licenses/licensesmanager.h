@@ -42,6 +42,8 @@ public:
         RCAi,
         RC360Dialog,
         OutboundMessaging,
+        ExperimentalEnterpriseFeatures,
+        ExperimentalFeatures,
     };
     Q_ENUM(ActiveModule)
 

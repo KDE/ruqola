@@ -83,6 +83,10 @@ LicensesManager::ActiveModule LicensesManager::convertStringToActiveModule(const
         return LicensesManager::ActiveModule::RC360Dialog;
     } else if (str == "outbound-messaging"_L1) {
         return LicensesManager::ActiveModule::OutboundMessaging;
+    } else if (str == "experimental-enterprise-features"_L1) {
+        return LicensesManager::ActiveModule::ExperimentalEnterpriseFeatures;
+    } else if (str == "experimental-features"_L1) {
+        return LicensesManager::ActiveModule::ExperimentalFeatures;
     } else {
         qCWarning(RUQOLA_LICENSE_LOG) << "Unknown license module type " << str;
         return LicensesManager::ActiveModule::Unknown;
@@ -144,6 +148,10 @@ QString LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModu
         return u"chat.rocket.360-dialog"_s;
     case LicensesManager::ActiveModule::OutboundMessaging:
         return u"outbound-messaging"_s;
+    case LicensesManager::ActiveModule::ExperimentalEnterpriseFeatures:
+        return u"experimental-enterprise-features"_s;
+    case LicensesManager::ActiveModule::ExperimentalFeatures:
+        return u"experimental-features"_s;
     case LicensesManager::ActiveModule::Unknown:
     default:
         qCWarning(RUQOLA_LICENSE_LOG) << "Unknown license module type";
