@@ -33,7 +33,7 @@ void ReactionsTest::shouldParseReactions_data()
         Reactions *reactionsRef = new Reactions;
         Reaction react;
         react.setReactionName(u":ok_hand:"_s);
-        react.setUserNames(QStringList() << u"foo"_s << u"bla"_s << u"bli"_s);
+        react.setUserNames(QStringList{u"foo"_s, u"bla"_s, u"bli"_s});
         reactionsRef->setReactions({react});
         QTest::addRow("reactions") << u"reactions"_s << reactionsRef;
     }
@@ -41,10 +41,10 @@ void ReactionsTest::shouldParseReactions_data()
         Reactions *reactionsRef = new Reactions;
         Reaction react;
         react.setReactionName(u":mrs_claus:"_s);
-        react.setUserNames(QStringList() << u"bla"_s);
+        react.setUserNames(QStringList{u"bla"_s});
         Reaction react2;
         react2.setReactionName(u":right_facing_fist:"_s);
-        react2.setUserNames(QStringList() << u"bli"_s);
+        react2.setUserNames(QStringList{u"bli"_s});
         reactionsRef->setReactions({react, react2});
         QTest::addRow("reactions2") << u"reactions2"_s << reactionsRef;
     }

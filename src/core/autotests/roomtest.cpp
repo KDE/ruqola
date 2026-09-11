@@ -337,11 +337,11 @@ void RoomTest::shouldParseUsersWaitingForE2EKeys()
     const QJsonObject roomJson =
         QJsonDocument::fromJson(R"({"_id":"roomid","usersWaitingForE2EKeys":[{"userId":"user1","ts":1234},{"userId":"user2","ts":5678}]})"_ba).object();
     input.parseUpdateRoom(roomJson);
-    QCOMPARE(input.usersWaitingForE2EKeys(), QList<QByteArray>() << "user1"_ba << "user2"_ba);
+    QCOMPARE(input.usersWaitingForE2EKeys(), (QList<QByteArray>{"user1"_ba, "user2"_ba}));
 
     // A payload without the field must not drop what we know.
     input.parseUpdateRoom(QJsonDocument::fromJson(R"({"_id":"roomid"})"_ba).object());
-    QCOMPARE(input.usersWaitingForE2EKeys(), QList<QByteArray>() << "user1"_ba << "user2"_ba);
+    QCOMPARE(input.usersWaitingForE2EKeys(), (QList<QByteArray>{"user1"_ba, "user2"_ba}));
 
     // An empty queue means nobody is waiting anymore.
     input.parseUpdateRoom(QJsonDocument::fromJson(R"({"_id":"roomid","usersWaitingForE2EKeys":[]})"_ba).object());
@@ -424,16 +424,16 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QStringList>("fileNameupdate");
     // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate") << u"notification-room"_s << (QStringList() << u"notification-roomupdate1"_s);
-    QTest::newRow("room-update") << u"room-update"_s << (QStringList() << u"room-update1"_s);
-    QTest::newRow("room-without-owner") << u"room-without-owner"_s << (QStringList() << u"room-without-owner1"_s);
-    QTest::newRow("room-mute-unmute") << u"room-mute-unmute"_s << (QStringList() << u"muted-users"_s << u"unmuted-users"_s);
-    QTest::newRow("userignored-room") << u"userignored-room"_s << (QStringList() << u"userignored-room-update"_s);
-    QTest::newRow("room-requiredjoincode-owner") << u"room-requiredjoincode-owner"_s << (QStringList() << u"room-requiredjoincode-update"_s);
-    QTest::newRow("autotranslatelanguage") << u"autotranslatelanguage"_s << (QStringList() << u"autotranslatelanguage-update"_s);
-    QTest::newRow("direct-room") << u"direct-room"_s << (QStringList() << u"direct-room-update"_s);
-    QTest::newRow("room-retention") << u"room-retention"_s << (QStringList() << u"room-retention-update"_s);
-    QTest::newRow("room-team") << u"room-team"_s << (QStringList() << u"room-team"_s);
+    QTest::newRow("notification-roomupdate") << u"notification-room"_s << QStringList{u"notification-roomupdate1"_s};
+    QTest::newRow("room-update") << u"room-update"_s << QStringList{u"room-update1"_s};
+    QTest::newRow("room-without-owner") << u"room-without-owner"_s << QStringList{u"room-without-owner1"_s};
+    QTest::newRow("room-mute-unmute") << u"room-mute-unmute"_s << QStringList{u"muted-users"_s, u"unmuted-users"_s};
+    QTest::newRow("userignored-room") << u"userignored-room"_s << QStringList{u"userignored-room-update"_s};
+    QTest::newRow("room-requiredjoincode-owner") << u"room-requiredjoincode-owner"_s << QStringList{u"room-requiredjoincode-update"_s};
+    QTest::newRow("autotranslatelanguage") << u"autotranslatelanguage"_s << QStringList{u"autotranslatelanguage-update"_s};
+    QTest::newRow("direct-room") << u"direct-room"_s << QStringList{u"direct-room-update"_s};
+    QTest::newRow("room-retention") << u"room-retention"_s << QStringList{u"room-retention-update"_s};
+    QTest::newRow("room-team") << u"room-team"_s << QStringList{u"room-team"_s};
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
@@ -484,14 +484,14 @@ void RoomTest::shouldParseRoomAndUpdateSubscription_data()
     QTest::addColumn<QStringList>("UpdateRoomfileNames");
     QTest::addColumn<QStringList>("UpdateSubscriptionFileNames");
     // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate") << u"notification-room"_s << (QStringList() << u"notification-roomupdate1"_s)
-                                             << (QStringList() << u"notification-roomsubscription1"_s);
+    QTest::newRow("notification-roomupdate") << u"notification-room"_s << QStringList{u"notification-roomupdate1"_s}
+                                             << QStringList{u"notification-roomsubscription1"_s};
 
-    QTest::newRow("room-blocked") << u"room-blocked"_s << (QStringList() << u"room-blockedupdate1"_s) << QStringList();
+    QTest::newRow("room-blocked") << u"room-blocked"_s << QStringList{u"room-blockedupdate1"_s} << QStringList();
 
-    QTest::newRow("room-encryption") << u"room-encryption"_s << (QStringList() << u"room-encryptionupdate1"_s) << QStringList();
+    QTest::newRow("room-encryption") << u"room-encryption"_s << QStringList{u"room-encryptionupdate1"_s} << QStringList();
 
-    QTest::newRow("room-broadcasted") << u"room-broadcasted"_s << (QStringList() << u"room-broadcastedupdate1"_s) << QStringList();
+    QTest::newRow("room-broadcasted") << u"room-broadcasted"_s << QStringList{u"room-broadcastedupdate1"_s} << QStringList();
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription()

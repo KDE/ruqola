@@ -41,20 +41,17 @@ QString RuqolaCommandLineParser::commandLineFromEnum(CommandLineName e)
 
 void RuqolaCommandLineParser::initializeCommandLine(QCommandLineParser *parser)
 {
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::ListAccount), i18nc("@info:shell", "Return lists of accounts")));
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Account),
-                                         i18nc("@info:shell", "Start with specific account"),
-                                         i18n("Account Name")));
+    parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::ListAccount), i18nc("@info:shell", "Return lists of accounts")));
     parser->addOption(
-        QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::MessageUrl), i18nc("@info:shell", "Show Message"), i18n("Message Url")));
+        QCommandLineOption(commandLineFromEnum(CommandLineName::Account), i18nc("@info:shell", "Start with specific account"), i18n("Account Name")));
+    parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::MessageUrl), i18nc("@info:shell", "Show Message"), i18n("Message Url")));
 #if HAVE_KUSERFEEDBACK
     parser->addOption(
         QCommandLineOption(commandLineFromEnum(CommandLineName::FeedBack), i18nc("@info:shell", "Lists the available options for user feedback")));
 #endif
 #if ADD_OFFLINE_SUPPORT
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Offline), i18nc("@info:shell", "Start as Offline")));
+    parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::Offline), i18nc("@info:shell", "Start as Offline")));
 #endif
-    parser->addOption(QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::Debug), i18nc("@info:shell", "Activate Debug Mode")));
-    parser->addOption(
-        QCommandLineOption(QStringList() << commandLineFromEnum(CommandLineName::CleanDatabase), i18nc("@info:shell", "Clean Database (Use with caution)")));
+    parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::Debug), i18nc("@info:shell", "Activate Debug Mode")));
+    parser->addOption(QCommandLineOption(commandLineFromEnum(CommandLineName::CleanDatabase), i18nc("@info:shell", "Clean Database (Use with caution)")));
 }

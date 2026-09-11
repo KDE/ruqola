@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
 
-    const QCommandLineOption clientId(QStringList() << u"i"_s << u"client-id"_s, u"Specifies the application client id"_s, u"client_id"_s);
+    const QCommandLineOption clientId(QStringList{u"i"_s, u"client-id"_s}, u"Specifies the application client id"_s, u"client_id"_s);
 
     parser.addOptions({clientId});
     parser.process(app);

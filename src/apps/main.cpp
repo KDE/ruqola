@@ -100,10 +100,7 @@ int main(int argc, char *argv[])
 
     if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::ListAccount))) {
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
-        QDirIterator it(configPath,
-                        QStringList() << u"ruqola.conf"_s,
-                        QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
-                        QDirIterator::Subdirectories);
+        QDirIterator it(configPath, QStringList{u"ruqola.conf"_s}, QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
         std::cout << qPrintable(i18n("The following accounts are available:")) << '\n';
         while (it.hasNext()) {
             QString result = it.next();

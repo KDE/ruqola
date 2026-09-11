@@ -231,11 +231,7 @@ void MessagesModelTest::shouldAddMessages()
     messages << makeMessage("msgD", 2);
     model.addMessages(messages);
     QCOMPARE(model.rowCount(), 4);
-    QCOMPARE(extractMessageIds(model),
-             QByteArrayList() << "msgD"
-                              << "msgB"
-                              << "msgC"
-                              << "msgA");
+    QCOMPARE(extractMessageIds(model), (QByteArrayList{"msgD", "msgB", "msgC", "msgA"}));
 
     messages.clear();
     messages << makeMessage("msgE", 1);
@@ -246,15 +242,7 @@ void MessagesModelTest::shouldAddMessages()
     messages << makeMessage("msgA", 8); // update
     model.addMessages(messages);
     QCOMPARE(model.rowCount(), 8);
-    QCOMPARE(extractMessageIds(model),
-             QByteArrayList() << "msgE"
-                              << "msgD"
-                              << "msgF"
-                              << "msgB"
-                              << "msgH"
-                              << "msgC"
-                              << "msgA"
-                              << "msgG");
+    QCOMPARE(extractMessageIds(model), (QByteArrayList{"msgE", "msgD", "msgF", "msgB", "msgH", "msgC", "msgA", "msgG"}));
     QCOMPARE(model.index(6, 0).data(MessagesModel::OriginalMessage).toString(), u"modified"_s);
 }
 

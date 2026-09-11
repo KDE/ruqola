@@ -283,7 +283,7 @@ void AccountManager::loadAccount()
 
     qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()" << ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
-                    QStringList() << u"ruqola.conf"_s,
+                    QStringList{u"ruqola.conf"_s},
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
     QList<RocketChatAccount *> lstAccounts;

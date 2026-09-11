@@ -842,9 +842,9 @@ void MessageTest::shouldUpdateJsonMessage_data()
     QTest::addColumn<QStringList>("fileNameupdate");
     QTest::newRow("standardmessage") << u"standardmessage"_s << QStringList();
     QTest::newRow("message1-init") << u"message1-init"_s << QStringList();
-    QTest::newRow("message1") << u"message1"_s << (QStringList() << u"message1-updated"_s);
-    QTest::newRow("message2") << u"message2"_s << (QStringList() << u"message2-updated"_s << u"message2-updated-stared"_s);
-    QTest::newRow("message3") << u"message3"_s << (QStringList() << u"message3-updated"_s);
+    QTest::newRow("message1") << u"message1"_s << QStringList{u"message1-updated"_s};
+    QTest::newRow("message2") << u"message2"_s << QStringList{u"message2-updated"_s, u"message2-updated-stared"_s};
+    QTest::newRow("message3") << u"message3"_s << QStringList{u"message3-updated"_s};
     // TODO add more !
 }
 

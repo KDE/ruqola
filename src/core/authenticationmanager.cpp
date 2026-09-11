@@ -59,7 +59,7 @@ void AuthenticationManager::initializePluginList()
 
 void AuthenticationManager::loadPlugin(AuthenticationManagerInfo *item)
 {
-    auto result = KPluginFactory::instantiatePlugin<PluginAuthentication>(item->data, this, QVariantList() << item->metaDataFileNameBaseName);
+    auto result = KPluginFactory::instantiatePlugin<PluginAuthentication>(item->data, this, QVariantList{item->metaDataFileNameBaseName});
     if (result.plugin) {
         item->plugin = result.plugin;
     } else {
