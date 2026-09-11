@@ -15,6 +15,7 @@ class PasswordConfirmWidget;
 class QPushButton;
 class QPlainTextEdit;
 class QLabel;
+class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 {
     Q_OBJECT

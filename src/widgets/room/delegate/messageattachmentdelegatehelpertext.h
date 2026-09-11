@@ -7,6 +7,7 @@
 #pragma once
 
 #include "messageattachmentdelegatehelperbase.h"
+#include <QIcon>
 #include <QModelIndex>
 #include <QRect>
 class QTextDocument;

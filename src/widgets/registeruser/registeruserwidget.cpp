@@ -8,13 +8,13 @@
 
 #include "misc/passwordconfirmwidget.h"
 
-#include <KAuthorized>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QTextDocument>
 
 using namespace Qt::Literals::StringLiterals;
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)

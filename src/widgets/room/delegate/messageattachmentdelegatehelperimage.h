@@ -10,6 +10,7 @@
 #include "misc/pixmapcache.h"
 #include "runninganimatedimage.h"
 
+#include <QIcon>
 #include <QModelIndex>
 #include <QPixmap>
 #include <vector>
