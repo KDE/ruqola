@@ -84,6 +84,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
 
     mInfoLabel->setObjectName(u"mInfoLabel"_s);
     mInfoLabel->setWordWrap(true);
+    mInfoLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(mInfoLabel);
 
     mainLayout->addStretch(1);
