@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:46+0000\n"
+"POT-Creation-Date: 2026-09-11 00:46+0000\n"
 "PO-Revision-Date: 2026-09-09 18:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -3653,7 +3653,7 @@ msgstr "استبعد كافة التقارير"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:104
-#: widgets/room/messagelistview.cpp:448
+#: widgets/room/messagelistview.cpp:451
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3662,7 +3662,7 @@ msgstr "انسخ التحديد"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:85
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
-#: widgets/room/messagelistview.cpp:450
+#: widgets/room/messagelistview.cpp:453
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, kde-format
 msgctxt "@action"
@@ -3683,7 +3683,7 @@ msgstr "نطق النص"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:484
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, kde-format
 msgctxt "@action"
@@ -7605,95 +7605,95 @@ msgid "Show Unread"
 msgstr "اعرض غير مقروء"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:128
+#: widgets/channellist/channellistview.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "علّم كمقروء"
 
-#: widgets/channellist/channellistview.cpp:128
+#: widgets/channellist/channellistview.cpp:131
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "علّم كغير مقروء"
 
-#: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:468
+#: widgets/channellist/channellistview.cpp:141
+#: widgets/room/messagelistview.cpp:471
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "فضّله"
 
-#: widgets/channellist/channellistview.cpp:138
+#: widgets/channellist/channellistview.cpp:141
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "ألغ تفضيله"
 
-#: widgets/channellist/channellistview.cpp:147
+#: widgets/channellist/channellistview.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "أخفِ القناة"
 
-#: widgets/channellist/channellistview.cpp:164
+#: widgets/channellist/channellistview.cpp:167
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "حوّل إلى فريق"
 
-#: widgets/channellist/channellistview.cpp:175
+#: widgets/channellist/channellistview.cpp:178
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "حوّل إلى قناة"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:181
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "هل تريد تحويل الفريق إلى قناة؟"
 
-#: widgets/channellist/channellistview.cpp:179
+#: widgets/channellist/channellistview.cpp:182
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "حوّل إلى قناة"
 
-#: widgets/channellist/channellistview.cpp:194
+#: widgets/channellist/channellistview.cpp:197
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "انتقل إلى الفريق"
 
-#: widgets/channellist/channellistview.cpp:210
+#: widgets/channellist/channellistview.cpp:213
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "اضبط الإشعار…"
 
-#: widgets/channellist/channellistview.cpp:227
+#: widgets/channellist/channellistview.cpp:230
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "اخرج من القناة"
 
-#: widgets/channellist/channellistview.cpp:269
+#: widgets/channellist/channellistview.cpp:272
 #, kde-format
 msgid "Any team selected."
 msgstr "أي فريق محدد."
 
-#: widgets/channellist/channellistview.cpp:269
+#: widgets/channellist/channellistview.cpp:272
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "انتقل إلى الفريق"
 
-#: widgets/channellist/channellistview.cpp:318
+#: widgets/channellist/channellistview.cpp:324
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "هل أنت متأكد من تحويله إلى فريق؟ لا يمكن التراجع عن ذلك."
 
-#: widgets/channellist/channellistview.cpp:319
+#: widgets/channellist/channellistview.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -7752,7 +7752,7 @@ msgid "Username or email:"
 msgstr "اسم المستخدم أو البريد الإلكتروني:"
 
 #: widgets/common/authenticationloginwidget.cpp:168
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7762,7 +7762,7 @@ msgstr ""
 "إذا لم يصلك بريد إلكتروني بعد قليل، يرجى العودة والمحاولة مرة أخرى."
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1118
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -9225,7 +9225,7 @@ msgid "Display Image"
 msgstr "اعرض الصورة"
 
 #: widgets/dialogs/showimagedialog.cpp:60
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:284
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:289
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "انسخ الصورة إلى الحافظة"
@@ -10647,7 +10647,7 @@ msgid "Switch To New Room"
 msgstr "بدّل إلى غرفة جديدة"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:96
-#: widgets/room/messagelistview.cpp:843
+#: widgets/room/messagelistview.cpp:846
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10868,33 +10868,33 @@ msgstr "خطأ في فتح الملفّ"
 msgid "Join"
 msgstr "انضم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:437
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #, kde-format
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:447
-#: widgets/room/messagelistview.cpp:576
+#: widgets/room/delegate/messagelistdelegate.cpp:449
+#: widgets/room/messagelistview.cpp:579
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "ابدأ محادثة خاصة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
+#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/messagelistview.cpp:691 widgets/room/messagelistview.cpp:753
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "أظهر الرسالة الأصلية"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
+#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/messagelistview.cpp:691 widgets/room/messagelistview.cpp:753
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "رسالة الترجمة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:728
+#: widgets/room/delegate/messagelistdelegate.cpp:733
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10905,7 +10905,7 @@ msgstr[3] "%1 ردود"
 msgstr[4] "%1 ردًّا"
 msgstr[5] "%1 ردّ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:738
+#: widgets/room/delegate/messagelistdelegate.cpp:743
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10916,54 +10916,54 @@ msgstr[3] "%1 رسائل"
 msgstr[4] "%1 رسالة"
 msgstr[5] "%1 رسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:738
+#: widgets/room/delegate/messagelistdelegate.cpp:743
 #, kde-format
 msgid "No message yet"
 msgstr "لا يوجد رسائل بعد"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1066
+#: widgets/room/delegate/messagelistdelegate.cpp:1071
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "متابعة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1070
+#: widgets/room/delegate/messagelistdelegate.cpp:1075
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "لقد ثُبتت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1074
+#: widgets/room/delegate/messagelistdelegate.cpp:1079
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "لقد عُلّمت الرسالة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1078
+#: widgets/room/delegate/messagelistdelegate.cpp:1083
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "الرسالة تحتوي على نص مترجم"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1082
+#: widgets/room/delegate/messagelistdelegate.cpp:1087
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1086
+#: widgets/room/delegate/messagelistdelegate.cpp:1091
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "أضف تفاعل"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1092
+#: widgets/room/delegate/messagelistdelegate.cpp:1097
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "أوقف"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1092
+#: widgets/room/delegate/messagelistdelegate.cpp:1097
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11107,132 +11107,132 @@ msgstr "انضممت إلى رسالة مباشرة جديدة"
 msgid "Start of conversation"
 msgstr "بدء المحادثة"
 
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "ألغ تثبيت الرّسالة"
 
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "ثبّت الرّسالة"
 
-#: widgets/room/messagelistview.cpp:468
+#: widgets/room/messagelistview.cpp:471
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "أزِل من المفضّلة"
 
-#: widgets/room/messagelistview.cpp:475
+#: widgets/room/messagelistview.cpp:478
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "احذف"
 
-#: widgets/room/messagelistview.cpp:488
+#: widgets/room/messagelistview.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "علّم الرسالة كَغَير مقروءة"
 
-#: widgets/room/messagelistview.cpp:493
+#: widgets/room/messagelistview.cpp:496
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "اعرض كامل السلسلة"
 
-#: widgets/room/messagelistview.cpp:498
+#: widgets/room/messagelistview.cpp:501
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "حرر"
 
-#: widgets/room/messagelistview.cpp:503
+#: widgets/room/messagelistview.cpp:506
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "اقتبس"
 
-#: widgets/room/messagelistview.cpp:508
+#: widgets/room/messagelistview.cpp:511
 #, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "إيصالات القراءة"
 
-#: widgets/room/messagelistview.cpp:513
+#: widgets/room/messagelistview.cpp:516
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "انسخ رابط إلى رسالة"
 
-#: widgets/room/messagelistview.cpp:518
+#: widgets/room/messagelistview.cpp:521
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "تمرير الرسالة"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:532
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "لا تتبع الرسالة"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:532
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "اتبع الرّسالة"
 
-#: widgets/room/messagelistview.cpp:543
+#: widgets/room/messagelistview.cpp:546
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "انسخ المسار"
 
-#: widgets/room/messagelistview.cpp:567 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:570 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/room/messagelistview.cpp:614
+#: widgets/room/messagelistview.cpp:617
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "ابدأ مناقشة"
 
-#: widgets/room/messagelistview.cpp:621
+#: widgets/room/messagelistview.cpp:624
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "رد في السلسلة"
 
-#: widgets/room/messagelistview.cpp:760
+#: widgets/room/messagelistview.cpp:763
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "اطلع على التقارير"
 
-#: widgets/room/messagelistview.cpp:783
+#: widgets/room/messagelistview.cpp:786
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "استبعد التقارير"
 
-#: widgets/room/messagelistview.cpp:860
+#: widgets/room/messagelistview.cpp:863
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "بلّغ عن الرسالة"
 
-#: widgets/room/messagelistview.cpp:1114
+#: widgets/room/messagelistview.cpp:1117
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "هل تريد حذف هذه الرسالة؟"
 
-#: widgets/room/messagelistview.cpp:1115
+#: widgets/room/messagelistview.cpp:1118
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
@@ -11430,45 +11430,45 @@ msgstr "الرد في سلسلة"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "رد في سلسلة المحادثات للرسالة: '%1'"
 
-#: widgets/room/roomwidget.cpp:403
+#: widgets/room/roomwidget.cpp:402
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "هل تريد إزالة التاريخ حقًا؟"
 
-#: widgets/room/roomwidget.cpp:404
+#: widgets/room/roomwidget.cpp:403
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "أزل التّاريخ"
 
-#: widgets/room/roomwidget.cpp:448
+#: widgets/room/roomwidget.cpp:447
 #, kde-format
 msgid "Export Messages"
 msgstr "صدّر الرسائل"
 
-#: widgets/room/roomwidget.cpp:449
+#: widgets/room/roomwidget.cpp:448
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "بريدُك الإلكتروني مدرج في قائمة الانتظار للإرسال."
 
-#: widgets/room/roomwidget.cpp:611
+#: widgets/room/roomwidget.cpp:610
 #, kde-format
 msgid "Encrypted content cannot be searched."
 msgstr "لا يمكن البحث في المحتوى المعمّى."
 
-#: widgets/room/roomwidget.cpp:611
+#: widgets/room/roomwidget.cpp:610
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Message"
 msgstr "ابحث في الرسائل"
 
-#: widgets/room/roomwidget.cpp:630
+#: widgets/room/roomwidget.cpp:629
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr "يحتاج مسؤول مساحة العمل إلى تثبيت وضبط تطبيقات مكالمات جماعية."
 
-#: widgets/room/roomwidget.cpp:631
+#: widgets/room/roomwidget.cpp:630
 #, kde-format
 msgctxt "@title:window"
 msgid "Video Conference"
@@ -11981,26 +11981,26 @@ msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "اعرض سجل القناة"
 
-#: widgets/ruqolamainwindow.cpp:1260
+#: widgets/ruqolamainwindow.cpp:1261
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>سيُخفي هذا شريط القوائم بالكامل. يمكنك إظهاره ثانيةً بضغط %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1263
+#: widgets/ruqolamainwindow.cpp:1264
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "أخفِ شريط القائمة"
 
-#: widgets/ruqolamainwindow.cpp:1448
+#: widgets/ruqolamainwindow.cpp:1451
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "اعمل متّصلًا"
 
-#: widgets/ruqolamainwindow.cpp:1451
+#: widgets/ruqolamainwindow.cpp:1454
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"

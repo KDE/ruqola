@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:46+0000\n"
+"POT-Creation-Date: 2026-09-11 00:46+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -3779,7 +3779,7 @@ msgstr "Relatórios"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:104
-#: widgets/room/messagelistview.cpp:448
+#: widgets/room/messagelistview.cpp:451
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, fuzzy, kde-format
 #| msgid "Copy link"
@@ -3789,7 +3789,7 @@ msgstr "Copiar a ligação"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:85
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
-#: widgets/room/messagelistview.cpp:450
+#: widgets/room/messagelistview.cpp:453
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, fuzzy, kde-format
 #| msgid "Copy Message"
@@ -3812,7 +3812,7 @@ msgstr "Falar o Texto"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:484
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, fuzzy, kde-format
 #| msgid "Select All"
@@ -8121,77 +8121,77 @@ msgid "Show Unread"
 msgstr "Mostrar os Não-Lidos"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:128
+#: widgets/channellist/channellistview.cpp:131
 #, fuzzy, kde-format
 #| msgid "Mark as Read"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marcar como Lido"
 
-#: widgets/channellist/channellistview.cpp:128
+#: widgets/channellist/channellistview.cpp:131
 #, fuzzy, kde-format
 #| msgid "Mark As Unread"
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marcar como Não-Lido"
 
-#: widgets/channellist/channellistview.cpp:138
-#: widgets/room/messagelistview.cpp:468
+#: widgets/channellist/channellistview.cpp:141
+#: widgets/room/messagelistview.cpp:471
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Marcar como Favorito"
 
-#: widgets/channellist/channellistview.cpp:138
+#: widgets/channellist/channellistview.cpp:141
 #, fuzzy, kde-format
 #| msgid "Unset as Favorite"
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Desmarcar como Favorito"
 
-#: widgets/channellist/channellistview.cpp:147
+#: widgets/channellist/channellistview.cpp:150
 #, fuzzy, kde-format
 #| msgid "Hide Channel"
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Esconder o Canal"
 
-#: widgets/channellist/channellistview.cpp:164
+#: widgets/channellist/channellistview.cpp:167
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Converter para uma Equipa"
 
-#: widgets/channellist/channellistview.cpp:175
+#: widgets/channellist/channellistview.cpp:178
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Converter para um Canal"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:181
 #, fuzzy, kde-format
 #| msgid "Do you want to convert this big text as attachment?"
 msgid "Do you want to convert team to channel?"
 msgstr "Deseja converter este texto extenso para um anexo?"
 
-#: widgets/channellist/channellistview.cpp:179
+#: widgets/channellist/channellistview.cpp:182
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Converter para um Canal"
 
-#: widgets/channellist/channellistview.cpp:194
+#: widgets/channellist/channellistview.cpp:197
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mover para a Equipa"
 
-#: widgets/channellist/channellistview.cpp:210
+#: widgets/channellist/channellistview.cpp:213
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Notification"
@@ -8199,33 +8199,33 @@ msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configurar a Notificação"
 
-#: widgets/channellist/channellistview.cpp:227
+#: widgets/channellist/channellistview.cpp:230
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Sair do Canal"
 
-#: widgets/channellist/channellistview.cpp:269
+#: widgets/channellist/channellistview.cpp:272
 #, kde-format
 msgid "Any team selected."
 msgstr "Qualquer equipa seleccionada."
 
-#: widgets/channellist/channellistview.cpp:269
+#: widgets/channellist/channellistview.cpp:272
 #, fuzzy, kde-format
 #| msgid "Move To Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mover para a Equipa"
 
-#: widgets/channellist/channellistview.cpp:318
+#: widgets/channellist/channellistview.cpp:324
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Tem a certeza que o deseja converter a uma equipa? Isto não poderá ser "
 "anulado."
 
-#: widgets/channellist/channellistview.cpp:319
+#: widgets/channellist/channellistview.cpp:325
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@title:window"
@@ -8295,7 +8295,7 @@ msgid "Username or email:"
 msgstr "Utilizador ou e-mail"
 
 #: widgets/common/authenticationloginwidget.cpp:168
-#: widgets/ruqolamainwindow.cpp:1116
+#: widgets/ruqolamainwindow.cpp:1117
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8305,7 +8305,7 @@ msgstr ""
 "Se não receber em breve um e-mail, por favor regresse e tente de novo."
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1118
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -9880,7 +9880,7 @@ msgid "Display Image"
 msgstr "Mostrar a Imagem"
 
 #: widgets/dialogs/showimagedialog.cpp:60
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:284
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:289
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Copiar a Imagem para a Área de Transferência"
@@ -11416,7 +11416,7 @@ msgid "Switch To New Room"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:96
-#: widgets/room/messagelistview.cpp:843
+#: widgets/room/messagelistview.cpp:846
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgctxt "@action"
@@ -11669,103 +11669,103 @@ msgstr "Erro ao gravar o ficheiro"
 msgid "Join"
 msgstr "Juntar-se"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:437
+#: widgets/room/delegate/messagelistdelegate.cpp:439
 #, kde-format
 msgid "User Info"
 msgstr "Informações do Utilizador"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:447
-#: widgets/room/messagelistview.cpp:576
+#: widgets/room/delegate/messagelistdelegate.cpp:449
+#: widgets/room/messagelistview.cpp:579
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Iniciar uma Conversação Privada"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
+#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/messagelistview.cpp:691 widgets/room/messagelistview.cpp:753
 #, fuzzy, kde-format
 #| msgid "Show Original Message"
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Mostrar a Mensagem Original"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:463
-#: widgets/room/messagelistview.cpp:688 widgets/room/messagelistview.cpp:750
+#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/messagelistview.cpp:691 widgets/room/messagelistview.cpp:753
 #, fuzzy, kde-format
 #| msgid "Translate Message"
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Traduzir a Mensagem"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:728
+#: widgets/room/delegate/messagelistdelegate.cpp:733
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 resposta"
 msgstr[1] "%1 respostas"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:738
+#: widgets/room/delegate/messagelistdelegate.cpp:743
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 mensagem"
 msgstr[1] "%1 mensagens"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:738
+#: widgets/room/delegate/messagelistdelegate.cpp:743
 #, kde-format
 msgid "No message yet"
 msgstr "Ainda sem mensagem"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1066
+#: widgets/room/delegate/messagelistdelegate.cpp:1071
 #, fuzzy, kde-format
 #| msgid "Following"
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "A Seguir"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1070
+#: widgets/room/delegate/messagelistdelegate.cpp:1075
 #, fuzzy, kde-format
 #| msgid "Message has been pinned"
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "A mensagem ficou fixa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1074
+#: widgets/room/delegate/messagelistdelegate.cpp:1079
 #, fuzzy, kde-format
 #| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "A mensagem ficou marcada com uma estrela"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1078
+#: widgets/room/delegate/messagelistdelegate.cpp:1083
 #, fuzzy, kde-format
 #| msgid "Message has been starred"
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "A mensagem ficou marcada com uma estrela"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1082
+#: widgets/room/delegate/messagelistdelegate.cpp:1087
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Responder no Tópico"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1086
+#: widgets/room/delegate/messagelistdelegate.cpp:1091
 #, fuzzy, kde-format
 #| msgid "Search Emoticon..."
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Procurar um Ícone Emotivo..."
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1092
+#: widgets/room/delegate/messagelistdelegate.cpp:1097
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1092
+#: widgets/room/delegate/messagelistdelegate.cpp:1097
 #, fuzzy, kde-format
 #| msgid "Speak Text"
 msgctxt "@info:tooltip"
@@ -11930,152 +11930,152 @@ msgstr "Juntou-se a uma nova mensagem directa"
 msgid "Start of conversation"
 msgstr "Início da Conversação"
 
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "Soltar a Mensagem"
 
-#: widgets/room/messagelistview.cpp:459
+#: widgets/room/messagelistview.cpp:462
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "Fixar a Mensagem"
 
-#: widgets/room/messagelistview.cpp:468
+#: widgets/room/messagelistview.cpp:471
 #, fuzzy, kde-format
 #| msgid "Remove as Favorite"
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Remover como Favorito"
 
-#: widgets/room/messagelistview.cpp:475
+#: widgets/room/messagelistview.cpp:478
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgctxt "@action"
 msgid "Delete"
 msgstr "Apagar"
 
-#: widgets/room/messagelistview.cpp:488
+#: widgets/room/messagelistview.cpp:491
 #, fuzzy, kde-format
 #| msgid "Mark Message As Unread"
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "Marcar as Mensagens como Não-Lidas"
 
-#: widgets/room/messagelistview.cpp:493
+#: widgets/room/messagelistview.cpp:496
 #, fuzzy, kde-format
 #| msgid "Show Full Thread"
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Mostrar o Tópico Completo"
 
-#: widgets/room/messagelistview.cpp:498
+#: widgets/room/messagelistview.cpp:501
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action"
 msgid "Edit"
 msgstr "Editar"
 
-#: widgets/room/messagelistview.cpp:503
+#: widgets/room/messagelistview.cpp:506
 #, fuzzy, kde-format
 #| msgid "Quote"
 msgctxt "@action"
 msgid "Quote"
 msgstr "Citação"
 
-#: widgets/room/messagelistview.cpp:508
+#: widgets/room/messagelistview.cpp:511
 #, fuzzy, kde-format
 #| msgid "Read Receipts"
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Limpar as Recepções"
 
-#: widgets/room/messagelistview.cpp:513
+#: widgets/room/messagelistview.cpp:516
 #, fuzzy, kde-format
 #| msgid "Copy Link To Message"
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Copiar a Localização para a Mensagem"
 
-#: widgets/room/messagelistview.cpp:518
+#: widgets/room/messagelistview.cpp:521
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "Seguir a Mensagem"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:532
 #, fuzzy, kde-format
 #| msgid "Unfollow Message"
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "Não Seguir a Mensagem"
 
-#: widgets/room/messagelistview.cpp:529
+#: widgets/room/messagelistview.cpp:532
 #, fuzzy, kde-format
 #| msgid "Follow Message"
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "Seguir a Mensagem"
 
-#: widgets/room/messagelistview.cpp:543
+#: widgets/room/messagelistview.cpp:546
 #, fuzzy, kde-format
 #| msgid "Copy URL"
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "Copiar o URL"
 
-#: widgets/room/messagelistview.cpp:567 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:570 widgets/room/usersinroommenu.cpp:142
 #, fuzzy, kde-format
 #| msgid "User Info"
 msgctxt "@action"
 msgid "User Info"
 msgstr "Informações do Utilizador"
 
-#: widgets/room/messagelistview.cpp:614
+#: widgets/room/messagelistview.cpp:617
 #, fuzzy, kde-format
 #| msgid "Start a Discussion"
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Iniciar uma Discussão"
 
-#: widgets/room/messagelistview.cpp:621
+#: widgets/room/messagelistview.cpp:624
 #, fuzzy, kde-format
 #| msgid "Reply in Thread"
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Responder no Tópico"
 
-#: widgets/room/messagelistview.cpp:760
+#: widgets/room/messagelistview.cpp:763
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Relatórios"
 
-#: widgets/room/messagelistview.cpp:783
+#: widgets/room/messagelistview.cpp:786
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Relatórios"
 
-#: widgets/room/messagelistview.cpp:860
+#: widgets/room/messagelistview.cpp:863
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@action"
 msgid "Report Message"
 msgstr "Mensagem de Relatório"
 
-#: widgets/room/messagelistview.cpp:1114
+#: widgets/room/messagelistview.cpp:1117
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Deseja apagar esta mensagem?"
 
-#: widgets/room/messagelistview.cpp:1115
+#: widgets/room/messagelistview.cpp:1118
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
@@ -12289,35 +12289,35 @@ msgstr "A responder num tópico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta no Tópico à Mensagem: '%1'"
 
-#: widgets/room/roomwidget.cpp:403
+#: widgets/room/roomwidget.cpp:402
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Deseja realmente remover o histórico?"
 
-#: widgets/room/roomwidget.cpp:404
+#: widgets/room/roomwidget.cpp:403
 #, fuzzy, kde-format
 #| msgid "Remove History"
 msgctxt "@title:window"
 msgid "Remove History"
 msgstr "Remover o Histórico"
 
-#: widgets/room/roomwidget.cpp:448
+#: widgets/room/roomwidget.cpp:447
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: widgets/room/roomwidget.cpp:449
+#: widgets/room/roomwidget.cpp:448
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
 
-#: widgets/room/roomwidget.cpp:611
+#: widgets/room/roomwidget.cpp:610
 #, fuzzy, kde-format
 #| msgid "Direct Messages can not be archived"
 msgid "Encrypted content cannot be searched."
 msgstr "As Mensagens Directas não podem ser arquivadas"
 
-#: widgets/room/roomwidget.cpp:611
+#: widgets/room/roomwidget.cpp:610
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -12325,7 +12325,7 @@ msgctxt "@title:window"
 msgid "Search Message"
 msgstr "Procurar por Mensagens"
 
-#: widgets/room/roomwidget.cpp:630
+#: widgets/room/roomwidget.cpp:629
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -12333,7 +12333,7 @@ msgstr ""
 "É preciso um administrador da área de trabalho para instalar e configurar "
 "uma aplicação de chamadas em conferência."
 
-#: widgets/room/roomwidget.cpp:631
+#: widgets/room/roomwidget.cpp:630
 #, fuzzy, kde-format
 #| msgid "Video Conference"
 msgctxt "@title:window"
@@ -12908,7 +12908,7 @@ msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostrar o Registo do Canal"
 
-#: widgets/ruqolamainwindow.cpp:1260
+#: widgets/ruqolamainwindow.cpp:1261
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -12917,21 +12917,21 @@ msgstr ""
 "<qt>Isto irá esconder a barra do menu por completo. Podê-la-á mostrar de "
 "novo se escrever %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1263
+#: widgets/ruqolamainwindow.cpp:1264
 #, fuzzy, kde-format
 #| msgid "Hide menu bar"
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Esconder o menu"
 
-#: widgets/ruqolamainwindow.cpp:1448
+#: widgets/ruqolamainwindow.cpp:1451
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Desligado"
 
-#: widgets/ruqolamainwindow.cpp:1451
+#: widgets/ruqolamainwindow.cpp:1454
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
