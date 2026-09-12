@@ -3,7 +3,7 @@
   SPDX-License-Identifier: CC0-1.0
   SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 -->
-<gui name="ruqola" version="56">
+<gui name="ruqola" version="57">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -45,6 +45,8 @@
   </Menu>
   <Menu name="Tools" >
    <text>Tools</text>
+   <Action name="retry_wallet_access" />
+   <Separator/>
    <Action name="show_log" />
    <Separator/>
    <Action name="show_notify_history" />

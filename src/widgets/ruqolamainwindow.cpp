@@ -6,6 +6,7 @@
 
 #include "ruqolamainwindow.h"
 
+#include "accountcredentialstore.h"
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
@@ -434,6 +435,20 @@ void RuqolaMainWindow::setupActions()
     KStandardActions::quit(this, &RuqolaMainWindow::slotClose, ac);
     KStandardActions::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardActions::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
+
+    auto retryWallet = new QAction(QIcon::fromTheme(u"wallet-open"_s), i18nc("@action", "Retry Wallet Access"), this);
+    retryWallet->setEnabled(false);
+    auto credentialStore = AccountCredentialStore::self();
+    connect(retryWallet, &QAction::triggered, credentialStore, &AccountCredentialStore::retry);
+    connect(credentialStore, &AccountCredentialStore::accessFailed, this, [this, retryWallet] {
+        retryWallet->setEnabled(true);
+        statusBar()->showMessage(i18n("Could not access the wallet. Password changes may not be saved. Use Tools > Retry Wallet Access to try again."));
+    });
+    connect(credentialStore, &AccountCredentialStore::retryRequested, this, [this, retryWallet] {
+        retryWallet->setEnabled(false);
+        statusBar()->clearMessage();
+    });
+    ac->addAction(u"retry_wallet_access"_s, retryWallet);
 
     mAddServer = new QAction(i18nc("@action", "Add Server…"), this);
     connect(mAddServer, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
