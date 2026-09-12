@@ -36,19 +36,16 @@ CreateVideoMessageWizard::CreateVideoMessageWizard(RocketChatAccount *account, Q
     readConfig();
     connect(this, &CreateVideoMessageWizard::currentIdChanged, this, &CreateVideoMessageWizard::slotCurrentIdChanged);
     setButtonText(QWizard::FinishButton, i18nc("@action:button", "Send"));
-    connect(this, &CreateVideoMessageWizard::finished, this, &CreateVideoMessageWizard::slotAccepted);
+    connect(this, &QWizard::finished, this, [this](int) {
+        mCreateVideoMessagePage->saveSettings();
+    });
+
     mCreateVideoMessagePage->loadSettings();
 }
 
 CreateVideoMessageWizard::~CreateVideoMessageWizard()
 {
     writeConfig();
-}
-
-void CreateVideoMessageWizard::slotAccepted()
-{
-    mCreateVideoMessagePage->saveSettings();
-    accept();
 }
 
 void CreateVideoMessageWizard::slotCurrentIdChanged(int id)

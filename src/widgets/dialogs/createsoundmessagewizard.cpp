@@ -27,14 +27,10 @@ CreateSoundMessageWizard::CreateSoundMessageWizard(RocketChatAccount *account, Q
     setPage(GenerateSoundMessage, mGenerateSoundMessagePage);
     connect(this, &CreateSoundMessageWizard::currentIdChanged, this, &CreateSoundMessageWizard::slotCurrentIdChanged);
     setButtonText(QWizard::FinishButton, i18nc("@action:button", "Send"));
-    connect(this, &CreateSoundMessageWizard::finished, this, &CreateSoundMessageWizard::slotAccepted);
+    connect(this, &CreateSoundMessageWizard::finished, this, [this](int) {
+        mCreateSoundMessagePage->saveSettings();
+    });
     mCreateSoundMessagePage->loadSettings();
-}
-
-void CreateSoundMessageWizard::slotAccepted()
-{
-    mCreateSoundMessagePage->saveSettings();
-    accept();
 }
 
 CreateSoundMessageWizard::CreateSoundMessageInfo CreateSoundMessageWizard::soundMessageInfo() const
