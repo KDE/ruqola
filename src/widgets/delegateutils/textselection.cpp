@@ -535,11 +535,11 @@ void TextSelection::selectMessage(const QModelIndex &index)
             const auto &urls = message->urls()->messageUrls();
             for (const auto &url : urls) {
                 if (url.hasHtmlDescription()) {
-                    QTextDocument *doc = mMessageUrlHelperFactory->documentForUrlPreview(url);
-                    if (doc) {
+                    QTextDocument *docMessageUrl = mMessageUrlHelperFactory->documentForUrlPreview(url);
+                    if (docMessageUrl) {
                         MessageUrlSelection selection;
                         selection.fromCharPos = 0;
-                        selection.toCharPos = doc->characterCount() - 1;
+                        selection.toCharPos = docMessageUrl->characterCount() - 1;
                         selection.messageUrl = url;
                         mMessageUrlSelection.append(std::move(selection));
                     }
