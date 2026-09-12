@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-11 00:46+0000\n"
+"POT-Creation-Date: 2026-09-12 00:44+0000\n"
 "PO-Revision-Date: 2026-09-09 18:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -158,7 +158,7 @@ msgstr "دانييلي إي دومينيشيلي"
 msgid "New feature"
 msgstr "ميزة جديدة"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:104
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "الحسابات التالية متاحة:"
@@ -1943,41 +1943,41 @@ msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "ابدأ بحساب محدد"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgid "Account Name"
 msgstr "اسم الحساب"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:47
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "اعرض الرسالة"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:47
 #, kde-format
 msgid "Message Url"
 msgstr "رابط الرّسالة"
 
-#: core/ruqolacommandlineparser.cpp:52
+#: core/ruqolacommandlineparser.cpp:50
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr "يسرد الخيارات المتاحة لمشاركة بياناتك"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:53
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "ابدأ غير متّصل"
 
-#: core/ruqolacommandlineparser.cpp:57
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "نشّط وضع التنقيح"
 
-#: core/ruqolacommandlineparser.cpp:59
+#: core/ruqolacommandlineparser.cpp:56
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
@@ -8526,7 +8526,7 @@ msgstr ""
 "معهم، الجميع في نفس المكان، باستخدام الرسائل المباشرة."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:37
-#: widgets/prunemessages/prunemessageswidget.cpp:68
+#: widgets/prunemessages/prunemessageswidget.cpp:67
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Select users…"
@@ -10687,49 +10687,49 @@ msgctxt "@action:button"
 msgid "Prune"
 msgstr "قلِّم"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:21
+#: widgets/prunemessages/prunemessageswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Inclusive"
 msgstr "شامل"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:22
+#: widgets/prunemessages/prunemessageswidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not Prune Pinned Messages"
 msgstr "لا تقلِّم الرسائل المثبتة"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:23
+#: widgets/prunemessages/prunemessageswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not Prune Discussion Messages"
 msgstr "لا تقلِّم رسائل المناقشة"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:24
+#: widgets/prunemessages/prunemessageswidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not Prune Threads"
 msgstr "لا تقلِّم المواضيع"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:25
+#: widgets/prunemessages/prunemessageswidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Only Remove Attached Files. Keep messages"
 msgstr "أزِل الملفات المرفقة فقط. احتفظ بالرسائل"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:40
+#: widgets/prunemessages/prunemessageswidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Newer than:"
 msgstr "أحدث من:"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:53
+#: widgets/prunemessages/prunemessageswidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Older than:"
 msgstr "أقدم من:"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:61
+#: widgets/prunemessages/prunemessageswidget.cpp:60
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10741,7 +10741,7 @@ msgstr "قلِّم محتوى هؤلاء المستخدمين فقط (اجعله
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "سيؤدي هذا إلى حذف جميع الرسائل الموجودة في %3 بين %1 و%2."
 
-#: widgets/registeruser/registeruserdialog.cpp:30
+#: widgets/registeruser/registeruserdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"

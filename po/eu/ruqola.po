@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-11 00:46+0000\n"
+"POT-Creation-Date: 2026-09-12 00:44+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -160,7 +160,7 @@ msgstr "Daniele E. Domenichelli"
 msgid "New feature"
 msgstr "Ezaugarri berria"
 
-#: apps/main.cpp:107
+#: apps/main.cpp:104
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
@@ -1953,42 +1953,42 @@ msgctxt "@info:shell"
 msgid "Start with specific account"
 msgstr "Hasi kontu jakin batekin"
 
-#: core/ruqolacommandlineparser.cpp:47
+#: core/ruqolacommandlineparser.cpp:46
 #, kde-format
 msgid "Account Name"
 msgstr "Kontuaren izena"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:47
 #, kde-format
 msgctxt "@info:shell"
 msgid "Show Message"
 msgstr "Erakutsi mezua"
 
-#: core/ruqolacommandlineparser.cpp:49
+#: core/ruqolacommandlineparser.cpp:47
 #, kde-format
 msgid "Message Url"
 msgstr "Mezuaren URL"
 
-#: core/ruqolacommandlineparser.cpp:52
+#: core/ruqolacommandlineparser.cpp:50
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lists the available options for user feedback"
 msgstr ""
 "Erabiltzailearen atzera-elikadura aukera erabilgarriak zerrendatzen ditu"
 
-#: core/ruqolacommandlineparser.cpp:55
+#: core/ruqolacommandlineparser.cpp:53
 #, kde-format
 msgctxt "@info:shell"
 msgid "Start as Offline"
 msgstr "Hasi lerroz kanpo"
 
-#: core/ruqolacommandlineparser.cpp:57
+#: core/ruqolacommandlineparser.cpp:55
 #, kde-format
 msgctxt "@info:shell"
 msgid "Activate Debug Mode"
 msgstr "Aktibatu arazteko modua"
 
-#: core/ruqolacommandlineparser.cpp:59
+#: core/ruqolacommandlineparser.cpp:56
 #, kde-format
 msgctxt "@info:shell"
 msgid "Clean Database (Use with caution)"
@@ -8542,7 +8542,7 @@ msgstr ""
 "egin nahi duzun horiek, denak leku berean, zuzeneko mezuak erabiliz."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:37
-#: widgets/prunemessages/prunemessageswidget.cpp:68
+#: widgets/prunemessages/prunemessageswidget.cpp:67
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Select users…"
@@ -10726,49 +10726,49 @@ msgctxt "@action:button"
 msgid "Prune"
 msgstr "Inausi"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:21
+#: widgets/prunemessages/prunemessageswidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Inclusive"
 msgstr "Inklusiboa"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:22
+#: widgets/prunemessages/prunemessageswidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not Prune Pinned Messages"
 msgstr "Iltzatutako mezuak ez inausi"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:23
+#: widgets/prunemessages/prunemessageswidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not Prune Discussion Messages"
 msgstr "Elkarrizketa-mezuak ez inausi"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:24
+#: widgets/prunemessages/prunemessageswidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not Prune Threads"
 msgstr "Hariak ez inausi"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:25
+#: widgets/prunemessages/prunemessageswidget.cpp:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Only Remove Attached Files. Keep messages"
 msgstr "Kendu bakarrik erantsitako fitxategiak. Mezuak mantendu"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:40
+#: widgets/prunemessages/prunemessageswidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Newer than:"
 msgstr "Hau baino berriagoa:"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:53
+#: widgets/prunemessages/prunemessageswidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Older than:"
 msgstr "Hau baino zaharragoa:"
 
-#: widgets/prunemessages/prunemessageswidget.cpp:61
+#: widgets/prunemessages/prunemessageswidget.cpp:60
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -10782,7 +10782,7 @@ msgstr ""
 msgid "This will delete all messages in %3 between %1 and %2."
 msgstr "Honek %3(e)ko %1 eta %2 arteko mezu guztiak ezabatuko ditu."
 
-#: widgets/registeruser/registeruserdialog.cpp:30
+#: widgets/registeruser/registeruserdialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Register User"
