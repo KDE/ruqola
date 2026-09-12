@@ -20,7 +20,7 @@
 
 namespace
 {
-char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
+const char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
 }
 using namespace Qt::Literals::StringLiterals;
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent)
