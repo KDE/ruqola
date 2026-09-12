@@ -106,6 +106,7 @@ add_ruqola_test(authenticationinfotest.cpp)
 add_ruqola_test(commonmessagesmodeltest.cpp)
 add_ruqola_test(commonmessagefilterproxymodeltest.cpp)
 add_ruqola_test(accountmanagertest.cpp)
+add_ruqola_test(accountcredentialstoretest.cpp)
 
 add_ruqola_test(rocketchataccountmodeltest.cpp)
 add_ruqola_test(ruqolatest.cpp)
