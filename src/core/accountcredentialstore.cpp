@@ -194,7 +194,8 @@ bool AccountCredentialStore::loadPendingRemovals()
     QSettings journal(mRemovalJournalPath, QSettings::IniFormat);
     journal.beginGroup(u"removals"_s);
     QQueue<Request> requests;
-    for (const auto &id : journal.childKeys()) {
+    const auto removalIds = journal.childKeys();
+    for (const auto &id : removalIds) {
         const auto record = journal.value(id).toStringList();
         if (record.size() != 2 || record.at(0).isEmpty() || (record.at(1) != "account"_L1 && record.at(1) != "login"_L1 && record.at(1) != "encryption"_L1)) {
             return false;
@@ -372,7 +373,8 @@ bool AccountCredentialStore::validDocument(const QJsonObject &document)
         if (!document.value("legacyKeys"_L1).isArray()) {
             return false;
         }
-        for (const auto &key : document.value("legacyKeys"_L1).toArray()) {
+        const auto legacyKeys = document.value("legacyKeys"_L1).toArray();
+        for (const auto &key : legacyKeys) {
             if (!key.isString() || key.toString().isEmpty()) {
                 return false;
             }
@@ -411,7 +413,8 @@ void AccountCredentialStore::load()
             }
             mDocument = document.object();
             mCleanupKeys.clear();
-            for (const auto &key : mDocument.value("legacyKeys"_L1).toArray()) {
+            const auto legacyKeys = mDocument.value("legacyKeys"_L1).toArray();
+            for (const auto &key : legacyKeys) {
                 mCleanupKeys.append(key.toString());
             }
             cleanupNext();
