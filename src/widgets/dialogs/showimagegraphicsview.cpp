@@ -155,7 +155,7 @@ void ShowImageGraphicsView::updateRanges()
 {
     const auto newMinimumZoom = fitToViewZoomScale(originalImageSize(), size());
     if (!qFuzzyCompare(mMinimumZoom, newMinimumZoom)) {
-        mMinimumZoom = fitToViewZoomScale(originalImageSize(), size());
+        mMinimumZoom = newMinimumZoom;
         Q_EMIT minimumZoomChanged(mMinimumZoom);
     }
     // note: mMaximumZoom is constant for now
