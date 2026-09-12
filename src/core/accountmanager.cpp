@@ -522,9 +522,10 @@ void AccountManager::removeDirectory(const QString &directory)
 void AccountManager::removeAccount(const QString &accountName, bool removeLogFiles)
 {
     auto account = mRocketChatAccountModel->removeAccount(accountName);
-    if (account) {
-        disconnectAccount(account);
+    if (!account) {
+        return;
     }
+    disconnectAccount(account);
     removeDatabaseAccount(accountName);
     if (removeLogFiles) {
         removeLogs(accountName);

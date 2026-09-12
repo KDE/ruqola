@@ -368,10 +368,13 @@ Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QByteArray &teamId) c
     return mRoomModel->roomFromTeamId(teamId);
 }
 
-void RocketChatAccount::removeSettings()
+bool RocketChatAccount::removeSettings()
 {
-    mSettings->removeSettings();
+    if (!mSettings->removeSettings()) {
+        return false;
+    }
     mCache->removeCache();
+    return true;
 }
 
 void RocketChatAccount::loadSettings(const QString &accountFileName)

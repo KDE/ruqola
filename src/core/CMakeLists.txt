@@ -9,6 +9,8 @@ target_sources(
         abstractwebsocket.h
         connection.cpp
         connection.h
+        accountcredentialstore.cpp
+        accountcredentialstore.h
         accountmanager.cpp
         accountmanager.h
         accountroomsettings.cpp

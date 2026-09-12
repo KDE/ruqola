@@ -162,9 +162,11 @@ RocketChatAccount *RocketChatAccountModel::removeAccount(const QString &name)
     RocketChatAccount *account = nullptr;
     for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
         if (mRocketChatAccount.at(i)->accountName() == name) {
+            if (!mRocketChatAccount.at(i)->removeSettings()) {
+                return nullptr;
+            }
             beginRemoveRows(QModelIndex(), i, i);
             account = mRocketChatAccount.takeAt(i);
-            account->removeSettings();
             endRemoveRows();
             Q_EMIT accountNumberChanged();
             break;
