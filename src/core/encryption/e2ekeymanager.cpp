@@ -5,6 +5,7 @@
 */
 
 #include "e2ekeymanager.h"
+#include "accountcredentialstore.h"
 #include "authenticationmanager.h"
 #include "config-ruqola.h"
 #include "connection.h"
@@ -32,7 +33,6 @@
 #include "roomencryptionkey.h"
 #include "ruqola_encryption_debug.h"
 #include "ruqolaserverconfig.h"
-#include <qt6keychain/keychain.h>
 
 #include <QByteArray>
 #include <QDateTime>
@@ -43,7 +43,6 @@
 #include <QTimeZone>
 #include <QTimer>
 #include <chrono>
-using namespace QKeychain;
 using namespace Qt::Literals::StringLiterals;
 
 #if USE_E2E_SUPPORT
@@ -117,10 +116,16 @@ constexpr int roomKeyExchangeSize = 10;
 #endif
 
 // https://docs.rocket.chat/docs/end-to-end-encryption-specifications
-E2eKeyManager::E2eKeyManager(RocketChatAccount *account, QObject *parent)
+E2eKeyManager::E2eKeyManager(RocketChatAccount *account, QObject *parent, AccountCredentialStore *credentialStore)
     : QObject{parent}
     , mAccount(account)
+    , mCredentialStore(credentialStore ? credentialStore : AccountCredentialStore::self())
 {
+    connect(mCredentialStore, &AccountCredentialStore::retryRequested, this, [this] {
+        if (mAccount && mAccount->accountEnabled() && mStatus == Status::NeedToDecryptKey) {
+            readPassword();
+        }
+    });
 }
 
 E2eKeyManager::~E2eKeyManager() = default;
@@ -283,40 +288,16 @@ bool E2eKeyManager::decodeEncryptionKey([[maybe_unused]] const QString &password
 #endif
 }
 
-QString E2eKeyManager::passwordKeyIdentifier() const
-{
-    return mAccount->accountName() + u"-encrypted"_s;
-}
-
 void E2eKeyManager::storePassword(const QString &password)
 {
-    auto writeJob = new WritePasswordJob(u"Ruqola"_s);
-    connect(writeJob, &Job::finished, this, &E2eKeyManager::slotPasswordWritten);
-    writeJob->setKey(passwordKeyIdentifier());
-    writeJob->setTextData(password);
-    writeJob->start();
-}
-
-void E2eKeyManager::slotPasswordWritten(QKeychain::Job *baseJob)
-{
-    if (baseJob->error()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
-    }
+    ++mPasswordGeneration;
+    mCredentialStore->write(mAccount->accountName(), AccountCredentialStore::Kind::Encryption, password, this);
 }
 
 void E2eKeyManager::deletePassword()
 {
-    auto deleteJob = new DeletePasswordJob(u"Ruqola"_s);
-    connect(deleteJob, &Job::finished, this, &E2eKeyManager::slotPasswordDeleted);
-    deleteJob->setKey(passwordKeyIdentifier());
-    deleteJob->start();
-}
-
-void E2eKeyManager::slotPasswordDeleted(QKeychain::Job *baseJob)
-{
-    if (baseJob->error() && baseJob->error() != EntryNotFound) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error deleting password using QKeychain:" << baseJob->errorString();
-    }
+    ++mPasswordGeneration;
+    mCredentialStore->remove(mAccount->accountName(), AccountCredentialStore::Kind::Encryption, this);
 }
 
 void E2eKeyManager::resetKeys()
@@ -336,26 +317,22 @@ void E2eKeyManager::resetKeys()
 
 void E2eKeyManager::readPassword()
 {
-    auto readJob = new ReadPasswordJob(u"Ruqola"_s);
-    connect(readJob, &Job::finished, this, &E2eKeyManager::slotPasswordRead);
-    readJob->setKey(passwordKeyIdentifier());
-    readJob->start();
-}
-
-void E2eKeyManager::slotPasswordRead(QKeychain::Job *baseJob)
-{
-    auto job = qobject_cast<ReadPasswordJob *>(baseJob);
-    Q_ASSERT(job);
-    if (!job->error()) {
-        const QString password = job->textData();
-        qCDebug(RUQOLA_ENCRYPTION_LOG) << "OK, we have the password now";
-        if (!decodeEncryptionKey(password)) {
-            qCDebug(RUQOLA_ENCRYPTION_LOG) << "Impossible to decode encryption key";
-        }
-    } else {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "We have an error during reading password " << job->errorString() << " Account name " << mAccount->accountName();
-    }
-    Q_EMIT verifyKeyDone();
+    const auto generation = ++mPasswordGeneration;
+    const QString accountName = mAccount->accountName();
+    mCredentialStore->read(accountName,
+                           AccountCredentialStore::Kind::Encryption,
+                           this,
+                           [this, generation, accountName](const AccountCredentialStore::Result &result) {
+                               if (generation != mPasswordGeneration || accountName != mAccount->accountName()) {
+                                   return;
+                               }
+                               if (result.error == AccountCredentialStore::Error::None) {
+                                   if (!decodeEncryptionKey(QString::fromUtf8(result.data))) {
+                                       qCDebug(RUQOLA_ENCRYPTION_LOG) << "Impossible to decode encryption key";
+                                   }
+                               }
+                               Q_EMIT verifyKeyDone();
+                           });
 }
 
 void E2eKeyManager::postponeDecryption()

@@ -5,17 +5,15 @@
 */
 
 #include "rocketchataccountsettings.h"
+#include "accountcredentialstore.h"
 #include "config-ruqola.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
-#include "ruqola_password_core_debug.h"
 
 #include <QDateTime>
 #include <QFile>
 #include <QSettings>
 #include <QStandardPaths>
-#include <qt6keychain/keychain.h>
-using namespace QKeychain;
 using namespace Qt::Literals::StringLiterals;
 
 static QString normalizeServerUrl(const QString &serverUrl)
@@ -27,9 +25,11 @@ static QString normalizeServerUrl(const QString &serverUrl)
     return serverUrl;
 }
 
-RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent)
+RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent, AccountCredentialStore *credentialStore)
     : QObject(parent)
+    , mCredentialStore(credentialStore ? credentialStore : AccountCredentialStore::self())
 {
+    connect(mCredentialStore, &AccountCredentialStore::retryRequested, this, &RocketChatAccountSettings::loadPassword);
     initializeSettings(accountFileName);
 }
 
@@ -52,6 +52,9 @@ bool RocketChatAccountSettings::isValid() const
 
 void RocketChatAccountSettings::initializeSettings(const QString &accountFileName)
 {
+    ++mPasswordGeneration;
+    mPassword.clear();
+    mPasswordDelivered = false;
     mSetting.reset(new QSettings(accountFileName, QSettings::IniFormat));
     qCDebug(RUQOLA_LOG) << "accountFileName " << accountFileName;
 
@@ -76,35 +79,29 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAuthMethodType =
         mSetting->value("authenticationMethodType"_L1, AuthenticationManager::AuthMethodType::Password).value<AuthenticationManager::AuthMethodType>();
     mKeySaved = mSetting->value("keySaved"_L1, false).toBool();
-    // Password is ok when we use Password authentication method.
-    // Not sure for other.
-    if (mAccountEnabled && !mAccountName.isEmpty()) {
-        qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
-        auto readJob = new ReadPasswordJob(u"Ruqola"_s);
-        connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
-        readJob->setKey(mAccountName);
-        readJob->start();
-    }
+    loadPassword();
 }
 
-void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
+void RocketChatAccountSettings::loadPassword()
 {
-    auto job = qobject_cast<ReadPasswordJob *>(baseJob);
-    Q_ASSERT(job);
-    if (!job->error()) {
-        mPassword = job->textData();
-        qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "OK, we have the password now";
-        Q_EMIT passwordAvailable();
-    } else {
-        qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "We have an error during reading password " << job->errorString() << " Account name " << mAccountName;
+    if (!mAccountEnabled || mAccountName.isEmpty()) {
+        return;
     }
-}
-
-void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
-{
-    if (baseJob->error()) {
-        qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
-    }
+    const auto generation = ++mPasswordGeneration;
+    mCredentialStore->read(mAccountName, AccountCredentialStore::Kind::Login, this, [this, generation](const AccountCredentialStore::Result &result) {
+        if (generation != mPasswordGeneration || !mAccountEnabled) {
+            return;
+        }
+        if (result.error == AccountCredentialStore::Error::None) {
+            const QString password = QString::fromUtf8(result.data);
+            if (mPasswordDelivered && mPassword == password) {
+                return;
+            }
+            mPassword = password;
+            mPasswordDelivered = true;
+            Q_EMIT passwordAvailable();
+        }
+    });
 }
 
 QString RocketChatAccountSettings::inviteToken() const
@@ -224,6 +221,11 @@ void RocketChatAccountSettings::setAccountEnabled(bool enabled)
         mAccountEnabled = enabled;
         mSetting->setValue("enabled"_L1, mAccountEnabled);
         mSetting->sync();
+        ++mPasswordGeneration;
+        if (enabled) {
+            mPasswordDelivered = false;
+            loadPassword();
+        }
         Q_EMIT enableAccountChanged();
     }
 }
@@ -304,15 +306,13 @@ QString RocketChatAccountSettings::password() const
 
 void RocketChatAccountSettings::setPassword(const QString &password)
 {
-    if (mPassword != password) {
-        mPassword = password;
-
-        auto writeJob = new WritePasswordJob(u"Ruqola"_s);
-        connect(writeJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordWritten);
-        writeJob->setKey(mAccountName);
-        writeJob->setTextData(mPassword);
-        writeJob->start();
-    }
+    // This setter is used when the user submits login/account details. Permit an
+    // explicit retry after cancellation, including re-submission of the same password.
+    mCredentialStore->retry();
+    ++mPasswordGeneration;
+    mPassword = password;
+    mPasswordDelivered = true;
+    mCredentialStore->write(mAccountName, AccountCredentialStore::Kind::Login, password, this);
 }
 
 QString RocketChatAccountSettings::twoFactorAuthenticationCode() const
@@ -380,16 +380,20 @@ void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
     Q_EMIT serverURLChanged();
 }
 
-void RocketChatAccountSettings::removeSettings()
+bool RocketChatAccountSettings::removeSettings()
 {
-    // Delete password
-    auto deleteJob = new DeletePasswordJob(u"Ruqola"_s);
-    deleteJob->setKey(mAccountName);
-    deleteJob->start();
+    // Do not discard the account identity until cleanup can survive a restart.
+    if (!mCredentialStore->removeAccount(mAccountName, this)) {
+        return false;
+    }
+    ++mPasswordGeneration;
+    mPassword.clear();
+    mPasswordDelivered = false;
     QFile f(mSetting->fileName());
     if (!f.remove()) {
         qCWarning(RUQOLA_LOG) << "Impossible to delete config file: " << mSetting->fileName();
     }
+    return true;
 }
 
 bool RocketChatAccountSettings::keySaved() const
