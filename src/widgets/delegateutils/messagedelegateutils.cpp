@@ -68,6 +68,9 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
 bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    if (!message) {
+        return false;
+    }
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = messageType == Message::System
         && index.data(MessagesModel::SystemMessageType).value<SystemMessageTypeUtil::SystemMessageType>()
