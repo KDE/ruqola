@@ -72,7 +72,7 @@ void ExportDataWizard::writeConfig()
 void ExportDataWizard::loadAccountInfo()
 {
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
-                    QStringList() << u"ruqola.conf"_s,
+                    QStringList{u"ruqola.conf"_s},
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
     QList<ImportExportUtils::AccountImportExportInfo> lstAccountInfo;

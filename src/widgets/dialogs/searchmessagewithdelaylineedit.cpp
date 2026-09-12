@@ -47,7 +47,7 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
     setCompleter(mCompleter);
 
     if (mCurrentRocketChatAccount) {
-        const QStringList lst = mCurrentRocketChatAccount->searchListCompletion();
+        const QStringList &lst = mCurrentRocketChatAccount->searchListCompletion();
         mCompleterListModel->setStringList(lst);
     }
 }

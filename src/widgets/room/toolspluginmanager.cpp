@@ -77,7 +77,7 @@ void ToolsPluginManager::initializePluginList()
 
 void ToolsPluginManager::loadPlugin(ToolsPluginManagerInfo *item)
 {
-    if (auto plugin = KPluginFactory::instantiatePlugin<PluginTool>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
+    if (auto plugin = KPluginFactory::instantiatePlugin<PluginTool>(item->data, this, QVariantList{item->metaDataFileNameBaseName}).plugin) {
         item->plugin = plugin;
         item->plugin->setEnabled(item->isEnabled);
         item->pluginData.mHasConfigureDialog = item->plugin->hasConfigureDialog();

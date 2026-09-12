@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addOption(QCommandLineOption(QStringList() << u"+[file]"_s, u"Sound file"_s));
+    parser.addOption(QCommandLineOption(QStringList{u"+[file]"_s}, u"Sound file"_s));
 
     parser.process(app);
     QString filename;
