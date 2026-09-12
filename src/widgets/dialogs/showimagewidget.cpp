@@ -296,7 +296,7 @@ void ShowImageWidget::openWith(const KService::Ptr &service)
 
 ShowImageWidget::ImageInfo ShowImageWidget::ImageListInfo::imageFromIndex(int index, RocketChatAccount *account) const
 {
-    if (!imageAttachments.isEmpty() && (index < imageAttachments.count())) {
+    if (!imageAttachments.isEmpty() && (index < imageAttachments.count()) && (index >= 0)) {
         ShowImageWidget::ImageInfo info;
         info.bigImagePath = imageAttachments.at(index).path();
         info.needToDownloadBigImage = !account->attachmentIsInLocalCache(info.bigImagePath);
