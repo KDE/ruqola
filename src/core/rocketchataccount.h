@@ -259,7 +259,7 @@ public:
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
-    void removeSettings();
+    bool removeSettings();
 
     void rolesChanged(const QJsonArray &contents);
 

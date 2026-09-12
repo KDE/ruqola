@@ -14,10 +14,7 @@ class QTimer;
 class QJsonArray;
 class QJsonObject;
 class RocketChatAccount;
-namespace QKeychain
-{
-class Job;
-}
+class AccountCredentialStore;
 class Room;
 class LIBRUQOLACORE_EXPORT E2eKeyManager : public QObject
 {
@@ -31,7 +28,7 @@ public:
         DecryptionPostponned,
     };
     Q_ENUM(Status)
-    explicit E2eKeyManager(RocketChatAccount *account, QObject *parent = nullptr);
+    explicit E2eKeyManager(RocketChatAccount *account, QObject *parent = nullptr, AccountCredentialStore *credentialStore = nullptr);
     ~E2eKeyManager() override;
 
     void decodeEncryptionKey();
@@ -102,10 +99,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT bool startUploadGeneratedKey(const QByteArray &publicKey, const QByteArray &encryptedPrivateKey);
     LIBRUQOLACORE_NO_EXPORT void storePassword(const QString &password);
     LIBRUQOLACORE_NO_EXPORT void deletePassword();
-    static LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *baseJob);
-    static LIBRUQOLACORE_NO_EXPORT void slotPasswordDeleted(QKeychain::Job *baseJob);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString passwordKeyIdentifier() const;
-    LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *baseJob);
     LIBRUQOLACORE_NO_EXPORT void distributeRoomSessionKey(const QByteArray &roomId, const QByteArray &sessionKey, const QString &keyId);
     LIBRUQOLACORE_NO_EXPORT void scheduleRequestMissingRoomKeys();
     // Own public key as stored locally: PEM when we generated it, JWK JSON when it comes from
@@ -133,4 +126,6 @@ private:
     QByteArray mPendingUploadPrivateKey;
     bool mPendingUploadFailed = false;
     RocketChatAccount *const mAccount;
+    AccountCredentialStore *const mCredentialStore;
+    quint64 mPasswordGeneration = 0;
 };
