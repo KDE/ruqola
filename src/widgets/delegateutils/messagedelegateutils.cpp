@@ -5,7 +5,6 @@
 */
 
 #include "messagedelegateutils.h"
-#include "config-ruqola.h"
 #include "delegateutils/textselection.h"
 #include "model/messagesmodel.h"
 
