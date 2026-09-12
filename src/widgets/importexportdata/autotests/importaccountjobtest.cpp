@@ -6,6 +6,7 @@
 #include "importaccountjobtest.h"
 #include "importexportdata/importdata/importaccountjob.h"
 #include "localdatabase/localdatabaseutils.h"
+#include <KLocalizedString>
 #include <KZip>
 #include <QDir>
 #include <QSignalSpy>
@@ -39,18 +40,21 @@ bool createTestArchive(const QString &zipFileName, const QString &accountName)
 
 bool runImportJob(const QString &zipFileName)
 {
-    // The job deletes itself once finished.
-    auto job = new ImportAccountJob(zipFileName);
-    QSignalSpy doneSpy(job, &ImportAccountJob::importDone);
-    QSignalSpy failedSpy(job, &ImportAccountJob::importFailed);
-    job->start();
-    return doneSpy.wait() && failedSpy.isEmpty();
+    ImportAccountJob job(zipFileName);
+    // Own the job here and join the worker before destroying the application or archive.
+    QObject::disconnect(&job, &QThread::finished, &job, &QObject::deleteLater);
+    QSignalSpy doneSpy(&job, &ImportAccountJob::importDone);
+    QSignalSpy failedSpy(&job, &ImportAccountJob::importFailed);
+    job.start();
+    return job.wait() && doneSpy.count() == 1 && failedSpy.isEmpty();
 }
 }
 
 ImportAccountJobTest::ImportAccountJobTest(QObject *parent)
     : QObject{parent}
 {
+    // Initialize KI18n and its application event filter on the main thread.
+    KLocalizedString::setApplicationDomain("ruqola");
     QStandardPaths::setTestModeEnabled(true);
     // These locations survive between runs, start from a known state.
     QDir(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + u"/ruqola"_s).removeRecursively();
