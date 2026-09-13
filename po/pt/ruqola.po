@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -8730,7 +8730,7 @@ msgstr ""
 msgid "DataBase Room Subscriptions"
 msgstr "Informação da Base de Dados"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:43
+#: widgets/delegateutils/messagedelegateutils.cpp:42
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@info:tooltip"
@@ -8975,21 +8975,21 @@ msgctxt "@label:textbox"
 msgid "Channel Password:"
 msgstr "Senha do Canal:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:60
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "Dono:"
 msgstr[1] "Donos:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:64
+#: widgets/dialogs/channelrolesinfowidget.cpp:60
 #, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
 msgstr[0] "Moderador:"
 msgstr[1] "Moderadores:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:68
+#: widgets/dialogs/channelrolesinfowidget.cpp:64
 #, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
@@ -9323,16 +9323,16 @@ msgctxt "@action:button"
 msgid "Send"
 msgstr "Enviar"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:139
+#: widgets/dialogs/createsoundmessagewizard.cpp:105
+#: widgets/dialogs/createvideomessagewizard.cpp:136
 #, fuzzy, kde-format
 #| msgid "Filename:"
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "Nome do ficheiro:"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:152
+#: widgets/dialogs/createsoundmessagewizard.cpp:118
+#: widgets/dialogs/createvideomessagewizard.cpp:149
 #, fuzzy, kde-format
 #| msgid "Description:"
 msgctxt "@label:textbox"

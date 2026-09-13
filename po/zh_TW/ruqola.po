@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -7974,7 +7974,7 @@ msgstr "資料庫聊天室待處理輸入資訊"
 msgid "DataBase Room Subscriptions"
 msgstr "資料庫聊天室"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:43
+#: widgets/delegateutils/messagedelegateutils.cpp:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
@@ -8204,19 +8204,19 @@ msgctxt "@label:textbox"
 msgid "Channel Password:"
 msgstr "頻道密碼："
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:60
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
 msgstr[0] "擁有者："
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:64
+#: widgets/dialogs/channelrolesinfowidget.cpp:60
 #, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
 msgstr[0] "Mod："
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:68
+#: widgets/dialogs/channelrolesinfowidget.cpp:64
 #, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
@@ -8501,15 +8501,15 @@ msgctxt "@action:button"
 msgid "Send"
 msgstr "傳送"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:139
+#: widgets/dialogs/createsoundmessagewizard.cpp:105
+#: widgets/dialogs/createvideomessagewizard.cpp:136
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "檔案名稱："
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:152
+#: widgets/dialogs/createsoundmessagewizard.cpp:118
+#: widgets/dialogs/createvideomessagewizard.cpp:149
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"

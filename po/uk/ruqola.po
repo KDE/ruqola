@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2026-09-07 14:13+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -8194,7 +8194,7 @@ msgstr "Дані бази даних черги введення у кімнат
 msgid "DataBase Room Subscriptions"
 msgstr "Підписки на кімнати у базі даних"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:43
+#: widgets/delegateutils/messagedelegateutils.cpp:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
@@ -8426,7 +8426,7 @@ msgctxt "@label:textbox"
 msgid "Channel Password:"
 msgstr "Пароль каналу:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:60
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
@@ -8435,7 +8435,7 @@ msgstr[1] "Власники:"
 msgstr[2] "Власники:"
 msgstr[3] "Власник:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:64
+#: widgets/dialogs/channelrolesinfowidget.cpp:60
 #, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
@@ -8444,7 +8444,7 @@ msgstr[1] "Модератори:"
 msgstr[2] "Модератори:"
 msgstr[3] "Модератор:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:68
+#: widgets/dialogs/channelrolesinfowidget.cpp:64
 #, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
@@ -8742,15 +8742,15 @@ msgctxt "@action:button"
 msgid "Send"
 msgstr "Надіслати"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:139
+#: widgets/dialogs/createsoundmessagewizard.cpp:105
+#: widgets/dialogs/createvideomessagewizard.cpp:136
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "Назва файла:"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:152
+#: widgets/dialogs/createsoundmessagewizard.cpp:118
+#: widgets/dialogs/createvideomessagewizard.cpp:149
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"

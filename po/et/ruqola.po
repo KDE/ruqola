@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -8581,7 +8581,7 @@ msgstr ""
 msgid "DataBase Room Subscriptions"
 msgstr "Kasutaja teave"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:43
+#: widgets/delegateutils/messagedelegateutils.cpp:42
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@info:tooltip"
@@ -8835,7 +8835,7 @@ msgctxt "@label:textbox"
 msgid "Channel Password:"
 msgstr "Kanali parool:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:60
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Owner"
 msgid "Owner:"
@@ -8843,7 +8843,7 @@ msgid_plural "Owners:"
 msgstr[0] "Omanik"
 msgstr[1] "Omanik"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:64
+#: widgets/dialogs/channelrolesinfowidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Moderator"
 msgid "Moderator:"
@@ -8851,7 +8851,7 @@ msgid_plural "Moderators:"
 msgstr[0] "Moderaator"
 msgstr[1] "Moderaator"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:68
+#: widgets/dialogs/channelrolesinfowidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "Leader"
 msgid "Leader:"
@@ -9163,16 +9163,16 @@ msgctxt "@action:button"
 msgid "Send"
 msgstr ""
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:139
+#: widgets/dialogs/createsoundmessagewizard.cpp:105
+#: widgets/dialogs/createvideomessagewizard.cpp:136
 #, fuzzy, kde-format
 #| msgid "File:"
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "Fail:"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:152
+#: widgets/dialogs/createsoundmessagewizard.cpp:118
+#: widgets/dialogs/createvideomessagewizard.cpp:149
 #, fuzzy, kde-format
 #| msgid "Description:"
 msgctxt "@label:textbox"

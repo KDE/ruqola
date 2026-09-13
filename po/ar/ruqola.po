@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:45+0000\n"
 "PO-Revision-Date: 2026-09-09 18:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -8147,7 +8147,7 @@ msgstr "غرفة قاعدة البيانات معلومات مكتوبة قيد 
 msgid "DataBase Room Subscriptions"
 msgstr "اشتراكات غرفة قاعدة البيانات"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:43
+#: widgets/delegateutils/messagedelegateutils.cpp:42
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
@@ -8378,7 +8378,7 @@ msgctxt "@label:textbox"
 msgid "Channel Password:"
 msgstr "كلمة سر القناة:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:60
+#: widgets/dialogs/channelrolesinfowidget.cpp:56
 #, kde-format
 msgid "Owner:"
 msgid_plural "Owners:"
@@ -8389,7 +8389,7 @@ msgstr[3] "الملاك:"
 msgstr[4] "الملاك:"
 msgstr[5] "الملاك:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:64
+#: widgets/dialogs/channelrolesinfowidget.cpp:60
 #, kde-format
 msgid "Moderator:"
 msgid_plural "Moderators:"
@@ -8400,7 +8400,7 @@ msgstr[3] "المشرفون:"
 msgstr[4] "المشرفون:"
 msgstr[5] "المشرفون:"
 
-#: widgets/dialogs/channelrolesinfowidget.cpp:68
+#: widgets/dialogs/channelrolesinfowidget.cpp:64
 #, kde-format
 msgid "Leader:"
 msgid_plural "Leaders:"
@@ -8695,15 +8695,15 @@ msgctxt "@action:button"
 msgid "Send"
 msgstr "أرسل"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:109
-#: widgets/dialogs/createvideomessagewizard.cpp:139
+#: widgets/dialogs/createsoundmessagewizard.cpp:105
+#: widgets/dialogs/createvideomessagewizard.cpp:136
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Filename:"
 msgstr "اسم الملف:"
 
-#: widgets/dialogs/createsoundmessagewizard.cpp:122
-#: widgets/dialogs/createvideomessagewizard.cpp:152
+#: widgets/dialogs/createsoundmessagewizard.cpp:118
+#: widgets/dialogs/createvideomessagewizard.cpp:149
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
