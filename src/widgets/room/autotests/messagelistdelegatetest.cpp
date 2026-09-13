@@ -6,18 +6,22 @@
 
 #include "messagelistdelegatetest.h"
 
+#include "messagecache.h"
 #include "messages/message.h"
 #include "messages/messageattachment.h"
 #include "rocketchataccount.h"
+#include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagelistdelegate.h"
 #include "ruqola.h"
 #include "ruqolaglobalconfig.h"
 #include "testdata.h"
 
+#include <QListView>
 #include <QStandardItemModel>
 #include <QStandardPaths>
 #include <QStyleOptionViewItem>
 #include <QTest>
+#include <QTextDocument>
 
 QTEST_MAIN(MessageListDelegateTest)
 
@@ -161,6 +165,55 @@ void MessageListDelegateTest::layoutChecks()
         QVERIFY(!layout.editedIconRect.intersects(layout.textRect));
         QVERIFY(!layout.editedIconRect.intersects(layout.senderRect.toRect()));
     }
+}
+
+void MessageListDelegateTest::shouldIgnoreUpdatesForInvalidatedMessage_data()
+{
+    QTest::addColumn<bool>("threadModel");
+    QTest::addColumn<int>("invalidation");
+    QTest::newRow("message-valid") << false << 0;
+    QTest::newRow("thread-valid") << true << 0;
+    QTest::newRow("message-removed") << false << 1;
+    QTest::newRow("message-reset") << false << 2;
+    QTest::newRow("thread-removed") << true << 1;
+    QTest::newRow("thread-reset") << true << 2;
+}
+
+void MessageListDelegateTest::shouldIgnoreUpdatesForInvalidatedMessage()
+{
+    QFETCH(bool, threadModel);
+    QFETCH(int, invalidation);
+    auto *account = Ruqola::self()->rocketChatAccount();
+    QListView view;
+    MessageListDelegate delegate(account, &view);
+    QStandardItemModel model;
+    Message message;
+    message.setMessageId("delayed-update"_ba);
+    auto *item = new QStandardItem;
+    item->setData(QVariant::fromValue(&message), MessagesModel::MessagePointer);
+    item->setData(u"Updated text"_s, MessagesModel::MessageConvertedText);
+    model.appendRow(item);
+    const QPersistentModelIndex index(model.index(0, 0));
+    QTextDocument document;
+    document.setPlainText(u"Original text"_s);
+    MessageDelegateHelperText::MessageTextInfo info;
+    info.pendingThreadModel = threadModel;
+    if (!threadModel) {
+        info.pendingMessageIds.append("pending-context"_ba);
+    }
+    delegate.helperText()->connectToMessageUpdates(info, index, &document);
+    if (invalidation == 2) {
+        model.clear();
+    } else if (invalidation == 1) {
+        model.removeRow(0);
+    }
+    QCOMPARE(index.isValid(), invalidation == 0);
+    if (threadModel) {
+        Q_EMIT account->messageCache()->modelLoaded();
+    } else {
+        Q_EMIT account->messageCache()->messageLoaded("pending-context"_ba);
+    }
+    QCOMPARE(document.toPlainText(), invalidation == 0 ? u"Updated text"_s : u"Original text"_s);
 }
 
 #include "moc_messagelistdelegatetest.cpp"
