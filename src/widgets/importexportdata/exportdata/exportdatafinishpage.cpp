@@ -10,9 +10,10 @@
 #include <KLocalizedString>
 #include <KMessageWidget>
 #include <QDateTime>
+#include <QDesktopServices>
 #include <QDir>
 #include <QLabel>
-#include <QTextEdit>
+#include <QTextBrowser>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -20,7 +21,7 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
     : QWizardPage(parent)
     , mInfos(new QLabel(this))
     , mMessageWidget(new KMessageWidget(this))
-    , mDetails(new QTextEdit(this))
+    , mDetails(new QTextBrowser(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -32,6 +33,10 @@ ExportDataFinishPage::ExportDataFinishPage(QWidget *parent)
 
     mDetails->setObjectName(u"mDetails"_s);
     mDetails->setReadOnly(true);
+    mDetails->setOpenLinks(false);
+    connect(mDetails, &QTextBrowser::anchorClicked, this, [](const QUrl &url) {
+        QDesktopServices::openUrl(url);
+    });
 
     mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mMessageWidget->setVisible(false);
@@ -73,7 +78,7 @@ void ExportDataFinishPage::exportAccounts()
     connect(job, &ExportAccountJob::exportFailed, this, &ExportDataFinishPage::slotExportFailed);
     connect(job, &ExportAccountJob::exportInfo, this, &ExportDataFinishPage::slotExportInfo);
     connect(job, &ExportAccountJob::finished, this, [this, fileNamePath]() {
-        slotExportInfo(i18n("Generated Zip: %1", u"<a href=\"%1\">%1</a>"_s.arg(fileNamePath)) + u'\n');
+        slotExportInfo(i18n("Generated Zip: %1", u"<a href=\"%1\">%2</a>"_s.arg(QUrl::fromLocalFile(fileNamePath).toString(), fileNamePath)) + u'\n');
         mExportDone = true;
         Q_EMIT completeChanged();
     });
