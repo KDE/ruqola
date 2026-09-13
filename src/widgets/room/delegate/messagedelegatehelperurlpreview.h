@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "messagedelegatehelperbase.h"
 #include "misc/pixmapcache.h"
+#include <QIcon>
 #include <QPixmap>
 class QStyleOptionViewItem;
 class MessageUrl;
