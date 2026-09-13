@@ -53,6 +53,7 @@ void ExportAccountJob::run()
 
 void ExportAccountJob::exportAccount()
 {
+    mAccountNames.reserve(mListAccounts.count());
     for (const auto &account : std::as_const(mListAccounts)) {
         mAccountNames.append(account.accountName);
         exportAccount(account);
