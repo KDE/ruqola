@@ -16,6 +16,8 @@ public:
     ~MessageListDelegateTest() override = default;
 
 private Q_SLOTS:
+    void shouldIgnoreUpdatesForInvalidatedMessage_data();
+    void shouldIgnoreUpdatesForInvalidatedMessage();
     void layoutChecks_data();
     void layoutChecks();
 };

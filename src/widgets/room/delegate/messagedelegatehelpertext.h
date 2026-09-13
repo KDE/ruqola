@@ -42,6 +42,7 @@ public:
     [[nodiscard]] QString urlAt(const QModelIndex &index, QPoint relativePos) const;
 
 private:
+    friend class MessageListDelegateTest;
     friend class TextSelection; // for documentForIndex
     struct MessageTextInfo {
         QString text;
@@ -56,7 +57,7 @@ private:
      * are loaded. The connections are owned by @p doc (so they die with it when the cache drops it)
      * and are disconnected as soon as there is nothing left to wait for.
      */
-    LIBRUQOLAWIDGETS_NO_EXPORT void connectToMessageUpdates(const MessageTextInfo &info, const QPersistentModelIndex &index, QTextDocument *doc) const;
+    LIBRUQOLAWIDGETS_TESTS_EXPORT void connectToMessageUpdates(const MessageTextInfo &info, const QPersistentModelIndex &index, QTextDocument *doc) const;
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)

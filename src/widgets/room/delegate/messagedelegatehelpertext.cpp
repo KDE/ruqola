@@ -130,10 +130,15 @@ void MessageDelegateHelperText::connectToMessageUpdates(const MessageTextInfo &i
     auto *const messageCache = mRocketChatAccount->messageCache();
     auto *const that = const_cast<MessageDelegateHelperText *>(this);
     // The connections use the document as context object, so they go away when the cache drops it.
+    // A cached document can outlive its model index after a row removal or model reset.
     if (!info.pendingMessageIds.isEmpty()) {
         auto pendingMessageIds = std::make_shared<QByteArrayList>(info.pendingMessageIds);
         auto connection = std::make_shared<QMetaObject::Connection>();
         *connection = connect(messageCache, &MessageCache::messageLoaded, doc, [that, index, doc, pendingMessageIds, connection](const QByteArray &msgId) {
+            if (!index.isValid()) {
+                QObject::disconnect(*connection);
+                return;
+            }
             if (pendingMessageIds->removeAll(msgId) == 0) {
                 return;
             }
@@ -147,6 +152,10 @@ void MessageDelegateHelperText::connectToMessageUpdates(const MessageTextInfo &i
     if (info.pendingThreadModel) {
         auto connection = std::make_shared<QMetaObject::Connection>();
         *connection = connect(messageCache, &MessageCache::modelLoaded, doc, [that, index, doc, connection]() {
+            if (!index.isValid()) {
+                QObject::disconnect(*connection);
+                return;
+            }
             // modelLoaded doesn't tell us which model was loaded, so stay connected until ours is there.
             const MessageTextInfo updatedInfo = that->makeMessageText(index);
             if (!updatedInfo.pendingThreadModel) {
@@ -355,6 +364,9 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), info.text, width);
     auto ret = doc.get();
     connect(&ColorsAndMessageViewStyle::self(), &ColorsAndMessageViewStyle::needToUpdateColors, ret, [this, persistentIndex, ret]() {
+        if (!persistentIndex.isValid()) {
+            return;
+        }
         ret->setHtml(makeMessageText(persistentIndex).text);
         auto that = const_cast<MessageDelegateHelperText *>(this);
         that->updateView(persistentIndex);
