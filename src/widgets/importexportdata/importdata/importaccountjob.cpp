@@ -65,12 +65,14 @@ void ImportAccountJob::run()
 
         QTextStream in(&file);
         while (!in.atEnd()) {
-            QString line = in.readLine();
-            mAccountInfos.append(std::move(line));
+            mAccountInfos.append(in.readLine());
         }
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " list of accounts " << mAccountInfos;
+        importAccounts();
+    } else {
+        Q_EMIT importFailed(i18n("Invalid zip file."));
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Invalid zip file";
     }
-    importAccounts();
 }
 
 void ImportAccountJob::importAccounts()

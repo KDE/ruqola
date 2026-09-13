@@ -73,9 +73,12 @@ void ExportAccountJob::finishExportAccount()
     text << mAccountNames.join(u'\n');
     tmp.close();
     mArchive->addLocalFile(tmp.fileName(), u"accounts"_s);
-
-    Q_EMIT exportInfo(i18n("Export Done.") + u'\n');
-    Q_EMIT exportDone();
+    if (mArchive->close()) {
+        Q_EMIT exportInfo(i18n("Export Done.") + u'\n');
+        Q_EMIT exportDone();
+    } else {
+        Q_EMIT exportFailed(i18n("Impossible to create zip file."));
+    }
 }
 
 QList<ImportExportUtils::AccountImportExportInfo> ExportAccountJob::listAccounts() const
