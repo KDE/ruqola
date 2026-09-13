@@ -144,7 +144,6 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
             obj["newFile"_L1] = true;
             const auto customSoundInfo = dlg->customSoundInfo();
             const QFileInfo fileInfo(customSoundInfo.fileNameUrl.toLocalFile());
-            fileInfo.completeSuffix();
             const QString customSoundInfoName = customSoundInfo.name;
             const QString customSoundInfoExtension = fileInfo.completeSuffix();
 
