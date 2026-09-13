@@ -25,14 +25,14 @@ const char myBannerInfoDialogConfigGroupName[] = "BannerInfoDialog";
 
 BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mBannerInfoWidget(new BannerInfoWidget(account, this))
 {
+    auto bannerInfoWidget = new BannerInfoWidget(account, this);
     setWindowTitle(i18nc("@title:window", "Banner Information"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 
-    mBannerInfoWidget->setObjectName(u"mBannerInfoWidget"_s);
-    mainLayout->addWidget(mBannerInfoWidget);
+    bannerInfoWidget->setObjectName(u"mBannerInfoWidget"_s);
+    mainLayout->addWidget(bannerInfoWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(u"button"_s);

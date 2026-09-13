@@ -9,7 +9,6 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
-class BannerInfoWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoDialog : public QDialog
 {
@@ -21,5 +20,4 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
-    BannerInfoWidget *const mBannerInfoWidget;
 };

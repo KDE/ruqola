@@ -37,6 +37,5 @@ private:
     QLabel *const mSearchLabel;
     MessageListView *const mResultListWidget;
     CommonMessageFilterProxyModel *mModel = nullptr;
-    RocketChatAccount *const mCurrentRocketChatAccount;
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };

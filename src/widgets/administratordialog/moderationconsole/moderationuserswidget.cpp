@@ -12,10 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
-ModerationUsersWidget::ModerationUsersWidget(RocketChatAccount *account, QWidget *parent)
+ModerationUsersWidget::ModerationUsersWidget([[maybe_unused]] RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTextBrowser(new QTextBrowser(this))
-    , mCurrentRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
