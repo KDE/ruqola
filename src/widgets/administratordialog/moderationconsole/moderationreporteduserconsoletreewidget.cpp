@@ -145,7 +145,7 @@ void ModerationReportedUserConsoleTreeWidget::slotCustomContextMenuRequested(con
 
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Deactivate user"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::UserName);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::Identifier);
             slotDesactivateUser(modelIndex);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
