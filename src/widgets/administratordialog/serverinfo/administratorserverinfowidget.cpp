@@ -83,7 +83,6 @@ void AdministratorServerInfoWidget::slotRefreshInfo()
 
 void AdministratorServerInfoWidget::initialize()
 {
-    loadLicensesInfo();
     loadStatisticInfo(false);
 }
 
