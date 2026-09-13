@@ -61,7 +61,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     mSmtpPort->setMaximum(99999);
     addSpinbox(i18n("Port"), mSmtpPort, u"SMTP_Port"_s);
 
-    mSmtpIgnoreTls->setObjectName(u"mIgnoreTls"_s);
+    mSmtpIgnoreTls->setObjectName(u"mSmtpIgnoreTls"_s);
     addCheckBox(mSmtpIgnoreTls, u"SMTP_IgnoreTLS"_s);
 
     mSmtpUserName->setObjectName(u"mUserName"_s);
@@ -167,6 +167,7 @@ EmailSettingsWidget::~EmailSettingsWidget() = default;
 
 void EmailSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::SettingsInfo> &mapSettings)
 {
+    initializeWidget(mDebugDirectReply, mapSettings, false);
     initializeWidget(mSmtpProtocol, mapSettings, u"smtp"_s);
     initializeWidget(mSmtpHost, mapSettings, QString());
     initializeWidget(mSmtpPort, mapSettings, 0);

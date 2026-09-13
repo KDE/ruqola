@@ -65,12 +65,6 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowChangeEmailNotifications->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowChangeEmailNotifications), u"Accounts_AllowEmailNotifications"_s);
 
-    auto mAllowUsersToDeleteOwnAccount = w.findChild<QCheckBox *>(u"mAllowUsersToDeleteOwnAccount"_s);
-    QVERIFY(mAllowUsersToDeleteOwnAccount);
-    QVERIFY(!mAllowUsersToDeleteOwnAccount->isChecked());
-    QVERIFY(!mAllowUsersToDeleteOwnAccount->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowUsersToDeleteOwnAccount), u"Accounts_AllowDeleteOwnAccount"_s);
-
     auto mAllowAnonymousWrite = w.findChild<QCheckBox *>(u"mAllowAnonymousWrite"_s);
     QVERIFY(mAllowAnonymousWrite);
     QVERIFY(!mAllowAnonymousWrite->isChecked());

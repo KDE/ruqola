@@ -41,12 +41,12 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSmtpPort), u"SMTP_Port"_s);
     SettingsWidgetHelper::checkLabelToolButton(&w, u"SMTP_Port"_s);
 
-    auto mIgnoreTls = w.findChild<QCheckBox *>(u"mIgnoreTls"_s);
-    QVERIFY(mIgnoreTls);
-    QVERIFY(!mIgnoreTls->isChecked());
-    QVERIFY(!mIgnoreTls->text().isEmpty());
-    QVERIFY(mIgnoreTls->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mIgnoreTls), u"SMTP_IgnoreTLS"_s);
+    auto mSmtpIgnoreTls = w.findChild<QCheckBox *>(u"mSmtpIgnoreTls"_s);
+    QVERIFY(mSmtpIgnoreTls);
+    QVERIFY(!mSmtpIgnoreTls->isChecked());
+    QVERIFY(!mSmtpIgnoreTls->text().isEmpty());
+    QVERIFY(mSmtpIgnoreTls->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSmtpIgnoreTls), u"SMTP_IgnoreTLS"_s);
 
     auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
     QVERIFY(mUserName);

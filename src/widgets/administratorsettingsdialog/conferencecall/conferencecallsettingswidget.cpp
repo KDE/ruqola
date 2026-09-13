@@ -22,7 +22,7 @@ ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *ac
     , mDefaultProvider(new QComboBox(this))
     , mEnableDirectMessage(new QCheckBox(i18nc("@option:check", "Enable in direct messages"), this))
     , mEnablePublicChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
-    , mEnablePrivateChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
+    , mEnablePrivateChannels(new QCheckBox(i18nc("@option:check", "Enable in private channels"), this))
     , mEnableTeams(new QCheckBox(i18nc("@option:check", "Enable in teams"), this))
     , mEnableMobileRinging(new QCheckBox(i18nc("@option:check", "Enable mobile ringing"), this))
 {
