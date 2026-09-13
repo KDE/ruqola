@@ -689,7 +689,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 createSeparator(menu);
                 const bool isTranslated = message->showTranslatedMessage();
                 auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-                connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
+                connect(translateAction, &QAction::triggered, this, [index, isTranslated]() {
                     slotTranslateMessage(index, !isTranslated);
                 });
                 menu.addAction(translateAction);
@@ -751,7 +751,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 createSeparator(menu);
                 const bool isTranslated = message->showTranslatedMessage();
                 auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-                connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
+                connect(translateAction, &QAction::triggered, this, [index, isTranslated]() {
                     slotTranslateMessage(index, !isTranslated);
                 });
                 menu.addAction(translateAction);

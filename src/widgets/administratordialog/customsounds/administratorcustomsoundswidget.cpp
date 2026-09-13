@@ -263,7 +263,7 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
             job->setMethodCallJobInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-            connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+            connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, []([[maybe_unused]] const QJsonObject &root) {
                 // TODO upload file
             });
             if (!job->start()) {

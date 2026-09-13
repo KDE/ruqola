@@ -37,7 +37,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::AppsUiInteractionJob::AppsU
     return d;
 }
 
-void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void AppsUiInteractionJob::onPostRequestResponse([[maybe_unused]] const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
