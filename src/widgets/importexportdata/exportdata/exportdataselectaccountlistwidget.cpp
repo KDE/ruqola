@@ -40,4 +40,16 @@ QList<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountListWid
     return selectAccountsList;
 }
 
+bool ExportDataSelectAccountListWidget::hasSelectedAccounts() const
+{
+    const int numberOfItems(count());
+    for (int i = 0; i < numberOfItems; ++i) {
+        QListWidgetItem *it = item(i);
+        if (it->checkState() == Qt::Checked) {
+            return true;
+        }
+    }
+    return false;
+}
+
 #include "moc_exportdataselectaccountlistwidget.cpp"
