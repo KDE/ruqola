@@ -55,6 +55,7 @@ void PendingAttachmentWidget::addAttachment(const AccountRoomSettings::PendingAt
 void PendingAttachmentWidget::setAttachments(const QList<QUrl> &urls)
 {
     mFlowLayout->clearAndDeleteWidgets();
+    mMap.clear();
 
     for (const QUrl &url : urls) {
         addAttachment(url);
@@ -98,6 +99,7 @@ void PendingAttachmentWidget::clear()
 void PendingAttachmentWidget::setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos)
 {
     mFlowLayout->clearAndDeleteWidgets();
+    mMap.clear();
 
     for (const AccountRoomSettings::PendingAttachmentInfo &info : infos) {
         if (verifyExistingFile(info.fileUrl)) {
