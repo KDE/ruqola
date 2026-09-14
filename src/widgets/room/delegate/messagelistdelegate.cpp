@@ -827,14 +827,16 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
         if (!isSystemMessage(message) && mEmojiMenuEnabled && !mRocketChatAccount->offlineMode()) {
             if (layout.addReactionRect.contains(mev->pos())) {
-                auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
-                mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-                mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
-                mEmoticonMenuWidget->forceLineEditFocus();
-                RoomUtil::positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
-                mEmoticonMenuWidget->show();
-                connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, message](const QString &id) {
-                    mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
+                auto emoticonMenuWidget = new EmoticonMenuWidget(mListView);
+                emoticonMenuWidget->setWindowFlag(Qt::Popup);
+                emoticonMenuWidget->setAttribute(Qt::WA_DeleteOnClose);
+                emoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
+                emoticonMenuWidget->forceLineEditFocus();
+                RoomUtil::positionPopup(mev->globalPosition().toPoint(), mListView, emoticonMenuWidget);
+                emoticonMenuWidget->show();
+                const QByteArray messageId = message->messageId();
+                connect(emoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, messageId](const QString &id) {
+                    mRocketChatAccount->reactOnMessage(messageId, id, true /*add*/);
                 });
                 return true;
             } else if (layout.replyToThreadRect.contains(mev->pos())) {

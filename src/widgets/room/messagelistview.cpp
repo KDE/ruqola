@@ -377,19 +377,20 @@ void MessageListView::createTranslorMenu()
 void MessageListView::createEmojiWidgetAction(QMenu *menu, const QModelIndex &index)
 {
     auto emojiWidgetAction = new TextEmoticonsWidgets::EmoticonWidgetAction(menu);
-    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::insertEmojiIdentifier, this, [this, index](const QString &identifier) {
-        const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    const QByteArray messageId = message->messageId();
+    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::insertEmojiIdentifier, this, [this, messageId](const QString &identifier) {
         mCurrentRocketChatAccount->reactOnMessage(messageId, identifier, true /*add*/);
     });
-    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::selectEmoji, this, [this, index]() {
-        auto mEmoticonMenuWidget = new EmoticonMenuWidget(this);
-        mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-        mEmoticonMenuWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-        mEmoticonMenuWidget->forceLineEditFocus();
-        RoomUtil::positionPopup(QCursor::pos(), this, mEmoticonMenuWidget);
-        mEmoticonMenuWidget->show();
-        connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, index](const QString &id) {
-            const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::selectEmoji, this, [this, messageId]() {
+        auto emoticonMenuWidget = new EmoticonMenuWidget(this);
+        emoticonMenuWidget->setWindowFlag(Qt::Popup);
+        emoticonMenuWidget->setAttribute(Qt::WA_DeleteOnClose);
+        emoticonMenuWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+        emoticonMenuWidget->forceLineEditFocus();
+        RoomUtil::positionPopup(QCursor::pos(), this, emoticonMenuWidget);
+        emoticonMenuWidget->show();
+        connect(emoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, messageId](const QString &id) {
             mCurrentRocketChatAccount->reactOnMessage(messageId, id, true /*add*/);
         });
     });
