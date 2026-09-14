@@ -85,7 +85,7 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
     case DirectoryType::Unknown:
         return;
     }
-    const QModelIndex sourceIndex = mProxyModelModel->mapToSource(index);
+    const QPersistentModelIndex sourceIndex = mProxyModelModel->mapToSource(index);
     QMenu menu(this);
     menu.addAction(actionName, this, [this, sourceIndex]() {
         slotOpen(sourceIndex);
