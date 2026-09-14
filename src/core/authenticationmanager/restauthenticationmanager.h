@@ -26,7 +26,7 @@ protected:
     void callLoginImpl(const QJsonArray &params, Method method) override;
 
 private:
-    static LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
+    static LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonArray &params, quint64 id);
 
     Connection *const mRestApiConnection;
     int mIndex = 5000;

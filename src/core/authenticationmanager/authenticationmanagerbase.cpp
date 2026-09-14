@@ -141,8 +141,10 @@ bool AuthenticationManagerBase::sendOTP(const QString &otpCode)
     //        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
     //        return;
     //    }
-    callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
+    callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp);
     return true;
 }
 
@@ -164,8 +166,10 @@ void AuthenticationManagerBase::logout()
 
     const QString params = u"[]"_s;
 
-    callLoginImpl(Utils::strToJsonArray(params), Method::Logout);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
+    callLoginImpl(Utils::strToJsonArray(params), Method::Logout);
 }
 
 bool AuthenticationManagerBase::logoutAndCleanup(const OwnUser &ownuser)
@@ -185,10 +189,16 @@ bool AuthenticationManagerBase::logoutAndCleanup(const OwnUser &ownuser)
     }
 
     // Verify if we need more user info.
-    const QString params = u"[{\"_id\":\"%1\",\"username\":\"%2\"}]"_s.arg(QString::fromLatin1(ownuser.userId()), ownuser.userName());
+    QJsonArray params;
+    QJsonObject obj;
+    obj["_id"_L1] = QString::fromLatin1(ownuser.userId());
+    obj["username"_L1] = ownuser.userName();
+    params.append(std::move(obj));
 
-    callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
+    callLoginImpl(params, Method::LogoutCleanUp);
     return true;
 }
 
@@ -211,9 +221,28 @@ bool AuthenticationManagerBase::loginImpl(const QJsonArray &params)
     // TODO: sanity checks on params
 
     mLastLoginPayload = params[0].toObject();
-    callLoginImpl(params, Method::Login);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOngoing);
+    callLoginImpl(params, Method::Login);
     return true;
+}
+
+void AuthenticationManagerBase::processMethodRequestFailed(AuthenticationManagerBase::Method method)
+{
+    qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Request failed before reaching the server" << authenticationName() << method;
+    switch (method) {
+    case Method::Login:
+    case Method::SendOtp:
+    case Method::Logout:
+        // Recoverable: go back to a state which lets the user try again.
+        setLoginStatus(AuthenticationManager::LoggedOut);
+        break;
+    case Method::LogoutCleanUp:
+        // Mirror the success path: the account must finish logging out even if the clean up never ran.
+        setLoginStatus(AuthenticationManager::LoggedOutAndCleanedUp);
+        break;
+    }
 }
 
 void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method)
