@@ -9,12 +9,18 @@
 #include <QPixmap>
 #include <QUrl>
 
+#include <memory>
+#include <utility>
+
 PreviewCommandModel::PreviewCommandModel(QObject *parent)
     : QAbstractListModel{parent}
 {
 }
 
-PreviewCommandModel::~PreviewCommandModel() = default;
+PreviewCommandModel::~PreviewCommandModel()
+{
+    killPendingJobs();
+}
 
 int PreviewCommandModel::rowCount(const QModelIndex &parent) const
 {
@@ -32,6 +38,7 @@ QList<PreviewCommand> PreviewCommandModel::previewCommands() const
 
 void PreviewCommandModel::setPreviewCommands(QList<PreviewCommand> newPreviewCommands)
 {
+    killPendingJobs();
     beginResetModel();
     mMapUrlToImage.clear();
     mPreviewCommands = std::move(newPreviewCommands);
@@ -39,25 +46,39 @@ void PreviewCommandModel::setPreviewCommands(QList<PreviewCommand> newPreviewCom
     fetchImages();
 }
 
-void PreviewCommandModel::fetchImage(const PreviewCommand &command, int index)
+void PreviewCommandModel::killPendingJobs()
 {
-    QByteArray imageData;
-    const QString url = command.value();
-    KIO::TransferJob *job = KIO::get(QUrl(url), KIO::NoReload);
-    connect(job, &KIO::TransferJob::data, this, [&imageData](KIO::Job *, const QByteArray &data) {
-        imageData.append(data);
-    });
-    if (job->exec()) {
-        QPixmap image;
-        if (image.loadFromData(imageData)) {
-            mMapUrlToImage.insert(url, image);
-            const int row = index;
-            if (row != -1) {
-                const QModelIndex index = createIndex(row, 0);
-                Q_EMIT dataChanged(index, index, {static_cast<int>(PreviewCommandRoles::Image)});
-            }
+    for (const auto &job : std::as_const(mPendingJobs)) {
+        if (job) {
+            // Quietly: result() is not emitted, so the job's lambda can't touch the new list.
+            job->kill(KJob::Quietly);
         }
     }
+    mPendingJobs.clear();
+}
+
+void PreviewCommandModel::fetchImage(const PreviewCommand &command, int idx)
+{
+    const QString url = command.value();
+    // One buffer per job: two items can point to the same url.
+    auto buffer = std::make_shared<QByteArray>();
+    KIO::TransferJob *transferJob = KIO::get(QUrl(url), KIO::NoReload);
+    mPendingJobs.append(transferJob);
+    connect(transferJob, &KIO::TransferJob::data, this, [buffer](KIO::Job *, const QByteArray &data) {
+        buffer->append(data);
+    });
+    connect(transferJob, &KIO::TransferJob::result, this, [this, buffer, url, idx](KJob *kjob) {
+        mPendingJobs.removeOne(kjob);
+        if (kjob->error()) {
+            return;
+        }
+        QPixmap image;
+        if (image.loadFromData(*buffer)) {
+            mMapUrlToImage.insert(url, image);
+            const QModelIndex index = createIndex(idx, 0);
+            Q_EMIT dataChanged(index, index, {static_cast<int>(PreviewCommandRoles::Image)});
+        }
+    });
 }
 
 void PreviewCommandModel::fetchImages()
@@ -69,6 +90,7 @@ void PreviewCommandModel::fetchImages()
 
 void PreviewCommandModel::clear()
 {
+    killPendingJobs();
     if (!mPreviewCommands.isEmpty()) {
         beginResetModel();
         mPreviewCommands.clear();
