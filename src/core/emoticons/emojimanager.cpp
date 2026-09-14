@@ -124,8 +124,7 @@ int EmojiManager::count() const
 bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
 {
     if (emojiIdentifier.startsWith(u':') && emojiIdentifier.endsWith(u':')) {
-        for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
-            const CustomEmoji emoji = mCustomEmojiList.at(i);
+        for (const auto &emoji : mCustomEmojiList) {
             if (emoji.hasEmoji(emojiIdentifier)) {
                 return emoji.isAnimatedImage();
             }
@@ -319,8 +318,8 @@ void EmojiManager::setServerUrl(const QString &serverUrl)
 
 void EmojiManager::clearCustomEmojiCachedHtml()
 {
-    for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
-        mCustomEmojiList[i].clearCachedHtml();
+    for (auto &emoji : mCustomEmojiList) {
+        emoji.clearCachedHtml();
     }
 }
 

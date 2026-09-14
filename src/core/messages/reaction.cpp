@@ -23,7 +23,7 @@ QString Reaction::convertedUsersNameAsToolTip() const
     } else {
         QString notificationStr;
         for (int i = 0, total = mUserNames.count(); i < total; ++i) {
-            const QString user = mUserNames.at(i);
+            const QString &user = mUserNames.at(i);
             if (i == 0) {
                 notificationStr = user;
             } else if (i < (total - 1)) {
