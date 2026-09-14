@@ -7,9 +7,8 @@
 #pragma once
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
-#include "ownuser/ownuser.h"
 #include <QObject>
-
+class OwnUser;
 class LIBRUQOLACORE_EXPORT AuthenticationManagerBase : public QObject
 {
     Q_OBJECT

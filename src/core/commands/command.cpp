@@ -158,6 +158,7 @@ void Command::parseCommand(const QJsonObject &obj)
             mPermissions.append(permissionValue.toString());
         } else if (permissionValue.isArray()) {
             const QJsonArray permissionArray = permissionValue.toArray();
+            mPermissions.reserve(permissionArray.size());
             for (int i = 0, total = permissionArray.size(); i < total; ++i) {
                 mPermissions.append(permissionArray.at(i).toString());
             }

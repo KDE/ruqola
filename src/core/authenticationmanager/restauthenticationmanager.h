@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 class QJsonObject;
 class QObject;
+class QJsonArray;
 
 class Connection;
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public AuthenticationManagerBase

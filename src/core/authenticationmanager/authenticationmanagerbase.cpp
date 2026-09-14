@@ -6,6 +6,7 @@
 
 #include "authenticationmanager/authenticationmanagerbase.h"
 #include "authenticationmanager/authenticationmanagerutils.h"
+#include "ownuser/ownuser.h"
 #include "ruqola_authentication_debug.h"
 #include "utils.h"
 #include <QJsonArray>
@@ -296,7 +297,5 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
     }
     // qDebug() << " result " << response;
 }
-
-#undef sl
 
 #include "moc_authenticationmanagerbase.cpp"

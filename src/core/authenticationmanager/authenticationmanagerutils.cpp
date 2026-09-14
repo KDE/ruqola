@@ -42,7 +42,7 @@ QJsonArray AuthenticationManagerUtils::loginOAuth(const QString &credentialToken
     QJsonObject oauthCredentialObject;
     oauthCredentialObject["credentialToken"_L1] = credentialToken;
     oauthCredentialObject["credentialSecret"_L1] = credentialSecret;
-    oauthObject["oauth"_L1] = oauthCredentialObject;
+    oauthObject["oauth"_L1] = std::move(oauthCredentialObject);
     array.append(std::move(oauthObject));
     return array;
 }
@@ -67,10 +67,9 @@ QJsonArray AuthenticationManagerUtils::login(const QString &user, const QString 
     } else {
         userObject["username"_L1] = user;
     }
-    loginObject["user"_L1] = userObject;
+    loginObject["user"_L1] = std::move(userObject);
 
-    const QJsonObject passwordObject = hashPassword(password);
-    loginObject["password"_L1] = passwordObject;
+    loginObject["password"_L1] = hashPassword(password);
 
     array.append(std::move(loginObject));
     return array;
@@ -84,7 +83,7 @@ QJsonArray AuthenticationManagerUtils::sendOTP(const QString &otpCode, const QJs
     QJsonObject totpObject;
     totpObject["code"_L1] = otpCode;
     totpObject["login"_L1] = lastLoginPayload;
-    otp["totp"_L1] = totpObject;
+    otp["totp"_L1] = std::move(totpObject);
     array.append(std::move(otp));
     return array;
 }
