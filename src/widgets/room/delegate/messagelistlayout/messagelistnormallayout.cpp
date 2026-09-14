@@ -159,6 +159,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     } else {
         attachmentsY = usableRect.top() + textVMargin;
     }
+    // Top of the row's first content line. A message with no text at all (an image-only
+    // attachment, say) leaves textRect null, whose y() is 0 -- i.e. the top of the viewport,
+    // not of this row -- so anything anchored to the content must fall back to attachmentsY.
+    const int contentTop = layout.textRect.isValid() ? layout.textRect.y() : attachmentsY;
     layout.usableRect.setLeft(textLeft);
 
     // Keep the author in its own fixed-height line. Deriving this baseline from the first
@@ -234,17 +238,14 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
 
-    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.textRect.y(), iconSize, iconSize);
+    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, contentTop, iconSize, iconSize);
     if (!message->isEncryptedMessage()) {
-        layout.replyToThreadRect = QRect(layout.addReactionRect.left() + margin + iconSize, layout.textRect.y(), iconSize, iconSize);
-    }
-    if (layout.sameSenderAsPreviousMessage) {
-        layout.addReactionRect.moveTop(layout.textRect.y());
+        layout.replyToThreadRect = QRect(layout.addReactionRect.left() + margin + iconSize, contentTop, iconSize, iconSize);
     }
 #if HAVE_TEXT_TO_SPEECH
     layout.textToSpeechIconRect =
         QRect(message->isEncryptedMessage() ? layout.addReactionRect.left() + margin + iconSize : layout.replyToThreadRect.left() + margin + iconSize,
-              layout.textRect.y(),
+              contentTop,
               iconSize,
               iconSize);
 #endif
@@ -278,7 +279,6 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         // the empty avatar gutter (Slack-style); when that gutter is unavailable or already
         // holds status icons, fall back to the right edge (maxWidth reserves its width).
         layout.timeStampHoverOnly = true;
-        const int contentTop = layout.textRect.isValid() ? layout.textRect.y() : attachmentsY;
         const int gutterRight = textLeft - margin;
         const int timeX = timeStampUsesRightEdge ? rightEdge - timeSize.width() // right edge fallback
                                                  : gutterRight - timeSize.width(); // right-aligned in the avatar gutter

@@ -75,12 +75,12 @@ MessageDelegateHelperReactions::layoutReactions(const QList<Reaction> &reactions
         layout.countRect = layout.reactionRect.adjusted(layout.emojiOffset + emojiWidth, smallMargin, 0, 0);
         layout.reaction = reaction;
 
-        layouts.append(layout);
         x += layout.reactionRect.width() + DelegatePaintUtil::margin();
-        if (x > reactionsRect.width()) {
+        if (x > reactionsRect.right()) {
             x = reactionsRect.x();
             y += reactionsRect.height() + DelegatePaintUtil::margin();
         }
+        layouts.append(std::move(layout));
     }
     return layouts;
 }
