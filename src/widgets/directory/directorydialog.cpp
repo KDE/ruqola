@@ -74,6 +74,9 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     connect(mDirectoryContainerWidget, &DirectoryContainerWidget::updateJoinButton, openButton, &QPushButton::setEnabled);
     readConfig();
     setAttribute(Qt::WA_DeleteOnClose);
+    if (account) {
+        connect(account, &QObject::destroyed, this, &QWidget::close); // WA_DeleteOnClose est déjà positionné
+    }
 }
 
 DirectoryDialog::~DirectoryDialog()
