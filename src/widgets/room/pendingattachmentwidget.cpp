@@ -52,14 +52,29 @@ void PendingAttachmentWidget::addAttachment(const AccountRoomSettings::PendingAt
     updateAttachments();
 }
 
+void PendingAttachmentWidget::clearAttachments()
+{
+    // clearAndDeleteWidgets() defers the destruction (deleteLater()), so hide the widgets right away:
+    // otherwise they keep painting over the ones added just below until the event loop spins.
+    for (int i = 0, nbItems = mFlowLayout->count(); i < nbItems; ++i) {
+        if (QWidget *w = mFlowLayout->itemAt(i)->widget()) {
+            w->hide();
+        }
+    }
+    mFlowLayout->clearAndDeleteWidgets();
+    // The widgets are gone: dropping the map entries too, otherwise attachmentsInfo() would
+    // dereference dangling pointers and addAttachment() would refuse to re-add a known url.
+    mMap.clear();
+}
+
 void PendingAttachmentWidget::setAttachments(const QList<QUrl> &urls)
 {
-    mFlowLayout->clearAndDeleteWidgets();
-    mMap.clear();
+    clearAttachments();
 
     for (const QUrl &url : urls) {
         addAttachment(url);
     }
+    updateAttachments();
 }
 
 void PendingAttachmentWidget::updateAttachments()
@@ -90,22 +105,23 @@ bool PendingAttachmentWidget::hasAttachments() const
 
 void PendingAttachmentWidget::clear()
 {
-    mFlowLayout->clearAndDeleteWidgets();
-    mMap.clear();
+    clearAttachments();
     hide();
     updateAttachments();
 }
 
 void PendingAttachmentWidget::setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos)
 {
-    mFlowLayout->clearAndDeleteWidgets();
-    mMap.clear();
+    clearAttachments();
 
     for (const AccountRoomSettings::PendingAttachmentInfo &info : infos) {
         if (verifyExistingFile(info.fileUrl)) {
             addAttachment(info);
         }
     }
+    // addAttachment() updates on each insertion, but an empty list must still hide the widget
+    // and tell the composer that there is nothing left to send.
+    updateAttachments();
 }
 
 bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl)

@@ -37,6 +37,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveAttachment(const QUrl &url);
     static LIBRUQOLAWIDGETS_NO_EXPORT bool verifyExistingFile(const QUrl &fileUrl);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateAttachments();
+    LIBRUQOLAWIDGETS_NO_EXPORT void clearAttachments();
     TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
     QMap<QUrl, PendingAttachmentClickableWidget *> mMap;
 };
