@@ -798,6 +798,9 @@ void RoomWidget::setChannelSelected(const QByteArray &roomId, Room::RoomType roo
         mRoomWidgetBase->messageLineWidget()->setPendingAttachmentInfos(currentPendingInfo.pendingAttachmentInfos);
     } else {
         mRoomWidgetBase->messageLineWidget()->setText(QString());
+        // No stored draft for this room: drop the previous room's pending attachments, otherwise they
+        // stay in the composer and get uploaded to this room on the next send.
+        mRoomWidgetBase->messageLineWidget()->setPendingAttachmentInfos({});
     }
     mRoomWidgetBase->messageLineWidget()->setMode(mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited().isEmpty()
                                                       ? MessageLineWidget::EditingMode::NewMessage
