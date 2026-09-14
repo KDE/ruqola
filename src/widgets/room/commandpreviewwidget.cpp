@@ -131,9 +131,9 @@ void CommandPreviewWidget::hidePreview()
 
 void CommandPreviewWidget::slotParsePreviewCommandItems(const QJsonObject &replyObject)
 {
-    const QList<PreviewCommand> commands = PreviewCommandUtils::parsePreviewJson(replyObject);
-    mPreviewCommandModel->setPreviewCommands(commands);
+    QList<PreviewCommand> commands = PreviewCommandUtils::parsePreviewJson(replyObject);
     setVisible(!commands.isEmpty());
+    mPreviewCommandModel->setPreviewCommands(std::move(commands));
     mCommandPreviewLoadingWidget->stop();
     mStackWidget->setCurrentWidget(mListView);
 }
