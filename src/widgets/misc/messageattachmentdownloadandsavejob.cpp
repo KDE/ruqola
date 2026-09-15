@@ -153,9 +153,9 @@ MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo MessageAtt
     return mInfo;
 }
 
-void MessageAttachmentDownloadAndSaveJob::setInfo(const MessageAttachmentDownloadJobInfo &newInfo)
+void MessageAttachmentDownloadAndSaveJob::setInfo(MessageAttachmentDownloadJobInfo newInfo)
 {
-    mInfo = newInfo;
+    mInfo = std::move(newInfo);
 }
 
 bool MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo::isValid() const

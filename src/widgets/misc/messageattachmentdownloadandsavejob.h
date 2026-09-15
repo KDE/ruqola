@@ -41,7 +41,7 @@ public:
     ~MessageAttachmentDownloadAndSaveJob() override;
 
     [[nodiscard]] MessageAttachmentDownloadJobInfo info() const;
-    void setInfo(const MessageAttachmentDownloadJobInfo &newInfo);
+    void setInfo(MessageAttachmentDownloadJobInfo newInfo);
 
     [[nodiscard]] RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
