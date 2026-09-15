@@ -308,6 +308,8 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                                 uploadFileInfo.fileUrl = QUrl::fromLocalFile(f.fileName());
                                 uploadFileInfo.deleteTemporaryFile = true;
                                 sendFile(uploadFileInfo);
+                            } else {
+                                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open tempFile";
                             }
                         }
                         delete dlg;
