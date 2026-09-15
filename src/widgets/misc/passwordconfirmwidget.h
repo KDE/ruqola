@@ -27,9 +27,11 @@ Q_SIGNALS:
     void passwordValidated(bool state);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotNewPasswordIsValid(bool isValid);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVerifyPassword();
     KPasswordLineEdit *const mNewPasswordLineEdit;
     KPasswordLineEdit *const mConfirmPasswordLineEdit;
     PasswordValidateWidget *const mPasswordValidateWidget;
     QLabel *const mInvalidPassword;
+    bool mNewPasswordIsValid = false;
 };

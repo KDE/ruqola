@@ -5,13 +5,13 @@
 */
 
 #include "passwordconfirmwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordconfirmwidget.h"
 #include "misc/passwordvalidatewidget.h"
 #include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QTest>
+using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(PasswordConfirmWidgetTest)
 PasswordConfirmWidgetTest::PasswordConfirmWidgetTest(QObject *parent)
     : QObject(parent)
@@ -54,6 +54,29 @@ void PasswordConfirmWidgetTest::shouldReturnNewPassword()
 
     mConfirmPasswordLineEdit->setPassword(u"bla"_s);
     QVERIFY(w.isNewPasswordConfirmed());
+}
+
+void PasswordConfirmWidgetTest::shouldReturnNewPasswordWithPasswordCheck()
+{
+    PasswordConfirmWidget w;
+    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mNewPasswordLineEdit"_s);
+
+    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mConfirmPasswordLineEdit"_s);
+    QVERIFY(!w.isNewPasswordConfirmed());
+
+    RuqolaServerConfig::PasswordSettings settings;
+    settings.accountsPasswordPolicyAtLeastOneNumber = true;
+    settings.accountsPasswordPolicyEnabled = true;
+
+    w.setPasswordValidChecks(settings);
+
+    mNewPasswordLineEdit->setPassword(u"bla"_s);
+
+    mConfirmPasswordLineEdit->setPassword(u"bli"_s);
+    QVERIFY(!w.isNewPasswordConfirmed());
+
+    mConfirmPasswordLineEdit->setPassword(u"bla"_s);
+    QVERIFY(!w.isNewPasswordConfirmed());
 }
 
 #include "moc_passwordconfirmwidgettest.cpp"

@@ -42,6 +42,7 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     mainLayout->addWidget(mPasswordValidateWidget);
     connect(mNewPasswordLineEdit, &KPasswordLineEdit::passwordChanged, mPasswordValidateWidget, &PasswordValidateWidget::validatePassword);
     connect(mPasswordValidateWidget, &PasswordValidateWidget::passwordIsValid, mConfirmPasswordLineEdit, &KPasswordLineEdit::setEnabled);
+    connect(mPasswordValidateWidget, &PasswordValidateWidget::passwordIsValid, this, &PasswordConfirmWidget::slotNewPasswordIsValid);
 
     mConfirmPasswordLineEdit->setObjectName(u"mConfirmPasswordLineEdit"_s);
     mainLayout->addRow(i18n("Confirm Password:"), mConfirmPasswordLineEdit);
@@ -56,6 +57,11 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
 
 PasswordConfirmWidget::~PasswordConfirmWidget() = default;
 
+void PasswordConfirmWidget::slotNewPasswordIsValid(bool isValid)
+{
+    mNewPasswordIsValid = isValid;
+}
+
 void PasswordConfirmWidget::slotVerifyPassword()
 {
     const bool state = isNewPasswordConfirmed();
@@ -65,6 +71,9 @@ void PasswordConfirmWidget::slotVerifyPassword()
 
 bool PasswordConfirmWidget::isNewPasswordConfirmed() const
 {
+    if (!mNewPasswordIsValid) {
+        return false;
+    }
     const QString password = mConfirmPasswordLineEdit->password();
     return !password.isEmpty() && (password == mNewPasswordLineEdit->password());
 }
