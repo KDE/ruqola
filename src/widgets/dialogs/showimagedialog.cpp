@@ -92,9 +92,7 @@ ShowImageDialog::~ShowImageDialog()
 void ShowImageDialog::slotUpdateMenu(const ShowImageWidget::ImageInfo &info)
 {
     updateServiceList();
-    if (info.isAnimatedImage) {
-        mClipboardImageAction->setEnabled(false);
-    }
+    mClipboardImageAction->setEnabled(!info.isAnimatedImage);
 }
 
 void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
