@@ -383,8 +383,6 @@ bool MessageDelegateHelperUrlPreview::maybeStartDrag(const MessageUrl &messageUr
                 auto drag = new QDrag(const_cast<QWidget *>(option.widget));
                 drag->setMimeData(mimeData);
                 drag->exec(Qt::CopyAction);
-                drag->deleteLater();
-
                 mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
                 return true;
             }
