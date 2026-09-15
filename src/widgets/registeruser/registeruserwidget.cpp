@@ -75,7 +75,7 @@ void RegisterUserWidget::slotUpdateRegisterButton()
     bool enableRegisterButton =
         !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() && mPasswordConfirmWidget->isNewPasswordConfirmed();
     if (mManuallyApproveNewUsersRequired) {
-        enableRegisterButton &= !mReasonTextEdit->document()->isEmpty();
+        enableRegisterButton &= !mReasonTextEdit->toPlainText().trimmed().isEmpty();
     }
     mRegisterButton->setEnabled(enableRegisterButton);
 }
@@ -90,12 +90,15 @@ RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registe
 {
     RocketChatRestApi::RegisterUserJob::RegisterUserInfo info;
     info.email = mEmail->text().trimmed();
+
     QString name = mUserName->text().trimmed();
-    info.name = name;
-    info.username = name.remove(u' ');
+    info.username = name;
+    info.username.remove(u' ');
+    info.name = std::move(name);
+
     info.password = mPasswordConfirmWidget->password();
     if (mManuallyApproveNewUsersRequired) {
-        info.reason = mReasonTextEdit->toPlainText();
+        info.reason = mReasonTextEdit->toPlainText().trimmed();
     }
     return info;
 }
