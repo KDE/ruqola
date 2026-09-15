@@ -119,12 +119,16 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                 for (const auto &opt : options) {
                     auto act = menu.addAction(opt.text());
                     const QString value = opt.value();
-                    connect(act, &QAction::triggered, this, [this, value, message, block]() {
+                    const QByteArray roomId = message->roomId();
+                    const QByteArray messageId = message->messageId();
+                    const QByteArray threadMessageId = message->threadMessageId();
+
+                    connect(act, &QAction::triggered, this, [this, value, roomId, messageId, threadMessageId, block]() {
                         AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo messageBockUserinfo;
                         messageBockUserinfo.actionId = block.blockAccessory().actionId();
-                        messageBockUserinfo.roomId = message->roomId();
-                        messageBockUserinfo.messageId = message->messageId();
-                        messageBockUserinfo.threadId = message->threadMessageId();
+                        messageBockUserinfo.roomId = roomId;
+                        messageBockUserinfo.messageId = messageId;
+                        messageBockUserinfo.threadId = threadMessageId;
                         messageBockUserinfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
                         messageBockUserinfo.blockId = block.blockId();
                         messageBockUserinfo.value = block.blockAccessory().value();

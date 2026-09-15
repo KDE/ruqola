@@ -762,8 +762,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
     case Mode::Moderation: {
         auto showReportInfo = new QAction(i18nc("@action", "View Reports"), &menu); // Add icon
-        connect(showReportInfo, &QAction::triggered, this, [this, message]() {
-            const auto messageId = message->messageId();
+        const QByteArray messageId = message->messageId();
+        connect(showReportInfo, &QAction::triggered, this, [this, messageId]() {
             const auto job = new RocketChatRestApi::ModerationReportsJob(this);
             job->setMessageId(messageId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -785,8 +785,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         // menu.addAction(selectAllAction);
         // menu.addSeparator();
         auto dismissReports = new QAction(i18nc("@action", "Dismiss Reports"), &menu); // Add icon
-        connect(dismissReports, &QAction::triggered, this, [this, message]() {
-            const auto messageId = message->messageId();
+
+        connect(dismissReports, &QAction::triggered, this, [this, messageId]() {
             const auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
             job->setMessageId(messageId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);

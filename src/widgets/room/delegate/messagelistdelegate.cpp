@@ -437,8 +437,9 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
     if (layout.senderRect.contains(info.pos) && !layout.sameSenderAsPreviousMessage) {
         QMenu menu;
         auto userInfoAction = new QAction(QIcon::fromTheme(u"documentinfo"_s), i18n("User Info"), &menu);
-        connect(userInfoAction, &QAction::triggered, this, [message, this]() {
-            Q_EMIT showUserInfo(message->username());
+        const QString userName = message->username();
+        connect(userInfoAction, &QAction::triggered, this, [userName, this]() {
+            Q_EMIT showUserInfo(userName);
         });
 
         if (info.editMode) {
@@ -447,8 +448,8 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
                     menu.addSeparator();
                     auto startPrivateConversationAction =
                         new QAction(QIcon::fromTheme(u"document-send-symbolic"_s), i18nc("@action", "Start a Private Conversation"), &menu);
-                    connect(startPrivateConversationAction, &QAction::triggered, this, [this, message]() {
-                        Q_EMIT startPrivateConversation(message->username());
+                    connect(startPrivateConversationAction, &QAction::triggered, this, [this, userName]() {
+                        Q_EMIT startPrivateConversation(userName);
                     });
                     menu.addAction(startPrivateConversationAction);
                 }
