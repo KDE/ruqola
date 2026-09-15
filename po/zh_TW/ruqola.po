@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-14 00:43+0000\n"
+"POT-Creation-Date: 2026-09-15 00:44+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3581,7 +3581,7 @@ msgstr "忽略所有檢舉"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:83
 #: widgets/notificationhistory/notificationhistorylistview.cpp:104
-#: widgets/room/messagelistview.cpp:451
+#: widgets/room/messagelistview.cpp:452
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3590,7 +3590,7 @@ msgstr "複製選取範圍"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:85
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
-#: widgets/room/messagelistview.cpp:453
+#: widgets/room/messagelistview.cpp:454
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, kde-format
 msgctxt "@action"
@@ -3611,7 +3611,7 @@ msgstr "說出文字"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:57
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
-#: widgets/room/messagelistview.cpp:484
+#: widgets/room/messagelistview.cpp:485
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, kde-format
 msgctxt "@action"
@@ -7450,7 +7450,7 @@ msgid "Mark as Unread"
 msgstr "標記為未讀"
 
 #: widgets/channellist/channellistview.cpp:141
-#: widgets/room/messagelistview.cpp:471
+#: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -10436,7 +10436,7 @@ msgid "Switch To New Room"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:96
-#: widgets/room/messagelistview.cpp:846
+#: widgets/room/messagelistview.cpp:847
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10662,21 +10662,21 @@ msgid "User Info"
 msgstr "使用者資訊"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:449
-#: widgets/room/messagelistview.cpp:579
+#: widgets/room/messagelistview.cpp:580
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "開始私人對話"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:465
-#: widgets/room/messagelistview.cpp:691 widgets/room/messagelistview.cpp:753
+#: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "顯示原始訊息"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:465
-#: widgets/room/messagelistview.cpp:691 widgets/room/messagelistview.cpp:753
+#: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10699,49 +10699,49 @@ msgstr[0] "%1 則訊息"
 msgid "No message yet"
 msgstr "尚無訊息"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1071
+#: widgets/room/delegate/messagelistdelegate.cpp:1073
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "正在跟隨"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1075
+#: widgets/room/delegate/messagelistdelegate.cpp:1077
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "訊息已置頂"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1079
+#: widgets/room/delegate/messagelistdelegate.cpp:1081
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "訊息已收藏"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1083
+#: widgets/room/delegate/messagelistdelegate.cpp:1085
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "訊息有已翻譯文字"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1087
+#: widgets/room/delegate/messagelistdelegate.cpp:1089
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1091
+#: widgets/room/delegate/messagelistdelegate.cpp:1093
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "新增反應"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1097
+#: widgets/room/delegate/messagelistdelegate.cpp:1099
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "停止"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1097
+#: widgets/room/delegate/messagelistdelegate.cpp:1099
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -10888,55 +10888,55 @@ msgstr "您已加入新的私訊"
 msgid "Start of conversation"
 msgstr "對話開頭"
 
-#: widgets/room/messagelistview.cpp:462
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:462
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:471
+#: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "從收藏中移除"
 
-#: widgets/room/messagelistview.cpp:478
+#: widgets/room/messagelistview.cpp:479
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "刪除"
 
-#: widgets/room/messagelistview.cpp:491
+#: widgets/room/messagelistview.cpp:492
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "將訊息標記為未讀"
 
-#: widgets/room/messagelistview.cpp:496
+#: widgets/room/messagelistview.cpp:497
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "顯示完整對話串"
 
-#: widgets/room/messagelistview.cpp:501
+#: widgets/room/messagelistview.cpp:502
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:506
+#: widgets/room/messagelistview.cpp:507
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "引用"
 
-#: widgets/room/messagelistview.cpp:511
+#: widgets/room/messagelistview.cpp:512
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search device…"
@@ -10944,78 +10944,78 @@ msgctxt "@action"
 msgid "Read Receipts"
 msgstr "搜尋裝置…"
 
-#: widgets/room/messagelistview.cpp:516
+#: widgets/room/messagelistview.cpp:517
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "複製訊息連結"
 
-#: widgets/room/messagelistview.cpp:521
+#: widgets/room/messagelistview.cpp:522
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "轉寄訊息"
 
-#: widgets/room/messagelistview.cpp:532
+#: widgets/room/messagelistview.cpp:533
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "取消跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:532
+#: widgets/room/messagelistview.cpp:533
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "跟隨訊息"
 
-#: widgets/room/messagelistview.cpp:546
+#: widgets/room/messagelistview.cpp:547
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: widgets/room/messagelistview.cpp:570 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:571 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "使用者資訊"
 
-#: widgets/room/messagelistview.cpp:617
+#: widgets/room/messagelistview.cpp:618
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:624
+#: widgets/room/messagelistview.cpp:625
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "在對話串中回覆"
 
-#: widgets/room/messagelistview.cpp:763
+#: widgets/room/messagelistview.cpp:764
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "檢視檢舉"
 
-#: widgets/room/messagelistview.cpp:786
+#: widgets/room/messagelistview.cpp:787
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "忽略檢舉"
 
-#: widgets/room/messagelistview.cpp:863
+#: widgets/room/messagelistview.cpp:864
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:1117
+#: widgets/room/messagelistview.cpp:1118
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:1118
+#: widgets/room/messagelistview.cpp:1119
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
