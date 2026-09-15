@@ -90,6 +90,7 @@ void PasswordValidateWidget::initializeWidget()
         c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharactersCount;
         if (checks & c) {
             addLabel(c, row, col, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount);
+            updateGridPosition(row, col);
         }
         c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharacters;
         if (checks & c) {
