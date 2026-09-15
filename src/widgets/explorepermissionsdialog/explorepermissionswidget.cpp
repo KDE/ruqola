@@ -63,7 +63,7 @@ void ExplorePermissionsWidget::setPermissions(const QList<Permission> &permissio
 {
     Permissions perms;
     perms.setPermissions(permissions);
-    mAdminPermissionsModel->setPermissions(perms);
+    mAdminPermissionsModel->setPermissions(std::move(perms));
     mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 

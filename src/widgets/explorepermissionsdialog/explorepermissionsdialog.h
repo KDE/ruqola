@@ -16,7 +16,7 @@ public:
     ~ExplorePermissionsDialog() override;
 
     void setPermissions(const QList<Permission> &permissions);
-    void setOWnRoles(const QStringList &roleStr);
+    void setOwnRoles(const QStringList &roleStr);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();

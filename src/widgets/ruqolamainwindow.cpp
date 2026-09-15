@@ -977,7 +977,7 @@ void RuqolaMainWindow::slotShowPermissions()
 {
     ExplorePermissionsDialog dlg(this);
     dlg.setPermissions(mCurrentRocketChatAccount->permissions());
-    dlg.setOWnRoles(mCurrentRocketChatAccount->ownUserPermission());
+    dlg.setOwnRoles(mCurrentRocketChatAccount->ownUserPermission());
     dlg.exec();
 }
 

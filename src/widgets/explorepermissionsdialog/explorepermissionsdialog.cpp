@@ -67,7 +67,7 @@ void ExplorePermissionsDialog::setPermissions(const QList<Permission> &permissio
     mExplorePermissionWidget->setPermissions(permissions);
 }
 
-void ExplorePermissionsDialog::setOWnRoles(const QStringList &roleStr)
+void ExplorePermissionsDialog::setOwnRoles(const QStringList &roleStr)
 {
     mExplorePermissionWidget->setOWnRoles(roleStr);
 }
