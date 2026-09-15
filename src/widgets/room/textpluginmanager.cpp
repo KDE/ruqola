@@ -67,8 +67,8 @@ void TextPluginManager::initializePluginList()
             continue;
         }
         info.plugin = nullptr;
-        mPluginList.push_back(info);
         unique.insert(info.metaDataFileNameBaseName);
+        mPluginList.push_back(std::move(info));
     }
     QList<TextPluginManagerInfo>::iterator end(mPluginList.end());
     for (QList<TextPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
@@ -96,7 +96,7 @@ PluginText *TextPluginManager::pluginFromIdentifier(const QString &identifier) c
     const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [&identifier](const TextPluginManagerInfo &info) {
         return info.pluginData.mIdentifier == identifier;
     });
-    if (it != mPluginList.end()) {
+    if (it != mPluginList.constEnd()) {
         return (*it).plugin;
     }
     return nullptr;

@@ -66,8 +66,8 @@ void ToolsPluginManager::initializePluginList()
             continue;
         }
         info.plugin = nullptr;
-        mPluginList.push_back(info);
         unique.insert(info.metaDataFileNameBaseName);
+        mPluginList.push_back(std::move(info));
     }
     QList<ToolsPluginManagerInfo>::iterator end(mPluginList.end());
     for (QList<ToolsPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
@@ -90,7 +90,7 @@ PluginTool *ToolsPluginManager::pluginFromIdentifier(const QString &identifier) 
     const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [&identifier](const ToolsPluginManagerInfo &info) {
         return info.pluginData.mIdentifier == identifier;
     });
-    if (it != mPluginList.end()) {
+    if (it != mPluginList.constEnd()) {
         return (*it).plugin;
     }
     return nullptr;

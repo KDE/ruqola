@@ -136,6 +136,7 @@ bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl)
 QList<AccountRoomSettings::PendingAttachmentInfo> PendingAttachmentWidget::attachmentsInfo() const
 {
     QList<AccountRoomSettings::PendingAttachmentInfo> lst;
+    lst.reserve(mMap.count());
     for (auto i = mMap.cbegin(), end = mMap.cend(); i != end; ++i) {
         lst += i.value()->pendingAttachmentInfo();
     }
