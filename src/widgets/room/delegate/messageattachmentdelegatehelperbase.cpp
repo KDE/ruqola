@@ -148,6 +148,7 @@ bool MessageAttachmentDelegateHelperBase::maybeStartDrag(const MessageAttachment
     auto drag = new QDrag(const_cast<QWidget *>(option.widget));
     drag->setMimeData(mimeData);
     drag->exec(Qt::CopyAction);
+    drag->deleteLater();
 
     return true;
 }
