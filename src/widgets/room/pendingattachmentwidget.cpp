@@ -86,15 +86,14 @@ void PendingAttachmentWidget::updateAttachments()
 
 void PendingAttachmentWidget::slotRemoveAttachment(const QUrl &url)
 {
-    PendingAttachmentClickableWidget *clickableWidget = mMap.value(url);
-    if (clickableWidget) {
+    if (PendingAttachmentClickableWidget *clickableWidget = mMap.take(url)) {
         const int index = mFlowLayout->indexOf(clickableWidget);
         if (index != -1) {
-            clickableWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
-            mMap.remove(url);
-            updateAttachments();
         }
+        clickableWidget->hide();
+        clickableWidget->deleteLater();
+        updateAttachments();
     }
 }
 
