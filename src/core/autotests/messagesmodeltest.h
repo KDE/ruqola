@@ -23,6 +23,7 @@ private Q_SLOTS:
     void shouldRemoveNotExistingMessage();
     void shouldDetectDateChange();
     void shouldAddMessages();
+    void shouldMergeMessagesFromSync();
     void shouldUpdateFirstMessage();
     void shouldAllowEditing();
     void shouldFindPrevNextMessage();

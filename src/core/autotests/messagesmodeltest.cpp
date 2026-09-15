@@ -246,6 +246,89 @@ void MessagesModelTest::shouldAddMessages()
     QCOMPARE(model.index(6, 0).data(MessagesModel::OriginalMessage).toString(), u"modified"_s);
 }
 
+void MessagesModelTest::shouldMergeMessagesFromSync()
+{
+    // chat.syncMessages hands us every message updated since the last one we know about: new ones,
+    // but also edits of old ones. Whatever its size, it must be merged into what the room already
+    // shows (the page read from the local database, plus whatever the user scrolled up to) and
+    // never replace it.
+    auto fillModel = [](MessagesModel &model, int count) {
+        Message input;
+        fillTestMessage(input);
+        QList<Message> messages;
+        messages.reserve(count);
+        for (int i = 0; i < count; ++i) {
+            input.setMessageId("db"_ba + QByteArray::number(i));
+            input.setTimeStamp(1000 + i);
+            messages << input;
+        }
+        model.addMessages(messages);
+    };
+
+    // Small batch: merged one by one.
+    {
+        MessagesModel model;
+        fillModel(model, 50);
+        Message input;
+        fillTestMessage(input);
+        QList<Message> sync;
+        for (int i = 0; i < 10; ++i) {
+            input.setMessageId("sync"_ba + QByteArray::number(i));
+            input.setTimeStamp(2000 + i);
+            sync << input;
+        }
+        model.addMessagesSyncAfterLoadingFromDatabase(sync);
+        QCOMPARE(model.rowCount(), 60);
+        QCOMPARE(model.index(0, 0).data(MessagesModel::MessageId).toByteArray(), "db0"_ba);
+    }
+
+    // Large batch: merged in one reset. This used to assign the incoming list to the model and drop
+    // the 50 messages read from the database.
+    {
+        MessagesModel model;
+        fillModel(model, 50);
+        Message input;
+        fillTestMessage(input);
+        QList<Message> sync;
+        for (int i = 0; i < 55; ++i) {
+            input.setMessageId("sync"_ba + QByteArray::number(i));
+            input.setTimeStamp(2000 + i);
+            sync << input;
+        }
+        // ... plus edits of old messages, which is what makes the incoming list non-contiguous.
+        input.setText(u"edited"_s);
+        for (int i = 0; i < 5; ++i) {
+            input.setMessageId("db"_ba + QByteArray::number(i));
+            input.setTimeStamp(1000 + i);
+            sync << input;
+        }
+        model.addMessagesSyncAfterLoadingFromDatabase(sync);
+        QCOMPARE(model.rowCount(), 105);
+        QCOMPARE(model.index(0, 0).data(MessagesModel::MessageId).toByteArray(), "db0"_ba);
+        QCOMPARE(model.index(0, 0).data(MessagesModel::OriginalMessage).toString(), u"edited"_s);
+        QCOMPARE(model.index(49, 0).data(MessagesModel::MessageId).toByteArray(), "db49"_ba);
+        QCOMPARE(model.index(104, 0).data(MessagesModel::MessageId).toByteArray(), "sync54"_ba);
+    }
+
+    // Large batch made only of edits: no row is added or removed.
+    {
+        MessagesModel model;
+        fillModel(model, 60);
+        Message input;
+        fillTestMessage(input);
+        input.setText(u"edited"_s);
+        QList<Message> sync;
+        for (int i = 0; i < 60; ++i) {
+            input.setMessageId("db"_ba + QByteArray::number(i));
+            input.setTimeStamp(1000 + i);
+            sync << input;
+        }
+        model.addMessagesSyncAfterLoadingFromDatabase(sync);
+        QCOMPARE(model.rowCount(), 60);
+        QCOMPARE(model.index(59, 0).data(MessagesModel::OriginalMessage).toString(), u"edited"_s);
+    }
+}
+
 void MessagesModelTest::shouldUpdateFirstMessage()
 {
     MessagesModel model;

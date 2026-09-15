@@ -6,6 +6,7 @@
  *
  */
 
+#include <QHash>
 #include <QModelIndex>
 
 #include <QTimeZone>
@@ -213,19 +214,75 @@ void MessagesModel::addMessage(const Message &message)
 
 void MessagesModel::addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages)
 {
-    if (messages.count() > 50) {
-        beginResetModel();
-        std::sort(messages.begin(), messages.end(), compareTimeStamps);
-        const QList<Message> reducedMessageList = messages.mid(messages.count() - 50);
-        decryptMessageList(reducedMessageList);
-        mAllMessages = reducedMessageList;
-        endResetModel();
-    } else {
-        // TODO optimize this case as well?RUQOLA_LAST_SEENDATE_LOG
+    if (messages.isEmpty()) {
+        return;
+    }
+    if (messages.count() <= 50) {
+        // TODO optimize this case as well?
         for (const Message &message : messages) {
             addMessage(message);
         }
+        return;
     }
+
+    // Same merge as above, but announced as a single reset instead of one signal per message. It
+    // used to assign the incoming list straight to mAllMessages, which threw away everything the
+    // room had already loaded - the page read from the local database and whatever the user had
+    // scrolled up to - so part of the history vanished as soon as the server reported more than 50
+    // updated messages. "updated" also carries edits of old messages, so the 50 that were kept were
+    // not even a contiguous page of history.
+    decryptMessageList(messages);
+
+    QHash<QByteArray, int> rowForMessageId;
+    rowForMessageId.reserve(mAllMessages.count());
+    for (int row = 0, total = mAllMessages.count(); row < total; ++row) {
+        rowForMessageId.insert(mAllMessages.at(row).messageId(), row);
+    }
+
+    struct PendingUpdate {
+        int row = -1; // in mAllMessages
+        int index = -1; // in messages
+    };
+    QList<PendingUpdate> updates;
+    QList<Message> newMessages;
+    newMessages.reserve(messages.count());
+    for (int index = 0, total = messages.count(); index < total; ++index) {
+        const Message &message = messages.at(index);
+        const auto it = rowForMessageId.constFind(message.messageId());
+        if (it == rowForMessageId.cend()) {
+            newMessages.append(message);
+        } else if (!message.pendingMessage()) {
+            // Same rule as addMessage(): a pending message must not overwrite the one the server
+            // has already sent back.
+            updates.append(PendingUpdate{.row = it.value(), .index = index});
+        }
+    }
+
+    if (updates.isEmpty() && newMessages.isEmpty()) {
+        return;
+    }
+
+    const auto applyUpdates = [this, &messages, &updates] {
+        for (const auto &[row, index] : updates) {
+            mAllMessages[row] = messages.at(index);
+        }
+    };
+
+    if (newMessages.isEmpty()) {
+        // Nothing to insert: keep the rows in place so the view doesn't lose its scroll position.
+        applyUpdates();
+        for (const auto &[row, index] : updates) {
+            const QModelIndex idx = createIndex(row, 0);
+            Q_EMIT dataChanged(idx, idx, {OriginalMessageOrAttachmentDescription});
+        }
+        return;
+    }
+
+    beginResetModel();
+    applyUpdates();
+    mAllMessages += newMessages;
+    std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
+    endResetModel();
 }
 
 void MessagesModel::addMessages(const QList<Message> &messages, bool insertListMessages)
