@@ -467,6 +467,9 @@ void AccountManager::removeLogs(const QString &accountName)
 
 void AccountManager::removeDatabaseAccount(const QString &accountName)
 {
+    if (accountName.isEmpty()) {
+        return;
+    }
     // Sqlite connections are process-wide and outlive the account: close them before removing the
     // files, otherwise re-adding an account with the same name would reuse a connection pointing at
     // a deleted file (writes lost, tables gone).
