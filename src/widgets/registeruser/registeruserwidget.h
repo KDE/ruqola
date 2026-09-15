@@ -14,7 +14,6 @@ class QLineEdit;
 class PasswordConfirmWidget;
 class QPushButton;
 class QPlainTextEdit;
-class QLabel;
 class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RegisterUserWidget : public QWidget
 {
@@ -38,7 +37,6 @@ private:
     QLineEdit *const mEmail;
     PasswordConfirmWidget *const mPasswordConfirmWidget;
     QPlainTextEdit *const mReasonTextEdit;
-    QLabel *const mReasonLabel;
     bool mManuallyApproveNewUsersRequired = false;
     QFormLayout *const mMainLayout;
 };

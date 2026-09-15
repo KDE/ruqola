@@ -24,9 +24,9 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     , mEmail(new QLineEdit(this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
     , mReasonTextEdit(new QPlainTextEdit(this))
-    , mReasonLabel(new QLabel(i18n("Reason:"), this))
     , mMainLayout(new QFormLayout(this))
 {
+    auto reasonLabel = new QLabel(i18n("Reason:"), this);
     mMainLayout->setObjectName(u"mainLayout"_s);
     mMainLayout->setContentsMargins({});
 
@@ -45,8 +45,8 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     connect(mPasswordConfirmWidget, &PasswordConfirmWidget::passwordValidated, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mReasonTextEdit->setObjectName(u"mReasonTextEdit"_s);
-    mReasonLabel->setObjectName(u"mReasonLabel"_s);
-    mMainLayout->addRow(mReasonLabel, mReasonTextEdit);
+    reasonLabel->setObjectName(u"mReasonLabel"_s);
+    mMainLayout->addRow(reasonLabel, mReasonTextEdit);
     // Hide by default
     mMainLayout->setRowVisible(mReasonTextEdit, mManuallyApproveNewUsersRequired);
     connect(mReasonTextEdit, &QPlainTextEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
