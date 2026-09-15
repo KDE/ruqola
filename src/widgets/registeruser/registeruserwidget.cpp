@@ -68,6 +68,7 @@ void RegisterUserWidget::setManuallyApproveNewUsersRequired(bool manual)
 {
     mManuallyApproveNewUsersRequired = manual;
     mMainLayout->setRowVisible(mReasonTextEdit, mManuallyApproveNewUsersRequired);
+    slotUpdateRegisterButton();
 }
 
 void RegisterUserWidget::slotUpdateRegisterButton()
