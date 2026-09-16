@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:44+0000\n"
+"POT-Creation-Date: 2026-09-16 00:45+0000\n"
 "PO-Revision-Date: 2026-09-14 09:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1077,7 +1077,7 @@ msgstr "Назва"
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
 #: core/model/directoryroomsmodel.cpp:125 core/model/directoryteamsmodel.cpp:97
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:40
 #, kde-format
 msgid "Identifier"
 msgstr "Ідентифікатор"
@@ -1386,17 +1386,17 @@ msgstr "Нічого не знайдено."
 msgid "Notify all in this room"
 msgstr "Сповістити усіх у цій кімнаті"
 
-#: core/model/messagesmodel.cpp:297
+#: core/model/messagesmodel.cpp:354
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Редаговано %1, %2"
 
-#: core/model/messagesmodel.cpp:517
+#: core/model/messagesmodel.cpp:574
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ігнороване повідомлення"
 
-#: core/model/messagesmodel.cpp:527
+#: core/model/messagesmodel.cpp:584
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Бачити це повідомлення можете лише ви"
@@ -3685,7 +3685,7 @@ msgstr "Вибрати все"
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:40
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
 #: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:30
 #: widgets/notificationhistory/notificationhistorywidget.cpp:48
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:46
 #, kde-format
@@ -4060,7 +4060,7 @@ msgid "Refresh"
 msgstr "Освіжити"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:52
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:59
 #, kde-format
 msgctxt "@action"
 msgid "Copy"
@@ -8211,11 +8211,10 @@ msgid "Add Users in Room"
 msgstr "Додати користувачів у кімнату"
 
 #: widgets/dialogs/asktwoauthenticationpassworddialog.cpp:20
-#: widgets/dialogs/channelinfodialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
-msgid "Channel Info"
-msgstr "Відомості щодо каналу"
+msgid "Code 2FA"
+msgstr ""
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -8251,6 +8250,12 @@ msgstr "Автоматичний переклад"
 msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "Мова:"
+
+#: widgets/dialogs/channelinfodialog.cpp:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Channel Info"
+msgstr "Відомості щодо каналу"
 
 #: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
@@ -9289,7 +9294,7 @@ msgstr "Копіювати зображення до буфера"
 msgid "Copy Location to Clipboard"
 msgstr "Копіювати адресу до буфера"
 
-#: widgets/dialogs/showimagedialog.cpp:156
+#: widgets/dialogs/showimagedialog.cpp:154
 #, kde-format
 msgid "Other Application..."
 msgstr "Інша програма…"
@@ -9418,7 +9423,7 @@ msgstr ""
 "знову додати до кімнати?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:551
+#: widgets/room/messagelinewidget.cpp:553
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9749,7 +9754,7 @@ msgctxt "@title:window"
 msgid "Application Translation"
 msgstr "Переклад програми"
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:40
 #, kde-format
 msgid "Translation"
 msgstr "Переклад"
@@ -10087,7 +10092,7 @@ msgstr "Ваші паролі не збігаються."
 msgid "New Password:"
 msgstr "Новий пароль:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:47
+#: widgets/misc/passwordconfirmwidget.cpp:48
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Підтвердження пароля:"
@@ -10098,37 +10103,37 @@ msgctxt "@action:button"
 msgid "Reset Password"
 msgstr "Скинути пароль"
 
-#: widgets/misc/passwordvalidatewidget.cpp:161
+#: widgets/misc/passwordvalidatewidget.cpp:162
 #, kde-format
 msgid "At least %1 characters"
 msgstr "Принаймні %1 символів"
 
-#: widgets/misc/passwordvalidatewidget.cpp:164
+#: widgets/misc/passwordvalidatewidget.cpp:165
 #, kde-format
 msgid "At most %1 characters"
 msgstr "Не більше %1 символів"
 
-#: widgets/misc/passwordvalidatewidget.cpp:168
+#: widgets/misc/passwordvalidatewidget.cpp:169
 #, kde-format
 msgid "Max. %1 repeating characters"
 msgstr "Макс. к-ть %1 повторень символу"
 
-#: widgets/misc/passwordvalidatewidget.cpp:171
+#: widgets/misc/passwordvalidatewidget.cpp:172
 #, kde-format
 msgid "At least one lowercase letter"
 msgstr "Принаймні одна мала літера"
 
-#: widgets/misc/passwordvalidatewidget.cpp:174
+#: widgets/misc/passwordvalidatewidget.cpp:175
 #, kde-format
 msgid "At least one uppercase letter"
 msgstr "Принаймні одна велика літера"
 
-#: widgets/misc/passwordvalidatewidget.cpp:177
+#: widgets/misc/passwordvalidatewidget.cpp:178
 #, kde-format
 msgid "At least one symbol"
 msgstr "Принаймні один символ пунктуації"
 
-#: widgets/misc/passwordvalidatewidget.cpp:180
+#: widgets/misc/passwordvalidatewidget.cpp:181
 #, kde-format
 msgid "At least one number"
 msgstr "Принаймні одна цифра"
@@ -10822,7 +10827,7 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Зареєструвати"
 
-#: widgets/registeruser/registeruserwidget.cpp:27
+#: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Reason:"
 msgstr "Причина:"
@@ -10942,28 +10947,28 @@ msgstr "Приєднатися"
 msgid "User Info"
 msgstr "Інформація про користувача"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:449
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:580
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Почати конфіденційне спілкування"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Показати початкове повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Переклад повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:733
+#: widgets/room/delegate/messagelistdelegate.cpp:734
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10972,7 +10977,7 @@ msgstr[1] "%1 відповіді"
 msgstr[2] "%1 відповідей"
 msgstr[3] "%1 відповідь"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:743
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10981,54 +10986,54 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:743
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "No message yet"
 msgstr "Ще немає жодних повідомлень"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1073
+#: widgets/room/delegate/messagelistdelegate.cpp:1074
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Стеження"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1078
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Повідомлення пришпилено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1081
+#: widgets/room/delegate/messagelistdelegate.cpp:1082
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1085
+#: widgets/room/delegate/messagelistdelegate.cpp:1086
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "У повідомленні міститься перекладений текст"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1089
+#: widgets/room/delegate/messagelistdelegate.cpp:1090
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Відповісти до потоку"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1093
+#: widgets/room/delegate/messagelistdelegate.cpp:1094
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Додати реакцію"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1099
+#: widgets/room/delegate/messagelistdelegate.cpp:1100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Зупинити"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1099
+#: widgets/room/delegate/messagelistdelegate.cpp:1100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11132,28 +11137,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Надто велике повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:423
+#: widgets/room/messagelinewidget.cpp:425
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Повідомлення %1 у гілці"
 
-#: widgets/room/messagelinewidget.cpp:423
+#: widgets/room/messagelinewidget.cpp:425
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Надіслати повідомлення у %1…"
 
-#: widgets/room/messagelinewidget.cpp:581
+#: widgets/room/messagelinewidget.cpp:583
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Вибраний файл є надто великим (максимальний розмір — %1)"
 
-#: widgets/room/messagelinewidget.cpp:582
+#: widgets/room/messagelinewidget.cpp:584
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Вивантаження файла"
 
-#: widgets/room/messagelinewidget.cpp:586
+#: widgets/room/messagelinewidget.cpp:588
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME %1)"

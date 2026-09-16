@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:44+0000\n"
+"POT-Creation-Date: 2026-09-16 00:45+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1070,7 +1070,7 @@ msgstr "Názov"
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
 #: core/model/directoryroomsmodel.cpp:125 core/model/directoryteamsmodel.cpp:97
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:40
 #, kde-format
 msgid "Identifier"
 msgstr "Identifikátor:"
@@ -1379,17 +1379,17 @@ msgstr "Súkromné adresy"
 msgid "Notify all in this room"
 msgstr "Upozorniť všetkých v tejto miestnosti"
 
-#: core/model/messagesmodel.cpp:297
+#: core/model/messagesmodel.cpp:354
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Upravené o %1 používateľom %2"
 
-#: core/model/messagesmodel.cpp:517
+#: core/model/messagesmodel.cpp:574
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignored Message"
 
-#: core/model/messagesmodel.cpp:527
+#: core/model/messagesmodel.cpp:584
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Only môžete see this message"
@@ -3645,7 +3645,7 @@ msgstr "Vybrať všetko"
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:40
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
 #: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:30
 #: widgets/notificationhistory/notificationhistorywidget.cpp:48
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:46
 #, kde-format
@@ -4018,7 +4018,7 @@ msgid "Refresh"
 msgstr "Obnoviť"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:52
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:59
 #, kde-format
 msgctxt "@action"
 msgid "Copy"
@@ -8127,11 +8127,10 @@ msgid "Add Users in Room"
 msgstr "Pridať používateľov do miestnosti"
 
 #: widgets/dialogs/asktwoauthenticationpassworddialog.cpp:20
-#: widgets/dialogs/channelinfodialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
-msgid "Channel Info"
-msgstr "Informácie o kanáli"
+msgid "Code 2FA"
+msgstr ""
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -8167,6 +8166,12 @@ msgstr "Preklad"
 msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "Jazyk:"
+
+#: widgets/dialogs/channelinfodialog.cpp:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Channel Info"
+msgstr "Informácie o kanáli"
 
 #: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
@@ -9186,7 +9191,7 @@ msgstr "Kopírovať obrázok do schránky"
 msgid "Copy Location to Clipboard"
 msgstr "Kopírovať polohu do schránky"
 
-#: widgets/dialogs/showimagedialog.cpp:156
+#: widgets/dialogs/showimagedialog.cpp:154
 #, kde-format
 msgid "Other Application..."
 msgstr "Iná aplikácia..."
@@ -9314,7 +9319,7 @@ msgstr ""
 "zrušiť a pridať ich späť?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:551
+#: widgets/room/messagelinewidget.cpp:553
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9640,7 +9645,7 @@ msgctxt "@title:window"
 msgid "Application Translation"
 msgstr "Preklad aplikácie"
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:40
 #, kde-format
 msgid "Translation"
 msgstr "Preklad"
@@ -9978,7 +9983,7 @@ msgstr "Vaše heslá sa nezhodujú."
 msgid "New Password:"
 msgstr "Heslo:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:47
+#: widgets/misc/passwordconfirmwidget.cpp:48
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Potvrďte heslo:"
@@ -9989,37 +9994,37 @@ msgctxt "@action:button"
 msgid "Reset Password"
 msgstr "Heslo:"
 
-#: widgets/misc/passwordvalidatewidget.cpp:161
+#: widgets/misc/passwordvalidatewidget.cpp:162
 #, kde-format
 msgid "At least %1 characters"
 msgstr "Aspoň %1 characters"
 
-#: widgets/misc/passwordvalidatewidget.cpp:164
+#: widgets/misc/passwordvalidatewidget.cpp:165
 #, kde-format
 msgid "At most %1 characters"
 msgstr "Najviac %1 characters"
 
-#: widgets/misc/passwordvalidatewidget.cpp:168
+#: widgets/misc/passwordvalidatewidget.cpp:169
 #, kde-format
 msgid "Max. %1 repeating characters"
 msgstr "Max. %1 repeating characters"
 
-#: widgets/misc/passwordvalidatewidget.cpp:171
+#: widgets/misc/passwordvalidatewidget.cpp:172
 #, kde-format
 msgid "At least one lowercase letter"
 msgstr "Aspoň one lowercase letter"
 
-#: widgets/misc/passwordvalidatewidget.cpp:174
+#: widgets/misc/passwordvalidatewidget.cpp:175
 #, kde-format
 msgid "At least one uppercase letter"
 msgstr "Aspoň one uppercase letter"
 
-#: widgets/misc/passwordvalidatewidget.cpp:177
+#: widgets/misc/passwordvalidatewidget.cpp:178
 #, kde-format
 msgid "At least one symbol"
 msgstr "Aspoň one symbol"
 
-#: widgets/misc/passwordvalidatewidget.cpp:180
+#: widgets/misc/passwordvalidatewidget.cpp:181
 #, kde-format
 msgid "At least one number"
 msgstr "Aspoň one number"
@@ -10705,7 +10710,7 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Registrovať"
 
-#: widgets/registeruser/registeruserwidget.cpp:27
+#: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Reason:"
 msgstr "Dôvod:"
@@ -10825,28 +10830,28 @@ msgstr "Pripojiť"
 msgid "User Info"
 msgstr "Informácie o užívateľovi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:449
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:580
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Konverzácia"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:733
+#: widgets/room/delegate/messagelistdelegate.cpp:734
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -10854,7 +10859,7 @@ msgstr[0] "1 odpoveď"
 msgstr[1] "%1 odpovede"
 msgstr[2] "%1 odpovedí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:743
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -10862,54 +10867,54 @@ msgstr[0] "1 správa"
 msgstr[1] "%1 správy"
 msgstr[2] "%1 správ"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:743
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "No message yet"
 msgstr "Zatiaľ žiadna správa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1073
+#: widgets/room/delegate/messagelistdelegate.cpp:1074
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Všetky správy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1078
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1081
+#: widgets/room/delegate/messagelistdelegate.cpp:1082
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1085
+#: widgets/room/delegate/messagelistdelegate.cpp:1086
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Súkromné adresy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1089
+#: widgets/room/delegate/messagelistdelegate.cpp:1090
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Správa"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1093
+#: widgets/room/delegate/messagelistdelegate.cpp:1094
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Pridať reakciu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1099
+#: widgets/room/delegate/messagelistdelegate.cpp:1100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Zastaviť"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1099
+#: widgets/room/delegate/messagelistdelegate.cpp:1100
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Speak Text"
@@ -11011,28 +11016,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Správa"
 
-#: widgets/room/messagelinewidget.cpp:423
+#: widgets/room/messagelinewidget.cpp:425
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Správa %1 vo vlákne"
 
-#: widgets/room/messagelinewidget.cpp:423
+#: widgets/room/messagelinewidget.cpp:425
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Odoslať správu v %1…"
 
-#: widgets/room/messagelinewidget.cpp:581
+#: widgets/room/messagelinewidget.cpp:583
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Vybraný súbor je príliš veľký (maximálna veľkosť %1)"
 
-#: widgets/room/messagelinewidget.cpp:582
+#: widgets/room/messagelinewidget.cpp:584
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "File upload"
 
-#: widgets/room/messagelinewidget.cpp:586
+#: widgets/room/messagelinewidget.cpp:588
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Server tento súbor nepovoľuje (neplatný typ MIME %1)"

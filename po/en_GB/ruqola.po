@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-15 00:44+0000\n"
+"POT-Creation-Date: 2026-09-16 00:45+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1094,7 +1094,7 @@ msgstr "Name"
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
 #: core/model/directoryroomsmodel.cpp:125 core/model/directoryteamsmodel.cpp:97
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:40
 #, kde-format
 msgid "Identifier"
 msgstr "Identifier"
@@ -1403,17 +1403,17 @@ msgstr "No result found."
 msgid "Notify all in this room"
 msgstr "Notify all in this room"
 
-#: core/model/messagesmodel.cpp:297
+#: core/model/messagesmodel.cpp:354
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Edited at %1 by %2"
 
-#: core/model/messagesmodel.cpp:517
+#: core/model/messagesmodel.cpp:574
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignored Message"
 
-#: core/model/messagesmodel.cpp:527
+#: core/model/messagesmodel.cpp:584
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Only you can see this message"
@@ -3693,7 +3693,7 @@ msgstr "Select All"
 #: widgets/administratordialog/moderationconsole/moderationreportinfowidget.cpp:40
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:26
 #: widgets/databasedialog/exploredatabasebasestoragewidget.cpp:53
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:29
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:30
 #: widgets/notificationhistory/notificationhistorywidget.cpp:48
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:46
 #, kde-format
@@ -4064,7 +4064,7 @@ msgid "Refresh"
 msgstr "Refresh"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:52
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:59
 #, kde-format
 msgctxt "@action"
 msgid "Copy"
@@ -8220,11 +8220,10 @@ msgid "Add Users in Room"
 msgstr "Add Users in Room"
 
 #: widgets/dialogs/asktwoauthenticationpassworddialog.cpp:20
-#: widgets/dialogs/channelinfodialog.cpp:33
 #, kde-format
 msgctxt "@title:window"
-msgid "Channel Info"
-msgstr "Channel Info"
+msgid "Code 2FA"
+msgstr ""
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -8260,6 +8259,12 @@ msgstr "Auto-Translate"
 msgctxt "@label:textbox"
 msgid "Language:"
 msgstr "Language:"
+
+#: widgets/dialogs/channelinfodialog.cpp:33
+#, kde-format
+msgctxt "@title:window"
+msgid "Channel Info"
+msgstr "Channel Info"
 
 #: widgets/dialogs/channelinfodialog.cpp:67
 #, kde-format
@@ -9304,7 +9309,7 @@ msgstr "Copy Image to Clipboard"
 msgid "Copy Location to Clipboard"
 msgstr "Copy Location to Clipboard"
 
-#: widgets/dialogs/showimagedialog.cpp:156
+#: widgets/dialogs/showimagedialog.cpp:154
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search Applications"
@@ -9442,7 +9447,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:21
-#: widgets/room/messagelinewidget.cpp:551
+#: widgets/room/messagelinewidget.cpp:553
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -9764,7 +9769,7 @@ msgctxt "@title:window"
 msgid "Application Translation"
 msgstr "Application not found"
 
-#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:39
+#: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:40
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Translation"
@@ -10111,7 +10116,7 @@ msgstr ""
 msgid "New Password:"
 msgstr "New Password:"
 
-#: widgets/misc/passwordconfirmwidget.cpp:47
+#: widgets/misc/passwordconfirmwidget.cpp:48
 #, kde-format
 msgid "Confirm Password:"
 msgstr "Confirm Password:"
@@ -10122,37 +10127,37 @@ msgctxt "@action:button"
 msgid "Reset Password"
 msgstr "Reset Password"
 
-#: widgets/misc/passwordvalidatewidget.cpp:161
+#: widgets/misc/passwordvalidatewidget.cpp:162
 #, kde-format
 msgid "At least %1 characters"
 msgstr "At least %1 characters"
 
-#: widgets/misc/passwordvalidatewidget.cpp:164
+#: widgets/misc/passwordvalidatewidget.cpp:165
 #, kde-format
 msgid "At most %1 characters"
 msgstr "At most %1 characters"
 
-#: widgets/misc/passwordvalidatewidget.cpp:168
+#: widgets/misc/passwordvalidatewidget.cpp:169
 #, kde-format
 msgid "Max. %1 repeating characters"
 msgstr "Max. %1 repeating characters"
 
-#: widgets/misc/passwordvalidatewidget.cpp:171
+#: widgets/misc/passwordvalidatewidget.cpp:172
 #, kde-format
 msgid "At least one lowercase letter"
 msgstr "At least one lowercase letter"
 
-#: widgets/misc/passwordvalidatewidget.cpp:174
+#: widgets/misc/passwordvalidatewidget.cpp:175
 #, kde-format
 msgid "At least one uppercase letter"
 msgstr "At least one uppercase letter"
 
-#: widgets/misc/passwordvalidatewidget.cpp:177
+#: widgets/misc/passwordvalidatewidget.cpp:178
 #, kde-format
 msgid "At least one symbol"
 msgstr "At least one symbol"
 
-#: widgets/misc/passwordvalidatewidget.cpp:180
+#: widgets/misc/passwordvalidatewidget.cpp:181
 #, kde-format
 msgid "At least one number"
 msgstr "At least one number"
@@ -10840,7 +10845,7 @@ msgctxt "@action:button"
 msgid "Register"
 msgstr "Register"
 
-#: widgets/registeruser/registeruserwidget.cpp:27
+#: widgets/registeruser/registeruserwidget.cpp:29
 #, kde-format
 msgid "Reason:"
 msgstr "Reason:"
@@ -10966,65 +10971,65 @@ msgstr "Join"
 msgid "User Info"
 msgstr "User Info"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:449
+#: widgets/room/delegate/messagelistdelegate.cpp:450
 #: widgets/room/messagelistview.cpp:580
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Start a Private Conversation"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Show Original Message"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #: widgets/room/messagelistview.cpp:692 widgets/room/messagelistview.cpp:754
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
 msgstr "Translate Message"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:733
+#: widgets/room/delegate/messagelistdelegate.cpp:734
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 reply"
 msgstr[1] "%1 replies"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:743
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 message"
 msgstr[1] "%1 messages"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:743
+#: widgets/room/delegate/messagelistdelegate.cpp:744
 #, kde-format
 msgid "No message yet"
 msgstr "No message yet"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1073
+#: widgets/room/delegate/messagelistdelegate.cpp:1074
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Following"
 msgstr "Following"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1077
+#: widgets/room/delegate/messagelistdelegate.cpp:1078
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been pinned"
 msgstr "Message has been pinned"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1081
+#: widgets/room/delegate/messagelistdelegate.cpp:1082
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
 msgstr "Message has been starred"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1085
+#: widgets/room/delegate/messagelistdelegate.cpp:1086
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Message has been starred"
@@ -11032,26 +11037,26 @@ msgctxt "@info:tooltip"
 msgid "Message has a translated text"
 msgstr "Message has been starred"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1089
+#: widgets/room/delegate/messagelistdelegate.cpp:1090
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Reply in Thread"
 msgstr "Reply in Thread"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1093
+#: widgets/room/delegate/messagelistdelegate.cpp:1094
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add reaction"
 msgstr "Add reaction"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1099
+#: widgets/room/delegate/messagelistdelegate.cpp:1100
 #, fuzzy, kde-format
 #| msgid "Stop"
 msgctxt "@info:tooltip"
 msgid "Stop"
 msgstr "Stop"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:1099
+#: widgets/room/delegate/messagelistdelegate.cpp:1100
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Speak Text"
@@ -11159,28 +11164,28 @@ msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Message Too Big"
 
-#: widgets/room/messagelinewidget.cpp:423
+#: widgets/room/messagelinewidget.cpp:425
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Message %1 in thread"
 
-#: widgets/room/messagelinewidget.cpp:423
+#: widgets/room/messagelinewidget.cpp:425
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Send a message in %1…"
 
-#: widgets/room/messagelinewidget.cpp:581
+#: widgets/room/messagelinewidget.cpp:583
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "File selected is too big (Maximum size %1)"
 
-#: widgets/room/messagelinewidget.cpp:582
+#: widgets/room/messagelinewidget.cpp:584
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "File upload"
 
-#: widgets/room/messagelinewidget.cpp:586
+#: widgets/room/messagelinewidget.cpp:588
 #, fuzzy, kde-format
 #| msgid "Server doesn't authorized this file (invalid mimetype)"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
