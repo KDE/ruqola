@@ -138,7 +138,9 @@ void ShowImageWidget::slotShowPreviousImage()
     if (mDownloadInProgress) {
         return;
     }
-    setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
+    if (mImageListInfo.index > 0) {
+        setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
+    }
     updateButtons();
 }
 
