@@ -114,7 +114,7 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             saveAttachment(option, file);
             return true;
         }
-        if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == mRocketChatAccount->userId())) {
+        if (layout.deleteAttachmentRect.contains(mev->pos()) && mRocketChatAccount->isFileDeletable(file->roomId(), file->userId(), file->uploadedAt())) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
             if (KMessageBox::ButtonCode::PrimaryAction
                 == KMessageBox::questionTwoActions(parentWidget,
