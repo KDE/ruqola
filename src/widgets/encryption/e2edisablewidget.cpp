@@ -70,8 +70,7 @@ void E2eDisableWidget::slotResetEncryptionKeys()
                 "members may lose access to previously encrypted content.\nThis action cannot be undone. Do you want to continue?"),
             i18nc("@title:window", "Reset Encryption Keys"),
             KStandardGuiItem::cont(),
-            KStandardGuiItem::cancel(),
-            u"resetE2eRoomKeys"_s)
+            KStandardGuiItem::cancel())
         != KMessageBox::Continue) {
         return;
     }
