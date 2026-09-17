@@ -118,7 +118,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    if (identifier.isEmpty()) {
+    if (!identifier.isEmpty()) {
         auto it = mSizeHintCache.find(identifier);
         if (it != mSizeHintCache.end()) {
             const QSize result = it->value;
