@@ -38,4 +38,5 @@ private:
     MyAccount2FaDisableTotpWidget *const mMyAccountDisable2FaTotpWidget;
     QWidget *const mMyAccount2FaEmpty;
     QStackedWidget *const mStackedWidget;
+    bool mChanged = false;
 };

@@ -50,10 +50,15 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
 
     connect(mMyAccount2FaTotpWidget, &MyAccount2FaTotpWidget::show2FaEnabledWidget, this, [this]() {
         mStackedWidget->setCurrentIndex(Enable2FaPage);
+        mChanged = true;
     });
 
     connect(mMyAccountDisable2FaTotpWidget, &MyAccount2FaDisableTotpWidget::hide2FaDisableTotpWidget, this, [this]() {
         mStackedWidget->setCurrentIndex(EmptyPage);
+        mChanged = true;
+    });
+    connect(mActivate2FAViaEmailCheckbox, &QCheckBox::clicked, this, [this]() {
+        mChanged = true;
     });
 
     mStackedWidget->insertWidget(EmptyPage, mMyAccount2FaEmpty);
@@ -89,23 +94,26 @@ void MyAccount2FaConfigureWidget::load()
             mActivate2FAViaTOTPCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().totp());
         }
     }
+    mChanged = false;
 }
 
 void MyAccount2FaConfigureWidget::save()
 {
-    if (mRocketChatAccount) {
+    if (mRocketChatAccount && mChanged) {
         if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByEmailEnabled()) {
             if (mActivate2FAViaEmailCheckbox->isChecked()) {
                 auto job = new RocketChatRestApi::User2FAEnableEmailJob(this);
                 mRocketChatAccount->restApi()->initializeRestApiJob(job);
                 if (!job->start()) {
                     qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start User2FAEnableEmailJob";
+                    return;
                 }
             } else {
                 auto job = new RocketChatRestApi::User2FADisableEmailJob(this);
                 mRocketChatAccount->restApi()->initializeRestApiJob(job);
                 if (!job->start()) {
                     qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start User2FADisableEmailJob";
+                    return;
                 }
             }
         }
@@ -113,6 +121,7 @@ void MyAccount2FaConfigureWidget::save()
         if (mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationByTOTPEnabled()) {
             // TODO
         }
+        mChanged = false;
     }
 }
 
