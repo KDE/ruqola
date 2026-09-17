@@ -404,7 +404,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     if (mInstalledInfo.isValid() && !mInstalledInfo.description().isEmpty()) {
         newDescription = mInstalledInfo.description();
     } else {
-        newDescription = mAuthorName;
+        newDescription = mDescription;
     }
 
     str += u"<b>%1</b><br/>"_s.arg(i18n("Description")) + newDescription.toHtmlEscaped() + u"<br/><br/>"_s;
