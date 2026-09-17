@@ -49,7 +49,8 @@ WebDavAddServerWidget::~WebDavAddServerWidget() = default;
 
 void WebDavAddServerWidget::slotUpdateOkButtonStatus()
 {
-    Q_EMIT okButtonEnabled(addServerInfo().isValid());
+    Q_EMIT okButtonEnabled(!mName->text().trimmed().isEmpty() && !mUrl->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty()
+                           && !mPasswordLineEdit->password().isEmpty());
 }
 
 WebDavAddServerWidget::WebDavAddServerInfo WebDavAddServerWidget::addServerInfo() const
