@@ -103,8 +103,12 @@ qint64 File::uploadedAt() const
 void File::setUploadedAt(qint64 uploadedAt)
 {
     mUploadedAt = uploadedAt;
-    QLocale l;
-    mUploadedDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mUploadedAt), QLocale::LongFormat);
+    if (mUploadedAt != -1) {
+        const QLocale l;
+        mUploadedDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mUploadedAt), QLocale::LongFormat);
+    } else {
+        mUploadedDateTimeStr.clear();
+    }
 }
 
 QByteArray File::fileId() const
