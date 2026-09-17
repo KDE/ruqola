@@ -85,7 +85,7 @@ void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJson
     // We need only image info
     baImageBase64.replace("data:image/png;base64,", "");
     if (!baImageBase64.isEmpty() && !mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG")) {
-        qCWarning(RUQOLA_LOG) << "Impossible to load pixmap: " << baImageBase64;
+        qCWarning(RUQOLA_LOG) << "Impossible to load pixmap";
     }
 }
 
