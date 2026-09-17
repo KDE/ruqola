@@ -175,7 +175,7 @@ void MyAccountProfileConfigureWidget::load()
     info.identifier = mOwnUser.userName();
     const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
     if (!iconUrlStr.isEmpty()) {
-        const QString iconPath{QUrl(iconUrlStr).toLocalFile()};
+        const QString iconPath{iconUrlStr.toLocalFile()};
         mConfigureAvatarWidget->setCurrentIconPath(iconPath);
     }
 }
