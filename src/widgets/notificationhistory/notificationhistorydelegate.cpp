@@ -191,8 +191,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     // Resize pixmap TODO cache ?
     const auto pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
     if (!pix.isNull()) {
-        const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        layout.avatarPixmap = scaledPixmap;
+        layout.avatarPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
