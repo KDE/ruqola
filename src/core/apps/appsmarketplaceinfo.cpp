@@ -460,7 +460,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
 
     if (!support.isEmpty()) {
         const QString escapedSupport = support.toHtmlEscaped();
-        const QString url = support.startsWith("http"_L1) ? escapedSupport : u"mailto://%1"_s.arg(escapedSupport);
+        const QString url = support.startsWith("http"_L1) ? escapedSupport : u"mailto:%1"_s.arg(escapedSupport);
         str += u"<b>%1</b><br/>"_s.arg(i18n("Support")) + u"<a href=\"%2\">%1</a>"_s.arg(escapedSupport, url) + u"<br/><br/>"_s;
     }
 
