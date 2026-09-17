@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:45+0000\n"
-"PO-Revision-Date: 2026-09-14 05:01+0200\n"
+"POT-Creation-Date: 2026-09-17 00:44+0000\n"
+"PO-Revision-Date: 2026-09-16 06:03+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -709,7 +709,7 @@ msgstr "არაფერი"
 #: widgets/dialogs/createsoundmessagewidget.cpp:97
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
-#: widgets/dialogs/showvideowidget.cpp:124
+#: widgets/dialogs/showvideowidget.cpp:123
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:283
 #, kde-format
@@ -8120,7 +8120,7 @@ msgstr "ოთახში მომხმარებლების დამ�
 #, kde-format
 msgctxt "@title:window"
 msgid "Code 2FA"
-msgstr ""
+msgstr "2FA კოდი"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -8797,7 +8797,7 @@ msgid "Sound: %1"
 msgstr "ხმა: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:247
-#: widgets/dialogs/showvideowidget.cpp:247
+#: widgets/dialogs/showvideowidget.cpp:246
 #, kde-format
 msgid "Error: "
 msgstr "შეცდომა: "
@@ -9220,7 +9220,7 @@ msgctxt "@info:tooltip"
 msgid "Rotate Right"
 msgstr "მარჯვნივ შებრუნება"
 
-#: widgets/dialogs/showimagewidget.cpp:234
+#: widgets/dialogs/showimagewidget.cpp:236
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:69
 #, kde-format
 msgid "Save Image"

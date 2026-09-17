@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 00:45+0000\n"
+"POT-Creation-Date: 2026-09-17 00:44+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -727,7 +727,7 @@ msgstr "None"
 #: widgets/dialogs/createsoundmessagewidget.cpp:97
 #: widgets/dialogs/createsoundmessagewidget.cpp:139
 #: widgets/dialogs/playsoundwidget.cpp:124
-#: widgets/dialogs/showvideowidget.cpp:124
+#: widgets/dialogs/showvideowidget.cpp:123
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:275
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:283
 #, kde-format
@@ -8907,7 +8907,7 @@ msgid "Sound: %1"
 msgstr "Sound: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:247
-#: widgets/dialogs/showvideowidget.cpp:247
+#: widgets/dialogs/showvideowidget.cpp:246
 #, kde-format
 msgid "Error: "
 msgstr "Error: "
@@ -9361,7 +9361,7 @@ msgctxt "@info:tooltip"
 msgid "Rotate Right"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:234
+#: widgets/dialogs/showimagewidget.cpp:236
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:69
 #, kde-format
 msgid "Save Image"
