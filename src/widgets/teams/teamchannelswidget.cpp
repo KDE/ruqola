@@ -132,15 +132,15 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
         if (mRoom->hasPermission(u"edit-team-channel")) {
             menu.addSeparator();
             const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
-            menu.addAction(autojoin ? i18nc("@action", "Remove Autojoin") : i18nc("@action", "Add Autojoin"), this, [this, index, autojoin]() {
-                const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            menu.addAction(autojoin ? i18nc("@action", "Remove Autojoin") : i18nc("@action", "Add Autojoin"), this, [this, roomId, autojoin]() {
                 updateAutojoin(roomId, autojoin);
             });
         }
         if (mRoom->hasPermission(u"remove-team-channel")) {
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Remove from Team"), this, [this, index]() {
-                const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            menu.addAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Remove from Team"), this, [this, roomId]() {
                 removeRoomFromTeam(roomId);
             });
         }
