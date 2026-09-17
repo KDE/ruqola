@@ -45,10 +45,10 @@ QWidget *AutoGenerateInteractionUiViewContextBlock::generateWidget(QWidget *pare
             label->setText(f->generateText());
             label->setOpenExternalLinks(true);
             hboxLayout->addWidget(label);
-        } else if (auto f = dynamic_cast<AutoGenerateInteractionUiViewImage *>(e)) {
+        } else if (dynamic_cast<AutoGenerateInteractionUiViewImage *>(e)) {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "AutoGenerateInteractionUiViewImage not implemented yet";
         } else {
-            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "not implemented yet" << *f;
+            qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "not implemented yet";
         }
     }
     return widget;

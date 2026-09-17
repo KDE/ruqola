@@ -134,13 +134,9 @@ QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> AutoGene
 {
     QMap<QString, QList<AutoGenerateInteractionUiViewBlockBase::StateInfo>> map;
     for (const auto &e : mBlockElements) {
-        const QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> lst = e->serializeState();
+        QList<AutoGenerateInteractionUiViewBlockBase::StateInfo> lst = e->serializeState();
         if (!lst.isEmpty()) {
-            if (map.contains(QString::fromLatin1(e->blockId()))) {
-                map[QString::fromLatin1(e->blockId())].append(lst);
-            } else {
-                map[QString::fromLatin1(e->blockId())] = {lst};
-            }
+            map[QString::fromLatin1(e->blockId())].append(std::move(lst));
         }
     }
     return map;
