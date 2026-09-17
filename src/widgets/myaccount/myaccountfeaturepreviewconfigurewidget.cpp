@@ -38,12 +38,12 @@ MyAccountFeaturePreviewConfigureWidget::~MyAccountFeaturePreviewConfigureWidget(
 void MyAccountFeaturePreviewConfigureWidget::load()
 {
     // qDebug() << " mRocketChatAccount->ownUserPreferences() " << mRocketChatAccount->ownUserPreferences().featurePreviewPreferences().previewStatus();
-    if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
-        mAddDraftCheckBox->setChecked(mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
+    const OwnUserPreferences ownUserPreferences = mRocketChatAccount->ownUserPreferences();
+    if (ownUserPreferences.serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
+        mAddDraftCheckBox->setChecked(ownUserPreferences.hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
     }
-    if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
-        mTimeStampCheckBox->setChecked(
-            mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser));
+    if (ownUserPreferences.serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
+        mTimeStampCheckBox->setChecked(ownUserPreferences.hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser));
     }
 }
 
