@@ -30,9 +30,7 @@ WebDavAddServerDialog::WebDavAddServerDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &WebDavAddServerDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &WebDavAddServerDialog::accept);
     buttonOk->setEnabled(false);
-    connect(mWebDavAddServerWidget, &WebDavAddServerWidget::okButtonEnabled, this, [buttonOk](bool enabled) {
-        buttonOk->setEnabled(enabled);
-    });
+    connect(mWebDavAddServerWidget, &WebDavAddServerWidget::okButtonEnabled, buttonOk, &QPushButton::setEnabled);
 }
 
 WebDavAddServerDialog::~WebDavAddServerDialog() = default;
