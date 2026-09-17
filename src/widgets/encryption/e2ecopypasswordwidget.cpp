@@ -11,6 +11,7 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QLabel>
+#include <QMimeData>
 #include <QToolButton>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
@@ -61,8 +62,10 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
     copyToolButton->setIcon(QIcon::fromTheme(u"password-copy"_s));
     connect(copyToolButton, &QToolButton::clicked, this, [randomPassword]() {
         QClipboard *clip = QApplication::clipboard();
-        clip->setText(randomPassword, QClipboard::Clipboard);
-        clip->setText(randomPassword, QClipboard::Selection);
+        auto *mimeData = new QMimeData;
+        mimeData->setText(randomPassword);
+        mimeData->setData(u"x-kde-passwordManagerHint"_s, "secret");
+        clip->setMimeData(mimeData);
     });
     passwordLayout->addStretch(1);
 
