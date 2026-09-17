@@ -42,11 +42,13 @@ void ModerationReportedMessageInfo::parseRoomList(const QJsonArray &rooms)
     mRoomList.clear();
     const int roomSize = rooms.size();
     mRoomList.reserve(roomSize);
-    for (int i = 0; i < roomSize; i++) {
-        const QJsonObject o = rooms.at(i).toObject();
-        const QString fname = o["fname"_L1].toString();
-        const QString name = o["name"_L1].toString();
-        mRoomList.append(fname.isEmpty() ? name : fname);
+    for (const auto &current : rooms) {
+        const QJsonObject o = current.toObject();
+        QString name = o["fname"_L1].toString();
+        if (name.isEmpty()) {
+            name = o["name"_L1].toString();
+        }
+        mRoomList.append(std::move(name));
     }
 }
 

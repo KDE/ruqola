@@ -91,8 +91,7 @@ AccountManager::ActivitySettings ConfigureActivitiesWidget::activitiesSettings()
     for (const auto &selectedIndex : selected) {
         selectedActivities << selectedIndex.data(KActivities::ActivitiesModel::ActivityId).toString();
     }
-    const AccountManager::ActivitySettings activities{selectedActivities, true};
-    return activities;
+    return {std::move(selectedActivities), true};
 }
 
 void ConfigureActivitiesWidget::setActivitiesSettings(const AccountManager::ActivitySettings &activitySettings)
