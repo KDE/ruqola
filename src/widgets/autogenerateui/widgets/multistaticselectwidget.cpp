@@ -61,7 +61,7 @@ void MultiStaticSelectWidget::setPlaceholderText(const QString &str)
 
 void MultiStaticSelectWidget::slotAddNewName(const MultiStaticSelectLineEditModel::SelectItemCompletionInfo &info)
 {
-    const QByteArray identifier = info.value.toLatin1();
+    const QByteArray identifier = info.value.toUtf8();
     if (mMap.contains(identifier)) {
         return;
     }
