@@ -222,9 +222,16 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
     }
 
     const int bits = 2048;
-    const unsigned long e = RSA_F4; // équivalent à 0x10001
+    const unsigned long e = RSA_F4;
 
     bne = BN_new();
+    if (!bne) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when allocating the bne";
+        BN_free(bne);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
+        return {};
+    }
     ret = BN_set_word(bne, e);
     if (ret != 1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when generating exponent";
