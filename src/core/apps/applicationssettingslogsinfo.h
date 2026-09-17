@@ -8,6 +8,7 @@
 #include "libruqolacore_export.h"
 
 #include <QDateTime>
+#include <QMetaType>
 class QDebug;
 class QJsonObject;
 

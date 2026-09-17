@@ -93,7 +93,7 @@ void AppsMarketPlaceInfo::parsePrincingPlan(const QJsonArray &array)
         priceElement.enabled = current["enabled"_L1].toBool();
         priceElement.isPerSeat = current["isPerSeat"_L1].toBool();
         priceElement.strategy = PricePlan::convertStringToStrategy(current["strategy"_L1].toString());
-        mPricePlan.append(std::move(priceElement));
+        mPricePlan.emplace_back(priceElement);
     }
 }
 
