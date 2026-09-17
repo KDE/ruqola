@@ -99,9 +99,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
         dataObj["emailNotificationMode"_L1] = mUsersSetPreferencesInfo.emailNotificationMode;
     }
-    if (!mUsersSetPreferencesInfo.highlights.isEmpty()) {
-        dataObj["highlights"_L1] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
-    }
+    dataObj["highlights"_L1] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
 
     if (mUsersSetPreferencesInfo.useEmoji != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["useEmojis"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.useEmoji);

@@ -315,7 +315,7 @@ void MyAccountPreferenceConfigureWidget::save()
         }
 
         RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
-        info.highlights = listWords;
+        info.highlights = std::move(listWords);
         info.pushNotifications = mPushNotification->currentData().toString();
         info.desktopNotifications = mDesktopNotification->currentData().toString();
         info.emailNotificationMode = mEmailNotification->currentData().toString();
