@@ -206,7 +206,7 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     if (att.isValid()) {
         bool foundAttachmentSelection = false;
         for (const AttachmentSelection &attSelection : std::as_const(mAttachmentSelection)) {
-            if (attSelection.attachment == att) {
+            if (attSelection.attachment.attachmentId() == att.attachmentId()) {
                 fromCharPos = attSelection.fromCharPos;
                 toCharPos = attSelection.toCharPos;
                 foundAttachmentSelection = true;
@@ -221,7 +221,7 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     if (msgUrl.hasHtmlDescription()) {
         bool foundMessageUrlSelection = false;
         for (const MessageUrlSelection &messageUrlSelection : std::as_const(mMessageUrlSelection)) {
-            if (messageUrlSelection.messageUrl == msgUrl) {
+            if (messageUrlSelection.messageUrl.urlId() == msgUrl.urlId()) {
                 fromCharPos = messageUrlSelection.fromCharPos;
                 toCharPos = messageUrlSelection.toCharPos;
                 foundMessageUrlSelection = true;
@@ -381,10 +381,8 @@ void TextSelection::setAttachmentTextSelectionEnd(const QModelIndex &index, int 
     if (msgAttach.isValid()) {
         const auto countAtt{mAttachmentSelection.count()};
         for (int i = 0; i < countAtt; ++i) {
-            if (mAttachmentSelection.at(i).attachment == msgAttach) {
-                AttachmentSelection attachmentSelectFound = mAttachmentSelection.takeAt(i);
-                attachmentSelectFound.toCharPos = charPos;
-                mAttachmentSelection.append(std::move(attachmentSelectFound));
+            if (mAttachmentSelection.at(i).attachment.attachmentId() == msgAttach.attachmentId()) {
+                mAttachmentSelection[i].toCharPos = charPos;
                 return;
             }
         }
@@ -412,10 +410,8 @@ void TextSelection::setPreviewUrlTextSelectionEnd(const QModelIndex &index, int 
     if (msgUrl.hasHtmlDescription()) {
         const auto countMessageUrl{mMessageUrlSelection.count()};
         for (int i = 0; i < countMessageUrl; ++i) {
-            if (mMessageUrlSelection.at(i).messageUrl == msgUrl) {
-                MessageUrlSelection messageUrlSelectFound = mMessageUrlSelection.takeAt(i);
-                messageUrlSelectFound.toCharPos = charPos;
-                mMessageUrlSelection.append(std::move(messageUrlSelectFound));
+            if (mMessageUrlSelection.at(i).messageUrl.urlId() == msgUrl.urlId()) {
+                mMessageUrlSelection[i].toCharPos = charPos;
                 return;
             }
         }
