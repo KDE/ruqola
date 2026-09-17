@@ -55,11 +55,15 @@ ChannelListView::ChannelListView(QWidget *parent)
     setIndentation(0);
 
     connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &ChannelListView::slotClicked);
-    connect(model(), &QAbstractItemModel::rowsInserted, this, &QTreeView::expandAll);
     connect(model(), &QAbstractItemModel::modelReset, this, &QTreeView::expandAll);
-    connect(model(), &QAbstractItemModel::rowsMoved, this, &QTreeView::expandAll);
-    connect(model(), &QAbstractItemModel::layoutChanged, this, &QTreeView::expandAll);
     connect(this, &QTreeView::pressed, this, &ChannelListView::slotPressed);
+    connect(mRoomFilterProxyModel, &QAbstractItemModel::rowsInserted, this, [this](const QModelIndex &parent, int first, int last) {
+        if (!parent.isValid()) {
+            for (int row = first; row <= last; ++row) {
+                expand(mRoomFilterProxyModel->index(row, 0));
+            }
+        }
+    });
 }
 
 ChannelListView::~ChannelListView() = default;
@@ -90,8 +94,9 @@ RoomFilterProxyModel *ChannelListView::filterModel() const
 void ChannelListView::slotPressed(const QModelIndex &index)
 {
     if (index.isValid()) {
-        if (!index.parent().isValid())
+        if (!index.parent().isValid()) {
             return;
+        }
 
         const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
         Q_EMIT roomPressed(roomId);
