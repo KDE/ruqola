@@ -128,10 +128,8 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
 
     QAbstractTextDocumentLayout::PaintContext ctx;
     if (selection) {
-        const QList<QAbstractTextDocumentLayout::Selection> selections =
-            MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, msgUrl, isAMessage);
         // Same as pDoc->drawContents(painter, clip) but we also set selections
-        ctx.selections = selections;
+        ctx.selections = MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, msgUrl, isAMessage);
         if (clip.isValid()) {
             painter->setClipRect(clip);
             ctx.clip = clip;
