@@ -13,7 +13,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QJsonParseError>
 #include <QRandomGenerator>
 #include <QUuid>
 #include <openssl/evp.h>

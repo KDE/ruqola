@@ -7,10 +7,11 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QObject>
-#include <QString>
+#include <QMetaType>
+#include <QStringList>
 class QDebug;
 class QJsonObject;
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT ModerationReportedMessageInfo
 {
 public:
