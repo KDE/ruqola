@@ -21,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 std::unique_ptr<QTextDocument> MessageDelegateUtils::createTextDocument(bool useItalic, const QString &text, int width)
 {
     std::unique_ptr<QTextDocument> doc(new QTextDocument);
+    doc->setUndoRedoEnabled(false);
     doc->setHtml(text);
     doc->setTextWidth(width);
     QFont font = qApp->font();
