@@ -218,7 +218,7 @@ void TeamChannelsWidget::slotAddExistingRoom()
 void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     if (!teamRooms.isEmpty()) {
         mTeamRoomsModel->insertRooms(teamRooms);
     }

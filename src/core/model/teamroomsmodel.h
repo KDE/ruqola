@@ -34,7 +34,7 @@ public:
 
     void setRoomChanged(const TeamRoom &teamRoom);
 
-    void insertRooms(const QList<TeamRoom> &teamRooms);
+    void insertRooms(QList<TeamRoom> teamRooms);
 
     [[nodiscard]] bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     [[nodiscard]] Qt::ItemFlags flags(const QModelIndex &index) const override;
