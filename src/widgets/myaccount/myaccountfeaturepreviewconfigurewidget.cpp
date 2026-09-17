@@ -51,10 +51,10 @@ void MyAccountFeaturePreviewConfigureWidget::save()
 {
     RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     QMap<QString, bool> featuresPreview;
-    if (mAddDraftCheckBox->isVisible()) {
+    if (!mAddDraftCheckBox->isHidden()) {
         featuresPreview.insert("sidebarDrafts"_L1, mAddDraftCheckBox->isChecked());
     }
-    if (mTimeStampCheckBox->isVisible()) {
+    if (!mTimeStampCheckBox->isHidden()) {
         // TODO
         featuresPreview.insert("timeStamp"_L1, mTimeStampCheckBox->isChecked());
     }
@@ -65,18 +65,11 @@ void MyAccountFeaturePreviewConfigureWidget::save()
 
 void MyAccountFeaturePreviewConfigureWidget::initialize()
 {
-    if (mRocketChatAccount && mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
-        if (!mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
-            mTimeStampCheckBox->hide();
-        }
-        if (mRocketChatAccount->hasAtLeastVersion(8, 5, 0)) {
-            if (!mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
-                mAddDraftCheckBox->hide();
-            }
-        } else {
-            mAddDraftCheckBox->hide();
-        }
-    }
+    const bool hasV8 = mRocketChatAccount && mRocketChatAccount->hasAtLeastVersion(8, 0, 0);
+    const OwnUserPreferences prefs = mRocketChatAccount ? mRocketChatAccount->ownUserPreferences() : OwnUserPreferences{};
+    mTimeStampCheckBox->setHidden(!hasV8 || !prefs.serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser));
+    mAddDraftCheckBox->setHidden(!hasV8 || !mRocketChatAccount->hasAtLeastVersion(8, 5, 0)
+                                 || !prefs.serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
 }
 
 #include "moc_myaccountfeaturepreviewconfigurewidget.cpp"

@@ -88,7 +88,6 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     KLineEditEventHandler::catchReturnKey(mStatusText);
     mStatusText->setObjectName(u"mStatusText"_s);
     mainLayout->addRow(i18n("Status text:"), mStatusText);
-    mStatusText->setClearButtonEnabled(true);
 
     mStatusTextInfo->setPalette(pal);
     mStatusTextInfo->setObjectName(u"mStatusTextInfo"_s);
@@ -156,7 +155,9 @@ void MyAccountProfileConfigureWidget::initialize()
     mEmail->setReadOnly(!mRocketChatAccount->ruqolaServerConfig()->allowEmailChange());
     mEmailInfo->setVisible(!mRocketChatAccount->ruqolaServerConfig()->allowEmailChange());
 
+    mStatusText->setReadOnly(!mRocketChatAccount->ruqolaServerConfig()->allowCustomStatusMessage());
     mStatusTextInfo->setVisible(!mRocketChatAccount->ruqolaServerConfig()->allowCustomStatusMessage());
+    mStatusText->setClearButtonEnabled(mRocketChatAccount->ruqolaServerConfig()->allowCustomStatusMessage());
     mPasswordConfirmWidget->setVisible(mRocketChatAccount->ruqolaServerConfig()->allowPasswordChange());
     mDeleteMyAccount->setVisible(mRocketChatAccount->ruqolaServerConfig()->allowDeleteOwnAccount());
     mConfigureAvatarWidget->setVisible(mRocketChatAccount->ruqolaServerConfig()->allowAvatarChanged());
@@ -203,7 +204,7 @@ void MyAccountProfileConfigureWidget::save()
         updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Name;
         updateInfo.name = mName->text();
     }
-    if (mPasswordConfirmWidget->isVisible() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
+    if (!mPasswordConfirmWidget->isHidden() && mPasswordConfirmWidget->isNewPasswordConfirmed()) {
         updateInfo.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Password;
         updateInfo.newPassword = mPasswordConfirmWidget->password(); // Not encrypt it ???!
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
