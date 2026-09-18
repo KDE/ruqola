@@ -10,7 +10,7 @@
 #include <QCompleter>
 #include <QMenu>
 #include <QStringListModel>
-#define MAX_COMPLETION_ITEMS 20
+constexpr int MAX_COMPLETION_ITEMS = 20;
 using namespace Qt::Literals::StringLiterals;
 SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)
