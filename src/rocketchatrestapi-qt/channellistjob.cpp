@@ -31,7 +31,7 @@ bool ChannelListJob::start()
 
     submitGetRequest();
     addStartRestApiInfo("ChannelListJob: ask channel list"_ba);
-    return false;
+    return true;
 }
 
 void ChannelListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
