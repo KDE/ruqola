@@ -93,11 +93,13 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    auto it = mSizeHintCache.find(identifier);
-    if (it != mSizeHintCache.end()) {
-        const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "ListDiscussionDelegate: SizeHint found in cache: " << result;
-        return result;
+    if (!identifier.isEmpty()) {
+        auto it = mSizeHintCache.find(identifier);
+        if (it != mSizeHintCache.end()) {
+            const QSize result = it->value;
+            qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "ListDiscussionDelegate: SizeHint found in cache: " << result;
+            return result;
+        }
     }
 #endif
     // Note: option.rect in this method is huge (as big as the viewport)
@@ -119,7 +121,7 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if (!size.isEmpty()) {
+    if (!size.isEmpty() && !identifier.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif
@@ -255,13 +257,14 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 QByteArray ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toByteArray();
-    Q_ASSERT(!discussionRoomId.isEmpty());
     return discussionRoomId;
 }
 
 QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
-    Q_ASSERT(index.isValid());
+    if (!index.isValid()) {
+        return nullptr;
+    }
     const QByteArray messageId = cacheIdentifier(index);
     const QString messageStr = index.data(DiscussionsModel::Description).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageStr, width);
