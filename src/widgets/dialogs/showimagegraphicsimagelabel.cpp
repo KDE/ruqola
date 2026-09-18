@@ -37,7 +37,7 @@ void ShowImageGraphicsImageLabel::mousePressEvent(QMouseEvent *event)
 void ShowImageGraphicsImageLabel::mouseMoveEvent(QMouseEvent *event)
 {
     if ((event->buttons() == Qt::LeftButton) && (event->modifiers() & Qt::ControlModifier)
-        && (event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+        && (event->pos() - mDragStartPosition).manhattanLength() > QApplication::startDragDistance()) {
         QDrag *drag = new QDrag(this);
         QMimeData *mimeData = new QMimeData;
         mimeData->setUrls(QList<QUrl>{QUrl::fromLocalFile(mImagePath)});
