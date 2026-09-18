@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabasetooltipdelegate.h"
+#include <QAbstractItemView>
 #include <QHelpEvent>
 #include <QToolTip>
 
@@ -22,9 +23,11 @@ bool ExploreDatabaseTooltipDelegate::helpEvent(QHelpEvent *event, QAbstractItemV
     }
 
     if (event->type() == QEvent::ToolTip) {
-        const QString tooltip = index.data(Qt::DisplayRole).toString();
-        QToolTip::showText(event->globalPos(), tooltip);
-        return true;
+        const QString tooltip = index.data(Qt::DisplayRole).toString().toHtmlEscaped();
+        if (!tooltip.isEmpty()) {
+            QToolTip::showText(event->globalPos(), tooltip, view);
+            return true;
+        }
     }
     return QStyledItemDelegate::helpEvent(event, view, option, index);
 }
