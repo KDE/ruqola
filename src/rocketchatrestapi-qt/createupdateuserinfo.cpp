@@ -38,6 +38,8 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
     d.space() << "mRequirePasswordChange " << t.mRequirePasswordChange;
     d.space() << "mAssignRandomPassword " << t.mSetRandomPassword;
     d.space() << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
+    d.space() << "mVerified " << t.mVerified;
+    d.space() << "mTypeInfo " << t.mTypeInfo;
     return d;
 }
 

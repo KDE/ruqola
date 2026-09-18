@@ -75,6 +75,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
     d.space() << "encrypted " << t.encrypted;
     d.space() << "private channel " << t.privateChannel;
     d.space() << "infoType " << t.infoType;
+    d.space() << "federated " << t.federated;
     return d;
 }
 
