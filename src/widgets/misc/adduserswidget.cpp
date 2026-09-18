@@ -75,12 +75,7 @@ void AddUsersWidget::slotRemoveUser(const QByteArray &userId)
 
 QList<QByteArray> AddUsersWidget::userIds() const
 {
-    QList<QByteArray> addUsers;
-    addUsers.reserve(mMap.count());
-    for (const auto &[key, value] : mMap.asKeyValueRange()) {
-        addUsers << value->identifier();
-    }
-    return addUsers;
+    return mMap.keys();
 }
 
 QStringList AddUsersWidget::userNames() const
