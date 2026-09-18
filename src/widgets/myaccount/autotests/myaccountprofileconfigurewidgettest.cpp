@@ -56,7 +56,7 @@ void MyAccountProfileConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mStatusText = w.findChild<QLineEdit *>(u"mStatusText"_s);
     QVERIFY(mStatusText);
-    QVERIFY(mStatusText->isClearButtonEnabled());
+    // It depends about account => disable it QVERIFY(mStatusText->isClearButtonEnabled());
 
     auto mStatusTextInfo = w.findChild<QLabel *>(u"mStatusTextInfo"_s);
     QVERIFY(mStatusTextInfo);
