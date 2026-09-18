@@ -111,6 +111,14 @@ AccountsOverviewWidget::~AccountsOverviewWidget() = default;
 
 void AccountsOverviewWidget::updateButtons()
 {
+    // The proxy can hide an account (activities filter) without destroying it: dropping the
+    // connections account by account inside the loop below would leave the hidden one wired to a
+    // tab index which now belongs to somebody else.
+    for (const QMetaObject::Connection &connection : std::as_const(mAccountConnections)) {
+        disconnect(connection);
+    }
+    mAccountConnections.clear();
+
     const auto model = mAccountManager->rocketChatAccountProxyModel();
     const auto count = model->rowCount();
 
@@ -121,8 +129,6 @@ void AccountsOverviewWidget::updateButtons()
 
         auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        disconnect(account, nullptr, this, nullptr);
-        disconnect(account->roomModel(), nullptr, this, nullptr);
 
         mTabBar->setTabData(i, QVariant::fromValue(account));
         mTabBar->setTabVisible(i, account->accountEnabled());
@@ -150,23 +156,23 @@ void AccountsOverviewWidget::updateButtons()
             }
             mTabBar->setTabIcon(i, icon);
         };
-        connect(account, &RocketChatAccount::accountNameChanged, this, updateTabText);
-        connect(account, &RocketChatAccount::loginStatusChanged, this, [updateTabText, updateTabToolTip]() {
+        mAccountConnections += connect(account, &RocketChatAccount::accountNameChanged, this, updateTabText);
+        mAccountConnections += connect(account, &RocketChatAccount::loginStatusChanged, this, [updateTabText, updateTabToolTip]() {
             updateTabText();
             updateTabToolTip();
         });
-        connect(account, &RocketChatAccount::ddpLoginStatusChanged, this, [updateTabText, updateTabToolTip]() {
+        mAccountConnections += connect(account, &RocketChatAccount::ddpLoginStatusChanged, this, [updateTabText, updateTabToolTip]() {
             updateTabText();
             updateTabToolTip();
         });
-        connect(account, &RocketChatAccount::ddpConnectedChanged, this, [updateTabToolTip]() {
+        mAccountConnections += connect(account, &RocketChatAccount::ddpConnectedChanged, this, [updateTabToolTip]() {
             updateTabToolTip();
         });
-        connect(account->roomModel(), &RoomModel::needToUpdateNotification, this, [updateTabText, updateTabIcon]() {
+        mAccountConnections += connect(account->roomModel(), &RoomModel::needToUpdateNotification, this, [updateTabText, updateTabIcon]() {
             updateTabText();
             updateTabIcon();
         });
-        connect(account->roomModel(), &RoomModel::roomNeedAttention, this, [updateTabText, updateTabIcon]() {
+        mAccountConnections += connect(account->roomModel(), &RoomModel::roomNeedAttention, this, [updateTabText, updateTabIcon]() {
             updateTabText();
             updateTabIcon();
         });

@@ -8,6 +8,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QList>
 #include <QWidget>
 
 class QTabBar;
@@ -27,6 +28,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateCurrentTab();
     LIBRUQOLAWIDGETS_NO_EXPORT void goToView(int index);
 
+    QList<QMetaObject::Connection> mAccountConnections;
     QTabBar *const mTabBar;
     AccountManager *const mAccountManager;
 };
