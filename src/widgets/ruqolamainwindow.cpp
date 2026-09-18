@@ -134,23 +134,25 @@ RuqolaMainWindow::RuqolaMainWindow(const QList<KAboutRelease> &releases, QWidget
     mSwitchChannelTreeManager->setParentWidget(mMainWidget);
     connect(mSwitchChannelTreeManager, &SwitchChannelTreeViewManager::switchToChannel, this, &RuqolaMainWindow::slotHistorySwitchChannel);
     mAccountManager = Ruqola::self()->accountManager();
-    connect(mAccountManager, &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
+    connect(mAccountManager, &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotCurrentAccountChanged);
     connect(mAccountManager, &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(mAccountManager, &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
+    connect(mAccountManager, &AccountManager::accountsChanged, this, &RuqolaMainWindow::slotAccountsChanged);
 
     connect(Ruqola::self(), &Ruqola::addInviteServer, this, &RuqolaMainWindow::slotAddInviteServer);
 #if ADD_OFFLINE_SUPPORT
     connect(Ruqola::self(), &Ruqola::offlineModeChanged, this, &RuqolaMainWindow::slotOfflineModeChanged);
 #endif
 
-    slotAccountChanged();
+    slotCurrentAccountChanged();
 #if HAVE_KUSERFEEDBACK
     auto userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
     mShowMenuBarAction->setChecked(RuqolaGlobalConfig::self()->showMenuBar());
     slotToggleMenubar(true);
+    slotAccountsChanged();
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()
@@ -250,7 +252,12 @@ void RuqolaMainWindow::slotNewNotification()
     mNotificationToolButton->show();
 }
 
-void RuqolaMainWindow::slotAccountChanged()
+void RuqolaMainWindow::slotAccountsChanged()
+{
+    mServerMenu->slotUpdateAccountMenu();
+}
+
+void RuqolaMainWindow::slotCurrentAccountChanged()
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);

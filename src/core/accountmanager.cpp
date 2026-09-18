@@ -399,6 +399,7 @@ void AccountManager::modifyAccount(AccountManagerInfo &&info)
         // Last, so that a reconnection picks up the settings written above. Enabling/disabling is a
         // network-state matter, not a signal-wiring one: a disconnected account emits nothing.
         account->setAccountEnabled(info.enabled);
+        Q_EMIT accountsChanged();
     }
 }
 
@@ -425,6 +426,7 @@ void AccountManager::addAccount(RocketChatAccount *account)
         const QString accountName = account->accountName();
         setCurrentAccount(accountName);
     }
+    Q_EMIT accountsChanged();
 }
 
 void AccountManager::selectAccount(const QString &accountName)
@@ -555,6 +557,7 @@ void AccountManager::removeAccount(const QString &accountName, bool removeLogFil
     if (account) {
         account->deleteLater();
     }
+    Q_EMIT accountsChanged();
 }
 
 RocketChatAccountModel *AccountManager::rocketChatAccountModel() const

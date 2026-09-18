@@ -132,6 +132,7 @@ Q_SIGNALS:
     void currentAccountChanged();
     void roomNeedAttention();
     void activitiesChanged();
+    void accountsChanged();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void selectAccount(const QString &accountName);

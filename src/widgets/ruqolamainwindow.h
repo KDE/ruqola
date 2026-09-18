@@ -68,7 +68,8 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateNewChannel();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTypingNotificationChanged(const QByteArray &roomId, const QString &notificationStr);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClearNotification();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccountChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentAccountChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccountsChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUnreadOnTop(bool checked);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomListSortByLastMessage();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomListSortAlphabetically();

@@ -8,6 +8,7 @@
 #include <KActionMenu>
 
 #include "libruqolawidgets_private_export.h"
+class QActionGroup;
 class KActionCollection;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerMenu : public KActionMenu
 {
@@ -18,7 +19,9 @@ public:
 
     void setActionCollection(KActionCollection *ac);
 
+    void slotUpdateAccountMenu();
+
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateAccountMenu();
     KActionCollection *mActionCollection = nullptr;
+    QActionGroup *const mActionGroup;
 };

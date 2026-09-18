@@ -14,12 +14,15 @@
 #include "ruqola.h"
 #include <KActionCollection>
 #include <KLocalizedString>
+#include <QActionGroup>
 #include <QMenu>
 
 using namespace Qt::Literals::StringLiterals;
 ServerMenu::ServerMenu(QWidget *parent)
     : KActionMenu(parent)
+    , mActionGroup(new QActionGroup(this))
 {
+    mActionGroup->setExclusive(true);
     setText(i18n("Server"));
     connect(menu(), &QMenu::aboutToShow, this, &ServerMenu::slotUpdateAccountMenu);
 }
@@ -68,6 +71,7 @@ void ServerMenu::slotUpdateAccountMenu()
                 connect(action, &QAction::triggered, this, [accountName, accountManager]() {
                     accountManager->setCurrentAccount(accountName);
                 });
+                mActionGroup->addAction(action);
                 ++shortcutIndex;
             }
         }
