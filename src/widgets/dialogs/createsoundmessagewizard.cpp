@@ -148,7 +148,7 @@ QDebug operator<<(QDebug d, const CreateSoundMessageWizard::CreateSoundMessageIn
 {
     d.space() << "mDescription" << t.mDescription;
     d.space() << "mFileName" << t.mFileName;
-    d.space() << "mDescription" << t.mDescription;
+    d.space() << "mFileUrl" << t.mFileUrl;
     return d;
 }
 
