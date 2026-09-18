@@ -66,6 +66,7 @@ ShowDiscussionsWidget::~ShowDiscussionsWidget()
 {
     // Don't keep in memory list of messages
     if (mDiscussionModel) {
+        mDiscussionModel->setFilterString(QString());
         mDiscussionModel->clear();
     }
 }
