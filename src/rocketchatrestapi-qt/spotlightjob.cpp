@@ -69,7 +69,7 @@ QNetworkRequest SpotlightJob::request() const
 
 bool SpotlightJob::canStart() const
 {
-    if (mSearchPattern.trimmed().isEmpty()) {
+    if (QStringView(mSearchPattern).trimmed().isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SpotlightJob: searchpattern is empty";
         return false;
     }
