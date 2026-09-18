@@ -18,7 +18,7 @@ public:
     void setChannelId(const QByteArray &newChannelId);
 
 Q_SIGNALS:
-    void channedIdDefined(bool enabled);
+    void channelIdDefined(bool enabled);
 
 private:
     void slotJoinedChannelFound(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info);

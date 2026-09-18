@@ -84,7 +84,7 @@ ExploreDatabaseViewMessagesWidget::ExploreDatabaseViewMessagesWidget(RocketChatA
     connect(pushButton, &QPushButton::clicked, this, &ExploreDatabaseViewMessagesWidget::slotLoad);
     connect(mRoomName, &QLineEdit::returnPressed, this, &ExploreDatabaseViewMessagesWidget::slotLoad);
 
-    connect(mRoomName, &ExploreDatabaseLineEdit::channedIdDefined, this, [pushButton](bool enabled) {
+    connect(mRoomName, &ExploreDatabaseLineEdit::channelIdDefined, this, [pushButton](bool enabled) {
         pushButton->setEnabled(enabled);
     });
     pushButton->setEnabled(false);
