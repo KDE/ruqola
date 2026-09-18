@@ -40,10 +40,10 @@ ExploreDatabaseBaseStorageWidget::ExploreDatabaseBaseStorageWidget(RocketChatAcc
     KLineEditEventHandler::catchReturnKey(mFilterLineEdit);
     mTableView->setObjectName(u"mTableView"_s);
     mTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    mTableView->setSortingEnabled(true);
     tableLayout->addWidget(mFilterLineEdit);
     tableLayout->addWidget(mTableView);
     mTableView->setModel(mSortFilterProxyModel);
+    mTableView->setSortingEnabled(true);
     mTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     mTableView->verticalHeader()->hide();
     mSortFilterProxyModel->setFilterKeyColumn(-1); // don't select specific column
