@@ -27,6 +27,7 @@ ReportUserWidget::ReportUserWidget(QWidget *parent)
     QFont messagePreviewFont = mUserName->font();
     messagePreviewFont.setBold(true);
     mUserName->setFont(messagePreviewFont);
+    mUserName->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(mUserName);
 
     auto messageLayout = new QHBoxLayout;
