@@ -122,8 +122,9 @@ void SearchTreeBaseWidget::finishSearching()
 
 void SearchTreeBaseWidget::resizeColumToContents()
 {
+    const auto excludeResizeToContentColumns = mModel->excludeResizeToContentColumns();
     for (int i = 0, total = mTreeView->header()->count(); i < total; ++i) {
-        if (!mModel->excludeResizeToContentColumns().contains(i)) {
+        if (!excludeResizeToContentColumns.contains(i)) {
             mTreeView->resizeColumnToContents(i);
         }
     }
