@@ -266,6 +266,9 @@ QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &
         return nullptr;
     }
     const QByteArray messageId = cacheIdentifier(index);
+    if (messageId.isEmpty()) {
+        return nullptr;
+    }
     const QString messageStr = index.data(DiscussionsModel::Description).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageStr, width);
 }
