@@ -8,7 +8,6 @@
 
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonObject>
-#include <QNetworkRequest>
 
 #include <QUrlQuery>
 
