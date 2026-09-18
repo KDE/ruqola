@@ -9,7 +9,9 @@
 #include "abstractlogger.h"
 #include "privateutils.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLazyLocalizedString>
 #include <KLocalizedString>
+#include <QHash>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -255,246 +257,159 @@ QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const
     return i18n("%1:%2", jobName(), errorStr);
 }
 
+namespace
+{
+// Translated messages for the error types that need nothing from the "details" object.
+[[nodiscard]] const QHash<QStringView, KLazyLocalizedString> &simpleErrorMessages()
+{
+    static const QHash<QStringView, KLazyLocalizedString> messages = {
+        {u"error-application-not-found", kli18n("Application not found")},
+        {u"error-cant-invite-for-direct-room", kli18n("Can't invite user to direct rooms")},
+        {u"error-channels-setdefault-is-same", kli18n("The channel default setting is the same as what it would be changed to.")},
+        {u"error-channels-setdefault-missing-default-param", kli18n("The bodyParam 'default' is required")},
+        {u"error-could-not-change-email", kli18n("Could not change email")},
+        {u"error-could-not-change-name", kli18n("Could not change name")},
+        {u"error-could-not-change-username", kli18n("Could not change username")},
+        {u"error-delete-protected-role", kli18n("Cannot delete a protected role")},
+        {u"error-department-not-found", kli18n("Department not found")},
+        {u"error-direct-message-file-upload-not-allowed", kli18n("File sharing not allowed in direct messages")},
+        {u"error-edit-permissions-not-allowed", kli18n("Editing permissions is not allowed")},
+        {u"error-email-domain-blacklisted", kli18n("The email domain is blacklisted")},
+        {u"error-file-too-large", kli18n("File is too large")},
+        {u"error-importer-not-defined", kli18n("The importer was not defined correctly, it is missing the Import class.")},
+        {u"error-import-file-extract-error", kli18n("Failed to extract import file.")},
+        {u"error-import-file-is-empty", kli18n("Imported file seems to be empty.")},
+        {u"error-import-file-missing", kli18n("The file to be imported was not found on the specified path.")},
+        {u"error-invalid-actionlink", kli18n("Invalid action link")},
+        {u"error-invalid-account", kli18n("Invalid Account")},
+        {u"error-invalid-arguments", kli18n("Invalid arguments")},
+        {u"error-invalid-asset", kli18n("Invalid asset")},
+        {u"error-invalid-channel", kli18n("Invalid channel.")},
+        {u"error-invalid-channel-start-with-chars", kli18n("Invalid channel. Start with @ or #")},
+        {u"error-invalid-custom-field", kli18n("Invalid custom field")},
+        {u"error-invalid-custom-field-name", kli18n("Invalid custom field name. Use only letters, numbers, hyphens and underscores.")},
+        {u"error-invalid-date", kli18n("Invalid date provided.")},
+        {u"error-invalid-description", kli18n("Invalid description")},
+        {u"error-invalid-domain", kli18n("Invalid domain")},
+        {u"error-invalid-email-address", kli18n("Invalid email address")},
+        {u"error-invalid-file-height", kli18n("Invalid file height")},
+        {u"error-invalid-file-type", kli18n("Invalid file type")},
+        {u"error-invalid-file-width", kli18n("Invalid file width")},
+        {u"error-invalid-from-address", kli18n("You informed an invalid FROM address.")},
+        {u"error-invalid-integration", kli18n("Invalid integration")},
+        {u"error-invalid-message", kli18n("Invalid message")},
+        {u"error-invalid-method", kli18n("Invalid method")},
+        {u"error-invalid-name", kli18n("Invalid name")},
+        {u"error-invalid-password", kli18n("Invalid password")},
+        {u"error-invalid-permission", kli18n("Invalid permission")},
+        {u"error-invalid-redirectUri", kli18n("Invalid redirectUri")},
+        {u"error-invalid-role", kli18n("Invalid role")},
+        {u"error-invalid-room", kli18n("Invalid room")},
+        {u"error-invalid-settings", kli18n("Invalid settings provided")},
+        {u"error-invalid-subscription", kli18n("Invalid subscription")},
+        {u"error-invalid-token", kli18n("Invalid token")},
+        {u"error-invalid-triggerWords", kli18n("Invalid triggerWords")},
+        {u"error-invalid-urls", kli18n("Invalid URLs")},
+        {u"error-invalid-user", kli18n("Invalid user")},
+        {u"error-invalid-username", kli18n("Invalid username")},
+        {u"error-invalid-webhook-response", kli18n("The webhook URL responded with a status other than 200")},
+        {u"error-message-deleting-blocked", kli18n("Message deleting is blocked")},
+        {u"error-message-editing-blocked", kli18n("Message editing is blocked")},
+        {u"error-message-size-exceeded", kli18n("Message size exceeds Message_MaxAllowedSize")},
+        {u"error-missing-unsubscribe-link", kli18n("You must provide the [unsubscribe] link.")},
+        {u"error-no-tokens-for-this-user", kli18n("There are no tokens for this user")},
+        {u"error-not-allowed", kli18n("Not allowed")},
+        {u"error-not-authorized", kli18n("Not authorized")},
+        {u"not-authorized", kli18n("Not authorized")},
+        {u"error-password-policy-not-met", kli18n("Password does not meet the server's policy")},
+        {u"error-password-policy-not-met-maxLength", kli18n("Password does not meet the server's policy of maximum length (password too long)")},
+        {u"error-password-policy-not-met-minLength", kli18n("Password does not meet the server's policy of minimum length (password too short)")},
+        {u"error-password-policy-not-met-oneLowercase", kli18n("Password does not meet the server's policy of at least one lowercase character")},
+        {u"error-password-policy-not-met-oneNumber", kli18n("Password does not meet the server's policy of at least one numerical character")},
+        {u"error-password-policy-not-met-oneSpecial", kli18n("Password does not meet the server's policy of at least one special character")},
+        {u"error-password-policy-not-met-oneUppercase", kli18n("Password does not meet the server's policy of at least one uppercase character")},
+        {u"error-password-policy-not-met-repeatingCharacters",
+         kli18n("Password does not meet the server's policy of forbidden repeating characters (you have too many of the same characters next to each other)")},
+        {u"error-push-disabled", kli18n("Push is disabled")},
+        {u"error-remove-last-owner", kli18n("This is the last owner. Please set a new owner before removing this one.")},
+        {u"error-role-in-use", kli18n("Cannot delete role because it's in use")},
+        {u"error-role-name-required", kli18n("Role name is required")},
+        {u"error-room-is-not-closed", kli18n("Room is not closed")},
+        {u"error-room-e2e-key-already-exists", kli18n("The room already has an end-to-end encryption key ID")},
+        {u"error-this-is-not-a-livechat-room", kli18n("This is not a Livechat room")},
+        {u"error-personal-access-tokens-are-current-disabled", kli18n("Personal Access Tokens are currently disabled")},
+        {u"error-token-already-exists", kli18n("A token with this name already exists")},
+        {u"error-token-does-not-exists", kli18n("Token does not exists")},
+        {u"error-user-has-no-roles", kli18n("User has no roles")},
+        {u"error-user-is-not-activated", kli18n("User is not activated")},
+        {u"error-user-limit-exceeded", kli18n("The number of users you are trying to invite to #channel_name exceeds the limit set by the administrator")},
+        {u"error-user-not-in-room", kli18n("User is not in this room")},
+        {u"error-logged-user-not-in-room", kli18n("You are not in the room `%s`")},
+        {u"error-user-registration-disabled", kli18n("User registration is disabled")},
+        {u"error-user-registration-secret", kli18n("User registration is only allowed via Secret URL")},
+        {u"error-you-are-last-owner", kli18n("You are the last owner. Please set new owner before leaving the room.")},
+        {u"error-room-archived", kli18n("The private group is archived")},
+        {u"error-user-already-owner", kli18n("User is already an owner")},
+        {u"error-user-already-leader", kli18n("User is already a leader")},
+        {u"error-user-already-moderator", kli18n("User is already a moderator")},
+        {u"error-invalid-message_id", kli18n("Invalid message id")},
+        {u"error-user-not-leader", kli18n("User is not a leader")},
+        {u"error-app-user-is-not-allowed-to-login", kli18n("App user is not allowed to login")},
+        {u"error-direct-message-room", kli18n("Direct Messages can not be archived")},
+        {u"error-message-not-found", kli18n("Message not found.")},
+        {u"totp-required", kli18n("Two Authentication Password Required")},
+        {u"totp-invalid", kli18n("Invalid Password")},
+        {u"error-room-not-found", kli18n("The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not match any channel")},
+        {u"error-role-already-present", kli18n("A role with this name already exists")},
+        {u"error-pinning-message", kli18n("Message could not be pinned")},
+        {u"error-password-in-history", kli18n("Entered password has been previously used")},
+        {u"error-max-rooms-per-guest-reached", kli18n("The maximum number of rooms per guest has been reached.")},
+    };
+    return messages;
+}
+
+// Translated messages that substitute one or two fields of the "details" object, in "%1"/"%2" order.
+struct DetailedErrorMessage {
+    KLazyLocalizedString message;
+    QLatin1StringView firstDetail;
+    QLatin1StringView secondDetail = {};
+};
+
+[[nodiscard]] const QHash<QStringView, DetailedErrorMessage> &detailedErrorMessages()
+{
+    static const QHash<QStringView, DetailedErrorMessage> messages = {
+        {u"error-action-not-allowed", {kli18n("'%1' is not allowed"), "action"_L1}},
+        {u"error-archived-duplicate-name", {kli18n("There's an archived channel with name '%1'"), "room_name"_L1}},
+        {u"error-duplicate-channel-name", {kli18n("A channel with name '%1' exists"), "channel_name"_L1}},
+        {u"error-email-send-failed", {kli18n("Error trying to send email: %1"), "message"_L1}},
+        {u"error-field-unavailable", {kli18n("'%1' is already in use :("), "field"_L1}},
+        {u"error-input-is-not-a-valid-field", {kli18n("%1 is not a valid %2"), "input"_L1, "field"_L1}},
+        {u"error-invalid-email", {kli18n("Invalid email '%1'"), "email"_L1}},
+        {u"error-invalid-room-name", {kli18n("'%1' is not a valid room name"), "room_name"_L1}},
+        {u"error-invalid-room-type", {kli18n("'%1' is not a valid room type."), "type"_L1}},
+        {u"error-the-field-is-required", {kli18n("The field '%1' is required."), "field"_L1}},
+        {u"error-too-many-requests", {kli18n("Error, too many requests. Please slow down. You must wait %1 seconds before trying again."), "seconds"_L1}},
+    };
+    return messages;
+}
+}
+
 QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &details)
 {
-    // qDebug() << " details " << details;
-    if (str == "error-action-not-allowed"_L1) {
-        const QString actionName = details["action"_L1].toString();
-        return i18n("'%1' is not allowed", actionName);
-    } else if (str == "error-application-not-found"_L1) {
-        return i18n("Application not found");
-    } else if (str == "error-archived-duplicate-name"_L1) {
-        const QString roomName = details["room_name"_L1].toString();
-        return i18n("There's an archived channel with name '%1'", roomName);
-    } else if (str == "error-cant-invite-for-direct-room"_L1) {
-        return i18n("Can't invite user to direct rooms");
-    } else if (str == "error-channels-setdefault-is-same"_L1) {
-        return i18n("The channel default setting is the same as what it would be changed to.");
-    } else if (str == "error-channels-setdefault-missing-default-param"_L1) {
-        return i18n("The bodyParam 'default' is required");
-    } else if (str == "error-could-not-change-email"_L1) {
-        return i18n("Could not change email");
-    } else if (str == "error-could-not-change-name"_L1) {
-        return i18n("Could not change name");
-    } else if (str == "error-could-not-change-username"_L1) {
-        return i18n("Could not change username");
-    } else if (str == "error-delete-protected-role"_L1) {
-        return i18n("Cannot delete a protected role");
-    } else if (str == "error-department-not-found"_L1) {
-        return i18n("Department not found");
-    } else if (str == "error-direct-message-file-upload-not-allowed"_L1) {
-        return i18n("File sharing not allowed in direct messages");
-    } else if (str == "error-duplicate-channel-name"_L1) {
-        const QString channelName = details["channel_name"_L1].toString();
-        return i18n("A channel with name '%1' exists", channelName);
-    } else if (str == "error-edit-permissions-not-allowed"_L1) {
-        return i18n("Editing permissions is not allowed");
-    } else if (str == "error-email-domain-blacklisted"_L1) {
-        return i18n("The email domain is blacklisted");
-    } else if (str == "error-email-send-failed"_L1) {
-        const QString message = details["message"_L1].toString();
-        return i18n("Error trying to send email: %1", message);
-    } else if (str == "error-field-unavailable"_L1) {
-        const QString field = details["field"_L1].toString();
-        return i18n("'%1' is already in use :(", field);
-    } else if (str == "error-file-too-large"_L1) {
-        return i18n("File is too large");
-    } else if (str == "error-importer-not-defined"_L1) {
-        return i18n("The importer was not defined correctly, it is missing the Import class.");
-    } else if (str == "error-import-file-extract-error"_L1) {
-        return i18n("Failed to extract import file.");
-    } else if (str == "error-import-file-is-empty"_L1) {
-        return i18n("Imported file seems to be empty.");
-    } else if (str == "error-import-file-missing"_L1) {
-        return i18n("The file to be imported was not found on the specified path.");
-    } else if (str == "error-input-is-not-a-valid-field"_L1) {
-        const QString field = details["field"_L1].toString();
-        const QString input = details["input"_L1].toString();
-        return i18n("%1 is not a valid %2", input, field);
-    } else if (str == "error-invalid-actionlink"_L1) {
-        return i18n("Invalid action link");
-    } else if (str == "error-invalid-account"_L1) {
-        return i18n("Invalid Account");
-    } else if (str == "error-invalid-arguments"_L1) {
-        return i18n("Invalid arguments");
-    } else if (str == "error-invalid-asset"_L1) {
-        return i18n("Invalid asset");
-    } else if (str == "error-invalid-channel"_L1) {
-        return i18n("Invalid channel.");
-    } else if (str == "error-invalid-channel-start-with-chars"_L1) {
-        return i18n("Invalid channel. Start with @ or #");
-    } else if (str == "error-invalid-custom-field"_L1) {
-        return i18n("Invalid custom field");
-    } else if (str == "error-invalid-custom-field-name"_L1) {
-        return i18n("Invalid custom field name. Use only letters, numbers, hyphens and underscores.");
-    } else if (str == "error-invalid-date"_L1) {
-        return i18n("Invalid date provided.");
-    } else if (str == "error-invalid-description"_L1) {
-        return i18n("Invalid description");
-    } else if (str == "error-invalid-domain"_L1) {
-        return i18n("Invalid domain");
-    } else if (str == "error-invalid-email"_L1) {
-        const QString email = details["email"_L1].toString();
-        return i18n("Invalid email '%1'", email);
-    } else if (str == "error-invalid-email-address"_L1) {
-        return i18n("Invalid email address");
-    } else if (str == "error-invalid-file-height"_L1) {
-        return i18n("Invalid file height");
-    } else if (str == "error-invalid-file-type"_L1) {
-        return i18n("Invalid file type");
-    } else if (str == "error-invalid-file-width"_L1) {
-        return i18n("Invalid file width");
-    } else if (str == "error-invalid-from-address"_L1) {
-        return i18n("You informed an invalid FROM address.");
-    } else if (str == "error-invalid-integration"_L1) {
-        return i18n("Invalid integration");
-    } else if (str == "error-invalid-message"_L1) {
-        return i18n("Invalid message");
-    } else if (str == "error-invalid-method"_L1) {
-        return i18n("Invalid method");
-    } else if (str == "error-invalid-name"_L1) {
-        return i18n("Invalid name");
-    } else if (str == "error-invalid-password"_L1) {
-        return i18n("Invalid password");
-    } else if (str == "error-invalid-permission"_L1) {
-        return i18n("Invalid permission");
-    } else if (str == "error-invalid-redirectUri"_L1) {
-        return i18n("Invalid redirectUri");
-    } else if (str == "error-invalid-role"_L1) {
-        return i18n("Invalid role");
-    } else if (str == "error-invalid-room"_L1) {
-        return i18n("Invalid room");
-    } else if (str == "error-invalid-room-name"_L1) {
-        const QString roomName = details["room_name"_L1].toString();
-        return i18n("'%1' is not a valid room name", roomName);
-    } else if (str == "error-invalid-room-type"_L1) {
-        const QString roomType = details["type"_L1].toString();
-        return i18n("'%1' is not a valid room type.", roomType);
-    } else if (str == "error-invalid-settings"_L1) {
-        return i18n("Invalid settings provided");
-    } else if (str == "error-invalid-subscription"_L1) {
-        return i18n("Invalid subscription");
-    } else if (str == "error-invalid-token"_L1) {
-        return i18n("Invalid token");
-    } else if (str == "error-invalid-triggerWords"_L1) {
-        return i18n("Invalid triggerWords");
-    } else if (str == "error-invalid-urls"_L1) {
-        return i18n("Invalid URLs");
-    } else if (str == "error-invalid-user"_L1) {
-        return i18n("Invalid user");
-    } else if (str == "error-invalid-username"_L1) {
-        return i18n("Invalid username");
-    } else if (str == "error-invalid-webhook-response"_L1) {
-        return i18n("The webhook URL responded with a status other than 200");
-    } else if (str == "error-message-deleting-blocked"_L1) {
-        return i18n("Message deleting is blocked");
-    } else if (str == "error-message-editing-blocked"_L1) {
-        return i18n("Message editing is blocked");
-    } else if (str == "error-message-size-exceeded"_L1) {
-        return i18n("Message size exceeds Message_MaxAllowedSize");
-    } else if (str == "error-missing-unsubscribe-link"_L1) {
-        return i18n("You must provide the [unsubscribe] link.");
-    } else if (str == "error-no-tokens-for-this-user"_L1) {
-        return i18n("There are no tokens for this user");
-    } else if (str == "error-not-allowed"_L1) {
-        return i18n("Not allowed");
-    } else if (str == "error-not-authorized"_L1 || str == "not-authorized"_L1) {
-        return i18n("Not authorized");
-    } else if (str == "error-password-policy-not-met"_L1) {
-        return i18n("Password does not meet the server's policy");
-    } else if (str == "error-password-policy-not-met-maxLength"_L1) {
-        return i18n("Password does not meet the server's policy of maximum length (password too long)");
-    } else if (str == "error-password-policy-not-met-minLength"_L1) {
-        return i18n("Password does not meet the server's policy of minimum length (password too short)");
-    } else if (str == "error-password-policy-not-met-oneLowercase"_L1) {
-        return i18n("Password does not meet the server's policy of at least one lowercase character");
-    } else if (str == "error-password-policy-not-met-oneNumber"_L1) {
-        return i18n("Password does not meet the server's policy of at least one numerical character");
-    } else if (str == "error-password-policy-not-met-oneSpecial"_L1) {
-        return i18n("Password does not meet the server's policy of at least one special character");
-    } else if (str == "error-password-policy-not-met-oneUppercase"_L1) {
-        return i18n("Password does not meet the server's policy of at least one uppercase character");
-    } else if (str == "error-password-policy-not-met-repeatingCharacters"_L1) {
-        return i18n(
-            "Password does not meet the server's policy of forbidden repeating characters (you have too many of the same characters next to each other)");
-    } else if (str == "error-push-disabled"_L1) {
-        return i18n("Push is disabled");
-    } else if (str == "error-remove-last-owner"_L1) {
-        return i18n("This is the last owner. Please set a new owner before removing this one.");
-    } else if (str == "error-role-in-use"_L1) {
-        return i18n("Cannot delete role because it's in use");
-    } else if (str == "error-role-name-required"_L1) {
-        return i18n("Role name is required");
-    } else if (str == "error-room-is-not-closed"_L1) {
-        return i18n("Room is not closed");
-    } else if (str == "error-room-e2e-key-already-exists"_L1) {
-        return i18n("The room already has an end-to-end encryption key ID");
-    } else if (str == "error-the-field-is-required"_L1) {
-        const QString field = details["field"_L1].toString();
-        return i18n("The field '%1' is required.", field);
-    } else if (str == "error-this-is-not-a-livechat-room"_L1) {
-        return i18n("This is not a Livechat room");
-    } else if (str == "error-personal-access-tokens-are-current-disabled"_L1) {
-        return i18n("Personal Access Tokens are currently disabled");
-    } else if (str == "error-token-already-exists"_L1) {
-        return i18n("A token with this name already exists");
-    } else if (str == "error-token-does-not-exists"_L1) {
-        return i18n("Token does not exists");
-    } else if (str == "error-too-many-requests"_L1) {
-        const QString seconds = details["seconds"_L1].toString();
-        return i18n("Error, too many requests. Please slow down. You must wait %1 seconds before trying again.", seconds);
-    } else if (str == "error-user-has-no-roles"_L1) {
-        return i18n("User has no roles");
-    } else if (str == "error-user-is-not-activated"_L1) {
-        return i18n("User is not activated");
-    } else if (str == "error-user-limit-exceeded"_L1) {
-        return i18n("The number of users you are trying to invite to #channel_name exceeds the limit set by the administrator");
-    } else if (str == "error-user-not-in-room"_L1) {
-        return i18n("User is not in this room");
-    } else if (str == "error-logged-user-not-in-room"_L1) {
-        return i18n("You are not in the room `%s`");
-    } else if (str == "error-user-registration-disabled"_L1) {
-        return i18n("User registration is disabled");
-    } else if (str == "error-user-registration-secret"_L1) {
-        return i18n("User registration is only allowed via Secret URL");
-    } else if (str == "error-you-are-last-owner"_L1) {
-        return i18n("You are the last owner. Please set new owner before leaving the room.");
-    } else if (str == "error-room-archived"_L1) {
-        return i18n("The private group is archived");
-    } else if (str == "error-user-already-owner"_L1) {
-        return i18n("User is already an owner");
-    } else if (str == "error-user-already-leader"_L1) {
-        return i18n("User is already a leader");
-    } else if (str == "error-user-already-moderator"_L1) {
-        return i18n("User is already a moderator");
-    } else if (str == "error-invalid-message_id"_L1) {
-        return i18n("Invalid message id");
-    } else if (str == "error-user-not-leader"_L1) {
-        return i18n("User is not a leader");
-    } else if (str == "error-app-user-is-not-allowed-to-login"_L1) {
-        return i18n("App user is not allowed to login");
-    } else if (str == "error-direct-message-room"_L1) {
-        return i18n("Direct Messages can not be archived");
-    } else if (str == "error-message-not-found"_L1) {
-        return i18n("Message not found.");
-    } else if (str == "totp-required"_L1) {
-        return i18n("Two Authentication Password Required");
-    } else if (str == "totp-invalid"_L1) {
-        return i18n("Invalid Password");
-    } else if (str == "error-room-not-found"_L1) {
-        return i18n("The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not match any channel");
-    } else if (str == "error-role-already-present"_L1) {
-        return i18n("A role with this name already exists");
-    } else if (str == "error-pinning-message"_L1) {
-        return i18n("Message could not be pinned");
-    } else if (str == "error-password-in-history"_L1) {
-        return i18n("Entered password has been previously used");
-    } else if (str == "error-max-rooms-per-guest-reached"_L1) {
-        return i18n("The maximum number of rooms per guest has been reached.");
-    } else {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
-        return {};
+    const auto &simpleMessages = simpleErrorMessages();
+    if (const auto it = simpleMessages.constFind(str); it != simpleMessages.cend()) {
+        return it->toString();
     }
+    const auto &detailedMessages = detailedErrorMessages();
+    if (const auto it = detailedMessages.constFind(str); it != detailedMessages.cend()) {
+        KLocalizedString message = it->message.subs(details[it->firstDetail].toString());
+        if (!it->secondDetail.isEmpty()) {
+            message = message.subs(details[it->secondDetail].toString());
+        }
+        return message.toString();
+    }
+    qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
+    return {};
 }
 
 QString RestApiAbstractJob::jobName() const
