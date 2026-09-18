@@ -5,6 +5,7 @@
 */
 
 #include "ruqolaloginwidget.h"
+#include "config-ruqola.h"
 
 #include "colorsandmessageviewstyle.h"
 #include "common/authenticationoauthwidget.h"
