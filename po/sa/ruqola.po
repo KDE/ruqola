@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:44+0000\n"
+"POT-Creation-Date: 2026-09-18 00:45+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3063,7 +3063,7 @@ msgstr "अदृश्यस्थितिः निष्क्रियः �
 msgid "%1 is already in use."
 msgstr "%1 पूर्वमेव प्रयुक्तम् अस्ति ।"
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:175
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:173
 #, kde-format
 msgid "Invalid parameters"
 msgstr "अमान्य पैरामीटर्"
@@ -7597,95 +7597,95 @@ msgid "Show Unread"
 msgstr "अपठितं दर्शयतु"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Read इति चिह्नं कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "अपठितम् इति चिह्नं कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:146
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Favourite इति सेट् कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "प्रियरूपेण अनिर्मितम्"
 
-#: widgets/channellist/channellistview.cpp:150
+#: widgets/channellist/channellistview.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "चैनलं गोपयन्तु"
 
-#: widgets/channellist/channellistview.cpp:167
+#: widgets/channellist/channellistview.cpp:172
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Team इति परिवर्तनं कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:183
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Channel मध्ये परिवर्तयन्तु"
 
-#: widgets/channellist/channellistview.cpp:181
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "किं भवान् दलं चैनले परिवर्तयितुम् इच्छति?"
 
-#: widgets/channellist/channellistview.cpp:182
+#: widgets/channellist/channellistview.cpp:187
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Convert To Channel इति"
 
-#: widgets/channellist/channellistview.cpp:197
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "दलं प्रति गच्छन्तु"
 
-#: widgets/channellist/channellistview.cpp:213
+#: widgets/channellist/channellistview.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "सूचनां विन्यस्तं कुर्वन्तु..."
 
-#: widgets/channellist/channellistview.cpp:230
+#: widgets/channellist/channellistview.cpp:235
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "चैनल छोड़ें"
 
-#: widgets/channellist/channellistview.cpp:272
+#: widgets/channellist/channellistview.cpp:277
 #, kde-format
 msgid "Any team selected."
 msgstr "चयनितं यत्किमपि दलम्।"
 
-#: widgets/channellist/channellistview.cpp:272
+#: widgets/channellist/channellistview.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Move To Team इति"
 
-#: widgets/channellist/channellistview.cpp:324
+#: widgets/channellist/channellistview.cpp:329
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "किं भवन्तः तत् दलरूपेण परिवर्तयितुं निश्चिताः सन्ति? पूर्ववत् कर्तुं न शक्यते।"
 
-#: widgets/channellist/channellistview.cpp:325
+#: widgets/channellist/channellistview.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8156,7 +8156,7 @@ msgstr ""
 msgid "DataBase Room Subscriptions"
 msgstr "डाटाबेस इन्फो"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:42
+#: widgets/delegateutils/messagedelegateutils.cpp:43
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Copy"
@@ -9551,7 +9551,7 @@ msgctxt "@action:button"
 msgid "Do it later"
 msgstr "पश्चात् करोतु"
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:31
+#: widgets/encryption/e2ecopypasswordwidget.cpp:32
 #, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
@@ -9568,7 +9568,7 @@ msgstr ""
 "परिवर्तयतु। एतत् सन्देशं निराकर्तुं पूर्वं स्वस्य गुप्तशब्दं संग्रहीतुं स्मर्यताम् ।<br/><br/> भवतः "
 "गुप्तशब्दः अस्ति :"
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:60
+#: widgets/encryption/e2ecopypasswordwidget.cpp:61
 #, kde-format
 msgid "Copy password"
 msgstr "गुप्तशब्दं प्रतिलिख्यताम्"
@@ -9650,7 +9650,7 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:71
-#: widgets/encryption/e2edisablewidget.cpp:80
+#: widgets/encryption/e2edisablewidget.cpp:79
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Decode Encryption Key"
@@ -9658,7 +9658,7 @@ msgctxt "@title:window"
 msgid "Reset Encryption Keys"
 msgstr "एन्क्रिप्शन कुंजी डिकोड कुर्वन्तु"
 
-#: widgets/encryption/e2edisablewidget.cpp:80
+#: widgets/encryption/e2edisablewidget.cpp:79
 #, kde-format
 msgid "The encryption keys of this room could not be reset."
 msgstr ""
@@ -10651,19 +10651,19 @@ msgstr "अन्येभ्यः प्रवेशस्थानेभ्�
 msgid "Status text:"
 msgstr "स्थितिपाठः :"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:131
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "किं भवन्तः वास्तवमेव स्वस्य खातं विलोपयितुम् इच्छन्ति?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "मम खातं विलोपयतु"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:138
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:210
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:211
 #, kde-format
 msgid "Current Password"
 msgstr "वर्तमान गुप्तशब्द"
@@ -12630,7 +12630,7 @@ msgstr "(दोषान् दर्शयतु)"
 msgid "Server errors reported. %1"
 msgstr "सर्वर त्रुटयः निवेदिताः। %1"
 
-#: widgets/teams/searchteamdialog.cpp:21
+#: widgets/teams/searchteamdialog.cpp:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Team"
@@ -12671,19 +12671,19 @@ msgctxt "@action"
 msgid "Create Room"
 msgstr "कक्षं रचयन्तु"
 
-#: widgets/teams/teamchannelswidget.cpp:135
+#: widgets/teams/teamchannelswidget.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "ऑटोजोइन् निष्कासयन्तु"
 
-#: widgets/teams/teamchannelswidget.cpp:135
+#: widgets/teams/teamchannelswidget.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Autojoin इति योजयन्तु"
 
-#: widgets/teams/teamchannelswidget.cpp:142
+#: widgets/teams/teamchannelswidget.cpp:143
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:44+0000\n"
+"POT-Creation-Date: 2026-09-18 00:45+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3078,7 +3078,7 @@ msgstr "Ikusezin egoera ezgaituta dago"
 msgid "%1 is already in use."
 msgstr "%1 lehendik erabiltzen ari da."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:175
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:173
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parametro baliogabeak"
@@ -7635,95 +7635,95 @@ msgid "Show Unread"
 msgstr "Erakutsi irakurri gabeak"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Markatu Irakurrita gisa"
 
-#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Markatu irakurri gabeko gisa"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:146
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Ezarri gogoko gisa"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Kendu gogoko ezarpena"
 
-#: widgets/channellist/channellistview.cpp:150
+#: widgets/channellist/channellistview.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Ezkutatu kanala"
 
-#: widgets/channellist/channellistview.cpp:167
+#: widgets/channellist/channellistview.cpp:172
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Bihurtu talde"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:183
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Bihurtu kanal"
 
-#: widgets/channellist/channellistview.cpp:181
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Taldea kanal bihurtu nahi duzu?"
 
-#: widgets/channellist/channellistview.cpp:182
+#: widgets/channellist/channellistview.cpp:187
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Bihurtu kanal"
 
-#: widgets/channellist/channellistview.cpp:197
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:213
+#: widgets/channellist/channellistview.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Konfiguratu jakinarazpena…"
 
-#: widgets/channellist/channellistview.cpp:230
+#: widgets/channellist/channellistview.cpp:235
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Irten kanaletik"
 
-#: widgets/channellist/channellistview.cpp:272
+#: widgets/channellist/channellistview.cpp:277
 #, kde-format
 msgid "Any team selected."
 msgstr "Hautatutako talde oro."
 
-#: widgets/channellist/channellistview.cpp:272
+#: widgets/channellist/channellistview.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:324
+#: widgets/channellist/channellistview.cpp:329
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Ziur zaude talde bihurtu nahi duzula? Ezin da desegin."
 
-#: widgets/channellist/channellistview.cpp:325
+#: widgets/channellist/channellistview.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8179,7 +8179,7 @@ msgstr "Datu-baseko, gela tekleatutakoaren zain, informazioa"
 msgid "DataBase Room Subscriptions"
 msgstr "Datu-baseko gela harpidetzak"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:42
+#: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
@@ -9562,7 +9562,7 @@ msgctxt "@action:button"
 msgid "Do it later"
 msgstr "Egin beranduago"
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:31
+#: widgets/encryption/e2ecopypasswordwidget.cpp:32
 #, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
@@ -9579,7 +9579,7 @@ msgstr ""
 "nahi duzunean hura sartu duzun edozein nabigatzailetik. Mezu hau baztertu "
 "aurretik gogoratu zure pasahitza gordetzeaz.<br/><br/>Zure pasahitza:"
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:60
+#: widgets/encryption/e2ecopypasswordwidget.cpp:61
 #, kde-format
 msgid "Copy password"
 msgstr "Kopiatu pasahitza"
@@ -9670,14 +9670,14 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:71
-#: widgets/encryption/e2edisablewidget.cpp:80
+#: widgets/encryption/e2edisablewidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "Reset encryption keys"
 msgctxt "@title:window"
 msgid "Reset Encryption Keys"
 msgstr "Berrezarri zifratzeko gakoak"
 
-#: widgets/encryption/e2edisablewidget.cpp:80
+#: widgets/encryption/e2edisablewidget.cpp:79
 #, kde-format
 msgid "The encryption keys of this room could not be reset."
 msgstr ""
@@ -10670,19 +10670,19 @@ msgstr "Saioa itxi saioa hasitako beste kokaleku batzuetan"
 msgid "Status text:"
 msgstr "Egoera-testua:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:131
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Zure kontua benetan ezabatu nahi duzu?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Ezabatu nire kontua"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:138
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:210
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:211
 #, kde-format
 msgid "Current Password"
 msgstr "Uneko pasahitza"
@@ -12633,7 +12633,7 @@ msgstr "(Erakutsi erroreak)"
 msgid "Server errors reported. %1"
 msgstr "Zerbitzaria erroreen berri eman da: %1"
 
-#: widgets/teams/searchteamdialog.cpp:21
+#: widgets/teams/searchteamdialog.cpp:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Team"
@@ -12674,19 +12674,19 @@ msgctxt "@action"
 msgid "Create Room"
 msgstr "Sortu gela"
 
-#: widgets/teams/teamchannelswidget.cpp:135
+#: widgets/teams/teamchannelswidget.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Kendu batze automatikoa"
 
-#: widgets/teams/teamchannelswidget.cpp:135
+#: widgets/teams/teamchannelswidget.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Gehitu batze automatikoa"
 
-#: widgets/teams/teamchannelswidget.cpp:142
+#: widgets/teams/teamchannelswidget.cpp:143
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"

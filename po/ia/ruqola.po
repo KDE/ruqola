@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:44+0000\n"
+"POT-Creation-Date: 2026-09-18 00:45+0000\n"
 "PO-Revision-Date: 2026-09-02 15:43+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3045,7 +3045,7 @@ msgstr "Status de invisibile es dishabilitate"
 msgid "%1 is already in use."
 msgstr "%1 ja es in uso."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:175
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:173
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parametros invalide"
@@ -7414,95 +7414,95 @@ msgid "Show Unread"
 msgstr "Monstra Non Legite"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marca como legite"
 
-#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marca como non legite"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:146
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Fixa como Favorite"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Leva ab Favorites"
 
-#: widgets/channellist/channellistview.cpp:150
+#: widgets/channellist/channellistview.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Cela Canal"
 
-#: widgets/channellist/channellistview.cpp:167
+#: widgets/channellist/channellistview.cpp:172
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Converte a Equipa"
 
-#: widgets/channellist/channellistview.cpp:178
+#: widgets/channellist/channellistview.cpp:183
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Converte a Canal"
 
-#: widgets/channellist/channellistview.cpp:181
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Tu vole converter equipa (team) a canal?"
 
-#: widgets/channellist/channellistview.cpp:182
+#: widgets/channellist/channellistview.cpp:187
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Converte a Canal"
 
-#: widgets/channellist/channellistview.cpp:197
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Move a Equipa"
 
-#: widgets/channellist/channellistview.cpp:213
+#: widgets/channellist/channellistview.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configura Notificationes…"
 
-#: widgets/channellist/channellistview.cpp:230
+#: widgets/channellist/channellistview.cpp:235
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Abandona Canale"
 
-#: widgets/channellist/channellistview.cpp:272
+#: widgets/channellist/channellistview.cpp:277
 #, kde-format
 msgid "Any team selected."
 msgstr "Ulle equipa seligite."
 
-#: widgets/channellist/channellistview.cpp:272
+#: widgets/channellist/channellistview.cpp:277
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Move a Equipa"
 
-#: widgets/channellist/channellistview.cpp:324
+#: widgets/channellist/channellistview.cpp:329
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Tu es secur de convertir lo a equipa? Il non pote esser annullate."
 
-#: widgets/channellist/channellistview.cpp:325
+#: widgets/channellist/channellistview.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -7957,7 +7957,7 @@ msgstr ""
 msgid "DataBase Room Subscriptions"
 msgstr "Subscriptiones de sala de Base de Datos"
 
-#: widgets/delegateutils/messagedelegateutils.cpp:42
+#: widgets/delegateutils/messagedelegateutils.cpp:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Copy"
@@ -9303,7 +9303,7 @@ msgctxt "@action:button"
 msgid "Do it later"
 msgstr ""
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:31
+#: widgets/encryption/e2ecopypasswordwidget.cpp:32
 #, kde-format
 msgid ""
 "Create secure private rooms and direct messages with end-to-end encryption."
@@ -9314,7 +9314,7 @@ msgid ""
 "dismissing this message.<br/><br/>Your password is:"
 msgstr ""
 
-#: widgets/encryption/e2ecopypasswordwidget.cpp:60
+#: widgets/encryption/e2ecopypasswordwidget.cpp:61
 #, kde-format
 msgid "Copy password"
 msgstr "Copia contrasigno"
@@ -9388,13 +9388,13 @@ msgid ""
 msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:71
-#: widgets/encryption/e2edisablewidget.cpp:80
+#: widgets/encryption/e2edisablewidget.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset Encryption Keys"
 msgstr "Reinitia Claves de Cryptation"
 
-#: widgets/encryption/e2edisablewidget.cpp:80
+#: widgets/encryption/e2edisablewidget.cpp:79
 #, kde-format
 msgid "The encryption keys of this room could not be reset."
 msgstr ""
@@ -10363,19 +10363,19 @@ msgstr "Claude session ex altere locationes de session aperite"
 msgid "Status text:"
 msgstr "Texto de stato:"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:131
 #, kde-format
 msgid "Do you really want to delete your account?"
 msgstr "Tu vermente vole deler tu conto?"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:133
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:132
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Dele mi conto"
 
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:138
-#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:210
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:137
+#: widgets/myaccount/myaccountprofileconfigurewidget.cpp:211
 #, kde-format
 msgid "Current Password"
 msgstr "Contrasigno currente"
@@ -12227,7 +12227,7 @@ msgstr "(Monstra Errores)"
 msgid "Server errors reported. %1"
 msgstr "Errores de Servitor reportate. %1"
 
-#: widgets/teams/searchteamdialog.cpp:21
+#: widgets/teams/searchteamdialog.cpp:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Team"
@@ -12268,19 +12268,19 @@ msgctxt "@action"
 msgid "Create Room"
 msgstr "Crea sala"
 
-#: widgets/teams/teamchannelswidget.cpp:135
+#: widgets/teams/teamchannelswidget.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Remove Autojoin"
 msgstr "Remove autouni"
 
-#: widgets/teams/teamchannelswidget.cpp:135
+#: widgets/teams/teamchannelswidget.cpp:136
 #, kde-format
 msgctxt "@action"
 msgid "Add Autojoin"
 msgstr "Adde autouni"
 
-#: widgets/teams/teamchannelswidget.cpp:142
+#: widgets/teams/teamchannelswidget.cpp:143
 #, kde-format
 msgctxt "@action"
 msgid "Remove from Team"
