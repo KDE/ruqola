@@ -54,7 +54,7 @@ void ForwardMessageWidget::slotForwardToChannel(const JoinedChannelCompletionLin
     connect(clickableWidget, &ClickableWidget::removeClickableWidget, this, &ForwardMessageWidget::slotRemoveRoom);
     mFlowLayout->addWidget(clickableWidget);
     mMap.insert(channelId, clickableWidget);
-    Q_EMIT updateOkButton(!mMap.isEmpty());
+    Q_EMIT updateOkButton(true);
 }
 
 void ForwardMessageWidget::slotRemoveRoom(const QByteArray &channelId)
