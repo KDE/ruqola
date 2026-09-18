@@ -88,7 +88,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 void ListAttachmentDelegate::saveAttachment(const QStyleOptionViewItem &option, const File *file)
 {
     auto parentWidget = const_cast<QWidget *>(option.widget);
-    const QString path = QUrl::fromPercentEncoding(file->url().toLatin1());
+    const QString path = QUrl::fromPercentEncoding(file->url().toUtf8());
 
     const QString fileName =
         TextAddonsWidgets::SaveFileUtils::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl::fromLocalFile(path));
