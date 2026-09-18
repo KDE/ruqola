@@ -56,7 +56,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     mName->setObjectName(u"mName"_s);
     layout->addRow(str, mName);
     connect(mName, &QLineEdit::textChanged, this, [this](const QString &str) {
-        Q_EMIT roomNameValid(!str.trimmed().isEmpty());
+        Q_EMIT roomNameValid(!QStringView(str).trimmed().isEmpty());
     });
 
     mComment->setObjectName(u"mComment"_s);

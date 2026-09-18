@@ -980,7 +980,7 @@ void RocketChatAccount::openDirectChannel(const QString &roomId)
 
 void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
-    if (!info.name.trimmed().isEmpty()) {
+    if (!QStringView(info.name).trimmed().isEmpty()) {
         if (info.privateChannel) {
             restApi()->createGroups(info);
         } else {

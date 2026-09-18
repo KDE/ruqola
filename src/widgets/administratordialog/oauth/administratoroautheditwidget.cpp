@@ -103,8 +103,9 @@ QDebug operator<<(QDebug d, const AdministratorOauthEditWidget::OauthEditInfo &i
 
 bool AdministratorOauthEditWidget::OauthEditInfo::isValid() const
 {
-    return !applicationName.trimmed().isEmpty() && !redirectUrl.trimmed().isEmpty() && !clientId.trimmed().isEmpty() && !clientSecret.trimmed().isEmpty()
-        && !authorizationUrl.trimmed().isEmpty() && !accessTokenUrl.trimmed().isEmpty();
+    return !QStringView(applicationName).trimmed().isEmpty() && !QStringView(redirectUrl).trimmed().isEmpty() && !QStringView(clientId).trimmed().isEmpty()
+        && !QStringView(clientSecret).trimmed().isEmpty() && !QStringView(authorizationUrl).trimmed().isEmpty()
+        && !QStringView(accessTokenUrl).trimmed().isEmpty();
 }
 
 #include "moc_administratoroautheditwidget.cpp"

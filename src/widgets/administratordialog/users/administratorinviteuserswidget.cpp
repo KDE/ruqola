@@ -29,7 +29,7 @@ AdministratorInviteUsersWidget::AdministratorInviteUsersWidget(QWidget *parent)
     mainLayout->addWidget(label);
     mainLayout->addWidget(mListEmails);
     connect(mListEmails, &QLineEdit::textChanged, this, [this](const QString &text) {
-        Q_EMIT updateButtonOk(!text.trimmed().isEmpty());
+        Q_EMIT updateButtonOk(!QStringView(text).trimmed().isEmpty());
     });
 }
 

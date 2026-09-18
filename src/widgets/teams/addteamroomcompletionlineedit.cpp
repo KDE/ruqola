@@ -62,7 +62,7 @@ void AddTeamRoomCompletionLineEdit::slotSearchTextEdited()
 
 void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    if (text.trimmed().isEmpty()) {
+    if (QStringView(text).trimmed().isEmpty()) {
         mTeamRoomCompleterModel->clear();
         mCompletionListView->hide();
     } else {

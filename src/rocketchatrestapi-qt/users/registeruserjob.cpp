@@ -101,7 +101,8 @@ QJsonDocument RegisterUserJob::json() const
 
 bool RegisterUserJob::RegisterUserInfo::isValid() const
 {
-    return !username.trimmed().isEmpty() && !name.trimmed().isEmpty() && !email.trimmed().isEmpty() && !password.trimmed().isEmpty();
+    return !QStringView(username).trimmed().isEmpty() && !QStringView(name).trimmed().isEmpty() && !QStringView(email).trimmed().isEmpty()
+        && !QStringView(password).trimmed().isEmpty();
 }
 
 #include "moc_registeruserjob.cpp"

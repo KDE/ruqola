@@ -51,7 +51,7 @@ void AddUsersCompletionLineEdit::slotSearchTimerFired()
 {
     mSearchTimer->stop();
     QString str = text();
-    if (!str.trimmed().isEmpty()) {
+    if (!QStringView(str).trimmed().isEmpty()) {
         if (str.startsWith(u'@')) {
             str.removeFirst();
         }

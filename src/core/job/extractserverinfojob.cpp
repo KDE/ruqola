@@ -16,7 +16,7 @@ ExtractServerInfoJob::ExtractServerInfoJob(QObject *parent)
 
 bool ExtractServerInfoJob::canStart() const
 {
-    return !mServerUrl.trimmed().isEmpty();
+    return !QStringView(mServerUrl).trimmed().isEmpty();
 }
 
 ExtractServerInfoJob::~ExtractServerInfoJob() = default;

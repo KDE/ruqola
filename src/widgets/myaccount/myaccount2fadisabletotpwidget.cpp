@@ -46,7 +46,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     verifyButton->setEnabled(false);
     connect(verifyButton, &QPushButton::clicked, this, &MyAccount2FaDisableTotpWidget::slotVerify);
     connect(mDisableCodeLineEdit, &QLineEdit::textChanged, this, [verifyButton](const QString &str) {
-        verifyButton->setEnabled(!str.trimmed().isEmpty());
+        verifyButton->setEnabled(!QStringView(str).trimmed().isEmpty());
     });
 
     auto regenerateCode = new QPushButton(i18nc("@action:button", "Regenerate Code"), this);
