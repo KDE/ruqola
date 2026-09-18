@@ -149,13 +149,16 @@ void ShowImageWidget::slotShowNextImage()
     if (mDownloadInProgress) {
         return;
     }
-    ++mImageListInfo.index;
     // qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " <<
     //  mImageListInfo.index;
+    ++mImageListInfo.index;
     if (mImageListInfo.index == mImageListInfo.imageAttachments.count()) {
         // qDebug() << "Need to download next image";
-        if (mImageListInfo.index + 1 < mImageListInfo.imageAttachments.total()) {
+        if (mImageListInfo.index < mImageListInfo.imageAttachments.total()) {
             showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index - 1);
+        } else {
+            --mImageListInfo.index;
+            updateButtons();
         }
         return;
     }
@@ -212,7 +215,9 @@ void ShowImageWidget::updateRanges()
 
 void ShowImageWidget::updateButtons()
 {
-    mShowImagePrevNextImageWidget->setUpdateButtons(mImageListInfo.index > 0, mImageListInfo.index < mImageListInfo.imageAttachments.count());
+    const int count = mImageListInfo.imageAttachments.count();
+    mShowImagePrevNextImageWidget->setUpdateButtons(mImageListInfo.index > 0,
+                                                    mImageListInfo.index + 1 < count || count < mImageListInfo.imageAttachments.total());
 }
 
 void ShowImageWidget::setImageInfo(const ShowImageWidget::ImageInfo &info)
