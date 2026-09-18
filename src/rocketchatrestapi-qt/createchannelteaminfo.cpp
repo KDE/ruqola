@@ -61,8 +61,7 @@ QJsonDocument CreateChannelTeamInfo::json() const
     } else {
         jsonObj["extraData"_L1] = extraJsonObj;
     }
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
+    return QJsonDocument(jsonObj);
 }
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)

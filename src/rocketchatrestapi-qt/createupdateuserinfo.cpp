@@ -79,9 +79,7 @@ QJsonDocument CreateUpdateUserInfo::json() const
         if (!mUserId.isEmpty()) {
             dataObj["userId"_L1] = mUserId;
         }
-        const QJsonDocument postData = QJsonDocument(dataObj);
-        return postData;
+        return QJsonDocument(dataObj);
     }
-    const QJsonDocument postData = QJsonDocument(userInfoObj);
-    return postData;
+    return QJsonDocument(userInfoObj);
 }
