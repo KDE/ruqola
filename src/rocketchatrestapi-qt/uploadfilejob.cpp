@@ -88,7 +88,10 @@ bool UploadFileJob::start()
     }
 
     mReply = networkAccessManager()->post(request(), multiPart);
-    connect(mReply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
+    const QString fileName = mUploadFileInfo.filenameUrl.fileName();
+    connect(mReply, &QNetworkReply::uploadProgress, this, [this, fileName](qint64 bytesSent, qint64 bytesTotal) {
+        slotUploadProgress(bytesSent, bytesTotal, fileName);
+    });
     connect(mReply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
     multiPart->setParent(mReply); // delete the multiPart with the reply
     // TODO signal error ?
@@ -96,12 +99,12 @@ bool UploadFileJob::start()
     return true;
 }
 
-void UploadFileJob::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal)
+void UploadFileJob::slotUploadProgress(qint64 bytesSent, qint64 bytesTotal, const QString &filename)
 {
     UploadFileJob::UploadStatusInfo info;
     info.bytesSent = bytesSent;
     info.bytesTotal = bytesTotal;
-    info.fileName = mUploadFileInfo.filenameUrl.fileName();
+    info.fileName = filename;
     Q_EMIT uploadProgress(info);
 }
 
