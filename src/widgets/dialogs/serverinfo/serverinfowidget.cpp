@@ -60,10 +60,29 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
         layout->addRow(i18n("License:"), mEnterpriseLicense);
         mEnterpriseLicense->setText(mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18nc("No license", "None"));
         setServerConfigInfo(mRocketChatAccount->serverConfigInfo());
+        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &ServerInfoWidget::slotFileDownloaded);
     }
 }
 
 ServerInfoWidget::~ServerInfoWidget() = default;
+
+void ServerInfoWidget::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
+{
+    const QString logoUrl = mRocketChatAccount->serverConfigInfo()->logoUrl();
+    if (!logoUrl.isEmpty() && filePath == QUrl(logoUrl).path()) {
+        setCurrentIconPath(cacheImageUrl.toLocalFile());
+    }
+}
+
+void ServerInfoWidget::setCurrentIconPath(const QString &path)
+{
+    const QPixmap pix{path};
+    if (!pix.isNull()) {
+        mLogo->show();
+        const QPixmap scaledPixmap = pix.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        mLogo->setPixmap(scaledPixmap);
+    }
+}
 
 void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
 {
@@ -71,15 +90,10 @@ void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
         mAccountName->setText(info->accountName());
         mUserName->setText(info->userName());
         mServerVersion->setText(info->serverVersionStr());
-        mServerUrl->setText(u"<a href=\"%1\">%1</a>"_s.arg(info->serverUrl()));
+        mServerUrl->setText(u"<a href=\"%1\">%1</a>"_s.arg(info->serverUrl().toHtmlEscaped()));
         const QString logoLocalUrl{mRocketChatAccount->attachmentUrlFromLocalCache(info->logoUrl()).toLocalFile()};
         if (!logoLocalUrl.isEmpty()) {
-            const QPixmap pix{logoLocalUrl};
-            if (!pix.isNull()) {
-                mLogo->show();
-                const QPixmap scaledPixmap = pix.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-                mLogo->setPixmap(scaledPixmap);
-            }
+            setCurrentIconPath(logoLocalUrl);
         }
     }
 }
