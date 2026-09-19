@@ -1949,6 +1949,7 @@
           <li xml:lang="ca">Corregeix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
           <li xml:lang="ca-valencia">Corregix la informació dels adjunts al diàleg «Mostra el registre del canal»</li>
           <li xml:lang="es">Corrección de la información de adjuntos en el diálogo «Mostrar registro del canal»</li>
+          <li xml:lang="he">תוקנו פרטי צירוף בחלונית „הצגת יומן ערוץ”</li>
           <li xml:lang="ia">Corrige info de attachmento in dialogo \"Monstra Registro de Canal\" </li>
           <li xml:lang="it">Corregge le informazioni sull'allegato nella finestra «Mostra il registro del canale»</li>
           <li xml:lang="ka">გასწორდა მიმაგრებული ფაილის ინფორმაციის ჩვენება დიალოგში \"არხის ჟურნალის ჩვენება\"</li>
@@ -2328,6 +2329,7 @@
           <li xml:lang="ca">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
           <li xml:lang="ca-valencia">Permet netejar l'historial de les sales quan la sala no s'ha obert des de fa temps</li>
           <li xml:lang="es">Permitido limpiar la historia de una sala cuando la sala no se ha abierto en un plazo largo de tiempo</li>
+          <li xml:lang="he">מתן האפשרות לאפס את היסטוריית הערוץ כאשר ערוץ לא נפתח למשך זמן רב</li>
           <li xml:lang="ia">Permitte nettar chronologia de sala quando la salanon es aperite ab un longe tempore</li>
           <li xml:lang="it">Consente di ripulire la cronologia di una stanza quando questa non è stata aperta per molto tempo</li>
           <li xml:lang="ka">ოთახის ისტორიის გასუფთავებს დაშვება, როცა ოთახი დიდი ხნის განმავლობაში არ გაიხსნება</li>
@@ -2518,6 +2520,7 @@
           <li xml:lang="ca">Corregeix el filtre de debats en mode d'administrador</li>
           <li xml:lang="ca-valencia">Corregix el filtre de debats en mode administrador</li>
           <li xml:lang="es">Corrección al filtrar discusión en modo administrador</li>
+          <li xml:lang="he">תוקן סינון דיונים במצב ניהול</li>
           <li xml:lang="ia">Corrige filtrar discussion in modode administrator</li>
           <li xml:lang="it">Corregge il filtro della discussione in modalità amministratore</li>
           <li xml:lang="ka">გასწორდა დისკუსიის ფილტრი ადმინისტრატორის რეჟიმში</li>
@@ -2715,6 +2718,7 @@
           <li xml:lang="ca">Suprimeix els fitxers més antics d'alguns directoris de la memòria cau («file-upload» i «media») perquè no creixi per sempre</li>
           <li xml:lang="ca-valencia">Suprimix els fitxers més antics d'algunes carpetes de la memòria cau («file-upload» i «media») perquè no cresca per sempre</li>
           <li xml:lang="es">Borra los archivos más antiguos de algunos directorios de caché (archivos compartidos y medios) para que no crezcan para siempre</li>
+          <li xml:lang="he">הקבצים הישנים ביותר נמחקים מחלק מתיקיות המטמון (העלאת קבצים ומדיה) כדי שלא יתפחו לעד</li>
           <li xml:lang="ia">Deler le files le plus antique de alcun directorios de cache (file-upload e  media) pro que illo non cresce infinitemente.</li>
           <li xml:lang="it">Elimina i file più vecchi da alcune cartelle della cache (file-upload e media) in modo che non crescano all'infinito</li>
           <li xml:lang="ka">კეშის საქაღალდეებიდან (file-upload და media) უძველესი ფაილების წაშლა, რომ ისინი უსასრულოდ არ გაიზარდოს</li>
@@ -2778,6 +2782,7 @@
           <li xml:lang="ca">Afegeix un delegat a la cerca de sales en el diàleg d'equip</li>
           <li xml:lang="ca-valencia">Afig un delegat a la busca de sales en el diàleg d'equip</li>
           <li xml:lang="es">Añade delegación en la búsqueda de salas en el diálogo de equipos</li>
+          <li xml:lang="he">הוספת ייפוי כוח בחיפוש חדרים בחלונית הצוות</li>
           <li xml:lang="ia">Adde delegato in salas de cerca in dialogo de equipa</li>
           <li xml:lang="it">Aggiunge un delegato nelle stanze di ricerca nella finestra della squadra</li>
           <li xml:lang="ka">დაემატა დელეგატი ოთახების ძებნაში გუნდის დიალოგში</li>
@@ -3241,6 +3246,7 @@
           <li xml:lang="ca">Corregeix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
           <li xml:lang="ca-valencia">Corregix la visualització d'ordres en l'edició de la línia de missatges (oculta l'acció quan la sala no ho admet)</li>
           <li xml:lang="es">Corrección al mostrar órdenes en la línea de edición de mensaje (Ocultar acción cuando la sala no lo soporta)</li>
+          <li xml:lang="he">תוקנה הצגת פקודות בעריכת שורת הודעה (הפעולה מוסתרת כשהחדר לא תומך בה)</li>
           <li xml:lang="ia">Corrige monstra de commandos in le modification del linea de message  (Cela le action quando le sala non lo supporta)</li>
           <li xml:lang="it">Corregge i comandi show nella modifica della riga del messaggio (nasconde l'azione quando la stanza non la supporta)</li>
           <li xml:lang="ka">გასწორდა ბრძანებების ჩვენება შეტყობინების ხაზის ჩასწორებისას (ქმედების დამალვა, როცა ოთახს მისი მხარდაჭერა არ აქვს)</li>
@@ -3256,6 +3262,7 @@
           <li xml:lang="ca">Corregeix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
           <li xml:lang="ca-valencia">Corregix la baixada del fitxer de so/vídeo quan no està en la memòria cau</li>
           <li xml:lang="es">Corrección de la descarga de archivos de sonido/vídeo cuando no está en la caché</li>
+          <li xml:lang="he">תוקנה הורדת קובץ שמע/וידאו כשאינו במטמון</li>
           <li xml:lang="ia">Corrige discarga file de sono/video quando non es in cache</li>
           <li xml:lang="it">Risolve il problema con lo scaricamento di un file sonoro/video quando non è nella cache</li>
           <li xml:lang="ka">გასწორდა ხმის/ვიდეოს ფაილის გადმოწერა, როცა ის კეშში არაა</li>
@@ -3400,6 +3407,7 @@
           <li xml:lang="ca">Mostra el líder/moderador/propietari a la informació del canal</li>
           <li xml:lang="ca-valencia">Mostra el líder/moderador/propietari en la informació del canal</li>
           <li xml:lang="es">Mostrar líder/moderador/propietario en la información del canal</li>
+          <li xml:lang="he">הצגת מובילים/מפקחים/בעלים בפרטי הערוץ</li>
           <li xml:lang="ia">Monstra chef/moderator/proprietario in info del canal</li>
           <li xml:lang="it">Mostra leader/moderatore/proprietario nelle informazioni del canale</li>
           <li xml:lang="ka">არხის ინფორმაციაში ლიდერის/მოდერატორის/მფლობელის ჩვენება</li>
