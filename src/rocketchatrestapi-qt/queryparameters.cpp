@@ -12,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 namespace RocketChatRestApi
 {
 
+QueryParameters::QueryParameters() = default;
+
 QString QueryParameters::filter() const
 {
     return mFilter;

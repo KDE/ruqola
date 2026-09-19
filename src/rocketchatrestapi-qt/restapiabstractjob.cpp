@@ -513,6 +513,4 @@ QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply, bo
     return replyDocument;
 }
 
-QueryParameters::QueryParameters() = default;
-
 #include "moc_restapiabstractjob.cpp"
