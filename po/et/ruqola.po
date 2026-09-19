@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -551,7 +551,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:188
+#: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, fuzzy, kde-format
 #| msgid "Login failed: invalid username or password"
 msgid "Login failed: Invalid OTP code."
@@ -2291,7 +2291,7 @@ msgstr "Sisselogimine parooliga"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #: widgets/common/authenticationloginwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:47
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:48
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server URL:"
@@ -2447,14 +2447,14 @@ msgid "User is not an owner."
 msgstr "Kasutaja ei ole juht"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:56
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, fuzzy, kde-format
 #| msgid "A channel with name '__channel_name__' exists"
 msgid "A channel with name '%1' exists"
 msgstr "Kanal nimega '__channel_name__' on juba olemas"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:58
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:60
 #, fuzzy, kde-format
 #| msgid "This is not a Livechat room"
@@ -2540,7 +2540,7 @@ msgid "The custom emoji or one of its aliases is already in use."
 msgstr ""
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:423
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
@@ -2551,169 +2551,114 @@ msgstr "See on viimane omanik. Palun määra uus omanik, enne kui see eemaldada.
 msgid "Generate link is not authorized in this channel."
 msgstr "Lingi genereerimine ei ole sellel kanalil lubatud."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:237
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
 #, kde-format
 msgid "Unauthorized"
 msgstr "Autoriseerimata"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:263
-#, fuzzy, kde-format
-#| msgid "__action__ is not allowed"
-msgid "'%1' is not allowed"
-msgstr "__action__ ei ole lubatud"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:265
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
 msgid "Application not found"
 msgstr "Rakendust ei leitud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
-#, fuzzy, kde-format
-#| msgid "There's an archived channel with name '__room_name__'"
-msgid "There's an archived channel with name '%1'"
-msgstr "Leidub arhiveeritud kanal nimega '__room_name__'"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 msgid "Can't invite user to direct rooms"
 msgstr "Kasutajat ei saa kutsuda otsetubadesse"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr ""
 "Kanali vaikeseadistus on juba selline, milliseks see praegu tahetakse muuta."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 msgid "The bodyParam 'default' is required"
 msgstr "Nõutav on bodyParam 'default'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 msgid "Could not change email"
 msgstr "E-posti aadressi muutmine nurjus"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
 msgid "Could not change name"
 msgstr "Nime muutmine nurjus"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 msgid "Could not change username"
 msgstr "Kasutajanime muutmine nurjus"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
 msgid "Cannot delete a protected role"
 msgstr "Kaitstud rolli kustutamine nurjus"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 msgid "Department not found"
 msgstr "Osakond ei leitud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
 msgid "File sharing not allowed in direct messages"
 msgstr "Otsesõnumites ei ole failide jagamine lubatud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 msgid "Editing permissions is not allowed"
 msgstr "Õiguste muutmine ei ole lubatud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 msgid "The email domain is blacklisted"
 msgstr "E-posti domeen on mustas nimekirjas"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
-#, fuzzy, kde-format
-#| msgid "Error trying to send email: __message__"
-msgid "Error trying to send email: %1"
-msgstr "Tõrge e-kirja saatmisel: __message__"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
-#, fuzzy, kde-format
-#| msgid "User is already an owner"
-msgid "'%1' is already in use :("
-msgstr "Kasutaja on juba omanik"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 msgid "File is too large"
 msgstr "Fail on liiga suur"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "Importija ei ole korrektselt määratud, klass Import puudub."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 msgid "Failed to extract import file."
 msgstr "Importfaili lahtipakkimine nurjus."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 msgid "Imported file seems to be empty."
 msgstr "Imporditud fail paistab olevat tühi."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 msgid "The file to be imported was not found on the specified path."
 msgstr "Imporditavat faili määratud asukohast ei leitud."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
-#, fuzzy, kde-format
-#| msgid "This is not a Livechat room"
-msgid "%1 is not a valid %2"
-msgstr "See ei ole Livechati tuba"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 msgid "Invalid action link"
 msgstr "Vigane toimingulink"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
 msgid "Invalid Account"
 msgstr "Vigane konto"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 msgid "Invalid arguments"
 msgstr "Vigased argumendid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 msgid "Invalid asset"
 msgstr "Vigane ressurss"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
 msgid "Invalid channel."
 msgstr "Vigane kanal."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 msgid "Invalid channel. Start with @ or #"
 msgstr "Vigane kanal. Alguses peab olema @ või #"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
 msgid "Invalid custom field"
 msgstr "Vigane kohandatud väli"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
 "underscores."
@@ -2721,229 +2666,179 @@ msgstr ""
 "Vigane kohandatud välja nimi. Kasutada tohib ainult tähti, numbreid, "
 "sidekriipse ja alakriipse."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 msgid "Invalid date provided."
 msgstr "Vigane kuupäev."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
 msgid "Invalid description"
 msgstr "Vigane kirjeldus"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 msgid "Invalid domain"
 msgstr "Vigane domeen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
-#, fuzzy, kde-format
-#| msgid "Invalid message: '%1'"
-msgid "Invalid email '%1'"
-msgstr "Vigane sõnum: '%1'"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 msgid "Invalid email address"
 msgstr "Vigane e-posti aadress"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
 msgid "Invalid file height"
 msgstr "Vigane faili kõrgus"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 msgid "Invalid file type"
 msgstr "Vigane failitüüp"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
 msgid "Invalid file width"
 msgstr "Vigane faili laius"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 msgid "You informed an invalid FROM address."
 msgstr "Teada anti vigane saatja aadress."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 msgid "Invalid integration"
 msgstr "Vigane lõimumine"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 msgid "Invalid message"
 msgstr "Vigane sõnum"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 msgid "Invalid method"
 msgstr "Vigane meetod"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 msgid "Invalid name"
 msgstr "Vigane nimi"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 msgid "Invalid password"
 msgstr "Vigane parool"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 msgid "Invalid permission"
 msgstr "Vigased õigused"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 msgid "Invalid redirectUri"
 msgstr "Vigane ümbersuunamise URI"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 msgid "Invalid role"
 msgstr "Vigane roll"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:181
 #, kde-format
 msgid "Invalid room"
 msgstr "Vigane tuba"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
-#, fuzzy, kde-format
-#| msgid "This is not a Livechat room"
-msgid "'%1' is not a valid room type."
-msgstr "See ei ole Livechati tuba"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 msgid "Invalid settings provided"
 msgstr "Vigased seadistused"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 msgid "Invalid subscription"
 msgstr "Vigane tellimus"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
 msgid "Invalid token"
 msgstr "Vigane pääsmik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 msgid "Invalid triggerWords"
 msgstr "Vigased triggerWords"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
 msgid "Invalid URLs"
 msgstr "Vigased URL-id"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 msgid "Invalid user"
 msgstr "Vigane kasutaja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
 msgid "Invalid username"
 msgstr "Vigane kasutajanimi"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 msgid "The webhook URL responded with a status other than 200"
 msgstr "Veebikonksu URL vastas muu staatusega kui 200"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 msgid "Message deleting is blocked"
 msgstr "Sõnumite kustutamine on blokitud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 msgid "Message editing is blocked"
 msgstr "Sõnumite muutmine on blokitud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Sõnum on suurem kui Message_MaxAllowedSize"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 msgid "You must provide the [unsubscribe] link."
 msgstr "Tuleb anda [tellimuse tühistamise] link."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
 msgid "There are no tokens for this user"
 msgstr "Sellele kasutajale pole pääsmikke"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 msgid "Not allowed"
 msgstr "Pole lubatud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 msgid "Not authorized"
 msgstr "Pole autoriseeritud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
 msgid "Password does not meet the server's policy"
 msgstr "Parool ei vasta serveri reeglitele"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:406
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
 "long)"
 msgstr ""
 "Parool ei vasta serveri maksimaalse pikkuse reeglile (parool on liiga pikk)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:408
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
 "short)"
 msgstr ""
 "Parool ei vasta serveri minimaalse pikkuse reeglile (parool on liiga lühike)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
 msgstr "Parool ei vasta serveri vähemalt ühe väiketähe kasutamise reeglile"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr "Parool ei vasta serveri vähemalt ühe numbri kasutamise reeglile"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr "Parool ei vasta serveri vähemalt ühe erimärgi kasutamise reeglile"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
 msgstr "Parool ei vasta serveri vähemalt ühe suurtähe kasutamise reeglile"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
 "(you have too many of the same characters next to each other)"
@@ -2951,58 +2846,208 @@ msgstr ""
 "Parool ei vasta serveri korduvate märkide keelamise reeglile (liiga palju "
 "ühesuguseid märke üksteise järel)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 msgid "Push is disabled"
 msgstr "Tõuked on keelatud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:425
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 msgid "Cannot delete role because it's in use"
 msgstr "Rolli ei saa kustutada, sest see on kasutusel"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:427
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
 msgid "Role name is required"
 msgstr "Rollil peab olema nimi"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:429
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 msgid "Room is not closed"
 msgstr "Tuba ei ole suletud"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 msgid "The room already has an end-to-end encryption key ID"
 msgstr ""
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
+msgid "This is not a Livechat room"
+msgstr "See ei ole Livechati tuba"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
+msgid "Personal Access Tokens are currently disabled"
+msgstr "Personaalsed ligipääsu pääsmikud on praegu keelatud"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
+msgid "A token with this name already exists"
+msgstr "Selle nimega pääsmik on juba olemas"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+msgid "Token does not exists"
+msgstr "Pääsmikku ei ole olemas"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
+msgid "User has no roles"
+msgstr "Kasutajal puudub roll"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
+msgid "User is not activated"
+msgstr "Kasutaja ei ole aktiveeritud"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
+msgid ""
+"The number of users you are trying to invite to #channel_name exceeds the "
+"limit set by the administrator"
+msgstr ""
+"Kasutajate arv, keda püüad kutsuda kanalile #channel_name, ületab haldaja "
+"seatud piirangu"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
+msgid "User is not in this room"
+msgstr "Kasutaja ei ole selles toas"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#, c-format
+msgid "You are not in the room `%s`"
+msgstr "Sa ei ole toas `%s`"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
+msgid "User registration is disabled"
+msgstr "Kasutaja registreerimine on keelatud"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
+msgid "User registration is only allowed via Secret URL"
+msgstr "Kasutaja registreerimine on lubatud ainult salajase URL-iga"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+msgid "You are the last owner. Please set new owner before leaving the room."
+msgstr "Oled viimane omanik. Palun määra uus omanik, enne kui toast lahkuda."
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
+msgid "The private group is archived"
+msgstr "Privaatgrupp on arhiveeritud"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
+msgid "User is already an owner"
+msgstr "Kasutaja on juba omanik"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
+#, fuzzy
+#| msgid "User is already an owner"
+msgid "User is already a leader"
+msgstr "Kasutaja on juba omanik"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
+#, fuzzy
+#| msgid "User is already an owner"
+msgid "User is already a moderator"
+msgstr "Kasutaja on juba omanik"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
+msgid "Invalid message id"
+msgstr "Vigane sõnumi ID"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
+msgid "User is not a leader"
+msgstr "Kasutaja ei ole juht"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
+msgid "App user is not allowed to login"
+msgstr "Rakenduse kasutajal ei ole lubatud sisse logida"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
+msgid "Direct Messages can not be archived"
+msgstr "Otsesõnumeid ei saa arhiveerida"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+msgid "Message not found."
+msgstr "Sõnumit ei leitud"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
+#, fuzzy
+#| msgid "Authentication Method"
+msgid "Two Authentication Password Required"
+msgstr "Autentimisviis"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
+#, fuzzy
+#| msgid "Invalid password"
+msgid "Invalid Password"
+msgstr "Vigane parool"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
+#, fuzzy
+#| msgid "The required '%1' param provided does not match any channel"
+msgid ""
+"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
+"match any channel"
+msgstr "Määratud nõutav parameeter \"%1\" ei sobi ühegi kanaliga"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
+#, fuzzy
+#| msgid "A token with this name already exists"
+msgid "A role with this name already exists"
+msgstr "Selle nimega pääsmik on juba olemas"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
+#, fuzzy
+#| msgid "Message Pinned"
+msgid "Message could not be pinned"
+msgstr "Sõnum kinnistatud"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
+msgid "Entered password has been previously used"
+msgstr ""
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+msgid "The maximum number of rooms per guest has been reached."
+msgstr ""
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#, fuzzy, kde-format
+#| msgid "__action__ is not allowed"
+msgid "'%1' is not allowed"
+msgstr "__action__ ei ole lubatud"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
+#, fuzzy, kde-format
+#| msgid "There's an archived channel with name '__room_name__'"
+msgid "There's an archived channel with name '%1'"
+msgstr "Leidub arhiveeritud kanal nimega '__room_name__'"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
+#, fuzzy, kde-format
+#| msgid "Error trying to send email: __message__"
+msgid "Error trying to send email: %1"
+msgstr "Tõrge e-kirja saatmisel: __message__"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#, fuzzy, kde-format
+#| msgid "User is already an owner"
+msgid "'%1' is already in use :("
+msgstr "Kasutaja on juba omanik"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
+#, fuzzy, kde-format
+#| msgid "This is not a Livechat room"
+msgid "%1 is not a valid %2"
+msgstr "See ei ole Livechati tuba"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#, fuzzy, kde-format
+#| msgid "Invalid message: '%1'"
+msgid "Invalid email '%1'"
+msgstr "Vigane sõnum: '%1'"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#, fuzzy, kde-format
+#| msgid "This is not a Livechat room"
+msgid "'%1' is not a valid room type."
+msgstr "See ei ole Livechati tuba"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
 #, fuzzy, kde-format
 #| msgid "The field __field__ is required."
 msgid "The field '%1' is required."
 msgstr "Väli __field__ on nõutav."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
-#, kde-format
-msgid "This is not a Livechat room"
-msgstr "See ei ole Livechati tuba"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
-#, kde-format
-msgid "Personal Access Tokens are currently disabled"
-msgstr "Personaalsed ligipääsu pääsmikud on praegu keelatud"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
-#, kde-format
-msgid "A token with this name already exists"
-msgstr "Selle nimega pääsmik on juba olemas"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
-#, kde-format
-msgid "Token does not exists"
-msgstr "Pääsmikku ei ole olemas"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
 #, fuzzy, kde-format
 #| msgid ""
 #| "Error, too many requests. Please slow down. You must wait __seconds__ "
@@ -3013,139 +3058,6 @@ msgid ""
 msgstr ""
 "Tõrge: liiga palju päringuid. Palun võta hoogu maha. Sul tuleb enne uuesti "
 "proovimist oodata __seconds__ sekundit."
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
-#, kde-format
-msgid "User has no roles"
-msgstr "Kasutajal puudub roll"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
-#, kde-format
-msgid "User is not activated"
-msgstr "Kasutaja ei ole aktiveeritud"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
-#, kde-format
-msgid ""
-"The number of users you are trying to invite to #channel_name exceeds the "
-"limit set by the administrator"
-msgstr ""
-"Kasutajate arv, keda püüad kutsuda kanalile #channel_name, ületab haldaja "
-"seatud piirangu"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
-#, kde-format
-msgid "User is not in this room"
-msgstr "Kasutaja ei ole selles toas"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
-#, kde-format
-msgid "You are not in the room `%s`"
-msgstr "Sa ei ole toas `%s`"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
-#, kde-format
-msgid "User registration is disabled"
-msgstr "Kasutaja registreerimine on keelatud"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
-#, kde-format
-msgid "User registration is only allowed via Secret URL"
-msgstr "Kasutaja registreerimine on lubatud ainult salajase URL-iga"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
-#, kde-format
-msgid "You are the last owner. Please set new owner before leaving the room."
-msgstr "Oled viimane omanik. Palun määra uus omanik, enne kui toast lahkuda."
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
-#, kde-format
-msgid "The private group is archived"
-msgstr "Privaatgrupp on arhiveeritud"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
-#, kde-format
-msgid "User is already an owner"
-msgstr "Kasutaja on juba omanik"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
-#, fuzzy, kde-format
-#| msgid "User is already an owner"
-msgid "User is already a leader"
-msgstr "Kasutaja on juba omanik"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
-#, fuzzy, kde-format
-#| msgid "User is already an owner"
-msgid "User is already a moderator"
-msgstr "Kasutaja on juba omanik"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
-#, kde-format
-msgid "Invalid message id"
-msgstr "Vigane sõnumi ID"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
-#, kde-format
-msgid "User is not a leader"
-msgstr "Kasutaja ei ole juht"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
-#, kde-format
-msgid "App user is not allowed to login"
-msgstr "Rakenduse kasutajal ei ole lubatud sisse logida"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
-#, kde-format
-msgid "Direct Messages can not be archived"
-msgstr "Otsesõnumeid ei saa arhiveerida"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
-#, kde-format
-msgid "Message not found."
-msgstr "Sõnumit ei leitud"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
-#, fuzzy, kde-format
-#| msgid "Authentication Method"
-msgid "Two Authentication Password Required"
-msgstr "Autentimisviis"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:483
-#, fuzzy, kde-format
-#| msgid "Invalid password"
-msgid "Invalid Password"
-msgstr "Vigane parool"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:485
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
-msgid ""
-"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-"match any channel"
-msgstr "Määratud nõutav parameeter \"%1\" ei sobi ühegi kanaliga"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:487
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
-msgid "A role with this name already exists"
-msgstr "Selle nimega pääsmik on juba olemas"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:489
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
-msgid "Message could not be pinned"
-msgstr "Sõnum kinnistatud"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:491
-#, kde-format
-msgid "Entered password has been previously used"
-msgstr ""
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:493
-#, kde-format
-msgid "The maximum number of rooms per guest has been reached."
-msgstr ""
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:68
 #, fuzzy, kde-format
@@ -3725,7 +3637,7 @@ msgstr "Mainitud sõnumite näitamine"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
 #: widgets/dialogs/searchmessagewidget.cpp:218
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:106
+#: widgets/discussions/showdiscussionswidget.cpp:107
 #: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, fuzzy, kde-format
@@ -5173,7 +5085,7 @@ msgid "Layout"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Enter account name"
 msgid "Enterprise"
@@ -8161,7 +8073,7 @@ msgid "Username or email:"
 msgstr "Kasutajanimi"
 
 #: widgets/common/authenticationloginwidget.cpp:168
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1124
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8169,7 +8081,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1118
+#: widgets/ruqolamainwindow.cpp:1125
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@title:window"
@@ -9355,7 +9267,7 @@ msgid "Report"
 msgstr "Veast teatamine"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
-#: widgets/dialogs/reportuserwidget.cpp:38
+#: widgets/dialogs/reportuserwidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Message:"
 msgctxt "@label:textbox"
@@ -9376,7 +9288,7 @@ msgctxt "@title:window"
 msgid "Report User"
 msgstr "Anna sõnumist teada"
 
-#: widgets/dialogs/reportuserwidget.cpp:44
+#: widgets/dialogs/reportuserwidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgctxt "@info:placeholder"
@@ -9608,18 +9520,18 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Serveri teave"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Server version:"
 msgstr "Serveri versioon:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "License"
 msgid "License:"
 msgstr "Litsents"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:61
 #, kde-format
 msgctxt "No license"
 msgid "None"
@@ -9685,7 +9597,7 @@ msgstr[1] "%1 manust toas (kokku: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:103
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
-#: widgets/discussions/showdiscussionswidget.cpp:117
+#: widgets/discussions/showdiscussionswidget.cpp:118
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:194
@@ -9798,7 +9710,7 @@ msgctxt "@info:tooltip"
 msgid "Rotate Right"
 msgstr ""
 
-#: widgets/dialogs/showimagewidget.cpp:236
+#: widgets/dialogs/showimagewidget.cpp:241
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:69
 #, kde-format
 msgid "Save Image"
@@ -10013,7 +9925,7 @@ msgid_plural "%1 messages"
 msgstr[0] "1 sõnum"
 msgstr[1] "%1 sõnumit"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:248
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:250
 #, kde-format
 msgid "Open Discussion"
 msgstr "Diskussiooni avamine"
@@ -10033,12 +9945,12 @@ msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Diskussiooni otsimine ..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:108
+#: widgets/discussions/showdiscussionswidget.cpp:109
 #, kde-format
 msgid "No Discussion found"
 msgstr "Ühtegi diskussiooni ei leitud"
 
-#: widgets/discussions/showdiscussionswidget.cpp:115
+#: widgets/discussions/showdiscussionswidget.cpp:116
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -10413,7 +10325,7 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Logi sisse"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:52
+#: widgets/loginwidget/ruqolaloginwidget.cpp:53
 #, fuzzy, kde-format
 #| msgid ""
 #| "You have enabled second factor authentication.\n"
@@ -10426,38 +10338,38 @@ msgstr ""
 "Oled lubanud kaheastmelise autentimise.\n"
 "Palun sisesta genereeritud kood või varukood."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:184
+#: widgets/loginwidget/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Sisselogimine nurjus: vale kasutajanimi või parool"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:200
+#: widgets/loginwidget/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Leiti paigaldamise probleem. Ei leitud ühtegi pluginat."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:207
+#: widgets/loginwidget/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Sisselogimine nurjus: üldine tõrge"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:214
+#: widgets/loginwidget/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:221
+#: widgets/loginwidget/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:228
+#: widgets/loginwidget/ruqolaloginwidget.cpp:229
 #, fuzzy, kde-format
 #| msgid "User is not activated"
 msgid "Login Failed: User is not activated."
 msgstr "Kasutaja ei ole aktiveeritud"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:235
+#: widgets/loginwidget/ruqolaloginwidget.cpp:236
 #, fuzzy, kde-format
 #| msgid "App user is not allowed to login"
 msgid "Login Failed: App user is not allowed to login."
@@ -10656,7 +10568,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Sõna otsimine ..."
 
-#: widgets/misc/servermenu.cpp:23
+#: widgets/misc/servermenu.cpp:26
 #, fuzzy, kde-format
 #| msgid "Server Url"
 msgid "Server"
@@ -12452,340 +12364,340 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
 
-#: widgets/ruqolamainwindow.cpp:236
+#: widgets/ruqolamainwindow.cpp:238
 #, fuzzy, kde-format
 #| msgid "Disable Notification:"
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Märguande keelamine:"
 
-#: widgets/ruqolamainwindow.cpp:238
+#: widgets/ruqolamainwindow.cpp:240
 #, fuzzy, kde-format
 #| msgid "Disable Notification:"
 msgid "Show New Notifications"
 msgstr "Märguande keelamine:"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:445
 #, fuzzy, kde-format
 #| msgid "Add as Leader"
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Lisa juhina"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:450
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Serveri teave"
 
-#: widgets/ruqolamainwindow.cpp:447
+#: widgets/ruqolamainwindow.cpp:454
 #, fuzzy, kde-format
 #| msgid "Logout Current Account"
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Logi aktiivsest kontost välja"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:458
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Järgmine kanal"
 
-#: widgets/ruqolamainwindow.cpp:456
+#: widgets/ruqolamainwindow.cpp:463
 #, fuzzy, kde-format
 #| msgid "Create New Channel"
 msgid "Create New Channel…"
 msgstr "Loo uus kanal"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:467
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Video Message"
 msgid "Create Direct Messages…"
 msgstr "Videosõnumi loomine"
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:471
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
 msgid "Create Discussion…"
 msgstr "Diskussiooni loomine"
 
-#: widgets/ruqolamainwindow.cpp:468
+#: widgets/ruqolamainwindow.cpp:475
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgid "Create Team…"
 msgstr "Loo uus kanal ..."
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:483
 #, fuzzy, kde-format
 #| msgid "Unread on Top"
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Lugemata eespool"
 
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:491
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "(Viimane sõnum: %1)"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:497
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:496
+#: widgets/ruqolamainwindow.cpp:503
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgid "Show Channel Log"
 msgstr "Ühtegi kanalit ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:500
+#: widgets/ruqolamainwindow.cpp:507
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Show Server Errors"
 msgstr "Kanali teave"
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:551
 #, fuzzy, kde-format
 #| msgid "Mark all channels read"
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Märgi kõik kanalid loetuks"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:556
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:560
 #, fuzzy, kde-format
 #| msgid "Add Account..."
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Lisa konto ..."
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:564
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "administration"
 msgstr "Kutsu kasutajaid"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:565
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:571
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Serveri teave ..."
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:578
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Rakendust ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:576
+#: widgets/ruqolamainwindow.cpp:583
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Rakendust ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:581
+#: widgets/ruqolamainwindow.cpp:588
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Rakendust ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:586
+#: widgets/ruqolamainwindow.cpp:593
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Rakendust ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:591
+#: widgets/ruqolamainwindow.cpp:598
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:595
+#: widgets/ruqolamainwindow.cpp:602
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "%2 lisas %1 vestlusse"
 
-#: widgets/ruqolamainwindow.cpp:599
+#: widgets/ruqolamainwindow.cpp:606
 #, fuzzy, kde-format
 #| msgid "Start a Private Conversation"
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Alusta privaatvestlust"
 
-#: widgets/ruqolamainwindow.cpp:620
+#: widgets/ruqolamainwindow.cpp:627
 #, fuzzy, kde-format
 #| msgid "Server Url"
 msgid "&Next Server"
 msgstr "Serveri URL"
 
-#: widgets/ruqolamainwindow.cpp:625
+#: widgets/ruqolamainwindow.cpp:632
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "&Previous Server"
 msgstr "Eelmine kanal"
 
-#: widgets/ruqolamainwindow.cpp:634
+#: widgets/ruqolamainwindow.cpp:641
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Olek:"
 
-#: widgets/ruqolamainwindow.cpp:649
+#: widgets/ruqolamainwindow.cpp:656
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Eelmine kanal"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:663
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Kanali loomine"
 
-#: widgets/ruqolamainwindow.cpp:686
+#: widgets/ruqolamainwindow.cpp:693
 #, fuzzy, kde-format
 #| msgid "Disable Notification:"
 msgid "Show Notify History"
 msgstr "Märguande keelamine:"
 
-#: widgets/ruqolamainwindow.cpp:690
+#: widgets/ruqolamainwindow.cpp:697
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chati sisselogimine"
 
-#: widgets/ruqolamainwindow.cpp:694
+#: widgets/ruqolamainwindow.cpp:701
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgctxt "@action"
 msgid "Server Checklist…"
 msgstr "Serveri teave ..."
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:705
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Hangi avatar"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:710
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Toa kustutamine"
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:727
 #, kde-format
 msgid "What's new"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:724
+#: widgets/ruqolamainwindow.cpp:731
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Import Accounts"
 msgstr "Konto"
 
-#: widgets/ruqolamainwindow.cpp:728
+#: widgets/ruqolamainwindow.cpp:735
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Export Accounts"
 msgstr "Konto"
 
-#: widgets/ruqolamainwindow.cpp:745
+#: widgets/ruqolamainwindow.cpp:752
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:753
+#: widgets/ruqolamainwindow.cpp:760
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:762
+#: widgets/ruqolamainwindow.cpp:769
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:777
 #, fuzzy, kde-format
 #| msgid "Invalid password"
 msgid "Clear history"
 msgstr "Vigane parool"
 
-#: widgets/ruqolamainwindow.cpp:814
+#: widgets/ruqolamainwindow.cpp:821
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Loo uus kanal ..."
 
-#: widgets/ruqolamainwindow.cpp:1014
+#: widgets/ruqolamainwindow.cpp:1021
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1014
+#: widgets/ruqolamainwindow.cpp:1021
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Ühtegi kanalit ei leitud"
 
-#: widgets/ruqolamainwindow.cpp:1261
+#: widgets/ruqolamainwindow.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1264
+#: widgets/ruqolamainwindow.cpp:1271
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1451
+#: widgets/ruqolamainwindow.cpp:1458
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Pole võrgus"
 
-#: widgets/ruqolamainwindow.cpp:1454
+#: widgets/ruqolamainwindow.cpp:1461
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"

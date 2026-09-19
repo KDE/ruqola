@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:45+0000\n"
+"POT-Creation-Date: 2026-09-19 00:45+0000\n"
 "PO-Revision-Date: 2026-09-07 10:00+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -520,7 +520,7 @@ msgstr ""
 "de sessió."
 
 #: core/authenticationmanager.cpp:105
-#: widgets/loginwidget/ruqolaloginwidget.cpp:188
+#: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "No s'ha pogut fer l'inici de la sessió: codi OTP no vàlid."
@@ -2124,7 +2124,7 @@ msgstr "Usuari/Contrasenya"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:38
 #: widgets/common/authenticationloginwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:47
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:48
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del servidor:"
@@ -2262,13 +2262,13 @@ msgid "User is not an owner."
 msgstr "L'usuari no és un propietari."
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:56
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "Existix un canal amb el nom «%1»"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:58
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:369
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:60
 #, kde-format
 msgid "'%1' is not a valid room name"
@@ -2348,7 +2348,7 @@ msgid "The custom emoji or one of its aliases is already in use."
 msgstr "L'emoji personalitzat o un dels seus àlies ja es troba en ús."
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:423
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
@@ -2360,165 +2360,114 @@ msgstr ""
 msgid "Generate link is not authorized in this channel."
 msgstr "No s'ha autoritzat generar un enllaç en este canal."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:237
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
 #, kde-format
 msgid "Unauthorized"
 msgstr "No autoritzat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:255
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:263
-#, kde-format
-msgid "'%1' is not allowed"
-msgstr " «%1» no està permés"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:265
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
 msgid "Application not found"
 msgstr "No s'ha trobat l'aplicació"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
-#, kde-format
-msgid "There's an archived channel with name '%1'"
-msgstr "Hi ha un canal arxivat amb el nom «%1»"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
 msgid "Can't invite user to direct rooms"
 msgstr "No es pot convidar un usuari a les sales directes"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr ""
 "L'opció predeterminada del canal és la mateixa a la qual es vol canviar."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 msgid "The bodyParam 'default' is required"
 msgstr "Es requerix «bodyParam» «default»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 msgid "Could not change email"
 msgstr "No s'ha pogut canviar el correu electrònic"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
 msgid "Could not change name"
 msgstr "No s'ha pogut canviar el nom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 msgid "Could not change username"
 msgstr "No s'ha pogut canviar el nom d'usuari"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
 msgid "Cannot delete a protected role"
 msgstr "No s'ha pogut suprimir un rol protegit"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 msgid "Department not found"
 msgstr "No s'ha trobat el departament"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
 msgid "File sharing not allowed in direct messages"
 msgstr "No es permet la compartició de fitxers en els missatges directes"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 msgid "Editing permissions is not allowed"
 msgstr "No es permet l'edició de permisos"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 msgid "The email domain is blacklisted"
 msgstr "El domini del correu electrònic es troba en la llista negra"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
-#, kde-format
-msgid "Error trying to send email: %1"
-msgstr ""
-"S'ha produït un error mentre s'intentava enviar el correu electrònic: %1"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
-#, kde-format
-msgid "'%1' is already in use :("
-msgstr "«%1» ja es troba en ús :("
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 msgid "File is too large"
 msgstr "El fitxer és massa gran"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "No s'ha definit correctament l'importador, falta la classe Import."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 msgid "Failed to extract import file."
 msgstr "Ha fallat mentre s'extreia el fitxer importat."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 msgid "Imported file seems to be empty."
 msgstr "Pareix que el fitxer importat està buit."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 msgid "The file to be imported was not found on the specified path."
 msgstr "El fitxer que s'ha d'importar no s'ha trobat al camí especificat."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
-#, kde-format
-msgid "%1 is not a valid %2"
-msgstr "%1 no és un %2 vàlid"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 msgid "Invalid action link"
 msgstr "Enllaç d'acció no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
 msgid "Invalid Account"
 msgstr "Compte no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 msgid "Invalid arguments"
 msgstr "Arguments no vàlids"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 msgid "Invalid asset"
 msgstr "Recurs no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
 msgid "Invalid channel."
 msgstr "Canal no vàlid."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 msgid "Invalid channel. Start with @ or #"
 msgstr "Canal no vàlid. Comença per @ o #"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
 msgid "Invalid custom field"
 msgstr "Camp personalitzat no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
 "underscores."
@@ -2526,184 +2475,142 @@ msgstr ""
 "Nom de camp personalitzat no vàlid. Utilitzeu només lletres, nombres, guions "
 "i subratllats."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 msgid "Invalid date provided."
 msgstr "S'ha proporcionat una data no vàlida."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
 msgid "Invalid description"
 msgstr "Descripció no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 msgid "Invalid domain"
 msgstr "Domini no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
-#, kde-format
-msgid "Invalid email '%1'"
-msgstr "Correu no vàlid «%1»"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 msgid "Invalid email address"
 msgstr "Adreça de correu no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
 msgid "Invalid file height"
 msgstr "Alçària no vàlida de fitxer"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 msgid "Invalid file type"
 msgstr "Tipus de fitxer no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
 msgid "Invalid file width"
 msgstr "Amplària no vàlida de fitxer"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 msgid "You informed an invalid FROM address."
 msgstr "S'ha informat una adreça DES DE no vàlida."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 msgid "Invalid integration"
 msgstr "Integració no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 msgid "Invalid message"
 msgstr "Missatge no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 msgid "Invalid method"
 msgstr "Mètode no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 msgid "Invalid name"
 msgstr "Nom no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 msgid "Invalid password"
 msgstr "Contrasenya no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 msgid "Invalid permission"
 msgstr "Permís no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 msgid "Invalid redirectUri"
 msgstr "«redirectUri» no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 msgid "Invalid role"
 msgstr "Rol no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:181
 #, kde-format
 msgid "Invalid room"
 msgstr "Sala no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:372
-#, kde-format
-msgid "'%1' is not a valid room type."
-msgstr "«%1» no és un tipus vàlid de sala."
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:374
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 msgid "Invalid settings provided"
 msgstr "S'ha proporcionat una configuració no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:376
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 msgid "Invalid subscription"
 msgstr "Subscripció no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:378
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
 msgid "Invalid token"
 msgstr "Testimoni no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:380
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 msgid "Invalid triggerWords"
 msgstr "«triggerWords» no vàlides"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
 msgid "Invalid URLs"
 msgstr "URL no vàlids"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 msgid "Invalid user"
 msgstr "Usuari no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
 msgid "Invalid username"
 msgstr "Nom d'usuari no vàlid"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 msgid "The webhook URL responded with a status other than 200"
 msgstr "L'URL de «webhook» ha contestat amb un estat diferent de 200"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 msgid "Message deleting is blocked"
 msgstr "S'ha blocat la supressió de missatges"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 msgid "Message editing is blocked"
 msgstr "S'ha blocat l'edició de missatges"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:394
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "La mida del missatge excedix «Message_MaxAllowedSize»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:396
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 msgid "You must provide the [unsubscribe] link."
 msgstr "Cal proporcionar l'enllaç [unsubscribe]."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:398
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
 msgid "There are no tokens for this user"
 msgstr "No hi ha cap testimoni per a este usuari"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:400
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 msgid "Not allowed"
 msgstr "No està permés"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:402
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 msgid "Not authorized"
 msgstr "No autoritzat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:404
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
 msgid "Password does not meet the server's policy"
 msgstr "La contrasenya no complix la política del servidor"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:406
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
 "long)"
@@ -2711,8 +2618,7 @@ msgstr ""
 "La contrasenya no complix la política del servidor de llargària màxima "
 "(contrasenya massa llarga)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:408
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
 "short)"
@@ -2720,8 +2626,7 @@ msgstr ""
 "La contrasenya no complix la política del servidor de llargària mínima "
 "(contrasenya massa curta)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:410
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
@@ -2729,8 +2634,7 @@ msgstr ""
 "La contrasenya no complix la política del servidor d'un caràcter en "
 "minúscula com a mínim"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:412
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
@@ -2738,16 +2642,14 @@ msgstr ""
 "La contrasenya no complix la política del servidor d'un caràcter numèric com "
 "a mínim"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:414
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr ""
 "La contrasenya no complix la política del servidor d'un caràcter especial "
 "com a mínim"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:416
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
@@ -2755,8 +2657,7 @@ msgstr ""
 "La contrasenya no complix la política del servidor d'un caràcter en "
 "majúscula com a mínim"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:419
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
 "(you have too many of the same characters next to each other)"
@@ -2764,77 +2665,51 @@ msgstr ""
 "La contrasenya no complix la política del servidor de prohibició de "
 "repetició de caràcters (el mateix caràcter està repetit massa vegades)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:421
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
 msgid "Push is disabled"
 msgstr "L'enviament està desactivat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:425
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 msgid "Cannot delete role because it's in use"
 msgstr "No s'ha pogut suprimir el rol perquè està en ús"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:427
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
 msgid "Role name is required"
 msgstr "El nom del rol és necessari"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:429
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 msgid "Room is not closed"
 msgstr "La sala no està tancada"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:431
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 msgid "The room already has an end-to-end encryption key ID"
 msgstr "La sala ja té una ID de clau d'encriptació d'extrem a extrem"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:434
-#, kde-format
-msgid "The field '%1' is required."
-msgstr "Es requerix el camp «%1»."
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:436
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 msgid "This is not a Livechat room"
 msgstr "Esta no és una sala de Livechat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:438
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Actualment els testimonis d'accés personal estan desactivats"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:440
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 msgid "A token with this name already exists"
 msgstr "Ja existix un testimoni amb este nom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:442
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
 msgid "Token does not exists"
 msgstr "El testimoni no existix"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:445
-#, kde-format
-msgid ""
-"Error, too many requests. Please slow down. You must wait %1 seconds before "
-"trying again."
-msgstr ""
-"Error, hi ha massa sol·licituds. Espereu un moment. Cal esperar %1 segons "
-"abans de tornar-ho a provar."
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:447
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
 msgid "User has no roles"
 msgstr "L'usuari no té cap rol"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:449
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
 msgid "User is not activated"
 msgstr "L'usuari no està activat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:451
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
 "limit set by the administrator"
@@ -2842,90 +2717,74 @@ msgstr ""
 "El nombre d'usuaris que esteu intentant convidar al #channel_name excedix el "
 "límit definit per l'administrador"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:453
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
 msgid "User is not in this room"
 msgstr "L'usuari no es troba en esta sala"
 
 # skip-rule: rst-link0italic,rst-italic2
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:455
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#, c-format
 msgid "You are not in the room `%s`"
 msgstr "No esteu a la sala «%s»"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:457
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 msgid "User registration is disabled"
 msgstr "El registre d'usuaris està desactivat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:459
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
 msgid "User registration is only allowed via Secret URL"
 msgstr "El registre d'usuari només es permet via un URL secret"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:461
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
 "Sou l'últim propietari. Establiu un propietari nou abans de deixar la sala."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:463
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 msgid "The private group is archived"
 msgstr "El grup privat està arxivat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:465
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
 msgid "User is already an owner"
 msgstr "L'usuari ja és un propietari"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:467
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 msgid "User is already a leader"
 msgstr "L'usuari ja és un líder"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:469
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
 msgid "User is already a moderator"
 msgstr "L'usuari ja és un moderador"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:471
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 msgid "Invalid message id"
 msgstr "ID no vàlid de missatge"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:473
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
 msgid "User is not a leader"
 msgstr "L'usuari no és un líder"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:475
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 msgid "App user is not allowed to login"
 msgstr "L'aplicació d'usuari no està permesa iniciar la sessió"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:477
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
 msgid "Direct Messages can not be archived"
 msgstr "Els missatges directes no es poden arxivar"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:479
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 msgid "Message not found."
 msgstr "No s'ha trobat el missatge."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:481
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
 msgid "Two Authentication Password Required"
 msgstr "Es requerix una contrasenya d'autenticació de dos factors"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:483
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 msgid "Invalid Password"
 msgstr "Contrasenya no vàlida"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:485
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
@@ -2933,25 +2792,71 @@ msgstr ""
 "El paràmetre requerit \\\"roomId\\\" o \\\"roomName\\\" que s'ha "
 "proporcionat no coincidix amb cap canal"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:487
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 msgid "A role with this name already exists"
 msgstr "Ja existix un rol amb este nom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:489
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
 msgid "Message could not be pinned"
 msgstr "El missatge no s'ha pogut fixar"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:491
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 msgid "Entered password has been previously used"
 msgstr "La contrasenya introduïda ja s'ha fet servir prèviament"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:493
-#, kde-format
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "S'ha assolit el nombre màxim de sales per convidat."
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#, kde-format
+msgid "'%1' is not allowed"
+msgstr " «%1» no està permés"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
+#, kde-format
+msgid "There's an archived channel with name '%1'"
+msgstr "Hi ha un canal arxivat amb el nom «%1»"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
+#, kde-format
+msgid "Error trying to send email: %1"
+msgstr ""
+"S'ha produït un error mentre s'intentava enviar el correu electrònic: %1"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#, kde-format
+msgid "'%1' is already in use :("
+msgstr "«%1» ja es troba en ús :("
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
+#, kde-format
+msgid "%1 is not a valid %2"
+msgstr "%1 no és un %2 vàlid"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#, kde-format
+msgid "Invalid email '%1'"
+msgstr "Correu no vàlid «%1»"
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#, kde-format
+msgid "'%1' is not a valid room type."
+msgstr "«%1» no és un tipus vàlid de sala."
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
+#, kde-format
+msgid "The field '%1' is required."
+msgstr "Es requerix el camp «%1»."
+
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
+#, kde-format
+msgid ""
+"Error, too many requests. Please slow down. You must wait %1 seconds before "
+"trying again."
+msgstr ""
+"Error, hi ha massa sol·licituds. Espereu un moment. Cal esperar %1 segons "
+"abans de tornar-ho a provar."
 
 #: rocketchatrestapi-qt/role/removeuserfromrolejob.cpp:68
 #, kde-format
@@ -3472,7 +3377,7 @@ msgstr "Mostra la moderació de missatges"
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
 #: widgets/dialogs/searchmessagewidget.cpp:218
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
-#: widgets/discussions/showdiscussionswidget.cpp:106
+#: widgets/discussions/showdiscussionswidget.cpp:107
 #: widgets/room/commandpreviewwidget.cpp:171
 #: widgets/room/usersinroomwidget.cpp:178
 #, kde-format
@@ -4807,7 +4712,7 @@ msgid "Layout"
 msgstr "Disposició"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:61
 #, kde-format
 msgid "Enterprise"
 msgstr "Corporativa"
@@ -7759,7 +7664,7 @@ msgid "Username or email:"
 msgstr "Nom d'usuari o correu:"
 
 #: widgets/common/authenticationloginwidget.cpp:168
-#: widgets/ruqolamainwindow.cpp:1117
+#: widgets/ruqolamainwindow.cpp:1124
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7769,7 +7674,7 @@ msgstr ""
 "Si no rebeu un correu ben prompte, torneu i intenteu-ho de nou."
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1118
+#: widgets/ruqolamainwindow.cpp:1125
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8870,7 +8775,7 @@ msgid "Report"
 msgstr "Informa"
 
 #: widgets/dialogs/reportmessagewidget.cpp:38
-#: widgets/dialogs/reportuserwidget.cpp:38
+#: widgets/dialogs/reportuserwidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Message:"
@@ -8888,7 +8793,7 @@ msgctxt "@title:window"
 msgid "Report User"
 msgstr "Informa d'un usuari"
 
-#: widgets/dialogs/reportuserwidget.cpp:44
+#: widgets/dialogs/reportuserwidget.cpp:45
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Why do you want to report?"
@@ -9106,17 +9011,17 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Informació del servidor"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Server version:"
 msgstr "Versió del servidor:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:59
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
 #, kde-format
 msgid "License:"
 msgstr "Llicència:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:60
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:61
 #, kde-format
 msgctxt "No license"
 msgid "None"
@@ -9174,7 +9079,7 @@ msgstr[1] "%1 adjunts a la sala (Total: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:103
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
-#: widgets/discussions/showdiscussionswidget.cpp:117
+#: widgets/discussions/showdiscussionswidget.cpp:118
 #: widgets/misc/searchtreebasewidget.cpp:80
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:194
@@ -9274,7 +9179,7 @@ msgctxt "@info:tooltip"
 msgid "Rotate Right"
 msgstr "Gira a la dreta"
 
-#: widgets/dialogs/showimagewidget.cpp:236
+#: widgets/dialogs/showimagewidget.cpp:241
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:69
 #, kde-format
 msgid "Save Image"
@@ -9463,7 +9368,7 @@ msgid_plural "%1 messages"
 msgstr[0] "%1 missatge"
 msgstr[1] "%1 missatges"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:248
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:250
 #, kde-format
 msgid "Open Discussion"
 msgstr "Obri un debat"
@@ -9480,12 +9385,12 @@ msgctxt "@info:placeholder"
 msgid "Search discussion…"
 msgstr "Busca un debat…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:108
+#: widgets/discussions/showdiscussionswidget.cpp:109
 #, kde-format
 msgid "No Discussion found"
 msgstr "No s'ha trobat cap debat"
 
-#: widgets/discussions/showdiscussionswidget.cpp:115
+#: widgets/discussions/showdiscussionswidget.cpp:116
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -9854,7 +9759,7 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:52
+#: widgets/loginwidget/ruqolaloginwidget.cpp:53
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -9864,43 +9769,43 @@ msgstr ""
 "Heu activat un segon factor d'autenticació.\n"
 "Introduïu el codi generat o un codi alternatiu."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:184
+#: widgets/loginwidget/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: nom d'usuari o contrasenya no vàlids"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:200
+#: widgets/loginwidget/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "S'ha trobat un problema d'instal·lació. Ací no s'ha trobat cap connector."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:207
+#: widgets/loginwidget/ruqolaloginwidget.cpp:208
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "No s'ha pogut fer l'inici de la sessió: error genèric"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:214
+#: widgets/loginwidget/ruqolaloginwidget.cpp:215
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: s'ha bloquejat temporalment l'inici "
 "de sessió per IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:221
+#: widgets/loginwidget/ruqolaloginwidget.cpp:222
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "No s'ha pogut fer l'inici de la sessió: s'ha bloquejat temporalment l'inici "
 "de sessió per usuari."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:228
+#: widgets/loginwidget/ruqolaloginwidget.cpp:229
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "No s'ha pogut fer l'inici de la sessió: l'usuari no està activat."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:235
+#: widgets/loginwidget/ruqolaloginwidget.cpp:236
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -10079,7 +9984,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Busca una paraula…"
 
-#: widgets/misc/servermenu.cpp:23
+#: widgets/misc/servermenu.cpp:26
 #, kde-format
 msgid "Server"
 msgstr "Servidor"
@@ -11699,279 +11604,279 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuari a la sala (Total: %2)"
 msgstr[1] "%1 usuaris a la sala (Total: %2)"
 
-#: widgets/ruqolamainwindow.cpp:236
+#: widgets/ruqolamainwindow.cpp:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Mostra les notificacions noves"
 
-#: widgets/ruqolamainwindow.cpp:238
+#: widgets/ruqolamainwindow.cpp:240
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Mostra les notificacions noves"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:445
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Afig un servidor…"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Informació del servidor…"
 
-#: widgets/ruqolamainwindow.cpp:447
+#: widgets/ruqolamainwindow.cpp:454
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Desconnecta del servidor actual"
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:458
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Ves fins al següent canal sense llegir"
 
-#: widgets/ruqolamainwindow.cpp:456
+#: widgets/ruqolamainwindow.cpp:463
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Crea un canal nou…"
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:467
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Crea missatges directes…"
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Crea un debat…"
 
-#: widgets/ruqolamainwindow.cpp:468
+#: widgets/ruqolamainwindow.cpp:475
 #, kde-format
 msgid "Create Team…"
 msgstr "Crea un equip…"
 
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:483
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "No llegits en la part superior"
 
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Per últim missatge"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:497
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Alfabèticament"
 
-#: widgets/ruqolamainwindow.cpp:496
+#: widgets/ruqolamainwindow.cpp:503
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
-#: widgets/ruqolamainwindow.cpp:500
+#: widgets/ruqolamainwindow.cpp:507
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Mostra els errors del servidor"
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:551
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Marca tots els canals com a llegits"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registra un usuari nou…"
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:560
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "El meu compte…"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:564
 #, kde-format
 msgid "administration"
 msgstr "administració"
 
-#: widgets/ruqolamainwindow.cpp:558
+#: widgets/ruqolamainwindow.cpp:565
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Administrador…"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:571
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Configura el servidor…"
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:578
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Aplicacions…"
 
-#: widgets/ruqolamainwindow.cpp:576
+#: widgets/ruqolamainwindow.cpp:583
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Aplicacions sol·licitades…"
 
-#: widgets/ruqolamainwindow.cpp:581
+#: widgets/ruqolamainwindow.cpp:588
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Aplicacions instal·lades…"
 
-#: widgets/ruqolamainwindow.cpp:586
+#: widgets/ruqolamainwindow.cpp:593
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Aplicacions privades…"
 
-#: widgets/ruqolamainwindow.cpp:591
+#: widgets/ruqolamainwindow.cpp:598
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Unix-te a una sala…"
 
-#: widgets/ruqolamainwindow.cpp:595
+#: widgets/ruqolamainwindow.cpp:602
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Unix-te a un equip…"
 
-#: widgets/ruqolamainwindow.cpp:599
+#: widgets/ruqolamainwindow.cpp:606
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Obri una conversa privada…"
 
-#: widgets/ruqolamainwindow.cpp:620
+#: widgets/ruqolamainwindow.cpp:627
 #, kde-format
 msgid "&Next Server"
 msgstr "Servidor següe&nt"
 
-#: widgets/ruqolamainwindow.cpp:625
+#: widgets/ruqolamainwindow.cpp:632
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor an&terior"
 
-#: widgets/ruqolamainwindow.cpp:634
+#: widgets/ruqolamainwindow.cpp:641
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Estat:"
 
-#: widgets/ruqolamainwindow.cpp:649
+#: widgets/ruqolamainwindow.cpp:656
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Canal seleccionat anterior"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:663
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Canal seleccionat següent"
 
-#: widgets/ruqolamainwindow.cpp:686
+#: widgets/ruqolamainwindow.cpp:693
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostra l'historial de notificacions"
 
-#: widgets/ruqolamainwindow.cpp:690
+#: widgets/ruqolamainwindow.cpp:697
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Mostra la informació de RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:694
+#: widgets/ruqolamainwindow.cpp:701
 #, kde-format
 msgctxt "@action"
 msgid "Server Checklist…"
 msgstr "Llista de comprovació del servidor…"
 
-#: widgets/ruqolamainwindow.cpp:698
+#: widgets/ruqolamainwindow.cpp:705
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Mostra l'avatar de la sala"
 
-#: widgets/ruqolamainwindow.cpp:703
+#: widgets/ruqolamainwindow.cpp:710
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostra la sala preferida"
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:727
 #, kde-format
 msgid "What's new"
 msgstr "Què hi ha de nou"
 
-#: widgets/ruqolamainwindow.cpp:724
+#: widgets/ruqolamainwindow.cpp:731
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importació de comptes"
 
-#: widgets/ruqolamainwindow.cpp:728
+#: widgets/ruqolamainwindow.cpp:735
 #, kde-format
 msgid "Export Accounts"
 msgstr "Exportació de comptes"
 
-#: widgets/ruqolamainwindow.cpp:745
+#: widgets/ruqolamainwindow.cpp:752
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Mitjana"
 
-#: widgets/ruqolamainwindow.cpp:753
+#: widgets/ruqolamainwindow.cpp:760
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensada"
 
-#: widgets/ruqolamainwindow.cpp:762
+#: widgets/ruqolamainwindow.cpp:769
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Ampliada"
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:777
 #, kde-format
 msgid "Clear history"
 msgstr "Neteja l'historial"
 
-#: widgets/ruqolamainwindow.cpp:814
+#: widgets/ruqolamainwindow.cpp:821
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Creeu un equip"
 
-#: widgets/ruqolamainwindow.cpp:1014
+#: widgets/ruqolamainwindow.cpp:1021
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "No s'ha pogut escriure en el fitxer de registre %1"
 
-#: widgets/ruqolamainwindow.cpp:1014
+#: widgets/ruqolamainwindow.cpp:1021
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
-#: widgets/ruqolamainwindow.cpp:1261
+#: widgets/ruqolamainwindow.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -11980,19 +11885,19 @@ msgstr ""
 "<qt>Ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1264
+#: widgets/ruqolamainwindow.cpp:1271
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Ocultació de la barra de menús"
 
-#: widgets/ruqolamainwindow.cpp:1451
+#: widgets/ruqolamainwindow.cpp:1458
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Treballa en línia"
 
-#: widgets/ruqolamainwindow.cpp:1454
+#: widgets/ruqolamainwindow.cpp:1461
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
