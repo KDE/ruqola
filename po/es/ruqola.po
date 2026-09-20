@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-19 00:45+0000\n"
-"PO-Revision-Date: 2026-09-14 00:13+0100\n"
+"PO-Revision-Date: 2026-09-19 18:05+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -5051,9 +5051,7 @@ msgid "Enable in public channels"
 msgstr "Activar en canales públicos"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Private Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in private channels"
 msgstr "Activar en canales privados"
@@ -8081,7 +8079,7 @@ msgstr "Añadir usuarios a la sala"
 #, kde-format
 msgctxt "@title:window"
 msgid "Code 2FA"
-msgstr ""
+msgstr "Código 2FA"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -9722,10 +9720,9 @@ msgid "Impossible to open file"
 msgstr "No se pudo abrir el archivo"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Invalid file type"
+#, kde-format
 msgid "Invalid zip file."
-msgstr "Tipo de archivo no válido"
+msgstr "Archivo zip no válido."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:89
 #, kde-format
