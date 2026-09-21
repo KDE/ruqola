@@ -87,7 +87,7 @@ void PersonalAccessTokenInfo::setLastTokenPart(const QString &newLastTokenPart)
 
 bool PersonalAccessTokenInfo::isValid() const
 {
-    return !mLastTokenPart.isEmpty() && (mCreatedAt != -1);
+    return !mLastTokenPart.isEmpty();
 }
 
 bool PersonalAccessTokenInfo::operator==(const PersonalAccessTokenInfo &other) const
