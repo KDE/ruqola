@@ -81,14 +81,17 @@ void QueryParameters::setCustom(const QMap<QString, QString> &custom)
 
 void QueryParameters::generateQueryParameter(const QueryParameters &queryParameters, QUrlQuery &urlQuery)
 {
-    if (queryParameters.count() >= 0) {
-        urlQuery.addQueryItem(u"count"_s, QString::number(queryParameters.count()));
+    const int count = queryParameters.count();
+    if (count >= 0) {
+        urlQuery.addQueryItem(u"count"_s, QString::number(count));
     }
-    if (queryParameters.offset() >= 0) {
-        urlQuery.addQueryItem(u"offset"_s, QString::number(queryParameters.offset()));
+    const int offset = queryParameters.offset();
+    if (offset >= 0) {
+        urlQuery.addQueryItem(u"offset"_s, QString::number(offset));
     }
-    if (!queryParameters.filter().isEmpty()) {
-        urlQuery.addQueryItem(u"filter"_s, queryParameters.filter());
+    const auto filter = queryParameters.filter();
+    if (!filter.isEmpty()) {
+        urlQuery.addQueryItem(u"filter"_s, filter);
     }
 
     const QMap<QString, QString> custom = queryParameters.custom();
@@ -120,10 +123,11 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
         }
     }
 
-    if (!queryParameters.sorting().isEmpty()) {
+    const auto sorting = queryParameters.sorting();
+    if (!sorting.isEmpty()) {
         // example    sort={"name" : -1,"status" : 1}
         QString str;
-        for (const auto &[key, value] : queryParameters.sorting().asKeyValueRange()) {
+        for (const auto &[key, value] : sorting.asKeyValueRange()) {
             if (!str.isEmpty()) {
                 str += u',';
             }
