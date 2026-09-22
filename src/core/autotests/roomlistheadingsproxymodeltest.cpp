@@ -14,6 +14,7 @@
 #include "room.h"
 #include <QStandardPaths>
 #include <QTest>
+#include <memory>
 
 QTEST_GUILESS_MAIN(RoomListHeadingsProxyModelTest)
 
@@ -325,6 +326,51 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnHideUnreadStatusChanges()
     const QStringList newExpected{u"Rooms"_s, u"Room 1"_s};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
     delete room;
+}
+
+void RoomListHeadingsProxyModelTest::shouldUpdateOnUnreadOnTopPreferenceChanges()
+{
+    // GIVEN two unread rooms and one read room, with "unread on top" enabled
+    RocketChatAccount account(u"account"_s);
+    OwnUserPreferences ownUserPreferences;
+    ownUserPreferences.setShowUnread(true);
+    account.setOwnUserPreferences(ownUserPreferences);
+
+    RoomModel sourceModel(&account);
+    std::vector<std::unique_ptr<Room>> rooms;
+    for (int i = 1; i <= 3; ++i) {
+        auto room = std::make_unique<Room>(&account);
+        room->setRoomId(QByteArray("room") + QByteArray::number(i));
+        room->setName(QStringLiteral("Room %1").arg(i));
+        room->setChannelType(Room::RoomType::Channel);
+        if (i <= 2) {
+            room->setUnread(1);
+        }
+        QVERIFY(sourceModel.addRoom(room.get()));
+        rooms.push_back(std::move(room));
+    }
+
+    RoomListHeadingsProxyModel proxy;
+    proxy.setSourceModel(&sourceModel);
+    const QStringList unreadOnTop{u"Unread"_s, u"Room 1"_s, u"Room 2"_s, u"Rooms"_s, u"Room 3"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), unreadOnTop));
+
+    // WHEN disabling "unread on top"
+    ownUserPreferences.setShowUnread(false);
+    account.setOwnUserPreferences(ownUserPreferences);
+    Q_EMIT account.ownUserUiPreferencesChanged();
+
+    // THEN all rooms are in the Rooms section
+    const QStringList allInRooms{u"Rooms"_s, u"Room 1"_s, u"Room 2"_s, u"Room 3"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), allInRooms));
+
+    // WHEN enabling it again
+    ownUserPreferences.setShowUnread(true);
+    account.setOwnUserPreferences(ownUserPreferences);
+    Q_EMIT account.ownUserUiPreferencesChanged();
+
+    // THEN the unread rooms are back on top
+    QVERIFY(compareWithExpected(extractTexts(&proxy), unreadOnTop));
 }
 
 #include "moc_roomlistheadingsproxymodeltest.cpp"

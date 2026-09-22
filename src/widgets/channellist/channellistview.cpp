@@ -56,6 +56,9 @@ ChannelListView::ChannelListView(QWidget *parent)
 
     connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &ChannelListView::slotClicked);
     connect(model(), &QAbstractItemModel::modelReset, this, &QTreeView::expandAll);
+    // QSortFilterProxyModel turns row moves in the source model into layoutChanged, so sections can
+    // appear again without any rowsInserted signal, e.g. when the "unread on top" setting changes
+    connect(model(), &QAbstractItemModel::layoutChanged, this, &QTreeView::expandAll);
     connect(this, &QTreeView::pressed, this, &ChannelListView::slotPressed);
     connect(mRoomFilterProxyModel, &QAbstractItemModel::rowsInserted, this, [this](const QModelIndex &parent, int first, int last) {
         if (!parent.isValid()) {
