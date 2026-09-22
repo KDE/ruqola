@@ -45,8 +45,10 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel() = default;
 
 void UsersForRoomFilterProxyModel::clearFilter()
 {
+    beginFilterChange();
     mFilterString.clear();
     mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
 }
 
 bool UsersForRoomFilterProxyModel::hasFullList() const
