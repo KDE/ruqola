@@ -46,25 +46,25 @@ void NotificationOptions::setAudioNotificationValue(const QByteArray &newAudioNo
 QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
-    if (!options.audioNotificationValue().isEmpty()) {
-        obj["audioNotificationValue"_L1] = QString::fromLatin1(options.audioNotificationValue());
+    if (!options.mAudioNotificationValue.isEmpty()) {
+        obj["audioNotificationValue"_L1] = QString::fromLatin1(options.mAudioNotificationValue);
     }
-    if (options.disableNotifications()) {
+    if (options.mDisableNotifications) {
         obj["disableNotifications"_L1] = true;
     }
-    obj["desktopNotifications"_L1] = QString::fromLatin1(options.desktopNotifications().currentValue());
-    obj["mobilePushNotifications"_L1] = QString::fromLatin1(options.mobilePushNotification().currentValue());
-    obj["emailNotifications"_L1] = QString::fromLatin1(options.emailNotifications().currentValue());
-    if (!options.unreadTrayIconAlert().isEmpty()) {
-        obj["unreadAlert"_L1] = options.unreadTrayIconAlert();
+    obj["desktopNotifications"_L1] = QString::fromLatin1(options.mDesktopNotifications.currentValue());
+    obj["mobilePushNotifications"_L1] = QString::fromLatin1(options.mMobilePushNotification.currentValue());
+    obj["emailNotifications"_L1] = QString::fromLatin1(options.mEmailNotifications.currentValue());
+    if (!options.mUnreadTrayIconAlert.isEmpty()) {
+        obj["unreadAlert"_L1] = options.mUnreadTrayIconAlert;
     }
-    if (options.hideUnreadStatus()) {
+    if (options.mHideUnreadStatus) {
         obj["hideUnreadStatus"_L1] = true;
     }
-    if (options.muteGroupMentions()) {
+    if (options.mMuteGroupMentions) {
         obj["muteGroupMentions"_L1] = true;
     }
-    if (options.hideMentionStatus()) {
+    if (options.mHideMentionStatus) {
         obj["hideMentionStatus"_L1] = true;
     }
     return obj;
