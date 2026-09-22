@@ -196,7 +196,7 @@ void RocketChatCache::removeCache()
     const QString storeCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + u'/' + mAccount->accountName() + u'/';
     QDir dir(storeCachePath);
     if (dir.exists()) {
-        qDebug() << "Deleting old cache dir" << storeCachePath;
+        qCDebug(RUQOLA_LOG) << "Deleting old cache dir" << storeCachePath;
         if (!dir.removeRecursively()) {
             qCWarning(RUQOLA_LOG) << "Impossible to delete cache dir:" << storeCachePath;
         }

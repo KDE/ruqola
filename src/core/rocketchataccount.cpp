@@ -3828,7 +3828,7 @@ void RocketChatAccount::regenerateCodes2fa(const QJsonObject &root)
     displayLogInfo("Regenerate Codes 2FA"_ba, root);
     // const QJsonObject obj = root.value("result"_L1).toObject();
     // TODO
-    qDebug() << " regenerateCodes_2fa " << root;
+    // qDebug() << " regenerateCodes_2fa " << root;
 }
 
 void RocketChatAccount::enable2fa(const QJsonObject &root)
