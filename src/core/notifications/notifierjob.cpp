@@ -24,7 +24,7 @@ void NotifierJob::start()
 {
     if (mInfo.isValid()) {
         auto notification = new KNotification(u"new-notification"_s, KNotification::CloseOnTimeout);
-        const QString userName = mInfo.senderName().isEmpty() ? mInfo.senderUserName() : mInfo.senderName();
+        const QString &userName = mInfo.senderName().isEmpty() ? mInfo.senderUserName() : mInfo.senderName();
         QString title = mInfo.title();
         if (mInfo.forceShowAccountName()) {
             title += u" (%1)"_s.arg(mInfo.accountName());

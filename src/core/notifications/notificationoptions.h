@@ -18,9 +18,9 @@ public:
     NotificationOptions();
     struct LIBRUQOLACORE_EXPORT NotificationValue {
         NotificationValue() = default;
-        explicit NotificationValue(const QByteArray &val, const QByteArray &pref)
-            : value(val)
-            , preferenceOrigin(pref)
+        NotificationValue(QByteArray val, QByteArray pref)
+            : value(std::move(val))
+            , preferenceOrigin(std::move(pref))
         {
         }
         QByteArray value;
