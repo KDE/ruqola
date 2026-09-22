@@ -50,7 +50,7 @@ void AuthenticationManager::initializePluginList()
         info.metaDataFileName = data.fileName();
         info.plugin = nullptr;
         unique.insert(info.metaDataFileNameBaseName);
-        mPluginList.push_back(info);
+        mPluginList.push_back(std::move(info));
     }
     QList<AuthenticationManagerInfo>::iterator end(mPluginList.end());
     for (QList<AuthenticationManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
