@@ -21,12 +21,13 @@ SortFilterProxyModelBase::~SortFilterProxyModelBase() = default;
 
 void SortFilterProxyModelBase::setFilterString(const QString &string)
 {
+    beginFilterChange();
 #if HAVE_TEXT_UTILS
     mFilterString = TextUtils::ConvertText::normalize(string);
 #else
     mFilterString = string;
 #endif
-    invalidate();
+    endFilterChange(Direction::Rows);
 }
 
 bool SortFilterProxyModelBase::contains(const QString &string) const
