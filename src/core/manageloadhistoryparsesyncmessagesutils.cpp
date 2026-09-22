@@ -42,7 +42,9 @@ void ManageLoadHistoryParseSyncMessagesUtils::parse(const QJsonObject &obj)
     mUpdatesMessages.clear();
     const QJsonObject result = obj["result"_L1].toObject();
     const QJsonArray deleteArray = result["deleted"_L1].toArray();
-    for (int i = 0, total = deleteArray.size(); i < total; ++i) {
+    const int total = deleteArray.size();
+    mDeletedMessages.reserve(total);
+    for (int i = 0; i < total; ++i) {
         const QJsonObject o = deleteArray.at(i).toObject();
         mDeletedMessages.append(o["_id"_L1].toString().toLatin1());
     }

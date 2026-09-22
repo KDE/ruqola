@@ -425,12 +425,12 @@ bool Utils::userActivity(const QJsonArray &contents)
     // const QString val = contents.toVariantList().at(1).toString();
     // qDebug() << " val ************ " << val << " contents.toVariantList().at(1 " << contents.toVariantList().at(1);
     bool status = false;
-    if (contents.toVariantList().at(1).toBool()) {
-        // qDebug() << " TYPING *************************************************";
+    const QVariant activity = contents.toVariantList().at(1);
+    if (activity.toBool()) {
         status = true;
-    } else if (!contents.toVariantList().at(1).toList().isEmpty()) {
-        if (contents.toVariantList().at(1).toList().at(0).toString() == "user-typing"_L1) {
-            // qDebug() << " FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF typing user";
+    } else {
+        const QVariantList activityList = activity.toList();
+        if (!activityList.isEmpty() && activityList.at(0).toString() == "user-typing"_L1) {
             status = true;
         }
     }
