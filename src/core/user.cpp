@@ -265,9 +265,7 @@ User User::deserialize(const QJsonObject &o)
     user.setActive(o.value("active"_L1).toBool(true)); // By default it's active
     user.setBio(o.value("bio"_L1).toString());
     user.setNickName(o.value("nickname"_L1).toString());
-    if (!user.type().isEmpty()) {
-        user.setType(o.value("type"_L1).toString());
-    }
+    user.setType(o.value("type"_L1).toString());
     return user;
 }
 
