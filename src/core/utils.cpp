@@ -24,6 +24,7 @@
 #include <QRegularExpression>
 
 #include <QUrl>
+#include <QVariant>
 #include <TextEmoticonsCore/EmoticonUnicodeUtils>
 
 QT_IMPL_METATYPE_EXTERN_TAGGED(Utils::AvatarInfo, Ruqola_AvatarInfo)

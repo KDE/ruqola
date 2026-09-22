@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QDate>
 #include <QObject>
+class QTimer;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT PreviewUrlCacheManager : public QObject
 {
@@ -34,4 +35,5 @@ private:
     QString mCachePath;
     int mEmbedCacheExpirationDays = -1;
     RocketChatAccount *const mRocketChatAccount;
+    QTimer *const mRefreshCheckCache;
 };
