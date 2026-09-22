@@ -569,10 +569,12 @@ QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSort
 {
     QList<AccountManager::AccountDisplayInfo> lst;
     auto model = rocketChatAccountProxyModel();
-    for (int i = 0; i < model->rowCount(); ++i) {
+    const auto total = model->rowCount();
+    lst.reserve(total);
+    for (int i = 0; i < total; ++i) {
         const auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        if (account->accountEnabled()) {
+        if (account && account->accountEnabled()) {
             AccountManager::AccountDisplayInfo info;
             info.name = account->settings()->displayName();
             info.icon = Utils::iconFromAccount(account);
