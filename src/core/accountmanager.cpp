@@ -16,8 +16,8 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
-#if HAVE_TEXT_TO_SPEECH
 #include "texttospeech/texttospeechenqueuemanager.h"
+#if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeech>
 #endif
 
