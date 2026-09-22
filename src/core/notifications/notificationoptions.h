@@ -13,7 +13,6 @@ class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT NotificationOptions
 {
-    Q_GADGET
 public:
     NotificationOptions();
     struct LIBRUQOLACORE_EXPORT NotificationValue {
