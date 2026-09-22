@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:45+0000\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
 "PO-Revision-Date: 2024-11-23 12:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -484,93 +484,93 @@ msgstr "Mute Focused Conversations"
 msgid "View all rooms in the workspace"
 msgstr ""
 
-#: core/authenticationmanager.cpp:87
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Connecting"
 msgstr "Connecting"
 
-#: core/authenticationmanager.cpp:89
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login OTP code required"
 msgstr "Login OTP code required"
 
-#: core/authenticationmanager.cpp:91
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "Login failed: invalid username or password"
 
-#: core/authenticationmanager.cpp:93
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logging in"
 msgstr "Logging in"
 
-#: core/authenticationmanager.cpp:95
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged in"
 msgstr "Logged in"
 
-#: core/authenticationmanager.cpp:97
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Logged out"
 msgstr "Logged out"
 
-#: core/authenticationmanager.cpp:99
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Failed to login due to plugin problem"
 
-#: core/authenticationmanager.cpp:101
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "Login failed: generic error"
 
-#: core/authenticationmanager.cpp:103
+#: core/authenticationmanager.cpp:104
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "A one-time password is required to complete the login procedure."
 
-#: core/authenticationmanager.cpp:105
+#: core/authenticationmanager.cpp:106
 #: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Login failed: Invalid OTP code."
 
-#: core/authenticationmanager.cpp:107
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Login failed: User is not activated."
 
-#: core/authenticationmanager.cpp:109
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "Login has been temporarily blocked For IP."
 
-#: core/authenticationmanager.cpp:111
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "Login has been temporarily blocked For User."
 
-#: core/authenticationmanager.cpp:113
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "App user is not allowed to login."
 
-#: core/authenticationmanager.cpp:115
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout ongoing"
 msgstr "Logout ongoing"
 
-#: core/authenticationmanager.cpp:117
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "Logout cleanup ongoing"
 
-#: core/authenticationmanager.cpp:119
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Successfully logged out"
 msgstr "Successfully logged out"
 
-#: core/authenticationmanager.cpp:121
+#: core/authenticationmanager.cpp:122
 #, kde-format
 msgid "Unknown state"
 msgstr "Unknown state"
@@ -1787,7 +1787,7 @@ msgstr "(Autojoin)"
 msgid "Owner"
 msgstr "Owner"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
+#: core/model/usersmodel.cpp:77 core/utils.cpp:101 core/utils.cpp:376
 #, kde-format
 msgid "Offline"
 msgstr "Offline"
@@ -2071,17 +2071,17 @@ msgstr "Administrator"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/utils.cpp:94 core/utils.cpp:369
+#: core/utils.cpp:95 core/utils.cpp:370
 #, kde-format
 msgid "Online"
 msgstr "Online"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Busy"
 
-#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:99 core/utils.cpp:374 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Away"
@@ -7549,95 +7549,95 @@ msgid "Show Unread"
 msgstr "Show Unread"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Mark as Read"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Mark as Unread"
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Set as Favourite"
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Unset as Favourite"
 
-#: widgets/channellist/channellistview.cpp:155
+#: widgets/channellist/channellistview.cpp:158
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Hide Channel"
 
-#: widgets/channellist/channellistview.cpp:172
+#: widgets/channellist/channellistview.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Convert to Team"
 
-#: widgets/channellist/channellistview.cpp:183
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Convert to Channel"
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:189
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Do you want to convert team to channel?"
 
-#: widgets/channellist/channellistview.cpp:187
+#: widgets/channellist/channellistview.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Convert To Channel"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:205
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Move to Team"
 
-#: widgets/channellist/channellistview.cpp:218
+#: widgets/channellist/channellistview.cpp:221
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configure Notification…"
 
-#: widgets/channellist/channellistview.cpp:235
+#: widgets/channellist/channellistview.cpp:238
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Quit Channel"
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgid "Any team selected."
 msgstr "Any team selected."
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Move To Team"
 
-#: widgets/channellist/channellistview.cpp:329
+#: widgets/channellist/channellistview.cpp:332
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Are you sure to convert it to team? It can not be undo."
 
-#: widgets/channellist/channellistview.cpp:330
+#: widgets/channellist/channellistview.cpp:333
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"

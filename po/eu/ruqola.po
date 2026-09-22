@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:45+0000\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -475,94 +475,94 @@ msgstr "Kanporanzko komunikazioa"
 msgid "View all rooms in the workspace"
 msgstr ""
 
-#: core/authenticationmanager.cpp:87
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Connecting"
 msgstr "Konektatzen"
 
-#: core/authenticationmanager.cpp:89
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login OTP code required"
 msgstr "Saio-sarrerak OTP kode bat behar da"
 
-#: core/authenticationmanager.cpp:91
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "Saio-sarrerak huts egin du: erabiltzaile-izen edo pasahitz baliogabea"
 
-#: core/authenticationmanager.cpp:93
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logging in"
 msgstr "Saioa hasten…"
 
-#: core/authenticationmanager.cpp:95
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged in"
 msgstr "Saioa hasita"
 
-#: core/authenticationmanager.cpp:97
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Logged out"
 msgstr "Saio-itxita"
 
-#: core/authenticationmanager.cpp:99
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "Saio-sarrerak huts egin du plugin arazo bat dela eta"
 
-#: core/authenticationmanager.cpp:101
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "Saio-sarrerak huts egin du: errore generikoa"
 
-#: core/authenticationmanager.cpp:103
+#: core/authenticationmanager.cpp:104
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Erabilera bakarreko pasahitz bat behar da saio-sarrera  prozedura osatzeko."
 
-#: core/authenticationmanager.cpp:105
+#: core/authenticationmanager.cpp:106
 #: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Saio-sarrerak huts egin du: OTP kode baliogabea."
 
-#: core/authenticationmanager.cpp:107
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "Saio-sarrerak huts egin du: Erabiltzailea ez dago aktibatuta."
 
-#: core/authenticationmanager.cpp:109
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "IPari, Saio-sarrera, aldi baterako oztopatu zaio."
 
-#: core/authenticationmanager.cpp:111
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "Erabiltzaileari, Saio-sarrera, aldi baterako oztopatu zaio."
 
-#: core/authenticationmanager.cpp:113
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "Aplikazio-erabiltzaileak ez du saio-sarrera baimenduta."
 
-#: core/authenticationmanager.cpp:115
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout ongoing"
 msgstr "Saio-irteera abian da"
 
-#: core/authenticationmanager.cpp:117
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "Saio-irteera garbiketa abian da"
 
-#: core/authenticationmanager.cpp:119
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Successfully logged out"
 msgstr "Saio-irteera ondo burutu da"
 
-#: core/authenticationmanager.cpp:121
+#: core/authenticationmanager.cpp:122
 #, kde-format
 msgid "Unknown state"
 msgstr "Egoera ezezaguna"
@@ -1794,7 +1794,7 @@ msgstr "(automatikoki batu)"
 msgid "Owner"
 msgstr "Jabea"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
+#: core/model/usersmodel.cpp:77 core/utils.cpp:101 core/utils.cpp:376
 #, kde-format
 msgid "Offline"
 msgstr "Lerroz kanpo"
@@ -2076,17 +2076,17 @@ msgstr "Administratzailea"
 msgid "Bot"
 msgstr "Bota"
 
-#: core/utils.cpp:94 core/utils.cpp:369
+#: core/utils.cpp:95 core/utils.cpp:370
 #, kde-format
 msgid "Online"
 msgstr "Lerroan"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "Lanpetuta"
 
-#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:99 core/utils.cpp:374 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "Aldendua"
@@ -7540,95 +7540,95 @@ msgid "Show Unread"
 msgstr "Erakutsi irakurri gabeak"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Markatu Irakurrita gisa"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Markatu irakurri gabeko gisa"
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Ezarri gogoko gisa"
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Kendu gogoko ezarpena"
 
-#: widgets/channellist/channellistview.cpp:155
+#: widgets/channellist/channellistview.cpp:158
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Ezkutatu kanala"
 
-#: widgets/channellist/channellistview.cpp:172
+#: widgets/channellist/channellistview.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Bihurtu talde"
 
-#: widgets/channellist/channellistview.cpp:183
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Bihurtu kanal"
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:189
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Taldea kanal bihurtu nahi duzu?"
 
-#: widgets/channellist/channellistview.cpp:187
+#: widgets/channellist/channellistview.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Bihurtu kanal"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:205
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:218
+#: widgets/channellist/channellistview.cpp:221
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Konfiguratu jakinarazpena…"
 
-#: widgets/channellist/channellistview.cpp:235
+#: widgets/channellist/channellistview.cpp:238
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Irten kanaletik"
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgid "Any team selected."
 msgstr "Hautatutako talde oro."
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:329
+#: widgets/channellist/channellistview.cpp:332
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Ziur zaude talde bihurtu nahi duzula? Ezin da desegin."
 
-#: widgets/channellist/channellistview.cpp:330
+#: widgets/channellist/channellistview.cpp:333
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"

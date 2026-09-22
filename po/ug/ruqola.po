@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:45+0000\n"
-"PO-Revision-Date: 2026-06-01 18:41-0400\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -27,7 +27,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Laurent Montel"
-msgstr "Laurent Montel"
+msgstr ""
 
 #: apps/main.cpp:64
 #, kde-format
@@ -49,7 +49,7 @@ msgstr "ئەسلى يازغۇچى"
 #, kde-format
 msgctxt "@info:credit"
 msgid "David Faure"
-msgstr "David Faure"
+msgstr ""
 
 #: apps/main.cpp:69
 #, kde-format
@@ -78,7 +78,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Milian Wolff"
-msgstr "Milian Wolff"
+msgstr ""
 
 #: apps/main.cpp:73
 #, kde-format
@@ -118,7 +118,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Allen Winter"
-msgstr "Allen Winter"
+msgstr ""
 
 #: apps/main.cpp:77
 #, kde-format
@@ -129,7 +129,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Waqar Ahmed"
-msgstr "Waqar Ahmed"
+msgstr ""
 
 #: apps/main.cpp:78
 #, kde-format
@@ -140,7 +140,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Nicolas Fella"
-msgstr "Nicolas Fella"
+msgstr ""
 
 #: apps/main.cpp:79
 #, kde-format
@@ -388,10 +388,9 @@ msgid "Access to multiple Livechat messages information"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:688
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access thread information"
-msgstr "ھېسابات ئۇچۇرلىرى"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:690
 #, kde-format
@@ -399,10 +398,9 @@ msgid "Modify moderation information"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:692
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access moderation information"
-msgstr "ھېسابات ئۇچۇرلىرى"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:694
 #, kde-format
@@ -435,16 +433,14 @@ msgid "Allow to register button"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:706
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Access contact information"
-msgstr "ھېسابات ئۇچۇرلىرى"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:708
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Modify contact information"
-msgstr "ھېسابات ئۇچۇرلىرى"
+msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:710
 #, kde-format
@@ -471,93 +467,93 @@ msgstr ""
 msgid "View all rooms in the workspace"
 msgstr ""
 
-#: core/authenticationmanager.cpp:87
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Connecting"
 msgstr "باغلىنىۋاتىدۇ"
 
-#: core/authenticationmanager.cpp:89
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login OTP code required"
 msgstr ""
 
-#: core/authenticationmanager.cpp:91
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr ""
 
-#: core/authenticationmanager.cpp:93
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logging in"
 msgstr ""
 
-#: core/authenticationmanager.cpp:95
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged in"
 msgstr ""
 
-#: core/authenticationmanager.cpp:97
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Logged out"
 msgstr ""
 
-#: core/authenticationmanager.cpp:99
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr ""
 
-#: core/authenticationmanager.cpp:101
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "Login failed: generic error"
 msgstr ""
 
-#: core/authenticationmanager.cpp:103
+#: core/authenticationmanager.cpp:104
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: core/authenticationmanager.cpp:105
+#: core/authenticationmanager.cpp:106
 #: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr ""
 
-#: core/authenticationmanager.cpp:107
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr ""
 
-#: core/authenticationmanager.cpp:109
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr ""
 
-#: core/authenticationmanager.cpp:111
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr ""
 
-#: core/authenticationmanager.cpp:113
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr ""
 
-#: core/authenticationmanager.cpp:115
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout ongoing"
 msgstr ""
 
-#: core/authenticationmanager.cpp:117
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr ""
 
-#: core/authenticationmanager.cpp:119
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Successfully logged out"
 msgstr ""
 
-#: core/authenticationmanager.cpp:121
+#: core/authenticationmanager.cpp:122
 #, kde-format
 msgid "Unknown state"
 msgstr ""
@@ -780,7 +776,7 @@ msgstr ""
 #: core/customsound/customsoundsmanager.cpp:154
 #, kde-format
 msgid "Ringtone"
-msgstr ""
+msgstr "قوڭغۇراق ئاۋازى"
 
 #: core/discussions/discussion.cpp:86
 #, kde-format
@@ -1028,16 +1024,14 @@ msgid "%1 key refreshed successfully"
 msgstr ""
 
 #: core/messages/message.cpp:902
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 banned %2"
-msgstr "%1 ۋە %2"
+msgstr ""
 
 #: core/messages/message.cpp:904
-#, fuzzy, kde-format
-#| msgid "%1 and %2"
+#, kde-format
 msgid "%1 unbanned %2"
-msgstr "%1 ۋە %2"
+msgstr ""
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -1563,7 +1557,7 @@ msgstr ""
 #: core/model/roommodel.cpp:689
 #, kde-format
 msgid "Draft"
-msgstr ""
+msgstr "دەسلەپكى نۇسخا"
 
 #: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:314
 #, kde-format
@@ -1765,7 +1759,7 @@ msgstr ""
 msgid "Owner"
 msgstr "ئىگىدار"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
+#: core/model/usersmodel.cpp:77 core/utils.cpp:101 core/utils.cpp:376
 #, kde-format
 msgid "Offline"
 msgstr "تورسىز"
@@ -1778,7 +1772,7 @@ msgstr ""
 #: core/notifications/notifierjob.cpp:33
 #, kde-format
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr ""
 
 #: core/notifications/notifierjob.cpp:44
 #, kde-format
@@ -2034,17 +2028,17 @@ msgstr "باشقۇرغۇچى"
 msgid "Bot"
 msgstr ""
 
-#: core/utils.cpp:94 core/utils.cpp:369
+#: core/utils.cpp:95 core/utils.cpp:370
 #, kde-format
 msgid "Online"
 msgstr "توردا"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "ئالدىراش"
 
-#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:99 core/utils.cpp:374 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "يوق"
@@ -2088,19 +2082,19 @@ msgstr "رەت قىل"
 #: plugins/authentication/github/githubpluginauthentication.cpp:35
 #, kde-format
 msgid "GitHub"
-msgstr "GitHub"
+msgstr ""
 
 #: plugins/authentication/gitlab/gitlabpluginauthentication.cpp:35
 #, kde-format
 msgid "GitLab"
-msgstr "GitLab"
+msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:162
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:207
 #, kde-format
 msgid "Google"
-msgstr "Google"
+msgstr ""
 
 #: plugins/authentication/password/passwordpluginauthentication.cpp:35
 #, kde-format
@@ -2129,7 +2123,7 @@ msgstr ""
 #: plugins/authentication/personalaccesstoken/personalaccesstokenauthenticationconfigwidget.cpp:41
 #, kde-format
 msgid "Token:"
-msgstr ""
+msgstr "پەرمان تاختا:"
 
 #: plugins/authentication/personalaccesstoken/personalaccesstokenpluginauthentication.cpp:35
 #: widgets/myaccount/myaccountconfigurewidget.cpp:71
@@ -2351,7 +2345,7 @@ msgstr ""
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:257
 #, kde-format
 msgid "%1:%2"
-msgstr "%1:%2"
+msgstr ""
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:266
 msgid "Application not found"
@@ -3179,7 +3173,7 @@ msgstr "ۋاز كەچ"
 #, kde-format
 msgctxt "@action"
 msgid "Save"
-msgstr ""
+msgstr "ساقلا"
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:20
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
@@ -3202,12 +3196,10 @@ msgstr ""
 
 #: widgets/administratordialog/featurepreview/featurepreviewwidget.cpp:23
 #: widgets/myaccount/myaccountfeaturepreviewconfigurewidget.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgctxt "@option:check"
 msgid "Draft Messages"
-msgstr "ئۇچۇرلار"
+msgstr ""
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:44
 #, kde-format
@@ -3877,7 +3869,7 @@ msgstr "كۆچۈر"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:107
 #, kde-format
 msgid "Licenses"
-msgstr ""
+msgstr "ئىجازەتنامە"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
 #, kde-format
@@ -3905,10 +3897,9 @@ msgid "Deployment ID"
 msgstr ""
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Mongo Version"
-msgstr "نەشرى"
+msgstr ""
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
 #, kde-format
@@ -4038,7 +4029,7 @@ msgstr ""
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
 #, kde-format
 msgid "OS Type"
-msgstr ""
+msgstr "مەشغۇلات سىستېما تۈرى"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
 #, kde-format
@@ -5533,7 +5524,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:27
 #, kde-format
 msgid "Regular Expressions"
-msgstr ""
+msgstr "مۇنتىزىم ئىپادە"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:32
 #, kde-format
@@ -6010,10 +6001,9 @@ msgid "Microsoft"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "LibreTranslate"
-msgstr "تەرجىمە"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
@@ -6036,16 +6026,14 @@ msgid "Microsoft API Key"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "LibreTranslate URL"
-msgstr "تەرجىمە"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "LibreTranslate API Key"
-msgstr "تەرجىمە"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -6149,7 +6137,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:58
 #, kde-format
 msgid "Apple"
-msgstr "Apple"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:63
 #, kde-format
@@ -6197,7 +6185,7 @@ msgstr "مەخپىي"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
 msgid "Twitter"
-msgstr "Twitter"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:100
 #, kde-format
@@ -6213,7 +6201,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:108
 #, kde-format
 msgid "LinkedIn"
-msgstr "LinkedIn"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:116
 #, kde-format
@@ -6260,7 +6248,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:152
 #, kde-format
 msgid "Facebook"
-msgstr "Facebook"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:160
 #, kde-format
@@ -7199,12 +7187,12 @@ msgstr "قوللان"
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:12
 #, kde-format
 msgid "A-Z"
-msgstr "A-Z"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:13
 #, kde-format
 msgid "Z-A"
-msgstr "Z-A"
+msgstr ""
 
 #: widgets/applicationssettingsdialog/applicationssettingssortingcombobox.cpp:14
 #, kde-format
@@ -7261,95 +7249,95 @@ msgid "Show Unread"
 msgstr ""
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "ئوقۇلدى بەلگىسى قوي"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:155
+#: widgets/channellist/channellistview.cpp:158
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:172
+#: widgets/channellist/channellistview.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:183
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:189
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:187
+#: widgets/channellist/channellistview.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:205
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:218
+#: widgets/channellist/channellistview.cpp:221
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:235
+#: widgets/channellist/channellistview.cpp:238
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:329
+#: widgets/channellist/channellistview.cpp:332
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:330
+#: widgets/channellist/channellistview.cpp:333
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8126,7 +8114,7 @@ msgstr "ئاۋاز:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"
-msgstr ""
+msgstr "ئىم جەزملە"
 
 #: widgets/dialogs/confirmpasswordwidget.cpp:24
 #, kde-format
@@ -8393,7 +8381,7 @@ msgstr ""
 #: widgets/dialogs/directchannelinfowidget.cpp:213
 #, kde-format
 msgid "%1 [%2]"
-msgstr "%1 [%2]"
+msgstr ""
 
 #: widgets/dialogs/inviteusersdialog.cpp:29
 #, kde-format
@@ -8764,7 +8752,7 @@ msgstr ""
 #: widgets/dialogs/showattachmentcombobox.cpp:25
 #, kde-format
 msgid "Texts"
-msgstr ""
+msgstr "تېكىست"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:26
 #, kde-format
@@ -8818,17 +8806,15 @@ msgid "Unban User"
 msgstr ""
 
 #: widgets/dialogs/showbanneduserswidget.cpp:48
-#, fuzzy, kde-format
-#| msgid "No device found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Banned Users…"
-msgstr "ئۈسكۈنە تېپىلمىدى"
+msgstr ""
 
 #: widgets/dialogs/showbanneduserswidget.cpp:108
-#, fuzzy, kde-format
-#| msgid "No device found"
+#, kde-format
 msgid "No Banned Users found"
-msgstr "ئۈسكۈنە تېپىلمىدى"
+msgstr ""
 
 #: widgets/dialogs/showbanneduserswidget.cpp:113
 #, kde-format
@@ -8878,7 +8864,7 @@ msgstr "نىسبەت:"
 #, kde-format
 msgctxt "@action:button"
 msgid "100%"
-msgstr "100%"
+msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:94
 #, kde-format
@@ -8890,13 +8876,13 @@ msgstr "كۆرۈنۈشكە سىغدۇر"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
-msgstr ""
+msgstr "سولغا ئايلاندۇر"
 
 #: widgets/dialogs/showimagewidget.cpp:113
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
-msgstr ""
+msgstr "ئوڭغا ئايلاندۇر"
 
 #: widgets/dialogs/showimagewidget.cpp:241
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:69
@@ -8923,18 +8909,16 @@ msgid "Show Pinned Messages - %1"
 msgstr ""
 
 #: widgets/dialogs/showreadreceiptsdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "No device found"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Read Receipts"
-msgstr "ئۈسكۈنە تېپىلمىدى"
+msgstr ""
 
 #: widgets/dialogs/showreadreceiptswidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "No device found"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
-msgstr "ئۈسكۈنە تېپىلمىدى"
+msgstr ""
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:25
 #, kde-format
@@ -8966,11 +8950,10 @@ msgid "Video: %1"
 msgstr ""
 
 #: widgets/dialogs/unbanusersdialog.cpp:16
-#, fuzzy, kde-format
-#| msgid "Users"
+#, kde-format
 msgctxt "@title:window"
 msgid "Unban Users"
-msgstr "ئىشلەتكۈچى"
+msgstr ""
 
 #: widgets/dialogs/unbanuserswidget.cpp:18
 #, kde-format
@@ -9218,11 +9201,10 @@ msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:71
 #: widgets/encryption/e2edisablewidget.cpp:79
-#, fuzzy, kde-format
-#| msgid "Encryption"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Encryption Keys"
-msgstr "شىفىرلاش"
+msgstr ""
 
 #: widgets/encryption/e2edisablewidget.cpp:79
 #, kde-format
@@ -9489,10 +9471,9 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr ""
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "No device found"
+#, kde-format
 msgid "No network found."
-msgstr "ئۈسكۈنە تېپىلمىدى"
+msgstr ""
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
 #, kde-format
@@ -9542,7 +9523,7 @@ msgstr "چىقىرىۋەت"
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:72
 #, kde-format
 msgid "Save Video"
-msgstr ""
+msgstr "سىن ساقلا"
 
 #: widgets/misc/messageattachmentdownloadandsavejob.cpp:75
 #, kde-format
@@ -9794,6 +9775,9 @@ msgid ""
 "below.\n"
 " If you can't scan the QR code, you may enter code manually instead:"
 msgstr ""
+"Scan the QR code. It will display a 6 digit code which you need to enter "
+"below.\n"
+" If you can't scan the QR code, you may enter code manually instead:"
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:82
 #, kde-format
@@ -10512,12 +10496,10 @@ msgid "Speak Text"
 msgstr "تېكىستنى ئوقۇ"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDAV Server"
-msgstr "مۇلازىمېتىر قوش"
+msgstr ""
 
 #: widgets/room/messagelineextratoolbutton.cpp:19
 #, kde-format
@@ -10700,11 +10682,10 @@ msgid "Quote"
 msgstr "نەقىل"
 
 #: widgets/room/messagelistview.cpp:512
-#, fuzzy, kde-format
-#| msgid "No device found"
+#, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
-msgstr "ئۈسكۈنە تېپىلمىدى"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:517
 #, kde-format
@@ -10824,12 +10805,10 @@ msgid "New Message"
 msgstr "يېڭى ئۇچۇر"
 
 #: widgets/room/pendingattachmentclickablewidget.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Attachment"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
-msgstr "قوشۇلمىنى ساقلا"
+msgstr ""
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -10870,10 +10849,9 @@ msgid "(Show More Info…)"
 msgstr ""
 
 #: widgets/room/roomheaderlabel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgid "Add Topic"
-msgstr "باش تېما"
+msgstr ""
 
 #: widgets/room/roomheaderwidget.cpp:78
 #, kde-format
@@ -11021,7 +10999,7 @@ msgstr ""
 #, kde-format
 msgctxt "Percent value; %p is the value, % is the percent sign"
 msgid "%p%"
-msgstr "%p%"
+msgstr ""
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:36
 #, kde-format
@@ -11112,18 +11090,16 @@ msgid "Do you want to remove this user from Channel?"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:104
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@title"
 msgid "Remove User"
-msgstr "چىقىرىۋەت"
+msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:105
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove User"
-msgstr "چىقىرىۋەت"
+msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:134
 #, kde-format
@@ -11227,18 +11203,16 @@ msgid "Do you want to ban this user?"
 msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:246
-#, fuzzy, kde-format
-#| msgid "Users"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "ئىشلەتكۈچى"
+msgstr ""
 
 #: widgets/room/usersinroommenu.cpp:247
-#, fuzzy, kde-format
-#| msgid "Users"
+#, kde-format
 msgctxt "@action:button"
 msgid "Ban User"
-msgstr "ئىشلەتكۈچى"
+msgstr ""
 
 #: widgets/room/usersinroomtreeview.cpp:51
 #, kde-format
@@ -11529,8 +11503,6 @@ msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
-"<qt>بۇ مەشغۇلات تىزىملىك بالداقنى پۈتۈنلەي يوشۇرىدۇ. %1 نى بېسىپ قايتا "
-"كۆرسىتەلەيسىز.</qt>"
 
 #: widgets/ruqolamainwindow.cpp:1271
 #, kde-format
@@ -11634,11 +11606,9 @@ msgid "Could not start the kick request."
 msgstr ""
 
 #: widgets/serverchecks/addleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgid "Add Leader User"
-msgstr "مۇلازىمېتىر قوش"
+msgstr ""
 
 #: widgets/serverchecks/addleaderusercheck.cpp:19
 #: widgets/serverchecks/addmoderatorusercheck.cpp:19
@@ -11660,10 +11630,9 @@ msgstr "مۇلازىمېتىر قوش"
 #: widgets/serverchecks/searchmessagecheck.cpp:35
 #: widgets/serverchecks/sendmessagecheck.cpp:21
 #: widgets/serverchecks/threadreplycheck.cpp:22
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "No account."
-msgstr "ھېساب"
+msgstr ""
 
 #: widgets/serverchecks/addleaderusercheck.cpp:26
 #: widgets/serverchecks/addmoderatorusercheck.cpp:26
@@ -11693,11 +11662,9 @@ msgid "Could not add moderator \"%1\": %2"
 msgstr ""
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Server"
+#, kde-format
 msgid "Add Owner User"
-msgstr "مۇلازىمېتىر قوش"
+msgstr ""
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
 #, kde-format
@@ -11729,11 +11696,9 @@ msgid "Could not find the room."
 msgstr ""
 
 #: widgets/serverchecks/deletemessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete message"
-msgstr "ئۇچۇر ئۆچۈر"
+msgstr ""
 
 #: widgets/serverchecks/descriptionchangecheck.cpp:21
 #, kde-format
@@ -11741,10 +11706,9 @@ msgid "Change channel description"
 msgstr ""
 
 #: widgets/serverchecks/editmessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Edit message"
-msgstr "بارلىق ئۇچۇرلار"
+msgstr ""
 
 #: widgets/serverchecks/editmessagecheck.cpp:26
 #, kde-format
@@ -11782,10 +11746,9 @@ msgid "The file arrived but was not recognized as a file attachment."
 msgstr ""
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:31
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Image description"
-msgstr "چۈشەندۈرۈش"
+msgstr ""
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:47
 #, kde-format
@@ -11813,10 +11776,9 @@ msgid "Change Favorite Room State"
 msgstr ""
 
 #: widgets/serverchecks/pinmessagecheck.cpp:23
-#, fuzzy, kde-format
-#| msgid "All messages"
+#, kde-format
 msgid "Pin message"
-msgstr "بارلىق ئۇچۇرلار"
+msgstr ""
 
 #: widgets/serverchecks/pinmessagecheck.cpp:64
 #, kde-format
@@ -11834,30 +11796,24 @@ msgid "Could not start the pinned-messages request."
 msgstr ""
 
 #: widgets/serverchecks/quotemessagecheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "New Message"
+#, kde-format
 msgid "Quote message"
-msgstr "يېڭى ئۇچۇر"
+msgstr ""
 
 #: widgets/serverchecks/quotemessagecheck.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgid " (quote)"
-msgstr "نەقىل"
+msgstr ""
 
 #: widgets/serverchecks/reactioncheck.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "More Actions"
+#, kde-format
 msgid "Emoji reaction"
-msgstr "تېخىمۇ كۆپ مەشغۇلات"
+msgstr ""
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Leader User"
-msgstr "چىقىرىۋەت"
+msgstr ""
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:40
 #, kde-format
@@ -11865,10 +11821,9 @@ msgid "Could not remove leader \"%1\": %2"
 msgstr ""
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Moderator User"
-msgstr "چىقىرىۋەت"
+msgstr ""
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:40
 #, kde-format
@@ -11876,10 +11831,9 @@ msgid "Could not remove moderator \"%1\": %2"
 msgstr ""
 
 #: widgets/serverchecks/removeownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Owner User"
-msgstr "چىقىرىۋەت"
+msgstr ""
 
 #: widgets/serverchecks/removeownerusercheck.cpp:40
 #, kde-format
@@ -11887,10 +11841,9 @@ msgid "Could not remove owner \"%1\": %2"
 msgstr ""
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove user from room"
-msgstr "چىقىرىۋەت"
+msgstr ""
 
 #: widgets/serverchecks/removeuserscheck.cpp:34
 #, kde-format
@@ -11898,10 +11851,9 @@ msgid "Could not remove \"%1\": %2"
 msgstr ""
 
 #: widgets/serverchecks/searchmessagecheck.cpp:23
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgid "Message search"
-msgstr "ئۇچۇرلار"
+msgstr ""
 
 #: widgets/serverchecks/searchmessagecheck.cpp:85
 #, kde-format
@@ -11909,10 +11861,9 @@ msgid "Could not start the search request."
 msgstr ""
 
 #: widgets/serverchecks/sendmessagecheck.cpp:15
-#, fuzzy, kde-format
-#| msgid "New Message"
+#, kde-format
 msgid "Send message"
-msgstr "يېڭى ئۇچۇر"
+msgstr ""
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:43
 #, kde-format
@@ -11932,13 +11883,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
-msgstr ""
+msgstr "تەكشۈر"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:58
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
-msgstr ""
+msgstr "نەتىجە"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:64
 #, kde-format
@@ -11977,30 +11928,28 @@ msgid "Not run"
 msgstr ""
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:124
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Waiting…"
-msgstr "يۈكلەۋاتىدۇ…"
+msgstr "كۈتۈۋاتىدۇ…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Running…"
-msgstr "يۈكلەۋاتىدۇ…"
+msgstr ""
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:143
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
-msgstr ""
+msgstr "جەزملە"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:146
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed"
-msgstr ""
+msgstr "مەغلۇپ بولدى"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:146
 #, kde-format
@@ -12009,8 +11958,7 @@ msgid "Failed: %1"
 msgstr ""
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown server version"
 msgid "unknown"
 msgstr "يوچۇن"
@@ -12279,7 +12227,6 @@ msgstr ""
 #~ msgid "Ok"
 #~ msgstr "جەزملە"
 
-#, fuzzy
 #~| msgctxt "@action"
 #~| msgid "Ignore"
 #~ msgctxt "@action:button"

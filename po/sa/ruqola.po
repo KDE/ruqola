@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-19 00:45+0000\n"
+"POT-Creation-Date: 2026-09-22 16:00+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -483,93 +483,93 @@ msgstr "मूक केन्द्रित वार्तालाप"
 msgid "View all rooms in the workspace"
 msgstr ""
 
-#: core/authenticationmanager.cpp:87
+#: core/authenticationmanager.cpp:88
 #, kde-format
 msgid "Connecting"
 msgstr "संयोजयन्"
 
-#: core/authenticationmanager.cpp:89
+#: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Login OTP code required"
 msgstr "प्रवेश OTP कोड आवश्यक"
 
-#: core/authenticationmanager.cpp:91
+#: core/authenticationmanager.cpp:92
 #, kde-format
 msgid "Login failed: invalid username or password"
 msgstr "प्रवेशः विफलः: अमान्यः उपयोक्तृनाम वा गुप्तशब्दः वा"
 
-#: core/authenticationmanager.cpp:93
+#: core/authenticationmanager.cpp:94
 #, kde-format
 msgid "Logging in"
 msgstr "प्रवेशः"
 
-#: core/authenticationmanager.cpp:95
+#: core/authenticationmanager.cpp:96
 #, kde-format
 msgid "Logged in"
 msgstr "प्रवेशं कृतवान्"
 
-#: core/authenticationmanager.cpp:97
+#: core/authenticationmanager.cpp:98
 #, kde-format
 msgid "Logged out"
 msgstr "लॉग आउट् कृतवान्"
 
-#: core/authenticationmanager.cpp:99
+#: core/authenticationmanager.cpp:100
 #, kde-format
 msgid "Failed to login due to plugin problem"
 msgstr "प्लगिन् समस्यायाः कारणेन प्रवेशं कर्तुं असफलम्"
 
-#: core/authenticationmanager.cpp:101
+#: core/authenticationmanager.cpp:102
 #, kde-format
 msgid "Login failed: generic error"
 msgstr "प्रवेशः विफलः: सामान्यदोषः"
 
-#: core/authenticationmanager.cpp:103
+#: core/authenticationmanager.cpp:104
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr "प्रवेशप्रक्रियायाः पूर्णतायै एकवारं गुप्तशब्दः आवश्यकः भवति ।"
 
-#: core/authenticationmanager.cpp:105
+#: core/authenticationmanager.cpp:106
 #: widgets/loginwidget/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "प्रवेशः विफलः: अमान्यः OTP कोडः।"
 
-#: core/authenticationmanager.cpp:107
+#: core/authenticationmanager.cpp:108
 #, kde-format
 msgid "Login failed: User is not activated."
 msgstr "प्रवेशः विफलः : उपयोक्ता सक्रियः नास्ति ।"
 
-#: core/authenticationmanager.cpp:109
+#: core/authenticationmanager.cpp:110
 #, kde-format
 msgid "Login has been temporarily blocked For IP."
 msgstr "प्रवेशः अस्थायीरूपेण अवरुद्धः अस्ति For IP."
 
-#: core/authenticationmanager.cpp:111
+#: core/authenticationmanager.cpp:112
 #, kde-format
 msgid "Login has been temporarily blocked For User."
 msgstr "प्रवेशः अस्थायीरूपेण अवरुद्धः अस्ति For User इति ।"
 
-#: core/authenticationmanager.cpp:113
+#: core/authenticationmanager.cpp:114
 #, kde-format
 msgid "App user is not allowed to login."
 msgstr "एप् उपयोक्तारः प्रवेशं कर्तुं न अर्हन्ति।"
 
-#: core/authenticationmanager.cpp:115
+#: core/authenticationmanager.cpp:116
 #, kde-format
 msgid "Logout ongoing"
 msgstr "लॉगआउट् प्रचलति"
 
-#: core/authenticationmanager.cpp:117
+#: core/authenticationmanager.cpp:118
 #, kde-format
 msgid "Logout cleanup ongoing"
 msgstr "लॉगआउट सफाई प्रचलति"
 
-#: core/authenticationmanager.cpp:119
+#: core/authenticationmanager.cpp:120
 #, kde-format
 msgid "Successfully logged out"
 msgstr "सफलतया लॉग आउट् कृतवान्"
 
-#: core/authenticationmanager.cpp:121
+#: core/authenticationmanager.cpp:122
 #, kde-format
 msgid "Unknown state"
 msgstr "अज्ञात अवस्था"
@@ -1786,7 +1786,7 @@ msgstr "(स्वयं संयोगः)"
 msgid "Owner"
 msgstr "स्वामी"
 
-#: core/model/usersmodel.cpp:77 core/utils.cpp:100 core/utils.cpp:375
+#: core/model/usersmodel.cpp:77 core/utils.cpp:101 core/utils.cpp:376
 #, kde-format
 msgid "Offline"
 msgstr "अफलाइन"
@@ -2071,17 +2071,17 @@ msgstr "प्रशासकः"
 msgid "Bot"
 msgstr "बोट्"
 
-#: core/utils.cpp:94 core/utils.cpp:369
+#: core/utils.cpp:95 core/utils.cpp:370
 #, kde-format
 msgid "Online"
 msgstr "लब्धसम्पर्क"
 
-#: core/utils.cpp:96 core/utils.cpp:371 widgets/room/usersinroomcombobox.cpp:28
+#: core/utils.cpp:97 core/utils.cpp:372 widgets/room/usersinroomcombobox.cpp:28
 #, kde-format
 msgid "Busy"
 msgstr "व्यस्तः"
 
-#: core/utils.cpp:98 core/utils.cpp:373 widgets/room/usersinroomcombobox.cpp:27
+#: core/utils.cpp:99 core/utils.cpp:374 widgets/room/usersinroomcombobox.cpp:27
 #, kde-format
 msgid "Away"
 msgstr "दुरे"
@@ -7502,95 +7502,95 @@ msgid "Show Unread"
 msgstr "अपठितं दर्शयतु"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:24
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Read इति चिह्नं कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:136
+#: widgets/channellist/channellistview.cpp:139
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "अपठितम् इति चिह्नं कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #: widgets/room/messagelistview.cpp:472
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Favourite इति सेट् कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:146
+#: widgets/channellist/channellistview.cpp:149
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "प्रियरूपेण अनिर्मितम्"
 
-#: widgets/channellist/channellistview.cpp:155
+#: widgets/channellist/channellistview.cpp:158
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "चैनलं गोपयन्तु"
 
-#: widgets/channellist/channellistview.cpp:172
+#: widgets/channellist/channellistview.cpp:175
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Team इति परिवर्तनं कुर्वन्तु"
 
-#: widgets/channellist/channellistview.cpp:183
+#: widgets/channellist/channellistview.cpp:186
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Channel मध्ये परिवर्तयन्तु"
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:189
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "किं भवान् दलं चैनले परिवर्तयितुम् इच्छति?"
 
-#: widgets/channellist/channellistview.cpp:187
+#: widgets/channellist/channellistview.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Convert To Channel इति"
 
-#: widgets/channellist/channellistview.cpp:202
+#: widgets/channellist/channellistview.cpp:205
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "दलं प्रति गच्छन्तु"
 
-#: widgets/channellist/channellistview.cpp:218
+#: widgets/channellist/channellistview.cpp:221
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "सूचनां विन्यस्तं कुर्वन्तु..."
 
-#: widgets/channellist/channellistview.cpp:235
+#: widgets/channellist/channellistview.cpp:238
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "चैनल छोड़ें"
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgid "Any team selected."
 msgstr "चयनितं यत्किमपि दलम्।"
 
-#: widgets/channellist/channellistview.cpp:277
+#: widgets/channellist/channellistview.cpp:280
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Move To Team इति"
 
-#: widgets/channellist/channellistview.cpp:329
+#: widgets/channellist/channellistview.cpp:332
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "किं भवन्तः तत् दलरूपेण परिवर्तयितुं निश्चिताः सन्ति? पूर्ववत् कर्तुं न शक्यते।"
 
-#: widgets/channellist/channellistview.cpp:330
+#: widgets/channellist/channellistview.cpp:333
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
