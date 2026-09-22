@@ -42,12 +42,14 @@ QString TextConverter::convertMessageText(const TextConverter::ConvertMessageTex
     if (quoteMarkerStart >= 0) {
         const qsizetype startPos = str.indexOf(u'(', quoteMarkerStart);
         const qsizetype endPos = str.indexOf(u')', startPos);
-        quoteUrl = str.mid(startPos + 1, endPos - startPos - 1);
-        // The empty Markdown link is metadata used to identify a quoted message, not visible
-        // message content. Remove it even when the referenced message is unavailable or the
-        // configured recursion limit prevents rendering the quote; otherwise it becomes an
-        // empty first QTextDocument block and leaves a full blank line above the message.
-        str.remove(quoteMarkerStart, endPos - quoteMarkerStart + 1);
+        if (endPos != -1) {
+            quoteUrl = str.mid(startPos + 1, endPos - startPos - 1);
+            // The empty Markdown link is metadata used to identify a quoted message, not visible
+            // message content. Remove it even when the referenced message is unavailable or the
+            // configured recursion limit prevents rendering the quote; otherwise it becomes an
+            // empty first QTextDocument block and leaves a full blank line above the message.
+            str.remove(quoteMarkerStart, endPos - quoteMarkerStart + 1);
+        }
     }
 
     if (!quoteUrl.isEmpty()
