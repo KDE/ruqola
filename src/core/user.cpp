@@ -298,7 +298,7 @@ void User::setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo)
     for (const QString &role : roles) {
         rolesI18n.append(User::roleI18n(role, roleInfo));
     }
-    mI18nRoles = rolesI18n;
+    mI18nRoles = std::move(rolesI18n);
     mRoles = roles;
 }
 

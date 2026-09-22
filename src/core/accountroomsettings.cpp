@@ -148,7 +148,7 @@ AccountRoomSettings::PendingTypedInfo AccountRoomSettings::PendingTypedInfo::des
         for (int i = 0; i < arraySize; ++i) {
             lst.append(AccountRoomSettings::PendingAttachmentInfo::deserialize(array.at(i).toObject()));
         }
-        pendingTypedInfo.pendingAttachmentInfos = lst;
+        pendingTypedInfo.pendingAttachmentInfos = std::move(lst);
     }
     return pendingTypedInfo;
 }
