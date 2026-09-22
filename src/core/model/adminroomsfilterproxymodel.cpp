@@ -20,8 +20,9 @@ AdminRoomsFilterProxyModel::~AdminRoomsFilterProxyModel() = default;
 void AdminRoomsFilterProxyModel::setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters)
 {
     if (mFilters != filters) {
+        beginFilterChange();
         mFilters = filters;
-        invalidate();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
     }
 }
 

@@ -37,8 +37,9 @@ bool ServerErrorInfoHistoryFilterProxyModel::filterAcceptsRow(int source_row, co
 void ServerErrorInfoHistoryFilterProxyModel::setAccountNameFilter(const QString &newAccountNameFilter)
 {
     if (mAccountNameFilter != newAccountNameFilter) {
+        beginFilterChange();
         mAccountNameFilter = newAccountNameFilter;
-        invalidate();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
     }
 }
 
