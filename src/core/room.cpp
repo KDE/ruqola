@@ -947,7 +947,7 @@ Utils::AvatarInfo Room::avatarInfo() const
         }
         identifier.prepend(QString::number(uidsCount));
         info.avatarType = Utils::AvatarType::User;
-        info.identifier = identifier;
+        info.identifier = std::move(identifier);
     } else if (uidsCount == 2) {
         info.avatarType = Utils::AvatarType::User;
         if (mRocketChatAccount) {
@@ -957,13 +957,13 @@ Utils::AvatarInfo Room::avatarInfo() const
                     otherUserName = userName;
                 }
             }
-            info.identifier = otherUserName;
+            info.identifier = std::move(otherUserName);
         }
     } else {
         info.avatarType = Utils::AvatarType::Room;
         info.identifier = QString::fromLatin1(mRoomId);
     }
-    mCurrentAvatarInfo = info;
+    mCurrentAvatarInfo = std::move(info);
     return mCurrentAvatarInfo;
 }
 
