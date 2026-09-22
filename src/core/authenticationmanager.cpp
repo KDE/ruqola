@@ -36,20 +36,21 @@ void AuthenticationManager::initializePluginList()
     QListIterator<KPluginMetaData> i(plugins);
     i.toBack();
     QSet<QString> unique;
+    unique.reserve(plugins.count());
     while (i.hasPrevious()) {
-        AuthenticationManagerInfo info;
         const KPluginMetaData data = i.previous();
-
-        info.data = data;
-        info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
-        info.metaDataFileName = data.fileName();
+        const QString fileName = QFileInfo(data.fileName()).baseName();
         // only load plugins once, even if found multiple times!
-        if (unique.contains(info.metaDataFileNameBaseName)) {
+        if (unique.contains(fileName)) {
             continue;
         }
+        AuthenticationManagerInfo info;
+        info.metaDataFileNameBaseName = fileName;
+        info.data = data;
+        info.metaDataFileName = data.fileName();
         info.plugin = nullptr;
-        mPluginList.push_back(info);
         unique.insert(info.metaDataFileNameBaseName);
+        mPluginList.push_back(info);
     }
     QList<AuthenticationManagerInfo>::iterator end(mPluginList.end());
     for (QList<AuthenticationManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
