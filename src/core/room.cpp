@@ -1217,13 +1217,13 @@ QString Room::e2eKeyId() const
 
 void Room::setE2eKeyId(const QString &e2eKeyId)
 {
-    if (mRoomEncryptionKey) {
-        if (mRoomEncryptionKey->e2eKeyId() != e2eKeyId) {
-            mRoomEncryptionKey->setE2eKeyId(e2eKeyId);
-            Q_EMIT encryptionKeyIdChanged();
+    if (!mRoomEncryptionKey) {
+        if (e2eKeyId.isEmpty()) {
+            return;
         }
-    } else {
         mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    if (mRoomEncryptionKey->e2eKeyId() != e2eKeyId) {
         mRoomEncryptionKey->setE2eKeyId(e2eKeyId);
         Q_EMIT encryptionKeyIdChanged();
     }
@@ -1345,13 +1345,13 @@ QString Room::e2EKey() const
 
 void Room::setE2EKey(const QString &e2EKey)
 {
-    if (mRoomEncryptionKey) {
-        if (mRoomEncryptionKey->e2EKey() != e2EKey) {
-            mRoomEncryptionKey->setE2EKey(e2EKey);
-            Q_EMIT encryptionKeyChanged();
+    if (!mRoomEncryptionKey) {
+        if (e2EKey.isEmpty()) {
+            return;
         }
-    } else {
         mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    if (mRoomEncryptionKey->e2EKey() != e2EKey) {
         mRoomEncryptionKey->setE2EKey(e2EKey);
         Q_EMIT encryptionKeyChanged();
     }
