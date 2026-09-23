@@ -6,6 +6,7 @@
 #include "e2eroomsdatabasetest.h"
 #include "encryption/encryptionutils.h"
 #include "localdatabase/e2eroomsdatabase.h"
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(E2ERoomsDataBaseTest)
@@ -20,6 +21,7 @@ static QString accountName()
 }
 void E2ERoomsDataBaseTest::initTestCase()
 {
+    QStandardPaths::setTestModeEnabled(true);
     E2ERoomsDataBase store;
     QVERIFY(store.deleteKey(accountName(), testRoom, testKey));
     QVERIFY(store.deleteKey(accountName(), testOtherRoom, testOtherKey));

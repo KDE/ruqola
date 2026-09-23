@@ -6,6 +6,7 @@
 #include "e2edatabasetest.h"
 #include "encryption/encryptionutils.h"
 #include "localdatabase/e2edatabase.h"
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(E2EDataBaseTest)
@@ -18,6 +19,7 @@ static QString accountName()
 }
 void E2EDataBaseTest::initTestCase()
 {
+    QStandardPaths::setTestModeEnabled(true);
     E2EDataBase store;
     QVERIFY(store.deleteKey(accountName(), testUser));
     QVERIFY(store.deleteKey(accountName(), otherUser));
