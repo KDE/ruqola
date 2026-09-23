@@ -83,7 +83,7 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     info3.quotePermalink = u"bla-kde"_s;
     info3.scrollbarPosition = 5;
     info3.quoteText = u"test1"_s;
-    logger.updateRoomPendingTypedInfo(otherAccountName(), roomId3, info2);
+    logger.updateRoomPendingTypedInfo(otherAccountName(), roomId3, info3);
 
     // WHEN
     auto tableModel = logger.createRoomsModel(otherAccountName());

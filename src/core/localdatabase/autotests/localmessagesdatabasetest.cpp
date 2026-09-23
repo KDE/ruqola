@@ -158,7 +158,7 @@ void LocalMessagesDatabaseTest::shouldExtractMessages()
         Message message1;
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
         message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
-        message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50 + i, 50)).toMSecsSinceEpoch());
+        message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 30 + i, 50)).toMSecsSinceEpoch());
         message1.setMessageId(u"msg-%1"_s.arg(i).toLatin1());
         logger.addMessage(accountName(), roomId(), message1);
     }
