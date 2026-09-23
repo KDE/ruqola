@@ -6,10 +6,18 @@
 
 #include "appsmarketplaceinfo.h"
 
+#include "config-ruqola.h"
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
+#if HAVE_TEXT_UTILS
+#include <textutils_version.h>
+#endif
+#if HAVE_TEXT_UTILS && TEXTUTILS_VERSION >= QT_VERSION_CHECK(2, 2, 0)
+#include <TextUtils/TextUtilsTextToHtml>
+#else
 #include <KTextToHTML>
+#endif
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -465,8 +473,15 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!mPrivacyPolicySummary.isEmpty()) {
+#if HAVE_TEXT_UTILS && TEXTUTILS_VERSION >= QT_VERSION_CHECK(2, 2, 0)
+        const TextUtils::TextUtilsTextToHtml::Options convertFlags =
+            TextUtils::TextUtilsTextToHtml::HighlightText | TextUtils::TextUtilsTextToHtml::ConvertPhoneNumbers;
+        str += u"<b>%1</b><br/>"_s.arg(i18n("Privacy Summary")) + TextUtils::TextUtilsTextToHtml::convertToHtml(mPrivacyPolicySummary, convertFlags)
+            + u"<br/><br/>"_s;
+#else
         const KTextToHTML::Options convertFlags = KTextToHTML::HighlightText | KTextToHTML::ConvertPhoneNumbers;
         str += u"<b>%1</b><br/>"_s.arg(i18n("Privacy Summary")) + KTextToHTML::convertToHtml(mPrivacyPolicySummary, convertFlags) + u"<br/><br/>"_s;
+#endif
     }
 
     str += permissionsDescription();
