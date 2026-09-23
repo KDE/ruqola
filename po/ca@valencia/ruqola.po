@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 16:00+0000\n"
-"PO-Revision-Date: 2026-09-07 10:00+0200\n"
+"PO-Revision-Date: 2026-09-16 10:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -5046,9 +5046,7 @@ msgid "Enable in public channels"
 msgstr "Activa en els canals públics"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Private Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in private channels"
 msgstr "Activa en els canals privats"
@@ -8075,7 +8073,7 @@ msgstr "Afig usuaris a la sala"
 #, kde-format
 msgctxt "@title:window"
 msgid "Code 2FA"
-msgstr ""
+msgstr "Codi 2FA"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -9720,10 +9718,9 @@ msgid "Impossible to open file"
 msgstr "Impossible obrir el fitxer"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Invalid file type"
+#, kde-format
 msgid "Invalid zip file."
-msgstr "Tipus de fitxer no vàlid"
+msgstr "Fitxer Zip no vàlid."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:89
 #, kde-format
