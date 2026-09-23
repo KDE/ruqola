@@ -35,8 +35,8 @@ public:
         DatabaseRoomSubscriptions = 32,
         DatabaseMessages = 64,
         DatabaseLogger = 128,
-        DatabaseWithoutLogger =
-            DatabaseMessages | DatabaseRooms | DatabaseAccounts | DatabaseGlobal | DatabaseE2E | DatabaseRoomPendingTypedInfo | DatabaseRoomSubscriptions,
+        DatabaseWithoutLogger = DatabaseMessages | DatabaseRooms | DatabaseAccounts | DatabaseGlobal | DatabaseE2E | DatabaseRoomPendingTypedInfo
+            | DatabaseRoomSubscriptions,
         All = DatabaseLogger | DatabaseWithoutLogger,
     };
     Q_DECLARE_FLAGS(MigrateDatabaseTypes, MigrateDatabaseType)
@@ -57,9 +57,7 @@ public:
                     activities.append(currentActivity);
                 }
             } else {
-                if (activities.contains(currentActivity)) {
-                    activities.removeAll(currentActivity);
-                }
+                activities.removeAll(currentActivity);
             }
             enabled = true;
         }
