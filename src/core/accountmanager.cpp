@@ -71,10 +71,12 @@ AccountManager::AccountManager(QObject *parent)
 #endif
     loadAccount();
     connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
+#if HAVE_TEXT_TO_SPEECH
     connect(TextEditTextToSpeech::TextToSpeech::self(),
             &TextEditTextToSpeech::TextToSpeech::aboutToSynthesize,
             this,
             &AccountManager::slotAboutToSynthesizeChanged);
+#endif
 }
 
 AccountManager::~AccountManager() = default;
