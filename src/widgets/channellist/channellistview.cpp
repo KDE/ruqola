@@ -395,7 +395,15 @@ void ChannelListView::channelSelected(const QModelIndex &index)
         .roomType = roomType,
         .avatarInfo = avatarInfo,
     };
-    Q_EMIT roomSelected(info);
+    // currentChanged() also fires while the proxy is removing rows, e.g. while typing in the filter.
+    // Opening a room marks it as read, which changes the room model, and changing the source model
+    // from inside the proxy's own removal signals corrupts QSortFilterProxyModel's mapping.
+    QMetaObject::invokeMethod(
+        this,
+        [this, info]() {
+            Q_EMIT roomSelected(info);
+        },
+        Qt::QueuedConnection);
 }
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)
