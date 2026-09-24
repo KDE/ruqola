@@ -79,7 +79,7 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                                                     QMouseEvent *mouseEvent,
                                                     QRect blocksRect,
                                                     const QStyleOptionViewItem &option,
-                                                    [[maybe_unused]] const QModelIndex &index)
+                                                    const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
