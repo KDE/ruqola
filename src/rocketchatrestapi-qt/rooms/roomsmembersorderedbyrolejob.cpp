@@ -48,7 +48,7 @@ bool RoomsMembersOrderedByRoleJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("RoomsMembersOrderedByRoleJob: Ask discussions in room"_ba);
+    addStartRestApiInfo("RoomsMembersOrderedByRoleJob: Ask members ordered by role in room"_ba);
     return true;
 }
 

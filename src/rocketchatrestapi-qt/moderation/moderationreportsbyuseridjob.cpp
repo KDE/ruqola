@@ -38,7 +38,7 @@ bool ModerationReportsByUserIdJob::canStart() const
         return false;
     }
     if (mModerationUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mModerationUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationReportsByUserIdJob: mModerationUserId is empty";
         return false;
     }
     return true;
@@ -52,7 +52,7 @@ bool ModerationReportsByUserIdJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("ModerationReportsByUserIdJob: Ask for moderation reportes by users"_ba);
+    addStartRestApiInfo("ModerationReportsByUserIdJob: Ask for moderation reports by user id"_ba);
     return true;
 }
 

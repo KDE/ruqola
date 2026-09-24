@@ -88,7 +88,7 @@ bool MarkRoomAsUnReadJob::canStart() const
     }
 
     if (mObjectId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MarkRoomAsUnReadJob: mRoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MarkRoomAsUnReadJob: mObjectId is empty";
         return false;
     }
     return true;

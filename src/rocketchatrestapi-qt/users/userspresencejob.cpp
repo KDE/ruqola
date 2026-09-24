@@ -29,12 +29,12 @@ bool UsersPresenceJob::requireHttpAuthentication() const
 bool UsersPresenceJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userspresence job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersPresenceJob job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("UsersPresenceJob: Ask info about me"_ba);
+    addStartRestApiInfo("UsersPresenceJob: Ask users presence"_ba);
     return true;
 }
 

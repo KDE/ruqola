@@ -42,7 +42,7 @@ bool GetUsersInRoleJob::canStart() const
 bool GetUsersInRoleJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start roomAdmin job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetUsersInRoleJob";
         deleteLater();
         return false;
     }

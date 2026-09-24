@@ -30,7 +30,7 @@ bool UsersUpdateOwnBasicInfoJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersUpdateOwnBasicInfo::start"_ba);
+    addStartRestApiInfo("UsersUpdateOwnBasicInfoJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
@@ -66,7 +66,7 @@ bool UsersUpdateOwnBasicInfoJob::canStart() const
         return false;
     }
     if (!mUpdateOwnBasicInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfo: mUpdateOwnBasicInfo is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfoJob: mUpdateOwnBasicInfo is not valid.";
         return false;
     }
     return true;

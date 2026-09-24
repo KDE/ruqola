@@ -27,18 +27,13 @@ bool ModerationDismissUserReportsJob::requireHttpAuthentication() const
     return true;
 }
 
-bool ModerationDismissUserReportsJob::hasQueryParameterSupport() const
-{
-    return true;
-}
-
 bool ModerationDismissUserReportsJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
     if (mModerationReportedUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mModerationUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationDismissUserReportsJob: mModerationReportedUserId is empty";
         return false;
     }
     return true;

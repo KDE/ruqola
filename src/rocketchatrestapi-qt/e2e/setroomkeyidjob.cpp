@@ -93,7 +93,6 @@ QJsonDocument SetRoomKeyIDJob::json() const
     jsonObj["rid"_L1] = QString::fromLatin1(mSetRoomKeyIDInfo.roomId);
     jsonObj["keyID"_L1] = QString::fromLatin1(mSetRoomKeyIDInfo.keyId);
 
-    qDebug() << " SetRoomKeyIDJob::json " << jsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

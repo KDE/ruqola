@@ -36,7 +36,7 @@ bool ModerationReportsJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ModerationReportJob: get moderation reports starting"_ba);
+    addStartRestApiInfo("ModerationReportsJob: get moderation reports starting"_ba);
     return true;
 }
 

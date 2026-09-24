@@ -25,12 +25,12 @@ CustomSoundsListJob::~CustomSoundsListJob() = default;
 bool CustomSoundsListJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsListJob job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("CustomSoundsJob: Ask custom sounds info"_ba);
+    addStartRestApiInfo("CustomSoundsListJob: Ask custom sounds info"_ba);
 
     return true;
 }

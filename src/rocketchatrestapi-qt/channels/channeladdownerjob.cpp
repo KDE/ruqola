@@ -58,7 +58,7 @@ bool ChannelAddOwnerJob::requireHttpAuthentication() const
 bool ChannelAddOwnerJob::canStart() const
 {
     if (mAddownerUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddOwnerJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddOwnerJob: owner userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

@@ -48,7 +48,7 @@ bool SubscriptionGetOneJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("SubscriptionGetOneJob: Ask if room name already exists"_ba);
+    addStartRestApiInfo("SubscriptionGetOneJob: Ask subscription for room"_ba);
     return true;
 }
 

@@ -24,12 +24,12 @@ CustomUserStatusListJob::~CustomUserStatusListJob() = default;
 bool CustomUserStatusListJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusJobList job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusListJob job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("CustomUserStatusJob: Ask custom user status info"_ba);
+    addStartRestApiInfo("CustomUserStatusListJob: Ask custom user status info"_ba);
 
     return true;
 }

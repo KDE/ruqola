@@ -29,13 +29,13 @@ bool ListCommandsJob::requireHttpAuthentication() const
 bool ListCommandsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListCommandsJob job";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ListCommandsJob: Ask info about me"_ba);
+    addStartRestApiInfo("ListCommandsJob: Ask list of commands"_ba);
     return true;
 }
 

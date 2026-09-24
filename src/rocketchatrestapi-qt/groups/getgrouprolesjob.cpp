@@ -37,7 +37,7 @@ bool GetGroupRolesJob::canStart() const
 bool GetGroupRolesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetGroupRolesJob";
         deleteLater();
         return false;
     }

@@ -49,7 +49,7 @@ bool VideoConferenceInfoJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("VideoConferenceInfoJob: Ask for capabilities"_ba);
+    addStartRestApiInfo("VideoConferenceInfoJob: Ask for info"_ba);
     return true;
 }
 

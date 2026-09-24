@@ -26,7 +26,7 @@ bool EmojiCustomDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteEmojiCustomJob::start"_ba);
+    addStartRestApiInfo("EmojiCustomDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -57,7 +57,7 @@ bool EmojiCustomDeleteJob::requireHttpAuthentication() const
 bool EmojiCustomDeleteJob::canStart() const
 {
     if (mEmojiId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DeleteEmojiCustomJob: remove mEmojiId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "EmojiCustomDeleteJob: remove mEmojiId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {

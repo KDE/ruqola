@@ -62,7 +62,7 @@ bool CustomUserStatusUpdateJob::canStart() const
         return false;
     }
     if (!mStatusUpdateInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusUpdateJob: CustomUserStatusUpdateJob is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusUpdateJob: mStatusUpdateInfo is not valid.";
         return false;
     }
     return true;

@@ -29,13 +29,13 @@ bool AppFeaturedAppsJob::requireHttpAuthentication() const
 bool AppFeaturedAppsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app count job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get featured apps job";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("AppFeaturedAppsJob: get report info starting"_ba);
+    addStartRestApiInfo("AppFeaturedAppsJob: get featured apps starting"_ba);
     return true;
 }
 

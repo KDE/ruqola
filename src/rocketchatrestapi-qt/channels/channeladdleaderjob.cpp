@@ -57,7 +57,7 @@ bool ChannelAddLeaderJob::requireHttpAuthentication() const
 bool ChannelAddLeaderJob::canStart() const
 {
     if (mAddLeaderUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddLeaderJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddLeaderJob: leader userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

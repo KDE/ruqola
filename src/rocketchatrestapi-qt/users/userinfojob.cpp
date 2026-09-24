@@ -34,7 +34,7 @@ bool UserInfoJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("UsersInfoJob: Ask info about me"_ba);
+    addStartRestApiInfo("UserInfoJob: Ask user info"_ba);
     return true;
 }
 
@@ -60,7 +60,7 @@ QNetworkRequest UserInfoJob::request() const
 bool UserInfoJob::canStart() const
 {
     if (!hasUserIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersInfoJob: identifier is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UserInfoJob: identifier is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {

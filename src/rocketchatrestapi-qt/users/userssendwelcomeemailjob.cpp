@@ -61,7 +61,7 @@ bool UsersSendWelcomeEmailJob::canStart() const
         return false;
     }
     if (mEmail.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersSendWelcomeEmailJob: mEmail is empty";
         return false;
     }
     return true;

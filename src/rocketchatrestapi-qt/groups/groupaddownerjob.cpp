@@ -58,7 +58,7 @@ bool GroupAddOwnerJob::requireHttpAuthentication() const
 bool GroupAddOwnerJob::canStart() const
 {
     if (mAddownerUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: add owner userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

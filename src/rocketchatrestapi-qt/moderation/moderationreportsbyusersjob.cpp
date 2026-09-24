@@ -40,7 +40,7 @@ bool ModerationReportsByUsersJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("ModerationReportsByUsersJob: Ask for moderation reportes by users"_ba);
+    addStartRestApiInfo("ModerationReportsByUsersJob: Ask for moderation reports by users"_ba);
     return true;
 }
 

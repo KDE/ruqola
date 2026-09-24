@@ -51,7 +51,7 @@ void AppsUiInteractionJob::onPostRequestResponse([[maybe_unused]] const QString 
     }
 }
 
-AppsUiInteractionJob::AppsUiInteractionJobInfo AppsUiInteractionJob::methodCallJobInfo() const
+AppsUiInteractionJob::AppsUiInteractionJobInfo AppsUiInteractionJob::appsUiInteractionJobInfo() const
 {
     return mAppsUiInteractionJobInfo;
 }

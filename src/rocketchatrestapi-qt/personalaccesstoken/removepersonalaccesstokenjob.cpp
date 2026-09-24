@@ -12,7 +12,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
-#include <qloggingcategory.h>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;

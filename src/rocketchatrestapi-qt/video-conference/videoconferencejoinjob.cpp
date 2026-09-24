@@ -62,7 +62,7 @@ bool VideoConferenceJoinJob::canStart() const
         return false;
     }
     if (!mInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceJoinJob: mInfo is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceJoinJob: mInfo is invalid";
         return false;
     }
     return true;

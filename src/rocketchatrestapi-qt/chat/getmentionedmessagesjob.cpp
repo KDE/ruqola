@@ -49,7 +49,7 @@ bool GetMentionedMessagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("getMentionedMessagesJob: Ask starred messages"_ba);
+    addStartRestApiInfo("GetMentionedMessagesJob: Ask mentioned messages"_ba);
     return true;
 }
 

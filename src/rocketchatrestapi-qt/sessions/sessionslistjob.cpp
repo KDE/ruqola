@@ -30,7 +30,7 @@ bool SessionsListJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("SessionsListJob: Ask custom sounds info"_ba);
+    addStartRestApiInfo("SessionsListJob: Ask sessions list"_ba);
 
     return true;
 }

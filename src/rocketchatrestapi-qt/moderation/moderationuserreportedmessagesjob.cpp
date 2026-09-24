@@ -30,13 +30,13 @@ bool ModerationUserReportedMessagesJob::requireHttpAuthentication() const
 bool ModerationUserReportedMessagesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get get user reported message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ModerationUserReportedMessagesJob";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ModerationReportJob: get get user reported message starting"_ba);
+    addStartRestApiInfo("ModerationUserReportedMessagesJob: get user reported messages starting"_ba);
     return true;
 }
 
@@ -76,7 +76,7 @@ bool ModerationUserReportedMessagesJob::canStart() const
         return false;
     }
     if (mReportedMessageFromUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MessageId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationUserReportedMessagesJob: mReportedMessageFromUserId is empty";
         return false;
     }
     return true;

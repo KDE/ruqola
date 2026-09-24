@@ -39,7 +39,7 @@ bool GetChannelRolesJob::canStart() const
 bool GetChannelRolesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetChannelRolesJob";
         deleteLater();
         return false;
     }

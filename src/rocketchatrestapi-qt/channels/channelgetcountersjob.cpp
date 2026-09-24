@@ -36,7 +36,7 @@ bool ChannelGetCountersJob::canStart() const
 bool ChannelGetCountersJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetCountersJob";
         deleteLater();
         return false;
     }

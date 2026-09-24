@@ -61,7 +61,7 @@ bool RoomsUnbanUserJob::canStart() const
         return false;
     }
     if (!mRoomsUnbanUserInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsUnbanUserJob: mUserName or mRoomId is empty.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsUnbanUserJob: mRoomsUnbanUserInfo is not valid.";
         return false;
     }
 

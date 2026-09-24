@@ -62,7 +62,7 @@ bool RoomsCleanHistoryJob::canStart() const
         return false;
     }
     if (!mCleanHistoryInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mCleanHistoryInfo: mCleanHistoryInfo is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsCleanHistoryJob: mCleanHistoryInfo is not valid.";
         return false;
     }
 

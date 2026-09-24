@@ -37,7 +37,7 @@ bool ChannelGetAllUserMentionsJob::canStart() const
 bool ChannelGetAllUserMentionsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetAllUserMentionsJob";
         deleteLater();
         return false;
     }

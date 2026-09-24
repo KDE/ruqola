@@ -62,7 +62,7 @@ bool SendInvitationEmailJob::canStart() const
         return false;
     }
     if (mEmails.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SendInvitationEmailJob: no email defined";
         return false;
     }
     return true;

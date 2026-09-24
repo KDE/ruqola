@@ -35,7 +35,7 @@ bool PermissionsListAllJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ListPermissionsJob: Ask info about me"_ba);
+    addStartRestApiInfo("PermissionsListAllJob: Ask all permissions"_ba);
     return true;
 }
 

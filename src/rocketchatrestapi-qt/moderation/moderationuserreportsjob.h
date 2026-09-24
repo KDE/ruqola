@@ -35,6 +35,8 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
+
     [[nodiscard]] ModerationUserReportsInfo moderationUserReportsInfo() const;
     void setModerationUserReportsInfo(const ModerationUserReportsInfo &newModerationUserReportsInfo);
 

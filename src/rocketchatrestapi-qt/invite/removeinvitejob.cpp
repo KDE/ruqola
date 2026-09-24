@@ -51,7 +51,7 @@ bool RemoveInviteJob::start()
     mReply->setProperty("jobClassName", className);
 
     connect(mReply, &QNetworkReply::finished, this, &RemoveInviteJob::slotRemoveInviteFinished);
-    addStartRestApiInfo("RemoveInviteJob: Ask for displaying all invite link url"_ba);
+    addStartRestApiInfo("RemoveInviteJob: Ask for removing invite link"_ba);
     return true;
 }
 

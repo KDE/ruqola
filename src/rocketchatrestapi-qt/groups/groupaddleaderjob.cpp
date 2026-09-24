@@ -58,7 +58,7 @@ bool GroupAddLeaderJob::requireHttpAuthentication() const
 bool GroupAddLeaderJob::canStart() const
 {
     if (mAddLeaderUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddLeaderJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddLeaderJob: add leader userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

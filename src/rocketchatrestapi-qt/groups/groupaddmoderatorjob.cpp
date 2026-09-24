@@ -58,7 +58,7 @@ bool GroupAddModeratorJob::requireHttpAuthentication() const
 bool GroupAddModeratorJob::canStart() const
 {
     if (mAddModeratorUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddModeratorJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddModeratorJob: add moderator userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

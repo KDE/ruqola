@@ -58,7 +58,7 @@ bool ChannelAddModeratorJob::requireHttpAuthentication() const
 bool ChannelAddModeratorJob::canStart() const
 {
     if (mAddModeratorUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddModeratorJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddModeratorJob: moderator userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

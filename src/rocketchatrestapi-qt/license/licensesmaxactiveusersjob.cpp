@@ -29,12 +29,12 @@ bool LicensesMaxActiveUsersJob::requireHttpAuthentication() const
 bool LicensesMaxActiveUsersJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LicensesMaxActiveUsers";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LicensesMaxActiveUsersJob";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("LicensesMaxActiveUsers: Ask for licenses max actives users."_ba);
+    addStartRestApiInfo("LicensesMaxActiveUsersJob: Ask for licenses max active users."_ba);
     return true;
 }
 

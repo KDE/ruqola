@@ -48,7 +48,7 @@ bool RoomsImagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("RoomsImagesJob: Ask discussions in room"_ba);
+    addStartRestApiInfo("RoomsImagesJob: Ask images in room"_ba);
     return true;
 }
 

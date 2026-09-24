@@ -29,12 +29,12 @@ bool AppInfoJob::requireHttpAuthentication() const
 bool AppInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app count job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app info job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("AppInfoJob: get app count info starting"_ba);
+    addStartRestApiInfo("AppInfoJob: get app info starting"_ba);
     return true;
 }
 

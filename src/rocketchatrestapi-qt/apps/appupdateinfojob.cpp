@@ -30,7 +30,7 @@ bool AppUpdateInfoJob::requireHttpAuthentication() const
 bool AppUpdateInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app count job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start app update info job";
         deleteLater();
         return false;
     }
@@ -154,8 +154,8 @@ void AppUpdateInfoJob::onGetRequestResponse(const QString &replyErrorString, con
     } else {
         const QJsonObject replyObject = replyJson.object();
         if (replyObject["status"_L1].toString() == "success"_L1) {
-            addLoggerInfo("Get: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
+            addLoggerInfo("AppUpdateInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "AppUpdateInfoJob: get success";
             Q_EMIT appUpdateInfoDone(replyObject["data"_L1].toObject());
         } else {
             emitFailedMessage(replyErrorString, replyObject);

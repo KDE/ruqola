@@ -35,7 +35,7 @@ bool UsersAutocompleteJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("UsersAutocompleteJob: Ask info about me"_ba);
+    addStartRestApiInfo("UsersAutocompleteJob: Ask users autocomplete"_ba);
     return true;
 }
 

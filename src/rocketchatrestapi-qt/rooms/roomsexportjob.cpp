@@ -52,7 +52,7 @@ bool RoomsExportJob::canStart() const
         return false;
     }
     if (!mRoomExportInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mRoomExportInfo: mRoomExportInfo is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsExportJob: mRoomExportInfo is not valid.";
         return false;
     }
 

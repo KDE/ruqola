@@ -48,7 +48,7 @@ bool RoomsBannedUsersJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("RoomsBannedUsersJob: Ask discussions in room"_ba);
+    addStartRestApiInfo("RoomsBannedUsersJob: Ask banned users in room"_ba);
     return true;
 }
 

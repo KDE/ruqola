@@ -27,16 +27,21 @@ bool ModerationUserReportsJob::requireHttpAuthentication() const
     return true;
 }
 
+bool ModerationUserReportsJob::hasQueryParameterSupport() const
+{
+    return true;
+}
+
 bool ModerationUserReportsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get get user reported message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ModerationUserReportsJob";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ModerationReportJob: get get user reported message starting"_ba);
+    addStartRestApiInfo("ModerationUserReportsJob: get user reports starting"_ba);
     return true;
 }
 

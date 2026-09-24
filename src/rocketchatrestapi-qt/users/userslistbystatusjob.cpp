@@ -30,7 +30,7 @@ bool UsersListByStatusJob::requireHttpAuthentication() const
 bool UsersListByStatusJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersListByStatus job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersListByStatusJob job";
         deleteLater();
         return false;
     }

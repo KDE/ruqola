@@ -62,7 +62,7 @@ bool UpdateGroupKeyJob::canStart() const
         return false;
     }
     if (!mUpdateGroupInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Group Info is invalid";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UpdateGroupKeyJob: mUpdateGroupInfo is invalid";
         return false;
     }
     return true;

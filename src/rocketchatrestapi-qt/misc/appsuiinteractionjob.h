@@ -32,7 +32,7 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] AppsUiInteractionJobInfo methodCallJobInfo() const;
+    [[nodiscard]] AppsUiInteractionJobInfo appsUiInteractionJobInfo() const;
     void setAppsUiInteractionJobInfo(const AppsUiInteractionJobInfo &newAppsUiInteractionJobInfo);
 
 Q_SIGNALS:
