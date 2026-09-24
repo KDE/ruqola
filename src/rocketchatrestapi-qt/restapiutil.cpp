@@ -132,8 +132,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"chat.getMentionedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatGetStarredMessages:
         return u"chat.getStarredMessages"_s;
-    case RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages:
-        return u"chat.getSnippetedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatSyncMessages:
         return u"chat.syncMessages"_s;
     case RestApiUtil::RestApiUrlType::ChannelsAddAll:
@@ -530,8 +528,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"licenses.maxActiveUsers"_s;
     case RestApiUtil::RestApiUrlType::LicensesAdd:
         return u"licenses.add"_s;
-    case RestApiUtil::RestApiUrlType::LicensesIsEntreprise:
-        return u"licenses.isEnterprise"_s;
     case RestApiUtil::RestApiUrlType::LicensesInfo:
         return u"licenses.info"_s;
 

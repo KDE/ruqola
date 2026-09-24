@@ -98,7 +98,6 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetPinnedMessages), QUrl(u"http://www.kde.org/api/v1/chat.getPinnedMessages"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetMentionedMessages), QUrl(u"http://www.kde.org/api/v1/chat.getMentionedMessages"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetStarredMessages), QUrl(u"http://www.kde.org/api/v1/chat.getStarredMessages"_s));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages), QUrl(u"http://www.kde.org/api/v1/chat.getSnippetedMessages"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSyncMessages), QUrl(u"http://www.kde.org/api/v1/chat.syncMessages"_s));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddAll), QUrl(u"http://www.kde.org/api/v1/channels.addAll"_s));
@@ -321,7 +320,6 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers), QUrl(u"http://www.kde.org/api/v1/licenses.maxActiveUsers"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesAdd), QUrl(u"http://www.kde.org/api/v1/licenses.add"_s));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesIsEntreprise), QUrl(u"http://www.kde.org/api/v1/licenses.isEnterprise"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesInfo), QUrl(u"http://www.kde.org/api/v1/licenses.info"_s));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::BannersDismiss), QUrl(u"http://www.kde.org/api/v1/banners.dismiss"_s));
