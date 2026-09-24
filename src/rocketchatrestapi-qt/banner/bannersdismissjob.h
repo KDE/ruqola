@@ -28,7 +28,7 @@ public:
     void setBannerId(const QString &newBannerId);
 
 Q_SIGNALS:
-    void dimissBannerDone();
+    void dismissBannerDone();
 
 protected:
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

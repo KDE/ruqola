@@ -37,7 +37,7 @@ bool BannersDismissJob::start()
 void BannersDismissJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     if (checkResponse("BannersDismissJob"_ba, replyErrorString, replyJson)) {
-        Q_EMIT dimissBannerDone();
+        Q_EMIT dismissBannerDone();
     }
 }
 

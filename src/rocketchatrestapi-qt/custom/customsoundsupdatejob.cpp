@@ -86,9 +86,9 @@ const CustomSoundsUpdateJob::SoundInfo &CustomSoundsUpdateJob::soundInfo() const
     return mSoundInfo;
 }
 
-void CustomSoundsUpdateJob::setSoundInfo(const SoundInfo &newEmojiInfo)
+void CustomSoundsUpdateJob::setSoundInfo(const SoundInfo &newSoundInfo)
 {
-    mSoundInfo = newEmojiInfo;
+    mSoundInfo = newSoundInfo;
 }
 
 void CustomSoundsUpdateJob::slotCustomSoundUpdateFinished()

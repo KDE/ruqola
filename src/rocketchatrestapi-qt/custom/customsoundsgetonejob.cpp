@@ -48,14 +48,14 @@ bool CustomSoundsGetOneJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("CustomSoundsGetOneJob: Ask if room name already exists"_ba);
+    addStartRestApiInfo("CustomSoundsGetOneJob: Ask custom sound info"_ba);
     return true;
 }
 
 void CustomSoundsGetOneJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     if (const auto replyObject = checkResponse("CustomSoundsGetOneJob"_ba, replyErrorString, replyJson)) {
-        Q_EMIT soundInfoDone(replyObject->value("subscription"_L1).toObject());
+        Q_EMIT soundInfoDone(replyObject->value("sound"_L1).toObject());
     }
 }
 

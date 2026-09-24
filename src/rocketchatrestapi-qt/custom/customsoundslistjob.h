@@ -29,6 +29,5 @@ Q_SIGNALS:
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mPattern;
 };
 }
