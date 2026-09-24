@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 16:00+0000\n"
-"PO-Revision-Date: 2026-06-27 15:38+0200\n"
+"POT-Creation-Date: 2026-09-24 00:45+0000\n"
+"PO-Revision-Date: 2026-09-23 20:01+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -167,312 +167,306 @@ msgstr "Новая возможность"
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
 
-#: core/accountmanager.cpp:341
+#: core/accountmanager.cpp:343
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некорректный маркер приглашения"
 
-#: core/accountmanager.cpp:342
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Некорректный маркер приглашения. Создание учётной записи отменено."
 
-#: core/apps/appsmarketplaceinfo.cpp:111
+#: core/apps/appsmarketplaceinfo.cpp:119
 #, kde-format
 msgid "per %1"
 msgstr "в %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:160
+#: core/apps/appsmarketplaceinfo.cpp:168
 #, kde-format
 msgid "month"
 msgstr "месяц"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:170
 #, kde-format
 msgid "year"
 msgstr "год"
 
-#: core/apps/appsmarketplaceinfo.cpp:410 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:418 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Описание"
 
-#: core/apps/appsmarketplaceinfo.cpp:419
+#: core/apps/appsmarketplaceinfo.cpp:427
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, kde-format
 msgid "Version"
 msgstr "Версия"
 
-#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:35
+#: core/apps/appsmarketplaceinfo.cpp:430 core/model/appscategoriesmodel.cpp:35
 #, kde-format
 msgid "Categories"
 msgstr "Категории"
 
-#: core/apps/appsmarketplaceinfo.cpp:427
+#: core/apps/appsmarketplaceinfo.cpp:435
 #, kde-format
 msgid "Documentation"
 msgstr "Документация"
 
-#: core/apps/appsmarketplaceinfo.cpp:438
+#: core/apps/appsmarketplaceinfo.cpp:446
 #, kde-format
 msgid "Author"
 msgstr "Автор"
 
-#: core/apps/appsmarketplaceinfo.cpp:451
+#: core/apps/appsmarketplaceinfo.cpp:459
 #, kde-format
 msgid "Homepage"
 msgstr "Домашняя страница"
 
-#: core/apps/appsmarketplaceinfo.cpp:464
+#: core/apps/appsmarketplaceinfo.cpp:472
 #, kde-format
 msgid "Support"
 msgstr "Поддержка"
 
-#: core/apps/appsmarketplaceinfo.cpp:469
+#: core/apps/appsmarketplaceinfo.cpp:479 core/apps/appsmarketplaceinfo.cpp:483
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Сводка по конфиденциальности"
 
-#: core/apps/appsmarketplaceinfo.cpp:480
+#: core/apps/appsmarketplaceinfo.cpp:495
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
 msgstr "Права доступа"
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Access messages"
 msgstr "Доступ к сообщениям"
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Отправка и изменение сообщений"
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access room information"
 msgstr "Доступ к информации о комнате"
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Create and modify rooms"
 msgstr "Создание и изменение комнат"
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Access to this server network"
 msgstr "Доступ к сети этого сервера"
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Access user information"
 msgstr "Доступ к информации о пользователе"
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Modify user information"
 msgstr "Изменение информации о пользователе"
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Register new slash commands"
 msgstr "Регистрация новых команд с косой чертой"
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr "Регистрация и ведение запланированных заданий"
 
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr "Регистрация новых конечных точек HTTP"
 
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Access settings in this server"
 msgstr "Доступ к параметрам на этом сервере"
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:665
 #, kde-format
 msgid "Modify settings in this server"
 msgstr "Изменение параметров на этом сервере"
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Upload files to this server"
 msgstr "Отправка файлов на этот сервер"
 
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:669
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr "Доступ к отправленным на этот сервер файлам"
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:671
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr "Взаимодействие с облачными службами от имени этого сервера"
 
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr "Доступ к минимальной информации об этой серверной среде"
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr "Доступ к информации о нескольких отделах Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:677
 #, kde-format
 msgid "Access Livechat department information"
 msgstr "Доступ к информации об отделе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:679
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr "Изменение информации об отделе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr "Изменение информации о комнате Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:683
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Доступ к информации о комнате Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr "Изменение информации о сообщении Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:672
+#: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Access Livechat message information"
 msgstr "Доступ к информации о сообщении Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:674
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr "Изменение информации о посетителе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:676
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr "Доступ к информации о посетителе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:678
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Доступ к информации о статусе Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:680
+#: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
 msgid "Interact with the UI"
 msgstr "Взаимодействие с интерфейсом пользователя"
 
-#: core/apps/appsmarketplaceinfo.cpp:682
+#: core/apps/appsmarketplaceinfo.cpp:697
 #, kde-format
 msgid "Store internal data in the database"
 msgstr "Хранение внутренних данных в базе данных"
 
-#: core/apps/appsmarketplaceinfo.cpp:684
+#: core/apps/appsmarketplaceinfo.cpp:699
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr "Изменение конфигурации настраиваемых полей Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:686
-#, fuzzy, kde-format
-#| msgid "Access to multiple Livechat departments information"
+#: core/apps/appsmarketplaceinfo.cpp:701
+#, kde-format
 msgid "Access to multiple Livechat messages information"
-msgstr "Доступ к информации о нескольких отделах Livechat"
+msgstr "Доступ к информации о нескольких сообщениях Livechat"
 
-#: core/apps/appsmarketplaceinfo.cpp:688
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#: core/apps/appsmarketplaceinfo.cpp:703
+#, kde-format
 msgid "Access thread information"
-msgstr "Доступ к информации о комнате"
+msgstr "Доступ к информации о ветке"
 
-#: core/apps/appsmarketplaceinfo.cpp:690
-#, fuzzy, kde-format
-#| msgid "Modify user information"
+#: core/apps/appsmarketplaceinfo.cpp:705
+#, kde-format
 msgid "Modify moderation information"
-msgstr "Изменение информации о пользователе"
+msgstr "Изменение информации о модерации"
 
-#: core/apps/appsmarketplaceinfo.cpp:692
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#: core/apps/appsmarketplaceinfo.cpp:707
+#, kde-format
 msgid "Access moderation information"
-msgstr "Доступ к информации о комнате"
+msgstr "Доступ к информации о модерации"
 
-#: core/apps/appsmarketplaceinfo.cpp:694
+#: core/apps/appsmarketplaceinfo.cpp:709
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr "Возможность записи параметров программ OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:696
+#: core/apps/appsmarketplaceinfo.cpp:711
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr "Возможность чтения параметров программ OAuth"
 
-#: core/apps/appsmarketplaceinfo.cpp:698
+#: core/apps/appsmarketplaceinfo.cpp:713
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr "Возможность записи параметров видеоконференции"
 
-#: core/apps/appsmarketplaceinfo.cpp:700
+#: core/apps/appsmarketplaceinfo.cpp:715
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr "Возможность чтения параметров видеоконференции"
 
-#: core/apps/appsmarketplaceinfo.cpp:702
+#: core/apps/appsmarketplaceinfo.cpp:717
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr "Возможность изменения параметров поставщика услуг видеоконференции"
 
-#: core/apps/appsmarketplaceinfo.cpp:704
+#: core/apps/appsmarketplaceinfo.cpp:719
 #, kde-format
 msgid "Allow to register button"
 msgstr "Возможность регистрации кнопки"
 
-#: core/apps/appsmarketplaceinfo.cpp:706
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#: core/apps/appsmarketplaceinfo.cpp:721
+#, kde-format
 msgid "Access contact information"
-msgstr "Доступ к информации о комнате"
+msgstr "Доступ к информации о контакте"
 
-#: core/apps/appsmarketplaceinfo.cpp:708
-#, fuzzy, kde-format
-#| msgid "Modify user information"
+#: core/apps/appsmarketplaceinfo.cpp:723
+#, kde-format
 msgid "Modify contact information"
-msgstr "Изменение информации о пользователе"
+msgstr "Изменение информации о контакте"
 
-#: core/apps/appsmarketplaceinfo.cpp:710
+#: core/apps/appsmarketplaceinfo.cpp:725
 #, kde-format
 msgid "Allow to send email"
 msgstr "Возможность отправки эл. почты"
 
-#: core/apps/appsmarketplaceinfo.cpp:712
+#: core/apps/appsmarketplaceinfo.cpp:727
 #, kde-format
 msgid "Allow to write role"
 msgstr "Возможность записи роли"
 
-#: core/apps/appsmarketplaceinfo.cpp:714
+#: core/apps/appsmarketplaceinfo.cpp:729
 #, kde-format
 msgid "Allow to read role"
 msgstr "Возможность чтения роли"
 
-#: core/apps/appsmarketplaceinfo.cpp:716
+#: core/apps/appsmarketplaceinfo.cpp:731
 #, kde-format
 msgid "Out Bound Communication"
 msgstr "Исходящая связь"
 
-#: core/apps/appsmarketplaceinfo.cpp:718
+#: core/apps/appsmarketplaceinfo.cpp:733
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr "Просмотреть все комнаты в рабочем пространстве"
@@ -624,10 +618,9 @@ msgid "Displays (╯°□°）╯︵ ┻━┻"
 msgstr "Отображает (╯°□°）╯︵ ┻━┻"
 
 #: core/commands/command.cpp:91
-#, fuzzy, kde-format
-#| msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
+#, kde-format
 msgid "Displays ┬─┬ ノ( ゜-゜ノ)"
-msgstr "Отображает ┬─┬<feff> ノ( ゜-゜ノ)"
+msgstr "Отображает ┬─┬ ノ( ゜-゜ノ)"
 
 #: core/commands/command.cpp:93
 #, kde-format
@@ -898,10 +891,9 @@ msgid "Message Pinned"
 msgstr "Сообщение закреплено"
 
 #: core/messages/message.cpp:839
-#, fuzzy, kde-format
-#| msgid "Message Pinned"
+#, kde-format
 msgid "Message Pinned by %1"
-msgstr "Сообщение закреплено"
+msgstr "Сообщение закреплено пользователем %1"
 
 #: core/messages/message.cpp:841
 #, kde-format
@@ -1858,16 +1850,14 @@ msgid "Not connected yet"
 msgstr "Ещё не подключено"
 
 #: core/rocketchataccount.cpp:3268
-#, fuzzy, kde-format
-#| msgid "Room \"%1\" was added"
+#, kde-format
 msgid "Room Added"
-msgstr "Добавлена комната «%1»"
+msgstr "Добавлена комната"
 
 #: core/rocketchataccount.cpp:3269
-#, fuzzy, kde-format
-#| msgid "A new account was added."
+#, kde-format
 msgid "A new room was added in '%1'."
-msgstr "Добавлена новая учётная запись."
+msgstr "В «%1» добавлена новая комната."
 
 #: core/rocketchaturlutils.cpp:43
 #, kde-format
@@ -2056,7 +2046,7 @@ msgstr[3] "%1 месяц"
 #: core/translatetext/translatetextjob.cpp:47
 #, kde-format
 msgid "No translator engine available."
-msgstr ""
+msgstr "Механизм перевода недоступен."
 
 #: core/translatetext/translatetextjob.cpp:55
 #, kde-format
@@ -2066,7 +2056,7 @@ msgstr "Не указаны данные переводчика. Это внут
 #: core/translatetext/translatorenginemanager.cpp:104
 #, kde-format
 msgid "Translation was interrupted as the translator engine changed."
-msgstr ""
+msgstr "Перевод прерван, так как механизм перевода изменился."
 
 #: core/user.cpp:209
 #, kde-format
@@ -2253,10 +2243,9 @@ msgstr[2] "%v секунд"
 msgstr[3] "%v секунда"
 
 #: rocketchatrestapi-qt/apps/appupdateinfojob.cpp:190
-#, fuzzy, kde-format
-#| msgid "Unread message not authorized."
+#, kde-format
 msgid "License not authorized it."
-msgstr "Не разрешается обозначать сообщение непрочитанным."
+msgstr "Лицензия не разрешает это."
 
 #: rocketchatrestapi-qt/autotranslate/getsupportedlanguagesjob.cpp:77
 #, kde-format
@@ -2370,16 +2359,14 @@ msgstr "Файл не найден «%1»"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:60
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgid "Download failed: %1"
-msgstr "Загрузка изображения"
+msgstr "Ошибка загрузки: %1"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
 msgid "No reply received"
-msgstr ""
+msgstr "Ответ не получен"
 
 #: rocketchatrestapi-qt/emoji/emojicustomcreatejob.cpp:141
 #, kde-format
@@ -2723,7 +2710,7 @@ msgstr "Комната не закрыта"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 msgid "The room already has an end-to-end encryption key ID"
-msgstr ""
+msgstr "В комнате уже есть идентификатор ключа сквозного шифрования"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 msgid "This is not a Livechat room"
@@ -2918,16 +2905,14 @@ msgid "Only groups or direct channels can enable encryption"
 msgstr "Включать шифрование можно только для групп или прямых каналов"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:67
-#, fuzzy, kde-format
-#| msgid "Editing permissions is not allowed"
+#, kde-format
 msgid "Editing room is not allowed"
-msgstr "Редактирование прав доступа запрещено"
+msgstr "Редактирование комнаты запрещено"
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:69
-#, fuzzy, kde-format
-#| msgid "Editing permissions is not allowed"
+#, kde-format
 msgid "Changing room type is not allowed"
-msgstr "Редактирование прав доступа запрещено"
+msgstr "Изменение типа комнаты запрещено"
 
 #: rocketchatrestapi-qt/subscriptions/markroomasunreadjob.cpp:58
 #, kde-format
@@ -4023,15 +4008,14 @@ msgid "Deployment ID"
 msgstr "Идентификатор развёртывания"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Mongo Version"
-msgstr "Версия"
+msgstr "Версия Mongo"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
 #, kde-format
 msgid "Mongo Storage Engine"
-msgstr ""
+msgstr "Механизм хранения Mongo"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:161
 #, kde-format
@@ -5101,12 +5085,10 @@ msgid "Enable in public channels"
 msgstr "Включить в общедоступных каналах"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Private Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in private channels"
-msgstr "Включить для закрытых каналов"
+msgstr "Включить в закрытых каналах"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
 #, kde-format
@@ -6219,7 +6201,7 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
-"Убрать метаданные EXIF из файлов изображений (JPEG,  TIFF и так далее). Этот "
+"Убрать метаданные EXIF из файлов изображений (JPEG, TIFF и так далее). Этот "
 "параметр не имеет обратной силы, поэтому в тех файлах, которые были "
 "загружены, когда он был отключён, останутся данные EXIF."
 
@@ -6271,9 +6253,9 @@ msgid "Microsoft"
 msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:165
-#, fuzzy, kde-format
+#, kde-format
 msgid "LibreTranslate"
-msgstr "Настройка автоперевода"
+msgstr "LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
@@ -6296,14 +6278,14 @@ msgid "Microsoft API Key"
 msgstr "Ключ API Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgid "LibreTranslate URL"
-msgstr "Настройка автоперевода"
+msgstr "URL-адрес LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:182
-#, fuzzy, kde-format
+#, kde-format
 msgid "LibreTranslate API Key"
-msgstr "Настройка автоперевода"
+msgstr "Ключ API LibreTranslate"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:190
 #, kde-format
@@ -6537,7 +6519,7 @@ msgstr "Идентификатор Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:166
 #, kde-format
 msgid "Facebook Secret"
-msgstr "Cекретный ключ Facebook"
+msgstr "Секретный ключ Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:169
 #, kde-format
@@ -8113,10 +8095,9 @@ msgid "DataBase E2E"
 msgstr "База данных — E2E"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:77
-#, fuzzy, kde-format
-#| msgid "DataBase Rooms"
+#, kde-format
 msgid "DataBase E2E Rooms"
-msgstr "База данных — комнаты"
+msgstr "База данных — E2E-комнаты"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:80
 #, kde-format
@@ -8144,7 +8125,7 @@ msgstr "Добавление пользователей в комнату"
 #, kde-format
 msgctxt "@title:window"
 msgid "Code 2FA"
-msgstr ""
+msgstr "Двухфакторный код"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -9293,18 +9274,16 @@ msgid "Show Pinned Messages - %1"
 msgstr "Показ закреплённых сообщений — %1"
 
 #: widgets/dialogs/showreadreceiptsdialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Read Receipts"
+#, kde-format
 msgctxt "@title:window"
 msgid "Show Read Receipts"
-msgstr "Подтверждения прочтения"
+msgstr "Показ подтверждений прочтения"
 
 #: widgets/dialogs/showreadreceiptswidget.cpp:46
-#, fuzzy, kde-format
-#| msgid "Read Receipts"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Read Receipts…"
-msgstr "Подтверждения прочтения"
+msgstr "Поиск подтверждений прочтения…"
 
 #: widgets/dialogs/showstarredmessagesdialog.cpp:25
 #, kde-format
@@ -9574,20 +9553,13 @@ msgid "Disable Encryption"
 msgstr "Отключить шифрование"
 
 #: widgets/encryption/e2edisablewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset encryption keys"
 msgstr "Сбросить ключи шифрования"
 
 #: widgets/encryption/e2edisablewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Disabling E2EE will compromise the privacy of this groupe privé. Access "
-#| "to any encrypted content will be lost for all groupe privé members.\n"
-#| "Encryption can be re-enabled later. Proceed with caution.\n"
-#| "If no one is able to access the encrypted content you can reset "
-#| "encryption keys instead."
+#, kde-format
 msgid ""
 "Disabling E2EE will compromise the privacy of this private group. Access to "
 "any encrypted content will be lost for all private group members.\n"
@@ -9598,8 +9570,8 @@ msgstr ""
 "Отключение E2EE поставит под угрозу конфиденциальность общения в этой "
 "закрытой группе. Все участники группы потеряют доступ ко всему "
 "зашифрованному содержимому.\n"
-"Шифрование можно будет снова включить в дальнейшем. Проявите "
-"осмотрительность.\n"
+"Шифрование можно будет снова включить в дальнейшем. Действуйте с "
+"осторожностью.\n"
 "Если никто не может получить доступ к зашифрованному содержимому, вместо "
 "этого можно сбросить ключи шифрования."
 
@@ -9620,19 +9592,23 @@ msgid ""
 "may lose access to previously encrypted content.\n"
 "This action cannot be undone. Do you want to continue?"
 msgstr ""
+"Сброс ключей шифрования рекомендуется, только если ни у одного участника "
+"комнаты нет действительного ключа для восстановления доступа к ранее "
+"зашифрованному содержимому. Все участники могут потерять доступ к ранее "
+"зашифрованному содержимому.\n"
+"Это действие нельзя отменить. Продолжить?"
 
 #: widgets/encryption/e2edisablewidget.cpp:71
 #: widgets/encryption/e2edisablewidget.cpp:79
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset Encryption Keys"
-msgstr "Сбросить ключи шифрования"
+msgstr "Сброс ключей шифрования"
 
 #: widgets/encryption/e2edisablewidget.cpp:79
 #, kde-format
 msgid "The encryption keys of this room could not be reset."
-msgstr ""
+msgstr "Не удалось сбросить ключи шифрования этой комнаты."
 
 #: widgets/encryption/e2epassworddecodekeydialog.cpp:20
 #, kde-format
@@ -9818,10 +9794,9 @@ msgid "Impossible to open file"
 msgstr "Невозможно открыть файл"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Invalid file type"
+#, kde-format
 msgid "Invalid zip file."
-msgstr "Недопустимый тип файла"
+msgstr "Недопустимый ZIP-файл."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:89
 #, kde-format
@@ -9903,8 +9878,7 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "Ошибка входа: пользователю приложения запрещён вход."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Not network found."
+#, kde-format
 msgid "No network found."
 msgstr "Сеть не найдена."
 
@@ -10147,20 +10121,18 @@ msgstr ""
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key."
-msgstr ""
+msgstr "Сервер отклонил запрос на сброс ключа сквозного шифрования."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:114
 #, kde-format
 msgid "The server refused to reset your E2E key: %1"
-msgstr ""
+msgstr "Сервер отклонил запрос на сброс ключа сквозного шифрования: %1"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:115
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Reset E2E Key"
+#, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E Key"
-msgstr "Сбросить ключ сквозного шифрования"
+msgstr "Сброс ключа сквозного шифрования"
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
 #, kde-format
@@ -10666,14 +10638,13 @@ msgid "Status"
 msgstr "Статус"
 
 #: widgets/notifications/notificationmanager.cpp:95
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
+#, kde-format
 msgid "%1 has %2 unread message"
 msgid_plural "%1 has %2 unread messages"
-msgstr[0] "%1 — имеются непрочитанные сообщения (%2)"
-msgstr[1] "%1 — имеются непрочитанные сообщения (%2)"
-msgstr[2] "%1 — имеются непрочитанные сообщения (%2)"
-msgstr[3] "%1 — имеются непрочитанные сообщения (%2)"
+msgstr[0] "%1: %2 непрочитанное сообщение"
+msgstr[1] "%1: %2 непрочитанных сообщения"
+msgstr[2] "%1: %2 непрочитанных сообщений"
+msgstr[3] "%1: %2 непрочитанное сообщение"
 
 #: widgets/offlinewidget/offlinewidget.cpp:17
 #, kde-format
@@ -10973,9 +10944,7 @@ msgid "Speak Text"
 msgstr "Зачитать текст"
 
 #: widgets/room/messagelineextratoolbutton.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add WebDAV Server"
+#, kde-format
 msgctxt "@action"
 msgid "Add WebDAV Server"
 msgstr "Добавить сервер WebDAV"
@@ -11092,10 +11061,9 @@ msgid "File upload"
 msgstr "Отправка файлов"
 
 #: widgets/room/messagelinewidget.cpp:588
-#, fuzzy, kde-format
-#| msgid "Server doesn't authorized this file (invalid mimetype)"
+#, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
-msgstr "Этот файл не разрешён сервером (некорректный тип MIME)"
+msgstr "Этот файл не разрешён сервером (некорректный тип MIME %1)"
 
 #: widgets/room/messagelistview.cpp:124
 #, kde-format
@@ -11129,7 +11097,7 @@ msgstr "Закрепить сообщение"
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
-msgstr "Удалить из избранного "
+msgstr "Удалить из избранного"
 
 #: widgets/room/messagelistview.cpp:479
 #, kde-format
@@ -11162,8 +11130,7 @@ msgid "Quote"
 msgstr "Цитировать"
 
 #: widgets/room/messagelistview.cpp:512
-#, fuzzy, kde-format
-#| msgid "Read Receipts"
+#, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Подтверждения прочтения"
@@ -11286,12 +11253,10 @@ msgid "New Message"
 msgstr "Новое сообщение"
 
 #: widgets/room/pendingattachmentclickablewidget.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Attachment"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove attachment"
-msgstr "Сохранение вложения"
+msgstr "Удалить вложение"
 
 #: widgets/room/reconnectinfowidget.cpp:74
 #, kde-format
@@ -11335,10 +11300,9 @@ msgid "(Show More Info…)"
 msgstr "(Показать больше сведений…)"
 
 #: widgets/room/roomheaderlabel.cpp:166
-#, fuzzy, kde-format
-#| msgid "Topic"
+#, kde-format
 msgid "Add Topic"
-msgstr "Тема"
+msgstr "Добавить тему"
 
 #: widgets/room/roomheaderwidget.cpp:78
 #, kde-format
@@ -11917,12 +11881,10 @@ msgid "Show RocketChat Information"
 msgstr "Показать сведения о RocketChat"
 
 #: widgets/ruqolamainwindow.cpp:701
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Server Settings…"
+#, kde-format
 msgctxt "@action"
 msgid "Server Checklist…"
-msgstr "Параметры сервера…"
+msgstr "Контрольный список сервера…"
 
 #: widgets/ruqolamainwindow.cpp:705
 #, kde-format
@@ -12057,68 +12019,54 @@ msgstr "Основная панель инструментов"
 #: widgets/serverchecks/abstractservercheck.cpp:47
 #, kde-format
 msgid "Timed out waiting for the server to answer."
-msgstr ""
+msgstr "Превышено время ожидания ответа сервера."
 
 #: widgets/serverchecks/abstractusercheck.cpp:85
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the add owner request."
-msgstr "Не вырезать закреплённые сообщения"
+msgstr "Не удалось запустить запрос на добавление владельца."
 
 #: widgets/serverchecks/abstractusercheck.cpp:97
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the remove owner request."
-msgstr "Не вырезать закреплённые сообщения"
+msgstr "Не удалось запустить запрос на удаление владельца."
 
 #: widgets/serverchecks/abstractusercheck.cpp:117
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the add moderator request."
-msgstr "Не вырезать закреплённые сообщения"
+msgstr "Не удалось запустить запрос на добавление модератора."
 
 #: widgets/serverchecks/abstractusercheck.cpp:129
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the remove moderator request."
-msgstr "Не вырезать закреплённые сообщения"
+msgstr "Не удалось запустить запрос на удаление модератора."
 
 #: widgets/serverchecks/abstractusercheck.cpp:149
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the add leader request."
-msgstr "Не вырезать закреплённые сообщения"
+msgstr "Не удалось запустить запрос на добавление лидера."
 
 #: widgets/serverchecks/abstractusercheck.cpp:161
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the remove leader request."
-msgstr "Не вырезать закреплённые сообщения"
+msgstr "Не удалось запустить запрос на удаление лидера."
 
 #: widgets/serverchecks/abstractusercheck.cpp:183
 #: widgets/serverchecks/abstractusercheck.cpp:198
 #, kde-format
 msgid "Could not start the invite request."
-msgstr ""
+msgstr "Не удалось запустить запрос приглашения."
 
 #: widgets/serverchecks/abstractusercheck.cpp:219
 #: widgets/serverchecks/abstractusercheck.cpp:231
 #, kde-format
 msgid "Could not start the kick request."
-msgstr ""
+msgstr "Не удалось запустить запрос на исключение."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Leader"
+#, kde-format
 msgid "Add Leader User"
-msgstr "Добавить как лидера"
+msgstr "Добавление лидера"
 
 #: widgets/serverchecks/addleaderusercheck.cpp:19
 #: widgets/serverchecks/addmoderatorusercheck.cpp:19
@@ -12140,10 +12088,9 @@ msgstr "Добавить как лидера"
 #: widgets/serverchecks/searchmessagecheck.cpp:35
 #: widgets/serverchecks/sendmessagecheck.cpp:21
 #: widgets/serverchecks/threadreplycheck.cpp:22
-#, fuzzy, kde-format
-#| msgid "My Account"
+#, kde-format
 msgid "No account."
-msgstr "Моя учётная запись"
+msgstr "Нет учётной записи."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:26
 #: widgets/serverchecks/addmoderatorusercheck.cpp:26
@@ -12153,284 +12100,234 @@ msgstr "Моя учётная запись"
 #: widgets/serverchecks/removemoderatorusercheck.cpp:26
 #: widgets/serverchecks/removeownerusercheck.cpp:26
 #: widgets/serverchecks/removeuserscheck.cpp:25
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#, kde-format
 msgid "Could not resolve user \"%1\"."
-msgstr "Удалить запись пользователя «%1»?"
+msgstr "Не удалось определить пользователя «%1»."
 
 #: widgets/serverchecks/addleaderusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not add leader \"%1\": %2"
-msgstr "Удалить «%1»?"
+msgstr "Не удалось добавить лидера «%1»: %2"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Add as Moderator"
+#, kde-format
 msgid "Add Moderator User"
-msgstr "Добавить как модератора"
+msgstr "Добавление модератора"
 
 #: widgets/serverchecks/addmoderatorusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not add moderator \"%1\": %2"
-msgstr "Удалить «%1»?"
+msgstr "Не удалось добавить модератора «%1»: %2"
 
 #: widgets/serverchecks/addownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Change Url"
+#, kde-format
 msgid "Add Owner User"
-msgstr "Изменение URL-адреса"
+msgstr "Добавление владельца"
 
 #: widgets/serverchecks/addownerusercheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not add owner \"%1\": %2"
-msgstr "Удалить «%1»?"
+msgstr "Не удалось добавить владельца «%1»: %2"
 
 #: widgets/serverchecks/adduserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Users in Room"
+#, kde-format
 msgid "Add user to room"
-msgstr "Добавление пользователей в комнату"
+msgstr "Добавление пользователя в комнату"
 
 #: widgets/serverchecks/adduserscheck.cpp:34
 #, kde-format
 msgid "Could not add \"%1\": %2"
-msgstr ""
+msgstr "Не удалось добавить «%1»: %2"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Change channel announcement"
-msgstr "Некорректное описание"
+msgstr "Изменение объявления канала"
 
 #: widgets/serverchecks/announcementchangecheck.cpp:37
 #: widgets/serverchecks/descriptionchangecheck.cpp:37
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:32
 #: widgets/serverchecks/quotemessagecheck.cpp:51
 #: widgets/serverchecks/topicchangecheck.cpp:37
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "Could not find the room."
-msgstr "Вы не в комнате «%s»"
+msgstr "Не удалось найти комнату."
 
 #: widgets/serverchecks/deletemessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete message"
 msgstr "Удаление сообщения"
 
 #: widgets/serverchecks/descriptionchangecheck.cpp:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Change channel description"
-msgstr "Некорректное описание"
+msgstr "Изменение описания канала"
 
 #: widgets/serverchecks/editmessagecheck.cpp:16
-#, fuzzy, kde-format
-#| msgid "Direct message"
+#, kde-format
 msgid "Edit message"
-msgstr "Личное сообщение"
+msgstr "Изменение сообщения"
 
 #: widgets/serverchecks/editmessagecheck.cpp:26
 #, kde-format
 msgid " (edited)"
-msgstr ""
+msgstr " (изменено)"
 
 #: widgets/serverchecks/editmessagecheck.cpp:57
 #, kde-format
 msgid "Edited text arrived but the message is not flagged as edited."
-msgstr ""
+msgstr "Получен изменённый текст, но сообщение не помечено как изменённое."
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Forward Message"
+#, kde-format
 msgid "Favorite (star) message"
-msgstr "Пересылка сообщения"
+msgstr "Добавление сообщения в избранное"
 
 #: widgets/serverchecks/favoritemessagecheck.cpp:50
 #, kde-format
 msgid "Could not start the star-message request."
-msgstr ""
+msgstr "Не удалось запустить запрос на пометку сообщения звёздочкой."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "File upload"
+#, kde-format
 msgid "File attachment upload"
-msgstr "Отправка файлов"
+msgstr "Отправка файла-вложения"
 
 #: widgets/serverchecks/fileuploadcheck.cpp:39
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary file."
-msgstr "Не удалось выполнить запись в файл журнала %1"
+msgstr "Невозможно создать временный файл."
 
 #: widgets/serverchecks/fileuploadcheck.cpp:81
 #, kde-format
 msgid "The file arrived but was not recognized as a file attachment."
-msgstr ""
+msgstr "Файл получен, но не распознан как вложение."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:31
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Image description"
-msgstr "Некорректное описание"
+msgstr "Описание изображения"
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:47
-#, fuzzy, kde-format
-#| msgid "Cannot write to log file %1"
+#, kde-format
 msgid "Cannot create a temporary image file."
-msgstr "Не удалось выполнить запись в файл журнала %1"
+msgstr "Не удалось создать временный файл изображения."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:91
 #, kde-format
 msgid "The image arrived but its description was dropped by the server."
-msgstr ""
+msgstr "Изображение получено, но сервер отбросил его описание."
 
 #: widgets/serverchecks/imagedescriptioncheck.cpp:93
 #, kde-format
 msgid "The image arrived with a wrong description: \"%1\"."
-msgstr ""
+msgstr "Изображение получено с неверным описанием: «%1»."
 
 #: widgets/serverchecks/linkpreviewcheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Fix preview url."
+#, kde-format
 msgid "Link preview (URL unfurl)"
-msgstr "Исправление предпросмотра содержимого по ссылкам"
+msgstr "Предпросмотр ссылок"
 
 #: widgets/serverchecks/markasfavoriteroomcheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Show Favorite Room"
+#, kde-format
 msgid "Change Favorite Room State"
-msgstr "Показать избранную комнату"
+msgstr "Изменение состояния избранной комнаты"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:23
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin message"
-msgstr "Закрепить сообщение"
+msgstr "Закрепление сообщения"
 
 #: widgets/serverchecks/pinmessagecheck.cpp:64
 #, kde-format
 msgid "Could not start the pin-message request."
-msgstr ""
+msgstr "Не удалось запустить запрос на закрепление сообщения."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:86
 #, kde-format
 msgid "The message was not found among the server's pinned messages."
-msgstr ""
+msgstr "Не удалось найти сообщение среди закреплённых сообщений сервера."
 
 #: widgets/serverchecks/pinmessagecheck.cpp:93
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Do not prune pinned messages"
+#, kde-format
 msgid "Could not start the pinned-messages request."
-msgstr "Не вырезать закреплённые сообщения"
+msgstr "Не удалось запустить запрос закреплённых сообщений."
 
 #: widgets/serverchecks/quotemessagecheck.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reported message"
+#, kde-format
 msgid "Quote message"
-msgstr "Сообщение, на которое отправлена жалоба"
+msgstr "Цитирование сообщения"
 
 #: widgets/serverchecks/quotemessagecheck.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Quote"
+#, kde-format
 msgid " (quote)"
-msgstr "Цитировать"
+msgstr " (цитата)"
 
 #: widgets/serverchecks/reactioncheck.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Add reaction"
+#, kde-format
 msgid "Emoji reaction"
-msgstr "Добавить реакцию"
+msgstr "Реакция смайликом"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Leader"
+#, kde-format
 msgid "Remove Leader User"
-msgstr "Удалить как лидера"
+msgstr "Удаление лидера"
 
 #: widgets/serverchecks/removeleaderusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove leader \"%1\": %2"
-msgstr "Удалить «%1»?"
+msgstr "Не удалось удалить лидера «%1»: %2"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove as Moderator"
+#, kde-format
 msgid "Remove Moderator User"
-msgstr "Удалить как модератора"
+msgstr "Удаление модератора"
 
 #: widgets/serverchecks/removemoderatorusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove moderator \"%1\": %2"
-msgstr "Удалить «%1»?"
+msgstr "Не удалось удалить модератора «%1»: %2"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove User"
+#, kde-format
 msgid "Remove Owner User"
-msgstr "Удаление пользователя"
+msgstr "Удаление владельца"
 
 #: widgets/serverchecks/removeownerusercheck.cpp:40
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove owner \"%1\": %2"
-msgstr "Удалить «%1»?"
+msgstr "Не удалось удалить владельца «%1»: %2"
 
 #: widgets/serverchecks/removeuserscheck.cpp:13
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Remove from Room"
+#, kde-format
 msgid "Remove user from room"
-msgstr "Удалить из комнаты"
+msgstr "Удаление пользователя из комнаты"
 
 #: widgets/serverchecks/removeuserscheck.cpp:34
-#, fuzzy, kde-format
-#| msgid "Do you want to remove \"%1\"?"
+#, kde-format
 msgid "Could not remove \"%1\": %2"
-msgstr "Удалить «%1»?"
+msgstr "Не удалось удалить «%1»: %2"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:23
-#, fuzzy, kde-format
-#| msgid "Messages"
+#, kde-format
 msgid "Message search"
-msgstr "Сообщения"
+msgstr "Поиск сообщений"
 
 #: widgets/serverchecks/searchmessagecheck.cpp:85
 #, kde-format
 msgid "Could not start the search request."
-msgstr ""
+msgstr "Не удалось запустить запрос поиска."
 
 #: widgets/serverchecks/sendmessagecheck.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Send message"
+#, kde-format
 msgid "Send message"
-msgstr "Отправить сообщение"
+msgstr "Отправка сообщения"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Checklist"
-msgstr ""
+msgstr "Контрольный список сервера"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:47
 #, kde-format
@@ -12439,38 +12336,42 @@ msgid ""
 "feature behaves as expected. Temporary test messages are sent to the "
 "selected channel and removed afterwards, so pick a scratch channel first."
 msgstr ""
+"Выполняет ряд проверок текущего сервера и сообщает, работает ли каждая "
+"возможность ожидаемым образом. Временные тестовые сообщения отправляются в "
+"выбранный канал, а затем удаляются, поэтому сначала выберите канал для "
+"проверки."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:58
 #, kde-format
 msgctxt "@title:column"
 msgid "Check"
-msgstr ""
+msgstr "Проверка"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:58
 #, kde-format
 msgctxt "@title:column"
 msgid "Result"
-msgstr ""
+msgstr "Результат"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Run Checks"
-msgstr ""
+msgstr "Запустить проверки"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:69
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Convert to Channel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Post Results to Channel"
-msgstr "Преобразовать в канал"
+msgstr "Опубликовать результаты в канал"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:72
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Post the checklist results as a message in the current channel."
 msgstr ""
+"Опубликовать результаты контрольного списка в виде сообщения в текущем "
+"канале."
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:86
 #, kde-format
@@ -12478,54 +12379,52 @@ msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
 "to.</b>"
 msgstr ""
+"<b>Сначала откройте канал: проверкам нужна комната для отправки тестовых "
+"сообщений.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:92
 #, kde-format
 msgid "<b>Check can not executed in direct channel.</b>"
-msgstr ""
+msgstr "<b>Не удалось выполнить проверку в прямом канале.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:112
 #, kde-format
 msgctxt "@info:status not run yet"
 msgid "Not run"
-msgstr ""
+msgstr "Не выполнялся"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:124
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Waiting…"
-msgstr "Загрузка…"
+msgstr "Ожидание…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:134
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Running…"
-msgstr "Загрузка…"
+msgstr "Выполняется…"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:143
 #, kde-format
 msgctxt "@info:status"
 msgid "OK"
-msgstr ""
+msgstr "ОК"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:146
 #, kde-format
 msgctxt "@info:status"
 msgid "Failed"
-msgstr ""
+msgstr "Ошибка"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:146
-#, fuzzy, kde-format
-#| msgid "File Uploaded: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Failed: %1"
-msgstr "Файл отправлен: %1"
+msgstr "Ошибка: %1"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Unknown"
+#, kde-format
 msgctxt "Unknown server version"
 msgid "unknown"
 msgstr "Неизвестно"
@@ -12536,28 +12435,28 @@ msgid ""
 "RC %1\n"
 "Automated check list from ruqola:\n"
 msgstr ""
+"RC %1\n"
+"Автоматический список проверок от Ruqola:\n"
 
 #: widgets/serverchecks/threadreplycheck.cpp:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Thread"
+#, kde-format
 msgid "Thread reply"
-msgstr "Ветка"
+msgstr "Ответ в ветке"
 
 #: widgets/serverchecks/threadreplycheck.cpp:26
 #, kde-format
 msgid " (thread reply)"
-msgstr ""
+msgstr " (ответ в ветке)"
 
 #: widgets/serverchecks/threadreplycheck.cpp:63
 #, kde-format
 msgid "The reply arrived but is not linked to the parent thread."
-msgstr ""
+msgstr "Ответ получен, но не связан с родительской веткой."
 
 #: widgets/serverchecks/topicchangecheck.cpp:21
 #, kde-format
 msgid "Change channel topic"
-msgstr ""
+msgstr "Изменение темы канала"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:28
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 16:00+0000\n"
-"PO-Revision-Date: 2026-09-02 15:43+0200\n"
+"POT-Creation-Date: 2026-09-24 00:45+0000\n"
+"PO-Revision-Date: 2026-09-23 11:14+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -163,312 +163,312 @@ msgstr "Nove characteristica"
 msgid "The following accounts are available:"
 msgstr "Le sequente contos es disponibile:"
 
-#: core/accountmanager.cpp:341
+#: core/accountmanager.cpp:343
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Indicio (token) de invitar invalide"
 
-#: core/accountmanager.cpp:342
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:111
+#: core/apps/appsmarketplaceinfo.cpp:119
 #, kde-format
 msgid "per %1"
 msgstr "per %1"
 
-#: core/apps/appsmarketplaceinfo.cpp:160
+#: core/apps/appsmarketplaceinfo.cpp:168
 #, kde-format
 msgid "month"
 msgstr "mense"
 
-#: core/apps/appsmarketplaceinfo.cpp:162
+#: core/apps/appsmarketplaceinfo.cpp:170
 #, kde-format
 msgid "year"
 msgstr "anno"
 
-#: core/apps/appsmarketplaceinfo.cpp:410 core/model/adminrolesmodel.cpp:40
+#: core/apps/appsmarketplaceinfo.cpp:418 core/model/adminrolesmodel.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:50
 #: widgets/applicationssettingsdialog/applicationssettingsdescriptiontabwidget.cpp:36
 #, kde-format
 msgid "Description"
 msgstr "Description"
 
-#: core/apps/appsmarketplaceinfo.cpp:419
+#: core/apps/appsmarketplaceinfo.cpp:427
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
 #, kde-format
 msgid "Version"
 msgstr "Version"
 
-#: core/apps/appsmarketplaceinfo.cpp:422 core/model/appscategoriesmodel.cpp:35
+#: core/apps/appsmarketplaceinfo.cpp:430 core/model/appscategoriesmodel.cpp:35
 #, kde-format
 msgid "Categories"
 msgstr "Categorias"
 
-#: core/apps/appsmarketplaceinfo.cpp:427
+#: core/apps/appsmarketplaceinfo.cpp:435
 #, kde-format
 msgid "Documentation"
 msgstr "Documentation"
 
-#: core/apps/appsmarketplaceinfo.cpp:438
+#: core/apps/appsmarketplaceinfo.cpp:446
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: core/apps/appsmarketplaceinfo.cpp:451
+#: core/apps/appsmarketplaceinfo.cpp:459
 #, kde-format
 msgid "Homepage"
 msgstr "Pagina Domo o Principal"
 
-#: core/apps/appsmarketplaceinfo.cpp:464
+#: core/apps/appsmarketplaceinfo.cpp:472
 #, kde-format
 msgid "Support"
 msgstr "Supporto"
 
-#: core/apps/appsmarketplaceinfo.cpp:469
+#: core/apps/appsmarketplaceinfo.cpp:479 core/apps/appsmarketplaceinfo.cpp:483
 #, kde-format
 msgid "Privacy Summary"
 msgstr "Summarion de Confidentialitate"
 
-#: core/apps/appsmarketplaceinfo.cpp:480
+#: core/apps/appsmarketplaceinfo.cpp:495
 #: widgets/administratordialog/administratorwidget.cpp:81
 #, kde-format
 msgid "Permissions"
 msgstr "Permissiones"
 
-#: core/apps/appsmarketplaceinfo.cpp:628
+#: core/apps/appsmarketplaceinfo.cpp:643
 #, kde-format
 msgid "Access messages"
 msgstr "Accede messages"
 
-#: core/apps/appsmarketplaceinfo.cpp:630
+#: core/apps/appsmarketplaceinfo.cpp:645
 #, kde-format
 msgid "Send and modify messages"
 msgstr "Cerca e modifica messages"
 
-#: core/apps/appsmarketplaceinfo.cpp:632
+#: core/apps/appsmarketplaceinfo.cpp:647
 #, kde-format
 msgid "Access room information"
 msgstr "Accede information de sala"
 
-#: core/apps/appsmarketplaceinfo.cpp:634
+#: core/apps/appsmarketplaceinfo.cpp:649
 #, kde-format
 msgid "Create and modify rooms"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:636
+#: core/apps/appsmarketplaceinfo.cpp:651
 #, kde-format
 msgid "Access to this server network"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:638
+#: core/apps/appsmarketplaceinfo.cpp:653
 #, kde-format
 msgid "Access user information"
 msgstr "Accede information de usator"
 
-#: core/apps/appsmarketplaceinfo.cpp:640
+#: core/apps/appsmarketplaceinfo.cpp:655
 #, kde-format
 msgid "Modify user information"
 msgstr "Modifica information de usator"
 
-#: core/apps/appsmarketplaceinfo.cpp:642
+#: core/apps/appsmarketplaceinfo.cpp:657
 #, kde-format
 msgid "Register new slash commands"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:644
+#: core/apps/appsmarketplaceinfo.cpp:659
 #, kde-format
 msgid "Register and maintain scheduled jobs"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:646
+#: core/apps/appsmarketplaceinfo.cpp:661
 #, kde-format
 msgid "Register new HTTP endpoints"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:648
+#: core/apps/appsmarketplaceinfo.cpp:663
 #, kde-format
 msgid "Access settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:650
+#: core/apps/appsmarketplaceinfo.cpp:665
 #, kde-format
 msgid "Modify settings in this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:652
+#: core/apps/appsmarketplaceinfo.cpp:667
 #, kde-format
 msgid "Upload files to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:654
+#: core/apps/appsmarketplaceinfo.cpp:669
 #, kde-format
 msgid "Access files uploaded to this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:656
+#: core/apps/appsmarketplaceinfo.cpp:671
 #, kde-format
 msgid "Interact with Cloud Services on behalf of this server"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:658
+#: core/apps/appsmarketplaceinfo.cpp:673
 #, kde-format
 msgid "Access minimal information about this server environment"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:660
+#: core/apps/appsmarketplaceinfo.cpp:675
 #, kde-format
 msgid "Access to multiple Livechat departments information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:662
+#: core/apps/appsmarketplaceinfo.cpp:677
 #, kde-format
 msgid "Access Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:664
+#: core/apps/appsmarketplaceinfo.cpp:679
 #, kde-format
 msgid "Modify Livechat department information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:666
+#: core/apps/appsmarketplaceinfo.cpp:681
 #, kde-format
 msgid "Modify Livechat room information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:668
+#: core/apps/appsmarketplaceinfo.cpp:683
 #, kde-format
 msgid "Access Livechat room information"
 msgstr "Accede information de sala de LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:670
+#: core/apps/appsmarketplaceinfo.cpp:685
 #, kde-format
 msgid "Modify Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:672
+#: core/apps/appsmarketplaceinfo.cpp:687
 #, kde-format
 msgid "Access Livechat message information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:674
+#: core/apps/appsmarketplaceinfo.cpp:689
 #, kde-format
 msgid "Modify Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:676
+#: core/apps/appsmarketplaceinfo.cpp:691
 #, kde-format
 msgid "Access Livechat visitor information"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:678
+#: core/apps/appsmarketplaceinfo.cpp:693
 #, kde-format
 msgid "Access Livechat status information"
 msgstr "Accede information de stato de LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:680
+#: core/apps/appsmarketplaceinfo.cpp:695
 #, kde-format
 msgid "Interact with the UI"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:682
+#: core/apps/appsmarketplaceinfo.cpp:697
 #, kde-format
 msgid "Store internal data in the database"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:684
+#: core/apps/appsmarketplaceinfo.cpp:699
 #, kde-format
 msgid "Modify Livechat custom field configuration"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:686
+#: core/apps/appsmarketplaceinfo.cpp:701
 #, fuzzy, kde-format
 #| msgid "Access Livechat status information"
 msgid "Access to multiple Livechat messages information"
 msgstr "Accede information de stato de LiveChat"
 
-#: core/apps/appsmarketplaceinfo.cpp:688
+#: core/apps/appsmarketplaceinfo.cpp:703
 #, fuzzy, kde-format
 #| msgid "Access room information"
 msgid "Access thread information"
 msgstr "Accede information de sala"
 
-#: core/apps/appsmarketplaceinfo.cpp:690
+#: core/apps/appsmarketplaceinfo.cpp:705
 #, fuzzy, kde-format
 #| msgid "Modify user information"
 msgid "Modify moderation information"
 msgstr "Modifica information de usator"
 
-#: core/apps/appsmarketplaceinfo.cpp:692
+#: core/apps/appsmarketplaceinfo.cpp:707
 #, fuzzy, kde-format
 #| msgid "Access room information"
 msgid "Access moderation information"
 msgstr "Accede information de sala"
 
-#: core/apps/appsmarketplaceinfo.cpp:694
+#: core/apps/appsmarketplaceinfo.cpp:709
 #, kde-format
 msgid "Allow to write oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:696
+#: core/apps/appsmarketplaceinfo.cpp:711
 #, kde-format
 msgid "Allow to read oauth app settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:698
+#: core/apps/appsmarketplaceinfo.cpp:713
 #, kde-format
 msgid "Allow to write video conference settings"
 msgstr "Permitte scriber preferentias de video conferentia"
 
-#: core/apps/appsmarketplaceinfo.cpp:700
+#: core/apps/appsmarketplaceinfo.cpp:715
 #, kde-format
 msgid "Allow to read video conference settings"
 msgstr "Permitte leger preferentias de video conferentia"
 
-#: core/apps/appsmarketplaceinfo.cpp:702
+#: core/apps/appsmarketplaceinfo.cpp:717
 #, kde-format
 msgid "Allow to change video conference provider settings"
 msgstr ""
 
-#: core/apps/appsmarketplaceinfo.cpp:704
+#: core/apps/appsmarketplaceinfo.cpp:719
 #, kde-format
 msgid "Allow to register button"
 msgstr "Permitte registrar button"
 
-#: core/apps/appsmarketplaceinfo.cpp:706
+#: core/apps/appsmarketplaceinfo.cpp:721
 #, fuzzy, kde-format
 #| msgid "Access room information"
 msgid "Access contact information"
 msgstr "Accede information de sala"
 
-#: core/apps/appsmarketplaceinfo.cpp:708
+#: core/apps/appsmarketplaceinfo.cpp:723
 #, fuzzy, kde-format
 #| msgid "Modify user information"
 msgid "Modify contact information"
 msgstr "Modifica information de usator"
 
-#: core/apps/appsmarketplaceinfo.cpp:710
+#: core/apps/appsmarketplaceinfo.cpp:725
 #, kde-format
 msgid "Allow to send email"
 msgstr "Permitte inviar eposta"
 
-#: core/apps/appsmarketplaceinfo.cpp:712
+#: core/apps/appsmarketplaceinfo.cpp:727
 #, kde-format
 msgid "Allow to write role"
 msgstr "Permitte scriber rolo"
 
-#: core/apps/appsmarketplaceinfo.cpp:714
+#: core/apps/appsmarketplaceinfo.cpp:729
 #, kde-format
 msgid "Allow to read role"
 msgstr "Permitte leger rolo"
 
-#: core/apps/appsmarketplaceinfo.cpp:716
+#: core/apps/appsmarketplaceinfo.cpp:731
 #, kde-format
 msgid "Out Bound Communication"
 msgstr "Out Bound Communication )Commmunication in exi)"
 
-#: core/apps/appsmarketplaceinfo.cpp:718
+#: core/apps/appsmarketplaceinfo.cpp:733
 #, kde-format
 msgid "View all rooms in the workspace"
 msgstr ""
@@ -9482,10 +9482,9 @@ msgid "Impossible to open file"
 msgstr "Impossibile aperir file"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Invalid file type"
+#, kde-format
 msgid "Invalid zip file."
-msgstr "Typo de file invalide"
+msgstr "File zip invalide."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:89
 #, kde-format
@@ -9567,10 +9566,9 @@ msgid "Login Failed: App user is not allowed to login."
 msgstr "Accesso falleva: Usator de app non es permittite a acceder."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Not network found."
+#, kde-format
 msgid "No network found."
-msgstr "Nulle rete trovate"
+msgstr "Nulle rete trovate."
 
 #: widgets/loginwidget/ruqolaswitchofflinemodewidget.cpp:25
 #, kde-format
@@ -9789,7 +9787,7 @@ msgstr ""
 "fin a fin (end to end) assi que le clave per codificar/decodificar tu "
 "messages non essera salveguardate sur le servitor.Per iste motivation tu "
 "necessita immagazinar tu contrasigno in alcun loco secur. Tu essere "
-"requirite a insertar lo su altere dispositivos que tu voleusar con "
+"requirite a insertar lo su altere dispositivos que tu vole usar con "
 "cryptation e2e (end to end)."
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:54
