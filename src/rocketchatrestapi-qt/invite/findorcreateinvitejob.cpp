@@ -11,6 +11,7 @@
 
 #include <KLocalizedString>
 
+#include <QDateTime>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>

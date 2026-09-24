@@ -11,7 +11,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 #include <QNetworkRequest>
 
 using namespace RocketChatRestApi;

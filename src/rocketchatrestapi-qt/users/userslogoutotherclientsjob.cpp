@@ -7,7 +7,6 @@
 #include "userslogoutotherclientsjob.h"
 
 #include "restapimethod.h"
-#include <KLocalizedString>
 
 #include <QJsonDocument>
 #include <QJsonObject>

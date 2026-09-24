@@ -12,6 +12,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QUuid>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;

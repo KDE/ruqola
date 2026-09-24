@@ -12,7 +12,6 @@
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-#include <QUrlQuery>
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
 ModerationDismissUserReportsJob::ModerationDismissUserReportsJob(QObject *parent)

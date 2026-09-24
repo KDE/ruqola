@@ -36,7 +36,7 @@ bool GetSupportedLanguagesJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("GetSupportedLanguagesJob: get message starting"_ba);
+    addStartRestApiInfo("GetSupportedLanguagesJob: get supported languages starting"_ba);
     return true;
 }
 
