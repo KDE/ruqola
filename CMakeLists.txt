@@ -196,6 +196,7 @@ option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib 
 
 set(KTEXTADDONS_MIN_VERSION "2.1.2")
 set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "${KTEXTADDONS_MIN_VERSION}")
+set(KTEXTADDONS_WITH_SPEECH_TO_TEXT_VERSION "2.2.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
 find_package(
@@ -289,6 +290,19 @@ set_package_properties(
 )
 if(TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
+endif()
+
+find_package(KF6TextSpeechToText ${KTEXTADDONS_WITH_SPEECH_TO_TEXT_VERSION} CONFIG)
+set_package_properties(
+    KF6TextSpeechToText
+    PROPERTIES
+        DESCRIPTION
+            "Add support for speech to text (ktextaddons)"
+        TYPE
+            OPTIONAL
+)
+if(TARGET KF6::TextSpeechToText)
+    set(HAVE_SPEECH_TO_TEXT TRUE)
 endif()
 
 find_package(KF6TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
