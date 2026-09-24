@@ -109,8 +109,6 @@ target_sources(
         chat/getmessagejob.h
         chat/getpinnedmessagesjob.cpp
         chat/getpinnedmessagesjob.h
-        chat/getsnippetedmessagesjob.cpp
-        chat/getsnippetedmessagesjob.h
         chat/getstarredmessagesjob.cpp
         chat/getstarredmessagesjob.h
         chat/getthreadmessagesjob.cpp
@@ -274,8 +272,6 @@ target_sources(
         invite/useinvitetokenjob.cpp
         invite/useinvitetokenjob.h
         librestapi_private_export.h
-        license/licensesisenterprisejob.cpp
-        license/licensesisenterprisejob.h
         license/licensesmaxactiveusersjob.cpp
         license/licensesmaxactiveusersjob.h
         license/licensesinfojob.cpp
