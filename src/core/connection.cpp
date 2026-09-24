@@ -31,7 +31,6 @@
 #include "chat/encryptedinfo.h"
 #include "chat/getmentionedmessagesjob.h"
 #include "chat/getpinnedmessagesjob.h"
-#include "chat/getsnippetedmessagesjob.h"
 #include "chat/getstarredmessagesjob.h"
 #include "chat/getthreadmessagesjob.h"
 #include "chat/ignoreuserjob.h"
@@ -1100,25 +1099,6 @@ void Connection::getStarredMessages(Utils::ListMessagesInfo &&info)
     connect(job, &GetStarredMessagesJob::getStarredMessagesDone, this, &Connection::getStarredMessagesDone);
     if (!job->start()) {
         qCDebug(RUQOLA_LOG) << "Impossible to start getStarredMessagesList";
-    }
-}
-
-void Connection::getSnippetedMessages(Utils::ListMessagesInfo &&info)
-{
-    auto job = new GetSnippetedMessagesJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(info.roomId);
-    QueryParameters parameters;
-    parameters.setCount(info.count);
-    parameters.setOffset(info.offset);
-
-    QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
-    parameters.setSorting(map);
-    job->setQueryParameters(parameters);
-    connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &Connection::getSnippetedMessagesDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start getSnippetedMessagesList";
     }
 }
 

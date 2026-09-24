@@ -118,7 +118,6 @@ public:
     void getThreadsList(Utils::ListMessagesInfo &&info);
     void getPinnedMessages(Utils::ListMessagesInfo &&info);
     void getStarredMessages(Utils::ListMessagesInfo &&info);
-    void getSnippetedMessages(Utils::ListMessagesInfo &&info);
     void getMentionedMessages(Utils::ListMessagesInfo &&info);
 
     void getThreadMessages(const QByteArray &threadMessageId);
@@ -155,7 +154,6 @@ Q_SIGNALS:
     void getThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
     void getPinnedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getStarredMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
-    void getSnippetedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getMentionedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void usersPresenceDone(const QJsonObject &obj);
 

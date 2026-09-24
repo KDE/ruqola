@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
-#include <KLocalizedString>
 
 #include <QJsonDocument>
 #include <QJsonObject>
