@@ -49,14 +49,14 @@ bool VideoConferenceListJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("VideoConferenceListJob: Ask for capabilities"_ba);
+    addStartRestApiInfo("VideoConferenceListJob: Ask for list"_ba);
     return true;
 }
 
 void VideoConferenceListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     if (const auto replyObject = checkResponse("VideoConferenceListJob"_ba, replyErrorString, replyJson)) {
-        Q_EMIT videoConferenceInfoDone(*replyObject);
+        Q_EMIT videoConferenceListDone(*replyObject);
     }
 }
 

@@ -30,7 +30,7 @@ public:
     void setRoomId(const QString &newRoomId);
 
 Q_SIGNALS:
-    void videoConferenceInfoDone(const QJsonObject &obj);
+    void videoConferenceListDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
