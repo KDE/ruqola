@@ -198,6 +198,8 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRo
     d.space() << "encrypted : " << t.encrypted;
     d.space() << "roomAvatar : " << t.roomAvatar;
     d.space() << "featured : " << t.featured;
+    d.space() << "reactWhenReadOnly : " << t.reactWhenReadOnly;
+    d.space() << "defaultValue : " << t.defaultValue;
     // hide password d.space() << "joinCode : " << t.joinCode;
     d.space() << "mSettingsWillBeChanged " << t.mSettingsWillBeChanged;
     return d;

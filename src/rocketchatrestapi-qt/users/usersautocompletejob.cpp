@@ -62,8 +62,8 @@ QNetworkRequest UsersAutocompleteJob::request() const
     QUrlQuery queryUrl;
     // TODO add support for exception.
     // const QString val = u"{\"term\": \"%1\", \"exception\": \"%2\"}"_s.arg(mUsersCompleterInfo.pattern).arg(mUsersCompleterInfo.exception);
-    const QString val = u"{\"term\": \"%1\"}"_s.arg(mUsersCompleterInfo.pattern);
-    queryUrl.addQueryItem(u"selector"_s, val);
+    const QJsonObject selectorObj{{u"term"_s, mUsersCompleterInfo.pattern}};
+    queryUrl.addQueryItem(u"selector"_s, QString::fromUtf8(QJsonDocument(selectorObj).toJson(QJsonDocument::Compact)));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

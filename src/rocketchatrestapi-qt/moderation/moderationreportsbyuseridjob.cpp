@@ -78,6 +78,7 @@ QNetworkRequest ModerationReportsByUserIdJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationUserReportsByUserId);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(u"userId"_s, QString::fromLatin1(mModerationUserId));
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

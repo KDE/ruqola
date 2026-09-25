@@ -183,7 +183,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d.space() << "desktopNotifications:" << t.desktopNotifications;
     d.space() << "pushNotifications:" << t.pushNotifications;
     d.space() << "emailNotificationMode:" << t.emailNotificationMode;
-    d.space() << "userId:" << t.userId;
     d.space() << "highlights:" << t.highlights;
     d.space() << "useEmoji:" << t.useEmoji;
     d.space() << "convertAsciiToEmoji:" << t.convertAsciiToEmoji;
@@ -196,7 +195,10 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d.space() << "sidebarViewMode:" << t.sidebarViewMode;
     d.space() << "idleTimeLimit:" << t.idleTimeLimit;
     d.space() << "receiveLoginDetectionEmail:" << t.receiveLoginDetectionEmail;
+    d.space() << "enableAutoAway:" << t.enableAutoAway;
     d.space() << "notificationsSoundVolume:" << t.notificationsSoundVolume;
+    d.space() << "voipRingerVolume:" << t.voipRingerVolume;
+    d.space() << "masterVolume:" << t.masterVolume;
     d.space() << "muteFocusedConversations:" << t.muteFocusedConversations;
     d.space() << "featuresPreview:" << t.featuresPreview;
     return d;

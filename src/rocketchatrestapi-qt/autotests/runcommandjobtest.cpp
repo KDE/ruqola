@@ -105,6 +105,10 @@ void RunCommandJobTest::testRunCommandInfo_data()
         QTest::addRow("empty") << QString() << QByteArray() << QByteArray() << empty << false;
     }
     {
+        const RunCommandJob::RunCommandInfo empty;
+        QTest::addRow("only-spaces") << u"/   "_s << "bla"_ba << "bli"_ba << empty << false;
+    }
+    {
         RunCommandJob::RunCommandInfo info;
         info.commandName = "poll"_L1;
         info.roomId = "bla"_L1;

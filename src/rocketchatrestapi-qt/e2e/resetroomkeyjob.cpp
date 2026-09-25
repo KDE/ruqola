@@ -55,6 +55,18 @@ bool ResetRoomKeyJob::requireHttpAuthentication() const
     return true;
 }
 
+bool ResetRoomKeyJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (!mResetRoomKeyInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetRoomKeyJob: mResetRoomKeyInfo is invalid";
+        return false;
+    }
+    return true;
+}
+
 QNetworkRequest ResetRoomKeyJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EResetRoomKey);

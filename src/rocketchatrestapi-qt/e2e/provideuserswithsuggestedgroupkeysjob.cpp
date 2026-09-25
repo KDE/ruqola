@@ -97,8 +97,8 @@ QJsonDocument ProvideUsersWithSuggestedGroupKeysJob::json() const
         }
         keysArr.append(std::move(keyObj));
     }
-    usersSuggestedGroupKeys.insert(mRoomId, keysArr);
-    obj["usersSuggestedGroupKeys"_L1] = usersSuggestedGroupKeys;
+    usersSuggestedGroupKeys.insert(mRoomId, std::move(keysArr));
+    obj["usersSuggestedGroupKeys"_L1] = std::move(usersSuggestedGroupKeys);
     return QJsonDocument(obj);
 }
 

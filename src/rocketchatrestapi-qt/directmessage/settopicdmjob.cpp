@@ -50,6 +50,16 @@ void SetTopicDmJob::setDirectUserId(const QString &userId)
     mDirectUserId = userId;
 }
 
+QString SetTopicDmJob::topic() const
+{
+    return mTopic;
+}
+
+void SetTopicDmJob::setTopic(const QString &topic)
+{
+    mTopic = topic;
+}
+
 bool SetTopicDmJob::requireHttpAuthentication() const
 {
     return true;
@@ -70,7 +80,7 @@ bool SetTopicDmJob::canStart() const
 QJsonDocument SetTopicDmJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["userId"_L1] = mDirectUserId;
+    jsonObj["roomId"_L1] = mDirectUserId;
     jsonObj["topic"_L1] = mTopic;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -78,7 +88,7 @@ QJsonDocument SetTopicDmJob::json() const
 
 QNetworkRequest SetTopicDmJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImOpen);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImSetTopic);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

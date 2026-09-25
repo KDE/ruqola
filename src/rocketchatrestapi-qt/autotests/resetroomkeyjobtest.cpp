@@ -61,7 +61,14 @@ void ResetRoomKeyJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
-    // QVERIFY(!job.canStart());
+    QVERIFY(!job.canStart());
+    ResetRoomKeyJob::ResetRoomKeyInfo info;
+    info.rid = u"rid"_s;
+    QVERIFY(!info.isValid());
+    info.e2eKey = u"key"_s;
+    info.e2eKeyId = u"keyId"_s;
+    QVERIFY(info.isValid());
+    job.setResetRoomKeyInfo(info);
     QVERIFY(job.canStart());
 }
 

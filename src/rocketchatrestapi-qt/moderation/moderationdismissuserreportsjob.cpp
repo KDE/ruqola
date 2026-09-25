@@ -45,12 +45,12 @@ bool ModerationDismissUserReportsJob::start()
         deleteLater();
         return false;
     }
-    submitGetRequest();
-    addStartRestApiInfo("ModerationDismissUserReportsJob: Ask for moderation reportes by users"_ba);
+    addStartRestApiInfo("ModerationDismissUserReportsJob::start"_ba);
+    submitPostRequest(json());
     return true;
 }
 
-void ModerationDismissUserReportsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void ModerationDismissUserReportsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     if (const auto replyObject = checkResponse("ModerationDismissUserReportsJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT moderationDismissReportedUserDone(*replyObject);
@@ -69,16 +69,19 @@ void ModerationDismissUserReportsJob::setModerationReportedUserId(const QByteArr
 
 QNetworkRequest ModerationDismissUserReportsJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationDismissUserReports);
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"userId"_s, QString::fromLatin1(mModerationReportedUserId));
-    url.setQuery(queryUrl);
-
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationDismissUserReports);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
-
     return request;
+}
+
+QJsonDocument ModerationDismissUserReportsJob::json() const
+{
+    QJsonObject jsonObj;
+    jsonObj["userId"_L1] = QLatin1StringView(mModerationReportedUserId);
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
 }
 
 #include "moc_moderationdismissuserreportsjob.cpp"

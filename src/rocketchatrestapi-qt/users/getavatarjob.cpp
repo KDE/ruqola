@@ -68,6 +68,7 @@ QNetworkRequest GetAvatarJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
     addQueryUrl(url);
     QNetworkRequest request(url);
+    addAuthRawHeader(request);
     return request;
 }
 

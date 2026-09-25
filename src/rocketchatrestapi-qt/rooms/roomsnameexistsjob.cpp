@@ -64,9 +64,9 @@ const QString &RoomsNameExistsJob::roomName() const
     return mRoomName;
 }
 
-void RoomsNameExistsJob::setRoomName(const QString &newRoomId)
+void RoomsNameExistsJob::setRoomName(const QString &newRoomName)
 {
-    mRoomName = newRoomId;
+    mRoomName = newRoomName;
 }
 
 QNetworkRequest RoomsNameExistsJob::request() const

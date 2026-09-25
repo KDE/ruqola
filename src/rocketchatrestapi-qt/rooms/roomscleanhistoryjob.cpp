@@ -113,6 +113,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::Clean
     d.space() << "excludePinned " << t.excludePinned;
     d.space() << "filesOnly " << t.filesOnly;
     d.space() << "ignoreThreads " << t.ignoreThreads;
+    d.space() << "ignoreDiscussion " << t.ignoreDiscussion;
     return d;
 }
 

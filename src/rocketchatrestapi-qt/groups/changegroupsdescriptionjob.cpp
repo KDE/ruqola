@@ -70,7 +70,8 @@ bool ChangeGroupsDescriptionJob::canStart() const
 QJsonDocument ChangeGroupsDescriptionJob::json() const
 {
     QJsonObject jsonObj;
-    generateJson(jsonObj), jsonObj["description"_L1] = description();
+    generateJson(jsonObj);
+    jsonObj["description"_L1] = description();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

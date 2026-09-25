@@ -24,7 +24,7 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
     [[nodiscard]] const QString &roomName() const;
-    void setRoomName(const QString &newRoomId);
+    void setRoomName(const QString &newRoomName);
 
     [[nodiscard]] bool canStart() const override;
 

@@ -71,6 +71,9 @@ RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, con
     if (str.length() > 1) {
         const QString newStr = str.sliced(1);
         QStringList lst = newStr.split(u' ', Qt::SkipEmptyParts);
+        if (lst.isEmpty()) {
+            return info;
+        }
         info.commandName = lst.takeAt(0);
         info.roomId = QLatin1StringView(roomId);
         info.threadMessageId = QLatin1StringView(tmid);

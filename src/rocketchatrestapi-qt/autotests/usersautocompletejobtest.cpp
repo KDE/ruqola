@@ -40,7 +40,7 @@ void UsersAutocompleteJobTest::shouldGenerateRequest()
     job.setUsersCompleterInfo(info);
     QNetworkRequest request = QNetworkRequest(QUrl());
     RuqolaRestApiHelper::verifyAuthentication(&job, request);
-    QCOMPARE(request.url().toString(), u"http://www.kde.org/api/v1/users.autocomplete?selector=%7B%22term%22: %22foo%22%7D"_s);
+    QCOMPARE(request.url().toString(), u"http://www.kde.org/api/v1/users.autocomplete?selector=%7B%22term%22:%22foo%22%7D"_s);
 }
 
 #include "moc_usersautocompletejobtest.cpp"

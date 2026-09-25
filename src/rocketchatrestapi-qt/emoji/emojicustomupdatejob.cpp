@@ -138,7 +138,7 @@ QNetworkRequest EmojiCustomUpdateJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomUpdate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request);
+    addRequestAttribute(request, false);
     return request;
 }
 

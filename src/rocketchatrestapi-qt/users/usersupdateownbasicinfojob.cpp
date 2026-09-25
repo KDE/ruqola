@@ -86,6 +86,9 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Email) {
         dataObj["email"_L1] = mUpdateOwnBasicInfo.email;
     }
+    if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Name) {
+        dataObj["name"_L1] = mUpdateOwnBasicInfo.name;
+    }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::UserName) {
         dataObj["username"_L1] = mUpdateOwnBasicInfo.userName;
     }
@@ -116,6 +119,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob:
     d.space() << "email " << t.email;
     d.space() << "name " << t.name;
     d.space() << "userName " << t.userName;
+    d.space() << "nickName " << t.nickName;
     d.space() << "statusText " << t.statusText;
     d.space() << "currentPassword " << t.currentPassword;
     d.space() << "newPassword " << t.newPassword;

@@ -67,6 +67,14 @@ void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
     job.setUpdateOwnBasicInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
              uR"({"data":{"email":"%1","nickname":"%3","statusText":"%4","username":"%2"}})"_s.arg(email, username, nickname, statustext).toLatin1());
+
+    const QString name = u"name1"_s;
+    info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Name;
+    info.name = name;
+    job.setUpdateOwnBasicInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"data":{"email":"%1","name":"%5","nickname":"%3","statusText":"%4","username":"%2"}})"_s.arg(email, username, nickname, statustext, name)
+                 .toLatin1());
 }
 
 void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()

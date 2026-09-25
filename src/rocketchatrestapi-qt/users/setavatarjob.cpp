@@ -62,8 +62,10 @@ bool SetAvatarJob::start()
         multiPart->append(filePart);
 
         QHttpPart userPart;
-        userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"userId\""_L1));
-        userPart.setBody(userId().toUtf8());
+        const bool useUserName = (mUserInfo.userInfoType == UserBaseJob::UserInfoType::UserName);
+        userPart.setHeader(QNetworkRequest::ContentDispositionHeader,
+                           QVariant(useUserName ? "form-data; name=\"username\""_L1 : "form-data; name=\"userId\""_L1));
+        userPart.setBody(mUserInfo.userIdentifier.toUtf8());
         multiPart->append(userPart);
 
         mReply = networkAccessManager()->post(request(), multiPart);

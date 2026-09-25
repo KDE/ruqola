@@ -28,6 +28,9 @@ public:
     [[nodiscard]] QString directUserId() const;
     void setDirectUserId(const QString &userId);
 
+    [[nodiscard]] QString topic() const;
+    void setTopic(const QString &topic);
+
 Q_SIGNALS:
     void setTopicDmDone();
 

@@ -67,7 +67,7 @@ QJsonDocument CreateChannelTeamInfo::json() const
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
 {
     d.space() << "name " << t.name;
-    d.space() << "description " << t.topic;
+    d.space() << "topic " << t.topic;
     d.space() << "teamId " << t.teamId;
     d.space() << "members " << t.members;
     d.space() << "readOnly " << t.readOnly;

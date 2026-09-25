@@ -34,16 +34,11 @@ bool ReportMessageJob::start()
     return true;
 }
 
-void ReportMessageJob::onPostRequestResponse([[maybe_unused]] const QString &replyErrorString, [[maybe_unused]] const QJsonDocument &replyJson)
+void ReportMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    auto reply = mReply;
-    if (reply) {
-        const QByteArray data = reply->readAll();
-        addLoggerInfo("ReportMessageJob: success: "_ba + data);
+    if (checkResponse("ReportMessageJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT reportMessageDone();
-        reply->deleteLater();
     }
-    deleteLater();
 }
 
 QString ReportMessageJob::reportMessage() const
