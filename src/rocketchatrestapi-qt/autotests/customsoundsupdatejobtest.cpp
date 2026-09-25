@@ -34,7 +34,7 @@ void CustomSoundsUpdateJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/custom-sounds.update"_s));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
+    QVERIFY(!request.header(QNetworkRequest::ContentTypeHeader).isValid());
 }
 
 void CustomSoundsUpdateJobTest::shouldGenerateJson()
