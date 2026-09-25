@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-24 00:45+0000\n"
+"POT-Creation-Date: 2026-09-25 00:45+0000\n"
 "PO-Revision-Date: 2026-09-17 21:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2345,7 +2345,7 @@ msgid ""
 "This is the last owner. Please set a new owner before removing this one."
 msgstr "Det här är den sista ägaren. Ange en ny ägare innan den här tas bort."
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:134
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:135
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "Saknar behörighet för att generera länk i kanalen."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-24 00:45+0000\n"
+"POT-Creation-Date: 2026-09-25 00:45+0000\n"
 "PO-Revision-Date: 2025-03-15 10:38+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -2382,7 +2382,7 @@ msgstr ""
 "Ĉi tiu estas la lasta posedanto. Bonvolu agordi novan posedanton antaŭ ol "
 "forigi ĉi tiun."
 
-#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:134
+#: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:135
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "Generi ligilon ne estas rajtigita en ĉi tiu kanalo."
