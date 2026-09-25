@@ -1402,6 +1402,7 @@
           <li xml:lang="ka">განახლდა ემოჯიების სია</li>
           <li xml:lang="nl">Emoji-lijst bijwerken</li>
           <li xml:lang="pt-BR">Atualizar lista de emojis</li>
+          <li xml:lang="ru">Обновление списка смайликов</li>
           <li xml:lang="sk">Aktualizácia zoznamu emodži</li>
           <li xml:lang="sl">Posodobi seznam čustvenčkov</li>
           <li xml:lang="sv">Uppdatera emoji-lista</li>
@@ -1418,6 +1419,7 @@
           <li xml:lang="ka">დაშიფვრის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor versleuteling</li>
           <li xml:lang="pt-BR">Suporte à criptografia</li>
+          <li xml:lang="ru">Поддержка шифрования</li>
           <li xml:lang="sk">Podpora šifrovania</li>
           <li xml:lang="sl">Podpora šifriranja</li>
           <li xml:lang="sv">Krypteringsstöd</li>
@@ -1434,6 +1436,7 @@
           <li xml:lang="ka">მომხმარებლის სტატუსის ჩვენება ოთახებში მომხმარებელთა სიაში</li>
           <li xml:lang="nl">Gebruikerstatus tonen in de lijst met gebruikers in rooms</li>
           <li xml:lang="pt-BR">Mostrar o status dos usuários na lista de usuários nas salas</li>
+          <li xml:lang="ru">Показ статуса в списке пользователей комнат</li>
           <li xml:lang="sk">Zobrazenie stavu používateľov v zoznamoch v miestnostiach</li>
           <li xml:lang="sl">Prikaži stanje uporabnika na seznamu uporabnikov v sobah</li>
           <li xml:lang="sv">Visa användarstatus i en lista för användare i flera rum</li>
@@ -1450,6 +1453,7 @@
           <li xml:lang="ka">თემის განსაზღვრის დაშვება, როცა ის განსაზღვრული არაა</li>
           <li xml:lang="nl">Het mogelijk maken om het onderwerp te definiëren wanneer dit nog niet is vastgelegd</li>
           <li xml:lang="pt-BR">Permitir definir o tópico quando ele não estiver definido</li>
+          <li xml:lang="ru">Возможность определения темы, если она не задана</li>
           <li xml:lang="sk">Možnosť určiť tému, keď nie je zadaná</li>
           <li xml:lang="sl">Dovoli definiranje teme klepeta, kadar ni definirana</li>
           <li xml:lang="sv">Tillåt att ämnet definieras när det inte är definierat</li>
@@ -1466,6 +1470,7 @@
           <li xml:lang="ka">შეიცვალა ბმულის მინიატურების დიზაინი კომპაქტურ ბარათებზე</li>
           <li xml:lang="nl">Ontwerp koppelingsvoorbeelden opnieuw als compacte kaarten</li>
           <li xml:lang="pt-BR">Redesenho das prévias de links como cartões compactos</li>
+          <li xml:lang="ru">Изменение оформления предпросмотра ссылок в виде компактных карточек</li>
           <li xml:lang="sk">Prepracované náhľady odkazov do podoby kompaktných kariet</li>
           <li xml:lang="sl">Preoblikuj predoglede povezav kot kompaktne kartice</li>
           <li xml:lang="sv">Konstruera om länkförhandsgranskningar som kompakta kort</li>
@@ -1482,6 +1487,7 @@
           <li xml:lang="ka">გასწორდა DDP-სთან თავიდან დაკავშირება</li>
           <li xml:lang="nl">Probleem met DDP-herverbinding oplossen</li>
           <li xml:lang="pt-BR">Correção da reconexão DDP</li>
+          <li xml:lang="ru">Исправление переподключения DDP</li>
           <li xml:lang="sk">Oprava opätovného pripojenia DDP</li>
           <li xml:lang="sl">Popravi ponovno povezavo DDP</li>
           <li xml:lang="sv">Rätta DDP återanslutning</li>
@@ -1498,6 +1504,7 @@
           <li xml:lang="ka">გაუმჯობესდა მომხმარებლის ინფორმაცია</li>
           <li xml:lang="nl">Gebruikersinformatie verbeteren</li>
           <li xml:lang="pt-BR">Melhoria das informações de usuários</li>
+          <li xml:lang="ru">Улучшение сведений о пользователе</li>
           <li xml:lang="sk">Vylepšenie informácií o používateľovi</li>
           <li xml:lang="sl">Izboljša informacije o uporabniku</li>
           <li xml:lang="sv">Förbättra användarinformation</li>
@@ -1514,6 +1521,7 @@
           <li xml:lang="ka">დაემატა გაფრთხილება ახალი ოთახის დამატებისას</li>
           <li xml:lang="nl">Voeg meldingsgegevens toe bij het toevoegen van een nieuwe room.</li>
           <li xml:lang="pt-BR">Adicionada informações de notificação ao adicionar uma nova sala</li>
+          <li xml:lang="ru">Добавление сведений об уведомлении при добавлении новой комнаты</li>
           <li xml:lang="sk">Oznámenie pri pridaní novej miestnosti</li>
           <li xml:lang="sl">Doda informacije v obvestilu pri dodajanju nove sobe</li>
           <li xml:lang="sv">Tillägg av underrättelseinformation när ett nytt rum läggs till.</li>
@@ -1530,6 +1538,7 @@
           <li xml:lang="ka">მიმაგრებული ფაილის მხარდაჭერის გადაწერა</li>
           <li xml:lang="nl">Ondersteuning voor bijlagebestanden herschrijven</li>
           <li xml:lang="pt-BR">Reescrita do suporte a arquivo anexo</li>
+          <li xml:lang="ru">Переработка поддержки файлов вложений</li>
           <li xml:lang="sk">Prepísaná podpora súborových príloh</li>
           <li xml:lang="sl">Podpora za prepisovanje datotek prilog</li>
           <li xml:lang="sv">Skriv om filstöd för bilagor</li>
@@ -1546,6 +1555,7 @@
           <li xml:lang="ka">დაემატა მხარდაჭერის ამოცანის ნიშანი Windows-ზე/macos-ზე</li>
           <li xml:lang="nl">Voeg een badge voor ondersteuningstaken toe op Windows/macOS</li>
           <li xml:lang="pt-BR">Adicionar selo de tarefa de suporte no Windows/macOS</li>
+          <li xml:lang="ru">Добавление поддержки значка задачи в Windows/macOS</li>
           <li xml:lang="sk">Podpora odznaku úlohy na Windows a macOS</li>
           <li xml:lang="sl">Dodaj značko za podporno nalogo v windows/macos</li>
           <li xml:lang="sv">Lägg till stöd för aktivitetsbricka på Windows och macOS</li>
@@ -1562,6 +1572,7 @@
           <li xml:lang="ka">დაემატა სერვერის საკონტროლო სიის ხელსაწყო სერვერის შესამოწმებლად ვერსიის აწევის შემდეგ.</li>
           <li xml:lang="nl">Voeg een servercontrolelijst toe om een ​​server na een upgrade te verifiëren.</li>
           <li xml:lang="pt-BR">Adiciona uma ferramenta de checklist de servidor para verificar um servidor após uma atualização.</li>
+          <li xml:lang="ru">Добавление средства «Контрольный список сервера» для проверки сервера после обновления.</li>
           <li xml:lang="sk">Pribudol nástroj Kontrolný zoznam servera na overenie servera po aktualizácii.</li>
           <li xml:lang="sl">Dodajte orodje za preverjanje strežnika, da preverite strežnik po nadgradnji.</li>
           <li xml:lang="sv">Lägg till ett verktyg med serverchecklista för att verifiera en server efter en uppgradering.</li>
@@ -1578,6 +1589,7 @@
           <li xml:lang="ka">მორგება RC 8.6.0-ის ახალ API-ისთან</li>
           <li xml:lang="nl">Nieuwe API aanpassen aan RC 8.6.0</li>
           <li xml:lang="pt-BR">Adaptar à nova API do RC 8.6.0</li>
+          <li xml:lang="ru">Адаптация к новому API RC 8.6.0</li>
           <li xml:lang="sk">Prispôsobenie novému API RC 8.6.0</li>
           <li xml:lang="sl">Prilagodi na RC 8.6.0 novi API</li>
           <li xml:lang="sv">Anpassa till nytt programmeringsgränssnitt i RC 8.6.0</li>
@@ -1594,6 +1606,7 @@
           <li xml:lang="ka">წაკითხულობის სტატუსის ჩვენება შეტყობინებაში</li>
           <li xml:lang="nl">Informatie over gelezen-berichten tonen in bericht</li>
           <li xml:lang="pt-BR">Mostrar informações de confirmação de leitura na mensagem</li>
+          <li xml:lang="ru">Показ сведений о подтверждениях прочтения в сообщении</li>
           <li xml:lang="sk">Zobrazovanie potvrdení o prečítaní v správe</li>
           <li xml:lang="sl">Prikaži informacije o potrdilih o branju v sporočilu</li>
           <li xml:lang="sv">Visa information om läsbekräftelser i meddelande</li>
@@ -1610,6 +1623,7 @@
           <li xml:lang="ka">დაემატა წაკითხვის ანგარიშის მხარდაჭერა</li>
           <li xml:lang="nl">Ondersteuning voor gelezen-berichten toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte a recibos de leitura</li>
+          <li xml:lang="ru">Добавление поддержки подтверждений прочтения</li>
           <li xml:lang="sk">Pridaná podpora potvrdení o prečítaní</li>
           <li xml:lang="sl">Doda podporo za potrdila o branju</li>
           <li xml:lang="sv">Lägg till stöd för läsbekräftelser</li>
@@ -1794,7 +1808,7 @@
           <li xml:lang="es">Mejoras en la interfaz de usuario de texto a habla</li>
           <li xml:lang="fr">Améliorer l'interface utilisateur pour la synthèse vocale</li>
           <li xml:lang="he">ממשק ההקראה השתפר</li>
-          <li xml:lang="ia">Meliora interfacie d eusator de Texto-a-Pronunciation (TextToSpeech)</li>
+          <li xml:lang="ia">Meliora interfacie de usator de Texto-a-Pronunciation (TextToSpeech)</li>
           <li xml:lang="it">Migliorare l'interfaccia utente della sintesi vocale</li>
           <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
           <li xml:lang="nl">Verbeter gebruikersinterface van tekst-naar-spraak</li>
@@ -1830,7 +1844,7 @@
           <li xml:lang="es">Modo desconectado implementado (experimental)</li>
           <li xml:lang="fr">Implémenter le mode déconnecté (Expérimental)</li>
           <li xml:lang="he">מימוש מצב בלתי מקוון (ניסיוני)</li>
-          <li xml:lang="ia">Implementa modoforas de linea (experimental)</li>
+          <li xml:lang="ia">Implementa modo foras de linea (experimental)</li>
           <li xml:lang="it">Implementa la modalità non in linea (sperimentale)</li>
           <li xml:lang="ka">ხაზგარეშე რეჟიმი (ექსპერიმენტული)</li>
           <li xml:lang="nl">Implementeert offline modus (experimenteel)</li>
@@ -3480,7 +3494,7 @@
           <li xml:lang="ca-valencia">No mostra @here/@all com a usuari</li>
           <li xml:lang="es">No mostrar @here/@all como usuario</li>
           <li xml:lang="he">לא להציג ‎@here‏/‎ @all(כאן/כולם) כמשתמש</li>
-          <li xml:lang="ia">Nonmonstrar @here/@all  como usstor</li>
+          <li xml:lang="ia">Non monstrar @here/@all  como usator</li>
           <li xml:lang="it">Non mostra @qui/@tutti come utente</li>
           <li xml:lang="ka">მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება</li>
           <li xml:lang="nl">@here/@all als gebruiker niet tonen</li>
