@@ -1463,7 +1463,7 @@
           <li xml:lang="es">Mejoras en la interfaz de usuario de texto a habla</li>
           <li xml:lang="fr">Améliorer l'interface utilisateur pour la synthèse vocale</li>
           <li xml:lang="he">ממשק ההקראה השתפר</li>
-          <li xml:lang="ia">Meliora interfacie d eusator de Texto-a-Pronunciation (TextToSpeech)</li>
+          <li xml:lang="ia">Meliora interfacie de usator de Texto-a-Pronunciation (TextToSpeech)</li>
           <li xml:lang="it">Migliorare l'interfaccia utente della sintesi vocale</li>
           <li xml:lang="ka">გაუმჯობესდა ტექსტის წარმოთქმის ინტერფეისი</li>
           <li xml:lang="nl">Verbeter gebruikersinterface van tekst-naar-spraak</li>
@@ -1497,7 +1497,7 @@
           <li xml:lang="es">Modo desconectado implementado (experimental)</li>
           <li xml:lang="fr">Implémenter le mode déconnecté (Expérimental)</li>
           <li xml:lang="he">מימוש מצב בלתי מקוון (ניסיוני)</li>
-          <li xml:lang="ia">Implementa modoforas de linea (experimental)</li>
+          <li xml:lang="ia">Implementa modo foras de linea (experimental)</li>
           <li xml:lang="it">Implementa la modalità non in linea (sperimentale)</li>
           <li xml:lang="ka">ხაზგარეშე რეჟიმი (ექსპერიმენტული)</li>
           <li xml:lang="nl">Implementeert offline modus (experimenteel)</li>
@@ -3040,7 +3040,7 @@
           <li xml:lang="ca-valencia">No mostra @here/@all com a usuari</li>
           <li xml:lang="es">No mostrar @here/@all como usuario</li>
           <li xml:lang="he">לא להציג ‎@here‏/‎ @all(כאן/כולם) כמשתמש</li>
-          <li xml:lang="ia">Nonmonstrar @here/@all  como usstor</li>
+          <li xml:lang="ia">Non monstrar @here/@all  como usator</li>
           <li xml:lang="it">Non mostra @qui/@tutti come utente</li>
           <li xml:lang="ka">მომხმარებლისთვის @here/@all ნაჩვენები არ იქნება</li>
           <li xml:lang="nl">@here/@all als gebruiker niet tonen</li>
