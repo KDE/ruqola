@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-09-26 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -2931,15 +2931,18 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "आपको इस चैनल को टीम में जोड़ने की अनुमति नहीं है"
 
 #: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
+#| "match any teams"
 msgid ""
-"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-"match any teams"
+"The required \"teamId\" or \"teamName\" param provided does not match any "
+"teams"
 msgstr ""
 "प्रदान किया गया आवश्यक \\\"roomId\\\" या \\\"roomName\\\" पैरामीटर किसी भी टीम "
 "से मेल नहीं खाता"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:81
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
 #, kde-format
 msgid "Get Avatar"
 msgstr "अवतार प्राप्त करें"
@@ -2949,12 +2952,12 @@ msgstr "अवतार प्राप्त करें"
 msgid "Invalid Email '%1'."
 msgstr "अवैध ईमेल '%1'."
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:109
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:111
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "अमान्य अवतार URL: %1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:113
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:115
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "%2 के लिए URL \"%1\" से अवतार सेटिंग संभालते समय त्रुटि"

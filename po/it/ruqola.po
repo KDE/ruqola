@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
-"PO-Revision-Date: 2026-09-07 14:23+0200\n"
+"POT-Creation-Date: 2026-09-26 00:45+0000\n"
+"PO-Revision-Date: 2026-09-16 13:59+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -2913,15 +2913,18 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Non hai il permesso di aggiungere questo canale alla squadra"
 
 #: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
+#| "match any teams"
 msgid ""
-"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-"match any teams"
+"The required \"teamId\" or \"teamName\" param provided does not match any "
+"teams"
 msgstr ""
 "Il parametro richiesto «roomId» o «roomName»che è stato fornito non "
 "corrisponde a una squadra"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:81
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
 #, kde-format
 msgid "Get Avatar"
 msgstr "Ottieni avatar"
@@ -2931,12 +2934,12 @@ msgstr "Ottieni avatar"
 msgid "Invalid Email '%1'."
 msgstr "Indirizzo di posta elettronica «%1» non valido."
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:109
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:111
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "URL dell'avatar non valido: %1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:113
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:115
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr ""
@@ -5046,12 +5049,10 @@ msgid "Enable in public channels"
 msgstr "Abilita nei canali pubblici"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Private Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in private channels"
-msgstr "Abilita per i canali privati"
+msgstr "Abilita nei canali privati"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
 #, kde-format
@@ -8079,7 +8080,7 @@ msgstr "Aggiungi utente alla stanza"
 #, kde-format
 msgctxt "@title:window"
 msgid "Code 2FA"
-msgstr ""
+msgstr "Codice 2FA"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:94
 #, kde-format
@@ -9722,10 +9723,9 @@ msgid "Impossible to open file"
 msgstr "Impossibile aprire il file"
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:73
-#, fuzzy, kde-format
-#| msgid "Invalid file type"
+#, kde-format
 msgid "Invalid zip file."
-msgstr "Tipo di file non valido"
+msgstr "File zip non valido."
 
 #: widgets/importexportdata/importdata/importaccountjob.cpp:89
 #, kde-format

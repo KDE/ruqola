@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-09-26 00:45+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2894,13 +2894,16 @@ msgid "You don't have permission to add this channel to the team"
 msgstr ""
 
 #: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
+#| "match any teams"
 msgid ""
-"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-"match any teams"
+"The required \"teamId\" or \"teamName\" param provided does not match any "
+"teams"
 msgstr "所提供的必要 \\\"roomId\\\" 或 \\\"roomName\\\" 參數不符合任何團隊"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:81
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
 #, kde-format
 msgid "Get Avatar"
 msgstr "取得頭貼"
@@ -2910,12 +2913,12 @@ msgstr "取得頭貼"
 msgid "Invalid Email '%1'."
 msgstr "無效電子郵件 '%1'。"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:109
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:111
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "無效的頭貼網址：%1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:113
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:115
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "為 %2 處理來自 URL \"%1\" 的頭貼設定時發生錯誤"

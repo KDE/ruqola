@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:45+0000\n"
+"POT-Creation-Date: 2026-09-26 00:45+0000\n"
 "PO-Revision-Date: 2026-09-16 15:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2937,15 +2937,18 @@ msgstr ""
 "У вас немає достатніх прав доступу для додавання цього каналу до команди"
 
 #: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
+#| "match any teams"
 msgid ""
-"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-"match any teams"
+"The required \"teamId\" or \"teamName\" param provided does not match any "
+"teams"
 msgstr ""
 "Вказаний обов'язковий параметр «roomId» або «roomName» не відповідає жодній "
 "команді"
 
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:81
+#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
 #, kde-format
 msgid "Get Avatar"
 msgstr "Отримати аватар"
@@ -2955,12 +2958,12 @@ msgstr "Отримати аватар"
 msgid "Invalid Email '%1'."
 msgstr "Некоректна адреса електронної пошти «%1»"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:109
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:111
 #, kde-format
 msgid "Invalid avatar URL: %1"
 msgstr "Некоректна адреса аватара: %1"
 
-#: rocketchatrestapi-qt/users/setavatarjob.cpp:113
+#: rocketchatrestapi-qt/users/setavatarjob.cpp:115
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Помилка під час обробки параметра аватара з адреси «%1» для %2"
