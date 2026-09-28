@@ -26,8 +26,10 @@ void ShowBannedUsersListView::contextMenuEvent(QContextMenuEvent *event)
     }
     QMenu menu(this);
     auto unbanUserAction = new QAction(i18nc("@action", "Unban User"), &menu);
-    connect(unbanUserAction, &QAction::triggered, this, [this, index]() {
-        slotUnbanUser(index);
+    connect(unbanUserAction, &QAction::triggered, this, [this, index = QPersistentModelIndex(index)]() {
+        if (index.isValid()) {
+            slotUnbanUser(index);
+        }
     });
     menu.addAction(unbanUserAction);
     menu.exec(event->globalPos());

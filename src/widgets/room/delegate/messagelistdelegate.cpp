@@ -464,8 +464,10 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
         QMenu menu;
         const bool isTranslated = message->showTranslatedMessage();
         auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-        connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
-            Q_EMIT translateMessage(index, !isTranslated);
+        connect(translateAction, &QAction::triggered, this, [this, index = QPersistentModelIndex(index), isTranslated]() {
+            if (index.isValid()) {
+                Q_EMIT translateMessage(index, !isTranslated);
+            }
         });
         menu.addAction(translateAction);
         menu.exec(info.globalPos);
