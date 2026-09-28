@@ -8,11 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
@@ -26,27 +22,11 @@ ShowMentionsMessagesDialog::ShowMentionsMessagesDialog(RocketChatAccount *accoun
     readConfig();
 }
 
-ShowMentionsMessagesDialog::~ShowMentionsMessagesDialog()
-{
-    writeConfig();
-}
+ShowMentionsMessagesDialog::~ShowMentionsMessagesDialog() = default;
 
 void ShowMentionsMessagesDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowMentionsMessagesDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowMentionsMessagesDialogGroupName), 800, 600);
-#endif
-}
-
-void ShowMentionsMessagesDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowMentionsMessagesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_showmentionsmessagesdialog.cpp"

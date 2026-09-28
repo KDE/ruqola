@@ -10,13 +10,9 @@
 #include "room.h"
 #include "searchmessagewidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -43,10 +39,7 @@ SearchMessageDialog::SearchMessageDialog(RocketChatAccount *account, QWidget *pa
     readConfig();
 }
 
-SearchMessageDialog::~SearchMessageDialog()
-{
-    writeConfig();
-}
+SearchMessageDialog::~SearchMessageDialog() = default;
 
 void SearchMessageDialog::setRoomId(const QByteArray &roomId)
 {
@@ -55,20 +48,7 @@ void SearchMessageDialog::setRoomId(const QByteArray &roomId)
 
 void SearchMessageDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(mySearchMessageDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(mySearchMessageDialogGroupName), 800, 600);
-#endif
-}
-
-void SearchMessageDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(mySearchMessageDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 void SearchMessageDialog::setRoom(Room *room)

@@ -7,13 +7,9 @@
 #include "servererrorinfomessagehistorydialog.h"
 
 #include "servererrorinfomessagehistorywidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -39,10 +35,7 @@ ServerErrorInfoMessageHistoryDialog::ServerErrorInfoMessageHistoryDialog(QWidget
     readConfig();
 }
 
-ServerErrorInfoMessageHistoryDialog::~ServerErrorInfoMessageHistoryDialog()
-{
-    writeConfig();
-}
+ServerErrorInfoMessageHistoryDialog::~ServerErrorInfoMessageHistoryDialog() = default;
 
 void ServerErrorInfoMessageHistoryDialog::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
 {
@@ -51,20 +44,7 @@ void ServerErrorInfoMessageHistoryDialog::addServerList(const QList<AccountManag
 
 void ServerErrorInfoMessageHistoryDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myServerErrorInfoMessageHistoryDialogConfigGroupName), QSize(400, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myServerErrorInfoMessageHistoryDialogConfigGroupName), 400, 300);
-#endif
-}
-
-void ServerErrorInfoMessageHistoryDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myServerErrorInfoMessageHistoryDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_servererrorinfomessagehistorydialog.cpp"

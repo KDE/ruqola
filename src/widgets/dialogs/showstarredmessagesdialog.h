@@ -16,5 +16,4 @@ public:
 
 private:
     void readConfig();
-    void writeConfig();
 };

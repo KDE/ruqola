@@ -10,15 +10,11 @@
 #include "exportdataselectaccountpage.h"
 #include "importexportdata/importexportutils.h"
 #include "managerdatapaths.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 #include <QDirIterator>
 #include <QTimer>
-#include <QWindow>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
@@ -46,27 +42,11 @@ ExportDataWizard::ExportDataWizard(QWidget *parent)
     connect(this, &ExportDataWizard::currentIdChanged, this, &ExportDataWizard::slotCurrentIdChanged);
 }
 
-ExportDataWizard::~ExportDataWizard()
-{
-    writeConfig();
-}
+ExportDataWizard::~ExportDataWizard() = default;
 
 void ExportDataWizard::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigExportDataWizardGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigExportDataWizardGroupName), 800, 600);
-#endif
-}
-
-void ExportDataWizard::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigExportDataWizardGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 void ExportDataWizard::loadAccountInfo()

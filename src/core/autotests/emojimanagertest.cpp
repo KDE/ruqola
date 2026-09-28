@@ -24,23 +24,14 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
-#if TEXTEMOTICONSCORE_VERSION >= QT_VERSION_CHECK(2, 1, 45)
 // ktextaddons generates its emoji set from emojibase, the one Rocket.Chat names its
-// emojis after. Before 2.1.45 it shipped an older and differently named set.
+// emojis after.
 constexpr int unicodeEmojiCount = 3979;
 constexpr int peopleEmojiCount = 2593;
 constexpr int firstSymbolOrder = 4645;
 constexpr auto firstSymbolIdentifier = ":atm:";
 constexpr auto firstRegionalIdentifier = ":regional_indicator_a:";
 constexpr auto slightlySmilingFace = ":slightly_smiling_face:";
-#else
-constexpr int unicodeEmojiCount = 3820;
-constexpr int peopleEmojiCount = 2158;
-constexpr int firstSymbolOrder = 3207;
-constexpr auto firstSymbolIdentifier = ":pink_heart:";
-constexpr auto firstRegionalIdentifier = ":regional_indicator_z:";
-constexpr auto slightlySmilingFace = ":slight_smile:";
-#endif
 }
 EmojiManagerTest::EmojiManagerTest(QObject *parent)
     : QObject(parent)

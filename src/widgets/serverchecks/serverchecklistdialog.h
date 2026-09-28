@@ -41,7 +41,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPostResults();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString buildResultMessage() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
 
     ServerCheckListManager *const mManager;
     QTreeWidget *const mTreeWidget;

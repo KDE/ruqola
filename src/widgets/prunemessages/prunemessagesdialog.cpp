@@ -8,14 +8,10 @@
 
 #include "prunemessageswidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -48,10 +44,7 @@ PruneMessagesDialog::PruneMessagesDialog(RocketChatAccount *account, QWidget *pa
     readConfig();
 }
 
-PruneMessagesDialog::~PruneMessagesDialog()
-{
-    writeConfig();
-}
+PruneMessagesDialog::~PruneMessagesDialog() = default;
 
 RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesDialog::cleanHistoryInfo() const
 {
@@ -65,20 +58,7 @@ void PruneMessagesDialog::setRoomName(const QString &roomName)
 
 void PruneMessagesDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myPruneMessagesDialogConfigGroupName), QSize(400, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myPruneMessagesDialogConfigGroupName), 400, 300);
-#endif
-}
-
-void PruneMessagesDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myPruneMessagesDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_prunemessagesdialog.cpp"

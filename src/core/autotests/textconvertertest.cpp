@@ -279,13 +279,8 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QString smiley;
     smiley += QChar(0xD83D);
     smiley += QChar(0xDE42);
-    // The title is the identifier of the emoji, which ktextaddons takes from emojibase
-    // since 2.1.45; before that :slightly_smiling_face: was only an alias.
-#if TEXTEMOTICONSCORE_VERSION >= QT_VERSION_CHECK(2, 1, 45)
+    // The title is the identifier of the emoji, which ktextaddons takes from emojibase.
     const auto smileyIdentifier = u":slightly_smiling_face:"_s;
-#else
-    const auto smileyIdentifier = u":slight_smile:"_s;
-#endif
     const auto smileyText = u"<span style=\"font: x-large %2\" title=\"%3\">%1</span>"_s.arg(smiley, Utils::emojiFontName(), smileyIdentifier);
     QTest::newRow("ascii-smiley") << u":)"_s << u"<p>%1</p>\n"_s.arg(smileyText) << u"www.kde.org"_s;
     QTest::newRow("multi-smiley") << u":):slightly_smiling_face::):)"_s << u"<p>%1</p>\n"_s.arg(smileyText.repeated(4)) << u"www.kde.org"_s;

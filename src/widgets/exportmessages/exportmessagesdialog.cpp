@@ -7,13 +7,9 @@
 #include "exportmessagesdialog.h"
 
 #include "exportmessageswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
@@ -39,10 +35,7 @@ ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     readConfig();
 }
 
-ExportMessagesDialog::~ExportMessagesDialog()
-{
-    writeConfig();
-}
+ExportMessagesDialog::~ExportMessagesDialog() = default;
 
 RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExportInfo() const
 {
@@ -51,20 +44,7 @@ RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExp
 
 void ExportMessagesDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myExportMessagesDialogConfigGroupName), QSize(400, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myExportMessagesDialogConfigGroupName), 400, 300);
-#endif
-}
-
-void ExportMessagesDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExportMessagesDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_exportmessagesdialog.cpp"

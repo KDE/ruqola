@@ -9,13 +9,9 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "moderationuserswidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -40,10 +36,7 @@ ModerationUsersDialog::ModerationUsersDialog(RocketChatAccount *account, QWidget
     readConfig();
 }
 
-ModerationUsersDialog::~ModerationUsersDialog()
-{
-    writeConfig();
-}
+ModerationUsersDialog::~ModerationUsersDialog() = default;
 
 void ModerationUsersDialog::setModerationReportUserInfos(const ModerationReportUserInfos &infos)
 {
@@ -52,20 +45,7 @@ void ModerationUsersDialog::setModerationReportUserInfos(const ModerationReportU
 
 void ModerationUsersDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myModerationUsersDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myModerationUsersDialogGroupName), 800, 600);
-#endif
-}
-
-void ModerationUsersDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationUsersDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_moderationusersdialog.cpp"

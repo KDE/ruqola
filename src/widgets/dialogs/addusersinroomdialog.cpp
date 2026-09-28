@@ -7,14 +7,10 @@
 #include "addusersinroomdialog.h"
 
 #include "addusersinroomwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
@@ -43,10 +39,7 @@ AddUsersInRoomDialog::AddUsersInRoomDialog(RocketChatAccount *account, QWidget *
     readConfig();
 }
 
-AddUsersInRoomDialog::~AddUsersInRoomDialog()
-{
-    writeConfig();
-}
+AddUsersInRoomDialog::~AddUsersInRoomDialog() = default;
 
 QList<QByteArray> AddUsersInRoomDialog::userIds() const
 {
@@ -60,20 +53,7 @@ QStringList AddUsersInRoomDialog::userNames() const
 
 void AddUsersInRoomDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigAddUsersInRoomDialogGroupName), QSize(800, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigAddUsersInRoomDialogGroupName), 800, 300);
-#endif
-}
-
-void AddUsersInRoomDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAddUsersInRoomDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_addusersinroomdialog.cpp"

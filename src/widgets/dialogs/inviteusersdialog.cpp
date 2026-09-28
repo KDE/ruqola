@@ -8,13 +8,9 @@
 
 #include "inviteuserswidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -40,10 +36,7 @@ InviteUsersDialog::InviteUsersDialog(RocketChatAccount *account, QWidget *parent
     readConfig();
 }
 
-InviteUsersDialog::~InviteUsersDialog()
-{
-    writeConfig();
-}
+InviteUsersDialog::~InviteUsersDialog() = default;
 
 QByteArray InviteUsersDialog::roomId() const
 {
@@ -62,20 +55,7 @@ void InviteUsersDialog::generateLink()
 
 void InviteUsersDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myInviteUsersDialogGroupName), QSize(300, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myInviteUsersDialogGroupName), 300, 300);
-#endif
-}
-
-void InviteUsersDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myInviteUsersDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_inviteusersdialog.cpp"

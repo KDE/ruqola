@@ -7,13 +7,9 @@
 #include "teamconverttochanneldialog.h"
 
 #include "teamconverttochannelwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
@@ -39,10 +35,7 @@ TeamConvertToChannelDialog::TeamConvertToChannelDialog(QWidget *parent)
     readConfig();
 }
 
-TeamConvertToChannelDialog::~TeamConvertToChannelDialog()
-{
-    writeConfig();
-}
+TeamConvertToChannelDialog::~TeamConvertToChannelDialog() = default;
 
 QList<QByteArray> TeamConvertToChannelDialog::roomIdsToDelete() const
 {
@@ -61,20 +54,7 @@ void TeamConvertToChannelDialog::setTeamName(const QString &name)
 
 void TeamConvertToChannelDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName), QSize(400, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName), 400, 300);
-#endif
-}
-
-void TeamConvertToChannelDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_teamconverttochanneldialog.cpp"

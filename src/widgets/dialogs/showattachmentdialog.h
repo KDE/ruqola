@@ -28,7 +28,6 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreAttachment();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDeleteAttachment(const QByteArray &fileId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowImage(const QByteArray &fileId);

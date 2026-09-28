@@ -6,15 +6,11 @@
 
 #include "threadmessagedialog.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QFrame>
 #include <QStyle>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -54,10 +50,7 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
     setAttribute(Qt::WA_DeleteOnClose);
 }
 
-ThreadMessageDialog::~ThreadMessageDialog()
-{
-    writeConfig();
-}
+ThreadMessageDialog::~ThreadMessageDialog() = default;
 
 void ThreadMessageDialog::setThreadMessageInfo(const ThreadMessageWidget::ThreadMessageInfo &info)
 {
@@ -66,20 +59,7 @@ void ThreadMessageDialog::setThreadMessageInfo(const ThreadMessageWidget::Thread
 
 void ThreadMessageDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myThreadMessageDialogGroupName), QSize(800, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myThreadMessageDialogGroupName), 800, 300);
-#endif
-}
-
-void ThreadMessageDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myThreadMessageDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_threadmessagedialog.cpp"

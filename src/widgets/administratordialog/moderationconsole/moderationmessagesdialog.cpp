@@ -9,13 +9,9 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "moderationmessageswidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -41,27 +37,11 @@ ModerationMessagesDialog::ModerationMessagesDialog(RocketChatAccount *account, Q
     readConfig();
 }
 
-ModerationMessagesDialog::~ModerationMessagesDialog()
-{
-    writeConfig();
-}
+ModerationMessagesDialog::~ModerationMessagesDialog() = default;
 
 void ModerationMessagesDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myModerationMessagesDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myModerationMessagesDialogGroupName), 800, 600);
-#endif
-}
-
-void ModerationMessagesDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationMessagesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 void ModerationMessagesDialog::setModel(CommonMessageFilterProxyModel *model)

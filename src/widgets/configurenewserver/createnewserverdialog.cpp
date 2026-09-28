@@ -10,14 +10,10 @@ using namespace Qt::Literals::StringLiterals;
 #include "config-ruqola.h"
 #include "configurenewserver/createnewserverstackwidget.h"
 #include "ruqolaglobalconfig.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -53,10 +49,7 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
 #endif
 }
 
-CreateNewServerDialog::~CreateNewServerDialog()
-{
-    writeConfig();
-}
+CreateNewServerDialog::~CreateNewServerDialog() = default;
 
 AccountManager::AccountManagerInfo CreateNewServerDialog::accountInfo() const
 {
@@ -81,20 +74,7 @@ void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 
 void CreateNewServerDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigCreateNewAccountDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigCreateNewAccountDialogGroupName), 800, 600);
-#endif
-}
-
-void CreateNewServerDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateNewAccountDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_createnewserverdialog.cpp"

@@ -7,13 +7,9 @@
 #include "showvideodialog.h"
 
 #include "showvideowidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -41,10 +37,7 @@ ShowVideoDialog::ShowVideoDialog(RocketChatAccount *account, QWidget *parent)
     readConfig();
 }
 
-ShowVideoDialog::~ShowVideoDialog()
-{
-    writeConfig();
-}
+ShowVideoDialog::~ShowVideoDialog() = default;
 
 void ShowVideoDialog::slotUpdateTitle(const QUrl &url)
 {
@@ -58,20 +51,7 @@ void ShowVideoDialog::setVideoPath(const QString &videoPath)
 
 void ShowVideoDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowVideoDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowVideoDialogGroupName), 800, 600);
-#endif
-}
-
-void ShowVideoDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowVideoDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_showvideodialog.cpp"

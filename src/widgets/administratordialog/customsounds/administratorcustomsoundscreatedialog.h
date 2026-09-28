@@ -23,6 +23,5 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     AdministratorCustomSoundsCreateWidget *const mCreateWidget;
 };

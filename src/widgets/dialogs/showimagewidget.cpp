@@ -233,9 +233,7 @@ const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 
 void ShowImageWidget::saveAs()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 43)
     std::ignore =
-#endif
         TextAddonsWidgets::SaveFileUtils::saveFile(this,
                                                    mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile(),
                                                    i18n("Save Image"));

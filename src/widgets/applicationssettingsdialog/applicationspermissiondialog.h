@@ -19,5 +19,4 @@ public:
 private:
     ApplicationsPermissionWidget *const mApplicationsPermissionWidget;
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
 };

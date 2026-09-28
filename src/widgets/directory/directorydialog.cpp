@@ -9,14 +9,10 @@
 #include "directorycontainerwidget.h"
 #include "rocketchataccount.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -79,30 +75,11 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, DirectoryWidget::Di
     }
 }
 
-DirectoryDialog::~DirectoryDialog()
-{
-    writeConfig();
-}
+DirectoryDialog::~DirectoryDialog() = default;
 
 void DirectoryDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myDirectoryDialog), QSize(1024, 768));
-#else
-    create(); // ensure a window is created
-    resize(QSize(1024, 768));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myDirectoryDialog));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-#endif
-}
-
-void DirectoryDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myDirectoryDialog));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_directorydialog.cpp"

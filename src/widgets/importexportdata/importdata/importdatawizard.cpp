@@ -9,14 +9,10 @@
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 #include <QUrl>
-#include <QWindow>
 namespace
 {
 const char myConfigImportDataWizardGroupName[] = "ImportDataWizard";
@@ -39,10 +35,7 @@ ImportDataWizard::ImportDataWizard(QWidget *parent)
     readConfig();
 }
 
-ImportDataWizard::~ImportDataWizard()
-{
-    writeConfig();
-}
+ImportDataWizard::~ImportDataWizard() = default;
 
 void ImportDataWizard::slotCurrentIdChanged(int id)
 {
@@ -53,20 +46,7 @@ void ImportDataWizard::slotCurrentIdChanged(int id)
 
 void ImportDataWizard::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigImportDataWizardGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigImportDataWizardGroupName), 800, 600);
-#endif
-}
-
-void ImportDataWizard::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigImportDataWizardGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_importdatawizard.cpp"

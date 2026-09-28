@@ -9,13 +9,9 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "administratorwidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -42,10 +38,7 @@ AdministratorDialog::AdministratorDialog(RocketChatAccount *account, QWidget *pa
     readConfig();
 }
 
-AdministratorDialog::~AdministratorDialog()
-{
-    writeConfig();
-}
+AdministratorDialog::~AdministratorDialog() = default;
 
 void AdministratorDialog::initialize()
 {
@@ -55,20 +48,7 @@ void AdministratorDialog::initialize()
 
 void AdministratorDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myAdministratorDialogGroupName), QSize(400, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myAdministratorDialogGroupName), 400, 300);
-#endif
-}
-
-void AdministratorDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myAdministratorDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_administratordialog.cpp"

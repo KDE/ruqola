@@ -10,18 +10,14 @@
 #include <KApplicationTrader>
 #include <QMimeDatabase>
 
-#include <KConfigGroup>
 #include <KLocalizedString>
 
-#include <KSharedConfig>
 #include <KStandardActions>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QMenu>
 #include <QPushButton>
 #include <QToolButton>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -84,10 +80,7 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     readConfig();
 }
 
-ShowImageDialog::~ShowImageDialog()
-{
-    writeConfig();
-}
+ShowImageDialog::~ShowImageDialog() = default;
 
 void ShowImageDialog::slotUpdateMenu(const ShowImageWidget::ImageInfo &info)
 {
@@ -102,20 +95,7 @@ void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
 
 void ShowImageDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowImageDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowImageDialogGroupName), 800, 600);
-#endif
-}
-
-void ShowImageDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowImageDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 void ShowImageDialog::showImages(const QByteArray &fileId, const QByteArray &roomId)

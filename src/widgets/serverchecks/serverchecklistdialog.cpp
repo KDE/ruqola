@@ -12,10 +12,7 @@
 #include "room.h"
 #include "ruqolaserverconfig.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QHeaderView>
 #include <QIcon>
@@ -23,7 +20,6 @@
 #include <QPushButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 using namespace Qt::Literals::StringLiterals;
@@ -96,10 +92,7 @@ ServerCheckListDialog::ServerCheckListDialog(RocketChatAccount *account, const Q
     readConfig();
 }
 
-ServerCheckListDialog::~ServerCheckListDialog()
-{
-    writeConfig();
-}
+ServerCheckListDialog::~ServerCheckListDialog() = default;
 
 void ServerCheckListDialog::populateChecks()
 {
@@ -185,20 +178,7 @@ void ServerCheckListDialog::slotPostResults()
 
 void ServerCheckListDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myServerCheckListDialogConfigGroupName), QSize(500, 350));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myServerCheckListDialogConfigGroupName), 500, 350);
-#endif
-}
-
-void ServerCheckListDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myServerCheckListDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_serverchecklistdialog.cpp"

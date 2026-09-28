@@ -20,7 +20,6 @@ public:
     void setThreadMessageInfo(const ThreadMessageWidget::ThreadMessageInfo &info);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     ThreadMessageWidget *const mThreadMessageWidget;
 };

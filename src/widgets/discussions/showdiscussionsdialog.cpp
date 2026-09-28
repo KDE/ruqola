@@ -12,12 +12,8 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -46,27 +42,11 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget
     setAttribute(Qt::WA_DeleteOnClose);
 }
 
-ShowDiscussionsDialog::~ShowDiscussionsDialog()
-{
-    writeConfig();
-}
+ShowDiscussionsDialog::~ShowDiscussionsDialog() = default;
 
 void ShowDiscussionsDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowDiscussionsDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myShowDiscussionsDialogGroupName), 800, 600);
-#endif
-}
-
-void ShowDiscussionsDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDiscussionsDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 void ShowDiscussionsDialog::slotLoadMoreDiscussions()

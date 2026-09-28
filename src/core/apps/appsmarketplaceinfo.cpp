@@ -11,9 +11,6 @@
 #include "utils.h"
 #include <KLocalizedString>
 #if HAVE_TEXT_UTILS
-#include <textutils_version.h>
-#endif
-#if HAVE_TEXT_UTILS && TEXTUTILS_VERSION >= QT_VERSION_CHECK(2, 2, 0)
 #include <TextUtils/TextUtilsTextToHtml>
 #else
 #include <KTextToHTML>
@@ -473,7 +470,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     }
 
     if (!mPrivacyPolicySummary.isEmpty()) {
-#if HAVE_TEXT_UTILS && TEXTUTILS_VERSION >= QT_VERSION_CHECK(2, 2, 0)
+#if HAVE_TEXT_UTILS
         const TextUtils::TextUtilsTextToHtml::Options convertFlags =
             TextUtils::TextUtilsTextToHtml::HighlightText | TextUtils::TextUtilsTextToHtml::ConvertPhoneNumbers;
         str += u"<b>%1</b><br/>"_s.arg(i18n("Privacy Summary")) + TextUtils::TextUtilsTextToHtml::convertToHtml(mPrivacyPolicySummary, convertFlags)

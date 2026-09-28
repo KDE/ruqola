@@ -6,14 +6,10 @@
 
 #include "administratorcustomemojicreateorupdatedialog.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -43,10 +39,7 @@ AdministratorCustomEmojiCreateOrUpdateDialog::AdministratorCustomEmojiCreateOrUp
     connect(mCreateWidget, &AdministratorCustomEmojiCreateOrUpdateWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
-AdministratorCustomEmojiCreateOrUpdateDialog::~AdministratorCustomEmojiCreateOrUpdateDialog()
-{
-    writeConfig();
-}
+AdministratorCustomEmojiCreateOrUpdateDialog::~AdministratorCustomEmojiCreateOrUpdateDialog() = default;
 
 void AdministratorCustomEmojiCreateOrUpdateDialog::setCustomEmojiInfo(const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &info)
 {
@@ -70,20 +63,7 @@ void AdministratorCustomEmojiCreateOrUpdateDialog::setType(AdministratorCustomEm
 
 void AdministratorCustomEmojiCreateOrUpdateDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName), QSize(800, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName), 800, 300);
-#endif
-}
-
-void AdministratorCustomEmojiCreateOrUpdateDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_administratorcustomemojicreateorupdatedialog.cpp"

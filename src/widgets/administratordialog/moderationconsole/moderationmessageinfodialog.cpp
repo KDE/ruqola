@@ -8,13 +8,9 @@
 
 #include "moderationmessageinfowidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -40,10 +36,7 @@ ModerationMessageInfoDialog::ModerationMessageInfoDialog(RocketChatAccount *acco
     readConfig();
 }
 
-ModerationMessageInfoDialog::~ModerationMessageInfoDialog()
-{
-    writeConfig();
-}
+ModerationMessageInfoDialog::~ModerationMessageInfoDialog() = default;
 
 void ModerationMessageInfoDialog::setReportInfos(const ModerationReportInfos &info)
 {
@@ -52,20 +45,7 @@ void ModerationMessageInfoDialog::setReportInfos(const ModerationReportInfos &in
 
 void ModerationMessageInfoDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myModerationMessageInfoDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myModerationMessageInfoDialogGroupName), 800, 600);
-#endif
-}
-
-void ModerationMessageInfoDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationMessageInfoDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_moderationmessageinfodialog.cpp"

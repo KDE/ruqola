@@ -8,13 +8,9 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "applicationspermissionwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -42,10 +38,7 @@ ApplicationsPermissionDialog::ApplicationsPermissionDialog(QWidget *parent)
     readConfig();
 }
 
-ApplicationsPermissionDialog::~ApplicationsPermissionDialog()
-{
-    writeConfig();
-}
+ApplicationsPermissionDialog::~ApplicationsPermissionDialog() = default;
 
 void ApplicationsPermissionDialog::setApplicationPermission(const QString &desc)
 {
@@ -54,25 +47,9 @@ void ApplicationsPermissionDialog::setApplicationPermission(const QString &desc)
 
 void ApplicationsPermissionDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this,
                                                              QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName),
                                                              QSize(400, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this,
-                                                                 QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName),
-                                                                 400,
-                                                                 300);
-#endif
-}
-
-void ApplicationsPermissionDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_applicationspermissiondialog.cpp"

@@ -194,9 +194,7 @@ endif()
 
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" OFF)
 
-set(KTEXTADDONS_MIN_VERSION "2.1.2")
-set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "${KTEXTADDONS_MIN_VERSION}")
-set(KTEXTADDONS_WITH_SPEECH_TO_TEXT_VERSION "2.2.0")
+set(KTEXTADDONS_MIN_VERSION "2.2.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
 find_package(
@@ -292,7 +290,7 @@ if(TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
-find_package(KF6TextSpeechToText ${KTEXTADDONS_WITH_SPEECH_TO_TEXT_VERSION} CONFIG)
+find_package(KF6TextSpeechToText ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextSpeechToText
     PROPERTIES
@@ -344,7 +342,7 @@ if(TARGET KF6::TextCustomEditor)
 endif()
 
 if(OPTION_ADD_AUTOGENERATETEXT)
-    find_package(KF6TextAutoGenerateText ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION} CONFIG)
+    find_package(KF6TextAutoGenerateText ${KTEXTADDONS_MIN_VERSION} CONFIG)
     set_package_properties(
         KF6TextAutoGenerateText
         PROPERTIES

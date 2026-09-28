@@ -9,13 +9,9 @@
 #include "myaccountconfigurewidget.h"
 #include "rocketchataccount.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
@@ -46,10 +42,7 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, Q
     readConfig();
 }
 
-MyAccountConfigureDialog::~MyAccountConfigureDialog()
-{
-    writeConfig();
-}
+MyAccountConfigureDialog::~MyAccountConfigureDialog() = default;
 
 void MyAccountConfigureDialog::initialize()
 {
@@ -65,20 +58,7 @@ void MyAccountConfigureDialog::slotAccept()
 
 void MyAccountConfigureDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myMyAccountConfigureDialogConfigGroupName), QSize(400, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myMyAccountConfigureDialogConfigGroupName), 400, 300);
-#endif
-}
-
-void MyAccountConfigureDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myMyAccountConfigureDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_myaccountconfiguredialog.cpp"

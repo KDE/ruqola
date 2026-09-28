@@ -25,7 +25,6 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateServiceList();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenWith(QAction *action);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMenu(const ShowImageWidget::ImageInfo &info);

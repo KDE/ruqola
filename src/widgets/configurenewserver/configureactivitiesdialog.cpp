@@ -8,13 +8,9 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "configureactivitieswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
@@ -40,27 +36,11 @@ ConfigureActivitiesDialog::ConfigureActivitiesDialog(QWidget *parent)
     readConfig();
 }
 
-ConfigureActivitiesDialog::~ConfigureActivitiesDialog()
-{
-    writeConfig();
-}
+ConfigureActivitiesDialog::~ConfigureActivitiesDialog() = default;
 
 void ConfigureActivitiesDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigConfigureActivitiesDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigConfigureActivitiesDialogGroupName), 800, 600);
-#endif
-}
-
-void ConfigureActivitiesDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigConfigureActivitiesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 AccountManager::ActivitySettings ConfigureActivitiesDialog::activitiesSettings() const

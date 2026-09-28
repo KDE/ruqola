@@ -6,14 +6,10 @@
 
 #include "administratoroauthcreatedialog.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
@@ -43,10 +39,7 @@ AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
     readConfig();
 }
 
-AdministratorOauthCreateDialog::~AdministratorOauthCreateDialog()
-{
-    writeConfig();
-}
+AdministratorOauthCreateDialog::~AdministratorOauthCreateDialog() = default;
 
 AdministratorOauthCreateWidget::OauthCreateInfo AdministratorOauthCreateDialog::oauthInfo() const
 {
@@ -60,20 +53,7 @@ void AdministratorOauthCreateDialog::setOauthInfo(const AdministratorOauthCreate
 
 void AdministratorOauthCreateDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName), QSize(800, 300));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName), 800, 300);
-#endif
-}
-
-void AdministratorOauthCreateDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
 }
 
 #include "moc_administratoroauthcreatedialog.cpp"

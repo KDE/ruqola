@@ -8,13 +8,9 @@
 
 #include "usersinroomwidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 using namespace Qt::Literals::StringLiterals;
@@ -41,32 +37,16 @@ UsersInRoomDialog::UsersInRoomDialog(RocketChatAccount *account, QWidget *parent
     readConfig();
 }
 
-UsersInRoomDialog::~UsersInRoomDialog()
-{
-    writeConfig();
-}
+UsersInRoomDialog::~UsersInRoomDialog() = default;
 
 void UsersInRoomDialog::setRoom(Room *room)
 {
     mUsersInRoomWidget->setRoom(room);
 }
 
-void UsersInRoomDialog::writeConfig()
-{
-#if TEXTADDONSWIDGETS_VERSION < QT_VERSION_CHECK(2, 1, 49)
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myUsersInRoomDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-#endif
-}
-
 void UsersInRoomDialog::readConfig()
 {
-#if TEXTADDONSWIDGETS_VERSION >= QT_VERSION_CHECK(2, 1, 49)
     TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myUsersInRoomDialogGroupName), QSize(800, 600));
-#else
-    create(); // ensure a window is created
-    TextAddonsWidgets::LoadDialogSizeUtils::loadDialogSizeScaled(this, QLatin1StringView(myUsersInRoomDialogGroupName), 800, 600);
-#endif
 }
 
 #include "moc_usersinroomdialog.cpp"
