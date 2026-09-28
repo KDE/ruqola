@@ -1420,7 +1420,6 @@ void RuqolaMainWindow::slotShowLogsFile()
 {
     auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->loggerFilePath()), this);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-    job->setDeleteTemporaryFile(true);
     job->start();
 }
 
@@ -1428,7 +1427,6 @@ void RuqolaMainWindow::slotShowRestApiLogsFile()
 {
     auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->restApiLoggerFilePath()), this);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-    job->setDeleteTemporaryFile(true);
     job->start();
 }
 
@@ -1436,7 +1434,6 @@ void RuqolaMainWindow::slotShowDatabaseLogsFile()
 {
     auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->databaseLogFilePath()), this);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-    job->setDeleteTemporaryFile(true);
     job->start();
 }
 
