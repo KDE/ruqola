@@ -45,10 +45,9 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
 
     mCompleter->setModel(mCompleterListModel);
     setCompleter(mCompleter);
-
     if (mCurrentRocketChatAccount) {
-        const QStringList &lst = mCurrentRocketChatAccount->searchListCompletion();
-        mCompleterListModel->setStringList(lst);
+        mListCompletion = mCurrentRocketChatAccount->searchListCompletion();
+        mCompleterListModel->setStringList(mListCompletion);
     }
 }
 
@@ -56,14 +55,14 @@ SearchMessageWithDelayLineEdit::~SearchMessageWithDelayLineEdit() = default;
 
 void SearchMessageWithDelayLineEdit::addCompletionItem(const QString &str)
 {
-    mListCompetion.removeAll(str);
-    mListCompetion.prepend(str);
-    while (mListCompetion.size() > MAX_COMPLETION_ITEMS) {
-        mListCompetion.removeLast();
+    mListCompletion.removeAll(str);
+    mListCompletion.prepend(str);
+    while (mListCompletion.size() > MAX_COMPLETION_ITEMS) {
+        mListCompletion.removeLast();
     }
-    mCompleterListModel->setStringList(mListCompetion);
+    mCompleterListModel->setStringList(mListCompletion);
     if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->setSearchListCompletion(mListCompetion);
+        mCurrentRocketChatAccount->setSearchListCompletion(mListCompletion);
     }
 }
 

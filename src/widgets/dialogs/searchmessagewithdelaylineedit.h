@@ -30,7 +30,7 @@ Q_SIGNALS:
     void searchCommandActionRequested();
 
 private:
-    QStringList mListCompetion;
+    QStringList mListCompletion;
     QCompleter *const mCompleter;
     QStringListModel *const mCompleterListModel;
     RocketChatAccount *const mCurrentRocketChatAccount;
