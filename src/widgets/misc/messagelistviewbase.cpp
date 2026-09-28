@@ -40,9 +40,9 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     }
     for (PluginText *plugin : std::as_const(plugins)) {
         if (plugin->enabled()) {
-            connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
-            connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
             auto interface = plugin->createInterface(this, this);
+            connect(interface, &PluginTextInterface::errorMessage, this, &MessageListViewBase::errorMessage);
+            connect(interface, &PluginTextInterface::successMessage, this, &MessageListViewBase::successMessage);
             mPluginTextInterface.append(interface);
         }
     }

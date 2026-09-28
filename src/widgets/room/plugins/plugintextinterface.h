@@ -20,6 +20,10 @@ public:
 
     virtual void setSelectedText(const QString &str) = 0;
 
+Q_SIGNALS:
+    void errorMessage(const QString &message);
+    void successMessage(const QString &message);
+
 protected:
     QWidget *mParentWidget = nullptr;
 };
