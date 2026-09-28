@@ -91,9 +91,8 @@ int main(int argc, char *argv[])
     aboutData.processCommandLine(&parser);
 #if HAVE_KUSERFEEDBACK
     if (parser.isSet(commandLineParser.commandLineFromEnum(RuqolaCommandLineParser::CommandLineName::FeedBack))) {
-        auto userFeedback = new RuqolaUserFeedbackProvider;
-        QTextStream(stdout) << userFeedback->describeDataSources() << '\n';
-        delete userFeedback;
+        RuqolaUserFeedbackProvider userFeedback;
+        QTextStream(stdout) << userFeedback.describeDataSources() << '\n';
         return 0;
     }
 #endif
