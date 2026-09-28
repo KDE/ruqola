@@ -33,7 +33,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObjec
         option->parse(opt.toObject());
         mOptions.append(option);
     }
-    const QJsonArray initialOptionsArray = json["initialOption"_L1].toArray();
+    const QJsonArray initialOptionsArray = json["initialOptions"_L1].toArray();
     for (const auto &opt : initialOptionsArray) {
         AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
         option->parse(opt.toObject());
@@ -87,7 +87,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::serializeElement(QJsonObject 
         for (const auto &r : std::as_const(mInitialOptions)) {
             initialOptions.append(r->serialize());
         }
-        o["initialOption"_L1] = initialOptions;
+        o["initialOptions"_L1] = initialOptions;
     }
 }
 
