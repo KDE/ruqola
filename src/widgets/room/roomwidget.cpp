@@ -476,7 +476,7 @@ void RoomWidget::slotInviteUsers()
 
 void RoomWidget::displayUiInteractionDialog(const QJsonObject &obj)
 {
-    auto dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
+    QPointer<AutoGenerateInteractionUiDialog> dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
     if (dialog->parse(obj)) {
         dialog->exec();
     }

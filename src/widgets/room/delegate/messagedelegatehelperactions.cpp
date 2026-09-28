@@ -20,6 +20,7 @@
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QPointer>
 #include <QStyleOptionViewItem>
 
 MessageDelegateHelperActions::MessageDelegateHelperActions(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
@@ -123,7 +124,7 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-        auto dialog = new AutoGenerateInteractionUiDialog(mRocketChatAccount);
+        QPointer<AutoGenerateInteractionUiDialog> dialog = new AutoGenerateInteractionUiDialog(mRocketChatAccount);
         if (dialog->parse(replyObject)) {
             dialog->exec();
         }
