@@ -60,7 +60,7 @@ void UsersInRoleWidget::slotAddUser()
                 job->setUseRC80(true);
                 job->setRoleId(mRoleId);
             } else {
-                job->setRoleName(mRoleId);
+                job->setRoleName(mRoleName);
             }
             job->setUsername(user);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
