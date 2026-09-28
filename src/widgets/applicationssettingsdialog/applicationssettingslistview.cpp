@@ -166,6 +166,7 @@ void ApplicationsSettingsListView::setIsPrivate(bool isPrivate)
 
 void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &index)
 {
+    const QByteArray appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Do you want to uninstall this application?"),
                                         i18nc("@title:window", "Uninstall Application"),
@@ -176,7 +177,7 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
         info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Delete;
-        info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+        info.mAppsId = appId;
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
@@ -209,13 +210,15 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
     QPointer<ApplicationsPermissionDialog> dlg = new ApplicationsPermissionDialog(this);
     const QString permissions = index.data(AppsMarketPlaceModel::ApplicationPermissions).toString();
     dlg->setApplicationPermission(permissions);
+    const QByteArray appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+    const QString version = index.data(AppsMarketPlaceModel::AppVersion).toString();
     if (dlg->exec()) {
         auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
         info.mAppInfoType = RocketChatRestApi::AppUpdateInfoJob::AppInfoType::Apps;
         info.mAppMode = RocketChatRestApi::AppUpdateInfoJob::AppMode::Post;
-        info.mAppsId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
-        info.mAppVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
+        info.mAppsId = appId;
+        info.mAppVersion = version;
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
@@ -230,6 +233,8 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
     QPointer<ApplicationsSettingsAskApplicationDialog> dlg = new ApplicationsSettingsAskApplicationDialog(this);
     const QString appName = index.data(AppsMarketPlaceModel::AppName).toString();
     dlg->setApplicationName(appName);
+    const QByteArray appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
+    const QString version = index.data(AppsMarketPlaceModel::AppVersion).toString();
     if (dlg->exec()) {
         if (mRocketChatAccount) {
             const QString message = dlg->message();
@@ -237,8 +242,8 @@ void ApplicationsSettingsListView::slotAskApplication(const QModelIndex &index)
             RocketChatRestApi::NotifyAdminsAppsJob::NotifyAdminsAppsInfo info;
             info.message = message;
             info.appName = appName;
-            info.appId = index.data(AppsMarketPlaceModel::AppId).toByteArray();
-            info.appVersion = index.data(AppsMarketPlaceModel::AppVersion).toString();
+            info.appId = appId;
+            info.appVersion = version;
             job->setInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::NotifyAdminsAppsJob::notifyAdminsAppsDone, this, [](const QJsonObject &obj) {
