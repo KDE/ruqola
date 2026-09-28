@@ -52,8 +52,9 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     case AdministratorUsersWidget::UsersType::Pending: {
         adminUsersModel = new AdminUsersPendingModel(this);
         auto delegate = new AdministratorUsersPendingActionDelegate(this);
-        connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &index) {
-            const bool isActive = index.model()->index(index.row(), AdminUsersPendingModel::ActiveUser).data().toBool();
+        connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &proxyIndex) {
+            const QModelIndex index = mProxyModelModel->mapToSource(proxyIndex);
+            const bool isActive = mModel->index(index.row(), AdminUsersPendingModel::ActiveUser).data().toBool();
             if (isActive) {
                 resendWelcomeEmail(index);
             } else {

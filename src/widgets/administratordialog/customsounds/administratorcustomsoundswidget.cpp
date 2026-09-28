@@ -43,7 +43,11 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
-    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomSoundsWidget::slotModifyCustomSound);
+    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotModifyCustomSound(mProxyModelModel->mapToSource(index));
+        }
+    });
     connect(mRocketChatAccount, &RocketChatAccount::customSoundRemoved, this, &AdministratorCustomSoundsWidget::slotCustomSoundRemoved);
     connect(mRocketChatAccount, &RocketChatAccount::customSoundAdded, this, &AdministratorCustomSoundsWidget::slotCustomSoundAdded);
     connect(mRocketChatAccount, &RocketChatAccount::customSoundUpdated, this, &AdministratorCustomSoundsWidget::slotCustomSoundUpdated);
@@ -321,9 +325,10 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
 void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    const QModelIndex index = mTreeView->indexAt(pos);
+    const QModelIndex proxyIndex = mTreeView->indexAt(pos);
     menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
-    if (index.isValid()) {
+    if (proxyIndex.isValid()) {
+        const QModelIndex index = mProxyModelModel->mapToSource(proxyIndex);
         menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
             slotModifyCustomSound(index);
         });

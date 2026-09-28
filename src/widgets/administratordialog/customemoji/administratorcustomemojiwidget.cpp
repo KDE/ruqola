@@ -38,7 +38,11 @@ AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
-    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomEmojiWidget::slotModifyCustomEmoji);
+    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotModifyCustomEmoji(mProxyModelModel->mapToSource(index));
+        }
+    });
 }
 
 AdministratorCustomEmojiWidget::~AdministratorCustomEmojiWidget() = default;

@@ -40,7 +40,11 @@ ModerationReportedMessageConsoleTreeWidget::ModerationReportedMessageConsoleTree
     mProxyModelModel = new ModerationReportedMessageProxyModel(mModel, this);
     mProxyModelModel->setObjectName(u"mProxyModelModel"_s);
     mTreeView->setModel(mProxyModelModel);
-    connect(this, &ModerationReportedMessageConsoleTreeWidget::doubleClicked, this, &ModerationReportedMessageConsoleTreeWidget::slotShowMessages);
+    connect(this, &ModerationReportedMessageConsoleTreeWidget::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotShowMessages(mProxyModelModel->mapToSource(index));
+        }
+    });
     connect(this, &ModerationReportedMessageConsoleTreeWidget::refreshList, this, [this]() {
         slotLoadElements();
     });

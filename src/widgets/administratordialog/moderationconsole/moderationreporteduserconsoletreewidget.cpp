@@ -41,7 +41,11 @@ ModerationReportedUserConsoleTreeWidget::ModerationReportedUserConsoleTreeWidget
     mProxyModelModel = new ModerationReportedUserProxyModel(mModel, this);
     mProxyModelModel->setObjectName(u"mProxyModelModel"_s);
     mTreeView->setModel(mProxyModelModel);
-    connect(this, &ModerationReportedUserConsoleTreeWidget::doubleClicked, this, &ModerationReportedUserConsoleTreeWidget::slotShowReports);
+    connect(this, &ModerationReportedUserConsoleTreeWidget::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotShowReports(mProxyModelModel->mapToSource(index));
+        }
+    });
     connect(this, &ModerationReportedUserConsoleTreeWidget::refreshList, this, [this]() {
         slotLoadElements();
     });
