@@ -32,7 +32,7 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     QString html;
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
-        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + u"</div>"_s;
+        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + u"</b></div>"_s;
         html += u"<br/>"_s;
         html += u"<div><b>"_s + i18n("Email:") + u"</b>"_s + u" %1"_s.arg(infos.user().userEmailsInfo().email) + u"</div>"_s;
         html += u"<br/>"_s;
