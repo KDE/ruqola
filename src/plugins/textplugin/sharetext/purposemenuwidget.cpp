@@ -8,7 +8,9 @@
 #include <KLocalizedString>
 #include <Purpose/AlternativesModel>
 #include <Purpose/Menu>
+#include <QIcon>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QTemporaryFile>
 #include <QUrl>
 using namespace Qt::Literals::StringLiterals;
