@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-26 00:45+0000\n"
+"POT-Creation-Date: 2026-09-27 00:45+0000\n"
 "PO-Revision-Date: 2025-06-22 21:47+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1836,7 +1836,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> gépelnek…"
 
-#: core/rocketchataccount.cpp:788
+#: core/rocketchataccount.cpp:791
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1845,24 +1845,24 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:796 core/rocketchataccount.cpp:809
+#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
 #, kde-format
 msgid "Not connected"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:803
+#: core/rocketchataccount.cpp:806
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:3268
+#: core/rocketchataccount.cpp:3271
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Fiók hozzáadva"
 
-#: core/rocketchataccount.cpp:3269
+#: core/rocketchataccount.cpp:3272
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -7752,7 +7752,7 @@ msgid "Username or email:"
 msgstr "Felhasználónév vagy e-mail"
 
 #: widgets/common/authenticationloginwidget.cpp:168
-#: widgets/ruqolamainwindow.cpp:1124
+#: widgets/ruqolamainwindow.cpp:1139
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7762,7 +7762,7 @@ msgstr ""
 "Ha nem kap rövidesen e-mailt, akkor térjen vissza, és próbálja meg újra."
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1125
+#: widgets/ruqolamainwindow.cpp:1140
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -11830,143 +11830,156 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 felhasználó a szobában (Összesen: %2)"
 msgstr[1] "%1 felhasználó a szobában (Összesen: %2)"
 
-#: widgets/ruqolamainwindow.cpp:238
+#: widgets/ruqolamainwindow.cpp:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Új értesítések megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:240
+#: widgets/ruqolamainwindow.cpp:241
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Új értesítések megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:445
+#: widgets/ruqolamainwindow.cpp:446
+#, kde-format
+msgctxt "@action"
+msgid "Retry Wallet Access"
+msgstr ""
+
+#: widgets/ruqolamainwindow.cpp:452
+#, kde-format
+msgid ""
+"Could not access the wallet. Password changes may not be saved. Use Tools > "
+"Retry Wallet Access to try again."
+msgstr ""
+
+#: widgets/ruqolamainwindow.cpp:460
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Kiszolgáló hozzáadása…"
 
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:465
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Kiszolgálóinformációk…"
 
-#: widgets/ruqolamainwindow.cpp:454
+#: widgets/ruqolamainwindow.cpp:469
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Jelenlegi kiszolgáló kijelentkeztetése"
 
-#: widgets/ruqolamainwindow.cpp:458
+#: widgets/ruqolamainwindow.cpp:473
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Ugrás a következő olvasatlan csatornára"
 
-#: widgets/ruqolamainwindow.cpp:463
+#: widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Új csatorna létrehozása…"
 
-#: widgets/ruqolamainwindow.cpp:467
+#: widgets/ruqolamainwindow.cpp:482
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Közvetlen üzenetek létrehozása…"
 
-#: widgets/ruqolamainwindow.cpp:471
+#: widgets/ruqolamainwindow.cpp:486
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Beszélgetés létrehozása…"
 
-#: widgets/ruqolamainwindow.cpp:475
+#: widgets/ruqolamainwindow.cpp:490
 #, kde-format
 msgid "Create Team…"
 msgstr "Csapat létrehozása…"
 
-#: widgets/ruqolamainwindow.cpp:483
+#: widgets/ruqolamainwindow.cpp:498
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Olvasatlanok felül"
 
-#: widgets/ruqolamainwindow.cpp:491
+#: widgets/ruqolamainwindow.cpp:506
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Utolsó üzenet szerint"
 
-#: widgets/ruqolamainwindow.cpp:497
+#: widgets/ruqolamainwindow.cpp:512
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "Betűrendben"
 
-#: widgets/ruqolamainwindow.cpp:503
+#: widgets/ruqolamainwindow.cpp:518
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Csatornanapló megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:507
+#: widgets/ruqolamainwindow.cpp:522
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Kiszolgálóhibák megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:551
+#: widgets/ruqolamainwindow.cpp:566
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Összes csatorna megjelölése olvasottként"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:571
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Új felhasználó regisztrálása…"
 
-#: widgets/ruqolamainwindow.cpp:560
+#: widgets/ruqolamainwindow.cpp:575
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Saját fiók…"
 
-#: widgets/ruqolamainwindow.cpp:564
+#: widgets/ruqolamainwindow.cpp:579
 #, kde-format
 msgid "administration"
 msgstr "adminisztráció"
 
-#: widgets/ruqolamainwindow.cpp:565
+#: widgets/ruqolamainwindow.cpp:580
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Rendszergazda…"
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:586
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Kiszolgálóbeállítások…"
 
-#: widgets/ruqolamainwindow.cpp:578
+#: widgets/ruqolamainwindow.cpp:593
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Alkalmazások…"
 
-#: widgets/ruqolamainwindow.cpp:583
+#: widgets/ruqolamainwindow.cpp:598
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Kért alkalmazások…"
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:603
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Telepített alkalmazások…"
 
-#: widgets/ruqolamainwindow.cpp:593
+#: widgets/ruqolamainwindow.cpp:608
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Applications…"
@@ -11974,64 +11987,64 @@ msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Alkalmazások…"
 
-#: widgets/ruqolamainwindow.cpp:598
+#: widgets/ruqolamainwindow.cpp:613
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Csatlakozás a szobához…"
 
-#: widgets/ruqolamainwindow.cpp:602
+#: widgets/ruqolamainwindow.cpp:617
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Csatlakozás a csapathoz…"
 
-#: widgets/ruqolamainwindow.cpp:606
+#: widgets/ruqolamainwindow.cpp:621
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Személyes beszélgetés megnyitása…"
 
-#: widgets/ruqolamainwindow.cpp:627
+#: widgets/ruqolamainwindow.cpp:642
 #, kde-format
 msgid "&Next Server"
 msgstr "&Következő kiszolgáló"
 
-#: widgets/ruqolamainwindow.cpp:632
+#: widgets/ruqolamainwindow.cpp:647
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Előző kiszolgáló"
 
-#: widgets/ruqolamainwindow.cpp:641
+#: widgets/ruqolamainwindow.cpp:656
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Állapot:"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:671
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Előző kiválasztott csatorna"
 
-#: widgets/ruqolamainwindow.cpp:663
+#: widgets/ruqolamainwindow.cpp:678
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Következő kiválasztott csatorna"
 
-#: widgets/ruqolamainwindow.cpp:693
+#: widgets/ruqolamainwindow.cpp:708
 #, kde-format
 msgid "Show Notify History"
 msgstr "Értesítési előzmények megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:697
+#: widgets/ruqolamainwindow.cpp:712
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat információk megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:701
+#: widgets/ruqolamainwindow.cpp:716
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Server Settings…"
@@ -12039,74 +12052,74 @@ msgctxt "@action"
 msgid "Server Checklist…"
 msgstr "Kiszolgálóbeállítások…"
 
-#: widgets/ruqolamainwindow.cpp:705
+#: widgets/ruqolamainwindow.cpp:720
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Szoba profilképének megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:725
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Kedvenc szoba megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:727
+#: widgets/ruqolamainwindow.cpp:742
 #, kde-format
 msgid "What's new"
 msgstr "Újdonságok"
 
-#: widgets/ruqolamainwindow.cpp:731
+#: widgets/ruqolamainwindow.cpp:746
 #, kde-format
 msgid "Import Accounts"
 msgstr "Fiókok importálása"
 
-#: widgets/ruqolamainwindow.cpp:735
+#: widgets/ruqolamainwindow.cpp:750
 #, kde-format
 msgid "Export Accounts"
 msgstr "Fiókok exportálása"
 
-#: widgets/ruqolamainwindow.cpp:752
+#: widgets/ruqolamainwindow.cpp:767
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Közepes"
 
-#: widgets/ruqolamainwindow.cpp:760
+#: widgets/ruqolamainwindow.cpp:775
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Sűrített"
 
-#: widgets/ruqolamainwindow.cpp:769
+#: widgets/ruqolamainwindow.cpp:784
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Kiterjesztett"
 
-#: widgets/ruqolamainwindow.cpp:777
+#: widgets/ruqolamainwindow.cpp:792
 #, kde-format
 msgid "Clear history"
 msgstr "Előzmények törlése"
 
-#: widgets/ruqolamainwindow.cpp:821
+#: widgets/ruqolamainwindow.cpp:836
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Csapat létrehozása"
 
-#: widgets/ruqolamainwindow.cpp:1021
+#: widgets/ruqolamainwindow.cpp:1036
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1021
+#: widgets/ruqolamainwindow.cpp:1036
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Csatornanapló megjelenítése"
 
-#: widgets/ruqolamainwindow.cpp:1268
+#: widgets/ruqolamainwindow.cpp:1283
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -12115,20 +12128,20 @@ msgstr ""
 "<qt>Teljesen elrejti a menüsávot. Ezzel a paranccsal állítható vissza: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:1271
+#: widgets/ruqolamainwindow.cpp:1286
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Menüsáv elrejtése"
 
-#: widgets/ruqolamainwindow.cpp:1458
+#: widgets/ruqolamainwindow.cpp:1473
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Kilépett"
 
-#: widgets/ruqolamainwindow.cpp:1461
+#: widgets/ruqolamainwindow.cpp:1476
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
@@ -12148,25 +12161,25 @@ msgid "Tools"
 msgstr "Eszközök"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:65
+#: widgets/ruqolaui.rc:67
 #, kde-format
 msgid "&Settings"
 msgstr "&Beállítások"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:69
+#: widgets/ruqolaui.rc:71
 #, kde-format
 msgid "View"
 msgstr "Nézet"
 
 #. i18n: ectx: Menu (help)
-#: widgets/ruqolaui.rc:90
+#: widgets/ruqolaui.rc:92
 #, kde-format
 msgid "&Help"
 msgstr "&Súgó"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:97
+#: widgets/ruqolaui.rc:99
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Alap eszköztár"
