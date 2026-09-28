@@ -507,7 +507,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
             applyButton->setEnabled(false);
             restoreToolButton->setEnabled(false);
             cancelButton->setEnabled(false);
-            comboBox->setProperty(s_property_current_value, comboBox->currentText());
+            comboBox->setProperty(s_property_current_value, comboBox->currentData().toString());
         }
     });
     connect(comboBox, &QComboBox::currentIndexChanged, this, [applyButton, comboBox, restoreToolButton, cancelButton]() {
