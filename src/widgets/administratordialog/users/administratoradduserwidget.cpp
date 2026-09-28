@@ -150,7 +150,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mEmail->setText(user.userEmailsInfo().email);
     mRolesComboBox->setRoles(user.roles());
     mStatusText->setText(user.statusText());
-    mSetRandowPassword->setChecked(user.requirePasswordChange());
+    // TODO mSetRandowPassword->setChecked(user.requirePasswordChange());
     mBioPlainTextEdit->setPlainText(user.bio());
     mNickName->setText(user.nickName());
     mRequirePasswordChange->setChecked(user.requirePasswordChange());
