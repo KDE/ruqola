@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-29 00:45+0000\n"
-"PO-Revision-Date: 2026-09-16 13:59+0200\n"
+"PO-Revision-Date: 2026-09-27 22:44+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2913,16 +2913,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Non hai il permesso di aggiungere questo canale alla squadra"
 
 #: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
-#, fuzzy, kde-format
-#| msgid ""
-#| "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-#| "match any teams"
+#, kde-format
 msgid ""
 "The required \"teamId\" or \"teamName\" param provided does not match any "
 "teams"
 msgstr ""
-"Il parametro richiesto «roomId» o «roomName»che è stato fornito non "
-"corrisponde a una squadra"
+"Il parametro \"teamId\" o \"teamName\" fornito non corrisponde ad alcuna "
+"squadra"
 
 #: rocketchatrestapi-qt/users/getavatarjob.cpp:82
 #, kde-format
@@ -11620,7 +11617,7 @@ msgstr "Mostra le nuove notifiche"
 #, kde-format
 msgctxt "@action"
 msgid "Retry Wallet Access"
-msgstr ""
+msgstr "Riprova l'accesso al portafogli"
 
 #: widgets/ruqolamainwindow.cpp:452
 #, kde-format
@@ -11628,6 +11625,9 @@ msgid ""
 "Could not access the wallet. Password changes may not be saved. Use Tools > "
 "Retry Wallet Access to try again."
 msgstr ""
+"Impossibile accedere al portafoglio. Le modifiche alla password potrebbero "
+"non essere salvate. Utilizza Strumenti > Riprova l'accesso al portafogli per "
+"provare ancora."
 
 #: widgets/ruqolamainwindow.cpp:460
 #, kde-format
