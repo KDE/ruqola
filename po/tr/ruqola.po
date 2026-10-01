@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-29 00:45+0000\n"
+"POT-Creation-Date: 2026-10-01 00:45+0000\n"
 "PO-Revision-Date: 2026-09-28 19:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1347,7 +1347,7 @@ msgstr "Kanal Türü"
 msgid "Belongs To"
 msgstr "Sahibi"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:683
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:686
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1490,85 +1490,85 @@ msgstr "İki Adımlı Kimlik Doğrulama"
 msgid "Last token part"
 msgstr "Son jeton parçası"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:616
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 değinme"
 msgstr[1] "%1 değinme"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:620
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 grup değinmesi"
 msgstr[1] "%1 grup değinmesi"
 
-#: core/model/roommodel.cpp:621
+#: core/model/roommodel.cpp:624
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 okunmamış ileti dizisi"
 msgstr[1] "%1 okunmamış ileti dizisi"
 
-#: core/model/roommodel.cpp:625
+#: core/model/roommodel.cpp:628
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 okunmamış ileti"
 msgstr[1] "%1 okunmamış ileti"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:654
 #, kde-format
 msgid "Teams Room"
 msgstr "Takımlar Odası"
 
-#: core/model/roommodel.cpp:657
+#: core/model/roommodel.cpp:660
 #, kde-format
 msgid "Private Room"
 msgstr "Özel Oda"
 
-#: core/model/roommodel.cpp:659
+#: core/model/roommodel.cpp:662
 #, kde-format
 msgid "Discussion Room"
 msgstr "Tartışma Odası"
 
-#: core/model/roommodel.cpp:663
+#: core/model/roommodel.cpp:666
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanal Odası"
 
-#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Okunmamış"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:682
 #, kde-format
 msgid "Favorites"
 msgstr "Sık Kullanılanlar"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:684
 #, kde-format
 msgid "Teams"
 msgstr "Takımlar"
 
-#: core/model/roommodel.cpp:685
+#: core/model/roommodel.cpp:688
 #, kde-format
 msgid "Discussions"
 msgstr "Tartışmalar"
 
-#: core/model/roommodel.cpp:687
+#: core/model/roommodel.cpp:690
 #, kde-format
 msgid "Private Messages"
 msgstr "Özel İletiler"
 
-#: core/model/roommodel.cpp:689
+#: core/model/roommodel.cpp:692
 #, kde-format
 msgid "Draft"
 msgstr "Taslak"
 
-#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:694 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmiyor"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-29 00:45+0000\n"
+"POT-Creation-Date: 2026-10-01 00:45+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1342,7 +1342,7 @@ msgstr "Názov kanála"
 msgid "Belongs To"
 msgstr "Belongs To"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:683
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:686
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1486,7 +1486,7 @@ msgstr "Autentifikačná metóda"
 msgid "Last token part"
 msgstr "Last token part"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:616
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1494,7 +1494,7 @@ msgstr[0] "%1 Mention"
 msgstr[1] "%1 Mentions"
 msgstr[2] "%1 Mentions"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:620
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1502,7 +1502,7 @@ msgstr[0] "%1 Group Mention"
 msgstr[1] "%1 Group Mentions"
 msgstr[2] "%1 Group Mentions"
 
-#: core/model/roommodel.cpp:621
+#: core/model/roommodel.cpp:624
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1510,7 +1510,7 @@ msgstr[0] "%1 Unread Threaded Message"
 msgstr[1] "%1 Unread Threaded Messages"
 msgstr[2] "%1 Unread Threaded Messages"
 
-#: core/model/roommodel.cpp:625
+#: core/model/roommodel.cpp:628
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1518,57 +1518,57 @@ msgstr[0] "%1 Unread Message"
 msgstr[1] "%1 Unread Messages"
 msgstr[2] "%1 Unread Messages"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:654
 #, kde-format
 msgid "Teams Room"
 msgstr "Predvolené"
 
-#: core/model/roommodel.cpp:657
+#: core/model/roommodel.cpp:660
 #, kde-format
 msgid "Private Room"
 msgstr "Súkromné:"
 
-#: core/model/roommodel.cpp:659
+#: core/model/roommodel.cpp:662
 #, kde-format
 msgid "Discussion Room"
 msgstr "Miestnosť diskusie"
 
-#: core/model/roommodel.cpp:663
+#: core/model/roommodel.cpp:666
 #, kde-format
 msgid "Channel Room"
 msgstr "Názov kanála"
 
-#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "Neprečítané"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:682
 #, kde-format
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:684
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
 
-#: core/model/roommodel.cpp:685
+#: core/model/roommodel.cpp:688
 #, kde-format
 msgid "Discussions"
 msgstr "Diskusie"
 
-#: core/model/roommodel.cpp:687
+#: core/model/roommodel.cpp:690
 #, kde-format
 msgid "Private Messages"
 msgstr "Súkromné adresy"
 
-#: core/model/roommodel.cpp:689
+#: core/model/roommodel.cpp:692
 #, kde-format
 msgid "Draft"
 msgstr "Koncept"
 
-#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:694 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Neznáme"

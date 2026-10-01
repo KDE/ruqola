@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-29 00:45+0000\n"
+"POT-Creation-Date: 2026-10-01 00:45+0000\n"
 "PO-Revision-Date: 2026-09-28 05:06+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1345,7 +1345,7 @@ msgstr "არხის ტიპი"
 msgid "Belongs To"
 msgstr "ეკუთვნის"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:683
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:686
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1488,85 +1488,85 @@ msgstr "2FA ავთენტიკაცია"
 msgid "Last token part"
 msgstr "ბოლო კოდის ნაწილი"
 
-#: core/model/roommodel.cpp:613
+#: core/model/roommodel.cpp:616
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "%1 ხსენება"
 msgstr[1] "%1 ხსენება"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:620
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "%1 ჯგუფის ხსენება"
 msgstr[1] "%1 ჯგუფის ხსენება"
 
-#: core/model/roommodel.cpp:621
+#: core/model/roommodel.cpp:624
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "%1 ნაკადის წაუკითხავი შეტყობინება"
 msgstr[1] "%1 ნაკადის წაუკითხავი შეტყობინება"
 
-#: core/model/roommodel.cpp:625
+#: core/model/roommodel.cpp:628
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 წაუკითხავი შეტყობინება"
 msgstr[1] "%1 წაუკითხავი შეტყობინება"
 
-#: core/model/roommodel.cpp:651
+#: core/model/roommodel.cpp:654
 #, kde-format
 msgid "Teams Room"
 msgstr "გუნდის ოთახი"
 
-#: core/model/roommodel.cpp:657
+#: core/model/roommodel.cpp:660
 #, kde-format
 msgid "Private Room"
 msgstr "პირადი ოთახი"
 
-#: core/model/roommodel.cpp:659
+#: core/model/roommodel.cpp:662
 #, kde-format
 msgid "Discussion Room"
 msgstr "კამათის ოთახი"
 
-#: core/model/roommodel.cpp:663
+#: core/model/roommodel.cpp:666
 #, kde-format
 msgid "Channel Room"
 msgstr "არხის ოთახი"
 
-#: core/model/roommodel.cpp:677 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:17
 #, kde-format
 msgid "Unread"
 msgstr "წაუკითხავი"
 
-#: core/model/roommodel.cpp:679
+#: core/model/roommodel.cpp:682
 #, kde-format
 msgid "Favorites"
 msgstr "სანიშნები"
 
-#: core/model/roommodel.cpp:681
+#: core/model/roommodel.cpp:684
 #, kde-format
 msgid "Teams"
 msgstr "გუნდები"
 
-#: core/model/roommodel.cpp:685
+#: core/model/roommodel.cpp:688
 #, kde-format
 msgid "Discussions"
 msgstr "კამათი"
 
-#: core/model/roommodel.cpp:687
+#: core/model/roommodel.cpp:690
 #, kde-format
 msgid "Private Messages"
 msgstr "პირადი შეტყობინებები"
 
-#: core/model/roommodel.cpp:689
+#: core/model/roommodel.cpp:692
 #, kde-format
 msgid "Draft"
 msgstr "მონახაზი"
 
-#: core/model/roommodel.cpp:691 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:694 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "უცნობი"
