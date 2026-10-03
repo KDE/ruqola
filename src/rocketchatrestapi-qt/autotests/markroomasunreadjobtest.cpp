@@ -7,7 +7,6 @@
 #include "markroomasunreadjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "subscriptions/markroomasunreadjob.h"
@@ -46,28 +45,16 @@ void MarkRoomAsUnReadJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     job.setObjectId(roomId.toLatin1());
     job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::Room);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1"})"_s.arg(roomId).toLatin1());
     job.setUnReadObject(MarkRoomAsUnReadJob::MarkAsUnReadObject::FromMessage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"firstUnreadMessage":{"_id":"foo1"}})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"firstUnreadMessage":{"_id":"foo1"}})"_s.arg(roomId).toLatin1());
 }
 
 void MarkRoomAsUnReadJobTest::shouldNotStarting()
 {
     MarkRoomAsUnReadJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId = "foo1"_ba;
     job.setObjectId(roomId);
     QVERIFY(!job.canStart());

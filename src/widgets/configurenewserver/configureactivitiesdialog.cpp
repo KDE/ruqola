@@ -8,13 +8,10 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "configureactivitieswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -39,24 +36,11 @@ ConfigureActivitiesDialog::ConfigureActivitiesDialog(QWidget *parent)
     readConfig();
 }
 
-ConfigureActivitiesDialog::~ConfigureActivitiesDialog()
-{
-    writeConfig();
-}
+ConfigureActivitiesDialog::~ConfigureActivitiesDialog() = default;
 
 void ConfigureActivitiesDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigConfigureActivitiesDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ConfigureActivitiesDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigConfigureActivitiesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigConfigureActivitiesDialogGroupName), QSize(800, 600));
 }
 
 AccountManager::ActivitySettings ConfigureActivitiesDialog::activitiesSettings() const

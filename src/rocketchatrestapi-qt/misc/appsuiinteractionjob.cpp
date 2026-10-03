@@ -25,7 +25,7 @@ bool AppsUiInteractionJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("AppsUiInteractionJob::start");
+    addStartRestApiInfo("AppsUiInteractionJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
@@ -37,7 +37,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::AppsUiInteractionJob::AppsU
     return d;
 }
 
-void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void AppsUiInteractionJob::onPostRequestResponse([[maybe_unused]] const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     // qDebug() << " response " << replyErrorString << "replyJson  " << replyJson;
     const QJsonObject replyObject = replyJson.object();
@@ -51,7 +51,7 @@ void AppsUiInteractionJob::onPostRequestResponse(const QString &replyErrorString
     }
 }
 
-AppsUiInteractionJob::AppsUiInteractionJobInfo AppsUiInteractionJob::methodCallJobInfo() const
+AppsUiInteractionJob::AppsUiInteractionJobInfo AppsUiInteractionJob::appsUiInteractionJobInfo() const
 {
     return mAppsUiInteractionJobInfo;
 }
@@ -109,25 +109,25 @@ void AppsUiInteractionJob::AppsUiInteractionJobInfo::generateMessageObj(const QS
                                                                         const QByteArray &messageId)
 {
     QJsonObject o;
-    o.insert(u"type"_s, u"blockAction"_s);
-    o.insert(u"actionId"_s, actionId);
+    o.insert("type"_L1, u"blockAction"_s);
+    o.insert("actionId"_L1, actionId);
 
     QJsonObject payload;
-    payload.insert(u"blockId"_s, blockId);
-    payload.insert(u"value"_s, value);
+    payload.insert("blockId"_L1, blockId);
+    payload.insert("value"_L1, value);
 
-    o.insert(u"payload"_s, payload);
-    o.insert(u"rid"_s, QLatin1StringView(roomId));
-    o.insert(u"mid"_s, QLatin1StringView(messageId));
+    o.insert("payload"_L1, std::move(payload));
+    o.insert("rid"_L1, QLatin1StringView(roomId));
+    o.insert("mid"_L1, QLatin1StringView(messageId));
 
     QJsonObject container;
-    container.insert(u"type"_s, u"message"_s);
-    container.insert(u"id"_s, QLatin1StringView(messageId));
-    o.insert(u"container"_s, container);
+    container.insert("type"_L1, u"message"_s);
+    container.insert("id"_L1, QLatin1StringView(messageId));
+    o.insert("container"_L1, std::move(container));
 
     // TODO fix me.
-    o.insert(u"triggerId"_s, u"foo"_s);
-    messageObj = o;
+    o.insert("triggerId"_L1, u"foo"_s);
+    messageObj = std::move(o);
 }
 
 #include "moc_appsuiinteractionjob.cpp"

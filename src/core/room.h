@@ -14,6 +14,7 @@
 #include <QPointer>
 
 #include "channelcounterinfo.h"
+#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 #include "retentioninfo.h"
 #include "roomencryptionkey.h"
@@ -192,7 +193,7 @@ public:
     [[nodiscard]] bool encrypted() const;
     void setEncrypted(bool encrypted);
 
-    [[nodiscard]] bool userIsIgnored(const QByteArray &userId);
+    [[nodiscard]] bool userIsIgnored(const QByteArray &userId) const;
     [[nodiscard]] QString roomMessageInfo() const;
 
     [[nodiscard]] QString e2EKey() const;
@@ -200,6 +201,21 @@ public:
 
     [[nodiscard]] QString e2eKeyId() const;
     void setE2eKeyId(const QString &e2eKeyId);
+
+    // Room key suggested by another member, waiting for us to import and accept it.
+    [[nodiscard]] QString e2ESuggestedKey() const;
+    void setE2ESuggestedKey(const QString &e2ESuggestedKey);
+
+    // Members which have no room key yet and expect the ones owning it to share it with them
+    // (room field "usersWaitingForE2EKeys"). Transient server state, never stored locally.
+    [[nodiscard]] QList<QByteArray> usersWaitingForE2EKeys() const;
+    void setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys);
+    void parseUsersWaitingForE2EKeys(const QJsonObject &json);
+    void parseOldRoomKeys(const QJsonObject &json);
+
+#if USE_E2E_SUPPORT
+    void decryptSessionKeyWithPrivateKey(RSA *privateKey);
+#endif
 
     [[nodiscard]] bool joinCodeRequired() const;
     void setJoinCodeRequired(bool joinCodeRequired);
@@ -260,9 +276,7 @@ public:
     [[nodiscard]] QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
-    [[nodiscard]] QStringList highlightsWord() const;
-    void setHighlightsWord(const QStringList &highlightsWord);
-    [[nodiscard]] bool hasPermission(const QString &permission) const;
+    [[nodiscard]] bool hasPermission(QStringView permission) const;
 
     [[nodiscard]] QString displayTopic() const;
     [[nodiscard]] QString displayAnnouncement() const;
@@ -300,10 +314,23 @@ public:
     [[nodiscard]] qint64 lastOpenedAt() const;
     void setLastOpenedAt(qint64 newLastOpenedAt);
 
-    [[nodiscard]] bool userIsMuted(const QString &username);
+    [[nodiscard]] bool userIsMuted(const QString &username) const;
 
+    [[nodiscard]] QByteArray sessionKey() const;
+
+    // The room key a message encrypted under 'keyId' needs: the current one, or an older one kept
+    // from before the room was re-keyed.
+    [[nodiscard]] QByteArray sessionKeyForKeyId(const QString &keyId) const;
+
+    // Keys the room used before its current one, each with the session key we managed to decrypt.
+    [[nodiscard]] QList<RoomEncryptionKey::OldRoomKey> oldRoomKeys() const;
+
+    // Whether any room key, current or older, is usable.
+    [[nodiscard]] bool hasSessionKey() const;
+
+    // Whether the room carries key material waiting for our private key.
+    [[nodiscard]] bool hasEncryptedKeys() const;
 Q_SIGNALS:
-    void highlightsWordChanged();
     void nameChanged();
     void fnameChanged();
     void announcementChanged();

@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/oauthappscreatejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -49,26 +48,14 @@ void OauthAppsCreateJobTest::shouldGenerateJson()
     foo.active = true;
     job.setOauthAppsCreateInfo(foo);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"active":true,"name":"bla","redirectUri":"bl"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"active":true,"name":"bla","redirectUri":"bl"})"_s.toLatin1());
 }
 
 void OauthAppsCreateJobTest::shouldNotStarting()
 {
     OauthAppsCreateJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     OauthAppsCreateJob::OauthAppsCreateInfo foo;
     job.setOauthAppsCreateInfo(foo);

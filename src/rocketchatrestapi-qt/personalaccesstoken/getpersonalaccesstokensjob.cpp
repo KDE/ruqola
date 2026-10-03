@@ -30,21 +30,15 @@ bool GetPersonalAccessTokensJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("GetPersonalAccessTokensJob: Ask custom sounds info"_ba);
+    addStartRestApiInfo("GetPersonalAccessTokensJob: Ask personal access tokens"_ba);
 
     return true;
 }
 
 void GetPersonalAccessTokensJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetPersonalAccessTokensJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getPersonalAccessTokensDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetPersonalAccessTokensJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetPersonalAccessTokensJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getPersonalAccessTokensDone(*replyObject);
     }
 }
 

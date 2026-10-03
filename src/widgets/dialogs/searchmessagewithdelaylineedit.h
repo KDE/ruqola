@@ -22,7 +22,7 @@ public:
     ~SearchMessageWithDelayLineEdit() override;
     void addCompletionItem(const QString &str);
 
-    void insertSearchString(const QString &str);
+    void insertSearchString(bool needSpace, const QString &str, bool unique);
 
     [[nodiscard]] SearchMessageWithDelayLineEdit::SearchRegularExpressionInfo searchRegularExpressionInfo() const;
 
@@ -30,7 +30,7 @@ Q_SIGNALS:
     void searchCommandActionRequested();
 
 private:
-    QStringList mListCompetion;
+    QStringList mListCompletion;
     QCompleter *const mCompleter;
     QStringListModel *const mCompleterListModel;
     RocketChatAccount *const mCurrentRocketChatAccount;

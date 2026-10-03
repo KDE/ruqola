@@ -6,6 +6,7 @@
 
 #include "message.h"
 #include "ruqola_debug.h"
+#include "ruqola_encryption_debug.h"
 #include <KLocalizedString>
 #include <QCborValue>
 #include <QDateTime>
@@ -16,8 +17,6 @@
 using namespace Qt::Literals::StringLiterals;
 Message::Message() = default;
 
-Message::~Message() = default;
-
 void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager)
 {
     mMessageId = o.value("_id"_L1).toString().toLatin1();
@@ -27,10 +26,10 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, o);
         setEditedAt(Utils::parseIsoDate(u"editedAt"_s, o));
         setTimeStamp(Utils::parseIsoDate(u"ts"_s, o));
-        if (o.contains(u"tlm"_s)) {
+        if (o.contains("tlm"_L1)) {
             setThreadLastMessage(Utils::parseIsoDate(u"tlm"_s, o));
         }
-        if (o.contains(u"dlm"_s)) {
+        if (o.contains("dlm"_L1)) {
             setDiscussionLastMessage(Utils::parseIsoDate(u"dlm"_s, o));
         }
     } else {
@@ -38,11 +37,11 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
         mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, o);
         setEditedAt(Utils::parseDate(u"editedAt"_s, o));
         // Verify if a day we will use not restapi for it.
-        if (o.contains(u"tlm"_s)) {
+        if (o.contains("tlm"_L1)) {
             setThreadLastMessage(Utils::parseDate(u"tlm"_s, o));
         }
         // Verify if a day we will use not restapi for it.
-        if (o.contains(u"dlm"_s)) {
+        if (o.contains("dlm"_L1)) {
             setDiscussionLastMessage(Utils::parseDate(u"dlm"_s, o));
         }
     }
@@ -94,20 +93,20 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     }
     setPrivateMessage(o.value("private"_L1).toBool(false));
 
-    const QString type = o.value("t"_L1).toString();
-    if (!type.isEmpty()) {
+    if (const QString type = o.value("t"_L1).toString(); !type.isEmpty()) {
         if (type == "videoconf"_L1) {
             mMessageType = MessageType::VideoConference;
             // qDebug() << " VIDEO " << o;
         } else if (type == "e2e"_L1) {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::EncryptedText;
-            qCDebug(RUQOLA_LOG) << " encrypted message !!!!";
+            qCDebug(RUQOLA_ENCRYPTION_LOG) << " encrypted message !!!!" << o;
         } else {
             mSystemMessageType = SystemMessageTypeUtil::systemMessageTypeFromString(type);
             mMessageType = MessageType::System;
         }
     } else {
+        mSystemMessageType = SystemMessageTypeUtil::SystemMessageType::Unknown;
         mMessageType = Message::MessageType::NormalText;
     }
     parseBlocks(o.value("blocks"_L1).toArray());
@@ -118,17 +117,16 @@ void Message::parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emo
     parseReactions(o.value("reactions"_L1).toObject(), emojiManager);
     parseChannels(o.value("channels"_L1).toArray());
     parseReplies(o.value("replies"_L1).toArray());
+    parseEncrypted(o);
 }
 
 void Message::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
 {
     if (!reacts.isEmpty()) {
-        if (!mReactions) {
-            mReactions = new Reactions;
-        } else {
-            mReactions.reset(new Reactions);
-        }
+        mReactions.reset(new Reactions);
         mReactions->parseReactions(reacts, emojiManager);
+    } else {
+        mReactions.reset();
     }
 }
 
@@ -182,11 +180,7 @@ const Replies *Message::replies() const
 
 void Message::setReplies(const Replies &replies)
 {
-    if (!mReplies) {
-        mReplies = new Replies(replies);
-    } else {
-        mReplies.reset(new Replies(replies));
-    }
+    mReplies.reset(new Replies(replies));
 }
 
 QString Message::name() const
@@ -209,7 +203,9 @@ bool Message::isAutoTranslated() const
 
 bool Message::isEncryptedMessage() const
 {
-    // TODO
+    if (mMessageEncrypted && mMessageEncrypted->hasDescriptedContent()) {
+        return true;
+    }
     return false;
 }
 
@@ -233,11 +229,7 @@ const MessageTranslations *Message::messageTranslation() const
 
 void Message::setMessageTranslation(const MessageTranslations &messageTranslation)
 {
-    if (!mMessageTranslation) {
-        mMessageTranslation = new MessageTranslations(messageTranslation);
-    } else {
-        mMessageTranslation.reset(new MessageTranslations(messageTranslation));
-    }
+    mMessageTranslation.reset(new MessageTranslations(messageTranslation));
 }
 
 QString Message::displayTime() const
@@ -341,13 +333,22 @@ const MessagePinned *Message::messagePinned() const
     return nullptr;
 }
 
+void Message::setMessageEncrypted(const MessageEncrypted &messageEncrypted)
+{
+    mMessageEncrypted.reset(new MessageEncrypted(messageEncrypted));
+}
+
+const MessageEncrypted *Message::messageEncrypted() const
+{
+    if (mMessageEncrypted) {
+        return mMessageEncrypted.data();
+    }
+    return nullptr;
+}
+
 void Message::setMessagePinned(const MessagePinned &messagePinned)
 {
-    if (!mMessagePinned) {
-        mMessagePinned = new MessagePinned(messagePinned);
-    } else {
-        mMessagePinned.reset(new MessagePinned(messagePinned));
-    }
+    mMessagePinned.reset(new MessagePinned(messagePinned));
 }
 
 bool Message::unread() const
@@ -373,11 +374,7 @@ void Message::setRole(const QString &role)
 void Message::parseChannels(const QJsonArray &channels)
 {
     if (!channels.isEmpty()) {
-        if (!mChannels) {
-            mChannels = new Channels;
-        } else {
-            mChannels.reset(new Channels);
-        }
+        mChannels.reset(new Channels);
         mChannels->parseChannels(channels);
     } else {
         mChannels.reset();
@@ -394,22 +391,15 @@ const Blocks *Message::blocks() const
 
 void Message::setBlocks(const Blocks &newBlocks)
 {
-    if (!mBlocks) {
-        mBlocks = new Blocks(newBlocks);
-    } else {
-        mBlocks.reset(new Blocks(newBlocks));
-    }
+    mBlocks.reset(new Blocks(newBlocks));
 }
 
 QString Message::originalMessageOrAttachmentDescription() const
 {
-    if (!attachments()) {
-        return text();
+    if (auto att = attachments(); att && !att->isEmpty()) {
+        return att->messageAttachments().constFirst().description();
     }
-    if (attachments()->isEmpty()) {
-        return text();
-    }
-    return attachments()->messageAttachments().constFirst().description();
+    return text();
 }
 
 MessageExtra *Message::messageExtra()
@@ -418,6 +408,11 @@ MessageExtra *Message::messageExtra()
         mMessageExtra = new MessageExtra;
     }
     return mMessageExtra;
+}
+
+QDate Message::localDate() const
+{
+    return mLocalDate;
 }
 
 int Message::numberOfTextSearched() const
@@ -468,35 +463,58 @@ const Channels *Message::channels() const
 
 void Message::setChannels(const Channels &channels)
 {
-    if (!mChannels) {
-        mChannels = new Channels(channels);
-    } else {
-        mChannels.reset(new Channels(channels));
-    }
+    mChannels.reset(new Channels(channels));
 }
 
 void Message::parseReplies(const QJsonArray &replies)
 {
     if (!replies.isEmpty()) {
-        if (!mReplies) {
-            mReplies = new Replies;
-        } else {
-            mReplies.reset(new Replies);
-        }
+        mReplies.reset(new Replies);
         mReplies->parseReplies(replies);
     } else {
         mReplies.reset();
     }
 }
 
+void Message::parseEncrypted(const QJsonObject &o)
+{
+    // Port of Rocket.Chat's normalizePayload(): "content" is the {algorithm, kid, iv, ciphertext}
+    // object of a "rc.v2.aes-sha2" message, but a plain "kid + base64(iv + ciphertext)" string for
+    // a "rc.v1.aes-sha2" one — and the oldest messages carry that string in "msg" with no
+    // "content" at all.
+    const QJsonValue contentValue = o.value("content"_L1);
+    if (contentValue.isObject()) {
+        if (const QJsonObject encrypted = contentValue.toObject(); !encrypted.isEmpty()) {
+            resetEncrypted();
+            mMessageEncrypted->parse(encrypted);
+            return;
+        }
+    } else if (contentValue.isString()) {
+        resetEncrypted();
+        if (mMessageEncrypted->parseLegacyPayload(contentValue.toString())) {
+            return;
+        }
+    } else if (mMessageType == MessageType::EncryptedText) {
+        // "msg" holds the ciphertext here. It can also already hold the plaintext (a message we
+        // just sent, or one loaded decrypted from the local database): the payload simply does not
+        // parse then, and the text is left as it is.
+        resetEncrypted();
+        if (mMessageEncrypted->parseLegacyPayload(o.value("msg"_L1).toString())) {
+            return;
+        }
+    }
+    mMessageEncrypted.reset();
+}
+
+void Message::resetEncrypted()
+{
+    mMessageEncrypted.reset(new MessageEncrypted);
+}
+
 void Message::parseBlocks(const QJsonArray &blocks)
 {
     if (!blocks.isEmpty()) {
-        if (!mBlocks) {
-            mBlocks = new Blocks;
-        } else {
-            mBlocks.reset(new Blocks);
-        }
+        mBlocks.reset(new Blocks);
         mBlocks->parseBlocks(blocks);
     } else {
         mBlocks.reset();
@@ -523,11 +541,7 @@ const ModerationMessage *Message::moderationMessage() const
 
 void Message::setModerationMessage(const ModerationMessage &newModerationMessage)
 {
-    if (!mModerationMessage) {
-        mModerationMessage = new ModerationMessage(newModerationMessage);
-    } else {
-        mModerationMessage.reset(new ModerationMessage(newModerationMessage));
-    }
+    mModerationMessage.reset(new ModerationMessage(newModerationMessage));
 }
 
 void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
@@ -551,11 +565,7 @@ void Message::parseMentions(const QJsonArray &mentions)
 void Message::parseMessageUrls(const QJsonArray &urls)
 {
     if (!urls.isEmpty()) {
-        if (!mUrls) {
-            mUrls = new MessageUrls;
-        } else {
-            mUrls.reset(new MessageUrls);
-        }
+        mUrls.reset(new MessageUrls);
         mUrls->parseMessageUrls(urls, mMessageId);
     } else {
         mUrls.reset();
@@ -572,11 +582,7 @@ const Reactions *Message::reactions() const
 
 void Message::setReactions(const Reactions &reactions)
 {
-    if (!mReactions) {
-        mReactions = new Reactions(reactions);
-    } else {
-        mReactions.reset(new Reactions(reactions));
-    }
+    mReactions.reset(new Reactions(reactions));
 }
 
 bool Message::isPinned() const
@@ -610,28 +616,26 @@ void Message::setMentions(const QMap<QString, QByteArray> &mentions)
 void Message::parseAttachment(const QJsonArray &attachments)
 {
     if (!attachments.isEmpty()) {
-        if (!mAttachments) {
-            mAttachments = new MessageAttachments;
-        } else {
-            mAttachments.reset(new MessageAttachments);
-        }
+        mAttachments.reset(new MessageAttachments);
         mAttachments->parseMessageAttachments(attachments, messageId());
         if (mAttachments->isEmpty()) {
             mAttachments.reset();
         }
+    } else {
+        mAttachments.reset();
     }
 }
 
 bool Message::operator==(const Message &other) const
 {
-    bool result = (mMessageId == other.messageId()) && (mRoomId == other.roomId()) && (mText == other.text()) && (mTimeStamp == other.timeStamp())
-        && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
-        && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mAlias == other.alias()) && (mAvatar == other.avatar())
-        && (mSystemMessageType == other.systemMessageType()) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
-        && (mMentions == other.mentions()) && (mRole == other.role()) && (unread() == other.unread()) && (mMessageStarred == other.messageStarred())
+    bool result = (mMessageId == other.mMessageId) && (mRoomId == other.mRoomId) && (mText == other.mText) && (mTimeStamp == other.mTimeStamp)
+        && (mUsername == other.mUsername) && (mName == other.mName) && (mUserId == other.mUserId) && (mUpdatedAt == other.mUpdatedAt)
+        && (mEditedAt == other.mEditedAt) && (mEditedByUsername == other.mEditedByUsername) && (mAlias == other.mAlias) && (mAvatar == other.mAvatar)
+        && (mSystemMessageType == other.mSystemMessageType) && (groupable() == other.groupable()) && (parseUrls() == other.parseUrls())
+        && (mMentions == other.mMentions) && (mRole == other.mRole) && (unread() == other.unread()) && (mMessageStarred == other.mMessageStarred)
         && (threadCount() == other.threadCount()) && (threadLastMessage() == other.threadLastMessage()) && (discussionCount() == other.discussionCount())
         && (discussionLastMessage() == other.discussionLastMessage()) && (discussionRoomId() == other.discussionRoomId())
-        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mEmoji == other.emoji())
+        && (threadMessageId() == other.threadMessageId()) && (showTranslatedMessage() == other.showTranslatedMessage()) && (mEmoji == other.mEmoji)
         && (pendingMessage() == other.pendingMessage()) && (showIgnoredMessage() == other.showIgnoredMessage())
         && (localTranslation() == other.localTranslation()) && (mDisplayTime == other.mDisplayTime) && (privateMessage() == other.privateMessage());
     if (!result) {
@@ -639,119 +643,133 @@ bool Message::operator==(const Message &other) const
     }
 
     // compare urls
-    if (replies() && other.replies()) {
-        if (*replies() == (*other.replies())) {
+    if (mReplies && other.mReplies) {
+        if (*mReplies == (*other.mReplies)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!replies() && !other.replies()) {
+    } else if (!mReplies && !other.mReplies) {
         result = true;
     } else {
         return false;
     }
 
     // compare urls
-    if (urls() && other.urls()) {
-        if (*urls() == (*other.urls())) {
+    if (mUrls && other.mUrls) {
+        if (*mUrls == (*other.mUrls)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!urls() && !other.urls()) {
+    } else if (!mUrls && !other.mUrls) {
         result = true;
     } else {
         return false;
     }
 
     // compare attachments
-    if (attachments() && other.attachments()) {
-        if (*attachments() == (*other.attachments())) {
+    if (mAttachments && other.mAttachments) {
+        if (*mAttachments == (*other.mAttachments)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!attachments() && !other.attachments()) {
+    } else if (!mAttachments && !other.mAttachments) {
         result = true;
     } else {
         return false;
     }
 
     // compare blocks
-    if (blocks() && other.blocks()) {
-        if (*blocks() == (*other.blocks())) {
+    if (mBlocks && other.mBlocks) {
+        if (*mBlocks == (*other.mBlocks)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!blocks() && !other.blocks()) {
+    } else if (!mBlocks && !other.mBlocks) {
         result = true;
     } else {
         return false;
     }
 
     // compare channels
-    if (channels() && other.channels()) {
-        if (*channels() == (*other.channels())) {
+    if (mChannels && other.mChannels) {
+        if (*mChannels == (*other.mChannels)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!channels() && !other.channels()) {
+    } else if (!mChannels && !other.mChannels) {
         result = true;
     } else {
         return false;
     }
 
     // compare messagePinned
-    if (messagePinned() && other.messagePinned()) {
-        if (*messagePinned() == (*other.messagePinned())) {
+    if (mMessagePinned && other.mMessagePinned) {
+        if (*mMessagePinned == (*other.mMessagePinned)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!messagePinned() && !other.messagePinned()) {
+    } else if (!mMessagePinned && !other.mMessagePinned) {
         result = true;
     } else {
         return false;
     }
 
     // compare reactions
-    if (reactions() && other.reactions()) {
-        if (*reactions() == (*other.reactions())) {
+    if (mReactions && other.mReactions) {
+        if (*mReactions == (*other.mReactions)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!reactions() && !other.reactions()) {
+    } else if (!mReactions && !other.mReactions) {
         result = true;
     } else {
         return false;
     }
     // compare messageTranslation
-    if (messageTranslation() && other.messageTranslation()) {
-        if (*messageTranslation() == (*other.messageTranslation())) {
+    if (mMessageTranslation && other.mMessageTranslation) {
+        if (*mMessageTranslation == (*other.mMessageTranslation)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!messageTranslation() && !other.messageTranslation()) {
+    } else if (!mMessageTranslation && !other.mMessageTranslation) {
         result = true;
     } else {
         return false;
     }
     // Compare moderationMessage
-    if (moderationMessage() && other.moderationMessage()) {
-        if (*moderationMessage() == (*other.moderationMessage())) {
+    if (mModerationMessage && other.mModerationMessage) {
+        if (*mModerationMessage == (*other.mModerationMessage)) {
             result = true;
         } else {
             return false;
         }
-    } else if (!moderationMessage() && !other.moderationMessage()) {
+    } else if (!mModerationMessage && !other.mModerationMessage) {
         result = true;
     } else {
         return false;
     }
+
+    // compare blocks
+    if (mMessageEncrypted && other.mMessageEncrypted) {
+        if (*mMessageEncrypted == (*other.mMessageEncrypted)) {
+            result = true;
+        } else {
+            return false;
+        }
+    } else if (!mMessageEncrypted && !other.mMessageEncrypted) {
+        result = true;
+    } else {
+        return false;
+    }
+
     return result;
 }
 
@@ -817,8 +835,8 @@ QString Message::systemMessageText() const
         return i18n("Message Deleted");
     case SystemMessageTypeUtil::SystemMessageType::Pinned:
         return i18n("Message Pinned");
-    case SystemMessageTypeUtil::SystemMessageType::EncryptedMessage:
-        return i18n("Encrypted Message");
+    case SystemMessageTypeUtil::SystemMessageType::PinnedE2e:
+        return i18n("Message Pinned by %1", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserUnmuted:
         return i18n("%1 was unmuted by %2", mText, mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserMuted:
@@ -876,12 +894,8 @@ QString Message::systemMessageText() const
         return i18n("Room disallowed reacting by %1", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserJoinedTeam:
         return i18n("%1 joined this Team", mUsername);
-    case SystemMessageTypeUtil::SystemMessageType::UserJoinedOtr:
-        return i18n("%1 has joined OTR chat.", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::UserKeyRefreshedSuccessfully:
         return i18n("%1 key refreshed successfully", mUsername);
-    case SystemMessageTypeUtil::SystemMessageType::UserRequesterOtrKeyRefresh:
-        return i18n("%1 has requested key refresh.", mUsername);
     case SystemMessageTypeUtil::SystemMessageType::VideoConf:
         return i18n("Conference Call");
     case SystemMessageTypeUtil::SystemMessageType::UserBanned:
@@ -910,11 +924,7 @@ const MessageAttachments *Message::attachments() const
 
 void Message::setAttachments(const MessageAttachments &attachment)
 {
-    if (!mAttachments) {
-        mAttachments = new MessageAttachments(attachment);
-    } else {
-        mAttachments.reset(new MessageAttachments(attachment));
-    }
+    mAttachments.reset(new MessageAttachments(attachment));
 }
 
 const MessageUrls *Message::urls() const
@@ -931,11 +941,7 @@ void Message::setUrls(const MessageUrls &urls)
         mUrls.reset();
         return;
     }
-    if (!mUrls) {
-        mUrls = new MessageUrls(urls);
-    } else {
-        mUrls.reset(new MessageUrls(urls));
-    }
+    mUrls.reset(new MessageUrls(urls));
 }
 
 QString Message::alias() const
@@ -1012,7 +1018,9 @@ void Message::setTimeStamp(qint64 timeStamp)
 {
     if (mTimeStamp != timeStamp) {
         mTimeStamp = timeStamp;
-        mDisplayTime = QDateTime::fromMSecsSinceEpoch(mTimeStamp).time().toString(u"hh:mm"_s);
+        const QDateTime dt = QDateTime::fromMSecsSinceEpoch(mTimeStamp);
+        mDisplayTime = dt.time().toString(u"hh:mm"_s);
+        mLocalDate = dt.date();
     }
 }
 
@@ -1127,9 +1135,8 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mMessageStarred.setIsStarred(o["starred"_L1].toBool());
 
     if (o.contains("pinnedMessage"_L1)) {
-        MessagePinned *pinned = MessagePinned::deserialize(o["pinnedMessage"_L1].toObject());
+        const auto pinned = MessagePinned::deserialize(o["pinnedMessage"_L1].toObject());
         message.setMessagePinned(*pinned);
-        delete pinned;
     }
 
     message.mRole = o["role"_L1].toString();
@@ -1141,30 +1148,26 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     if (o.contains("attachments"_L1)) {
         const QJsonArray attachmentsArray = o.value("attachments"_L1).toArray();
-        const MessageAttachments *const attachments = MessageAttachments::deserialize(attachmentsArray, message.messageId());
+        const auto attachments = MessageAttachments::deserialize(attachmentsArray, message.messageId());
         message.setAttachments(*attachments);
-        delete attachments;
     }
 
     if (o.contains("urls"_L1)) {
         const QJsonArray urlsArray = o.value("urls"_L1).toArray();
-        const MessageUrls *const urls = MessageUrls::deserialize(urlsArray, message.messageId());
+        const auto urls = MessageUrls::deserialize(urlsArray, message.messageId());
         message.setUrls(*urls);
-        delete urls;
     }
 
     if (o.contains("reactions"_L1)) {
         const QJsonObject reactionsArray = o.value("reactions"_L1).toObject();
-        const Reactions *const reaction = Reactions::deserialize(reactionsArray, emojiManager);
+        const auto reaction = Reactions::deserialize(reactionsArray, emojiManager);
         message.setReactions(*reaction);
-        delete reaction;
     }
 
     if (o.contains("replies"_L1)) {
         const QJsonArray repliesArray = o.value("replies"_L1).toArray();
-        const Replies *const replies = Replies::deserialize(repliesArray);
+        const auto replies = Replies::deserialize(repliesArray);
         message.setReplies(*replies);
-        delete replies;
     }
 
     QMap<QString, QByteArray> mentions;
@@ -1177,16 +1180,14 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     if (o.contains("channels"_L1)) {
         const QJsonArray channelsArray = o.value("channels"_L1).toArray();
-        const Channels *const channels = Channels::deserialize(channelsArray);
+        const auto channels = Channels::deserialize(channelsArray);
         message.setChannels(*channels);
-        delete channels;
     }
 
     if (o.contains("blocks"_L1)) {
         const QJsonArray blocksArray = o.value("blocks"_L1).toArray();
-        const Blocks *const blocks = Blocks::deserialize(blocksArray);
+        const auto blocks = Blocks::deserialize(blocksArray);
         message.setBlocks(*blocks);
-        delete blocks;
     }
 
     if (o.contains("localTranslation"_L1)) {
@@ -1195,9 +1196,14 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     }
 
     if (o.contains("messageTranslation"_L1)) {
-        const MessageTranslations *const translation = MessageTranslations::deserialize(o["messageTranslation"_L1].toArray());
+        const auto translation = MessageTranslations::deserialize(o["messageTranslation"_L1].toArray());
         message.setMessageTranslation(*translation);
-        delete translation;
+    }
+
+    if (o.contains("content"_L1)) {
+        const QJsonObject contentObj = o.value("content"_L1).toObject();
+        const auto encrypted = MessageEncrypted::deserialize(contentObj);
+        message.setMessageEncrypted(*encrypted);
     }
 
     return message;
@@ -1294,21 +1300,21 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["reactions"_L1] = Reactions::serialize(*message.reactions());
     }
 
-    if (message.threadCount() > 0) {
-        o["tcount"_L1] = message.threadCount();
+    if (const auto threadCount = message.threadCount(); threadCount > 0) {
+        o["tcount"_L1] = threadCount;
         o["tlm"_L1] = message.threadLastMessage();
     }
 
-    if (message.discussionCount() > 0) {
-        o["dcount"_L1] = message.discussionCount();
+    if (const auto discussionCount = message.discussionCount(); discussionCount > 0) {
+        o["dcount"_L1] = discussionCount;
         o["dlm"_L1] = message.discussionLastMessage();
     }
-    if (!message.discussionRoomId().isEmpty()) {
-        o["drid"_L1] = QString::fromLatin1(message.discussionRoomId());
+    if (const auto discussionRoomId = message.discussionRoomId(); !discussionRoomId.isEmpty()) {
+        o["drid"_L1] = QString::fromLatin1(discussionRoomId);
     }
 
-    if (!message.threadMessageId().isEmpty()) {
-        o["tmid"_L1] = QString::fromLatin1(message.threadMessageId());
+    if (const auto threadMessageId = message.threadMessageId(); !threadMessageId.isEmpty()) {
+        o["tmid"_L1] = QString::fromLatin1(threadMessageId);
     }
     if (message.replies() && !message.replies()->isEmpty()) {
         o["replies"_L1] = Replies::serialize(*message.replies());
@@ -1319,8 +1325,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o["blocks"_L1] = Blocks::serialize(*message.blocks());
     }
 
-    if (!message.localTranslation().isEmpty()) {
-        o["localTranslation"_L1] = message.localTranslation();
+    if (const auto localTranslation = message.localTranslation(); !localTranslation.isEmpty()) {
+        o["localTranslation"_L1] = localTranslation;
         o["showLocalTranslation"_L1] = message.showTranslatedMessage();
     }
     if (message.messageTranslation() && !message.messageTranslation()->isEmpty()) {
@@ -1328,6 +1334,10 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     }
     if (message.privateMessage()) {
         o["private"_L1] = true;
+    }
+
+    if (message.messageEncrypted()) {
+        o["content"_L1] = MessageEncrypted::serialize(*message.messageEncrypted());
     }
 
     if (toBinary) {
@@ -1402,6 +1412,9 @@ QDebug operator<<(QDebug d, const Message &t)
     if (t.blocks()) {
         d.space() << "block" << *t.blocks();
     }
+    if (t.messageEncrypted()) {
+        d.space() << "mMessageEncrypted" << *t.messageEncrypted();
+    }
 
     d.space() << "mPrivateMessage" << t.privateMessage();
     return d;
@@ -1435,6 +1448,14 @@ void Message::assignMessageStateValue(MessageState type, bool status)
     } else {
         mMessageStates &= ~type;
     }
+}
+
+bool Message::hasDescriptedContent() const
+{
+    if (mMessageEncrypted) {
+        return mMessageEncrypted->hasDescriptedContent();
+    }
+    return false;
 }
 
 #include "moc_message.cpp"

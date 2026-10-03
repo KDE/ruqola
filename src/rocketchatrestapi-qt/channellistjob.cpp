@@ -31,18 +31,13 @@ bool ChannelListJob::start()
 
     submitGetRequest();
     addStartRestApiInfo("ChannelListJob: ask channel list"_ba);
-    return false;
+    return true;
 }
 
 void ChannelListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelListJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelListDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelListJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelListJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelListDone(*replyObject);
     }
 }
 

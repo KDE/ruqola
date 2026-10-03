@@ -43,7 +43,11 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
-    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomSoundsWidget::slotModifyCustomSound);
+    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotModifyCustomSound(mProxyModelModel->mapToSource(index));
+        }
+    });
     connect(mRocketChatAccount, &RocketChatAccount::customSoundRemoved, this, &AdministratorCustomSoundsWidget::slotCustomSoundRemoved);
     connect(mRocketChatAccount, &RocketChatAccount::customSoundAdded, this, &AdministratorCustomSoundsWidget::slotCustomSoundAdded);
     connect(mRocketChatAccount, &RocketChatAccount::customSoundUpdated, this, &AdministratorCustomSoundsWidget::slotCustomSoundUpdated);
@@ -144,7 +148,6 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
             obj["newFile"_L1] = true;
             const auto customSoundInfo = dlg->customSoundInfo();
             const QFileInfo fileInfo(customSoundInfo.fileNameUrl.toLocalFile());
-            fileInfo.completeSuffix();
             const QString customSoundInfoName = customSoundInfo.name;
             const QString customSoundInfoExtension = fileInfo.completeSuffix();
 
@@ -188,7 +191,7 @@ void AdministratorCustomSoundsWidget::slotAddCustomSound()
 
                         // TODO change it
                         obj["random"_L1] = QString::number(45);
-                        params.append(obj);
+                        params.append(std::move(obj));
                         info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
                         uploadSoundFileJob->setMethodCallJobInfo(info);
                         // qDebug() << " info.messageObj " << info.messageObj;
@@ -215,7 +218,6 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
     const AdministratorCustomSoundsCreateWidget::CustomSoundInfo originalCustomSoundInfo{.name = nameModelIndex.data().toString(), .fileNameUrl = {}};
     dlg->setCustomSoundInfo(originalCustomSoundInfo);
     if (dlg->exec()) {
-        const AdministratorCustomSoundsCreateWidget::CustomSoundInfo newCustomInfo = dlg->customSoundInfo();
         // Use new RESTAPI method when RC >= 8.5.0
         if (mRocketChatAccount->hasAtLeastVersion(8, 5, 0)) {
             auto job = new RocketChatRestApi::CustomSoundsUpdateJob(this);
@@ -235,6 +237,7 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
             /// api/v1/method.call/uploadCustomSound when we upload new sound file
             ///
 
+            const AdministratorCustomSoundsCreateWidget::CustomSoundInfo newCustomInfo = dlg->customSoundInfo();
             const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
             const QByteArray soundIdentifier = modelIndex.data().toByteArray();
 
@@ -258,12 +261,12 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
             previewSound["name"_L1] = originalCustomSoundInfo.name;
             previewSound["extension"_L1] = originalCustomSoundInfo.name; // TODO extension
             obj["previousSound"_L1] = previewSound;
-            params.append(obj);
+            params.append(std::move(obj));
             info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
             job->setMethodCallJobInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-            connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+            connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, []([[maybe_unused]] const QJsonObject &root) {
                 // TODO upload file
             });
             if (!job->start()) {
@@ -306,7 +309,7 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
             info.anonymous = false;
             const QJsonArray params{{QString::fromLatin1(soundIdentifier)}};
             info.messageObj = mRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
-            job->setMethodCallJobInfo(std::move(info));
+            job->setMethodCallJobInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [](const QJsonObject &replyObject) {
                 qDebug() << " replyObject " << replyObject;
@@ -322,9 +325,10 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
 void AdministratorCustomSoundsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    const QModelIndex index = mTreeView->indexAt(pos);
+    const QModelIndex proxyIndex = mTreeView->indexAt(pos);
     menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorCustomSoundsWidget::slotAddCustomSound);
-    if (index.isValid()) {
+    if (proxyIndex.isValid()) {
+        const QModelIndex index = mProxyModelModel->mapToSource(proxyIndex);
         menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
             slotModifyCustomSound(index);
         });

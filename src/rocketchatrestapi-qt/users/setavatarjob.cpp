@@ -34,7 +34,7 @@ bool SetAvatarJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetAvatarJob::start");
+    addStartRestApiInfo("SetAvatarJob::start"_ba);
     if (!mAvatarInfo.mAvatarUrl.isEmpty()) {
         submitPostRequest(json());
     } else {
@@ -62,8 +62,10 @@ bool SetAvatarJob::start()
         multiPart->append(filePart);
 
         QHttpPart userPart;
-        userPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"userId\""_L1));
-        userPart.setBody(userId().toUtf8());
+        const bool useUserName = (mUserInfo.userInfoType == UserBaseJob::UserInfoType::UserName);
+        userPart.setHeader(QNetworkRequest::ContentDispositionHeader,
+                           QVariant(useUserName ? "form-data; name=\"username\""_L1 : "form-data; name=\"userId\""_L1));
+        userPart.setBody(mUserInfo.userIdentifier.toUtf8());
         multiPart->append(userPart);
 
         mReply = networkAccessManager()->post(request(), multiPart);
@@ -87,13 +89,8 @@ void SetAvatarJob::slotSetAvatar()
 
 void SetAvatarJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetAvatarJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetAvatarJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setAvatarDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetAvatarJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

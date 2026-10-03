@@ -20,7 +20,7 @@ MyAccount2FaTotpWidgetTest::MyAccount2FaTotpWidgetTest(QObject *parent)
 
 void MyAccount2FaTotpWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccount2FaTotpWidget w(nullptr);
+    const MyAccount2FaTotpWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

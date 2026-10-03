@@ -15,7 +15,7 @@ UploadFileProgressStatusListWidgetTest::UploadFileProgressStatusListWidgetTest(Q
 
 void UploadFileProgressStatusListWidgetTest::shouldHaveDefaultValues()
 {
-    UploadFileProgressStatusListWidget w;
+    const UploadFileProgressStatusListWidget w;
     // TODO
 }
 

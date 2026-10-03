@@ -20,7 +20,7 @@ ManageLoadHistoryParseSyncMessagesUtilsTest::ManageLoadHistoryParseSyncMessagesU
 
 void ManageLoadHistoryParseSyncMessagesUtilsTest::shouldHaveDefaultValues()
 {
-    ManageLoadHistoryParseSyncMessagesUtils w(nullptr);
+    const ManageLoadHistoryParseSyncMessagesUtils w(nullptr);
     QVERIFY(w.deletedMessages().isEmpty());
     QVERIFY(w.updatesMessages().isEmpty());
 }

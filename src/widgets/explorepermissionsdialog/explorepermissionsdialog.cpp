@@ -7,13 +7,10 @@
 #include "explorepermissionsdialog.h"
 
 #include "explorepermissionswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myExplorePermissionDialogConfigGroupName[] = "ExplorePermissionDialog";
@@ -38,24 +35,11 @@ ExplorePermissionsDialog::ExplorePermissionsDialog(QWidget *parent)
     readConfig();
 }
 
-ExplorePermissionsDialog::~ExplorePermissionsDialog()
-{
-    writeConfig();
-}
+ExplorePermissionsDialog::~ExplorePermissionsDialog() = default;
 
 void ExplorePermissionsDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExplorePermissionDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ExplorePermissionsDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExplorePermissionDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myExplorePermissionDialogConfigGroupName), QSize(400, 300));
 }
 
 void ExplorePermissionsDialog::setPermissions(const QList<Permission> &permissions)
@@ -63,7 +47,7 @@ void ExplorePermissionsDialog::setPermissions(const QList<Permission> &permissio
     mExplorePermissionWidget->setPermissions(permissions);
 }
 
-void ExplorePermissionsDialog::setOWnRoles(const QStringList &roleStr)
+void ExplorePermissionsDialog::setOwnRoles(const QStringList &roleStr)
 {
     mExplorePermissionWidget->setOWnRoles(roleStr);
 }

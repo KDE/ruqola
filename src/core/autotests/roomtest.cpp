@@ -13,7 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_autotest_helper.h"
 #include <QCborValue>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(RoomTest)
@@ -21,11 +23,12 @@ QTEST_GUILESS_MAIN(RoomTest)
 RoomTest::RoomTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RoomTest::shouldHaveDefaultValue()
 {
-    Room input(nullptr);
+    const Room input(nullptr);
     QVERIFY(input.usersModelForRoom());
 
     QVERIFY(input.messageModel());
@@ -59,7 +62,6 @@ void RoomTest::shouldHaveDefaultValue()
     QCOMPARE(input.lastSeenAt(), -1);
     QVERIFY(input.directChannelUserId().isEmpty());
     QVERIFY(input.displaySystemMessageTypes().isEmpty());
-    QVERIFY(input.highlightsWord().isEmpty());
     QCOMPARE(input.lastMessageAt(), -1);
     QCOMPARE(input.numberMessages(), 0);
     QVERIFY(input.uids().isEmpty());
@@ -233,9 +235,6 @@ void RoomTest::shouldSerialized()
         // setUpdatedAt
         input.setUpdatedAt(5555);
 
-        // setHighlightsWord
-        input.setHighlightsWord({u"highlight-bla"_s, u"highlight-foo"_s});
-
         // uids
         input.setUids({u"uids-bla"_s, u"uids-foo"_s});
 
@@ -253,28 +252,28 @@ void RoomTest::shouldSerialized()
 void RoomTest::shouldEmitSignals()
 {
     Room input(nullptr);
-    QSignalSpy spyNameChanged(&input, &Room::nameChanged);
-    QSignalSpy spyannouncementChanged(&input, &Room::announcementChanged);
-    QSignalSpy spytopicChanged(&input, &Room::topicChanged);
-    QSignalSpy spyfavoriteChanged(&input, &Room::favoriteChanged);
-    QSignalSpy spyalertChanged(&input, &Room::alertChanged);
-    QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
-    QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
-    QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
-    QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
-    QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
-    QSignalSpy spyblockedChanged(&input, &Room::blockedChanged);
-    QSignalSpy spyrolesChanged(&input, &Room::rolesChanged);
-    QSignalSpy spyignoredUsersChanged(&input, &Room::ignoredUsersChanged);
-    QSignalSpy spymutedUsersChanged(&input, &Room::mutedUsersChanged);
-    QSignalSpy spyencryptedChanged(&input, &Room::encryptedChanged);
-    QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
-    QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
-    QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
-    QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::autoTranslateLanguageChanged);
-    QSignalSpy spyautoTranslateChanged(&input, &Room::autoTranslateChanged);
-    QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
-    QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
+    const QSignalSpy spyNameChanged(&input, &Room::nameChanged);
+    const QSignalSpy spyannouncementChanged(&input, &Room::announcementChanged);
+    const QSignalSpy spytopicChanged(&input, &Room::topicChanged);
+    const QSignalSpy spyfavoriteChanged(&input, &Room::favoriteChanged);
+    const QSignalSpy spyalertChanged(&input, &Room::alertChanged);
+    const QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
+    const QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
+    const QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
+    const QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
+    const QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
+    const QSignalSpy spyblockedChanged(&input, &Room::blockedChanged);
+    const QSignalSpy spyrolesChanged(&input, &Room::rolesChanged);
+    const QSignalSpy spyignoredUsersChanged(&input, &Room::ignoredUsersChanged);
+    const QSignalSpy spymutedUsersChanged(&input, &Room::mutedUsersChanged);
+    const QSignalSpy spyencryptedChanged(&input, &Room::encryptedChanged);
+    const QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
+    const QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
+    const QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
+    const QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::autoTranslateLanguageChanged);
+    const QSignalSpy spyautoTranslateChanged(&input, &Room::autoTranslateChanged);
+    const QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
+    const QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
 
     input.setRoomId("foo"_ba);
     input.setChannelType(Room::roomTypeFromString(u"p"_s));
@@ -327,6 +326,46 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyautoTranslateChanged.count(), 1);
     QCOMPARE(spydirectChannelUserIdChanged.count(), 1);
     QCOMPARE(spylastMessageAtChanged.count(), 1);
+}
+
+void RoomTest::shouldParseUsersWaitingForE2EKeys()
+{
+    Room input(nullptr);
+    QVERIFY(input.usersWaitingForE2EKeys().isEmpty());
+
+    // The queue is stored by the server as a list of { userId, ts } objects.
+    const QJsonObject roomJson =
+        QJsonDocument::fromJson(R"({"_id":"roomid","usersWaitingForE2EKeys":[{"userId":"user1","ts":1234},{"userId":"user2","ts":5678}]})"_ba).object();
+    input.parseUpdateRoom(roomJson);
+    QCOMPARE(input.usersWaitingForE2EKeys(), (QList<QByteArray>{"user1"_ba, "user2"_ba}));
+
+    // A payload without the field must not drop what we know.
+    input.parseUpdateRoom(QJsonDocument::fromJson(R"({"_id":"roomid"})"_ba).object());
+    QCOMPARE(input.usersWaitingForE2EKeys(), (QList<QByteArray>{"user1"_ba, "user2"_ba}));
+
+    // An empty queue means nobody is waiting anymore.
+    input.parseUpdateRoom(QJsonDocument::fromJson(R"({"_id":"roomid","usersWaitingForE2EKeys":[]})"_ba).object());
+    QVERIFY(input.usersWaitingForE2EKeys().isEmpty());
+}
+
+void RoomTest::shouldParseOldRoomKeys()
+{
+    Room input(nullptr);
+    QVERIFY(!input.hasEncryptedKeys());
+
+    // Keys of the eras before the room was re-keyed, as the subscription carries them.
+    const auto subscriptionJson = [](const QByteArray &json) {
+        return QJsonDocument::fromJson(json).object();
+    };
+    input.parseSubscriptionRoom(subscriptionJson(R"({"_id":"subid","rid":"roomid","oldRoomKeys":[{"e2eKeyId":"kid-1","E2EKey":"kid-1payload","ts":1234}],)"
+                                                 R"("suggestedOldRoomKeys":[{"e2eKeyId":"kid-2","E2EKey":"kid-2payload","ts":5678}]})"_ba));
+    QVERIFY(input.hasEncryptedKeys());
+    // Nothing is decrypted yet, so every lookup falls back to the (still empty) current key.
+    QVERIFY(input.sessionKeyForKeyId(u"kid-1"_s).isEmpty());
+
+    // A partial subscription update must not drop the keys we already imported.
+    input.parseSubscriptionRoom(subscriptionJson(R"({"_id":"subid","rid":"roomid"})"_ba));
+    QVERIFY(input.hasEncryptedKeys());
 }
 
 void RoomTest::shoudUserIsMuted()
@@ -385,16 +424,16 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QStringList>("fileNameupdate");
     // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate") << u"notification-room"_s << (QStringList() << u"notification-roomupdate1"_s);
-    QTest::newRow("room-update") << u"room-update"_s << (QStringList() << u"room-update1"_s);
-    QTest::newRow("room-without-owner") << u"room-without-owner"_s << (QStringList() << u"room-without-owner1"_s);
-    QTest::newRow("room-mute-unmute") << u"room-mute-unmute"_s << (QStringList() << u"muted-users"_s << u"unmuted-users"_s);
-    QTest::newRow("userignored-room") << u"userignored-room"_s << (QStringList() << u"userignored-room-update"_s);
-    QTest::newRow("room-requiredjoincode-owner") << u"room-requiredjoincode-owner"_s << (QStringList() << u"room-requiredjoincode-update"_s);
-    QTest::newRow("autotranslatelanguage") << u"autotranslatelanguage"_s << (QStringList() << u"autotranslatelanguage-update"_s);
-    QTest::newRow("direct-room") << u"direct-room"_s << (QStringList() << u"direct-room-update"_s);
-    QTest::newRow("room-retention") << u"room-retention"_s << (QStringList() << u"room-retention-update"_s);
-    QTest::newRow("room-team") << u"room-team"_s << (QStringList() << u"room-team"_s);
+    QTest::newRow("notification-roomupdate") << u"notification-room"_s << QStringList{u"notification-roomupdate1"_s};
+    QTest::newRow("room-update") << u"room-update"_s << QStringList{u"room-update1"_s};
+    QTest::newRow("room-without-owner") << u"room-without-owner"_s << QStringList{u"room-without-owner1"_s};
+    QTest::newRow("room-mute-unmute") << u"room-mute-unmute"_s << QStringList{u"muted-users"_s, u"unmuted-users"_s};
+    QTest::newRow("userignored-room") << u"userignored-room"_s << QStringList{u"userignored-room-update"_s};
+    QTest::newRow("room-requiredjoincode-owner") << u"room-requiredjoincode-owner"_s << QStringList{u"room-requiredjoincode-update"_s};
+    QTest::newRow("autotranslatelanguage") << u"autotranslatelanguage"_s << QStringList{u"autotranslatelanguage-update"_s};
+    QTest::newRow("direct-room") << u"direct-room"_s << QStringList{u"direct-room-update"_s};
+    QTest::newRow("room-retention") << u"room-retention"_s << QStringList{u"room-retention-update"_s};
+    QTest::newRow("room-team") << u"room-team"_s << QStringList{u"room-team"_s};
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
@@ -404,7 +443,7 @@ void RoomTest::shouldParseRoomAndUpdate()
 
     const QString originalJsonFile = QLatin1StringView(RUQOLA_DATA_DIR) + "/room-updated/"_L1 + fileNameinit + ".json"_L1;
     QFile f(originalJsonFile);
-    bool opened = f.open(QIODevice::ReadOnly);
+    const bool opened = f.open(QIODevice::ReadOnly);
     if (!opened) {
         qWarning() << " impossible to open " << originalJsonFile;
     }
@@ -445,14 +484,14 @@ void RoomTest::shouldParseRoomAndUpdateSubscription_data()
     QTest::addColumn<QStringList>("UpdateRoomfileNames");
     QTest::addColumn<QStringList>("UpdateSubscriptionFileNames");
     // Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-roomupdate") << u"notification-room"_s << (QStringList() << u"notification-roomupdate1"_s)
-                                             << (QStringList() << u"notification-roomsubscription1"_s);
+    QTest::newRow("notification-roomupdate") << u"notification-room"_s << QStringList{u"notification-roomupdate1"_s}
+                                             << QStringList{u"notification-roomsubscription1"_s};
 
-    QTest::newRow("room-blocked") << u"room-blocked"_s << (QStringList() << u"room-blockedupdate1"_s) << QStringList();
+    QTest::newRow("room-blocked") << u"room-blocked"_s << QStringList{u"room-blockedupdate1"_s} << QStringList();
 
-    QTest::newRow("room-encryption") << u"room-encryption"_s << (QStringList() << u"room-encryptionupdate1"_s) << QStringList();
+    QTest::newRow("room-encryption") << u"room-encryption"_s << QStringList{u"room-encryptionupdate1"_s} << QStringList();
 
-    QTest::newRow("room-broadcasted") << u"room-broadcasted"_s << (QStringList() << u"room-broadcastedupdate1"_s) << QStringList();
+    QTest::newRow("room-broadcasted") << u"room-broadcasted"_s << QStringList{u"room-broadcastedupdate1"_s} << QStringList();
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription()

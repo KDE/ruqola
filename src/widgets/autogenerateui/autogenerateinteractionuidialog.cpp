@@ -20,7 +20,7 @@ AutoGenerateInteractionUiDialog::AutoGenerateInteractionUiDialog(RocketChatAccou
     connect(mAutoGenerateInteractionUi, &AutoGenerateInteractionUi::submitCalled, this, &AutoGenerateInteractionUiDialog::accept);
     connect(mAutoGenerateInteractionUi, &AutoGenerateInteractionUi::actionChanged, this, &AutoGenerateInteractionUiDialog::slotActionChanged);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
 }
 
 AutoGenerateInteractionUiDialog::~AutoGenerateInteractionUiDialog() = default;

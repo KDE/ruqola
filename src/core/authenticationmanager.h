@@ -32,6 +32,7 @@ public:
     PluginUtilData pluginData;
     PluginAuthentication *plugin = nullptr;
 };
+Q_DECLARE_TYPEINFO(AuthenticationManagerInfo, Q_RELOCATABLE_TYPE);
 
 class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
 {

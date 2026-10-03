@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 AppsMarketPlaceInstalledInfo::AppsMarketPlaceInstalledInfo() = default;
 
-AppsMarketPlaceInstalledInfo::~AppsMarketPlaceInstalledInfo() = default;
-
 QDebug operator<<(QDebug d, const AppsMarketPlaceInstalledInfo &t)
 {
     d.space() << "private" << t.isPrivate();
@@ -36,7 +34,7 @@ bool AppsMarketPlaceInstalledInfo::isValid() const
 bool AppsMarketPlaceInstalledInfo::operator==(const AppsMarketPlaceInstalledInfo &other) const
 {
     return mAppName == other.mAppName && mVersion == other.mVersion && mIsPrivate == other.mIsPrivate && mDescription == other.mDescription
-        && mSupport == other.mSupport && mHomePage == other.mHomePage && mAuthorName == other.mAuthorName && mMigrated == other.migrated()
+        && mSupport == other.mSupport && mHomePage == other.mHomePage && mAuthorName == other.mAuthorName && mMigrated == other.mMigrated
         && mAppId == other.mAppId && mStatus == other.mStatus;
 }
 
@@ -87,7 +85,7 @@ void AppsMarketPlaceInstalledInfo::parseInstalledAppsMarketPlaceInfo(const QJson
     // We need only image info
     baImageBase64.replace("data:image/png;base64,", "");
     if (!baImageBase64.isEmpty() && !mPixmap.loadFromData(QByteArray::fromBase64(baImageBase64), "PNG")) {
-        qCWarning(RUQOLA_LOG) << "Impossible to load pixmap: " << baImageBase64;
+        qCWarning(RUQOLA_LOG) << "Impossible to load pixmap";
     }
 }
 

@@ -13,10 +13,10 @@ ApplicationsSettingsDescriptionWidget::ApplicationsSettingsDescriptionWidget(QWi
     , mTextBrowser(new QTextBrowser(this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTextBrowser->setObjectName("mTextBrowser"_L1);
+    mTextBrowser->setObjectName(u"mTextBrowser"_s);
     mainLayout->addWidget(mTextBrowser);
     mTextBrowser->setOpenExternalLinks(true);
 }

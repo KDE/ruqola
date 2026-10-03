@@ -6,6 +6,7 @@
 
 #include "downloadfilejob.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -30,7 +31,7 @@ bool DownloadFileJob::start()
     mReply = networkAccessManager()->get(request());
     const QByteArray className = metaObject()->className();
     mReply->setProperty("jobClassName", className);
-    addStartRestApiInfo("DownloadFileJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType + " saveAs " + mLocalFileUrl.toEncoded());
+    addStartRestApiInfo("DownloadFileJob: url:"_ba + mUrl.toEncoded() + " mimetype "_ba + mMimeType + " saveAs "_ba + mLocalFileUrl.toEncoded());
     connect(mReply.data(), &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
@@ -42,7 +43,7 @@ void DownloadFileJob::slotDownloadDone()
         const QByteArray data = reply->readAll();
         const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         if (status == 200) {
-            addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
+            addLoggerInfo("DownloadFileJob::slotDownloadDone finished"_ba);
 
             // Split between image/video/audio
             const QString newFilePath = mLocalFileUrl.toLocalFile();
@@ -52,15 +53,16 @@ void DownloadFileJob::slotDownloadDone()
                 file.write(data);
                 file.close();
             } else {
-                qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Error !" << file.errorString();
+                qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Error !" << file.errorString() << " newFilePath " << newFilePath;
             }
             Q_EMIT downloadFileDone(reply->url(), mLocalFileUrl);
         } else {
-            // FIXME
-            // emitFailedMessage(replyObject, reply);
-            addLoggerWarning("DownloadFileJob problem data: [" + data + "] :END");
+            Q_EMIT failed(i18n("Download failed: %1", mUrl.toDisplayString()), reply->errorString());
+            addLoggerWarning("DownloadFileJob problem data: ["_ba + data + "] :END"_ba);
         }
         reply->deleteLater();
+    } else {
+        Q_EMIT failed(i18n("Download failed: %1", mUrl.toDisplayString()), i18n("No reply received"));
     }
     deleteLater();
 }

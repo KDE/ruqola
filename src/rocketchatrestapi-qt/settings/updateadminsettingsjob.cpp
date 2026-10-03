@@ -8,8 +8,6 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include <KLocalizedString>
-
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -29,20 +27,15 @@ bool UpdateAdminSettingsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UpdateAdminSettingsJob::start");
+    addStartRestApiInfo("UpdateAdminSettingsJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void UpdateAdminSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UpdateAdminSettingsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT updateAdminSettingsDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UpdateAdminSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UpdateAdminSettingsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT updateAdminSettingsDone(*replyObject);
     }
 }
 

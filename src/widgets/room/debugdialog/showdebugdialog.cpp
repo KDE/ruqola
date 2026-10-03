@@ -5,16 +5,13 @@
 */
 #include "showdebugdialog.h"
 #include "showdebugwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
-const char myShowDebugDialoggGroupName[] = "ShowDebugDialog";
+const char myShowDebugDialogGroupName[] = "ShowDebugDialog";
 }
 using namespace Qt::Literals::StringLiterals;
 ShowDebugDialog::ShowDebugDialog(QWidget *parent)
@@ -35,10 +32,7 @@ ShowDebugDialog::ShowDebugDialog(QWidget *parent)
     readConfig();
 }
 
-ShowDebugDialog::~ShowDebugDialog()
-{
-    writeConfig();
-}
+ShowDebugDialog::~ShowDebugDialog() = default;
 
 void ShowDebugDialog::setPlainText(const QString &text)
 {
@@ -47,17 +41,7 @@ void ShowDebugDialog::setPlainText(const QString &text)
 
 void ShowDebugDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDebugDialoggGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowDebugDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDebugDialoggGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowDebugDialogGroupName), QSize(400, 300));
 }
 
 #include "moc_showdebugdialog.cpp"

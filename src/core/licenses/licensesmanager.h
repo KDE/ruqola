@@ -6,8 +6,9 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include <QList>
 #include <QMetaType>
-#include <QStringList>
+#include <QString>
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT LicensesManager
 {
@@ -41,11 +42,12 @@ public:
         RCAi,
         RC360Dialog,
         OutboundMessaging,
+        ExperimentalEnterpriseFeatures,
+        ExperimentalFeatures,
     };
     Q_ENUM(ActiveModule)
 
     LicensesManager();
-    ~LicensesManager();
 
     [[nodiscard]] bool hasLicense(LicensesManager::ActiveModule activeModule) const;
 

@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -7,7 +7,6 @@
 #include "createnewdiscussionwidgettest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "dialogs/channelsearchnamelineedit.h"
 #include "dialogs/channelsearchwidget.h"
 #include "dialogs/createnewdiscussionwidget.h"
 #include "misc/adduserswidget.h"
@@ -26,7 +25,7 @@ CreateNewDiscussionWidgetTest::CreateNewDiscussionWidgetTest(QObject *parent)
 
 void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
 {
-    CreateNewDiscussionWidget w(nullptr);
+    const CreateNewDiscussionWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

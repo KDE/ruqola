@@ -28,20 +28,15 @@ bool AddUserToRoleJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("AddUserToRoleJob::start");
+    addStartRestApiInfo("AddUserToRoleJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void AddUserToRoleJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AddUserToRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT addUsersToRoleDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AddUserToRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AddUserToRoleJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT addUsersToRoleDone(*replyObject);
     }
 }
 

@@ -13,8 +13,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ActionButton, Ruqola_ActionButton)
 using namespace Qt::Literals::StringLiterals;
 ActionButton::ActionButton() = default;
 
-ActionButton::~ActionButton() = default;
-
 QByteArray ActionButton::appId() const
 {
     return mAppId;
@@ -77,7 +75,7 @@ void ActionButton::parseActionButton(const QJsonObject &json)
     // TODO variant
 }
 
-ActionButton::Category ActionButton::convertCategoryFromString(const QString &str) const
+ActionButton::Category ActionButton::convertCategoryFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::Category::Unknown;
@@ -91,40 +89,40 @@ ActionButton::Category ActionButton::convertCategoryFromString(const QString &st
     }
 }
 
+namespace
+{
+[[nodiscard]] QStringList convertJsonArrayToStringList(const QJsonArray &array)
+{
+    QStringList list;
+    list.reserve(array.count());
+    for (const auto &r : array) {
+        list.append(r.toString());
+    }
+    return list;
+}
+}
+
 void ActionButton::parseWhen(const QJsonObject &json)
 {
+    mRoomTypeFilters = RoomTypeFilter::Unknown;
     const QJsonArray roomTypes = json["roomTypes"_L1].toArray();
     for (const auto &r : roomTypes) {
         mRoomTypeFilters |= convertRoomTypeFiltersFromString(r.toString());
     }
 
-    const QJsonArray hasOneRole = json["hasOneRole"_L1].toArray();
-    for (const auto &r : hasOneRole) {
-        mHasOneRole.append(r.toString());
-    }
+    mHasOneRole = convertJsonArrayToStringList(json["hasOneRole"_L1].toArray());
+    mHasAllRoles = convertJsonArrayToStringList(json["hasAllRoles"_L1].toArray());
+    mHasOnePermission = convertJsonArrayToStringList(json["hasOnePermission"_L1].toArray());
+    mHasAllPermissions = convertJsonArrayToStringList(json["hasAllPermissions"_L1].toArray());
 
-    const QJsonArray hasAllRoles = json["hasAllRoles"_L1].toArray();
-    for (const auto &r : hasAllRoles) {
-        mHasAllRoles.append(r.toString());
-    }
-
-    const QJsonArray hasOnePermission = json["hasOnePermission"_L1].toArray();
-    for (const auto &r : hasOnePermission) {
-        mHasOnePermission.append(r.toString());
-    }
-
-    const QJsonArray hasAllPermissions = json["hasAllPermissions"_L1].toArray();
-    for (const auto &r : hasAllPermissions) {
-        mHasAllPermissions.append(r.toString());
-    }
-
+    mMessageActionContexts = MessageActionContext::Unknown;
     const QJsonArray messageActionContexts = json["messageActionContext"_L1].toArray();
     for (const auto &r : messageActionContexts) {
         mMessageActionContexts |= convertMessageActionContextsFromString(r.toString());
     }
 }
 
-ActionButton::MessageActionContext ActionButton::convertMessageActionContextsFromString(const QString &str) const
+ActionButton::MessageActionContext ActionButton::convertMessageActionContextsFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::MessageActionContext::Unknown;
@@ -152,7 +150,7 @@ void ActionButton::setCategory(Category newCategory)
     mCategory = newCategory;
 }
 
-ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str) const
+ActionButton::RoomTypeFilter ActionButton::convertRoomTypeFiltersFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::RoomTypeFilter::Unknown;
@@ -221,7 +219,7 @@ void ActionButton::setHasAllRoles(const QStringList &newHasAllRoles)
     mHasAllRoles = newHasAllRoles;
 }
 
-ActionButton::ButtonContext ActionButton::convertContextFromString(const QString &str) const
+ActionButton::ButtonContext ActionButton::convertContextFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return ActionButton::ButtonContext::Unknown;
@@ -244,10 +242,10 @@ ActionButton::ButtonContext ActionButton::convertContextFromString(const QString
 
 bool ActionButton::operator==(const ActionButton &other) const
 {
-    return other.actionId() == actionId() && other.appId() == appId() && other.labelI18n() == labelI18n() && other.roomTypeFilters() == roomTypeFilters()
-        && other.hasOneRole() == hasOneRole() && other.buttonContext() == buttonContext() && other.hasAllRoles() == hasAllRoles()
-        && other.hasAllPermissions() == hasAllPermissions() && other.hasOnePermission() == hasOnePermission()
-        && other.messageActionContexts() == messageActionContexts() && other.category() == category();
+    return other.mActionId == mActionId && other.mAppId == mAppId && other.mLabelI18n == mLabelI18n && other.mRoomTypeFilters == mRoomTypeFilters
+        && other.mHasOneRole == mHasOneRole && other.mButtonContext == mButtonContext && other.mHasAllRoles == mHasAllRoles
+        && other.mHasAllPermissions == mHasAllPermissions && other.mHasOnePermission == mHasOnePermission
+        && other.mMessageActionContexts == mMessageActionContexts && other.mCategory == mCategory;
 }
 
 ActionButton::ButtonContext ActionButton::buttonContext() const

@@ -20,7 +20,7 @@ PersonalAccessTokenAuthenticationConfigWidgetTest::PersonalAccessTokenAuthentica
 
 void PersonalAccessTokenAuthenticationConfigWidgetTest::shouldHaveDefaultValues()
 {
-    PersonalAccessTokenAuthenticationConfigWidget w;
+    const PersonalAccessTokenAuthenticationConfigWidget w;
     auto mUserLineEdit = w.findChild<QLineEdit *>(u"mUserLineEdit"_s);
     QVERIFY(mUserLineEdit);
     QVERIFY(mUserLineEdit->text().isEmpty());

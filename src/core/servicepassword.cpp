@@ -13,11 +13,9 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ServicePassword, Ruqola_ServicePassword)
 using namespace Qt::Literals::StringLiterals;
 ServicePassword::ServicePassword() = default;
 
-ServicePassword::~ServicePassword() = default;
-
 bool ServicePassword::operator==(const ServicePassword &other) const
 {
-    return mEmail2faEnabled == other.email2faEnabled() && mPassword == other.password() && mTotp == other.totp();
+    return mEmail2faEnabled == other.mEmail2faEnabled && mPassword == other.mPassword && mTotp == other.mTotp;
 }
 
 void ServicePassword::parseService(const QJsonObject &replyObject)

@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <QApplication>
 #include <QClipboard>
+#include <QIcon>
 #include <QMenu>
 #include <QTreeWidget>
 #include <QVBoxLayout>
@@ -46,10 +47,16 @@ ExploreAppsTranslationWidget::~ExploreAppsTranslationWidget() = default;
 
 void ExploreAppsTranslationWidget::slotContextMenu(const QPoint &pos)
 {
-    QMenu menu(this);
     const QModelIndex index = mTreeWidget->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [index]() {
-        const QString currentValue = index.data().toString();
+    if (!index.isValid()) {
+        return;
+    }
+    const QString currentValue = index.data().toString();
+    if (currentValue.isEmpty()) {
+        return;
+    }
+    QMenu menu(this);
+    menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [currentValue]() {
         QClipboard *clip = QApplication::clipboard();
         clip->setText(currentValue, QClipboard::Clipboard);
         clip->setText(currentValue, QClipboard::Selection);
@@ -59,17 +66,18 @@ void ExploreAppsTranslationWidget::slotContextMenu(const QPoint &pos)
 
 void ExploreAppsTranslationWidget::setAppsLanguagesInfoMap(const QMap<QString, DownloadAppsLanguagesInfo> &map)
 {
-    for (const auto [key, value] : map.asKeyValueRange()) {
+    mTreeWidget->clear();
+    for (const auto &[appId, info] : map.asKeyValueRange()) {
         auto itemTop = new QTreeWidgetItem(mTreeWidget);
-        itemTop->setText(0, key);
-        const QMap<QString, QMap<QString, QString>> languageMap = value.languageMap();
-        for (const auto [key, value] : languageMap.asKeyValueRange()) {
+        itemTop->setText(0, appId);
+        const QMap<QString, QMap<QString, QString>> languageMap = info.languageMap();
+        for (const auto &[language, translations] : languageMap.asKeyValueRange()) {
             auto itemLang = new QTreeWidgetItem(itemTop);
-            itemLang->setText(0, key);
+            itemLang->setText(0, language);
 
-            for (const auto [key, translation] : value.asKeyValueRange()) {
+            for (const auto &[identifier, translation] : translations.asKeyValueRange()) {
                 auto translateItem = new QTreeWidgetItem(itemLang);
-                translateItem->setText(0, key);
+                translateItem->setText(0, identifier);
                 translateItem->setText(1, translation);
             }
         }

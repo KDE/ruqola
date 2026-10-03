@@ -11,7 +11,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 #include <QNetworkRequest>
 
 using namespace RocketChatRestApi;
@@ -29,7 +28,7 @@ bool ReportMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ReportMessageJob::start");
+    addStartRestApiInfo("ReportMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -37,16 +36,9 @@ bool ReportMessageJob::start()
 
 void ReportMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    Q_UNUSED(replyErrorString)
-    Q_UNUSED(replyJson)
-    auto reply = mReply;
-    if (reply) {
-        const QByteArray data = reply->readAll();
-        addLoggerInfo("ReportMessageJob: success: "_ba + data);
+    if (checkResponse("ReportMessageJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT reportMessageDone();
-        reply->deleteLater();
     }
-    deleteLater();
 }
 
 QString ReportMessageJob::reportMessage() const

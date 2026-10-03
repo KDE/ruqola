@@ -48,16 +48,17 @@ void LinkPreviewCheck::checkState()
     }
     const int rows = model->rowCount();
     for (int row = 0; row < rows; ++row) {
-        const QByteArray messageId = model->messageIdFromIndex(row);
-        const Message message = model->findMessageById(messageId);
+        const Message &message = model->messageAt(row);
         if (message.pendingMessage() || !message.text().contains(mMarker) || !message.urls()) {
             continue;
         }
-        const QList<MessageUrl> urls = message.urls()->messageUrls();
+        const QList<MessageUrl> &urls = message.urls()->messageUrls();
         for (const MessageUrl &url : urls) {
             // A populated preview means the server successfully unfurled the URL
             // (the raw URL is always present; the meta fields only after unfurling).
             if (!url.pageTitle().isEmpty() || !url.description().isEmpty() || !url.siteName().isEmpty()) {
+                // Copy the id out before report*(): the reference points into the model's message list.
+                const QByteArray messageId = message.messageId();
                 reportPassed();
                 deleteTestMessage(messageId);
                 return;

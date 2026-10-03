@@ -9,7 +9,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "commands/listcommandsjob.h"
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>

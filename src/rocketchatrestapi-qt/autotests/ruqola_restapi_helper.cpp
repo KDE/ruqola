@@ -8,10 +8,38 @@
 #include "restapimethod.h"
 #include <QMetaType>
 
+#include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QTest>
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
+namespace
+{
+// A job only stores plain pointers to its RestApiMethod and QNetworkAccessManager, so both must
+// outlive the helper that installs them. Parenting the holder to the job ties their lifetime to
+// the job the caller declared on its own stack.
+class JobEnvironment : public QObject
+{
+public:
+    explicit JobEnvironment(RestApiAbstractJob *job)
+        : QObject(job)
+        , mJob(job)
+    {
+        mMethod.setServerUrl(u"http://www.kde.org"_s);
+        mJob->setRestApiMethod(&mMethod);
+    }
+
+    void installNetworkAccessManager()
+    {
+        mJob->setNetworkAccessManager(new QNetworkAccessManager(this));
+    }
+
+private:
+    RestApiMethod mMethod;
+    RestApiAbstractJob *const mJob;
+};
+}
+
 namespace RuqolaRestApiHelper
 {
 void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
@@ -20,9 +48,7 @@ void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
     const QString userId = u"user"_s;
     job->setUserId(userId);
     job->setAuthToken(authToken);
-    RocketChatRestApi::RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job->setRestApiMethod(&method);
+    new JobEnvironment(job);
     request = job->request();
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::Http2AllowedAttribute).toBool(), true);
@@ -38,5 +64,16 @@ void verifyDefaultValue(RestApiAbstractJob *job)
     QVERIFY(job->authToken().isEmpty());
     QVERIFY(job->userId().isEmpty());
     QVERIFY(!job->restApiLogger());
+}
+
+void verifyNotStartingJob(RestApiAbstractJob *job)
+{
+    auto environment = new JobEnvironment(job);
+    environment->installNetworkAccessManager();
+    QVERIFY(!job->canStart());
+    job->setAuthToken(u"foo"_s);
+    QVERIFY(!job->canStart());
+    job->setUserId(u"foo"_s);
+    QVERIFY(!job->canStart());
 }
 }

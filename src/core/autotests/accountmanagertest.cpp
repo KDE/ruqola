@@ -26,7 +26,7 @@ AccountManagerTest::AccountManagerTest(QObject *parent)
 
 void AccountManagerTest::shouldHaveDefaultValue()
 {
-    AccountManager w;
+    const AccountManager w;
     QVERIFY(w.rocketChatAccountModel());
     QVERIFY(w.rocketChatAccountProxyModel());
     QCOMPARE(w.rocketChatAccountProxyModel()->sourceModel(), w.rocketChatAccountModel());
@@ -116,11 +116,12 @@ void AccountManagerTest::shouldCheckPathsToRemoved_data()
             << t << QStringList({LocalDatabaseUtils::localRoomsDatabasePath(), LocalDatabaseUtils::localMessagesDatabasePath()});
     }
     {
-        AccountManager::MigrateDatabaseTypes t = AccountManager::MigrateDatabaseType::All;
+        const AccountManager::MigrateDatabaseTypes t = AccountManager::MigrateDatabaseType::All;
         QStringList lst;
         lst.append(LocalDatabaseUtils::localRoomsDatabasePath());
         lst.append(LocalDatabaseUtils::localAccountsDatabasePath());
         lst.append(LocalDatabaseUtils::localE2EDatabasePath());
+        lst.append(LocalDatabaseUtils::localE2ERoomsDatabasePath());
         lst.append(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath());
         lst.append(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath());
         lst.append(LocalDatabaseUtils::localMessagesDatabasePath());
@@ -129,11 +130,12 @@ void AccountManagerTest::shouldCheckPathsToRemoved_data()
         QTest::addRow("All") << t << lst;
     }
     {
-        AccountManager::MigrateDatabaseTypes t = AccountManager::MigrateDatabaseType::DatabaseWithoutLogger;
+        const AccountManager::MigrateDatabaseTypes t = AccountManager::MigrateDatabaseType::DatabaseWithoutLogger;
         QStringList lst;
         lst.append(LocalDatabaseUtils::localRoomsDatabasePath());
         lst.append(LocalDatabaseUtils::localAccountsDatabasePath());
         lst.append(LocalDatabaseUtils::localE2EDatabasePath());
+        lst.append(LocalDatabaseUtils::localE2ERoomsDatabasePath());
         lst.append(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath());
         lst.append(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath());
         lst.append(LocalDatabaseUtils::localMessagesDatabasePath());
@@ -141,7 +143,7 @@ void AccountManagerTest::shouldCheckPathsToRemoved_data()
         QTest::addRow("DatabaseWithoutLogger") << t << lst;
     }
     {
-        AccountManager::MigrateDatabaseTypes t = AccountManager::MigrateDatabaseType::DatabaseLogger;
+        const AccountManager::MigrateDatabaseTypes t = AccountManager::MigrateDatabaseType::DatabaseLogger;
         QStringList lst;
         lst.append(LocalDatabaseUtils::localMessageLoggerPath());
         QTest::addRow("Logger") << t << lst;

@@ -15,9 +15,8 @@ AutoGenerateInteractionUiViewImageElement::AutoGenerateInteractionUiViewImageEle
 
 AutoGenerateInteractionUiViewImageElement::~AutoGenerateInteractionUiViewImageElement() = default;
 
-ActionElementWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewImageElement::generateWidget([[maybe_unused]] QWidget *parent)
 {
-    Q_UNUSED(parent)
     // TODO generate image
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewImageElement UI";
     return nullptr;
@@ -25,7 +24,7 @@ ActionElementWidget *AutoGenerateInteractionUiViewImageElement::generateWidget(Q
 
 bool AutoGenerateInteractionUiViewImageElement::operator==(const AutoGenerateInteractionUiViewImageElement &other) const
 {
-    return other.image() == image() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mImage == mImage && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewImageElement::parseElement(const QJsonObject &json)

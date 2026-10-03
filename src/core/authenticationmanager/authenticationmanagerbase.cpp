@@ -6,11 +6,11 @@
 
 #include "authenticationmanager/authenticationmanagerbase.h"
 #include "authenticationmanager/authenticationmanagerutils.h"
+#include "ownuser/ownuser.h"
 #include "ruqola_authentication_debug.h"
 #include "utils.h"
 #include <QJsonArray>
 
-#define sl(x) QStringLiteral(x)
 using namespace Qt::Literals::StringLiterals;
 AuthenticationManagerBase::AuthenticationManagerBase(QObject *parent)
     : QObject{parent}
@@ -81,7 +81,7 @@ void AuthenticationManagerBase::setUserId(const QString &newUserId)
 bool AuthenticationManagerBase::loginPassword(const QString &user, const QString &password)
 {
     if (checkGenericError()) {
-        mLoginStatus = AuthenticationManager::LoggedOut;
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
     }
     return loginImpl(AuthenticationManagerUtils::login(user, password));
 }
@@ -89,7 +89,7 @@ bool AuthenticationManagerBase::loginPassword(const QString &user, const QString
 bool AuthenticationManagerBase::loginLDAP(const QString &user, const QString &password)
 {
     if (checkGenericError()) {
-        mLoginStatus = AuthenticationManager::LoggedOut;
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
     }
     return loginImpl(AuthenticationManagerUtils::loginLdap(user, password));
 }
@@ -97,7 +97,7 @@ bool AuthenticationManagerBase::loginLDAP(const QString &user, const QString &pa
 bool AuthenticationManagerBase::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
     if (checkGenericError()) {
-        mLoginStatus = AuthenticationManager::LoggedOut;
+        setLoginStatus(AuthenticationManager::LoginStatus::LoggedOut);
     }
     return loginImpl(AuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
@@ -116,13 +116,12 @@ QString AuthenticationManagerBase::convertMethodEnumToString(AuthenticationManag
 {
     switch (m) {
     case AuthenticationManagerBase::Method::Login:
-        return sl("login");
     case AuthenticationManagerBase::Method::SendOtp:
-        return sl("login");
+        return u"login"_s;
     case AuthenticationManagerBase::Method::Logout:
-        return sl("logout");
+        return u"logout"_s;
     case AuthenticationManagerBase::Method::LogoutCleanUp:
-        return sl("logoutCleanUp");
+        return u"logoutCleanUp"_s;
     }
     return {};
 }
@@ -142,8 +141,10 @@ bool AuthenticationManagerBase::sendOTP(const QString &otpCode)
     //        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
     //        return;
     //    }
-    callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOtpAuthOngoing);
+    callLoginImpl(AuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload), Method::SendOtp);
     return true;
 }
 
@@ -163,10 +164,12 @@ void AuthenticationManagerBase::logout()
         return;
     }
 
-    const QString params = sl("[]");
+    const QString params = u"[]"_s;
 
-    callLoginImpl(Utils::strToJsonArray(params), Method::Logout);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
+    callLoginImpl(Utils::strToJsonArray(params), Method::Logout);
 }
 
 bool AuthenticationManagerBase::logoutAndCleanup(const OwnUser &ownuser)
@@ -186,10 +189,16 @@ bool AuthenticationManagerBase::logoutAndCleanup(const OwnUser &ownuser)
     }
 
     // Verify if we need more user info.
-    const QString params = sl("[{\"_id\":\"%1\",\"username\":\"%2\"}]").arg(QString::fromLatin1(ownuser.userId()), ownuser.userName());
+    QJsonArray params;
+    QJsonObject obj;
+    obj["_id"_L1] = QString::fromLatin1(ownuser.userId());
+    obj["username"_L1] = ownuser.userName();
+    params.append(std::move(obj));
 
-    callLoginImpl(Utils::strToJsonArray(params), Method::LogoutCleanUp);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LogoutOngoing);
+    callLoginImpl(params, Method::LogoutCleanUp);
     return true;
 }
 
@@ -212,9 +221,28 @@ bool AuthenticationManagerBase::loginImpl(const QJsonArray &params)
     // TODO: sanity checks on params
 
     mLastLoginPayload = params[0].toObject();
-    callLoginImpl(params, Method::Login);
+    // Enter the pending state *before* the call: callLoginImpl() can fail synchronously and reset
+    // the status, and that reset must not be undone when it returns.
     setLoginStatus(AuthenticationManager::LoginStatus::LoginOngoing);
+    callLoginImpl(params, Method::Login);
     return true;
+}
+
+void AuthenticationManagerBase::processMethodRequestFailed(AuthenticationManagerBase::Method method)
+{
+    qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Request failed before reaching the server" << authenticationName() << method;
+    switch (method) {
+    case Method::Login:
+    case Method::SendOtp:
+    case Method::Logout:
+        // Recoverable: go back to a state which lets the user try again.
+        setLoginStatus(AuthenticationManager::LoggedOut);
+        break;
+    case Method::LogoutCleanUp:
+        // Mirror the success path: the account must finish logging out even if the clean up never ran.
+        setLoginStatus(AuthenticationManager::LoggedOutAndCleanedUp);
+        break;
+    }
 }
 
 void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method)
@@ -228,12 +256,12 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
             const QJsonObject result = response["result"_L1].toObject();
             mAuthToken = result["token"_L1].toString();
             mUserId = result["id"_L1].toString();
-            mTokenExpires = result["tokenExpires"_L1].toObject().value(sl("$date")).toDouble();
+            mTokenExpires = result["tokenExpires"_L1].toObject().value(u"$date"_s).toDouble();
             setLoginStatus(AuthenticationManager::LoggedIn);
         }
 
         if (response.contains("error"_L1)) {
-            const QJsonValue errorCode = response["error"_L1].toObject().value(sl("error"));
+            const QJsonValue errorCode = response["error"_L1].toObject().value(u"error"_s);
             qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Login Error: " << response;
             // TODO: to be more user friendly, there would need to be more context
             // in case of a 403 error, as it may be received in different cases:
@@ -243,23 +271,23 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
             if (errorCode.isDouble() && (errorCode.toInt() == 403 || errorCode.toInt() == 401)) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Invalid username or password.";
                 setLoginStatus(AuthenticationManager::LoginFailedInvalidUserOrPassword);
-            } else if (errorCode.isString() && errorCode.toString() == sl("totp-required")) {
+            } else if (errorCode.isString() && errorCode.toString() == u"totp-required"_s) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Two factor authentication is enabled on the server."
                                                      << "A one-time password is required to complete the login procedure.";
                 setLoginStatus(AuthenticationManager::LoginOtpRequired);
-            } else if (errorCode.isString() && errorCode.toString() == sl("totp-invalid")) {
+            } else if (errorCode.isString() && errorCode.toString() == u"totp-invalid"_s) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Invalid OTP code.";
                 setLoginStatus(AuthenticationManager::LoginFailedInvalidOtp);
-            } else if (errorCode.isString() && errorCode.toString() == sl("error-user-is-not-activated")) {
+            } else if (errorCode.isString() && errorCode.toString() == u"error-user-is-not-activated"_s) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "User is not activated.";
                 setLoginStatus(AuthenticationManager::LoginFailedUserNotActivated);
-            } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-ip")) {
+            } else if (errorCode.isString() && errorCode.toString() == u"error-login-blocked-for-ip"_s) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Login has been temporarily blocked For IP.";
                 setLoginStatus(AuthenticationManager::LoginFailedLoginBlockForIp);
-            } else if (errorCode.isString() && errorCode.toString() == sl("error-login-blocked-for-user")) {
+            } else if (errorCode.isString() && errorCode.toString() == u"error-login-blocked-for-user"_s) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Login has been temporarily blocked For User.";
                 setLoginStatus(AuthenticationManager::LoginFailedLoginBlockedForUser);
-            } else if (errorCode.isString() && errorCode.toString() == sl("error-app-user-is-not-allowed-to-login")) {
+            } else if (errorCode.isString() && errorCode.toString() == u"error-app-user-is-not-allowed-to-login"_s) {
                 qCWarning(RUQOLA_AUTHENTICATION_LOG) << "App user is not allowed to login.";
                 setLoginStatus(AuthenticationManager::LoginFailedLoginAppNotAllowedToLogin);
             } else {
@@ -289,7 +317,7 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
     case Method::LogoutCleanUp:
         // Maybe the clean up request payload is corrupted
         if (response.contains("error"_L1)) {
-            const QJsonValue errorCode = response["error"_L1].toObject()[sl("error")];
+            const QJsonValue errorCode = response["error"_L1].toObject()[u"error"_s];
             qCWarning(RUQOLA_AUTHENTICATION_LOG) << "Couldn't clean up on logout. Server response:" << response << " error code " << errorCode;
         }
 
@@ -298,7 +326,5 @@ void AuthenticationManagerBase::processMethodResponseImpl(const QJsonObject &res
     }
     // qDebug() << " result " << response;
 }
-
-#undef sl
 
 #include "moc_authenticationmanagerbase.cpp"

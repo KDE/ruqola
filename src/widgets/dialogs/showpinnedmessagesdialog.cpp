@@ -8,11 +8,8 @@
 
 #include "rocketchataccount.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowPinnedMessagesDialogGroupName[] = "ShowPinnedMessagesDialog";
@@ -26,24 +23,11 @@ ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(RocketChatAccount *account, Q
     readConfig();
 }
 
-ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
-{
-    writeConfig();
-}
+ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog() = default;
 
 void ShowPinnedMessagesDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowPinnedMessagesDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowPinnedMessagesDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowPinnedMessagesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowPinnedMessagesDialogGroupName), QSize(800, 600));
 }
 
 #include "moc_showpinnedmessagesdialog.cpp"

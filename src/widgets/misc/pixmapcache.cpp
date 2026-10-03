@@ -13,21 +13,32 @@ void PixmapCache::setMaxEntries(int maxEntries)
     mCachedImages.setMaxEntries(maxEntries);
 }
 
-QPixmap PixmapCache::pixmapForLocalFile(const QString &path)
+QPixmap PixmapCache::pixmapForLocalFile(const QString &path, qreal devicePixelRatio)
 {
-    auto pixmap = findCachedPixmap(path);
+    return scaledPixmapForLocalFile(path, -1, devicePixelRatio);
+}
 
-    if (pixmap.isNull()) {
-        pixmap = QPixmap(path);
-        if (pixmap.isNull()) {
-            if (QFileInfo(path).isFile()) { // When url needs access it will failed
-                qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path << " from cache";
-            }
-            return pixmap;
-        }
-        insertCachedPixmap(path, pixmap);
+QPixmap PixmapCache::scaledPixmapForLocalFile(const QString &path, int maxSize, qreal devicePixelRatio)
+{
+    const qreal dpr = devicePixelRatio > 0 ? devicePixelRatio : 1.0;
+    const QString key = path + u'\n' + QString::number(maxSize) + u'@' + QString::number(dpr);
+    auto pixmap = findCachedPixmap(key);
+    if (!pixmap.isNull()) {
+        return pixmap;
     }
-
+    pixmap = QPixmap(path);
+    if (pixmap.isNull()) {
+        if (QFileInfo(path).isFile()) { // When url needs access it will failed
+            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path << " from cache";
+        }
+        return pixmap;
+    }
+    if (maxSize > 0) {
+        const int deviceSize = qRound(maxSize * dpr);
+        pixmap = pixmap.scaled(deviceSize, deviceSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    }
+    pixmap.setDevicePixelRatio(dpr);
+    insertCachedPixmap(key, pixmap);
     return pixmap;
 }
 

@@ -10,6 +10,7 @@
 #include "blockaction.h"
 #include "libruqolacore_export.h"
 #include "videoconference/videoconferenceinfo.h"
+class QDebug;
 // packages/ui-kit/src/surfaces/message/UiKitParserMessage.ts
 class LIBRUQOLACORE_EXPORT Block
 {
@@ -30,7 +31,6 @@ public:
     Q_ENUM(BlockType)
 
     Block();
-    ~Block();
     [[nodiscard]] bool operator==(const Block &other) const;
 
     [[nodiscard]] static QJsonObject serialize(const Block &block);
@@ -59,7 +59,7 @@ public:
     [[nodiscard]] VideoConferenceInfo videoConferenceInfo() const;
     void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
-    [[nodiscard]] QList<BlockAction> blockActions() const;
+    [[nodiscard]] const QList<BlockAction> &blockActions() const;
     void setBlockActions(const QList<BlockAction> &newBlockActions);
 
     [[nodiscard]] BlockAccessory blockAccessory() const;
@@ -77,6 +77,5 @@ private:
     VideoConferenceInfo mVideoConferenceInfo;
     BlockAccessory mBlockAccessory;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_RELOCATABLE_TYPE);

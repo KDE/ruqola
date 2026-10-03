@@ -5,6 +5,7 @@
 */
 
 #include "autogenerateinteractionuiviewactionsblock.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewcheckboxelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
@@ -17,12 +18,12 @@
 #include "autogenerateui/elements/autogenerateinteractionuiviewuserselectelement.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
-#include "common/flowlayout.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QLayout>
 #include <QWidget>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 using namespace Qt::Literals::StringLiterals;
 AutoGenerateInteractionUiViewActionsBlock::AutoGenerateInteractionUiViewActionsBlock(QObject *parent)
     : AutoGenerateInteractionUiViewBlockBase(parent)
@@ -43,7 +44,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewActionsBlock &t)
 
 bool AutoGenerateInteractionUiViewActionsBlock::operator==(const AutoGenerateInteractionUiViewActionsBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other);
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && AutoGenerateInteractionUtil::isSerializedEqual(mElements, other.mElements);
 }
 
 void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &json)
@@ -61,43 +62,43 @@ void AutoGenerateInteractionUiViewActionsBlock::parseBlock(const QJsonObject &js
         if (type == "button"_L1) {
             auto e = new AutoGenerateInteractionUiViewButtonElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "checkbox"_L1) {
             auto e = new AutoGenerateInteractionUiViewCheckboxElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "radio_button"_L1) {
             auto e = new AutoGenerateInteractionUiViewRadioButtonElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "toggle_switch"_L1) {
             auto e = new AutoGenerateInteractionUiViewToggleSwitchElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "static_select"_L1) {
             auto e = new AutoGenerateInteractionUiViewStaticSelectElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "overflow"_L1) {
             auto e = new AutoGenerateInteractionUiViewOverflowElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "linear_scale"_L1) {
             auto e = new AutoGenerateInteractionUiViewLinearScaleElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "datepicker"_L1) {
             auto e = new AutoGenerateInteractionUiViewDatePickerElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "time_picker"_L1) {
             auto e = new AutoGenerateInteractionUiViewTimePickerElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else if (type == "users_select"_L1) {
             auto e = new AutoGenerateInteractionUiViewUserSelectElement;
             e->parse(r.toObject());
-            mElements.append(std::move(e));
+            mElements.append(e);
         } else {
             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Unknown elements type " << type;
         }
@@ -127,7 +128,7 @@ QWidget *AutoGenerateInteractionUiViewActionsBlock::generateWidget(QWidget *pare
 {
     auto widget = new QWidget(parent);
     parent->layout()->addWidget(widget);
-    auto hboxLayout = new FlowLayout;
+    auto hboxLayout = new TextAddonsWidgets::TextAddonsWidgetFlowLayout;
     hboxLayout->setContentsMargins({});
     widget->setLayout(hboxLayout);
     for (const auto &e : std::as_const(mElements)) {

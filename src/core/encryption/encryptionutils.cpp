@@ -14,8 +14,38 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QRandomGenerator>
+#include <QUuid>
+#include <openssl/evp.h>
 
 using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+// OpenSSL reads exactly as many bytes as the cipher needs straight from the pointers we hand it,
+// so a QByteArray shorter than that makes it read past the end of the buffer. Every key, IV and
+// ciphertext below can come from the server (a message "iv", a stored private key envelope...),
+// which makes their length something to check rather than to assume.
+[[nodiscard]] bool
+hasExpectedKeyAndIvSize(const char *context, const QByteArray &key, qsizetype expectedKeySize, const QByteArray &iv, qsizetype expectedIvSize)
+{
+    if (key.size() != expectedKeySize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << context << "expected a" << expectedKeySize << "byte key, got" << key.size();
+        return false;
+    }
+    if (iv.size() != expectedIvSize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << context << "expected a" << expectedIvSize << "byte iv, got" << iv.size();
+        return false;
+    }
+    return true;
+}
+
+// AES-CBC and AES-GCM both work on 16-byte blocks.
+constexpr qsizetype aesBlockSize = 16;
+// Rocket.Chat only ever produces the two AES flavours of its ALGORITHM_MAP: AES-GCM with a
+// 256-bit key, and the legacy AES-CBC with a 128-bit one.
+constexpr qsizetype aes256KeySize = 32;
+constexpr qsizetype aes128KeySize = 16;
+}
 
 /**
  * @brief Exports an RSA public key in JWK (JSON Web Key) format.
@@ -55,6 +85,11 @@ using namespace Qt::Literals::StringLiterals;
  */
 QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
 {
+    if (!rsaKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "RSA key is null";
+        return {};
+    }
+
     const BIGNUM *n;
     const BIGNUM *e;
     const BIGNUM *d;
@@ -75,31 +110,96 @@ QByteArray EncryptionUtils::exportJWKPublicKey(RSA *rsaKey)
     const QString eBase64Url = QString::fromLatin1(eBytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
 
     QJsonObject jwkObj;
-    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
-    jwkObj[QStringLiteral("n")] = nBase64Url;
-    jwkObj[QStringLiteral("e")] = eBase64Url;
-    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
-    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("encrypt");
-    jwkObj[QStringLiteral("ext")] = true;
-
-    QJsonDocument doc(jwkObj);
-    return doc.toJson(QJsonDocument::Compact);
-}
-
-QByteArray EncryptionUtils::exportJWKEncryptedPrivateKey(const QByteArray &encryptedPrivateKey)
-{
-    QJsonObject jwkObj;
-    jwkObj[QStringLiteral("kty")] = QStringLiteral("RSA");
-    jwkObj[QStringLiteral("alg")] = QStringLiteral("RSA-OAEP-256");
-    jwkObj[QStringLiteral("key_ops")] = QJsonArray() << QStringLiteral("decrypt");
-    jwkObj[QStringLiteral("ext")] = true;
-
-    // Store the encrypted private key as base64url
-    const QString ePrivKeyBase64Url = QString::fromLatin1(encryptedPrivateKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    jwkObj[QStringLiteral("RSA-EPrivKey")] = ePrivKeyBase64Url;
+    jwkObj["kty"_L1] = u"RSA"_s;
+    jwkObj["n"_L1] = nBase64Url;
+    jwkObj["e"_L1] = eBase64Url;
+    jwkObj["alg"_L1] = u"RSA-OAEP-256"_s;
+    jwkObj["key_ops"_L1] = QJsonArray() << u"encrypt"_s;
+    jwkObj["ext"_L1] = true;
 
     const QJsonDocument doc(jwkObj);
     return doc.toJson(QJsonDocument::Compact);
+}
+
+QByteArray EncryptionUtils::exportJWKPrivateKey(RSA *rsaKey)
+{
+    if (!rsaKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "RSA key is null";
+        return {};
+    }
+
+    const BIGNUM *n = nullptr;
+    const BIGNUM *e = nullptr;
+    const BIGNUM *d = nullptr;
+    RSA_get0_key(rsaKey, &n, &e, &d);
+    if (!n || !e || !d) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "exportJWKPrivateKey: missing required key components";
+        return {};
+    }
+
+    const auto toBase64Url = [](const BIGNUM *bigNumber) -> QString {
+        if (!bigNumber) {
+            return {};
+        }
+        QByteArray bytes(BN_num_bytes(bigNumber), 0);
+        BN_bn2bin(bigNumber, reinterpret_cast<unsigned char *>(bytes.data()));
+        return QString::fromLatin1(bytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    };
+
+    QJsonObject jwkObj;
+    jwkObj["kty"_L1] = u"RSA"_s;
+    jwkObj["n"_L1] = toBase64Url(n);
+    jwkObj["e"_L1] = toBase64Url(e);
+    jwkObj["d"_L1] = toBase64Url(d);
+    // The CRT parameters are optional in JWK but every WebCrypto implementation exports them.
+    const std::pair<const char *, const BIGNUM *> crtParameters[] = {
+        {"p", RSA_get0_p(rsaKey)},
+        {"q", RSA_get0_q(rsaKey)},
+        {"dp", RSA_get0_dmp1(rsaKey)},
+        {"dq", RSA_get0_dmq1(rsaKey)},
+        {"qi", RSA_get0_iqmp(rsaKey)},
+    };
+    for (const auto &[name, value] : crtParameters) {
+        const QString encodedValue = toBase64Url(value);
+        if (!encodedValue.isEmpty()) {
+            jwkObj[QLatin1StringView(name)] = encodedValue;
+        }
+    }
+    jwkObj["alg"_L1] = u"RSA-OAEP-256"_s;
+    jwkObj["key_ops"_L1] = QJsonArray() << u"decrypt"_s;
+    jwkObj["ext"_L1] = true;
+
+    const QJsonDocument doc(jwkObj);
+    return doc.toJson(QJsonDocument::Compact);
+}
+
+QByteArray EncryptionUtils::encryptPrivateKeyV2(const QByteArray &privateKey, const QString &password, const QString &userId)
+{
+    if (privateKey.isEmpty() || password.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptPrivateKeyV2: missing private key or password";
+        return {};
+    }
+    // Port of Rocket.Chat's Keychain::encryptKey().
+    constexpr int iterations = 100000;
+    const QString salt = u"v2:%1:%2"_s.arg(userId, QUuid::createUuid().toString(QUuid::WithoutBraces));
+    const QByteArray masterKey = deriveMasterKey(salt, password, iterations);
+    if (masterKey.isEmpty()) {
+        return {};
+    }
+    // A 12-byte IV is what tells the other clients to read the key back as AES-GCM: a 16-byte one
+    // is understood as the legacy AES-CBC layout.
+    const QByteArray iv = generateRandomIV(12);
+    const QByteArray ciphertext = encryptAES_GCM_256(privateKey, masterKey, iv);
+    if (ciphertext.isEmpty()) {
+        return {};
+    }
+
+    QJsonObject storedKey;
+    storedKey["iv"_L1] = QString::fromLatin1(iv.toBase64());
+    storedKey["ciphertext"_L1] = QString::fromLatin1(ciphertext.toBase64());
+    storedKey["salt"_L1] = salt;
+    storedKey["iterations"_L1] = iterations;
+    return QJsonDocument(storedKey).toJson(QJsonDocument::Compact);
 }
 
 EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
@@ -114,21 +214,48 @@ EncryptionUtils::RSAKeyPair EncryptionUtils::generateRSAKey()
 
     BIO *pubBio = BIO_new(BIO_s_mem());
     BIO *privBio = BIO_new(BIO_s_mem());
+    if (!pubBio || !privBio) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when allocating the key buffers";
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
+        return {};
+    }
 
     const int bits = 2048;
-    const unsigned long e = RSA_F4; // équivalent à 0x10001
+    const unsigned long e = RSA_F4;
 
     bne = BN_new();
+    if (!bne) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when allocating the bne";
+        BN_free(bne);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
+        return {};
+    }
     ret = BN_set_word(bne, e);
     if (ret != 1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when generating exponent";
+        BN_free(bne);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
         return {};
     }
 
     rsa = RSA_new();
+    if (!rsa) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error when allocating the key";
+        BN_free(bne);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
+        return {};
+    }
     ret = RSA_generate_key_ex(rsa, bits, bne, nullptr);
     if (ret != 1) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Error during generate key";
+        BN_free(bne);
+        RSA_free(rsa);
+        BIO_free_all(pubBio);
+        BIO_free_all(privBio);
         return {};
     }
 
@@ -181,8 +308,8 @@ QByteArray EncryptionUtils::encryptPrivateKey(const QByteArray &privateKey, cons
         return {};
     }
 
-    const QByteArray iv = generateRandomIV(16);
-    const QByteArray ciphertext = encryptAES_CBC_256(privateKey, masterKey, iv);
+    QByteArray iv = generateRandomIV(16);
+    QByteArray ciphertext = encryptAES_CBC_256(privateKey, masterKey, iv);
 
     if (ciphertext.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Encryption of the private key failed, cipherText is empty";
@@ -190,8 +317,8 @@ QByteArray EncryptionUtils::encryptPrivateKey(const QByteArray &privateKey, cons
     }
 
     QByteArray encrypted;
-    encrypted.append(iv);
-    encrypted.append(ciphertext);
+    encrypted.append(std::move(iv));
+    encrypted.append(std::move(ciphertext));
 
     return encrypted;
 }
@@ -211,6 +338,7 @@ QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivate
     const QByteArray iv = encryptedPrivateKey.left(16);
     const QByteArray cipherText = encryptedPrivateKey.mid(16);
 
+    // Never log 'iv'/'cipherText'/'masterKey' here: they are the user's private key material.
     if (iv.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Decryption of the private key failed, 'iv' is empty";
         return {};
@@ -220,7 +348,7 @@ QByteArray EncryptionUtils::decryptPrivateKey(const QByteArray &encryptedPrivate
         return {};
     }
 
-    const QByteArray plainText = decryptAES_CBC_256(cipherText, masterKey, iv);
+    QByteArray plainText = decryptAES_CBC_256(cipherText, masterKey, iv);
 
     if (plainText.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Decryption of the cipherText failed, plainText is empty";
@@ -252,50 +380,123 @@ QByteArray EncryptionUtils::getMasterKey(const QString &password, const QString 
         return {};
     }
 
-    const QByteArray masterKey = deriveKey(salt.toUtf8(), password.toUtf8(), 1000, 32);
+    QByteArray masterKey = deriveMasterKey(salt, password, 1000);
     if (masterKey.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Master key derivation failed!";
         return {};
     }
 
     return masterKey;
-
-#if 0
-    async getMasterKey(password: string): Promise<void | CryptoKey> {
-            if (password == null) {
-                    alert('You should provide a password');
-            }
-
-            // First, create a PBKDF2 "key" containing the password
-            let baseKey;
-            try {
-                    baseKey = await importRawKey(toArrayBuffer(password));
-            } catch (error) {
-                    this.setState(E2EEState.ERROR);
-                    return this.error('Error creating a key based on user password: ', error);
-            }
-
-            // Derive a key from the password
-            try {
-                    return await deriveKey(toArrayBuffer(Meteor.userId()), baseKey);
-            } catch (error) {
-                    this.setState(E2EEState.ERROR);
-                    return this.error('Error deriving baseKey: ', error);
-            }
-    }
-    // TODO
-    return {};
-#endif
 }
 
 /**
- * @brief Generates a random 16-byte (128-bit) session key for AES encryption.
+ * @brief Turns a password or a salt into the bytes Rocket.Chat derives keys from.
  *
- * @return A QByteArray containing 16 random bytes suitable for use as an AES-128 session key.
+ * Rocket.Chat feeds PBKDF2 the code units of the string, one byte each (Binary.decode() in its
+ * e2ee/binary.ts), and not its UTF-8 encoding. Both agree for ASCII but part company right after:
+ * 'é' is the single byte 0xE9 there and two bytes in UTF-8, which derives a different master key
+ * and leaves the private key of an account with an accented password impossible to unlock from the
+ * other client.
+ *
+ * @param text The password or salt.
+ * @return Its bytes, or an empty array when a character does not fit in one. Rocket.Chat throws a
+ *         RangeError in that case, so no client can derive a key from such a password: mangling it
+ *         into '?' would only turn that into a key nothing can reproduce.
+ */
+QByteArray EncryptionUtils::keyDerivationBytes(const QString &text)
+{
+    QByteArray bytes;
+    bytes.reserve(text.size());
+    for (const QChar character : text) {
+        if (character.unicode() > 0xFF) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << "keyDerivationBytes: no Rocket.Chat client can derive a key from a text holding this character";
+            return {};
+        }
+        bytes.append(static_cast<char>(character.unicode()));
+    }
+    return bytes;
+}
+
+QByteArray EncryptionUtils::deriveMasterKey(const QString &salt, const QString &password, int iterations)
+{
+    if (password.isEmpty() || salt.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "deriveMasterKey: password or salt is empty";
+        return {};
+    }
+    const QByteArray passwordBytes = keyDerivationBytes(password);
+    const QByteArray saltBytes = keyDerivationBytes(salt);
+    // An empty conversion must never reach PBKDF2: it happily derives a key from no password at all.
+    if (passwordBytes.isEmpty() || saltBytes.isEmpty()) {
+        return {};
+    }
+    return deriveKey(saltBytes, passwordBytes, iterations, 32);
+}
+
+/**
+ * @brief Generates a random 32-byte (256-bit) room session key.
+ *
+ * Rocket.Chat's Aes.generate() creates an AES-GCM-256 key, and the key length is what tells the
+ * other clients which algorithm to import it as ("A256GCM"), so this size is load-bearing.
+ *
+ * @return A QByteArray containing 32 random bytes.
  */
 QByteArray EncryptionUtils::generateSessionKey()
 {
-    return generateRandomIV(16);
+    return generateRandomIV(32);
+}
+
+/**
+ * @brief Converts a raw AES session key to JWK JSON format.
+ *
+ * Rocket.Chat distributes session keys as the RSA-OAEP-encrypted bytes of a JWK
+ * JSON string (not raw key bytes). This function produces the JSON payload that
+ * must be encrypted before sharing with other participants so that both Ruqola
+ * and Rocket.Chat web/mobile clients can import it.
+ *
+ * The key length picks the algorithm, the way Rocket.Chat's ALGORITHM_MAP does: 32 bytes is the
+ * AES-GCM-256 of every room created nowadays, 16 bytes the AES-CBC-128 of the rooms keyed before
+ * the GCM switch. Re-sharing such a legacy key has to keep announcing it as A128CBC, otherwise
+ * the recipient imports it as GCM and can read nothing.
+ *
+ * @param rawKey The raw AES key: 32 bytes (A256GCM) or 16 bytes (A128CBC).
+ * @return JWK JSON bytes, e.g.
+ *   {"k":"<base64url>","alg":"A256GCM","ext":true,"key_ops":["encrypt","decrypt"],"kty":"oct"}
+ */
+QByteArray EncryptionUtils::sessionKeyToJWK(const QByteArray &rawKey)
+{
+    QString algorithm;
+    if (rawKey.size() == 32) {
+        algorithm = u"A256GCM"_s;
+    } else if (rawKey.size() == 16) {
+        algorithm = u"A128CBC"_s;
+    } else {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "sessionKeyToJWK: expected a 16- or 32-byte key, got" << rawKey.size();
+        return {};
+    }
+    QJsonObject jwk;
+    jwk["k"_L1] = QString::fromLatin1(rawKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
+    jwk["alg"_L1] = algorithm;
+    jwk["ext"_L1] = true;
+    jwk["key_ops"_L1] = QJsonArray() << u"encrypt"_s << u"decrypt"_s;
+    jwk["kty"_L1] = u"oct"_s;
+    return QJsonDocument(jwk).toJson(QJsonDocument::Compact);
+}
+
+/**
+ * @brief Generates a room-specific key identifier (keyId).
+ *
+ * Matches Rocket.Chat's e2e.room implementation:
+ *   this.keyID = crypto.randomUUID()
+ *
+ * The keyId is sent to the server via e2e.setRoomKeyID and is prepended to
+ * every encrypted session key shared with room participants. During decryption
+ * the keyId is used to look up the correct room key (current or from oldRoomKeys).
+ *
+ * @return A UUID string without braces, e.g. "550e8400-e29b-41d4-a716-446655440000".
+ */
+QString EncryptionUtils::generateRoomKeyId()
+{
+    return QUuid::createUuid().toString(QUuid::WithoutBraces);
 }
 
 /**
@@ -305,6 +506,11 @@ QByteArray EncryptionUtils::generateSessionKey()
  */
 RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
 {
+    if (pem.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyFromPEM: pem is empty";
+        return nullptr;
+    }
+
     BIO *bio = BIO_new_mem_buf(pem.constData(), pem.size());
     if (!bio) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "BIO_new_mem_buf failed!";
@@ -314,6 +520,7 @@ RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
     RSA *rsa = PEM_read_bio_RSA_PUBKEY(bio, nullptr, nullptr, nullptr);
     if (!rsa) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "PEM_read_bio_RSA_PUBKEY failed!";
+        BIO_free(bio);
         return nullptr;
     }
 
@@ -328,6 +535,11 @@ RSA *EncryptionUtils::publicKeyFromPEM(const QByteArray &pem)
  */
 RSA *EncryptionUtils::privateKeyFromPEM(const QByteArray &pem)
 {
+    if (pem.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyFromPEM: pem is empty";
+        return nullptr;
+    }
+
     BIO *bio = BIO_new_mem_buf(pem.constData(), pem.size());
     if (!bio) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "BIO_new_mem_buf failed!";
@@ -347,103 +559,434 @@ RSA *EncryptionUtils::privateKeyFromPEM(const QByteArray &pem)
 
 QByteArray EncryptionUtils::encryptSessionKey(const QByteArray &sessionKey, RSA *publicKey)
 {
-    QByteArray encryptedSessionKey(RSA_size(publicKey), 0);
-    const int bytes = RSA_public_encrypt(sessionKey.size(),
-                                         reinterpret_cast<const unsigned char *>(sessionKey.constData()),
+    if (sessionKey.isEmpty() || !publicKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key encryption failed: invalid input";
+        return {};
+    }
+
+    const int rsaSize = RSA_size(publicKey);
+    QByteArray padded(rsaSize, 0);
+    if (RSA_padding_add_PKCS1_OAEP_mgf1(reinterpret_cast<unsigned char *>(padded.data()),
+                                        rsaSize,
+                                        reinterpret_cast<const unsigned char *>(sessionKey.constData()),
+                                        sessionKey.size(),
+                                        nullptr,
+                                        0,
+                                        EVP_sha256(),
+                                        EVP_sha256())
+        != 1) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key encryption failed: OAEP-SHA256 padding failed";
+        return {};
+    }
+
+    QByteArray encryptedSessionKey(rsaSize, 0);
+    const int bytes = RSA_public_encrypt(rsaSize,
+                                         reinterpret_cast<const unsigned char *>(padded.constData()),
                                          reinterpret_cast<unsigned char *>(encryptedSessionKey.data()),
                                          publicKey,
-                                         RSA_PKCS1_OAEP_PADDING);
-    if (bytes == -1) {
+                                         RSA_NO_PADDING);
+    if (bytes != rsaSize) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key encryption failed!";
         return {};
     }
+
     encryptedSessionKey.resize(bytes);
     return encryptedSessionKey;
 }
 
 QByteArray EncryptionUtils::decryptSessionKey(const QByteArray &encryptedSessionKey, RSA *privateKey)
 {
-    QByteArray decryptedSessionKey(RSA_size(privateKey), 0);
-    const int bytes = RSA_private_decrypt(encryptedSessionKey.size(),
-                                          reinterpret_cast<const unsigned char *>(encryptedSessionKey.constData()),
-                                          reinterpret_cast<unsigned char *>(decryptedSessionKey.data()),
-                                          privateKey,
-                                          RSA_PKCS1_OAEP_PADDING);
-    if (bytes == -1) {
+    if (encryptedSessionKey.isEmpty() || !privateKey) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed: invalid input" << encryptedSessionKey << " privateKey " << privateKey;
+        return {};
+    }
+
+    const int rsaSize = RSA_size(privateKey);
+    if (encryptedSessionKey.size() != rsaSize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed: encrypted key size" << encryptedSessionKey.size() << "does not match RSA size"
+                                         << rsaSize;
+        return {};
+    }
+
+    QByteArray encoded(rsaSize, 0);
+    const int encodedLen = RSA_private_decrypt(encryptedSessionKey.size(),
+                                               reinterpret_cast<const unsigned char *>(encryptedSessionKey.constData()),
+                                               reinterpret_cast<unsigned char *>(encoded.data()),
+                                               privateKey,
+                                               RSA_NO_PADDING);
+    if (encodedLen != rsaSize) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed!";
         return {};
     }
-    decryptedSessionKey.resize(bytes);
+
+    auto decryptWithHash = [&](const EVP_MD *oaepMd, const EVP_MD *mgf1Md, const char *label) -> QByteArray {
+        QByteArray out(rsaSize, 0);
+        const int decodedLen = RSA_padding_check_PKCS1_OAEP_mgf1(reinterpret_cast<unsigned char *>(out.data()),
+                                                                 out.size(),
+                                                                 reinterpret_cast<const unsigned char *>(encoded.constData()),
+                                                                 encodedLen,
+                                                                 rsaSize,
+                                                                 nullptr,
+                                                                 0,
+                                                                 oaepMd,
+                                                                 mgf1Md);
+        if (decodedLen < 0) {
+            qCDebug(RUQOLA_ENCRYPTION_LOG) << "Session key OAEP decode failed with" << label;
+            return {};
+        }
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "Session key OAEP decode succeeded with" << label << "decodedLen=" << decodedLen;
+        out.resize(decodedLen);
+        return out;
+    };
+
+    // Rocket.Chat uses RSA-OAEP with SHA-256. Some environments encode MGF1
+    // with SHA-1 while keeping OAEP hash at SHA-256, so try both first.
+    QByteArray decryptedSessionKey = decryptWithHash(EVP_sha256(), EVP_sha256(), "oaep=sha256 mgf1=sha256");
+    if (decryptedSessionKey.isEmpty()) {
+        decryptedSessionKey = decryptWithHash(EVP_sha256(), EVP_sha1(), "oaep=sha256 mgf1=sha1");
+    }
+    if (decryptedSessionKey.isEmpty()) {
+        // Backward compatibility for previously stored OAEP-SHA1 ciphertexts.
+        decryptedSessionKey = decryptWithHash(EVP_sha1(), EVP_sha1(), "oaep=sha1 mgf1=sha1");
+    }
+
+    if (decryptedSessionKey.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "Session key decryption failed!";
+    }
     return decryptedSessionKey;
 }
 
-/**
- * @brief Encrypts a message using AES-128-CBC.
- * @param plainText The message to encrypt.
- * @param sessionKey The 16-byte session key.
- * @return The IV prepended to the ciphertext.
- */
-QByteArray EncryptionUtils::encryptMessage(const QByteArray &plainText, const QByteArray &sessionKey)
+QByteArray EncryptionUtils::encryptAES_GCM_256(const QByteArray &plainText, const QByteArray &key, const QByteArray &iv)
 {
     if (plainText.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, plaintext is empty!";
-        return {};
-    }
-    if (sessionKey.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, session key is empty!";
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: plaintext is empty";
         return {};
     }
 
-    const QByteArray iv = generateRandomIV(16);
-    const QByteArray cipherText = encryptAES_CBC_128(plainText, sessionKey, iv);
-
-    if (cipherText.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::encryptMessage, message encryption failed, cipher text is empty!";
+    // The IV length is the one thing AES-GCM takes from the payload (EVP_CTRL_GCM_SET_IVLEN
+    // below), so only the key has a length to enforce here.
+    if (key.size() != aes256KeySize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: expected a" << aes256KeySize << "byte key, got" << key.size();
         return {};
     }
 
-    QByteArray result;
-    result.append(iv);
-    result.append(cipherText);
-    return result;
+    if (iv.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "encryptAES_GCM_256: iv is empty";
+        return {};
+    }
+
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        return {};
+    }
+
+    if (1 != EVP_EncryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, iv.size(), nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1
+        != EVP_EncryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char *>(key.data()), reinterpret_cast<const unsigned char *>(iv.data()))) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    QByteArray ciphertext(plainText.size(), 0);
+    int len = 0;
+    if (1
+        != EVP_EncryptUpdate(ctx,
+                             reinterpret_cast<unsigned char *>(ciphertext.data()),
+                             &len,
+                             reinterpret_cast<const unsigned char *>(plainText.constData()),
+                             plainText.size())) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    int ciphertextLen = len;
+
+    if (1 != EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char *>(ciphertext.data()) + ciphertextLen, &len)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    ciphertextLen += len;
+    ciphertext.resize(ciphertextLen);
+
+    constexpr int tagLen = 16;
+    QByteArray tag(tagLen, 0);
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_GET_TAG, tagLen, tag.data())) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    EVP_CIPHER_CTX_free(ctx);
+    return ciphertext + tag;
+}
+
+QByteArray EncryptionUtils::decryptAES_GCM_256(const QByteArray &ciphertext, const QByteArray &key, const QByteArray &iv)
+{
+    // AES-GCM: Web Crypto appends the 16-byte authentication tag after the ciphertext.
+    constexpr int tagLen = 16;
+    if (ciphertext.size() <= tagLen) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: ciphertext too short";
+        return {};
+    }
+
+    if (key.size() != aes256KeySize) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: expected a" << aes256KeySize << "byte key, got" << key.size();
+        return {};
+    }
+    if (iv.isEmpty()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: iv is empty";
+        return {};
+    }
+
+    const QByteArray data = ciphertext.left(ciphertext.size() - tagLen);
+    const QByteArray tag = ciphertext.right(tagLen);
+
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        return {};
+    }
+
+    if (1 != EVP_DecryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_IVLEN, iv.size(), nullptr)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    if (1
+        != EVP_DecryptInit_ex(ctx, nullptr, nullptr, reinterpret_cast<const unsigned char *>(key.data()), reinterpret_cast<const unsigned char *>(iv.data()))) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    QByteArray plaintext(data.size(), 0);
+    int len = 0;
+    if (1
+        != EVP_DecryptUpdate(ctx,
+                             reinterpret_cast<unsigned char *>(plaintext.data()),
+                             &len,
+                             reinterpret_cast<const unsigned char *>(data.data()),
+                             data.size())) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    int plaintextLen = len;
+
+    if (1 != EVP_CIPHER_CTX_ctrl(ctx, EVP_CTRL_GCM_SET_TAG, tagLen, const_cast<char *>(tag.data()))) {
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+
+    if (EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char *>(plaintext.data()) + plaintextLen, &len) <= 0) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "decryptAES_GCM_256: authentication tag verification failed";
+        EVP_CIPHER_CTX_free(ctx);
+        return {};
+    }
+    plaintextLen += len;
+    plaintext.resize(plaintextLen);
+
+    EVP_CIPHER_CTX_free(ctx);
+    return plaintext;
 }
 
 /**
- * @brief Decrypts a message using AES-128-CBC.
- * @param encrypted The message to decrypt.
- * @param sessionKey The 16-byte session key.
- * @return The decrypted message.
+ * @brief Converts a JWK RSA private key JSON to PEM format.
+ *
+ * Rocket.Chat encrypts the private key as JWK JSON (not PEM). This function
+ * reconstructs the OpenSSL RSA key from the JWK components and serialises it
+ * as a PKCS#1 PEM string so that the rest of the code can use it uniformly.
+ *
+ * @param jwkJson UTF-8 encoded JSON containing at minimum the keys:
+ *        kty, n, e, d, p, q, dp, dq, qi (all base64url-encoded BIGNUMs).
+ * @return PEM-encoded private key, or empty on error.
  */
-QByteArray EncryptionUtils::decryptMessage(const QByteArray &encrypted, const QByteArray &sessionKey)
+QByteArray EncryptionUtils::privateKeyJWKToPEM(const QByteArray &jwkJson)
 {
-    if (encrypted.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, encrypted message is empty!";
+    const QJsonDocument doc = QJsonDocument::fromJson(jwkJson);
+    if (doc.isNull() || !doc.isObject()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: invalid JSON";
         return {};
     }
-    if (sessionKey.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, session key is empty!";
-        return {};
-    }
-
-    const QByteArray iv = encrypted.left(16);
-    const QByteArray cipherText = encrypted.mid(16);
-
-    qDebug() << cipherText << "QByteArray cipherText = encrypted.mid(16)";
-
-    const QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);
-
-    qDebug() << plainText << "QByteArray plainText = decryptAES_CBC_128(cipherText, sessionKey, iv);";
-
-    if (plainText.isEmpty()) {
-        qCWarning(RUQOLA_ENCRYPTION_LOG) << "QByteArray EncryptionUtils::decryptMessage, message decryption failed, plain text is empty";
+    const QJsonObject obj = doc.object();
+    if (obj.value("kty"_L1).toString() != "RSA"_L1) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: not an RSA key";
         return {};
     }
 
-    return plainText;
+    // Helper: base64url → BIGNUM
+    const auto b64urlToBN = [](const QString &b64url) -> BIGNUM * {
+        // Normalise: base64url → standard base64 with padding
+        QString b64 = b64url;
+        b64.replace(u'-', u'+').replace(u'_', u'/');
+        while (b64.size() % 4 != 0) {
+            b64.append(u'=');
+        }
+        const QByteArray bytes = QByteArray::fromBase64(b64.toLatin1());
+        if (bytes.isEmpty()) {
+            return nullptr;
+        }
+        return BN_bin2bn(reinterpret_cast<const unsigned char *>(bytes.constData()), bytes.size(), nullptr);
+    };
+
+    BIGNUM *n = b64urlToBN(obj.value("n"_L1).toString());
+    BIGNUM *e = b64urlToBN(obj.value("e"_L1).toString());
+    BIGNUM *d = b64urlToBN(obj.value("d"_L1).toString());
+    BIGNUM *p = b64urlToBN(obj.value("p"_L1).toString());
+    BIGNUM *q = b64urlToBN(obj.value("q"_L1).toString());
+    BIGNUM *dp = b64urlToBN(obj.value("dp"_L1).toString());
+    BIGNUM *dq = b64urlToBN(obj.value("dq"_L1).toString());
+    BIGNUM *qi = b64urlToBN(obj.value("qi"_L1).toString());
+
+    if (!n || !e || !d) {
+        BN_free(n);
+        BN_free(e);
+        BN_free(d);
+        BN_free(p);
+        BN_free(q);
+        BN_free(dp);
+        BN_free(dq);
+        BN_free(qi);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: missing required key components";
+        return {};
+    }
+
+    RSA *rsa = RSA_new();
+    if (!rsa) {
+        BN_free(n);
+        BN_free(e);
+        BN_free(d);
+        BN_free(p);
+        BN_free(q);
+        BN_free(dp);
+        BN_free(dq);
+        BN_free(qi);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "privateKeyJWKToPEM: unable to allocate the key";
+        return {};
+    }
+    // RSA_set0_* transfers ownership of the BIGNUMs to rsa. The optional groups are all-or-nothing,
+    // so whatever is left over on an incomplete one has to be released here instead of leaking.
+    RSA_set0_key(rsa, n, e, d);
+    if (p && q) {
+        RSA_set0_factors(rsa, p, q);
+    } else {
+        BN_free(p);
+        BN_free(q);
+    }
+    if (dp && dq && qi) {
+        RSA_set0_crt_params(rsa, dp, dq, qi);
+    } else {
+        BN_free(dp);
+        BN_free(dq);
+        BN_free(qi);
+    }
+
+    BIO *bio = BIO_new(BIO_s_mem());
+    if (!bio) {
+        RSA_free(rsa);
+        return {};
+    }
+    PEM_write_bio_RSAPrivateKey(bio, rsa, nullptr, nullptr, 0, nullptr, nullptr);
+
+    BUF_MEM *buf = nullptr;
+    BIO_get_mem_ptr(bio, &buf);
+    const QByteArray pem(buf->data, static_cast<qsizetype>(buf->length));
+
+    BIO_free(bio);
+    RSA_free(rsa);
+    return pem;
+}
+
+/**
+ * @brief Converts a JWK RSA public key JSON to PEM format.
+ *
+ * Rocket.Chat stores public keys as JWK JSON (kty=RSA, with base64url-encoded
+ * n and e fields). This function reconstructs the OpenSSL RSA public key and
+ * serialises it as a SubjectPublicKeyInfo PEM so that publicKeyFromPEM() can
+ * consume it uniformly.
+ *
+ * @param jwkJson UTF-8 encoded JSON containing at minimum: kty, n, e.
+ * @return PEM-encoded public key, or empty on error.
+ */
+QByteArray EncryptionUtils::publicKeyJWKToPEM(const QByteArray &jwkJson)
+{
+    const QJsonDocument doc = QJsonDocument::fromJson(jwkJson);
+    if (doc.isNull() || !doc.isObject()) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: invalid JSON";
+        return {};
+    }
+    const QJsonObject obj = doc.object();
+    if (obj.value("kty"_L1).toString() != "RSA"_L1) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: not an RSA key";
+        return {};
+    }
+
+    const auto b64urlToBN = [](const QString &b64url) -> BIGNUM * {
+        QString b64 = b64url;
+        b64.replace(u'-', u'+').replace(u'_', u'/');
+        while (b64.size() % 4 != 0) {
+            b64.append(u'=');
+        }
+        const QByteArray bytes = QByteArray::fromBase64(b64.toLatin1());
+        if (bytes.isEmpty()) {
+            return nullptr;
+        }
+        return BN_bin2bn(reinterpret_cast<const unsigned char *>(bytes.constData()), bytes.size(), nullptr);
+    };
+
+    BIGNUM *n = b64urlToBN(obj.value("n"_L1).toString());
+    BIGNUM *e = b64urlToBN(obj.value("e"_L1).toString());
+    if (!n || !e) {
+        BN_free(n);
+        BN_free(e);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: missing n or e components";
+        return {};
+    }
+
+    RSA *rsa = RSA_new();
+    if (!rsa) {
+        BN_free(n);
+        BN_free(e);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: unable to allocate the key";
+        return {};
+    }
+    RSA_set0_key(rsa, n, e, nullptr); // transfers ownership
+
+    // Wrap in EVP_PKEY and write as SubjectPublicKeyInfo PEM (BEGIN PUBLIC KEY)
+    EVP_PKEY *pkey = EVP_PKEY_new();
+    if (!pkey) {
+        RSA_free(rsa);
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << "publicKeyJWKToPEM: unable to allocate the key wrapper";
+        return {};
+    }
+    EVP_PKEY_assign_RSA(pkey, rsa); // pkey owns rsa from here
+    BIO *bio = BIO_new(BIO_s_mem());
+    if (!bio) {
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+    PEM_write_bio_PUBKEY(bio, pkey);
+
+    BUF_MEM *buf = nullptr;
+    BIO_get_mem_ptr(bio, &buf);
+    const QByteArray pem(buf->data, static_cast<qsizetype>(buf->length));
+
+    BIO_free(bio);
+    EVP_PKEY_free(pkey);
+    return pem;
 }
 
 QByteArray EncryptionUtils::decryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("decryptAES_CBC_256:", key, aes256KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int plaintext_len;
@@ -489,6 +1032,10 @@ QByteArray EncryptionUtils::decryptAES_CBC_256(const QByteArray &data, const QBy
 
 QByteArray EncryptionUtils::encryptAES_CBC_256(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("encryptAES_CBC_256:", key, aes256KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int ciphertext_len;
@@ -534,6 +1081,10 @@ QByteArray EncryptionUtils::encryptAES_CBC_256(const QByteArray &data, const QBy
 
 QByteArray EncryptionUtils::encryptAES_CBC_128(const QByteArray &data, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("encryptAES_CBC_128:", key, aes128KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int ciphertext_len;
@@ -579,6 +1130,10 @@ QByteArray EncryptionUtils::encryptAES_CBC_128(const QByteArray &data, const QBy
 
 QByteArray EncryptionUtils::decryptAES_CBC_128(const QByteArray &cipherText, const QByteArray &key, const QByteArray &iv)
 {
+    if (!hasExpectedKeyAndIvSize("decryptAES_CBC_128:", key, aes128KeySize, iv, aesBlockSize)) {
+        return {};
+    }
+
     EVP_CIPHER_CTX *ctx;
     int len;
     int plainTextLen;
@@ -640,7 +1195,8 @@ QString EncryptionUtils::generateRandomText(int length)
     const int charSize = characters.size();
 
     for (int i = 0; i < length; ++i) {
-        const int index = QRandomGenerator::global()->bounded(charSize);
+        // system() is the cryptographically secure generator: global() is only securely seeded.
+        const int index = QRandomGenerator::system()->bounded(charSize);
         randomText.append(characters.at(index));
     }
 
@@ -682,212 +1238,31 @@ QByteArray EncryptionUtils::deriveKey(const QByteArray &salt, const QByteArray &
     return derivedKey;
 }
 
-/* QJsonObject EncryptionUtils::exportPublicKeyJWK(const RSA *rsaKey)
-{
-    const BIGNUM *n, *e;
-    RSA_get0_key(rsaKey, &n, &e, nullptr);
-
-    auto b64url = [](const BIGNUM *bn) {
-        QByteArray bytes(BN_num_bytes(bn), 0);
-        BN_bn2bin(bn, reinterpret_cast<unsigned char *>(bytes.data()));
-        return QString::fromLatin1(bytes.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    };
-
-    QJsonObject jwk;
-    jwk["kty"] = "RSA";
-    jwk["n"] = b64url(n);
-    jwk["e"] = b64url(e);
-    jwk["alg"] = "RSA-OAEP-256";
-    jwk["key_ops"] = QJsonArray{"encrypt"};
-    jwk["ext"] = true;
-    return jwk;
-} */
-
-/* QJsonObject EncryptionUtils::exportEncryptedPrivateKeyJWK(const QByteArray &encryptedPrivateKey)
-{
-    QJsonObject jwk;
-    jwk["kty"] = "oct"; // "oct" for a symmetric (opaque) blob
-    jwk["alg"] = "A256CBC"; // or whatever encryption you used
-    jwk["ciphertext"] = QString::fromLatin1(encryptedPrivateKey.toBase64(QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals));
-    jwk["ext"] = true;
-    return jwk;
-}
-
-QJsonObject EncryptionUtils::exportKeyPairJWK(RSA *rsaKey, const QByteArray &encryptedPrivateKey)
-{
-    QJsonObject bundle;
-    bundle["public_key"] = exportPublicKeyJWK(rsaKey);
-    bundle["encrypted_private_key"] = exportEncryptedPrivateKeyJWK(encryptedPrivateKey);
-    return bundle;
-} */
-
-#if 0
-QByteArray aesEncrypt(const QByteArray& plaintext, const QByteArray& key, const QByteArray& iv) {
-    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
-    int len;
-    QByteArray ciphertext(plaintext.size() + AES_BLOCK_SIZE, 0);  // Ciphertext buffer
-
-    if (1 != EVP_EncryptInit_ex(ctx, EVP_aes_256_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(iv.data()))) {
-        qWarning() << "Encryption init failed";
-        return QByteArray();
-    }
-
-    if (1 != EVP_EncryptUpdate(ctx, reinterpret_cast<unsigned char*>(ciphertext.data()), &len, reinterpret_cast<const unsigned char*>(plaintext.data()), plaintext.size())) {
-        qWarning() << "Encryption update failed";
-        return QByteArray();
-    }
-
-    int ciphertext_len = len;
-
-    if (1 != EVP_EncryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(ciphertext.data()) + len, &len)) {
-        qWarning() << "Encryption final failed";
-        return QByteArray();
-    }
-
-    ciphertext_len += len;
-    ciphertext.resize(ciphertext_len);
-
-    EVP_CIPHER_CTX_free(ctx);
-    return ciphertext;
-}
-
-QByteArray aesDecrypt(const QByteArray& ciphertext, const QByteArray& key, const QByteArray& iv) {
-    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
-    int len;
-    QByteArray plaintext(ciphertext.size(), 0);  // Plaintext buffer
-
-    if (1 != EVP_DecryptInit_ex(ctx, EVP_aes_256_cbc(), nullptr, reinterpret_cast<const unsigned char*>(key.data()), reinterpret_cast<const unsigned char*>(iv.data()))) {
-        qWarning() << "Decryption init failed";
-        return QByteArray();
-    }
-
-    if (1 != EVP_DecryptUpdate(ctx, reinterpret_cast<unsigned char*>(plaintext.data()), &len, reinterpret_cast<const unsigned char*>(ciphertext.data()), ciphertext.size())) {
-        qWarning() << "Decryption update failed";
-        return QByteArray();
-    }
-
-    int plaintext_len = len;
-
-    if (1 != EVP_DecryptFinal_ex(ctx, reinterpret_cast<unsigned char*>(plaintext.data()) + len, &len)) {
-        qWarning() << "Decryption final failed";
-        return QByteArray();
-    }
-
-    plaintext_len += len;
-    plaintext.resize(plaintext_len);
-
-    EVP_CIPHER_CTX_free(ctx);
-    return plaintext;
-}
-
-/// TEST
-void aesExample() {
-QByteArray key = deriveKey("mysalt", "mypassword", 1000, 32);  // Derive a key
-QByteArray iv = QByteArray::fromHex("00112233445566778899aabbccddeeff");  // Example IV (16 bytes for AES)
-
-QByteArray plaintext = "Hello, AES CBC Encryption!";
-
-QByteArray ciphertext = aesEncrypt(plaintext, key, iv);
-qDebug() << "Ciphertext:" << ciphertext.toHex();
-
-QByteArray decryptedText = aesDecrypt(ciphertext, key, iv);
-qDebug() << "Decrypted Text:" << decryptedText;
-}
-
-#endif
-
-EncryptionUtils::EncryptionInfo EncryptionUtils::splitVectorAndEcryptedData(const QByteArray &cipherText)
-{
-    EncryptionUtils::EncryptionInfo info;
-    if (!cipherText.isEmpty()) {
-        // TODO add more check
-        info.vector = cipherText.left(16);
-        info.encryptedData = cipherText.last(16);
-    }
-    return info;
-}
-
-QByteArray EncryptionUtils::joinVectorAndEcryptedData(const EncryptionUtils::EncryptionInfo &info)
-{
-    return info.vector + info.encryptedData;
-}
-
-QVector<uint8_t> EncryptionUtils::toArrayBuffer(const QByteArray &ba)
-{
-    const QVector<uint8_t> byteVector(ba.constBegin(), ba.constEnd());
-    return byteVector;
-}
-
-// return crypto.subtle.importKey(
-//         'jwk',
-//         keyData,
-//         {
-//                 name: 'RSA-OAEP',
-//                 modulusLength: 2048,
-//                 publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-//                 hash: { name: 'SHA-256' },
-//         },
-//         true,
-//         keyUsages,
-// );
-void EncryptionUtils::importRSAKey()
-{
-    // TODO
-}
-
-// return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
-void EncryptionUtils::importAESKey()
-{
-#if 0
-    export async function importAESKey(keyData, keyUsages = ['encrypt', 'decrypt']) {
-            return crypto.subtle.importKey('jwk', keyData, { name: 'AES-CBC' }, true, keyUsages);
-    }
-
-#endif
-
-    // TODO
-}
-
-// crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
-QByteArray EncryptionUtils::importRawKey(const QByteArray &keyData, const QByteArray &salt, int iterations)
-{
-#if 0
-    export async function importRawKey(keyData, keyUsages = ['deriveKey']) {
-            return crypto.subtle.importKey('raw', keyData, { name: 'PBKDF2' }, false, keyUsages);
-    }
-#endif
-
-#if 0
-    QByteArray iv = generateRandomIV(16);
-    QByteArray data = generateRandomText(16).toUtf8();
-    QByteArray cipherText = encryptAES_CBC(data, key, iv);
-#endif
-
-    const QByteArray baseKey = deriveKey(keyData, salt, iterations);
-
-    return baseKey;
-}
-
-bool EncryptionUtils::EncryptionInfo::isValid() const
-{
-    return !vector.isEmpty() && !encryptedData.isEmpty();
-}
-
-bool EncryptionUtils::EncryptionInfo::operator==(const EncryptionUtils::EncryptionInfo &other) const
-{
-    return other.vector == vector && other.encryptedData == encryptedData;
-}
-
 QString EncryptionUtils::generateRandomPassword()
 {
     const int numberChar = 30;
+    const QByteArray charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?"_ba;
+    const int charsetSize = charset.size();
+    // A plain 'byte % charsetSize' would favour the first (256 % charsetSize) characters, so drop the
+    // bytes of the incomplete last range instead of folding them back into the charset.
+    const int rejectionLimit = 256 - (256 % charsetSize);
+
     QString randomStr;
-    for (int i = 0; i < numberChar; i++) {
-        const int d = rand() % 200; // Generate a random ASCII value between 0 and 199
-        if (d >= 33 && d <= 123) {
-            randomStr.append(QLatin1Char(static_cast<char>(d))); // Convert the ASCII value to a character for valid range
-        } else {
-            randomStr.append(QString::number(d % 10)); // Keep the last digit for numbers outside the valid range
+    randomStr.reserve(numberChar);
+    while (randomStr.size() < numberChar) {
+        const QByteArray randomBytes = generateRandomIV(numberChar);
+        if (randomBytes.isEmpty()) {
+            return {};
+        }
+        for (const char randomByte : randomBytes) {
+            const int value = static_cast<unsigned char>(randomByte);
+            if (value >= rejectionLimit) {
+                continue;
+            }
+            randomStr.append(QLatin1Char(charset.at(value % charsetSize)));
+            if (randomStr.size() == numberChar) {
+                break;
+            }
         }
     }
     return randomStr;

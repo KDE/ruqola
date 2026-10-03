@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldFindRoles();
     void shouldLoadRoles();
     void shouldLoadRoles_data();
+    void shouldUpdateRoles();
 };

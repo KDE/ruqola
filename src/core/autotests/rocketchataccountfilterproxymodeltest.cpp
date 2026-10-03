@@ -8,15 +8,16 @@
 #include "config-ruqola.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
+#include <QStandardPaths>
 #include <QTest>
 #if HAVE_ACTIVITY_SUPPORT
-#include "activities/activitiesmanager.h"
 #endif
 QTEST_GUILESS_MAIN(RocketChatAccountFilterProxyModelTest)
 
 RocketChatAccountFilterProxyModelTest::RocketChatAccountFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RocketChatAccountFilterProxyModelTest::shouldHaveDefaultValue()

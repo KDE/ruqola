@@ -6,7 +6,6 @@
 
 #include "usersinroomflowwidget.h"
 
-#include "common/flowlayout.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
@@ -16,12 +15,12 @@
 #include "usersinroomlabel.h"
 #include <KLocalizedString>
 #include <QLabel>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
-#define MAX_NUMBER_USER 70
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)
-    , mFlowLayout(new FlowLayout(this))
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout(this))
     , mUsersForRoomFilterProxyModel(new UsersForRoomFilterProxyModel(this))
 {
     mFlowLayout->setObjectName(u"mFlowLayout"_s);
@@ -106,10 +105,20 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
 {
     if (isVisible()) {
         const auto count = mUsersForRoomFilterProxyModel->rowCount();
+        // Batch the whole rebuild to reduce repaint churn/flicker.
+        setUpdatesEnabled(false);
+        // clearAndDeleteWidgets() uses deleteLater(): hide the old widgets first so that they don't
+        // paint over the new ones until the deferred deletion happens.
+        for (int i = 0, nbItems = mFlowLayout->count(); i < nbItems; ++i) {
+            if (QWidget *w = mFlowLayout->itemAt(i)->widget()) {
+                w->hide();
+            }
+        }
         mFlowLayout->clearAndDeleteWidgets();
         mListUsersWidget.clear();
         qCDebug(RUQOLA_USERSINROOMFLOWWIDGETS_LOG) << "mUsersForRoomFilterProxyModel->rowCount() " << count;
         int numberOfUsers = 0;
+        constexpr int MAX_NUMBER_USER = 70;
         for (; numberOfUsers < count && numberOfUsers < MAX_NUMBER_USER; ++numberOfUsers) {
             const auto userModelIndex = mUsersForRoomFilterProxyModel->index(numberOfUsers, 0);
             const QString userDisplayName = userModelIndex.data(UsersForRoomModel::UsersForRoomRoles::DisplayName).toString();
@@ -145,6 +154,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
             connect(openExternalDialogLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadExternalDialog);
             mFlowLayout->addWidget(openExternalDialogLabel);
         }
+        setUpdatesEnabled(true);
     }
 }
 

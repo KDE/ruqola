@@ -27,7 +27,7 @@ bool RoomsUnbanUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsUnbanUserJob::start");
+    addStartRestApiInfo("RoomsUnbanUserJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool RoomsUnbanUserJob::start()
 
 void RoomsUnbanUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsUnbanUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsUnbanUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsUnbanUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsUnbanUserJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -67,7 +61,7 @@ bool RoomsUnbanUserJob::canStart() const
         return false;
     }
     if (!mRoomsUnbanUserInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsUnbanUserJob: mUserName or mRoomId is empty.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsUnbanUserJob: mRoomsUnbanUserInfo is not valid.";
         return false;
     }
 

@@ -16,7 +16,7 @@ AutoGenerateInteractionUiViewDatePickerElementTest::AutoGenerateInteractionUiVie
 
 void AutoGenerateInteractionUiViewDatePickerElementTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewDatePickerElement e;
+    const AutoGenerateInteractionUiViewDatePickerElement e;
     QVERIFY(e.initialDate().isEmpty());
     // TODO
 }

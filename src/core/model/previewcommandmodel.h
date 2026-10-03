@@ -7,6 +7,9 @@
 #include "commands/previewcommand.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
+#include <QHash>
+#include <QPointer>
+class KJob;
 
 class LIBRUQOLACORE_EXPORT PreviewCommandModel : public QAbstractListModel
 {
@@ -23,12 +26,14 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     [[nodiscard]] QList<PreviewCommand> previewCommands() const;
-    void setPreviewCommands(const QList<PreviewCommand> &newPermissions);
+    void setPreviewCommands(QList<PreviewCommand> newPermissions);
     void clear();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void fetchImage(const PreviewCommand &command, int index);
     LIBRUQOLACORE_NO_EXPORT void fetchImages();
+    LIBRUQOLACORE_NO_EXPORT void killPendingJobs();
     QList<PreviewCommand> mPreviewCommands;
-    QMap<QString, QPixmap> mMapUrlToImage;
+    QHash<QString, QPixmap> mMapUrlToImage;
+    QList<QPointer<KJob>> mPendingJobs;
 };

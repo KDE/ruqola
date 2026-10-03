@@ -48,12 +48,12 @@ bool AdminUsersPendingModel::setData(const QModelIndex &id, const QVariant &valu
     return false;
 }
 
-QString AdminUsersPendingModel::createPendingAction(const User &user) const
+QString AdminUsersPendingModel::createPendingAction(const User &user)
 {
     return user.active() ? i18n("User first log in") : i18n("Activation");
 }
 
-QString AdminUsersPendingModel::createPendingButtonText(const User &user) const
+QString AdminUsersPendingModel::createPendingButtonText(const User &user)
 {
     return user.active() ? i18n("Resend Welcome Email") : i18n("Activate");
 }
@@ -133,7 +133,7 @@ QVariant AdminUsersPendingModel::data(const QModelIndex &index, int role) const
     case AdminUsersPendingRoles::UserId:
         return user.userId();
     case AdminUsersPendingRoles::Administrator:
-        return user.roles().contains(u"admin"_s);
+        return user.roles().contains("admin"_L1);
     case AdminUsersPendingRoles::PendingActionInfo:
         return createPendingAction(user);
     case AdminUsersPendingRoles::PendingActionButton:

@@ -40,6 +40,10 @@ ReadReceipt ReadReceipts::at(int index) const
 
 void ReadReceipts::removeAt(int index)
 {
+    if (index < 0 || index >= mReadReceipts.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return;
+    }
     mReadReceipts.removeAt(index);
 }
 
@@ -60,24 +64,26 @@ void ReadReceipts::parseReadReceipts(const QJsonArray &array)
     mReadReceipts.reserve(readReceiptsArrayCount);
     for (auto i = 0; i < readReceiptsArrayCount; ++i) {
         ReadReceipt r;
-        r.parseReadReceiptInfo(array.at(i).toObject());
+        const auto obj = array.at(i).toObject();
+        r.parseReadReceiptInfo(obj);
         if (r.isValid()) {
             mReadReceipts.append(std::move(r));
         } else {
-            qCWarning(RUQOLA_LOG) << "Invalid Read Receipt Info: " << array.at(i).toObject();
+            qCWarning(RUQOLA_LOG) << "Invalid Read Receipt Info: " << obj;
         }
     }
 }
 
 QDebug operator<<(QDebug d, const ReadReceipts &t)
 {
-    for (int i = 0, total = t.readReceipts().count(); i < total; ++i) {
-        d.space() << t.readReceipts().at(i) << "\n";
+    const auto &list = t.readReceipts();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        d.space() << list.at(i) << "\n";
     }
     return d;
 }
 
 bool ReadReceipts::operator==(const ReadReceipts &other) const
 {
-    return readReceipts() == other.readReceipts();
+    return mReadReceipts == other.mReadReceipts;
 }

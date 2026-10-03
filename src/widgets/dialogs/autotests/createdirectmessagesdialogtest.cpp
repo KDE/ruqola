@@ -21,7 +21,7 @@ CreateDirectMessagesDialogTest::CreateDirectMessagesDialogTest(QObject *parent)
 
 void CreateDirectMessagesDialogTest::shouldHaveDefaultValues()
 {
-    CreateDirectMessagesDialog w(nullptr);
+    const CreateDirectMessagesDialog w(nullptr);
 
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

@@ -9,13 +9,10 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfowidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -24,14 +21,14 @@ const char myBannerInfoDialogConfigGroupName[] = "BannerInfoDialog";
 
 BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mBannerInfoWidget(new BannerInfoWidget(account, this))
 {
+    auto bannerInfoWidget = new BannerInfoWidget(account, this);
     setWindowTitle(i18nc("@title:window", "Banner Information"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 
-    mBannerInfoWidget->setObjectName(u"mBannerInfoWidget"_s);
-    mainLayout->addWidget(mBannerInfoWidget);
+    bannerInfoWidget->setObjectName(u"mBannerInfoWidget"_s);
+    mainLayout->addWidget(bannerInfoWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(u"button"_s);
@@ -41,24 +38,11 @@ BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
     readConfig();
 }
 
-BannerInfoDialog::~BannerInfoDialog()
-{
-    writeConfig();
-}
+BannerInfoDialog::~BannerInfoDialog() = default;
 
 void BannerInfoDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myBannerInfoDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void BannerInfoDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myBannerInfoDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myBannerInfoDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_bannerinfodialog.cpp"

@@ -9,16 +9,13 @@
 #include "myaccountconfigurewidget.h"
 #include "rocketchataccount.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
-const char myMyAccountConfigureDialogConfigGroupName[] = "RegisterUserDialog";
+const char myMyAccountConfigureDialogConfigGroupName[] = "MyAccountConfigureDialog";
 }
 
 using namespace Qt::Literals::StringLiterals;
@@ -41,13 +38,11 @@ MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, Q
     connect(button, &QDialogButtonBox::rejected, this, &MyAccountConfigureDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &MyAccountConfigureDialog::slotAccept);
 
+    connect(mMyAccountConfigWidget, &MyAccountConfigureWidget::forceCloseMyAccountDialog, this, &MyAccountConfigureDialog::reject);
     readConfig();
 }
 
-MyAccountConfigureDialog::~MyAccountConfigureDialog()
-{
-    writeConfig();
-}
+MyAccountConfigureDialog::~MyAccountConfigureDialog() = default;
 
 void MyAccountConfigureDialog::initialize()
 {
@@ -63,17 +58,7 @@ void MyAccountConfigureDialog::slotAccept()
 
 void MyAccountConfigureDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myMyAccountConfigureDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void MyAccountConfigureDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myMyAccountConfigureDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myMyAccountConfigureDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_myaccountconfiguredialog.cpp"

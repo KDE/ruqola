@@ -31,7 +31,6 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slot2FAViaTOTPActivated(bool checked);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpResult(const QString &secret, const QString &url);
     QCheckBox *const mActivate2FAViaEmailCheckbox;
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;
@@ -39,4 +38,5 @@ private:
     MyAccount2FaDisableTotpWidget *const mMyAccountDisable2FaTotpWidget;
     QWidget *const mMyAccount2FaEmpty;
     QStackedWidget *const mStackedWidget;
+    bool mChanged = false;
 };

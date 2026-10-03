@@ -29,20 +29,15 @@ bool UsersUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersUpdateJob::start");
+    addStartRestApiInfo("UsersUpdateJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void UsersUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersUpdateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersUpdateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersUpdateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersUpdateDone(*replyObject);
     }
 }
 

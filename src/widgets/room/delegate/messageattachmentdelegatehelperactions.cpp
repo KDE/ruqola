@@ -40,6 +40,7 @@ void MessageAttachmentDelegateHelperActions::draw(const MessageAttachmentActions
                                                   const QStyleOptionViewItem &option) const
 {
     const ActionsLayout layout = layoutActions(act, option, messageRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     for (const auto &button : std::as_const(layout.buttonList)) {
         // Draw button
         const QPen origPen = painter->pen();
@@ -119,7 +120,7 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
                 obj["rid"_L1] = QString::fromLatin1(message->roomId());
                 obj["_id"_L1] = u"foo"_s; // TODO fix me
                 // {\"_id\":\"ocq2cYp9Ekd4W2uEQ\",\"rid\":\"H7Q9djXQ4iShzD9T2jYJat6TN6C3TTSMjk\",\"msg\":\"/auto-reply status\"}
-                params.append(obj);
+                params.append(std::move(obj));
                 const QString methodName = u"sendMessage"_s;
                 const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
                     .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
@@ -145,7 +146,7 @@ bool MessageAttachmentDelegateHelperActions::handleMouseEvent(const MessageAttac
 
 MessageAttachmentDelegateHelperActions::ActionsLayout MessageAttachmentDelegateHelperActions::layoutActions(const MessageAttachmentActions &act,
                                                                                                             const QStyleOptionViewItem &option,
-                                                                                                            [[maybe_unused]] int attachmentsWidth) const
+                                                                                                            [[maybe_unused]] int attachmentsWidth)
 {
     ActionsLayout layout;
 
@@ -153,7 +154,7 @@ MessageAttachmentDelegateHelperActions::ActionsLayout MessageAttachmentDelegateH
     qreal y = 0;
     const MessageAttachmentActions::AlignmentButton alignment = act.alignment();
     const bool horizontal = (alignment == MessageAttachmentActions::AlignmentButton::Horizontal);
-    const auto actions = act.actions();
+    const auto &actions = act.actions();
     for (const auto &action : actions) {
         ButtonLayout buttonLayout;
         buttonLayout.text = action.text();

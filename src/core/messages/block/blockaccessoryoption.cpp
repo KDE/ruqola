@@ -9,8 +9,6 @@
 using namespace Qt::Literals::StringLiterals;
 BlockAccessoryOption::BlockAccessoryOption() = default;
 
-BlockAccessoryOption::~BlockAccessoryOption() = default;
-
 void BlockAccessoryOption::parse(const QJsonObject &obj)
 {
     mValue = obj["value"_L1].toString();
@@ -52,7 +50,7 @@ void BlockAccessoryOption::setValue(const QString &newValue)
 
 bool BlockAccessoryOption::operator==(const BlockAccessoryOption &other) const
 {
-    return mValue == other.value() && mText == other.text();
+    return mValue == other.mValue && mText == other.mText;
 }
 
 QString BlockAccessoryOption::text() const

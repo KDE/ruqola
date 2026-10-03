@@ -12,9 +12,7 @@
 using namespace Qt::Literals::StringLiterals;
 CustomEmoji::CustomEmoji() = default;
 
-CustomEmoji::~CustomEmoji() = default;
-
-bool CustomEmoji::hasEmoji(const QString &identifier) const
+bool CustomEmoji::hasEmoji(QStringView identifier) const
 {
     return (mEmojiIdentifier == identifier) || mAliases.contains(identifier);
 }
@@ -41,9 +39,9 @@ void CustomEmoji::parseEmoji(const QJsonObject &emoji, bool useIsoDate)
     mName = emoji.value("name"_L1).toString();
     mEmojiIdentifier = u':' + mName + u':';
     if (useIsoDate) {
-        mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, emoji);
-    } else {
         mUpdatedAt = Utils::parseIsoDate(u"_updatedAt"_s, emoji);
+    } else {
+        mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, emoji);
     }
     const QJsonArray array = emoji.value("aliases"_L1).toArray();
     const auto arrayCount = array.count();
@@ -160,8 +158,8 @@ QString CustomEmoji::name() const
 
 bool CustomEmoji::operator==(const CustomEmoji &other) const
 {
-    return (mName == other.name()) && (mExtension == other.extension()) && (mIdentifier == other.identifier()) && (mAliases == other.aliases())
-        && (mEmojiIdentifier == other.emojiIdentifier()) && (mUpdatedAt == other.updatedAt());
+    return (mName == other.mName) && (mExtension == other.mExtension) && (mIdentifier == other.mIdentifier) && (mAliases == other.mAliases)
+        && (mEmojiIdentifier == other.mEmojiIdentifier) && (mUpdatedAt == other.mUpdatedAt);
 }
 
 QDebug operator<<(QDebug d, const CustomEmoji &t)

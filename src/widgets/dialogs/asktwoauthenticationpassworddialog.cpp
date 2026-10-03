@@ -17,7 +17,7 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
     : QDialog(parent)
     , mAskTwoAuthicationPasswordWidget(new AskTwoAuthenticationPasswordWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Channel Info"));
+    setWindowTitle(i18nc("@title:window", "Code 2FA"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 

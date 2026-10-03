@@ -26,4 +26,7 @@ private Q_SLOTS:
     void shouldGenerateQuery();
     void shouldGenerateQuery_data();
     void shouldVerifyDbFileName();
+
+    void shouldStoreMessagesInOneBatch();
+    void shouldIgnoreEmptyMessageBatch();
 };

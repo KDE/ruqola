@@ -20,7 +20,7 @@ E2eCopyPasswordWidgetTest::E2eCopyPasswordWidgetTest(QObject *parent)
 
 void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    E2eCopyPasswordWidget w(nullptr);
+    const E2eCopyPasswordWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>("mainLayout"_L1);
     QVERIFY(mainLayout);
@@ -34,7 +34,7 @@ void E2eCopyPasswordWidgetTest::shouldHaveDefaultValues()
     auto passwordLabel = w.findChild<QLabel *>("passwordLabel"_L1);
     QVERIFY(passwordLabel);
     QCOMPARE(passwordLabel->textFormat(), Qt::PlainText);
-    QCOMPARE(passwordLabel->textInteractionFlags(), Qt::TextBrowserInteraction);
+    QCOMPARE(passwordLabel->textInteractionFlags(), Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
     auto passwordLayout = w.findChild<QHBoxLayout *>("passwordLayout"_L1);
     QVERIFY(passwordLayout);

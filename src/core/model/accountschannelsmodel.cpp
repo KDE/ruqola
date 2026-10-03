@@ -161,9 +161,10 @@ void AccountsChannelsModel::mapModelToIndex(QAbstractItemModel *model, const std
     connect(model, &QAbstractItemModel::layoutAboutToBeChanged, this, &AccountsChannelsModel::layoutAboutToBeChanged);
     connect(model, &QAbstractItemModel::layoutChanged, this, &AccountsChannelsModel::layoutChanged);
 
-    connect(model, &QAbstractItemModel::dataChanged, this, [this, model](const QModelIndex &tl, const QModelIndex &br) {
+    connect(model, &QAbstractItemModel::dataChanged, this, [this, model](const QModelIndex &tl, const QModelIndex &br, const QList<int> &roles) {
         const auto parent = modelRoot(model);
-        Q_EMIT dataChanged(index(tl.row(), tl.column(), parent), index(br.row(), br.column(), parent));
+        // Forward the source roles: dropping them made every source update look like "all roles changed".
+        Q_EMIT dataChanged(index(tl.row(), tl.column(), parent), index(br.row(), br.column(), parent), roles);
     });
 
     mProxied.append({model, root});

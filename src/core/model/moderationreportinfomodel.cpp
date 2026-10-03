@@ -27,7 +27,7 @@ QVariant ModerationReportInfoModel::data(const QModelIndex &index, int role) con
     if (index.row() < 0 || index.row() >= mModerationReportInfos.count()) {
         return {};
     }
-    const auto info = mModerationReportInfos.at(index.row());
+    const auto &info = mModerationReportInfos.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case Message:
@@ -51,14 +51,11 @@ void ModerationReportInfoModel::clear()
     }
 }
 
-void ModerationReportInfoModel::addModerationReportInfos(const ModerationReportInfos &moderationReportInfos)
+void ModerationReportInfoModel::addModerationReportInfos(ModerationReportInfos moderationReportInfos)
 {
-    clear();
-    if (!moderationReportInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, moderationReportInfos.count() - 1);
-        mModerationReportInfos = moderationReportInfos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mModerationReportInfos = std::move(moderationReportInfos);
+    endResetModel();
 }
 
 #include "moc_moderationreportinfomodel.cpp"

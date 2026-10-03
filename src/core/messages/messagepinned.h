@@ -8,8 +8,10 @@
 
 #include "libruqolacore_export.h"
 #include <QSharedData>
+#include <memory>
 class QJsonObject;
 
+class QDebug;
 class LIBRUQOLACORE_EXPORT MessagePinned : public QSharedData
 {
 public:
@@ -27,7 +29,7 @@ public:
     void parse(const QJsonObject &o);
 
     [[nodiscard]] static QJsonObject serialize(const MessagePinned &message);
-    [[nodiscard]] static MessagePinned *deserialize(const QJsonObject &o);
+    [[nodiscard]] static std::unique_ptr<MessagePinned> deserialize(const QJsonObject &o);
 
     [[nodiscard]] bool isValid() const;
 
@@ -35,5 +37,4 @@ private:
     QString mPinnedBy;
     bool mPinned = false;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessagePinned &t);

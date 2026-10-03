@@ -48,19 +48,14 @@ bool RoomsMembersOrderedByRoleJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("RoomsMembersOrderedByRoleJob: Ask discussions in room"_ba);
+    addStartRestApiInfo("RoomsMembersOrderedByRoleJob: Ask members ordered by role in room"_ba);
     return true;
 }
 
 void RoomsMembersOrderedByRoleJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsMembersOrderedByRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsMembersOrderedByRoleDone(replyObject, mRoomsMembersOrderedByRoleJobInfo.roomId, mRoomsMembersOrderedByRoleJobInfo.filter);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsMembersOrderedByRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomsMembersOrderedByRoleJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT roomsMembersOrderedByRoleDone(*replyObject, mRoomsMembersOrderedByRoleJobInfo.roomId, mRoomsMembersOrderedByRoleJobInfo.filter);
     }
 }
 

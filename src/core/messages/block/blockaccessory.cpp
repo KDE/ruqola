@@ -12,8 +12,6 @@
 using namespace Qt::Literals::StringLiterals;
 BlockAccessory::BlockAccessory() = default;
 
-BlockAccessory::~BlockAccessory() = default;
-
 bool BlockAccessory::isValid() const
 {
     return !mActionId.isEmpty() && (mType != BlockAccessory::AccessoryType::Unknown);
@@ -61,7 +59,7 @@ QDebug operator<<(QDebug d, const BlockAccessory &t)
 
 bool BlockAccessory::operator==(const BlockAccessory &other) const
 {
-    return other.actionId() == actionId() && other.value() == value() && other.type() == type() && other.options() == options() && other.text() == text();
+    return other.mActionId == mActionId && other.mValue == mValue && other.mType == mType && other.mOptions == mOptions && other.mText == mText;
 }
 
 void BlockAccessory::parseAccessory(const QJsonObject &o)
@@ -74,10 +72,10 @@ void BlockAccessory::parseAccessory(const QJsonObject &o)
     mType = convertAccessoryTypeToEnum(o["type"_L1].toString());
     mText = o["text"_L1]["text"_L1].toString();
     const QJsonArray optionsArray = o["options"_L1].toArray();
+    mOptions.clear();
+    mOptions.reserve(qsizetype(optionsArray.count()));
     for (const auto &r : optionsArray) {
-        BlockAccessoryOption option;
-        option.parse(r.toObject());
-        mOptions.append(option);
+        mOptions.emplace_back().parse(r.toObject());
     }
 }
 
@@ -113,10 +111,10 @@ BlockAccessory BlockAccessory::deserialize(const QJsonObject &o)
     QList<BlockAccessoryOption> options;
     options.reserve(optionsArray.count());
     for (const auto &r : optionsArray) {
-        const BlockAccessoryOption option = BlockAccessoryOption::deserialize(r.toObject());
-        options.append(option);
+        BlockAccessoryOption option = BlockAccessoryOption::deserialize(r.toObject());
+        options.append(std::move(option));
     }
-    accessory.setOptions(std::move(options));
+    accessory.setOptions(options);
     return accessory;
 }
 
@@ -155,7 +153,7 @@ void BlockAccessory::setText(const QString &newText)
     mText = newText;
 }
 
-QList<BlockAccessoryOption> BlockAccessory::options() const
+const QList<BlockAccessoryOption> &BlockAccessory::options() const
 {
     return mOptions;
 }

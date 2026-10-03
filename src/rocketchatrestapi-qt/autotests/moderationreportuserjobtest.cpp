@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "moderation/moderationreportuserjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
@@ -47,8 +46,7 @@ void ModerationReportUserJobTest::shouldGenerateJson()
         const QByteArray reportedUserId("foo2");
         job.setReportedUserId(reportedUserId);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"description":"","userId":"%1"})").arg(QLatin1StringView(reportedUserId)).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"description":"","userId":"%1"})"_s.arg(QLatin1StringView(reportedUserId)).toLatin1());
     }
     {
         ModerationReportUserJob job;
@@ -58,7 +56,7 @@ void ModerationReportUserJobTest::shouldGenerateJson()
         job.setDescription(description);
 
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"description":"%1","userId":"%2"})").arg(description, QLatin1StringView(reportedUserId)).toLatin1());
+                 uR"({"description":"%1","userId":"%2"})"_s.arg(description, QLatin1StringView(reportedUserId)).toLatin1());
     }
 }
 
@@ -66,19 +64,7 @@ void ModerationReportUserJobTest::shouldNotStarting()
 {
     ModerationReportUserJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray reportedUserId("foo2");
     job.setReportedUserId(reportedUserId);
     QVERIFY(!job.canStart());

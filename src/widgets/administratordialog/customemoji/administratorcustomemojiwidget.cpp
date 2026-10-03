@@ -38,7 +38,11 @@ AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount
     mTreeView->setModel(mProxyModelModel);
     hideColumns();
     connectModel();
-    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomEmojiWidget::slotModifyCustomEmoji);
+    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotModifyCustomEmoji(mProxyModelModel->mapToSource(index));
+        }
+    });
 }
 
 AdministratorCustomEmojiWidget::~AdministratorCustomEmojiWidget() = default;
@@ -92,7 +96,7 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
 
 void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 {
-    QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
+    const QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
     if (dlg->exec()) {
         const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info = dlg->info();
 
@@ -103,8 +107,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
         auto job = new RocketChatRestApi::EmojiCustomCreateJob(this);
         job->setEmojiInfo(emojiInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [this](const QJsonObject &replyObject) {
-            Q_UNUSED(replyObject)
+        connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
             // qDebug() << " replyObject " << replyObject;
             initialize(); // No info about updating list without reload it
         });
@@ -117,7 +120,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 
 void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &index)
 {
-    QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
+    const QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
     dlg->setType(AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType::Update);
     AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info;
 

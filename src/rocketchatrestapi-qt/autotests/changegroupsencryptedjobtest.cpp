@@ -46,11 +46,11 @@ void ChangeGroupsEncryptedJobTest::shouldGenerateJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setEncrypted(encrypted);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"encrypted":true,"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"encrypted":true,"roomId":"%1"})"_s.arg(roomId).toLatin1());
 
     encrypted = false;
     job.setEncrypted(encrypted);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"encrypted":false,"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"encrypted":false,"roomId":"%1"})"_s.arg(roomId).toLatin1());
 }
 
 #include "moc_changegroupsencryptedjobtest.cpp"

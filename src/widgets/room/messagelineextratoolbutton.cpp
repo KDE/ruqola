@@ -15,7 +15,7 @@ MessageLineExtraToolButton::MessageLineExtraToolButton(QWidget *parent)
     : QToolButton(parent)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
     , mMenu(new QMenu)
-    , mWebdavAddServerAction(new QAction(i18nc("@action", "Add WebDav Server"), this))
+    , mWebdavAddServerAction(new QAction(i18nc("@action", "Add WebDAV Server"), this))
     , mTimeStampAction(new QAction(i18nc("@action", "Insert TimeStamp"), this))
 {
     setIcon(QIcon::fromTheme(u"list-add"_s));
@@ -53,8 +53,8 @@ void MessageLineExtraToolButton::setCurrentRocketChatAccount(RocketChatAccount *
         connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &MessageLineExtraToolButton::updateWebDavSupport);
         connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &MessageLineExtraToolButton::updateTimeStampSupport);
+        setVisible(mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0));
     }
-    setVisible(mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0));
 
     updateWebDavSupport();
     updateTimeStampSupport();
@@ -70,7 +70,7 @@ void MessageLineExtraToolButton::setRoomId(const QByteArray &roomId)
 
 void MessageLineExtraToolButton::updateWebDavSupport()
 {
-    if (mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
+    if (mCurrentRocketChatAccount && mCurrentRocketChatAccount->ruqolaServerConfig()->webDavEnabled()) {
         mMenu->addAction(mWebdavAddServerAction);
     } else {
         mMenu->removeAction(mWebdavAddServerAction);
@@ -79,10 +79,11 @@ void MessageLineExtraToolButton::updateWebDavSupport()
 
 void MessageLineExtraToolButton::updateTimeStampSupport()
 {
-    if (mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
+    if (mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
         mMenu->addAction(mTimeStampAction);
     } else {
-        if (mCurrentRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
+        if (mCurrentRocketChatAccount
+            && mCurrentRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
             mMenu->addAction(mTimeStampAction);
         } else {
             mMenu->removeAction(mTimeStampAction);
@@ -95,9 +96,6 @@ void MessageLineExtraToolButton::slotActionButtonChanged()
     if (mCurrentRocketChatAccount) {
         const ActionButton::FilterActionInfo filterInfo{.buttonContext = ActionButton::ButtonContext::MessageBoxAction, .roles = {}};
         const QList<ActionButton> actionButtons = mCurrentRocketChatAccount->actionButtonsManager()->actionButtonsFromFilterActionInfo(filterInfo);
-        if (!actionButtons.isEmpty()) {
-            mMenu->addSeparator();
-        }
         // qDebug() << "*************** actionButtons " << actionButtons << "mRoomId  " << mRoomId;
         mActionButtonsGenerator->generateMessageBoxActionButtons(actionButtons, menu(), mRoomId);
         setVisible(!menu()->isEmpty());

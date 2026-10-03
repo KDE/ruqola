@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "custom/customuserstatusdeletejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -44,25 +43,14 @@ void CustomUserStatusDeleteTestJob::shouldGenerateJson()
 
     const QByteArray statusId("foo1");
     job.setCustomUserStatusId(statusId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"customUserStatusId":"%1"})").arg(QLatin1StringView(statusId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"customUserStatusId":"%1"})"_s.arg(QLatin1StringView(statusId)).toLatin1());
 }
 
 void CustomUserStatusDeleteTestJob::shouldNotStarting()
 {
     CustomUserStatusDeleteJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     const QByteArray statusId("foo1");
     job.setCustomUserStatusId(statusId);

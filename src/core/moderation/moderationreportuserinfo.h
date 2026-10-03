@@ -7,13 +7,13 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "user.h"
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT ModerationReportUserInfo
 {
 public:
     ModerationReportUserInfo();
-    ~ModerationReportUserInfo();
     [[nodiscard]] bool operator==(const ModerationReportUserInfo &other) const;
 
     void parseModerationReportUserInfo(const QJsonObject &o);
@@ -43,5 +43,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportUserInfo, Ruqola_ModerationReportUserInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ModerationReportUserInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportUserInfo &t);

@@ -27,20 +27,15 @@ bool User2FAEnableEmailJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("User2FAEnableEmail::start");
+    addStartRestApiInfo("User2FAEnableEmailJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void User2FAEnableEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("User2FAEnableEmail: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("User2FAEnableEmailJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT enableEmailDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("User2FAEnableEmail: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -42,5 +42,5 @@ private:
     struct ContextLayout {
         QList<ButtonLayout> textList;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ContextLayout layoutContext(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT ContextLayout layoutContext(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth);
 };

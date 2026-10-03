@@ -17,7 +17,7 @@ ListMessagesModelTest::ListMessagesModelTest(QObject *parent)
 
 void ListMessagesModelTest::shouldHaveDefaultValues()
 {
-    ListMessagesModel w;
+    const ListMessagesModel w;
     QVERIFY(!w.roomId().isEmpty()); // By default we define a name! Need to fix it
     QVERIFY(!w.loadMoreListMessagesInProgress());
     QCOMPARE(w.listMessageType(), ListMessagesModel::ListMessageType::Unknown);

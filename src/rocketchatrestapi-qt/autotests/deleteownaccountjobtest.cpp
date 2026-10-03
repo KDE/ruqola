@@ -7,7 +7,6 @@
 #include "deleteownaccountjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/deleteownaccountjob.h"
@@ -44,27 +43,14 @@ void DeleteOwnAccountJobTest::shouldGenerateJson()
     DeleteOwnAccountJob job;
     const QString password = u"foo1"_s;
     job.setPassword(password);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"password":"bb4eca334f61af3b67b5d528907d30285151610200539302f4c8cabe66225b53"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"password":"bb4eca334f61af3b67b5d528907d30285151610200539302f4c8cabe66225b53"})"_s.toLatin1());
 }
 
 void DeleteOwnAccountJobTest::shouldNotStarting()
 {
     DeleteOwnAccountJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString password = u"foo1"_s;
     job.setPassword(password);
     QVERIFY(job.canStart());

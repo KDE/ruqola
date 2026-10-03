@@ -5,7 +5,6 @@
 */
 
 #include "createsoundmessagewizardtest.h"
-#include "dialogs/createsoundmessagewizard.h"
 #include <QTest>
 QTEST_MAIN(CreateSoundMessageWizardTest)
 CreateSoundMessageWizardTest::CreateSoundMessageWizardTest(QObject *parent)

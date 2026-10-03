@@ -5,16 +5,15 @@
 */
 
 #include "setuserpublicandprivatekeysjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/setuserpublicandprivatekeysjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(SetUserPublicAndPrivateKeysJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SetUserPublicAndPrivateKeysJobTest::SetUserPublicAndPrivateKeysJobTest(QObject *parent)
     : QObject(parent)
@@ -49,32 +48,18 @@ void SetUserPublicAndPrivateKeysJobTest::shouldGenerateJson()
     info.rsaPrivateKey = rsaprivate;
     info.rsaPublicKey = rsapublic;
     job.setSetUserPublicAndPrivateKeysInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"force":false,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"force":false,"private_key":"%2","public_key":"%1"})"_s.arg(rsapublic, rsaprivate).toLatin1());
 
     info.force = true;
     job.setSetUserPublicAndPrivateKeysInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"force":true,"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"force":true,"private_key":"%2","public_key":"%1"})"_s.arg(rsapublic, rsaprivate).toLatin1());
 }
 
 void SetUserPublicAndPrivateKeysJobTest::shouldNotStarting()
 {
     SetUserPublicAndPrivateKeysJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysInfo info;
     const QString rsapublic = u"foo1"_s;

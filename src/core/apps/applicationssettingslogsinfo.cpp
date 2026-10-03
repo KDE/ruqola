@@ -16,24 +16,22 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(ApplicationsSettingsLogsInfo, Ruqola_Applications
 
 ApplicationsSettingsLogsInfo::ApplicationsSettingsLogsInfo() = default;
 
-ApplicationsSettingsLogsInfo::~ApplicationsSettingsLogsInfo() = default;
-
 void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
 {
     mMethod = obj["method"_L1].toString();
     mTotalTime = obj["totalTime"_L1].toInteger();
     mCreatedAt = QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(u"_createdAt"_s, obj), QTimeZone::utc());
     const QJsonArray array = obj["entries"_L1].toArray();
-    for (const QJsonValue &current : array) {
-        ApplicationsSettingsLogsInfo::LogsArgument log;
-        log.parseArguments(current.toObject());
-        mArguments.append(log);
+    mArguments.clear();
+    mArguments.reserve(array.count());
+    for (const auto &current : array) {
+        mArguments.emplace_back().parseArguments(current.toObject());
     }
 }
 
 bool ApplicationsSettingsLogsInfo::operator==(const ApplicationsSettingsLogsInfo &other) const
 {
-    return mMethod == other.method() && mArguments == other.arguments() && mCreatedAt == other.createdAt() && mTotalTime == other.totalTime();
+    return mMethod == other.mMethod && mArguments == other.mArguments && mCreatedAt == other.mCreatedAt && mTotalTime == other.mTotalTime;
 }
 
 QList<ApplicationsSettingsLogsInfo::LogsArgument> ApplicationsSettingsLogsInfo::arguments() const
@@ -92,7 +90,7 @@ void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObjec
     severity = obj["severity"_L1].toString(); // TODO convert to enum !!!
     const QJsonArray arrayArgs = obj["args"_L1].toArray();
     const QJsonDocument r(arrayArgs);
-    args = r.toJson().replace("\n", "<br/>").replace(" ", "&nbsp;");
+    args = r.toJson().replace("\n"_ba, "<br/>"_ba).replace(" "_ba, "&nbsp;"_ba);
 }
 
 bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const

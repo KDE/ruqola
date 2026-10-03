@@ -6,6 +6,7 @@
  *
  */
 
+#include <QHash>
 #include <QModelIndex>
 
 #include <QTimeZone>
@@ -21,6 +22,8 @@
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
 #include "utils.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 
 #include <KLocalizedString>
 
@@ -37,7 +40,6 @@ MessagesModel::MessagesModel(const QByteArray &roomID, RocketChatAccount *accoun
     if (mRoom) {
         connect(mRoom, &Room::rolesChanged, this, &MessagesModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessagesModel::refresh);
-        connect(mRoom, &Room::highlightsWordChanged, this, &MessagesModel::refresh);
     }
 }
 
@@ -81,6 +83,15 @@ Message MessagesModel::findNextMessageAfter(const QByteArray &messageId, const s
     return it == mAllMessages.end() ? Message() : *it;
 }
 
+const Message &MessagesModel::messageAt(int index) const
+{
+    if (index >= 0 && index < mAllMessages.count()) {
+        return mAllMessages.at(index);
+    }
+    static const Message dummy;
+    return dummy;
+}
+
 Message MessagesModel::findMessageById(const QByteArray &messageId) const
 {
     auto it = findMessage(messageId);
@@ -97,7 +108,7 @@ QModelIndex MessagesModel::indexForMessage(const QByteArray &messageId) const
     return idx;
 }
 
-QByteArray MessagesModel::messageIdFromIndex(int rowIndex)
+QByteArray MessagesModel::messageIdFromIndex(int rowIndex) const
 {
     if (rowIndex >= 0 && rowIndex < mAllMessages.count()) {
         return mAllMessages.at(rowIndex).messageId();
@@ -125,7 +136,16 @@ qint64 MessagesModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
         // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
-        return mAllMessages.constFirst().timeStamp();
+        return mAllMessages.at(mAllMessages.count() - 1).timeStamp();
+    } else {
+        return 0;
+    }
+}
+
+qint64 MessagesModel::lastUpdatedAtTimestamp() const
+{
+    if (!mAllMessages.isEmpty()) {
+        return mAllMessages.at(mAllMessages.count() - 1).updatedAt();
     } else {
         return 0;
     }
@@ -135,7 +155,7 @@ qint64 MessagesModel::firstTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
         // qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
-        return mAllMessages.at(mAllMessages.count() - 1).timeStamp();
+        return mAllMessages.constFirst().timeStamp();
     } else {
         return 0;
     }
@@ -162,13 +182,19 @@ void MessagesModel::addMessage(const Message &message)
         const QModelIndex index = createIndex(rowNumber, 0);
         Q_EMIT dataChanged(index, index, roles);
     };
+    decryptMessage(message);
 
     // When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
+        if (message.pendingMessage()) {
+            // If we already have a message and we must add pending message it's that server
+            // send quickly new message => replace not it by a pending message
+            return;
+        }
         (*mAllMessages.begin()) = message;
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update first message";
         emitChanged(0, {OriginalMessageOrAttachmentDescription});
-    } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
+    } else if (it != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId()) {
         qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "Update message: " << message.text();
         if (message.pendingMessage()) {
             // If we already have a message and we must add pending message it's that server
@@ -188,18 +214,75 @@ void MessagesModel::addMessage(const Message &message)
 
 void MessagesModel::addMessagesSyncAfterLoadingFromDatabase(QList<Message> messages)
 {
-    if (messages.count() > 50) {
-        beginResetModel();
-        std::sort(messages.begin(), messages.end(), compareTimeStamps);
-        const QList<Message> reducedMessageList = messages.mid(messages.count() - 50);
-        mAllMessages = reducedMessageList;
-        endResetModel();
-    } else {
-        // TODO optimize this case as well?RUQOLA_LAST_SEENDATE_LOG
+    if (messages.isEmpty()) {
+        return;
+    }
+    if (messages.count() <= 50) {
+        // TODO optimize this case as well?
         for (const Message &message : messages) {
             addMessage(message);
         }
+        return;
     }
+
+    // Same merge as above, but announced as a single reset instead of one signal per message. It
+    // used to assign the incoming list straight to mAllMessages, which threw away everything the
+    // room had already loaded - the page read from the local database and whatever the user had
+    // scrolled up to - so part of the history vanished as soon as the server reported more than 50
+    // updated messages. "updated" also carries edits of old messages, so the 50 that were kept were
+    // not even a contiguous page of history.
+    decryptMessageList(messages);
+
+    QHash<QByteArray, int> rowForMessageId;
+    rowForMessageId.reserve(mAllMessages.count());
+    for (int row = 0, total = mAllMessages.count(); row < total; ++row) {
+        rowForMessageId.insert(mAllMessages.at(row).messageId(), row);
+    }
+
+    struct PendingUpdate {
+        int row = -1; // in mAllMessages
+        int index = -1; // in messages
+    };
+    QList<PendingUpdate> updates;
+    QList<Message> newMessages;
+    newMessages.reserve(messages.count());
+    for (int index = 0, total = messages.count(); index < total; ++index) {
+        const Message &message = messages.at(index);
+        const auto it = rowForMessageId.constFind(message.messageId());
+        if (it == rowForMessageId.cend()) {
+            newMessages.append(message);
+        } else if (!message.pendingMessage()) {
+            // Same rule as addMessage(): a pending message must not overwrite the one the server
+            // has already sent back.
+            updates.append(PendingUpdate{.row = it.value(), .index = index});
+        }
+    }
+
+    if (updates.isEmpty() && newMessages.isEmpty()) {
+        return;
+    }
+
+    const auto applyUpdates = [this, &messages, &updates] {
+        for (const auto &[row, index] : updates) {
+            mAllMessages[row] = messages.at(index);
+        }
+    };
+
+    if (newMessages.isEmpty()) {
+        // Nothing to insert: keep the rows in place so the view doesn't lose its scroll position.
+        applyUpdates();
+        for (const auto &[row, index] : updates) {
+            const QModelIndex idx = createIndex(row, 0);
+            Q_EMIT dataChanged(idx, idx, {OriginalMessageOrAttachmentDescription});
+        }
+        return;
+    }
+
+    beginResetModel();
+    applyUpdates();
+    mAllMessages += newMessages;
+    std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
+    endResetModel();
 }
 
 void MessagesModel::addMessages(const QList<Message> &messages, bool insertListMessages)
@@ -208,11 +291,13 @@ void MessagesModel::addMessages(const QList<Message> &messages, bool insertListM
         return;
     }
     if (mAllMessages.isEmpty()) {
+        decryptMessageList(messages);
         beginInsertRows(QModelIndex(), 0, messages.count() - 1);
         mAllMessages = messages;
         std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
         endInsertRows();
     } else if (insertListMessages) {
+        decryptMessageList(messages);
         beginResetModel();
         mAllMessages += messages;
         std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
@@ -271,9 +356,9 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::Attachments: {
         QVariantList lst;
         if (message.attachments()) {
-            lst.reserve(message.attachments()->messageAttachments().count());
-            const auto attaches = message.attachments()->messageAttachments();
-            for (const MessageAttachment &att : attaches) {
+            const auto &atts = message.attachments()->messageAttachments();
+            lst.reserve(atts.count());
+            for (const MessageAttachment &att : atts) {
                 lst.append(QVariant::fromValue(att));
             }
         }
@@ -282,8 +367,8 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::Urls: {
         QVariantList lst;
         if (message.urls()) {
-            lst.reserve(message.urls()->messageUrls().count());
-            const auto urls = message.urls()->messageUrls();
+            const auto &urls = message.urls()->messageUrls();
+            lst.reserve(urls.count());
             for (const MessageUrl &url : urls) {
                 lst.append(QVariant::fromValue(url));
             }
@@ -291,19 +376,15 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
         return lst;
     }
     case MessagesModel::Date: {
-        const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
-        return QLocale().toString(currentDate.date());
+        return QLocale().toString(message.localDate());
     }
     case MessagesModel::DateDiffersFromPrevious:
         if (idx > 0) {
-            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp(), QTimeZone::systemTimeZone());
-            const Message &previousMessage = mAllMessages.at(idx - 1);
-            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp(), QTimeZone::systemTimeZone());
-            return currentDate.date() != previousDate.date();
+            return message.localDate() != mAllMessages.at(idx - 1).localDate();
         }
         return true; // show date at the top
     case MessagesModel::CanEditMessage:
-        return mRocketChatAccount && mRocketChatAccount->isMessageEditable(message); // && mRoom && mRoom->hasPermission(u"edit-message"_s);
+        return mRocketChatAccount && mRocketChatAccount->isMessageEditable(message); // && mRoom && mRoom->hasPermission(u"edit-message");
     case MessagesModel::CanDeleteMessage:
         return mRocketChatAccount && mRocketChatAccount->isMessageDeletable(message);
     case MessagesModel::Starred:
@@ -322,7 +403,7 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     case MessagesModel::Reactions: {
         QVariantList lst;
         if (auto reactionsMessages = message.reactions()) {
-            const auto reactions = reactionsMessages->reactions();
+            const auto &reactions = reactionsMessages->reactions();
             lst.reserve(reactions.count());
             for (const Reaction &react : reactions) {
                 // Convert reactions
@@ -421,25 +502,81 @@ void MessagesModel::generateText(const Message &message, const QString &searchTe
     // mNumberOfTextSearched = numberOfTextSearched;
 }
 
+void MessagesModel::decryptMessage(const Message &message) const
+{
+    if (!mRoom) {
+        return;
+    }
+    // Every message names the room key it was encrypted with: after the room was re-keyed the
+    // current key only fits the recent ones, the older ones need the key of their own era.
+    if (auto f = message.messageEncrypted()) {
+        if (const auto sessionKey = mRoom->sessionKeyForKeyId(QString::fromLatin1(f->keyId())); !sessionKey.isEmpty()) {
+            f->decryptContent(sessionKey);
+        }
+    }
+}
+
+void MessagesModel::decryptMessageList(const QList<Message> &messages) const
+{
+    if (!mRoom) {
+        return;
+    }
+    for (const Message &message : messages) {
+        decryptMessage(message);
+    }
+}
+
+void MessagesModel::decryptMessages()
+{
+    if (!mRoom) {
+        return;
+    }
+    // The session keys usually arrive after the messages have been loaded and painted, so the rows
+    // that just became readable must be announced, otherwise they keep showing the encrypted text.
+    for (int row = 0, total = mAllMessages.count(); row < total; ++row) {
+        // QList::at() hands out a const reference on purpose: decryptContent() only fills the
+        // mutable decrypted members of the shared MessageEncrypted, no detach needed here.
+        if (auto f = mAllMessages.at(row).messageEncrypted()) {
+            const auto sessionKey = mRoom->sessionKeyForKeyId(QString::fromLatin1(f->keyId()));
+            if (sessionKey.isEmpty()) {
+                continue;
+            }
+            f->decryptContent(sessionKey);
+            // One signal per row: the view drops its text/size-hint cache for topLeft only.
+            const QModelIndex idx = createIndex(row, 0);
+            Q_EMIT dataChanged(idx, idx, {OriginalMessageOrAttachmentDescription});
+        }
+    }
+}
+
+void MessagesModel::changeLocalTranslation(const QByteArray &messageId, const QString &result)
+{
+    const QModelIndex index = indexForMessage(messageId);
+    setData(index, result, MessagesModel::LocalTranslation);
+}
+
 QString MessagesModel::convertedText(const Message &message, const QString &searchedText) const
 {
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
     } else if (message.messageType() == Message::EncryptedText) {
-        // TODO allow to decrypt message
+        if (message.messageEncrypted()) {
+            const QString text = message.messageEncrypted()->descriptedText();
+            if (!text.isEmpty()) {
+                return text;
+            }
+        }
         return message.systemMessageText();
     } else {
-        QStringList highlightWords;
         if (mRoom) {
             if (mRoom->channelType() != Room::RoomType::Direct) { // We can't ignore message but we can block user in direct message
                 if (mRoom->userIsIgnored(message.userId()) && !message.showIgnoredMessage()) {
                     return QString(u"<i>"_s + i18n("Ignored Message") + u"</i>"_s);
                 }
             }
-            highlightWords = mRoom->highlightsWord();
         }
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-        const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
+        const auto highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{};
         int numberOfTextSearched = 0;
         int hightLightStringIndex = 0;
         const QString convertedMessage{convertMessageText(message, userName, highlightWordsLst, searchedText, numberOfTextSearched, hightLightStringIndex)};
@@ -465,11 +602,11 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
         if (message.attachments()) {
             auto attachments = message.attachments()->messageAttachments();
             for (int i = 0, total = attachments.count(); i < total; ++i) {
-                const MessageAttachment att = attachments.at(i);
+                const MessageAttachment &att = attachments.at(i);
                 if (att.attachmentId() == visibility.elementId) {
                     MessageAttachment changeAttachment = attachments.takeAt(i);
                     changeAttachment.setShowAttachment(visibility.show);
-                    attachments.insert(i, changeAttachment);
+                    attachments.insert(i, std::move(changeAttachment));
                     break;
                 }
             }
@@ -487,11 +624,11 @@ bool MessagesModel::setData(const QModelIndex &index, const QVariant &value, int
         if (message.urls()) {
             auto urls = message.urls()->messageUrls();
             for (int i = 0, total = urls.count(); i < total; ++i) {
-                const MessageUrl att = urls.at(i);
+                const MessageUrl &att = urls.at(i);
                 if (att.urlId() == visibility.elementId) {
                     MessageUrl changeUrlPreview = urls.takeAt(i);
                     changeUrlPreview.setShowPreview(visibility.show);
-                    urls.insert(i, changeUrlPreview);
+                    urls.insert(i, std::move(changeUrlPreview));
                     break;
                 }
             }
@@ -544,7 +681,7 @@ QStringList MessagesModel::roomRoles(const QByteArray &userId) const
 
 QString MessagesModel::convertMessageText(const Message &message,
                                           const QString &userName,
-                                          const QStringList &highlightWords,
+                                          const QList<QRegularExpression> &highlightWords,
                                           const QString &searchedText,
                                           int &numberOfTextSearched,
                                           int hightLightStringIndex) const
@@ -565,7 +702,7 @@ QString MessagesModel::convertMessageText(const Message &message,
                         messageTranslation = message.messageTranslation()->translatedStringFromLanguage(mRoom->autoTranslateLanguage());
                     }
                     if (!messageTranslation.isEmpty()) {
-                        messageStr = messageTranslation;
+                        messageStr = std::move(messageTranslation);
                     } else if (!message.localTranslation().isEmpty()) {
                         messageStr = message.localTranslation();
                     }
@@ -611,6 +748,7 @@ bool MessagesModel::isEmpty() const
 void MessagesModel::clear()
 {
     mSearchText.clear();
+    mHighlightSearchStringIndexInMessage.clear();
     if (rowCount() != 0) {
         beginResetModel();
         mAllMessages.clear();
@@ -634,14 +772,14 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
             != msgAttachments.end();
     };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
-        if (msg.attachments() && !msg.attachments()->messageAttachments().isEmpty()) {
+        if (msg.attachments() && !msg.attachments()->isEmpty()) {
             if (matchesFilePath(msg.attachments()->messageAttachments())) {
                 matchedAttachment = true;
                 return true;
             }
         }
         if (auto urls = msg.urls()) {
-            const auto messageUrls = urls->messageUrls();
+            const auto &messageUrls = urls->messageUrls();
             for (const MessageUrl &url : messageUrls) {
                 const QString imageUrl = url.buildImageUrl();
                 if (!imageUrl.isEmpty() && mRocketChatAccount->urlForLink(imageUrl).path() == filePath) {
@@ -652,7 +790,7 @@ void MessagesModel::slotFileDownloaded(const QString &filePath, const QUrl &cach
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();
         if (auto reactionsMessages = msg.reactions()) {
-            const auto reactions = reactionsMessages->reactions();
+            const auto &reactions = reactionsMessages->reactions();
             for (const Reaction &reaction : reactions) {
                 const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
                 if (!fileName.isEmpty() && mRocketChatAccount->urlForLink(fileName).path() == filePath) {
@@ -724,7 +862,7 @@ QString MessagesModel::threadMessagePreview(const QByteArray &threadMessageId) c
             int hightLightStringIndex = 0;
             QString str = convertMessageText((*it),
                                              userName,
-                                             mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
+                                             mRocketChatAccount ? mRocketChatAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{},
                                              QString(),
                                              numberOfTextSearched,
                                              hightLightStringIndex);
@@ -755,10 +893,13 @@ MessagesModel::HighlightSearchStringIndexInMessage MessagesModel::highlightSearc
 void MessagesModel::setHighlightSearchStringIndexInMessage(const HighlightSearchStringIndexInMessage &newHighlightSearchStringIndexInMessage)
 {
     if (mHighlightSearchStringIndexInMessage != newHighlightSearchStringIndexInMessage) {
+        // The message losing the highlight has to be repainted too, its converted text changes as well.
+        const QModelIndex previousIndex = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
         mHighlightSearchStringIndexInMessage = newHighlightSearchStringIndexInMessage;
-        auto it = findMessage(mHighlightSearchStringIndexInMessage.messageId);
-        if (it != mAllMessages.cend()) {
-            const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+        if (previousIndex.isValid()) {
+            Q_EMIT dataChanged(previousIndex, previousIndex);
+        }
+        if (const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId); index.isValid() && index != previousIndex) {
             Q_EMIT dataChanged(index, index);
         }
     }
@@ -766,18 +907,46 @@ void MessagesModel::setHighlightSearchStringIndexInMessage(const HighlightSearch
 
 void MessagesModel::clearHighlightSearchStringIndexInMessage()
 {
-    auto it = findMessage(mHighlightSearchStringIndexInMessage.messageId);
-    if (it != mAllMessages.cend()) {
-        const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+    const QModelIndex index = indexForMessage(mHighlightSearchStringIndexInMessage.messageId);
+    // Clear before emitting, so that anything reacting to dataChanged converts the text without the highlight.
+    mHighlightSearchStringIndexInMessage.clear();
+    if (index.isValid()) {
         Q_EMIT dataChanged(index, index);
     }
-    mHighlightSearchStringIndexInMessage.clear();
 }
 
 void MessagesModel::updateTextToSpeech(const QByteArray &messageId, bool inProgress)
 {
     const QModelIndex index = indexForMessage(messageId);
     setData(index, inProgress, MessagesModel::TextToSpeechInProgress);
+}
+
+void MessagesModel::markMessagesReadUntil(qint64 until)
+{
+    if (until <= 0) {
+        return;
+    }
+    // mAllMessages is sorted by ascending timestamp, so the messages read (ts <= until) form a
+    // contiguous prefix. Clear their unread flag and repaint that range in one go.
+    int firstRow = -1;
+    int lastRow = -1;
+    for (int row = 0, total = mAllMessages.count(); row < total; ++row) {
+        Message &message = mAllMessages[row];
+        if (message.timeStamp() > until) {
+            break;
+        }
+        if (message.unread()) {
+            message.setUnread(false);
+            if (firstRow == -1) {
+                firstRow = row;
+            }
+            lastRow = row;
+        }
+    }
+    if (firstRow != -1) {
+        qCDebug(RUQOLA_MESSAGEMODELS_LOG) << "markMessagesReadUntil until=" << until << "cleared unread on rows" << firstRow << "-" << lastRow;
+        Q_EMIT dataChanged(createIndex(firstRow, 0), createIndex(lastRow, 0), {MessagesModel::Unread});
+    }
 }
 
 RuqolaQuickSearchMessageSettings *MessagesModel::quickSearchMessageSettings() const

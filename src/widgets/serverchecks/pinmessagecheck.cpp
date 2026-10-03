@@ -9,13 +9,14 @@
 #include "chat/getpinnedmessagesjob.h"
 #include "chat/pinmessagejob.h"
 #include "connection.h"
-#include "model/messagesmodel.h"
 #include "restapiabstractjob.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonObject>
+
+using namespace Qt::Literals::StringLiterals;
 
 QString PinMessageCheck::name() const
 {

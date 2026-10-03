@@ -5,7 +5,6 @@
 */
 
 #include "resetowne2ekeyjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ResetOwnE2eKeyJob::ResetOwnE2eKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -27,21 +27,15 @@ bool ResetOwnE2eKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ResetOwnE2eKeyJob::start");
+    addStartRestApiInfo("ResetOwnE2eKeyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void ResetOwnE2eKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ResetOwnE2eKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT resetE2eKeyDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ResetOwnE2eKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ResetOwnE2eKeyJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT resetE2eKeyDone(*replyObject);
     }
 }
 

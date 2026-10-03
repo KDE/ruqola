@@ -15,7 +15,7 @@ ApplicationsSettingsStatusComboBoxTest::ApplicationsSettingsStatusComboBoxTest(Q
 
 void ApplicationsSettingsStatusComboBoxTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsStatusComboBox d;
+    const ApplicationsSettingsStatusComboBox d;
     QCOMPARE(d.currentStatus(), AppsMarketPlaceFilterProxyModel::Status::AllStatus);
 }
 

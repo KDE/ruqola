@@ -5,15 +5,14 @@
 */
 
 #include "videoconferencestartjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "video-conference/videoconferencestartjob.h"
 #include <QJsonDocument>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(VideoConferenceStartJobTest)
 using namespace RocketChatRestApi;
 VideoConferenceStartJobTest::VideoConferenceStartJobTest(QObject *parent)
@@ -47,26 +46,14 @@ void VideoConferenceStartJobTest::shouldGenerateJson()
     info.roomId = "foo"_ba;
     info.title = u"bla"_s;
     job.setInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"allowRinging":false,"roomId":"foo","title":"bla"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"allowRinging":false,"roomId":"foo","title":"bla"})"_s.toLatin1());
 }
 
 void VideoConferenceStartJobTest::shouldNotStarting()
 {
     VideoConferenceStartJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     VideoConferenceStartJob::VideoConferenceStartInfo info;
     info.allowRinging = false;
     info.roomId = "foo"_ba;

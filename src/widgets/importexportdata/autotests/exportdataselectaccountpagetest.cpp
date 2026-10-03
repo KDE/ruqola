@@ -20,7 +20,7 @@ ExportDataSelectAccountPageTest::ExportDataSelectAccountPageTest(QObject *parent
 
 void ExportDataSelectAccountPageTest::shouldHaveDefaultValues()
 {
-    ExportDataSelectAccountPage w;
+    const ExportDataSelectAccountPage w;
 
     auto mExportDataSelectAccountListWidget = w.findChild<ExportDataSelectAccountListWidget *>(u"mExportDataSelectAccountListWidget"_s);
     QVERIFY(mExportDataSelectAccountListWidget);

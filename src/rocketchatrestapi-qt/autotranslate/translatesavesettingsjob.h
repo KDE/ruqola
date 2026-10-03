@@ -45,11 +45,13 @@ public:
 Q_SIGNALS:
     void translateSavesettingsDone();
 
+protected:
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mLanguage;
-    TranslateSaveSettingsJob::SettingType mType = SettingType::Undefined;
+    SettingType mType = SettingType::Undefined;
     bool mAutoTranslate = false;
 };
 }

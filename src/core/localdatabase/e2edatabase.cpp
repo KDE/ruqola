@@ -1,5 +1,7 @@
 /*
    SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
+   SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
+
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
@@ -12,11 +14,14 @@
 #include <QSqlTableModel>
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaE2EKeyStore[] = "CREATE TABLE E2EKEYS (userId TEXT PRIMARY KEY NOT NULL, encryptedPrivateKey BLOB, publicKey BLOB)";
-enum class E2EFields {
+namespace
+{
+enum class E2EKeysFields {
     UserId,
     EncryptedPrivateKey,
     PublicKey
 }; // in the same order as the table
+}
 
 E2EDataBase::E2EDataBase()
     : LocalDatabaseBase(LocalDatabaseUtils::localE2EDatabasePath(), LocalDatabaseBase::DatabaseType::E2E)
@@ -30,14 +35,14 @@ QString E2EDataBase::schemaDataBase() const
     return QString::fromLatin1(s_schemaE2EKeyStore);
 }
 
-bool E2EDataBase::saveKey(const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey)
+bool E2EDataBase::saveKey(const QString &accountName, const QString &userId, const QByteArray &encryptedPrivateKey, const QByteArray &publicKey)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("INSERT OR REPLACE INTO E2EKEYS (userId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"));
+    query.prepare(u"INSERT OR REPLACE INTO E2EKEYS (userId, encryptedPrivateKey, publicKey) VALUES (?, ?, ?)"_s);
     query.addBindValue(userId);
     query.addBindValue(encryptedPrivateKey);
     query.addBindValue(publicKey);
@@ -48,14 +53,14 @@ bool E2EDataBase::saveKey(const QString &userId, const QByteArray &encryptedPriv
     return true;
 }
 
-bool E2EDataBase::loadKey(const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
+bool E2EDataBase::loadKey(const QString &accountName, const QString &userId, QByteArray &encryptedPrivateKey, QByteArray &publicKey)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT encryptedPrivateKey, publicKey FROM E2EKEYS WHERE userId = ?"));
+    query.prepare(u"SELECT encryptedPrivateKey, publicKey FROM E2EKEYS WHERE userId = ?"_s);
     query.addBindValue(userId);
     if (query.exec() && query.first()) {
         encryptedPrivateKey = query.value(0).toByteArray();
@@ -65,35 +70,40 @@ bool E2EDataBase::loadKey(const QString &userId, QByteArray &encryptedPrivateKey
     return false;
 }
 
-bool E2EDataBase::deleteKey(const QString &userId)
+bool E2EDataBase::deleteKey(const QString &accountName, const QString &userId)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("DELETE FROM E2EKEYS WHERE userId = ?"));
+    query.prepare(u"DELETE FROM E2EKEYS WHERE userId = ?"_s);
     query.addBindValue(userId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from E2EKEYS table" << db.databaseName() << query.lastError();
         return false;
     }
+    // Deleting a key which is not stored is not an error: the table simply has nothing for this
+    // user (e.g. resetting the E2E key of an account which never decrypted one).
+    if (query.numRowsAffected() <= 0) {
+        qCDebug(RUQOLA_DATABASE_LOG) << "No key removed from E2EKEYS table" << db.databaseName() << "userId" << userId;
+    }
     return true;
 }
 
-bool E2EDataBase::hasKey(const QString &userId)
+bool E2EDataBase::hasKey(const QString &accountName, const QString &userId)
 {
     QSqlDatabase db;
-    if (!initializeDataBase(userId, db)) {
+    if (!initializeDataBase(accountName, db)) {
         return false;
     }
     QSqlQuery query(db);
-    query.prepare(QStringLiteral("SELECT 1 FROM E2EKEYS WHERE userId = ?"));
+    query.prepare(u"SELECT 1 FROM E2EKEYS WHERE userId = ?"_s);
     query.addBindValue(userId);
     return query.exec() && query.first();
 }
 
-std::unique_ptr<QSqlTableModel> E2EDataBase::createAccountsModel(const QString &accountName) const
+std::unique_ptr<QSqlTableModel> E2EDataBase::createE2eModel(const QString &accountName) const
 {
     const QString dbName = databaseName(accountName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
@@ -116,7 +126,7 @@ std::unique_ptr<QSqlTableModel> E2EDataBase::createAccountsModel(const QString &
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"E2EKEYS"_s);
-    model->setSort(int(E2EFields::UserId), Qt::AscendingOrder);
+    model->setSort(int(E2EKeysFields::UserId), Qt::AscendingOrder);
     model->select();
     return model;
 }

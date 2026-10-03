@@ -7,8 +7,8 @@
 
 #include "grabscreenplugin_debug.h"
 #include "grabscreenplugintoolconfig.h"
+#include "grabscreenplugintoolutil.h"
 #include <QProcess>
-#include <TextAddonsWidgets/ExecutableUtils>
 
 using namespace Qt::Literals::StringLiterals;
 GrabScreenPluginJob::GrabScreenPluginJob(QObject *parent)
@@ -30,15 +30,29 @@ void GrabScreenPluginJob::start()
         deleteLater();
         return;
     }
-    const QString path = TextAddonsWidgets::ExecutableUtils::findExecutable(u"spectacle"_s);
+    const QString path = GrabScreenPluginToolUtil::grabScreenPath();
+    if (path.isEmpty()) {
+        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Impossible to find spectacle";
+        Q_EMIT captureCanceled();
+        deleteLater();
+        return;
+    }
     auto proc = new QProcess(this);
-    const QStringList arguments = QStringList() << u"-n"_s << u"-d"_s << QString::number(GrabScreenPluginToolConfig::self()->delay()) << u"-bro"_s << mFilePath;
-    connect(proc, &QProcess::finished, this, [this]([[maybe_unused]] int exitCode, [[maybe_unused]] QProcess::ExitStatus exitStatus) {
-        Q_EMIT captureDone();
+    const QStringList arguments{u"-n"_s, u"-d"_s, QString::number(GrabScreenPluginToolConfig::self()->delay()), u"-bro"_s, mFilePath};
+    connect(proc, &QProcess::finished, this, [this, proc](int exitCode, QProcess::ExitStatus exitStatus) {
+        // finished() and errorOccurred() can both be emitted (e.g. on crash): only react to the first one.
+        proc->disconnect(this);
+        if (exitStatus != QProcess::NormalExit) {
+            qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "spectacle crashed. Exit code:" << exitCode;
+            Q_EMIT captureCanceled();
+        } else {
+            Q_EMIT captureDone();
+        }
         deleteLater();
     });
 
-    connect(proc, &QProcess::errorOccurred, this, [this](QProcess::ProcessError errors) {
+    connect(proc, &QProcess::errorOccurred, this, [this, proc](QProcess::ProcessError errors) {
+        proc->disconnect(this);
         qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Error occurred " << errors;
         Q_EMIT captureCanceled();
         deleteLater();

@@ -44,7 +44,7 @@ public:
 Q_SIGNALS:
     void loadHistory();
     void createNewDiscussion(const QByteArray &messageId, const QString &originalMessage);
-    void textToSpeech(const QString &messageText);
+    void textToSpeech(const QString &messageText, const TextToSpeechEnqueueInfo &info = {});
     void errorMessage(const QString &message);
     void successMessage(const QString &message);
     void uiInteractionRequested(const QJsonObject &obj);
@@ -58,6 +58,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotShowThreadMessage(const QByteArray &threadMessageId, const QString &text);
     LIBRUQOLAWIDGETS_NO_EXPORT void
     slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier, const QString &accountName);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUploadFinished(int jobIdentifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCancelUpload(int identifier);
     QByteArray mRoomId;

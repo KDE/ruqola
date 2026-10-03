@@ -173,8 +173,9 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
         obj["attachment_size"_L1] = messageAttach.attachmentSize();
     }
     QJsonArray fieldArray;
-    for (int i = 0, total = messageAttach.attachmentFields().count(); i < total; ++i) {
-        const QJsonObject fields = MessageAttachmentField::serialize(messageAttach.attachmentFields().at(i));
+    const auto &list = messageAttach.attachmentFields();
+    for (int i = 0, total = list.count(); i < total; ++i) {
+        const QJsonObject fields = MessageAttachmentField::serialize(list.at(i));
         fieldArray.append(fields);
     }
     if (!fieldArray.isEmpty()) {
@@ -325,7 +326,7 @@ void MessageAttachment::setAttachmentType(AttachmentType attachmentType)
     }
 }
 
-QList<MessageAttachmentField> MessageAttachment::attachmentFields() const
+const QList<MessageAttachmentField> &MessageAttachment::attachmentFields() const
 {
     return mAttachmentFields;
 }
@@ -336,7 +337,7 @@ void MessageAttachment::setAttachmentFields(const QList<MessageAttachmentField> 
     generateAttachmentFieldsText();
 }
 
-QString MessageAttachment::fixTitle(const QString &title) const
+QString MessageAttachment::fixTitle(const QString &title)
 {
     QString newTitle = title;
     if (newTitle.length() > 80) {
@@ -350,7 +351,7 @@ bool MessageAttachment::hasMessageAttachmentActions() const
     return mMessageAttachmentActions.isValid();
 }
 
-MessageAttachmentActions MessageAttachment::messageAttachmentActions() const
+const MessageAttachmentActions &MessageAttachment::messageAttachmentActions() const
 {
     return mMessageAttachmentActions;
 }
@@ -393,8 +394,8 @@ void MessageAttachment::generateAttachmentFieldsText()
     if (mAttachmentFields.isEmpty()) {
         mAttachmentFieldsText.clear();
     } else {
-        const QString formatFirstCell = QStringLiteral(R"( padding-left: 5px; border-left: 5px solid %1)").arg(color());
-        QString result = QStringLiteral(R"(<qt><table style="border-collapse: collapse; border-spacing: 0;" width="100%" align="center"><tr>)");
+        const QString formatFirstCell = uR"( padding-left: 5px; border-left: 5px solid %1)"_s.arg(color());
+        QString result = uR"(<qt><table style="border-collapse: collapse; border-spacing: 0;" width="100%" align="center"><tr>)"_s;
         QStringList values;
         values.reserve(mAttachmentFields.count());
         int i = 0;
@@ -526,12 +527,12 @@ void MessageAttachment::setLink(const QString &link)
 
 bool MessageAttachment::operator==(const MessageAttachment &other) const
 {
-    return (mDescription == other.description()) && (mTitle == other.title()) && (mLink == other.link()) && (mColor == other.color())
-        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth()) && (mAuthorName == other.authorName())
-        && (mMimeType == other.mimeType()) && (mText == other.text()) && (mAttachmentFields == other.attachmentFields()) && (mCollapsed == other.collapsed())
-        && (mAuthorIcon == other.authorIcon()) && (mImageUrlPreview == other.imageUrlPreview()) && (mAttachmentSize == other.attachmentSize())
-        && (mAttachmentGeneratedTitle == other.attachmentGeneratedTitle()) && (mFormat == other.format())
-        && (mMessageAttachmentActions == other.messageAttachmentActions());
+    return (mDescription == other.mDescription) && (mTitle == other.mTitle) && (mLink == other.mLink) && (mColor == other.mColor)
+        && (mImageHeight == other.mImageHeight) && (mImageWidth == other.mImageWidth) && (mAuthorName == other.mAuthorName) && (mMimeType == other.mMimeType)
+        && (mText == other.mText) && (mAttachmentFields == other.mAttachmentFields) && (mCollapsed == other.mCollapsed) && (mAuthorIcon == other.mAuthorIcon)
+        && (mImageUrlPreview == other.mImageUrlPreview) && (mAttachmentSize == other.mAttachmentSize)
+        && (mAttachmentGeneratedTitle == other.mAttachmentGeneratedTitle) && (mFormat == other.mFormat)
+        && (mMessageAttachmentActions == other.mMessageAttachmentActions);
 }
 
 QDebug operator<<(QDebug d, const MessageAttachment &t)

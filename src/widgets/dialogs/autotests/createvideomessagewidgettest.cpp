@@ -8,6 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/createvideomessagewidget.h"
+#include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -16,11 +17,12 @@ QTEST_MAIN(CreateVideoMessageWidgetTest)
 CreateVideoMessageWidgetTest::CreateVideoMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void CreateVideoMessageWidgetTest::shouldHaveDefaultValues()
 {
-    CreateVideoMessageWidget w;
+    const CreateVideoMessageWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

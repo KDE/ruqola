@@ -15,7 +15,7 @@ BannerInfoListViewTest::BannerInfoListViewTest(QObject *parent)
 
 void BannerInfoListViewTest::shouldHaveDefaultValues()
 {
-    BannerInfoListView w(nullptr);
+    const BannerInfoListView w(nullptr);
     // TODO
 }
 

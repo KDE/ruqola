@@ -7,7 +7,6 @@
 #include "rolecreatejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "role/rolecreatejob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -52,30 +51,19 @@ void RoleCreateJobTest::shouldGenerateJson()
     info.scope = scope;
     job.setCreateRoleInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"description":"%3","mandatory2fa":false,"name":"%1","scope":"%2"})").arg(name, scope, description).toLatin1());
+             uR"({"description":"%3","mandatory2fa":false,"name":"%1","scope":"%2"})"_s.arg(name, scope, description).toLatin1());
 
     info.mandatory2fa = true;
     job.setCreateRoleInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"description":"%3","mandatory2fa":true,"name":"%1","scope":"%2"})").arg(name, scope, description).toLatin1());
+             uR"({"description":"%3","mandatory2fa":true,"name":"%1","scope":"%2"})"_s.arg(name, scope, description).toLatin1());
 }
 
 void RoleCreateJobTest::shouldNotStarting()
 {
     RoleCreateJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     RoleCreateJob::RoleCreateInfo info;
     info.name = u"foo"_s;

@@ -16,7 +16,7 @@ AdminRoomsModelTest::AdminRoomsModelTest(QObject *parent)
 
 void AdminRoomsModelTest::shouldHaveDefaultValues()
 {
-    AdminRoomsModel m;
+    const AdminRoomsModel m;
     QVERIFY(m.adminRooms().isEmpty());
 }
 

@@ -26,7 +26,7 @@ ApplicationsSettingsSettingsWidget::ApplicationsSettingsSettingsWidget(RocketCha
     , mRocketChatAccount(account)
     , mMainLayout(new QVBoxLayout(this))
 {
-    mMainLayout->setObjectName("mainLayout"_L1);
+    mMainLayout->setObjectName(u"mainLayout"_s);
 }
 
 ApplicationsSettingsSettingsWidget::~ApplicationsSettingsSettingsWidget() = default;
@@ -42,12 +42,11 @@ void ApplicationsSettingsSettingsWidget::showEvent(QShowEvent *event)
 
 void ApplicationsSettingsSettingsWidget::generateSettings(const QJsonObject &obj)
 {
-    const QJsonObject settings = obj[u"settings"_s].toObject();
-    for (const QJsonValue &current : settings) {
+    const QJsonObject settings = obj["settings"_L1].toObject();
+    mSettingsInfo.reserve(mSettingsInfo.count() + settings.count());
+    for (const auto &current : settings) {
         // TODO store json => update it when widget settings change
-        ApplicationsSettingsSettingsInfo i;
-        i.parseSettings(current.toObject());
-        mSettingsInfo.append(std::move(i));
+        mSettingsInfo.emplace_back().parseSettings(current.toObject());
     }
     if (mSettingsInfo.isEmpty()) {
         auto label = new QLabel(i18n("Application does not have settings."), this);
@@ -105,7 +104,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
         for (ApplictionSettingsCustomWidgetsBase *widget : std::as_const(mCustomWidgets)) {
             QJsonObject obj = widget->info().jsonObj();
             obj["value"_L1] = widget->value();
-            array.append(obj);
+            array.append(std::move(obj));
         }
         auto job = new RocketChatRestApi::AppUpdateInfoJob(this);
         RocketChatRestApi::AppUpdateInfoJob::AppUpdateInfo info;
@@ -127,19 +126,6 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
         applyButton->setEnabled(status);
         cancelButton->setEnabled(status);
     });
-}
-
-QString ApplicationsSettingsSettingsWidget::getTranslatedIdentifier(const QString &lang, const QString &id) const
-{
-    if (id.isEmpty()) {
-        return {};
-    }
-    const QString translatedString = mRocketChatAccount->getTranslatedIdentifier(lang, u"app-"_s + QString::fromLatin1(mAppId) + u'.' + id);
-    if (translatedString.isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << " Translated string not found: " << QString::fromLatin1(mAppId) + id;
-        return id;
-    }
-    return translatedString;
 }
 
 ApplictionSettingsCustomWidgetsBase *ApplicationsSettingsSettingsWidget::addBooleanSettings(const ApplicationsSettingsSettingsInfo &info)

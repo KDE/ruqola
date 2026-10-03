@@ -22,7 +22,7 @@ AdministratorOauthEditDialogTest::AdministratorOauthEditDialogTest(QObject *pare
 
 void AdministratorOauthEditDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorOauthEditDialog w;
+    const AdministratorOauthEditDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

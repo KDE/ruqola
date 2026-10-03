@@ -20,7 +20,7 @@ MyAccountPersonalAccessTokenConfigureWidgetTest::MyAccountPersonalAccessTokenCon
 
 void MyAccountPersonalAccessTokenConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccountPersonalAccessTokenConfigureWidget w(nullptr);
+    const MyAccountPersonalAccessTokenConfigureWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

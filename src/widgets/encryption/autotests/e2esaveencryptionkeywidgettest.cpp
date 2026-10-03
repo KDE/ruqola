@@ -26,16 +26,16 @@ void E2eSaveEncryptionKeyWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!w.text().isEmpty());
     QVERIFY(!w.isCloseButtonVisible());
 
-    auto decodeEncryptionKeyAction = w.findChild<QAction *>(u"decodeEncryptionKeyAction"_s);
-    QVERIFY(decodeEncryptionKeyAction);
+    auto saveEncryptionKeyAction = w.findChild<QAction *>(u"saveEncryptionKeyAction"_s);
+    QVERIFY(saveEncryptionKeyAction);
 }
 
 void E2eSaveEncryptionKeyWidgetTest::shouldEmitSaveSignal()
 {
-    E2eSaveEncryptionKeyWidget w;
-    QSignalSpy saveSignal(&w, &E2eSaveEncryptionKeyWidget::saveEncrytionKey);
-    auto decodeEncryptionKeyAction = w.findChild<QAction *>(u"decodeEncryptionKeyAction"_s);
-    decodeEncryptionKeyAction->trigger();
+    const E2eSaveEncryptionKeyWidget w;
+    const QSignalSpy saveSignal(&w, &E2eSaveEncryptionKeyWidget::saveEncrytionKey);
+    auto saveEncryptionKeyAction = w.findChild<QAction *>(u"saveEncryptionKeyAction"_s);
+    saveEncryptionKeyAction->trigger();
     QCOMPARE(saveSignal.count(), 1);
 }
 

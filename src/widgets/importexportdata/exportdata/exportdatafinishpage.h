@@ -10,7 +10,7 @@
 #include <QWizardPage>
 class QLabel;
 class KMessageWidget;
-class QTextEdit;
+class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExportDataFinishPage : public QWizardPage
 {
     Q_OBJECT
@@ -23,13 +23,13 @@ public:
     [[nodiscard]] bool isComplete() const override;
 
 private:
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString generateExportZipFileName() const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT QString generateExportZipFileName();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportDone();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportFailed(const QString &msg);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotExportInfo(const QString &msg);
     QList<ImportExportUtils::AccountImportExportInfo> mListAccounts;
     QLabel *const mInfos;
     KMessageWidget *const mMessageWidget;
-    QTextEdit *const mDetails;
+    QTextBrowser *const mDetails;
     bool mExportDone = false;
 };

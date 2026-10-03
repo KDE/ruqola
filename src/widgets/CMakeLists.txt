@@ -242,8 +242,6 @@ target_sources(
         common/delegatepaintutil.h
         common/emojicompletiondelegate.cpp
         common/emojicompletiondelegate.h
-        common/flowlayout.cpp
-        common/flowlayout.h
         common/usercompletiondelegate.h
         common/usercompletiondelegate.cpp
         common/userandchannelcompletiondelegate.h
@@ -581,8 +579,6 @@ target_sources(
         notificationhistory/notificationhistorydelegate.cpp
         notificationhistory/notificationhistorylistview.h
         notificationhistory/notificationhistorylistview.cpp
-        otr/otrwidget.cpp
-        otr/otrwidget.h
         prunemessages/prunemessagesdialog.cpp
         prunemessages/prunemessagesdialog.h
         prunemessages/prunemessageswidget.cpp
@@ -713,8 +709,6 @@ target_sources(
         room/actionbuttonsgenerator.cpp
         room/usersinroomtreeview.h
         room/usersinroomtreeview.cpp
-        room/usersinroomlistview.h
-        room/usersinroomlistview.cpp
         room/messagelineextratoolbutton.h
         room/messagelineextratoolbutton.cpp
         room/debugdialog/showdebugdialog.h
@@ -786,8 +780,6 @@ target_sources(
         room/delegate/messagelistlayout/messagelistcompactlayout.cpp
         room/delegate/messagelistlayout/messagelistnormallayout.h
         room/delegate/messagelistlayout/messagelistnormallayout.cpp
-        room/delegate/messagelistlayout/messagelistcozylayout.h
-        room/delegate/messagelistlayout/messagelistcozylayout.cpp
         conferencecalldialog/conferencecalldialog.h
         conferencecalldialog/conferencecalldialog.cpp
         conferencecalldialog/conferencecallwidget.h
@@ -892,6 +884,8 @@ target_sources(
         databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h
         databasedialog/exploredatabaseroomsubscriptionswidget.h
         databasedialog/exploredatabaseroomsubscriptionswidget.cpp
+        databasedialog/exploredatabasee2eroomsstoragewidget.cpp
+        databasedialog/exploredatabasee2eroomsstoragewidget.h
         explorepermissionsdialog/explorepermissionsdialog.h
         explorepermissionsdialog/explorepermissionsdialog.cpp
         explorepermissionsdialog/explorepermissionswidget.h
@@ -1116,6 +1110,8 @@ if(HAVE_TEXT_TO_SPEECH)
         PRIVATE
             configuredialog/configureaccessibilitywidget.h
             configuredialog/configureaccessibilitywidget.cpp
+            misc/texttospeechenqueueutils.h
+            misc/texttospeechenqueueutils.cpp
     )
 endif()
 
@@ -1196,6 +1192,10 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_delega
     CATEGORY_NAME org.kde.ruqola.delegate.lastunseedline.widgets DESCRIPTION "ruqola delegate last unseen line" EXPORT RUQOLA
 )
 
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_newmessageindicator_debug.h IDENTIFIER RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG
+    CATEGORY_NAME org.kde.ruqola.newmessageindicator.widgets DESCRIPTION "ruqola new message indicator" EXPORT RUQOLA
+)
+
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 
 if(COMPILE_WITH_UNITY_CMAKE_SUPPORT)
@@ -1274,9 +1274,6 @@ set_target_properties(
 )
 
 if(BUILD_TESTING)
-    if(ENABLE_PCH)
-        add_subdirectory(pch)
-    endif()
     add_subdirectory(autotests)
     add_subdirectory(tests)
     add_subdirectory(channellist/autotests)
@@ -1294,7 +1291,6 @@ if(BUILD_TESTING)
     add_subdirectory(exportmessages/autotests)
     add_subdirectory(teams/autotests)
     add_subdirectory(directory/autotests)
-    add_subdirectory(otr/autotests)
     add_subdirectory(switchchannelhistory/autotests)
     add_subdirectory(messagemaximumsizedialog/autotests)
     add_subdirectory(notificationhistory/autotests)

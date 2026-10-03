@@ -20,8 +20,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(User, Ruqola_User)
 using namespace Qt::Literals::StringLiterals;
 User::User() = default;
 
-User::~User() = default;
-
 QString User::name() const
 {
     return mName;
@@ -54,10 +52,10 @@ void User::setStatus(PresenceStatus s)
 
 bool User::operator==(const User &other) const
 {
-    return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
-        && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
-        && (mLastLogin == other.lastLogin()) && (mActive == other.active()) && (mRequirePasswordChange == other.requirePasswordChange())
-        && (mBio == other.bio()) && (mNickName == other.nickName()) && (mType == other.type());
+    return (mName == other.mName) && (mUserId == other.mUserId) && (mStatus == other.mStatus) && (mUserName == other.mUserName)
+        && (mUtcOffset == other.mUtcOffset) && (mStatusText == other.mStatusText) && (mRoles == other.mRoles) && (mCreatedAt == other.mCreatedAt)
+        && (mLastLogin == other.mLastLogin) && (mActive == other.mActive) && (mRequirePasswordChange == other.mRequirePasswordChange) && (mBio == other.mBio)
+        && (mNickName == other.mNickName) && (mType == other.mType);
 }
 
 bool User::operator!=(const User &other) const
@@ -164,7 +162,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QList<RoleInfo> &ro
                 .email = emailObj.value("address"_L1).toString(),
                 .verified = emailObj.value("verified"_L1).toBool(),
             };
-            setUserEmailsInfo(std::move(info));
+            setUserEmailsInfo(info);
         }
     }
     setRequirePasswordChange(object.value("requirePasswordChange"_L1).toBool(false));
@@ -193,7 +191,7 @@ void User::parseUser(const QVariantList &list)
         qCWarning(RUQOLA_LOG) << " Invalid status value" << valueStatus;
         return;
     }
-    const QVariant customText = list.at(3);
+    const QVariant &customText = list.at(3);
     if (customText.isValid()) {
         setStatusText(customText.toString());
     }
@@ -267,9 +265,7 @@ User User::deserialize(const QJsonObject &o)
     user.setActive(o.value("active"_L1).toBool(true)); // By default it's active
     user.setBio(o.value("bio"_L1).toString());
     user.setNickName(o.value("nickname"_L1).toString());
-    if (!user.type().isEmpty()) {
-        user.setType(o.value("type"_L1).toString());
-    }
+    user.setType(o.value("type"_L1).toString());
     return user;
 }
 
@@ -300,7 +296,7 @@ void User::setRoles(const QStringList &roles, const QList<RoleInfo> &roleInfo)
     for (const QString &role : roles) {
         rolesI18n.append(User::roleI18n(role, roleInfo));
     }
-    mI18nRoles = rolesI18n;
+    mI18nRoles = std::move(rolesI18n);
     mRoles = roles;
 }
 
@@ -387,12 +383,10 @@ QList<User> User::parseUsersList(const QJsonObject &object, const QList<RoleInfo
 {
     const QJsonArray fieldsArray = object.value("items"_L1).toArray();
     QList<User> users;
-    for (const QJsonValue &current : fieldsArray) {
+    users.reserve(fieldsArray.count());
+    for (const auto &current : fieldsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject userObject = current.toObject();
-            User user;
-            user.parseUserRestApi(userObject, roleInfo);
-            users.append(std::move(user));
+            users.emplace_back().parseUserRestApi(current.toObject(), roleInfo);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing users" << current;
         }

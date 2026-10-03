@@ -29,6 +29,7 @@ private Q_SLOTS:
     void shouldUpdateOnAlertChanges();
     void shouldUpdateOnFavoriteChanges();
     void shouldUpdateOnHideUnreadStatusChanges();
+    void shouldUpdateOnUnreadOnTopPreferenceChanges();
 
 private:
     QStandardItemModel mSourceModel;

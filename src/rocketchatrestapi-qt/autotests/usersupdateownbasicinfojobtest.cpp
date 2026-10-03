@@ -5,9 +5,7 @@
 */
 
 #include "usersupdateownbasicinfojobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/usersupdateownbasicinfojob.h"
@@ -15,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersUpdateOwnBasicInfoJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UsersUpdateOwnBasicInfoJobTest::UsersUpdateOwnBasicInfoJobTest(QObject *parent)
     : QObject(parent)
@@ -47,47 +46,42 @@ void UsersUpdateOwnBasicInfoJobTest::shouldGenerateJson()
     info.email = email;
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Email;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1"}})").arg(email).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"data":{"email":"%1"}})"_s.arg(email).toLatin1());
 
     const QString username = u"username"_s;
     info.userName = username;
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::UserName;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"data":{"email":"%1","username":"%2"}})").arg(email, username).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"data":{"email":"%1","username":"%2"}})"_s.arg(email, username).toLatin1());
 
     const QString nickname = u"nick"_s;
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::NickName;
     info.nickName = nickname;
     job.setUpdateOwnBasicInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","username":"%2"}})").arg(email, username, nickname).toLatin1());
+             uR"({"data":{"email":"%1","nickname":"%3","username":"%2"}})"_s.arg(email, username, nickname).toLatin1());
 
     const QString statustext = u"tt"_s;
     info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::StatusText;
     info.statusText = statustext;
     job.setUpdateOwnBasicInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"data":{"email":"%1","nickname":"%3","statusText":"%4","username":"%2"}})").arg(email, username, nickname, statustext).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"data":{"email":"%1","nickname":"%3","statusText":"%4","username":"%2"}})"_s.arg(email, username, nickname, statustext).toLatin1());
+
+    const QString name = u"name1"_s;
+    info.type |= RocketChatRestApi::UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo::BasicInfoType::Name;
+    info.name = name;
+    job.setUpdateOwnBasicInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"data":{"email":"%1","name":"%5","nickname":"%3","statusText":"%4","username":"%2"}})"_s.arg(email, username, nickname, statustext, name)
+                 .toLatin1());
 }
 
 void UsersUpdateOwnBasicInfoJobTest::shouldNotStarting()
 {
     UsersUpdateOwnBasicInfoJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     UsersUpdateOwnBasicInfoJob::UpdateOwnBasicInfo info;
     const QString email = u"foo@kde.org"_s;
     info.email = email;

@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentActions::MessageAttachmentActions() = default;
 
-MessageAttachmentActions::~MessageAttachmentActions() = default;
-
 bool MessageAttachmentActions::isValid() const
 {
     return !mActions.isEmpty() && mAlignment != AlignmentButton::Unknown;
@@ -20,13 +18,12 @@ bool MessageAttachmentActions::isValid() const
 
 void MessageAttachmentActions::parse(const QJsonObject &obj)
 {
+    mActions.clear();
     mAlignment = convertStringToAlignmentButton(obj["button_alignment"_L1].toString());
     const QJsonArray array = obj["actions"_L1].toArray();
     mActions.reserve(array.count());
     for (const auto &a : array) {
-        MessageAttachmentAction act;
-        act.parse(a.toObject());
-        mActions.append(act);
+        mActions.emplace_back().parse(a.toObject());
     }
 }
 
@@ -35,17 +32,17 @@ MessageAttachmentActions::AlignmentButton MessageAttachmentActions::alignment() 
     return mAlignment;
 }
 
-void MessageAttachmentActions::setAlignment(const AlignmentButton &newAlignment)
+void MessageAttachmentActions::setAlignment(AlignmentButton newAlignment)
 {
     mAlignment = newAlignment;
 }
 
 bool MessageAttachmentActions::operator==(const MessageAttachmentActions &other) const
 {
-    return mAlignment == other.alignment() && mActions == other.actions();
+    return mAlignment == other.mAlignment && mActions == other.mActions;
 }
 
-QList<MessageAttachmentAction> MessageAttachmentActions::actions() const
+const QList<MessageAttachmentAction> &MessageAttachmentActions::actions() const
 {
     return mActions;
 }
@@ -62,7 +59,7 @@ QDebug operator<<(QDebug d, const MessageAttachmentActions &t)
     return d;
 }
 
-MessageAttachmentActions::AlignmentButton MessageAttachmentActions::convertStringToAlignmentButton(const QString &str) const
+MessageAttachmentActions::AlignmentButton MessageAttachmentActions::convertStringToAlignmentButton(const QString &str)
 {
     if (str == "horizontal"_L1) {
         return MessageAttachmentActions::AlignmentButton::Horizontal;

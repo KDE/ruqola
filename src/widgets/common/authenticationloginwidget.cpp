@@ -56,7 +56,6 @@ AuthenticationLoginWidget::AuthenticationLoginWidget(QWidget *parent)
     connect(mUserName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
     connect(mServerUrl, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
     connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
-    connect(mAccountName, &QLineEdit::textChanged, this, &AuthenticationLoginWidget::slotLoginSettingsChanged);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::tryLogin, this, &AuthenticationLoginWidget::tryLogin);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &AuthenticationLoginWidget::slotResetPasswordRequested);
 }
@@ -92,11 +91,15 @@ void AuthenticationLoginWidget::changeAuthenticationWidgetStatus(bool enabled)
 void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
 {
     auto restApi = new Connection(this);
-    restApi->setServerUrl(mAccountInfo.serverUrl);
-    restApi->forgotPassword(email);
     connect(restApi, &Connection::forgotPasswordDone, this, [restApi]() {
         restApi->deleteLater();
     });
+    connect(restApi, &Connection::failed, this, [restApi]() {
+        restApi->deleteLater();
+    });
+
+    restApi->setServerUrl(mAccountInfo.serverUrl);
+    restApi->forgotPassword(email);
 }
 
 void AuthenticationLoginWidget::slotLoginSettingsChanged()
@@ -147,6 +150,9 @@ void AuthenticationLoginWidget::slotRegisterAccount()
         connect(restApi, &Connection::registerUserDone, this, [this, restApi]() {
             restApi->deleteLater();
             slotRegisterUserDone();
+        });
+        connect(restApi, &Connection::failed, this, [restApi]() {
+            restApi->deleteLater();
         });
         restApi->setServerUrl(mAccountInfo.serverUrl);
         restApi->registerNewUser(dlg->registerUserInfo());

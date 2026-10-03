@@ -17,8 +17,6 @@
 using namespace Qt::Literals::StringLiterals;
 VideoConferenceInfo::VideoConferenceInfo() = default;
 
-VideoConferenceInfo::~VideoConferenceInfo() = default;
-
 void VideoConferenceInfo::parse(const QJsonObject &content)
 {
     qCDebug(RUQOLA_VIDEO_CONFERENCE_LOG) << " content " << content;
@@ -41,7 +39,7 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     // Users
     const QJsonArray usersArray = content["users"_L1].toArray();
     mUsers.reserve(usersArray.count());
-    for (const QJsonValue &current : usersArray) {
+    for (const auto &current : usersArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User m;
@@ -55,7 +53,7 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     }
 }
 
-VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(const QString &str) const
+VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(const QString &str)
 {
     if (str == "videoconference"_L1) {
         return VideoConferenceInfo::VideoConferenceType::Conference;
@@ -136,13 +134,13 @@ VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
     info.mRoomId = o["rid"_L1].toString();
     info.mProviderName = o["providerName"_L1].toString();
     info.mMessageId = o["messageId"_L1].toString();
-    info.mCreatedAtDateTime = o["createdAt"_L1].toInt();
-    info.mEndedAtDateTime = o["endedAt"_L1].toInt();
+    info.mCreatedAtDateTime = o["createdAt"_L1].toInteger();
+    info.mEndedAtDateTime = o["endedAt"_L1].toInteger();
 
     info.mConferenceType = info.convertTypeToEnum(o["type"_L1].toString());
     const QJsonArray usersArray = o["users"_L1].toArray();
     info.mUsers.reserve(usersArray.count());
-    for (const QJsonValue &current : usersArray) {
+    for (const auto &current : usersArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User m;
@@ -172,9 +170,9 @@ QList<User> VideoConferenceInfo::users() const
     return mUsers;
 }
 
-void VideoConferenceInfo::setUsers(const QList<User> &newUsers)
+void VideoConferenceInfo::setUsers(QList<User> newUsers)
 {
-    mUsers = newUsers;
+    mUsers = std::move(newUsers);
 }
 
 QString VideoConferenceInfo::providerName() const
@@ -275,9 +273,9 @@ QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
 
 bool VideoConferenceInfo::operator==(const VideoConferenceInfo &other) const
 {
-    return mCreatedAtDateTime == other.createdAtDateTime() && mEndedAtDateTime == other.endedAtDateTime() && mUrl == other.url() && mRoomId == other.roomId()
-        && mProviderName == other.providerName() && mConferenceType == other.conferenceType() && mStatus == other.status() && mRinging == other.ringing()
-        && mUsers == other.users() && mMessageId == other.messageId() && mBlockId == other.blockId();
+    return mCreatedAtDateTime == other.mCreatedAtDateTime && mEndedAtDateTime == other.mEndedAtDateTime && mUrl == other.mUrl && mRoomId == other.mRoomId
+        && mProviderName == other.mProviderName && mConferenceType == other.mConferenceType && mStatus == other.mStatus && mRinging == other.mRinging
+        && mUsers == other.mUsers && mMessageId == other.mMessageId && mBlockId == other.mBlockId;
 }
 
 QString VideoConferenceInfo::statusInformation() const

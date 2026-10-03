@@ -16,10 +16,13 @@
 
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaGlobalDataBase[] = "CREATE TABLE GLOBAL (identifier TEXT PRIMARY KEY NOT NULL, timestamp INTEGER)";
+namespace
+{
 enum class GlobalFields {
     Identifier,
     TimeStamp,
 }; // in the same order as the table
+}
 
 GlobalDatabase::GlobalDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localGlobalDatabasePath(), LocalDatabaseBase::DatabaseType::Global)
@@ -71,7 +74,8 @@ void GlobalDatabase::insertOrReplaceTimeStamp(const QString &accountName, const 
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         const QString identifier = generateIdentifier(accountName, roomId, type);
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceGlobal(), db);
+        QSqlQuery query(db);
+        query.prepare(LocalDatabaseUtils::insertReplaceGlobal());
         query.addBindValue(identifier);
         query.addBindValue(timestamp);
         if (!query.exec()) {
@@ -87,7 +91,8 @@ void GlobalDatabase::removeTimeStamp(const QString &accountName, const QByteArra
         return;
     }
     const QString identifier = generateIdentifier(accountName, roomId, type);
-    QSqlQuery query(LocalDatabaseUtils::removeGlobal(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::removeGlobal());
     query.addBindValue(identifier);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();

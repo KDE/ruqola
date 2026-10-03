@@ -11,7 +11,6 @@
 #include "model/readreceiptsfilterproxymodel.h"
 #include "model/readreceiptsmodel.h"
 #include "rocketchataccount.h"
-#include "rooms/roomsbannedusersjob.h"
 #include "ruqolawidgets_debug.h"
 #include "showreadreceiptsdelegate.h"
 #include <KLineEditEventHandler>
@@ -63,6 +62,7 @@ void ShowReadReceiptsWidget::slotSearchReadReceiptsChanged(const QString &str)
 
 void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
 {
+    // TODO use "ChatMessageReadReceipts" enum here. Need to port method
     auto job = new RocketChatRestApi::MethodCallJob(this);
     RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
     info.methodName = u"getReadReceipts"_s;
@@ -76,7 +76,7 @@ void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
-        qDebug() << " replyObject " << replyObject;
+        // qDebug() << " replyObject " << replyObject;
         ReadReceipts receipts;
         receipts.parseReadReceipts(replyObject["result"_L1].toArray());
         mModel->setReadReceipts(receipts);

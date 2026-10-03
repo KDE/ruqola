@@ -32,7 +32,7 @@ bool CustomSoundsUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CustomSoundsUpdateJob::start");
+    addStartRestApiInfo("CustomSoundsUpdateJob::start"_ba);
 
     const QString fileNameAsLocalFile = mSoundInfo.fileNameUrl.toLocalFile();
     auto file = new QFile(fileNameAsLocalFile);
@@ -43,12 +43,11 @@ bool CustomSoundsUpdateJob::start()
         deleteLater();
         return false;
     }
-    const QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
-
     auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     if (!mSoundInfo.fileNameUrl.isEmpty()) {
+        const QMimeDatabase db;
+        const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
         QHttpPart filePart;
         filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
         const QString filePartInfo = u"form-data; name=\"sound\"; filename=\"%1\""_s.arg(mSoundInfo.fileNameUrl.fileName());
@@ -77,14 +76,8 @@ bool CustomSoundsUpdateJob::start()
 
 void CustomSoundsUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CustomSoundsUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT customSoundUpdateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CustomSoundsUpdateJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("CustomSoundsUpdateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT customSoundUpdateDone(*replyObject);
     }
 }
 
@@ -93,9 +86,9 @@ const CustomSoundsUpdateJob::SoundInfo &CustomSoundsUpdateJob::soundInfo() const
     return mSoundInfo;
 }
 
-void CustomSoundsUpdateJob::setSoundInfo(const SoundInfo &newEmojiInfo)
+void CustomSoundsUpdateJob::setSoundInfo(const SoundInfo &newSoundInfo)
 {
-    mSoundInfo = newEmojiInfo;
+    mSoundInfo = newSoundInfo;
 }
 
 void CustomSoundsUpdateJob::slotCustomSoundUpdateFinished()
@@ -126,7 +119,7 @@ bool CustomSoundsUpdateJob::requireHttpAuthentication() const
 bool CustomSoundsUpdateJob::canStart() const
 {
     if (!mSoundInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomSoundsUpdateJob: mEmojiInfo is not valid";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomSoundsUpdateJob: mSoundInfo is not valid";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -140,7 +133,7 @@ QNetworkRequest CustomSoundsUpdateJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsUpdate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request);
+    addRequestAttribute(request, false);
     return request;
 }
 

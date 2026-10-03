@@ -44,9 +44,9 @@ private:
         // Menu
         QRect menuRect;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block,
-                                                                         const QStyleOptionViewItem &option,
-                                                                         int attachmentsWidth = -1) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT SectionLayout layoutSection(const Block &block,
+                                                                                const QStyleOptionViewItem &option,
+                                                                                int attachmentsWidth = -1);
 
     const QIcon mMenuIcon;
 };

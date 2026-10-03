@@ -40,7 +40,11 @@ ModerationReportedMessageConsoleTreeWidget::ModerationReportedMessageConsoleTree
     mProxyModelModel = new ModerationReportedMessageProxyModel(mModel, this);
     mProxyModelModel->setObjectName(u"mProxyModelModel"_s);
     mTreeView->setModel(mProxyModelModel);
-    connect(this, &ModerationReportedMessageConsoleTreeWidget::doubleClicked, this, &ModerationReportedMessageConsoleTreeWidget::slotShowMessages);
+    connect(this, &ModerationReportedMessageConsoleTreeWidget::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotShowMessages(mProxyModelModel->mapToSource(index));
+        }
+    });
     connect(this, &ModerationReportedMessageConsoleTreeWidget::refreshList, this, [this]() {
         slotLoadElements();
     });
@@ -170,8 +174,7 @@ void ModerationReportedMessageConsoleTreeWidget::slotDesactivateUser(const QMode
         job->setActivate(false);
         job->setActivateUserId(userId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this](const QJsonObject &replyObject) {
-            Q_UNUSED(replyObject)
+        connect(job, &RocketChatRestApi::SetUserActiveStatusJob::setUserActiveStatusDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
             // TODO delete messages
             slotLoadElements();
         });

@@ -6,8 +6,6 @@
 
 #include "searchmessagewidget.h"
 #include "dialogs/searchmessagecommandbuttonwidget.h"
-#include "ruqola.h"
-#include "texttospeech/texttospeechenqueuemanager.h"
 
 #include "chat/searchmessagejob.h"
 #include "connection.h"
@@ -26,6 +24,7 @@
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -88,9 +87,8 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-    connect(mResultListWidget, &MessageListView::textToSpeech, this, [this](const QString &str) {
-        Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insertDummyInfo();
-        mTextToSpeechWidget->enqueue(str);
+    connect(mResultListWidget, &MessageListView::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
     });
 #endif
 
@@ -162,13 +160,15 @@ void SearchMessageWidget::slotSearchMessagesFailed()
 
 void SearchMessageWidget::slotLoadHistory()
 {
-    messageSearch(mSearchLineEdit->text(), mRoomId, false, mOffset);
+    messageSearch(mSearchPattern, mRoomId, false, mOffset);
     mOffset += numberOfElment;
 }
 
 void SearchMessageWidget::slotClearedMessages()
 {
-    mSearchMessageFilterProxyModel->clearModel();
+    clearSearchModel();
+    mSearchText.clear();
+    mSearchPattern.clear();
     updateLabel();
 }
 
@@ -188,6 +188,7 @@ void SearchMessageWidget::slotSearchMessages(const QString &str)
         }
 
         clearSearchModel();
+        mSearchPattern = newStr;
         mSearchMessageFilterProxyModel->setSearchText(newStr);
         mSearchLineEdit->addCompletionItem(newStr);
         messageSearch(newStr, mRoomId, false);

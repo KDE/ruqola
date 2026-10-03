@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "encryptedinfo.h"
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
@@ -16,11 +17,13 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT SendMessageJob : public RestApiAbstractJob
 public:
     explicit SendMessageJob(QObject *parent = nullptr);
     ~SendMessageJob() override;
+
     struct SendMessageArguments {
         QString messageId;
         QString roomId;
         QString threadMessageId;
         QString message;
+        EncryptedInfo info;
     };
 
     [[nodiscard]] bool start() override;

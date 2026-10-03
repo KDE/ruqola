@@ -18,5 +18,6 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
     void shouldGenerateJson();
+    void shouldGenerateJsonEncrypted();
     void shouldNotStarting();
 };

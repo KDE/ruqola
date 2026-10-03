@@ -21,7 +21,6 @@ public:
     void setRoom(Room *room);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     UsersInRoomWidget *const mUsersInRoomWidget;
 };

@@ -31,7 +31,7 @@ bool SaveRoomSettingsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SaveRoomSettingsJob::start");
+    addStartRestApiInfo("SaveRoomSettingsJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -39,14 +39,8 @@ bool SaveRoomSettingsJob::start()
 
 void SaveRoomSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SaveRoomSettingsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT saveRoomSettingsDone(replyObject.value("rid"_L1).toString());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SaveRoomSettingsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SaveRoomSettingsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT saveRoomSettingsDone(replyObject->value("rid"_L1).toString());
     }
 }
 
@@ -70,7 +64,9 @@ QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject 
         if (detailActionStr == "Change_Room_Encrypted"_L1) {
             return i18n("Only groups or direct channels can enable encryption");
         } else if (detailActionStr == "Editing_room"_L1) {
-            return i18n("Room does not have retention policy");
+            return i18n("Editing room is not allowed");
+        } else if (detailActionStr == "Change_Room_Type"_L1) {
+            return i18n("Changing room type is not allowed");
         }
     }
     return RestApiAbstractJob::errorMessage(str, detail);
@@ -87,7 +83,7 @@ bool SaveRoomSettingsJob::canStart() const
         return false;
     }
     if (!mSaveRoomSettingsInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SaveRoomSettingsJob: mRoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SaveRoomSettingsJob: mSaveRoomSettingsInfo is not valid";
         return false;
     }
     return true;
@@ -202,6 +198,8 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::SaveRoomSettingsJob::SaveRo
     d.space() << "encrypted : " << t.encrypted;
     d.space() << "roomAvatar : " << t.roomAvatar;
     d.space() << "featured : " << t.featured;
+    d.space() << "reactWhenReadOnly : " << t.reactWhenReadOnly;
+    d.space() << "defaultValue : " << t.defaultValue;
     // hide password d.space() << "joinCode : " << t.joinCode;
     d.space() << "mSettingsWillBeChanged " << t.mSettingsWillBeChanged;
     return d;

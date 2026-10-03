@@ -33,8 +33,10 @@ public:
 Q_SIGNALS:
     void changeTopicDone();
 
+protected:
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mTopic;
     QString mRoomId;
 };

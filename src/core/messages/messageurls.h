@@ -10,6 +10,7 @@
 #include "messageurl.h"
 #include <QList>
 #include <QSharedData>
+#include <memory>
 class LIBRUQOLACORE_EXPORT MessageUrls : public QSharedData
 {
 public:
@@ -18,14 +19,14 @@ public:
     ~MessageUrls();
 
     void setMessageUrls(const QList<MessageUrl> &messageUrls);
-    [[nodiscard]] QList<MessageUrl> messageUrls() const;
+    [[nodiscard]] const QList<MessageUrl> &messageUrls() const;
 
     void parseMessageUrls(const QJsonArray &urls, const QByteArray &messageId);
 
     [[nodiscard]] bool operator==(const MessageUrls &other) const;
 
     [[nodiscard]] static QJsonArray serialize(const MessageUrls &urls);
-    [[nodiscard]] static MessageUrls *deserialize(const QJsonArray &o, const QByteArray &messageId);
+    [[nodiscard]] static std::unique_ptr<MessageUrls> deserialize(const QJsonArray &o, const QByteArray &messageId);
 
     [[nodiscard]] bool isEmpty() const;
 

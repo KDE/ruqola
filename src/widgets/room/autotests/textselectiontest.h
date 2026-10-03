@@ -21,8 +21,14 @@ private Q_SLOTS:
     void testChangingSelection();
     void testSingleLineReverseSelection();
     void testSelectWordUnderCursor();
+    void testSelectWordUnderCursorInUrlPreviewDoesNotSelectMessageText();
     void shouldHaveDefaultValues();
     void testSelectAll();
+    void testSelectionForIndexDoesNotIncludeUrlPreviewByDefault();
+    void testSelectionExtendingToUrlPreviewKeepsTextSelection();
+    void testSelectionFromTextToUrlDoesNotSelectUrlRowTextUntilTextIsHit();
+    void testSelectionStartingInUrlPreviewAndMovingToText();
+    void testSelectionStartingInUrlPreviewAndMovingToPreviousMessage();
     void textClear();
 
 private:

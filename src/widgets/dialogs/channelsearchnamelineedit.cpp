@@ -36,7 +36,7 @@ ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit() = default;
 
 void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 {
-    if (!text.trimmed().isEmpty()) {
+    if (!QStringView(text).trimmed().isEmpty()) {
         auto job = new RocketChatRestApi::RoomsAutocompleteChannelAndPrivateJob(this);
         RocketChatRestApi::RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo info;
         info.name = text;

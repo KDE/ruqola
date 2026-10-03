@@ -56,26 +56,14 @@ void GoogleAuthJobTest::shouldGenerateJson()
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"accessToken":"%1","expiresIn":300,"idToken":"%2","serviceName":"google"})").arg(accessToken, secret).toLatin1());
+             uR"({"accessToken":"%1","expiresIn":300,"idToken":"%2","serviceName":"google"})"_s.arg(accessToken, secret).toLatin1());
 }
 
 void GoogleAuthJobTest::shouldNotStarting()
 {
     GoogleAuthJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString secret = u"secret:"_s;
     job.setIdToken(secret);
     QVERIFY(!job.canStart());

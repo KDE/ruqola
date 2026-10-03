@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 PermissionsManager::PermissionsManager() = default;
 
-PermissionsManager::~PermissionsManager() = default;
-
 void PermissionsManager::parsePermissions(const QJsonObject &replyObject)
 {
     mMapPermissions.clear(); // Full sync — remove stale permissions first
@@ -25,7 +23,7 @@ void PermissionsManager::parsePermissions(const QJsonObject &replyObject)
     // qDebug() << "mMapPermissions  " << mMapPermissions;
 }
 
-const Permission PermissionsManager::permission(const QString &permissionId) const
+const Permission PermissionsManager::permission(QStringView permissionId) const
 {
     return mMapPermissions.value(permissionId);
 }
@@ -35,12 +33,12 @@ QList<Permission> PermissionsManager::permissions() const
     return mMapPermissions.values();
 }
 
-bool PermissionsManager::contains(const QString &permissionId) const
+bool PermissionsManager::contains(QStringView permissionId) const
 {
     return mMapPermissions.contains(permissionId);
 }
 
-QStringList PermissionsManager::roles(const QString &permissionId) const
+QStringList PermissionsManager::roles(QStringView permissionId) const
 {
     const Permission p = mMapPermissions.value(permissionId);
     if (p.isValid()) {

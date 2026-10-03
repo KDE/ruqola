@@ -38,6 +38,12 @@ public:
 
 Q_SIGNALS:
     void methodCallDone(const QJsonObject &replyObject);
+    // The HTTP envelope of /api/v1/method.call reports success even when the DDP method itself
+    // threw: the real outcome sits in the stringified "message" payload, as "result" or "error".
+    // methodCallDone is still emitted in that case (the authentication manager decodes the error
+    // object itself, to detect totp-required and friends), so connect here whenever a method
+    // which failed server-side must not be treated as a success.
+    void methodCallFailed(const QJsonObject &errorObject);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;

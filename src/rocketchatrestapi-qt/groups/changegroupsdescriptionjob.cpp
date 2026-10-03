@@ -5,7 +5,6 @@
 */
 
 #include "changegroupsdescriptionjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ChangeGroupsDescriptionJob::ChangeGroupsDescriptionJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -27,7 +27,7 @@ bool ChangeGroupsDescriptionJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeGroupsDescriptionJob::start");
+    addStartRestApiInfo("ChangeGroupsDescriptionJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool ChangeGroupsDescriptionJob::start()
 
 void ChangeGroupsDescriptionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChangeGroupsDescriptionJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeGroupsDescriptionJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeDescriptionDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChangeGroupsDescriptionJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -76,7 +70,8 @@ bool ChangeGroupsDescriptionJob::canStart() const
 QJsonDocument ChangeGroupsDescriptionJob::json() const
 {
     QJsonObject jsonObj;
-    generateJson(jsonObj), jsonObj["description"_L1] = description();
+    generateJson(jsonObj);
+    jsonObj["description"_L1] = description();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

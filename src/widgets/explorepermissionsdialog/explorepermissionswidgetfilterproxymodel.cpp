@@ -5,7 +5,6 @@
 */
 
 #include "explorepermissionswidgetfilterproxymodel.h"
-#include "config-ruqola.h"
 #include "model/permissionsmodel.h"
 
 ExplorePermissionsWidgetFilterProxyModel::ExplorePermissionsWidgetFilterProxyModel(QObject *parent)
@@ -20,14 +19,11 @@ bool ExplorePermissionsWidgetFilterProxyModel::filterAcceptsRow(int source_row, 
     if (mFilterString.isEmpty()) {
         return true;
     }
-    auto match = [&](int role) {
-        const QModelIndex modelIndex = sourceModel()->index(source_row, role, source_parent);
-        return contains(modelIndex.data(0).toString());
+    auto match = [&](int column) {
+        const QModelIndex modelIndex = sourceModel()->index(source_row, column, source_parent);
+        return contains(modelIndex.data(Qt::DisplayRole).toString());
     };
-    if (match(PermissionsModel::RolesStr) || match(PermissionsModel::Identifier)) {
-        return true;
-    }
-    return false;
+    return match(PermissionsModel::RolesStr) || match(PermissionsModel::Identifier);
 }
 
 #include "moc_explorepermissionswidgetfilterproxymodel.cpp"

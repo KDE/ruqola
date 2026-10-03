@@ -5,15 +5,14 @@
 */
 
 #include "videoconferencecanceljobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "video-conference/videoconferencecanceljob.h"
 #include <QJsonDocument>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(VideoConferenceCancelJobTest)
 using namespace RocketChatRestApi;
 VideoConferenceCancelJobTest::VideoConferenceCancelJobTest(QObject *parent)
@@ -43,26 +42,14 @@ void VideoConferenceCancelJobTest::shouldGenerateJson()
 {
     VideoConferenceCancelJob job;
     job.setCallId(u"foo"_s);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"foo"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"callId":"foo"})"_s.toLatin1());
 }
 
 void VideoConferenceCancelJobTest::shouldNotStarting()
 {
     VideoConferenceCancelJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     job.setCallId(u"bla"_s);
     QVERIFY(job.canStart());
 }

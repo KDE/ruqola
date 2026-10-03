@@ -17,7 +17,7 @@ SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
 
 void SystemMessagesModelTest::shouldHaveDefaultValues()
 {
-    SystemMessagesModel w;
+    const SystemMessagesModel w;
     QCOMPARE(w.rowCount(), 36);
     QVERIFY(w.systemMessagesSelected().isEmpty());
     QStringList lst;

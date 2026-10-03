@@ -23,7 +23,7 @@ PruneMessagesWidgetTest::PruneMessagesWidgetTest(QObject *parent)
 
 void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 {
-    PruneMessagesWidget w(nullptr);
+    const PruneMessagesWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -48,7 +48,7 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
     QVERIFY(oldestLabel);
     QVERIFY(!oldestLabel->text().isEmpty());
 
-    auto mOldestDateTimeEdit = w.findChild<QDateTimeEdit *>(u"mLastestDateTimeEdit"_s);
+    auto mOldestDateTimeEdit = w.findChild<QDateTimeEdit *>(u"mOldestDateTimeEdit"_s);
     QVERIFY(mOldestDateTimeEdit);
 
     auto usersLabel = w.findChild<QLabel *>(u"usersLabel"_s);
@@ -59,7 +59,6 @@ void PruneMessagesWidgetTest::shouldHaveDefaultValues()
 
     auto mUsers = w.findChild<AddUsersWidget *>(u"mUsers"_s);
     QVERIFY(mUsers);
-    mainLayout->addWidget(mUsers);
 
     auto mInclusive = w.findChild<QCheckBox *>(u"mInclusive"_s);
     QVERIFY(mInclusive);

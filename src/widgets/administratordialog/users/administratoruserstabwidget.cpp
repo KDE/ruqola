@@ -19,16 +19,16 @@ AdministratorUsersTabWidget::AdministratorUsersTabWidget(RocketChatAccount *acco
     , mActivatedUsers(new AdministratorUsersWidget(AdministratorUsersWidget::UsersType::Activate, account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTabWidget->setObjectName("mTabWidget"_L1);
+    mTabWidget->setObjectName(u"mTabWidget"_s);
     mainLayout->addWidget(mTabWidget);
 
-    mAllUsers->setObjectName("mAllUsers"_L1);
-    mPendingUsers->setObjectName("mPendingUsers"_L1);
-    mDeactivatedUsers->setObjectName("mDeactivatedUsers"_L1);
-    mActivatedUsers->setObjectName("mActivatedUsers"_L1);
+    mAllUsers->setObjectName(u"mAllUsers"_s);
+    mPendingUsers->setObjectName(u"mPendingUsers"_s);
+    mDeactivatedUsers->setObjectName(u"mDeactivatedUsers"_s);
+    mActivatedUsers->setObjectName(u"mActivatedUsers"_s);
 
     mTabWidget->addTab(mAllUsers, i18n("All"));
     mTabWidget->addTab(mPendingUsers, i18n("Pending"));

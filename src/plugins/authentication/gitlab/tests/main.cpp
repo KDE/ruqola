@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     QGuiApplication app(argc, argv);
     QCommandLineParser parser;
 
-    const QCommandLineOption clientId(QStringList() << u"i"_s << u"client-id"_s, u"Specifies the application client id"_s, u"client_id"_s);
+    const QCommandLineOption clientId(QStringList{u"i"_s, u"client-id"_s}, u"Specifies the application client id"_s, u"client_id"_s);
 
     parser.addOptions({clientId});
     parser.process(app);
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
         // Make url
         info.url = u"foo"_s;
         info.clientId = value;
-        job->setGitLabInfo(std::move(info));
+        job->setGitLabInfo(info);
         job->start();
         app.exec();
     } else {

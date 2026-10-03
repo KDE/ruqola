@@ -50,8 +50,10 @@ private:
 
         // Delete Attachment Rect
         QRect deleteAttachmentRect;
+
+        bool isFileComplete = false;
     };
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void saveAttachment(const QStyleOptionViewItem &option, const File *file);
     const QIcon mDownloadIcon;
     const QIcon mDeleteIcon;

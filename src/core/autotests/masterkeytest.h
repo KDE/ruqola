@@ -19,5 +19,4 @@ private Q_SLOTS:
     void masterKeyDeterminismTest();
     void masterKeyEmptyUserIdTest();
     void masterKeyEmptyPasswordTest();
-    void importRawKeyTest();
 };

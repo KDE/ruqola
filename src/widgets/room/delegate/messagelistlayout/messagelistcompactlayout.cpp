@@ -39,7 +39,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
 
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
-    const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
+    const QSizeF senderTextSize = this->senderTextSize(layout.senderFont, layout.senderText);
 
     if (mRocketChatAccount && mRocketChatAccount->displayAvatars()) {
         layout.avatarPixmap = mDelegate->makeAvatarPixmap(option.widget, index, senderTextSize.height());
@@ -50,7 +50,11 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
     if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     } else if (displayLastSeenMessage) {
-        layout.displayLastSeenMessageY = usableRect.top();
+        // Reserve a band for the unread-messages line and center it, so the line
+        // gets symmetric padding instead of hugging the top of the next message.
+        const int lastSeenLineHeight = option.fontMetrics.height();
+        layout.displayLastSeenMessageY = usableRect.top() + lastSeenLineHeight / 2;
+        usableRect.setTop(usableRect.top() + lastSeenLineHeight);
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
@@ -165,14 +169,22 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
     layout.addReactionRect = QRect(textLeft + textSize.width() + margin, senderRectY, iconSize, iconSize);
-    layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, senderRectY, iconSize, iconSize);
+    if (!message->isEncryptedMessage()) {
+        layout.replyToThreadRect = QRect(layout.addReactionRect.left() + margin + iconSize, senderRectY, iconSize, iconSize);
+    }
 #if HAVE_TEXT_TO_SPEECH
-    layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, senderRectY, iconSize, iconSize);
+    layout.textToSpeechIconRect =
+        QRect(message->isEncryptedMessage() ? layout.addReactionRect.left() + margin + iconSize : layout.replyToThreadRect.left() + margin + iconSize,
+              senderRectY,
+              iconSize,
+              iconSize);
 #endif
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), senderRectY), timeSize);
 
-    layout.readReceiptIconRect = QRect(layout.timeStampRect.left() - margin - iconSize, layout.baseLine, iconSize, iconSize);
+    // Center the read-receipt icon on the timestamp text; the old baseLine anchor put
+    // the icon's top at the text baseline, dropping it a full icon-height below the time.
+    layout.readReceiptIconRect = QRect(layout.timeStampRect.left() - margin - iconSize, senderRectY + (timeSize.height() - iconSize) / 2, iconSize, iconSize);
 
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();

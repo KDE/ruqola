@@ -20,7 +20,7 @@ AdministratorInviteUsersWidgetTest::AdministratorInviteUsersWidgetTest(QObject *
 
 void AdministratorInviteUsersWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorInviteUsersWidget w;
+    const AdministratorInviteUsersWidget w;
 
     auto mListEmails = w.findChild<QLineEdit *>(u"mListEmails"_s);
     QVERIFY(mListEmails);

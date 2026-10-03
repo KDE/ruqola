@@ -41,6 +41,7 @@ struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString userIdFromDirectChannel(const QString &rid, const QString &userId);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT qint64 parseDate(const QString &key, const QJsonObject &o);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT qint64 parseIsoDate(const QString &key, const QJsonObject &o);
+[[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT qint64 parseIsoDate(const QString &value);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QString iconFromStatus(const QString &status);
 [[nodiscard]] LIBRUQOLACORE_EXPORT QString iconFromPresenceStatus(User::PresenceStatus status);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QJsonObject strToJsonObject(const QString &jsonString);
@@ -91,7 +92,7 @@ struct LIBRUQOLACORE_EXPORT AvatarInfo {
 
 [[nodiscard]] LIBRUQOLACORE_EXPORT QIcon iconFromAccount(RocketChatAccount *account);
 }
-Q_DECLARE_METATYPE(Utils::AvatarInfo)
+QT_DECL_METATYPE_EXTERN_TAGGED(Utils::AvatarInfo, Ruqola_AvatarInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Utils::AvatarInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(Utils::QuotedRichTextInfo, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Utils::AvatarInfo &t);

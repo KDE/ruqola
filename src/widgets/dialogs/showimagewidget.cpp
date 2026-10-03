@@ -138,7 +138,9 @@ void ShowImageWidget::slotShowPreviousImage()
     if (mDownloadInProgress) {
         return;
     }
-    setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
+    if (mImageListInfo.index > 0) {
+        setImageInfo(mImageListInfo.imageFromIndex(--mImageListInfo.index, mRocketChatAccount));
+    }
     updateButtons();
 }
 
@@ -147,13 +149,16 @@ void ShowImageWidget::slotShowNextImage()
     if (mDownloadInProgress) {
         return;
     }
-    ++mImageListInfo.index;
     // qDebug() << " mImageListInfo.imageAttachments.count() " << mImageListInfo.imageAttachments.count() << " mImageListInfo.index " <<
     //  mImageListInfo.index;
+    ++mImageListInfo.index;
     if (mImageListInfo.index == mImageListInfo.imageAttachments.count()) {
         // qDebug() << "Need to download next image";
-        if (mImageListInfo.index + 1 < mImageListInfo.imageAttachments.total()) {
+        if (mImageListInfo.index < mImageListInfo.imageAttachments.total()) {
             showImages(mImageListInfo.fileId, mImageListInfo.roomId, mImageListInfo.index - 1);
+        } else {
+            --mImageListInfo.index;
+            updateButtons();
         }
         return;
     }
@@ -210,7 +215,9 @@ void ShowImageWidget::updateRanges()
 
 void ShowImageWidget::updateButtons()
 {
-    mShowImagePrevNextImageWidget->setUpdateButtons(mImageListInfo.index > 0, mImageListInfo.index < mImageListInfo.imageAttachments.count());
+    const int count = mImageListInfo.imageAttachments.count();
+    mShowImagePrevNextImageWidget->setUpdateButtons(mImageListInfo.index > 0,
+                                                    mImageListInfo.index + 1 < count || count < mImageListInfo.imageAttachments.total());
 }
 
 void ShowImageWidget::setImageInfo(const ShowImageWidget::ImageInfo &info)
@@ -226,9 +233,10 @@ const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 
 void ShowImageWidget::saveAs()
 {
-    TextAddonsWidgets::SaveFileUtils::saveFile(this,
-                                               mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile(),
-                                               i18n("Save Image"));
+    std::ignore =
+        TextAddonsWidgets::SaveFileUtils::saveFile(this,
+                                                   mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile(),
+                                                   i18n("Save Image"));
 }
 
 void ShowImageWidget::copyImage()
@@ -255,14 +263,14 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         .offset = offset,
         .count = 5,
     };
-    job->setRoomsImagesJobInfo(std::move(info));
+    job->setRoomsImagesJobInfo(info);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::RoomsImagesJob::roomsImagesDone, this, [this, info](const QJsonObject &replyObject) {
         // qDebug() << " replyObject " << replyObject;
         FileAttachments imagesList;
         imagesList.parseFileAttachments(replyObject);
-        mImageListInfo.imageAttachments.setFilesCount(mImageListInfo.imageAttachments.filesCount() + imagesList.filesCount());
-        mImageListInfo.imageAttachments.addFileAttachments(imagesList.fileAttachments());
+        mImageListInfo.imageAttachments.setLoadedCount(mImageListInfo.imageAttachments.loadedCount() + imagesList.loadedCount());
+        mImageListInfo.imageAttachments.addFileAttachments(imagesList.list());
         mImageListInfo.imageAttachments.setTotal(imagesList.total());
         mImageListInfo.imageAttachments.setOffset(imagesList.offset());
         mImageListInfo.roomId = info.roomId;
@@ -293,7 +301,7 @@ void ShowImageWidget::openWith(const KService::Ptr &service)
 
 ShowImageWidget::ImageInfo ShowImageWidget::ImageListInfo::imageFromIndex(int index, RocketChatAccount *account) const
 {
-    if (!imageAttachments.isEmpty() && (index < imageAttachments.count())) {
+    if (!imageAttachments.isEmpty() && (index < imageAttachments.count()) && (index >= 0)) {
         ShowImageWidget::ImageInfo info;
         info.bigImagePath = imageAttachments.at(index).path();
         info.needToDownloadBigImage = !account->attachmentIsInLocalCache(info.bigImagePath);

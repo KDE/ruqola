@@ -20,7 +20,7 @@ ConferenceInfoDialogTest::ConferenceInfoDialogTest(QObject *parent)
 
 void ConferenceInfoDialogTest::shouldHaveDefaultValues()
 {
-    ConferenceInfoDialog d(nullptr);
+    const ConferenceInfoDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

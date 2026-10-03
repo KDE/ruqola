@@ -28,20 +28,15 @@ bool UsersSendWelcomeEmailJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersSendWelcomeEmailJob::start");
+    addStartRestApiInfo("UsersSendWelcomeEmailJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void UsersSendWelcomeEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersSendWelcomeEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("UsersSendWelcomeEmailJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT sendWelcomeEmailDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersSendWelcomeEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -66,7 +61,7 @@ bool UsersSendWelcomeEmailJob::canStart() const
         return false;
     }
     if (mEmail.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersSendWelcomeEmailJob: mEmail is empty";
         return false;
     }
     return true;

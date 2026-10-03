@@ -17,7 +17,7 @@ UpdateVideoConferenceMessageJobTest::UpdateVideoConferenceMessageJobTest(QObject
 
 void UpdateVideoConferenceMessageJobTest::shouldHaveDefaultValues()
 {
-    UpdateVideoConferenceMessageJob job;
+    const UpdateVideoConferenceMessageJob job;
     QVERIFY(!job.rocketChatAccount());
     QVERIFY(!job.canStart());
     QVERIFY(!job.videoConferenceInfo().isValid());

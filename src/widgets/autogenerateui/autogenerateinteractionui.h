@@ -55,7 +55,7 @@ Q_SIGNALS:
     void actionChanged(const QJsonObject &replyObject);
 
 private:
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUi::TypeUi convertTypeUiFromString(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionChanged(const AutoGenerateInteractionUtil::ViewBlockActionUserInfo &info);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCloseButtonClicked(const QJsonObject &payload, const QString &appId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSubmitButtonClicked(const QJsonObject &payload, const QString &appId);

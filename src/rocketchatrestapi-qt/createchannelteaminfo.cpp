@@ -8,7 +8,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkRequest>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
@@ -38,8 +37,6 @@ QJsonDocument CreateChannelTeamInfo::json() const
         jsonObj["type"_L1] = privateChannel ? 1 : 0;
     }
 
-    QJsonObject roomObj;
-
     QJsonObject extraJsonObj;
 
     if (broadcast) {
@@ -58,19 +55,19 @@ QJsonDocument CreateChannelTeamInfo::json() const
         extraJsonObj["teamId"_L1] = QLatin1StringView(teamId);
     }
     if (infoType == CreateInfoType::Team) {
+        QJsonObject roomObj;
         roomObj["extraData"_L1] = extraJsonObj;
         jsonObj["room"_L1] = roomObj;
     } else {
         jsonObj["extraData"_L1] = extraJsonObj;
     }
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
+    return QJsonDocument(jsonObj);
 }
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
 {
     d.space() << "name " << t.name;
-    d.space() << "description " << t.topic;
+    d.space() << "topic " << t.topic;
     d.space() << "teamId " << t.teamId;
     d.space() << "members " << t.members;
     d.space() << "readOnly " << t.readOnly;
@@ -78,6 +75,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
     d.space() << "encrypted " << t.encrypted;
     d.space() << "private channel " << t.privateChannel;
     d.space() << "infoType " << t.infoType;
+    d.space() << "federated " << t.federated;
     return d;
 }
 

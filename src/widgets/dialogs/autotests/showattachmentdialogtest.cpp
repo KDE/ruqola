@@ -22,7 +22,7 @@ ShowAttachmentDialogTest::ShowAttachmentDialogTest(QObject *parent)
 
 void ShowAttachmentDialogTest::shouldHaveDefaultValues()
 {
-    ShowAttachmentDialog w(nullptr);
+    const ShowAttachmentDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

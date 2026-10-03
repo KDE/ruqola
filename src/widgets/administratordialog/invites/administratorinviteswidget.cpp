@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -18,6 +18,7 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QLineEdit>
 
 #include <QVBoxLayout>
@@ -28,9 +29,9 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
     , mInviteTreeView(new InviteTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminInviteModel(new AdminInviteModel(this))
+    , mAdminInviteFilterProxyModel(new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this))
     , mRocketChatAccount(account)
 {
-    mAdminInviteFilterProxyModel = new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this);
     mAdminInviteFilterProxyModel->setObjectName(u"mAdminInviteFilterProxyModel"_s);
     mAdminInviteFilterProxyModel->setFilterKeyColumn(AdminInviteModel::AdminInviteRoles::Identifier);
     auto mainLayout = new QVBoxLayout(this);
@@ -73,19 +74,13 @@ void AdministratorInvitesWidget::initialize()
 
 void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
 {
-    QList<InviteInfo> lstInvite;
     const QJsonArray array = obj.array();
-    const auto arrayCount{array.count()};
-    lstInvite.reserve(arrayCount);
-    for (auto i = 0; i < arrayCount; ++i) {
-        const QJsonObject o = array.at(i).toObject();
-        InviteInfo invite;
-        invite.parseInviteInfo(o);
-        lstInvite.append(std::move(invite));
+    QList<InviteInfo> lstInvite;
+    lstInvite.reserve(array.count());
+    for (const QJsonValue &current : array) {
+        lstInvite.emplace_back().parseInviteInfo(current.toObject());
     }
-    mAdminInviteModel->setAdminInvites(lstInvite);
-    // qDebug() << " lstInvite " << lstInvite;
-    // qDebug() << " obj " << obj;
+    mAdminInviteModel->setAdminInvites(std::move(lstInvite));
     for (int i : {AdminInviteModel::AdminInviteRoles::CreateAtStr, AdminInviteModel::AdminInviteRoles::Identifier}) {
         mInviteTreeView->resizeColumnToContents(i);
     }

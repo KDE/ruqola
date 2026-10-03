@@ -8,13 +8,13 @@
 
 #include "libruqola_private_export.h"
 #include <QMetaType>
+class QDebug;
 
 class LIBRUQOLACORE_TESTS_EXPORT Discussion
 {
     Q_GADGET
 public:
     Discussion();
-    Discussion(const Discussion &other) = default;
 
     [[nodiscard]] QString description() const;
     void setDescription(const QString &description);
@@ -29,7 +29,6 @@ public:
     void setLastMessage(qint64 lastMessage);
 
     [[nodiscard]] bool operator==(const Discussion &other) const;
-    Discussion &operator=(const Discussion &other) = default;
 
     void parseDiscussion(const QJsonObject &o);
 
@@ -61,6 +60,5 @@ private:
     qint64 mLastMessage = -1;
     qint64 mTimeStamp = -1;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Discussion &t);
 Q_DECLARE_TYPEINFO(Discussion, Q_RELOCATABLE_TYPE);

@@ -34,19 +34,14 @@ bool UserInfoJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("UsersInfoJob: Ask info about me"_ba);
+    addStartRestApiInfo("UserInfoJob: Ask user info"_ba);
     return true;
 }
 
 void UserInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT userInfoDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UserInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT userInfoDone(*replyObject);
     }
 }
 
@@ -65,7 +60,7 @@ QNetworkRequest UserInfoJob::request() const
 bool UserInfoJob::canStart() const
 {
     if (!hasUserIdentifier()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersInfoJob: identifier is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UserInfoJob: identifier is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {

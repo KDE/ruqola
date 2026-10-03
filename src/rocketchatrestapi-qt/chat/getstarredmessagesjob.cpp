@@ -55,13 +55,8 @@ bool GetStarredMessagesJob::start()
 
 void GetStarredMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetStarredMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getStarredMessagesDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetStarredMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetStarredMessagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getStarredMessagesDone(*replyObject, mRoomId);
     }
 }
 

@@ -22,7 +22,7 @@ AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *pa
 
 void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorServerInfoWidget w(nullptr);
+    const AdministratorServerInfoWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

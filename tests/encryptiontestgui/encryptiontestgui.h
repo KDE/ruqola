@@ -30,6 +30,7 @@ private:
     QByteArray mSessionKey;
     QByteArray mEncryptedSessionKey;
     QByteArray mDecryptedSessionKey;
+    QByteArray mMessageIv;
     QByteArray mEncryptedMessage;
     QByteArray mDecryptedMessage;
 };

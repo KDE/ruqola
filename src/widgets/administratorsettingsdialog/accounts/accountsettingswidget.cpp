@@ -23,7 +23,6 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowChangeEmail(new QCheckBox(i18nc("@option:check", "Allow Email Change"), this))
     , mAllowChangePassword(new QCheckBox(i18nc("@option:check", "Allow Password Change"), this))
     , mAllowChangeEmailNotifications(new QCheckBox(i18nc("@option:check", "Allow Email Notifications"), this))
-    , mAllowUsersToDeleteOwnAccount(new QCheckBox(i18nc("@option:check", "Allow Users to Delete Own Account"), this))
     , mAllowAnonymousWrite(new QCheckBox(i18nc("@option:check", "Allow Anonymous Write"), this))
     , mAllowAnonymousRead(new QCheckBox(i18nc("@option:check", "Allow Anonymous Read"), this))
     , mAllowUsersDeleteOwnAccount(new QCheckBox(i18nc("@option:check", "Allow Users to Delete Own Account"), this))
@@ -81,9 +80,6 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
     mAllowChangeEmailNotifications->setObjectName(u"mAllowChangeEmailNotifications"_s);
     addCheckBox(mAllowChangeEmailNotifications, u"Accounts_AllowEmailNotifications"_s);
-
-    mAllowUsersToDeleteOwnAccount->setObjectName(u"mAllowUsersToDeleteOwnAccount"_s);
-    addCheckBox(mAllowUsersToDeleteOwnAccount, u"Accounts_AllowDeleteOwnAccount"_s);
 
     mAllowAnonymousWrite->setObjectName(u"mAllowAnonymousWrite"_s);
     addCheckBox(mAllowAnonymousWrite, u"Accounts_AllowAnonymousWrite"_s);
@@ -235,7 +231,6 @@ void AccountSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mAllowChangeEmail, mapSettings, true);
     initializeWidget(mAllowChangePassword, mapSettings, true);
     initializeWidget(mAllowChangeEmailNotifications, mapSettings, true);
-    initializeWidget(mAllowUsersToDeleteOwnAccount, mapSettings, true);
     initializeWidget(mAllowAnonymousWrite, mapSettings, false);
     initializeWidget(mAllowAnonymousRead, mapSettings, false);
     initializeWidget(mAllowUsersDeleteOwnAccount, mapSettings, false);

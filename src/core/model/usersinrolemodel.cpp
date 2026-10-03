@@ -35,24 +35,25 @@ QList<int> UsersInRoleModel::hideColumns() const
 void UsersInRoleModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mUsers.count();
-    mUsers.parseMoreUsers(obj, Users::ParseType::UserInRoles, {}); // Don't use RoleInfo as we don't need to show it
-    beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
-    endInsertRows();
+    Users users = mUsers;
+    users.parseMoreUsers(obj, Users::ParseType::UserInRoles, {}); // Don't use RoleInfo as we don't need to show it
+    const int newNumberOfElement = users.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mUsers = std::move(users);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mUsers = std::move(users);
+    }
     checkFullList();
 }
 
 void UsersInRoleModel::parseElements(const QJsonObject &obj)
 {
-    if (!mUsers.isEmpty()) {
-        beginResetModel();
-        mUsers.clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mUsers.clear();
     mUsers.parseUsers(obj, Users::ParseType::UserInRoles, {});
-    if (!mUsers.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

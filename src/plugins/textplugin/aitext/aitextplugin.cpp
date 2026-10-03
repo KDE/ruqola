@@ -8,6 +8,7 @@
 #include "aitextinterface.h"
 #include "ruqola.h"
 #include <KPluginFactory>
+#include <QPointer>
 #include <TextAutoGenerateText/TextAutoGenerateMenuConfigureDialog>
 #include <TextAutoGenerateText/TextAutoGenerateMenuTextManager>
 K_PLUGIN_CLASS_WITH_JSON(AiTextPlugin, "ruqola_aitextplugin.json")
@@ -39,7 +40,7 @@ bool AiTextPlugin::hasConfigureDialog() const
 
 void AiTextPlugin::showConfigureDialog(QWidget *parent) const
 {
-    auto dlg = new TextAutoGenerateText::TextAutoGenerateMenuConfigureDialog(parent);
+    QPointer<TextAutoGenerateText::TextAutoGenerateMenuConfigureDialog> dlg = new TextAutoGenerateText::TextAutoGenerateMenuConfigureDialog(parent);
     dlg->setTextInfos(mManager->textInfos());
     if (dlg->exec()) {
         mManager->setTextInfos(dlg->textInfos());

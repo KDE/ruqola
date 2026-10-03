@@ -19,7 +19,7 @@ AdministratorOauthEditWidgetTest::AdministratorOauthEditWidgetTest(QObject *pare
 
 void AdministratorOauthEditWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorOauthEditWidget w;
+    const AdministratorOauthEditWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QStringList>
+class QDebug;
 
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Reaction
@@ -20,7 +21,7 @@ public:
     [[nodiscard]] QString reactionName() const;
     void setReactionName(const QString &reactionName, EmojiManager *emojiManager = nullptr);
 
-    [[nodiscard]] QStringList userNames() const;
+    [[nodiscard]] const QStringList &userNames() const;
     void setUserNames(const QStringList &userNames);
 
     [[nodiscard]] int count() const;
@@ -40,5 +41,4 @@ private:
     bool mIsAnimatedImage = false;
 };
 Q_DECLARE_TYPEINFO(Reaction, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reaction &t);

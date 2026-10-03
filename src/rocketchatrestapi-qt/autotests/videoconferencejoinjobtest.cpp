@@ -5,15 +5,14 @@
 */
 
 #include "videoconferencejoinjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "video-conference/videoconferencejoinjob.h"
 #include <QJsonDocument>
 #include <QTest>
 
+using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(VideoConferenceJoinJobTest)
 using namespace RocketChatRestApi;
 VideoConferenceJoinJobTest::VideoConferenceJoinJobTest(QObject *parent)
@@ -48,7 +47,7 @@ void VideoConferenceJoinJobTest::shouldGenerateJson()
         info.useCamera = false;
         info.useMicro = false;
         job.setInfo(info);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"bla","state":{"cam":false,"mic":false}})").toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"callId":"bla","state":{"cam":false,"mic":false}})"_s.toLatin1());
     }
     {
         VideoConferenceJoinJob::VideoConferenceJoinInfo info;
@@ -56,7 +55,7 @@ void VideoConferenceJoinJobTest::shouldGenerateJson()
         info.useCamera = true;
         info.useMicro = true;
         job.setInfo(info);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"foo","state":{"cam":true,"mic":true}})").toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"callId":"foo","state":{"cam":true,"mic":true}})"_s.toLatin1());
     }
 }
 
@@ -64,19 +63,7 @@ void VideoConferenceJoinJobTest::shouldNotStarting()
 {
     VideoConferenceJoinJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     VideoConferenceJoinJob::VideoConferenceJoinInfo info;
     info.callId = u"foo"_s;

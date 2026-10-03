@@ -5,7 +5,6 @@
 */
 
 #include "userslogoutotherclientsjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "users/userslogoutotherclientsjob.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersLogoutOtherClientsJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UsersLogoutOtherClientsJobTest::UsersLogoutOtherClientsJobTest(QObject *parent)
     : QObject(parent)
@@ -42,8 +42,8 @@ void UsersLogoutOtherClientsJobTest::shouldGenerateRequest()
 
 void UsersLogoutOtherClientsJobTest::shouldGenerateJson()
 {
-    UsersLogoutOtherClientsJob job;
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({})").toLatin1());
+    const UsersLogoutOtherClientsJob job;
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({})"_s.toLatin1());
 }
 
 void UsersLogoutOtherClientsJobTest::shouldNotStarting()

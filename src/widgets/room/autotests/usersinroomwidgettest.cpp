@@ -7,7 +7,7 @@
 #include "usersinroomwidgettest.h"
 
 #include "room/usersinroomcombobox.h"
-#include "room/usersinroomlistview.h"
+#include "room/usersinroomtreeview.h"
 #include "room/usersinroomwidget.h"
 #include <QLabel>
 #include <QLineEdit>
@@ -24,12 +24,12 @@ UsersInRoomWidgetTest::UsersInRoomWidgetTest(QObject *parent)
 
 void UsersInRoomWidgetTest::shouldHaveDefaultValues()
 {
-    UsersInRoomWidget w(nullptr);
+    const UsersInRoomWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mListView = w.findChild<UsersInRoomListView *>(u"mListView"_s);
+    auto mListView = w.findChild<UsersInRoomTreeView *>(u"mListView"_s);
     QVERIFY(mListView);
 
     auto mSearchLineEdit = w.findChild<QLineEdit *>(u"mSearchLineEdit"_s);

@@ -7,7 +7,6 @@
 #include "roomscleanhistoryjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -29,7 +28,7 @@ void RoomsCleanHistoryJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 
-    RoomsCleanHistoryJob::CleanHistoryInfo info;
+    const RoomsCleanHistoryJob::CleanHistoryInfo info;
     QVERIFY(!info.isValid());
     QVERIFY(!info.inclusive);
     QVERIFY(!info.excludePinned);
@@ -61,58 +60,43 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
     info.oldest = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":false,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId))
+             u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":false,\"latest\":"
+             u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId))
                  .toLatin1());
     info.inclusive = true;
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId))
+             u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":false,\"inclusive\":true,\"latest\":"
+             u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId))
                  .toLatin1());
     info.ignoreThreads = true;
     job.setCleanHistoryInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId))
+             u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
+             u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId))
                  .toLatin1());
     const QStringList users = {u"bla"_s, u"bli"_s};
     info.users = users;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}")
-                 .arg(QLatin1StringView(roomId))
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":false,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
+        u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}"_s.arg(QLatin1StringView(roomId))
+            .toLatin1());
     info.ignoreDiscussion = true;
     job.setCleanHistoryInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":true,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
-                            "\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}")
-                 .arg(QLatin1StringView(roomId))
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        u"{\"excludePinned\":false,\"filesOnly\":false,\"ignoreDiscussion\":true,\"ignoreThreads\":true,\"inclusive\":true,\"latest\":"
+        u"\"2020-12-03T05:07:50.000\",\"oldest\":\"2020-03-03T05:07:50.000\",\"roomId\":\"%1\",\"users\":[\"bla\",\"bli\"]}"_s.arg(QLatin1StringView(roomId))
+            .toLatin1());
 }
 
 void RoomsCleanHistoryJobTest::shouldNotStarting()
 {
     RoomsCleanHistoryJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     RoomsCleanHistoryJob::CleanHistoryInfo info;
     const QByteArray roomId("room1");
     info.roomId = roomId;

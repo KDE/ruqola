@@ -8,12 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include "user.h"
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT CustomUserStatus
 {
 public:
     CustomUserStatus();
-    ~CustomUserStatus();
 
     [[nodiscard]] bool isValid() const;
 
@@ -41,5 +41,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(CustomUserStatus, Ruqola_CustomUserStatus, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(CustomUserStatus, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomUserStatus &t);

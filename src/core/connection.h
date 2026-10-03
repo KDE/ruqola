@@ -8,6 +8,7 @@
 
 #include "channelgroupbasejob.h"
 #include "channels/channelhistoryjob.h"
+#include "chat/encryptedinfo.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
 #include "job/adduserinchanneljob.h"
@@ -65,7 +66,7 @@ public:
     void getOwnInfo();
     RocketChatRestApi::DownloadFileJob *
     downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType = "text/plain", bool requiredAuthentication = true);
-    void postMessage(const QByteArray &roomId, const QString &text);
+    void postMessage(const QByteArray &roomId, const QString &text, const RocketChatRestApi::EncryptedInfo &encryptedInfo = {});
     void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void leaveChannel(const QByteArray &roomId);
@@ -117,11 +118,14 @@ public:
     void getThreadsList(Utils::ListMessagesInfo &&info);
     void getPinnedMessages(Utils::ListMessagesInfo &&info);
     void getStarredMessages(Utils::ListMessagesInfo &&info);
-    void getSnippetedMessages(Utils::ListMessagesInfo &&info);
     void getMentionedMessages(Utils::ListMessagesInfo &&info);
 
     void getThreadMessages(const QByteArray &threadMessageId);
-    void sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId = QString(), const QByteArray &threadMessageId = QByteArray());
+    void sendMessage(const QByteArray &roomId,
+                     const QString &text,
+                     const QString &messageId = QString(),
+                     const QByteArray &threadMessageId = QByteArray(),
+                     const RocketChatRestApi::EncryptedInfo &encryptedInfo = {});
     void setUserStatus(const QString &userId, RocketChatRestApi::SetStatusJob::StatusType status, const QString &message = QString());
     void usersPresence();
     void usersAutocomplete(const RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo &info);
@@ -150,7 +154,6 @@ Q_SIGNALS:
     void getThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
     void getPinnedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getStarredMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
-    void getSnippetedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void getMentionedMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
     void usersPresenceDone(const QJsonObject &obj);
 
@@ -171,11 +174,13 @@ Q_SIGNALS:
     void createChannelDone(const QJsonObject &replyObject);
     void createGroupDone(const QJsonObject &replyObject);
     void userNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
+    void addUserInChannelDone(const QByteArray &roomId, const QByteArray &userId);
+    void addUserInGroupDone(const QByteArray &roomId, const QByteArray &userId);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeCookies();
     LIBRUQOLACORE_NO_EXPORT void slotResult(QNetworkReply *reply);
-    LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    static LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     LIBRUQOLACORE_NO_EXPORT void slotLogout();
     LIBRUQOLACORE_NO_EXPORT void slotLogin(const QString &authToken, const QString &userId);
     LIBRUQOLACORE_NO_EXPORT void setJoinCodeChannel(const QString &roomId, const QString &joinCode);

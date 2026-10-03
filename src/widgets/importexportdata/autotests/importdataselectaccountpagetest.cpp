@@ -21,7 +21,7 @@ ImportDataSelectAccountPageTest::ImportDataSelectAccountPageTest(QObject *parent
 
 void ImportDataSelectAccountPageTest::shouldHaveDefaultValues()
 {
-    ImportDataSelectAccountPage w;
+    const ImportDataSelectAccountPage w;
 
     auto mUrlRequester = w.findChild<KUrlRequester *>(u"mUrlRequester"_s);
     QVERIFY(mUrlRequester);

@@ -19,7 +19,7 @@ AuthenticationWidgetTest::AuthenticationWidgetTest(QWidget *parent)
 
 void AuthenticationWidgetTest::shouldHaveDefaultValues()
 {
-    AuthenticationOauthWidget w;
+    const AuthenticationOauthWidget w;
     auto mMainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mMainLayout);
     QCOMPARE(mMainLayout->contentsMargins(), QMargins{});

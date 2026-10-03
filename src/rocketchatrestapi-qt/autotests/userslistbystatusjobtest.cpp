@@ -5,15 +5,14 @@
 */
 
 #include "userslistbystatusjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/userslistbystatusjob.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersListByStatusJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UsersListByStatusJobTest::UsersListByStatusJobTest(QObject *parent)
     : QObject(parent)
@@ -83,9 +82,9 @@ void UsersListByStatusJobTest::shouldGenerateRequest()
         info.searchName = "gla"_L1;
         job.setUsersListByStatusJobInfo(info);
         RuqolaRestApiHelper::verifyAuthentication(&job, request);
-        QCOMPARE(request.url(),
-                 QUrl(QStringLiteral(
-                     "http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user&roles[]=user&roles[]=admin&searchTerm=gla")));
+        QCOMPARE(
+            request.url(),
+            QUrl(u"http://www.kde.org/api/v1/users.listByStatus?hasLoggedIn=true&status=deactivated&type=user&roles[]=user&roles[]=admin&searchTerm=gla"_s));
     }
 }
 

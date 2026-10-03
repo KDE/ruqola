@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -8,18 +8,15 @@
 
 #include "createnewdiscussionwidget.h"
 #include "rocketchataccount.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
-char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
+const char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
 }
 using namespace Qt::Literals::StringLiterals;
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent)
@@ -46,27 +43,13 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account,
     connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, this, [button](bool state) {
         button->setEnabled(state);
     });
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewDiscussionDialog::accept);
 }
 
-CreateNewDiscussionDialog::~CreateNewDiscussionDialog()
-{
-    writeConfig();
-}
+CreateNewDiscussionDialog::~CreateNewDiscussionDialog() = default;
 
 void CreateNewDiscussionDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myCreateNewDiscussionDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void CreateNewDiscussionDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myCreateNewDiscussionDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myCreateNewDiscussionDialogGroupName), QSize(800, 600));
 }
 
 CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscussionInfo() const

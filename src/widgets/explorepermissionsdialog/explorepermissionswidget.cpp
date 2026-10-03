@@ -63,13 +63,13 @@ void ExplorePermissionsWidget::setPermissions(const QList<Permission> &permissio
 {
     Permissions perms;
     perms.setPermissions(permissions);
-    mAdminPermissionsModel->setPermissions(perms);
+    mAdminPermissionsModel->setPermissions(std::move(perms));
     mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 void ExplorePermissionsWidget::setOWnRoles(const QStringList &roleStr)
 {
-    mOwnRoles->setText(u"<qt><b>%1</b> %2</qt>"_s.arg(i18n("Own Roles:"), roleStr.join(u',')));
+    mOwnRoles->setText(u"<qt><b>%1</b> %2</qt>"_s.arg(i18n("Own Roles:"), roleStr.join(u',').toHtmlEscaped()));
 }
 
 #include "moc_explorepermissionswidget.cpp"

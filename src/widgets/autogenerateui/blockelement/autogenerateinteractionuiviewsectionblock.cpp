@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewsectionblock.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewbuttonelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewdatepickerelement.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewimageelement.h"
@@ -46,8 +47,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewSectionBlock &t)
 
 bool AutoGenerateInteractionUiViewSectionBlock::operator==(const AutoGenerateInteractionUiViewSectionBlock &other) const
 {
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.text() == text() && other.accessory() == accessory()
-        && other.fields() == fields();
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && AutoGenerateInteractionUtil::isEqual(mText, other.mText)
+        && AutoGenerateInteractionUtil::isSerializedEqual(mAccessory, other.mAccessory) && AutoGenerateInteractionUtil::isEqual(mFields, other.mFields);
 }
 
 QWidget *AutoGenerateInteractionUiViewSectionBlock::generateWidget(QWidget *parent)
@@ -154,9 +155,8 @@ void AutoGenerateInteractionUiViewSectionBlock::setErrorMessages(const QMap<QStr
     }
 }
 
-void AutoGenerateInteractionUiViewSectionBlock::assignState(const QList<StateInfo> &info)
+void AutoGenerateInteractionUiViewSectionBlock::assignState([[maybe_unused]] const QList<StateInfo> &info)
 {
-    Q_UNUSED(info);
 }
 
 AutoGenerateInteractionUiViewActionable *AutoGenerateInteractionUiViewSectionBlock::accessory() const

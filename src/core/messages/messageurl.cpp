@@ -20,7 +20,7 @@ MessageUrl::MessageUrl()
 
 QStringList MessageUrl::pageTitleElements()
 {
-    return {u"ogTitle"_s, u"twitterTitle"_s, u"title"_s, QStringLiteral("pageTitle"), QStringLiteral("oembedTitle")};
+    return {u"ogTitle"_s, u"twitterTitle"_s, u"title"_s, u"pageTitle"_s, u"oembedTitle"_s};
 }
 
 QStringList MessageUrl::descriptionElements()
@@ -30,7 +30,7 @@ QStringList MessageUrl::descriptionElements()
 
 QStringList MessageUrl::imageUrlElements()
 {
-    return {u"ogImage"_s, u"twitterImage"_s, u"msapplicationTileImage"_s, QStringLiteral("oembedThumbnailUrl")};
+    return {u"ogImage"_s, u"twitterImage"_s, u"msapplicationTileImage"_s, u"oembedThumbnailUrl"_s};
 }
 
 QStringList MessageUrl::siteUrlElements()
@@ -66,7 +66,7 @@ void MessageUrl::setShowPreview(bool newShowPreview)
 QString MessageUrl::cleanText(const QString &str)
 {
     QString newStr = str;
-    newStr.remove(QLatin1Char('\n'));
+    newStr.remove(u'\n');
     return newStr;
 }
 
@@ -79,9 +79,9 @@ void MessageUrl::generateHtmlDescription()
     if (!mDescription.isEmpty()) {
         mHtmlDescription += u"\n%1"_s.arg(MessageUrl::cleanText(mDescription));
     }
-    if (!mSiteName.isEmpty()) {
-        mHtmlDescription += u"\n[%1](%2)"_s.arg(mSiteName, mSiteUrl);
-    }
+    // Note: the site name is intentionally not repeated here. It duplicates
+    // information already carried by the page title (and the link itself), and
+    // made the preview card needlessly tall. See MessageDelegateHelperUrlPreview.
 }
 
 bool MessageUrl::hasHtmlDescription() const
@@ -106,6 +106,17 @@ bool MessageUrl::hasPreviewUrl() const
         return true;
     }
     return false;
+}
+
+bool MessageUrl::hasRichPreview() const
+{
+    if (!mDescription.isEmpty()) {
+        return true;
+    }
+    if (!mImageUrl.isEmpty()) {
+        return true;
+    }
+    return hasPreviewContentType();
 }
 
 QByteArray MessageUrl::urlId() const
@@ -195,8 +206,8 @@ void MessageUrl::generateImageUrl()
             mImageBuildUrl = mImageUrl;
         } else {
             mImageBuildUrl = url();
-            if (!url().endsWith(QLatin1Char('/')) && !mImageUrl.startsWith(QLatin1Char('/'))) {
-                mImageBuildUrl += QLatin1Char('/');
+            if (!url().endsWith(u'/') && !mImageUrl.startsWith(u'/')) {
+                mImageBuildUrl += u'/';
             }
             mImageBuildUrl += mImageUrl;
 #if 0
@@ -241,13 +252,13 @@ QString MessageUrl::contentTypeEnumToString(ContentType type)
     case ContentType::None:
         return {};
     case ContentType::Image:
-        return QStringLiteral("image");
+        return u"image"_s;
     case ContentType::ImageAnimated:
-        return QStringLiteral("image_animated");
+        return u"image_animated"_s;
     case ContentType::Audio:
-        return QStringLiteral("audio");
+        return u"audio"_s;
     case ContentType::Video:
-        return QStringLiteral("video");
+        return u"video"_s;
     }
     return {};
 }
@@ -280,19 +291,15 @@ MessageUrl::ContentType MessageUrl::stringToContentTypeEnum(const QString &str)
 MessageUrl::ContentType MessageUrl::parseHeaderContentType(const QString &typeHeader) const
 {
     if (!typeHeader.isEmpty()) {
-        const static QRegularExpression rimage(u"image/.*"_s);
-        const static QRegularExpression raudio(u"audio/.*"_s);
-        const static QRegularExpression rvideo(u"video/.*"_s);
-        const static QRegularExpression rhtml(u"text/html.*"_s);
         if (typeHeader.contains("image/gif"_L1)) {
             return MessageUrl::ContentType::ImageAnimated;
-        } else if (typeHeader.contains(rimage)) {
+        } else if (typeHeader.startsWith(u"image/"_s)) {
             return MessageUrl::ContentType::Image;
-        } else if (typeHeader.contains(raudio)) {
+        } else if (typeHeader.startsWith(u"audio/"_s)) {
             return MessageUrl::ContentType::Audio;
-        } else if (typeHeader.contains(rvideo)) {
+        } else if (typeHeader.startsWith(u"video/"_s)) {
             return MessageUrl::ContentType::Video;
-        } else if (typeHeader.contains(rhtml)) {
+        } else if (typeHeader.startsWith(u"text/html"_s)) {
             return MessageUrl::ContentType::None;
         } else {
             qCDebug(RUQOLA_MESSAGE_URL_LOG) << "Invalid content type " << typeHeader << " this " << *this;
@@ -481,11 +488,10 @@ void MessageUrl::setDescription(const QString &description)
 
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
-    return (mUrl == other.url()) && (mPageTitle == other.pageTitle()) && (mDescription == other.description()) && (mImageUrl == other.imageUrl())
-        && (mAuthorName == other.authorName()) && (mAuthorUrl == other.authorUrl()) && (mSiteUrl == other.siteUrl()) && (mSiteName == other.siteName())
-        && (mImageHeight == other.imageHeight()) && (mImageWidth == other.imageWidth())
-        && (mUrlId == other.urlId() && (mHtmlDescription == other.htmlDescription()) && (mImageBuildUrl == other.buildImageUrl()))
-        && (mContentType == other.contentType());
+    return (mUrl == other.mUrl) && (mPageTitle == other.mPageTitle) && (mDescription == other.mDescription) && (mImageUrl == other.mImageUrl)
+        && (mAuthorName == other.mAuthorName) && (mAuthorUrl == other.mAuthorUrl) && (mSiteUrl == other.mSiteUrl) && (mSiteName == other.mSiteName)
+        && (mImageHeight == other.mImageHeight) && (mImageWidth == other.mImageWidth) && (mUrlId == other.mUrlId)
+        && (mHtmlDescription == other.mHtmlDescription) && (mImageBuildUrl == other.mImageBuildUrl) && (mContentType == other.mContentType);
 }
 
 QDebug operator<<(QDebug d, const MessageUrl &t)

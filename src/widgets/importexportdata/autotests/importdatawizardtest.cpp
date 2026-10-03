@@ -9,22 +9,24 @@ using namespace Qt::Literals::StringLiterals;
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 #include "importexportdata/importdata/importdatawizard.h"
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_MAIN(ImportDataWizardTest)
 ImportDataWizardTest::ImportDataWizardTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ImportDataWizardTest::shouldHaveDefaultValues()
 {
-    ImportDataWizard w;
+    const ImportDataWizard w;
 
     auto mImportDataSelectAccountPage = w.findChild<ImportDataSelectAccountPage *>(u"mImportDataSelectAccountPage"_s);
     QVERIFY(mImportDataSelectAccountPage);
 
-    auto mImportDataFinishPage = w.findChild<ImportDataFinishPage *>(u"mImportDataSelectAccountPage"_s);
+    auto mImportDataFinishPage = w.findChild<ImportDataFinishPage *>(u"mImportDataFinishPage"_s);
     QVERIFY(mImportDataFinishPage);
 }
 

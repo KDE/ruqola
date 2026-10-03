@@ -27,25 +27,36 @@ void RuqolaLoginStackWidget::changeAuthenticationWidgetStatus(bool enabled)
 
 void RuqolaLoginStackWidget::addAuthenticationConfigureWidget(AuthenticationManager::AuthMethodType type)
 {
-    if (auto plugin = AuthenticationManager::self()->findPluginAuthentication(type)) {
-        auto interface = plugin->createInterface(this);
-        auto configureWidget = interface->configureWidget(this);
-        if (mPluginAuthenticationConfigureWidget) {
-            removeWidget(mPluginAuthenticationConfigureWidget);
-            delete mPluginAuthenticationConfigureWidget;
+    // This method is called each time the login status changes, but the widget only needs to be
+    // recreated when the authentication method itself changed: it emits tryLogin() (return pressed
+    // in the password line edit), so recreating it from that very signal would delete it while it
+    // is still emitting. It would also throw away what the user typed in the meantime.
+    if (!mPluginAuthenticationConfigureWidget || mAuthMethodType != type) {
+        if (auto plugin = AuthenticationManager::self()->findPluginAuthentication(type)) {
+            auto interface = plugin->createInterface(this);
+            auto configureWidget = interface->configureWidget(this);
+            delete interface;
+            if (mPluginAuthenticationConfigureWidget) {
+                removeWidget(mPluginAuthenticationConfigureWidget);
+                mPluginAuthenticationConfigureWidget->deleteLater();
+            }
+            mPluginAuthenticationConfigureWidget = configureWidget;
+            mAuthMethodType = type;
+            mPluginAuthenticationConfigureWidget->setAuthenticationLoginType(PluginAuthenticationConfigureWidget::AuthenticationLoginType::Login);
+            connect(mPluginAuthenticationConfigureWidget,
+                    &PluginAuthenticationConfigureWidget::settingsIsValid,
+                    this,
+                    &RuqolaLoginStackWidget::settingsIsValid);
+            connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::tryLogin, this, &RuqolaLoginStackWidget::tryLogin);
+            mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
+            addWidget(mPluginAuthenticationConfigureWidget);
+        } else {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find authentication for " << type;
         }
-        mPluginAuthenticationConfigureWidget = configureWidget;
-        mPluginAuthenticationConfigureWidget->setAuthenticationLoginType(PluginAuthenticationConfigureWidget::AuthenticationLoginType::Login);
-        connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::settingsIsValid, this, &RuqolaLoginStackWidget::settingsIsValid);
-        connect(mPluginAuthenticationConfigureWidget, &PluginAuthenticationConfigureWidget::tryLogin, this, &RuqolaLoginStackWidget::tryLogin);
-
-        mPluginAuthenticationConfigureWidget->setExistingAccountNames(mExistingAccountNames);
+    }
+    if (mPluginAuthenticationConfigureWidget) {
         mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
-        addWidget(mPluginAuthenticationConfigureWidget);
         setCurrentWidget(mPluginAuthenticationConfigureWidget);
-        delete interface;
-    } else {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find authentication for " << type;
     }
 }
 
@@ -61,10 +72,6 @@ void RuqolaLoginStackWidget::setAccountInfo(const AccountManager::AccountManager
 {
     mAccountManagerInfo = info;
     addAuthenticationConfigureWidget(mAccountManagerInfo.authMethodType);
-    if (mPluginAuthenticationConfigureWidget) {
-        mPluginAuthenticationConfigureWidget->setAccountInfo(mAccountManagerInfo);
-        setCurrentWidget(mPluginAuthenticationConfigureWidget);
-    }
 }
 
 #include "moc_ruqolaloginstackwidget.cpp"

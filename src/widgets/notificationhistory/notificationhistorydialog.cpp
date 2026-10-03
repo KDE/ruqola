@@ -8,13 +8,10 @@
 
 #include "notificationhistorywidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -42,24 +39,11 @@ NotificationHistoryDialog::NotificationHistoryDialog(QWidget *parent)
     readConfig();
 }
 
-NotificationHistoryDialog::~NotificationHistoryDialog()
-{
-    writeConfig();
-}
+NotificationHistoryDialog::~NotificationHistoryDialog() = default;
 
 void NotificationHistoryDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myNotificationHistoryDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void NotificationHistoryDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myNotificationHistoryDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myNotificationHistoryDialogConfigGroupName), QSize(400, 300));
 }
 
 void NotificationHistoryDialog::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)

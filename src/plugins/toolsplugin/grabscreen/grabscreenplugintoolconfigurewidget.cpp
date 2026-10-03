@@ -22,6 +22,7 @@ GrabScreenPluginToolConfigureWidget::GrabScreenPluginToolConfigureWidget(QWidget
     mainLayout->setContentsMargins({});
 
     mDelay->setObjectName(u"mDelay"_s);
+    mDelay->setRange(0, 60);
     mainLayout->addRow(i18n("Delay:"), mDelay);
     KLocalization::setupSpinBoxFormatString(mDelay, ki18ncp("@item %v is a number", "%v second", "%v seconds"));
 }

@@ -42,13 +42,8 @@ bool TeamInfoJob::start()
 
 void TeamInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT teamInfoDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamInfoJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("TeamInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT teamInfoDone(*replyObject);
     }
 }
 

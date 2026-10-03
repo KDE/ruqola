@@ -15,7 +15,7 @@ AutoGenerateInteractionUiViewButtonElementTest::AutoGenerateInteractionUiViewBut
 
 void AutoGenerateInteractionUiViewButtonElementTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewButtonElement b;
+    const AutoGenerateInteractionUiViewButtonElement b;
     QVERIFY(!b.secondary());
     // TODO
 }

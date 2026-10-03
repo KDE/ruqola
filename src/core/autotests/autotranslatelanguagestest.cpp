@@ -16,7 +16,7 @@ AutotranslateLanguagesTest::AutotranslateLanguagesTest(QObject *parent)
 
 void AutotranslateLanguagesTest::shouldHaveDefaultValues()
 {
-    AutotranslateLanguages w;
+    const AutotranslateLanguages w;
     QVERIFY(w.isEmpty());
     QCOMPARE(w.count(), 0);
     QVERIFY(w.autotranslateLanguage().isEmpty());

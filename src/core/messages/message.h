@@ -10,6 +10,7 @@
 #include "channels.h"
 #include "libruqolacore_export.h"
 #include "messageattachments.h"
+#include "messageencrypted.h"
 #include "messageextra.h"
 #include "messagepinned.h"
 #include "messagestarred.h"
@@ -20,6 +21,7 @@
 #include "replies.h"
 #include "systemmessagetypeutil.h"
 #include "utils.h"
+#include <QDate>
 #include <QString>
 
 class EmojiManager;
@@ -28,8 +30,6 @@ class LIBRUQOLACORE_EXPORT Message
     Q_GADGET
 public:
     Message();
-    Message(const Message &other) = default;
-    virtual ~Message();
 
     enum MessageType : uint8_t {
         System,
@@ -89,8 +89,6 @@ public:
     void parseMessage(const QJsonObject &o, bool restApi, EmojiManager *emojiManager);
 
     [[nodiscard]] bool operator==(const Message &other) const;
-
-    Message &operator=(const Message &other) = default;
 
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
@@ -181,7 +179,6 @@ public:
 
     [[nodiscard]] const MessageTranslations *messageTranslation() const;
     void setMessageTranslation(const MessageTranslations &messageTranslation);
-    void setMessageTranslation(MessageTranslations *messageTranslation);
 
     [[nodiscard]] bool showTranslatedMessage() const;
     void setShowTranslatedMessage(bool showTranslatedMessage);
@@ -241,6 +238,13 @@ public:
     [[nodiscard]] bool textToSpeechInProgress() const;
     void setTextToSpeechInProgress(bool newTextToSpeechInProgress);
 
+    [[nodiscard]] const MessageEncrypted *messageEncrypted() const;
+    void setMessageEncrypted(const MessageEncrypted &messageEncrypted);
+
+    [[nodiscard]] bool hasDescriptedContent() const;
+
+    [[nodiscard]] QDate localDate() const;
+
 private:
     LIBRUQOLACORE_NO_EXPORT void parseMentions(const QJsonArray &mentions);
     LIBRUQOLACORE_NO_EXPORT void parseAttachment(const QJsonArray &attachments);
@@ -250,6 +254,8 @@ private:
     LIBRUQOLACORE_NO_EXPORT void parseBlocks(const QJsonArray &blocks);
     LIBRUQOLACORE_NO_EXPORT void assignMessageStateValue(MessageState type, bool status);
     LIBRUQOLACORE_NO_EXPORT void parseReplies(const QJsonArray &replies);
+    LIBRUQOLACORE_NO_EXPORT void parseEncrypted(const QJsonObject &o);
+    LIBRUQOLACORE_NO_EXPORT void resetEncrypted();
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool messageStateValue(MessageState type) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT MessageExtra *messageExtra();
 
@@ -287,6 +293,9 @@ private:
     // Users which replies to thread
     QSharedDataPointer<Replies> mReplies;
 
+    // Encrypted message
+    QSharedDataPointer<MessageEncrypted> mMessageEncrypted;
+
     // role used when we add/remove role. It will displaying in messagesystem
     QString mRole;
 
@@ -317,6 +326,7 @@ private:
     QString mEmoji;
 
     // ts
+    QDate mLocalDate;
     QString mDisplayTime;
     qint64 mTimeStamp = -1;
     // _updatedAt
@@ -331,4 +341,5 @@ private:
 
     int mNumberOfTextSearched = -1;
 };
+Q_DECLARE_TYPEINFO(Message, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Message &t);

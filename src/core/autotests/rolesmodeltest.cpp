@@ -15,7 +15,7 @@ RolesModelTest::RolesModelTest(QObject *parent)
 
 void RolesModelTest::shouldHaveDefaultValues()
 {
-    RolesModel w;
+    const RolesModel w;
     QCOMPARE(w.rowCount(), 0);
 }
 

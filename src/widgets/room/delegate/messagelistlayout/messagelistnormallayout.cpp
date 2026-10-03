@@ -14,6 +14,8 @@
 #include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagelistdelegate.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 MessageListNormalLayout::MessageListNormalLayout(MessageListDelegate *delegate)
     : MessageListLayoutBase(delegate)
 {
@@ -40,22 +42,30 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = layout.sameSenderAsPreviousMessage ? 0 : senderFontMetrics.ascent();
-    const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
-
+    const int senderLineHeight = layout.sameSenderAsPreviousMessage ? 0 : qCeil(senderFontMetrics.height());
+    const QSizeF senderTextSize = this->senderTextSize(layout.senderFont, layout.senderText);
     if (mRocketChatAccount && mRocketChatAccount->displayAvatars()) {
         layout.avatarPixmap = mDelegate->makeAvatarPixmap(option.widget, index, senderTextSize.height() * 2);
     }
 
     QRect usableRect = option.rect;
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
-    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
-        usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+    const bool dateDiffersFromPrevious = index.data(MessagesModel::DateDiffersFromPrevious).toBool();
+    // A date header and a standalone unread-messages line each occupy a band at the top of
+    // the row. Reserve it here; the author line is shifted down by the same amount below.
+    int topBandHeight = 0;
+    if (dateDiffersFromPrevious) {
+        topBandHeight = option.fontMetrics.height();
     } else if (displayLastSeenMessage) {
-        layout.displayLastSeenMessageY = usableRect.top();
+        topBandHeight = option.fontMetrics.height();
+        // Center the line in its band so it gets symmetric padding instead of hugging the
+        // top of the next message.
+        layout.displayLastSeenMessageY = usableRect.top() + topBandHeight / 2;
     }
+    usableRect.setTop(usableRect.top() + topBandHeight);
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-    usableRect.setTop(usableRect.top() + senderAscent); // FIXME position.
+    usableRect.setTop(usableRect.top() + senderLineHeight);
     const qreal margin = MessageDelegateUtils::basicMargin();
     const int avatarWidth = MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width();
     const int senderX = option.rect.x() + avatarWidth + 2 * margin;
@@ -64,7 +74,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     int positionIcon = senderX + senderTextSize.width() + margin;
     // Roles icon
     const qreal iconSizeMargin = iconSize + margin;
-    const bool hasRoles = !index.data(MessagesModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
+    const bool hasRoles = mRocketChatAccount && !mRocketChatAccount->hideRoles() && !index.data(MessagesModel::Roles).toString().isEmpty();
     if (hasRoles) {
         positionIcon += iconSizeMargin;
     }
@@ -117,35 +127,49 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     layout.timeStampText = index.data(MessagesModel::Timestamp).toString();
     const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
 
-    // Message (using the rest of the available width)
-    const int widthAfterMessage = iconSizeMargin + timeSize.width() + margin / 2;
+    // A grouped row shows its hover timestamp in the avatar gutter, but falls back to the
+    // right edge when there is no gutter (avatars off) or the gutter is already taken by
+    // status icons (edited/starred/…). Compute that here since the width reservation below
+    // depends on it, and the status icons are only laid out further down (mirror them).
+    const bool groupedStatusIconsInGutter = layout.sameSenderAsPreviousMessage
+        && (message->wasEdited() || message->isStarred() || message->isPinned() || layout.messageIsFollowing || message->isEncryptedMessage()
+            || message->isAutoTranslated() || !message->localTranslation().isEmpty());
+    const bool timeStampUsesRightEdge = layout.sameSenderAsPreviousMessage && (avatarWidth < timeSize.width() || groupedStatusIconsInGutter);
+
+    // Message (using the rest of the available width). Reserve room after the text for the
+    // trailing hover-action icons (add-reaction, reply-in-thread, and text-to-speech when
+    // built) so they stay on the row; the timestamp itself moved to the author line and no
+    // longer needs right-edge space, except for a grouped row that uses the right-edge
+    // fallback, where its width is reserved so it cannot overprint a long line.
+    qreal hoverActionsWidth = 2 * iconSizeMargin; // add-reaction + reply-in-thread
+#if HAVE_TEXT_TO_SPEECH
+    hoverActionsWidth += iconSizeMargin; // text-to-speech
+#endif
+    const int widthAfterMessage = hoverActionsWidth + margin / 2 + (timeStampUsesRightEdge ? timeSize.width() + margin : 0);
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
-    layout.baseLine = 0;
-    const QSize textSize = mDelegate->helperText()->sizeHint(index, maxWidth, option, &layout.baseLine);
+    qreal textBaseLine = 0;
+    const QSize textSize = mDelegate->helperText()->sizeHint(index, maxWidth, option, &textBaseLine);
     int attachmentsY;
-    const int textVMargin = 3; // adjust this for "compactness"
+    // This margin is included both above and below the message text. Together with the row's
+    // two-pixel bottom breather, it keeps the sender-to-text and inter-message gaps in balance.
+    const int textVMargin = 5;
     if (textSize.isValid()) {
-        layout.textRect = QRect(textLeft,
-                                usableRect.top() + textVMargin + (layout.sameSenderAsPreviousMessage ? 0 : layout.senderRect.height()),
-                                maxWidth,
-                                textSize.height() + textVMargin);
+        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
         attachmentsY = layout.textRect.y() + layout.textRect.height();
-        layout.baseLine += option.rect.top(); // make it absolute
     } else {
         attachmentsY = usableRect.top() + textVMargin;
-        layout.baseLine = attachmentsY + option.fontMetrics.ascent();
     }
+    // Top of the row's first content line. A message with no text at all (an image-only
+    // attachment, say) leaves textRect null, whose y() is 0 -- i.e. the top of the viewport,
+    // not of this row -- so anything anchored to the content must fall back to attachmentsY.
+    const int contentTop = layout.textRect.isValid() ? layout.textRect.y() : attachmentsY;
     layout.usableRect.setLeft(textLeft);
 
-    // Align top of sender rect so it matches the baseline of the richtext
-    layout.senderRect =
-        QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), (layout.sameSenderAsPreviousMessage ? 0 : senderTextSize.height()));
-    if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
-        layout.baseLine += option.fontMetrics.height() - 4; // TODO fix -4 !
-        const auto height = layout.senderRect.height();
-        layout.senderRect.setTop(layout.senderRect.top() + senderAscent);
-        layout.senderRect.setHeight(height);
-    }
+    // Keep the author in its own fixed-height line. Deriving this baseline from the first
+    // message line would let tall inline content (such as an emoji) push the author downward
+    // into the message text.
+    layout.baseLine = layout.usableRect.top() + senderAscent;
+    layout.senderRect = QRectF(senderX, layout.usableRect.top(), senderTextSize.width(), senderLineHeight);
     // Align top of avatar with top of sender rect
     const double senderRectY{layout.senderRect.y()};
     layout.avatarPos = QPointF(option.rect.x() + margin, senderRectY);
@@ -214,21 +238,58 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
         layout.showIgnoreMessage = index.data(MessagesModel::ShowIgnoredMessage).toBool();
     }
 
-    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.textRect.y(), iconSize, iconSize);
-    layout.replyToThreadRect = QRect(textLeft + textSize.width() + 2 * margin + iconSize, layout.textRect.y(), iconSize, iconSize);
-    if (layout.sameSenderAsPreviousMessage) {
-        layout.addReactionRect.moveTop(layout.textRect.y());
+    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, contentTop, iconSize, iconSize);
+    if (!message->isEncryptedMessage()) {
+        layout.replyToThreadRect = QRect(layout.addReactionRect.left() + margin + iconSize, contentTop, iconSize, iconSize);
     }
 #if HAVE_TEXT_TO_SPEECH
-    layout.textToSpeechIconRect = QRect(textLeft + textSize.width() + 3 * margin + iconSize * 2, layout.textRect.y(), iconSize, iconSize);
+    layout.textToSpeechIconRect =
+        QRect(message->isEncryptedMessage() ? layout.addReactionRect.left() + margin + iconSize : layout.replyToThreadRect.left() + margin + iconSize,
+              contentTop,
+              iconSize,
+              iconSize);
 #endif
 
-    layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
-    layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), senderRectY), timeSize);
+    // Right edge available to laid-out content (a half-margin gutter is kept clear).
+    const int rightEdge = option.rect.width() - margin / 2;
+    if (!layout.sameSenderAsPreviousMessage) {
+        // Group the time with the author line, right after the sender name (and any
+        // author-line icons): "Alice Martin · 12:34 ✓✓". The old far-right placement
+        // stranded it ~a column width from the text it belonged to.
+        const QString separator = u"·  "_s; // middot
+        layout.timeStampText = separator + layout.timeStampText;
+        const QSize authorTimeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
+        // Start just after the sender name and its author-line icons. The ignored-message
+        // icon advances textLeft rather than positionIcon, so step past it explicitly.
+        int timeX = positionIcon;
+        if (ignoreMessage) {
+            timeX += iconSizeMargin;
+        }
+        // Keep the time and its read receipt inside the row: a very long display name or a
+        // pile of author-line icons could otherwise push them past the right edge (the old
+        // fixed-right placement was always visible). Clamp so both stay on screen.
+        const int rightLimit = rightEdge - iconSize - margin - authorTimeSize.width();
+        timeX = qMin(timeX, rightLimit);
+        layout.timeStampPos = QPoint(timeX, layout.baseLine);
+        layout.timeStampRect = QRect(QPoint(timeX, senderRectY), authorTimeSize);
+        layout.readReceiptIconRect = QRect(layout.timeStampRect.right() + margin, senderRectY, iconSize, iconSize);
+    } else {
+        // Grouped consecutive message: no author line, so the delegate draws the time on
+        // hover only (see paint()), aligned to the first content line. Preferred spot is
+        // the empty avatar gutter (Slack-style); when that gutter is unavailable or already
+        // holds status icons, fall back to the right edge (maxWidth reserves its width).
+        layout.timeStampHoverOnly = true;
+        const int gutterRight = textLeft - margin;
+        const int timeX = timeStampUsesRightEdge ? rightEdge - timeSize.width() // right edge fallback
+                                                 : gutterRight - timeSize.width(); // right-aligned in the avatar gutter
+        layout.timeStampPos = QPoint(timeX, contentTop + option.fontMetrics.ascent());
+        layout.timeStampRect = QRect(timeX, contentTop, timeSize.width(), option.fontMetrics.height());
+        // No per-message read receipt on grouped rows (it would strand a tiny check next
+        // to the hover time); the receipt stays with the author line above.
+        layout.readReceiptIconRect = QRect();
+    }
     generateAttachmentBlockAndUrlPreviewLayout(mDelegate, layout, message, attachmentsY, textLeft, maxWidth, option, index);
     layout.reactionsHeight = mDelegate->helperReactions()->sizeHint(index, maxWidth, option).height();
-
-    layout.readReceiptIconRect = QRect(layout.timeStampRect.left() - margin - iconSize, layout.baseLine, iconSize, iconSize);
 
     // Replies
     layout.repliesY = layout.reactionsY + layout.reactionsHeight;
@@ -251,7 +312,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     return layout;
 }
 
-QRect MessageListNormalLayout::iconRect(int iconIndex, int senderX, int iconPosition, int iconSize, int margin, int avatarWidth) const
+QRect MessageListNormalLayout::iconRect(int iconIndex, int senderX, int iconPosition, int iconSize, int margin, int avatarWidth)
 {
     switch (iconIndex) {
     case 0:
@@ -265,7 +326,7 @@ QRect MessageListNormalLayout::iconRect(int iconIndex, int senderX, int iconPosi
     case 4:
         return QRect(senderX - margin - avatarWidth / 2, iconPosition + 2 * iconSize, iconSize, iconSize);
     case 5:
-        return QRect(senderX - margin - avatarWidth, iconPosition + 3 * iconSize, iconSize, iconSize);
+        return QRect(senderX - margin - avatarWidth, iconPosition + 2 * iconSize, iconSize, iconSize);
     default:
         break;
     }
@@ -278,7 +339,9 @@ QSize MessageListNormalLayout::sizeHint(const QStyleOptionViewItem &option, cons
     // Note: option.rect in this method is huge (as big as the viewport)
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-    int additionalHeight = 5;
+    // textVMargin already provides most of the inter-message separation, so only a small
+    // breather is needed under each row.
+    int additionalHeight = 2;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
         additionalHeight += 10; // Add more space as cozy mode

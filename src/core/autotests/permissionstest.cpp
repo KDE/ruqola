@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "permissions/permissions.h"
-#include "ruqola_autotest_helper.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(PermissionsTest)
@@ -20,7 +19,7 @@ PermissionsTest::PermissionsTest(QObject *parent)
 
 void PermissionsTest::shouldHaveDefaultValue()
 {
-    Permissions r;
+    const Permissions r;
     QVERIFY(r.permissions().isEmpty());
     QVERIFY(r.isEmpty());
 }

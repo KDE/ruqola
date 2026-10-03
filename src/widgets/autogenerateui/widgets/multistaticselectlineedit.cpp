@@ -33,13 +33,13 @@ void MultiStaticSelectLineEdit::setInitialValues(const QStringList &lst)
 {
     QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> infoLst;
     for (const auto &value : lst) {
-        const MultiStaticSelectLineEditModel::SelectItemCompletionInfo info = mMultiStaticSelectLineEditModel->itemCompletionInfo(value);
+        MultiStaticSelectLineEditModel::SelectItemCompletionInfo info = mMultiStaticSelectLineEditModel->itemCompletionInfo(value);
         if (info.isValid()) {
-            infoLst.append(info);
+            infoLst.append(std::move(info));
         }
     }
     if (!infoLst.isEmpty()) {
-        setCurrentSelectItems(std::move(infoLst));
+        setCurrentSelectItems(infoLst);
     }
 }
 
@@ -60,15 +60,15 @@ void MultiStaticSelectLineEdit::slotSearchTextEdited()
 void MultiStaticSelectLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString text = index.data(MultiStaticSelectLineEditModel::Text).toString();
-    const QByteArray value = index.data(MultiStaticSelectLineEditModel::Value).toByteArray();
+    const QString value = index.data(MultiStaticSelectLineEditModel::Value).toString();
     const MultiStaticSelectLineEditModel::SelectItemCompletionInfo info{
         .text = text,
-        .value = QString::fromLatin1(value),
+        .value = value,
     };
     mCompletionListView->hide();
     if (info.isValid()) {
         disconnect(this, &QLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
-        Q_EMIT addSelectedItem(std::move(info));
+        Q_EMIT addSelectedItem(info);
         clear();
         connect(this, &QLineEdit::textChanged, this, &MultiStaticSelectLineEdit::slotSearchTextEdited);
     }

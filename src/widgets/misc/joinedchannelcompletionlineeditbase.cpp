@@ -14,7 +14,6 @@
 #include <KLocalizedString>
 #include <QTimer>
 #include <TextAddonsWidgets/CompletionListView>
-#include <chrono>
 
 using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;
@@ -65,6 +64,7 @@ void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
             if (rooms.isEmpty()) {
                 mCompletionListView->hide();
             } else {
+                channels.reserve(rooms.count());
                 for (const Room *room : rooms) {
                     ChannelUserCompleter channel;
                     switch (room->channelType()) {
@@ -87,7 +87,7 @@ void JoinedChannelCompletionLineEditBase::slotTextChanged(const QString &text)
             mCompletionListView->hide();
         }
     }
-    mJoinedChannelModel->setRooms(channels);
+    mJoinedChannelModel->setRooms(std::move(channels));
 }
 
 void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
@@ -101,8 +101,9 @@ void JoinedChannelCompletionLineEditBase::slotComplete(const QModelIndex &index)
         .name = completerName,
         .channelId = roomId,
     };
+    mSearchTimer->stop();
     mCompletionListView->hide();
-    Q_EMIT joinedChannelFound(std::move(info));
+    Q_EMIT joinedChannelFound(info);
 }
 
 #include "moc_joinedchannelcompletionlineeditbase.cpp"

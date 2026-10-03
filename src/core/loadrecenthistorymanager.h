@@ -14,7 +14,6 @@ class LIBRUQOLACORE_TESTS_EXPORT LoadRecentHistoryManager
 {
 public:
     LoadRecentHistoryManager();
-    ~LoadRecentHistoryManager();
 
     [[nodiscard]] qint64 lastLoadingTimeStamp() const;
 

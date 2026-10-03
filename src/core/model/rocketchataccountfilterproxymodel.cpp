@@ -26,9 +26,9 @@ bool RocketChatAccountFilterProxyModel::filterAcceptsRow(int source_row, const Q
 #if HAVE_ACTIVITY_SUPPORT
     if (mFilterActivities) {
         if (mActivitiesManager && mActivitiesManager->enabled()) {
-            const auto activities = sourceModel()->index(source_row, 0).data(RocketChatAccountModel::Activities).toStringList();
             const auto activitiesEnabled = sourceModel()->index(source_row, 0).data(RocketChatAccountModel::ActivitiesEnabled).toBool();
             if (activitiesEnabled) {
+                const auto activities = sourceModel()->index(source_row, 0).data(RocketChatAccountModel::Activities).toStringList();
                 if (!activities.isEmpty()) {
                     return mActivitiesManager->isInCurrentActivity(activities);
                 } else {

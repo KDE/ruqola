@@ -12,7 +12,6 @@
 #include <QCheckBox>
 #include <QDateTimeEdit>
 #include <QLabel>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
@@ -85,6 +84,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
 
     mInfoLabel->setObjectName(u"mInfoLabel"_s);
     mInfoLabel->setWordWrap(true);
+    mInfoLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(mInfoLabel);
 
     mainLayout->addStretch(1);
@@ -103,8 +103,7 @@ void PruneMessagesWidget::updateLabelInfo()
 
 void PruneMessagesWidget::slotCheckDateTime()
 {
-    const bool valid =
-        (mLastestDateTimeEdit->dateTime() != mOldestDateTimeEdit->dateTime()) && (mLastestDateTimeEdit->dateTime() < mOldestDateTimeEdit->dateTime());
+    const bool valid = mLastestDateTimeEdit->dateTime() < mOldestDateTimeEdit->dateTime();
     updateLabelInfo();
     Q_EMIT updateOkButton(valid);
 }
@@ -126,7 +125,10 @@ RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo PruneMessagesWidget::c
 
 void PruneMessagesWidget::setRoomName(const QString &roomName)
 {
-    mRoomName = roomName;
+    if (mRoomName != roomName) {
+        mRoomName = roomName;
+        updateLabelInfo();
+    }
 }
 
 #include "moc_prunemessageswidget.cpp"

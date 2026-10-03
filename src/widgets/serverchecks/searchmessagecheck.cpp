@@ -8,7 +8,6 @@
 
 #include "chat/searchmessagejob.h"
 #include "connection.h"
-#include "model/messagesmodel.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>

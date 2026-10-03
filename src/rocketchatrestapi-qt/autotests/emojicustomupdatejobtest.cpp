@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "emoji/emojicustomupdatejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -35,12 +34,12 @@ void EmojiCustomUpdateJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/emoji-custom.update"_s));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
+    QVERIFY(!request.header(QNetworkRequest::ContentTypeHeader).isValid());
 }
 
 void EmojiCustomUpdateJobTest::shouldGenerateJson()
 {
-    EmojiCustomUpdateJob job;
+    const EmojiCustomUpdateJob job;
     // TODO
     //    const QString emojiId = u"foo1"_s;
     //    job.setEmojiId(emojiId);

@@ -8,7 +8,6 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
-#include <KLocalizedString>
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -29,20 +28,15 @@ bool ResetE2EKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ResetE2EKeyJob::start");
+    addStartRestApiInfo("ResetE2EKeyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void ResetE2EKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ResetE2EKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ResetE2EKeyJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT resetE2EKeyDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ResetE2EKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

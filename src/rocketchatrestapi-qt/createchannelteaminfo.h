@@ -9,6 +9,7 @@
 #include <QMetaType>
 
 #include <QStringList>
+class QDebug;
 class QJsonDocument;
 namespace RocketChatRestApi
 {
@@ -41,5 +42,4 @@ public:
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateChannelTeamInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t);

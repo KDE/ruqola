@@ -41,11 +41,11 @@ public:
 
     void clear();
 
-    void insertNotifications(const QList<NotificationInfo> &infos);
+    void insertNotifications(QList<NotificationInfo> infos);
 
     void addNotification(const NotificationInfo &info);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateMessage(const NotificationInfo &info) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateMessage(const NotificationInfo &info);
     QList<NotificationInfo> mNotificationInfo;
 };

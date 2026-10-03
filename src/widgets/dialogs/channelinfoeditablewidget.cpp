@@ -56,7 +56,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     mName->setObjectName(u"mName"_s);
     layout->addRow(str, mName);
     connect(mName, &QLineEdit::textChanged, this, [this](const QString &str) {
-        Q_EMIT roomNameValid(!str.trimmed().isEmpty());
+        Q_EMIT roomNameValid(!QStringView(str).trimmed().isEmpty());
     });
 
     mComment->setObjectName(u"mComment"_s);
@@ -85,7 +85,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
     mArchive->setObjectName(u"mArchive"_s);
     layout->addRow(i18n("Archive:"), mArchive);
     const bool canArchiveOrUnarchive =
-        mRocketChatAccount && (mRocketChatAccount->hasPermission(u"archive-room"_s) || mRocketChatAccount->hasPermission(u"unarchive-room"_s));
+        mRocketChatAccount && (mRocketChatAccount->hasPermission(u"archive-room") || mRocketChatAccount->hasPermission(u"unarchive-room"));
     mArchive->setEnabled(canArchiveOrUnarchive);
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
@@ -173,13 +173,13 @@ void ChannelInfoEditableWidget::deleteTeam(const QByteArray &teamId, const QList
 
 void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     const QByteArray teamId = mRoom->teamInfo().teamId();
     if (teamRooms.isEmpty()) {
         deleteTeam(teamId, {});
     } else {
         QPointer<TeamSelectDeletedRoomDialog> dlg = new TeamSelectDeletedRoomDialog(this);
-        dlg->setTeamRooms(teamRooms);
+        dlg->setTeamRooms(std::move(teamRooms));
         if (dlg->exec()) {
             const QList<QByteArray> roomIds = dlg->roomsId();
             auto job = new RocketChatRestApi::TeamDeleteJob(this);
@@ -328,7 +328,7 @@ void ChannelInfoEditableWidget::updateUiFromPermission()
 
 bool ChannelInfoEditableWidget::hasRetentionPermission() const
 {
-    return mRoom->hasPermission(u"edit-room-retention-policy"_s);
+    return mRoom->hasPermission(u"edit-room-retention-policy");
 }
 
 #include "moc_channelinfoeditablewidget.cpp"

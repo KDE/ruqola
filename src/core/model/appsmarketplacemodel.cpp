@@ -38,11 +38,9 @@ void AppsMarketPlaceModel::clearInstalledAppsInformation()
             info.clearInstalledInfo();
         }
     }
-    for (const AppsMarketPlaceInfo &info : std::as_const(mAppsMarketPlaceInfos)) {
-        if (!info.isValid()) {
-            mAppsMarketPlaceInfos.removeAll(info);
-        }
-    }
+    mAppsMarketPlaceInfos.removeIf([](const AppsMarketPlaceInfo &info) {
+        return !info.isValid();
+    });
     endResetModel();
 }
 
@@ -65,8 +63,9 @@ void AppsMarketPlaceModel::removeApp(const QString &appId)
 
 void AppsMarketPlaceModel::updateAppStatus(const QString &appId, const QString &status)
 {
+    const QByteArray appIdBa = appId.toLatin1();
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
-        if (info.appId() == appId.toLatin1()) {
+        if (info.appId() == appIdBa) {
             beginResetModel();
             info.changeApplicationStatus(status);
             endResetModel();
@@ -79,8 +78,9 @@ void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &
 {
     beginResetModel();
     bool found = false;
+    const QByteArray appId = installedInfo.appId();
     for (AppsMarketPlaceInfo &info : mAppsMarketPlaceInfos) {
-        if (info.appId() == installedInfo.appId()) {
+        if (info.appId() == appId) {
             info.setInstalledInfo(installedInfo);
             found = true;
             break;
@@ -89,26 +89,19 @@ void AppsMarketPlaceModel::addInstalledInfo(const AppsMarketPlaceInstalledInfo &
     if (!found) {
         AppsMarketPlaceInfo info;
         info.setInstalledInfo(installedInfo);
-        mAppsMarketPlaceInfos.append(info);
+        mAppsMarketPlaceInfos.append(std::move(info));
     }
     endResetModel();
 }
 
-void AppsMarketPlaceModel::setAppsMarketPlaceInfos(const QList<AppsMarketPlaceInfo> &appsMarketInfos)
+void AppsMarketPlaceModel::setAppsMarketPlaceInfos(QList<AppsMarketPlaceInfo> appsMarketInfos)
 {
-    if (!mAppsMarketPlaceInfos.isEmpty()) {
-        beginResetModel();
-        mAppsMarketPlaceInfos.clear();
-        endResetModel();
-    }
-    if (!appsMarketInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, appsMarketInfos.count() - 1);
-        mAppsMarketPlaceInfos = appsMarketInfos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mAppsMarketPlaceInfos = std::move(appsMarketInfos);
+    endResetModel();
 }
 
-QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlaceInfo)
 {
     if (!appsMarketPlaceInfo.appId().isEmpty()) {
         return appsMarketPlaceInfo.appId();
@@ -120,7 +113,7 @@ QByteArray AppsMarketPlaceModel::appId(const AppsMarketPlaceInfo &appsMarketPlac
     return {};
 }
 
-QString AppsMarketPlaceModel::appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+QString AppsMarketPlaceModel::appName(const AppsMarketPlaceInfo &appsMarketPlaceInfo)
 {
     if (!appsMarketPlaceInfo.appId().isEmpty()) {
         return appsMarketPlaceInfo.appName();
@@ -132,7 +125,7 @@ QString AppsMarketPlaceModel::appName(const AppsMarketPlaceInfo &appsMarketPlace
     return {};
 }
 
-QPixmap AppsMarketPlaceModel::pixmap(const AppsMarketPlaceInfo &appsMarketPlaceInfo) const
+QPixmap AppsMarketPlaceModel::pixmap(const AppsMarketPlaceInfo &appsMarketPlaceInfo)
 {
     const AppsMarketPlaceInstalledInfo installedInfo = appsMarketPlaceInfo.installedInfo();
     if (installedInfo.isValid()) {
@@ -204,7 +197,9 @@ bool AppsMarketPlaceModel::wasFilled() const
 
 void AppsMarketPlaceModel::clear()
 {
+    beginResetModel();
     mAppsMarketPlaceInfos.clear();
+    endResetModel();
 }
 
 AppsCountInfo AppsMarketPlaceModel::appsCountInfo() const

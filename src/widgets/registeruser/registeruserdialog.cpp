@@ -7,14 +7,10 @@
 #include "registeruserdialog.h"
 
 #include "registeruserwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -37,27 +33,15 @@ RegisterUserDialog::RegisterUserDialog(QWidget *parent)
     button->setObjectName(u"button"_s);
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &RegisterUserDialog::reject);
+    connect(mRegisterUserWidget, &RegisterUserWidget::registerNewAccount, this, &RegisterUserDialog::registerNewAccount);
     readConfig();
 }
 
-RegisterUserDialog::~RegisterUserDialog()
-{
-    writeConfig();
-}
+RegisterUserDialog::~RegisterUserDialog() = default;
 
 void RegisterUserDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myRegisterUserDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void RegisterUserDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myRegisterUserDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myRegisterUserDialogConfigGroupName), QSize(400, 300));
 }
 
 RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserDialog::registerUserInfo() const

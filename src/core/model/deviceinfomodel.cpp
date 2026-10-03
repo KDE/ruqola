@@ -104,12 +104,10 @@ void DeviceInfoModel::clear()
 
 void DeviceInfoModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mDeviceInfos.clear();
     mDeviceInfos.parseDeviceInfos(obj);
-    if (!mDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDeviceInfos.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -124,22 +122,26 @@ const DeviceInfos &DeviceInfoModel::deviceInfos() const
     return mDeviceInfos;
 }
 
-void DeviceInfoModel::setDeviceInfos(const DeviceInfos &newDeviceInfos)
+void DeviceInfoModel::setDeviceInfos(DeviceInfos newDeviceInfos)
 {
-    clear();
-    if (!newDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newDeviceInfos.count() - 1);
-        mDeviceInfos = newDeviceInfos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mDeviceInfos = std::move(newDeviceInfos);
+    endResetModel();
 }
 
 void DeviceInfoModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mDeviceInfos.count();
-    mDeviceInfos.parseDeviceInfos(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mDeviceInfos.count() - 1);
-    endInsertRows();
+    DeviceInfos deviceInfos = mDeviceInfos;
+    deviceInfos.parseMoreDeviceInfos(obj);
+    const int newNumberOfElement = deviceInfos.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mDeviceInfos = std::move(deviceInfos);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mDeviceInfos = std::move(deviceInfos);
+    }
     checkFullList();
 }
 

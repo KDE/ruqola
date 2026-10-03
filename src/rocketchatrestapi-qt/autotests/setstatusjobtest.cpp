@@ -7,7 +7,6 @@
 #include "setstatusjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/setstatusjob.h"
@@ -49,30 +48,18 @@ void SetStatusJobTest::shouldGenerateJson()
     job.setStatusUserId(userId);
     job.setStatusMessage(QString());
     job.setStatus(SetStatusJob::StatusType::Away);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"","status":"away","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"","status":"away","userId":"foo1"})"_s.arg(userId).toLatin1());
     job.setStatusMessage(u"bla"_s);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"away","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"away","userId":"foo1"})"_s.arg(userId).toLatin1());
     job.setStatus(SetStatusJob::StatusType::Offline);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"bla","status":"offline","userId":"foo1"})").arg(userId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"bla","status":"offline","userId":"foo1"})"_s.arg(userId).toLatin1());
 }
 
 void SetStatusJobTest::shouldNotStarting()
 {
     SetStatusJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString statusUserid = u"foo1"_s;
     job.setStatusUserId(statusUserid);
     QVERIFY(!job.canStart());

@@ -29,12 +29,12 @@ bool AppInfoJob::requireHttpAuthentication() const
 bool AppInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app count job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app info job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("AppInfoJob: get app count info starting"_ba);
+    addStartRestApiInfo("AppInfoJob: get app info starting"_ba);
     return true;
 }
 
@@ -58,13 +58,8 @@ bool AppInfoJob::canStart() const
 
 void AppInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AppInfoJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appInfoDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AppInfoJob: Problem when we tried to get app info : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AppInfoJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT appInfoDone(*replyObject);
     }
 }
 

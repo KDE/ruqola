@@ -5,7 +5,6 @@
 */
 
 #include "messagetextedit.h"
-#include "config-ruqola.h"
 
 #include "common/commandcompletiondelegate.h"
 #include "common/emojicompletiondelegate.h"
@@ -115,14 +114,14 @@ MessageTextEdit::~MessageTextEdit()
 
 void MessageTextEdit::slotSpellCheckingEnableChanged(bool b)
 {
-    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    const KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group(config, u"Spelling"_s);
     group.writeEntry("checkerEnabledByDefault", b);
 }
 
 void MessageTextEdit::slotLanguageChanged(const QString &lang)
 {
-    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    const KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group(config, u"Spelling"_s);
     group.writeEntry("Language", lang);
     switchAutoCorrectionLanguage(lang);
@@ -135,16 +134,16 @@ void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
         auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
         settings->setLanguage(lang);
         Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
+        qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
     }
-    qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
 #endif
 }
 
 void MessageTextEdit::loadSpellCheckingSettings()
 {
-    KSharedConfig::Ptr config = KSharedConfig::openConfig();
-    if (config->hasGroup("Spelling"_L1)) {
-        KConfigGroup group(config, u"Spelling"_s);
+    const KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    if (config->hasGroup(u"Spelling"_s)) {
+        const KConfigGroup group(config, u"Spelling"_s);
         setCheckSpellingEnabled(group.readEntry("checkerEnabledByDefault", false));
         const QString language = group.readEntry("Language", QString());
         setSpellCheckingLanguage(language);
@@ -229,12 +228,13 @@ QMenu *MessageTextEdit::mousePopupMenu()
 {
     QMenu *menu = KTextEdit::mousePopupMenu();
 
-    QClipboard *clip = QApplication::clipboard();
-    const QMimeData *mimeData = clip->mimeData();
-    if (mimeData->hasImage()) {
+    // Don't store the QMimeData pointer: it's owned by the clipboard and is invalidated as soon as the clipboard contents change.
+    if (const QMimeData *mimeData = QApplication::clipboard()->mimeData(); mimeData && mimeData->hasImage()) {
         menu->addSeparator();
-        menu->addAction(i18n("Paste Image"), this, [this, mimeData]() {
-            Q_EMIT handleMimeData(mimeData);
+        menu->addAction(i18n("Paste Image"), this, [this]() {
+            if (const QMimeData *currentMimeData = QApplication::clipboard()->mimeData(); currentMimeData && currentMimeData->hasImage()) {
+                Q_EMIT handleMimeData(currentMimeData);
+            }
         });
     }
     menu->addSeparator();

@@ -9,13 +9,13 @@
 #include "libruqolacore_export.h"
 #include "utils.h"
 #include <QIcon>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT ChannelUserCompleter
 {
     Q_GADGET
 public:
     ChannelUserCompleter();
-    ~ChannelUserCompleter();
 
     enum ChannelUserCompleterType : uint8_t {
         Unknown,
@@ -78,5 +78,4 @@ private:
     bool mOutsideRoom = false;
 };
 Q_DECLARE_TYPEINFO(ChannelUserCompleter, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ChannelUserCompleter &t);

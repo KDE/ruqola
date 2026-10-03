@@ -47,7 +47,7 @@ AdministratorSettingsWidgetTest::AdministratorSettingsWidgetTest(QObject *parent
 
 void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorSettingsWidget w(nullptr);
+    const AdministratorSettingsWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

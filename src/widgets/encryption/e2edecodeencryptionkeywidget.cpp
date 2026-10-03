@@ -5,10 +5,10 @@
 */
 
 #include "e2edecodeencryptionkeywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
+using namespace Qt::Literals::StringLiterals;
 E2eDecodeEncryptionKeyWidget::E2eDecodeEncryptionKeyWidget(QWidget *parent)
     : KMessageWidget(parent)
 {

@@ -87,7 +87,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::initialize()
             connect(job, &RocketChatRestApi::GetPersonalAccessTokensJob::getPersonalAccessTokensDone, this, [this](const QJsonObject &obj) {
                 PersonalAccessTokenInfos info;
                 info.parsePersonalAccessTokenInfos(obj);
-                mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+                mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(std::move(info));
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GetPersonalAccessTokensJob job";

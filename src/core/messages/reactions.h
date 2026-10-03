@@ -10,6 +10,7 @@
 #include "reaction.h"
 #include <QList>
 #include <QSharedData>
+#include <memory>
 class EmojiManager;
 class LIBRUQOLACORE_EXPORT Reactions : public QSharedData
 {
@@ -19,14 +20,14 @@ public:
     ~Reactions();
 
     void setReactions(const QList<Reaction> &reactions);
-    [[nodiscard]] QList<Reaction> reactions() const;
+    [[nodiscard]] const QList<Reaction> &reactions() const;
 
     void parseReactions(const QJsonObject &array, EmojiManager *emojiManager = nullptr);
 
     [[nodiscard]] bool operator==(const Reactions &other) const;
 
     [[nodiscard]] static QJsonObject serialize(const Reactions &reactions);
-    [[nodiscard]] static Reactions *deserialize(const QJsonObject &o, EmojiManager *emojiManager = nullptr);
+    [[nodiscard]] static std::unique_ptr<Reactions> deserialize(const QJsonObject &o, EmojiManager *emojiManager = nullptr);
 
     [[nodiscard]] bool isEmpty() const;
 

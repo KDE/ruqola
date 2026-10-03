@@ -24,7 +24,7 @@ AdministratorCustomUserStatusCreateDialogTest::AdministratorCustomUserStatusCrea
 
 void AdministratorCustomUserStatusCreateDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomUserStatusCreateDialog w;
+    const AdministratorCustomUserStatusCreateDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

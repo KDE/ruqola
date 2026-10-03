@@ -9,6 +9,8 @@
 #include "libruqola_private_export.h"
 #include "roles/roleinfo.h"
 #include <QString>
+#include <QStringList>
+class QDebug;
 
 class LIBRUQOLACORE_TESTS_EXPORT Permission
 {
@@ -31,6 +33,8 @@ public:
 
     [[nodiscard]] bool operator==(const Permission &other) const;
 
+    void setRolesStr(const QStringList &newRolesStr);
+
 private:
     qint64 mUpdatedAt = -1;
     QStringList mRolesStr;
@@ -39,5 +43,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Permission, Ruqola_Permission, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Permission, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Permission &t);

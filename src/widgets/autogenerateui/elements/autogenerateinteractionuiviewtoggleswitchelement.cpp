@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewtoggleswitchelement.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "ruqola_autogenerateui_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -87,12 +88,10 @@ void AutoGenerateInteractionUiViewToggleSwitchElement::setCurrentValue(const QVa
     qWarning() << " not implemented yet" << v;
 }
 
-ActionElementWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget(QWidget *parent)
+ActionElementWidget *AutoGenerateInteractionUiViewToggleSwitchElement::generateWidget([[maybe_unused]] QWidget *parent)
 {
     // TODO use QRadioButton ?
     qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Not implemented AutoGenerateInteractionUiViewToggleSwitchElement UI";
-
-    Q_UNUSED(parent)
     return nullptr;
 }
 
@@ -106,7 +105,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewToggleSwitchEleme
 
 bool AutoGenerateInteractionUiViewToggleSwitchElement::operator==(const AutoGenerateInteractionUiViewToggleSwitchElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.options() == options() && other.initialOptions() == initialOptions();
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && AutoGenerateInteractionUtil::isEqual(mOptions, other.mOptions)
+        && AutoGenerateInteractionUtil::isEqual(mInitialOptions, other.mInitialOptions);
 }
 
 #include "moc_autogenerateinteractionuiviewtoggleswitchelement.cpp"

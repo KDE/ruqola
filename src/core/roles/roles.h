@@ -7,7 +7,10 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "role.h"
+
 #include <QList>
+
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT Roles
@@ -15,8 +18,8 @@ class LIBRUQOLACORE_EXPORT Roles
 public:
     Roles();
 
-    [[nodiscard]] QList<Role> roles() const;
-    void setRoles(const QList<Role> &roles);
+    [[nodiscard]] const QList<Role> &roles() const;
+    void setRoles(QList<Role> roles);
 
     void parseRole(const QJsonObject &obj);
     [[nodiscard]] Role findRoleByUserId(const QByteArray &userId) const;

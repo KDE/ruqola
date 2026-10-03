@@ -15,8 +15,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(BannerInfo, Ruqola_BannerInfo)
 using namespace Qt::Literals::StringLiterals;
 BannerInfo::BannerInfo() = default;
 
-BannerInfo::~BannerInfo() = default;
-
 bool BannerInfo::isValid() const
 {
     return !mText.isEmpty() && !mIdentifier.isEmpty() && !mTitle.isEmpty();
@@ -24,13 +22,12 @@ bool BannerInfo::isValid() const
 
 void BannerInfo::parseBannerInfo(const QJsonObject &object)
 {
-    QStringList lst;
     const QJsonArray array = object["textArguments"_L1].toArray();
-    lst.reserve(array.count());
-    for (const QJsonValue &current : array) {
-        lst.append(current.toString());
+    mTextArguments.clear();
+    mTextArguments.reserve(array.count());
+    for (const auto &current : array) {
+        mTextArguments.append(current.toString());
     }
-    mTextArguments = lst;
     mText = object["text"_L1].toString();
     mTitle = object["title"_L1].toString();
     mLink = object["link"_L1].toString();
@@ -46,15 +43,17 @@ QString BannerInfo::defaultText(const BannerInfo &info)
 {
     QString str{info.text()};
     if (str == "New_version_available_(s)"_L1) {
-        str = i18n("New version available %1", info.textArguments().at(0));
+        if (const auto &arguments = info.textArguments(); !arguments.isEmpty()) {
+            str = i18n("New version available %1", arguments.constFirst());
+        }
     }
     return str;
 }
 
 bool BannerInfo::operator==(const BannerInfo &other) const
 {
-    return mText == other.text() && mTitle == other.title() && mLink == other.link() && mRead == other.read() && mRead == other.read()
-        && mTextArguments == other.textArguments() && mIdentifier == other.identifier() && mPriority == other.priority();
+    return mText == other.mText && mTitle == other.mTitle && mLink == other.mLink && mRead == other.mRead && mTextArguments == other.mTextArguments
+        && mIdentifier == other.mIdentifier && mPriority == other.mPriority;
 }
 
 const QString &BannerInfo::text() const

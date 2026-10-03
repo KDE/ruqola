@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QMetaType>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT MessageUrl
 {
@@ -70,6 +71,11 @@ public:
 
     [[nodiscard]] bool hasPreviewUrl() const;
 
+    // Whether the preview shows more than the bare link: an image, a description,
+    // or media content. A title-only preview just restates the link, so it is
+    // not rendered as a card.
+    [[nodiscard]] bool hasRichPreview() const;
+
     [[nodiscard]] QString htmlDescription() const;
 
     [[nodiscard]] bool hasHtmlDescription() const;
@@ -115,6 +121,5 @@ private:
     bool mShowPreview = true;
     ContentType mContentType = ContentType::None;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_RELOCATABLE_TYPE);

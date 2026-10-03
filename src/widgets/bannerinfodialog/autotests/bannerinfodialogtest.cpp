@@ -23,7 +23,7 @@ BannerInfoDialogTest::BannerInfoDialogTest(QObject *parent)
 
 void BannerInfoDialogTest::shouldHaveDefaultValues()
 {
-    BannerInfoDialog d(nullptr);
+    const BannerInfoDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -11,13 +11,13 @@
 
 #include <QMetaType>
 #include <QStringList>
+class QDebug;
 
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT RoomInfo
 {
 public:
     RoomInfo();
-    ~RoomInfo();
     [[nodiscard]] bool operator==(const RoomInfo &other) const;
     void parseRoomInfo(const QJsonObject &object);
 
@@ -121,5 +121,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(RoomInfo, Ruqola_RoomInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(RoomInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoomInfo &t);

@@ -27,7 +27,7 @@ bool ChannelAddModeratorJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelAddModeratorJob::start");
+    addStartRestApiInfo("ChannelAddModeratorJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool ChannelAddModeratorJob::start()
 
 void ChannelAddModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Add moderator success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelAddModeratorJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addModeratorDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Problem when we tried to add moderator: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -64,7 +58,7 @@ bool ChannelAddModeratorJob::requireHttpAuthentication() const
 bool ChannelAddModeratorJob::canStart() const
 {
     if (mAddModeratorUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddModeratorJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddModeratorJob: moderator userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

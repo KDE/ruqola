@@ -43,13 +43,8 @@ bool TeamsListRoomsJob::start()
 
 void TeamsListRoomsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamsListRoomsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT teamListRoomsDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamsListRoomsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("TeamsListRoomsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT teamListRoomsDone(*replyObject);
     }
 }
 
@@ -93,7 +88,7 @@ bool TeamsListRoomsJob::canStart() const
 QString TeamsListRoomsJob::generateErrorMessage(const QString &errorStr) const
 {
     if (errorStr == "team-does-not-exist"_L1) {
-        return i18n("The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not match any teams");
+        return i18n("The required \"teamId\" or \"teamName\" param provided does not match any teams");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
 }

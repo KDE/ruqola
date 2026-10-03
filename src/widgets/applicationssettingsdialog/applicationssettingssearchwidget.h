@@ -34,6 +34,8 @@ public:
 
     void setFeature(ApplicationsSettingsSearchWidget::Feature feature);
 
+    [[nodiscard]] QLineEdit *searchLineEdit() const;
+
 Q_SIGNALS:
     void filterChanged();
     void sortingChanged();

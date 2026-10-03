@@ -7,7 +7,6 @@
 #include "teamupdateroomjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "teams/teamupdateroomjob.h"
@@ -49,26 +48,14 @@ void TeamUpdateRoomJobTest::shouldGenerateJson()
     const bool isDefault = true;
     job.setIsDefault(isDefault);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"isDefault":true,"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"isDefault":true,"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 }
 
 void TeamUpdateRoomJobTest::shouldNotStarting()
 {
     TeamUpdateRoomJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());

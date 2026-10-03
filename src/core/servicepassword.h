@@ -8,12 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include <QMetaType>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT ServicePassword
 {
 public:
     ServicePassword();
-    ~ServicePassword();
     [[nodiscard]] bool operator==(const ServicePassword &other) const;
     void parseService(const QJsonObject &replyObject);
 
@@ -34,5 +34,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(ServicePassword, Ruqola_ServicePassword, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ServicePassword, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServicePassword &t);

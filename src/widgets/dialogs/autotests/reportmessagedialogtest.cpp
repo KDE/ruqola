@@ -26,7 +26,7 @@ ReportMessageDialogTest::ReportMessageDialogTest(QObject *parent)
 
 void ReportMessageDialogTest::shouldHaveDefaultValues()
 {
-    ReportMessageDialog w;
+    const ReportMessageDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
@@ -46,7 +46,7 @@ void ReportMessageDialogTest::shouldHaveDefaultValues()
 
 void ReportMessageDialogTest::shouldUpdateOkButton()
 {
-    ReportMessageDialog w;
+    const ReportMessageDialog w;
     auto mReportMessageWidget = w.findChild<ReportMessageWidget *>(u"mReportMessageWidget"_s);
     auto button = w.findChild<QDialogButtonBox *>(u"button"_s);
 

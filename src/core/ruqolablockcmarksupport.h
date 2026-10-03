@@ -6,6 +6,7 @@
 
 #pragma once
 #include "textconverter.h"
+#include <QRegularExpression>
 #include <TextUtils/TextUtilsBlockCMarkSupport>
 class RuqolaBlockCMarkSupport : public TextUtils::TextUtilsBlockCMarkSupport
 {
@@ -26,5 +27,8 @@ protected:
                                          int hightLightStringIndex) override;
 
 private:
+    void regenerateSearchText();
     TextConverter::ConvertMessageTextSettings *mSettings = nullptr;
+    QRegularExpression mSearchRegularExpression;
+    QString mSearchText;
 };

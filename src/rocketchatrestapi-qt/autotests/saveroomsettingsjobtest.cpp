@@ -7,7 +7,6 @@
 #include "saveroomsettingsjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "rooms/saveroomsettingsjob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -49,7 +48,7 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
     SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.roomId = roomId;
     job.setSaveRoomSettingsInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"rid":"%1","roomType":""})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"rid":"%1","roomType":""})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 
     const QString roomAnnouncement = u"announcement"_s;
     info.mSettingsWillBeChanged |= SaveRoomSettingsJob::SaveRoomSettingsInfo::RoomAnnouncement;
@@ -67,28 +66,14 @@ void SaveRoomSettingsJobTest::shouldGenerateJson()
         res += u"\"%1\""_s.arg(s);
     }
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"rid":"%1","roomAnnouncement":"%2","roomType":"","systemMessages":[%3]})")
-                 .arg(QLatin1StringView(roomId), roomAnnouncement, res)
-                 .toLatin1());
+             uR"({"rid":"%1","roomAnnouncement":"%2","roomType":"","systemMessages":[%3]})"_s.arg(QLatin1StringView(roomId), roomAnnouncement, res).toLatin1());
 }
 
 void SaveRoomSettingsJobTest::shouldNotStarting()
 {
     SaveRoomSettingsJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId("foo1");
     SaveRoomSettingsJob::SaveRoomSettingsInfo info;
     info.roomId = roomId;

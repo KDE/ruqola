@@ -10,12 +10,12 @@
 #include "user.h"
 #include <QJsonDocument>
 #include <QString>
+class QDebug;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {
     Q_GADGET
 public:
     RocketChatMessage();
-    ~RocketChatMessage() = default;
 
     struct RocketChatMessageResult {
         QString method;
@@ -35,19 +35,9 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    searchRoomUsers(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     inputChannelAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
-
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult streamNotifyUserOtrEnd(const QString &userFrom, const QString &userTo, quint64 id);
-
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id);
-
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
-    streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKeys, quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult uploadCustomSound(const QByteArray &sound, quint64 id);
 
@@ -82,10 +72,14 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult getRoomByTypeAndName(const QByteArray &roomId, const QString &roomType, quint64 id);
 
 private:
+    [[nodiscard]] RocketChatMessage::RocketChatMessageResult
+    searchRoomUsers(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
+
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatMessage::RocketChatMessageResult
     generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
+
+    friend class RocketChatMessageTest;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t);

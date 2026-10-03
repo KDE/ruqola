@@ -10,9 +10,7 @@
 #include "ddpclient.h"
 #include "config-ruqola.h"
 #include "messagequeue.h"
-#include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccountsettings.h"
-#include "ruqola.h"
 #include "ruqola_ddpapi_command_debug.h"
 #include "ruqola_ddpapi_debug.h"
 #include "ruqola_reconnect_core_debug.h"
@@ -211,19 +209,6 @@ quint64 DDPClient::uploadCustomSound(const QByteArray &sound)
     return method(result, DDPClient::MethodRequestedType::UpdateCustomSound, DDPClient::MessageType::Persistent);
 }
 
-quint64 DDPClient::streamNotifyUserOtrEnd(const QString &roomId, const QString &userId)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrEnd(roomId, userId, mUid);
-    // qDebug() << " result " << result;
-    return method(result, DDPClient::MethodRequestedType::OtrEnd, DDPClient::MessageType::Persistent);
-}
-
-quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKey)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrHandshake(userFrom, userTo, publicKey, mUid);
-    return method(result, DDPClient::MethodRequestedType::OtrEnd, DDPClient::MessageType::Persistent);
-}
-
 quint64 DDPClient::enable2fa()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->enable2fa(mUid);
@@ -246,13 +231,6 @@ quint64 DDPClient::validateTempToken2fa(const QString &code)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->validateTempToken2fa(code, mUid);
     return method(result, DDPClient::MethodRequestedType::ValidateTempToken2fa, DDPClient::MessageType::Persistent);
-}
-
-quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QByteArray &roomId, const QByteArray &userId, const QString &publicKey)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrAcknowledge(roomId, userId, publicKey, mUid);
-    // qDebug() << "streamNotifyUserOtrAcknowledge result " << result;
-    return method(result, DDPClient::MethodRequestedType::OtrEnd, DDPClient::MessageType::Persistent);
 }
 
 quint64 DDPClient::blockUser(const QString &rid, const QString &userId)

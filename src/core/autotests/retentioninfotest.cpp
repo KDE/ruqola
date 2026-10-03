@@ -18,7 +18,7 @@ RetentionInfoTest::RetentionInfoTest(QObject *parent)
 
 void RetentionInfoTest::shouldHaveDefaultValues()
 {
-    RetentionInfo info;
+    const RetentionInfo info;
     QVERIFY(!info.enabled());
     QVERIFY(!info.overrideGlobal());
     QVERIFY(!info.excludePinned());

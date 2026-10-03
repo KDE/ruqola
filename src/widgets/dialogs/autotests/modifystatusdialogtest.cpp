@@ -22,7 +22,7 @@ ModifyStatusDialogTest::ModifyStatusDialogTest(QObject *parent)
 
 void ModifyStatusDialogTest::shouldHaveDefaultValues()
 {
-    ModifyStatusDialog w;
+    const ModifyStatusDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

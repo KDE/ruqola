@@ -26,7 +26,7 @@ AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWi
     KLineEditEventHandler::catchReturnKey(mName);
 
     mSelectFile->setObjectName(u"mSelectFile"_s);
-    mSelectFile->setNameFilters({QStringLiteral("%1 (*.mp3)").arg(i18nc("@item:inlistbox File type selection filter", "mp3 file"))});
+    mSelectFile->setNameFilters({u"%1 (*.mp3)"_s.arg(i18nc("@item:inlistbox File type selection filter", "mp3 file"))});
     // TODO add more ?
 
     mainLayout->addRow(i18n("Name:"), mName);

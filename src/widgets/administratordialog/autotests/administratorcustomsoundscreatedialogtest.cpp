@@ -23,7 +23,7 @@ AdministratorCustomSoundsCreateDialogTest::AdministratorCustomSoundsCreateDialog
 
 void AdministratorCustomSoundsCreateDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomSoundsCreateDialog w;
+    const AdministratorCustomSoundsCreateDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -14,4 +14,4 @@ class QJsonObject;
 namespace PreviewCommandUtils
 {
 [[nodiscard]] LIBRUQOLACORE_EXPORT QList<PreviewCommand> parsePreviewJson(const QJsonObject &replyObject);
-};
+}

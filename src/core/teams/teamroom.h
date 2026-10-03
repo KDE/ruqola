@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QList>
 #include <QMetaType>
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT TeamRoom
@@ -38,7 +39,6 @@ private:
     QByteArray mIdentifier;
     bool mAutoJoin = false;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TeamRoom &t);
 QT_DECL_METATYPE_EXTERN_TAGGED(TeamRoom, Ruqola_TeamRoom, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(TeamRoom, Q_RELOCATABLE_TYPE);

@@ -8,6 +8,7 @@
 
 #include "roommodel.h"
 #include "accountroomsettings.h"
+#include "encryption/e2ekeymanager.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_rooms_debug.h"
@@ -24,7 +25,10 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     , mRocketChatAccount(account)
 {
     connect(account, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this] {
-        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {RoomRoles::RoomSection});
+        const int rc = rowCount();
+        if (rc > 0) {
+            Q_EMIT dataChanged(index(0), index(rc - 1), {RoomRoles::RoomSection});
+        }
     });
 }
 
@@ -66,7 +70,7 @@ QList<Room *> RoomModel::findRoomNameConstains(const QString &str) const
 Room *RoomModel::findRoom(const QByteArray &roomID) const
 {
 #ifndef NDEBUG
-    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [roomID](Room *r) {
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [&roomID](Room *r) {
         return r->roomId() == roomID;
     });
     if (nbRoomWithSameRoomId > 1) {
@@ -160,9 +164,6 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomIcon:
     case Qt::DecorationRole:
         return r->icon();
-    case RoomModel::RoomOtr:
-        // TODO implement it.
-        return {};
     case RoomModel::RoomUserMentions:
         return r->userMentions();
     case RoomModel::RoomIgnoredUsers:
@@ -268,7 +269,7 @@ QByteArray RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
         rId = roomData.value("_id"_L1).toString().toLatin1();
     }
 #ifndef NDEBUG
-    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [rId](Room *r) {
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [&rId](Room *r) {
         return r->roomId() == rId;
     });
     if (nbRoomWithSameRoomId > 1) {
@@ -283,6 +284,12 @@ QByteArray RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
             if (room->roomId() == rId) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateSubscriptionRoom(const QJsonArray &array) room found:" << room->roomId();
                 room->updateSubscriptionRoom(roomData);
+                if (mRocketChatAccount) {
+                    (void)mRocketChatAccount->e2eKeyManager()->decryptRoomSessionKeys(room);
+                    // A member may have just shared the room key with us through the
+                    // subscription; without importing it the room stays unable to encrypt.
+                    (void)mRocketChatAccount->e2eKeyManager()->processSuggestedRoomKey(room);
+                }
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 
                 break;
@@ -308,7 +315,7 @@ QByteArray RoomModel::insertRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseInsertRoom(room);
-    const QByteArray roomId = r->roomId();
+    QByteArray roomId = r->roomId();
     qCDebug(RUQOLA_ROOMS_LOG) << "Inserting room" << r->name() << r->roomId() << r->topic();
     if (addRoom(r)) {
         return r->roomId();
@@ -324,6 +331,11 @@ QByteArray RoomModel::addRoom(const QJsonObject &room)
     if (!addRoom(r)) {
         // qCWarning(RUQOLA_ROOMS_LOG) << "Impossible to add room: " << r->name();
         return {};
+    }
+    if (mRocketChatAccount) {
+        (void)mRocketChatAccount->e2eKeyManager()->decryptRoomSessionKeys(r);
+        // The subscription can already carry a room key another member encrypted for us.
+        (void)mRocketChatAccount->e2eKeyManager()->processSuggestedRoomKey(r);
     }
     return r->roomId();
 }
@@ -424,8 +436,8 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     const QJsonObject roomData = array[1].toObject();
     if (actionName == "removed"_L1) {
         qCDebug(RUQOLA_ROOMS_LOG) << "REMOVE ROOM name " << " rid " << roomData.value("rid"_L1);
-        const QByteArray subscriptionId = roomData.value("_id"_L1).toString().toLatin1();
         if (mRocketChatAccount) {
+            const QByteArray subscriptionId = roomData.value("_id"_L1).toString().toLatin1();
             mRocketChatAccount->deleteRoomSubscription(subscriptionId);
         }
         const QByteArray roomId = roomData.value("rid"_L1).toString().toLatin1();
@@ -472,7 +484,7 @@ QByteArray RoomModel::updateRoom(const QJsonObject &roomData)
         rId = roomData.value("_id"_L1).toString().toLatin1();
     }
 #ifndef NDEBUG
-    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [rId](Room *r) {
+    const int nbRoomWithSameRoomId = std::count_if(mRoomsList.begin(), mRoomsList.end(), [&rId](Room *r) {
         return r->roomId() == rId;
     });
     if (nbRoomWithSameRoomId > 1) {
@@ -487,6 +499,9 @@ QByteArray RoomModel::updateRoom(const QJsonObject &roomData)
             if (room->roomId() == rId) {
                 qCDebug(RUQOLA_ROOMS_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found:" << rId;
                 room->parseUpdateRoom(roomData);
+                if (mRocketChatAccount) {
+                    (void)mRocketChatAccount->e2eKeyManager()->decryptRoomSessionKeys(room);
+                }
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
                 roomFound = true;
                 break;
@@ -593,7 +608,7 @@ bool RoomModel::userOffline(Room *r) const
     return false;
 }
 
-QString RoomModel::generateUnreadToolTip(Room *r) const
+QString RoomModel::generateUnreadToolTip(Room *r)
 {
     QStringList toolTipStr;
     const int userMentions = r->userMentions();
@@ -616,7 +631,7 @@ QString RoomModel::generateUnreadToolTip(Room *r) const
     return toolTipStr.join(", "_L1);
 }
 
-RoomModel::MentionsInfoType RoomModel::mentionsInfoType(Room *r) const
+RoomModel::MentionsInfoType RoomModel::mentionsInfoType(Room *r)
 {
     const int userMentions = r->userMentions();
     if (userMentions > 0 /* TODO || tunreadUser > 0*/) {
@@ -681,6 +696,11 @@ QString RoomModel::sectionName(Section sectionId)
         break;
     }
     return u"ERROR"_s;
+}
+
+const QList<Room *> &RoomModel::rooms() const
+{
+    return mRoomsList;
 }
 
 #include "moc_roommodel.cpp"

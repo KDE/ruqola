@@ -20,7 +20,7 @@ AdministratorOauthWidgetTest::AdministratorOauthWidgetTest(QObject *parent)
 
 void AdministratorOauthWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorOauthWidget d(nullptr);
+    const AdministratorOauthWidget d(nullptr);
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

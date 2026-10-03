@@ -67,15 +67,16 @@ void InputCompleterModel::setDefaultUserCompletion()
     customCompletion.append(createHereChannel());
     customCompletion.append(createAllChannel());
 
-    setChannels(customCompletion);
+    setChannels(std::move(customCompletion));
 }
 
-void InputCompleterModel::setChannels(const QList<ChannelUserCompleter> &channels)
+void InputCompleterModel::setChannels(QList<ChannelUserCompleter> channels)
 {
     clear();
+    // We can't use modelReset here otherwise popup is show at starting apps
     if (!channels.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, channels.count() - 1);
-        mChannelUserCompleters = channels;
+        mChannelUserCompleters = std::move(channels);
         endInsertRows();
     }
 }
@@ -88,14 +89,13 @@ QList<ChannelUserCompleter> InputCompleterModel::searchOpenedRooms()
             const QList<Room *> rooms = mRocketChatAccount->roomModel()->findRoomNameConstains(mSearchInfo.searchString);
             for (const Room *room : rooms) {
                 if (room->channelType() == Room::RoomType::Channel) { // Only channel.
-                    ChannelUserCompleter channel;
+                    ChannelUserCompleter &channel = channels.emplace_back();
                     channel.setType(ChannelUserCompleter::ChannelUserCompleterType::Room);
                     channel.setName(room->name());
                     channel.setIdentifier(room->roomId());
                     channel.setChannelIcon();
                     channel.setAvatarInfo(room->avatarInfo());
                     channel.setFName(room->fName());
-                    channels.append(std::move(channel));
                 }
             }
         }
@@ -115,16 +115,13 @@ void InputCompleterModel::parseSearchChannels(const QJsonObject &obj)
     const auto roomsSize(rooms.size());
     channelList.reserve(roomsSize);
     for (auto i = 0; i < roomsSize; i++) {
-        const QJsonObject o = rooms.at(i).toObject();
-        ChannelUserCompleter channel;
-        channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
         // Verify that it's valid
-        channelList.append(std::move(channel));
+        channelList.emplace_back().parseChannel(rooms.at(i).toObject(), ChannelUserCompleter::ChannelUserCompleterType::Room);
     }
     if (channelList.isEmpty()) {
         channelList.append(noFoundChannelUser());
     }
-    setChannels(channelList);
+    setChannels(std::move(channelList));
 }
 
 void InputCompleterModel::parseChannels(const QJsonObject &obj)
@@ -134,11 +131,8 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         const QJsonArray rooms = obj.value("rooms"_L1).toArray();
         channelList.reserve(rooms.size());
         for (int i = 0; i < rooms.size(); i++) {
-            const QJsonObject o = rooms.at(i).toObject();
-            ChannelUserCompleter channel;
-            channel.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::Room);
             // Verify that it's valid
-            channelList.append(std::move(channel));
+            channelList.emplace_back().parseChannel(rooms.at(i).toObject(), ChannelUserCompleter::ChannelUserCompleterType::Room);
         }
         channelList.append(searchOpenedRooms());
     }
@@ -151,11 +145,8 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
             needToAddHere = InputCompleterModel::here().startsWith(mSearchInfo.searchString);
         }
         for (int i = 0; i < users.size(); i++) {
-            const QJsonObject o = users.at(i).toObject();
-            ChannelUserCompleter user;
-            user.parseChannel(o, ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
             // Verify that it's valid
-            channelList.append(std::move(user));
+            channelList.emplace_back().parseChannel(users.at(i).toObject(), ChannelUserCompleter::ChannelUserCompleterType::DirectChannel);
         }
         if (needToAddAll) {
             channelList.append(createAllChannel());
@@ -192,7 +183,7 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mChannelUserCompleters.count()) {
         return {};
     }
-    const ChannelUserCompleter channelUserCompleter = mChannelUserCompleters.at(index.row());
+    const ChannelUserCompleter &channelUserCompleter = mChannelUserCompleters.at(index.row());
     switch (role) {
     case InputCompleterModel::DisplayName:
     case Qt::DisplayRole: {

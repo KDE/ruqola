@@ -56,7 +56,7 @@ void MessagePinned::setPinnedBy(const QString &pinnedBy)
 
 bool MessagePinned::operator==(const MessagePinned &other) const
 {
-    return (mPinned == other.pinned()) && (mPinnedBy == other.pinnedBy());
+    return (mPinned == other.mPinned) && (mPinnedBy == other.mPinnedBy);
 }
 
 void MessagePinned::parse(const QJsonObject &o)
@@ -82,9 +82,9 @@ QDebug operator<<(QDebug d, const MessagePinned &t)
     return d;
 }
 
-MessagePinned *MessagePinned::deserialize(const QJsonObject &o)
+std::unique_ptr<MessagePinned> MessagePinned::deserialize(const QJsonObject &o)
 {
-    MessagePinned *pinned = new MessagePinned;
+    auto pinned = std::make_unique<MessagePinned>();
     pinned->setPinned(o["pinned"_L1].toBool());
     pinned->setPinnedBy(o["pinnedBy"_L1].toString());
     return pinned;

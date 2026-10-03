@@ -5,7 +5,6 @@
 */
 
 #include "groupaddleaderjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GroupAddLeaderJob::GroupAddLeaderJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -27,7 +27,7 @@ bool GroupAddLeaderJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupAddLeaderJob::start");
+    addStartRestApiInfo("GroupAddLeaderJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool GroupAddLeaderJob::start()
 
 void GroupAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupAddLeaderJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupAddLeaderJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addLeaderDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupAddLeaderJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -64,7 +58,7 @@ bool GroupAddLeaderJob::requireHttpAuthentication() const
 bool GroupAddLeaderJob::canStart() const
 {
     if (mAddLeaderUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddLeaderJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddLeaderJob: add leader userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

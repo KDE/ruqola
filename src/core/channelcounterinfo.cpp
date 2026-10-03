@@ -37,8 +37,8 @@ ChannelCounterInfo::~ChannelCounterInfo()
 
 void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
 {
-    mMessageCount = replyObject.value("msgs"_L1).toInt();
-    mUnreadMessages = replyObject.value("unreads"_L1).toInt();
+    mMessageCount = replyObject.value("msgs"_L1).toInteger();
+    mUnreadMessages = replyObject.value("unreads"_L1).toInteger();
     mJoined = replyObject.value("joined"_L1).toBool();
     mUnreadFrom = QDateTime::fromString(replyObject.value("unreadsFrom"_L1).toString(), Qt::ISODate);
     mUnreadFrom = mUnreadFrom.toTimeZone(QTimeZone::UTC);
@@ -47,7 +47,7 @@ void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
 
 bool ChannelCounterInfo::operator==(const ChannelCounterInfo &other) const
 {
-    return mUnreadMessages == other.unreadMessages() && mMessageCount == other.messageCount() && mUnreadFrom == other.unreadFrom() && mJoined == other.joined();
+    return mUnreadMessages == other.mUnreadMessages && mMessageCount == other.mMessageCount && mUnreadFrom == other.mUnreadFrom && mJoined == other.mJoined;
 }
 
 bool ChannelCounterInfo::operator!=(const ChannelCounterInfo &other) const

@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 #include <QRegularExpression>
+#include <QStringView>
 #include <TextEmoticonsCore/EmoticonCategory>
 #include <TextEmoticonsCore/UnicodeEmoticon>
 class RocketChatAccount;
@@ -24,19 +25,19 @@ public:
 
     [[nodiscard]] int count() const;
 
-    [[nodiscard]] QString replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction = false);
+    [[nodiscard]] QString replaceEmojiIdentifier(QStringView emojiIdentifier, bool isReaction = false);
     void replaceEmojis(QString *str);
     [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    [[nodiscard]] QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmojiList() const;
-    [[nodiscard]] QList<TextEmoticonsCore::EmoticonCategory> categories() const;
+    [[nodiscard]] static QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmojiList();
+    [[nodiscard]] static QList<TextEmoticonsCore::EmoticonCategory> categories();
     // Only for test now
-    [[nodiscard]] QList<TextEmoticonsCore::UnicodeEmoticon> emojisForCategory(const QString &category) const;
+    [[nodiscard]] static QList<TextEmoticonsCore::UnicodeEmoticon> emojisForCategory(const QString &category);
 
     [[nodiscard]] bool isAnimatedImage(const QString &emojiIdentifier) const;
 
-    [[nodiscard]] TextEmoticonsCore::UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
+    [[nodiscard]] static TextEmoticonsCore::UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier);
 
     [[nodiscard]] QString customEmojiFileName(const QString &emojiIdentifier) const;
     [[nodiscard]] QString normalizedReactionEmoji(const QString &emojiIdentifier) const;

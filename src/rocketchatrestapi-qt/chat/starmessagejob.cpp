@@ -39,7 +39,7 @@ bool StarMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("StarMessageJob::start");
+    addStartRestApiInfo("StarMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -47,14 +47,8 @@ bool StarMessageJob::start()
 
 void StarMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("StarMessageJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("StarMessageJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT messageStarred();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("StarMessageJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

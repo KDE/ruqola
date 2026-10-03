@@ -22,7 +22,7 @@ ChannelPasswordDialogTest::ChannelPasswordDialogTest(QObject *parent)
 
 void ChannelPasswordDialogTest::shouldHaveDefaultValues()
 {
-    ChannelPasswordDialog w;
+    const ChannelPasswordDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

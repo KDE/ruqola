@@ -109,8 +109,6 @@ target_sources(
         chat/getmessagejob.h
         chat/getpinnedmessagesjob.cpp
         chat/getpinnedmessagesjob.h
-        chat/getsnippetedmessagesjob.cpp
-        chat/getsnippetedmessagesjob.h
         chat/getstarredmessagesjob.cpp
         chat/getstarredmessagesjob.h
         chat/getthreadmessagesjob.cpp
@@ -141,6 +139,8 @@ target_sources(
         chat/updatemessagejob.h
         chat/syncmessagesjob.h
         chat/syncmessagesjob.cpp
+        chat/encryptedinfo.h
+        chat/encryptedinfo.cpp
         commands/getcommandsjob.cpp
         commands/getcommandsjob.h
         commands/listcommandsjob.cpp
@@ -197,8 +197,14 @@ target_sources(
         e2e/resetroomkeyjob.h
         e2e/provideuserswithsuggestedgroupkeysjob.cpp
         e2e/provideuserswithsuggestedgroupkeysjob.h
-        e2e/getusersofroomwithoutkey.h
-        e2e/getusersofroomwithoutkey.cpp
+        e2e/getusersofroomwithoutkeyjob.h
+        e2e/getusersofroomwithoutkeyjob.cpp
+        e2e/fetchuserswaitingforgroupkeyjob.h
+        e2e/fetchuserswaitingforgroupkeyjob.cpp
+        e2e/setroomkeyidjob.cpp
+        e2e/setroomkeyidjob.h
+        e2e/requestsubscriptionkeysjob.cpp
+        e2e/requestsubscriptionkeysjob.h
         emoji/emojicustomalljob.cpp
         emoji/emojicustomalljob.h
         emoji/emojicustomcreatejob.cpp
@@ -266,8 +272,6 @@ target_sources(
         invite/useinvitetokenjob.cpp
         invite/useinvitetokenjob.h
         librestapi_private_export.h
-        license/licensesisenterprisejob.cpp
-        license/licensesisenterprisejob.h
         license/licensesmaxactiveusersjob.cpp
         license/licensesmaxactiveusersjob.h
         license/licensesinfojob.cpp

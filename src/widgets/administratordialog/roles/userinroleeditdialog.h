@@ -24,6 +24,5 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     UsersInRoleWidget *const mUserInRoleEditWidget;
 };

@@ -10,7 +10,10 @@
 #include "libruqolawidgets_private_export.h"
 #include <QMap>
 #include <QWidget>
-class FlowLayout;
+namespace TextAddonsWidgets
+{
+class TextAddonsWidgetFlowLayout;
+}
 class ClickableWidget;
 class RocketChatAccount;
 class AvatarCacheManager;
@@ -32,14 +35,13 @@ public:
 
     [[nodiscard]] QLineEdit *lineEdit() const;
 Q_SIGNALS:
-    void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);
 
 private:
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QString &username);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QByteArray &userId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info);
     AddUsersCompletionLineEdit *const mSearchUserLineEdit;
-    FlowLayout *const mFlowLayout;
-    QMap<QString, ClickableWidget *> mMap;
+    TextAddonsWidgets::TextAddonsWidgetFlowLayout *const mFlowLayout;
+    QMap<QByteArray, ClickableWidget *> mMap;
     AvatarCacheManager *const mAvatarCacheManager;
 };

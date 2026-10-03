@@ -11,6 +11,7 @@
 #include "utils.h"
 #include <QAbstractListModel>
 #include <QList>
+#include <QSet>
 class UsersModel;
 class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
@@ -74,11 +75,12 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const User &user) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const User &user);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user);
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT UsersForRoomModel::SectionStatus section(const User &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT UsersForRoomModel::SectionStatus section(const User &user);
     QList<User> mUsers;
+    QSet<QByteArray> mUserIds;
     int mTotal = 0;
     int mOffset = 0;
     int mNumberUsersWithoutFilter = 0;

@@ -22,7 +22,7 @@ ConfigureNotificationWidgetTest::ConfigureNotificationWidgetTest(QObject *parent
 
 void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
 {
-    ConfigureNotificationWidget w(nullptr);
+    const ConfigureNotificationWidget w(nullptr);
     QVERIFY(!w.room());
     auto topLayout = w.findChild<QVBoxLayout *>(u"topLayout"_s);
     QVERIFY(topLayout);

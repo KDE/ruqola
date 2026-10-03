@@ -9,6 +9,8 @@ target_sources(
         abstractwebsocket.h
         connection.cpp
         connection.h
+        accountcredentialstore.cpp
+        accountcredentialstore.h
         accountmanager.cpp
         accountmanager.h
         accountroomsettings.cpp
@@ -91,6 +93,8 @@ target_sources(
         loadrecenthistorymanager.cpp
         loadrecenthistorymanager.h
         lrucache.h
+        paginatedinfolist.cpp
+        paginatedinfolist.h
         licenses/licensesmanager.h
         licenses/licensesmanager.cpp
         managechannels.cpp
@@ -147,6 +151,8 @@ target_sources(
         messages/messageutils.cpp
         messages/replies.h
         messages/replies.cpp
+        messages/messageencrypted.cpp
+        messages/messageencrypted.h
         model/accountschannelsmodel.cpp
         model/accountschannelsmodel.h
         model/admincustomemojimodel.cpp
@@ -347,12 +353,6 @@ target_sources(
         servererrorinfohistorymanager.h
         oauth/oauthinfo.cpp
         oauth/oauthinfo.h
-        otr/otr.cpp
-        otr/otr.h
-        otr/otrmanager.cpp
-        otr/otrmanager.h
-        otr/otrnotificationjob.cpp
-        otr/otrnotificationjob.h
         ownuser/ownuser.cpp
         ownuser/ownuser.h
         ownuser/ownuserpreferences.cpp
@@ -490,6 +490,8 @@ target_sources(
         localdatabase/localaccountsdatabase.cpp
         localdatabase/e2edatabase.h
         localdatabase/e2edatabase.cpp
+        localdatabase/e2eroomsdatabase.cpp
+        localdatabase/e2eroomsdatabase.h
         localdatabase/globaldatabase.h
         localdatabase/globaldatabase.cpp
         localdatabase/localroompendingtypedinfodatabase.h
@@ -526,8 +528,6 @@ target_sources(
         previewurlcachemanager.cpp
         encryption/e2ekeymanager.cpp
         encryption/e2ekeymanager.h
-        encryption/e2ekey.h
-        encryption/e2ekey.cpp
         soundmanager.h
         soundmanager.cpp
         apps/appscategoryinfo.h
@@ -574,7 +574,6 @@ target_sources(
         readreceipts/readreceipt.cpp
         readreceipts/readreceipts.h
         readreceipts/readreceipts.cpp
-        emoji.qrc
 )
 
 if(HAVE_TEXT_AUTOGENERATE_TEXT)

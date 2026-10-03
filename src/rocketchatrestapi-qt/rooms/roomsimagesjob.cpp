@@ -48,19 +48,14 @@ bool RoomsImagesJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("RoomsImagesJob: Ask discussions in room"_ba);
+    addStartRestApiInfo("RoomsImagesJob: Ask images in room"_ba);
     return true;
 }
 
 void RoomsImagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsImagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsImagesDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsImagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomsImagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT roomsImagesDone(*replyObject);
     }
 }
 

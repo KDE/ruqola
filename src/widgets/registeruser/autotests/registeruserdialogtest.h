@@ -16,4 +16,7 @@ public:
     ~RegisterUserDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitRegisterNewAccount();
+    void shouldReturnRegisterUserInfo();
+    void shouldReturnReasonWhenManuallyApproveNewUsersIsRequired();
 };

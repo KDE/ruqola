@@ -26,7 +26,7 @@ bool EmojiCustomDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteEmojiCustomJob::start");
+    addStartRestApiInfo("EmojiCustomDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -34,14 +34,8 @@ bool EmojiCustomDeleteJob::start()
 
 void EmojiCustomDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("DeleteEmojiCustomJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("EmojiCustomDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT emojiCustomDeleteDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("DeleteEmojiCustomJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -63,7 +57,7 @@ bool EmojiCustomDeleteJob::requireHttpAuthentication() const
 bool EmojiCustomDeleteJob::canStart() const
 {
     if (mEmojiId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DeleteEmojiCustomJob: remove mEmojiId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "EmojiCustomDeleteJob: remove mEmojiId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {

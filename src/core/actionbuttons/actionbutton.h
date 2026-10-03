@@ -9,6 +9,8 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QStringList>
+class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT ActionButton
 {
     Q_GADGET
@@ -39,14 +41,14 @@ public:
         UserDropDownAction,
         RoomSideBarAction,
     };
-    Q_ENUM(ButtonContext);
+    Q_ENUM(ButtonContext)
 
     enum class Category : uint8_t {
         Unknown,
         Default,
         AI,
     };
-    Q_ENUM(Category);
+    Q_ENUM(Category)
 
     enum class MessageActionContext : uint8_t {
         Unknown = 0,
@@ -69,7 +71,6 @@ public:
     };
 
     ActionButton();
-    ~ActionButton();
 
     [[nodiscard]] QByteArray appId() const;
     void setAppId(const QByteArray &newAppId);
@@ -109,11 +110,11 @@ public:
     void setCategory(Category newCategory);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::Category convertCategoryFromString(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::ButtonContext convertContextFromString(const QString &str);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::Category convertCategoryFromString(const QString &str);
     LIBRUQOLACORE_NO_EXPORT void parseWhen(const QJsonObject &json);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT ActionButton::MessageActionContext convertMessageActionContextsFromString(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::RoomTypeFilter convertRoomTypeFiltersFromString(const QString &str);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT ActionButton::MessageActionContext convertMessageActionContextsFromString(const QString &str);
 
     QStringList mHasOnePermission;
     QStringList mHasAllPermissions;
@@ -132,6 +133,5 @@ private:
 QT_DECL_METATYPE_EXTERN_TAGGED(ActionButton, Ruqola_ActionButton, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ActionButton, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(ActionButton::FilterActionInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ActionButton::FilterActionInfo &t);

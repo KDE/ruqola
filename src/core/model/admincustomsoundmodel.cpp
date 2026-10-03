@@ -78,12 +78,10 @@ void AdminCustomSoundModel::clear()
 
 void AdminCustomSoundModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mCustomSounds.clear();
     mCustomSounds.parseCustomSounds(obj);
-    if (!mCustomSounds.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomSounds.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -98,22 +96,26 @@ const CustomSoundsInfo &AdminCustomSoundModel::customSounds() const
     return mCustomSounds;
 }
 
-void AdminCustomSoundModel::setCustomSounds(const CustomSoundsInfo &newCustomSounds)
+void AdminCustomSoundModel::setCustomSounds(CustomSoundsInfo newCustomSounds)
 {
-    clear();
-    if (!newCustomSounds.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newCustomSounds.count() - 1);
-        mCustomSounds = newCustomSounds;
-        endInsertRows();
-    }
+    beginResetModel();
+    mCustomSounds = std::move(newCustomSounds);
+    endResetModel();
 }
 
 void AdminCustomSoundModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mCustomSounds.count();
-    mCustomSounds.parseCustomSounds(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mCustomSounds.count() - 1);
-    endInsertRows();
+    CustomSoundsInfo customSounds = mCustomSounds;
+    customSounds.parseMoreCustomSounds(obj);
+    const int newNumberOfElement = customSounds.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mCustomSounds = std::move(customSounds);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mCustomSounds = std::move(customSounds);
+    }
     checkFullList();
 }
 

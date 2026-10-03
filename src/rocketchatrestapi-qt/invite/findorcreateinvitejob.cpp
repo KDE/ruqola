@@ -11,6 +11,7 @@
 
 #include <KLocalizedString>
 
+#include <QDateTime>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -30,7 +31,7 @@ bool FindOrCreateInviteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("FindOrCreateInviteJob::start");
+    addStartRestApiInfo("FindOrCreateInviteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -38,14 +39,8 @@ bool FindOrCreateInviteJob::start()
 
 void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("FindOrCreateInviteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT findOrCreateInviteDone(parseResult(replyObject));
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("FindOrCreateInviteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("FindOrCreateInviteJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT findOrCreateInviteDone(parseResult(*replyObject));
     }
 }
 

@@ -26,12 +26,11 @@ AvatarManager::~AvatarManager() = default;
 
 void AvatarManager::slotLoadNextAvatar()
 {
-    const Utils::AvatarInfo info = mAvatarDownloadIdentifer.constFirst();
-    const QUrl url = info.avatarUrl(mAccount->serverUrl());
-    // qDebug() << " url " << url;
-    if (url.isEmpty()) {
+    if (mAvatarDownloadIdentifer.isEmpty()) {
         return;
     }
+    const Utils::AvatarInfo info = mAvatarDownloadIdentifer.constFirst();
+    const QUrl url = info.avatarUrl(mAccount->serverUrl());
     slotInsertAvatarUrl(info, url);
 }
 
@@ -55,10 +54,10 @@ void AvatarManager::insertInDownloadQueue(const Utils::AvatarInfo &info)
 
 void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url)
 {
-    const QString identifier = info.generateAvatarIdentifier();
-    // qDebug() << "AvatarManager::slotInsertAvatarUrl: identifier " << identifier;
     // Use etag in identifier ?
     if (!url.isEmpty()) {
+        const QString identifier = info.generateAvatarIdentifier();
+        // qDebug() << "AvatarManager::slotInsertAvatarUrl: identifier " << identifier;
         Q_EMIT insertAvatarUrl(identifier, url);
     } // Else error for downloading => don't redownload it + continue.
 

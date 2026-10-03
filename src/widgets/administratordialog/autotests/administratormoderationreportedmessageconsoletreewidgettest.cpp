@@ -19,7 +19,7 @@ AdministratorModerationReportedMessageConsoleTreeWidgetTest::AdministratorModera
 
 void AdministratorModerationReportedMessageConsoleTreeWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorModerationReportedMessageConsoleTreeWidget d(nullptr);
+    const AdministratorModerationReportedMessageConsoleTreeWidget d(nullptr);
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->spacing(), 0);

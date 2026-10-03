@@ -32,9 +32,7 @@ ForwardMessageDialog::ForwardMessageDialog(RocketChatAccount *account, QWidget *
 
     auto buttonOk = buttonBox->button(QDialogButtonBox::Ok);
     buttonOk->setEnabled(false);
-    connect(mForwardMessageWidget, &ForwardMessageWidget::updateOkButton, this, [buttonOk](bool enabled) {
-        buttonOk->setEnabled(enabled);
-    });
+    connect(mForwardMessageWidget, &ForwardMessageWidget::updateOkButton, buttonOk, &QPushButton::setEnabled);
 }
 
 ForwardMessageDialog::~ForwardMessageDialog() = default;

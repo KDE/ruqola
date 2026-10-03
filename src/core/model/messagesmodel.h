@@ -12,6 +12,7 @@
 #include "messages/message.h"
 #include <QAbstractListModel>
 #include <QPointer>
+class QRegularExpression;
 using namespace Qt::Literals::StringLiterals;
 class RocketChatAccount;
 class LoadRecentHistoryManager;
@@ -121,6 +122,13 @@ public:
      */
     [[nodiscard]] qint64 lastTimestamp() const;
 
+    /**
+     * @brief Returns last updatedAt timestamp of last message in QList mAllMessages
+     *
+     * @return qint64 The last updatedAt timestamp
+     */
+    [[nodiscard]] qint64 lastUpdatedAtTimestamp() const;
+
     void deleteMessage(const QByteArray &messageId);
 
     [[nodiscard]] qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
@@ -139,8 +147,9 @@ public:
     [[nodiscard]] Message findNextMessageAfter(const QByteArray &messageId, const std::function<bool(const Message &)> &predicate) const;
     [[nodiscard]] Message findMessageById(const QByteArray &messageId) const;
     [[nodiscard]] QModelIndex indexForMessage(const QByteArray &messageId) const;
+    [[nodiscard]] const Message &messageAt(int index) const;
 
-    [[nodiscard]] QByteArray messageIdFromIndex(int rowIndex);
+    [[nodiscard]] QByteArray messageIdFromIndex(int rowIndex) const;
 
     [[nodiscard]] QString searchText() const;
     void setSearchText(const QString &searchText);
@@ -163,7 +172,20 @@ public:
 
     void updateTextToSpeech(const QByteArray &messageId, bool inProgress);
 
+    /**
+     * @brief Clears the read-receipt "unread" flag on every message sent no later than @p until.
+     *
+     * Called in response to the server's @c messagesRead notification, whose @c until is the
+     * oldest last-seen timestamp across all room participants — i.e. the point up to which
+     * everyone has read. Repaints the affected rows so the read-receipt indicator updates live.
+     */
+    void markMessagesReadUntil(qint64 until);
+
     void generateText(const Message &message, const QString &searchText, int hightLightStringIndex);
+
+    void decryptMessages();
+
+    void changeLocalTranslation(const QByteArray &messageId, const QString &result);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
@@ -175,11 +197,19 @@ private:
     LIBRUQOLACORE_NO_EXPORT void addMessage(const Message &message);
 
     LIBRUQOLACORE_NO_EXPORT void refresh();
+    /**
+     * @brief Decrypts @p message in place with the room session key, if we already have one.
+     *
+     * Must be called on every path that puts messages into the model, otherwise an encrypted
+     * message stays displayed as such.
+     */
+    LIBRUQOLACORE_NO_EXPORT void decryptMessage(const Message &message) const;
+    LIBRUQOLACORE_NO_EXPORT void decryptMessageList(const QList<Message> &messages) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QByteArray &threadMessageId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QByteArray &userId) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
                                                                      const QString &userName,
-                                                                     const QStringList &highlightWords,
+                                                                     const QList<QRegularExpression> &highlightWords,
                                                                      const QString &searchedText,
                                                                      int &numberOfTextSearched,
                                                                      int hightLightStringIndex) const;

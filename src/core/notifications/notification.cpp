@@ -9,8 +9,6 @@
 
 #include "notification.h"
 
-#include "ruqola_notification_debug.h"
-
 #include <KLocalizedString>
 #include <QIcon>
 
@@ -34,12 +32,6 @@ void Notification::createTrayIcon()
     setIconByPixmap(QIcon(u":/icons/ruqola-symbolic.svg"_s));
 #endif
     setCategory(KStatusNotifierItem::Communications);
-}
-
-void Notification::roomNeedAttention()
-{
-    qCDebug(RUQOLA_NOTIFICATION_LOG) << " emit alert";
-    Q_EMIT alert();
 }
 
 void Notification::updateToolTip(const QString &str, bool hasAlert)

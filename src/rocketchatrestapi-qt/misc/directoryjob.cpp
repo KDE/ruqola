@@ -5,7 +5,6 @@
 */
 
 #include "directoryjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QNetworkRequest>
 
 #include <QUrlQuery>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 DirectoryJob::DirectoryJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -67,14 +67,8 @@ void DirectoryJob::initialQueryParameters()
 
 void DirectoryJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("DirectoryJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT directoryDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("DirectoryJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("DirectoryJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT directoryDone(*replyObject);
     }
 }
 

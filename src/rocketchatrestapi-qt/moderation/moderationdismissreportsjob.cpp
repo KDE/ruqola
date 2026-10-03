@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -28,7 +28,7 @@ bool ModerationDismissReportsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ModerationDismissReportsJob::start");
+    addStartRestApiInfo("ModerationDismissReportsJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool ModerationDismissReportsJob::start()
 
 void ModerationDismissReportsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationDismissReportsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ModerationDismissReportsJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT moderationDismissReportsDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationDismissReportsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

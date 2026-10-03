@@ -21,7 +21,7 @@ AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
 
 void AdministratorRoomsWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorRoomsWidget w(nullptr);
+    const AdministratorRoomsWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

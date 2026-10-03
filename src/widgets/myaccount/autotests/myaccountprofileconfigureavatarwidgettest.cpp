@@ -18,7 +18,7 @@ MyAccountProfileConfigureAvatarWidgetTest::MyAccountProfileConfigureAvatarWidget
 
 void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccountProfileConfigureAvatarWidget w(nullptr);
+    const MyAccountProfileConfigureAvatarWidget w(nullptr);
 
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

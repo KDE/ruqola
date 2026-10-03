@@ -23,7 +23,7 @@ AutoGenerateInteractionUiViewDatePickerElement::~AutoGenerateInteractionUiViewDa
 
 bool AutoGenerateInteractionUiViewDatePickerElement::operator==(const AutoGenerateInteractionUiViewDatePickerElement &other) const
 {
-    return other.initialDate() == initialDate() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mInitialDate == mInitialDate && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewDatePickerElement::parseElement(const QJsonObject &json)
@@ -67,7 +67,7 @@ void AutoGenerateInteractionUiViewDatePickerElement::setPlaceHolder(AutoGenerate
 
 QVariant AutoGenerateInteractionUiViewDatePickerElement::currentValue() const
 {
-    return mDateTime->date().toString("yyyy-MM-dd"_L1);
+    return mDateTime->date().toString(u"yyyy-MM-dd");
 }
 
 void AutoGenerateInteractionUiViewDatePickerElement::setCurrentValue(const QVariant &v)

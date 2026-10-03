@@ -20,7 +20,7 @@ ConfigureAutoCorrectionWidgetTest::ConfigureAutoCorrectionWidgetTest(QObject *pa
 
 void ConfigureAutoCorrectionWidgetTest::shouldHaveDefaultValues()
 {
-    ConfigureAutoCorrectionWidget w(nullptr);
+    const ConfigureAutoCorrectionWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

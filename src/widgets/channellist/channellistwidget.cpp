@@ -63,7 +63,6 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mSearchRoomLineEdit->setClearButtonEnabled(true);
     mSearchRoomLineEdit->installEventFilter(this);
     mSearchRoomLineEdit->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
-    mSearchRoomLineEdit->setMinimumHeight(34); // match the default size of the message text field
     mainLayout->addWidget(mSearchRoomLineEdit);
     connect(mSearchRoomLineEdit, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
     connect(mSearchRoomLineEdit, &QLineEdit::returnPressed, this, &ChannelListWidget::forceLineEditFocus);
@@ -109,6 +108,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     clearFilterChannel();
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
+        disconnect(mCurrentRocketChatAccount, nullptr, mChannelView, nullptr);
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::accountInitialized, this, &ChannelListWidget::slotAccountInitialized);
@@ -304,7 +304,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
                 if (roomOrUserId != mCurrentRocketChatAccount->userName()) {
-                    if (mCurrentRocketChatAccount->hasPermission(u"create-d"_s)) {
+                    if (mCurrentRocketChatAccount->hasPermission(u"create-d")) {
                         // Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
                         mCurrentRocketChatAccount->createDirectChannel({roomOrUserId});
                     }

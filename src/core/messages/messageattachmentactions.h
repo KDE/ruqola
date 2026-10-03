@@ -22,18 +22,17 @@ public:
     };
     Q_ENUM(AlignmentButton)
     MessageAttachmentActions();
-    ~MessageAttachmentActions();
 
     void parse(const QJsonObject &obj);
     [[nodiscard]] AlignmentButton alignment() const;
-    void setAlignment(const AlignmentButton &newAlignment);
+    void setAlignment(AlignmentButton newAlignment);
 
     [[nodiscard]] bool operator==(const MessageAttachmentActions &other) const;
 
-    [[nodiscard]] QList<MessageAttachmentAction> actions() const;
+    [[nodiscard]] const QList<MessageAttachmentAction> &actions() const;
     void setActions(const QList<MessageAttachmentAction> &newActions);
 
-    [[nodiscard]] AlignmentButton convertStringToAlignmentButton(const QString &str) const;
+    [[nodiscard]] static AlignmentButton convertStringToAlignmentButton(const QString &str);
 
     [[nodiscard]] bool isValid() const;
 

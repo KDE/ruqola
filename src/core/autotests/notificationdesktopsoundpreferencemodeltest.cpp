@@ -17,7 +17,7 @@ NotificationDesktopSoundPreferenceModelTest::NotificationDesktopSoundPreferenceM
 
 void NotificationDesktopSoundPreferenceModelTest::shouldHaveDefaultValue()
 {
-    NotificationDesktopSoundPreferenceModel w;
+    const NotificationDesktopSoundPreferenceModel w;
     // QCOMPARE(w.rowCount(), 15);
     QVERIFY(!w.customSoundManager());
 }

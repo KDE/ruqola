@@ -15,8 +15,10 @@ TeamRoomCompleterTest::TeamRoomCompleterTest(QObject *parent)
 
 void TeamRoomCompleterTest::shouldHaveDefaultValues()
 {
-    TeamRoomCompleter t;
-    // TODO
+    const TeamRoomCompleter t;
+    QVERIFY(t.name().isEmpty());
+    QVERIFY(t.fname().isEmpty());
+    QVERIFY(t.identifier().isEmpty());
 }
 
 #include "moc_teamroomcompletertest.cpp"

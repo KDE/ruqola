@@ -15,7 +15,7 @@ NotificationHistoryListViewTest::NotificationHistoryListViewTest(QObject *parent
 
 void NotificationHistoryListViewTest::shouldHaveDefaultValues()
 {
-    NotificationHistoryListView w;
+    const NotificationHistoryListView w;
     QVERIFY(w.searchText().isEmpty());
 }
 

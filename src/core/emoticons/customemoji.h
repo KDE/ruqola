@@ -8,15 +8,16 @@
 
 #include "libruqola_private_export.h"
 #include <QMetaType>
-
 #include <QStringList>
+#include <QStringView>
+class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_TESTS_EXPORT CustomEmoji
 {
     Q_GADGET
 public:
     CustomEmoji();
-    ~CustomEmoji();
 
     void parseEmoji(const QJsonObject &emoji, bool useIsoDate = false);
 
@@ -31,8 +32,6 @@ public:
 
     [[nodiscard]] bool operator==(const CustomEmoji &other) const;
 
-    CustomEmoji &operator=(const CustomEmoji &other) = default;
-
     [[nodiscard]] bool isValid() const;
 
     [[nodiscard]] QStringList aliases() const;
@@ -44,7 +43,7 @@ public:
     [[nodiscard]] QString cachedHtml() const;
 
     void clearCachedHtml();
-    [[nodiscard]] bool hasEmoji(const QString &identifier) const;
+    [[nodiscard]] bool hasEmoji(QStringView identifier) const;
 
     [[nodiscard]] qint64 updatedAt() const;
     void setUpdatedAt(qint64 updatedAt);
@@ -55,7 +54,7 @@ public:
     [[nodiscard]] QString emojiFileName() const;
 
     [[nodiscard]] QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl) const;
-    [[nodiscard]] QString generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const;
+    [[nodiscard]] QString generateHtmlFromCustomEmojiLocalPath(const QString &emojiLocalPath) const;
 
 private:
     QString mEmojiIdentifier;
@@ -67,5 +66,4 @@ private:
     qint64 mUpdatedAt = 0;
 };
 Q_DECLARE_TYPEINFO(CustomEmoji, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const CustomEmoji &t);

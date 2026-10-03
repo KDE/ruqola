@@ -16,6 +16,8 @@ public:
     explicit BannerInfoListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~BannerInfoListView() override;
 
+    void setSearchText(const QString &str);
+
 protected:
     [[nodiscard]] bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     [[nodiscard]] bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;

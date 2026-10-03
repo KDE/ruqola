@@ -6,7 +6,6 @@
 
 #include "createchannelteaminfotest.h"
 #include "createchannelteaminfo.h"
-#include "restapimethod.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(CreateChannelTeamInfoTest)
@@ -18,7 +17,7 @@ CreateChannelTeamInfoTest::CreateChannelTeamInfoTest(QObject *parent)
 
 void CreateChannelTeamInfoTest::shouldHaveDefaultValues()
 {
-    RocketChatRestApi::CreateChannelTeamInfo info;
+    const RocketChatRestApi::CreateChannelTeamInfo info;
     QVERIFY(info.members.isEmpty());
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.topic.isEmpty());

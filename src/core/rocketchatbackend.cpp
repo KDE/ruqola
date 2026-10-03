@@ -72,9 +72,8 @@ void RocketChatBackend::updateVideoConferenceInfo(const Message &m)
 {
     // Update video conf info
     if (m.messageType() == Message::MessageType::VideoConference) {
-        if (m.blocks()) {
-            const auto blocks{m.blocks()};
-            const auto blocksElements = blocks->blocks();
+        if (const auto blocks = m.blocks(); blocks) {
+            const auto &blocksElements = blocks->blocks();
             for (const auto &b : blocksElements) {
                 if (!b.callId().isEmpty()) {
                     mRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(b.callId());
@@ -90,16 +89,16 @@ void RocketChatBackend::removeMessageFromLocalDatabase(const QList<QByteArray> &
         return;
     }
     auto messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+    Room *room = mRocketChatAccount->room(roomId);
+    MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
     for (const auto &messageId : messageIds) {
         if (messageModel) {
             messageModel->deleteMessage(messageId);
         }
-        Room *room = mRocketChatAccount->room(roomId);
         if (room) {
             mRocketChatAccount->deleteMessageFromDatabase(room->roomId(), messageId);
         }
         // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
-        MessagesModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
         threadMessageModel->deleteMessage(messageId);
     }
 }
@@ -478,16 +477,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_BACKEND_LOG) << "WEBRTC CHANGED: " << object;
             }
             qCWarning(RUQOLA_LOG) << "stream-notify-user : WEBRTC ? " << eventname << " contents " << contents;
-        } else if (eventname.endsWith("/otr"_L1)) {
-            if (mRocketChatAccount->ruqolaLogger()) {
-                QJsonDocument d;
-                d.setObject(object);
-                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: otr: "_ba + d.toJson());
-            } else {
-                qCDebug(RUQOLA_BACKEND_LOG) << "OTR CHANGED: " << object;
-            }
-            mRocketChatAccount->parseOtr(contents);
-            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
         } else if (eventname.endsWith("/message"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -532,6 +521,73 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // Clear auth token otherwise we can't reconnect.
             mRocketChatAccount->settings()->setAuthToken({});
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/e2ekeyRequest"_L1)) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: e2ekeyRequest: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: e2ekeyRequest :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            mRocketChatAccount->parseE2eKeyRequest(contents);
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/banners"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users  banners: " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: banners: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: banners :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/media-signal"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users  media-signal: " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: media-signal: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: media-signal :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/call.hangup"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users call.hangup: " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: call.hangup: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: call.hangup :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/calendar"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users calendar " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: calendar: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: calendar :account name:" << mRocketChatAccount->accountName() << "object" << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+        } else if (eventname.endsWith("/departmentAgentData"_L1)) {
+            qDebug() << " 111111111111111111111111111stream-notify-room-users calendar " << object;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-user: departmentAgentData: "_ba + d.toJson());
+            } else {
+                qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user: departmentAgentData :account name:" << mRocketChatAccount->accountName() << "object"
+                                            << object;
+            }
+            // TODO
+            qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -542,6 +598,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         }
+    } else if (collection == "stream-notify-room-users"_L1) {
+        qDebug() << " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXstream-notify-room-users  e2e.keyRequest: " << object;
     } else if (collection == "stream-notify-room"_L1) {
         qCDebug(RUQOLA_BACKEND_LOG) << " stream-notify-room " << collection << " object " << object;
         const QString eventname = fields.value("eventName"_L1).toString();
@@ -559,7 +617,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // Move code in rocketChatAccount ?
 
             QString roomId = eventname;
-            roomId.remove(u"/deleteMessage"_s);
+            roomId.remove("/deleteMessage"_L1);
             MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1());
             if (messageModel) {
                 const QJsonObject objRemoveId = contents.at(0).toObject();
@@ -589,7 +647,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
 
             QString roomId = eventname;
-            roomId.remove(u"/user-activity"_s);
+            roomId.remove("/user-activity"_L1);
             // TODO Perhaps not necessary to convert to variantlist. Need to investigate
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-room: typing event ? " << eventname << " content  " << contents.toVariantList() << " object "
                                         << object;
@@ -608,9 +666,28 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             qCDebug(RUQOLA_BACKEND_LOG) << " DELETE MESSAGE Bulk not IMPLEMENTED yet";
             QString roomId = eventname;
-            roomId.remove(u"/deleteMessageBulk"_s);
+            roomId.remove("/deleteMessageBulk"_L1);
             qCDebug(RUQOLA_BACKEND_LOG) << "UNIMPLEMENT!!!!!! deleteMessageBulk " << collection << " object " << object;
             // QJsonObject({"collection":"stream-notify-room","fields":{"args":[{"excludePinned":false,"ignoreDiscussion":true,"rid":"QgCf8GcnXYW5QXiHN","ts":{"$gt":{"$date":946681200000},"$lt":{"$date":1599602400000}},"users":[]}],"eventName":"QgCf8GcnXYW5QXiHN/deleteMessageBulk"},"id":"id","msg":"changed"})
+        } else if (eventname.endsWith("/messagesRead"_L1)) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived("stream-notify-room: messagesRead:"_ba + d.toJson());
+            }
+            // Rocket.Chat emits this (only when Message_Read_Receipt_Enabled) once everyone in the
+            // room has read up to "until" — the oldest last-seen timestamp across participants. Clear
+            // the read-receipt flag on messages up to that point so the indicator updates live.
+            // Args: [{ until: Date, tmid?: string }]; a per-thread read (tmid set) is not handled here.
+            QString roomId = eventname;
+            roomId.remove("/messagesRead"_L1);
+            const QJsonObject readInfo = contents.at(0).toObject();
+            const qint64 until = Utils::parseDate(u"until"_s, readInfo);
+            if (until > 0 && readInfo.value("tmid"_L1).toString().isEmpty()) {
+                if (MessagesModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId.toLatin1())) {
+                    messageModel->markMessagesReadUntil(until);
+                }
+            }
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -715,20 +792,22 @@ void RocketChatBackend::subscribeRegistration()
 {
     qCDebug(RUQOLA_LOG) << "subscribe registration";
     const QString userId{QString::fromLatin1(mRocketChatAccount->settings()->userId())};
-    const QStringList listStreamNotifierUser{
-        u"notification"_s,
-        u"rooms-changed"_s,
-        u"subscriptions-changed"_s,
-        u"message"_s,
-        u"otr"_s,
-        u"webrtc"_s,
-        u"video-conference"_s,
-        u"userData"_s,
-        u"banners"_s,
-        u"force_logout"_s,
-        u"uiInteraction"_s,
-        u"webdav"_s,
-    };
+    const QStringList listStreamNotifierUser{u"notification"_s,
+                                             u"rooms-changed"_s,
+                                             u"subscriptions-changed"_s,
+                                             u"message"_s,
+                                             u"webrtc"_s,
+                                             u"video-conference"_s,
+                                             u"userData"_s,
+                                             u"banners"_s,
+                                             u"force_logout"_s,
+                                             u"uiInteraction"_s,
+                                             u"webdav"_s,
+                                             u"e2ekeyRequest"_s,
+                                             u"calendar"_s,
+                                             u"departmentAgentData"_s,
+                                             u"media-signal"_s,
+                                             u"call.hangup"_s};
     for (const QString &str : listStreamNotifierUser) {
         QJsonArray params;
         params.append(QJsonValue(u"%1/%2"_s.arg(userId, str)));

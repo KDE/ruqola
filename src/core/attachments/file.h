@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QString>
+class QDebug;
 
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT File
@@ -16,7 +17,6 @@ class LIBRUQOLACORE_EXPORT File
     Q_GADGET
 public:
     File();
-    File(const File &other) = default;
 
     void parseFile(const QJsonObject &json, bool restApi);
     [[nodiscard]] QString fileName() const;
@@ -26,8 +26,6 @@ public:
     void setDescription(const QString &description);
 
     [[nodiscard]] bool operator==(const File &other) const;
-
-    File &operator=(const File &other) = default;
 
     [[nodiscard]] QByteArray userId() const;
     void setUserId(const QByteArray &userId);
@@ -78,5 +76,4 @@ private:
     qint64 mUploadedAt = -1;
 };
 Q_DECLARE_TYPEINFO(File, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const File &t);

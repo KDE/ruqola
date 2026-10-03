@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -46,7 +46,7 @@ bool AdminUsersAllModel::setData(const QModelIndex &id, const QVariant &value, i
     return false;
 }
 
-QString AdminUsersAllModel::createRegistrationStatus(const User &user) const
+QString AdminUsersAllModel::createRegistrationStatus(const User &user)
 {
     const bool lastLoginIsValid = user.lastLogin().isValid();
     const QStringList usersExcludedFromPending = {"bot"_L1, "app"_L1};
@@ -129,7 +129,7 @@ QVariant AdminUsersAllModel::data(const QModelIndex &index, int role) const
     case AdminUsersStatusRoles::UserId:
         return user.userId();
     case AdminUsersStatusRoles::Administrator:
-        return user.roles().contains(u"admin"_s);
+        return user.roles().contains("admin"_L1);
     case AdminUsersStatusRoles::RegistrationStatus:
         return createRegistrationStatus(user);
     }

@@ -27,10 +27,8 @@ protected:
 
 private:
     // Authentication doesn't involve any subscriptions
-    LIBRUQOLACORE_NO_EXPORT void processSubscriptionResultImpl(int subscriptionId, const QJsonObject &result) override
+    LIBRUQOLACORE_NO_EXPORT void processSubscriptionResultImpl([[maybe_unused]] int subscriptionId, [[maybe_unused]] const QJsonObject &result) override
     {
-        Q_UNUSED(subscriptionId)
-        Q_UNUSED(result)
     }
 
     LIBRUQOLACORE_NO_EXPORT void clientConnectedChangedSlot(bool connected);

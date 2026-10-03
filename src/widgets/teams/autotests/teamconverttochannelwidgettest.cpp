@@ -19,7 +19,7 @@ TeamConvertToChannelWidgetTest::TeamConvertToChannelWidgetTest(QObject *parent)
 
 void TeamConvertToChannelWidgetTest::shouldHaveDefaultValues()
 {
-    TeamConvertToChannelWidget w;
+    const TeamConvertToChannelWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

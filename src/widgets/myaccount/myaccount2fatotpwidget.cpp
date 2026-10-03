@@ -62,7 +62,7 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
     verifyButton->setEnabled(false);
     connect(verifyButton, &QPushButton::clicked, this, &MyAccount2FaTotpWidget::slotVerify);
     connect(mVerifyQrCode, &QLineEdit::textChanged, this, [verifyButton](const QString &str) {
-        verifyButton->setEnabled(!str.trimmed().isEmpty());
+        verifyButton->setEnabled(!QStringView(str).trimmed().isEmpty());
     });
     connect(mVerifyQrCode, &QLineEdit::returnPressed, this, &MyAccount2FaTotpWidget::slotVerify);
     if (mRocketChatAccount) {

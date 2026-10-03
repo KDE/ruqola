@@ -23,7 +23,7 @@ DirectChannelInfoDialogTest::DirectChannelInfoDialogTest(QObject *parent)
 
 void DirectChannelInfoDialogTest::shouldHaveDefaultValue()
 {
-    DirectChannelInfoDialog w(nullptr);
+    const DirectChannelInfoDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

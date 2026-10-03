@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT ReadReceipt
 {
 public:
     ReadReceipt();
-    ~ReadReceipt();
 
     [[nodiscard]] QByteArray userId() const;
     void setUserId(const QByteArray &newUserId);

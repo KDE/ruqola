@@ -8,15 +8,13 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
-#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
-ModerationUsersWidget::ModerationUsersWidget(RocketChatAccount *account, QWidget *parent)
+ModerationUsersWidget::ModerationUsersWidget([[maybe_unused]] RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTextBrowser(new QTextBrowser(this))
-    , mCurrentRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -34,7 +32,7 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     QString html;
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
-        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + u"</div>"_s;
+        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + u"</b></div>"_s;
         html += u"<br/>"_s;
         html += u"<div><b>"_s + i18n("Email:") + u"</b>"_s + u" %1"_s.arg(infos.user().userEmailsInfo().email) + u"</div>"_s;
         html += u"<br/>"_s;
@@ -45,12 +43,12 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
         html += u"<br/>"_s;
     }
 
-    const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.moderationReportUserInfosList();
+    const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.list();
+    QLocale l;
     int i = 1;
     for (const auto &info : moderationReportUserInfosList) {
         html += u"<div><a style='background-color:"_s + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + u"</a></div>"_s;
         html += u"<div>"_s + info.description() + u"</div>"_s;
-        QLocale l;
         const QString createAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(info.timeStamp()), QLocale::ShortFormat);
         html += u"<div><i>"_s + info.reportedBy().userName() + u' ' + createAtDisplayDateTime + u"</i></div>"_s;
         html += u"<br/>"_s;

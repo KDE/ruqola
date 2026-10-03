@@ -16,7 +16,7 @@ ModerationUsersWidgetTest::ModerationUsersWidgetTest(QObject *parent)
 
 void ModerationUsersWidgetTest::shouldHaveDefaultValues()
 {
-    ModerationUsersWidget w(nullptr);
+    const ModerationUsersWidget w(nullptr);
     // TODO
 }
 

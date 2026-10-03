@@ -16,10 +16,13 @@
 using namespace Qt::Literals::StringLiterals;
 
 static const char s_schemaRoomPSubscriptionsDataBase[] = "CREATE TABLE ROOMSUBSCRIPTIONS (subscriptionId TEXT PRIMARY KEY NOT NULL, roomId TEXT)";
+namespace
+{
 enum class RoomSubscriptionFields {
     SubscriptionId,
     RoomId,
 }; // in the same order as the table
+}
 
 LocalRoomSubscriptionsDatabase::LocalRoomSubscriptionsDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localRoomSubscriptionsDatabasePath(), LocalDatabaseBase::DatabaseType::RoomSubscriptions)
@@ -67,12 +70,13 @@ void LocalRoomSubscriptionsDatabase::deleteRoomSubscription(const QString &accou
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteRoomSubscription(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteRoomSubscription());
     query.addBindValue(QString::fromLatin1(subscriptionId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMSUBSCRIPTIONS table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete subscriptionId " + subscriptionId + " in account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete subscriptionId "_ba + subscriptionId + " in account "_ba + accountName.toUtf8());
     }
 }
 
@@ -80,13 +84,15 @@ void LocalRoomSubscriptionsDatabase::insertRoomSubscription(const QString &accou
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertRoomSubscription(), db);
+        QSqlQuery query(db);
+        query.prepare(LocalDatabaseUtils::insertRoomSubscription());
         query.addBindValue(QString::fromLatin1(subscriptionId));
         query.addBindValue(QString::fromLatin1(roomId));
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMSUBSCRIPTIONS table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("Update subscriptionId " + subscriptionId + " for roomId " + roomId + " in account " + accountName.toUtf8());
+            mRuqolaLogger->dataSaveFromDatabase("Update subscriptionId "_ba + subscriptionId + " for roomId "_ba + roomId + " in account "_ba
+                                                + accountName.toUtf8());
         }
     }
 }

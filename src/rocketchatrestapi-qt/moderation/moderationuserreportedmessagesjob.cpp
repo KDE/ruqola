@@ -30,25 +30,20 @@ bool ModerationUserReportedMessagesJob::requireHttpAuthentication() const
 bool ModerationUserReportedMessagesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get get user reported message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ModerationUserReportedMessagesJob";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ModerationReportJob: get get user reported message starting"_ba);
+    addStartRestApiInfo("ModerationUserReportedMessagesJob: get user reported messages starting"_ba);
     return true;
 }
 
 void ModerationUserReportedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationReportJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationUserReportedMessagesDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationReportJob: Problem when we tried to get user reported messages : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ModerationUserReportedMessagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT moderationUserReportedMessagesDone(*replyObject);
     }
 }
 
@@ -81,7 +76,7 @@ bool ModerationUserReportedMessagesJob::canStart() const
         return false;
     }
     if (mReportedMessageFromUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MessageId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationUserReportedMessagesJob: mReportedMessageFromUserId is empty";
         return false;
     }
     return true;

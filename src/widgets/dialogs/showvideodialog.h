@@ -21,6 +21,5 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateTitle(const QUrl &url);
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     ShowVideoWidget *const mShowVideoWidget;
 };

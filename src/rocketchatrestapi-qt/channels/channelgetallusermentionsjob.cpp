@@ -37,13 +37,13 @@ bool ChannelGetAllUserMentionsJob::canStart() const
 bool ChannelGetAllUserMentionsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetAllUserMentionsJob";
         deleteLater();
         return false;
     }
 
     submitGetRequest();
-    addStartRestApiInfo("ChannelGetAllUserMentionsJob::start");
+    addStartRestApiInfo("ChannelGetAllUserMentionsJob::start"_ba);
 
     return true;
 }
@@ -69,13 +69,8 @@ bool ChannelGetAllUserMentionsJob::requireHttpAuthentication() const
 
 void ChannelGetAllUserMentionsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelGetAllUserMentionsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelGetAllUserMentionsDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelGetAllUserMentionsJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelGetAllUserMentionsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelGetAllUserMentionsDone(*replyObject, mRoomId);
     }
 }
 

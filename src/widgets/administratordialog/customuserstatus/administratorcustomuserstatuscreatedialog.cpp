@@ -7,14 +7,11 @@
 #include "administratorcustomuserstatuscreatedialog.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myConfigAdministratorCustomUserStatusCreateDialogGroupName[] = "AdministratorCustomUserStatusCreateDialog";
@@ -41,24 +38,13 @@ AdministratorCustomUserStatusCreateDialog::AdministratorCustomUserStatusCreateDi
     readConfig();
 }
 
-AdministratorCustomUserStatusCreateDialog::~AdministratorCustomUserStatusCreateDialog()
-{
-    writeConfig();
-}
+AdministratorCustomUserStatusCreateDialog::~AdministratorCustomUserStatusCreateDialog() = default;
 
 void AdministratorCustomUserStatusCreateDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomUserStatusCreateDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void AdministratorCustomUserStatusCreateDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomUserStatusCreateDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this,
+                                                             QLatin1StringView(myConfigAdministratorCustomUserStatusCreateDialogGroupName),
+                                                             QSize(800, 300));
 }
 
 AdministratorCustomUserStatusCreateWidget::UserStatusInfo AdministratorCustomUserStatusCreateDialog::userStatusInfo() const

@@ -20,6 +20,7 @@
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QPointer>
 #include <QStyleOptionViewItem>
 
 MessageDelegateHelperActions::MessageDelegateHelperActions(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
@@ -32,11 +33,11 @@ MessageDelegateHelperActions::~MessageDelegateHelperActions() = default;
 void MessageDelegateHelperActions::draw(const Block &block,
                                         QPainter *painter,
                                         QRect blockRect,
-                                        const QModelIndex &index,
+                                        [[maybe_unused]] const QModelIndex &index,
                                         const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ActionsLayout layout = layoutActions(block, option, blockRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     for (const auto &button : std::as_const(layout.buttonList)) {
         // Draw button
         const QPen origPen = painter->pen();
@@ -123,13 +124,11 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [this](const QJsonObject &replyObject) {
-        auto dialog = new AutoGenerateInteractionUiDialog(mRocketChatAccount);
+        QPointer<AutoGenerateInteractionUiDialog> dialog = new AutoGenerateInteractionUiDialog(mRocketChatAccount);
         if (dialog->parse(replyObject)) {
             dialog->exec();
-            delete dialog;
-        } else {
-            delete dialog;
         }
+        delete dialog;
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppsUiInteractionJob job";
@@ -137,12 +136,12 @@ void MessageDelegateHelperActions::executeBlockAction(const QString &appId,
 }
 
 MessageDelegateHelperActions::ActionsLayout
-MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
+MessageDelegateHelperActions::layoutActions(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth)
 {
     ActionsLayout layout;
 
     qreal x = 0;
-    const auto actions = block.blockActions();
+    const auto &actions = block.blockActions();
     for (const auto &act : actions) {
         ButtonLayout buttonLayout;
         buttonLayout.text = act.text();

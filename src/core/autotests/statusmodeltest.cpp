@@ -19,7 +19,7 @@ StatusModelTest::StatusModelTest(QObject *parent)
 
 void StatusModelTest::shouldHaveDefaultValue()
 {
-    StatusModel w;
+    const StatusModel w;
     QCOMPARE(w.rowCount(), 5);
 
     QCOMPARE(w.currentStatus(), 0);

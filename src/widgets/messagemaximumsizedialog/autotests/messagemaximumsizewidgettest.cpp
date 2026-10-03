@@ -20,7 +20,7 @@ MessageMaximumSizeWidgetTest::MessageMaximumSizeWidgetTest(QObject *parent)
 
 void MessageMaximumSizeWidgetTest::shouldHaveDefaultValues()
 {
-    MessageMaximumSizeWidget d;
+    const MessageMaximumSizeWidget d;
 
     auto mainLayout = d.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
@@ -40,7 +40,7 @@ void MessageMaximumSizeWidgetTest::shouldHaveDefaultValues()
 
 void MessageMaximumSizeWidgetTest::shouldEmitSignal()
 {
-    MessageMaximumSizeWidget d;
+    const MessageMaximumSizeWidget d;
     QSignalSpy spyUpdateButton(&d, &MessageMaximumSizeWidget::updateOkButton);
     auto mFileName = d.findChild<QLineEdit *>(u"mFileName"_s);
     auto mDescription = d.findChild<QLineEdit *>(u"mDescription"_s);

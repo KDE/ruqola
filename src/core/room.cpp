@@ -12,6 +12,7 @@
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include "ruqola_encryption_debug.h"
 #include "ruqola_memory_management_debug.h"
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
@@ -67,7 +68,7 @@ QString Room::roomFromRoomType(Room::RoomType type)
 bool Room::operator==(const Room &other) const
 {
     // qDebug() << " other.id"<<other.id << " id " << id;
-    return other.mRoomId == roomId();
+    return other.mRoomId == mRoomId;
 }
 
 bool Room::isEqual(const Room &other) const
@@ -79,10 +80,10 @@ bool Room::isEqual(const Room &other) const
         && (mUpdatedAt == other.updatedAt()) && (mLastSeenAt == other.lastSeenAt()) && (mRoles == other.roles()) && (ignoredUsers() == other.ignoredUsers())
         && (parentRid() == other.parentRid()) && (mFName == other.fName()) && (autoTranslateLanguage() == other.autoTranslateLanguage())
         && (mDirectChannelUserId == other.directChannelUserId()) && (mDisplaySystemMessageType == other.displaySystemMessageTypes())
-        && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (highlightsWord() == other.highlightsWord())
-        && (mRetentionInfo == other.retentionInfo()) && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt())
-        && (mGroupMentions == other.groupMentions()) && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates())
-        && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId() && (autoTranslate() == other.autoTranslate());
+        && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (mRetentionInfo == other.retentionInfo())
+        && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
+        && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates()) && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId()
+        && (autoTranslate() == other.autoTranslate());
 }
 
 QString Room::displayRoomName() const
@@ -143,7 +144,6 @@ QDebug operator<<(QDebug d, const Room &t)
     d.space() << "AvatarEtag " << t.avatarETag();
     d.space() << "uids " << t.uids();
     d.space() << "usernames " << t.userNames();
-    d.space() << "highlightsWord " << t.highlightsWord();
     d.space() << "RetentionInfo " << t.retentionInfo();
     d.space() << "TeamInfo " << t.teamInfo();
     d.space() << "Number Of messages in room " << t.numberMessages();
@@ -276,20 +276,16 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setBroadcast(false);
     }
     setReadOnly(json["ro"_L1].toBool());
-    const qint64 result = Utils::parseDate(u"ls"_s, json);
-    if (result != -1) {
-        setLastSeenAt(result);
+    if (const qint64 ls = Utils::parseDate(u"ls"_s, json); ls != -1) {
+        setLastSeenAt(ls);
     }
-    const qint64 lm = Utils::parseDate(u"lm"_s, json);
-    if (lm != -1) {
+    if (const qint64 lm = Utils::parseDate(u"lm"_s, json); lm != -1) {
         setLastMessageAt(lm);
     }
 
     if (json.contains("msgs"_L1)) {
-        mNumberMessages = json["msgs"_L1].toInt();
+        mNumberMessages = json["msgs"_L1].toInteger();
     }
-
-    setHighlightsWord(extractStringList(json, "userHighlights"_L1));
 
     if (json.contains("ignored"_L1)) {
         setIgnoredUsers(extractStringList(json, "ignored"_L1));
@@ -297,6 +293,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
     // TODO E2EKey
     setE2eKeyId(json["e2eKeyId"_L1].toString());
+    parseUsersWaitingForE2EKeys(json);
 
     const QJsonValue ownerValue = json.value("u"_L1);
     if (!ownerValue.isUndefined()) {
@@ -317,9 +314,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         if (uidsArray.count() != 2) {
             qCWarning(RUQOLA_LOG) << " Invalid uidsArray " << uidsArray;
         }
-        const auto &u0 = uidsArray[0].toString().toLatin1();
-        const auto &u1 = uidsArray[1].toString().toLatin1();
         if (mRocketChatAccount) {
+            const auto &u0 = uidsArray[0].toString().toLatin1();
+            const auto &u1 = uidsArray[1].toString().toLatin1();
             setDirectChannelUserId((u0 == mRocketChatAccount->userId()) ? u1 : u0);
         }
 
@@ -673,6 +670,13 @@ void Room::parseInsertRoom(const QJsonObject &json)
 
     // setE2eKeyId(json["e2eKeyId"_L1].toString());
     setE2EKey(json["E2EKey"_L1].toString());
+    // Only overwrite on payloads which actually carry the field: subscription updates can be
+    // partial and we must not drop a pending suggestion we have not imported yet.
+    if (json.contains("E2ESuggestedKey"_L1)) {
+        setE2ESuggestedKey(json["E2ESuggestedKey"_L1].toString());
+    }
+    parseOldRoomKeys(json);
+    parseUsersWaitingForE2EKeys(json);
 
     if (json.contains("encrypted"_L1)) {
         setEncrypted(json["encrypted"_L1].toBool());
@@ -736,6 +740,12 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         setFavorite(favoriteValue.toBool());
     }
     setE2EKey(json["E2EKey"_L1].toString());
+    // Only overwrite on payloads which actually carry the field: subscription updates can be
+    // partial and we must not drop a pending suggestion we have not imported yet.
+    if (json.contains("E2ESuggestedKey"_L1)) {
+        setE2ESuggestedKey(json["E2ESuggestedKey"_L1].toString());
+    }
+    parseOldRoomKeys(json);
     setReadOnly(json["ro"_L1].toBool());
 
     setUpdatedAt(Utils::parseDate(u"_updatedAt"_s, json));
@@ -849,9 +859,11 @@ void Room::parseRetentionInfo(const QJsonObject &json)
 
 Room::TeamRoomInfo Room::teamRoomInfo() const
 {
-    if (mRocketChatAccount && teamInfo().isValid()) {
-        if (!teamInfo().mainTeam() && !teamInfo().teamId().isEmpty()) {
-            return mRocketChatAccount->roomFromTeamId(teamInfo().teamId());
+    if (mRocketChatAccount) {
+        if (const auto info = teamInfo(); info.isValid() && !info.mainTeam()) {
+            if (const auto teamId = info.teamId(); !teamId.isEmpty()) {
+                return mRocketChatAccount->roomFromTeamId(teamId);
+            }
         }
     }
     return {};
@@ -888,22 +900,6 @@ void Room::setRetentionInfo(RetentionInfo retentionInfo)
     if (mRetentionInfo != retentionInfo) {
         mRetentionInfo = retentionInfo;
         Q_EMIT retentionInfoChanged();
-    }
-}
-
-QStringList Room::highlightsWord() const
-{
-    if (!mRoomExtra) {
-        return {};
-    }
-    return mRoomExtra->highlightsWord();
-}
-
-void Room::setHighlightsWord(const QStringList &words)
-{
-    if (highlightsWord() != words) {
-        roomExtra()->setHighlightsWord(words);
-        Q_EMIT highlightsWordChanged();
     }
 }
 
@@ -951,7 +947,7 @@ Utils::AvatarInfo Room::avatarInfo() const
         }
         identifier.prepend(QString::number(uidsCount));
         info.avatarType = Utils::AvatarType::User;
-        info.identifier = identifier;
+        info.identifier = std::move(identifier);
     } else if (uidsCount == 2) {
         info.avatarType = Utils::AvatarType::User;
         if (mRocketChatAccount) {
@@ -961,13 +957,13 @@ Utils::AvatarInfo Room::avatarInfo() const
                     otherUserName = userName;
                 }
             }
-            info.identifier = otherUserName;
+            info.identifier = std::move(otherUserName);
         }
     } else {
         info.avatarType = Utils::AvatarType::Room;
         info.identifier = QString::fromLatin1(mRoomId);
     }
-    mCurrentAvatarInfo = info;
+    mCurrentAvatarInfo = std::move(info);
     return mCurrentAvatarInfo;
 }
 
@@ -1015,9 +1011,8 @@ void Room::setChannelCounterInfo(const ChannelCounterInfo &channelCounterInfo)
 void Room::newMessageAdded()
 {
     if (mChannelCounterInfo && mChannelCounterInfo->isValid()) {
-        if (mChannelCounterInfo->unreadMessages() > 0) {
-            const auto unreadMessageCount = mChannelCounterInfo->unreadMessages() + 1;
-            mChannelCounterInfo->setUnreadMessages(unreadMessageCount);
+        if (const auto unreadMessages = mChannelCounterInfo->unreadMessages(); unreadMessages > 0) {
+            mChannelCounterInfo->setUnreadMessages(unreadMessages + 1);
             Q_EMIT channelCounterInfoChanged();
             // qDebug() << " mChannelCounterInfo " << mChannelCounterInfo;
         }
@@ -1031,7 +1026,6 @@ void Room::parseCommonData(const QJsonObject &json)
     setIgnoredUsers(extractStringList(json, "ignored"_L1));
     setRoles(extractStringList(json, "roles"_L1));
     setThreadUnread(extractStringList(json, "tunread"_L1));
-    setHighlightsWord(extractStringList(json, "userHighlights"_L1));
 }
 
 QStringList Room::displaySystemMessageTypes() const
@@ -1144,7 +1138,7 @@ void Room::setRolesForRooms(const Roles &rolesForRooms)
     mRolesForRooms = rolesForRooms;
 }
 
-bool Room::hasPermission(const QString &permission) const
+bool Room::hasPermission(QStringView permission) const
 {
     if (mRocketChatAccount) {
         // qDebug() << " mRoles " << mRoles << " mRolesForRooms " << mRolesForRooms;
@@ -1160,7 +1154,7 @@ bool Room::hasPermission(const QString &permission) const
 
 bool Room::allowToPinMessage() const
 {
-    return hasPermission(u"pin-message"_s);
+    return hasPermission(u"pin-message");
 }
 
 QStringList Room::rolesForUserId(const QByteArray &userId)
@@ -1205,6 +1199,14 @@ void Room::setJoinCodeRequired(bool joinCodeRequired)
     }
 }
 
+QByteArray Room::sessionKey() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->sessionKey();
+    }
+    return {};
+}
+
 QString Room::e2eKeyId() const
 {
     if (mRoomEncryptionKey) {
@@ -1215,16 +1217,122 @@ QString Room::e2eKeyId() const
 
 void Room::setE2eKeyId(const QString &e2eKeyId)
 {
-    if (mRoomEncryptionKey) {
-        if (mRoomEncryptionKey->e2eKeyId() != e2eKeyId) {
-            mRoomEncryptionKey->setE2eKeyId(e2eKeyId);
-            Q_EMIT encryptionKeyIdChanged();
+    if (!mRoomEncryptionKey) {
+        if (e2eKeyId.isEmpty()) {
+            return;
         }
-    } else {
         mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    if (mRoomEncryptionKey->e2eKeyId() != e2eKeyId) {
         mRoomEncryptionKey->setE2eKeyId(e2eKeyId);
         Q_EMIT encryptionKeyIdChanged();
     }
+}
+
+QString Room::e2ESuggestedKey() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->e2ESuggestedKey();
+    }
+    return {};
+}
+
+void Room::setE2ESuggestedKey(const QString &e2ESuggestedKey)
+{
+    if (!mRoomEncryptionKey) {
+        if (e2ESuggestedKey.isEmpty()) {
+            return;
+        }
+        mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    mRoomEncryptionKey->setE2ESuggestedKey(e2ESuggestedKey);
+}
+
+void Room::parseUsersWaitingForE2EKeys(const QJsonObject &json)
+{
+    // Rocket.Chat stores the queue as [ { "userId": …, "ts": … } ]: only the user ids matter to
+    // us, we use them to know which members expect us to share the room key with them.
+    const QJsonValue usersWaitingValue = json.value("usersWaitingForE2EKeys"_L1);
+    if (usersWaitingValue.isUndefined()) {
+        return;
+    }
+    QList<QByteArray> users;
+    const QJsonArray usersArray = usersWaitingValue.toArray();
+    users.reserve(usersArray.count());
+    for (const auto &current : usersArray) {
+        QByteArray userId = current["userId"_L1].toString().toLatin1();
+        if (!userId.isEmpty()) {
+            users.append(std::move(userId));
+        }
+    }
+    setUsersWaitingForE2EKeys(users);
+}
+
+QList<QByteArray> Room::usersWaitingForE2EKeys() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->usersWaitingForE2EKeys();
+    }
+    return {};
+}
+
+void Room::setUsersWaitingForE2EKeys(const QList<QByteArray> &newUsersWaitingForE2EKeys)
+{
+    if (!mRoomEncryptionKey) {
+        if (newUsersWaitingForE2EKeys.isEmpty()) {
+            return;
+        }
+        mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    mRoomEncryptionKey->setUsersWaitingForE2EKeys(newUsersWaitingForE2EKeys);
+}
+
+void Room::parseOldRoomKeys(const QJsonObject &json)
+{
+    // Partial subscription updates must not drop the old keys we already imported, so only touch
+    // them on a payload actually carrying one of the two fields.
+    const bool hasOldRoomKeys = json.contains("oldRoomKeys"_L1);
+    const bool hasSuggestedOldRoomKeys = json.contains("suggestedOldRoomKeys"_L1);
+    if (!hasOldRoomKeys && !hasSuggestedOldRoomKeys) {
+        return;
+    }
+    if (!mRoomEncryptionKey) {
+        mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    if (hasOldRoomKeys) {
+        mRoomEncryptionKey->parseOldRoomKeys(json.value("oldRoomKeys"_L1).toArray());
+    }
+    // The server promotes the suggested ones to "oldRoomKeys" when we accept the room key, but
+    // they are already encrypted for us: importing them now shows the history right away.
+    if (hasSuggestedOldRoomKeys) {
+        mRoomEncryptionKey->parseOldRoomKeys(json.value("suggestedOldRoomKeys"_L1).toArray());
+    }
+}
+
+QByteArray Room::sessionKeyForKeyId(const QString &keyId) const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->sessionKeyForKeyId(keyId);
+    }
+    return {};
+}
+
+QList<RoomEncryptionKey::OldRoomKey> Room::oldRoomKeys() const
+{
+    if (mRoomEncryptionKey) {
+        return mRoomEncryptionKey->oldRoomKeys();
+    }
+    return {};
+}
+
+bool Room::hasSessionKey() const
+{
+    return mRoomEncryptionKey && mRoomEncryptionKey->hasSessionKey();
+}
+
+bool Room::hasEncryptedKeys() const
+{
+    return mRoomEncryptionKey && mRoomEncryptionKey->hasEncryptedKeys();
 }
 
 QString Room::e2EKey() const
@@ -1237,17 +1345,33 @@ QString Room::e2EKey() const
 
 void Room::setE2EKey(const QString &e2EKey)
 {
-    if (mRoomEncryptionKey) {
-        if (mRoomEncryptionKey->e2EKey() != e2EKey) {
-            mRoomEncryptionKey->setE2EKey(e2EKey);
-            Q_EMIT encryptionKeyChanged();
+    if (!mRoomEncryptionKey) {
+        if (e2EKey.isEmpty()) {
+            return;
         }
-    } else {
         mRoomEncryptionKey = new RoomEncryptionKey;
+    }
+    if (mRoomEncryptionKey->e2EKey() != e2EKey) {
         mRoomEncryptionKey->setE2EKey(e2EKey);
         Q_EMIT encryptionKeyChanged();
     }
 }
+
+#if USE_E2E_SUPPORT
+void Room::decryptSessionKeyWithPrivateKey(RSA *privateKey)
+{
+    if (!mRoomEncryptionKey) {
+        return;
+    }
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << "Room::decryptSessionKeyWithPrivateKey"
+                                   << "roomName=" << name() << "roomId=" << roomId() << "e2eKeyId=" << mRoomEncryptionKey->e2eKeyId()
+                                   << "e2eKeyLen=" << mRoomEncryptionKey->e2EKey().size() << "hasPrivateKey=" << (privateKey != nullptr);
+    mRoomEncryptionKey->decryptWithPrivateKey(privateKey);
+    if (mRoomEncryptionKey->hasSessionKey()) {
+        mMessageModel->decryptMessages();
+    }
+}
+#endif
 
 bool Room::encrypted() const
 {
@@ -1291,19 +1415,18 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     r->setBroadcast(o["broadcast"_L1].toBool(false));
     r->setE2EKey(o["e2ekey"_L1].toString());
     r->setE2eKeyId(o["e2ekeyid"_L1].toString());
+    r->setE2ESuggestedKey(o["E2ESuggestedKey"_L1].toString());
     r->setJoinCodeRequired(o["joinCodeRequired"_L1].toBool());
     r->setUpdatedAt(static_cast<qint64>(o["updatedAt"_L1].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o["lastSeenAt"_L1].toDouble()));
     r->setLastMessageAt(static_cast<qint64>(o["lastMessageAt"_L1].toDouble(-1)));
-    r->setNumberMessages(static_cast<qint64>(o["msgs"_L1].toInt()));
+    r->setNumberMessages(o["msgs"_L1].toInteger());
 
     r->setMutedUsers(extractStringList(o, "muted"_L1));
 
     r->setDisplaySystemMessageTypes(extractStringList(o, "systemMessages"_L1));
 
     r->setIgnoredUsers(extractStringList(o, "ignored"_L1));
-
-    r->setHighlightsWord(extractStringList(o, "userHighlights"_L1));
 
     r->setRoles(extractStringList(o, "roles"_L1));
 
@@ -1362,43 +1485,43 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o["rid"_L1] = QString::fromLatin1(r->roomId());
     o["t"_L1] = Room::roomFromRoomType(r->channelType());
     o["name"_L1] = r->name();
-    if (!r->fName().isEmpty()) {
-        o["fname"_L1] = r->fName();
+    if (const auto fName = r->fName(); !fName.isEmpty()) {
+        o["fname"_L1] = fName;
     }
-    if (!r->roomOwnerUserName().isEmpty()) {
-        o["roomCreatorUserName"_L1] = r->roomOwnerUserName();
+    if (const auto roomOwnerUserName = r->roomOwnerUserName(); !roomOwnerUserName.isEmpty()) {
+        o["roomCreatorUserName"_L1] = roomOwnerUserName;
     }
-    if (!r->roomCreatorUserId().isEmpty()) {
-        o["roomCreatorUserID"_L1] = QString::fromLatin1(r->roomCreatorUserId());
+    if (const auto roomCreatorUserId = r->roomCreatorUserId(); !roomCreatorUserId.isEmpty()) {
+        o["roomCreatorUserID"_L1] = QString::fromLatin1(roomCreatorUserId);
     }
-    if (r->numberMessages() > 0) {
-        o["msgs"_L1] = r->numberMessages();
+    if (const auto numberMessages = r->numberMessages(); numberMessages > 0) {
+        o["msgs"_L1] = numberMessages;
     }
-    if (!r->topic().isEmpty()) {
-        o["topic"_L1] = r->topic();
+    if (const auto topic = r->topic(); !topic.isEmpty()) {
+        o["topic"_L1] = topic;
     }
-    if (!r->autoTranslateLanguage().isEmpty()) {
-        o["autoTranslateLanguage"_L1] = r->autoTranslateLanguage();
+    if (const auto autoTranslateLanguage = r->autoTranslateLanguage(); !autoTranslateLanguage.isEmpty()) {
+        o["autoTranslateLanguage"_L1] = autoTranslateLanguage;
     }
     if (r->autoTranslate()) {
-        o["autoTranslate"_L1] = r->autoTranslate();
+        o["autoTranslate"_L1] = true;
     }
-    if (r->jitsiTimeout() != -1) {
-        o["jitsiTimeout"_L1] = r->jitsiTimeout();
+    if (const auto jitsiTimeout = r->jitsiTimeout(); jitsiTimeout != -1) {
+        o["jitsiTimeout"_L1] = jitsiTimeout;
     }
     o["updatedAt"_L1] = r->updatedAt();
-    if (r->lastSeenAt() != -1) {
-        o["lastSeenAt"_L1] = r->lastSeenAt();
+    if (const auto lastSeenAt = r->lastSeenAt(); lastSeenAt != -1) {
+        o["lastSeenAt"_L1] = lastSeenAt;
     }
-    if (r->lastMessageAt() != -1) {
-        o["lastMessageAt"_L1] = r->lastMessageAt();
+    if (const auto lastMessageAt = r->lastMessageAt(); lastMessageAt != -1) {
+        o["lastMessageAt"_L1] = lastMessageAt;
     }
     if (r->readOnly()) {
         o["ro"_L1] = true;
     }
     o["unread"_L1] = r->unread();
-    if (!r->announcement().isEmpty()) {
-        o["announcement"_L1] = r->announcement();
+    if (const auto announcement = r->announcement(); !announcement.isEmpty()) {
+        o["announcement"_L1] = announcement;
     }
     if (r->selected()) {
         o["selected"_L1] = true;
@@ -1430,21 +1553,24 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     if (r->joinCodeRequired()) {
         o["joinCodeRequired"_L1] = true;
     }
-    if (!r->e2EKey().isEmpty()) {
-        o["e2ekey"_L1] = r->e2EKey();
+    if (const auto e2EKey = r->e2EKey(); !e2EKey.isEmpty()) {
+        o["e2ekey"_L1] = e2EKey;
     }
-    if (!r->e2eKeyId().isEmpty()) {
-        o["e2ekeyid"_L1] = r->e2eKeyId();
+    if (const auto e2eKeyId = r->e2eKeyId(); !e2eKeyId.isEmpty()) {
+        o["e2ekeyid"_L1] = e2eKeyId;
+    }
+    if (const auto e2ESuggestedKey = r->e2ESuggestedKey(); !e2ESuggestedKey.isEmpty()) {
+        o["E2ESuggestedKey"_L1] = e2ESuggestedKey;
     }
 
-    if (!r->description().isEmpty()) {
-        o["description"_L1] = r->description();
+    if (const auto description = r->description(); !description.isEmpty()) {
+        o["description"_L1] = description;
     }
-    if (r->userMentions() > 0) {
-        o["userMentions"_L1] = r->userMentions();
+    if (const auto userMentions = r->userMentions(); userMentions > 0) {
+        o["userMentions"_L1] = userMentions;
     }
-    if (r->groupMentions() > 0) {
-        o["groupMentions"_L1] = r->groupMentions();
+    if (const auto groupMentions = r->groupMentions(); groupMentions > 0) {
+        o["groupMentions"_L1] = groupMentions;
     }
 
     serializeStringList(o, "muted"_L1, r->mutedUsers());
@@ -1456,29 +1582,27 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     o["notifications"_L1] = NotificationOptions::serialize(r->notificationOptions());
 
-    if (!r->directChannelUserId().isEmpty()) {
-        o["directChannelUserId"_L1] = QLatin1StringView(r->directChannelUserId());
+    if (const auto directChannelUserId = r->directChannelUserId(); !directChannelUserId.isEmpty()) {
+        o["directChannelUserId"_L1] = QLatin1StringView(directChannelUserId);
     }
 
     serializeStringList(o, "systemMessages"_L1, r->displaySystemMessageTypes());
 
-    serializeStringList(o, "userHighlights"_L1, r->highlightsWord());
-
-    if (!r->avatarETag().isEmpty()) {
-        o["avatarETag"_L1] = QLatin1StringView(r->avatarETag());
+    if (const auto avatarETag = r->avatarETag(); !avatarETag.isEmpty()) {
+        o["avatarETag"_L1] = QLatin1StringView(avatarETag);
     }
-    if (!r->uids().isEmpty()) {
-        o["uids"_L1] = QJsonArray::fromStringList(r->uids());
+    if (const auto uids = r->uids(); !uids.isEmpty()) {
+        o["uids"_L1] = QJsonArray::fromStringList(uids);
     }
 
-    if (r->retentionInfo().isNotDefault()) {
-        o["retention"_L1] = RetentionInfo::serialize(r->retentionInfo());
+    if (const auto retentionInfo = r->retentionInfo(); retentionInfo.isNotDefault()) {
+        o["retention"_L1] = RetentionInfo::serialize(retentionInfo);
     }
-    if (r->teamInfo().isValid()) {
-        TeamInfo::serialize(r->teamInfo(), o);
+    if (const auto teamInfo = r->teamInfo(); teamInfo.isValid()) {
+        TeamInfo::serialize(teamInfo, o);
     }
-    if (!r->parentRid().isEmpty()) {
-        o["prid"_L1] = QLatin1StringView(r->parentRid());
+    if (const auto parentRid = r->parentRid(); !parentRid.isEmpty()) {
+        o["prid"_L1] = QLatin1StringView(parentRid);
     }
 
     serializeStringList(o, "usernames"_L1, r->userNames());
@@ -1543,17 +1667,17 @@ bool Room::encryptedEnabled() const
     return mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->encryptionEnabled() : false;
 }
 
-bool Room::userIsIgnored(const QByteArray &userId)
+bool Room::userIsIgnored(const QByteArray &userId) const
 {
     const QStringList users = ignoredUsers();
     if (users.isEmpty()) {
         return false;
     }
     // TODO Convert mIgnoredUsers to QList<QByteArray>
-    return users.contains(QString::fromLatin1(userId));
+    return users.contains(QLatin1StringView(userId));
 }
 
-bool Room::userIsMuted(const QString &username)
+bool Room::userIsMuted(const QString &username) const
 {
     const QStringList users = mutedUsers();
     if (users.isEmpty()) {
@@ -1583,7 +1707,7 @@ QString Room::roomMessageInfo() const
 
 bool Room::canChangeRoles() const
 {
-    return mRoles.contains(u"owner"_s);
+    return mRoles.contains("owner"_L1);
 }
 
 bool Room::userHasOwnerRole(const QByteArray &userId) const

@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 class QJsonObject;
 class QObject;
+class QJsonArray;
 
 class Connection;
 class LIBRUQOLACORE_EXPORT RESTAuthenticationManager : public AuthenticationManagerBase
@@ -25,7 +26,7 @@ protected:
     void callLoginImpl(const QJsonArray &params, Method method) override;
 
 private:
-    LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id);
+    static LIBRUQOLACORE_NO_EXPORT QJsonObject generateJsonMethod(const QString &method, const QJsonArray &params, quint64 id);
 
     Connection *const mRestApiConnection;
     int mIndex = 5000;

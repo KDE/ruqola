@@ -5,6 +5,7 @@
 */
 
 #include "messageurls.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(MessageUrls, Ruqola_MessageUrls)
 
 #include "messageutils.h"
 #include "ruqola_message_memory_debug.h"
@@ -35,7 +36,7 @@ void MessageUrls::setMessageUrls(const QList<MessageUrl> &messageUrls)
     mMessageUrls = messageUrls;
 }
 
-QList<MessageUrl> MessageUrls::messageUrls() const
+const QList<MessageUrl> &MessageUrls::messageUrls() const
 {
     return mMessageUrls;
 }
@@ -43,6 +44,7 @@ QList<MessageUrl> MessageUrls::messageUrls() const
 void MessageUrls::parseMessageUrls(const QJsonArray &urls, const QByteArray &messageId)
 {
     mMessageUrls.clear();
+    mMessageUrls.reserve(urls.size());
     for (int i = 0; i < urls.size(); i++) {
         const QJsonObject url = urls.at(i).toObject();
         MessageUrl messageUrl;
@@ -56,13 +58,13 @@ void MessageUrls::parseMessageUrls(const QJsonArray &urls, const QByteArray &mes
 
 bool MessageUrls::operator==(const MessageUrls &other) const
 {
-    return mMessageUrls == other.messageUrls();
+    return mMessageUrls == other.mMessageUrls;
 }
 
 QDebug operator<<(QDebug d, const MessageUrls &t)
 {
-    for (int i = 0; i < t.messageUrls().count(); i++) {
-        d.space() << t.messageUrls().at(i) << "\n";
+    for (const MessageUrl &url : t.messageUrls()) {
+        d.space() << url << "\n";
     }
     return d;
 }
@@ -76,9 +78,10 @@ QJsonArray MessageUrls::serialize(const MessageUrls &urls)
     return urlArray;
 }
 
-MessageUrls *MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteArray &messageId)
+std::unique_ptr<MessageUrls> MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteArray &messageId)
 {
     QList<MessageUrl> urls;
+    urls.reserve(urlsArray.count());
     for (int i = 0; i < urlsArray.count(); ++i) {
         const QJsonObject urlObj = urlsArray.at(i).toObject();
         MessageUrl url = MessageUrl::deserialize(urlObj);
@@ -88,7 +91,7 @@ MessageUrls *MessageUrls::deserialize(const QJsonArray &urlsArray, const QByteAr
         }
     }
 
-    auto final = new MessageUrls;
+    auto final = std::make_unique<MessageUrls>();
     final->setMessageUrls(urls);
     return final;
 }

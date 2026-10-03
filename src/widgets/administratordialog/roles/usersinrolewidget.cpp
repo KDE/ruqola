@@ -60,7 +60,7 @@ void UsersInRoleWidget::slotAddUser()
                 job->setUseRC80(true);
                 job->setRoleId(mRoleId);
             } else {
-                job->setRoleName(mRoleId);
+                job->setRoleName(mRoleName);
             }
             job->setUsername(user);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -73,7 +73,7 @@ void UsersInRoleWidget::slotAddUser()
     delete dlg;
 }
 
-void UsersInRoleWidget::slotAddUsersToRoleDone(const QJsonObject &replyObject)
+void UsersInRoleWidget::slotAddUsersToRoleDone([[maybe_unused]] const QJsonObject &replyObject)
 {
     // qDebug() << " replyObject " << replyObject;
     initialize(); // Reload list
@@ -106,7 +106,7 @@ void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
     }
 }
 
-void UsersInRoleWidget::slotRemoveUsersFromRoleDone(const QJsonObject &replyObject)
+void UsersInRoleWidget::slotRemoveUsersFromRoleDone([[maybe_unused]] const QJsonObject &replyObject)
 {
     initialize(); // Reload list
     // qDebug() << " replyObject " << replyObject;

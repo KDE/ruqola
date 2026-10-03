@@ -18,7 +18,7 @@ public:
     ~BannerMessageWidget() override;
 
     [[nodiscard]] const QList<BannerInfos::UnreadInformation> &bannerInfos() const;
-    void setBannerInfos(const QList<BannerInfos::UnreadInformation> &newBannerInfo);
+    void setBannerInfos(QList<BannerInfos::UnreadInformation> newBannerInfo);
 
 Q_SIGNALS:
     void infoWasRead(const QByteArray &identifier);
@@ -26,6 +26,6 @@ Q_SIGNALS:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReadInfo();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateInfo();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenUrl(const QString &url);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotOpenUrl(const QString &url);
     QList<BannerInfos::UnreadInformation> mBannerInfos;
 };

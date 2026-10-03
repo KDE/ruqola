@@ -27,7 +27,7 @@ bool GroupsDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupsDeleteJob::start");
+    addStartRestApiInfo("GroupsDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool GroupsDeleteJob::start()
 
 void GroupsDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupsDeleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupsDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deleteGroupsDone(channelGroupInfo().identifier);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupsDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -29,10 +29,6 @@ protected:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreElements();
-    LIBRUQOLAWIDGETS_NO_EXPORT void finishSearching();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchCleared();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSearchRequested(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddUser();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUser(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveUsersFromRoleDone(const QJsonObject &replyObject);

@@ -13,9 +13,7 @@ CustomEmojiIconManager::CustomEmojiIconManager(QObject *parent)
 {
 }
 
-CustomEmojiIconManager::~CustomEmojiIconManager()
-{
-}
+CustomEmojiIconManager::~CustomEmojiIconManager() = default;
 
 QIcon CustomEmojiIconManager::generateIcon(const QString &customIdentifier)
 {
@@ -47,10 +45,12 @@ RocketChatAccount *CustomEmojiIconManager::currentRocketChatAccount() const
 
 QString CustomEmojiIconManager::fileName(const QString &customIdentifier)
 {
-    const QString fileName = mCurrentRocketChatAccount->emojiManager()->customEmojiFileName(customIdentifier);
-    if (!fileName.isEmpty()) {
-        const QUrl emojiUrl = mCurrentRocketChatAccount->attachmentUrlFromLocalCache(fileName);
-        return emojiUrl.toLocalFile();
+    if (mCurrentRocketChatAccount) {
+        const QString fileName = mCurrentRocketChatAccount->emojiManager()->customEmojiFileName(customIdentifier);
+        if (!fileName.isEmpty()) {
+            const QUrl emojiUrl = mCurrentRocketChatAccount->attachmentUrlFromLocalCache(fileName);
+            return emojiUrl.toLocalFile();
+        }
     }
     return {};
 }

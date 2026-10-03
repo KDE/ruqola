@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channeladdleaderjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -49,7 +48,7 @@ void ChannelAddLeaderJobTest::shouldGenerateJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setAddLeaderUserId(removeUserId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(removeUserId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%2","userId":"%1"})"_s.arg(removeUserId, roomId).toLatin1());
 }
 
 #include "moc_channeladdleaderjobtest.cpp"

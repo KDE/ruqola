@@ -15,6 +15,8 @@ target_link_libraries(
     Qt::Core
 )
 
+add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+
 if(ENABLE_PCH)
     file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/pch.cpp CONTENT "/*empty file*/")
     file(
@@ -36,7 +38,6 @@ if(ENABLE_PCH)
     target_precompile_headers(librocketchatrestapi-qt_test_pch PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/pch.h)
 endif()
 
-add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 macro(add_rocketchatrestapi_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
@@ -55,12 +56,6 @@ macro(add_rocketchatrestapi_test _source)
         Qt::Test
         librocketchatrestapi-qt
         rocketchatrestapiqthelper
-    )
-    set_target_properties(
-        ${_name}
-        PROPERTIES
-            DISABLE_PRECOMPILE_HEADERS
-                ON
     )
 endmacro()
 
@@ -175,7 +170,6 @@ add_rocketchatrestapi_test(syncthreadmessagesjobtest.cpp)
 add_rocketchatrestapi_test(translatesavesettingsjobtest.cpp)
 add_rocketchatrestapi_test(setstatusjobtest.cpp)
 add_rocketchatrestapi_test(getstarredmessagesjobtest.cpp)
-add_rocketchatrestapi_test(getsnippetedmessagesjobtest.cpp)
 add_rocketchatrestapi_test(customuserstatuslistjobtest.cpp)
 add_rocketchatrestapi_test(customsoundslistjobtest.cpp)
 add_rocketchatrestapi_test(usersautocompletejobtest.cpp)
@@ -251,7 +245,6 @@ add_rocketchatrestapi_test(updateadminsettingsjobtest.cpp)
 add_rocketchatrestapi_test(updategroupkeyjobtest.cpp)
 add_rocketchatrestapi_test(bannersdismissjobtest.cpp)
 add_rocketchatrestapi_test(getbannersjobtest.cpp)
-add_rocketchatrestapi_test(licensesisenterprisejobtest.cpp)
 add_rocketchatrestapi_test(sessionslistjobtest.cpp)
 add_rocketchatrestapi_test(sessionslogoutmejobtest.cpp)
 add_rocketchatrestapi_test(getpersonalaccesstokensjobtest.cpp)
@@ -306,10 +299,12 @@ add_rocketchatrestapi_test(useinvitetokenjobtest.cpp)
 add_rocketchatrestapi_test(appupdateinfojobtest.cpp)
 add_rocketchatrestapi_test(roomsmembersorderedbyrolejobtest.cpp)
 add_rocketchatrestapi_test(acceptsuggestedgroupkeyjobtest.cpp)
+add_rocketchatrestapi_test(provideuserswithsuggestedgroupkeysjobtest.cpp)
 add_rocketchatrestapi_test(rejectsuggestedgroupkeyjobtest.cpp)
+add_rocketchatrestapi_test(requestsubscriptionkeysjobtest.cpp)
 add_rocketchatrestapi_test(resetroomkeyjobtest.cpp)
 add_rocketchatrestapi_test(previewscommandjobtest.cpp)
-add_rocketchatrestapi_test(getusersofroomwithoutkeytest.cpp)
+add_rocketchatrestapi_test(getusersofroomwithoutkeyjobtest.cpp)
 add_rocketchatrestapi_test(roomsmediaconfirmjobtest.cpp)
 add_rocketchatrestapi_test(subscriptiongetonejobtest.cpp)
 add_rocketchatrestapi_test(subscriptiongetalljobtest.cpp)
@@ -322,3 +317,5 @@ add_rocketchatrestapi_test(roomsunbanuserjobtest.cpp)
 add_rocketchatrestapi_test(customsoundsdeletejobtest.cpp)
 add_rocketchatrestapi_test(imblockuserjobtest.cpp)
 add_rocketchatrestapi_test(deletemessagefilejobtest.cpp)
+add_rocketchatrestapi_test(fetchuserswaitingforgroupkeyjobtest.cpp)
+add_rocketchatrestapi_test(setroomkeyidjobtest.cpp)

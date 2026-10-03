@@ -18,7 +18,7 @@ DeviceInfoTest::DeviceInfoTest(QObject *parent)
 
 void DeviceInfoTest::shouldHaveDefaultValues()
 {
-    DeviceInfo w;
+    const DeviceInfo w;
     QVERIFY(w.identifier().isEmpty());
     QVERIFY(w.host().isEmpty());
     QVERIFY(w.sessionId().isEmpty());

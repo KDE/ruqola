@@ -83,6 +83,9 @@ void ShowImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path
         mAnimatedLabel->setMovie(mMovie.data());
 
         QTimer::singleShot(0, this, [this] {
+            if (!mMovie) {
+                return;
+            }
             mOriginalMovieSize = mMovie->currentPixmap().size();
             updateRanges();
 
@@ -152,7 +155,7 @@ void ShowImageGraphicsView::updateRanges()
 {
     const auto newMinimumZoom = fitToViewZoomScale(originalImageSize(), size());
     if (!qFuzzyCompare(mMinimumZoom, newMinimumZoom)) {
-        mMinimumZoom = fitToViewZoomScale(originalImageSize(), size());
+        mMinimumZoom = newMinimumZoom;
         Q_EMIT minimumZoomChanged(mMinimumZoom);
     }
     // note: mMaximumZoom is constant for now

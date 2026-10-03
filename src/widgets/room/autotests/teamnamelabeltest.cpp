@@ -15,7 +15,7 @@ TeamNameLabelTest::TeamNameLabelTest(QObject *parent)
 
 void TeamNameLabelTest::shouldHaveDefaultValues()
 {
-    TeamNameLabel w;
+    const TeamNameLabel w;
     QCOMPARE(w.textFormat(), Qt::RichText);
     QCOMPARE(w.contextMenuPolicy(), Qt::NoContextMenu);
     QVERIFY(w.text().isEmpty());

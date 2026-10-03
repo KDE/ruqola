@@ -15,7 +15,7 @@ MyAccountPersonalAccessTokenTreeViewTest::MyAccountPersonalAccessTokenTreeViewTe
 
 void MyAccountPersonalAccessTokenTreeViewTest::shouldHaveDefaultValues()
 {
-    MyAccountPersonalAccessTokenTreeView w(nullptr);
+    const MyAccountPersonalAccessTokenTreeView w(nullptr);
     QVERIFY(w.alternatingRowColors());
     QCOMPARE(w.selectionMode(), QAbstractItemView::SingleSelection);
     QCOMPARE(w.selectionBehavior(), QAbstractItemView::SelectRows);

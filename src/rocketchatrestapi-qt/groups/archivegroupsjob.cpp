@@ -27,7 +27,7 @@ bool ArchiveGroupsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ArchiveGroupsJob::start");
+    addStartRestApiInfo("ArchiveGroupsJob::start"_ba);
     submitPostRequest(json());
 
     return true;

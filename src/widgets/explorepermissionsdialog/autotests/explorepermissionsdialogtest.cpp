@@ -24,7 +24,7 @@ ExplorePermissionsDialogTest::ExplorePermissionsDialogTest(QObject *parent)
 
 void ExplorePermissionsDialogTest::shouldHaveDefaultValues()
 {
-    ExplorePermissionsDialog d;
+    const ExplorePermissionsDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

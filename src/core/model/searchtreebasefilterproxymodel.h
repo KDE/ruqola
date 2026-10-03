@@ -18,7 +18,6 @@ public:
     ~SearchTreeBaseFilterProxyModel() override;
 
     void setFilterString(const QString &string);
-    void clearFilter();
 
     void setSortFunction(SortFunction fn);
 

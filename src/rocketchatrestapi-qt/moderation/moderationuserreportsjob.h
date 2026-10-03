@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -9,7 +9,7 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
-#include <QDateTime>
+#include <QDate>
 
 namespace RocketChatRestApi
 {
@@ -34,6 +34,8 @@ public:
     [[nodiscard]] bool start() override;
 
     [[nodiscard]] QNetworkRequest request() const override;
+
+    [[nodiscard]] bool hasQueryParameterSupport() const override;
 
     [[nodiscard]] ModerationUserReportsInfo moderationUserReportsInfo() const;
     void setModerationUserReportsInfo(const ModerationUserReportsInfo &newModerationUserReportsInfo);

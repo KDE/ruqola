@@ -12,10 +12,9 @@ class LIBRUQOLACORE_EXPORT TimeStampInMessagesConverter
 {
 public:
     TimeStampInMessagesConverter();
-    ~TimeStampInMessagesConverter();
 
     [[nodiscard]] QString generateTimeStamp(const QString &str) const;
     [[nodiscard]] static QString convertTimeStamp(const QDateTime &dateTime, TimeStampInMessagesUtils::FormatType type, bool withQuote = true);
     [[nodiscard]] static QString calculateRelativeTime(const QDateTime &dateTime, const QDateTime &currentDateTime);
-    [[nodiscard]] QString regularExpressionStr() const;
+    [[nodiscard]] static QString regularExpressionStr();
 };

@@ -23,5 +23,4 @@ public:
 
 private:
     QTextBrowser *const mTextBrowser;
-    RocketChatAccount *const mCurrentRocketChatAccount;
 };

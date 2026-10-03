@@ -24,15 +24,12 @@ void UserCompleterModel::clear()
     }
 }
 
-void UserCompleterModel::addUsers(const QList<User> &users)
+void UserCompleterModel::addUsers(QList<User> users)
 {
     // qDebug() << " users " << users;
-    clear();
-    if (!users.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, users.count() - 1);
-        mUsers = users;
-        endInsertRows();
-    }
+    beginResetModel();
+    mUsers = std::move(users);
+    endResetModel();
 }
 
 int UserCompleterModel::rowCount(const QModelIndex &parent) const
@@ -48,7 +45,7 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mUsers.count()) {
         return {};
     }
-    const User user = mUsers.at(index.row());
+    const User &user = mUsers.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case DisplayName:
@@ -67,7 +64,7 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user) const
+Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user)
 {
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
@@ -75,7 +72,7 @@ Utils::AvatarInfo UserCompleterModel::avatarInfo(const User &user) const
     return info;
 }
 
-QString UserCompleterModel::displayUserName(const User &user) const
+QString UserCompleterModel::displayUserName(const User &user)
 {
     return user.name();
 }

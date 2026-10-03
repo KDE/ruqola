@@ -10,14 +10,11 @@
 #include "exportdataselectaccountpage.h"
 #include "importexportdata/importexportutils.h"
 #include "managerdatapaths.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 #include <QDirIterator>
 #include <QTimer>
-#include <QWindow>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
@@ -45,30 +42,17 @@ ExportDataWizard::ExportDataWizard(QWidget *parent)
     connect(this, &ExportDataWizard::currentIdChanged, this, &ExportDataWizard::slotCurrentIdChanged);
 }
 
-ExportDataWizard::~ExportDataWizard()
-{
-    writeConfig();
-}
+ExportDataWizard::~ExportDataWizard() = default;
 
 void ExportDataWizard::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigExportDataWizardGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ExportDataWizard::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigExportDataWizardGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigExportDataWizardGroupName), QSize(800, 600));
 }
 
 void ExportDataWizard::loadAccountInfo()
 {
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
-                    QStringList() << u"ruqola.conf"_s,
+                    QStringList{u"ruqola.conf"_s},
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
     QList<ImportExportUtils::AccountImportExportInfo> lstAccountInfo;
@@ -78,7 +62,7 @@ void ExportDataWizard::loadAccountInfo()
             .path = val,
             .accountName = QFileInfo(val).dir().dirName(),
         };
-        lstAccountInfo.append(std::move(info));
+        lstAccountInfo.append(info);
     }
     mExportDataSelectAccountPage->setAccountList(lstAccountInfo);
 }

@@ -25,26 +25,20 @@ CustomSoundsListJob::~CustomSoundsListJob() = default;
 bool CustomSoundsListJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsListJob job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("CustomSoundsJob: Ask custom sounds info"_ba);
+    addStartRestApiInfo("CustomSoundsListJob: Ask custom sounds info"_ba);
 
     return true;
 }
 
 void CustomSoundsListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CustomSoundsJob done: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT customSoundsListDone(replyObject); // TODO fix return value!
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CustomSoundsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("CustomSoundsListJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT customSoundsListDone(*replyObject); // TODO fix return value!
     }
 }
 

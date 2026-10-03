@@ -5,23 +5,20 @@
 */
 
 #include "userinroleeditdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "usersinrolewidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myUserInRoleEditDialogGroupName[] = "UserInRoleEditDialog";
 }
 
+using namespace Qt::Literals::StringLiterals;
 UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mUserInRoleEditWidget(new UsersInRoleWidget(account, this))
@@ -39,10 +36,7 @@ UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *
     readConfig();
 }
 
-UserInRoleEditDialog::~UserInRoleEditDialog()
-{
-    writeConfig();
-}
+UserInRoleEditDialog::~UserInRoleEditDialog() = default;
 
 const QString &UserInRoleEditDialog::roleId() const
 {
@@ -66,17 +60,7 @@ void UserInRoleEditDialog::setRoleName(const QString &newRoleName)
 
 void UserInRoleEditDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myUserInRoleEditDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void UserInRoleEditDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myUserInRoleEditDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myUserInRoleEditDialogGroupName), QSize(400, 300));
 }
 
 #include "moc_userinroleeditdialog.cpp"

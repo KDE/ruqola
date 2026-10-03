@@ -20,7 +20,7 @@ ShowImagePrevNextImageWidgetTest::ShowImagePrevNextImageWidgetTest(QObject *pare
 
 void ShowImagePrevNextImageWidgetTest::shouldHaveDefaultValues()
 {
-    ShowImagePrevNextImageWidget d;
+    const ShowImagePrevNextImageWidget d;
     auto mainLayout = d.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

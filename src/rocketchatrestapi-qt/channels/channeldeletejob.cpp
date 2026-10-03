@@ -27,7 +27,7 @@ bool ChannelDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelDeleteJob::start");
+    addStartRestApiInfo("ChannelDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool ChannelDeleteJob::start()
 
 void ChannelDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelDeleteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deletechannelDone(channelGroupInfo().identifier);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelDeleteJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

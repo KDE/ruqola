@@ -21,7 +21,7 @@ UploadFileProgressStatusWidgetTest::UploadFileProgressStatusWidgetTest(QObject *
 
 void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 {
-    UploadFileProgressStatusWidget w;
+    const UploadFileProgressStatusWidget w;
 
     auto hboxLayout = w.findChild<QHBoxLayout *>(u"hboxLayout"_s);
     QVERIFY(hboxLayout);

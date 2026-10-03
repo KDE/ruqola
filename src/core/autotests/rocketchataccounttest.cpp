@@ -26,7 +26,7 @@ RocketChatAccountTest::RocketChatAccountTest(QObject *parent)
 
 void RocketChatAccountTest::shouldHaveDefaultValue()
 {
-    RocketChatAccount w;
+    const RocketChatAccount w;
     QVERIFY(w.emojiManager());
     QVERIFY(w.roomModel());
     QVERIFY(w.settings());

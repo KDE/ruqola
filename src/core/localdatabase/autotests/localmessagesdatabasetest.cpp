@@ -33,6 +33,14 @@ static QByteArray existingRoomId()
 {
     return "existingRoom"_ba;
 }
+static QByteArray batchRoomId()
+{
+    return "batchRoom"_ba;
+}
+static QByteArray emptyBatchRoomId()
+{
+    return "emptyBatchRoom"_ba;
+}
 enum class Fields {
     MessageId,
     TimeStamp,
@@ -44,10 +52,12 @@ void LocalMessagesDatabaseTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalMessagesDatabase logger;
+    const LocalMessagesDatabase logger;
     QFile::remove(logger.dbFileName(accountName(), roomId()));
     QFile::remove(logger.dbFileName(accountName(), otherRoomId()));
     QFile::remove(logger.dbFileName(accountName(), existingRoomId()));
+    QFile::remove(logger.dbFileName(accountName(), batchRoomId()));
+    QFile::remove(logger.dbFileName(accountName(), emptyBatchRoomId()));
 }
 
 void LocalMessagesDatabaseTest::shouldStoreMessages()
@@ -97,7 +107,7 @@ void LocalMessagesDatabaseTest::shouldStoreMessages()
 void LocalMessagesDatabaseTest::shouldLoadExistingDb() // this test depends on shouldStoreMessages()
 {
     // GIVEN
-    LocalMessagesDatabase logger;
+    const LocalMessagesDatabase logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
     QSqlDatabase::database(accountName() + u'-' + QString::fromLatin1(otherRoomId())).close();
     const QString srcDb = logger.dbFileName(accountName(), otherRoomId());
@@ -133,7 +143,7 @@ void LocalMessagesDatabaseTest::shouldDeleteMessages() // this test depends on s
 void LocalMessagesDatabaseTest::shouldReturnNullIfDoesNotExist()
 {
     // GIVEN
-    LocalMessagesDatabase logger;
+    const LocalMessagesDatabase logger;
     // WHEN
     auto tableModel = logger.createMessageModel(accountName(), "does not exist"_ba);
     // THEN
@@ -148,7 +158,7 @@ void LocalMessagesDatabaseTest::shouldExtractMessages()
         Message message1;
         message1.setText(QString::fromUtf8("Message text: %1").arg(i));
         message1.setUsername(QString::fromUtf8("Hervé %1").arg(i));
-        message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 50 + i, 50)).toMSecsSinceEpoch());
+        message1.setTimeStamp(QDateTime(QDate(2021, 6, 7), QTime(23, 30 + i, 50)).toMSecsSinceEpoch());
         message1.setMessageId(u"msg-%1"_s.arg(i).toLatin1());
         logger.addMessage(accountName(), roomId(), message1);
     }
@@ -240,24 +250,79 @@ void LocalMessagesDatabaseTest::shouldGenerateQuery_data()
     QTest::addColumn<QString>("result");
 
     QTest::addRow("test1") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(5)
-                           << u"SELECT * FROM MESSAGES ORDER BY timestamp DESC LIMIT :limit"_s;
+                           << u"SELECT json FROM MESSAGES ORDER BY timestamp DESC LIMIT :limit"_s;
     QTest::addRow("test2") << static_cast<qint64>(-1) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES ORDER BY timestamp DESC"_s;
     QTest::addRow("test3") << static_cast<qint64>(5) << static_cast<qint64>(-1) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp >= :startId ORDER BY timestamp DESC"_s;
     QTest::addRow("test4") << static_cast<qint64>(-1) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp <= :endId ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp <= :endId ORDER BY timestamp DESC"_s;
     QTest::addRow("test5") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(-1)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC"_s;
     QTest::addRow("test6") << static_cast<qint64>(5) << static_cast<qint64>(5) << static_cast<qint64>(30)
-                           << u"SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit"_s;
+                           << u"SELECT json FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId ORDER BY timestamp DESC LIMIT :limit"_s;
 }
 
 void LocalMessagesDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalMessagesDatabase accountDataBase;
+    const LocalMessagesDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/messages/myAccount/myAccount.sqlite"_s);
+}
+
+void LocalMessagesDatabaseTest::shouldStoreMessagesInOneBatch()
+{
+    // GIVEN
+    LocalMessagesDatabase database;
+
+    Message message1;
+    message1.setText(u"batch 1"_s);
+    message1.setUsername(u"Joe"_s);
+    message1.setTimeStamp(QDateTime(QDate(2023, 1, 1), QTime(10, 0, 0)).toMSecsSinceEpoch());
+    message1.setMessageId("batch-1"_ba);
+
+    Message message2;
+    message2.setText(u"batch 2"_s);
+    message2.setUsername(u"Joe"_s);
+    message2.setTimeStamp(QDateTime(QDate(2023, 1, 1), QTime(10, 0, 5)).toMSecsSinceEpoch());
+    message2.setMessageId("batch-2"_ba);
+
+    // Same messageId as message1, later in the very same batch: the insert-or-replace must still
+    // win inside the single transaction.
+    Message message1Updated = message1;
+    message1Updated.setText(u"batch 1 updated"_s);
+    message1Updated.setTimeStamp(QDateTime(QDate(2023, 1, 1), QTime(10, 0, 10)).toMSecsSinceEpoch());
+
+    // WHEN
+    database.addMessages(accountName(), batchRoomId(), {message1, message2, message1Updated});
+
+    // THEN
+    auto tableModel = database.createMessageModel(accountName(), batchRoomId());
+    QVERIFY(tableModel);
+    QCOMPARE(tableModel->rowCount(), 2);
+
+    // loadMessages() sorts by timestamp, descending.
+    const QList<Message> messages = database.loadMessages(accountName(), batchRoomId());
+    QCOMPARE(messages.count(), 2);
+    QCOMPARE(messages.at(0).messageId(), message1Updated.messageId());
+    QCOMPARE(messages.at(0).text(), message1Updated.text());
+    QCOMPARE(messages.at(0).timeStamp(), message1Updated.timeStamp());
+    QCOMPARE(messages.at(1).messageId(), message2.messageId());
+    QCOMPARE(messages.at(1).text(), message2.text());
+}
+
+void LocalMessagesDatabaseTest::shouldIgnoreEmptyMessageBatch()
+{
+    // GIVEN
+    LocalMessagesDatabase database;
+    const QString fileName = database.dbFileName(accountName(), emptyBatchRoomId());
+    QVERIFY(!QFileInfo::exists(fileName));
+
+    // WHEN
+    database.addMessages(accountName(), emptyBatchRoomId(), {});
+
+    // THEN an empty batch must not even create the database file
+    QVERIFY(!QFileInfo::exists(fileName));
 }
 
 #include "moc_localmessagesdatabasetest.cpp"

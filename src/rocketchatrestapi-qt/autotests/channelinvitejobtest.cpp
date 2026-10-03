@@ -7,7 +7,6 @@
 #include "channelinvitejobtest.h"
 
 #include "channels/channelinvitejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -72,7 +71,7 @@ void ChannelInviteJobTest::shouldGenerateUserIdJson()
         .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserId,
     };
     job.setChannelInviteInfo(inviteInfo);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(userId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%2","userId":"%1"})"_s.arg(userId, roomId).toLatin1());
 }
 
 void ChannelInviteJobTest::shouldGenerateUserNameJson()
@@ -89,7 +88,7 @@ void ChannelInviteJobTest::shouldGenerateUserNameJson()
         .channelGroupInfoType = ChannelInviteJob::ChannelInviteInfoType::UserName,
     };
     job.setChannelInviteInfo(inviteInfo);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userName, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%2","username":"%1"})"_s.arg(userName, roomId).toLatin1());
 }
 
 #include "moc_channelinvitejobtest.cpp"

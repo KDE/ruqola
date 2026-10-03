@@ -5,10 +5,6 @@
 */
 
 #include "forwardmessageaddchannelcompletionlineedit.h"
-#include "misc/joinedchannelcompletiondelegate.h"
-#include "rocketchataccount.h"
-
-using namespace std::chrono_literals;
 
 ForwardMessageAddChannelCompletionLineEdit::ForwardMessageAddChannelCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : JoinedChannelCompletionLineEditBase(account, parent)
@@ -22,7 +18,7 @@ void ForwardMessageAddChannelCompletionLineEdit::slotJoinedChannelFound(
     const ForwardMessageAddChannelCompletionLineEdit::JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &info)
 {
     disconnect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
-    Q_EMIT fowardToChannel(std::move(info));
+    Q_EMIT forwardToChannel(info);
     clear();
     connect(this, &QLineEdit::textChanged, this, &ForwardMessageAddChannelCompletionLineEdit::slotSearchTextEdited);
 }

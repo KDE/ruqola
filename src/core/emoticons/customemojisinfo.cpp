@@ -7,124 +7,30 @@
 #include "customemojisinfo.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(CustomEmojisInfo, Ruqola_CustomEmojisInfo)
 
-#include "ruqola_debug.h"
-#include <QJsonArray>
-#include <QJsonObject>
-
 using namespace Qt::Literals::StringLiterals;
-CustomEmojisInfo::CustomEmojisInfo() = default;
 
-bool CustomEmojisInfo::isEmpty() const
+void CustomEmojisInfoUtils::parseCustomEmoji(CustomEmoji &emoji, const QJsonObject &obj)
 {
-    return mCustomEmojiInfos.isEmpty();
-}
-
-void CustomEmojisInfo::clear()
-{
-    mCustomEmojiInfos.clear();
-}
-
-int CustomEmojisInfo::count() const
-{
-    return mCustomEmojiInfos.count();
-}
-
-CustomEmoji CustomEmojisInfo::at(int index) const
-{
-    if (index < 0 || index >= mCustomEmojiInfos.count()) {
-        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return {};
-    }
-
-    return mCustomEmojiInfos.at(index);
-}
-
-void CustomEmojisInfo::parseMoreCustomEmojis(const QJsonObject &obj)
-{
-    const int adminRoomsCount = obj["count"_L1].toInt();
-    mOffset = obj["offset"_L1].toInt();
-    mTotal = obj["total"_L1].toInt();
-    parseListCustomEmoji(obj);
-    mRoomsCount += adminRoomsCount;
-}
-
-void CustomEmojisInfo::parseListCustomEmoji(const QJsonObject &obj)
-{
-    const QJsonArray adminRoomsArray = obj["emojis"_L1].toArray();
-    mCustomEmojiInfos.reserve(mCustomEmojiInfos.count() + adminRoomsArray.count());
-    for (const QJsonValue &current : adminRoomsArray) {
-        if (current.type() == QJsonValue::Object) {
-            const QJsonObject adminRoomObject = current.toObject();
-            CustomEmoji m;
-            m.parseEmoji(adminRoomObject);
-            mCustomEmojiInfos.append(std::move(m));
-        } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing Rooms" << current;
-        }
-    }
-}
-
-const QList<CustomEmoji> &CustomEmojisInfo::customSoundInfos() const
-{
-    return mCustomEmojiInfos;
-}
-
-void CustomEmojisInfo::setCustomSoundInfos(const QList<CustomEmoji> &newCustomSoundInfos)
-{
-    mCustomEmojiInfos = newCustomSoundInfos;
-}
-
-int CustomEmojisInfo::roomsCount() const
-{
-    return mRoomsCount;
-}
-
-void CustomEmojisInfo::setRoomsCount(int count)
-{
-    mRoomsCount = count;
+    emoji.parseEmoji(obj);
 }
 
 void CustomEmojisInfo::parseCustomEmojis(const QJsonObject &obj)
 {
-    mRoomsCount = obj["count"_L1].toInt();
-    mOffset = obj["offset"_L1].toInt();
-    mTotal = obj["total"_L1].toInt();
-    mCustomEmojiInfos.clear();
-    parseListCustomEmoji(obj);
+    parseInfos(obj, "emojis"_L1);
 }
 
-int CustomEmojisInfo::offset() const
+void CustomEmojisInfo::parseMoreCustomEmojis(const QJsonObject &obj)
 {
-    return mOffset;
-}
-
-void CustomEmojisInfo::setOffset(int offset)
-{
-    mOffset = offset;
-}
-
-int CustomEmojisInfo::total() const
-{
-    return mTotal;
-}
-
-void CustomEmojisInfo::setTotal(int total)
-{
-    mTotal = total;
-}
-
-CustomEmoji CustomEmojisInfo::takeAt(int index)
-{
-    return mCustomEmojiInfos.takeAt(index);
+    parseMoreInfos(obj, "emojis"_L1);
 }
 
 QDebug operator<<(QDebug d, const CustomEmojisInfo &t)
 {
     d.space() << "total" << t.total();
     d.space() << "offset" << t.offset();
-    d.space() << "roomsCount" << t.roomsCount() << "\n";
-    for (int i = 0, total = t.customSoundInfos().count(); i < total; ++i) {
-        d.space() << t.customSoundInfos().at(i) << "\n";
+    d.space() << "loadedCount" << t.loadedCount() << "\n";
+    for (const CustomEmoji &emoji : t.list()) {
+        d.space() << emoji << "\n";
     }
     return d;
 }

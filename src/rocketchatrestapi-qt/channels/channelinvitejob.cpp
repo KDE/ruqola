@@ -28,7 +28,7 @@ bool ChannelInviteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelInviteJob::start");
+    addStartRestApiInfo("ChannelInviteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool ChannelInviteJob::start()
 
 void ChannelInviteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelInviteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelInviteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT inviteDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelInviteJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -90,7 +84,7 @@ QJsonDocument ChannelInviteJob::json() const
         jsonObj["userId"_L1] = mChannelInviteInfo.identifier;
         break;
     case ChannelInviteJob::ChannelInviteInfoType::UserName:
-        jsonObj["userName"_L1] = mChannelInviteInfo.identifier;
+        jsonObj["username"_L1] = mChannelInviteInfo.identifier;
         break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
@@ -118,7 +112,7 @@ bool ChannelInviteJob::interceptError(const QJsonObject &replyObject)
 {
     const QString errorType = replyObject["errorType"_L1].toString();
     if (errorType == "error-user-is-banned"_L1) {
-        qDebug() << " bool ChannelInviteJob::interceptError(const QJsonObject &replyObject) banned !!!!";
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: user is banned";
         Q_EMIT needUnbanned(mChannelInviteInfo);
         return true;
     }

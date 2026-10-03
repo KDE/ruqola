@@ -5,16 +5,15 @@
 */
 
 #include "unfollowmessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/unfollowmessagejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UnFollowMessageJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UnFollowMessageJobTest::UnFollowMessageJobTest(QObject *parent)
     : QObject(parent)
@@ -45,26 +44,14 @@ void UnFollowMessageJobTest::shouldGenerateJson()
     UnFollowMessageJob job;
     const QByteArray messageid("foo1");
     job.setMessageId(messageid);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"mid":"%1"})").arg(QLatin1StringView(messageid)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"mid":"%1"})"_s.arg(QLatin1StringView(messageid)).toLatin1());
 }
 
 void UnFollowMessageJobTest::shouldNotStarting()
 {
     UnFollowMessageJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray messageId("foo1");
     job.setMessageId(messageId);
     QVERIFY(job.canStart());

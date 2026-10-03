@@ -30,20 +30,15 @@ bool RemoveUserFromRoleJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RemoveUsersFromRoleJob::start");
+    addStartRestApiInfo("RemoveUserFromRoleJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void RemoveUserFromRoleJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RemoveUsersFromRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT removeUsersFromRoleDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RemoveUsersFromRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RemoveUserFromRoleJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT removeUsersFromRoleDone(*replyObject);
     }
 }
 
@@ -107,17 +102,17 @@ bool RemoveUserFromRoleJob::canStart() const
     }
     if (mUseRC80) {
         if (mRoleId.isEmpty()) {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUsersFromRoleJob: mRoleId is not valid.";
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUserFromRoleJob: mRoleId is not valid.";
             return false;
         }
     } else {
         if (mRoleName.isEmpty()) {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUsersFromRoleJob: mRoleName is not valid.";
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUserFromRoleJob: mRoleName is not valid.";
             return false;
         }
     }
     if (mUsername.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUsersFromRoleJob: mUsername is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemoveUserFromRoleJob: mUsername is not valid.";
         return false;
     }
     return true;

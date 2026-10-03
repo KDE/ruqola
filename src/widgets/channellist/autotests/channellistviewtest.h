@@ -16,4 +16,7 @@ public:
     ~ChannelListViewTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldKeepSectionsExpandedOnUnreadOnTopChanges();
+    void shouldKeepSectionsExpandedAfterClearingFilter();
+    void shouldNotSelectRoomWhileFiltering();
 };

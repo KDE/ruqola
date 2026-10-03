@@ -9,9 +9,10 @@
 #include "common/usersforroommodeldelegate.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "model/usersforroomfilterproxymodel.h"
+#include "model/usersforroomlistheadingsproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
-#include "room/usersinroomlistview.h"
+#include "room/usersinroomtreeview.h"
 #include "usersinroomcombobox.h"
 #include "usersinroommenu.h"
 #include <KLineEditEventHandler>
@@ -22,12 +23,25 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+[[nodiscard]] UsersForRoomModel *usersForRoomModelFromTreeView(const UsersInRoomTreeView *treeView)
+{
+    if (!treeView) {
+        return nullptr;
+    }
+    auto *const roomFilterProxy = treeView->usersForRoomFilterProxy();
+    auto *const headingsProxy = qobject_cast<UsersForRoomListHeadingsProxyModel *>(roomFilterProxy ? roomFilterProxy->sourceModel() : nullptr);
+    return headingsProxy ? qobject_cast<UsersForRoomModel *>(headingsProxy->sourceModel()) : nullptr;
+}
+}
+
 UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mListView(new UsersInRoomListView(this))
+    , mListView(new UsersInRoomTreeView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
-    , mUsersForRoomFilterProxy(new UsersForRoomFilterProxyModel(this))
     , mUsersInRoomComboBox(new UsersInRoomComboBox(account ? account->hasAtLeastVersion(7, 3, 0) : false, this))
     , mRocketChatAccount(account)
 {
@@ -62,42 +76,39 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     mListView->setObjectName(u"mListView"_s);
     mainLayout->addWidget(mListView);
     mListView->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(mListView, &QListView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
-    connect(mListView, &QListView::doubleClicked, this, &UsersInRoomWidget::slotDoubleClick);
-    mListView->setModel(mUsersForRoomFilterProxy);
+    connect(mListView, &UsersInRoomTreeView::customContextMenuRequested, this, &UsersInRoomWidget::slotCustomContextMenuRequested);
+    connect(mListView, &UsersInRoomTreeView::doubleClicked, this, &UsersInRoomWidget::slotDoubleClick);
     if (account) {
         auto delegate = new UsersForRoomModelDelegate(mListView);
         delegate->setRocketChatAccount(account);
         mListView->setItemDelegate(delegate);
     }
     mListView->setMouseTracking(true);
-    connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomWidget::updateLabel);
-    connect(mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged, this, &UsersInRoomWidget::updateLabel);
+    connect(mListView->usersForRoomFilterProxy(), &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomWidget::updateLabel);
+    connect(mListView->usersForRoomFilterProxy(), &UsersForRoomFilterProxyModel::loadingInProgressChanged, this, &UsersInRoomWidget::updateLabel);
 }
 
 UsersInRoomWidget::~UsersInRoomWidget()
 {
-    mUsersForRoomFilterProxy->clearFilter();
+    mListView->usersForRoomFilterProxy()->clearFilter();
 }
 
 void UsersInRoomWidget::slotDoubleClick(const QModelIndex &index)
 {
-#ifdef USE_TREEVIEW
     if (!index.parent().isValid()) {
         return;
     }
-#endif
     slotShowUserInfo(index);
 }
 
 void UsersInRoomWidget::slotChangeStatusType([[maybe_unused]] int index)
 {
-    mUsersForRoomFilterProxy->setStatusType(mUsersInRoomComboBox->currentData().value<UsersForRoomFilterProxyModel::FilterUserType>());
+    mListView->usersForRoomFilterProxy()->setStatusType(mUsersInRoomComboBox->currentData().value<UsersForRoomFilterProxyModel::FilterUserType>());
 }
 
 void UsersInRoomWidget::slotTextChanged(const QString &str)
 {
-    mUsersForRoomFilterProxy->setFilterString(str);
+    mListView->usersForRoomFilterProxy()->setFilterString(str);
     mRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType(), str);
 }
 
@@ -106,19 +117,24 @@ void UsersInRoomWidget::setRoom(Room *room)
     mRoom = room;
     if (mRoom) {
         auto model = mRocketChatAccount->usersModelForRoom(mRoom->roomId());
-        auto sourceModel = mUsersForRoomFilterProxy->sourceModel();
-        if (sourceModel) {
-            auto usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxy->sourceModel());
-            disconnect(usersForRoomModel, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
+        auto *const roomFilterProxy = mListView->usersForRoomFilterProxy();
+        auto *const headingsProxy = qobject_cast<UsersForRoomListHeadingsProxyModel *>(roomFilterProxy->sourceModel());
+        Q_ASSERT(headingsProxy);
+        if (!headingsProxy) {
+            return;
+        }
+        auto *const usersForRoomModel = qobject_cast<UsersForRoomModel *>(headingsProxy->sourceModel());
+        if (usersForRoomModel) {
+            disconnect(usersForRoomModel, &UsersForRoomModel::hasFullListChanged, roomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
             disconnect(usersForRoomModel,
                        &UsersForRoomModel::loadingInProgressChanged,
-                       mUsersForRoomFilterProxy,
+                       roomFilterProxy,
                        &UsersForRoomFilterProxyModel::loadingInProgressChanged);
         }
 
-        connect(model, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
-        connect(model, &UsersForRoomModel::loadingInProgressChanged, mUsersForRoomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
-        mUsersForRoomFilterProxy->setSourceModel(model);
+        connect(model, &UsersForRoomModel::hasFullListChanged, roomFilterProxy, &UsersForRoomFilterProxyModel::hasFullListChanged);
+        connect(model, &UsersForRoomModel::loadingInProgressChanged, roomFilterProxy, &UsersForRoomFilterProxyModel::loadingInProgressChanged);
+        headingsProxy->setSourceModel(model);
         updateLabel();
     }
 }
@@ -157,18 +173,24 @@ void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
 
 void UsersInRoomWidget::updateLabel()
 {
-    if (mUsersForRoomFilterProxy->loadMoreUsersInProgress()) {
+    const auto *const usersForRoomModel = usersForRoomModelFromTreeView(mListView);
+    if (usersForRoomModel && usersForRoomModel->loadMoreUsersInProgress()) {
         mMessageListInfo->setText(i18n("Loading…"));
     } else {
-        mMessageListInfo->setText(mUsersForRoomFilterProxy->numberOfUsers() == 0 ? i18n("No Message found") : displayShowMessageInRoom());
+        mMessageListInfo->setText((usersForRoomModel && usersForRoomModel->usersCount() > 0) ? displayShowMessageInRoom() : i18n("No Message found"));
     }
 }
 
 QString UsersInRoomWidget::displayShowMessageInRoom() const
 {
+    const auto *const usersForRoomModel = usersForRoomModelFromTreeView(mListView);
+    if (!usersForRoomModel) {
+        return {};
+    }
+
     QString displayMessageStr =
-        i18np("%1 User in room (Total: %2)", "%1 Users in room (Total: %2)", mUsersForRoomFilterProxy->numberOfUsers(), mUsersForRoomFilterProxy->total());
-    if (!mUsersForRoomFilterProxy->hasFullList()) {
+        i18np("%1 User in room (Total: %2)", "%1 Users in room (Total: %2)", usersForRoomModel->usersCount(), usersForRoomModel->total());
+    if (!usersForRoomModel->hasFullList()) {
         displayMessageStr += u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
     }
     return displayMessageStr;

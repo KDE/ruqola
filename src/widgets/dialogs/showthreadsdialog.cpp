@@ -10,11 +10,8 @@
 #include "rocketchataccount.h"
 #include "showtheadscombobox.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -47,24 +44,11 @@ ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent
     });
 }
 
-ShowThreadsDialog::~ShowThreadsDialog()
-{
-    writeConfig();
-}
+ShowThreadsDialog::~ShowThreadsDialog() = default;
 
 void ShowThreadsDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowThreadsDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowThreadsDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowThreadsDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowThreadsDialogGroupName), QSize(800, 600));
 }
 
 #include "moc_showthreadsdialog.cpp"

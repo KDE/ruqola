@@ -19,7 +19,7 @@ RemoveAccountWidgetTest::RemoveAccountWidgetTest(QObject *parent)
 
 void RemoveAccountWidgetTest::shouldHaveDefaultValues()
 {
-    RemoveAccountWidget w;
+    const RemoveAccountWidget w;
     auto mRemoveLogs = w.findChild<QCheckBox *>(u"mRemoveLogs"_s);
     QVERIFY(mRemoveLogs);
     QVERIFY(!mRemoveLogs->text().isEmpty());

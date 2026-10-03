@@ -6,16 +6,18 @@
 
 #include "managelocaldatabasetest.h"
 #include "managelocaldatabase.h"
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(ManageLocalDatabaseTest)
 ManageLocalDatabaseTest::ManageLocalDatabaseTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ManageLocalDatabaseTest::shouldHaveDefaultValues()
 {
-    ManageLocalDatabase d(nullptr);
+    const ManageLocalDatabase d(nullptr);
     // TODO
 }
 

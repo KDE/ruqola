@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupsinvitejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -50,7 +49,7 @@ void GroupsInviteJobTest::shouldGenerateUsernameJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setInviteUserName(userId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userName":"%1"})").arg(userId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%2","username":"%1"})"_s.arg(userId, roomId).toLatin1());
 }
 
 void GroupsInviteJobTest::shouldGenerateUserIdJson()
@@ -63,7 +62,7 @@ void GroupsInviteJobTest::shouldGenerateUserIdJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setInviteUserId(userId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%2","userId":"%1"})").arg(userId, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%2","userId":"%1"})"_s.arg(userId, roomId).toLatin1());
 }
 
 #include "moc_groupsinvitejobtest.cpp"

@@ -21,7 +21,7 @@ RoleEditWidgetTest::RoleEditWidgetTest(QObject *parent)
 
 void RoleEditWidgetTest::shouldHaveDefaultValues()
 {
-    RoleEditWidget w;
+    const RoleEditWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -47,7 +47,7 @@ void RoleEditWidgetTest::shouldHaveDefaultValues()
 
 void RoleEditWidgetTest::shouldVerifyRoleEditDialogInfoValues()
 {
-    RoleEditWidget::RoleEditDialogInfo info;
+    const RoleEditWidget::RoleEditDialogInfo info;
     QVERIFY(!info.isValid());
     QVERIFY(info.mName.isEmpty());
     QVERIFY(info.mDescription.isEmpty());

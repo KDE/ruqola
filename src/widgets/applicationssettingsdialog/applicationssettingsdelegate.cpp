@@ -41,7 +41,7 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
 {
     painter->save();
     drawBackground(painter, option, index);
-
+    painter->setRenderHint(QPainter::Antialiasing);
     const int margin = MessageDelegateUtils::basicMargin();
     painter->save();
     painter->setPen(Qt::NoPen);
@@ -53,7 +53,7 @@ void ApplicationsSettingsDelegate::paint(QPainter *painter, const QStyleOptionVi
     // Draw the pixmap
     if (!layout.appPixmap.isNull()) {
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.appPixmapPos, layout.appPixmap.size()), layout.appPixmapPos, layout.appPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.appPixmapPos, layout.appPixmap.deviceIndependentSize()), layout.appPixmap);
 #else
         painter->drawPixmap(layout.appPixmapPos, layout.appPixmap);
 #endif
@@ -167,7 +167,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     } else {
         layout.status = Status::Unknown;
     }
-    QSizeF requestedTextSize;
+    QSizeF requestedTextSize = {0, 0};
     if (layout.status == Status::Unknown) {
         // Requested
         const int requested = index.data(AppsMarketPlaceModel::RequestedApps).toInt();
@@ -189,7 +189,7 @@ ApplicationsSettingsDelegate::Layout ApplicationsSettingsDelegate::doLayout(cons
     return layout;
 }
 
-QByteArray ApplicationsSettingsDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ApplicationsSettingsDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(AppsMarketPlaceModel::AppId).toByteArray();
     Q_ASSERT(!identifier.isEmpty());

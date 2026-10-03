@@ -6,17 +6,17 @@
 
 #include "adduserswidget.h"
 
-#include "common/flowlayout.h"
 #include "misc/avatarcachemanager.h"
 #include "misc/clickablewidget.h"
 #include "utils.h"
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchUserLineEdit(new AddUsersCompletionLineEdit(account, this))
-    , mFlowLayout(new FlowLayout)
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -34,17 +34,17 @@ AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
 
 AddUsersWidget::~AddUsersWidget()
 {
-    delete mFlowLayout;
 }
 
 void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserCompletionInfo &info)
 {
-    const QString &userName = info.username;
-    if (mMap.contains(userName)) {
+    const QByteArray &userId = info.userId;
+    if (mMap.contains(userId)) {
         return;
     }
+    const QString &userName = info.username;
     auto clickableUserWidget = new ClickableWidget(userName, this);
-    clickableUserWidget->setIdentifier(info.userId);
+    clickableUserWidget->setIdentifier(userId);
     const Utils::AvatarInfo avatarInfo{
         .etag = {},
         .identifier = userName,
@@ -55,36 +55,33 @@ void AddUsersWidget::slotAddNewName(const AddUsersCompletionLineEdit::UserComple
 
     connect(clickableUserWidget, &ClickableWidget::removeClickableWidget, this, &AddUsersWidget::slotRemoveUser);
     mFlowLayout->addWidget(clickableUserWidget);
-    mMap.insert(userName, clickableUserWidget);
+    mMap.insert(userId, clickableUserWidget);
     Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
-void AddUsersWidget::slotRemoveUser(const QString &username)
+void AddUsersWidget::slotRemoveUser(const QByteArray &userId)
 {
-    ClickableWidget *userWidget = mMap.value(username);
+    ClickableWidget *userWidget = mMap.value(userId);
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
             userWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
-            mMap.remove(username);
+            mMap.remove(userId);
+            Q_EMIT userListChanged(!mMap.isEmpty());
         }
     }
-    Q_EMIT userListChanged(!mMap.isEmpty());
 }
 
 QList<QByteArray> AddUsersWidget::userIds() const
 {
-    QList<QByteArray> addUsers;
-    for (const auto &[key, value] : mMap.asKeyValueRange()) {
-        addUsers << value->identifier();
-    }
-    return addUsers;
+    return mMap.keys();
 }
 
 QStringList AddUsersWidget::userNames() const
 {
     QStringList addUsers;
+    addUsers.reserve(mMap.count());
     for (const auto &[key, value] : mMap.asKeyValueRange()) {
         addUsers << value->name();
     }

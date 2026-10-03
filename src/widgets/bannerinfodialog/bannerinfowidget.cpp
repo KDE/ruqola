@@ -5,7 +5,6 @@
 */
 
 #include "bannerinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfolistsearchlinewidget.h"
 #include "bannerinfolistview.h"
@@ -15,12 +14,12 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mBannerInfoListSearchLineWidget(new BannerInfoListSearchLineWidget(this))
     , mBannerInfoListView(new BannerInfoListView(account, this))
     , mBannerInfosFilterProxyModel(new BannerInfosFilterProxyModel(this))
-    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -28,8 +27,8 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
 
     mBannerInfosFilterProxyModel->setObjectName(u"mBannerInfosFilterProxyModel"_s);
     auto model = new BannerInfosModel(this);
-    if (mRocketChatAccount) {
-        model->insertBannerInfos(mRocketChatAccount->bannerInfos());
+    if (account) {
+        model->insertBannerInfos(account->bannerInfos());
     }
 
     mBannerInfosFilterProxyModel->setSourceModel(model);
@@ -41,6 +40,8 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
     mBannerInfoListView->setObjectName(u"mBannerInfoListView"_s);
     mainLayout->addWidget(mBannerInfoListView);
 
+    mBannerInfoListView->forwardCopyShortcut(mBannerInfoListSearchLineWidget->searchLineEdit());
+
     connect(mBannerInfoListSearchLineWidget, &BannerInfoListSearchLineWidget::filterChanged, this, &BannerInfoWidget::initializeProxyModel);
     initializeProxyModel();
 }
@@ -49,7 +50,9 @@ BannerInfoWidget::~BannerInfoWidget() = default;
 
 void BannerInfoWidget::initializeProxyModel()
 {
-    mBannerInfosFilterProxyModel->setFilterFixedString(mBannerInfoListSearchLineWidget->searchText());
+    const QString searchText = mBannerInfoListSearchLineWidget->searchText();
+    mBannerInfoListView->setSearchText(searchText);
+    mBannerInfosFilterProxyModel->setFilterFixedString(searchText);
     mBannerInfosFilterProxyModel->setShowUnread(mBannerInfoListSearchLineWidget->showOnlyUnread());
 }
 

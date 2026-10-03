@@ -21,7 +21,7 @@ SearchTeamWidgetTest::SearchTeamWidgetTest(QObject *parent)
 
 void SearchTeamWidgetTest::shouldHaveDefaultValues()
 {
-    SearchTeamWidget d(nullptr);
+    const SearchTeamWidget d(nullptr);
 
     auto mainLayout = d.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -19,11 +19,11 @@ UsersModelTest::UsersModelTest(QObject *parent)
 void UsersModelTest::shouldHaveDefaultValue()
 {
     UsersModel w;
-    QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &UsersModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &UsersModel::rowsAboutToBeRemoved);
-    QSignalSpy userStatusChangedSpy(&w, &UsersModel::userStatusChanged);
+    const QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
+    const QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
+    const QSignalSpy rowRemovedSpy(&w, &UsersModel::rowsRemoved);
+    const QSignalSpy rowABTRemoved(&w, &UsersModel::rowsAboutToBeRemoved);
+    const QSignalSpy userStatusChangedSpy(&w, &UsersModel::userStatusChanged);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
@@ -35,11 +35,11 @@ void UsersModelTest::shouldHaveDefaultValue()
 void UsersModelTest::shouldRemoveUser()
 {
     UsersModel w;
-    QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &UsersModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &UsersModel::rowsAboutToBeRemoved);
-    QSignalSpy userStatusChangedSpy(&w, &UsersModel::userStatusChanged);
+    const QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
+    const QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
+    const QSignalSpy rowRemovedSpy(&w, &UsersModel::rowsRemoved);
+    const QSignalSpy rowABTRemoved(&w, &UsersModel::rowsAboutToBeRemoved);
+    const QSignalSpy userStatusChangedSpy(&w, &UsersModel::userStatusChanged);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);

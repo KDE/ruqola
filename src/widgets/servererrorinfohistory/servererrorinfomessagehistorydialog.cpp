@@ -7,13 +7,10 @@
 #include "servererrorinfomessagehistorydialog.h"
 
 #include "servererrorinfomessagehistorywidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -38,10 +35,7 @@ ServerErrorInfoMessageHistoryDialog::ServerErrorInfoMessageHistoryDialog(QWidget
     readConfig();
 }
 
-ServerErrorInfoMessageHistoryDialog::~ServerErrorInfoMessageHistoryDialog()
-{
-    writeConfig();
-}
+ServerErrorInfoMessageHistoryDialog::~ServerErrorInfoMessageHistoryDialog() = default;
 
 void ServerErrorInfoMessageHistoryDialog::addServerList(const QList<AccountManager::AccountDisplayInfo> &infos)
 {
@@ -50,17 +44,7 @@ void ServerErrorInfoMessageHistoryDialog::addServerList(const QList<AccountManag
 
 void ServerErrorInfoMessageHistoryDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myServerErrorInfoMessageHistoryDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ServerErrorInfoMessageHistoryDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myServerErrorInfoMessageHistoryDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myServerErrorInfoMessageHistoryDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_servererrorinfomessagehistorydialog.cpp"

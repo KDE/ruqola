@@ -24,6 +24,8 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
+    , mVisibilityIcon(QIcon::fromTheme(u"visibility"_s))
+    , mHintIcon(QIcon::fromTheme(u"hint"_s))
 {
 }
 
@@ -48,8 +50,11 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         painter->setFont(layout.textFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         painter->setFont(oldFont);
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
-        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        if (layout.isShown) {
+            mVisibilityIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        } else {
+            mHintIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        }
         nextY += layout.titleRect.height() + DelegatePaintUtil::margin();
     }
     if (layout.isShown || layout.title.isEmpty()) {
@@ -62,11 +67,10 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
 }
 
 QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msgAttach,
-                                                    const QModelIndex &index,
+                                                    [[maybe_unused]] const QModelIndex &index,
                                                     int maxWidth,
                                                     const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const TextLayout layout = layoutText(msgAttach, option, maxWidth, -1);
     int height = layout.titleRect.height();
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
@@ -84,9 +88,17 @@ QPoint MessageAttachmentDelegateHelperText::adaptMousePosition(const QPoint &pos
     return relativePos(pos, layout, attachmentsRect);
 }
 
-QPoint MessageAttachmentDelegateHelperText::relativePos(const QPoint &pos, const TextLayout &layout, QRect attachmentsRect) const
+QPoint MessageAttachmentDelegateHelperText::relativePos(const QPoint &pos, const TextLayout &layout, QRect attachmentsRect)
 {
-    return pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+    // draw() only pushes the document below a title row when there is a title.
+    const int documentY = layout.title.isEmpty() ? 0 : qRound(layout.titleRect.height()) + DelegatePaintUtil::margin();
+    return pos - attachmentsRect.topLeft() - QPoint(0, documentY);
+}
+
+bool MessageAttachmentDelegateHelperText::documentIsShown(const TextLayout &layout)
+{
+    // Same condition as draw(): a collapsed attachment paints its title only, so there is nothing to hit test.
+    return layout.isShown || layout.title.isEmpty();
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach,
@@ -115,15 +127,16 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
                 return true;
             }
         }
-        // Clicks on links
-        auto *doc = documentAttachmentForIndex(msgAttach, attachmentsRect.width());
-        if (doc) {
-            // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
-            const QPoint mouseClickPos = relativePos(pos, layout, attachmentsRect);
-            const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
-            if (!link.isEmpty()) {
-                Q_EMIT mRocketChatAccount->openLinkRequested(link);
-                return true;
+        // Clicks on links (only when the text is actually painted, see documentIsShown())
+        if (documentIsShown(layout)) {
+            if (auto *doc = documentAttachmentForIndex(msgAttach, attachmentsRect.width())) {
+                // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
+                const QPoint mouseClickPos = relativePos(pos, layout, attachmentsRect);
+                const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
+                if (!link.isEmpty()) {
+                    Q_EMIT mRocketChatAccount->openLinkRequested(link);
+                    return true;
+                }
             }
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
@@ -139,9 +152,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach,
                                                                                                 const QStyleOptionViewItem &option,
                                                                                                 int attachmentsWidth,
-                                                                                                int attachmentsHeight) const
+                                                                                                [[maybe_unused]] int attachmentsHeight) const
 {
-    Q_UNUSED(attachmentsHeight)
     TextLayout layout;
     layout.title = msgAttach.attachmentGeneratedTitle();
     if (!layout.title.isEmpty()) {
@@ -204,7 +216,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
         const TextConverter::ConvertMessageTextSettings settings(text,
                                                                  rcAccount ? rcAccount->userName() : QString(),
                                                                  {},
-                                                                 rcAccount ? rcAccount->highlightWords() : QStringList{},
+                                                                 rcAccount ? rcAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{},
                                                                  rcAccount ? rcAccount->emojiManager() : nullptr,
                                                                  rcAccount ? rcAccount->messageCache() : nullptr,
                                                                  {},
@@ -247,16 +259,19 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
         }
     }
 
+    if (!documentIsShown(layout)) {
+        return false;
+    }
     const auto *doc = documentAttachmentForIndex(msgAttach, messageRect.width());
     if (!doc) {
         return false;
     }
 
-    const QPoint pos = helpEvent->pos() - messageRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+    const QPoint pos = relativePos(helpEvent->pos(), layout, messageRect);
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip);
         return true;
     }
-    return true;
+    return false;
 }

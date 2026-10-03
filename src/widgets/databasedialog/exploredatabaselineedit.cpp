@@ -30,7 +30,7 @@ QByteArray ExploreDatabaseLineEdit::channelId() const
 void ExploreDatabaseLineEdit::setChannelId(const QByteArray &newChannelId)
 {
     mChannelId = newChannelId;
-    Q_EMIT channedIdDefined(!mChannelId.isEmpty());
+    Q_EMIT channelIdDefined(!mChannelId.isEmpty());
 }
 
 #include "moc_exploredatabaselineedit.cpp"

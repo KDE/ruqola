@@ -59,7 +59,6 @@ protected:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotCompletionAvailable();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotComplete(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetAsBold();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetAsItalic();
@@ -68,10 +67,10 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInsertCodeBlock();
     LIBRUQOLAWIDGETS_NO_EXPORT void loadSpellCheckingSettings();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLanguageChanged(const QString &lang);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotSpellCheckingEnableChanged(bool b);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void slotSpellCheckingEnableChanged(bool b);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInsertMarkdownUrl();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotLoginChanged();
-    LIBRUQOLAWIDGETS_NO_EXPORT void switchAutoCorrectionLanguage(const QString &lang);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void switchAutoCorrectionLanguage(const QString &lang);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateMessageFailed(const QString &str);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSelectFirstTextCompleter();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotInsertBlockQuote();

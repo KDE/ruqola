@@ -5,7 +5,6 @@
 */
 
 #include "groupopenjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GroupOpenJob::GroupOpenJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -27,7 +27,7 @@ bool GroupOpenJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupOpenJob::start");
+    addStartRestApiInfo("GroupOpenJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool GroupOpenJob::start()
 
 void GroupOpenJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupOpenJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT groupOpenDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupOpenJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GroupOpenJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT groupOpenDone(*replyObject, channelGroupInfo());
     }
 }
 

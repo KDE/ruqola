@@ -19,7 +19,6 @@
 
 #include <QJsonArray>
 #include <QTimer>
-#include <chrono>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
@@ -63,7 +62,7 @@ void AddTeamRoomCompletionLineEdit::slotSearchTextEdited()
 
 void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    if (text.trimmed().isEmpty()) {
+    if (QStringView(text).trimmed().isEmpty()) {
         mTeamRoomCompleterModel->clear();
         mCompletionListView->hide();
     } else {
@@ -88,28 +87,32 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
     // qDebug() << " obj " << obj;
     const QJsonArray items = obj["items"_L1].toArray();
     QList<TeamRoomCompleter> teams;
-    for (int i = 0, total = items.count(); i < total; ++i) {
-        TeamRoomCompleter teamCompleter;
-        teamCompleter.parse(items.at(i).toObject());
-        teams.append(std::move(teamCompleter));
+    const int total = items.count();
+    teams.reserve(total);
+    for (int i = 0; i < total; ++i) {
+        teams.emplace_back().parse(items.at(i).toObject());
     }
-    mTeamRoomCompleterModel->setRooms(teams);
     if (teams.isEmpty()) {
         mCompletionListView->hide();
     }
+    mTeamRoomCompleterModel->setRooms(std::move(teams));
 }
 
 void AddTeamRoomCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(TeamRoomCompleterModel::TeamName).toString();
     const QByteArray roomId = index.data(TeamRoomCompleterModel::TeamId).toByteArray();
+    if (completerName.isEmpty() || roomId.isEmpty()) {
+        return;
+    }
     const RoomCompletionInfo info{
         .roomId = roomId,
         .roomName = completerName,
     };
     mCompletionListView->hide();
+    mSearchTimer->stop();
     disconnect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
-    Q_EMIT newRoomName(std::move(info));
+    Q_EMIT newRoomName(info);
     clear();
     connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
 }

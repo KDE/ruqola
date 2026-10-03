@@ -12,6 +12,7 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GetAvatarJob::GetAvatarJob(QObject *parent)
     : UserBaseJob(parent)
@@ -40,8 +41,8 @@ bool GetAvatarJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("GetAvatarJob ask for avatarUserId: " + mUserInfo.userIdentifier.toLatin1());
-    addStartRestApiInfo("GetAvatarJob::start");
+    addStartRestApiInfo("GetAvatarJob ask for avatarUserId: "_ba + mUserInfo.userIdentifier.toLatin1());
+    addStartRestApiInfo("GetAvatarJob::start"_ba);
     return true;
 }
 
@@ -67,6 +68,7 @@ QNetworkRequest GetAvatarJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
     addQueryUrl(url);
     QNetworkRequest request(url);
+    addAuthRawHeader(request);
     return request;
 }
 

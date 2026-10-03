@@ -10,6 +10,7 @@
 #include <QMap>
 #include <QString>
 #include <QUrl>
+class QDebug;
 class QJsonObject;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT AccountRoomSettings
@@ -44,7 +45,6 @@ public:
         [[nodiscard]] bool operator==(const PendingTypedInfo &other) const;
     };
     explicit AccountRoomSettings(RocketChatAccount *account);
-    ~AccountRoomSettings();
 
     void remove(const QByteArray &roomId);
 
@@ -63,7 +63,6 @@ private:
     QMap<QByteArray /*RoomId*/, PendingTypedInfo> mPendingTypedTexts;
     RocketChatAccount *const mRocketChatAccount;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingTypedInfo &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AccountRoomSettings::PendingAttachmentInfo &t);
 Q_DECLARE_TYPEINFO(AccountRoomSettings::PendingAttachmentInfo, Q_RELOCATABLE_TYPE);

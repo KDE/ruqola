@@ -101,14 +101,16 @@ bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachme
         mTextSelectionImpl->setMightStartDrag(false);
         mCurrentIndex = QModelIndex();
         if (const auto *doc = documentFromAttachment(msgAttach, attachmentsRect.width())) {
-            const QPoint pos = mouseEvent->pos();
-            const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
+            // The document is laid out below the attachment header, so hit testing needs the adapted
+            // position, not the raw viewport one.
+            const QPoint relativePos = adaptMousePosition(mouseEvent->pos(), msgAttach, attachmentsRect, option);
+            const int charPos = doc->documentLayout()->hitTest(relativePos, Qt::FuzzyHit);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
                 return false;
             }
             // TODO fix mTextSelectionImpl->contains with attachment
-            if (mTextSelectionImpl->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+            if (mTextSelectionImpl->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(relativePos, Qt::ExactHit) != -1) {
                 mTextSelectionImpl->setMightStartDrag(true);
                 mCurrentIndex = index;
                 return true;
@@ -263,7 +265,7 @@ QByteArray MessageAttachmentDelegateHelperBase::documentId(DocumentIdType type, 
     return documendIdPrefix(type) + msgAttach.attachmentId();
 }
 
-QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type) const
+QByteArray MessageAttachmentDelegateHelperBase::documendIdPrefix(DocumentIdType type)
 {
     switch (type) {
     case MessageAttachmentDelegateHelperBase::DocumentIdType::Unknown:
@@ -299,7 +301,7 @@ bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
         return true;
     }
-    return true;
+    return false;
 }
 
 QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos)
@@ -312,18 +314,12 @@ QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &o
     return document->documentLayout()->anchorAt(relativePos);
 }
 
-bool MessageAttachmentDelegateHelperBase::contextMenu(const QPoint &pos,
-                                                      const QPoint &globalPos,
-                                                      const MessageAttachment &msgAttach,
-                                                      QRect attachmentsRect,
-                                                      const QStyleOptionViewItem &option,
-                                                      QMenu *menu)
+bool MessageAttachmentDelegateHelperBase::contextMenu([[maybe_unused]] const QPoint &pos,
+                                                      [[maybe_unused]] const QPoint &globalPos,
+                                                      [[maybe_unused]] const MessageAttachment &msgAttach,
+                                                      [[maybe_unused]] QRect attachmentsRect,
+                                                      [[maybe_unused]] const QStyleOptionViewItem &option,
+                                                      [[maybe_unused]] QMenu *menu)
 {
-    Q_UNUSED(msgAttach);
-    Q_UNUSED(attachmentsRect);
-    Q_UNUSED(pos);
-    Q_UNUSED(option);
-    Q_UNUSED(globalPos);
-    Q_UNUSED(menu);
     return false;
 }

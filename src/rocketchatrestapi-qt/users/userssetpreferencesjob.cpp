@@ -31,20 +31,15 @@ bool UsersSetPreferencesJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersSetPreferencesJob::start");
+    addStartRestApiInfo("UsersSetPreferencesJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void UsersSetPreferencesJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersSetPreferencesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersSetPreferencesDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersSetPreferencesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersSetPreferencesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersSetPreferencesDone(*replyObject);
     }
 }
 
@@ -104,9 +99,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
         dataObj["emailNotificationMode"_L1] = mUsersSetPreferencesInfo.emailNotificationMode;
     }
-    if (!mUsersSetPreferencesInfo.highlights.isEmpty()) {
-        dataObj["highlights"_L1] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
-    }
+    dataObj["highlights"_L1] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
 
     if (mUsersSetPreferencesInfo.useEmoji != UsersSetPreferencesInfo::State::Unknown) {
         dataObj["useEmojis"_L1] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.useEmoji);
@@ -164,7 +157,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
             QJsonObject obj;
             obj["name"_L1] = i.key();
             obj["value"_L1] = i.value();
-            array.append(obj);
+            array.append(std::move(obj));
         }
         dataObj["featuresPreview"_L1] = array;
     }
@@ -190,7 +183,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d.space() << "desktopNotifications:" << t.desktopNotifications;
     d.space() << "pushNotifications:" << t.pushNotifications;
     d.space() << "emailNotificationMode:" << t.emailNotificationMode;
-    d.space() << "userId:" << t.userId;
     d.space() << "highlights:" << t.highlights;
     d.space() << "useEmoji:" << t.useEmoji;
     d.space() << "convertAsciiToEmoji:" << t.convertAsciiToEmoji;
@@ -203,7 +195,10 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d.space() << "sidebarViewMode:" << t.sidebarViewMode;
     d.space() << "idleTimeLimit:" << t.idleTimeLimit;
     d.space() << "receiveLoginDetectionEmail:" << t.receiveLoginDetectionEmail;
+    d.space() << "enableAutoAway:" << t.enableAutoAway;
     d.space() << "notificationsSoundVolume:" << t.notificationsSoundVolume;
+    d.space() << "voipRingerVolume:" << t.voipRingerVolume;
+    d.space() << "masterVolume:" << t.masterVolume;
     d.space() << "muteFocusedConversations:" << t.muteFocusedConversations;
     d.space() << "featuresPreview:" << t.featuresPreview;
     return d;

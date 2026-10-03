@@ -38,10 +38,6 @@ private Q_SLOTS:
     void blockUser();
     void unBlockUser();
 
-    void streamNotifyUserOtrEnd();
-    void streamNotifyUserOtrHandshake();
-    void streamNotifyUserOtrAcknowledge();
-
     void enable2fa();
     void disable2fa();
     void validateTempToken2fa();

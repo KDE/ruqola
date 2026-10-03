@@ -23,14 +23,11 @@ void TeamCompleterModel::clear()
     }
 }
 
-void TeamCompleterModel::insertTeams(const QList<TeamCompleter> &teams)
+void TeamCompleterModel::insertTeams(QList<TeamCompleter> teams)
 {
-    clear();
-    if (!teams.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, teams.count() - 1);
-        mTeams = teams;
-        endInsertRows();
-    }
+    beginResetModel();
+    mTeams = std::move(teams);
+    endResetModel();
 }
 
 int TeamCompleterModel::rowCount(const QModelIndex &parent) const

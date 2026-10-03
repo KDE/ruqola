@@ -11,7 +11,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(ShareTextPlugin, "ruqola_sharetextplugin.json")
 
-using namespace Qt::Literals::StringLiterals;
 ShareTextPlugin::ShareTextPlugin(QObject *parent, const QVariantList &)
     : PluginText(parent)
 {
@@ -22,8 +21,6 @@ ShareTextPlugin::~ShareTextPlugin() = default;
 PluginTextInterface *ShareTextPlugin::createInterface(QWidget *parentWidget, QObject *parent)
 {
     auto shareTextInterface = new ShareTextInterface(parentWidget, parent);
-    connect(shareTextInterface, &ShareTextInterface::errorMessage, this, &ShareTextPlugin::errorMessage);
-    connect(shareTextInterface, &ShareTextInterface::successMessage, this, &ShareTextPlugin::successMessage);
     return shareTextInterface;
 }
 

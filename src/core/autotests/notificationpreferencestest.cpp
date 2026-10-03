@@ -16,7 +16,7 @@ NotificationPreferencesTest::NotificationPreferencesTest(QObject *parent)
 
 void NotificationPreferencesTest::shouldHaveDefaultValues()
 {
-    NotificationPreferences w;
+    const NotificationPreferences w;
     QVERIFY(w.emailNotificationModel());
     QVERIFY(w.mobileNotificationModel());
     QVERIFY(w.desktopNotificationModel());

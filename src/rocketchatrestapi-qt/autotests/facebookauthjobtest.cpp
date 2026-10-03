@@ -56,26 +56,14 @@ void FacebookAuthJobTest::shouldGenerateJson()
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"accessToken":"%1","expiresIn":300,"secret":"%2","serviceName":"facebook"})").arg(accessToken, secret).toLatin1());
+             uR"({"accessToken":"%1","expiresIn":300,"secret":"%2","serviceName":"facebook"})"_s.arg(accessToken, secret).toLatin1());
 }
 
 void FacebookAuthJobTest::shouldNotStarting()
 {
     FacebookAuthJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString secret = u"secret:"_s;
     job.setSecret(secret);
     QVERIFY(!job.canStart());

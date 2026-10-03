@@ -17,18 +17,18 @@ AppsCountInfoWidget::AppsCountInfoWidget(QWidget *parent)
     , mEnableAppsLabel(new QLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     mainLayout->addStretch(1);
 
-    mEnableAppsLabel->setObjectName("mEnableAppsLabel"_L1);
+    mEnableAppsLabel->setObjectName(u"mEnableAppsLabel"_s);
     mainLayout->addWidget(mEnableAppsLabel);
 
-    mProgressBar->setObjectName("mProgressBar"_L1);
+    mProgressBar->setObjectName(u"mProgressBar"_s);
     mainLayout->addWidget(mProgressBar);
     mProgressBar->setTextVisible(false);
-    mApplicationInfo->setObjectName("mApplicationInfo"_L1);
+    mApplicationInfo->setObjectName(u"mApplicationInfo"_s);
     mainLayout->addWidget(mApplicationInfo);
 }
 

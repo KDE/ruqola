@@ -15,7 +15,7 @@ RoleScopeComboBoxTest::RoleScopeComboBoxTest(QObject *parent)
 
 void RoleScopeComboBoxTest::shouldHaveDefaultValues()
 {
-    RoleScopeComboBox w;
+    const RoleScopeComboBox w;
     QCOMPARE(w.count(), 2);
 }
 

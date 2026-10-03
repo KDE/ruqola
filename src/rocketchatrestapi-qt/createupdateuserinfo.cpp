@@ -8,7 +8,6 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QNetworkRequest>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
@@ -39,6 +38,8 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
     d.space() << "mRequirePasswordChange " << t.mRequirePasswordChange;
     d.space() << "mAssignRandomPassword " << t.mSetRandomPassword;
     d.space() << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
+    d.space() << "mVerified " << t.mVerified;
+    d.space() << "mTypeInfo " << t.mTypeInfo;
     return d;
 }
 
@@ -80,9 +81,7 @@ QJsonDocument CreateUpdateUserInfo::json() const
         if (!mUserId.isEmpty()) {
             dataObj["userId"_L1] = mUserId;
         }
-        const QJsonDocument postData = QJsonDocument(dataObj);
-        return postData;
+        return QJsonDocument(dataObj);
     }
-    const QJsonDocument postData = QJsonDocument(userInfoObj);
-    return postData;
+    return QJsonDocument(userInfoObj);
 }

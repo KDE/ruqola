@@ -9,7 +9,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
-#include "model/roomfilterproxymodel.h"
 
 #include <QLineEdit>
 #include <QTest>
@@ -23,7 +22,7 @@ ChannelListWidgetTest::ChannelListWidgetTest(QObject *parent)
 
 void ChannelListWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelListWidget w;
+    const ChannelListWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainlayout"_s);
     QVERIFY(mainLayout);

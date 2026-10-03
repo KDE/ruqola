@@ -10,9 +10,7 @@
 
 #include "libruqolacore_export.h"
 #include <KStatusNotifierItem>
-#include <QMap>
 
-class UnityServiceManager;
 class LIBRUQOLACORE_EXPORT Notification : public KStatusNotifierItem
 {
     Q_OBJECT
@@ -36,12 +34,7 @@ public:
     explicit Notification(QObject *parent = nullptr);
     ~Notification() override;
 
-    void roomNeedAttention();
-
     void updateToolTip(const QString &str, bool hasAlert);
-
-Q_SIGNALS:
-    void alert();
 
 private:
     /**

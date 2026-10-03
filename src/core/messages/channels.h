@@ -10,6 +10,8 @@
 #include <QList>
 #include <QObject>
 #include <QSharedData>
+#include <memory>
+class QDebug;
 class LIBRUQOLACORE_EXPORT Channels : public QSharedData
 {
 public:
@@ -25,14 +27,14 @@ public:
     };
 
     void setChannels(const QList<ChannelInfo> &channels);
-    [[nodiscard]] QList<ChannelInfo> channels() const;
+    [[nodiscard]] const QList<ChannelInfo> &channels() const;
 
     void parseChannels(const QJsonArray &array);
 
     [[nodiscard]] bool operator==(const Channels &other) const;
 
     [[nodiscard]] static QJsonArray serialize(const Channels &channels);
-    [[nodiscard]] static Channels *deserialize(const QJsonArray &o);
+    [[nodiscard]] static std::unique_ptr<Channels> deserialize(const QJsonArray &o);
 
     [[nodiscard]] bool isEmpty() const;
 
@@ -41,6 +43,5 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(Channels, Ruqola_Channels, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(Channels::ChannelInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channels::ChannelInfo &t);

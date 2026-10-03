@@ -20,7 +20,7 @@ ResetPasswordWidgetTest::ResetPasswordWidgetTest(QObject *parent)
 
 void ResetPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    ResetPasswordWidget w;
+    const ResetPasswordWidget w;
 
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

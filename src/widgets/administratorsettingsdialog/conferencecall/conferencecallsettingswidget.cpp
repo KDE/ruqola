@@ -22,7 +22,7 @@ ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *ac
     , mDefaultProvider(new QComboBox(this))
     , mEnableDirectMessage(new QCheckBox(i18nc("@option:check", "Enable in direct messages"), this))
     , mEnablePublicChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
-    , mEnablePrivateChannels(new QCheckBox(i18nc("@option:check", "Enable in public channels"), this))
+    , mEnablePrivateChannels(new QCheckBox(i18nc("@option:check", "Enable in private channels"), this))
     , mEnableTeams(new QCheckBox(i18nc("@option:check", "Enable in teams"), this))
     , mEnableMobileRinging(new QCheckBox(i18nc("@option:check", "Enable mobile ringing"), this))
 {
@@ -55,7 +55,7 @@ void ConferenceCallSettingsWidget::initialize(const QMap<QString, SettingsWidget
         // {"data":[{"key":"jitsi","label":"Jitsi"}],"success":true}
         QMap<QString, QString> maps;
         const QJsonArray array = obj["data"_L1].toArray();
-        for (const QJsonValue &current : array) {
+        for (const auto &current : array) {
             const QJsonObject roleObject = current.toObject();
             maps.insert(roleObject["key"_L1].toString(), roleObject["label"_L1].toString());
         }

@@ -5,13 +5,13 @@
 */
 
 #include "roleeditdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 RoleEditDialog::RoleEditDialog(QWidget *parent)
     : QDialog(parent)
     , mRoleEditWidget(new RoleEditWidget(this))

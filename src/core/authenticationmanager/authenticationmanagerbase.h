@@ -7,9 +7,8 @@
 #pragma once
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
-#include "ownuser/ownuser.h"
 #include <QObject>
-
+class OwnUser;
 class LIBRUQOLACORE_EXPORT AuthenticationManagerBase : public QObject
 {
     Q_OBJECT
@@ -47,8 +46,12 @@ public:
     [[nodiscard]] bool logoutAndCleanup(const OwnUser &owser);
     [[nodiscard]] bool loginImpl(const QJsonArray &params);
 
-    [[nodiscard]] QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
+    [[nodiscard]] static QString convertMethodEnumToString(AuthenticationManagerBase::Method m);
     void processMethodResponseImpl(const QJsonObject &response, AuthenticationManagerBase::Method method);
+    // Called when the request itself never reached the method (HTTP/transport failure): the server
+    // sent no "result" nor "error", so the pending "...Ongoing" state has to be cleared here, otherwise
+    // every later login/logout attempt is dropped by the guards in loginImpl() and friends.
+    void processMethodRequestFailed(AuthenticationManagerBase::Method method);
 
     virtual void callLoginImpl(const QJsonArray &params, Method method) = 0;
     [[nodiscard]] virtual QByteArray authenticationName() const = 0;

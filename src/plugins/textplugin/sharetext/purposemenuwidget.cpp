@@ -8,7 +8,9 @@
 #include <KLocalizedString>
 #include <Purpose/AlternativesModel>
 #include <Purpose/Menu>
+#include <QIcon>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QTemporaryFile>
 #include <QUrl>
 using namespace Qt::Literals::StringLiterals;
@@ -25,7 +27,6 @@ PurposeMenuWidget::PurposeMenuWidget(QObject *parent)
 
 PurposeMenuWidget::~PurposeMenuWidget()
 {
-    delete mTemporaryShareFile;
     delete mShareMenu;
 }
 
@@ -46,13 +47,13 @@ void PurposeMenuWidget::setSelectedText(const QString &str)
 
 void PurposeMenuWidget::slotInitializeShareMenu()
 {
-    delete mTemporaryShareFile;
-    mTemporaryShareFile = new QTemporaryFile();
+    mTemporaryShareFile.reset(new QTemporaryFile());
     if (!mTemporaryShareFile->open()) {
         qWarning() << " Impossible to open temporary share file";
+        return;
     }
-    mTemporaryShareFile->setPermissions(QFile::ReadUser);
     mTemporaryShareFile->write(text());
+    mTemporaryShareFile->setPermissions(QFile::ReadUser);
     mTemporaryShareFile->close();
     mShareMenu->model()->setInputData(
         QJsonObject{{u"urls"_s, QJsonArray{{QUrl::fromLocalFile(mTemporaryShareFile->fileName()).toString()}}}, {u"mimeType"_s, {u"text/plain"_s}}});

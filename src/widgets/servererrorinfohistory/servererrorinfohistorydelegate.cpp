@@ -11,7 +11,6 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "model/servererrorinfohistorymodel.h"
-#include "rocketchataccount.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
@@ -28,16 +27,15 @@ ServerErrorInfoHistoryDelegate::ServerErrorInfoHistoryDelegate(QListView *view, 
 
 ServerErrorInfoHistoryDelegate::~ServerErrorInfoHistoryDelegate() = default;
 
-void ServerErrorInfoHistoryDelegate::drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void ServerErrorInfoHistoryDelegate::drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
     const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
-    const QString accountInfoStr = accountName;
-    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, accountInfoStr);
+    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, accountName);
     const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
     const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
-    painter->drawText(infoTextRect, accountInfoStr);
+    painter->drawText(infoTextRect, accountName);
     const int lineY = (infoAreaRect.top() + infoAreaRect.bottom()) / 2;
     QColor lightColor(painter->pen().color());
     lightColor.setAlpha(60);
@@ -116,12 +114,12 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ServerErrorInfoHistoryDelegate::Layout layout;
-    const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
     const auto sameAccountAsPreviousMessage = [&] {
         if (index.row() < 1) {
             return false;
         }
 
+        const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
         const auto previousIndex = index.siblingAtRow(index.row() - 1);
         const auto previousAccountName = previousIndex.data(ServerErrorInfoHistoryModel::AccountName).toString();
         return previousAccountName == accountName;
@@ -157,7 +155,7 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     return layout;
 }
 
-QByteArray ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ServerErrorInfoHistoryDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());
@@ -195,12 +193,11 @@ bool ServerErrorInfoHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractI
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
-QPoint ServerErrorInfoHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint ServerErrorInfoHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
@@ -235,9 +232,8 @@ bool ServerErrorInfoHistoryDelegate::maybeStartDrag(QMouseEvent *event, const QS
     return false;
 }
 
-RocketChatAccount *ServerErrorInfoHistoryDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *ServerErrorInfoHistoryDelegate::rocketChatAccount([[maybe_unused]] const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     return nullptr;
 }
 

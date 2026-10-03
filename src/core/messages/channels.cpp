@@ -35,7 +35,7 @@ void Channels::setChannels(const QList<ChannelInfo> &channels)
     mChannels = channels;
 }
 
-QList<Channels::ChannelInfo> Channels::channels() const
+const QList<Channels::ChannelInfo> &Channels::channels() const
 {
     return mChannels;
 }
@@ -45,7 +45,7 @@ void Channels::parseChannels(const QJsonArray &channels)
     mChannels.clear();
     for (int i = 0, total = channels.size(); i < total; ++i) {
         const QJsonObject channel = channels.at(i).toObject();
-        const ChannelInfo info{
+        ChannelInfo info{
             .fname = channel.value("fname"_L1).toString(),
             .name = channel.value("name"_L1).toString(),
             .identifier = channel.value("_id"_L1).toString().toLatin1(),
@@ -57,13 +57,13 @@ void Channels::parseChannels(const QJsonArray &channels)
 
 bool Channels::operator==(const Channels &other) const
 {
-    return mChannels == other.channels();
+    return mChannels == other.mChannels;
 }
 
 QDebug operator<<(QDebug d, const Channels &t)
 {
-    for (int i = 0; i < t.channels().count(); i++) {
-        d.space() << t.channels().at(i) << "\n";
+    for (const Channels::ChannelInfo &info : t.channels()) {
+        d.space() << info << "\n";
     }
     return d;
 }
@@ -84,21 +84,21 @@ QJsonArray Channels::serialize(const Channels &channels)
     return array;
 }
 
-Channels *Channels::deserialize(const QJsonArray &channelsArray)
+std::unique_ptr<Channels> Channels::deserialize(const QJsonArray &channelsArray)
 {
     QList<ChannelInfo> channels;
     const int total = channelsArray.count();
     channels.reserve(total);
     for (int i = 0; i < total; ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
-        const ChannelInfo info{
+        ChannelInfo info{
             .fname = channel.value("fname"_L1).toString(),
             .name = channel.value("name"_L1).toString(),
             .identifier = channel.value("_id"_L1).toString().toLatin1(),
         };
-        channels.append(info);
+        channels.append(std::move(info));
     }
-    auto final = new Channels;
+    auto final = std::make_unique<Channels>();
     final->setChannels(channels);
     return final;
 }

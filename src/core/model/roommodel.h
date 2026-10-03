@@ -37,7 +37,6 @@ public:
         RoomFavorite,
         RoomSection,
         RoomIcon,
-        RoomOtr,
         RoomUserMentions,
         RoomIgnoredUsers,
         RoomAutotranslateLanguage,
@@ -124,6 +123,7 @@ public:
     [[nodiscard]] QList<Room *> findRoomNameConstains(const QString &str) const;
     void cleanRoomHistory();
     void deserializeRoom(const QJsonObject &room);
+    [[nodiscard]] const QList<Room *> &rooms() const;
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();
@@ -137,8 +137,8 @@ private:
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT bool userOffline(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateUnreadToolTip(Room *r) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RoomModel::MentionsInfoType mentionsInfoType(Room *r) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateUnreadToolTip(Room *r);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT RoomModel::MentionsInfoType mentionsInfoType(Room *r);
 
     RocketChatAccount *const mRocketChatAccount;
     QList<Room *> mRoomsList;

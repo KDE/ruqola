@@ -24,6 +24,7 @@ UsersInRoomTreeView::UsersInRoomTreeView(QWidget *parent)
     setIndentation(0);
     setRootIsDecorated(false);
     setItemsExpandable(true);
+    setExpandsOnDoubleClick(false);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     connect(model(), &QAbstractItemModel::rowsInserted, this, &QTreeView::expandAll);
@@ -31,12 +32,20 @@ UsersInRoomTreeView::UsersInRoomTreeView(QWidget *parent)
     connect(model(), &QAbstractItemModel::rowsMoved, this, &QTreeView::expandAll);
     connect(model(), &QAbstractItemModel::layoutChanged, this, &QTreeView::expandAll);
 
+    connect(model(), &QAbstractItemModel::rowsInserted, this, &UsersInRoomTreeView::updateSectionVisibility);
+    connect(model(), &QAbstractItemModel::rowsRemoved, this, &UsersInRoomTreeView::updateSectionVisibility);
+    connect(model(), &QAbstractItemModel::rowsMoved, this, &UsersInRoomTreeView::updateSectionVisibility);
+    connect(model(), &QAbstractItemModel::layoutChanged, this, &UsersInRoomTreeView::updateSectionVisibility);
+    connect(model(), &QAbstractItemModel::modelReset, this, &UsersInRoomTreeView::updateSectionVisibility);
+    connect(model(), &QAbstractItemModel::dataChanged, this, &UsersInRoomTreeView::updateSectionVisibility);
+
     expandAll();
+    updateSectionVisibility();
 }
 
 UsersInRoomTreeView::~UsersInRoomTreeView() = default;
 
-void UsersInRoomTreeView::paintEvent(QPaintEvent *event)
+void UsersInRoomTreeView::paintEvent(QPaintEvent *prevent)
 {
     if (model()->rowCount() == 0) {
         const QString label = i18n("No Users Found.");
@@ -53,7 +62,7 @@ void UsersInRoomTreeView::paintEvent(QPaintEvent *event)
         p.setPen(mTextColor);
         p.drawText(QRect(0, 0, width(), height()), Qt::AlignCenter, label);
     } else {
-        QTreeView::paintEvent(event);
+        QTreeView::paintEvent(prevent);
     }
 }
 
@@ -68,6 +77,20 @@ void UsersInRoomTreeView::generalPaletteChanged()
 UsersForRoomFilterProxyModel *UsersInRoomTreeView::usersForRoomFilterProxy() const
 {
     return mUsersForRoomFilterProxy;
+}
+
+void UsersInRoomTreeView::updateSectionVisibility()
+{
+    if (!model()) {
+        return;
+    }
+
+    const int sectionCount = model()->rowCount();
+    for (int row = 0; row < sectionCount; ++row) {
+        const QModelIndex sectionIndex = model()->index(row, 0);
+        const bool hasChildren = model()->rowCount(sectionIndex) > 0;
+        setRowHidden(row, QModelIndex(), !hasChildren);
+    }
 }
 
 bool UsersInRoomTreeView::event(QEvent *ev)

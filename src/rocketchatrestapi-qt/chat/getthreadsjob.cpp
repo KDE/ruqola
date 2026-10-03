@@ -54,13 +54,8 @@ bool GetThreadsJob::start()
 
 void GetThreadsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetThreadsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getThreadsDone(replyObject, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetThreadsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetThreadsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getThreadsDone(*replyObject, mRoomId);
     }
 }
 

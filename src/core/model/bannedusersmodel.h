@@ -29,7 +29,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    void setBannedUsers(const QList<BannedUser> &files);
+    void setBannedUsers(QList<BannedUser> files);
 
     [[nodiscard]] BannedUsers *bannedUsers() const;
 
@@ -56,7 +56,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const BannedUser &user) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const BannedUser &user);
     LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QByteArray mRoomId;
     bool mHasFullList = false;

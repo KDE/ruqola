@@ -10,6 +10,7 @@
 #include "messageattachmentactions.h"
 #include "messageattachmentfield.h"
 #include <QList>
+class QDebug;
 class LIBRUQOLACORE_EXPORT MessageAttachment
 {
     Q_GADGET
@@ -68,7 +69,7 @@ public:
     [[nodiscard]] AttachmentType attachmentType() const;
     void setAttachmentType(AttachmentType attachmentType);
 
-    [[nodiscard]] QList<MessageAttachmentField> attachmentFields() const;
+    [[nodiscard]] const QList<MessageAttachmentField> &attachmentFields() const;
     void setAttachmentFields(const QList<MessageAttachmentField> &attachmentFields);
 
     [[nodiscard]] bool collapsed() const;
@@ -100,14 +101,14 @@ public:
     [[nodiscard]] QString format() const;
     void setFormat(const QString &newFormat);
 
-    [[nodiscard]] MessageAttachmentActions messageAttachmentActions() const;
+    [[nodiscard]] const MessageAttachmentActions &messageAttachmentActions() const;
     void setMessageAttachmentActions(const MessageAttachmentActions &newMessageAttachmentAction);
 
     [[nodiscard]] bool hasMessageAttachmentActions() const;
 
 private:
     LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString fixTitle(const QString &title) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString fixTitle(const QString &title);
     MessageAttachmentActions mMessageAttachmentActions;
     QList<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = AttachmentType::Unknown;
@@ -132,5 +133,4 @@ private:
     bool mShowAttachment = false;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachment &t);

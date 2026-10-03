@@ -43,10 +43,10 @@ void TypingNotification::textNotificationChanged(const QByteArray &roomId, bool 
             if (mRoomId != roomId) {
                 // We changed room.
                 // 1) stop typing in old room
-                Q_EMIT informTypingStatus(roomId, false);
+                Q_EMIT informTypingStatus(mRoomId, false);
 
                 // 2) start info about typing in new room.
-                Q_EMIT informTypingStatus(mRoomId, true);
+                Q_EMIT informTypingStatus(roomId, true);
             }
 
             // 3) restart timer.

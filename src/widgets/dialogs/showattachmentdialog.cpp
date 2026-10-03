@@ -12,18 +12,14 @@
 #include "dialogs/showimagedialog.h"
 #include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
-#include "rooms/roomsimagesjob.h"
 #include "ruqolawidgets_debug.h"
 #include "showattachmentwidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QJsonArray>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
@@ -53,10 +49,7 @@ ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *
     readConfig();
 }
 
-ShowAttachmentDialog::~ShowAttachmentDialog()
-{
-    writeConfig();
-}
+ShowAttachmentDialog::~ShowAttachmentDialog() = default;
 
 void ShowAttachmentDialog::slotShowImage(const QByteArray &fileId)
 {
@@ -87,7 +80,7 @@ void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
             .methodName = methodName,
             .anonymous = false,
         };
-        job->setMethodCallJobInfo(std::move(info));
+        job->setMethodCallJobInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this]([[maybe_unused]] const QJsonObject &replyObject) {
             mRocketChatAccount->roomFiles(mRoomId, mRoomType);
@@ -115,17 +108,7 @@ QByteArray ShowAttachmentDialog::roomId() const
 
 void ShowAttachmentDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowAttachmentDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowAttachmentDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowAttachmentDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowAttachmentDialogGroupName), QSize(800, 600));
 }
 
 void ShowAttachmentDialog::slotLoadMoreAttachment()

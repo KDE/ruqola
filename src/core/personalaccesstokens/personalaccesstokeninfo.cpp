@@ -8,6 +8,7 @@
 
 #include "utils.h"
 
+#include <QDateTime>
 #include <QJsonObject>
 #include <QLocale>
 
@@ -21,6 +22,7 @@ QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t)
     d.space() << "mName" << t.name();
     d.space() << "mLastTokenPart" << t.lastTokenPart();
     d.space() << "mCreatedAt" << t.createdAt();
+    d.space() << "mCreateAtDisplayDateTime" << t.createAtDisplayDateTime();
     return d;
 }
 
@@ -43,6 +45,8 @@ void PersonalAccessTokenInfo::setCreatedAt(qint64 newCreatedAt)
     if (mCreatedAt != -1) {
         const QLocale l;
         mCreateAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedAt), QLocale::LongFormat);
+    } else {
+        mCreateAtDisplayDateTime.clear();
     }
 }
 
@@ -83,11 +87,10 @@ void PersonalAccessTokenInfo::setLastTokenPart(const QString &newLastTokenPart)
 
 bool PersonalAccessTokenInfo::isValid() const
 {
-    return !mLastTokenPart.isEmpty() && (mCreatedAt != -1);
+    return !mLastTokenPart.isEmpty();
 }
 
 bool PersonalAccessTokenInfo::operator==(const PersonalAccessTokenInfo &other) const
 {
-    return other.lastTokenPart() == lastTokenPart() && other.createdAt() == createdAt() && other.name() == name()
-        && other.bypassTwoFactor() == bypassTwoFactor();
+    return other.mLastTokenPart == mLastTokenPart && other.mCreatedAt == mCreatedAt && other.mName == mName && other.mBypassTwoFactor == mBypassTwoFactor;
 }

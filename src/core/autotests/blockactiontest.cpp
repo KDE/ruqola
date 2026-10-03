@@ -16,7 +16,7 @@ BlockActionTest::BlockActionTest(QObject *parent)
 
 void BlockActionTest::shouldHaveDefaultValues()
 {
-    BlockAction b;
+    const BlockAction b;
     QVERIFY(b.actionId().isEmpty());
     QVERIFY(b.text().isEmpty());
     QVERIFY(b.type().isEmpty());

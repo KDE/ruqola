@@ -53,9 +53,10 @@ MessageDelegateHelperReactions::layoutReactions(const QList<Reaction> &reactions
                 if (emojiUrl.isEmpty()) {
                     // The download is happening, this will all be updated again later
                 } else {
-                    if (!mPixmapCache.pixmapForLocalFile(emojiUrl.toLocalFile()).isNull()) {
-                        layout.emojiImagePath = emojiUrl.toLocalFile();
-                        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+                    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+                    const auto localFile = emojiUrl.toLocalFile();
+                    if (!mPixmapCache.scaledPixmapForLocalFile(localFile, iconSize, option.widget->devicePixelRatioF()).isNull()) {
+                        layout.emojiImagePath = localFile;
                         emojiWidth = iconSize;
                     }
                 }
@@ -74,12 +75,12 @@ MessageDelegateHelperReactions::layoutReactions(const QList<Reaction> &reactions
         layout.countRect = layout.reactionRect.adjusted(layout.emojiOffset + emojiWidth, smallMargin, 0, 0);
         layout.reaction = reaction;
 
-        layouts.append(layout);
         x += layout.reactionRect.width() + DelegatePaintUtil::margin();
-        if (x > reactionsRect.width()) {
+        if (x > reactionsRect.right()) {
             x = reactionsRect.x();
             y += reactionsRect.height() + DelegatePaintUtil::margin();
         }
+        layouts.append(std::move(layout));
     }
     return layouts;
 }
@@ -93,15 +94,12 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
-    QList<Reaction> reactions;
-    if (auto react = message->reactions()) {
-        reactions = react->reactions();
-    } else {
+    const auto react = message->reactions();
+    if (!react || react->isEmpty()) {
+        removeRunningAnimatedImages(index);
         return;
     }
-    if (reactions.isEmpty()) {
-        return;
-    }
+    const QList<Reaction> &reactions = react->reactions();
 #if 0
     painter->save();
     painter->setPen(Qt::red);
@@ -117,6 +115,9 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
     backgroundColor.setAlpha(60);
     const QBrush buttonBrush(backgroundColor);
     const qreal smallMargin = 4;
+    painter->setRenderHint(QPainter::Antialiasing);
+
+    QList<QByteArray> animatedReactions;
     for (const ReactionLayout &reactionLayout : layouts) {
         Q_ASSERT(!reactionLayout.emojiString.isEmpty() || !reactionLayout.emojiImagePath.isEmpty());
         const QRectF reactionRect = reactionLayout.reactionRect;
@@ -136,15 +137,17 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
             }
             painter->drawText(r, reactionLayout.emojiString);
         } else {
-            if (reactionLayout.reaction.isAnimatedImage() && RuqolaGlobalConfig::self()->animateGifImage()) {
-                const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-
+            const bool animateGif = reactionLayout.reaction.isAnimatedImage() && RuqolaGlobalConfig::self()->animateGifImage();
+            if (animateGif) {
+                const QByteArray identifier = reactionLayout.reaction.reactionName().toUtf8();
+                animatedReactions.append(identifier);
                 QPixmap scaledPixmap;
-                auto it = findRunningAnimatedImage(index);
+                auto it = findRunningAnimatedImage(index, identifier);
                 if (it != mRunningAnimatedImages.end()) {
                     scaledPixmap = (*it).movie->currentPixmap();
                 } else {
-                    mRunningAnimatedImages.emplace_back(index);
+                    const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+                    mRunningAnimatedImages.emplace_back(index, identifier);
                     auto &rai = mRunningAnimatedImages.back();
                     rai.movie->setFileName(reactionLayout.emojiImagePath);
                     rai.movie->setScaledSize(QSize(maxIconSize, maxIconSize));
@@ -155,10 +158,11 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
                         &QMovie::frameChanged,
                         view,
                         [view, idx, this]() {
-                            if (view->viewport()->rect().contains(view->visualRect(idx))) {
+                            if (view->viewport()->rect().intersects(view->visualRect(idx))) {
                                 view->update(idx);
                             } else {
-                                removeRunningAnimatedImage(idx);
+                                // The whole message is out of sight: stop all its animations, not just this one.
+                                removeRunningAnimatedImages(idx);
                             }
                         },
                         Qt::QueuedConnection);
@@ -168,32 +172,34 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
                 scaledPixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
                 painter->drawPixmap(r.x(), r.y(), scaledPixmap);
             } else {
-                const QPixmap pixmap = mPixmapCache.pixmapForLocalFile(reactionLayout.emojiImagePath);
                 const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-                const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-                painter->drawPixmap(r.x(), r.y(), scaledPixmap);
+                const QPixmap pixmap = mPixmapCache.scaledPixmapForLocalFile(reactionLayout.emojiImagePath, maxIconSize, option.widget->devicePixelRatioF());
+                painter->drawPixmap(r.x(), r.y(), pixmap);
             }
         }
         // Count
         painter->setFont(option.font);
         painter->drawText(reactionLayout.countRect, reactionLayout.countStr);
     }
+    // Any other animation of this message is stale (reaction removed, collapsed, animations turned off...):
+    // its movie would otherwise keep emitting frameChanged() -> view->update() for something we don't paint.
+    removeRunningAnimatedImages(index, animatedReactions);
 }
 
-std::vector<RunningAnimatedImage>::iterator MessageDelegateHelperReactions::findRunningAnimatedImage(const QModelIndex &index) const
+std::vector<RunningAnimatedImage>::iterator MessageDelegateHelperReactions::findRunningAnimatedImage(const QModelIndex &index,
+                                                                                                     const QByteArray &identifier) const
 {
-    auto matchesIndex = [&](const RunningAnimatedImage &rai) {
-        return rai.index == index;
+    auto matchesReaction = [&](const RunningAnimatedImage &rai) {
+        return rai.index == index && rai.identifier == identifier;
     };
-    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
+    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesReaction);
 }
 
-void MessageDelegateHelperReactions::removeRunningAnimatedImage(const QModelIndex &index) const
+void MessageDelegateHelperReactions::removeRunningAnimatedImages(const QModelIndex &index, const QList<QByteArray> &identifiersToKeep) const
 {
-    auto it = findRunningAnimatedImage(index);
-    if (it != mRunningAnimatedImages.end()) {
-        mRunningAnimatedImages.erase(it);
-    }
+    std::erase_if(mRunningAnimatedImages, [&](const RunningAnimatedImage &rai) {
+        return rai.index == index && !identifiersToKeep.contains(rai.identifier);
+    });
 }
 
 QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -201,7 +207,7 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     int reactionsHeight = 0;
     if (auto react = message->reactions()) {
-        if (!react->reactions().isEmpty()) {
+        if (!react->isEmpty()) {
             const QFontMetrics emojiFontMetrics(mEmojiFont);
             // const QList<ReactionLayout> layouts = layoutReactions(message->reactions().reactions(), QRect(0, 0, maxWidth, emojiFontMetrics.height()),
             // option); for (auto t : layouts) {

@@ -19,17 +19,22 @@ public:
 
     [[nodiscard]] const QString &fullText() const;
 
+    void setIsOwner(bool isOwner);
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
+
+Q_SIGNALS:
+    void configureTopic();
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotMoreInfo(const QString &content);
     LIBRUQOLAWIDGETS_NO_EXPORT void updateSqueezedText();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateHeaderText();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString rPixelSqueeze(const QString &text, int maxPixels) const;
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QSize textSize(const QString &text) const;
     QString mFullText;
     QString mTopic;
     QString mAnnouncement;
     bool mExpandTopic = false;
+    bool mIsOwner = false;
 };

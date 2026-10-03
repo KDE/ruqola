@@ -10,14 +10,11 @@ using namespace Qt::Literals::StringLiterals;
 #include "config-ruqola.h"
 #include "configurenewserver/createnewserverstackwidget.h"
 #include "ruqolaglobalconfig.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -52,10 +49,7 @@ CreateNewServerDialog::CreateNewServerDialog(QWidget *parent)
 #endif
 }
 
-CreateNewServerDialog::~CreateNewServerDialog()
-{
-    writeConfig();
-}
+CreateNewServerDialog::~CreateNewServerDialog() = default;
 
 AccountManager::AccountManagerInfo CreateNewServerDialog::accountInfo() const
 {
@@ -80,17 +74,7 @@ void CreateNewServerDialog::setExistingAccountName(const QStringList &lst)
 
 void CreateNewServerDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateNewAccountDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void CreateNewServerDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateNewAccountDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigCreateNewAccountDialogGroupName), QSize(800, 600));
 }
 
 #include "moc_createnewserverdialog.cpp"

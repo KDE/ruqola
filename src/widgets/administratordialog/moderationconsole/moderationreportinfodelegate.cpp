@@ -12,7 +12,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "delegateutils/textselectionimpl.h"
 #include "model/moderationreportinfomodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <QAbstractItemView>
 #include <QListView>
 #include <QPainter>
@@ -159,7 +158,7 @@ ModerationReportInfoDelegate::Layout ModerationReportInfoDelegate::doLayout(cons
     return layout;
 }
 
-QByteArray ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ModerationReportInfoDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(ModerationReportInfoModel::ReportIdentifier).toByteArray();
     Q_ASSERT(!identifier.isEmpty());
@@ -213,12 +212,11 @@ bool ModerationReportInfoDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractIte
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
-QPoint ModerationReportInfoDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint ModerationReportInfoDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
@@ -253,9 +251,8 @@ bool ModerationReportInfoDelegate::maybeStartDrag(QMouseEvent *event, const QSty
     return false;
 }
 
-RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount(const QModelIndex &index) const
+RocketChatAccount *ModerationReportInfoDelegate::rocketChatAccount([[maybe_unused]] const QModelIndex &index) const
 {
-    Q_UNUSED(index);
     return mRocketChatAccount;
 }
 

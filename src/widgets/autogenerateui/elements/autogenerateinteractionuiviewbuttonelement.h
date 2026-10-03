@@ -46,7 +46,7 @@ protected:
     void parseElement(const QJsonObject &json) override;
 
 private:
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT AutoGenerateInteractionUiViewButtonElement::Style convertStyleFromString(const QString &str);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString convertStyleToString() const;
     Style mStyle = Style::Unknown;
     AutoGenerateInteractionUiViewText mText;

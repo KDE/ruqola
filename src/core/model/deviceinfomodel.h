@@ -44,7 +44,7 @@ public:
     void removeElement(const QByteArray &identifier) override;
 
     [[nodiscard]] const DeviceInfos &deviceInfos() const;
-    void setDeviceInfos(const DeviceInfos &newDeviceInfos);
+    void setDeviceInfos(DeviceInfos newDeviceInfos);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void clear();

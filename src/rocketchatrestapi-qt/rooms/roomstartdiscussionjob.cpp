@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2019-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -30,7 +30,7 @@ bool RoomStartDiscussionJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomStartDiscussionJob::start");
+    addStartRestApiInfo("RoomStartDiscussionJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -38,14 +38,8 @@ bool RoomStartDiscussionJob::start()
 
 void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomStartDiscussionJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT startDiscussionDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomStartDiscussionJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomStartDiscussionJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT startDiscussionDone(*replyObject);
     }
 }
 

@@ -8,13 +8,31 @@
 
 #include "misc/passwordconfirmwidget.h"
 #include "registeruser/registeruserwidget.h"
+#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QSignalSpy>
 #include <QTest>
+#include <qtestmouse.h>
+
 using namespace Qt::Literals::StringLiterals;
+namespace
+{
+void fillRegisterUserForm(const RegisterUserWidget &w, const QString &password)
+{
+    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mNewPasswordLineEdit"_s);
+    QVERIFY(mNewPasswordLineEdit);
+    mNewPasswordLineEdit->setPassword(password);
+
+    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mConfirmPasswordLineEdit"_s);
+    QVERIFY(mConfirmPasswordLineEdit);
+    mConfirmPasswordLineEdit->setPassword(password);
+}
+}
+
 QTEST_MAIN(RegisterUserWidgetTest)
 RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
     : QObject(parent)
@@ -23,8 +41,9 @@ RegisterUserWidgetTest::RegisterUserWidgetTest(QObject *parent)
 
 void RegisterUserWidgetTest::shouldHaveDefaultValues()
 {
-    RegisterUserWidget w(nullptr);
+    const RegisterUserWidget w(nullptr);
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
+    QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
@@ -50,6 +69,43 @@ void RegisterUserWidgetTest::shouldHaveDefaultValues()
     auto mReasonLabel = w.findChild<QLabel *>(u"mReasonLabel"_s);
     QVERIFY(mReasonLabel);
     QVERIFY(!mReasonLabel->text().isEmpty());
+}
+
+void RegisterUserWidgetTest::shouldRegisterButtonUpdate()
+{
+    const RegisterUserWidget w(nullptr);
+    auto mRegisterButton = w.findChild<QPushButton *>(u"mRegisterButton"_s);
+    QVERIFY(!mRegisterButton->isEnabled());
+
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
+    mUserName->setText(u"fff"_s);
+    QVERIFY(!mRegisterButton->isEnabled());
+
+    auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
+    mEmail->setText(u"fff"_s);
+    QVERIFY(!mRegisterButton->isEnabled());
+
+    fillRegisterUserForm(w, u"bla"_s);
+    QVERIFY(mRegisterButton->isEnabled());
+}
+
+void RegisterUserWidgetTest::shouldEmitRegisterUser()
+{
+    const RegisterUserWidget w(nullptr);
+    auto mRegisterButton = w.findChild<QPushButton *>(u"mRegisterButton"_s);
+    const QSignalSpy registerNewAccountSpy(&w, &RegisterUserWidget::registerNewAccount);
+    QTest::mouseClick(mRegisterButton, Qt::LeftButton);
+    QCOMPARE(registerNewAccountSpy.count(), 0);
+
+    auto mUserName = w.findChild<QLineEdit *>(u"mUserName"_s);
+    mUserName->setText(u"fff"_s);
+
+    auto mEmail = w.findChild<QLineEdit *>(u"mEmail"_s);
+    mEmail->setText(u"fff"_s);
+    fillRegisterUserForm(w, u"bla"_s);
+
+    QTest::mouseClick(mRegisterButton, Qt::LeftButton);
+    QCOMPARE(registerNewAccountSpy.count(), 1);
 }
 
 #include "moc_registeruserwidgettest.cpp"

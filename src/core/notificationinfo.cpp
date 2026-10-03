@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 NotificationInfo::NotificationInfo() = default;
 
-NotificationInfo::~NotificationInfo() = default;
-
 QDebug operator<<(QDebug d, const NotificationInfo &t)
 {
     d.space() << "accountName" << t.accountName();
@@ -249,7 +247,7 @@ QByteArray NotificationInfo::uniqueIdentifier() const
 {
     QByteArray identifier;
     if (mNotificationType == NotificationInfo::NotificationType::NewRoom) {
-        identifier = "newroom" + mRoomId;
+        identifier = "newroom"_ba + mRoomId;
     } else {
         identifier = mMessageId;
     }

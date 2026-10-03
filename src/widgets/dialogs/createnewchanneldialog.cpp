@@ -6,14 +6,11 @@
 
 #include "createnewchanneldialog.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -43,10 +40,7 @@ CreateNewChannelDialog::CreateNewChannelDialog(RocketChatAccount *account, QWidg
     connect(mCreateNewChannelWidget, &CreateNewChannelWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
-CreateNewChannelDialog::~CreateNewChannelDialog()
-{
-    writeConfig();
-}
+CreateNewChannelDialog::~CreateNewChannelDialog() = default;
 
 RocketChatRestApi::CreateChannelTeamInfo CreateNewChannelDialog::channelInfo(bool userMemberUserId) const
 {
@@ -64,17 +58,7 @@ RocketChatRestApi::CreateChannelTeamInfo CreateNewChannelDialog::channelInfo(boo
 
 void CreateNewChannelDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myCreateNewChannelDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void CreateNewChannelDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myCreateNewChannelDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myCreateNewChannelDialogGroupName), QSize(800, 600));
 }
 
 void CreateNewChannelDialog::setFeatures(CreateNewChannelWidget::Features features)

@@ -19,7 +19,7 @@ ReactionTest::ReactionTest(QObject *parent)
 
 void ReactionTest::shouldHaveDefaultValue()
 {
-    Reaction r;
+    const Reaction r;
     QVERIFY(r.userNames().isEmpty());
     QVERIFY(r.reactionName().isEmpty());
     QCOMPARE(r.count(), 0);

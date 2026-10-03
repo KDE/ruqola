@@ -24,8 +24,10 @@
 #include <QRegularExpression>
 
 #include <QUrl>
+#include <QVariant>
 #include <TextEmoticonsCore/EmoticonUnicodeUtils>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(Utils::AvatarInfo, Ruqola_AvatarInfo)
 using namespace Qt::Literals::StringLiterals;
 QUrl Utils::generateServerUrl(const QString &url)
 {
@@ -34,9 +36,9 @@ QUrl Utils::generateServerUrl(const QString &url)
     }
     QString serverUrl = url.trimmed();
     if (serverUrl.startsWith("https://"_L1)) {
-        serverUrl.replace("https://"_L1, "wss://"_L1);
+        serverUrl.replace(0, 8, "wss://"_L1);
     } else if (serverUrl.startsWith("http://"_L1)) {
-        serverUrl.replace("http://"_L1, "ws://"_L1);
+        serverUrl.replace(0, 7, "ws://"_L1);
     } else {
         serverUrl = "wss://"_L1 + serverUrl;
     }
@@ -45,15 +47,14 @@ QUrl Utils::generateServerUrl(const QString &url)
 
 QString Utils::extractRoomUserFromUrl(QString url)
 {
-    url.remove(u"ruqola:/user/"_s);
-    url.remove(u"ruqola:/room/"_s);
+    url.remove("ruqola:/user/"_L1);
+    url.remove("ruqola:/room/"_L1);
     return url;
 }
 
 QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
 {
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-    const auto backgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = qApp->palette().link().color().name();
     QString dateTimeInfo;
     if (!info.displayTime.isEmpty()) {
@@ -63,8 +64,10 @@ QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
             dateTimeInfo = u'\n' + info.displayTime;
         }
     }
-    return u"<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>"_s.arg(backgroundColor, borderColor) + info.richText
-        + dateTimeInfo + u"</td></tr></table>"_s;
+    return u"<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>"_s.arg(
+               ColorsAndMessageViewStyle::self().alternateBackground(),
+               borderColor)
+        + info.richText + dateTimeInfo + u"</td></tr></table>"_s;
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)
@@ -168,19 +171,22 @@ qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
     }
     // ISO-8601 string form used by REST and stream-notify-user events, e.g. "2026-06-16T14:24:39.849Z"
     if (value.isString()) {
-        const QDateTime dt = QDateTime::fromString(value.toString(), Qt::ISODate);
-        return dt.isValid() ? dt.toMSecsSinceEpoch() : -1;
+        return parseIsoDate(value.toString());
     }
     return -1;
 }
 
 qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 {
-    if (o.contains(key)) {
-        return QDateTime::fromString(o.value(key).toString(), Qt::ISODate).toMSecsSinceEpoch();
-    } else {
-        return -1;
-    }
+    // An absent or unparsable value must yield -1: toMSecsSinceEpoch() on an invalid QDateTime returns 0,
+    // which callers would otherwise accept as a valid 1970-01-01 timestamp.
+    return parseIsoDate(o.value(key).toString());
+}
+
+qint64 Utils::parseIsoDate(const QString &value)
+{
+    const QDateTime dt = QDateTime::fromString(value, Qt::ISODate);
+    return dt.isValid() ? dt.toMSecsSinceEpoch() : -1;
 }
 
 QString Utils::convertTextWithCheckMark(const QString &str)
@@ -188,8 +194,8 @@ QString Utils::convertTextWithCheckMark(const QString &str)
     static const QRegularExpression regularUnCheckMark(u"(^|\\n)-\\s\\[\\s\\]\\s"_s);
     static const QRegularExpression regularCheckMark(u"(^|\\n)-\\s\\[x]\\s"_s);
     QString newStr = str;
-    newStr = newStr.replace(regularUnCheckMark, u"\\1:white_medium_square: "_s);
-    newStr = newStr.replace(regularCheckMark, u"\\1:ballot_box_with_check: "_s);
+    newStr.replace(regularUnCheckMark, u"\\1:white_medium_square: "_s);
+    newStr.replace(regularCheckMark, u"\\1:ballot_box_with_check: "_s);
     return newStr;
 }
 
@@ -420,12 +426,12 @@ bool Utils::userActivity(const QJsonArray &contents)
     // const QString val = contents.toVariantList().at(1).toString();
     // qDebug() << " val ************ " << val << " contents.toVariantList().at(1 " << contents.toVariantList().at(1);
     bool status = false;
-    if (contents.toVariantList().at(1).toBool()) {
-        // qDebug() << " TYPING *************************************************";
+    const QVariant activity = contents.toVariantList().at(1);
+    if (activity.toBool()) {
         status = true;
-    } else if (!contents.toVariantList().at(1).toList().isEmpty()) {
-        if (contents.toVariantList().at(1).toList().at(0).toString() == "user-typing"_L1) {
-            // qDebug() << " FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF typing user";
+    } else {
+        const QVariantList activityList = activity.toList();
+        if (!activityList.isEmpty() && activityList.at(0).toString() == "user-typing"_L1) {
             status = true;
         }
     }

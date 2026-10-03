@@ -6,14 +6,11 @@
 
 #include "administratorcustomemojicreateorupdatedialog.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -42,10 +39,7 @@ AdministratorCustomEmojiCreateOrUpdateDialog::AdministratorCustomEmojiCreateOrUp
     connect(mCreateWidget, &AdministratorCustomEmojiCreateOrUpdateWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
-AdministratorCustomEmojiCreateOrUpdateDialog::~AdministratorCustomEmojiCreateOrUpdateDialog()
-{
-    writeConfig();
-}
+AdministratorCustomEmojiCreateOrUpdateDialog::~AdministratorCustomEmojiCreateOrUpdateDialog() = default;
 
 void AdministratorCustomEmojiCreateOrUpdateDialog::setCustomEmojiInfo(const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &info)
 {
@@ -69,17 +63,7 @@ void AdministratorCustomEmojiCreateOrUpdateDialog::setType(AdministratorCustomEm
 
 void AdministratorCustomEmojiCreateOrUpdateDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void AdministratorCustomEmojiCreateOrUpdateDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigAdministratorCustomEmojiCreateDialogGroupName), QSize(800, 300));
 }
 
 #include "moc_administratorcustomemojicreateorupdatedialog.cpp"

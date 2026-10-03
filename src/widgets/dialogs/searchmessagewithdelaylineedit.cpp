@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -10,7 +10,7 @@
 #include <QCompleter>
 #include <QMenu>
 #include <QStringListModel>
-#define MAX_COMPLETION_ITEMS 20
+constexpr int MAX_COMPLETION_ITEMS = 20;
 using namespace Qt::Literals::StringLiterals;
 SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)
@@ -45,10 +45,9 @@ SearchMessageWithDelayLineEdit::SearchMessageWithDelayLineEdit(RocketChatAccount
 
     mCompleter->setModel(mCompleterListModel);
     setCompleter(mCompleter);
-
     if (mCurrentRocketChatAccount) {
-        const QStringList lst = mCurrentRocketChatAccount->searchListCompletion();
-        mCompleterListModel->setStringList(lst);
+        mListCompletion = mCurrentRocketChatAccount->searchListCompletion();
+        mCompleterListModel->setStringList(mListCompletion);
     }
 }
 
@@ -56,23 +55,39 @@ SearchMessageWithDelayLineEdit::~SearchMessageWithDelayLineEdit() = default;
 
 void SearchMessageWithDelayLineEdit::addCompletionItem(const QString &str)
 {
-    mListCompetion.removeAll(str);
-    mListCompetion.prepend(str);
-    while (mListCompetion.size() > MAX_COMPLETION_ITEMS) {
-        mListCompetion.removeLast();
+    mListCompletion.removeAll(str);
+    mListCompletion.prepend(str);
+    while (mListCompletion.size() > MAX_COMPLETION_ITEMS) {
+        mListCompletion.removeLast();
     }
-    mCompleterListModel->setStringList(mListCompetion);
+    mCompleterListModel->setStringList(mListCompletion);
     if (mCurrentRocketChatAccount) {
-        mCurrentRocketChatAccount->setSearchListCompletion(mListCompetion);
+        mCurrentRocketChatAccount->setSearchListCompletion(mListCompletion);
     }
 }
 
-void SearchMessageWithDelayLineEdit::insertSearchString(const QString &str)
+void SearchMessageWithDelayLineEdit::insertSearchString(bool needSpace, const QString &str, bool unique)
 {
-    if (!text().isEmpty()) {
-        insert(u' ' + str);
+    const QString currentText = text();
+    if (unique && currentText.contains(str)) {
+        return;
+    }
+    if (!currentText.isEmpty()) {
+        QString newText = currentText;
+        if (!newText.endsWith(u' ')) {
+            newText += u' ';
+        }
+        newText += str;
+        if (needSpace) {
+            newText += u' ';
+        }
+        setText(newText);
     } else {
-        insert(str);
+        QString newText = str;
+        if (needSpace) {
+            newText += u' ';
+        }
+        insert(newText);
     }
 }
 

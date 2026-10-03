@@ -19,7 +19,7 @@ ServerInfoWidgetTest::ServerInfoWidgetTest(QWidget *parent)
 
 void ServerInfoWidgetTest::shouldHaveDefaultValues()
 {
-    ServerInfoWidget w(nullptr);
+    const ServerInfoWidget w(nullptr);
     auto layout = w.findChild<QFormLayout *>(u"layout"_s);
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});
@@ -47,6 +47,7 @@ void ServerInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mServerUrl->text().isEmpty());
     QCOMPARE(mServerUrl->textFormat(), Qt::RichText);
     QCOMPARE(mServerUrl->textInteractionFlags(), Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
+    QVERIFY(mServerUrl->openExternalLinks());
 }
 
 #include "moc_serverinfowidgettest.cpp"

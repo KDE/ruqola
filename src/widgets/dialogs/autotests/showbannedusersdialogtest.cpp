@@ -22,7 +22,7 @@ ShowBannedUsersDialogTest::ShowBannedUsersDialogTest(QObject *parent)
 
 void ShowBannedUsersDialogTest::shouldHaveDefaultValues()
 {
-    ShowBannedUsersDialog w(nullptr);
+    const ShowBannedUsersDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);

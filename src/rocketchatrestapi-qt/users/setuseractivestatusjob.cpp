@@ -28,20 +28,15 @@ bool SetUserActiveStatusJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetUserActiveStatusJob::start");
+    addStartRestApiInfo("SetUserActiveStatusJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void SetUserActiveStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetUserActiveStatusJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT setUserActiveStatusDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetUserActiveStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SetUserActiveStatusJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT setUserActiveStatusDone(*replyObject);
     }
 }
 

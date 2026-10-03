@@ -19,7 +19,7 @@ ChannelInfoEditableWidgetTest::ChannelInfoEditableWidgetTest(QObject *parent)
 
 void ChannelInfoEditableWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelInfoEditableWidget w(nullptr, nullptr);
+    const ChannelInfoEditableWidget w(nullptr, nullptr);
     auto layout = w.findChild<QFormLayout *>(u"layout"_s);
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});

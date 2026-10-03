@@ -32,7 +32,7 @@ bool EmojiCustomCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("EmojiCustomCreateJob::start");
+    addStartRestApiInfo("EmojiCustomCreateJob::start"_ba);
     const QString fileNameAsLocalFile = mEmojiInfo.fileNameUrl.toLocalFile();
     auto file = new QFile(fileNameAsLocalFile);
     if (!file->open(QIODevice::ReadOnly)) {
@@ -42,12 +42,11 @@ bool EmojiCustomCreateJob::start()
         deleteLater();
         return false;
     }
-    const QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
-
     auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     if (!mEmojiInfo.fileNameUrl.isEmpty()) {
+        const QMimeDatabase db;
+        const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
         QHttpPart filePart;
         filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
         const QString filePartInfo = u"form-data; name=\"emoji\"; filename=\"%1\""_s.arg(mEmojiInfo.fileNameUrl.fileName());

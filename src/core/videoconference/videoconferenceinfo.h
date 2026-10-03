@@ -9,6 +9,8 @@
 #include "libruqolacore_export.h"
 #include "user.h"
 #include <QList>
+class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT VideoConferenceInfo
 {
@@ -22,7 +24,6 @@ public:
     Q_ENUM(VideoConferenceType)
 
     VideoConferenceInfo();
-    ~VideoConferenceInfo();
     void parse(const QJsonObject &content);
 
     [[nodiscard]] QString url() const;
@@ -52,7 +53,7 @@ public:
     [[nodiscard]] bool operator==(const VideoConferenceInfo &other) const;
 
     [[nodiscard]] QList<User> users() const;
-    void setUsers(const QList<User> &newUsers);
+    void setUsers(QList<User> newUsers);
 
     [[nodiscard]] QString statusInformation() const;
 
@@ -68,13 +69,13 @@ public:
 
     [[nodiscard]] QString title() const;
 
-    static QJsonObject serialize(const VideoConferenceInfo &videoConfInfo);
-    static VideoConferenceInfo deserialize(const QJsonObject &o);
+    [[nodiscard]] static QJsonObject serialize(const VideoConferenceInfo &videoConfInfo);
+    [[nodiscard]] static VideoConferenceInfo deserialize(const QJsonObject &o);
 
     [[nodiscard]] static QString convertEnumToString(const VideoConferenceInfo &info);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str);
     QList<User> mUsers;
     QString mBlockId;
     QString mUrl;
@@ -88,5 +89,4 @@ private:
     bool mRinging = false;
 };
 Q_DECLARE_TYPEINFO(VideoConferenceInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConferenceInfo &t);

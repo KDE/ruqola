@@ -26,44 +26,57 @@ UsersForRoomModelDelegate::~UsersForRoomModelDelegate() = default;
 
 void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    // Section rows are top-level rows in tree mode and should use default
+    // painting to show their DisplayRole title (Online, Offline, ...).
+    // We cannot rely on hasChildren() because empty sections would be missed.
+    if (!index.parent().isValid()) {
+        QItemDelegate::paint(painter, option, index);
+        return;
+    }
+
     // [M] icon ? status name (username)
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
     painter->setFont(boldFont);
 
-    int xPos = -1;
+    const QFontMetrics fontMetrics(boldFont);
+    const int iconSize = option.rect.height() - 4;
+    const int iconY = option.rect.y() + 2;
+
+    int xPos = 0;
     const Utils::AvatarInfo info = index.data(UsersForRoomModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
+            painter->drawPixmap(margin, iconY, iconSize, iconSize, pix);
         }
         // Add extra size even if we don't have avatar pix
-        xPos = margin + option.rect.height();
+        xPos = margin + iconSize;
     }
 
     const QString iconStatusStr = index.data(UsersForRoomModel::IconStatus).toString();
     if (!iconStatusStr.isEmpty()) {
         const QIcon iconStatus = QIcon::fromTheme(iconStatusStr);
-        const QRect displayRect(margin + xPos, option.rect.y(), option.rect.height(), option.rect.height());
-        drawDecoration(painter, option, displayRect, iconStatus.pixmap(option.rect.height(), option.rect.height()));
-        xPos += margin + option.rect.height();
+        painter->drawPixmap(margin + xPos, iconY, iconSize, iconSize, iconStatus.pixmap(iconSize, iconSize));
+        xPos += margin + iconSize;
     }
 
-    const QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(UsersForRoomModel::Name).toString();
     const QString userName = index.data(UsersForRoomModel::UserName).toString();
-    const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
+    const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
     if (name.isEmpty()) {
         painter->drawText(xPos + margin, defaultCharHeight, userName);
     } else {
@@ -76,6 +89,7 @@ void UsersForRoomModelDelegate::paint(QPainter *painter, const QStyleOptionViewI
         }
     }
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 void UsersForRoomModelDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
@@ -86,7 +100,7 @@ void UsersForRoomModelDelegate::setRocketChatAccount(RocketChatAccount *newRocke
 QSize UsersForRoomModelDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const QSize size = QItemDelegate::sizeHint(option, index);
-    return size + QSize(0, 4 * option.widget->devicePixelRatioF());
+    return size + QSize(0, 4);
 }
 
 bool UsersForRoomModelDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &, const QModelIndex &index)

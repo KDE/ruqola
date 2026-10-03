@@ -51,6 +51,7 @@ void Command::setDescription(const QString &description)
 void Command::convertParamsI18n()
 {
     if (mParams.isEmpty()) {
+        mTranslatedParams.clear();
         return;
     }
     if (mParams == "Slash_Status_Params"_L1) {
@@ -74,6 +75,7 @@ QString Command::translatedParams() const
 void Command::convertDescriptionI18n()
 {
     if (mDescription.isEmpty()) {
+        mTranslatedDescription.clear();
         return;
     } else if (mDescription == "Archive"_L1) {
         mTranslatedDescription = i18n("Archive");
@@ -86,7 +88,7 @@ void Command::convertDescriptionI18n()
     } else if (mDescription == "Slash_Tableflip_Description"_L1) {
         mTranslatedDescription = i18n("Displays (╯°□°）╯︵ ┻━┻");
     } else if (mDescription == "Slash_TableUnflip_Description"_L1) {
-        mTranslatedDescription = i18n("Displays ┬─┬<feff> ノ( ゜-゜ノ)");
+        mTranslatedDescription = i18n("Displays ┬─┬ ノ( ゜-゜ノ)");
     } else if (mDescription == "Create_A_New_Channel"_L1) {
         mTranslatedDescription = i18n("Create a New Channel");
     } else if (mDescription == "Show_the_keyboard_shortcut_list"_L1) {
@@ -140,16 +142,23 @@ void Command::parseCommand(const QJsonObject &obj)
     mProvidesPreview = obj.value("providesPreview"_L1).toBool();
     mClientOnly = obj.value("clientOnly"_L1).toBool();
     // Add "/" for completion.
-    mCommandName = u'/' + obj.value("command"_L1).toString();
+    if (const QString commandName = obj.value("command"_L1).toString(); !commandName.isEmpty()) {
+        mCommandName = u'/' + commandName;
+    } else {
+        mCommandName.clear();
+    }
+
     setDescription(obj.value("description"_L1).toString());
     setParams(obj.value("params"_L1).toString());
 
+    mPermissions.clear();
     const QJsonValue permissionValue = obj.value("permission"_L1);
     if (!permissionValue.isUndefined()) {
         if (permissionValue.isString()) {
             mPermissions.append(permissionValue.toString());
         } else if (permissionValue.isArray()) {
             const QJsonArray permissionArray = permissionValue.toArray();
+            mPermissions.reserve(permissionArray.size());
             for (int i = 0, total = permissionArray.size(); i < total; ++i) {
                 mPermissions.append(permissionArray.at(i).toString());
             }
@@ -161,8 +170,8 @@ void Command::parseCommand(const QJsonObject &obj)
 
 bool Command::operator==(const Command &other) const
 {
-    return mParams == other.params() && mCommandName == other.commandName() && mDescription == other.description() && mClientOnly == other.clientOnly()
-        && mProvidesPreview == other.providesPreview() && mPermissions == other.permissions();
+    return mParams == other.mParams && mCommandName == other.mCommandName && mDescription == other.mDescription && mClientOnly == other.mClientOnly
+        && mProvidesPreview == other.mProvidesPreview && mPermissions == other.mPermissions;
 }
 
 bool Command::isValid() const

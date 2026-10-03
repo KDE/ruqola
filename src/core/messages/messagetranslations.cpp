@@ -47,7 +47,7 @@ void MessageTranslations::parse(const QJsonObject &obj)
 
 bool MessageTranslations::operator==(const MessageTranslations &other) const
 {
-    return mTranslatedString == other.translatedString();
+    return mTranslatedString == other.mTranslatedString;
 }
 
 QMap<QString, QString> MessageTranslations::translatedString() const
@@ -71,19 +71,19 @@ QJsonArray MessageTranslations::serialize(const MessageTranslations &translation
     for (const auto &[key, value] : translation.mTranslatedString.asKeyValueRange()) {
         QJsonObject obj;
         obj.insert(key, value);
-        array.append(obj);
+        array.append(std::move(obj));
     }
     return array;
 }
 
-MessageTranslations *MessageTranslations::deserialize(const QJsonArray &array)
+std::unique_ptr<MessageTranslations> MessageTranslations::deserialize(const QJsonArray &array)
 {
-    MessageTranslations *translationMessage = new MessageTranslations;
+    auto translationMessage = std::make_unique<MessageTranslations>();
     QMap<QString, QString> translationStrings;
     for (int i = 0, total = array.count(); i < total; ++i) {
         const QJsonObject o = array.at(i).toObject();
         if (o.count() == 1) {
-            translationStrings.insert(o.keys().at(0), o.value(o.keys().at(0)).toString());
+            translationStrings.insert(*o.keys().constBegin(), o.value(*o.keys().constBegin()).toString());
         }
     }
     translationMessage->setTranslatedString(translationStrings);

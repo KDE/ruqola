@@ -47,7 +47,7 @@ void ClickableWidget::setPixmap(const QPixmap &pix)
 
 void ClickableWidget::slotRemove()
 {
-    Q_EMIT removeClickableWidget(mName);
+    Q_EMIT removeClickableWidget(mIdentifier);
 }
 
 QString ClickableWidget::name() const

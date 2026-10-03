@@ -5,7 +5,6 @@
 */
 
 #include "moderationmessageswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/commonmessagefilterproxymodel.h"
 #include "rocketchataccount.h"
@@ -17,14 +16,15 @@ using namespace Qt::Literals::StringLiterals;
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
+using namespace Qt::Literals::StringLiterals;
 ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchLabel(new QLabel(this))
     , mResultListWidget(new MessageListView(account, MessageListView::Mode::Moderation, this))
-    , mCurrentRocketChatAccount(account)
 #if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
@@ -33,10 +33,14 @@ ModerationMessagesWidget::ModerationMessagesWidget(RocketChatAccount *account, Q
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
+    mainLayout->addWidget(mSearchLabel);
+
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-    connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mResultListWidget, &MessageListView::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+    });
 #endif
 
     mResultListWidget->setObjectName(u"mResultListWidget"_s);

@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QList>
 #include <QMetaType>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT BlockAccessory
 {
@@ -24,7 +25,6 @@ public:
     Q_ENUM(AccessoryType)
 
     BlockAccessory();
-    ~BlockAccessory();
 
     [[nodiscard]] QByteArray actionId() const;
     void setActionId(const QByteArray &newActionId);
@@ -43,7 +43,7 @@ public:
     [[nodiscard]] BlockAccessory::AccessoryType type() const;
     void setType(BlockAccessory::AccessoryType newType);
 
-    [[nodiscard]] QList<BlockAccessoryOption> options() const;
+    [[nodiscard]] const QList<BlockAccessoryOption> &options() const;
     void setOptions(const QList<BlockAccessoryOption> &newOptions);
 
     [[nodiscard]] QString text() const;
@@ -60,5 +60,4 @@ private:
     QList<BlockAccessoryOption> mOptions;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAccessory &t);
-class QDebug;
 Q_DECLARE_TYPEINFO(BlockAccessory, Q_RELOCATABLE_TYPE);

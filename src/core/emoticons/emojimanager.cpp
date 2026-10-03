@@ -24,17 +24,17 @@ EmojiManager::EmojiManager(RocketChatAccount *account, QObject *parent)
 
 EmojiManager::~EmojiManager() = default;
 
-QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
+QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::unicodeEmojiList()
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmojiList();
 }
 
-QList<TextEmoticonsCore::EmoticonCategory> EmojiManager::categories() const
+QList<TextEmoticonsCore::EmoticonCategory> EmojiManager::categories()
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->categories();
 }
 
-QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category) const
+QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category)
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->emojisForCategory(category);
 }
@@ -86,7 +86,7 @@ void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
         const QJsonObject emojiData = obj.value("emojiData"_L1).toObject();
         const QByteArray identifier = emojiData.value("_id"_L1).toString().toLatin1();
         if (!identifier.isEmpty()) {
-            auto it = std::find_if(mCustomEmojiList.cbegin(), mCustomEmojiList.cend(), [identifier](const auto &emoji) {
+            auto it = std::find_if(mCustomEmojiList.cbegin(), mCustomEmojiList.cend(), [&identifier](const auto &emoji) {
                 return emoji.identifier() == identifier;
             });
             if (it != mCustomEmojiList.cend()) {
@@ -124,8 +124,7 @@ int EmojiManager::count() const
 bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
 {
     if (emojiIdentifier.startsWith(u':') && emojiIdentifier.endsWith(u':')) {
-        for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
-            const CustomEmoji emoji = mCustomEmojiList.at(i);
+        for (const auto &emoji : mCustomEmojiList) {
             if (emoji.hasEmoji(emojiIdentifier)) {
                 return emoji.isAnimatedImage();
             }
@@ -134,7 +133,7 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
     return false;
 }
 
-TextEmoticonsCore::UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
+TextEmoticonsCore::UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier)
 {
     return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
 }
@@ -175,14 +174,14 @@ QString EmojiManager::normalizedReactionEmoji(const QString &emojiIdentifier) co
     return emojiIdentifier;
 }
 
-QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction)
+QString EmojiManager::replaceEmojiIdentifier(QStringView emojiIdentifier, bool isReaction)
 {
     if (mServerUrl.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "Server Url not defined";
-        return emojiIdentifier;
+        return emojiIdentifier.toString();
     }
     if (mRocketChatAccount && !mRocketChatAccount->ownUserPreferences().convertAsciiEmoji()) {
-        return emojiIdentifier;
+        return emojiIdentifier.toString();
     }
     if (emojiIdentifier.startsWith(u':') && emojiIdentifier.endsWith(u':')) {
         for (const CustomEmoji &emoji : std::as_const(mCustomEmojiList)) {
@@ -193,7 +192,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                     if (emoji.isAnimatedImage() && isReaction) {
                         cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
                     } else {
-                        const QString fileName = customEmojiFileName(emojiIdentifier);
+                        const QString fileName = emoji.emojiFileName();
                         if (!fileName.isEmpty() && mRocketChatAccount) {
                             const QUrl emojiUrl = mRocketChatAccount->attachmentUrlFromLocalCache(fileName);
                             if (emojiUrl.isEmpty()) {
@@ -211,12 +210,12 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         }
     }
 
-    const TextEmoticonsCore::UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier);
+    const TextEmoticonsCore::UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier.toString());
     if (unicodeEmoticon.isValid()) {
         return unicodeEmoticon.unicodeDisplay();
     }
 
-    return emojiIdentifier;
+    return emojiIdentifier.toString();
 }
 
 void EmojiManager::replaceEmojis(QString *str)
@@ -295,9 +294,11 @@ void EmojiManager::replaceEmojis(QString *str)
         if (!match.hasMatch()) {
             break;
         }
-        const auto word = match.captured();
-        const auto replaceWord = replaceEmojiIdentifier(word);
-        str->replace(match.capturedStart(), word.size(), replaceWord);
+        const QStringView word = match.capturedView();
+        // word points into *str, so its length has to be read before the replacement invalidates it.
+        const auto wordSize = word.size();
+        const QString replaceWord = replaceEmojiIdentifier(word);
+        str->replace(match.capturedStart(), wordSize, replaceWord);
         offset = match.capturedStart() + replaceWord.size();
     }
 }
@@ -317,8 +318,8 @@ void EmojiManager::setServerUrl(const QString &serverUrl)
 
 void EmojiManager::clearCustomEmojiCachedHtml()
 {
-    for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
-        mCustomEmojiList[i].clearCachedHtml();
+    for (auto &emoji : mCustomEmojiList) {
+        emoji.clearCachedHtml();
     }
 }
 

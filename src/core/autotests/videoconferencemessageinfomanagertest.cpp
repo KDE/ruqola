@@ -15,7 +15,7 @@ VideoConferenceMessageInfoManagerTest::VideoConferenceMessageInfoManagerTest(QOb
 
 void VideoConferenceMessageInfoManagerTest::shouldHaveDefaultValues()
 {
-    VideoConferenceMessageInfoManager w(nullptr);
+    const VideoConferenceMessageInfoManager w(nullptr);
     QVERIFY(!w.rocketChatAccount());
 }
 

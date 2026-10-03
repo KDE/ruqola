@@ -46,11 +46,11 @@ void ChangeGroupsReadonlyJobTest::shouldGenerateJson()
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
     job.setReadOnly(readOnly);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"readOnly":true,"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"readOnly":true,"roomId":"%1"})"_s.arg(roomId).toLatin1());
 
     readOnly = false;
     job.setReadOnly(readOnly);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"readOnly":false,"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"readOnly":false,"roomId":"%1"})"_s.arg(roomId).toLatin1());
 }
 
 #include "moc_changegroupsreadonlyjobtest.cpp"

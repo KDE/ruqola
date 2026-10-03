@@ -97,31 +97,31 @@ AdministratorWidget::~AdministratorWidget() = default;
 
 void AdministratorWidget::initialize()
 {
-    if (mRocketChatAccount->hasPermission(u"view-user-administration"_s)) {
+    if (mRocketChatAccount->hasPermission(u"view-user-administration")) {
         mAdministratorUsersWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(u"view-room-administration"_s)) {
+    if (mRocketChatAccount->hasPermission(u"view-room-administration")) {
         mAdministratorRoomsWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(u"manage-sounds"_s)) {
+    if (mRocketChatAccount->hasPermission(u"manage-sounds")) {
         mAdministratorCustomSoundsWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(u"manage-emoji"_s)) {
+    if (mRocketChatAccount->hasPermission(u"manage-emoji")) {
         mAdministratorCustomEmojiWidget->initialize();
     }
     mPermissionsWidget->initialize();
     mAdministratorCustomUserStatusWidget->initialize();
     mRolesWidget->initialize();
-    if (mRocketChatAccount->hasPermission(u"view-statistics"_s)) {
+    if (mRocketChatAccount->hasPermission(u"view-statistics")) {
         mAdministratorServerInfoWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(u"create-invite-links"_s)) {
+    if (mRocketChatAccount->hasPermission(u"create-invite-links")) {
         mAdministratorInvitesWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(u"manage-oauth-apps"_s)) {
+    if (mRocketChatAccount->hasPermission(u"manage-oauth-apps")) {
         mOauthWidget->initialize();
     }
-    if (mRocketChatAccount->hasPermission(u"view-moderation-console"_s)) {
+    if (mRocketChatAccount->hasPermission(u"view-moderation-console")) {
         mAdministratorModerationConsoleWidget->initialize();
     }
     mFeaturePreviewWidget->initialize();
@@ -129,31 +129,31 @@ void AdministratorWidget::initialize()
 
 void AdministratorWidget::updateUiFromPermission()
 {
-    if (!mRocketChatAccount->hasPermission(u"manage-sounds"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"manage-sounds")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorCustomSoundsWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"view-statistics"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"view-statistics")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorServerInfoWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"view-logs"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"view-logs")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mViewLogWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"manage-oauth-apps"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"manage-oauth-apps")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mOauthWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"view-moderation-console"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"view-moderation-console")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorModerationConsoleWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"manage-emoji"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"manage-emoji")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorCustomEmojiWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"create-invite-links"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"create-invite-links")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorInvitesWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"view-room-administration"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"view-room-administration")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorRoomsWidget), false);
     }
-    if (!mRocketChatAccount->hasPermission(u"view-user-administration"_s)) {
+    if (!mRocketChatAccount->hasPermission(u"view-user-administration")) {
         mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorUsersWidget), false);
     }
 }

@@ -28,20 +28,15 @@ bool RoleDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoleDeleteJob::start");
+    addStartRestApiInfo("RoleDeleteJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void RoleDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoleDeleteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoleDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deleteRoleDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoleDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

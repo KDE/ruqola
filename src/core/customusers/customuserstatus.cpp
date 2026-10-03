@@ -13,8 +13,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(CustomUserStatus, Ruqola_CustomUserStatus)
 using namespace Qt::Literals::StringLiterals;
 CustomUserStatus::CustomUserStatus() = default;
 
-CustomUserStatus::~CustomUserStatus() = default;
-
 bool CustomUserStatus::isValid() const
 {
     return !mIdentifier.isEmpty() && (mStatusType != User::PresenceStatus::Unknown);
@@ -85,5 +83,5 @@ QDebug operator<<(QDebug d, const CustomUserStatus &t)
 
 bool CustomUserStatus::operator==(const CustomUserStatus &other) const
 {
-    return mIdentifier == other.identifier() && mName == other.name() && mStatusType == other.statusType() && mUpdatedAt == other.updatedAt();
+    return mIdentifier == other.mIdentifier && mName == other.mName && mStatusType == other.mStatusType && mUpdatedAt == other.mUpdatedAt;
 }

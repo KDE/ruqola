@@ -14,12 +14,12 @@ WelcomeWidget::WelcomeWidget(QWidget *parent)
     : QWidget{parent}
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     mainLayout->addStretch(1);
 
     auto addAccountButton = new QPushButton(i18nc("@action:button", "Add Account…"), this);
-    addAccountButton->setObjectName("addAccountButton"_L1);
+    addAccountButton->setObjectName(u"addAccountButton"_s);
     addAccountButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     connect(addAccountButton, &QPushButton::clicked, this, &WelcomeWidget::createNewAccount);
     mainLayout->addWidget(addAccountButton);

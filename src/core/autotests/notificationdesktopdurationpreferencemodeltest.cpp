@@ -17,7 +17,7 @@ NotificationDesktopDurationPreferenceModelTest::NotificationDesktopDurationPrefe
 
 void NotificationDesktopDurationPreferenceModelTest::shouldHaveDefaultValue()
 {
-    NotificationDesktopDurationPreferenceModel w;
+    const NotificationDesktopDurationPreferenceModel w;
     QCOMPARE(w.rowCount(), 6);
 
     // FIXME QCOMPARE(w.currentPreference(), 0);

@@ -9,14 +9,13 @@
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
-#include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
 #include <QListView>
 #include <QPainter>
 #include <QToolTip>
+#include <utility>
 
-#include "colorsandmessageviewstyle.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
@@ -42,13 +41,14 @@ ListDiscussionDelegate::~ListDiscussionDelegate() = default;
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
+    drawBackground(painter, option, index);
 
     const Layout layout = doLayout(option, index);
 
     // Draw the pixmap
     if (!layout.avatarPixmap.isNull()) {
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.size()), layout.avatarPos, layout.avatarPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.deviceIndependentSize()), layout.avatarPixmap);
 #else
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 #endif
@@ -81,9 +81,8 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const QString messageStr = i18np("%1 message", "%1 messages", layout.numberOfMessages) + u' ' + layout.lastMessageTimeText;
     DelegatePaintUtil::drawLighterText(painter, messageStr, QPoint(layout.textRect.left(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
-    const QString discussionsText = i18n("Open Discussion");
     painter->setPen(option.palette.link().color());
-    painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
+    painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), layout.openDiscussionText);
 
     // debug
     // painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
@@ -94,11 +93,13 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    auto it = mSizeHintCache.find(identifier);
-    if (it != mSizeHintCache.end()) {
-        const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "ListDiscussionDelegate: SizeHint found in cache: " << result;
-        return result;
+    if (!identifier.isEmpty()) {
+        auto it = mSizeHintCache.find(identifier);
+        if (it != mSizeHintCache.end()) {
+            const QSize result = it->value;
+            qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "ListDiscussionDelegate: SizeHint found in cache: " << result;
+            return result;
+        }
     }
 #endif
     // Note: option.rect in this method is huge (as big as the viewport)
@@ -110,8 +111,8 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
         additionalHeight += 4;
     }
 
-    // contents is date + text
-    const int contentsHeight = layout.openDiscussionTextY + layout.textRect.height() - option.rect.y();
+    // contents is text + number of messages/timestamp + "open discussion" line
+    const int contentsHeight = qRound(layout.openDiscussionTextY + layout.openDiscussionTextHeight) - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
@@ -120,7 +121,7 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if (!size.isEmpty()) {
+    if (!size.isEmpty() && !identifier.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif
@@ -149,7 +150,7 @@ bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView 
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
 bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -159,8 +160,10 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
         auto mev = static_cast<QMouseEvent *>(event);
         const Layout layout = doLayout(option, index);
 
-        const QRect discussionRect(layout.textRect.x(), layout.openDiscussionTextY, layout.textRect.width(), layout.openDiscussionTextHeight);
-        if (discussionRect.contains(mev->pos())) {
+        // Only follow the link when the press started on it too, otherwise a text selection
+        // ending over the link would open the discussion.
+        const QPersistentModelIndex pressedIndex = std::exchange(mOpenDiscussionPressedIndex, {});
+        if (pressedIndex == index && openDiscussionRect(layout, option).contains(mev->pos())) {
             const QByteArray discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toByteArray();
             Q_EMIT openDiscussion(discussionRoomId);
             return true;
@@ -172,12 +175,21 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
         auto mev = static_cast<QMouseEvent *>(event);
         if (mev->buttons() & Qt::LeftButton) {
             const Layout layout = doLayout(option, index);
+            if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseButtonDblClick) {
+                mOpenDiscussionPressedIndex = openDiscussionRect(layout, option).contains(mev->pos()) ? QPersistentModelIndex(index) : QPersistentModelIndex();
+            }
             if (handleMouseEvent(mev, layout.textRect, option, index)) {
                 return true;
             }
         }
     }
     return false;
+}
+
+QRect ListDiscussionDelegate::openDiscussionRect(const Layout &layout, const QStyleOptionViewItem &option)
+{
+    const int width = option.fontMetrics.horizontalAdvance(layout.openDiscussionText);
+    return QRect(layout.textRect.x(), qRound(layout.openDiscussionTextY), width, qRound(layout.openDiscussionTextHeight));
 }
 
 QPoint ListDiscussionDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
@@ -210,11 +222,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
-    const QPixmap pix = makeAvatarPixmap(option.widget, index, senderTextSize.height());
-    if (!pix.isNull()) {
-        const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        layout.avatarPixmap = scaledPixmap;
-    }
+    layout.avatarPixmap = makeAvatarPixmap(option.widget, index, senderTextSize.height());
 
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
 
@@ -239,23 +247,28 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 
     layout.numberOfMessages = index.data(DiscussionsModel::NumberOfMessages).toInt();
 
+    layout.openDiscussionText = i18n("Open Discussion");
     layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
     layout.openDiscussionTextHeight = option.fontMetrics.height();
 
     return layout;
 }
 
-QByteArray ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray ListDiscussionDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toByteArray();
-    Q_ASSERT(!discussionRoomId.isEmpty());
     return discussionRoomId;
 }
 
 QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
-    Q_ASSERT(index.isValid());
+    if (!index.isValid()) {
+        return nullptr;
+    }
     const QByteArray messageId = cacheIdentifier(index);
+    if (messageId.isEmpty()) {
+        return nullptr;
+    }
     const QString messageStr = index.data(DiscussionsModel::Description).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageStr, width);
 }

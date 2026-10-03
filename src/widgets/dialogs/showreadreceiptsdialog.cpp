@@ -5,15 +5,11 @@
 */
 
 #include "showreadreceiptsdialog.h"
-#include "rocketchataccount.h"
 #include "showreadreceiptswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowReadReceiptsDialogGroupName[] = "ShowReadReceiptsDialog";
@@ -23,7 +19,6 @@ using namespace Qt::Literals::StringLiterals;
 ShowReadReceiptsDialog::ShowReadReceiptsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowReadReceiptsWidget(new ShowReadReceiptsWidget(account, this))
-    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Read Receipts"));
     auto mainLayout = new QVBoxLayout(this);
@@ -40,24 +35,11 @@ ShowReadReceiptsDialog::ShowReadReceiptsDialog(RocketChatAccount *account, QWidg
     readConfig();
 }
 
-ShowReadReceiptsDialog::~ShowReadReceiptsDialog()
-{
-    writeConfig();
-}
+ShowReadReceiptsDialog::~ShowReadReceiptsDialog() = default;
 
 void ShowReadReceiptsDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowReadReceiptsDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowReadReceiptsDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowReadReceiptsDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowReadReceiptsDialogGroupName), QSize(800, 600));
 }
 
 void ShowReadReceiptsDialog::setMessageId(const QByteArray &roomId)

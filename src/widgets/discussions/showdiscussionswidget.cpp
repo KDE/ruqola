@@ -8,7 +8,6 @@
 
 #include "discussionlistview.h"
 #include "model/discussionsfilterproxymodel.h"
-#include "rocketchataccount.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QLabel>
@@ -18,6 +17,7 @@
 #include "config-ruqola.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -53,7 +53,9 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mainLayout->addWidget(mTextToSpeechWidget);
-    connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+    });
 #endif
 
     mListDiscussionsListView->setObjectName(u"mListDiscussions"_s);
@@ -64,6 +66,7 @@ ShowDiscussionsWidget::~ShowDiscussionsWidget()
 {
     // Don't keep in memory list of messages
     if (mDiscussionModel) {
+        mDiscussionModel->setFilterString(QString());
         mDiscussionModel->clear();
     }
 }
@@ -71,21 +74,35 @@ ShowDiscussionsWidget::~ShowDiscussionsWidget()
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {
     mListDiscussionsListView->setSearchText(str);
-    mDiscussionModel->setFilterString(str);
+    if (mDiscussionModel) {
+        mDiscussionModel->setFilterString(str);
+    }
     updateLabel();
 }
 
 void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
 {
+    if (mDiscussionModel == model) {
+        return;
+    }
+    if (mDiscussionModel) {
+        disconnect(mDiscussionModel, nullptr, this, nullptr);
+    }
     mListDiscussionsListView->setModel(model);
     mDiscussionModel = model;
-    connect(mDiscussionModel, &DiscussionsFilterProxyModel::hasFullListChanged, this, &ShowDiscussionsWidget::updateLabel);
-    connect(mDiscussionModel, &DiscussionsFilterProxyModel::loadingInProgressChanged, this, &ShowDiscussionsWidget::updateLabel);
+    if (mDiscussionModel) {
+        connect(mDiscussionModel, &DiscussionsFilterProxyModel::hasFullListChanged, this, &ShowDiscussionsWidget::updateLabel);
+        connect(mDiscussionModel, &DiscussionsFilterProxyModel::loadingInProgressChanged, this, &ShowDiscussionsWidget::updateLabel);
+    }
     updateLabel();
 }
 
 void ShowDiscussionsWidget::updateLabel()
 {
+    if (!mDiscussionModel) {
+        mDiscussionInfoLabel->clear();
+        return;
+    }
     if (mDiscussionModel->loadMoreDiscussionsInProgress()) {
         mDiscussionInfoLabel->setText(i18n("Loading…"));
     } else {

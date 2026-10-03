@@ -71,14 +71,7 @@ QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
     case CustomEmojiRoles::Aliases:
         return customEmoji.aliases().join(u',');
     case CustomEmojiRoles::AliasesWithoutDoublePoint: {
-        const QStringList aliases = customEmoji.aliases();
-        QString aliasStr;
-        for (QString alias : aliases) {
-            if (!aliasStr.isEmpty()) {
-                aliasStr += u',';
-            }
-            aliasStr += alias.remove(u':');
-        }
+        const QString aliasStr = customEmoji.aliases().join(u',').remove(u':');
         return aliasStr;
     }
     case CustomEmojiRoles::Icon:
@@ -103,12 +96,10 @@ void AdminCustomEmojiModel::clear()
 
 void AdminCustomEmojiModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mCustomEmojiList.clear();
     mCustomEmojiList.parseCustomEmojis(obj);
-    if (!mCustomEmojiList.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -123,14 +114,11 @@ const CustomEmojisInfo &AdminCustomEmojiModel::customEmojis() const
     return mCustomEmojiList;
 }
 
-void AdminCustomEmojiModel::setCustomEmojis(const CustomEmojisInfo &newCustomEmojis)
+void AdminCustomEmojiModel::setCustomEmojis(CustomEmojisInfo newCustomEmojis)
 {
-    clear();
-    if (!newCustomEmojis.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newCustomEmojis.count() - 1);
-        mCustomEmojiList = newCustomEmojis;
-        endInsertRows();
-    }
+    beginResetModel();
+    mCustomEmojiList = std::move(newCustomEmojis);
+    endResetModel();
 }
 
 void AdminCustomEmojiModel::removeElement(const QByteArray &identifier)
@@ -151,9 +139,16 @@ void AdminCustomEmojiModel::removeElement(const QByteArray &identifier)
 void AdminCustomEmojiModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mCustomEmojiList.count();
-    mCustomEmojiList.parseCustomEmojis(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mCustomEmojiList.count() - 1);
-    endInsertRows();
+    CustomEmojisInfo customEmojiList = mCustomEmojiList;
+    customEmojiList.parseMoreCustomEmojis(obj);
+    const int newNumberOfElement = customEmojiList.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mCustomEmojiList = std::move(customEmojiList);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mCustomEmojiList = std::move(customEmojiList);
+    }
     checkFullList();
 }
 

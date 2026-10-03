@@ -58,13 +58,8 @@ bool SyncThreadMessagesJob::start()
 
 void SyncThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SyncThreadMessagesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT syncThreadMessagesDone(replyObject, mThreadMessageId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SyncThreadMessagesJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SyncThreadMessagesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT syncThreadMessagesDone(*replyObject, mThreadMessageId);
     }
 }
 

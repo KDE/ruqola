@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "emoji/emojicustomcreatejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -39,7 +38,7 @@ void EmojiCustomCreateJobTest::shouldGenerateRequest()
 
 void EmojiCustomCreateJobTest::shouldGenerateJson()
 {
-    EmojiCustomCreateJob job;
+    const EmojiCustomCreateJob job;
     // TODO
     //    const QString emojiId = u"foo1"_s;
     //    job.setEmojiId(emojiId);

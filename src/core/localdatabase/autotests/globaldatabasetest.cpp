@@ -40,7 +40,7 @@ void GlobalDatabaseTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    GlobalDatabase globalDataBase;
+    const GlobalDatabase globalDataBase;
     QFile::remove(globalDataBase.dbFileName(accountName()));
 }
 
@@ -88,7 +88,7 @@ void GlobalDatabaseTest::shouldGenerateIdentifier_data()
 
 void GlobalDatabaseTest::shouldVerifyDbFileName()
 {
-    GlobalDatabase accountDataBase;
+    const GlobalDatabase accountDataBase;
     QCOMPARE(accountDataBase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/global/myAccount/myAccount.sqlite"_s);
 }

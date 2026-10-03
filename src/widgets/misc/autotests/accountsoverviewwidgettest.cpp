@@ -21,7 +21,7 @@ AccountsOverviewWidgetTest::AccountsOverviewWidgetTest(QObject *parent)
 
 void AccountsOverviewWidgetTest::shouldHaveDefaultValues()
 {
-    AccountsOverviewWidget w;
+    const AccountsOverviewWidget w;
     auto mTabBar = w.findChild<QTabBar *>(u"mTabBar"_s);
     QVERIFY(mTabBar);
     QCOMPARE(mTabBar->shape(), QTabBar::RoundedSouth);

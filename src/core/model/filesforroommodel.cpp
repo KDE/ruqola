@@ -21,7 +21,7 @@ FilesForRoomModel::~FilesForRoomModel()
 
 void FilesForRoomModel::checkFullList()
 {
-    setHasFullList(mFileAttachments->fileAttachments().count() == mFileAttachments->total());
+    setHasFullList(mFileAttachments->list().count() == mFileAttachments->total());
 }
 
 bool FilesForRoomModel::loadMoreFilesInProgress() const
@@ -46,10 +46,17 @@ void FilesForRoomModel::clear()
 
 void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
-    const int numberOfElement = mFileAttachments->fileAttachments().count();
-    mFileAttachments->parseMoreFileAttachments(fileAttachmentsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mFileAttachments->fileAttachments().count() - 1);
-    endInsertRows();
+    const int numberOfElement = mFileAttachments->count();
+    FileAttachments fileAttachments = *mFileAttachments;
+    fileAttachments.parseMoreFileAttachments(fileAttachmentsObj);
+    const int newNumberOfElement = fileAttachments.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        *mFileAttachments = std::move(fileAttachments);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        *mFileAttachments = std::move(fileAttachments);
+    }
     checkFullList();
 }
 
@@ -63,14 +70,10 @@ void FilesForRoomModel::initialize()
 void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId)
 {
     mRoomId = roomId;
-    if (rowCount() != 0) {
-        clear();
-    }
+    beginResetModel();
+    mFileAttachments->clear();
     mFileAttachments->parseFileAttachments(fileAttachmentsObj);
-    if (!mFileAttachments->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -85,14 +88,11 @@ void FilesForRoomModel::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void FilesForRoomModel::setFiles(const QList<File> &files)
+void FilesForRoomModel::setFiles(QList<File> files)
 {
-    clear();
-    if (!files.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, files.count() - 1);
-        mFileAttachments->setFileAttachments(files);
-        endInsertRows();
-    }
+    beginResetModel();
+    mFileAttachments->setList(std::move(files));
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -103,16 +103,16 @@ int FilesForRoomModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    return mFileAttachments->fileAttachments().count();
+    return mFileAttachments->list().count();
 }
 
 QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mFileAttachments->fileAttachments().count()) {
+    if (index.row() < 0 || index.row() >= mFileAttachments->list().count()) {
         return {};
     }
 
-    const File &file = mFileAttachments->fileAttachments()[index.row()];
+    const File &file = mFileAttachments->list()[index.row()];
     switch (role) {
     case FilePointer:
         return QVariant::fromValue(&file);

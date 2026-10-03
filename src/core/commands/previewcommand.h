@@ -8,7 +8,8 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QString>
-
+class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT PreviewCommand
 {
     Q_GADGET
@@ -24,7 +25,6 @@ public:
     Q_ENUM(TypePreview);
 
     PreviewCommand();
-    ~PreviewCommand();
     [[nodiscard]] QString id() const;
     void setId(const QString &newId);
 
@@ -42,7 +42,7 @@ public:
     [[nodiscard]] bool isValid() const;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT PreviewCommand::TypePreview convertStringToPreviewType(const QString &str) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT PreviewCommand::TypePreview convertStringToPreviewType(const QString &str);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString convertPreviewTypeToString() const;
     QString mId;
     QString mValue;
@@ -51,5 +51,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(PreviewCommand, Ruqola_PreviewCommand, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(PreviewCommand, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PreviewCommand &t);

@@ -36,12 +36,11 @@ public:
     void parseElements(const QJsonObject &obj) override;
     void addMoreElements(const QJsonObject &obj) override;
 
-    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
-
     void setRoles(const QList<RoleInfo> &newRoles);
+    [[nodiscard]] QList<int> hideColumns() const override;
 
 protected:
-    [[nodiscard]] QList<int> hideColumns() const override;
+    [[nodiscard]] int columnCount(const QModelIndex &parent = {}) const override;
     [[nodiscard]] virtual Users::ParseType parseType() const;
     Users mUsers;
     QList<RoleInfo> mRoleInfo;

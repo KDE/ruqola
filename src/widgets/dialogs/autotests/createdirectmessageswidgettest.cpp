@@ -20,7 +20,7 @@ CreateDirectMessagesWidgetTest::CreateDirectMessagesWidgetTest(QObject *parent)
 
 void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
 {
-    CreateDirectMessagesWidget w(nullptr);
+    const CreateDirectMessagesWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

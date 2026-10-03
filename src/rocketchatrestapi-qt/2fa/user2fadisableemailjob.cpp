@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
-#include <KLocalizedString>
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -28,20 +27,15 @@ bool User2FADisableEmailJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("User2FADisableEmailJob::start");
+    addStartRestApiInfo("User2FADisableEmailJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void User2FADisableEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("User2FADisableEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("User2FADisableEmailJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT disableEmailDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("User2FADisableEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

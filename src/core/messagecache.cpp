@@ -30,11 +30,15 @@ ThreadMessageModel *MessageCache::threadMessageModel(const QByteArray &threadMes
     } else if (!mThreadMessageJobs.contains(threadMessageId)) {
         // Load the base msg of the thread
         auto job = new RocketChatRestApi::GetThreadMessagesJob(this);
-        mThreadMessageJobs.insert(threadMessageId, job);
         job->setThreadMessageId(threadMessageId);
         connect(job, &RocketChatRestApi::GetThreadMessagesJob::getThreadMessagesDone, this, &MessageCache::slotGetThreadMessagesDone);
+        connect(job, &RocketChatRestApi::GetThreadMessagesJob::failed, this, [this, threadMessageId]() {
+            mThreadMessageJobs.remove(threadMessageId);
+        });
         if (!startJob(job)) {
             qCDebug(RUQOLA_LOG) << "Impossible to start GetThreadMessagesJob";
+        } else {
+            mThreadMessageJobs.insert(threadMessageId, job);
         }
     }
     return nullptr;
@@ -50,12 +54,16 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
 
         const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info = generateMethodCallInfo(messageId);
         job->setMethodCallJobInfo(info);
-        mMessageJobs.insert(messageId, job);
         connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, messageId](const QJsonObject &replyObj) {
             slotGetSingleMessageDone(replyObj, messageId);
         });
+        connect(job, &RocketChatRestApi::MethodCallJob::failed, this, [this, messageId]() {
+            mMessageJobs.remove(messageId);
+        });
         if (!startJob(job)) {
             qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
+        } else {
+            mMessageJobs.insert(messageId, job);
         }
     }
     return nullptr;
@@ -94,19 +102,6 @@ void MessageCache::slotGetSingleMessageDone(const QJsonObject &obj, const QByteA
     } else {
         qCWarning(RUQOLA_LOG) << " Message " << messageId << " invalid" << obj;
     }
-}
-
-void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QByteArray &messageId)
-{
-    const QJsonObject msgObject = obj["message"_L1].toObject();
-    Q_ASSERT(!msgObject.isEmpty());
-    auto message = new Message;
-    message->parseMessage(msgObject, true, nullptr);
-    const QByteArray msgId = message->messageId();
-    Q_ASSERT(messageId == msgId);
-    mMessages.insert(msgId, message);
-    mMessageJobs.remove(messageId);
-    Q_EMIT messageLoaded(msgId);
 }
 
 bool MessageCache::startJob(RocketChatRestApi::RestApiAbstractJob *job)

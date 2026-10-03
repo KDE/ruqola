@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "queryparameters.h"
-#include "restapimethod.h"
 #include <QTest>
 
 #include <QUrlQuery>
@@ -21,7 +20,7 @@ QueryParametersTest::QueryParametersTest(QObject *parent)
 
 void QueryParametersTest::shouldHaveDefaultValue()
 {
-    RocketChatRestApi::QueryParameters query;
+    const RocketChatRestApi::QueryParameters query;
     QCOMPARE(query.count(), -1);
     QCOMPARE(query.offset(), -1);
     QVERIFY(!query.isValid());

@@ -27,20 +27,15 @@ bool ChannelAddLeaderJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelAddLeaderJob::start");
+    addStartRestApiInfo("ChannelAddLeaderJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void ChannelAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelAddLeaderJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChannelAddLeaderJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addLeaderDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelAddLeaderJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -62,7 +57,7 @@ bool ChannelAddLeaderJob::requireHttpAuthentication() const
 bool ChannelAddLeaderJob::canStart() const
 {
     if (mAddLeaderUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddLeaderJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddLeaderJob: leader userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

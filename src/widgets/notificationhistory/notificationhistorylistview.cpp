@@ -14,6 +14,7 @@
 
 #include <QMenu>
 #include <QMouseEvent>
+#include <QScrollBar>
 
 #include "config-ruqola.h"
 
@@ -31,6 +32,7 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     });
     connect(this, &QListView::customContextMenuRequested, this, &NotificationHistoryListView::slotCustomContextMenuRequested);
     connect(this, &NotificationHistoryListView::needToClearSizeHintCache, mListNotificationsDelegate, &NotificationHistoryDelegate::clearSizeHintCache);
+    connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListViewBase::maybeScrollToBottom);
 }
 
 NotificationHistoryListView::~NotificationHistoryListView() = default;
@@ -48,6 +50,12 @@ bool NotificationHistoryListView::mouseEvent(QMouseEvent *event, const QStyleOpt
 void NotificationHistoryListView::clearCache()
 {
     mListNotificationsDelegate->clearCache();
+    mListNotificationsDelegate->clearSizeHintCache();
+}
+
+void NotificationHistoryListView::clearSizeHintCache()
+{
+    mListNotificationsDelegate->clearSizeHintCache();
 }
 
 void NotificationHistoryListView::slotSelectAll(const QModelIndex &index)
@@ -63,6 +71,7 @@ const QString &NotificationHistoryListView::searchText() const
 void NotificationHistoryListView::setSearchText(const QString &newSearchText)
 {
     mListNotificationsDelegate->setSearchText(newSearchText);
+    clearSizeHintCache();
 }
 
 QString NotificationHistoryListView::selectedText() const
@@ -72,7 +81,7 @@ QString NotificationHistoryListView::selectedText() const
 
 void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    if (model()->rowCount() > 0) {
+    if (model() && model()->rowCount() > 0) {
         QMenu menu(this);
         menu.addAction(QIcon::fromTheme(u"edit-clear-history"_s), i18nc("@action", "Clear"), this, &NotificationHistoryListView::slotClearList);
         const QModelIndex index = indexAt(pos);
@@ -101,7 +110,7 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
                 copyMessageToClipboard(index);
             });
             menu.addAction(copyAction);
-            if (mListNotificationsDelegate->hasSelection()) {
+            if (hasSelection()) {
                 addTextPlugins(&menu, mListNotificationsDelegate->selectedText());
             }
 #if HAVE_TEXT_TO_SPEECH

@@ -17,11 +17,14 @@
 #include <QSqlTableModel>
 
 static const char s_schemaRoomDataBase[] = "CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+namespace
+{
 enum class RoomFields {
     RoomId,
     TimeStamp,
     Json,
 }; // in the same order as the table
+}
 
 using namespace Qt::Literals::StringLiterals;
 LocalRoomsDatabase::LocalRoomsDatabase()
@@ -40,14 +43,15 @@ void LocalRoomsDatabase::updateRoom(const QString &accountName, Room *room)
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceRoom(), db);
+        QSqlQuery query(db);
+        query.prepare(LocalDatabaseUtils::insertReplaceRoom());
         query.addBindValue(QString::fromLatin1(room->roomId()));
         query.addBindValue(room->updatedAt()); // TODO ?
         query.addBindValue(Room::serialize(room, false)); // TODO use binary ?
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("Update room " + room->displayRoomName().toUtf8() + " in account " + accountName.toUtf8());
+            mRuqolaLogger->dataSaveFromDatabase("Update room "_ba + room->displayRoomName().toUtf8() + " in account "_ba + accountName.toUtf8());
         }
     }
 }
@@ -60,12 +64,13 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QByteArray
         qCDebug(RUQOLA_DATABASE_LOG) << "Database not found for: " << accountName << " roomId " << roomId;
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteRoom(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteRoom());
     query.addBindValue(QString::fromLatin1(roomId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMS table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete room " + roomId + " in account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete room "_ba + roomId + " in account "_ba + accountName.toUtf8());
     }
 }
 
@@ -128,7 +133,7 @@ QList<QByteArray> LocalRoomsDatabase::loadRooms(const QString &accountName)
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
 
-    const QString query = u"SELECT * FROM ROOMS"_s;
+    const QString query = u"SELECT json FROM ROOMS"_s;
     QSqlQuery resultQuery(db);
     if (!resultQuery.prepare(query)) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Invalid query" << query << " resultQuery " << resultQuery.lastError().text();
@@ -140,9 +145,9 @@ QList<QByteArray> LocalRoomsDatabase::loadRooms(const QString &accountName)
     }
 
     while (resultQuery.next()) {
-        const QByteArray value = resultQuery.value(u"json"_s).toString().toUtf8();
+        QByteArray value = resultQuery.value(0).toByteArray();
         // qDebug() << " value " << value;
-        infos.append(value);
+        infos.append(std::move(value));
     }
     return infos;
 }

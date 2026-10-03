@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2019-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -7,7 +7,6 @@
 #include "roomstartdiscussionjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "rooms/roomstartdiscussionjob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -53,29 +52,27 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     job.setParentRoomId(pRid);
     const QString discussionName = u"bla"_s;
     job.setDiscussionName(discussionName);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","t_name":"%2"})").arg(QLatin1StringView(pRid), discussionName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"prid":"%1","t_name":"%2"})"_s.arg(QLatin1StringView(pRid), discussionName).toLatin1());
     const QString replyMessage = u"Bli"_s;
     job.setReplyMessage(replyMessage);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3"})").arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
+             uR"({"prid":"%1","reply":"%2","t_name":"%3"})"_s.arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
 
-    const QList<QByteArray> users{QByteArrayLiteral("aaa"), QByteArrayLiteral("bbb"), "ddd"_ba};
+    const QList<QByteArray> users{"aaa"_ba, "bbb"_ba, "ddd"_ba};
     job.setUsers(users);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
-                 .arg(QLatin1StringView(pRid), replyMessage, discussionName)
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        uR"({"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})"_s.arg(QLatin1StringView(pRid), replyMessage, discussionName).toLatin1());
 
     job.setEncrypted(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})")
-                 .arg(QLatin1StringView(pRid), replyMessage, discussionName)
-                 .toLatin1());
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        uR"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","users":["aaa","bbb","ddd"]})"_s.arg(QLatin1StringView(pRid), replyMessage, discussionName)
+            .toLatin1());
     const QString topic = u"topic"_s;
     job.setTopic(topic);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","topic":"%4","users":["aaa","bbb","ddd"]})")
+             uR"({"encrypted":true,"prid":"%1","reply":"%2","t_name":"%3","topic":"%4","users":["aaa","bbb","ddd"]})"_s
                  .arg(QLatin1StringView(pRid), replyMessage, discussionName, topic)
                  .toLatin1());
 }
@@ -84,19 +81,7 @@ void RoomStartDiscussionJobTest::shouldNotStarting()
 {
     RoomStartDiscussionJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray pRid("foo1");
     job.setParentRoomId(pRid);
     QVERIFY(!job.canStart());

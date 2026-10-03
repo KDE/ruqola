@@ -37,6 +37,7 @@ void ConfigureAccessibilityWidget::save()
 {
     if (mWasInitialized) {
         RuqolaGlobalConfig::self()->setEnableTextToSpeech(mEnableTextToSpeech->isChecked());
+        RuqolaGlobalConfig::self()->save();
         mTextToSpeechWidget->writeConfig();
         TextEditTextToSpeech::TextToSpeech::self()->reloadSettings();
     }

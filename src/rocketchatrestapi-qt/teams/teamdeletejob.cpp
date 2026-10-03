@@ -29,7 +29,7 @@ bool TeamDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("TeamDeleteJob::start");
+    addStartRestApiInfo("TeamDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -37,14 +37,8 @@ bool TeamDeleteJob::start()
 
 void TeamDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamDeleteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("TeamDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deleteTeamDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

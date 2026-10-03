@@ -25,23 +25,18 @@ UsersForRoomModel::~UsersForRoomModel() = default;
 
 void UsersForRoomModel::setUsers(const QList<User> &users)
 {
-    if (mUsers.isEmpty()) {
-        if (!users.isEmpty()) {
-            beginInsertRows(QModelIndex(), 0, users.count() - 1);
-            mUsers = users;
-            endInsertRows();
+    const int numberOfElement = mUsers.count();
+    mUsers.reserve(numberOfElement + users.count());
+    for (const auto &u : users) {
+        const QByteArray userId = u.userId();
+        if (!mUserIds.contains(userId)) {
+            mUsers << u;
+            mUserIds.insert(userId);
         }
-    } else {
-        const int numberOfElement = mUsers.count();
-        for (const auto &u : users) {
-            if (!mUsers.contains(u)) {
-                mUsers << u;
-            }
-        }
-        if (mUsers.count() > numberOfElement) {
-            beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
-            endInsertRows();
-        }
+    }
+    if (mUsers.count() > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
+        endInsertRows();
     }
     checkFullList();
 }
@@ -51,6 +46,7 @@ void UsersForRoomModel::clear()
     if (!mUsers.isEmpty()) {
         beginResetModel();
         mUsers.clear();
+        mUserIds.clear();
         endResetModel();
     }
 }
@@ -99,10 +95,10 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user) const
+UsersForRoomModel::SectionStatus UsersForRoomModel::section(const User &user)
 {
     const QStringList roles = user.roles();
-    if (roles.contains(u"owner"_s)) {
+    if (roles.contains("owner"_L1)) {
         return UsersForRoomModel::SectionStatus::Owner;
     }
     switch (user.status()) {
@@ -125,7 +121,7 @@ int UsersForRoomModel::numberUsersWithoutFilter() const
     return mNumberUsersWithoutFilter;
 }
 
-QString UsersForRoomModel::generateDisplayName(const User &user) const
+QString UsersForRoomModel::generateDisplayName(const User &user)
 {
     const QString displayName = u"<a href=\'%1\'>%1</a>"_s.arg(user.userName().isEmpty() ? user.name() : user.userName());
     return displayName;
@@ -174,7 +170,7 @@ void UsersForRoomModel::setTotal(int total)
     mTotal = total;
 }
 
-Utils::AvatarInfo UsersForRoomModel::avatarInfo(const User &user) const
+Utils::AvatarInfo UsersForRoomModel::avatarInfo(const User &user)
 {
     const Utils::AvatarInfo info{
         .etag = {},
@@ -194,7 +190,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         const QJsonArray members = root["members"_L1].toArray();
         QList<User> users;
         users.reserve(members.count());
-        for (const QJsonValue &current : members) {
+        for (const auto &current : members) {
             if (current.type() == QJsonValue::Object) {
                 const QJsonObject userObject = current.toObject();
                 const QString userName = userObject["username"_L1].toString();
@@ -241,7 +237,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
 
             QList<User> users;
             users.reserve(records.count());
-            for (const QJsonValue &current : records) {
+            for (const auto &current : records) {
                 if (current.type() == QJsonValue::Object) {
                     const QJsonObject userObject = current.toObject();
                     const QString userName = userObject["username"_L1].toString();
@@ -280,7 +276,8 @@ void UsersForRoomModel::setUserStatusChanged(const User &newuser)
         if (newuser.userId() == user.userId()) {
             user.setStatus(newuser.status());
             const QModelIndex idx = createIndex(i, 0);
-            Q_EMIT dataChanged(idx, idx);
+            // section() switches on status(), so Section must be listed or the grouping proxy misses the move.
+            Q_EMIT dataChanged(idx, idx, {IconStatus, Status, StatusStr, Section, Qt::DecorationRole});
             Q_EMIT userStatusChanged(user.userId());
             break;
         }

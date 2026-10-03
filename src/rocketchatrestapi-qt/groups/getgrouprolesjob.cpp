@@ -5,7 +5,6 @@
 */
 
 #include "getgrouprolesjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GetGroupRolesJob::GetGroupRolesJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -37,13 +37,13 @@ bool GetGroupRolesJob::canStart() const
 bool GetGroupRolesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetGroupRolesJob";
         deleteLater();
         return false;
     }
 
     submitGetRequest();
-    addStartRestApiInfo("GetGroupRolesJob::start");
+    addStartRestApiInfo("GetGroupRolesJob::start"_ba);
 
     return true;
 }
@@ -70,13 +70,8 @@ QString GetGroupRolesJob::jobName() const
 
 void GetGroupRolesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetGroupRolesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT groupRolesDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetGroupRolesJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetGroupRolesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT groupRolesDone(*replyObject, channelGroupInfo());
     }
 }
 

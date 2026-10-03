@@ -21,6 +21,8 @@ public:
 
     [[nodiscard]] QList<ImportExportUtils::AccountImportExportInfo> selectedAccounts() const;
 
+    [[nodiscard]] bool hasSelectedAccounts() const;
+
 Q_SIGNALS:
     void selectedItemChanged();
 

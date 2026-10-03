@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QSharedData>
 #include <QString>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT ModerationMessage : public QSharedData
 {
@@ -41,5 +42,4 @@ private:
     QString mRoomName;
     QString mRoomFName;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationMessage &t);

@@ -29,7 +29,7 @@ QVariant BannerInfosModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mBannerInfos.count()) {
         return {};
     }
-    const auto info = mBannerInfos.at(index.row());
+    const auto &info = mBannerInfos.banners().at(index.row());
     switch (role) {
     case BannerInfosModel::Read: {
         return info.read();
@@ -48,7 +48,7 @@ QVariant BannerInfosModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QString BannerInfosModel::text(const BannerInfo &info) const
+QString BannerInfosModel::text(const BannerInfo &info)
 {
     QString str = BannerInfo::defaultText(info);
     if (!info.link().isEmpty()) {
@@ -67,14 +67,11 @@ void BannerInfosModel::clear()
     }
 }
 
-void BannerInfosModel::insertBannerInfos(const BannerInfos &infos)
+void BannerInfosModel::insertBannerInfos(BannerInfos infos)
 {
-    clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mBannerInfos = infos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mBannerInfos = std::move(infos);
+    endResetModel();
 }
 
 #include "moc_bannerinfosmodel.cpp"

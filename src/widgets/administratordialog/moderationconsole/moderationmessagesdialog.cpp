@@ -8,15 +8,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "moderationmessageswidget.h"
-#include "rocketchataccount.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -41,24 +37,11 @@ ModerationMessagesDialog::ModerationMessagesDialog(RocketChatAccount *account, Q
     readConfig();
 }
 
-ModerationMessagesDialog::~ModerationMessagesDialog()
-{
-    writeConfig();
-}
+ModerationMessagesDialog::~ModerationMessagesDialog() = default;
 
 void ModerationMessagesDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationMessagesDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ModerationMessagesDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationMessagesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myModerationMessagesDialogGroupName), QSize(800, 600));
 }
 
 void ModerationMessagesDialog::setModel(CommonMessageFilterProxyModel *model)

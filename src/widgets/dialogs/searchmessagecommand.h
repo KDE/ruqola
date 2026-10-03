@@ -12,7 +12,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageCommand
     Q_GADGET
 public:
     SearchMessageCommand();
-    ~SearchMessageCommand();
 
     enum SearchMessageCommandType : uint8_t {
         Unknown = 0,
@@ -31,4 +30,5 @@ public:
 
     [[nodiscard]] static QString generateCommandText(SearchMessageCommand::SearchMessageCommandType type);
     [[nodiscard]] static bool mustBeUnique(SearchMessageCommand::SearchMessageCommandType type);
+    [[nodiscard]] static bool needSpace(SearchMessageCommand::SearchMessageCommandType type);
 };

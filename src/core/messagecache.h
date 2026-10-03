@@ -10,7 +10,7 @@
 #include "misc/methodcalljob.h"
 #include "model/threadmessagemodel.h"
 #include <QCache>
-#include <QMap>
+#include <QHash>
 #include <QObject>
 
 class Message;
@@ -18,7 +18,6 @@ namespace RocketChatRestApi
 {
 class RestApiAbstractJob;
 class GetThreadMessagesJob;
-class GetMessageJob;
 }
 
 class LIBRUQOLACORE_EXPORT MessageCache : public QObject
@@ -41,13 +40,12 @@ protected:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QByteArray &threadMessageId);
-    LIBRUQOLACORE_NO_EXPORT void slotGetMessageDone(const QJsonObject &obj, const QByteArray &messageId);
     LIBRUQOLACORE_NO_EXPORT void slotGetSingleMessageDone(const QJsonObject &obj, const QByteArray &messageId);
 
-    mutable QMap<QByteArray, RocketChatRestApi::GetThreadMessagesJob *> mThreadMessageJobs;
+    mutable QHash<QByteArray, RocketChatRestApi::GetThreadMessagesJob *> mThreadMessageJobs;
     QCache<QByteArray, ThreadMessageModel> mThreadMessageModels;
 
-    mutable QMap<QByteArray, RocketChatRestApi::MethodCallJob *> mMessageJobs;
+    mutable QHash<QByteArray, RocketChatRestApi::MethodCallJob *> mMessageJobs;
     QCache<QByteArray, Message> mMessages;
     RocketChatAccount *const mRocketChatAccount;
 };

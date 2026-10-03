@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/appsuiinteractionjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -26,7 +25,7 @@ void AppsUiInteractionJobTest::shouldHaveDefaultValue()
     AppsUiInteractionJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    AppsUiInteractionJob::AppsUiInteractionJobInfo info;
+    const AppsUiInteractionJob::AppsUiInteractionJobInfo info;
     job.setAppsUiInteractionJobInfo(info);
     QVERIFY(job.requireHttpAuthentication());
 }
@@ -53,7 +52,7 @@ void AppsUiInteractionJobTest::shouldGenerateJson()
     info.methodName = u"login"_s;
     job.setAppsUiInteractionJobInfo(info);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({})"_s.toLatin1());
 
     QVariantMap map;
     map.insert(u"msg"_s, u"method"_s);
@@ -69,19 +68,7 @@ void AppsUiInteractionJobTest::shouldNotStarting()
 {
     AppsUiInteractionJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     // TODO
 }
 
@@ -109,21 +96,18 @@ void AppsUiInteractionJobTest::shouldTestGenerateMessageObj_data()
     QTest::addColumn<QString>("result");
 
     QTest::addRow("empty") << QString() << QString() << QString() << QByteArray() << QByteArray()
-                           << QStringLiteral(
-                                  "{\"actionId\":\"\",\"container\":{\"id\":\"\",\"type\":\"message\"},\"mid\":\"\",\"payload\":{\"blockId\":\"\",\"value\":"
-                                  "\"\"},\"rid\":\"\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
+                           << u"{\"actionId\":\"\",\"container\":{\"id\":\"\",\"type\":\"message\"},\"mid\":\"\",\"payload\":{\"blockId\":\"\",\"value\":"
+                              u"\"\"},\"rid\":\"\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}"_s;
 
-    QTest::addRow("test1") << u"act1"_s << QString() << u"blo1"_s << QByteArrayLiteral("room1") << "message1"_ba
-                           << QStringLiteral(
-                                  "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
-                                  "\"blockId\":\"blo1\",\"value\":\"\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
+    QTest::addRow("test1") << u"act1"_s << QString() << u"blo1"_s << "room1"_ba << "message1"_ba
+                           << u"{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
+                              u"\"blockId\":\"blo1\",\"value\":\"\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}"_s;
 
     QTest::addRow("test2") << u"act1"_s << u"[{\"_id\":\"HJ4EFjvEjYT73X\",\"username\":\"service\",\"name\":\"Service\",\"type\":\"user\"}]"_s << u"blo1"_s
-                           << QByteArrayLiteral("room1") << "message1"_ba
-                           << QStringLiteral(
-                                  "{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
-                                  "\"blockId\":\"blo1\",\"value\":\"[{\\\"_id\\\":\\\"HJ4EFjvEjYT73X\\\",\\\"username\\\":\\\"service\\\",\\\"name\\\":"
-                                  "\\\"Service\\\",\\\"type\\\":\\\"user\\\"}]\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}");
+                           << "room1"_ba << "message1"_ba
+                           << u"{\"actionId\":\"act1\",\"container\":{\"id\":\"message1\",\"type\":\"message\"},\"mid\":\"message1\",\"payload\":{"
+                              u"\"blockId\":\"blo1\",\"value\":\"[{\\\"_id\\\":\\\"HJ4EFjvEjYT73X\\\",\\\"username\\\":\\\"service\\\",\\\"name\\\":"
+                              u"\\\"Service\\\",\\\"type\\\":\\\"user\\\"}]\"},\"rid\":\"room1\",\"triggerId\":\"foo\",\"type\":\"blockAction\"}"_s;
 }
 
 #include "moc_appsuiinteractionjobtest.cpp"

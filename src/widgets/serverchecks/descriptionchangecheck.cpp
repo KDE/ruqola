@@ -21,15 +21,13 @@ QString DescriptionChangeCheck::name() const
     return i18n("Change channel description");
 }
 
-void DescriptionChangeCheck::sendDescription(const QString &topic)
+void DescriptionChangeCheck::sendDescription(const QString &description)
 {
     auto job = new RocketChatRestApi::ChangeChannelDescriptionJob(this);
     mAccount->restApi()->initializeRestApiJob(job);
     job->setRoomId(QString::fromLatin1(mRoomId));
-    job->setDescription(topic);
-    if (!job->start()) {
-        job->deleteLater();
-    }
+    job->setDescription(description);
+    std::ignore = job->start();
 }
 
 void DescriptionChangeCheck::doStart()

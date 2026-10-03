@@ -18,7 +18,6 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlTableModel>
-#include <QStandardPaths>
 #include <QTextStream>
 
 LocalMessageLogger::LocalMessageLogger()
@@ -27,12 +26,15 @@ LocalMessageLogger::LocalMessageLogger()
 }
 
 static const char s_schema[] = "CREATE TABLE LOGS (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, userName TEXT, text TEXT)";
-enum class Fields {
+namespace
+{
+enum class LogsFields {
     MessageId,
     TimeStamp,
     UserName,
     Text,
 }; // in the same order as the table
+}
 
 QString LocalMessageLogger::schemaDataBase() const
 {
@@ -41,31 +43,57 @@ QString LocalMessageLogger::schemaDataBase() const
 
 void LocalMessageLogger::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
+    addMessages(accountName, roomId, {m});
+}
+
+void LocalMessageLogger::addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages)
+{
     if (!RuqolaGlobalConfig::self()->enableLogging()) {
         return;
     }
+    if (messages.isEmpty()) {
+        return;
+    }
     QSqlDatabase db;
-    if (initializeDataBase(accountName, roomId, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceMessageFromLogs(), db);
-        query.addBindValue(QString::fromLatin1(m.messageId()));
-        query.addBindValue(m.timeStamp());
-        query.addBindValue(m.username());
-        query.addBindValue(generateTextFromMessage(m));
+    if (!initializeDataBase(accountName, roomId, db)) {
+        return;
+    }
+    QSqlQuery query(db);
+    if (!query.prepare(LocalDatabaseUtils::insertReplaceMessageFromLogs())) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't prepare insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
+        return;
+    }
+    // Without an explicit transaction each exec() is one of its own, i.e. one fsync per message.
+    const bool inTransaction = db.transaction();
+    if (!inTransaction) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't start a transaction on" << db.databaseName() << db.lastError();
+    }
+    for (const Message &m : messages) {
+        // Positional bindValue() overwrites, unlike addBindValue() which would append past the
+        // four placeholders on the second iteration.
+        query.bindValue(0, QString::fromLatin1(m.messageId()));
+        query.bindValue(1, m.timeStamp());
+        query.bindValue(2, m.username());
+        query.bindValue(3, generateTextFromMessage(m));
 
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
         }
     }
+    if (inTransaction && !db.commit()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't commit the LOGS batch in" << db.databaseName() << db.lastError();
+        db.rollback();
+    }
 }
 
-QString LocalMessageLogger::generateTextFromMessage(const Message &m) const
+QString LocalMessageLogger::generateTextFromMessage(const Message &m)
 {
     QString message;
     if (const QString txt = m.text(); !txt.isEmpty()) {
         message = txt;
     }
     if (m.attachments() && !m.attachments()->isEmpty()) {
-        const auto attachments = m.attachments()->messageAttachments();
+        const auto &attachments = m.attachments()->messageAttachments();
         for (const MessageAttachment &att : attachments) {
             if (!message.isEmpty()) {
                 message += u'\n';
@@ -99,7 +127,8 @@ void LocalMessageLogger::deleteMessage(const QString &accountName, const QByteAr
     if (!checkDataBase(accountName, roomId, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteMessageFromLogs(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteMessageFromLogs());
     query.addBindValue(messageId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
@@ -129,7 +158,7 @@ std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QSt
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"LOGS"_s);
-    model->setSort(int(Fields::TimeStamp), Qt::AscendingOrder);
+    model->setSort(int(LogsFields::TimeStamp), Qt::AscendingOrder);
     model->select();
     return model;
 }
@@ -146,9 +175,9 @@ bool LocalMessageLogger::saveToFile(QFile &file, const QString &accountName, con
     int rows = model->rowCount();
     for (int row = 0; row < rows; ++row) {
         const QSqlRecord record = model->record(row);
-        const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
-        const QString userName = record.value(int(Fields::UserName)).toString();
-        const QString text = record.value(int(Fields::Text)).toString();
+        const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(LogsFields::TimeStamp)).toULongLong());
+        const QString userName = record.value(int(LogsFields::UserName)).toString();
+        const QString text = record.value(int(LogsFields::Text)).toString();
         stream << "[" << timeStamp.toString(Qt::ISODate) << "] <" << userName << "> " << text << '\n';
         if (row == rows - 1 && model->canFetchMore()) {
             model->fetchMore();

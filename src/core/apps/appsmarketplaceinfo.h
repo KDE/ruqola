@@ -10,6 +10,8 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QPixmap>
+class QDebug;
+class QJsonArray;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
@@ -23,7 +25,7 @@ public:
             Yearly,
         };
 
-        [[nodiscard]] Strategy convertStringToStrategy(const QString &str) const;
+        [[nodiscard]] static Strategy convertStringToStrategy(const QString &str);
         [[nodiscard]] QString strategyToI18n() const;
         int price = -1;
         int trialDays = -1;
@@ -88,7 +90,6 @@ public:
         PermissionType type = PermissionType::Unknown;
     };
     AppsMarketPlaceInfo();
-    ~AppsMarketPlaceInfo();
 
     void parseAppsMarketPlaceInfo(const QJsonObject &replyObject);
 
@@ -157,6 +158,9 @@ public:
     [[nodiscard]] AppsMarketPlaceInstalledInfo installedInfo() const;
     void setInstalledInfo(const AppsMarketPlaceInstalledInfo &newInstalledInfo);
 
+    [[nodiscard]] QList<Permission> permissions() const;
+    void setPermissions(const QList<Permission> &newPermissions);
+
     void clearInstalledInfo();
     void changeApplicationStatus(const QString &str);
     [[nodiscard]] QString permissionsDescription() const;
@@ -192,6 +196,5 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(AppsMarketPlaceInfo, Ruqola_AppsMarketPlaceInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(AppsMarketPlaceInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AppsMarketPlaceInfo::PricePlan &t);

@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QUrl>
 #include <QWizard>
+class QDebug;
 class GenerateVideoMessagePage;
 class CreateVideoMessagePage;
 class CreateVideoMessageWidget;
@@ -33,9 +34,7 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentIdChanged(int id);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccepted();
     enum CreateVideoMessageEnum : uint8_t {
         CreateVideo,
         CreateMessage,
@@ -81,5 +80,4 @@ private:
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
 };
-class QDebug;
 LIBRUQOLAWIDGETS_TESTS_EXPORT QDebug operator<<(QDebug d, const CreateVideoMessageWizard::CreateVideoMessageInfo &t);

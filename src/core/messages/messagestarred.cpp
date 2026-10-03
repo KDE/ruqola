@@ -33,7 +33,7 @@ void MessageStarred::setIsStarred(bool isStarred)
 
 bool MessageStarred::operator==(MessageStarred other) const
 {
-    return mIsStarred == other.isStarred();
+    return mIsStarred == other.mIsStarred;
 }
 
 QDebug operator<<(QDebug d, MessageStarred t)

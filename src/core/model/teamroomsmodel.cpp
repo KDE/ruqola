@@ -54,7 +54,7 @@ QVariant TeamRoomsModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-Utils::AvatarInfo TeamRoomsModel::avatarInfo(const TeamRoom &room) const
+Utils::AvatarInfo TeamRoomsModel::avatarInfo(const TeamRoom &room)
 {
     const Utils::AvatarInfo info{
         .etag = {},
@@ -69,18 +69,11 @@ QList<TeamRoom> TeamRoomsModel::teamRooms() const
     return mTeamRooms;
 }
 
-void TeamRoomsModel::setTeamRooms(const QList<TeamRoom> &teamRooms)
+void TeamRoomsModel::setTeamRooms(QList<TeamRoom> teamRooms)
 {
-    if (!mTeamRooms.isEmpty()) {
-        beginResetModel();
-        mTeamRooms.clear();
-        endResetModel();
-    }
-    if (!teamRooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, teamRooms.count() - 1);
-        mTeamRooms = teamRooms;
-        endInsertRows();
-    }
+    beginResetModel();
+    mTeamRooms = std::move(teamRooms);
+    endResetModel();
 }
 
 void TeamRoomsModel::setRoomChanged(const TeamRoom &t)
@@ -91,17 +84,20 @@ void TeamRoomsModel::setRoomChanged(const TeamRoom &t)
         if (teamRoom.identifier() == t.identifier()) {
             teamRoom.setAutoJoin(t.autoJoin());
             const QModelIndex idx = createIndex(i, 0);
-            Q_EMIT dataChanged(idx, idx);
+            Q_EMIT dataChanged(idx, idx, {TeamRoomsModel::AutoJoin});
             break;
         }
     }
 }
 
-void TeamRoomsModel::insertRooms(const QList<TeamRoom> &teamRooms)
+void TeamRoomsModel::insertRooms(QList<TeamRoom> teamRooms)
 {
+    if (teamRooms.isEmpty()) {
+        return;
+    }
     const int count = mTeamRooms.count();
     beginInsertRows(QModelIndex(), count, count + teamRooms.count() - 1);
-    mTeamRooms.append(teamRooms);
+    mTeamRooms.append(std::move(teamRooms));
     endInsertRows();
 }
 
@@ -110,13 +106,13 @@ bool TeamRoomsModel::setData(const QModelIndex &index, const QVariant &value, in
     if (mIsCheckable) {
         if (role == Qt::CheckStateRole) {
             if (index.isValid()) {
-                Q_EMIT dataChanged(index, index);
                 const QByteArray roomId = data(index, TeamRoomsModel::Identifier).toByteArray();
                 if (value == Qt::Checked) {
-                    mRoomSelected.append(std::move(roomId));
+                    mRoomSelected.append(roomId);
                 } else {
                     mRoomSelected.removeAll(roomId);
                 }
+                Q_EMIT dataChanged(index, index);
                 return true;
             }
         }

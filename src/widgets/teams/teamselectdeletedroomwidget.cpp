@@ -49,15 +49,17 @@ void TeamSelectDeletedRoomWidget::slotTextChanged(const QString &str)
     mTeamSelectProxyModel->setFilterString(str);
 }
 
-void TeamSelectDeletedRoomWidget::setTeamRooms(const QList<TeamRoom> &rooms)
+void TeamSelectDeletedRoomWidget::setTeamRooms(QList<TeamRoom> rooms)
 {
-    mTeamRoomsModel->setTeamRooms(rooms);
+    mTeamRoomsModel->setTeamRooms(std::move(rooms));
 }
 
 QList<QByteArray> TeamSelectDeletedRoomWidget::roomsId() const
 {
     QList<QByteArray> lst;
-    for (int i = 0, cnt = mTeamRoomsModel->rowCount(); i < cnt; ++i) {
+    const int cnt = mTeamRoomsModel->rowCount();
+    lst.reserve(cnt);
+    for (int i = 0; i < cnt; ++i) {
         const QModelIndex idx = mTeamRoomsModel->index(i, 0, QModelIndex());
         if (mTeamRoomsModel->data(idx, Qt::CheckStateRole).toInt() == Qt::Checked) {
             lst.append(mTeamRoomsModel->data(idx, TeamRoomsModel::Identifier).toByteArray());

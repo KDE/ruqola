@@ -19,11 +19,12 @@ public:
     [[nodiscard]] UsersForRoomFilterProxyModel *usersForRoomFilterProxy() const;
 
 protected:
-    void paintEvent(QPaintEvent *event) override;
+    void paintEvent(QPaintEvent *prevent) override;
     [[nodiscard]] bool event(QEvent *ev) override;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void generalPaletteChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void updateSectionVisibility();
     QColor mTextColor;
     UsersForRoomListHeadingsProxyModel *const mUsersForRoomListHeadingsProxyModel;
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxy;

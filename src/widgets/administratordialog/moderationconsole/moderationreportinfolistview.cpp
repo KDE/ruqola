@@ -14,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QMenu>
 #include <QMouseEvent>
+#include <QScrollBar>
 
 #include "config-ruqola.h"
 
@@ -30,6 +31,7 @@ ModerationReportInfoListView::ModerationReportInfoListView(RocketChatAccount *ac
     });
     connect(this, &QListView::customContextMenuRequested, this, &ModerationReportInfoListView::slotCustomContextMenuRequested);
     connect(this, &ModerationReportInfoListView::needToClearSizeHintCache, mModerationReportInfoDelegate, &ModerationReportInfoDelegate::clearSizeHintCache);
+    connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListViewBase::maybeScrollToBottom);
 }
 
 ModerationReportInfoListView::~ModerationReportInfoListView() = default;
@@ -71,7 +73,7 @@ QString ModerationReportInfoListView::selectedText() const
 
 void ModerationReportInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    if (model()->rowCount() > 0) {
+    if (model() && model()->rowCount() > 0) {
         QMenu menu(this);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {

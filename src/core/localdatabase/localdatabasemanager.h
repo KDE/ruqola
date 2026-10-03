@@ -23,6 +23,7 @@ class LocalRoomSubscriptionsDatabase;
 class Message;
 class Room;
 class LocalRoomPendingTypedInfoDatabase;
+class E2ERoomsDataBase;
 namespace RocketChatRestApi
 {
 class AbstractLogger;
@@ -35,6 +36,7 @@ public:
 
     void deleteMessage(const QString &accountName, const QByteArray &roomId, const QByteArray &messageId);
     void addMessage(const QString &accountName, const QByteArray &roomId, const Message &m);
+    void addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages);
 
     void addRoom(const QString &accountName, Room *room);
     void deleteRoom(const QString &accountName, const QByteArray &roomId);
@@ -61,6 +63,8 @@ public:
 
     [[nodiscard]] E2EDataBase *e2EDatabase() const;
 
+    [[nodiscard]] E2ERoomsDataBase *e2ERoomsDataBase() const;
+
     [[nodiscard]] LocalRoomPendingTypedInfoDatabase *roomPendingTypedInfoDatabase() const;
 
     [[nodiscard]] LocalRoomSubscriptionsDatabase *roomSubscriptionsDatabase() const;
@@ -77,6 +81,10 @@ public:
 
     [[nodiscard]] QByteArray roomId(const QString &accountName, const QByteArray &subscriptionId);
 
+    [[nodiscard]] bool deleteKey(const QString &accountName, const QString &userId);
+
+    [[nodiscard]] bool deleteAllRoomKeys(const QString &accountName);
+
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
     std::unique_ptr<LocalMessagesDatabase> mMessagesDatabase;
@@ -84,6 +92,7 @@ private:
     std::unique_ptr<LocalAccountsDatabase> mAccountDatabase;
     std::unique_ptr<GlobalDatabase> mGlobalDatabase;
     std::unique_ptr<E2EDataBase> mE2EDatabase;
+    std::unique_ptr<E2ERoomsDataBase> mE2ERoomsDataBase;
     std::unique_ptr<LocalRoomPendingTypedInfoDatabase> mRoomPendingTypedInfoDatabase;
     std::unique_ptr<LocalRoomSubscriptionsDatabase> mRoomSubscriptionsDatabase;
 };

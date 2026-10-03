@@ -30,7 +30,7 @@ bool TeamAddRoomsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("TeamAddRoomsJob::start");
+    addStartRestApiInfo("TeamAddRoomsJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -38,14 +38,8 @@ bool TeamAddRoomsJob::start()
 
 void TeamAddRoomsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("TeamAddRoomsJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT teamAddRoomsDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("TeamAddRoomsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("TeamAddRoomsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT teamAddRoomsDone(*replyObject);
     }
 }
 

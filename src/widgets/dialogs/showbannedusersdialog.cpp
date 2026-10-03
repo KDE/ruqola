@@ -7,13 +7,10 @@
 #include "showbannedusersdialog.h"
 #include "rocketchataccount.h"
 #include "showbanneduserswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowBannedUsersDialogGroupName[] = "ShowBannedUsersDialog";
@@ -41,24 +38,11 @@ ShowBannedUsersDialog::ShowBannedUsersDialog(RocketChatAccount *account, QWidget
     readConfig();
 }
 
-ShowBannedUsersDialog::~ShowBannedUsersDialog()
-{
-    writeConfig();
-}
+ShowBannedUsersDialog::~ShowBannedUsersDialog() = default;
 
 void ShowBannedUsersDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowBannedUsersDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowBannedUsersDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowBannedUsersDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowBannedUsersDialogGroupName), QSize(800, 600));
 }
 
 void ShowBannedUsersDialog::setRoomId(const QByteArray &roomId)

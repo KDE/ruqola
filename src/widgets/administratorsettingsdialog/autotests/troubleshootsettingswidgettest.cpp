@@ -19,7 +19,7 @@ TroubleshootSettingsWidgetTest::TroubleshootSettingsWidgetTest(QObject *parent)
 
 void TroubleshootSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    TroubleshootSettingsWidget w(nullptr);
+    const TroubleshootSettingsWidget w(nullptr);
 
     auto mDisableNotifications = w.findChild<QCheckBox *>(u"mDisableNotifications"_s);
     QVERIFY(mDisableNotifications);

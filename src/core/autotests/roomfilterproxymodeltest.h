@@ -16,4 +16,5 @@ public:
     ~RoomFilterProxyModelTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldEmitRowsInsertedWhenClearingFilter();
 };

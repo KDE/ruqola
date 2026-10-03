@@ -92,7 +92,7 @@ QString RoomAvatarWidget::roomAvatar() const
         b.save(&buf, "png");
         const QByteArray hexed = ba.toBase64();
         buf.close();
-        return QString::fromUtf8(QByteArray("data:image/png;base64,") + hexed);
+        return QString::fromUtf8("data:image/png;base64,"_ba + hexed);
     }
 }
 

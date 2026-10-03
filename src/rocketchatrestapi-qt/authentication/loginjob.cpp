@@ -65,7 +65,7 @@ void LoginJob::onPostRequestResponse(const QString &replyErrorString, const QJso
         }
     } else {
         emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerWarning("Error during login"_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

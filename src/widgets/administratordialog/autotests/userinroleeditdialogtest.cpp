@@ -22,7 +22,7 @@ UserInRoleEditDialogTest::UserInRoleEditDialogTest(QObject *parent)
 
 void UserInRoleEditDialogTest::shouldHaveDefaultValues()
 {
-    UserInRoleEditDialog d(nullptr);
+    const UserInRoleEditDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
     QVERIFY(d.roleId().isEmpty());
 

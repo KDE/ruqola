@@ -11,17 +11,19 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/inputcompletermodel.h"
 #include "rocketchataccount.h"
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(InputTextManagerTest)
 
 InputTextManagerTest::InputTextManagerTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void InputTextManagerTest::shouldHaveDefaultValue()
 {
-    InputTextManager manager(nullptr, nullptr);
+    const InputTextManager manager(nullptr, nullptr);
     QVERIFY(manager.inputCompleterModel());
     QCOMPARE(manager.inputCompleterModel()->rowCount(), 0);
 }

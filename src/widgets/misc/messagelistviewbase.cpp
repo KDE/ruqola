@@ -5,7 +5,6 @@
 */
 
 #include "messagelistviewbase.h"
-#include "config-ruqola.h"
 #include "model/messagesmodel.h"
 #include "room/plugins/plugintext.h"
 #include "room/plugins/plugintextinterface.h"
@@ -13,6 +12,8 @@
 #include <QAbstractItemModel>
 #include <QApplication>
 #include <QClipboard>
+#include <QKeyEvent>
+#include <QLineEdit>
 #include <QMouseEvent>
 #include <QScrollBar>
 #include <TextEditTextToSpeech/TextToSpeech>
@@ -39,9 +40,9 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     }
     for (PluginText *plugin : std::as_const(plugins)) {
         if (plugin->enabled()) {
-            connect(plugin, &PluginText::errorMessage, this, &MessageListViewBase::errorMessage);
-            connect(plugin, &PluginText::successMessage, this, &MessageListViewBase::successMessage);
             auto interface = plugin->createInterface(this, this);
+            connect(interface, &PluginTextInterface::errorMessage, this, &MessageListViewBase::errorMessage);
+            connect(interface, &PluginTextInterface::successMessage, this, &MessageListViewBase::successMessage);
             mPluginTextInterface.append(interface);
         }
     }
@@ -168,19 +169,17 @@ QStyleOptionViewItem MessageListViewBase::listViewOptions() const
     return option;
 }
 
-bool MessageListViewBase::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListViewBase::maybeStartDrag([[maybe_unused]] QMouseEvent *event,
+                                         [[maybe_unused]] const QStyleOptionViewItem &option,
+                                         [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(event);
-    Q_UNUSED(option);
-    Q_UNUSED(index);
     return false;
 }
 
-bool MessageListViewBase::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListViewBase::mouseEvent([[maybe_unused]] QMouseEvent *event,
+                                     [[maybe_unused]] const QStyleOptionViewItem &option,
+                                     [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(event);
-    Q_UNUSED(option);
-    Q_UNUSED(index);
     return false;
 }
 
@@ -192,15 +191,34 @@ void MessageListViewBase::addTextPlugins(QMenu *menu, const QString &selectedTex
     }
 }
 
-QString MessageListViewBase::selectedText(const QModelIndex &index)
+QString MessageListViewBase::selectedText([[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(index);
     return {};
 }
 
 bool MessageListViewBase::hasSelection() const
 {
     return false;
+}
+
+void MessageListViewBase::forwardCopyShortcut(QLineEdit *lineEdit)
+{
+    Q_ASSERT(lineEdit);
+    mCopyShortcutLineEdit = lineEdit;
+    mCopyShortcutLineEdit->installEventFilter(this);
+}
+
+bool MessageListViewBase::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == mCopyShortcutLineEdit && event->type() == QEvent::KeyPress) {
+        const auto keyEvent = static_cast<QKeyEvent *>(event);
+        // Copy the selected message text, unless the lineedit has something to copy itself
+        if (keyEvent->matches(QKeySequence::Copy) && mCopyShortcutLineEdit->selectedText().isEmpty()) {
+            copyMessageToClipboard();
+            return true;
+        }
+    }
+    return QListView::eventFilter(watched, event);
 }
 
 void MessageListViewBase::copyMessageToClipboard(const QModelIndex &index)

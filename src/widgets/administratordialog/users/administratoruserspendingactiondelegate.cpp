@@ -36,7 +36,7 @@ void AdministratorUsersPendingActionDelegate::paint(QPainter *painter, const QSt
     drawFocus(painter, option, option.rect);
 }
 
-void AdministratorUsersPendingActionDelegate::drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void AdministratorUsersPendingActionDelegate::drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect)
 {
     if (option.state & QStyle::State_HasFocus) {
         QStyleOptionFocusRect o;
@@ -49,7 +49,7 @@ void AdministratorUsersPendingActionDelegate::drawFocus(QPainter *painter, const
     }
 }
 
-QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QStyleOptionButton AdministratorUsersPendingActionDelegate::buttonOption(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QString label = index.model()->index(index.row(), AdminUsersPendingModel::PendingActionButtonText).data().toString();
     QStyleOptionButton buttonOpt;
@@ -74,11 +74,10 @@ QWidget *AdministratorUsersPendingActionDelegate::createEditor(QWidget *, const 
 }
 
 bool AdministratorUsersPendingActionDelegate::editorEvent(QEvent *event,
-                                                          QAbstractItemModel *model,
+                                                          [[maybe_unused]] QAbstractItemModel *model,
                                                           const QStyleOptionViewItem &option,
                                                           const QModelIndex &index)
 {
-    Q_UNUSED(model)
     if (!index.isValid()) {
         return false;
     }

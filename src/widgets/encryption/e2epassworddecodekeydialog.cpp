@@ -5,7 +5,6 @@
 */
 
 #include "e2epassworddecodekeydialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2epassworddecodekeywidget.h"
 #include <KLocalizedString>
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 E2ePasswordDecodeKeyDialog::E2ePasswordDecodeKeyDialog(QWidget *parent)
     : QDialog(parent)
     , mE2ePasswordDecodeKeyWidget(new E2ePasswordDecodeKeyWidget(this))

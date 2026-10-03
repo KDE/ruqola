@@ -27,7 +27,7 @@ bool RoomsMediaConfirmJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsMediaConfirmJob::start");
+    addStartRestApiInfo("RoomsMediaConfirmJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool RoomsMediaConfirmJob::start()
 
 void RoomsMediaConfirmJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsMediaConfirmJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsMediaConfirmJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsMediaConfirmDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsMediaConfirmJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -133,7 +127,7 @@ QNetworkRequest RoomsMediaConfirmJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsMediaConfirm,
                                                  RestApiUtil::RestApiUrlExtensionType::V1,
-                                                 QStringLiteral("%1/%2").arg(QString::fromLatin1(mRoomId), QString::fromLatin1(mFileId)));
+                                                 u"%1/%2"_s.arg(QString::fromLatin1(mRoomId), QString::fromLatin1(mFileId)));
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

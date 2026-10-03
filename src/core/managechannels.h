@@ -40,7 +40,7 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     [[nodiscard]] LIBRUQOLACORE_NO_EXPORT SearchChannelFound searchOpenChannels(const QString &roomId);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo
     generateGroupInfo(const QString &roomId, RocketChatAccount::ChannelTypeInfo typeInfo);
     RocketChatAccount *const mAccount;
     QList<QByteArray> mDelayedSelectedRooms;

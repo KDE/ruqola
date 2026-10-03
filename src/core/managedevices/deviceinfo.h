@@ -7,16 +7,15 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QByteArray>
 #include <QMetaType>
 #include <QString>
+class QDebug;
 
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT DeviceInfo
 {
 public:
-    DeviceInfo();
-    ~DeviceInfo();
-
     void parseDeviceInfo(const QJsonObject &object);
 
     [[nodiscard]] bool operator==(const DeviceInfo &other) const;
@@ -61,5 +60,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(DeviceInfo, Ruqola_DeviceInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(DeviceInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const DeviceInfo &t);

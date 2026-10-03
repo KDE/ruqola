@@ -15,7 +15,7 @@ MessageStarredTest::MessageStarredTest(QObject *parent)
 
 void MessageStarredTest::shouldHaveDefaultValue()
 {
-    MessageStarred m;
+    const MessageStarred m;
     QVERIFY(!m.isStarred());
 }
 

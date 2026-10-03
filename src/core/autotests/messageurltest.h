@@ -18,6 +18,7 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldSerializeData();
     void shouldTestPreviewUrl();
+    void shouldTestRichPreview();
 
     void shouldGenerateHtmlDescription();
     void shouldGenerateHtmlDescription_data();

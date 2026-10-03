@@ -41,14 +41,8 @@ bool StdoutQueueJob::start()
 
 void StdoutQueueJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("StdoutQueueJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT stdoutQueueDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("StdoutQueueJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("StdoutQueueJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT stdoutQueueDone(*replyObject);
     }
 }
 

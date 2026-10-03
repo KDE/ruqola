@@ -24,7 +24,7 @@ UploadFileDialogTest::UploadFileDialogTest(QObject *parent)
 
 void UploadFileDialogTest::shouldHaveDefaultValues()
 {
-    UploadFileDialog w;
+    const UploadFileDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

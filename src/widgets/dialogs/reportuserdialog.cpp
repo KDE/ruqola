@@ -8,14 +8,11 @@
 
 #include "reportuserwidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myReportUserDialogGroupName[] = "ReportUserDialog";
@@ -46,24 +43,11 @@ ReportUserDialog::ReportUserDialog(QWidget *parent)
     connect(mReportUserWidget, &ReportUserWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
-ReportUserDialog::~ReportUserDialog()
-{
-    writeConfig();
-}
+ReportUserDialog::~ReportUserDialog() = default;
 
 void ReportUserDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myReportUserDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ReportUserDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myReportUserDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myReportUserDialogGroupName), QSize(400, 300));
 }
 
 QString ReportUserDialog::message() const

@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "autotranslate/translatemessagejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -48,27 +47,14 @@ void TranslateMessageJobTest::shouldGenerateJson()
     job.setMessageId(messageId);
     const QString targetLanguage = u"bla"_s;
     job.setTargetLanguage(targetLanguage);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"messageId":"%1","targetLanguage":"%2"})").arg(messageId, targetLanguage).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"messageId":"%1","targetLanguage":"%2"})"_s.arg(messageId, targetLanguage).toLatin1());
 }
 
 void TranslateMessageJobTest::shouldNotStarting()
 {
     TranslateMessageJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString messageId = u"foo1"_s;
     job.setMessageId(messageId);
     QVERIFY(!job.canStart());

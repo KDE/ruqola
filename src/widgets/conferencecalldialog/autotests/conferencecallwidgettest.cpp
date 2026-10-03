@@ -19,7 +19,7 @@ ConferenceCallWidgetTest::ConferenceCallWidgetTest(QObject *parent)
 
 void ConferenceCallWidgetTest::shouldHaveDefaultValues()
 {
-    ConferenceCallWidget w(nullptr);
+    const ConferenceCallWidget w(nullptr);
 
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

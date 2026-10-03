@@ -249,7 +249,7 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
 
         auto persistantIndex = oldSection[ourOldIndex.row()];
         oldSection.erase(oldSection.begin() + ourOldIndex.row());
-        newSection.insert(newLocation, persistantIndex);
+        newSection.insert(newLocation, std::move(persistantIndex));
 
         endMoveRows();
     }
@@ -262,11 +262,11 @@ void RoomListHeadingsProxyModel::rebuildSections()
     }
 
     for (auto row = 0, until = sourceModel()->rowCount(); row < until; ++row) {
-        const QPersistentModelIndex index = sourceModel()->index(row, 0);
+        QPersistentModelIndex index = sourceModel()->index(row, 0);
         const auto newSectionId = uint(index.data(RoomModel::RoomSection).value<RoomModel::Section>());
         auto &newSection = mSections.at(newSectionId);
 
-        newSection.push_back(index);
+        newSection.push_back(std::move(index));
     }
 
     for (auto &section : mSections) {
@@ -274,7 +274,7 @@ void RoomListHeadingsProxyModel::rebuildSections()
     }
 }
 
-auto RoomListHeadingsProxyModel::type(const QModelIndex &index) const -> IndexType
+auto RoomListHeadingsProxyModel::type(const QModelIndex &index) -> IndexType
 {
     if (!index.isValid()) {
         return IndexType::Root;

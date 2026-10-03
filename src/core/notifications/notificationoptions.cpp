@@ -6,16 +6,10 @@
 
 #include "notificationoptions.h"
 
-#include "ruqola_debug.h"
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 NotificationOptions::NotificationOptions() = default;
-
-void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)
-{
-    parseNotificationOptions(obj);
-}
 
 void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
@@ -52,25 +46,25 @@ void NotificationOptions::setAudioNotificationValue(const QByteArray &newAudioNo
 QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
-    if (!options.audioNotificationValue().isEmpty()) {
-        obj["audioNotificationValue"_L1] = QString::fromLatin1(options.audioNotificationValue());
+    if (!options.mAudioNotificationValue.isEmpty()) {
+        obj["audioNotificationValue"_L1] = QString::fromLatin1(options.mAudioNotificationValue);
     }
-    if (options.disableNotifications()) {
+    if (options.mDisableNotifications) {
         obj["disableNotifications"_L1] = true;
     }
-    obj["desktopNotifications"_L1] = QString::fromLatin1(options.desktopNotifications().currentValue());
-    obj["mobilePushNotifications"_L1] = QString::fromLatin1(options.mobilePushNotification().currentValue());
-    obj["emailNotifications"_L1] = QString::fromLatin1(options.emailNotifications().currentValue());
-    if (!options.unreadTrayIconAlert().isEmpty()) {
-        obj["unreadAlert"_L1] = options.unreadTrayIconAlert();
+    obj["desktopNotifications"_L1] = QString::fromLatin1(options.mDesktopNotifications.currentValue());
+    obj["mobilePushNotifications"_L1] = QString::fromLatin1(options.mMobilePushNotification.currentValue());
+    obj["emailNotifications"_L1] = QString::fromLatin1(options.mEmailNotifications.currentValue());
+    if (!options.mUnreadTrayIconAlert.isEmpty()) {
+        obj["unreadAlert"_L1] = options.mUnreadTrayIconAlert;
     }
-    if (options.hideUnreadStatus()) {
+    if (options.mHideUnreadStatus) {
         obj["hideUnreadStatus"_L1] = true;
     }
-    if (options.muteGroupMentions()) {
+    if (options.mMuteGroupMentions) {
         obj["muteGroupMentions"_L1] = true;
     }
-    if (options.hideMentionStatus()) {
+    if (options.mHideMentionStatus) {
         obj["hideMentionStatus"_L1] = true;
     }
     return obj;
@@ -153,11 +147,11 @@ void NotificationOptions::setDesktopNotifications(const NotificationValue &deskt
 
 bool NotificationOptions::operator==(const NotificationOptions &other) const
 {
-    return (mDesktopNotifications == other.desktopNotifications()) && (mMobilePushNotification == other.mobilePushNotification())
-        && (mEmailNotifications == other.emailNotifications()) && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
-        && (mDisableNotifications == other.disableNotifications()) && (mHideUnreadStatus == other.hideUnreadStatus())
-        && (mAudioNotificationValue == other.audioNotificationValue()) && (mMuteGroupMentions == other.muteGroupMentions())
-        && (mHideMentionStatus == other.hideMentionStatus());
+    return (mDesktopNotifications == other.mDesktopNotifications) && (mMobilePushNotification == other.mMobilePushNotification)
+        && (mEmailNotifications == other.mEmailNotifications) && (mUnreadTrayIconAlert == other.mUnreadTrayIconAlert)
+        && (mDisableNotifications == other.mDisableNotifications) && (mHideUnreadStatus == other.mHideUnreadStatus)
+        && (mAudioNotificationValue == other.mAudioNotificationValue) && (mMuteGroupMentions == other.mMuteGroupMentions)
+        && (mHideMentionStatus == other.mHideMentionStatus);
 }
 
 bool NotificationOptions::operator!=(const NotificationOptions &other) const

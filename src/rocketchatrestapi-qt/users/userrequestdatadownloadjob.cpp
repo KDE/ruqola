@@ -28,7 +28,7 @@ bool UserRequestDataDownloadJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("UserRequestDataDownloadJob start");
+    addStartRestApiInfo("UserRequestDataDownloadJob start"_ba);
     return true;
 }
 

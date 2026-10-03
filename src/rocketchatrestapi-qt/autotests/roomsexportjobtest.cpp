@@ -7,7 +7,6 @@
 #include "roomsexportjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "rooms/roomsexportjob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -29,7 +28,7 @@ void RoomsExportJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 
-    RoomsExportJob::RoomsExportInfo info;
+    const RoomsExportJob::RoomsExportInfo info;
     QVERIFY(!info.isValid());
     QCOMPARE(info.fileFormat, RoomsExportJob::RoomsExportInfo::FileFormat::Unknown);
     QVERIFY(info.roomId.isEmpty());
@@ -64,7 +63,7 @@ void RoomsExportJobTest::shouldGenerateJson()
     info.dateTo = QDateTime(QDate(2020, 3, 3), QTime(5, 7, 50));
     job.setRoomExportInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"dateFrom":"2020-12-03","dateTo":"2020-03-03","rid":"%1","type":"file"})").arg(QLatin1StringView(roomId)).toLatin1());
+             uR"({"dateFrom":"2020-12-03","dateTo":"2020-03-03","rid":"%1","type":"file"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
     //    info.inclusive = true;
     //    job.setCleanHistoryInfo(info);
     //    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
@@ -84,19 +83,7 @@ void RoomsExportJobTest::shouldNotStarting()
 {
     RoomsExportJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     RoomsExportJob::RoomsExportInfo info;
     const QByteArray roomId("room1");
     info.roomId = roomId;

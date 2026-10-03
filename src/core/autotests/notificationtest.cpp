@@ -18,7 +18,7 @@ NotificationTest::NotificationTest(QObject *parent)
 
 void NotificationTest::shouldHaveDefaultValue()
 {
-    Notification w;
+    const Notification w;
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
 }
 

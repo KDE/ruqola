@@ -5,9 +5,12 @@
 */
 
 #pragma once
-#include "libruqola_private_export.h"
-#include <QObject>
-class LIBRUQOLACORE_TESTS_EXPORT PersonalAccessTokenInfo
+#include "libruqolacore_export.h"
+#include <QMetaType>
+#include <QString>
+class QDebug;
+class QJsonObject;
+class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfo
 {
 public:
     PersonalAccessTokenInfo();
@@ -27,7 +30,7 @@ public:
     [[nodiscard]] qint64 createdAt() const;
     void setCreatedAt(qint64 newCreatedAt);
 
-    const QString &createAtDisplayDateTime() const;
+    [[nodiscard]] const QString &createAtDisplayDateTime() const;
     [[nodiscard]] bool operator==(const PersonalAccessTokenInfo &other) const;
 
 private:
@@ -40,5 +43,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfo, Ruqola_PersonalAccessTokenInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(PersonalAccessTokenInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t);

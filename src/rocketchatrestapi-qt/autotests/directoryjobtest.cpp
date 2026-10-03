@@ -9,7 +9,6 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "misc/directoryjob.h"
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
@@ -43,17 +42,7 @@ void DirectoryJobTest::shouldGenerateRequest()
 void DirectoryJobTest::shouldNotStarting()
 {
     DirectoryJob job;
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager networkAccessManager;
-    job.setNetworkAccessManager(&networkAccessManager);
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     DirectoryJob::DirectoryInfo info;
     info.searchType = DirectoryJob::SearchType::Rooms;
     job.setDirectoryInfo(info);

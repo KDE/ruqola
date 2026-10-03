@@ -8,6 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include <QMap>
+#include <memory>
+class QDebug;
 class QJsonArray;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT MessageTranslations : public QSharedData
@@ -25,12 +27,11 @@ public:
     [[nodiscard]] QString translatedStringFromLanguage(const QString &lang) const;
 
     [[nodiscard]] static QJsonArray serialize(const MessageTranslations &translation);
-    [[nodiscard]] static MessageTranslations *deserialize(const QJsonArray &o);
+    [[nodiscard]] static std::unique_ptr<MessageTranslations> deserialize(const QJsonArray &o);
 
     [[nodiscard]] bool isEmpty() const;
 
 private:
     QMap<QString, QString> mTranslatedString;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageTranslations &t);

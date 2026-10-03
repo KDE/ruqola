@@ -12,19 +12,24 @@
 #include <KLocalizedString>
 #include <KZip>
 #include <QDir>
+#include <QFile>
 #include <QStandardPaths>
 #include <QTemporaryDir>
-#include <QTimer>
+#include <utility>
 
 using namespace Qt::Literals::StringLiterals;
 ImportAccountJob::ImportAccountJob(const QString &fileName, QObject *parent)
     : QThread{parent}
     , mArchive(new KZip(fileName))
 {
+    connect(this, &ImportAccountJob::finished, this, &QObject::deleteLater);
 }
 
 ImportAccountJob::~ImportAccountJob()
 {
+    if (isRunning()) {
+        wait();
+    }
     if (mArchive && mArchive->isOpen()) {
         mArchive->close();
     }
@@ -35,7 +40,6 @@ void ImportAccountJob::run()
 {
     const bool result = mArchive->open(QIODevice::ReadOnly);
     if (!result) {
-        deleteLater();
         Q_EMIT importFailed(i18n("Impossible to open zip file."));
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open zip file";
         return;
@@ -49,7 +53,6 @@ void ImportAccountJob::run()
         if (!accountsFile->copyTo(accountFileTmp.path())) {
             qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Impossible to copy to " << accountFileTmp.path();
             Q_EMIT importFailed(i18n("Impossible to copy file"));
-            deleteLater();
             return;
         }
         // qDebug() << " accountFileTmp->fileName()" << accountFileTmp.path();
@@ -57,35 +60,33 @@ void ImportAccountJob::run()
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to open file";
             Q_EMIT importFailed(i18n("Impossible to open file"));
-            deleteLater();
             return;
         }
 
         QTextStream in(&file);
         while (!in.atEnd()) {
-            const QString line = in.readLine();
-            mAccountInfos.append(line);
+            mAccountInfos.append(in.readLine());
         }
         qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " list of accounts " << mAccountInfos;
+        importAccounts();
+    } else {
+        Q_EMIT importFailed(i18n("Invalid zip file."));
+        qCDebug(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Invalid zip file";
     }
-    QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
 }
 
 void ImportAccountJob::importAccounts()
 {
-    if (mAccountIndex < mAccountInfos.count()) {
-        const auto account = mAccountInfos.at(mAccountIndex);
+    for (const QString &account : std::as_const(mAccountInfos)) {
         importAccount(account);
-    } else {
-        finishImportAccounts();
     }
+    finishImportAccounts();
 }
 
 void ImportAccountJob::finishImportAccounts()
 {
     Q_EMIT importDone();
     Q_EMIT importInfo(i18n("Import Done.") + u'\n');
-    deleteLater();
 }
 
 void ImportAccountJob::importAccount(QString accountName)
@@ -160,9 +161,9 @@ void ImportAccountJob::importAccount(QString accountName)
             }
             for (const QString &file : lst) {
                 const KArchiveEntry *filePathEntry = mArchive->directory()->entry(cachePath + u"/%1"_s.arg(file));
-                if (filePathEntry->isDirectory()) {
+                if (filePathEntry && filePathEntry->isDirectory()) {
                     const auto filePath = static_cast<const KArchiveDirectory *>(filePathEntry);
-                    if (!filePath->copyTo(newCachePath + u"/%1"_s.arg(file))) {
+                    if (filePath && !filePath->copyTo(newCachePath + u"/%1"_s.arg(file))) {
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory ";
                     }
                 } else {
@@ -218,11 +219,14 @@ void ImportAccountJob::importAccount(QString accountName)
                          LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2E),
                          LocalDatabaseUtils::localE2EDatabasePath(),
                          true); // TODO verify this one in the future as not implemented yet
+            copyDatabase(databaseDirectory,
+                         accountName,
+                         databasePath,
+                         LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::E2ERooms),
+                         LocalDatabaseUtils::localE2ERoomsDatabasePath(),
+                         true); // TODO verify this one in the future as not implemented yet
         }
     }
-
-    mAccountIndex++;
-    QTimer::singleShot(0, this, &ImportAccountJob::importAccounts);
 }
 
 void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
@@ -232,7 +236,6 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
                                     const QString &dest,
                                     bool renameFiles)
 {
-    // TODO rename file
     auto messageDirectory = databaseDirectory->entry(subfolder);
     if (messageDirectory && messageDirectory->isDirectory()) {
         const auto directory = static_cast<const KArchiveDirectory *>(messageDirectory);
@@ -243,22 +246,34 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
         }
         for (const QString &file : messageList) {
             const KArchiveEntry *filePathEntry = mArchive->directory()->entry(databasePath + u"/" + subfolder + u"/%1"_s.arg(file));
-            if (filePathEntry->isFile()) {
+            if (filePathEntry && filePathEntry->isFile()) {
                 const auto filePath = static_cast<const KArchiveFile *>(filePathEntry);
                 QString newFileName = file;
                 if (renameFiles) {
-                    if (file.endsWith(u".sqlite-shm"_s)) {
+                    if (file.endsWith(".sqlite-shm"_L1)) {
                         newFileName = u"%1.sqlite-shm"_s.arg(accountName);
-                    } else if (file.endsWith(u".sqlite-wal"_s)) {
+                    } else if (file.endsWith(".sqlite-wal"_L1)) {
                         newFileName = u"%1.sqlite-wal"_s.arg(accountName);
-                    } else if (file.endsWith(u".sqlite"_s)) {
+                    } else if (file.endsWith(".sqlite"_L1)) {
                         newFileName = u"%1.sqlite"_s.arg(accountName);
                     } else {
                         qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Invalid file " << file;
                     }
                 }
+                // KArchiveFile::copyTo() takes a destination *directory* and always uses the name stored in the
+                // archive, so renaming has to happen afterwards.
                 if (!filePath->copyTo(newCachePath)) {
-                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy logs directory " << newCachePath + u"/%1"_s.arg(newFileName);
+                    qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to copy database file " << newCachePath + u'/' + file;
+                    continue;
+                }
+                if (newFileName != file) {
+                    const QString oldFilePath = newCachePath + u'/' + file;
+                    const QString newFilePath = newCachePath + u'/' + newFileName;
+                    // QFile::rename() fails when the target already exists
+                    QFile::remove(newFilePath);
+                    if (!QFile::rename(oldFilePath, newFilePath)) {
+                        qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << "Impossible to rename " << oldFilePath << " to " << newFilePath;
+                    }
                 }
             } else {
                 qCWarning(RUQOLA_IMPORT_EXPORT_ACCOUNTS_LOG) << " Missing import file ? " << messageList;
@@ -267,12 +282,12 @@ void ImportAccountJob::copyDatabase(const KArchiveDirectory *databaseDirectory,
     }
 }
 
-QString ImportAccountJob::verifyExistingAccount(QString accountName) const
+QString ImportAccountJob::verifyExistingAccount(QString accountName)
 {
     int i = 1;
-    QString orginalAccountName = accountName;
+    const QString originalAccountName = accountName;
     while (QDir(QStandardPaths::writableLocation(QStandardPaths::ConfigLocation) + u"/ruqola/"_s + accountName).exists()) {
-        accountName = u"%1_%2"_s.arg(orginalAccountName, QString::number(i));
+        accountName = u"%1_%2"_s.arg(originalAccountName, QString::number(i));
         ++i;
     }
     return accountName;

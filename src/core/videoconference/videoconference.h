@@ -8,6 +8,8 @@
 
 #include "libruqolacore_export.h"
 #include <QMetaType>
+class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT VideoConference
 {
@@ -25,7 +27,6 @@ public:
     Q_ENUM(Action)
 
     VideoConference();
-    ~VideoConference();
 
     [[nodiscard]] bool operator==(const VideoConference &other) const;
 
@@ -45,12 +46,11 @@ public:
     void setAction(Action newAction);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT VideoConference::Action convertActionToEnum(const QString &str);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT VideoConference::Action convertActionToEnum(const QString &str);
     QByteArray mCallId;
     QByteArray mRoomId;
     QByteArray mUserId;
     Action mAction = Action::Unknown;
 };
 Q_DECLARE_TYPEINFO(VideoConference, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConference &t);

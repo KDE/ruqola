@@ -36,13 +36,13 @@ bool ChannelGetCountersJob::canStart() const
 bool ChannelGetCountersJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelGetCountersJob";
         deleteLater();
         return false;
     }
 
     submitGetRequest();
-    addStartRestApiInfo("ChannelGetCountersJob::start");
+    addStartRestApiInfo("ChannelGetCountersJob::start"_ba);
 
     return true;
 }
@@ -65,13 +65,8 @@ bool ChannelGetCountersJob::requireHttpAuthentication() const
 
 void ChannelGetCountersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelGetCountersJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelGetCountersDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelGetCountersJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelGetCountersJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelGetCountersDone(*replyObject, channelGroupInfo());
     }
 }
 

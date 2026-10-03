@@ -30,7 +30,7 @@ bool UsersListByStatusJob::requireHttpAuthentication() const
 bool UsersListByStatusJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersListByStatus job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersListByStatusJob job";
         deleteLater();
         return false;
     }
@@ -41,13 +41,8 @@ bool UsersListByStatusJob::start()
 
 void UsersListByStatusJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersListByStatusJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersListByStatusDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersListByStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersListByStatusJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersListByStatusDone(*replyObject);
     }
 }
 

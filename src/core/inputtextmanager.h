@@ -38,12 +38,12 @@ public:
 
     void inputTextCompleter(const QJsonObject &obj);
 
-    [[nodiscard]] QString applyCompletion(const QString &newWord, const QString &str, int *pPosition);
+    [[nodiscard]] static QString applyCompletion(const QString &newWord, const QString &str, int *pPosition);
 
     void setInputTextChanged(const QByteArray &roomId, const QString &str, int position);
 
     // Only for autotests
-    [[nodiscard]] QString searchWord(const QString &text, int position, int &start);
+    [[nodiscard]] static QString searchWord(const QString &text, int position, int &start);
 
     void setCommandModel(QAbstractItemModel *model);
     [[nodiscard]] QAbstractItemModel *commandModel() const;

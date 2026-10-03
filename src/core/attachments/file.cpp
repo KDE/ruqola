@@ -60,9 +60,9 @@ void File::setDescription(const QString &description)
 
 bool File::operator==(const File &other) const
 {
-    return (description() == other.description()) && (fileName() == other.fileName()) && (url() == other.url()) && (userId() == other.userId())
-        && (mimeType() == other.mimeType()) && (uploadedAt() == other.uploadedAt()) && (fileId() == other.fileId()) && (userName() == other.userName())
-        && (complete() == other.complete()) && (typeGroup() == other.typeGroup()) && (path() == other.path()) && (roomId() == other.roomId());
+    return (mDescription == other.mDescription) && (mFileName == other.mFileName) && (mUrl == other.mUrl) && (mUserId == other.mUserId)
+        && (mMimeType == other.mMimeType) && (mUploadedAt == other.mUploadedAt) && (mFileId == other.mFileId) && (mUserName == other.mUserName)
+        && (mComplete == other.mComplete) && (mTypeGroup == other.mTypeGroup) && (mPath == other.mPath) && (mRoomId == other.mRoomId);
 }
 
 QByteArray File::userId() const
@@ -103,8 +103,12 @@ qint64 File::uploadedAt() const
 void File::setUploadedAt(qint64 uploadedAt)
 {
     mUploadedAt = uploadedAt;
-    QLocale l;
-    mUploadedDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mUploadedAt), QLocale::LongFormat);
+    if (mUploadedAt != -1) {
+        const QLocale l;
+        mUploadedDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mUploadedAt), QLocale::LongFormat);
+    } else {
+        mUploadedDateTimeStr.clear();
+    }
 }
 
 QByteArray File::fileId() const

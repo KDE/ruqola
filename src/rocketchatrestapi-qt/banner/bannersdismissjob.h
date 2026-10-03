@@ -28,10 +28,12 @@ public:
     void setBannerId(const QString &newBannerId);
 
 Q_SIGNALS:
-    void dimissBannerDone();
+    void dismissBannerDone();
+
+protected:
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mBannerId;
 };
 }

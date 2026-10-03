@@ -15,8 +15,6 @@ public:
     explicit UnbanUsersDialog(QWidget *parent = nullptr);
     ~UnbanUsersDialog() override;
 
-    void addBanUser(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);
-
     [[nodiscard]] QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> needUnbanUsers() const;
     void setNeedUnbanUsers(const QList<AddUserInChannelJob::UserInChannelNeedUnBanJobInfo> &newNeedUnbanUsers);
     void addNeedUnbanUsers(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &newNeedUnbanUsers);

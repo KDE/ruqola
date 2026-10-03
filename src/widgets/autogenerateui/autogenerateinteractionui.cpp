@@ -175,7 +175,7 @@ void AutoGenerateInteractionUi::slotSubmitButtonClicked(const QJsonObject &paylo
     }
 }
 
-AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str) const
+AutoGenerateInteractionUi::TypeUi AutoGenerateInteractionUi::convertTypeUiFromString(const QString &str)
 {
     if (str == "modal.update"_L1) {
         return AutoGenerateInteractionUi::TypeUi::ModalDialogUpdate;
@@ -234,7 +234,7 @@ void AutoGenerateInteractionUi::setTypeUi(TypeUi newTypeUi)
 
 bool AutoGenerateInteractionUi::operator==(const AutoGenerateInteractionUi &other) const
 {
-    return other.appId() == appId() && other.typeUi() == typeUi() && other.triggerId() == triggerId();
+    return other.mAppId == mAppId && other.mTypeUi == mTypeUi && other.mTriggerId == mTriggerId;
 }
 
 QByteArray AutoGenerateInteractionUi::triggerId() const

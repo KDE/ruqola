@@ -74,8 +74,8 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
     const QMimeType mimeType = db.mimeTypeForFile(fileInfo);
     const QPixmap pixmapMimetype = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(u"unknown"_s)).pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize));
     mMimeTypeLabel->setPixmap(pixmapMimetype);
-    const QPixmap pixmap(mUrl.toLocalFile());
-    if (!pixmap.isNull()) {
+    if (mimeType.name().startsWith(u"image/"_s)) {
+        const QPixmap pixmap(mUrl.toLocalFile());
         setPixmap(pixmap);
     }
 }

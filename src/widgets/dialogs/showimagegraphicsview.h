@@ -53,8 +53,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateRanges();
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QSize originalImageSize() const;
 
-    QString mImagePath;
-
     QSize mOriginalMovieSize;
     QScopedPointer<QMovie> mMovie;
     ShowImageWidget::ImageInfo mImageInfo;

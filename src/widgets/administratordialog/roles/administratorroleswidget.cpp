@@ -5,7 +5,6 @@
 */
 
 #include "administratorroleswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "model/adminrolesmodel.h"
@@ -31,6 +30,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTreeView(new RolesTreeView(this))
@@ -69,7 +69,7 @@ AdministratorRolesWidget::~AdministratorRolesWidget() = default;
 void AdministratorRolesWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {
     if (index.isValid()) {
-        if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) {
+        if (mRocketChatAccount->hasPermission(u"access-permissions")) {
             modifyRole(index);
         }
     }
@@ -97,10 +97,10 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
 
-    if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) { // For delete
+    if (mRocketChatAccount->hasPermission(u"access-permissions")) { // For delete
         QMenu menu(this);
         const bool hasEntrepriseSupport = mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport();
-        if (mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport()) {
+        if (hasEntrepriseSupport) {
             menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Add…"), this, &AdministratorRolesWidget::addRole);
         }
         if (index.isValid()) {

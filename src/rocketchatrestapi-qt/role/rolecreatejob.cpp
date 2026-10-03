@@ -30,20 +30,15 @@ bool RoleCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoleCreateJob::start");
+    addStartRestApiInfo("RoleCreateJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void RoleCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoleCreateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoleCreateJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT createRoleDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoleCreateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

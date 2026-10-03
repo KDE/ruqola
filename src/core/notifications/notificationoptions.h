@@ -9,18 +9,17 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QString>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT NotificationOptions
 {
-    Q_GADGET
 public:
     NotificationOptions();
-    NotificationOptions(const NotificationOptions &other) = default;
     struct LIBRUQOLACORE_EXPORT NotificationValue {
         NotificationValue() = default;
-        explicit NotificationValue(const QByteArray &val, const QByteArray &pref)
-            : value(val)
-            , preferenceOrigin(pref)
+        NotificationValue(QByteArray val, QByteArray pref)
+            : value(std::move(val))
+            , preferenceOrigin(std::move(pref))
         {
         }
         QByteArray value;
@@ -29,14 +28,6 @@ public:
         [[nodiscard]] QByteArray currentValue() const;
         [[nodiscard]] bool isEmpty() const;
     };
-
-    enum class NotificationType : uint8_t {
-        Default = 0,
-        AllMessages,
-        Mentions,
-        Nothing,
-    };
-    Q_ENUM(NotificationType)
 
     [[nodiscard]] bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool value);
@@ -63,9 +54,7 @@ public:
     [[nodiscard]] static NotificationOptions deserialize(const QJsonObject &o);
 
     void parseNotificationOptions(const QJsonObject &obj);
-    void updateNotificationOptions(const QJsonObject &obj);
 
-    NotificationOptions &operator=(const NotificationOptions &other) = default;
     [[nodiscard]] bool operator==(const NotificationOptions &other) const;
     [[nodiscard]] bool operator!=(const NotificationOptions &other) const;
 
@@ -73,7 +62,7 @@ public:
     void setMuteGroupMentions(bool muteGroupMentions);
 
     [[nodiscard]] bool hideMentionStatus() const;
-    void setHideMentionStatus(bool newMhideMentionStatus);
+    void setHideMentionStatus(bool newHideMentionStatus);
 
 private:
     NotificationValue mDesktopNotifications;
@@ -88,6 +77,5 @@ private:
     bool mMuteGroupMentions = false;
     bool mHideMentionStatus = false;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions::NotificationValue &t);

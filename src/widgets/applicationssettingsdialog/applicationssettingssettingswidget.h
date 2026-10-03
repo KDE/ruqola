@@ -35,7 +35,6 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ApplictionSettingsCustomWidgetsBase *addStringSettings(const ApplicationsSettingsSettingsInfo &info);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ApplictionSettingsCustomWidgetsBase *addIntSettings(const ApplicationsSettingsSettingsInfo &info);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT ApplictionSettingsCustomWidgetsBase *addSelectSettings(const ApplicationsSettingsSettingsInfo &info);
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString getTranslatedIdentifier(const QString &lang, const QString &id) const;
     QList<ApplicationsSettingsSettingsInfo> mSettingsInfo;
     bool mWasInitialized = false;
     QByteArray mAppId;

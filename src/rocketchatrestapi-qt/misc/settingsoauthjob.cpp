@@ -5,7 +5,6 @@
 */
 
 #include "settingsoauthjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QNetworkRequest>
 
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 SettingsOauthJob::SettingsOauthJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
@@ -41,14 +41,8 @@ bool SettingsOauthJob::start()
 
 void SettingsOauthJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SettingsOauthJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT settingsOauthDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SettingsOauthJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SettingsOauthJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT settingsOauthDone(*replyObject);
     }
 }
 

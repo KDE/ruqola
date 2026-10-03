@@ -55,7 +55,7 @@ CheckNewServerUrlWidget::CheckNewServerUrlWidget(QWidget *parent)
     });
     connect(mServerUrl, &QLineEdit::textChanged, this, [this](const QString &str) {
         if (!mConnectionInProgress) {
-            mConnectionPushButton->setEnabled(!str.trimmed().isEmpty());
+            mConnectionPushButton->setEnabled(!QStringView(str).trimmed().isEmpty());
         }
     });
 

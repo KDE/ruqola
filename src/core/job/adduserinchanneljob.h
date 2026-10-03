@@ -17,7 +17,6 @@ public:
     struct UserInChannelNeedUnBanJobInfo {
         QByteArray roomId;
         QString userName;
-        [[nodiscard]] bool isValid() const;
     };
 
     struct AddUserInChannelJobInfo {
@@ -38,6 +37,7 @@ public:
 
 Q_SIGNALS:
     void userNeedUnbanned(const AddUserInChannelJob::UserInChannelNeedUnBanJobInfo &info);
+    void addUserInChannelDone(const QByteArray &roomId, const QByteArray &userId);
 
 private:
     LIBRUQOLACORE_NO_EXPORT void slotNeedUnbanned(const RocketChatRestApi::ChannelInviteJob::ChannelInviteInfo &info);

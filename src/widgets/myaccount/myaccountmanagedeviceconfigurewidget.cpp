@@ -84,9 +84,9 @@ void MyAccountManageDeviceConfigureWidget::slotLoadElements(int offset, int coun
     }
 }
 
-void MyAccountManageDeviceConfigureWidget::slotDeviceRemoved(const QByteArray &emojiId)
+void MyAccountManageDeviceConfigureWidget::slotDeviceRemoved(const QByteArray &deviceId)
 {
-    mModel->removeElement(emojiId);
+    mModel->removeElement(deviceId);
 }
 
 void MyAccountManageDeviceConfigureWidget::slotCustomContextMenuRequested(const QPoint &pos)

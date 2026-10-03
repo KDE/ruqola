@@ -15,7 +15,7 @@ AwayManagerTest::AwayManagerTest(QObject *parent)
 
 void AwayManagerTest::shouldHaveDefaultValues()
 {
-    AwayManager m(nullptr);
+    const AwayManager m(nullptr);
     QVERIFY(!m.enabled());
     QCOMPARE(m.idleTiming(), -1);
     // TODO

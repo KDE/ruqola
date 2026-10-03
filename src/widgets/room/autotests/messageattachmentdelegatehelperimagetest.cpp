@@ -14,6 +14,7 @@
 #include <QStandardPaths>
 #include <QStyleOptionViewItem>
 #include <QTest>
+#include <memory>
 
 QTEST_MAIN(MessageDelegateHelperImageTest)
 
@@ -26,11 +27,11 @@ MessageDelegateHelperImageTest::MessageDelegateHelperImageTest(QObject *parent)
 
 void MessageDelegateHelperImageTest::shouldExtractMessageData()
 {
-    auto listView = new QListView();
+    std::unique_ptr<QListView> listView(new QListView());
     TextSelectionImpl textSelection;
-    MessageAttachmentDelegateHelperImage helper(nullptr, listView, &textSelection);
+    const MessageAttachmentDelegateHelperImage helper(nullptr, listView.get(), &textSelection);
     QStyleOptionViewItem option;
-    QWidget fakeWidget;
+    const QWidget fakeWidget;
     option.widget = &fakeWidget;
     const MessageAttachment msgAttach = testAttachment();
 
@@ -43,7 +44,6 @@ void MessageDelegateHelperImageTest::shouldExtractMessageData()
     QVERIFY(qAbs(layout.imageSize.height() - layout.imageSize.width() * 2) <= 1); // aspect ratio is preserved, allow for one pixel rounding diff
     QCOMPARE(layout.pixmap.devicePixelRatioF(), fakeWidget.devicePixelRatioF());
     QVERIFY(layout.imageSize.height() < 500 * fakeWidget.devicePixelRatioF());
-    delete listView;
 }
 
 #include "moc_messageattachmentdelegatehelperimagetest.cpp"

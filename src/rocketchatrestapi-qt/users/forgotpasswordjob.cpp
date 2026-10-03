@@ -39,20 +39,15 @@ bool ForgotPasswordJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ForgotPasswordJob::start");
+    addStartRestApiInfo("ForgotPasswordJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void ForgotPasswordJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ForgotPasswordJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ForgotPasswordJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT forgotPasswordDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ForgotPasswordJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

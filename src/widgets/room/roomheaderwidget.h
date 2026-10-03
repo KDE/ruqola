@@ -38,8 +38,8 @@ public:
         VideoChat = 11,
         PruneMessages = 12,
         ExportMessages = 13,
-        OtrMessages = 14,
-        EncryptMessages = 15,
+        EncryptMessages = 14,
+        UnEncryptMessages = 15,
         ShowBannedUsers = 16,
     };
     Q_ENUM(ChannelActionType)
@@ -77,6 +77,7 @@ Q_SIGNALS:
     void uiInteractionRequested(const QJsonObject &obj);
 
 private:
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotConfigureTopic();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDisabledEncryption();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotActionButtonChanged();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotOfflineModeChanged();
@@ -103,4 +104,5 @@ private:
     ActionButtonsGenerator *const mActionButtonsGenerator;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QPointer<Room> mRoom;
+    QString mRoomNamePlain;
 };

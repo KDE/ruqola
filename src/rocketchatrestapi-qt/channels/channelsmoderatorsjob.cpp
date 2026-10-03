@@ -5,7 +5,6 @@
 */
 
 #include "channelsmoderatorsjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ChannelsModeratorsJob::ChannelsModeratorsJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -27,7 +27,7 @@ bool ChannelsModeratorsJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelsModeratorsJob::start: ");
+    addStartRestApiInfo("ChannelsModeratorsJob::start: "_ba);
     submitGetRequest();
 
     return true;
@@ -35,14 +35,8 @@ bool ChannelsModeratorsJob::start()
 
 void ChannelsModeratorsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("channelModeratorsDone success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelModeratorsDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("channelModeratorsDone problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelsModeratorsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelModeratorsDone(*replyObject, channelGroupInfo());
     }
 }
 

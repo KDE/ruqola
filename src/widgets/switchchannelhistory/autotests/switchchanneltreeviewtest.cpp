@@ -17,7 +17,7 @@ SwitchChannelTreeViewTest::SwitchChannelTreeViewTest(QObject *parent)
 
 void SwitchChannelTreeViewTest::shouldHaveDefaultValues()
 {
-    SwitchChannelTreeView d;
+    const SwitchChannelTreeView d;
     QVERIFY(d.isHeaderHidden());
     QVERIFY(!d.rootIsDecorated());
     QCOMPARE(d.horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);

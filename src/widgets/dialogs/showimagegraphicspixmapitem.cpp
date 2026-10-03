@@ -39,7 +39,7 @@ void ShowImageGraphicsPixmapItem::mousePressEvent(QGraphicsSceneMouseEvent *even
 void ShowImageGraphicsPixmapItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     if ((event->buttons() == Qt::LeftButton) && (event->modifiers() & Qt::ControlModifier)
-        && (event->pos() - mDragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+        && (event->pos() - mDragStartPosition).manhattanLength() > QApplication::startDragDistance()) {
         QDrag *drag = new QDrag(event->widget());
         QMimeData *mimeData = new QMimeData;
         mimeData->setUrls(QList<QUrl>{QUrl::fromLocalFile(mImagePath)});

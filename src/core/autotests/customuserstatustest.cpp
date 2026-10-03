@@ -16,7 +16,7 @@ CustomUserStatusTest::CustomUserStatusTest(QObject *parent)
 
 void CustomUserStatusTest::shouldHaveDefaultValues()
 {
-    CustomUserStatus w;
+    const CustomUserStatus w;
     QVERIFY(!w.isValid());
 
     QVERIFY(w.name().isEmpty());

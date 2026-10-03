@@ -36,13 +36,12 @@ public:
     [[nodiscard]] int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] const QList<InviteInfo> &adminInvites() const;
-    void setAdminInvites(const QList<InviteInfo> &newAdminInvites);
+    void setAdminInvites(QList<InviteInfo> newAdminInvites);
 
     void removeInvite(const QByteArray &identifier);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString maxUses(int uses) const;
-    LIBRUQOLACORE_NO_EXPORT void clear();
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo);
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString maxUses(int uses);
     QList<InviteInfo> mAdminInvites;
 };

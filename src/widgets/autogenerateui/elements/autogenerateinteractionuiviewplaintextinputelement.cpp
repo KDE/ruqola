@@ -6,6 +6,7 @@
 
 #include "autogenerateinteractionuiviewplaintextinputelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QJsonObject>
@@ -90,8 +91,9 @@ void AutoGenerateInteractionUiViewPlainTextInputElement::setMultiLine(bool newMu
 
 bool AutoGenerateInteractionUiViewPlainTextInputElement::operator==(const AutoGenerateInteractionUiViewPlainTextInputElement &other) const
 {
-    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.multiLine() == multiLine() && other.placeHolder() == placeHolder()
-        && other.initialValue() == initialValue() && other.minLength() == minLength() && other.maxLength() == maxLength();
+    return AutoGenerateInteractionUiViewActionable::operator==(other) && other.mMultiLine == mMultiLine
+        && AutoGenerateInteractionUtil::isEqual(mPlaceHolder, other.mPlaceHolder) && other.mInitialValue == mInitialValue && other.mMinLength == mMinLength
+        && other.mMaxLength == mMaxLength;
 }
 
 QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewPlainTextInputElement &t)

@@ -1,16 +1,16 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "administratormoderationreporteduserconsoletreewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderationreporteduserconsoletreewidget.h"
 
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 AdministratorModerationReportedUserConsoleTreeWidget::AdministratorModerationReportedUserConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mModerationConsoleTreeWidget(new ModerationReportedUserConsoleTreeWidget(account, this))

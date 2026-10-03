@@ -29,20 +29,15 @@ bool SetStatusJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetStatusJob::start");
+    addStartRestApiInfo("SetStatusJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void SetStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetStatusJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetStatusJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setStatusDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetStatusJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

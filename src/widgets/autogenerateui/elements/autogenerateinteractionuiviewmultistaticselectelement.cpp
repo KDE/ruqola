@@ -6,6 +6,7 @@
 #include "autogenerateinteractionuiviewmultistaticselectelement.h"
 #include "autogenerateui/autogenerateinteractionuiviewoption.h"
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 #include "autogenerateui/widgets/multistaticselectwidget.h"
 
@@ -105,7 +106,7 @@ ActionElementWidget *AutoGenerateInteractionUiViewMultiStaticSelectElement::gene
     QList<MultiStaticSelectLineEditModel::SelectItemCompletionInfo> lst;
     lst.reserve(mOptions.count());
     for (const auto &opt : std::as_const(mOptions)) {
-        const MultiStaticSelectLineEditModel::SelectItemCompletionInfo info{
+        MultiStaticSelectLineEditModel::SelectItemCompletionInfo info{
             .text = opt->text().generateText(true),
             .value = opt->value(),
         };
@@ -156,8 +157,8 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewMultiStaticSelect
 bool AutoGenerateInteractionUiViewMultiStaticSelectElement::operator==(const AutoGenerateInteractionUiViewMultiStaticSelectElement &other) const
 {
     // TODO add placeholder too
-    return other.maxSelectItems() == maxSelectItems() && other.initialValue() == initialValue() && other.options() == options()
-        && other.initialOptions() == initialOptions() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return other.mMaxSelectItems == mMaxSelectItems && other.mInitialValue == mInitialValue && AutoGenerateInteractionUtil::isEqual(mOptions, other.mOptions)
+        && AutoGenerateInteractionUtil::isEqual(mInitialOptions, other.mInitialOptions) && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 void AutoGenerateInteractionUiViewMultiStaticSelectElement::serializeElement(QJsonObject &o) const

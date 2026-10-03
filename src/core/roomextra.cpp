@@ -44,16 +44,6 @@ void RoomExtra::setIgnoredUsers(const QStringList &newIgnoredUsers)
     mIgnoredUsers = newIgnoredUsers;
 }
 
-QStringList RoomExtra::highlightsWord() const
-{
-    return mHighlightsWord;
-}
-
-void RoomExtra::setHighlightsWord(const QStringList &newHighlightsWord)
-{
-    mHighlightsWord = newHighlightsWord;
-}
-
 TeamInfo RoomExtra::teamInfo() const
 {
     return mTeamInfo;

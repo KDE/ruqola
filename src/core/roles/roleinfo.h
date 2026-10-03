@@ -7,12 +7,16 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QObject>
+
+#include <QMetaType>
+#include <QString>
+
+class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT RoleInfo
 {
 public:
     RoleInfo();
-    ~RoleInfo();
 
     [[nodiscard]] const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
@@ -47,5 +51,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(RoleInfo, Ruqola_RoleInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(RoleInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RoleInfo &t);

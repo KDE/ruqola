@@ -34,11 +34,11 @@ MessageDelegateHelperSection::~MessageDelegateHelperSection() = default;
 void MessageDelegateHelperSection::draw(const Block &block,
                                         QPainter *painter,
                                         QRect blockRect,
-                                        const QModelIndex &index,
+                                        [[maybe_unused]] const QModelIndex &index,
                                         const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const SectionLayout layout = layoutSection(block, option, blockRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     // Draw title and buttons
     const int positionY = blockRect.y() + option.fontMetrics.ascent();
     painter->drawText(blockRect.x(), positionY, layout.sectionText);
@@ -79,7 +79,7 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                                                     QMouseEvent *mouseEvent,
                                                     QRect blocksRect,
                                                     const QStyleOptionViewItem &option,
-                                                    [[maybe_unused]] const QModelIndex &index)
+                                                    const QModelIndex &index)
 {
     if (mouseEvent->type() == QEvent::MouseButtonRelease) {
         const QPoint pos = mouseEvent->pos();
@@ -101,8 +101,7 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             job->setAppsUiInteractionJobInfo(info);
             // qDebug() << " info " << info;
-            connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
-                Q_UNUSED(replyObject);
+            connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, []([[maybe_unused]] const QJsonObject &replyObject) {
                 qDebug() << " DONE";
             });
             if (!job->start()) {
@@ -111,21 +110,25 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
             return true;
         }
         if (layout.menuRect.translated(blocksRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
             const auto blockAccessory = block.blockAccessory();
-            const auto options = blockAccessory.options();
+            const auto &options = blockAccessory.options();
             if (!options.isEmpty()) {
+                auto parentWidget = const_cast<QWidget *>(option.widget);
                 QMenu menu(parentWidget);
                 const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
                 for (const auto &opt : options) {
                     auto act = menu.addAction(opt.text());
                     const QString value = opt.value();
-                    connect(act, &QAction::triggered, this, [this, value, message, block]() {
+                    const QByteArray roomId = message->roomId();
+                    const QByteArray messageId = message->messageId();
+                    const QByteArray threadMessageId = message->threadMessageId();
+
+                    connect(act, &QAction::triggered, this, [this, value, roomId, messageId, threadMessageId, block]() {
                         AutoGenerateInteractionUtil::MessageBlockMessageActionUserInfo messageBockUserinfo;
                         messageBockUserinfo.actionId = block.blockAccessory().actionId();
-                        messageBockUserinfo.roomId = message->roomId();
-                        messageBockUserinfo.messageId = message->messageId();
-                        messageBockUserinfo.threadId = message->threadMessageId();
+                        messageBockUserinfo.roomId = roomId;
+                        messageBockUserinfo.messageId = messageId;
+                        messageBockUserinfo.threadId = threadMessageId;
                         messageBockUserinfo.triggerId = QUuid::createUuid().toByteArray(QUuid::Id128);
                         messageBockUserinfo.blockId = block.blockId();
                         messageBockUserinfo.value = block.blockAccessory().value();
@@ -136,10 +139,12 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
                         mRocketChatAccount->restApi()->initializeRestApiJob(job);
                         job->setAppsUiInteractionJobInfo(info);
                         // qDebug() << " info " << info;
-                        connect(job, &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone, this, [](const QJsonObject &replyObject) {
-                            Q_UNUSED(replyObject);
-                            // qDebug() << " DONE";
-                        });
+                        connect(job,
+                                &RocketChatRestApi::AppsUiInteractionJob::appsUiInteractionDone,
+                                this,
+                                []([[maybe_unused]] const QJsonObject &replyObject) {
+                                    // qDebug() << " DONE";
+                                });
                         if (!job->start()) {
                             qCWarning(RUQOLA_AUTOGENERATEUI_LOG) << "Impossible to start AppsUiInteractionJob job";
                         }
@@ -154,13 +159,12 @@ bool MessageDelegateHelperSection::handleMouseEvent(const Block &block,
 }
 
 MessageDelegateHelperSection::SectionLayout
-MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
+MessageDelegateHelperSection::layoutSection(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth)
 {
-    Q_UNUSED(blockRectWidth)
     SectionLayout layout;
     layout.sectionText = block.sectionText();
     layout.sectionTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.sectionText);
-    const auto blockAccessory = block.blockAccessory();
+    const auto &blockAccessory = block.blockAccessory();
     switch (blockAccessory.type()) {
     case BlockAccessory::AccessoryType::Overflow: {
         if (!blockAccessory.options().isEmpty()) {

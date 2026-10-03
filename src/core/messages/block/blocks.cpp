@@ -5,7 +5,9 @@
 */
 
 #include "blocks.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Blocks, Ruqola_Blocks)
 
+#include "ruqola_message_debug.h"
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
@@ -35,21 +37,18 @@ void Blocks::setBlocks(const QList<Block> &blocks)
     mBlocks = blocks;
 }
 
-QList<Block> Blocks::blocks() const
+const QList<Block> &Blocks::blocks() const
 {
     return mBlocks;
 }
 
 void Blocks::setVideoConferenceInfo(const VideoConferenceInfo &info)
 {
-    auto it = std::find_if(mBlocks.cbegin(), mBlocks.cend(), [info](const auto &block) {
+    auto it = std::find_if(mBlocks.begin(), mBlocks.end(), [&info](const Block &block) {
         return block.blockId() == info.blockId();
     });
-    if (it != mBlocks.cend()) {
-        mBlocks.removeAll(*it);
-        Block b(*it);
-        b.setVideoConferenceInfo(info);
-        mBlocks.append(b);
+    if (it != mBlocks.end()) {
+        it->setVideoConferenceInfo(info);
     }
 }
 
@@ -57,14 +56,16 @@ void Blocks::parseBlocks(const QJsonArray &blocks)
 {
     // qDebug() << "blocks ************************************************* " << blocks;
     mBlocks.clear();
-    for (int i = 0, total = blocks.count(); i < total; ++i) {
+    const int total = blocks.count();
+    mBlocks.reserve(total);
+    for (int i = 0; i < total; ++i) {
         const QJsonObject blockObject = blocks.at(i).toObject();
         Block b;
         b.parseBlock(blockObject);
         if (b.isValid()) {
             mBlocks.append(std::move(b));
         } else {
-            qWarning() << " Invalid b " << blockObject;
+            qCWarning(RUQOLA_MESSAGE_LOG) << " Invalid b " << blockObject;
         }
     }
     // qDebug() << "Blocks::parseBlocks " << mBlocks;
@@ -72,13 +73,13 @@ void Blocks::parseBlocks(const QJsonArray &blocks)
 
 bool Blocks::operator==(const Blocks &other) const
 {
-    return mBlocks == other.blocks();
+    return mBlocks == other.mBlocks;
 }
 
 QDebug operator<<(QDebug d, const Blocks &t)
 {
-    for (int i = 0; i < t.blocks().count(); i++) {
-        d.space() << t.blocks().at(i) << "\n";
+    for (const Block &block : t.blocks()) {
+        d.space() << block << "\n";
     }
     return d;
 }
@@ -92,14 +93,18 @@ QJsonArray Blocks::serialize(const Blocks &blocks)
     return blockArray;
 }
 
-Blocks *Blocks::deserialize(const QJsonArray &blocksArray)
+std::unique_ptr<Blocks> Blocks::deserialize(const QJsonArray &blocksArray)
 {
     QList<Block> blocks;
-    for (int i = 0, total = blocksArray.count(); i < total; ++i) {
-        const Block block = Block::deserialize(blocksArray.at(i).toObject());
-        blocks.append(std::move(block));
+    const int blocksArrayCount = blocksArray.count();
+    blocks.reserve(blocksArrayCount);
+    for (int i = 0; i < blocksArrayCount; ++i) {
+        Block block = Block::deserialize(blocksArray.at(i).toObject());
+        if (block.isValid()) {
+            blocks.append(std::move(block));
+        }
     }
-    auto final = new Blocks;
+    auto final = std::make_unique<Blocks>();
     final->setBlocks(blocks);
     return final;
 }

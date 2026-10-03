@@ -17,7 +17,7 @@ TextSelectionImplTest::TextSelectionImplTest(QObject *parent)
 
 void TextSelectionImplTest::shouldHaveDefaultValues()
 {
-    TextSelectionImpl impl;
+    const TextSelectionImpl impl;
     QVERIFY(impl.textSelection());
     QVERIFY(!impl.mightStartDrag());
 }

@@ -7,6 +7,16 @@
 #include "delegatepaintutil.h"
 #include <QPainter>
 #include <QPainterPath>
+#include <QStyleOptionViewItem>
+
+void DelegatePaintUtil::setTextPen(QPainter *painter, const QStyleOptionViewItem &option)
+{
+    QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+    if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
+        cg = QPalette::Inactive;
+    }
+    painter->setPen(option.palette.color(cg, (option.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
+}
 
 void DelegatePaintUtil::drawLighterText(QPainter *painter, const QString &text, QPoint pos)
 {
@@ -23,13 +33,16 @@ int DelegatePaintUtil::margin()
     return 8;
 }
 
-void DelegatePaintUtil::createClipRoundedRectangle(QPainter *painter, const QRectF &rect, QPointF pos, const QPixmap &pix)
+void DelegatePaintUtil::createClipRoundedRectangle(QPainter *painter, const QRectF &rect, const QPixmap &pix, qreal radius)
 {
     QPainterPath path;
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing);
-    path.addRoundedRect(rect, 5, 5);
+    painter->setRenderHint(QPainter::SmoothPixmapTransform);
+    path.addRoundedRect(rect, radius, radius);
     painter->setClipPath(path);
-    painter->drawPixmap(pos, pix);
+    // Draw into the very same rect as the clip path, otherwise the corners of the
+    // pixmap fall outside the rounded path and stay square.
+    painter->drawPixmap(rect, pix, QRectF(pix.rect()));
     painter->restore();
 }

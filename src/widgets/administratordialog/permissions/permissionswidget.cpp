@@ -5,7 +5,6 @@
 */
 
 #include "permissionswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "model/permissionsmodel.h"
@@ -24,6 +23,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSortFilterProxyModel>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
 PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mTreeView(new PermissionsTreeView(this))
@@ -88,7 +88,7 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
 void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
-    if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) {
+    if (mRocketChatAccount->hasPermission(u"access-permissions")) {
         if (index.isValid()) {
             QMenu menu(this);
             menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, index]() {
@@ -102,7 +102,7 @@ void PermissionsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 void PermissionsWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {
     if (index.isValid()) {
-        if (mRocketChatAccount->hasPermission(u"access-permissions"_s)) {
+        if (mRocketChatAccount->hasPermission(u"access-permissions")) {
             modifyRoles(index);
         }
     }

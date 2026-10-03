@@ -7,13 +7,13 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include <QMetaType>
+class QDebug;
 class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT ModerationReportInfo
 {
 public:
     ModerationReportInfo();
-    ~ModerationReportInfo();
 
     [[nodiscard]] bool operator==(const ModerationReportInfo &other) const;
     [[nodiscard]] QString description() const;
@@ -51,5 +51,4 @@ private:
 };
 QT_DECL_METATYPE_EXTERN_TAGGED(ModerationReportInfo, Ruqola_ModerationReportInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(ModerationReportInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ModerationReportInfo &t);

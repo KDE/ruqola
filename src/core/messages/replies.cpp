@@ -5,6 +5,7 @@
 */
 
 #include "replies.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(Replies, Ruqola_Replies)
 
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
@@ -28,7 +29,7 @@ Replies::~Replies()
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " Replies deleted " << this;
 }
 
-QList<QByteArray> Replies::replies() const
+const QList<QByteArray> &Replies::replies() const
 {
     return mReplies;
 }
@@ -52,7 +53,7 @@ void Replies::parseReplies(const QJsonArray &replieArray)
 
 bool Replies::operator==(const Replies &other) const
 {
-    return mReplies == other.replies();
+    return mReplies == other.mReplies;
 }
 
 QJsonArray Replies::serialize(const Replies &replies)
@@ -66,14 +67,14 @@ QJsonArray Replies::serialize(const Replies &replies)
     return QJsonArray::fromStringList(serialize);
 }
 
-Replies *Replies::deserialize(const QJsonArray &repliesArray)
+std::unique_ptr<Replies> Replies::deserialize(const QJsonArray &repliesArray)
 {
     QList<QByteArray> replies;
     replies.reserve(repliesArray.count());
     for (int i = 0, total = repliesArray.count(); i < total; ++i) {
         replies.append(repliesArray.at(i).toString().toLatin1());
     }
-    auto final = new Replies;
+    auto final = std::make_unique<Replies>();
     final->setReplies(replies);
     return final;
 }

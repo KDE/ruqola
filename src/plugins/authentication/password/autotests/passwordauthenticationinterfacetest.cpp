@@ -16,7 +16,7 @@ PasswordAuthenticationInterfaceTest::PasswordAuthenticationInterfaceTest(QObject
 
 void PasswordAuthenticationInterfaceTest::shouldHaveDefaultValue()
 {
-    PasswordAuthenticationInterface w;
+    const PasswordAuthenticationInterface w;
     QVERIFY(!w.account());
 }
 

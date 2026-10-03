@@ -27,7 +27,7 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     if (index.row() < 0 || index.row() >= mNotificationInfo.count()) {
         return {};
     }
-    const auto info = mNotificationInfo.at(index.row());
+    const auto &info = mNotificationInfo.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case AccountName:
@@ -60,7 +60,7 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     return {};
 }
 
-QString NotificationHistoryModel::generateMessage(const NotificationInfo &info) const
+QString NotificationHistoryModel::generateMessage(const NotificationInfo &info)
 {
     switch (info.notificationType()) {
     case NotificationInfo::NotificationType::StandardMessage:
@@ -82,14 +82,11 @@ void NotificationHistoryModel::clear()
     }
 }
 
-void NotificationHistoryModel::insertNotifications(const QList<NotificationInfo> &infos)
+void NotificationHistoryModel::insertNotifications(QList<NotificationInfo> infos)
 {
-    clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mNotificationInfo = infos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mNotificationInfo = std::move(infos);
+    endResetModel();
 }
 
 void NotificationHistoryModel::addNotification(const NotificationInfo &info)

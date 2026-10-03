@@ -7,7 +7,6 @@
 #include "savenotificationjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "rooms/savenotificationjob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -58,41 +57,38 @@ void SaveNotificationJobTest::shouldGenerateJson()
     SaveNotificationJob job;
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{},"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"notifications":{},"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 
     // Add settings
     const bool hideUnread = true;
     job.setHideUnreadStatus(hideUnread);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"notifications":{"hideUnreadStatus":"1"},"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+             uR"({"notifications":{"hideUnreadStatus":"1"},"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
     const QString mobilePushNotifications = u"all"_s;
     job.setMobilePushNotifications(mobilePushNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{"
-                            "\"hideUnreadStatus\":\"1\","
-                            "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId), mobilePushNotifications)
+             u"{\"notifications\":{"
+             u"\"hideUnreadStatus\":\"1\","
+             u"\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId), mobilePushNotifications)
                  .toLatin1());
 
     const bool disableNotifications = true;
     job.setDisableNotifications(disableNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{"
-                            "\"disableNotifications\":\"1\","
-                            "\"hideUnreadStatus\":\"1\","
-                            "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId), mobilePushNotifications)
+             u"{\"notifications\":{"
+             u"\"disableNotifications\":\"1\","
+             u"\"hideUnreadStatus\":\"1\","
+             u"\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId), mobilePushNotifications)
                  .toLatin1());
 
     const bool muteMentionGroups = true;
     job.setMuteGroupMentions(muteMentionGroups);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{"
-                            "\"disableNotifications\":\"1\","
-                            "\"hideUnreadStatus\":\"1\","
-                            "\"mobilePushNotifications\":\"%3\","
-                            "\"muteGroupMentions\":\"1\"},\"roomId\":\"%1\"}")
-                 .arg(QLatin1StringView(roomId), mobilePushNotifications)
+             u"{\"notifications\":{"
+             u"\"disableNotifications\":\"1\","
+             u"\"hideUnreadStatus\":\"1\","
+             u"\"mobilePushNotifications\":\"%3\","
+             u"\"muteGroupMentions\":\"1\"},\"roomId\":\"%1\"}"_s.arg(QLatin1StringView(roomId), mobilePushNotifications)
                  .toLatin1());
 
     // TODO add more settings
@@ -102,19 +98,7 @@ void SaveNotificationJobTest::shouldNotStarting()
 {
     SaveNotificationJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());

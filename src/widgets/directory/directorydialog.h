@@ -18,11 +18,7 @@ public:
     explicit DirectoryDialog(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryDialog() override;
 
-Q_SIGNALS:
-    void updateJoinButton(bool status);
-
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     DirectoryContainerWidget *const mDirectoryContainerWidget;
 };

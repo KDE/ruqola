@@ -33,7 +33,7 @@ void RemoveOwnerUserCheck::doStart()
                     [this, user, userId](bool, const QString &) {
                         changeChannelOwnerUser(
                             userId,
-                            [this, user, userId](bool ok, const QString &error) {
+                            [this, user](bool ok, const QString &error) {
                                 if (ok) {
                                     reportPassed();
                                 } else {

@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QSortFilterProxyModel>
+#include "sortfilterproxymodelbase.h"
 
-class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT UsersForRoomFilterProxyModel : public SortFilterProxyModelBase
 {
     Q_OBJECT
 public:
@@ -25,7 +25,6 @@ public:
 
     explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
     ~UsersForRoomFilterProxyModel() override;
-    void setFilterString(const QString &string);
 
     [[nodiscard]] bool hasFullList() const;
     [[nodiscard]] bool loadMoreUsersInProgress() const;
@@ -46,5 +45,4 @@ protected:
 
 private:
     UsersForRoomFilterProxyModel::FilterUserType mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
-    QString mFilterString;
 };

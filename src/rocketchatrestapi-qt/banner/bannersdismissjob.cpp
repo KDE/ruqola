@@ -28,7 +28,7 @@ bool BannersDismissJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("BannersDismissJob::start");
+    addStartRestApiInfo("BannersDismissJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool BannersDismissJob::start()
 
 void BannersDismissJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("BannersDismissJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT dimissBannerDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("BannersDismissJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("BannersDismissJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT dismissBannerDone();
     }
 }
 

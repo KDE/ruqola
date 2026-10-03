@@ -22,7 +22,6 @@ private:
         FinishPage,
     };
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentIdChanged(int id);
     ImportDataSelectAccountPage *const mImportDataSelectAccountPage;
     ImportDataFinishPage *const mImportDataFinishPage;

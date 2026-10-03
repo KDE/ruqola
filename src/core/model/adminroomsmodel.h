@@ -41,7 +41,7 @@ public:
 
     [[nodiscard]] RoomsInfo adminRooms() const;
 
-    void setAdminRooms(const RoomsInfo &adminrooms);
+    void setAdminRooms(RoomsInfo adminrooms);
 
     [[nodiscard]] int total() const override;
     void parseElements(const QJsonObject &obj) override;

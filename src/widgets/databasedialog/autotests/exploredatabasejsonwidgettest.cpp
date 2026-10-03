@@ -17,7 +17,7 @@ ExploreDatabaseJsonWidgetTest::ExploreDatabaseJsonWidgetTest(QObject *parent)
 
 void ExploreDatabaseJsonWidgetTest::shouldHaveDefaultValues()
 {
-    ExploreDatabaseJsonWidget w;
+    const ExploreDatabaseJsonWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

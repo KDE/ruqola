@@ -6,15 +6,12 @@
 
 #include "threadmessagedialog.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QFrame>
 #include <QStyle>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -53,10 +50,7 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
     setAttribute(Qt::WA_DeleteOnClose);
 }
 
-ThreadMessageDialog::~ThreadMessageDialog()
-{
-    writeConfig();
-}
+ThreadMessageDialog::~ThreadMessageDialog() = default;
 
 void ThreadMessageDialog::setThreadMessageInfo(const ThreadMessageWidget::ThreadMessageInfo &info)
 {
@@ -65,17 +59,7 @@ void ThreadMessageDialog::setThreadMessageInfo(const ThreadMessageWidget::Thread
 
 void ThreadMessageDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myThreadMessageDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ThreadMessageDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myThreadMessageDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myThreadMessageDialogGroupName), QSize(800, 300));
 }
 
 #include "moc_threadmessagedialog.cpp"

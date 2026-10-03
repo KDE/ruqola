@@ -27,20 +27,15 @@ bool GetUsernameSuggestionJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("GetUsernameSuggestionJob start");
+    addStartRestApiInfo("GetUsernameSuggestionJob start"_ba);
     return true;
 }
 
 void GetUsernameSuggestionJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetUsernameSuggestionJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        const QString result = replyObject["result"_L1].toString();
+    if (const auto replyObject = checkResponse("GetUsernameSuggestionJob"_ba, replyErrorString, replyJson)) {
+        const QString result = replyObject->value("result"_L1).toString();
         Q_EMIT getUsernameSuggestionDone(result);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetUsernameSuggestionJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

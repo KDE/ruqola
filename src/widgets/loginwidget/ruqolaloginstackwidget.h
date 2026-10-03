@@ -33,4 +33,5 @@ private:
     QStringList mExistingAccountNames;
     AccountManager::AccountManagerInfo mAccountManagerInfo;
     PluginAuthenticationConfigureWidget *mPluginAuthenticationConfigureWidget = nullptr;
+    AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Unknown;
 };

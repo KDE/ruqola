@@ -27,22 +27,13 @@ QByteArray RESTAuthenticationManager::authenticationName() const
     return "RESTAPI"_ba;
 }
 
-QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonDocument &params, quint64 id)
+QJsonObject RESTAuthenticationManager::generateJsonMethod(const QString &method, const QJsonArray &params, quint64 id)
 {
     QJsonObject json;
     json["msg"_L1] = u"method"_s;
     json["method"_L1] = method;
     json["id"_L1] = QString::number(id);
-
-    if (!params.isEmpty()) {
-        if (params.isArray()) {
-            json["params"_L1] = params.array();
-        } else if (params.isObject()) {
-            QJsonArray arr;
-            arr.append(params.object());
-            json["params"_L1] = arr;
-        }
-    }
+    json["params"_L1] = params;
     return json;
 }
 
@@ -54,16 +45,23 @@ void RESTAuthenticationManager::callLoginImpl(const QJsonArray &params, Authenti
     info.methodName = methodName;
     info.anonymous = true;
     // TODO: verify mIndex
-    info.messageObj = generateJsonMethod(info.methodName, QJsonDocument(params), mIndex++);
+    info.messageObj = generateJsonMethod(info.methodName, params, mIndex++);
     job->setMethodCallJobInfo(info);
     mRestApiConnection->initializeRestApiJob(job);
     // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
     connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this, method](const QJsonObject &replyObject) {
         processMethodResponseImpl(replyObject, method);
     });
+    // The HTTP request itself failing is mutually exclusive with methodCallDone: onPostRequestResponse()
+    // only reaches emitFailedMessage() when the envelope reports no success, and then no method reply exists.
+    connect(job, &RocketChatRestApi::RestApiAbstractJob::failed, this, [this, method](const QString &serverErrorStr, const QString &descriptionError) {
+        qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "MethodCallJob failed:" << serverErrorStr << descriptionError;
+        processMethodRequestFailed(method);
+    });
 
     if (!job->start()) {
         qCWarning(RUQOLA_RESTAPI_AUTH_LOG) << "Impossible to start MethodCallJob::login job";
+        processMethodRequestFailed(method);
     }
 }
 

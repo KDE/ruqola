@@ -10,7 +10,6 @@
 
 #include <QMenu>
 
-using namespace Qt::Literals::StringLiterals;
 ShareTextInterface::ShareTextInterface(QWidget *parentWidget, QObject *parent)
     : PluginTextInterface(parentWidget, parent)
     , mPurposeMenuWidget(new PurposeMenuWidget(this))

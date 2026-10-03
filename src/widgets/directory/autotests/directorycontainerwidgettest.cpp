@@ -18,7 +18,7 @@ DirectoryContainerWidgetTest::DirectoryContainerWidgetTest(QObject *parent)
 
 void DirectoryContainerWidgetTest::shouldHaveDefaultValues()
 {
-    DirectoryContainerWidget w(nullptr, DirectoryWidget::DirectoryType::Room);
+    const DirectoryContainerWidget w(nullptr, DirectoryWidget::DirectoryType::Room);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

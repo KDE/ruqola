@@ -7,6 +7,7 @@
 #pragma once
 
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
+class QDebug;
 
 // See ./packages/ui-kit/src/blocks/Option.ts
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoGenerateInteractionUiViewOption : public AutoGenerateInteractionUiViewElement
@@ -37,5 +38,4 @@ private:
 };
 
 Q_DECLARE_TYPEINFO(AutoGenerateInteractionUiViewOption, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewOption &t);

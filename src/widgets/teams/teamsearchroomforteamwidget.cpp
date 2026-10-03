@@ -6,15 +6,15 @@
 
 #include "teamsearchroomforteamwidget.h"
 
-#include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchRoomLineEdit(new AddTeamRoomCompletionLineEdit(account, this))
-    , mFlowLayout(new FlowLayout)
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -36,26 +36,26 @@ TeamSearchRoomForTeamWidget::~TeamSearchRoomForTeamWidget()
 
 void TeamSearchRoomForTeamWidget::slotAddNewName(const AddTeamRoomCompletionLineEdit::RoomCompletionInfo &info)
 {
-    const QString &roomName = info.roomName;
-    if (mMap.contains(roomName)) {
+    const QByteArray &roomId = info.roomId;
+    if (mMap.contains(roomId)) {
         return;
     }
-    auto clickableWidget = new ClickableWidget(roomName, this);
-    clickableWidget->setIdentifier(info.roomId);
+    auto clickableWidget = new ClickableWidget(info.roomName, this);
+    clickableWidget->setIdentifier(roomId);
     connect(clickableWidget, &ClickableWidget::removeClickableWidget, this, &TeamSearchRoomForTeamWidget::slotRemoveRoom);
     mFlowLayout->addWidget(clickableWidget);
-    mMap.insert(roomName, clickableWidget);
+    mMap.insert(roomId, clickableWidget);
     Q_EMIT roomListChanged(!mMap.isEmpty());
 }
 
-void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QString &name)
+void TeamSearchRoomForTeamWidget::slotRemoveRoom(const QByteArray &roomId)
 {
-    ClickableWidget *userWidget = mMap.value(name);
+    ClickableWidget *userWidget = mMap.value(roomId);
     if (userWidget) {
         const int index = mFlowLayout->indexOf(userWidget);
         if (index != -1) {
             delete mFlowLayout->takeAt(index);
-            mMap.remove(name);
+            mMap.remove(roomId);
             userWidget->deleteLater();
         }
     }

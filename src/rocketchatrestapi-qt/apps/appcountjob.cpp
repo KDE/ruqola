@@ -40,13 +40,8 @@ bool AppCountJob::start()
 
 void AppCountJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AppCountJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appCountDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AppCountJob: Problem when we tried to get app count info : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AppCountJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT appCountDone(*replyObject);
     }
 }
 

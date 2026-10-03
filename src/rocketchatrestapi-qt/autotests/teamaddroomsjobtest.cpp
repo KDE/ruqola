@@ -5,9 +5,7 @@
 */
 
 #include "teamaddroomsjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "teams/teamaddroomsjob.h"
@@ -15,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(TeamAddRoomsJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 TeamAddRoomsJobTest::TeamAddRoomsJobTest(QObject *parent)
     : QObject(parent)
@@ -50,26 +49,14 @@ void TeamAddRoomsJobTest::shouldGenerateJson()
     job.setTeamId(teamId);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"rooms":["%1"],"teamId":"%2"})").arg(QLatin1StringView(roomId), QLatin1StringView(teamId)).toLatin1());
+             uR"({"rooms":["%1"],"teamId":"%2"})"_s.arg(QLatin1StringView(roomId), QLatin1StringView(teamId)).toLatin1());
 }
 
 void TeamAddRoomsJobTest::shouldNotStarting()
 {
     TeamAddRoomsJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId("foo1");
     job.setRoomIds({roomId});
     QVERIFY(!job.canStart());

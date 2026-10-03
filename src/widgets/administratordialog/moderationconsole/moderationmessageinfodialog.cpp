@@ -5,22 +5,19 @@
 */
 
 #include "moderationmessageinfodialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderationmessageinfowidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
 const char myModerationMessageInfoDialogGroupName[] = "ModerationMessageInfoDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 ModerationMessageInfoDialog::ModerationMessageInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mModerationMessageInfoWidget(new ModerationMessageInfoWidget(account, this))
@@ -39,10 +36,7 @@ ModerationMessageInfoDialog::ModerationMessageInfoDialog(RocketChatAccount *acco
     readConfig();
 }
 
-ModerationMessageInfoDialog::~ModerationMessageInfoDialog()
-{
-    writeConfig();
-}
+ModerationMessageInfoDialog::~ModerationMessageInfoDialog() = default;
 
 void ModerationMessageInfoDialog::setReportInfos(const ModerationReportInfos &info)
 {
@@ -51,17 +45,7 @@ void ModerationMessageInfoDialog::setReportInfos(const ModerationReportInfos &in
 
 void ModerationMessageInfoDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationMessageInfoDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ModerationMessageInfoDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myModerationMessageInfoDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myModerationMessageInfoDialogGroupName), QSize(800, 600));
 }
 
 #include "moc_moderationmessageinfodialog.cpp"

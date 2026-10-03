@@ -6,13 +6,10 @@
 
 #include "administratorcustomsoundscreatedialog.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -39,10 +36,7 @@ AdministratorCustomSoundsCreateDialog::AdministratorCustomSoundsCreateDialog(QWi
     readConfig();
 }
 
-AdministratorCustomSoundsCreateDialog::~AdministratorCustomSoundsCreateDialog()
-{
-    writeConfig();
-}
+AdministratorCustomSoundsCreateDialog::~AdministratorCustomSoundsCreateDialog() = default;
 
 void AdministratorCustomSoundsCreateDialog::setCustomSoundInfo(const AdministratorCustomSoundsCreateWidget::CustomSoundInfo &info)
 {
@@ -56,17 +50,7 @@ AdministratorCustomSoundsCreateWidget::CustomSoundInfo AdministratorCustomSounds
 
 void AdministratorCustomSoundsCreateDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomSoundsCreateDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void AdministratorCustomSoundsCreateDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorCustomSoundsCreateDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigAdministratorCustomSoundsCreateDialogGroupName), QSize(800, 300));
 }
 
 #include "moc_administratorcustomsoundscreatedialog.cpp"

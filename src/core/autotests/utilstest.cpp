@@ -71,8 +71,7 @@ void UtilsTest::shouldConvertTextWithUrl_data()
     QTest::newRow("test5") << u"bla bla [blo]"_s << u"bla bla [blo]"_s;
     QTest::newRow("test6") << u"bla bla [blo] bli"_s << u"bla bla [blo] bli"_s;
     // Test <https://www.kde.org|bla>
-    QTest::newRow("[https://www.kde.org|bla]") << QStringLiteral(
-        "bla [<a href=\"https://www.kde.org.|https://www.kde.org\">https://www.kde.org.|https://www.kde.org</a>]")
+    QTest::newRow("[https://www.kde.org|bla]") << u"bla [<a href=\"https://www.kde.org.|https://www.kde.org\">https://www.kde.org.|https://www.kde.org</a>]"_s
                                                << u"bla <a href=\"https://www.kde.org\">https://www.kde.org.</a>"_s;
 #if 0
     QTest::newRow("[https://www.kde.org|bla]") << u"[https://www.kde.org|https://www.kde.org/bla]"_s
@@ -84,11 +83,9 @@ void UtilsTest::shouldConvertTextWithUrl_data()
                                                                           << u"blabla <a href='https://www.kde.org/bla'>https://www.kde.org</a>"_s;
 
     QTest::newRow("blabla [https://www.kde.org|https://www.kde.org/bla] 2 ")
-        << QStringLiteral(
-               "ideas: [https://www.kde.com/pages/viewpage.action?pageId=11111.|https://www.kde.com/pages/viewpage.action?pageId=11111]\r\n [~vvvv] can")
-        << QStringLiteral(
-               "ideas: <a href='https://www.kde.com/pages/viewpage.action?pageId=11111'>https://www.kde.com/pages/viewpage.action?pageId=11111.</a>\r\n "
-               "[~vvvv] can");
+        << u"ideas: [https://www.kde.com/pages/viewpage.action?pageId=11111.|https://www.kde.com/pages/viewpage.action?pageId=11111]\r\n [~vvvv] can"_s
+        << u"ideas: <a href='https://www.kde.com/pages/viewpage.action?pageId=11111'>https://www.kde.com/pages/viewpage.action?pageId=11111.</a>\r\n "
+               u"[~vvvv] can"_s;
 #endif
     // Test [foo](http://www.kde.org_!!)
     QTest::newRow("[foo](http://www.kde.org!!)") << u"[foo](http://www.kde.org!!)"_s << u"<a href='http://www.kde.org!!'>foo</a>"_s;
@@ -115,7 +112,7 @@ void UtilsTest::shouldGenerateAvatarUrl_data()
     QTest::addColumn<Utils::AvatarInfo>("avatarInfo");
     QTest::addColumn<QUrl>("result");
     {
-        Utils::AvatarInfo avatarInfo;
+        const Utils::AvatarInfo avatarInfo;
         QTest::newRow("empty") << QString() << avatarInfo << QUrl();
     }
     {
@@ -285,12 +282,34 @@ void UtilsTest::shouldParseDate_data()
 {
     QTest::addColumn<QByteArray>("json");
     QTest::addColumn<qint64>("expected");
-    QTest::newRow("missing") << QByteArray("{}") << qint64(-1);
+    QTest::newRow("missing") << "{}"_ba << qint64(-1);
     // EJSON object form (DDP method results)
     QTest::newRow("ejson-object") << QByteArray(R"({"ls":{"$date":1781619879849}})") << qint64(1781619879849);
     // ISO-8601 string form (REST / stream-notify-user events) - used to return -1 and wiped lastSeenAt
     QTest::newRow("iso-string") << QByteArray(R"({"ls":"2026-06-16T14:24:39.849Z"})") << qint64(1781619879849);
     QTest::newRow("invalid-string") << QByteArray(R"({"ls":"not-a-date"})") << qint64(-1);
+}
+
+void UtilsTest::shouldParseIsoDate()
+{
+    QFETCH(QByteArray, json);
+    QFETCH(qint64, expected);
+    const QJsonObject o = QJsonDocument::fromJson(json).object();
+    QCOMPARE(Utils::parseIsoDate(u"createdAt"_s, o), expected);
+}
+
+void UtilsTest::shouldParseIsoDate_data()
+{
+    QTest::addColumn<QByteArray>("json");
+    QTest::addColumn<qint64>("expected");
+    QTest::newRow("missing") << "{}"_ba << qint64(-1);
+    QTest::newRow("iso-string") << QByteArray(R"({"createdAt":"2025-03-13T09:03:20.248Z"})") << qint64(1741856600248);
+    // Unparsable values used to return 0, which callers accepted as a valid 1970-01-01 date
+    QTest::newRow("invalid-string") << QByteArray(R"({"createdAt":"not-a-date"})") << qint64(-1);
+    QTest::newRow("empty-string") << QByteArray(R"({"createdAt":""})") << qint64(-1);
+    QTest::newRow("numeric-msecs") << QByteArray(R"({"createdAt":1741856600248})") << qint64(-1);
+    QTest::newRow("ejson-object") << QByteArray(R"({"createdAt":{"$date":1741856600248}})") << qint64(-1);
+    QTest::newRow("null") << QByteArray(R"({"createdAt":null})") << qint64(-1);
 }
 
 #include "moc_utilstest.cpp"

@@ -5,9 +5,7 @@
 */
 
 #include "setuseractivestatusjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/setuseractivestatusjob.h"
@@ -16,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(SetUserActiveStatusJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 SetUserActiveStatusJobTest::SetUserActiveStatusJobTest(QObject *parent)
     : QObject(parent)
 {
@@ -46,28 +45,16 @@ void SetUserActiveStatusJobTest::shouldGenerateJson()
     const QByteArray userId("foo1");
     job.setActivateUserId(userId);
     job.setActivate(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":false,"userId":"%1"})").arg(QLatin1StringView(userId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"activeStatus":false,"userId":"%1"})"_s.arg(QLatin1StringView(userId)).toLatin1());
     job.setActivate(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"activeStatus":true,"userId":"%1"})").arg(QLatin1StringView(userId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"activeStatus":true,"userId":"%1"})"_s.arg(QLatin1StringView(userId)).toLatin1());
 }
 
 void SetUserActiveStatusJobTest::shouldNotStarting()
 {
     SetUserActiveStatusJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray statusUserid("foo1");
     job.setActivateUserId(statusUserid);
     QVERIFY(job.canStart());

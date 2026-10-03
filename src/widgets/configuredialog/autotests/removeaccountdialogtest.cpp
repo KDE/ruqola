@@ -20,7 +20,7 @@ RemoveAccountDialogTest::RemoveAccountDialogTest(QObject *parent)
 
 void RemoveAccountDialogTest::shouldHaveDefaultValues()
 {
-    RemoveAccountDialog d;
+    const RemoveAccountDialog d;
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

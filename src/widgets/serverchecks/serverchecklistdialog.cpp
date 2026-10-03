@@ -9,12 +9,10 @@
 #include "serverchecklistmanager.h"
 
 #include "rocketchataccount.h"
+#include "room.h"
 #include "ruqolaserverconfig.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QHeaderView>
 #include <QIcon>
@@ -22,7 +20,7 @@
 #include <QPushButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -86,7 +84,7 @@ ServerCheckListDialog::ServerCheckListDialog(RocketChatAccount *account, const Q
     }
     if (mAccount) {
         auto room = mAccount->room(roomId);
-        if (room->channelType() == Room::RoomType::Direct) {
+        if (room && room->channelType() == Room::RoomType::Direct) {
             explanation->setText(i18n("<b>Check can not executed in direct channel.</b>"));
             mRunButton->setEnabled(false);
         }
@@ -94,10 +92,7 @@ ServerCheckListDialog::ServerCheckListDialog(RocketChatAccount *account, const Q
     readConfig();
 }
 
-ServerCheckListDialog::~ServerCheckListDialog()
-{
-    writeConfig();
-}
+ServerCheckListDialog::~ServerCheckListDialog() = default;
 
 void ServerCheckListDialog::populateChecks()
 {
@@ -183,17 +178,7 @@ void ServerCheckListDialog::slotPostResults()
 
 void ServerCheckListDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(500, 350));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myServerCheckListDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ServerCheckListDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myServerCheckListDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myServerCheckListDialogConfigGroupName), QSize(500, 350));
 }
 
 #include "moc_serverchecklistdialog.cpp"

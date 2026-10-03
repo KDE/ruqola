@@ -17,7 +17,7 @@ ServicePasswordTest::ServicePasswordTest(QObject *parent)
 
 void ServicePasswordTest::shouldHaveDefaultValues()
 {
-    ServicePassword p;
+    const ServicePassword p;
     QVERIFY(!p.totp());
     QVERIFY(!p.email2faEnabled());
     QVERIFY(p.password().isEmpty());

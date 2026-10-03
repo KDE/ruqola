@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2022-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -90,14 +90,14 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                                                                        const QStyleOptionViewItem &option,
                                                                        const QModelIndex &index) const
 {
-    if ((!message->attachments() || message->attachments()->messageAttachments().isEmpty()) && (!message->blocks() || message->blocks()->isEmpty())
+    if ((!message->attachments() || message->attachments()->isEmpty()) && (!message->blocks() || message->blocks()->isEmpty())
         && (!message->urls() || message->urls()->isEmpty())) {
         layout.reactionsY = attachmentsY;
     } else {
         int topAttachment = attachmentsY;
         QRect attachmentsRect;
-        if (message->attachments() && !message->attachments()->messageAttachments().isEmpty()) {
-            const auto attachments = message->attachments()->messageAttachments();
+        if (message->attachments() && !message->attachments()->isEmpty()) {
+            const auto &attachments = message->attachments()->messageAttachments();
             QSize attachmentsSize;
             // TODO add spacing between attachment
             for (const MessageAttachment &msgAttach : attachments) {
@@ -113,9 +113,10 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
                     topAttachment += attSize.height();
                 }
                 if (msgAttach.hasMessageAttachmentActions()) {
-                    const auto actions = msgAttach.messageAttachmentActions();
-                    const MessageAttachmentDelegateHelperActions *helper = delegate->helperAttachmentActions();
-                    const QSize attachmentsActionSize = helper ? helper->sizeHint(actions, index, maxWidth, option) : QSize(0, 0);
+                    const auto &actions = msgAttach.messageAttachmentActions();
+                    const MessageAttachmentDelegateHelperActions *attachmentDeletegateHelper = delegate->helperAttachmentActions();
+                    const QSize attachmentsActionSize =
+                        attachmentDeletegateHelper ? attachmentDeletegateHelper->sizeHint(actions, index, maxWidth, option) : QSize(0, 0);
                     layout.attachmentsActionRectList.append(
                         QRect(layout.senderRect.x(), topAttachment, attachmentsActionSize.width(), attachmentsActionSize.height()));
                     attachmentsSize =
@@ -127,8 +128,8 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
         }
         int topBlock = topAttachment;
         QRect blocksRect;
-        if (message->blocks() && !message->blocks()->blocks().isEmpty()) {
-            const auto blocks = message->blocks()->blocks();
+        if (message->blocks() && !message->blocks()->isEmpty()) {
+            const auto &blocks = message->blocks()->blocks();
             QSize blocksSize;
             for (const Block &block : blocks) {
                 const MessageBlockDelegateHelperBase *helper = delegate->blocksHelper(block);
@@ -149,11 +150,11 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
         QRect messageUrlsRect;
         if (mRocketChatAccount && mRocketChatAccount->ruqolaServerConfig()->previewEmbed()) {
             if (message->urls() && !message->urls()->isEmpty()) {
-                const auto urls = message->urls()->messageUrls();
+                const auto &urls = message->urls()->messageUrls();
                 QSize urlsPreviewSize;
                 int topUrlPreview = topBlock;
                 for (const MessageUrl &url : urls) {
-                    if (url.hasPreviewUrl()) {
+                    if (url.hasRichPreview()) {
                         const MessageDelegateHelperUrlPreview *helperUrlPreview = delegate->helperUrlPreview();
                         if (urlsPreviewSize.isEmpty()) {
                             urlsPreviewSize = helperUrlPreview->sizeHint(url, index, maxWidth, option);
@@ -175,4 +176,19 @@ void MessageListLayoutBase::generateAttachmentBlockAndUrlPreviewLayout(MessageLi
         }
         layout.reactionsY = attachmentsY + attachmentsRect.height() + blocksRect.height() + messageUrlsRect.height();
     }
+}
+
+QSizeF MessageListLayoutBase::senderTextSize(const QFont &senderFont, const QString &senderText) const
+{
+    if (mSenderTextSizeCacheFont != senderFont) {
+        mSenderTextSizeCacheFont = senderFont;
+        mSenderTextSizeCache.clear();
+    }
+    const auto it = mSenderTextSizeCache.constFind(senderText);
+    if (it != mSenderTextSizeCache.cend()) {
+        return it.value();
+    }
+    const QSizeF size = QFontMetricsF(senderFont).size(Qt::TextSingleLine, senderText);
+    mSenderTextSizeCache.insert(senderText, size);
+    return size;
 }

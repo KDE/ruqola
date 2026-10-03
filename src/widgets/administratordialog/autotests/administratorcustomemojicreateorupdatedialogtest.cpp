@@ -24,7 +24,7 @@ AdministratorCustomEmojiCreateOrUpdateDialogTest::AdministratorCustomEmojiCreate
 
 void AdministratorCustomEmojiCreateOrUpdateDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomEmojiCreateOrUpdateDialog w;
+    const AdministratorCustomEmojiCreateOrUpdateDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

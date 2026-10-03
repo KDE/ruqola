@@ -83,7 +83,6 @@ enum class RestApiUrlType {
 
     // Since 2.2.x
     ChatGetStarredMessages,
-    ChatGetSnippetedMessages,
 
     ChatSyncMessages,
 
@@ -317,7 +316,6 @@ enum class RestApiUrlType {
     // License
     LicensesMaxActiveUsers,
     LicensesAdd,
-    LicensesIsEntreprise,
     // 6.5.0
     LicensesInfo,
 

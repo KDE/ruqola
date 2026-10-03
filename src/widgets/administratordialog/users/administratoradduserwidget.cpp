@@ -130,7 +130,7 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mUserName = mUserName->text();
     info.mStatusText = mStatusText->text().trimmed();
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
-    if (mRocketChatAccount && mRocketChatAccount->hasPermission(u"edit-other-user-password"_s)) {
+    if (mRocketChatAccount && mRocketChatAccount->hasPermission(u"edit-other-user-password")) {
         info.mPassword = mPasswordLineEdit->password();
     }
     info.mRequirePasswordChange = mRequirePasswordChange->isChecked();
@@ -150,7 +150,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mEmail->setText(user.userEmailsInfo().email);
     mRolesComboBox->setRoles(user.roles());
     mStatusText->setText(user.statusText());
-    mSetRandowPassword->setChecked(user.requirePasswordChange());
+    // TODO mSetRandowPassword->setChecked(user.requirePasswordChange());
     mBioPlainTextEdit->setPlainText(user.bio());
     mNickName->setText(user.nickName());
     mRequirePasswordChange->setChecked(user.requirePasswordChange());
@@ -159,7 +159,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     // mSetRandowPassword
     // TODO add mSendWelcomeEmail
     if (mRocketChatAccount) {
-        mPasswordLineEdit->setEnabled(mRocketChatAccount->hasPermission(u"edit-other-user-password"_s));
+        mPasswordLineEdit->setEnabled(mRocketChatAccount->hasPermission(u"edit-other-user-password"));
     }
 }
 

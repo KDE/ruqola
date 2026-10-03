@@ -27,7 +27,7 @@ bool ChannelKickJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChannelKickJob::start");
+    addStartRestApiInfo("ChannelKickJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool ChannelKickJob::start()
 
 void ChannelKickJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChannelKickJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT kickUserDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChannelKickJob Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ChannelKickJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT kickUserDone(*replyObject);
     }
 }
 

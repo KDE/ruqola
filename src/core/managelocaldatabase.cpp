@@ -21,6 +21,7 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include <QJsonArray>
+#include <algorithm>
 
 using namespace Qt::Literals::StringLiterals;
 #define USE_LOCALDATABASE
@@ -100,22 +101,26 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
             if (!lstMessages.isEmpty()) {
                 mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
             }
-            // FIXME: don't use  info.lastSeenAt until we store room information in database
-            // We need to use last message timeStamp
+            // Check on network if message change. => we need to add timestamp.
+            // Use last message timeStamp to sync with server
 #if ADD_OFFLINE_SUPPORT
             if (mRocketChatAccount->offlineMode()) {
                 qCDebug(RUQOLA_OFFLINE_MODE_LOG) << " Offline mode we don't load messages from server";
                 return;
             }
 #endif
-            const qint64 firstDateTime = info.roomModel->firstTimestamp();
-            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "firstDateTime " << firstDateTime << "date " << QDateTime::fromMSecsSinceEpoch(firstDateTime);
-            if (firstDateTime != 0) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync " << firstDateTime;
-                syncMessage(info.roomId, /*info.lastSeenAt*/ firstDateTime);
+            // Sync from just after the last message's updatedAt to avoid reloading it if it was edited on server
+            // Use updatedAt instead of timestamp because SyncMessagesJob uses updatedAt to determine which messages to return
+            const qint64 lastUpdatedAt = info.roomModel->lastUpdatedAtTimestamp();
+            qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "lastUpdatedAt " << lastUpdatedAt << "date " << QDateTime::fromMSecsSinceEpoch(lastUpdatedAt);
+            if (lastUpdatedAt != 0) {
+                // Add 1ms to avoid syncing the last message itself while still getting newer messages
+                const qint64 syncFromDateTime = lastUpdatedAt + 1;
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " sync from " << syncFromDateTime;
+                syncMessage(info.roomId, syncFromDateTime);
                 return;
             } else {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no sync message ";
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " no messages in database ";
             }
 #endif
         } else if (mRocketChatAccount->offlineMode()) {
@@ -128,14 +133,14 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         QJsonObject dateObject;
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
         dateObject["$date"_L1] = QJsonValue(info.lastSeenAt);
-        params.append(dateObject);
+        params.append(std::move(dateObject));
     } else if (mRocketChatAccount->offlineMode()) {
         qCDebug(RUQOLA_OFFLINE_MODE_LOG) << " no sync message in offline mode";
         return;
     } else if (info.timeStamp != 0) {
         QJsonObject dateObjectTimeStamp;
         dateObjectTimeStamp["$date"_L1] = QJsonValue(info.timeStamp);
-        params.append(dateObjectTimeStamp);
+        params.append(std::move(dateObjectTimeStamp));
 
         QJsonObject dateObjectEnd;
         dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
@@ -147,38 +152,53 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(QJsonValue(175)); // Max number of messages to load;
         // qDebug() << " params" << params;
     } else {
+        qint64 oldestLoadedDateTime = info.roomModel->firstTimestamp();
         int downloadMessage = 50;
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #ifdef USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
-            const QList<Message> lstMessages =
-                mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, endDateTime, 50, mRocketChatAccount->emojiManager());
+            const QList<Message> lstMessages = mRocketChatAccount->localDatabaseManager()
+                                                   ->loadMessages(accountName, info.roomId, -1, oldestLoadedDateTime, 50, mRocketChatAccount->emojiManager());
+            QList<Message> messagesFromDatabase = lstMessages;
+            messagesFromDatabase.erase(std::remove_if(messagesFromDatabase.begin(),
+                                                      messagesFromDatabase.end(),
+                                                      [&info](const Message &message) {
+                                                          return info.roomModel->indexForMessage(message.messageId()).isValid();
+                                                      }),
+                                       messagesFromDatabase.end());
             qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "startDateTime " << -1 << " accountName " << accountName << " roomID " << info.roomId << " info.roomName "
                                              << info.roomName << " number of message " << lstMessages.count();
-            if (lstMessages.count() == downloadMessage) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database: nb messages:" << lstMessages.count();
-                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
+            if (messagesFromDatabase.count() != lstMessages.count()) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " database overlap with already loaded messages:" << (lstMessages.count() - messagesFromDatabase.count());
+            }
+            if (messagesFromDatabase.count() == downloadMessage) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database: nb messages:" << messagesFromDatabase.count();
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(messagesFromDatabase);
                 return;
-            } else if (!lstMessages.isEmpty()) {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database list is not empty" << lstMessages.count();
-                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(lstMessages);
-                downloadMessage -= lstMessages.count();
+            } else if (!messagesFromDatabase.isEmpty()) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from database list is not empty" << messagesFromDatabase.count();
+                mRocketChatAccount->rocketChatBackend()->addMessagesFromLocalDataBase(messagesFromDatabase);
+                downloadMessage -= messagesFromDatabase.count();
                 // Update lastTimeStamp
-                endDateTime = info.roomModel->lastTimestamp();
+                oldestLoadedDateTime = info.roomModel->firstTimestamp();
                 // TODO load diff messages => 50 - lstMessages.count()
             } else {
-                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
+                if (!lstMessages.isEmpty()) {
+                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " database page only contains already loaded messages, load remaining history from network";
+                } else {
+                    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load from network";
+                }
             }
 
 #endif
         }
         QJsonObject dateObjectEnd;
-        dateObjectEnd["$date"_L1] = QJsonValue(endDateTime);
-        const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(endDateTime);
+        dateObjectEnd["$date"_L1] = QJsonValue(oldestLoadedDateTime);
+        const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(oldestLoadedDateTime);
 
         // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  <<
         // QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
-        params.append(dateObjectEnd);
+        params.append(std::move(dateObjectEnd));
 
         params.append(QJsonValue(downloadMessage)); // Max number of messages to load;
 

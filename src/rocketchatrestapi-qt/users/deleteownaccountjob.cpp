@@ -28,20 +28,15 @@ bool DeleteOwnAccountJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteOwnAccountJob::start");
+    addStartRestApiInfo("DeleteOwnAccountJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void DeleteOwnAccountJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("DeleteOwnAccountJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("DeleteOwnAccountJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deleteOwnAccountDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("DeleteOwnAccountJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

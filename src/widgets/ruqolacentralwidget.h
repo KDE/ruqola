@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include "room.h"
 #include <KAboutData>

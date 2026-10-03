@@ -20,7 +20,7 @@ AddUsersInRoomWidgetTest::AddUsersInRoomWidgetTest(QObject *parent)
 
 void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()
 {
-    AddUsersInRoomWidget w(nullptr);
+    const AddUsersInRoomWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

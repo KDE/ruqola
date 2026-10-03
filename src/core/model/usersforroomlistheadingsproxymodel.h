@@ -45,5 +45,5 @@ private:
         Section,
         Status,
     };
-    [[nodiscard]] IndexType type(const QModelIndex &index) const;
+    [[nodiscard]] static IndexType type(const QModelIndex &index);
 };

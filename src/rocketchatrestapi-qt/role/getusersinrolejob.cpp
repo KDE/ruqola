@@ -42,7 +42,7 @@ bool GetUsersInRoleJob::canStart() const
 bool GetUsersInRoleJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start roomAdmin job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetUsersInRoleJob";
         deleteLater();
         return false;
     }
@@ -53,13 +53,8 @@ bool GetUsersInRoleJob::start()
 
 void GetUsersInRoleJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetUsersInRoleJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getUsersInRoleDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetUsersInRoleJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetUsersInRoleJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getUsersInRoleDone(*replyObject);
     }
 }
 

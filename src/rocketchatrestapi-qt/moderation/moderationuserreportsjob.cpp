@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -27,28 +27,28 @@ bool ModerationUserReportsJob::requireHttpAuthentication() const
     return true;
 }
 
+bool ModerationUserReportsJob::hasQueryParameterSupport() const
+{
+    return true;
+}
+
 bool ModerationUserReportsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get get user reported message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ModerationUserReportsJob";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ModerationReportJob: get get user reported message starting"_ba);
+    addStartRestApiInfo("ModerationUserReportsJob: get user reports starting"_ba);
     return true;
 }
 
 void ModerationUserReportsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationReportJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationUserReportJobDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationReportJob: Problem when we tried to getmoderation user report : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ModerationUserReportsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT moderationUserReportJobDone(*replyObject);
     }
 }
 

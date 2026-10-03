@@ -6,7 +6,6 @@
 
 #include "roomsbanuserjobtest.h"
 
-#include "restapimethod.h"
 #include "rooms/roomsbanuserjob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -52,8 +51,7 @@ void RoomsBanUserJobTest::shouldGenerateJson()
         const QString userName(u"foo1"_s);
         job.setUserName(userName);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"roomId":"%1","username":"%2"})").arg(QString::fromLatin1(roomId), userName).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","username":"%2"})"_s.arg(QString::fromLatin1(roomId), userName).toLatin1());
     }
 }
 
@@ -61,19 +59,7 @@ void RoomsBanUserJobTest::shouldNotStarting()
 {
     RoomsBanUserJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     const QByteArray roomId("room1");
     job.setRoomId(roomId);

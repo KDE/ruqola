@@ -18,7 +18,7 @@ SystemMessagesComboBoxTest::SystemMessagesComboBoxTest(QObject *parent)
 
 void SystemMessagesComboBoxTest::shouldHaveDefaultValue()
 {
-    SystemMessagesComboBox w;
+    const SystemMessagesComboBox w;
     QVERIFY(w.count() > 0);
     QVERIFY(w.systemMessagesSelected().isEmpty());
 }

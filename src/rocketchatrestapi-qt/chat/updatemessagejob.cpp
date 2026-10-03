@@ -27,7 +27,7 @@ bool UpdateMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UpdateMessageJob::start");
+    addStartRestApiInfo("UpdateMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;

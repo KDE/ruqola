@@ -29,7 +29,7 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
     if (index.row() < 0 || index.row() >= mServerErrorInfo.count()) {
         return {};
     }
-    const auto info = mServerErrorInfo.at(index.row());
+    const auto &info = mServerErrorInfo.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case AccountName:
@@ -55,14 +55,11 @@ void ServerErrorInfoHistoryModel::clear()
     }
 }
 
-void ServerErrorInfoHistoryModel::insertServerErrorInfos(const QList<ServerErrorInfo> &infos)
+void ServerErrorInfoHistoryModel::insertServerErrorInfos(QList<ServerErrorInfo> infos)
 {
-    clear();
-    if (!infos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mServerErrorInfo = infos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mServerErrorInfo = std::move(infos);
+    endResetModel();
 }
 
 void ServerErrorInfoHistoryModel::addServerErrorInfo(const ServerErrorInfo &info)

@@ -23,6 +23,8 @@ public:
     void deleteDatabaseFromRoomId(const QString &accountName, const QByteArray &roomId);
     void deleteMessage(const QString &accountName, const QByteArray &roomId, const QString &messageId);
     void addMessage(const QString &accountName, const QByteArray &roomId, const Message &m);
+    // Stores the whole list in a single transaction, reusing one prepared statement.
+    void addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages);
 
     [[nodiscard]] std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QByteArray &roomId) const;
 
@@ -33,7 +35,7 @@ public:
                                               qint64 numberElements = -1,
                                               EmojiManager *emojiManager = nullptr) const;
 
-    [[nodiscard]] static Message convertJsonToMessage(const QString &json, EmojiManager *emojiManager);
+    [[nodiscard]] static Message convertJsonToMessage(const QByteArray &json, EmojiManager *emojiManager);
 
     [[nodiscard]] static QString generateQueryStr(qint64 startId, qint64 endId, qint64 numberElements);
 

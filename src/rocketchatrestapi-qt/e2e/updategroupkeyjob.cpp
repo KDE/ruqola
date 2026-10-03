@@ -28,7 +28,7 @@ bool UpdateGroupKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UpdateGroupKeyJob::start");
+    addStartRestApiInfo("UpdateGroupKeyJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool UpdateGroupKeyJob::start()
 
 void UpdateGroupKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UpdateGroupKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("UpdateGroupKeyJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT updateGroupKeyDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UpdateGroupKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -68,7 +62,7 @@ bool UpdateGroupKeyJob::canStart() const
         return false;
     }
     if (!mUpdateGroupInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Group Info is invalid";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UpdateGroupKeyJob: mUpdateGroupInfo is invalid";
         return false;
     }
     return true;

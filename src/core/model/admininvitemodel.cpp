@@ -57,23 +57,11 @@ const QList<InviteInfo> &AdminInviteModel::adminInvites() const
     return mAdminInvites;
 }
 
-void AdminInviteModel::clear()
+void AdminInviteModel::setAdminInvites(QList<InviteInfo> newAdminInvites)
 {
-    if (!mAdminInvites.isEmpty()) {
-        beginResetModel();
-        mAdminInvites.clear();
-        endResetModel();
-    }
-}
-
-void AdminInviteModel::setAdminInvites(const QList<InviteInfo> &newAdminInvites)
-{
-    clear();
-    if (!newAdminInvites.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);
-        mAdminInvites = newAdminInvites;
-        endInsertRows();
-    }
+    beginResetModel();
+    mAdminInvites = std::move(newAdminInvites);
+    endResetModel();
 }
 
 QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
@@ -110,7 +98,7 @@ QVariant AdminInviteModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QString AdminInviteModel::maxUses(int uses) const
+QString AdminInviteModel::maxUses(int uses)
 {
     if (uses == 0) {
         return i18n("Unlimited");
@@ -118,7 +106,7 @@ QString AdminInviteModel::maxUses(int uses) const
     return QString::number(uses);
 }
 
-QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo) const
+QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo)
 {
     if (inviteInfo.expireDateTime() > QDateTime::currentDateTime()) {
         return i18n("Expire in %1 days", QDateTime::currentDateTime().daysTo(inviteInfo.expireDateTime()));

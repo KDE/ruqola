@@ -55,11 +55,18 @@ ChannelListView::ChannelListView(QWidget *parent)
     setIndentation(0);
 
     connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &ChannelListView::slotClicked);
-    connect(model(), &QAbstractItemModel::rowsInserted, this, &QTreeView::expandAll);
     connect(model(), &QAbstractItemModel::modelReset, this, &QTreeView::expandAll);
-    connect(model(), &QAbstractItemModel::rowsMoved, this, &QTreeView::expandAll);
+    // QSortFilterProxyModel turns row moves in the source model into layoutChanged, so sections can
+    // appear again without any rowsInserted signal, e.g. when the "unread on top" setting changes
     connect(model(), &QAbstractItemModel::layoutChanged, this, &QTreeView::expandAll);
     connect(this, &QTreeView::pressed, this, &ChannelListView::slotPressed);
+    connect(mRoomFilterProxyModel, &QAbstractItemModel::rowsInserted, this, [this](const QModelIndex &parent, int first, int last) {
+        if (!parent.isValid()) {
+            for (int row = first; row <= last; ++row) {
+                expand(mRoomFilterProxyModel->index(row, 0));
+            }
+        }
+    });
 }
 
 ChannelListView::~ChannelListView() = default;
@@ -90,8 +97,9 @@ RoomFilterProxyModel *ChannelListView::filterModel() const
 void ChannelListView::slotPressed(const QModelIndex &index)
 {
     if (index.isValid()) {
-        if (!index.parent().isValid())
+        if (!index.parent().isValid()) {
             return;
+        }
 
         const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
         Q_EMIT roomPressed(roomId);
@@ -107,6 +115,9 @@ void ChannelListView::slotClicked(const QModelIndex &index)
 
 void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 {
+    if (!mCurrentRocketChatAccount) {
+        return;
+    }
     if (mCurrentRocketChatAccount->offlineMode()) {
         return;
     }
@@ -157,9 +168,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         if (mCurrentRocketChatAccount->teamEnabled()) {
             if (room) {
                 const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
+                const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
                 if (!mainTeam) {
-                    const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
-                    if (mainTeamId.isEmpty() && room->hasPermission(u"convert-team"_s)) {
+                    if (mainTeamId.isEmpty() && room->hasPermission(u"convert-team")) {
                         menu.addSeparator();
                         auto convertToTeam = new QAction(i18nc("@action", "Convert to Team"), &menu);
                         connect(convertToTeam, &QAction::triggered, this, [this, index, roomType]() {
@@ -170,7 +181,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addAction(convertToTeam);
                     }
                 } else {
-                    if (room->hasPermission("edit-team-channel"_L1)) {
+                    if (room->hasPermission(u"edit-team-channel")) {
                         menu.addSeparator();
                         auto convertToChanne = new QAction(i18nc("@action", "Convert to Channel"), &menu);
                         connect(convertToChanne, &QAction::triggered, this, [this, index]() {
@@ -189,8 +200,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                         menu.addAction(convertToChanne);
                     }
                 }
-                const QByteArray mainTeamId = index.data(RoomModel::RoomTeamId).toByteArray();
-                if (mainTeamId.isEmpty() && !mainTeam && (room->hasPermission(u"add-team-channel"_s) || room->hasPermission(u"move-room-to-team"_s))) {
+                if (mainTeamId.isEmpty() && !mainTeam && (room->hasPermission(u"add-team-channel") || room->hasPermission(u"move-room-to-team"))) {
                     menu.addSeparator();
                     auto moveToTeam = new QAction(i18nc("@action", "Move to Team"), &menu);
                     connect(moveToTeam, &QAction::triggered, this, [this, index]() {
@@ -279,14 +289,17 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
     job->setTeamId(teamId);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, index](const QJsonObject &obj) {
-        const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, index = QPersistentModelIndex(index)](const QJsonObject &obj) {
+        QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
         QList<QByteArray> listRoomIdToDelete;
         if (!teamRooms.isEmpty()) {
+            if (!index.isValid()) {
+                return;
+            }
             QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
             const QString teamName = index.data(RoomModel::RoomName).toString();
             dlg->setTeamName(teamName);
-            dlg->setTeamRooms(teamRooms);
+            dlg->setTeamRooms(std::move(teamRooms));
             if (dlg->exec()) {
                 listRoomIdToDelete = dlg->roomIdsToDelete();
             } else {
@@ -295,14 +308,14 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
             }
             delete dlg;
         }
-        auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
-        job->setTeamId(teamId);
-        job->setRoomsToRemove(listRoomIdToDelete);
-        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        auto teamConvertToChannelJob = new RocketChatRestApi::TeamConvertToChannelJob(this);
+        teamConvertToChannelJob->setTeamId(teamId);
+        teamConvertToChannelJob->setRoomsToRemove(listRoomIdToDelete);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(teamConvertToChannelJob);
         // connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
         //     // TODO ?
         // });
-        if (!job->start()) {
+        if (!teamConvertToChannelJob->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
         }
     });
@@ -342,7 +355,7 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
             job->setRoomId(roomId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GroupsConvertToTeamJob job";
             }
             break;
         }
@@ -368,19 +381,29 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
 
 void ChannelListView::channelSelected(const QModelIndex &index)
 {
-    if (!index.parent().isValid())
+    if (!index.parent().isValid()) {
         return;
+    }
 
     const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
     const QString roomName = index.data(RoomModel::RoomFName).toString();
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
     const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
-    ChannelSelectedInfo info;
-    info.avatarInfo = avatarInfo;
-    info.roomId = roomId;
-    info.roomName = roomName;
-    info.roomType = roomType;
-    Q_EMIT roomSelected(info);
+    const ChannelSelectedInfo info{
+        .roomId = roomId,
+        .roomName = roomName,
+        .roomType = roomType,
+        .avatarInfo = avatarInfo,
+    };
+    // currentChanged() also fires while the proxy is removing rows, e.g. while typing in the filter.
+    // Opening a room marks it as read, which changes the room model, and changing the source model
+    // from inside the proxy's own removal signals corrupts QSortFilterProxyModel's mapping.
+    QMetaObject::invokeMethod(
+        this,
+        [this, info]() {
+            Q_EMIT roomSelected(info);
+        },
+        Qt::QueuedConnection);
 }
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)
@@ -399,6 +422,9 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
         job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Groups);
     } else if (type == u'c') {
         job->setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType::Channel);
+    } else {
+        job->deleteLater();
+        return;
     }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelCloseJob job";

@@ -24,7 +24,7 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValue()
 void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
 {
     FilesForRoomModel model;
-    FilesForRoomFilterProxyModel proxy(&model);
+    const FilesForRoomFilterProxyModel proxy(&model);
     QCOMPARE(proxy.rowCount(), 0);
     QCOMPARE(proxy.filterCaseSensitivity(), Qt::CaseInsensitive);
     QCOMPARE(proxy.filterRole(), FilesForRoomModel::FileName);

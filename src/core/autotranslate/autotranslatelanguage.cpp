@@ -5,6 +5,8 @@
 */
 
 #include "autotranslatelanguage.h"
+QT_IMPL_METATYPE_EXTERN_TAGGED(AutotranslateLanguage, Ruqola_AutotranslateLanguage)
+
 #include <QDebug>
 
 AutotranslateLanguage::AutotranslateLanguage() = default;

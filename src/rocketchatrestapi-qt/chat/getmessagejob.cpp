@@ -43,13 +43,8 @@ bool GetMessageJob::start()
 
 void GetMessageJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetMessageJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getMessageDone(replyObject, mMessageId, mRoomId);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetMessageJob: Problem when we tried to get message : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetMessageJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getMessageDone(*replyObject, mMessageId, mRoomId);
     }
 }
 

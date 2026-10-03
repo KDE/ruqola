@@ -2,6 +2,9 @@
 # SPDX-FileCopyrightText: 2025 Andro Ranogajec <ranogaet@gmail.com>
 # SPDX-License-Identifier: BSD-3-Clause
 
+add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
+add_definitions(-DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
+
 if(ENABLE_PCH)
     file(GENERATE OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/empty_pch.cpp CONTENT "/*empty file*/")
     file(
@@ -37,8 +40,6 @@ target_link_libraries(
     Qt::Core
 )
 
-add_definitions(-DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
-add_definitions(-DRUQOLA_BINARY_DATA_DIR="${CMAKE_CURRENT_BINARY_DIR}/data")
 macro(add_ruqola_test _source)
     set(_test ${_source})
     get_filename_component(_name ${_source} NAME_WE)
@@ -59,12 +60,6 @@ macro(add_ruqola_test _source)
     if(ENABLE_PCH)
         target_precompile_headers(${_name} REUSE_FROM libruqolacore_test_pch)
     endif()
-    set_target_properties(
-        ${_name}
-        PROPERTIES
-            DISABLE_PRECOMPILE_HEADERS
-                ON
-    )
     set_tests_properties(
         ${_name}
         PROPERTIES
@@ -94,8 +89,6 @@ if(NOT TARGET KF6::TextEmoticonsWidgets)
     add_ruqola_test(customemojitest.cpp)
 endif()
 add_ruqola_test(emojimanagertest.cpp)
-add_ruqola_test(otrtest.cpp)
-add_ruqola_test(otrmanagertest.cpp)
 add_ruqola_test(rocketchataccounttest.cpp)
 add_ruqola_test(usersmodeltest.cpp)
 add_ruqola_test(usersforroommodeltest.cpp)
@@ -113,6 +106,8 @@ add_ruqola_test(authenticationinfotest.cpp)
 add_ruqola_test(commonmessagesmodeltest.cpp)
 add_ruqola_test(commonmessagefilterproxymodeltest.cpp)
 add_ruqola_test(accountmanagertest.cpp)
+add_ruqola_test(accountcredentialstoretest.cpp)
+
 add_ruqola_test(rocketchataccountmodeltest.cpp)
 add_ruqola_test(ruqolatest.cpp)
 add_ruqola_test(managerdatapathstest.cpp)
@@ -178,7 +173,6 @@ add_ruqola_test(roleinfotest.cpp)
 add_ruqola_test(customsoundinfotest.cpp)
 add_ruqola_test(permissionstest.cpp)
 add_ruqola_test(rolesmodeltest.cpp)
-add_ruqola_test(otrnotificationjobtest.cpp)
 add_ruqola_test(customsoundsmanagertest.cpp)
 add_ruqola_test(rolesmanagertest.cpp)
 add_ruqola_test(awaymanagertest.cpp)
@@ -227,7 +221,6 @@ if(USE_E2E_SUPPORT)
     add_ruqola_test(masterkeytest.cpp)
     add_ruqola_test(rsapairtest.cpp)
     add_ruqola_test(sessionkeytest.cpp)
-    add_ruqola_test(messageencryptiondecryptiontest.cpp)
     #add_ruqola_test(uploaddownloadrsakeypairtest.cpp)
     add_ruqola_test(sessionkeydistributiontest.cpp)
 
@@ -295,3 +288,5 @@ add_ruqola_test(banneduserstest.cpp)
 add_ruqola_test(unbanuserinchanneljobtest.cpp)
 add_ruqola_test(readreceipttest.cpp)
 add_ruqola_test(readreceiptstest.cpp)
+add_ruqola_test(messageencryptedtest.cpp)
+add_ruqola_test(roomencryptionkeytest.cpp)

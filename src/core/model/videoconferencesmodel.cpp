@@ -43,9 +43,16 @@ void VideoConferencesModel::clear()
 void VideoConferencesModel::addMoreVideoConferences(const QJsonObject &fileAttachmentsObj)
 {
     const int numberOfElement = mVideoConferenceInfos.count();
-    mVideoConferenceInfos.parseMoreVideoConferenceInfos(fileAttachmentsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mVideoConferenceInfos.count() - 1);
-    endInsertRows();
+    VideoConferenceInfos videoConferenceInfos = mVideoConferenceInfos;
+    videoConferenceInfos.parseMoreVideoConferenceInfos(fileAttachmentsObj);
+    const int newNumberOfElement = videoConferenceInfos.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mVideoConferenceInfos = std::move(videoConferenceInfos);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mVideoConferenceInfos = std::move(videoConferenceInfos);
+    }
     checkFullList();
 }
 
@@ -59,14 +66,10 @@ void VideoConferencesModel::initialize()
 void VideoConferencesModel::parseVideoConferences(const QJsonObject &fileAttachmentsObj, const QString &roomId)
 {
     mRoomId = roomId;
-    if (rowCount() != 0) {
-        clear();
-    }
+    beginResetModel();
+    mVideoConferenceInfos.clear();
     mVideoConferenceInfos.parseVideoConferenceInfos(fileAttachmentsObj);
-    if (!mVideoConferenceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mVideoConferenceInfos.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -81,14 +84,11 @@ void VideoConferencesModel::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void VideoConferencesModel::setVideoConferenceInfos(const QList<VideoConferenceInfo> &files)
+void VideoConferencesModel::setVideoConferenceInfos(QList<VideoConferenceInfo> files)
 {
-    clear();
-    if (!files.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, files.count() - 1);
-        mVideoConferenceInfos.setVideoConferenceInfosList(files);
-        endInsertRows();
-    }
+    beginResetModel();
+    mVideoConferenceInfos.setList(std::move(files));
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }

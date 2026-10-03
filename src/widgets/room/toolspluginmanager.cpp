@@ -28,12 +28,12 @@ ToolsPluginManager *ToolsPluginManager::self()
     return &s_self;
 }
 
-QString ToolsPluginManager::configGroupName() const
+QString ToolsPluginManager::configGroupName()
 {
     return u"RuqolaPlugin-toolsplugins"_s;
 }
 
-QString ToolsPluginManager::configPrefixSettingKey() const
+QString ToolsPluginManager::configPrefixSettingKey()
 {
     return u"toolspluginsPlugin"_s;
 }
@@ -66,8 +66,8 @@ void ToolsPluginManager::initializePluginList()
             continue;
         }
         info.plugin = nullptr;
-        mPluginList.push_back(info);
         unique.insert(info.metaDataFileNameBaseName);
+        mPluginList.push_back(std::move(info));
     }
     QList<ToolsPluginManagerInfo>::iterator end(mPluginList.end());
     for (QList<ToolsPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
@@ -77,7 +77,7 @@ void ToolsPluginManager::initializePluginList()
 
 void ToolsPluginManager::loadPlugin(ToolsPluginManagerInfo *item)
 {
-    if (auto plugin = KPluginFactory::instantiatePlugin<PluginTool>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
+    if (auto plugin = KPluginFactory::instantiatePlugin<PluginTool>(item->data, this, QVariantList{item->metaDataFileNameBaseName}).plugin) {
         item->plugin = plugin;
         item->plugin->setEnabled(item->isEnabled);
         item->pluginData.mHasConfigureDialog = item->plugin->hasConfigureDialog();
@@ -87,10 +87,10 @@ void ToolsPluginManager::loadPlugin(ToolsPluginManagerInfo *item)
 
 PluginTool *ToolsPluginManager::pluginFromIdentifier(const QString &identifier) const
 {
-    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [identifier](const ToolsPluginManagerInfo &info) {
+    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [&identifier](const ToolsPluginManagerInfo &info) {
         return info.pluginData.mIdentifier == identifier;
     });
-    if (it != mPluginList.end()) {
+    if (it != mPluginList.constEnd()) {
         return (*it).plugin;
     }
     return nullptr;

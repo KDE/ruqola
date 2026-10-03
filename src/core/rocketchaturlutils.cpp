@@ -20,7 +20,7 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
     switch (parseUrl.parseUrl(link)) {
     case ParseRocketChatUrlUtils::UrlType::Room:
     case ParseRocketChatUrlUtils::UrlType::Message: {
-        if (Ruqola::self()->accountManager()->showMessage(std::move(parseUrl.parsingInfo()))) {
+        if (Ruqola::self()->accountManager()->showMessage(parseUrl.parsingInfo())) {
             return true;
         }
         break;
@@ -51,8 +51,8 @@ bool RocketChatUrlUtils::parseUrl(const QString &link)
         info.enabled = true;
         info.accountName = u"inviteaccount"_s;
         info.authMethodType = AuthenticationManager::AuthMethodType::Password;
-        info.inviteToken = parseUrl.parsingInfo().path.remove(u"invite/"_s);
-        Ruqola::self()->accountManager()->addInvitedAccount(std::move(info));
+        info.inviteToken = parseUrl.parsingInfo().path.remove("invite/"_L1);
+        Ruqola::self()->accountManager()->addInvitedAccount(info);
         return true;
     }
     case ParseRocketChatUrlUtils::UrlType::ConferenceCall:

@@ -28,7 +28,7 @@ bool RoomsCleanHistoryJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsCleanHistoryJob::start");
+    addStartRestApiInfo("RoomsCleanHistoryJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool RoomsCleanHistoryJob::start()
 
 void RoomsCleanHistoryJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsCleanHistoryJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsCleanHistoryJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT cleanHistoryDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsCleanHistoryJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -68,7 +62,7 @@ bool RoomsCleanHistoryJob::canStart() const
         return false;
     }
     if (!mCleanHistoryInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mCleanHistoryInfo: mCleanHistoryInfo is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsCleanHistoryJob: mCleanHistoryInfo is not valid.";
         return false;
     }
 
@@ -119,6 +113,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsCleanHistoryJob::Clean
     d.space() << "excludePinned " << t.excludePinned;
     d.space() << "filesOnly " << t.filesOnly;
     d.space() << "ignoreThreads " << t.ignoreThreads;
+    d.space() << "ignoreDiscussion " << t.ignoreDiscussion;
     return d;
 }
 

@@ -18,7 +18,7 @@ RoleInfoTest::RoleInfoTest(QObject *parent)
 
 void RoleInfoTest::shouldHaveDefaultValues()
 {
-    RoleInfo w;
+    const RoleInfo w;
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.identifier().isEmpty());
     QVERIFY(w.scope().isEmpty());

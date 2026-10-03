@@ -80,7 +80,6 @@ ShowVideoWidget::ShowVideoWidget(RocketChatAccount *account, QWidget *parent)
     controlLayout->addWidget(mLabelDuration);
 
     connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::setPosition);
-    connect(mPositionSlider, &QAbstractSlider::valueChanged, this, &ShowVideoWidget::setPosition);
 
     mMessageWidget->setObjectName(u"mMessageWidget"_s);
     mainLayout->addWidget(mMessageWidget);
@@ -154,8 +153,8 @@ void ShowVideoWidget::updateDurationInfo(qint64 currentInfo)
 {
     QString tStr;
     if (currentInfo || mDuration) {
-        const QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, currentInfo % 60, (currentInfo * 1000) % 1000);
-        const QTime totalTime((mDuration / 3600) % 60, (mDuration / 60) % 60, mDuration % 60, (mDuration * 1000) % 1000);
+        const QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, currentInfo % 60, 0);
+        const QTime totalTime((mDuration / 3600) % 60, (mDuration / 60) % 60, mDuration % 60, 0);
         QString format = u"mm:ss"_s;
         if (mDuration > 3600) {
             format = u"hh:mm:ss"_s;

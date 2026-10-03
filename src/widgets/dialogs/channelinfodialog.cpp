@@ -9,14 +9,11 @@
 #include "channelinfowidget.h"
 #include "room.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -51,10 +48,7 @@ ChannelInfoDialog::ChannelInfoDialog(Room *room, RocketChatAccount *account, QWi
     readConfig();
 }
 
-ChannelInfoDialog::~ChannelInfoDialog()
-{
-    writeConfig();
-}
+ChannelInfoDialog::~ChannelInfoDialog() = default;
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::saveRoomSettingsInfo() const
 {
@@ -74,17 +68,7 @@ void ChannelInfoDialog::slotRoomNameValid(bool state)
 
 void ChannelInfoDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(600, 400));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigChannelInfoDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ChannelInfoDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigChannelInfoDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigChannelInfoDialogGroupName), QSize(600, 400));
 }
 
 #include "moc_channelinfodialog.cpp"

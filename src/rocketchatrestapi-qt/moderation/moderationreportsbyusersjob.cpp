@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -40,20 +40,14 @@ bool ModerationReportsByUsersJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("ModerationReportsByUsersJob: Ask for moderation reportes by users"_ba);
+    addStartRestApiInfo("ModerationReportsByUsersJob: Ask for moderation reports by users"_ba);
     return true;
 }
 
 void ModerationReportsByUsersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationReportsByUsersJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationReportByUserDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationReportsByUsersJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ModerationReportsByUsersJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT moderationReportByUserDone(*replyObject);
     }
 }
 

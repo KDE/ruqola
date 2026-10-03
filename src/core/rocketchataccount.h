@@ -30,6 +30,7 @@
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
 #include <QObject>
+#include <QRegularExpression>
 #include <TextEmoticonsCore/CustomEmoji>
 class QUrl;
 class TypingNotification;
@@ -46,7 +47,6 @@ class UserCompleterFilterProxyModel;
 class StatusModel;
 class RocketChatCache;
 class EmojiManager;
-class OtrManager;
 class FilesForRoomFilterProxyModel;
 class FilesForRoomModel;
 class InputTextManager;
@@ -253,14 +253,13 @@ public:
     void setServerUrl(const QString &serverUrl);
 
     void sendNotification(const QJsonArray &contents);
-    void parseOtr(const QJsonArray &contents);
 
     void setServerVersion(const QString &version);
 
     [[nodiscard]] EmojiManager *emojiManager() const;
     [[nodiscard]] QString userStatusIconFileName(const QString &id);
 
-    void removeSettings();
+    bool removeSettings();
 
     void rolesChanged(const QJsonArray &contents);
 
@@ -283,6 +282,7 @@ public:
     [[nodiscard]] QString recordingImagePath() const;
 
     [[nodiscard]] bool accountEnabled() const;
+    void setAccountEnabled(bool enabled);
 
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
@@ -304,10 +304,9 @@ public:
     [[nodiscard]] CustomUserStatuses customUserStatuses() const;
 
     void addMessage(const QJsonObject &replyObject, bool useRestApi = false, bool temporaryMessage = false);
-    [[nodiscard]] QStringList highlightWords() const;
     void setAvatarUrl(const QString &url);
-    [[nodiscard]] bool hasPermission(const QString &permissionId, const QByteArray &roomId = {}) const;
-    [[nodiscard]] QStringList permissions(const QString &permissionId) const;
+    [[nodiscard]] bool hasPermission(QStringView permissionId, const QByteArray &roomId = {}) const;
+    [[nodiscard]] QStringList permissions(QStringView permissionId) const;
     void setUserPreferences(const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &info);
     [[nodiscard]] QStringList ownUserPermission() const;
     [[nodiscard]] bool hasAutotranslateSupport() const;
@@ -410,8 +409,6 @@ public:
 
     void setLastSelectedRoom(const QByteArray &roomId);
 
-    void streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId);
-
     void muteUser(const QByteArray &rid, const QString &userId, bool mute);
     void initializeDirectChannel(const QByteArray &rid);
     void delaySelectChannelRequested(const QByteArray &rid);
@@ -441,7 +438,7 @@ public:
 
     void updateTextToSpeech(const QByteArray &roomId, const QByteArray &messageId, bool inProgress);
 
-    [[nodiscard]] bool offlineMode() const;
+    [[nodiscard]] static bool offlineMode();
 
     [[nodiscard]] qint64 globalRoomsTimeStamp() const;
     void insertRoomSubscription(const QByteArray &subscriptionId, const QByteArray &roomId);
@@ -452,6 +449,11 @@ public:
     [[nodiscard]] bool hasMessageReadReceiptActiveModule() const;
 
     void createDirectChannel(const QStringList &names);
+    void parseE2eKeyRequest(const QJsonArray &contents);
+
+    void resetE2eKey();
+
+    [[nodiscard]] const QList<QRegularExpression> &highlightWordsRegularExpressions() const;
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);
@@ -595,6 +597,11 @@ private:
     LIBRUQOLACORE_NO_EXPORT void slotReconnectToDdpServer();
     LIBRUQOLACORE_NO_EXPORT void resetDdp();
     LIBRUQOLACORE_NO_EXPORT void slotVerifyKeysDone();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eDecodeKeyDone();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eDecodeKeyFailed();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eDecodeKeyPostponed();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eUploadKeyDone();
+    LIBRUQOLACORE_NO_EXPORT void slotE2eUploadKeyFailed();
     LIBRUQOLACORE_NO_EXPORT void slotDDpLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRESTLoginStatusChanged();
     LIBRUQOLACORE_NO_EXPORT void slotRoomOpenChanged(const QByteArray &rid);
@@ -608,7 +615,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void createJitsiConfCall(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocompleteThread(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void inputUserChannelAutocomplete(const QJsonObject &root);
-    LIBRUQOLACORE_NO_EXPORT void otrEnd(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void enable2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void regenerateCodes2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void disable2fa(const QJsonObject &root);
@@ -653,7 +659,6 @@ private:
     UserCompleterFilterProxyModel *mUserCompleterFilterModelProxy = nullptr;
     StatusModel *const mStatusModel;
     RocketChatCache *mCache = nullptr;
-    OtrManager *const mOtrManager;
     InputTextManager *const mInputTextManager;
 
     InputTextManager *const mInputThreadMessageTextManager;

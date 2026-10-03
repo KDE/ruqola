@@ -19,5 +19,5 @@ public:
     [[nodiscard]] QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    [[nodiscard]] QRect iconRect(int iconIndex, int senderX, int iconPosition, int iconSize, int margin, int avatarWidth) const;
+    [[nodiscard]] static QRect iconRect(int iconIndex, int senderX, int iconPosition, int iconSize, int margin, int avatarWidth);
 };

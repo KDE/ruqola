@@ -46,7 +46,7 @@ void RemovePersonalAccessTokenJobTest::shouldGenerateJson()
     const QString tokenName = u"foo1"_s;
     job.setTokenName(tokenName);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"tokenName":"%1"})").arg(tokenName).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"tokenName":"%1"})"_s.arg(tokenName).toLatin1());
 }
 
 void RemovePersonalAccessTokenJobTest::shouldNotStarting()

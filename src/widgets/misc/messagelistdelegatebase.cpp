@@ -26,7 +26,7 @@ MessageListDelegateBase::MessageListDelegateBase(QAbstractItemView *view, QObjec
     : QItemDelegate{parent}
     , MessageListTextUi(new TextSelectionImpl, view)
 {
-    TextUiBase::setCacheMaxEntries(32); // Enough?
+    MessageListTextUi::setCacheMaxEntries(32); // Enough?
     auto textSelection = mTextSelectionImpl->textSelection();
     textSelection->setTextHelperFactory(this);
     connect(textSelection, &TextSelection::repaintNeeded, this, &MessageListDelegateBase::updateView);
@@ -44,7 +44,7 @@ void MessageListDelegateBase::clearSizeHintCache()
 
 void MessageListDelegateBase::clearCache()
 {
-    TextUiBase::clearCache();
+    MessageListTextUi::clearCache();
 }
 
 bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -55,24 +55,28 @@ bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect mess
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
         const auto *doc = documentForModelIndex(index, messageRect.width());
-        const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
-        if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
-            auto mimeData = new QMimeData;
-            mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Html));
-            mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text));
-            auto drag = new QDrag(const_cast<QWidget *>(option.widget));
-            drag->setMimeData(mimeData);
-            drag->exec(Qt::CopyAction);
-            mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
-            return true;
+        if (doc) {
+            const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+            if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
+                auto mimeData = new QMimeData;
+                mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Html));
+                mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text));
+                auto drag = new QDrag(const_cast<QWidget *>(option.widget));
+                drag->setMimeData(mimeData);
+                drag->exec(Qt::CopyAction);
+                mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
+                return true;
+            }
         }
     }
     return false;
 }
 
-bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent,
+                                               QRect messageRect,
+                                               [[maybe_unused]] const QStyleOptionViewItem &option,
+                                               const QModelIndex &index)
 {
-    Q_UNUSED(option)
     if (!messageRect.contains(mouseEvent->pos())) {
         return false;
     }
@@ -164,16 +168,14 @@ QTextDocument *MessageListDelegateBase::documentForIndex(const QModelIndex &inde
     return documentForModelIndex(index, -1);
 }
 
-QSize MessageListDelegateBase::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+QSize MessageListDelegateBase::textSizeHint(const QModelIndex &index, int maxWidth, [[maybe_unused]] const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
-    Q_UNUSED(option)
     auto *doc = documentForModelIndex(index, maxWidth);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
 
-void MessageListDelegateBase::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
+void MessageListDelegateBase::selectAll([[maybe_unused]] const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    Q_UNUSED(option);
     mTextSelectionImpl->textSelection()->selectMessage(index);
     mListView->update(index);
     MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
@@ -225,7 +227,7 @@ MessageListDelegateBase::documentForDelegate(RocketChatAccount *rcAccount, const
     const TextConverter::ConvertMessageTextSettings settings(messageStr,
                                                              rcAccount ? rcAccount->userName() : QString(),
                                                              {},
-                                                             rcAccount ? rcAccount->highlightWords() : QStringList(),
+                                                             rcAccount ? rcAccount->highlightWordsRegularExpressions() : QList<QRegularExpression>{},
                                                              rcAccount ? rcAccount->emojiManager() : nullptr,
                                                              rcAccount ? rcAccount->messageCache() : nullptr,
                                                              {},

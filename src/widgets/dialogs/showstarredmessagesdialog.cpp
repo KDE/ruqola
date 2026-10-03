@@ -7,11 +7,8 @@
 #include "showstarredmessagesdialog.h"
 
 #include "rocketchataccount.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
@@ -25,24 +22,11 @@ ShowStarredMessagesDialog::ShowStarredMessagesDialog(RocketChatAccount *account,
     readConfig();
 }
 
-ShowStarredMessagesDialog::~ShowStarredMessagesDialog()
-{
-    writeConfig();
-}
+ShowStarredMessagesDialog::~ShowStarredMessagesDialog() = default;
 
 void ShowStarredMessagesDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowStarredMessagesDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowStarredMessagesDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowStarredMessagesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowStarredMessagesDialogGroupName), QSize(800, 600));
 }
 
 #include "moc_showstarredmessagesdialog.cpp"

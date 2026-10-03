@@ -16,13 +16,13 @@ ApplicationsSettingsInProgressWidget::ApplicationsSettingsInProgressWidget(QWidg
     , mProgressBar(new QProgressBar(this))
 {
     auto mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mLabel->setObjectName("label"_L1);
+    mLabel->setObjectName(u"label"_s);
     mainLayout->addWidget(mLabel);
 
-    mProgressBar->setObjectName("mProgressBar"_L1);
+    mProgressBar->setObjectName(u"mProgressBar"_s);
     mainLayout->addWidget(mProgressBar);
     mProgressBar->setValue(0);
     mProgressBar->setMaximum(0);

@@ -5,7 +5,6 @@
 */
 
 #include "changechannelreadonlyjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ChangeChannelReadonlyJob::ChangeChannelReadonlyJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -27,21 +27,15 @@ bool ChangeChannelReadonlyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeChannelReadonlyJob::start");
+    addStartRestApiInfo("ChangeChannelReadonlyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void ChangeChannelReadonlyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("Change read only success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeChannelReadonlyJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeReadonlyDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerInfo("Problem when we tried to change read only status: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

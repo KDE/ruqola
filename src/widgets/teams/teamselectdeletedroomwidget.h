@@ -22,7 +22,7 @@ public:
     ~TeamSelectDeletedRoomWidget() override;
     [[nodiscard]] QList<QByteArray> roomsId() const;
 
-    void setTeamRooms(const QList<TeamRoom> &rooms);
+    void setTeamRooms(QList<TeamRoom> rooms);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextChanged(const QString &str);

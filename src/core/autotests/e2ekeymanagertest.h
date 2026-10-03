@@ -17,4 +17,14 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitDecodeSignalOnlyWhenNeeded();
+    void shouldSetNeedToDecryptStatusFromBase64StringPayload();
+    void shouldSetNeedToDecryptStatusFromBinaryObjectPayload();
+    void shouldHandleMissingOrMalformedServerKeys();
+    void shouldKeepGenerationStateAndAllowRetryWhenUploadFails();
+    void shouldPostponeDecryption();
+    void shouldDecodeEncryptionKeyWithValidPassword();
+    void shouldFailDecodeEncryptionKeyWithWrongPassword();
+    void shouldDecodeV2KeySealedWithANonAsciiPassword();
+    void shouldDecodeV2KeySealedTheOldRuqolaWay();
 };

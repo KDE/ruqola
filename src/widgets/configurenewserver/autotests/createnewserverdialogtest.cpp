@@ -22,7 +22,7 @@ CreateNewServerDialogTest::CreateNewServerDialogTest(QObject *parent)
 
 void CreateNewServerDialogTest::shouldHaveDefaultValues()
 {
-    CreateNewServerDialog w;
+    const CreateNewServerDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

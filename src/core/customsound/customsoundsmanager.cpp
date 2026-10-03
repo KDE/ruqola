@@ -179,7 +179,7 @@ void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
         CustomSoundInfo info;
         info.parseCustomSoundInfo(replyArray.at(i).toObject());
         if (info.isValid()) {
-            mCustomSoundsInfo.append(info);
+            mCustomSoundsInfo.append(std::move(info));
         }
     }
     qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Parse Custom Sounds count: " << mCustomSoundsInfo.count();
@@ -247,7 +247,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
 
 QString CustomSoundsManager::soundFilePath(const QByteArray &identifier) const
 {
-    auto index = std::find_if(mCustomSoundsInfo.begin(), mCustomSoundsInfo.end(), [identifier](const CustomSoundInfo &info) {
+    auto index = std::find_if(mCustomSoundsInfo.begin(), mCustomSoundsInfo.end(), [&identifier](const CustomSoundInfo &info) {
         return (info.identifier() == identifier);
     });
     QString url;

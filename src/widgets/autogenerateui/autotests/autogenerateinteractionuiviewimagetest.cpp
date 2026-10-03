@@ -15,7 +15,7 @@ AutoGenerateInteractionUiViewImageTest::AutoGenerateInteractionUiViewImageTest(Q
 
 void AutoGenerateInteractionUiViewImageTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewImage img;
+    const AutoGenerateInteractionUiViewImage img;
     QVERIFY(img.imageUrl().isEmpty());
     QVERIFY(img.altText().isEmpty());
 }

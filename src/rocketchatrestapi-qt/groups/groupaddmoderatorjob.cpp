@@ -5,7 +5,6 @@
 */
 
 #include "groupaddmoderatorjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GroupAddModeratorJob::GroupAddModeratorJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -27,7 +27,7 @@ bool GroupAddModeratorJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupAddModeratorJob::start");
+    addStartRestApiInfo("GroupAddModeratorJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool GroupAddModeratorJob::start()
 
 void GroupAddModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupAddModeratorJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupAddModeratorJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addModeratorDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupAddModeratorJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -64,7 +58,7 @@ bool GroupAddModeratorJob::requireHttpAuthentication() const
 bool GroupAddModeratorJob::canStart() const
 {
     if (mAddModeratorUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddModeratorJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddModeratorJob: add moderator userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

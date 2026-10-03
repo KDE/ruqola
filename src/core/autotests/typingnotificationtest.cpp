@@ -23,8 +23,8 @@ TypingNotificationTest::TypingNotificationTest(QObject *parent)
 void TypingNotificationTest::shouldNotEmitSignalByDefault()
 {
     timerTimeOutValueMs = 100; // 100ms
-    TypingNotification t;
-    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    const TypingNotification t;
+    const QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
     // Wait 500ms
     QTest::qSleep(200);
     QCOMPARE(signal.count(), 0);
@@ -34,7 +34,7 @@ void TypingNotificationTest::shouldEmitSignalWhenTyping()
 {
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
-    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    const QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
     t.textNotificationChanged("foo"_ba, false);
     // Wait 500ms
     QTest::qWait(50);
@@ -45,7 +45,7 @@ void TypingNotificationTest::shouldEmitSignalWhenTypingAndEmitTypingFalseAfterTi
 {
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
-    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    const QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
     t.textNotificationChanged("foo"_ba, false);
     // Wait 50ms
     QTest::qWait(50);
@@ -59,7 +59,7 @@ void TypingNotificationTest::shouldDontEmitSignalWhenTypingSeveralTextBeforeTime
 {
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
-    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    const QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
     t.textNotificationChanged("foo"_ba, false);
     // Wait 50ms
     QTest::qWait(50);
@@ -79,9 +79,9 @@ void TypingNotificationTest::shouldEmitTwoSignalWhenChangeRoom()
 {
     timerTimeOutValueMs = 100; // 100ms
     TypingNotification t;
-    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    QByteArray room1 = "room1"_ba;
-    QByteArray room2 = "room2"_ba;
+    const QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    const QByteArray room1 = "room1"_ba;
+    const QByteArray room2 = "room2"_ba;
     t.textNotificationChanged(room1, false);
     // Wait 50ms
     QTest::qWait(50);

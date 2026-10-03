@@ -40,7 +40,7 @@ void ResetRoomKeyJobTest::shouldGenerateRequest()
 
 void ResetRoomKeyJobTest::shouldGenerateJson()
 {
-    ResetRoomKeyJob job;
+    const ResetRoomKeyJob job;
     // TODO
     // QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
 }
@@ -61,7 +61,14 @@ void ResetRoomKeyJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
-    // QVERIFY(!job.canStart());
+    QVERIFY(!job.canStart());
+    ResetRoomKeyJob::ResetRoomKeyInfo info;
+    info.rid = u"rid"_s;
+    QVERIFY(!info.isValid());
+    info.e2eKey = u"key"_s;
+    info.e2eKeyId = u"keyId"_s;
+    QVERIFY(info.isValid());
+    job.setResetRoomKeyInfo(info);
     QVERIFY(job.canStart());
 }
 

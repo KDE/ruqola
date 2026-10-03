@@ -40,20 +40,14 @@ bool GetPresenceJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("GetPresenceJob ask for presenceUserId: " + mUserInfo.userIdentifier.toLatin1());
+    addStartRestApiInfo("GetPresenceJob ask for presenceUserId: "_ba + mUserInfo.userIdentifier.toLatin1());
     return true;
 }
 
 void GetPresenceJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetPresenceJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getPresenceDone(replyObject["presence"_L1].toString());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetPresenceJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetPresenceJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT getPresenceDone(replyObject->value("presence"_L1).toString());
     }
 }
 

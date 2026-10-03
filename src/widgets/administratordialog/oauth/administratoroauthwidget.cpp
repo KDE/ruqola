@@ -71,14 +71,14 @@ void AdministratorOauthWidget::initialize()
 void AdministratorOauthWidget::slotOauthAppAdded(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), true);
+    info.parseOauthInfo(obj, true);
     mAdminOauthModel->addMoreOauth(info);
 }
 
 void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
 {
     OauthInfo info;
-    info.parseOauthInfo(std::move(obj), true);
+    info.parseOauthInfo(obj, true);
     mAdminOauthModel->removeOauth(info.identifier());
     mAdminOauthModel->addMoreOauth(info);
 }
@@ -90,12 +90,9 @@ void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
     const auto arrayCount{array.count()};
     lstOauth.reserve(arrayCount);
     for (auto i = 0; i < arrayCount; ++i) {
-        const QJsonObject o = array.at(i).toObject();
-        OauthInfo info;
-        info.parseOauthInfo(o);
-        lstOauth.append(std::move(info));
+        lstOauth.emplace_back().parseOauthInfo(array.at(i).toObject());
     }
-    mAdminOauthModel->setAdminOauth(lstOauth);
+    mAdminOauthModel->setAdminOauth(std::move(lstOauth));
     // qDebug() << " lstOauth " << lstOauth;
     // qDebug() << " obj " << obj;
     for (int i : {AdminOauthModel::AdminOauthRoles::Identifier, AdminOauthModel::AdminOauthRoles::CreatedAtStr}) {

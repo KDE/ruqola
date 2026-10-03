@@ -21,7 +21,7 @@ TwoAuthenticationPasswordWidgetTest::TwoAuthenticationPasswordWidgetTest(QObject
 
 void TwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    TwoAuthenticationPasswordWidget w;
+    const TwoAuthenticationPasswordWidget w;
 
     auto twoFactorLayout = w.findChild<QHBoxLayout *>(u"twoFactorLayout"_s);
     QVERIFY(twoFactorLayout);

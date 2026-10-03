@@ -18,7 +18,7 @@ WebDavSettingsWidgetTest::WebDavSettingsWidgetTest(QObject *parent)
 
 void WebDavSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    WebDavSettingsWidget w(nullptr);
+    const WebDavSettingsWidget w(nullptr);
     auto mEnabled = w.findChild<QCheckBox *>(u"mEnabled"_s);
     QVERIFY(mEnabled);
     QVERIFY(!mEnabled->isChecked());

@@ -21,7 +21,7 @@ ShowDiscussionsWidgetTest::ShowDiscussionsWidgetTest(QObject *parent)
 
 void ShowDiscussionsWidgetTest::shouldHaveDefaultValues()
 {
-    ShowDiscussionsWidget w(nullptr);
+    const ShowDiscussionsWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -8,12 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include <QDateTime>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT OauthInfo
 {
 public:
     OauthInfo();
-    ~OauthInfo() = default;
     [[nodiscard]] bool operator==(const OauthInfo &other) const;
     void parseOauthInfo(const QJsonObject &replyObject, bool restapi = true);
 
@@ -54,5 +54,4 @@ private:
 
 QT_DECL_METATYPE_EXTERN_TAGGED(OauthInfo, Ruqola_OauthInfo, LIBRUQOLACORE_EXPORT)
 Q_DECLARE_TYPEINFO(OauthInfo, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OauthInfo &t);

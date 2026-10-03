@@ -5,7 +5,6 @@
 */
 
 #include "pendingattachmentwidget.h"
-#include "common/flowlayout.h"
 #include "pendingattachmentclickablewidget.h"
 #include <KLocalizedString>
 #include <QFileInfo>
@@ -14,12 +13,13 @@
 #include <QIcon>
 #include <QLabel>
 #include <QToolButton>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 
 PendingAttachmentWidget::PendingAttachmentWidget(QWidget *parent)
     : QWidget(parent)
-    , mFlowLayout(new FlowLayout(this))
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout(this))
 {
     setAutoFillBackground(true);
     mFlowLayout->setSpacing(4);
@@ -52,13 +52,29 @@ void PendingAttachmentWidget::addAttachment(const AccountRoomSettings::PendingAt
     updateAttachments();
 }
 
+void PendingAttachmentWidget::clearAttachments()
+{
+    // clearAndDeleteWidgets() defers the destruction (deleteLater()), so hide the widgets right away:
+    // otherwise they keep painting over the ones added just below until the event loop spins.
+    for (int i = 0, nbItems = mFlowLayout->count(); i < nbItems; ++i) {
+        if (QWidget *w = mFlowLayout->itemAt(i)->widget()) {
+            w->hide();
+        }
+    }
+    mFlowLayout->clearAndDeleteWidgets();
+    // The widgets are gone: dropping the map entries too, otherwise attachmentsInfo() would
+    // dereference dangling pointers and addAttachment() would refuse to re-add a known url.
+    mMap.clear();
+}
+
 void PendingAttachmentWidget::setAttachments(const QList<QUrl> &urls)
 {
-    mFlowLayout->clearAndDeleteWidgets();
+    clearAttachments();
 
     for (const QUrl &url : urls) {
         addAttachment(url);
     }
+    updateAttachments();
 }
 
 void PendingAttachmentWidget::updateAttachments()
@@ -70,15 +86,14 @@ void PendingAttachmentWidget::updateAttachments()
 
 void PendingAttachmentWidget::slotRemoveAttachment(const QUrl &url)
 {
-    PendingAttachmentClickableWidget *clickableWidget = mMap.value(url);
-    if (clickableWidget) {
+    if (PendingAttachmentClickableWidget *clickableWidget = mMap.take(url)) {
         const int index = mFlowLayout->indexOf(clickableWidget);
         if (index != -1) {
-            clickableWidget->deleteLater();
             delete mFlowLayout->takeAt(index);
-            mMap.remove(url);
-            updateAttachments();
         }
+        clickableWidget->hide();
+        clickableWidget->deleteLater();
+        updateAttachments();
     }
 }
 
@@ -89,24 +104,26 @@ bool PendingAttachmentWidget::hasAttachments() const
 
 void PendingAttachmentWidget::clear()
 {
-    mFlowLayout->clearAndDeleteWidgets();
-    mMap.clear();
+    clearAttachments();
     hide();
     updateAttachments();
 }
 
 void PendingAttachmentWidget::setPendingAttachmentInfos(const QList<AccountRoomSettings::PendingAttachmentInfo> &infos)
 {
-    mFlowLayout->clearAndDeleteWidgets();
+    clearAttachments();
 
     for (const AccountRoomSettings::PendingAttachmentInfo &info : infos) {
         if (verifyExistingFile(info.fileUrl)) {
             addAttachment(info);
         }
     }
+    // addAttachment() updates on each insertion, but an empty list must still hide the widget
+    // and tell the composer that there is nothing left to send.
+    updateAttachments();
 }
 
-bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl) const
+bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl)
 {
     if (fileUrl.isLocalFile()) {
         const QFileInfo f(fileUrl.toLocalFile());
@@ -118,6 +135,7 @@ bool PendingAttachmentWidget::verifyExistingFile(const QUrl &fileUrl) const
 QList<AccountRoomSettings::PendingAttachmentInfo> PendingAttachmentWidget::attachmentsInfo() const
 {
     QList<AccountRoomSettings::PendingAttachmentInfo> lst;
+    lst.reserve(mMap.count());
     for (auto i = mMap.cbegin(), end = mMap.cend(); i != end; ++i) {
         lst += i.value()->pendingAttachmentInfo();
     }

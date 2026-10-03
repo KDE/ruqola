@@ -12,14 +12,11 @@
 #include "configurepluginswidget.h"
 #include "configurespellcheckingwidget.h"
 #include "ruqolawidgets_debug.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QIcon>
 #include <QPushButton>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 #include "config-ruqola.h"
 
@@ -129,24 +126,11 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     load();
 }
 
-ConfigureSettingsDialog::~ConfigureSettingsDialog()
-{
-    writeConfig();
-}
+ConfigureSettingsDialog::~ConfigureSettingsDialog() = default;
 
 void ConfigureSettingsDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ConfigureSettingsDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigGroupName), QSize(800, 600));
 }
 
 void ConfigureSettingsDialog::slotRestoreToDefault()

@@ -25,8 +25,7 @@ QDebug operator<<(QDebug d, const ModerationReportedUserInfo &t)
 
 bool ModerationReportedUserInfo::operator==(const ModerationReportedUserInfo &other) const
 {
-    return mCount == other.count() && mCreatedAt == other.createdAt() && mUsername == other.username() && mName == other.name()
-        && mIdentifier == other.identifier();
+    return mCount == other.mCount && mCreatedAt == other.mCreatedAt && mUsername == other.mUsername && mName == other.mName && mIdentifier == other.mIdentifier;
 }
 
 void ModerationReportedUserInfo::parseModerationReportedUserInfo(const QJsonObject &o)

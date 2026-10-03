@@ -16,7 +16,7 @@ MessagePinnedTest::MessagePinnedTest(QObject *parent)
 
 void MessagePinnedTest::shouldHaveDefaultValue()
 {
-    MessagePinned p;
+    const MessagePinned p;
     QVERIFY(!p.pinned());
     QVERIFY(p.pinnedBy().isEmpty());
 }

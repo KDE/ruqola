@@ -29,7 +29,7 @@ void RegisterUserJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.registerUserInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
 
-    RegisterUserJob::RegisterUserInfo info;
+    const RegisterUserJob::RegisterUserInfo info;
     QVERIFY(info.username.isEmpty());
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.email.isEmpty());
@@ -63,7 +63,7 @@ void RegisterUserJobTest::shouldGenerateJson()
         info.password = password;
         job.setRegisterUserInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","username":"%4"})").arg(email, name, password, username).toLatin1());
+                 uR"({"email":"%1","name":"%2","pass":"%3","username":"%4"})"_s.arg(email, name, password, username).toLatin1());
     }
     {
         RegisterUserJob job;
@@ -79,9 +79,8 @@ void RegisterUserJobTest::shouldGenerateJson()
         info.password = password;
         info.reason = reason;
         job.setRegisterUserInfo(info);
-        QCOMPARE(
-            job.json().toJson(QJsonDocument::Compact),
-            QStringLiteral(R"({"email":"%1","name":"%2","pass":"%3","reason":"%4","username":"%5"})").arg(email, name, password, reason, username).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 uR"({"email":"%1","name":"%2","pass":"%3","reason":"%4","username":"%5"})"_s.arg(email, name, password, reason, username).toLatin1());
     }
 }
 
@@ -89,19 +88,7 @@ void RegisterUserJobTest::shouldNotStarting()
 {
     RegisterUserJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     RegisterUserJob::RegisterUserInfo info;
     const QString password = u"foo1"_s;
     const QString email = u"bla@bli.com"_s;

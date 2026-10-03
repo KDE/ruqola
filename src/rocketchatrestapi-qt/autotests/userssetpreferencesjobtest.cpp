@@ -6,7 +6,6 @@
 
 #include "userssetpreferencesjobtest.h"
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/userssetpreferencesjob.h"
@@ -53,7 +52,7 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         info.userId = userId;
         job.setUsersSetPreferencesInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-                 QStringLiteral(R"({"data":{"desktopNotifications":"%2"},"userId":"%1"})").arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
+                 uR"({"data":{"desktopNotifications":"%2","highlights":[]},"userId":"%1"})"_s.arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
     }
     {
         UsersSetPreferencesJob job;
@@ -71,7 +70,7 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
 
         QCOMPARE(
             job.json().toJson(QJsonDocument::Compact),
-            QStringLiteral(R"({"data":{"featuresPreview":[{"name":"secondarySidebar","value":true},{"name":"sidebarDrafts","value":true}]},"userId":"%1"})")
+            uR"({"data":{"featuresPreview":[{"name":"secondarySidebar","value":true},{"name":"sidebarDrafts","value":true}],"highlights":[]},"userId":"%1"})"_s
                 .arg(QLatin1StringView(userId))
                 .toLatin1());
     }
@@ -81,19 +80,7 @@ void UsersSetPreferencesJobTest::shouldNotStarting()
 {
     UsersSetPreferencesJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     UsersSetPreferencesJob::UsersSetPreferencesInfo info;
     info.desktopNotifications = u"Bla"_s;
     job.setUsersSetPreferencesInfo(info);

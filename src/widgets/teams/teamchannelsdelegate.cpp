@@ -28,40 +28,47 @@ void TeamChannelsDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     // [M] icon ? name (username)
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
     painter->setFont(boldFont);
 
-    int xPos = -1;
+    const QFontMetrics fontMetrics(boldFont);
+
+    int xPos = 0;
     const Utils::AvatarInfo info = index.data(TeamRoomsModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height());
+        const int iconSize = option.rect.height() - 4;
+        const int iconY = option.rect.y() + 2;
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
+            painter->drawPixmap(margin, iconY, iconSize, iconSize, pix);
         }
         // Add extra size even if we don't have avatar pix
-        xPos = margin + option.rect.height();
+        xPos = margin + iconSize;
     }
 
-    const QFontMetrics fontMetrics(boldFont);
     const QString name = index.data(TeamRoomsModel::Name).toString();
-    const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
+    const int defaultCharHeight = option.rect.y() + (option.rect.height() - fontMetrics.height()) / 2 + fontMetrics.ascent();
     painter->drawText(xPos + margin, defaultCharHeight, name);
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 QSize TeamChannelsDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const QSize size = QItemDelegate::sizeHint(option, index);
-    return size + QSize(0, 4 * option.widget->devicePixelRatioF());
+    return size + QSize(0, 4);
 }
 
 #include "moc_teamchannelsdelegate.cpp"

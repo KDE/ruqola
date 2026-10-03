@@ -14,7 +14,7 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(AutotranslateLanguages, Ruqola_AutotranslateLangu
 using namespace Qt::Literals::StringLiterals;
 AutotranslateLanguages::AutotranslateLanguages() = default;
 
-QList<AutotranslateLanguage> AutotranslateLanguages::autotranslateLanguage() const
+const QList<AutotranslateLanguage> &AutotranslateLanguages::autotranslateLanguage() const
 {
     return mAutotranslateLanguages;
 }
@@ -53,7 +53,8 @@ void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
     clear();
     // qDebug() << " obj " << obj;
     const QJsonArray array = obj["languages"_L1].toArray();
-    for (const QJsonValue &current : array) {
+    mAutotranslateLanguages.reserve(array.size());
+    for (const auto &current : array) {
         const QJsonObject languageObject = current.toObject();
         AutotranslateLanguage lang;
         lang.setLanguage(languageObject.value("language"_L1).toString());
@@ -64,7 +65,7 @@ void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
 
 QDebug operator<<(QDebug d, const AutotranslateLanguages &t)
 {
-    const QList<AutotranslateLanguage> autotranslateLanguages = t.autotranslateLanguage();
+    const QList<AutotranslateLanguage> &autotranslateLanguages = t.autotranslateLanguage();
     for (const AutotranslateLanguage &lang : autotranslateLanguages) {
         d.space() << "autotranslate:" << lang << "\n";
     }

@@ -26,7 +26,7 @@ void ModerationUserReportsJobTest::shouldHaveDefaultValue()
     ModerationUserReportsJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
 }
 

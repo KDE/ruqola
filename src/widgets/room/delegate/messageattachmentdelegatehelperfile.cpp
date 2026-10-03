@@ -7,18 +7,13 @@
 #include "messageattachmentdelegatehelperfile.h"
 
 #include "common/delegatepaintutil.h"
-#include "connection.h"
-#include "downloadfilejob.h"
 #include "rocketchataccount.h"
 #include "ruqolautils.h"
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
 #include <KLocalizedString>
-#include <TextAddonsWidgets/SaveFileUtils>
 
 #include "messageattachmentdelegatehelperopenfilejob.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqolawidgets_selection_debug.h"
 #include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
@@ -71,11 +66,10 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
 }
 
 QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach,
-                                                    const QModelIndex &index,
+                                                    [[maybe_unused]] const QModelIndex &index,
                                                     int maxWidth,
                                                     const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option, maxWidth);
     return {maxWidth, // should be qMax of all sizes, but doesn't really matter
             layout.y + layout.height + DelegatePaintUtil::margin()};
@@ -84,8 +78,6 @@ QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msg
 MessageAttachmentDelegateHelperFile::FileLayout
 MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
-    const int buttonMargin = DelegatePaintUtil::margin();
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int y = 0;
     FileLayout layout;
     layout.title = msgAttach.attachmentGeneratedTitle();
@@ -97,6 +89,8 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     layout.height = layout.titleSize.height() + (msgAttach.description().isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.descriptionSize.height())
         + (msgAttach.attachmentFieldsText().isEmpty() ? 0 : DelegatePaintUtil::margin() + layout.fieldsSize.height());
     if (msgAttach.canDownloadAttachment()) {
+        const int buttonMargin = DelegatePaintUtil::margin();
+        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
     }
     return layout;

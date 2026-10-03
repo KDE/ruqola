@@ -22,7 +22,7 @@ static QString otherAccountName()
     return u"myOtherAccount"_s;
 }
 
-enum class RoomSubscriptionFields {
+enum class RoomPendingTypeFields {
     RoomId,
     Json,
 }; // in the same order as the table
@@ -60,7 +60,7 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     // GIVEN
     LocalRoomPendingTypedInfoDatabase logger;
 
-    QByteArray roomId = "foo1"_ba;
+    const QByteArray roomId = "foo1"_ba;
     AccountRoomSettings::PendingTypedInfo info1;
     info1.messageIdBeingEdited = "foo"_ba;
     info1.quotePermalink = u"bla"_s;
@@ -70,20 +70,20 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     info1.scrollbarPosition = 5;
     logger.updateRoomPendingTypedInfo(otherAccountName(), roomId, info1);
 
-    QByteArray roomId2 = "foo2"_ba;
+    const QByteArray roomId2 = "foo2"_ba;
     AccountRoomSettings::PendingTypedInfo info2;
     info2.messageIdBeingEdited = "foo1"_ba;
     info2.quotePermalink = u"bla1"_s;
     info2.scrollbarPosition = 5;
     logger.updateRoomPendingTypedInfo(otherAccountName(), roomId2, info2);
 
-    QByteArray roomId3 = "foo3"_ba;
+    const QByteArray roomId3 = "foo3"_ba;
     AccountRoomSettings::PendingTypedInfo info3;
     info3.messageIdBeingEdited = "foo5"_ba;
     info3.quotePermalink = u"bla-kde"_s;
     info3.scrollbarPosition = 5;
     info3.quoteText = u"test1"_s;
-    logger.updateRoomPendingTypedInfo(otherAccountName(), roomId3, info2);
+    logger.updateRoomPendingTypedInfo(otherAccountName(), roomId3, info3);
 
     // WHEN
     auto tableModel = logger.createRoomsModel(otherAccountName());
@@ -92,14 +92,14 @@ void LocalRoomPendingTypedInfoDatabaseTest::shouldStoreRoomPendingTypedInfo()
     QVERIFY(tableModel);
     QCOMPARE(tableModel->rowCount(), 3);
     const QSqlRecord record0 = tableModel->record(0);
-    QCOMPARE(record0.value(int(RoomSubscriptionFields::Json)).toByteArray(),
+    QCOMPARE(record0.value(int(RoomPendingTypeFields::Json)).toByteArray(),
              QJsonDocument(AccountRoomSettings::PendingTypedInfo::serialize(info1)).toJson(QJsonDocument::Compact));
-    QCOMPARE(record0.value(int(RoomSubscriptionFields::RoomId)).toByteArray(), roomId);
+    QCOMPARE(record0.value(int(RoomPendingTypeFields::RoomId)).toByteArray(), roomId);
 
     const QSqlRecord record1 = tableModel->record(1);
-    QCOMPARE(record1.value(int(RoomSubscriptionFields::Json)).toByteArray(),
+    QCOMPARE(record1.value(int(RoomPendingTypeFields::Json)).toByteArray(),
              QJsonDocument(AccountRoomSettings::PendingTypedInfo::serialize(info2)).toJson(QJsonDocument::Compact));
-    QCOMPARE(record1.value(int(RoomSubscriptionFields::RoomId)).toByteArray(), roomId2);
+    QCOMPARE(record1.value(int(RoomPendingTypeFields::RoomId)).toByteArray(), roomId2);
 }
 
 void LocalRoomPendingTypedInfoDatabaseTest::shouldDeleteRoomPendingTypedInfo() // this test depends on shouldStoreRoomPendingTypedInfo()

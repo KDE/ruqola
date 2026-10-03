@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -16,7 +16,6 @@ using namespace Qt::Literals::StringLiterals;
 #include "model/moderationreportedusermodel.h"
 #include "model/moderationreporteduserproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
-#include "moderation/moderationdismissuserreportsjob.h"
 #include "moderation/moderationreportsbyuseridjob.h"
 #include "moderation/moderationreportuserinfos.h"
 #include "moderation/moderationuserreportsjob.h"
@@ -42,7 +41,11 @@ ModerationReportedUserConsoleTreeWidget::ModerationReportedUserConsoleTreeWidget
     mProxyModelModel = new ModerationReportedUserProxyModel(mModel, this);
     mProxyModelModel->setObjectName(u"mProxyModelModel"_s);
     mTreeView->setModel(mProxyModelModel);
-    connect(this, &ModerationReportedUserConsoleTreeWidget::doubleClicked, this, &ModerationReportedUserConsoleTreeWidget::slotShowReports);
+    connect(this, &ModerationReportedUserConsoleTreeWidget::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            slotShowReports(mProxyModelModel->mapToSource(index));
+        }
+    });
     connect(this, &ModerationReportedUserConsoleTreeWidget::refreshList, this, [this]() {
         slotLoadElements();
     });
@@ -146,7 +149,7 @@ void ModerationReportedUserConsoleTreeWidget::slotCustomContextMenuRequested(con
 
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Deactivate user"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::UserName);
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), ModerationReportedUserModel::Identifier);
             slotDesactivateUser(modelIndex);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));

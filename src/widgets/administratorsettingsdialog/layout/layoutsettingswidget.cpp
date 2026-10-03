@@ -35,7 +35,6 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     addCheckBox(mAllowSpecialCharactersRoomNames, u"UI_Allow_room_names_with_special_chars"_s);
 
     mMergePrivateGroupsWithChannels->setObjectName(u"mMergePrivateGroupsWithChannels"_s);
-    mMainLayout->addWidget(mMergePrivateGroupsWithChannels);
     addCheckBox(mMergePrivateGroupsWithChannels, u"UI_Merge_Channels_Groups"_s);
 
     mGroupChannelsByType->setObjectName(u"mGroupChannelsByType"_s);

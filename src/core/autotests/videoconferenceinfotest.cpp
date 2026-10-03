@@ -18,7 +18,7 @@ VideoConferenceInfoTest::VideoConferenceInfoTest(QObject *parent)
 
 void VideoConferenceInfoTest::shouldHaveDefaultValues()
 {
-    VideoConferenceInfo info;
+    const VideoConferenceInfo info;
     QVERIFY(info.url().isEmpty());
     QCOMPARE(info.status(), -1);
     QVERIFY(!info.ringing());

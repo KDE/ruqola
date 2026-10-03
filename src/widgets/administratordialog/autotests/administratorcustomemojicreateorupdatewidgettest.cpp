@@ -24,7 +24,7 @@ AdministratorCustomEmojiCreateOrUpdateWidgetTest::AdministratorCustomEmojiCreate
 
 void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomEmojiCreateOrUpdateWidget w;
+    const AdministratorCustomEmojiCreateOrUpdateWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -54,7 +54,7 @@ void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldHaveDefaultValues()
 
 void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldEmitSignal()
 {
-    AdministratorCustomEmojiCreateOrUpdateWidget w;
+    const AdministratorCustomEmojiCreateOrUpdateWidget w;
     QSignalSpy updateOkButtonChanged(&w, &AdministratorCustomEmojiCreateOrUpdateWidget::updateOkButton);
 
     auto mName = w.findChild<QLineEdit *>(u"mName"_s);

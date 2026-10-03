@@ -10,13 +10,10 @@
 #include "room.h"
 #include "searchmessagewidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -42,10 +39,7 @@ SearchMessageDialog::SearchMessageDialog(RocketChatAccount *account, QWidget *pa
     readConfig();
 }
 
-SearchMessageDialog::~SearchMessageDialog()
-{
-    writeConfig();
-}
+SearchMessageDialog::~SearchMessageDialog() = default;
 
 void SearchMessageDialog::setRoomId(const QByteArray &roomId)
 {
@@ -54,17 +48,7 @@ void SearchMessageDialog::setRoomId(const QByteArray &roomId)
 
 void SearchMessageDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(mySearchMessageDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void SearchMessageDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(mySearchMessageDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(mySearchMessageDialogGroupName), QSize(800, 600));
 }
 
 void SearchMessageDialog::setRoom(Room *room)

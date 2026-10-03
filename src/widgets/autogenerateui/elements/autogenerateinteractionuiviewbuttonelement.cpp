@@ -48,7 +48,7 @@ void AutoGenerateInteractionUiViewButtonElement::setValue(const QString &newValu
     mValue = newValue;
 }
 
-AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str) const
+AutoGenerateInteractionUiViewButtonElement::Style AutoGenerateInteractionUiViewButtonElement::convertStyleFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return AutoGenerateInteractionUiViewButtonElement::Style::Unknown;
@@ -126,7 +126,7 @@ void AutoGenerateInteractionUiViewButtonElement::setStyle(Style newStyle)
 
 bool AutoGenerateInteractionUiViewButtonElement::operator==(const AutoGenerateInteractionUiViewButtonElement &other) const
 {
-    return other.value() == value() && other.style() == style() && other.text() == text() && other.secondary() == secondary()
+    return other.mValue == mValue && other.mStyle == mStyle && other.mText == mText && other.mSecondary == mSecondary
         && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 

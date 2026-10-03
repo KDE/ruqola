@@ -7,6 +7,7 @@
 #include "resetroomkeyjob.h"
 
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -27,21 +28,15 @@ bool ResetRoomKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ResetRoomKeyJob::start");
+    addStartRestApiInfo("ResetRoomKeyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void ResetRoomKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ResetRoomKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT resetRoomKeyDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ResetRoomKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ResetRoomKeyJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT resetRoomKeyDone(*replyObject);
     }
 }
 
@@ -57,6 +52,18 @@ void ResetRoomKeyJob::setResetRoomKeyInfo(const ResetRoomKeyInfo &newResetRoomKe
 
 bool ResetRoomKeyJob::requireHttpAuthentication() const
 {
+    return true;
+}
+
+bool ResetRoomKeyJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (!mResetRoomKeyInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetRoomKeyJob: mResetRoomKeyInfo is invalid";
+        return false;
+    }
     return true;
 }
 

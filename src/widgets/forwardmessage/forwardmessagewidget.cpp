@@ -6,17 +6,17 @@
 
 #include "forwardmessagewidget.h"
 
-#include "common/flowlayout.h"
 #include "misc/clickablewidget.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;
 ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mForwardMessageAddChannelCompletionLineEdit(new ForwardMessageAddChannelCompletionLineEdit(account, this))
-    , mFlowLayout(new FlowLayout)
+    , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
@@ -29,7 +29,7 @@ ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *
     mForwardMessageAddChannelCompletionLineEdit->setObjectName(u"mForwardMessageAddChannelCompletionLineEdit"_s);
     mainLayout->addWidget(mForwardMessageAddChannelCompletionLineEdit);
     connect(mForwardMessageAddChannelCompletionLineEdit,
-            &ForwardMessageAddChannelCompletionLineEdit::fowardToChannel,
+            &ForwardMessageAddChannelCompletionLineEdit::forwardToChannel,
             this,
             &ForwardMessageWidget::slotForwardToChannel);
 
@@ -45,40 +45,32 @@ ForwardMessageWidget::~ForwardMessageWidget()
 
 void ForwardMessageWidget::slotForwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo)
 {
-    const QString &roomName = channelInfo.name;
-    if (mMap.contains(roomName)) {
+    const QByteArray &channelId = channelInfo.channelId;
+    if (mMap.contains(channelId)) {
         return;
     }
-    auto clickableWidget = new ClickableWidget(roomName, this);
-    clickableWidget->setIdentifier(channelInfo.channelId);
+    auto clickableWidget = new ClickableWidget(channelInfo.name, this);
+    clickableWidget->setIdentifier(channelId);
     connect(clickableWidget, &ClickableWidget::removeClickableWidget, this, &ForwardMessageWidget::slotRemoveRoom);
     mFlowLayout->addWidget(clickableWidget);
-    mMap.insert(roomName, clickableWidget);
-    Q_EMIT updateOkButton(!mMap.isEmpty());
+    mMap.insert(channelId, clickableWidget);
+    Q_EMIT updateOkButton(true);
 }
 
-void ForwardMessageWidget::slotRemoveRoom(const QString &name)
+void ForwardMessageWidget::slotRemoveRoom(const QByteArray &channelId)
 {
-    ClickableWidget *userWidget = mMap.value(name);
-    if (userWidget) {
-        const int index = mFlowLayout->indexOf(userWidget);
-        if (index != -1) {
-            mFlowLayout->removeItem(mFlowLayout->itemAt(index));
-            mMap.remove(name);
-            userWidget->deleteLater();
+    if (ClickableWidget *const roomWidget = mMap.take(channelId)) {
+        if (const int index = mFlowLayout->indexOf(roomWidget); index != -1) {
+            delete mFlowLayout->takeAt(index);
         }
+        roomWidget->deleteLater();
+        Q_EMIT updateOkButton(!mMap.isEmpty());
     }
-    Q_EMIT updateOkButton(!mMap.isEmpty());
 }
 
 QList<QByteArray> ForwardMessageWidget::channelIdentifiers() const
 {
-    QList<QByteArray> identifiers;
-    identifiers.reserve(mMap.count());
-    for (const auto &[key, value] : mMap.asKeyValueRange()) {
-        identifiers << value->identifier();
-    }
-    return identifiers;
+    return mMap.keys();
 }
 
 #include "moc_forwardmessagewidget.cpp"

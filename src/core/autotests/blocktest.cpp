@@ -18,7 +18,7 @@ BlockTest::BlockTest(QObject *parent)
 
 void BlockTest::shouldHaveDefaultValues()
 {
-    Block b;
+    const Block b;
     QVERIFY(b.callId().isEmpty());
     QVERIFY(b.blockId().isEmpty());
     QVERIFY(b.appId().isEmpty());
@@ -137,7 +137,7 @@ void BlockTest::shouldLoadBlock_data()
         info.setSectionText(u"ssdf"_s);
 
         BlockAccessory accessory;
-        accessory.setActionId("finish");
+        accessory.setActionId("finish"_ba);
         accessory.setType(BlockAccessory::AccessoryType::Overflow);
 
         QList<BlockAccessoryOption> options;
@@ -174,11 +174,11 @@ void BlockTest::shouldLoadBlock_data()
         info.setSectionText("zz"_L1);
 
         BlockAccessory accessory;
-        accessory.setActionId("vote");
+        accessory.setActionId("vote"_ba);
         accessory.setValue("0"_L1);
         accessory.setText("Vote"_L1);
         accessory.setType(BlockAccessory::AccessoryType::Button);
-        info.setBlockAccessory(std::move(accessory));
+        info.setBlockAccessory(accessory);
         QTest::addRow("section2") << u"section2"_s << info;
     }
 }

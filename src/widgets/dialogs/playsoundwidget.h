@@ -46,7 +46,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void audioOutputChanged(int index);
     LIBRUQOLAWIDGETS_NO_EXPORT void mediaStateChanged(QMediaPlayer::PlaybackState state);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAttachmentFileDownloadDone(const QString &url);
-    qint64 mDuration;
+    qint64 mDuration = 0;
     QMediaPlayer *const mMediaPlayer;
     QPushButton *const mPlayButton;
     QToolButton *const mSoundButton;

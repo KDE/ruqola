@@ -5,7 +5,6 @@
 */
 
 #include "changegroupstopicjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 ChangeGroupsTopicJob::ChangeGroupsTopicJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -27,7 +27,7 @@ bool ChangeGroupsTopicJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeGroupsTopicJob::start");
+    addStartRestApiInfo("ChangeGroupsTopicJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool ChangeGroupsTopicJob::start()
 
 void ChangeGroupsTopicJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChangeGroupsTopicJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeGroupsTopicJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeTopicDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChangeGroupsTopicJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

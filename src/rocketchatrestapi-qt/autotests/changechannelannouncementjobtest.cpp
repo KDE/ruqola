@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/changechannelannouncementjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -25,19 +24,7 @@ void ChangeChannelAnnouncementJobTest::shouldNotStarting()
 {
     ChangeChannelAnnouncementJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString roomId = u"foo1"_s;
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
@@ -68,7 +55,7 @@ void ChangeChannelAnnouncementJobTest::shouldGenerateJson()
     const QString announcement = u"topic1"_s;
     job.setRoomId(roomId);
     job.setAnnouncement(announcement);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"announcement":"%1","roomId":"%2"})").arg(announcement, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"announcement":"%1","roomId":"%2"})"_s.arg(announcement, roomId).toLatin1());
 }
 
 #include "moc_changechannelannouncementjobtest.cpp"

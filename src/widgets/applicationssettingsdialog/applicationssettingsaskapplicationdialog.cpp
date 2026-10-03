@@ -7,14 +7,11 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsaskapplicationwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -44,24 +41,11 @@ ApplicationsSettingsAskApplicationDialog::ApplicationsSettingsAskApplicationDial
     readConfig();
 }
 
-ApplicationsSettingsAskApplicationDialog::~ApplicationsSettingsAskApplicationDialog()
-{
-    writeConfig();
-}
+ApplicationsSettingsAskApplicationDialog::~ApplicationsSettingsAskApplicationDialog() = default;
 
 void ApplicationsSettingsAskApplicationDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsAskApplicationDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ApplicationsSettingsAskApplicationDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsAskApplicationDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myApplicationsSettingsAskApplicationDialogGroupName), QSize(400, 300));
 }
 
 QString ApplicationsSettingsAskApplicationDialog::message() const

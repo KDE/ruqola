@@ -82,7 +82,7 @@ TeamChannelsWidget::~TeamChannelsWidget() = default;
 
 void TeamChannelsWidget::slotTypeTeamListChanged(int index)
 {
-    mTeamRoomFilterProxyModel->setSortByAutoJoin(index == 1 ? true : false);
+    mTeamRoomFilterProxyModel->setSortByAutoJoin(index == 1);
 }
 
 void TeamChannelsWidget::setRoom(Room *room)
@@ -105,8 +105,8 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
-    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
-    mTeamRoomsModel->setTeamRooms(teamRooms);
+    QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    mTeamRoomsModel->setTeamRooms(std::move(teamRooms));
 }
 
 void TeamChannelsWidget::slotTextChanged(const QString &str)
@@ -120,27 +120,27 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
         return;
     }
     QMenu menu(this);
-    QModelIndex index = mListView->indexAt(pos);
+    const QModelIndex index = mListView->indexAt(pos);
     // TODO Remove add-team-channel when we will depend against RC 7.0
-    if (mRoom->hasPermission(u"add-team-channel"_s) || mRoom->hasPermission(u"move-room-to-team"_s) || mRoom->hasPermission(u"create-team-channel"_s)
-        || mRoom->hasPermission(u"create-team-group"_s)) {
+    if (mRoom->hasPermission(u"add-team-channel") || mRoom->hasPermission(u"move-room-to-team") || mRoom->hasPermission(u"create-team-channel")
+        || mRoom->hasPermission(u"create-team-group")) {
         menu.addAction(i18n("Add Existing Room"), this, &TeamChannelsWidget::slotAddExistingRoom);
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(u"irc-join-channel"_s), i18nc("@action", "Create Room"), this, &TeamChannelsWidget::slotCreateRoom);
     }
     if (index.isValid()) {
-        if (mRoom->hasPermission(u"edit-team-channel"_s)) {
+        if (mRoom->hasPermission(u"edit-team-channel")) {
             menu.addSeparator();
             const bool autojoin = index.data(TeamRoomsModel::AutoJoin).toBool();
-            menu.addAction(autojoin ? i18nc("@action", "Remove Autojoin") : i18nc("@action", "Add Autojoin"), this, [this, index, autojoin]() {
-                const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            menu.addAction(autojoin ? i18nc("@action", "Remove Autojoin") : i18nc("@action", "Add Autojoin"), this, [this, roomId, autojoin]() {
                 updateAutojoin(roomId, autojoin);
             });
         }
-        if (mRoom->hasPermission(u"remove-team-channel"_s)) {
+        if (mRoom->hasPermission(u"remove-team-channel")) {
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Remove from Team"), this, [this, index]() {
-                const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            const QByteArray roomId = index.data(TeamRoomsModel::Identifier).toByteArray();
+            menu.addAction(QIcon::fromTheme(u"dialog-cancel"_s), i18nc("@action", "Remove from Team"), this, [this, roomId]() {
                 removeRoomFromTeam(roomId);
             });
         }
@@ -167,7 +167,7 @@ void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
     const QJsonObject room = replyObject.value("room"_L1).toObject();
     TeamRoom teamRoom;
     teamRoom.parse(room);
-    mTeamRoomsModel->setRoomChanged(std::move(teamRoom));
+    mTeamRoomsModel->setRoomChanged(teamRoom);
 }
 
 void TeamChannelsWidget::removeRoomFromTeam(const QByteArray &roomId)
@@ -218,7 +218,7 @@ void TeamChannelsWidget::slotAddExistingRoom()
 void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
 {
     // qDebug() << " obj " << obj;
-    const QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+    QList<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
     if (!teamRooms.isEmpty()) {
         mTeamRoomsModel->insertRooms(teamRooms);
     }

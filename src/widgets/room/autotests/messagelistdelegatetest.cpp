@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2020 David Faure <faure@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -6,17 +6,22 @@
 
 #include "messagelistdelegatetest.h"
 
+#include "messagecache.h"
 #include "messages/message.h"
 #include "messages/messageattachment.h"
 #include "rocketchataccount.h"
+#include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagelistdelegate.h"
 #include "ruqola.h"
+#include "ruqolaglobalconfig.h"
 #include "testdata.h"
 
+#include <QListView>
 #include <QStandardItemModel>
 #include <QStandardPaths>
 #include <QStyleOptionViewItem>
 #include <QTest>
+#include <QTextDocument>
 
 QTEST_MAIN(MessageListDelegateTest)
 
@@ -34,6 +39,7 @@ void MessageListDelegateTest::layoutChecks_data()
 {
     QTest::addColumn<Message>("message");
     QTest::addColumn<bool>("withDateHeader");
+    QTest::addColumn<bool>("normalLayout");
 
     Message message;
     message.setMessageId("someNonEmptyId"_ba);
@@ -42,8 +48,12 @@ void MessageListDelegateTest::layoutChecks_data()
     message.setTimeStamp(QDateTime(QDate(2020, 2, 1), QTime(4, 7, 15)).toMSecsSinceEpoch());
     message.setMessageType(Message::NormalText);
 
-    QTest::newRow("text_no_date") << message << false;
-    QTest::newRow("text_with_date") << message << true;
+    QTest::newRow("text_no_date") << message << false << false;
+    QTest::newRow("text_with_date") << message << true << false;
+
+    Message messageWithLargeEmoji = message;
+    messageWithLargeEmoji.setText(uR"(<span style="font: x-large NotoColorEmoji">💰</span> Text)"_s);
+    QTest::newRow("large_emoji_no_date") << messageWithLargeEmoji << false << true;
 
     message.setMessageType(Message::NormalText);
     MessageAttachment msgAttach = testAttachment();
@@ -56,17 +66,17 @@ void MessageListDelegateTest::layoutChecks_data()
 
     message.setAttachments(attachments);
 
-    QTest::newRow("attachment_no_text_no_date") << message << false;
-    QTest::newRow("attachment_no_text_with_date") << message << true;
+    QTest::newRow("attachment_no_text_no_date") << message << false << false;
+    QTest::newRow("attachment_no_text_with_date") << message << true << false;
 
     message.setText(u"The <b>text</b>"_s);
 
-    QTest::newRow("attachment_with_text_no_date") << message << false;
-    QTest::newRow("attachment_with_text_with_date") << message << true;
+    QTest::newRow("attachment_with_text_no_date") << message << false << false;
+    QTest::newRow("attachment_with_text_with_date") << message << true << false;
 
     message.setEditedByUsername(message.username());
 
-    QTest::newRow("edited_with_attachment_with_text_with_date") << message << true;
+    QTest::newRow("edited_with_attachment_with_text_with_date") << message << true << false;
 
     // TODO tests with reactions
 }
@@ -75,14 +85,20 @@ void MessageListDelegateTest::layoutChecks()
 {
     QFETCH(Message, message);
     QFETCH(bool, withDateHeader);
+    QFETCH(bool, normalLayout);
 
     // GIVEN a delegate and an index pointing to a message
+    const auto previousMessageStyle = RuqolaGlobalConfig::self()->messageStyle();
+    if (normalLayout) {
+        RuqolaGlobalConfig::self()->setMessageStyle(RuqolaGlobalConfig::EnumMessageStyle::Normal);
+    }
     MessageListDelegate delegate(Ruqola::self()->rocketChatAccount(), nullptr);
     delegate.setRocketChatAccount(Ruqola::self()->rocketChatAccount());
+    RuqolaGlobalConfig::self()->setMessageStyle(previousMessageStyle);
     QStyleOptionViewItem option;
-    QWidget fakeWidget;
+    const QWidget fakeWidget;
     option.widget = &fakeWidget;
-    option.rect = QRect(100, 100, 500, 500);
+    option.rect = QRect(normalLayout ? 0 : 100, 100, 500, 500);
 
     QStandardItemModel model;
     auto item = new QStandardItem;
@@ -110,8 +126,11 @@ void MessageListDelegateTest::layoutChecks()
 
     // THEN
     QCOMPARE(layout.senderText, u"dfaure"_s);
-    QCOMPARE(layout.timeStampText, u"04:07"_s);
+    QCOMPARE(layout.timeStampText, normalLayout ? u"·  04:07"_s : u"04:07"_s);
     QVERIFY(option.rect.contains(layout.usableRect));
+    if (normalLayout) {
+        QCOMPARE(qRound(layout.senderRect.top()), layout.usableRect.top());
+    }
 
     // Text
     if (message.text().isEmpty()) {
@@ -146,6 +165,55 @@ void MessageListDelegateTest::layoutChecks()
         QVERIFY(!layout.editedIconRect.intersects(layout.textRect));
         QVERIFY(!layout.editedIconRect.intersects(layout.senderRect.toRect()));
     }
+}
+
+void MessageListDelegateTest::shouldIgnoreUpdatesForInvalidatedMessage_data()
+{
+    QTest::addColumn<bool>("threadModel");
+    QTest::addColumn<int>("invalidation");
+    QTest::newRow("message-valid") << false << 0;
+    QTest::newRow("thread-valid") << true << 0;
+    QTest::newRow("message-removed") << false << 1;
+    QTest::newRow("message-reset") << false << 2;
+    QTest::newRow("thread-removed") << true << 1;
+    QTest::newRow("thread-reset") << true << 2;
+}
+
+void MessageListDelegateTest::shouldIgnoreUpdatesForInvalidatedMessage()
+{
+    QFETCH(bool, threadModel);
+    QFETCH(int, invalidation);
+    auto *account = Ruqola::self()->rocketChatAccount();
+    QListView view;
+    MessageListDelegate delegate(account, &view);
+    QStandardItemModel model;
+    Message message;
+    message.setMessageId("delayed-update"_ba);
+    auto *item = new QStandardItem;
+    item->setData(QVariant::fromValue(&message), MessagesModel::MessagePointer);
+    item->setData(u"Updated text"_s, MessagesModel::MessageConvertedText);
+    model.appendRow(item);
+    const QPersistentModelIndex index(model.index(0, 0));
+    QTextDocument document;
+    document.setPlainText(u"Original text"_s);
+    MessageDelegateHelperText::MessageTextInfo info;
+    info.pendingThreadModel = threadModel;
+    if (!threadModel) {
+        info.pendingMessageIds.append("pending-context"_ba);
+    }
+    delegate.helperText()->connectToMessageUpdates(info, index, &document);
+    if (invalidation == 2) {
+        model.clear();
+    } else if (invalidation == 1) {
+        model.removeRow(0);
+    }
+    QCOMPARE(index.isValid(), invalidation == 0);
+    if (threadModel) {
+        Q_EMIT account->messageCache()->modelLoaded();
+    } else {
+        Q_EMIT account->messageCache()->messageLoaded("pending-context"_ba);
+    }
+    QCOMPARE(document.toPlainText(), invalidation == 0 ? u"Updated text"_s : u"Original text"_s);
 }
 
 #include "moc_messagelistdelegatetest.cpp"

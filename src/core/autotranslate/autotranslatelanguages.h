@@ -9,13 +9,15 @@
 #include "autotranslatelanguage.h"
 #include "libruqola_private_export.h"
 #include <QList>
+class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguages
 {
 public:
     AutotranslateLanguages();
 
-    [[nodiscard]] QList<AutotranslateLanguage> autotranslateLanguage() const;
+    [[nodiscard]] const QList<AutotranslateLanguage> &autotranslateLanguage() const;
     void setAutotranslateLanguages(const QList<AutotranslateLanguage> &autotranslateLanguage);
 
     [[nodiscard]] bool isEmpty() const;
@@ -30,5 +32,5 @@ private:
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(AutotranslateLanguages, Ruqola_AutotranslateLanguages, LIBRUQOLACORE_EXPORT)
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AutotranslateLanguages &t);
+Q_DECLARE_TYPEINFO(AutotranslateLanguages, Q_RELOCATABLE_TYPE);

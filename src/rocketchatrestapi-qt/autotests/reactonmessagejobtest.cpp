@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "chat/reactonmessagejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -49,30 +48,18 @@ void ReactOnMessageJobTest::shouldGenerateJson()
     job.setMessageId(messageid);
     job.setEmoji(emoji);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":true})").arg(emoji, QLatin1StringView(messageid)).toLatin1());
+             uR"({"emoji":"%1","messageId":"%2","shouldReact":true})"_s.arg(emoji, QLatin1StringView(messageid)).toLatin1());
 
     job.setShouldReact(false);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"emoji":"%1","messageId":"%2","shouldReact":false})").arg(emoji, QLatin1StringView(messageid)).toLatin1());
+             uR"({"emoji":"%1","messageId":"%2","shouldReact":false})"_s.arg(emoji, QLatin1StringView(messageid)).toLatin1());
 }
 
 void ReactOnMessageJobTest::shouldNotStarting()
 {
     ReactOnMessageJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray messageId("foo1");
     job.setMessageId(messageId);
     QVERIFY(!job.canStart());

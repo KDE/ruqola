@@ -12,8 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
+#include "ruqolawidgets_debug.h"
 
-#include <KLocalizedString>
 #include <QAbstractItemView>
 #include <QListView>
 #include <QPainter>
@@ -34,6 +34,7 @@ BannerInfoListViewDelegate::~BannerInfoListViewDelegate() = default;
 void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
+    drawBackground(painter, option, index);
 
     const Layout layout = doLayout(option, index);
 
@@ -63,11 +64,13 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    auto it = mSizeHintCache.find(identifier);
-    if (it != mSizeHintCache.end()) {
-        const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "BannerInfoListViewDelegate: SizeHint found in cache: " << result;
-        return result;
+    if (!identifier.isEmpty()) {
+        auto it = mSizeHintCache.find(identifier);
+        if (it != mSizeHintCache.end()) {
+            const QSize result = it->value;
+            qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "BannerInfoListViewDelegate: SizeHint found in cache: " << result;
+            return result;
+        }
     }
 #endif
     // Note: option.rect in this method is huge (as big as the viewport)
@@ -80,13 +83,14 @@ QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, c
     }
 
     // contents is date + text
-    const int contentsHeight = layout.textRect.height() - option.rect.y();
+    const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
+
     //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     const QSize size = {option.rect.width(), contentsHeight + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if (!size.isEmpty()) {
+    if (!size.isEmpty() && !identifier.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif
@@ -115,7 +119,7 @@ bool BannerInfoListViewDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemV
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
 bool BannerInfoListViewDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -149,36 +153,37 @@ QPoint BannerInfoListViewDelegate::adaptMousePosition(const QPoint &pos, QRect t
 BannerInfoListViewDelegate::Layout BannerInfoListViewDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Layout layout;
-    // Message (using the rest of the available width)
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
     const int senderX = option.rect.x();
     const int margin = MessageDelegateUtils::basicMargin();
     const int textLeft = senderX + margin;
-    const int widthAfterMessage = iconSize + margin + margin / 2;
-    const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+    const int maxWidth = qMax(30, option.rect.width() - textLeft);
 
     layout.baseLine = 0;
     const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
 
     const int textVMargin = 3; // adjust this for "compactness"
-    QRect usableRect = option.rect;
-    layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
+    layout.textRect = QRect(textLeft, option.rect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute
     return layout;
 }
 
-QByteArray BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray BannerInfoListViewDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const QByteArray identifier = index.data(BannerInfosModel::Identifier).toByteArray();
-    Q_ASSERT(!identifier.isEmpty());
     return identifier;
 }
 
 QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
-    Q_ASSERT(index.isValid());
+    if (!index.isValid()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Index is not valid. It's a bug";
+        return {};
+    }
     const QByteArray messageId = cacheIdentifier(index);
+    if (messageId.isEmpty()) {
+        return {};
+    }
     const QString messageBannerStr = index.data(BannerInfosModel::Text).toString();
     return documentForDelegate(mRocketChatAccount, messageId, messageBannerStr, width);
 }

@@ -20,7 +20,7 @@ AdministratorUsersWidgetTest::AdministratorUsersWidgetTest(QObject *parent)
 
 void AdministratorUsersWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorUsersWidget w(AdministratorUsersWidget::UsersType::All, nullptr);
+    const AdministratorUsersWidget w(AdministratorUsersWidget::UsersType::All, nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     auto mResultTreeView = w.findChild<QTreeView *>(u"mTreeView"_s);

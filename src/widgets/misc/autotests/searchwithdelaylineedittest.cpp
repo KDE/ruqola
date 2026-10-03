@@ -17,7 +17,7 @@ SearchWithDelayLineEditTest::SearchWithDelayLineEditTest(QObject *parent)
 
 void SearchWithDelayLineEditTest::shouldHaveDefaultValues()
 {
-    SearchWithDelayLineEdit w;
+    const SearchWithDelayLineEdit w;
     QVERIFY(w.isClearButtonEnabled());
     QVERIFY(!w.placeholderText().isEmpty());
 }

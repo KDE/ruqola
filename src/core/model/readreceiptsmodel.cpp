@@ -28,7 +28,7 @@ QVariant ReadReceiptsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mReadReceipts.count()) {
         return {};
     }
-    const ReadReceipt receiptInfo = mReadReceipts.at(index.row());
+    const ReadReceipt &receiptInfo = mReadReceipts.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case ReadReceiptsModel::ReadReceiptsInfo::UserName:
@@ -59,7 +59,7 @@ void ReadReceiptsModel::setReadReceipts(const ReadReceipts &newReadReceipts)
     endResetModel();
 }
 
-Utils::AvatarInfo ReadReceiptsModel::avatarInfo(const ReadReceipt &user) const
+Utils::AvatarInfo ReadReceiptsModel::avatarInfo(const ReadReceipt &user)
 {
     const Utils::AvatarInfo info{
         .etag = {},

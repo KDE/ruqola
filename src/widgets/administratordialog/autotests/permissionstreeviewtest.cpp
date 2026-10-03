@@ -16,7 +16,7 @@ PermissionsTreeViewTest::PermissionsTreeViewTest(QObject *parent)
 
 void PermissionsTreeViewTest::shouldHaveDefaultValues()
 {
-    PermissionsTreeView w;
+    const PermissionsTreeView w;
     QVERIFY(!w.rootIsDecorated());
     QVERIFY(w.isSortingEnabled());
     QCOMPARE(w.contextMenuPolicy(), Qt::CustomContextMenu);

@@ -27,7 +27,7 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
     if (index.row() < 0 || index.row() >= mSwichChannelsInfo.count()) {
         return {};
     }
-    const SwitchChannelInfo info = mSwichChannelsInfo.at(index.row());
+    const SwitchChannelInfo &info = mSwichChannelsInfo.at(index.row());
     switch (role) {
     case SwitchChannelHistoryRoles::Name:
     case Qt::DisplayRole:
@@ -43,13 +43,13 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
 void SwitchChannelHistoryModel::addHistory(const SwitchChannelInfo &info)
 {
     if (!mSwichChannelsInfo.isEmpty()) {
-        if (mSwichChannelsInfo.at(mSwichChannelsInfo.count() - 1) == info) {
+        if (mSwichChannelsInfo.constFirst() == info) {
             return;
         }
     }
     beginResetModel();
     if (mSwichChannelsInfo.count() > 10) {
-        mSwichChannelsInfo.takeFirst();
+        mSwichChannelsInfo.takeLast();
     }
     mSwichChannelsInfo.removeAll(info);
     mSwichChannelsInfo.prepend(info);

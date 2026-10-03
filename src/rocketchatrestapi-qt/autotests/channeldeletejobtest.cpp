@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channeldeletejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -46,7 +45,7 @@ void ChannelDeleteJobTest::shouldGenerateUserIdJson()
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1"})"_s.arg(roomId).toLatin1());
 }
 
 void ChannelDeleteJobTest::shouldGenerateUserNameJson()
@@ -57,7 +56,7 @@ void ChannelDeleteJobTest::shouldGenerateUserNameJson()
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;
     info.identifier = roomId;
     job.setChannelGroupInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1"})"_s.arg(roomId).toLatin1());
 }
 
 #include "moc_channeldeletejobtest.cpp"

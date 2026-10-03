@@ -20,7 +20,7 @@ DiscussionsModel::~DiscussionsModel()
 
 void DiscussionsModel::checkFullList()
 {
-    setHasFullList(mDiscussions->discussions().count() == mDiscussions->total());
+    setHasFullList(mDiscussions->list().count() == mDiscussions->total());
 }
 
 bool DiscussionsModel::loadMoreDiscussionsInProgress() const
@@ -64,10 +64,17 @@ int DiscussionsModel::rowCount(const QModelIndex &parent) const
 
 void DiscussionsModel::addMoreDiscussions(const QJsonObject &discussionsObj)
 {
-    const int numberOfElement = mDiscussions->discussions().count();
-    mDiscussions->parseMoreDiscussions(discussionsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mDiscussions->discussions().count() - 1);
-    endInsertRows();
+    const int numberOfElement = mDiscussions->count();
+    Discussions discussions = *mDiscussions;
+    discussions.parseMoreDiscussions(discussionsObj);
+    const int newNumberOfElement = discussions.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        *mDiscussions = std::move(discussions);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        *mDiscussions = std::move(discussions);
+    }
     checkFullList();
 }
 
@@ -95,16 +102,10 @@ void DiscussionsModel::clear()
 void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QByteArray &roomId)
 {
     mRoomId = roomId;
-    if (!mDiscussions->isEmpty()) {
-        beginResetModel();
-        mDiscussions->clear();
-        endResetModel();
-    }
+    beginResetModel();
+    mDiscussions->clear();
     mDiscussions->parseDiscussions(discussionsObj);
-    if (!mDiscussions->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
 }
 
@@ -113,7 +114,7 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mDiscussions->count()) {
         return {};
     }
-    const Discussion discussion = mDiscussions->at(index.row());
+    const Discussion &discussion = mDiscussions->at(index.row());
     switch (role) {
     case ParentId:
         return discussion.parentRoomId();
@@ -138,16 +139,9 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
 
 void DiscussionsModel::setDiscussions(const Discussions &discussions)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mDiscussions->clear();
-        endResetModel();
-    }
-    if (!discussions.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, discussions.count() - 1);
-        mDiscussions->setDiscussions(discussions.discussions());
-        endInsertRows();
-    }
+    beginResetModel();
+    mDiscussions->setList(discussions.list());
+    endResetModel();
     checkFullList();
 }
 

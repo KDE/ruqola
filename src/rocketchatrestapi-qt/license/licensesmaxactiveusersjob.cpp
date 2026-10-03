@@ -29,25 +29,19 @@ bool LicensesMaxActiveUsersJob::requireHttpAuthentication() const
 bool LicensesMaxActiveUsersJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LicensesMaxActiveUsers";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LicensesMaxActiveUsersJob";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("LicensesMaxActiveUsers: Ask for licenses max actives users."_ba);
+    addStartRestApiInfo("LicensesMaxActiveUsersJob: Ask for licenses max active users."_ba);
     return true;
 }
 
 void LicensesMaxActiveUsersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("LicensesMaxActiveUsers: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT licensesMaxActiveUsersDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("LicensesMaxActiveUsers: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("LicensesMaxActiveUsersJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT licensesMaxActiveUsersDone(*replyObject);
     }
 }
 

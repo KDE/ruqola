@@ -14,7 +14,6 @@
 #include "apps/appsmarketplaceinstalledinfo.h"
 #include "config-ruqola.h"
 #include "createchannelteaminfo.h"
-#include "im/imblockuserjob.h"
 #include "memorymanager/memorymanager.h"
 #include "misc/methodcalljob.h"
 #include "model/appscategoriesmodel.h"
@@ -22,6 +21,7 @@
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_database_debug.h"
+#include "ruqola_encryption_debug.h"
 #include "ruqola_subscription_parsing_debug.h"
 #include "ruqolautils.h"
 #include "subscriptions/subscriptiongetonejob.h"
@@ -38,6 +38,7 @@
 #include "encryption/e2ekeymanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
+#include "messages/messageencrypted.h"
 #include "notificationhistorymanager.h"
 #include "previewurlcachemanager.h"
 #include "serverconfiginfo.h"
@@ -76,7 +77,6 @@
 #include "messagecache.h"
 #include "messages/message.h"
 #include "misc/roleslistjob.h"
-#include "otr/otrmanager.h"
 #include "receivetypingnotificationmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
@@ -130,7 +130,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mRuqolaServerConfig(new RuqolaServerConfig)
     , mUserCompleterModel(new UserCompleterModel(this))
     , mStatusModel(new StatusModel(this))
-    , mOtrManager(new OtrManager(this, this))
     , mInputTextManager(new InputTextManager(this, this))
     , mInputThreadMessageTextManager(new InputTextManager(this, this))
     , mReceiveTypingNotificationManager(new ReceiveTypingNotificationManager(this))
@@ -167,7 +166,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     }
 #endif
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
-        mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
+        mRuqolaLogger = new RuqolaLogger(mSettings->accountName(), this);
     }
 
     if (mRuqolaLogger) {
@@ -302,6 +301,12 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     setDefaultAuthentication(mSettings->authMethodType());
     mNotificationPreferences->setCustomSoundManager(mCustomSoundManager);
     connect(mE2eKeyManager, &E2eKeyManager::verifyKeyDone, this, &RocketChatAccount::slotVerifyKeysDone);
+    connect(mE2eKeyManager, &E2eKeyManager::decodeEncryptionKeyDone, this, &RocketChatAccount::slotE2eDecodeKeyDone);
+    connect(mE2eKeyManager, &E2eKeyManager::failedDecodeEncryptionKey, this, &RocketChatAccount::slotE2eDecodeKeyFailed);
+    connect(mE2eKeyManager, &E2eKeyManager::decodeEncryptionKeyPostponed, this, &RocketChatAccount::slotE2eDecodeKeyPostponed);
+    connect(mE2eKeyManager, &E2eKeyManager::uploadEncryptionKeyDone, this, &RocketChatAccount::slotE2eUploadKeyDone);
+    connect(mE2eKeyManager, &E2eKeyManager::uploadEncryptionKeyFailed, this, &RocketChatAccount::slotE2eUploadKeyFailed);
+    connect(mE2eKeyManager, &E2eKeyManager::needRefreshView, this, &RocketChatAccount::needUpdateMessageView);
     connect(mMemoryManager, &MemoryManager::clearApplicationSettingsModelRequested, mAppsMarketPlaceModel, &AppsMarketPlaceModel::clear);
     connect(mMemoryManager, &MemoryManager::cleanRoomHistoryRequested, mRoomModel, &RoomModel::cleanRoomHistory);
 
@@ -363,10 +368,13 @@ Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QByteArray &teamId) c
     return mRoomModel->roomFromTeamId(teamId);
 }
 
-void RocketChatAccount::removeSettings()
+bool RocketChatAccount::removeSettings()
 {
-    mSettings->removeSettings();
+    if (!mSettings->removeSettings()) {
+        return false;
+    }
     mCache->removeCache();
+    return true;
 }
 
 void RocketChatAccount::loadSettings(const QString &accountFileName)
@@ -529,6 +537,47 @@ void RocketChatAccount::reactOnMessage(const QByteArray &messageId, const QStrin
 
 void RocketChatAccount::sendMessage(const QByteArray &roomID, const QString &message)
 {
+    Room *const room = mRoomModel->findRoom(roomID);
+    if (room && room->encrypted()) {
+        const QByteArray sessionKey = room->sessionKey();
+        if (sessionKey.isEmpty()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to send encrypted message: missing room session key for" << roomID;
+            if (mE2eKeyManager->hasUsableKey()) {
+                // Our own key is usable, the room key is simply the one we never received:
+                // ask the other members to encrypt it for us.
+                mE2eKeyManager->requestMissingRoomKeys();
+            } else {
+                mE2eKeyManager->decodeEncryptionKey();
+            }
+            return;
+        }
+
+        const QByteArray keyId = room->e2eKeyId().toLatin1();
+        if (keyId.isEmpty()) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to send encrypted message: missing room key id for" << roomID;
+            return;
+        }
+
+        QJsonObject payload;
+        payload.insert("msg"_L1, message);
+
+        MessageEncrypted encryptedMessage;
+        const bool ok = encryptedMessage.encrypt(QJsonDocument(payload).toJson(QJsonDocument::Compact), sessionKey, keyId);
+        if (!ok) {
+            qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to encrypt message for" << roomID;
+            return;
+        }
+
+        const RocketChatRestApi::EncryptedInfo info{
+            .algorithm = encryptedMessage.algorithm(),
+            .keyId = encryptedMessage.keyId(),
+            .ciphertext = encryptedMessage.ciphertext(),
+            .iv = encryptedMessage.iv(),
+        };
+        restApi()->sendMessage(roomID, message, {}, {}, info);
+        markRoomAsRead(roomID);
+        return;
+    }
     restApi()->postMessage(roomID, message);
     markRoomAsRead(roomID);
 }
@@ -596,6 +645,17 @@ Connection *RocketChatAccount::restApi()
         connect(mRestApi.get(), &Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
         connect(mRestApi.get(), &Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi.get(), &Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
+        const auto redistributeRoomKeyIfEncrypted = [this](const QByteArray &roomId, [[maybe_unused]] const QByteArray &userId) {
+            Room *const r = room(roomId);
+            if (!r || !r->encrypted()) {
+                return;
+            }
+            if (!mE2eKeyManager->distributeExistingRoomE2EKey(roomId)) {
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Failed to redistribute E2E key for room" << roomId;
+            }
+        };
+        connect(mRestApi.get(), &Connection::addUserInChannelDone, this, redistributeRoomKeyIfEncrypted);
+        connect(mRestApi.get(), &Connection::addUserInGroupDone, this, redistributeRoomKeyIfEncrypted);
         connect(mRestApi.get(), &Connection::networkError, this, [this]() {
             // Transient error, try again, with an increasing delay
             qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "networkError" << accountName();
@@ -817,10 +877,9 @@ void RocketChatAccount::clearAllUnreadMessages()
 {
     for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
         const auto roomModelIndex = mRoomModel->index(roomIdx);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toByteArray();
         const bool roomHasAlert = roomModelIndex.data(RoomModel::RoomAlert).toBool();
         if (roomHasAlert) {
-            markRoomAsRead(roomId);
+            markRoomAsRead(roomModelIndex.data(RoomModel::RoomId).toByteArray());
         }
     }
 }
@@ -911,7 +970,7 @@ void RocketChatAccount::initializeDirectChannel(const QByteArray &rid)
 
 void RocketChatAccount::openDirectChannel(const QString &roomId)
 {
-    if (hasPermission(u"create-d"_s)) {
+    if (hasPermission(u"create-d")) {
         auto job = new RocketChatRestApi::OpenDmJob(this);
         job->setDirectUserId(roomId);
         restApi()->initializeRestApiJob(job);
@@ -924,7 +983,7 @@ void RocketChatAccount::openDirectChannel(const QString &roomId)
 
 void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
-    if (!info.name.trimmed().isEmpty()) {
+    if (!QStringView(info.name).trimmed().isEmpty()) {
         if (info.privateChannel) {
             restApi()->createGroups(info);
         } else {
@@ -1004,6 +1063,7 @@ QList<TextEmoticonsCore::CustomEmoji> RocketChatAccount::customEmojies() const
 {
     QList<TextEmoticonsCore::CustomEmoji> mCustomEmojies;
     const auto customEmojiList = mEmojiManager->customEmojiList();
+    mCustomEmojies.reserve(customEmojiList.count());
     for (const auto &emoji : customEmojiList) {
         TextEmoticonsCore::CustomEmoji custom;
         custom.setIdentifier(emoji.emojiIdentifier());
@@ -1157,11 +1217,11 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
         mMarkUnreadThreadsAsReadOnNextReply = false;
 
         ListMessages messages;
-        messages.parseMessages(obj, u"threads"_s);
-        const auto listMessages = messages.listMessages();
+        messages.parseMessages(obj, "threads"_L1);
+        const auto listMessages = messages.list();
         for (const auto &msg : listMessages) {
             QJsonObject params;
-            params.insert(u"tmid"_s, QString::fromLatin1(msg.messageId()));
+            params.insert("tmid"_L1, QString::fromLatin1(msg.messageId()));
             ddp()->getThreadMessages(params);
         }
         return;
@@ -1272,7 +1332,7 @@ void RocketChatAccount::getStarredMessages(const QByteArray &roomId)
 void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::RoomType channelType)
 {
     if (!mFilesModelForRoom->loadMoreFilesInProgress()) {
-        const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
+        const int offset = mFilesModelForRoom->fileAttachments()->loadedCount();
         if (offset < mFilesModelForRoom->fileAttachments()->total()) {
             mFilesModelForRoom->setLoadMoreFilesInProgress(true);
             restApi()->filesInRoom(roomId, Room::roomFromRoomType(channelType), offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset));
@@ -1283,7 +1343,7 @@ void RocketChatAccount::loadMoreFileAttachments(const QByteArray &roomId, Room::
 void RocketChatAccount::loadMoreDiscussions(const QByteArray &roomId)
 {
     if (!mDiscussionsModel->loadMoreDiscussionsInProgress()) {
-        const int offset = mDiscussionsModel->discussions()->discussionsCount();
+        const int offset = mDiscussionsModel->discussions()->loadedCount();
         if (offset < mDiscussionsModel->discussions()->total()) {
             mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
             Utils::ListMessagesInfo info;
@@ -1569,6 +1629,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     mLstPluginAuthenticationInterface.clear();
 
     mAuthenticationMethodInfos.clear();
+    mAuthenticationMethodInfos.reserve(lstPlugins.count());
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
         AuthenticationInfo info;
         info.setIconName(abstractPlugin->iconName());
@@ -1745,6 +1806,22 @@ bool RocketChatAccount::accountEnabled() const
     return mSettings->accountEnabled();
 }
 
+void RocketChatAccount::setAccountEnabled(bool enabled)
+{
+    if (mSettings->accountEnabled() == enabled) {
+        return;
+    }
+    mSettings->setAccountEnabled(enabled);
+    // Enabling/disabling is a network-state matter: a disabled account has to stop talking to the
+    // server, not merely stop being listened to. reconnectToServer() only builds the DDP client for
+    // an account already marked enabled, hence the order.
+    if (enabled) {
+        reconnectToServer();
+    } else {
+        forceDisconnect();
+    }
+}
+
 QString RocketChatAccount::serverUrl() const
 {
     return mSettings->serverUrl();
@@ -1852,7 +1929,7 @@ void RocketChatAccount::setServerVersion(const QString &version)
 
 bool RocketChatAccount::teamEnabled() const
 {
-    return hasPermission(u"create-team"_s);
+    return hasPermission(u"create-team");
 }
 
 ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
@@ -2029,7 +2106,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
         return false;
     }
 
-    const bool canEditMessage = hasPermission(u"edit-message"_s, message.roomId());
+    const bool canEditMessage = hasPermission(u"edit-message", message.roomId());
     const bool isEditAllowed = mRuqolaServerConfig->allowEditingMessages();
     const bool editOwn = message.userId() == userId();
 
@@ -2046,7 +2123,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
 
 bool RocketChatAccount::isMessageDeletable(const Message &message) const
 {
-    if (hasPermission(u"force-delete-message"_s, message.roomId())) {
+    if (hasPermission(u"force-delete-message", message.roomId())) {
         // qDebug() << " force-delete-message implemented";
         return true;
     }
@@ -2056,8 +2133,8 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
         return false;
     }
 
-    const bool deleteAnyAllowed = hasPermission(u"delete-message"_s, message.roomId());
-    const bool deleteOwnAllowed = hasPermission(u"delete-own-message"_s);
+    const bool deleteAnyAllowed = hasPermission(u"delete-message", message.roomId());
+    const bool deleteOwnAllowed = hasPermission(u"delete-own-message");
     const bool deleteAllowed = deleteAnyAllowed || (deleteOwnAllowed && message.userId() == userId());
 
     // qDebug() << " deleteOwnAllowed " << deleteOwnAllowed << "message.userId()  " << message.userId() << " userId() " << userId();
@@ -2068,7 +2145,7 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
 
     constexpr int minutes = 60 * 1000;
     const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
-    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, message.roomId());
+    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete", message.roomId());
     const bool elapsedMinutes = (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
     const bool onTimeForDelete = bypassBlockTimeLimit || !blockDeleteInMinutes || elapsedMinutes;
 
@@ -2076,17 +2153,43 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     return deleteAllowed && onTimeForDelete;
 }
 
+void RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents)
+{
+    qCDebug(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << " RocketChatAccount::parseE2eKeyRequest(const QJsonArray &contents) " << contents;
+    // Rocket.Chat sends [ roomId, e2eKeyId ]: a room member which is waiting for the group
+    // key asks the members which already own it to encrypt it for them.
+    if (contents.count() != 2) {
+        qCWarning(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "contents size != 2. It's a bug" << contents.count();
+        return;
+    }
+    const QByteArray roomId = contents.at(0).toString().toLatin1();
+    const QString keyId = contents.at(1).toString();
+
+    if (!mE2eKeyManager->provideRoomKeyToUsers(roomId, keyId)) {
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << debugCategoryAccountName() << "Unable to provide E2E room key for room" << roomId << "keyId" << keyId;
+    }
+}
+
+void RocketChatAccount::resetE2eKey()
+{
+    qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::resetE2eKey() ";
+    // The server generates a brand new key on the next login, so every piece of the old one has to
+    // go: the user key, the room keys it protected and the password cached by the key manager.
+    // This must run before logOut(), which clears the user id.
+    if (!localDatabaseManager()->deleteKey(accountName(), QString::fromLatin1(userId()))) {
+        qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << "Unable to remove the E2E key from the local database";
+    }
+    if (!localDatabaseManager()->deleteAllRoomKeys(accountName())) {
+        qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << "Unable to remove the E2E room keys from the local database";
+    }
+    mE2eKeyManager->resetKeys();
+    logOut();
+}
+
 void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
 {
     qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " RocketChatAccount::parseVideoConference(const QJsonArray &contents) " << contents;
     mVideoConferenceManager->parseVideoConference(contents);
-}
-
-void RocketChatAccount::parseOtr(const QJsonArray &contents)
-{
-    qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)" << contents << " account name"
-                        << accountName();
-    mOtrManager->parseOtr(contents);
 }
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
@@ -2109,14 +2212,14 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         case NotificationInfo::NotificationType::StandardMessage: {
             const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
             // qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
-            QPixmap pix;
             if (!iconFileName.isEmpty()) {
                 const QUrl url = QUrl::fromLocalFile(iconFileName);
+                QPixmap pix;
                 // qDebug() << "url.toLocalFile()" << url.toLocalFile();
-                const bool loaded = pix.load(url.toLocalFile().remove(u"file://"_s), "JPEG");
+                const bool loaded = pix.load(url.toLocalFile(), "JPEG");
                 // qDebug() << " load pixmap : " << loaded;
                 // qDebug() << " pix " << pix.isNull();
-                Q_UNUSED(loaded)
+                std::ignore = loaded;
                 info.setPixmap(pix);
             }
             break;
@@ -2305,9 +2408,8 @@ void RocketChatAccount::discussionsInRoom(const QByteArray &roomId)
 void RocketChatAccount::getSupportedLanguages()
 {
     if (mRuqolaServerConfig->autoTranslateEnabled()) {
-        const bool needTargetLanguage = true;
         auto job = new RocketChatRestApi::GetSupportedLanguagesJob(this);
-        job->setNeedTargetLanguage(needTargetLanguage);
+        job->setNeedTargetLanguage(true);
         restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::GetSupportedLanguagesJob::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         if (!job->start()) {
@@ -2538,12 +2640,10 @@ QMap<QString, DownloadAppsLanguagesInfo> RocketChatAccount::languagesAppsMap() c
 // apps/meteor/client/views/room/contextualBar/RoomFiles/hooks/useMessageDeletionIsAllowed.ts
 bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArray &fileUserId, qint64 uploadedAt) const
 {
-    const bool canForceDelete = hasPermission(u"force-delete-message"_s, roomId);
+    const bool canForceDelete = hasPermission(u"force-delete-message", roomId);
     const bool deletionIsEnabled = mRuqolaServerConfig->allowMessageDeletingEnabled();
-    const bool userHasPermissionToDeleteAny = hasPermission(u"delete-message"_s, roomId);
-    const bool userHasPermissionToDeleteOwn = hasPermission(u"delete-own-message"_s);
-    const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete"_s, roomId);
-    const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
+    const bool userHasPermissionToDeleteAny = hasPermission(u"delete-message", roomId);
+    const bool userHasPermissionToDeleteOwn = hasPermission(u"delete-own-message");
     if (canForceDelete) {
         return true;
     }
@@ -2558,6 +2658,8 @@ bool RocketChatAccount::isFileDeletable(const QByteArray &roomId, const QByteArr
 
     const bool isUserOwnFile = fileUserId == userId();
     if (userHasPermissionToDeleteAny || isUserOwnFile) {
+        const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete", roomId);
+        const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
         if (!bypassBlockTimeLimit && blockDeleteInMinutes != 0) {
             if (!uploadedAt || !blockDeleteInMinutes) {
                 return false;
@@ -2587,10 +2689,10 @@ void RocketChatAccount::slotListCommandDone(const QJsonObject &obj)
     commands.parseCommands(obj);
     if (!mCommandsModel->commands().isEmpty()) { // Don't show command listview if we already have command (for example when we logout/login)
         const QSignalBlocker blockSignal(mCommandsModel);
-        mCommandsModel->setCommands(commands);
+        mCommandsModel->setCommands(std::move(commands));
     } else {
         // Initialize it after loading otherwise we will see listview at startup
-        mCommandsModel->setCommands(commands);
+        mCommandsModel->setCommands(std::move(commands));
         mInputTextManager->setCommandModel(mCommandsModel);
         mInputThreadMessageTextManager->setCommandModel(mCommandsModel);
     }
@@ -2753,12 +2855,32 @@ void RocketChatAccount::extractIdentifier(const QJsonObject &replyObject, const 
 
 void RocketChatAccount::slotCreateGroupDone(const QJsonObject &replyObject)
 {
-    extractIdentifier(replyObject, "group"_L1, "_id"_L1);
+    const QJsonObject group = replyObject["group"_L1].toObject();
+    const QString roomId = group["_id"_L1].toString();
+    if (!roomId.isEmpty()) {
+        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+        if (group["encrypted"_L1].toBool()) {
+            const QString existingKeyId = group["e2eKeyId"_L1].toString();
+            if (!mE2eKeyManager->initializeRoomE2EKey(roomId.toLatin1(), existingKeyId)) {
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << "Impossible to initialize e2e for room " << roomId;
+            }
+        }
+    }
 }
 
 void RocketChatAccount::slotCreateChannelDone(const QJsonObject &replyObject)
 {
-    extractIdentifier(replyObject, "channel"_L1, "_id"_L1);
+    const QJsonObject channel = replyObject["channel"_L1].toObject();
+    const QString roomId = channel["_id"_L1].toString();
+    if (!roomId.isEmpty()) {
+        Q_EMIT selectRoomByRoomIdRequested(roomId.toLatin1());
+        if (channel["encrypted"_L1].toBool()) {
+            const QString existingKeyId = channel["e2eKeyId"_L1].toString();
+            if (!mE2eKeyManager->initializeRoomE2EKey(roomId.toLatin1(), existingKeyId)) {
+                qCWarning(RUQOLA_ENCRYPTION_LOG) << "Impossible to initialize e2e for room " << roomId;
+            }
+        }
+    }
 }
 
 void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
@@ -2917,9 +3039,9 @@ OwnUserPreferences RocketChatAccount::ownUserPreferences() const
     return mOwnUser.ownUserPreferences();
 }
 
-QStringList RocketChatAccount::highlightWords() const
+const QList<QRegularExpression> &RocketChatAccount::highlightWordsRegularExpressions() const
 {
-    return mOwnUser.ownUserPreferences().highlightWords();
+    return mOwnUser.ownUserPreferences().highlightWordsRegularExpressions();
 }
 
 void RocketChatAccount::setAvatarUrl(const QString &url)
@@ -2955,7 +3077,7 @@ void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject
     }
 }
 
-QStringList RocketChatAccount::permissions(const QString &permissionId) const
+QStringList RocketChatAccount::permissions(QStringView permissionId) const
 {
     return mPermissionManager.roles(permissionId);
 }
@@ -2965,7 +3087,7 @@ QStringList RocketChatAccount::ownUserPermission() const
     return mOwnUser.roles();
 }
 
-bool RocketChatAccount::hasPermission(const QString &permissionId, const QByteArray &roomId) const
+bool RocketChatAccount::hasPermission(QStringView permissionId, const QByteArray &roomId) const
 {
     QStringList currentRoles;
     if (roomId.isEmpty()) {
@@ -3014,7 +3136,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 
 bool RocketChatAccount::hasAutotranslateSupport() const
 {
-    return mRuqolaServerConfig->autoTranslateEnabled() && hasPermission(u"auto-translate"_s);
+    return mRuqolaServerConfig->autoTranslateEnabled() && hasPermission(u"auto-translate");
 }
 
 MessageCache *RocketChatAccount::messageCache() const
@@ -3024,7 +3146,7 @@ MessageCache *RocketChatAccount::messageCache() const
 
 void RocketChatAccount::slotUpdateCustomUserStatus()
 {
-    mStatusModel->updateCustomStatus(mCustomUserStatuses.customUserStatusList());
+    mStatusModel->updateCustomStatus(mCustomUserStatuses.list());
     Q_EMIT customStatusChanged();
 }
 
@@ -3105,9 +3227,7 @@ void RocketChatAccount::addMessageToDataBase(const QByteArray &roomId, const Mes
 
 void RocketChatAccount::addMessagesToDataBase(const QByteArray &roomId, const QList<Message> &messages)
 {
-    for (const auto &message : messages) {
-        mLocalDatabaseManager->addMessage(accountName(), roomId, message);
-    }
+    mLocalDatabaseManager->addMessages(accountName(), roomId, messages);
 }
 
 void RocketChatAccount::updateTextToSpeech(const QByteArray &roomId, const QByteArray &messageId, bool inProgress)
@@ -3117,7 +3237,7 @@ void RocketChatAccount::updateTextToSpeech(const QByteArray &roomId, const QByte
     }
 }
 
-bool RocketChatAccount::offlineMode() const
+bool RocketChatAccount::offlineMode()
 {
     return Ruqola::self()->offlineMode();
 }
@@ -3308,7 +3428,7 @@ void RocketChatAccount::loadAppMarketPlace()
                 // qDebug() << " info " << info;
             }
         }
-        mAppsMarketPlaceModel->setAppsMarketPlaceInfos(listAppsMarketPlaceInfo);
+        mAppsMarketPlaceModel->setAppsMarketPlaceInfos(std::move(listAppsMarketPlaceInfo));
         loadAppCount();
     });
     if (!job->start()) {
@@ -3318,24 +3438,57 @@ void RocketChatAccount::loadAppMarketPlace()
 
 void RocketChatAccount::slotVerifyKeysDone()
 {
-    // TODO reactivate it when we will have full support
 #if USE_E2E_SUPPORT
-    Q_EMIT needToSaveE2EPassword();
-    Q_EMIT needToDecryptE2EPassword();
-    // TODO verify it!!!!!
-    setE2EPasswordMustBeDecrypt(true);
-    // TODO verify if we must decode it
+    setE2EPasswordMustBeSave(false);
+    setE2EPasswordMustBeDecrypt(false);
+
+    switch (mE2eKeyManager->status()) {
+    case E2eKeyManager::Status::NeedToGenerateKey:
+        setE2EPasswordMustBeSave(true);
+        Q_EMIT needToSaveE2EPassword();
+        break;
+    case E2eKeyManager::Status::NeedToDecryptKey:
+    case E2eKeyManager::Status::DecryptionPostponned:
+        setE2EPasswordMustBeDecrypt(true);
+        Q_EMIT needToDecryptE2EPassword();
+        break;
+    case E2eKeyManager::Status::KeyDecrypted:
+    case E2eKeyManager::Status::Unknown:
+        break;
+    }
 #endif
+}
+
+void RocketChatAccount::slotE2eDecodeKeyDone()
+{
+    setE2EPasswordMustBeDecrypt(false);
+}
+
+void RocketChatAccount::slotE2eDecodeKeyFailed()
+{
+    setE2EPasswordMustBeDecrypt(true);
+    Q_EMIT needToDecryptE2EPassword();
+}
+
+void RocketChatAccount::slotE2eDecodeKeyPostponed()
+{
+    setE2EPasswordMustBeDecrypt(true);
+}
+
+void RocketChatAccount::slotE2eUploadKeyDone()
+{
+    setE2EPasswordMustBeSave(false);
+}
+
+void RocketChatAccount::slotE2eUploadKeyFailed()
+{
+    setE2EPasswordMustBeSave(true);
+    Q_EMIT needToSaveE2EPassword();
 }
 
 MemoryManager *RocketChatAccount::memoryManager() const
 {
     return mMemoryManager;
-}
-
-void RocketChatAccount::streamNotifyUserOtrEnd(const QByteArray &roomId, const QByteArray &userId)
-{
-    ddp()->streamNotifyUserOtrEnd(QString::fromLatin1(roomId), QString::fromLatin1(userId));
 }
 
 void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::MethodRequestedType type)
@@ -3367,9 +3520,6 @@ void RocketChatAccount::parseMethodRequested(const QJsonObject &obj, DDPClient::
         break;
     case DDPClient::MethodRequestedType::InputUserChannelAutocomplete:
         inputUserChannelAutocomplete(obj);
-        break;
-    case DDPClient::MethodRequestedType::OtrEnd:
-        otrEnd(obj);
         break;
     case DDPClient::MethodRequestedType::Enable2fa:
         enable2fa(obj);
@@ -3681,7 +3831,7 @@ void RocketChatAccount::regenerateCodes2fa(const QJsonObject &root)
     displayLogInfo("Regenerate Codes 2FA"_ba, root);
     // const QJsonObject obj = root.value("result"_L1).toObject();
     // TODO
-    qDebug() << " regenerateCodes_2fa " << root;
+    // qDebug() << " regenerateCodes_2fa " << root;
 }
 
 void RocketChatAccount::enable2fa(const QJsonObject &root)
@@ -3690,12 +3840,6 @@ void RocketChatAccount::enable2fa(const QJsonObject &root)
 
     const QJsonObject obj = root.value("result"_L1).toObject();
     generate2FaTotp(obj);
-}
-
-void RocketChatAccount::otrEnd(const QJsonObject &root)
-{
-    qDebug() << "otr_end  " << root;
-    displayLogInfo("Otr End"_ba, root);
 }
 
 void RocketChatAccount::inputUserChannelAutocomplete(const QJsonObject &root)

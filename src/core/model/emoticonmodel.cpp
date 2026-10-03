@@ -112,6 +112,7 @@ void EmoticonModel::setUnicodeEmoticons(const QList<TextEmoticonsCore::UnicodeEm
     beginResetModel();
     mEmoticons = emoticons;
     mUnicodeRows.clear();
+    mUnicodeRows.reserve(emoticons.size()); // lower bound: one row per emoticon, plus one per alias
     int row = 0;
     for (const auto &emoticon : emoticons) {
         mUnicodeRows.append({row, -1});
@@ -134,6 +135,7 @@ void EmoticonModel::setCustomEmojiList(const QList<CustomEmoji> &newCustomEmojiL
     beginResetModel();
     mCustomEmojiList = newCustomEmojiList;
     mCustomRows.clear();
+    mCustomRows.reserve(newCustomEmojiList.size()); // lower bound: one row per emoji, plus one per alias
     int row = 0;
     for (const auto &emoticon : newCustomEmojiList) {
         mCustomRows.append({row, -1});

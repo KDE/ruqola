@@ -28,9 +28,9 @@
 #include "authentication/logoutjob.h"
 #include "job/adduserinchanneljob.h"
 
+#include "chat/encryptedinfo.h"
 #include "chat/getmentionedmessagesjob.h"
 #include "chat/getpinnedmessagesjob.h"
-#include "chat/getsnippetedmessagesjob.h"
 #include "chat/getstarredmessagesjob.h"
 #include "chat/getthreadmessagesjob.h"
 #include "chat/ignoreuserjob.h"
@@ -45,7 +45,6 @@
 #include "channels/channeldeletejob.h"
 #include "channels/channelfilesjob.h"
 #include "channels/channelgetcountersjob.h"
-#include "channels/channelinvitejob.h"
 #include "channels/channelkickjob.h"
 #include "channels/channelmembersjob.h"
 #include "channels/channelremoveleaderjob.h"
@@ -282,9 +281,6 @@ DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFile
     job->setLocalFileUrl(localFileUrl);
     job->setRequiredAuthentication(requiredAuthentication);
     initializeRestApiJob(job);
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start DownloadFileJob job";
-    }
     return job;
 }
 
@@ -299,13 +295,14 @@ void Connection::serverInfo()
     }
 }
 
-void Connection::postMessage(const QByteArray &roomId, const QString &text)
+void Connection::postMessage(const QByteArray &roomId, const QString &text, const RocketChatRestApi::EncryptedInfo &encryptedInfo)
 {
     auto job = new PostMessageJob(this);
     connect(job, &PostMessageJob::postMessageDone, this, &Connection::postMessageDone);
     initializeRestApiJob(job);
     job->setRoomIds({roomId});
     job->setText(text);
+    job->setEncryptedInfo(encryptedInfo);
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start PostMessageJob job";
     }
@@ -513,6 +510,7 @@ void Connection::addUserInChannel(const QByteArray &roomId, const QByteArray &us
     };
     job->setInfo(info);
     connect(job, &AddUserInChannelJob::userNeedUnbanned, this, &Connection::userNeedUnbanned);
+    connect(job, &AddUserInChannelJob::addUserInChannelDone, this, &Connection::addUserInChannelDone);
     job->start();
 }
 
@@ -526,6 +524,9 @@ void Connection::addUserInGroup(const QByteArray &roomId, const QByteArray &user
     job->setChannelGroupInfo(info);
 
     job->setInviteUserId(QString::fromLatin1(userId));
+    connect(job, &GroupsInviteJob::inviteGroupsDone, this, [this, roomId, userId]() {
+        Q_EMIT addUserInGroupDone(roomId, userId);
+    });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInGroup job";
     }
@@ -1101,25 +1102,6 @@ void Connection::getStarredMessages(Utils::ListMessagesInfo &&info)
     }
 }
 
-void Connection::getSnippetedMessages(Utils::ListMessagesInfo &&info)
-{
-    auto job = new GetSnippetedMessagesJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(info.roomId);
-    QueryParameters parameters;
-    parameters.setCount(info.count);
-    parameters.setOffset(info.offset);
-
-    QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(u"ts"_s, QueryParameters::SortOrder::Descendant);
-    parameters.setSorting(map);
-    job->setQueryParameters(parameters);
-    connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &Connection::getSnippetedMessagesDone);
-    if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start getSnippetedMessagesList";
-    }
-}
-
 void Connection::getThreadMessages(const QByteArray &threadMessageId)
 {
     auto job = new GetThreadMessagesJob(this);
@@ -1131,7 +1113,11 @@ void Connection::getThreadMessages(const QByteArray &threadMessageId)
     }
 }
 
-void Connection::sendMessage(const QByteArray &roomId, const QString &text, const QString &messageId, const QByteArray &threadMessageId)
+void Connection::sendMessage(const QByteArray &roomId,
+                             const QString &text,
+                             const QString &messageId,
+                             const QByteArray &threadMessageId,
+                             const RocketChatRestApi::EncryptedInfo &encryptedInfo)
 {
     auto job = new SendMessageJob(this);
     initializeRestApiJob(job);
@@ -1140,6 +1126,7 @@ void Connection::sendMessage(const QByteArray &roomId, const QString &text, cons
         .roomId = QString::fromLatin1(roomId),
         .threadMessageId = QString::fromLatin1(threadMessageId),
         .message = text,
+        .info = encryptedInfo,
     };
     job->setSendMessageArguments(args);
     if (!job->start()) {

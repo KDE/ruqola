@@ -5,7 +5,6 @@
 */
 
 #include "savenotificationjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SaveNotificationJob::SaveNotificationJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -28,7 +28,7 @@ bool SaveNotificationJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SaveNotificationJob::start");
+    addStartRestApiInfo("SaveNotificationJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool SaveNotificationJob::start()
 
 void SaveNotificationJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SaveNotificationJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SaveNotificationJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeNotificationDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SaveNotificationJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

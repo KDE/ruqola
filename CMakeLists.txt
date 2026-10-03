@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-cmake_minimum_required(VERSION 3.28)
-set(RUQOLA_VERSION "2.8.41")
+cmake_minimum_required(VERSION 3.29)
+set(RUQOLA_VERSION "2.8.81")
 # TODO: update it in each release version
 set(RUQOLA_RELEASE_VERSION "26.11.30") # yy.MM.dd
 
@@ -13,7 +13,7 @@ project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.10.0")
 set(KF_MIN_VERSION "6.26.0")
 # Do NOT add quote
-set(RUQOLA_DEV_VERSION alpha)
+set(RUQOLA_DEV_VERSION beta2)
 
 # add an extra space
 if(DEFINED RUQOLA_DEV_VERSION)
@@ -117,13 +117,48 @@ include(ECMCheckOutboundLicense)
 option(OPTION_USE_SIZEHINT_CACHE_SUPPORT "Add sizehint cache" ON)
 option(OPTION_USE_ROUNDED_RECT_PIXMAP "Show avatar in a rounded rect" ON)
 option(OPTION_USE_PLASMA_ACTIVITIES "Activate plasma activities" ON)
-option(OPTION_USE_E2E_SUPPORT "E2E support (experimental)" OFF)
+option(OPTION_USE_E2E_SUPPORT "E2E support" ON)
 option(OPTION_DISABLE_NETWORKMANAGER "Disable Network Manager support (mainly for debugging)" OFF)
 
 option(OPTION_ADD_AUTOGENERATETEXT "Add support for autogenerate text plugin" ON)
 option(OPTION_ADD_OFFLINE_SUPPORT "Allow to build with offline support (experimental)" ON)
 
 option(ENABLE_PCH "Enable Precompiled Headers support" ON)
+include(RuqolaTestPch)
+
+option(USE_FASTER_LINKER "Use the wild or mold linker when available (much faster link times)" ON)
+if(USE_FASTER_LINKER AND NOT DEFINED CMAKE_LINKER_TYPE)
+    # NOTE: this has to be a macro, not a function: set() inside a function()
+    # only affects the function scope, so CMAKE_LINKER_TYPE would never be set.
+    macro(use_mold_linker)
+        find_program(MOLD_EXECUTABLE mold)
+        if(MOLD_EXECUTABLE)
+            message(STATUS "USE MOLD LINKER")
+            set(CMAKE_LINKER_TYPE MOLD)
+        endif()
+    endmacro()
+    # CMAKE_LINKER_TYPE only knows about WILD since CMake 4.4.
+    #
+    # WARNING: wild up to and including 0.10.0 miscompiles non-PIE executables:
+    # it does not create a canonical PLT entry for functions whose address is
+    # taken across a shared library boundary, so &Foo::bar differs between the
+    # executable and the library. This breaks QMetaMethod::fromSignal(), hence
+    # every QSignalSpy and every PMF-based connect (41 autotests fail).
+    # Fixed upstream by wild-linker/wild#2480 ("Preserve function identity with
+    # canonical PLT entries"), not in a release yet. Pass -DUSE_FASTER_LINKER=OFF
+    # or -DCMAKE_LINKER_TYPE=MOLD if your wild is older than that.
+    if(CMAKE_VERSION VERSION_GREATER_EQUAL 4.4.0)
+        find_program(WILD_EXECUTABLE wild)
+        if(WILD_EXECUTABLE)
+            message(STATUS "USE WILD LINKER")
+            set(CMAKE_LINKER_TYPE WILD)
+        else()
+            use_mold_linker()
+        endif()
+    else()
+        use_mold_linker()
+    endif()
+endif()
 
 if(OPTION_ADD_OFFLINE_SUPPORT)
     set(ADD_OFFLINE_SUPPORT true)
@@ -159,8 +194,7 @@ endif()
 
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" OFF)
 
-set(KTEXTADDONS_MIN_VERSION "2.1.1")
-set(KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION "${KTEXTADDONS_MIN_VERSION}")
+set(KTEXTADDONS_MIN_VERSION "2.2.0")
 set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
 find_package(
@@ -256,6 +290,19 @@ if(TARGET KF6::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
+find_package(KF6TextSpeechToText ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(
+    KF6TextSpeechToText
+    PROPERTIES
+        DESCRIPTION
+            "Add support for speech to text (ktextaddons)"
+        TYPE
+            OPTIONAL
+)
+if(TARGET KF6::TextSpeechToText)
+    set(HAVE_SPEECH_TO_TEXT TRUE)
+endif()
+
 find_package(KF6TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(
     KF6TextEmoticonsWidgets
@@ -295,7 +342,7 @@ if(TARGET KF6::TextCustomEditor)
 endif()
 
 if(OPTION_ADD_AUTOGENERATETEXT)
-    find_package(KF6TextAutoGenerateText ${KTEXTADDONS_WITH_TEXTAUTOGENERATETEXT_VERSION} CONFIG)
+    find_package(KF6TextAutoGenerateText ${KTEXTADDONS_MIN_VERSION} CONFIG)
     set_package_properties(
         KF6TextAutoGenerateText
         PROPERTIES
@@ -321,9 +368,6 @@ set_package_properties(
         TYPE
             REQUIRED
 )
-if(${KF6TextAddonsWidgets_VERSION} VERSION_GREATER_EQUAL 2.1.41)
-    set(HAVE_TEXTADDONSWIDGETS_FLOWLAYOUT TRUE)
-endif()
 
 # shall we use DBus?
 # enabled per default on Linux & BSD systems
@@ -409,7 +453,7 @@ endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 ecm_set_disabled_deprecation_versions(QT 6.12.0
-    KF 6.28.0
+    KF 6.30.0
 )
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")

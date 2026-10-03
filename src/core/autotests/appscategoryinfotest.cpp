@@ -15,7 +15,7 @@ AppsCategoryInfoTest::AppsCategoryInfoTest(QObject *parent)
 
 void AppsCategoryInfoTest::shouldHaveDefaultValues()
 {
-    AppsCategoryInfo d;
+    const AppsCategoryInfo d;
     QVERIFY(d.identifier().isEmpty());
     QVERIFY(d.title().isEmpty());
     QVERIFY(!d.hidden());

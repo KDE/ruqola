@@ -16,4 +16,5 @@ public:
     ~LocalDatabaseBaseTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldRemoveDataBaseConnections();
 };

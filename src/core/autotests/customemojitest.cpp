@@ -18,7 +18,7 @@ CustomEmojiTest::CustomEmojiTest(QObject *parent)
 
 void CustomEmojiTest::shouldHaveDefaultValue()
 {
-    CustomEmoji j;
+    const CustomEmoji j;
     QVERIFY(j.extension().isEmpty());
     QVERIFY(j.identifier().isEmpty());
     QVERIFY(j.name().isEmpty());

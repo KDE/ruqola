@@ -17,7 +17,7 @@ ExportDataSelectAccountListWidgetTest::ExportDataSelectAccountListWidgetTest(QOb
 
 void ExportDataSelectAccountListWidgetTest::shouldHaveDefaultValues()
 {
-    ExportDataSelectAccountListWidget w;
+    const ExportDataSelectAccountListWidget w;
     // TODO
 }
 

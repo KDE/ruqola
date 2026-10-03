@@ -7,7 +7,6 @@
 #include "resetavatarjobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/resetavatarjob.h"
@@ -46,26 +45,14 @@ void ResetAvatarJobTest::shouldGenerateJson()
     info.userIdentifier = u"foo1"_s;
     info.userInfoType = UserBaseJob::UserInfoType::UserId;
     job.setUserInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(info.userIdentifier).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"userId":"%1"})"_s.arg(info.userIdentifier).toLatin1());
 }
 
 void ResetAvatarJobTest::shouldNotStarting()
 {
     ResetAvatarJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     UserBaseJob::UserInfo info;
     info.userIdentifier = u"foo1"_s;
     info.userInfoType = UserBaseJob::UserInfoType::UserName;

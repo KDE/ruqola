@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "room/messagelinewidget.h"
-#include "room/messagelistview.h"
 #include "room/roomwidgetbase.h"
 #include "threadwidget/threadmessagewidget.h"
 #include <QLabel>
@@ -26,13 +25,13 @@ ThreadMessageWidgetTest::ThreadMessageWidgetTest(QObject *parent)
 
 void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 {
-    ThreadMessageWidget::ThreadMessageInfo info;
+    const ThreadMessageWidget::ThreadMessageInfo info;
     QVERIFY(info.threadMessageId.isEmpty());
     QVERIFY(info.threadMessagePreview.isEmpty());
     QVERIFY(!info.threadIsFollowing);
     QVERIFY(!info.room);
 
-    ThreadMessageWidget w(nullptr);
+    const ThreadMessageWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

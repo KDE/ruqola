@@ -48,9 +48,8 @@ QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, i
     return {};
 }
 
-int AdminOauthModel::columnCount(const QModelIndex &parent) const
+int AdminOauthModel::columnCount([[maybe_unused]] const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     constexpr int val = static_cast<int>(AdminOauthModel::LastColumn) + 1;
     return val;
 }
@@ -69,14 +68,11 @@ void AdminOauthModel::clear()
     }
 }
 
-void AdminOauthModel::setAdminOauth(const QList<OauthInfo> &newAdminInvites)
+void AdminOauthModel::setAdminOauth(QList<OauthInfo> newAdminInvites)
 {
-    clear();
-    if (!newAdminInvites.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);
-        mAdminOauth = newAdminInvites;
-        endInsertRows();
-    }
+    beginResetModel();
+    mAdminOauth = std::move(newAdminInvites);
+    endResetModel();
 }
 
 QVariant AdminOauthModel::data(const QModelIndex &index, int role) const

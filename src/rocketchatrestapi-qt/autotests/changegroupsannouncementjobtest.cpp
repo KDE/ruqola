@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/changegroupsannouncementjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -49,7 +48,7 @@ void ChangeGroupsAnnouncementJobTest::shouldGenerateJson()
     job.setChannelGroupInfo(info);
 
     job.setAnnouncement(announcement);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"announcement":"%1","roomId":"%2"})").arg(announcement, roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"announcement":"%1","roomId":"%2"})"_s.arg(announcement, roomId).toLatin1());
 }
 
 #include "moc_changegroupsannouncementjobtest.cpp"

@@ -24,9 +24,9 @@ public:
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] bool hasQueryParameterSupport() const override;
-
     [[nodiscard]] bool canStart() const override;
+
+    [[nodiscard]] QJsonDocument json() const;
 
     [[nodiscard]] QByteArray moderationReportedUserId() const;
     void setModerationReportedUserId(const QByteArray &newModerationReportedUserId);
@@ -35,7 +35,7 @@ Q_SIGNALS:
     void moderationDismissReportedUserDone(const QJsonObject &obj);
 
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QByteArray mModerationReportedUserId;
 };
 }

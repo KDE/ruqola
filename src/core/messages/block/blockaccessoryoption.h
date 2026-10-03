@@ -8,12 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include <QString>
+class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT BlockAccessoryOption
 {
 public:
     BlockAccessoryOption();
-    ~BlockAccessoryOption();
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);
 
@@ -31,6 +31,5 @@ private:
     QString mText;
     QString mValue;
 };
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const BlockAccessoryOption &t);
 Q_DECLARE_TYPEINFO(BlockAccessoryOption, Q_RELOCATABLE_TYPE);

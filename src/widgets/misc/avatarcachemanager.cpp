@@ -54,7 +54,9 @@ void AvatarCacheManager::setCurrentRocketChatAccount(RocketChatAccount *currentR
     }
 
     mRocketChatAccount = currentRocketChatAccount;
-    connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &AvatarCacheManager::slotAvatarChanged);
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::avatarWasChanged, this, &AvatarCacheManager::slotAvatarChanged);
+    }
 }
 
 QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const QWidget *widget, const Utils::AvatarInfo &info, int maxHeight) const
@@ -66,24 +68,34 @@ QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const
     if (downScaled.isNull()) {
         auto *emojiManager = mRocketChatAccount->emojiManager();
         const TextEmoticonsCore::UnicodeEmoticon emoticon = emojiManager->unicodeEmoticonForEmoji(emojiStr);
-        if (emoticon.isValid()) {
-            const QFontMetrics fm(mEmojiFont);
-            const QSize size = fm.boundingRect(emoticon.unicode()).size();
-
-            // qDebug() << " size " << size << "emojiStr "<< emojiStr << " emoticon.unicode() " <<emoticon.unicode() <<
-            // fm.horizontalAdvance(emoticon.unicode()); boundingRect can return a width == 0 for existing character as :warning: emoji.
-            QPixmap fullScale(fm.horizontalAdvance(emoticon.unicode()), size.height());
-
-            fullScale.fill(Qt::white);
-            QPainter painter(&fullScale);
-            painter.setFont(mEmojiFont);
-            painter.drawText(fullScale.rect(), Qt::AlignCenter, emoticon.unicode());
-            downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
-            downScaled.setDevicePixelRatio(dpr);
-            cache.insertCachedPixmap(emojiStr, downScaled);
-        } else {
+        if (!emoticon.isValid()) {
             return makeAvatarPixmap(widget, info, maxHeight);
         }
+        const int targetHeight = qMax(1, qRound(maxHeight * dpr));
+        // Draw the glyph at (roughly) its final device size: rendering at the font's natural size and
+        // upscaling afterwards made emoji avatars blurry on hidpi screens.
+        QFont emojiFont(mEmojiFont);
+        emojiFont.setPixelSize(targetHeight);
+        const QFontMetrics fm(emojiFont);
+        const QSize size = fm.boundingRect(emoticon.unicode()).size();
+
+        // qDebug() << " size " << size << "emojiStr "<< emojiStr << " emoticon.unicode() " <<emoticon.unicode() <<
+        // fm.horizontalAdvance(emoticon.unicode()); boundingRect can return a width == 0 for existing character as :warning: emoji.
+        QPixmap fullScale(fm.horizontalAdvance(emoticon.unicode()), size.height());
+
+        // The avatar is drawn over the view background, so the emoji must not carry an opaque
+        // rectangle of its own.
+        fullScale.fill(Qt::transparent);
+        QPainter painter(&fullScale);
+        painter.setFont(emojiFont);
+        // Emojis without a color glyph fall back to the pen color, which defaults to black: follow the
+        // palette so that they stay readable with a dark color scheme.
+        painter.setPen(widget->palette().color(QPalette::WindowText));
+        painter.drawText(fullScale.rect(), Qt::AlignCenter, emoticon.unicode());
+        painter.end();
+        downScaled = fullScale.scaledToHeight(targetHeight, Qt::SmoothTransformation);
+        downScaled.setDevicePixelRatio(dpr);
+        cache.insertCachedPixmap(emojiStr, downScaled);
     }
     return downScaled;
 }
@@ -100,8 +112,8 @@ void AvatarCacheManager::setMaxEntries(int maxEntries)
 
 QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QString &url, int maxHeight) const
 {
-    const QUrl iconUrlStr = mRocketChatAccount->previewUrlFromLocalCache(url);
-    if (iconUrlStr.isEmpty()) {
+    const QUrl iconUrl = mRocketChatAccount->previewUrlFromLocalCache(url);
+    if (iconUrl.isEmpty()) {
         return {};
     }
 
@@ -109,18 +121,18 @@ QPixmap AvatarCacheManager::makeAvatarUrlPixmap(const QWidget *widget, const QSt
 
     auto &cache = mAvatarCache.cache;
 
-    auto downScaled = cache.findCachedPixmap(iconUrlStr.toLocalFile());
+    const QString iconUrlLocalFile = iconUrl.toLocalFile();
+    auto downScaled = cache.findCachedPixmap(iconUrlLocalFile);
     if (downScaled.isNull()) {
-        const QUrl &iconUrl(iconUrlStr);
         Q_ASSERT(iconUrl.isLocalFile());
         QPixmap fullScale;
-        if (!fullScale.load(iconUrl.toLocalFile())) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
+        if (!fullScale.load(iconUrlLocalFile)) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrlLocalFile;
             return {};
         }
         downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
         downScaled.setDevicePixelRatio(dpr);
-        cache.insertCachedPixmap(iconUrlStr.toLocalFile(), downScaled);
+        cache.insertCachedPixmap(iconUrlLocalFile, downScaled);
     }
     return downScaled;
 }
@@ -175,20 +187,20 @@ QPixmap AvatarCacheManager::makeRoundedAvatarPixmap(const QWidget *widget, const
         pix = pix.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
         pix.setDevicePixelRatio(dpr);
 
-        QPixmap fullScale(pix.size());
-        fullScale.fill(Qt::transparent);
-
-        downScaled = fullScale.scaledToHeight(maxHeight * dpr, Qt::SmoothTransformation);
+        downScaled = QPixmap(pix.size());
+        downScaled.fill(Qt::transparent);
         downScaled.setDevicePixelRatio(dpr);
 
         QPainterPath path;
         QPainter p(&downScaled);
         p.setRenderHint(QPainter::Antialiasing);
-        path.addRoundedRect(downScaled.rect(), 5, 5);
+        // The painter paints in device-independent pixels, so the clip path must be expressed in
+        // them too: QPixmap::rect() is in device pixels and would be dpr times too large.
+        path.addRoundedRect(QRectF(QPointF(0, 0), downScaled.deviceIndependentSize()), 5, 5);
 
         p.setClipPath(path);
         p.drawPixmap(QPoint(0, 0), pix);
-
+        p.end();
         cache.insertCachedPixmap(iconUrlStr, downScaled);
     }
     return downScaled;

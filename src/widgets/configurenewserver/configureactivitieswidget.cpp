@@ -53,7 +53,7 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
     , mEnableActivitiesSupport(new QCheckBox(i18nc("@option:check", "Limit to the selected activities:"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
     auto label = new QLabel(i18nc("@label:textbox",
@@ -61,14 +61,14 @@ ConfigureActivitiesWidget::ConfigureActivitiesWidget(QWidget *parent)
                                   "you switch to an activity it should not be available in, it will automatically be hidden."),
                             this);
     label->setWordWrap(true);
-    label->setObjectName("label"_L1);
+    label->setObjectName(u"label"_s);
     mainLayout->addWidget(label);
 
-    mEnableActivitiesSupport->setObjectName("mEnableActivitiesSupport"_L1);
+    mEnableActivitiesSupport->setObjectName(u"mEnableActivitiesSupport"_s);
     mainLayout->addWidget(mEnableActivitiesSupport);
     mEnableActivitiesSupport->setChecked(false);
 
-    mListView->setObjectName("mListView"_L1);
+    mListView->setObjectName(u"mListView"_s);
     mListView->setModel(new KActivities::ActivitiesModel(this));
     mListView->setItemDelegate(new CheckboxDelegate(this));
     mainLayout->addWidget(mListView);
@@ -91,13 +91,11 @@ AccountManager::ActivitySettings ConfigureActivitiesWidget::activitiesSettings()
     for (const auto &selectedIndex : selected) {
         selectedActivities << selectedIndex.data(KActivities::ActivitiesModel::ActivityId).toString();
     }
-    const AccountManager::ActivitySettings activities{selectedActivities, true};
-    return activities;
+    return {std::move(selectedActivities), true};
 }
 
 void ConfigureActivitiesWidget::setActivitiesSettings(const AccountManager::ActivitySettings &activitySettings)
 {
-    auto model = mListView->model();
     auto selection = mListView->selectionModel();
     selection->clearSelection();
 
@@ -105,6 +103,7 @@ void ConfigureActivitiesWidget::setActivitiesSettings(const AccountManager::Acti
     mListView->setEnabled(activitySettings.enabled);
     mEnableActivitiesSupport->setChecked(activitySettings.enabled);
     if (!listIsEmpty) {
+        auto model = mListView->model();
         bool hasFoundActivities = false;
         for (int row = 0; row < model->rowCount(); ++row) {
             const auto index = model->index(row, 0);

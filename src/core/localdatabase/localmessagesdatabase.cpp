@@ -20,11 +20,14 @@
 
 using namespace Qt::Literals::StringLiterals;
 static const char s_schemaMessagesDataBase[] = "CREATE TABLE MESSAGES (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+namespace
+{
 enum class MessagesFields {
     MessageId,
     TimeStamp,
     Json,
 }; // in the same order as the table
+}
 
 LocalMessagesDatabase::LocalMessagesDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath(), LocalDatabaseBase::DatabaseType::Messages)
@@ -37,15 +40,17 @@ void LocalMessagesDatabase::deleteDatabaseFromRoomId(const QString &accountName,
 {
     const QString dbName = databaseName(accountName + u'-' + QString::fromLatin1(roomId));
     QSqlDatabase::removeDatabase(dbName);
-    const QString fileName = dbFileName(accountName, roomId);
-    if (!QFileInfo::exists(fileName)) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Filename doesn't exist: " << fileName;
-        return;
-    } else {
-        if (!QFile(fileName).remove()) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to remove: " << fileName;
+    const QStringList listFiles = allDatabaseFiles(accountName, roomId);
+    for (const auto &fileName : listFiles) {
+        if (!QFileInfo::exists(fileName)) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Filename doesn't exist: " << fileName;
+            continue;
         } else {
-            qCDebug(RUQOLA_DATABASE_LOG) << fileName << " was removed";
+            if (!QFile(fileName).remove()) {
+                qCWarning(RUQOLA_DATABASE_LOG) << "Impossible to remove: " << fileName;
+            } else {
+                qCDebug(RUQOLA_DATABASE_LOG) << fileName << " was removed";
+            }
         }
     }
 }
@@ -57,20 +62,46 @@ QString LocalMessagesDatabase::schemaDataBase() const
 
 void LocalMessagesDatabase::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
+    addMessages(accountName, roomId, {m});
+}
+
+void LocalMessagesDatabase::addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages)
+{
+    if (messages.isEmpty()) {
+        return;
+    }
     QSqlDatabase db;
-    if (initializeDataBase(accountName, roomId, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceMessage(), db);
-        query.addBindValue(QString::fromLatin1(m.messageId()));
-        query.addBindValue(m.timeStamp());
+    if (!initializeDataBase(accountName, roomId, db)) {
+        return;
+    }
+    QSqlQuery query(db);
+    if (!query.prepare(LocalDatabaseUtils::insertReplaceMessage())) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't prepare insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
+        return;
+    }
+    // Without an explicit transaction each exec() is one of its own, i.e. one fsync per message.
+    const bool inTransaction = db.transaction();
+    if (!inTransaction) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't start a transaction on" << db.databaseName() << db.lastError();
+    }
+    for (const Message &m : messages) {
+        // Positional bindValue() overwrites, unlike addBindValue() which would append past the
+        // three placeholders on the second iteration.
+        query.bindValue(0, QString::fromLatin1(m.messageId()));
+        query.bindValue(1, m.timeStamp());
         // qDebug() << " m.timeStamp() " << m.timeStamp();
         // FIXME look at why we can't save a binary ?
-        query.addBindValue(Message::serialize(m, false)); // TODO binary or not ?
+        query.bindValue(2, Message::serialize(m, false)); // TODO binary or not ?
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("add message in account " + accountName.toUtf8() + " in roomName " + roomId + " for message id "
+            mRuqolaLogger->dataSaveFromDatabase("add message in account "_ba + accountName.toUtf8() + " in roomName "_ba + roomId + " for message id "_ba
                                                 + m.messageId());
         }
+    }
+    if (inTransaction && !db.commit()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't commit the MESSAGES batch in" << db.databaseName() << db.lastError();
+        db.rollback();
     }
 }
 
@@ -80,12 +111,13 @@ void LocalMessagesDatabase::deleteMessage(const QString &accountName, const QByt
     if (!checkDataBase(accountName, roomId, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteMessage(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteMessage());
     query.addBindValue(messageId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("delete message in " + accountName.toUtf8() + " roomName " + roomId + " message id " + messageId.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("delete message in "_ba + accountName.toUtf8() + " roomName "_ba + roomId + " message id "_ba + messageId.toUtf8());
     }
 }
 
@@ -93,7 +125,7 @@ QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qi
 {
     qCDebug(RUQOLA_DATABASE_LOG) << " startId " << QDateTime::fromMSecsSinceEpoch(startId) << "endId " << QDateTime::fromMSecsSinceEpoch(endId)
                                  << " numberOfElement " << numberElements;
-    QString query = u"SELECT * FROM MESSAGES"_s;
+    QString query = u"SELECT json FROM MESSAGES"_s;
 
     if (startId != -1) {
         query += u" WHERE timestamp >= :startId"_s;
@@ -180,16 +212,19 @@ QList<Message> LocalMessagesDatabase::loadMessages(const QString &accountName,
     }
 
     QList<Message> listMessages;
+    if (numberElements > 0) {
+        listMessages.reserve(numberElements);
+    }
     while (resultQuery.next()) {
-        const QString json = resultQuery.value(u"json"_s).toString();
+        const QByteArray json = resultQuery.value(0).toByteArray();
         listMessages.append(convertJsonToMessage(json, emojiManager));
     }
     return listMessages;
 }
 
-Message LocalMessagesDatabase::convertJsonToMessage(const QString &json, EmojiManager *emojiManager)
+Message LocalMessagesDatabase::convertJsonToMessage(const QByteArray &json, EmojiManager *emojiManager)
 {
-    const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    const QJsonDocument doc = QJsonDocument::fromJson(json);
     const Message msg = Message::deserialize(doc.object(), emojiManager);
     return msg;
 }

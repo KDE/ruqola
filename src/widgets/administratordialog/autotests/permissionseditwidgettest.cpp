@@ -20,7 +20,7 @@ PermissionsEditWidgetTest::PermissionsEditWidgetTest(QObject *parent)
 
 void PermissionsEditWidgetTest::shouldHaveDefaultValues()
 {
-    PermissionsEditWidget w;
+    const PermissionsEditWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

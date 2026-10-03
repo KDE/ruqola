@@ -20,7 +20,9 @@
 using namespace Qt::Literals::StringLiterals;
 ServerMenu::ServerMenu(QWidget *parent)
     : KActionMenu(parent)
+    , mActionGroup(new QActionGroup(this))
 {
+    mActionGroup->setExclusive(true);
     setText(i18n("Server"));
     connect(menu(), &QMenu::aboutToShow, this, &ServerMenu::slotUpdateAccountMenu);
 }
@@ -44,33 +46,33 @@ void ServerMenu::slotUpdateAccountMenu()
     } else if (accountNumber == 1) {
         const auto index = model->index(0, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        auto action = new QAction(account->settings()->displayName(), this);
+        auto action = new QAction(account->settings()->displayName(), menu());
         menu()->addAction(action);
         action->setEnabled(false);
     } else {
-        auto group = new QActionGroup(this);
-        group->setExclusive(true);
+        int shortcutIndex = 1;
         for (int i = 0; i < accountNumber; ++i) {
             const auto index = model->index(i, 0);
             auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
             if (account->accountEnabled()) {
                 const QString accountName = account->settings()->accountName();
                 const QString displayName = account->settings()->displayName();
-                auto action = new QAction(displayName, this);
+                auto action = new QAction(displayName, menu());
                 action->setIcon(Utils::iconFromAccount(account));
                 action->setCheckable(true);
-                group->addAction(action);
                 if (currentAccountName == accountName) {
                     action->setChecked(true);
                 }
                 menu()->addAction(action);
-                if (mActionCollection) {
+                if (mActionCollection && shortcutIndex < 10) {
                     // Start shortcuts at 1 instead of 0 for better ergonomics (0 key is far from 1-9)
-                    mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(i + 1)));
+                    mActionCollection->setDefaultShortcut(action, QKeySequence(u"CTRL+%1"_s.arg(shortcutIndex)));
                 }
                 connect(action, &QAction::triggered, this, [accountName, accountManager]() {
                     accountManager->setCurrentAccount(accountName);
                 });
+                mActionGroup->addAction(action);
+                ++shortcutIndex;
             }
         }
     }

@@ -26,10 +26,15 @@ void DownloadAppsLanguagesManager::parse()
         job->setAppInfoType(RocketChatRestApi::AppInfoJob::AppInfoType::Languages);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::AppInfoJob::appInfoDone, this, &DownloadAppsLanguagesManager::slotFileDownloaded);
+        connect(job, &RocketChatRestApi::RestApiAbstractJob::failed, this, [this] {
+            Q_EMIT fileLanguagesParseFailed();
+        });
         if (!job->start()) {
             qCWarning(RUQOLA_LOG) << "Impossible to start AppInfoJob";
             Q_EMIT fileLanguagesParseFailed();
         }
+    } else {
+        Q_EMIT fileLanguagesParseFailed();
     }
 }
 
@@ -45,12 +50,12 @@ QMap<QString, DownloadAppsLanguagesInfo> DownloadAppsLanguagesManager::languages
     return mLanguageMap;
 }
 
-QString DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &id)
+QString DownloadAppsLanguagesManager::translatedString(const QString &language, const QString &id) const
 {
     QMap<QString, DownloadAppsLanguagesInfo>::const_iterator i = mLanguageMap.constBegin();
     while (i != mLanguageMap.constEnd()) {
         if (id.contains(i.key())) {
-            const DownloadAppsLanguagesInfo info = i.value();
+            const DownloadAppsLanguagesInfo &info = i.value();
             const QMap<QString, QMap<QString, QString>> mapLangId = info.languageMap();
             QMap<QString, QString> mapId = mapLangId.value(language);
             if (mapId.isEmpty()) {

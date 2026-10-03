@@ -21,7 +21,7 @@ ModerationMessagesDialogTest::ModerationMessagesDialogTest(QObject *parent)
 
 void ModerationMessagesDialogTest::shouldHaveDefaultValues()
 {
-    ModerationMessagesDialog d(nullptr);
+    const ModerationMessagesDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

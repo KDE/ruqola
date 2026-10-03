@@ -16,4 +16,6 @@ namespace RuqolaRestApiHelper
 void verifyAuthentication(RocketChatRestApi::RestApiAbstractJob *job, QNetworkRequest &request);
 
 void verifyDefaultValue(RocketChatRestApi::RestApiAbstractJob *job);
+
+void verifyNotStartingJob(RocketChatRestApi::RestApiAbstractJob *job);
 }

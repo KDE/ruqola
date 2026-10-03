@@ -56,7 +56,8 @@
 #include <QPainter>
 #include <QScrollBar>
 
-#include "ruqolaglobalconfig.h"
+#include "newmessageindicator.h"
+#include "ruqola_newmessageindicator_debug.h"
 
 #include "config-ruqola.h"
 #if HAVE_TEXT_TRANSLATOR
@@ -74,6 +75,8 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     , mMessageListDelegate(new MessageListDelegate(account, this))
     , mCurrentRocketChatAccount(account)
     , mActionButtonsGenerator(new ActionButtonsGenerator(this))
+    , mNewMessageIndicator(new NewMessageIndicator(viewport()))
+    , mEncryptedRoomBackground(QPixmap(u":/messages_icons/icons/encrypt-background.png"_s))
 {
     if (mCurrentRocketChatAccount) {
         mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
@@ -81,11 +84,14 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     }
     connect(mActionButtonsGenerator, &ActionButtonsGenerator::uiInteractionRequested, this, &MessageListView::uiInteractionRequested);
 
+    mNewMessageIndicator->hide();
+
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
     mMessageListDelegate->setEnableEmojiMenu(mMode != Mode::Moderation);
     setItemDelegate(mMessageListDelegate);
 
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
+    connect(mNewMessageIndicator, &NewMessageIndicator::moveToBottom, this, &MessageListView::maybeScrollToBottom);
 
     // ensure the scrolling behavior isn't jumpy
     // we always single step by roughly one line
@@ -105,6 +111,20 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     connect(mMessageListDelegate, &MessageListDelegate::textToSpeech, this, &MessageListView::slotTextToSpeech);
     connect(mMessageListDelegate, &MessageListDelegate::stopTextToSpeech, this, &MessageListView::slotStopTextToSpeech);
 #endif
+#if HAVE_TEXT_TRANSLATOR
+    // TranslatorEngineManager is a singleton and every MessageListView is connected to it,
+    // so only react when the translated message is one of ours.
+    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateDone, this, [this](const QByteArray &messageId, const QString &result) {
+        if (auto messageModel = qobject_cast<MessagesModel *>(model()); messageModel && messageModel->indexForMessage(messageId).isValid()) {
+            messageModel->changeLocalTranslation(messageId, result);
+        }
+    });
+    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateFailed, this, [this](const QByteArray &messageId, const QString &errorStr) {
+        if (const auto messageModel = qobject_cast<MessagesModel *>(model()); messageModel && messageModel->indexForMessage(messageId).isValid()) {
+            KMessageBox::error(this, errorStr, i18nc("@title:window", "Translator Error"));
+        }
+    });
+#endif
 }
 
 MessageListView::~MessageListView() = default;
@@ -120,11 +140,19 @@ void MessageListView::wheelEvent(QWheelEvent *e)
     MessageListViewBase::wheelEvent(e);
 }
 
+void MessageListView::resizeEvent(QResizeEvent *e)
+{
+    MessageListViewBase::resizeEvent(e);
+    repositionNewMessageIndicator();
+}
+
 void MessageListView::paintEvent(QPaintEvent *e)
 {
+    QPainter p(viewport());
+    if (mRoom && mRoom->encrypted()) {
+        p.drawPixmap(width() - mEncryptedRoomBackground.width(), height() - mEncryptedRoomBackground.height(), mEncryptedRoomBackground);
+    }
     if (mRoom && (mRoom->numberMessages() == 0)) {
-        QPainter p(viewport());
-
         QFont font = p.font();
         font.setItalic(true);
         p.setFont(font);
@@ -140,19 +168,41 @@ void MessageListView::paintEvent(QPaintEvent *e)
 
 void MessageListView::slotUpdateView()
 {
+    // A message-style switch (Compact/Normal/Cozy) recreates the layout and clears the delegate's
+    // size-hint cache in switchMessageLayout(), but without a relayout the view keeps the previous
+    // style's row geometry until an unrelated event (scroll/resize/new message) triggers one.
+    // Remeasure here so the switch takes effect immediately. (A colour-scheme refresh also arrives
+    // via this slot and harmlessly relayouts.)
+    scheduleDelayedItemsLayout();
     viewport()->update();
+}
+
+void MessageListView::slotLastSeenChanged()
+{
+    // The "unread messages" marker reserves a band of vertical space at the top of the row it
+    // precedes, and that extra height is baked into the delegate's per-message size-hint cache
+    // (keyed by message id only). When the room is marked read the marker disappears
+    // (DisplayLastSeenMessage flips to false), but a plain repaint would keep the cached row
+    // height and leave the band as dead space — the row stays tall. Drop the now-stale sizes and
+    // relayout so the affected row shrinks back. Mark-as-read is infrequent, so clearing the
+    // whole cache (rather than hunting the single boundary row) is a fine trade-off.
+    mMessageListDelegate->clearSizeHintCache();
+    scheduleDelayedItemsLayout();
 }
 
 void MessageListView::setRoom(Room *room)
 {
     if (mRoom) {
-        disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateView);
+        disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotLastSeenChanged);
+        disconnect(mRoom, &Room::unreadChanged, this, &MessageListView::updateNewMessageIndicatorVisibility);
         mMessageListDelegate->clearSelection();
     }
     mRoom = room;
     if (mRoom) {
-        connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateView);
+        connect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotLastSeenChanged);
+        connect(mRoom, &Room::unreadChanged, this, &MessageListView::updateNewMessageIndicatorVisibility);
     }
+    updateNewMessageIndicatorVisibility();
 }
 
 void MessageListView::slotVerticalScrollbarChanged(int value)
@@ -162,6 +212,41 @@ void MessageListView::slotVerticalScrollbarChanged(int value)
         // Perhaps finding a better method.
         verticalScrollBar()->setValue(1); // If we are at 0 we can't continue to load history
     }
+    updateNewMessageIndicatorVisibility();
+    if (mNewMessageIndicator->isVisible()) {
+        repositionNewMessageIndicator();
+    }
+}
+
+void MessageListView::updateNewMessageIndicatorVisibility()
+{
+    return; // TODO reactivate when all is ok
+
+    const auto *vbar = verticalScrollBar();
+    const bool notAtBottom = vbar->value() < vbar->maximum();
+    const bool hasUnread = mRoom && (mRoom->unread() > 0);
+    qCDebug(RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG) << "MessageListView::updateNewMessageIndicatorVisibility" << " hasUnread " << hasUnread << " notAtBottom"
+                                                    << notAtBottom;
+    const bool shouldShow = notAtBottom && hasUnread;
+    if (shouldShow && !mNewMessageIndicator->isVisible()) {
+        repositionNewMessageIndicator();
+        mNewMessageIndicator->showNewMessageIndicator(true);
+        mNewMessageIndicator->raise();
+    } else if (!shouldShow && mNewMessageIndicator->isVisible()) {
+        mNewMessageIndicator->showNewMessageIndicator(false);
+    }
+}
+
+void MessageListView::repositionNewMessageIndicator()
+{
+    qCDebug(RUQOLA_NEWMESSAGEINDICATOR_WIDGETS_LOG) << "MessageListView::repositionNewMessageIndicator";
+    mNewMessageIndicator->adjustSize();
+    const QSize vSize = viewport()->size();
+    const QSize iSize = mNewMessageIndicator->sizeHint();
+    const int margin = 8;
+    const int x = (vSize.width() - iSize.width()) / 2;
+    const int y = vSize.height() - iSize.height() - margin;
+    mNewMessageIndicator->move(x, y);
 }
 
 void MessageListView::goToMessage(const QByteArray &messageId)
@@ -203,7 +288,10 @@ void MessageListView::setChannelSelected(Room *room)
 
 void MessageListView::setModel(QAbstractItemModel *newModel)
 {
-    QAbstractItemModel *oldModel = model();
+    const QAbstractItemModel *oldModel = QListView::model();
+    if (newModel == oldModel) {
+        return;
+    }
     if (oldModel) {
         disconnect(oldModel, nullptr, this, nullptr);
     }
@@ -289,19 +377,20 @@ void MessageListView::createTranslorMenu()
 void MessageListView::createEmojiWidgetAction(QMenu *menu, const QModelIndex &index)
 {
     auto emojiWidgetAction = new TextEmoticonsWidgets::EmoticonWidgetAction(menu);
-    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::insertEmojiIdentifier, this, [this, index](const QString &identifier) {
-        const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    const QByteArray messageId = message->messageId();
+    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::insertEmojiIdentifier, this, [this, messageId](const QString &identifier) {
         mCurrentRocketChatAccount->reactOnMessage(messageId, identifier, true /*add*/);
     });
-    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::selectEmoji, this, [this, index]() {
-        auto mEmoticonMenuWidget = new EmoticonMenuWidget(this);
-        mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-        mEmoticonMenuWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-        mEmoticonMenuWidget->forceLineEditFocus();
-        RoomUtil::positionPopup(QCursor::pos(), this, mEmoticonMenuWidget);
-        mEmoticonMenuWidget->show();
-        connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, index](const QString &id) {
-            const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
+    connect(emojiWidgetAction, &TextEmoticonsWidgets::EmoticonWidgetAction::selectEmoji, this, [this, messageId]() {
+        auto emoticonMenuWidget = new EmoticonMenuWidget(this);
+        emoticonMenuWidget->setWindowFlag(Qt::Popup);
+        emoticonMenuWidget->setAttribute(Qt::WA_DeleteOnClose);
+        emoticonMenuWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+        emoticonMenuWidget->forceLineEditFocus();
+        RoomUtil::positionPopup(QCursor::pos(), this, emoticonMenuWidget);
+        emoticonMenuWidget->show();
+        connect(emoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, messageId](const QString &id) {
             mCurrentRocketChatAccount->reactOnMessage(messageId, id, true /*add*/);
         });
     });
@@ -332,8 +421,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (mMessageListDelegate->contextMenu(options, index, info)) {
         return;
     }
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    if (!message || !mCurrentRocketChatAccount) {
+        return;
+    }
+
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
-    const bool isSystemMessage = (messageType == Message::EncryptedText) || (messageType == Message::System) || (messageType == Message::Information);
+    const bool isSystemMessage = (messageType == Message::EncryptedText && !message->hasDescriptedContent()) || (messageType == Message::System)
+        || (messageType == Message::Information);
     QMenu menu(this);
     if (isSystemMessage) {
         if (Ruqola::self()->debug()) {
@@ -429,11 +524,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotForwardMessage(index);
     });
 
-    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
-    if (!message || !mCurrentRocketChatAccount) {
-        return;
-    }
-
     const QString threadMessageId = index.data(MessagesModel::ThreadMessageId).toString();
     const bool messageIsFollowing = threadMessageId.isEmpty()
         ? (message->replies() && message->replies()->replies().contains(mCurrentRocketChatAccount->userId()))
@@ -451,7 +541,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         options.rect = visualRect(index);
         options.index = index;
         const QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
-        if (url.isEmpty() || url.startsWith(u"ruqola:/"_s) || url.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())) {
+        if (url.isEmpty() || url.startsWith("ruqola:/"_L1) || url.startsWith(TextUtils::TextUtilsSyntaxHighlighter::copyHref())) {
             return nullptr;
         }
         auto action = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy URL"), &menu);
@@ -467,10 +557,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         options.rect = visualRect(index);
         options.index = index;
         QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
-        if (url.isEmpty())
+        if (url.isEmpty()) {
             return {};
+        }
         if (url.startsWith("ruqola:/user/"_L1)) {
-            url.remove(u"ruqola:/user/"_s);
+            url.remove("ruqola:/user/"_L1);
             if (!Utils::validUser(url)) {
                 return {};
             }
@@ -484,7 +575,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         listActions.append(action);
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
-                if (mCurrentRocketChatAccount->hasPermission(u"create-d"_s)) {
+                if (mCurrentRocketChatAccount->hasPermission(u"create-d")) {
                     auto startPrivateConversationAction =
                         new QAction(QIcon::fromTheme(u"document-send-symbolic"_s), i18nc("@action", "Start a Private Conversation"), &menu);
                     connect(startPrivateConversationAction, &QAction::triggered, this, [this, url]() {
@@ -530,13 +621,15 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(startDiscussion);
             menu.addSeparator();
-            auto replyInThreadAction = new QAction(QIcon::fromTheme(u"mail-replied-symbolic"_s), i18nc("@action", "Reply in Thread"), &menu);
-            connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
-                slotReplyInThread(index);
-            });
-            menu.addAction(replyInThreadAction);
-            for (auto action : std::as_const(threadInfoActions)) {
-                menu.addAction(action);
+            if (!message->isEncryptedMessage()) {
+                auto replyInThreadAction = new QAction(QIcon::fromTheme(u"mail-replied-symbolic"_s), i18nc("@action", "Reply in Thread"), &menu);
+                connect(replyInThreadAction, &QAction::triggered, this, [this, index]() {
+                    slotReplyInThread(index);
+                });
+                menu.addAction(replyInThreadAction);
+                for (auto action : std::as_const(threadInfoActions)) {
+                    menu.addAction(action);
+                }
             }
 
             if (!isVideoConferenceMessage) {
@@ -559,8 +652,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             if (copyUrlAction) {
                 menu.addAction(copyUrlAction);
             }
-            menu.addAction(copyLinkToMessageAction);
-            if (!isVideoConferenceMessage) {
+            if (!message->isEncryptedMessage()) {
+                menu.addAction(copyLinkToMessageAction);
+            }
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 menu.addAction(forwardMessageAction);
                 menu.addSeparator();
                 // menu.addAction(selectAllAction);
@@ -575,7 +670,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(followingToMessageAction);
 
 #if HAVE_TEXT_TRANSLATOR
-            if (!isVideoConferenceMessage) {
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 createTranslorMenu();
                 if (!mTranslatorMenu->isEmpty()) {
                     menu.addSeparator();
@@ -589,13 +684,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addSeparator();
                 menu.addAction(deleteAction);
             }
-            if (!isVideoConferenceMessage
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()
                 && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
                     || !message->localTranslation().isEmpty())) {
                 createSeparator(menu);
                 const bool isTranslated = message->showTranslatedMessage();
                 auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-                connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
+                connect(translateAction, &QAction::triggered, this, [index, isTranslated]() {
                     slotTranslateMessage(index, !isTranslated);
                 });
                 menu.addAction(translateAction);
@@ -621,8 +716,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             if (copyUrlAction) {
                 menu.addAction(copyUrlAction);
             }
-            menu.addAction(copyLinkToMessageAction);
-            if (!isVideoConferenceMessage) {
+            if (!message->isEncryptedMessage()) {
+                menu.addAction(copyLinkToMessageAction);
+            }
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 menu.addAction(forwardMessageAction);
                 menu.addSeparator();
                 // menu.addAction(selectAllAction);
@@ -636,7 +733,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addAction(editAction);
             }
 #if HAVE_TEXT_TRANSLATOR
-            if (!isVideoConferenceMessage) {
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
                 createTranslorMenu();
                 if (!mTranslatorMenu->isEmpty()) {
                     menu.addSeparator();
@@ -649,13 +746,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 menu.addSeparator();
                 menu.addAction(deleteAction);
             }
-            if (!isVideoConferenceMessage
+            if (!isVideoConferenceMessage && !message->isEncryptedMessage()
                 && ((mCurrentRocketChatAccount->hasAutotranslateSupport() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty())
                     || !message->localTranslation().isEmpty())) {
                 createSeparator(menu);
                 const bool isTranslated = message->showTranslatedMessage();
                 auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-                connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
+                connect(translateAction, &QAction::triggered, this, [index, isTranslated]() {
                     slotTranslateMessage(index, !isTranslated);
                 });
                 menu.addAction(translateAction);
@@ -665,15 +762,15 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
     case Mode::Moderation: {
         auto showReportInfo = new QAction(i18nc("@action", "View Reports"), &menu); // Add icon
-        connect(showReportInfo, &QAction::triggered, this, [this, message]() {
-            const auto messageId = message->messageId();
+        const QByteArray messageId = message->messageId();
+        connect(showReportInfo, &QAction::triggered, this, [this, messageId]() {
             const auto job = new RocketChatRestApi::ModerationReportsJob(this);
             job->setMessageId(messageId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ModerationReportsJob::moderationReportsDone, this, [this](const QJsonObject &obj) {
                 ModerationReportInfos infos;
                 infos.parseModerationReportInfos(obj);
-                slotShowReportInfo(std::move(infos));
+                slotShowReportInfo(infos);
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
@@ -688,8 +785,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         // menu.addAction(selectAllAction);
         // menu.addSeparator();
         auto dismissReports = new QAction(i18nc("@action", "Dismiss Reports"), &menu); // Add icon
-        connect(dismissReports, &QAction::triggered, this, [this, message]() {
-            const auto messageId = message->messageId();
+
+        connect(dismissReports, &QAction::triggered, this, [this, messageId]() {
             const auto job = new RocketChatRestApi::ModerationDismissReportsJob(this);
             job->setMessageId(messageId);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -729,8 +826,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (copyUrlAction) {
             menu.addAction(copyUrlAction);
         }
-        menu.addAction(copyLinkToMessageAction);
-        if (!isVideoConferenceMessage) {
+        if (!message->isEncryptedMessage()) {
+            menu.addAction(copyLinkToMessageAction);
+        }
+
+        if (!isVideoConferenceMessage && !message->isEncryptedMessage()) {
             menu.addAction(forwardMessageAction);
             menu.addSeparator();
             // menu.addAction(selectAllAction);
@@ -911,7 +1011,7 @@ void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
 
 void MessageListView::slotForwardMessage(const QModelIndex &index)
 {
-    QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
+    const QPointer<ForwardMessageDialog> dlg = new ForwardMessageDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const QList<QByteArray> identifiers = dlg->channelIdentifiers();
         const QByteArray messageId = index.data(MessagesModel::MessageId).toByteArray();
@@ -932,8 +1032,8 @@ QString MessageListView::generatePermalink(const QString &messageId) const
         return {};
     }
     QString permalink = mCurrentRocketChatAccount->serverUrl() + u'/' + RoomUtil::generatePermalink(messageId, mRoom->name(), mRoom->channelType());
-    if (!permalink.startsWith(u"https://"_s)) {
-        permalink.prepend(u"https://"_s);
+    if (!permalink.startsWith("https://"_L1)) {
+        permalink.prepend("https://"_L1);
     }
     return permalink;
 }
@@ -988,8 +1088,8 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
     }
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, Ruqola::self()->parentWidget());
     ThreadMessageWidget::ThreadMessageInfo info;
-    info.threadMessageId = messageId;
-    info.threadMessagePreview = threadMessagePreview;
+    info.threadMessageId = std::move(messageId);
+    info.threadMessagePreview = std::move(threadMessagePreview);
     info.threadIsFollowing = threadIsFollowing;
     info.room = mRoom;
     const Message tm = index.data(MessagesModel::ThreadMessage).value<Message>();
@@ -1050,9 +1150,10 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
             info.setMessageId(index.data(MessagesModel::MessageId).toByteArray());
             info.setRoomId(mRoom->roomId());
 
+            // The info is stored by the widget which owns the speech synthesizer,
+            // as it must be done for each enqueued text (see TextToSpeechEnqueueUtils).
             if (!Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->contains(info)) {
-                Ruqola::self()->accountManager()->textToSpeechEnqueueManager()->insert(info);
-                Q_EMIT textToSpeech(message);
+                Q_EMIT textToSpeech(message, info);
             }
         }
     }
@@ -1061,7 +1162,7 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
 
 void MessageListView::slotReportMessage(const QModelIndex &index)
 {
-    QPointer<ReportMessageDialog> dlg = new ReportMessageDialog(this);
+    const QPointer<ReportMessageDialog> dlg = new ReportMessageDialog(this);
     const QString message = index.data(MessagesModel::OriginalMessage).toString();
     dlg->setPreviewMessage(message);
     if (dlg->exec()) {
@@ -1197,27 +1298,18 @@ void MessageListView::slotTranslate([[maybe_unused]] const QString &from,
     if (modelIndex.isValid()) {
         const QString originalMessage = modelIndex.data(MessagesModel::OriginalMessage).toString();
         if (!originalMessage.isEmpty()) {
+            const QByteArray messageId = modelIndex.data(MessagesModel::MessageId).toByteArray();
             qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " originalMessage " << originalMessage;
             qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " from " << from << " to " << to;
-            TranslateTextJob::TranslateInfo info;
-            info.from = from;
-            info.to = to;
-            info.inputText = originalMessage;
-            auto job = new TranslateTextJob(this);
-            job->setInfo(info);
-            connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex, job](const QString &str) {
-                auto messageModel = qobject_cast<MessagesModel *>(model());
-                qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " modelIndex " << modelIndex;
-                // qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " messageModel " << messageModel;
-                messageModel->setData(modelIndex, str, MessagesModel::LocalTranslation);
-                qCDebug(RUQOLA_TRANSLATEMESSAGE_LOG) << " translated string :" << str;
-                job->deleteLater();
-            });
-            connect(job, &TranslateTextJob::translateFailed, this, [this, job](const QString &errorMessage) {
-                KMessageBox::error(this, errorMessage, i18nc("@title:window", "Translator Error"));
-                job->deleteLater();
-            });
-            job->translate();
+            TranslatorEngineManager::TranslateRequest info{
+                .from = from,
+                .to = to,
+                .inputText = originalMessage,
+                .messageId = messageId,
+            };
+            if (info.isValid()) {
+                TranslatorEngineManager::self()->addPendingTranslation(std::move(info));
+            }
         }
     }
 #endif
@@ -1226,7 +1318,7 @@ void MessageListView::slotTranslate([[maybe_unused]] const QString &from,
 void MessageListView::slotShowReportInfo(const ModerationReportInfos &info)
 {
     ModerationMessageInfoDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setReportInfos(std::move(info));
+    dlg.setReportInfos(info);
     dlg.exec();
 }
 #include "moc_messagelistview.cpp"

@@ -56,16 +56,16 @@ void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
     }
 }
 
-QString StatusModel::textFromPresenceStatus(User::PresenceStatus status) const
+QString StatusModel::textFromPresenceStatus(User::PresenceStatus status)
 {
-    const QString statusStr = Utils::i18nFromPresenceStatus(status);
+    QString statusStr = Utils::i18nFromPresenceStatus(status);
     if (statusStr.isEmpty()) {
         return i18n("Modify Status…");
     }
     return statusStr;
 }
 
-QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status) const
+QIcon StatusModel::iconFromPresenceStatus(User::PresenceStatus status)
 {
     switch (status) {
     case User::PresenceStatus::Online:
@@ -139,7 +139,7 @@ void StatusModel::updateCustomStatus(const QList<CustomUserStatus> &customUserSt
         statusInfo.icon = iconFromPresenceStatus(statusInfo.status);
         statusInfo.order = 5;
         statusInfo.statusStr = status.name();
-        mStatusList.append(statusInfo);
+        mStatusList.append(std::move(statusInfo));
     }
     endResetModel();
 }
@@ -162,7 +162,7 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mStatusList.count()) {
         return {};
     }
-    const DisplayStatusInfo statusInfo = mStatusList.at(index.row());
+    const DisplayStatusInfo &statusInfo = mStatusList.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case StatusI18n:

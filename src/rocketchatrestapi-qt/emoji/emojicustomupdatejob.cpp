@@ -32,7 +32,7 @@ bool EmojiCustomUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("EmojiCustomUpdateJob::start");
+    addStartRestApiInfo("EmojiCustomUpdateJob::start"_ba);
 
     const QString fileNameAsLocalFile = mEmojiInfo.fileNameUrl.toLocalFile();
     auto file = new QFile(fileNameAsLocalFile);
@@ -43,12 +43,11 @@ bool EmojiCustomUpdateJob::start()
         deleteLater();
         return false;
     }
-    const QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
-
     auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     if (!mEmojiInfo.fileNameUrl.isEmpty()) {
+        const QMimeDatabase db;
+        const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
         QHttpPart filePart;
         filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
         const QString filePartInfo = u"form-data; name=\"emoji\"; filename=\"%1\""_s.arg(mEmojiInfo.fileNameUrl.fileName());
@@ -82,14 +81,8 @@ bool EmojiCustomUpdateJob::start()
 
 void EmojiCustomUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("EmojiCustomUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT emojiCustomUpdateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("EmojiCustomUpdateJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("EmojiCustomUpdateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT emojiCustomUpdateDone(*replyObject);
     }
 }
 
@@ -145,7 +138,7 @@ QNetworkRequest EmojiCustomUpdateJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomUpdate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    addRequestAttribute(request);
+    addRequestAttribute(request, false);
     return request;
 }
 

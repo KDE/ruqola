@@ -39,10 +39,12 @@ RoomWidgetTest::RoomWidgetTest(QObject *parent)
 
 void RoomWidgetTest::shouldHaveDefaultValues()
 {
-    RoomWidget w;
+    const RoomWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+    QCOMPARE(mainLayout->spacing(), 0);
+    QCOMPARE(mainLayout->stretch(1), 1);
 
     auto mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(u"mRoomHeaderWidget"_s);
     QVERIFY(mRoomHeaderWidget);
@@ -90,9 +92,6 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUploadFileProgressStatusListWidget->isVisible());
 
 #if 0 // Load on demand
-    auto mOtrWidget = w.findChild<OtrWidget *>(u"mOtrWidget"_s);
-    QVERIFY(mOtrWidget);
-
     auto mOffLineWidget = w.findChild<OffLineWidget *>(u"mOffLineWidget"_s);
     QVERIFY(mOffLineWidget);
 
@@ -160,7 +159,7 @@ void RoomWidgetTest::shouldStorePendingTextPerRoom()
 void RoomWidgetTest::shouldShowNoticeWhenReplyingToThread()
 {
     QEventLoop loop;
-    RoomWidget w;
+    const RoomWidget w;
 
     auto mRoomReplyThreadWidget = w.findChild<RoomReplyThreadWidget *>(u"mRoomReplyThreadWidget"_s);
     QVERIFY(!mRoomReplyThreadWidget->isVisible());

@@ -18,7 +18,7 @@ AuthenticationInfoTest::AuthenticationInfoTest(QObject *parent)
 
 void AuthenticationInfoTest::shouldHaveDefaultValue()
 {
-    AuthenticationInfo info;
+    const AuthenticationInfo info;
     QVERIFY(info.iconName().isEmpty());
     QVERIFY(info.name().isEmpty());
     QCOMPARE(info.oauthType(), AuthenticationManager::Unknown);

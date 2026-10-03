@@ -18,15 +18,12 @@ MessageDelegateHelperDivider::MessageDelegateHelperDivider(RocketChatAccount *ac
 
 MessageDelegateHelperDivider::~MessageDelegateHelperDivider() = default;
 
-void MessageDelegateHelperDivider::draw(const Block &block,
+void MessageDelegateHelperDivider::draw([[maybe_unused]] const Block &block,
                                         QPainter *painter,
                                         QRect blockRect,
-                                        const QModelIndex &index,
-                                        const QStyleOptionViewItem &option) const
+                                        [[maybe_unused]] const QModelIndex &index,
+                                        [[maybe_unused]] const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(option);
-    Q_UNUSED(block);
-    Q_UNUSED(index)
     // Draw separator
     // painter->fillRect(blockRect, Qt::red);
     const QPen oldPen = painter->pen();
@@ -37,25 +34,20 @@ void MessageDelegateHelperDivider::draw(const Block &block,
     painter->setPen(oldPen);
 }
 
-QSize MessageDelegateHelperDivider::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperDivider::sizeHint([[maybe_unused]] const Block &block,
+                                             [[maybe_unused]] const QModelIndex &index,
+                                             int maxWidth,
+                                             [[maybe_unused]] const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(option);
-    Q_UNUSED(block);
-    Q_UNUSED(index)
     const int height = DelegatePaintUtil::margin();
     return {qMax(0, maxWidth), height};
 }
 
-bool MessageDelegateHelperDivider::handleMouseEvent(const Block &block,
-                                                    QMouseEvent *mouseEvent,
-                                                    QRect blocksRect,
-                                                    const QStyleOptionViewItem &option,
-                                                    const QModelIndex &index)
+bool MessageDelegateHelperDivider::handleMouseEvent([[maybe_unused]] const Block &block,
+                                                    [[maybe_unused]] QMouseEvent *mouseEvent,
+                                                    [[maybe_unused]] QRect blocksRect,
+                                                    [[maybe_unused]] const QStyleOptionViewItem &option,
+                                                    [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(block);
-    Q_UNUSED(mouseEvent);
-    Q_UNUSED(blocksRect);
-    Q_UNUSED(option);
-    Q_UNUSED(index);
     return false;
 }

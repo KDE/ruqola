@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2024-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -38,7 +38,7 @@ bool ModerationReportsByUserIdJob::canStart() const
         return false;
     }
     if (mModerationUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mModerationUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ModerationReportsByUserIdJob: mModerationUserId is empty";
         return false;
     }
     return true;
@@ -52,20 +52,14 @@ bool ModerationReportsByUserIdJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("ModerationReportsByUserIdJob: Ask for moderation reportes by users"_ba);
+    addStartRestApiInfo("ModerationReportsByUserIdJob: Ask for moderation reports by user id"_ba);
     return true;
 }
 
 void ModerationReportsByUserIdJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ModerationReportsByUserIdJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT moderationReportsByUserIdDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ModerationReportsByUserIdJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ModerationReportsByUserIdJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT moderationReportsByUserIdDone(*replyObject);
     }
 }
 
@@ -84,6 +78,7 @@ QNetworkRequest ModerationReportsByUserIdJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ModerationUserReportsByUserId);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(u"userId"_s, QString::fromLatin1(mModerationUserId));
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

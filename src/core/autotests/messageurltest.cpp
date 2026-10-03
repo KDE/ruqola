@@ -9,17 +9,19 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "messages/messageurl.h"
 #include <QJsonObject>
+#include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(MessageUrlTest)
 
 MessageUrlTest::MessageUrlTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void MessageUrlTest::shouldHaveDefaultValue()
 {
-    MessageUrl url;
+    const MessageUrl url;
     QVERIFY(url.url().isEmpty());
     QVERIFY(url.pageTitle().isEmpty());
     QVERIFY(url.description().isEmpty());
@@ -157,6 +159,32 @@ void MessageUrlTest::shouldTestPreviewUrl()
     QVERIFY(url.hasPreviewUrl());
 }
 
+void MessageUrlTest::shouldTestRichPreview()
+{
+    // A bare title is not enough for a preview card: it just restates the link.
+    MessageUrl url;
+    url.setPageTitle(u"Index of /ci-builds/network/ruqola"_s);
+    url.setUrl(u"https://origin.cdn.kde.org/ci-builds/network/ruqola/"_s);
+    QVERIFY(url.hasPreviewUrl());
+    QVERIFY(!url.hasRichPreview());
+
+    // A description makes it worth showing.
+    url.setDescription(u"bla"_s);
+    QVERIFY(url.hasRichPreview());
+    url.setDescription(QString());
+    QVERIFY(!url.hasRichPreview());
+
+    // An image makes it worth showing.
+    url.setImageUrl(u"https://example.com/image.png"_s);
+    QVERIFY(url.hasRichPreview());
+    url.setImageUrl(QString());
+    QVERIFY(!url.hasRichPreview());
+
+    // Media content (a directly-linked image/video) is worth showing.
+    url.setContentType(MessageUrl::ContentType::Image);
+    QVERIFY(url.hasRichPreview());
+}
+
 void MessageUrlTest::shouldGenerateHtmlDescription()
 {
     QFETCH(MessageUrl, messageUrl);
@@ -180,7 +208,7 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
         url.setSiteName(u"SiteName"_s);
         url.setSiteUrl(u"SiteUrl"_s);
 
-        QTest::newRow("generateHtmlDescription-test1") << url << u"[Title](Title_url)\nDescription\n[SiteName](SiteUrl)"_s;
+        QTest::newRow("generateHtmlDescription-test1") << url << u"[Title](Title_url)\nDescription"_s;
     }
 
     {
@@ -199,28 +227,27 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
         QTest::newRow("generateHtmlDescription-test3") << url << u"[Title](Title_url)"_s;
     }
     {
-        MessageUrl url;
+        const MessageUrl url;
         QTest::newRow("generateHtmlDescription-test4") << url << QString();
     }
     {
         MessageUrl url;
-        url.setPageTitle(QStringLiteral(
-            " Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden #queenshanhadden #egirl #minecraft\""));
+        url.setPageTitle(
+            u" Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden #queenshanhadden #egirl #minecraft\""_s);
         url.setUrl(u"https://www.instagram.com/p/C0vwctGuxnI/"_s);
 
         url.setDescription(
-            QStringLiteral("19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden "
-                           "#queenshanhadden #egirl #minecraft\""));
+            u"19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video that started it all\n. \n. \n. \n#shanhadden "
+            u"#queenshanhadden #egirl #minecraft\""_s);
 
         url.setSiteName(u"Instagram"_s);
         url.setSiteUrl(u"https://www.instagram.com/reel/C0vwctGuxnI/"_s);
 
         QTest::newRow("generateHtmlDescription-test5")
             << url
-            << QStringLiteral(
-                   "[ Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all. . . #shanhadden #queenshanhadden #egirl "
-                   "#minecraft\"](https://www.instagram.com/p/C0vwctGuxnI/)\n19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video "
-                   "that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\"\n[Instagram](https://www.instagram.com/reel/C0vwctGuxnI/)");
+            << u"[ Shan Hadden Fanpage on Instagram: \"The Iconic video that started it all. . . #shanhadden #queenshanhadden #egirl "
+               u"#minecraft\"](https://www.instagram.com/p/C0vwctGuxnI/)\n19K likes, 66 comments - queenshanfan on December 12, 2023: \"The Iconic video "
+               u"that started it all. . . #shanhadden #queenshanhadden #egirl #minecraft\""_s;
     }
     {
         MessageUrl url;
@@ -228,18 +255,17 @@ void MessageUrlTest::shouldGenerateHtmlDescription_data()
         url.setUrl(u"https://www.stereolabs.com/products/zed-2"_s);
 
         url.setDescription(
-            QStringLiteral("The ZED 2 family is a next-generation series of USB 3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI "
-                           "capabilities. This combination empowers you to develop cutting-edge spatial intelligence applications"));
+            u"The ZED 2 family is a next-generation series of USB 3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI "
+            u"capabilities. This combination empowers you to develop cutting-edge spatial intelligence applications"_s);
 
         url.setSiteName(QString());
         url.setSiteUrl(u"https://www.stereolabs.com/products/zed-"_s);
 
         QTest::newRow("generateHtmlDescription-test6")
             << url
-            << QStringLiteral(
-                   "[ZED 2 - AI Stereo Camera | Stereolabs](https://www.stereolabs.com/products/zed-2)\nThe ZED 2 family is a next-generation series of USB "
-                   "3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI capabilities. This combination empowers you to develop "
-                   "cutting-edge spatial intelligence applications");
+            << u"[ZED 2 - AI Stereo Camera | Stereolabs](https://www.stereolabs.com/products/zed-2)\nThe ZED 2 family is a next-generation series of USB "
+               u"3.1 stereo cameras that seamlessly integrate advanced depth sensing with AI capabilities. This combination empowers you to develop "
+               u"cutting-edge spatial intelligence applications"_s;
     }
 }
 
@@ -292,7 +318,7 @@ void MessageUrlTest::shouldContentTypeConvert()
     QCOMPARE(MessageUrl::stringToContentTypeEnum(u"video"_s), MessageUrl::ContentType::Video);
     QCOMPARE(MessageUrl::stringToContentTypeEnum(u"image_animated"_s), MessageUrl::ContentType::ImageAnimated);
 
-    MessageUrl m;
+    const MessageUrl m;
     QCOMPARE(m.parseHeaderContentType(u"foo"_s), MessageUrl::ContentType::None);
     QCOMPARE(m.parseHeaderContentType(u"image/foo"_s), MessageUrl::ContentType::Image);
     QCOMPARE(m.parseHeaderContentType(u"audio/bla"_s), MessageUrl::ContentType::Audio);

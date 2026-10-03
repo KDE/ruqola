@@ -20,7 +20,7 @@ using namespace Qt::Literals::StringLiterals;
 ListAttachmentDelegate::ListAttachmentDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
     , mDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
-    , mDeleteIcon(QIcon::fromTheme(u"delete"_s))
+    , mDeleteIcon(QIcon::fromTheme(u"edit-delete"_s))
     , mRocketChatAccount(account)
 {
 }
@@ -35,11 +35,14 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     optionCopy.showDecorationSelected = true;
 
     drawBackground(painter, optionCopy, index);
+    // The texts are painted with QPainter::drawText(), so unlike drawDisplay() they don't switch
+    // to QPalette::HighlightedText by themselves.
+    DelegatePaintUtil::setTextPen(painter, optionCopy);
 
     // Draw Mimetype Icon
     const Layout layout = doLayout(option, index);
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
-    const bool fileComplete = file->complete();
+    const bool fileComplete = layout.isFileComplete;
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForName(file->mimeType());
     const QPixmap pix = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(u"application-octet-stream"_s)).pixmap(layout.mimetypeHeight);
@@ -85,7 +88,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 void ListAttachmentDelegate::saveAttachment(const QStyleOptionViewItem &option, const File *file)
 {
     auto parentWidget = const_cast<QWidget *>(option.widget);
-    const QString path = QUrl::fromPercentEncoding(file->url().toLatin1());
+    const QString path = QUrl::fromPercentEncoding(file->url().toUtf8());
 
     const QString fileName =
         TextAddonsWidgets::SaveFileUtils::querySaveFileName(parentWidget, i18nc("@title:window", "Save Attachment"), QUrl::fromLocalFile(path));
@@ -105,11 +108,13 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
 
         const Layout layout = doLayout(option, index);
 
-        if (layout.downloadAttachmentRect.contains(mev->pos())) {
+        const bool fileComplete = layout.isFileComplete;
+
+        if (fileComplete && layout.downloadAttachmentRect.contains(mev->pos())) {
             saveAttachment(option, file);
             return true;
         }
-        if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == mRocketChatAccount->userId())) {
+        if (layout.deleteAttachmentRect.contains(mev->pos()) && mRocketChatAccount->isFileDeletable(file->roomId(), file->userId(), file->uploadedAt())) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
             if (KMessageBox::ButtonCode::PrimaryAction
                 == KMessageBox::questionTwoActions(parentWidget,
@@ -123,8 +128,10 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             return true;
         }
     } else if (eventType == QEvent::MouseButtonDblClick) {
-        const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
-        if (file) {
+        const Layout layout = doLayout(option, index);
+        const bool fileComplete = layout.isFileComplete;
+        if (fileComplete) {
+            const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
             if (file->typeGroup() == "image"_L1) {
                 Q_EMIT showImage(file->fileId());
             } else {
@@ -145,11 +152,12 @@ QSize ListAttachmentDelegate::sizeHint(const QStyleOptionViewItem &option, const
     return {0, contentsHeight};
 }
 
-ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+ListAttachmentDelegate::Layout ListAttachmentDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
 
     Layout layout;
+    layout.isFileComplete = file->complete();
     QRect usableRect = option.rect;
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 

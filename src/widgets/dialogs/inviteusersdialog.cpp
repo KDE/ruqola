@@ -8,13 +8,10 @@
 
 #include "inviteuserswidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -39,10 +36,7 @@ InviteUsersDialog::InviteUsersDialog(RocketChatAccount *account, QWidget *parent
     readConfig();
 }
 
-InviteUsersDialog::~InviteUsersDialog()
-{
-    writeConfig();
-}
+InviteUsersDialog::~InviteUsersDialog() = default;
 
 QByteArray InviteUsersDialog::roomId() const
 {
@@ -61,17 +55,7 @@ void InviteUsersDialog::generateLink()
 
 void InviteUsersDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(300, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myInviteUsersDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void InviteUsersDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myInviteUsersDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myInviteUsersDialogGroupName), QSize(300, 300));
 }
 
 #include "moc_inviteusersdialog.cpp"

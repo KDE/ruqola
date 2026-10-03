@@ -7,7 +7,6 @@
 #include "findorcreateinvitejobtest.h"
 
 #include "invite/findorcreateinvitejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -46,30 +45,18 @@ void FindOrCreateInviteJobTest::shouldGenerateJson()
 
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":0,"maxUses":20,"rid":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"days":0,"maxUses":20,"rid":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
     job.setMaxUses(32);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":0,"maxUses":32,"rid":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"days":0,"maxUses":32,"rid":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
     job.setNumberOfDays(42);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"days":42,"maxUses":32,"rid":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"days":42,"maxUses":32,"rid":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 }
 
 void FindOrCreateInviteJobTest::shouldNotStarting()
 {
     FindOrCreateInviteJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
@@ -97,7 +84,7 @@ void FindOrCreateInviteJobTest::shouldParseResult()
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    QJsonObject obj = doc.object();
+    const QJsonObject obj = doc.object();
     f.close();
     FindOrCreateInviteJob job;
     const FindOrCreateInviteJob::InviteUsersInfo result = job.parseResult(obj);

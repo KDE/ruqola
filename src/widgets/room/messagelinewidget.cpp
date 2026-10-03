@@ -155,7 +155,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     setFocusProxy(mMessageTextEdit);
 
     for (PluginTool *plugin : std::as_const(plugins)) {
-        if (plugin->enabled()) {
+        if (plugin->enabled() && plugin->toolFound()) {
             if (plugin->toolType() == PluginTool::ToolType::MessageViewToolBar) {
                 auto pluginButton = new QToolButton(this);
                 pluginButton->setAutoRaise(true);
@@ -308,6 +308,8 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                                 uploadFileInfo.fileUrl = QUrl::fromLocalFile(f.fileName());
                                 uploadFileInfo.deleteTemporaryFile = true;
                                 sendFile(uploadFileInfo);
+                            } else {
+                                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to open tempFile";
                             }
                         }
                         delete dlg;
@@ -358,7 +360,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             info.fileName = att.fileName;
             info.deleteTemporaryFile = false;
             info.rc80Server = mCurrentRocketChatAccount->hasAtLeastVersion(8, 0, 0);
-            Q_EMIT createUploadJob(std::move(info));
+            Q_EMIT createUploadJob(info);
         }
         mPendingAttachmentWidget->clear();
     }
@@ -392,7 +394,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     if (!mReplyInThreadDialogBox) {
         setThreadMessageId({});
     }
-    Q_EMIT createUploadJob(std::move(info));
+    Q_EMIT createUploadJob(info);
 }
 
 void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString &text)
@@ -560,7 +562,7 @@ void MessageLineWidget::slotAttachFiles()
             if (pattern == mimeTypeName) {
                 return true;
             }
-            if (pattern.endsWith(u"/*"_s) && mimeTypeName.startsWith(pattern.chopped(1))) {
+            if (pattern.endsWith("/*"_L1) && mimeTypeName.startsWith(pattern.chopped(1))) {
                 return true;
             }
         }

@@ -94,7 +94,7 @@ void ChannelInfoPruneWidget::saveRoomSettingsInfo(RocketChatRestApi::SaveRoomSet
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RetentionFilesOnly;
         info.retentionFilesOnly = mPruneFileOnlyKeepMessages->isChecked();
     }
-    if (retentionInfo.filesOnly() != mAutomaticPruneOldMessages->isChecked()) {
+    if (retentionInfo.enabled() != mAutomaticPruneOldMessages->isChecked()) {
         info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::RetentionEnabled;
         info.retentionEnabled = mAutomaticPruneOldMessages->isChecked();
     }

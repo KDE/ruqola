@@ -11,13 +11,12 @@
 using namespace Qt::Literals::StringLiterals;
 BannerInfos::BannerInfos() = default;
 
-BannerInfos::~BannerInfos() = default;
-
 void BannerInfos::parseBannerInfos(const QJsonObject &object)
 {
     mBanners.clear();
     const QJsonObject obj = object["banners"_L1].toObject();
     const QStringList keys = obj.keys();
+    mBanners.reserve(keys.count());
     for (const auto &key : keys) {
         const QJsonObject currentObj = obj[key].toObject();
         BannerInfo info;
@@ -45,20 +44,20 @@ BannerInfo BannerInfos::at(int index) const
 QList<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() const
 {
     QList<BannerInfos::UnreadInformation> infos;
-    for (int i = 0; i < mBanners.size(); ++i) {
-        const auto banner = mBanners.at(i);
+    infos.reserve(mBanners.count());
+    for (const auto &banner : mBanners) {
         if (!banner.read()) {
-            const BannerInfos::UnreadInformation info{
+            BannerInfos::UnreadInformation info{
                 .identifier = banner.identifier(),
                 .i18nMessage = generateText(banner),
             };
-            infos.append(info);
+            infos.append(std::move(info));
         }
     }
     return infos;
 }
 
-QString BannerInfos::generateText(const BannerInfo &info) const
+QString BannerInfos::generateText(const BannerInfo &info)
 {
     QString str = BannerInfo::defaultText(info);
     if (!info.link().isEmpty()) {
@@ -88,8 +87,8 @@ int BannerInfos::count() const
 
 QDebug operator<<(QDebug d, const BannerInfos &t)
 {
-    for (int i = 0, total = t.banners().count(); i < total; ++i) {
-        d.space() << t.banners().at(i) << "\n";
+    for (const auto &banner : t.banners()) {
+        d.space() << banner << "\n";
     }
     return d;
 }

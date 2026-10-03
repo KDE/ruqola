@@ -9,8 +9,6 @@
 #include "misc/avatarcachemanager.h"
 #include "model/joinedchannelmodel.h"
 
-#include <KLocalizedString>
-
 #include <QPainter>
 
 namespace
@@ -31,12 +29,16 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     // [M] icon ? name
     drawBackground(painter, option, index);
 
-    if (option.state & QStyle::State_Selected) {
+    if (!option.showDecorationSelected && (option.state & QStyle::State_Selected)) {
         painter->fillRect(option.rect, option.palette.highlight());
     }
 
     const int margin = DelegatePaintUtil::margin();
     const QFont oldFont = painter->font();
+    const QPen oldPen = painter->pen();
+    // The text is painted with QPainter::drawText(), so unlike drawDisplay() it doesn't switch
+    // to QPalette::HighlightedText by itself.
+    DelegatePaintUtil::setTextPen(painter, option);
 
     QFont boldFont = oldFont;
     boldFont.setBold(true);
@@ -45,12 +47,14 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     int xPos = -1;
     const Utils::AvatarInfo info = index.data(JoinedChannelModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (info.isValid()) {
-        const QRect displayRect(margin, option.rect.y(), option.rect.height(), option.rect.height());
-        constexpr ushort marginTop = padding / 2;
-        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, option.rect.height() - marginTop);
+        const int iconSize = option.rect.height() - padding;
+        const QPixmap pix = mAvatarCacheManager->makeRoundedAvatarPixmap(option.widget, info, iconSize);
         if (!pix.isNull()) {
-            drawDecoration(painter, option, displayRect, pix);
-            xPos = margin + option.rect.height();
+            constexpr int marginTop = padding / 2;
+            // Not drawDecoration(): it aligns the pixmap using its device size, which offsets it
+            // when the devicePixelRatio is > 1.
+            painter->drawPixmap(option.rect.x() + margin, option.rect.y() + marginTop, iconSize, iconSize, pix);
+            xPos = margin + iconSize;
         }
     }
 
@@ -59,6 +63,7 @@ void JoinedChannelCompletionDelegate::paint(QPainter *painter, const QStyleOptio
     const int defaultCharHeight = option.rect.y() + fontMetrics.ascent();
     painter->drawText(xPos + margin, defaultCharHeight, name);
     painter->setFont(oldFont);
+    painter->setPen(oldPen);
 }
 
 void JoinedChannelCompletionDelegate::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)

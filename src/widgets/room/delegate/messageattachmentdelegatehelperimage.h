@@ -10,6 +10,7 @@
 #include "misc/pixmapcache.h"
 #include "runninganimatedimage.h"
 
+#include <QIcon>
 #include <QModelIndex>
 #include <QPixmap>
 #include <vector>
@@ -48,8 +49,11 @@ private:
     [[nodiscard]] ImageLayout
     layoutImage(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth, int attachmentsHeight) const;
 
-    [[nodiscard]] std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
-    void removeRunningAnimatedImage(const QModelIndex &index) const;
+    // A message can hold several image attachments, so an animation is identified by (index, attachment id).
+    [[nodiscard]] std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index, const QByteArray &identifier) const;
+    void removeRunningAnimatedImage(const QModelIndex &index, const QByteArray &identifier) const;
+    // Removes every animation of this message, whatever the attachment (used when the message is not visible).
+    void removeRunningAnimatedImages(const QModelIndex &index) const;
     [[nodiscard]] bool contextMenu(const QPoint &pos,
                                    const QPoint &globalPos,
                                    const MessageAttachment &msgAttach,
@@ -64,4 +68,7 @@ private:
                                                                        const QStyleOptionViewItem &option) override;
     mutable PixmapCache mPixmapCache;
     mutable std::vector<RunningAnimatedImage> mRunningAnimatedImages; // not a hash or map, since QPersistentModelIndex changes value
+    const QIcon mCloudDownloadIcon;
+    const QIcon mVisibilityIcon;
+    const QIcon mHintIcon;
 };

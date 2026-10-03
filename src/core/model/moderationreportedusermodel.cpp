@@ -91,12 +91,10 @@ void ModerationReportedUserModel::clear()
 
 void ModerationReportedUserModel::parseElements(const QJsonObject &obj)
 {
-    clear();
+    beginResetModel();
+    mModerationInfos.clear();
     mModerationInfos.parseModerationReportedUserInfos(obj);
-    if (!mModerationInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mModerationInfos.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -111,22 +109,26 @@ const ModerationReportedUserInfos &ModerationReportedUserModel::moderationInfos(
     return mModerationInfos;
 }
 
-void ModerationReportedUserModel::setModerationInfos(const ModerationReportedUserInfos &newDeviceInfos)
+void ModerationReportedUserModel::setModerationInfos(ModerationReportedUserInfos newDeviceInfos)
 {
-    clear();
-    if (!newDeviceInfos.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, newDeviceInfos.count() - 1);
-        mModerationInfos = newDeviceInfos;
-        endInsertRows();
-    }
+    beginResetModel();
+    mModerationInfos = std::move(newDeviceInfos);
+    endResetModel();
 }
 
 void ModerationReportedUserModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mModerationInfos.count();
-    mModerationInfos.parseMoreModerationReportedUserInfos(obj);
-    beginInsertRows(QModelIndex(), numberOfElement, mModerationInfos.count() - 1);
-    endInsertRows();
+    ModerationReportedUserInfos moderationInfos = mModerationInfos;
+    moderationInfos.parseMoreModerationReportedUserInfos(obj);
+    const int newNumberOfElement = moderationInfos.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mModerationInfos = std::move(moderationInfos);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mModerationInfos = std::move(moderationInfos);
+    }
     checkFullList();
 }
 

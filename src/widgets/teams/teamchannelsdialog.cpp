@@ -7,13 +7,10 @@
 #include "teamchannelsdialog.h"
 
 #include "teamchannelswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myTeamChannelsDialogConfigGroupName[] = "TeamChannelsDialog";
@@ -37,10 +34,7 @@ TeamChannelsDialog::TeamChannelsDialog(RocketChatAccount *account, QWidget *pare
     readConfig();
 }
 
-TeamChannelsDialog::~TeamChannelsDialog()
-{
-    writeConfig();
-}
+TeamChannelsDialog::~TeamChannelsDialog() = default;
 
 void TeamChannelsDialog::setRoom(Room *room)
 {
@@ -49,17 +43,7 @@ void TeamChannelsDialog::setRoom(Room *room)
 
 void TeamChannelsDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamChannelsDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void TeamChannelsDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamChannelsDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myTeamChannelsDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_teamchannelsdialog.cpp"

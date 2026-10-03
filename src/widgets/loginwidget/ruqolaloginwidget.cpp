@@ -5,11 +5,11 @@
 */
 
 #include "ruqolaloginwidget.h"
+#include "config-ruqola.h"
 
 #include "colorsandmessageviewstyle.h"
 #include "common/authenticationoauthwidget.h"
 #include "loginwidget/ruqolaloginbutton.h"
-#include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
@@ -121,7 +121,7 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     info.authMethodType = mRocketChatAccount->settings()->authMethodType();
     info.authenticationInfos = mRocketChatAccount->authenticationMethodInfos();
     // qDebug() << " info " << info;
-    mRuqolaLoginStackWidget->setAccountInfo(std::move(info));
+    mRuqolaLoginStackWidget->setAccountInfo(info);
 
 #if 0
     disconnect(mUpdatePasswordConnection);
@@ -146,7 +146,7 @@ void RuqolaLoginWidget::slotLogin()
     const AccountManager::AccountManagerInfo info = mRuqolaLoginStackWidget->accountInfo();
     mRocketChatAccount->settings()->setUserName(info.userName);
     mRocketChatAccount->settings()->setPassword(info.password);
-    if (mTwoFactorAuthenticationPasswordLineEdit->isHidden()) {
+    if (mTwoFactorAuthenticationWidget->isHidden()) {
         mTwoFactorAuthenticationPasswordLineEdit->clear();
     } else {
         mRocketChatAccount->settings()->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());

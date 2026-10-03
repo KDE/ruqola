@@ -7,7 +7,6 @@
 #include "customsoundscreatejobtest.h"
 
 #include "custom/customsoundscreatejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -39,7 +38,7 @@ void CustomSoundsCreateJobTest::shouldGenerateRequest()
 
 void CustomSoundsCreateJobTest::shouldGenerateJson()
 {
-    CustomSoundsCreateJob job;
+    const CustomSoundsCreateJob job;
     // TODO
     //    const QString emojiId = u"foo1"_s;
     //    job.setEmojiId(emojiId);

@@ -18,7 +18,7 @@ SelectedMessageBackgroundAnimationTest::SelectedMessageBackgroundAnimationTest(Q
 
 void SelectedMessageBackgroundAnimationTest::shouldHaveDefaultValues()
 {
-    SelectedMessageBackgroundAnimation d(nullptr);
+    const SelectedMessageBackgroundAnimation d(nullptr);
     QVERIFY(!d.backgroundColor().isValid());
     QVERIFY(!d.modelIndex().isValid());
 }
@@ -27,7 +27,7 @@ void SelectedMessageBackgroundAnimationTest::shouldEmitBackgroundColorChanged()
 {
     SelectedMessageBackgroundAnimation d(nullptr);
     QSignalSpy backgroundColorChangedspy(&d, &SelectedMessageBackgroundAnimation::backgroundColorChanged);
-    QColor color(Qt::red);
+    const QColor color(Qt::red);
     d.setBackgroundColor(color);
     QCOMPARE(backgroundColorChangedspy.count(), 1);
     backgroundColorChangedspy.clear();
@@ -35,7 +35,7 @@ void SelectedMessageBackgroundAnimationTest::shouldEmitBackgroundColorChanged()
     QCOMPARE(backgroundColorChangedspy.count(), 0);
     backgroundColorChangedspy.clear();
 
-    QColor colorBlack(Qt::black);
+    const QColor colorBlack(Qt::black);
     d.setBackgroundColor(colorBlack);
     QCOMPARE(backgroundColorChangedspy.count(), 1);
 }

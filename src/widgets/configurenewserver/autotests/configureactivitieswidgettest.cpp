@@ -20,7 +20,7 @@ ConfigureActivitiesWidgetTest::ConfigureActivitiesWidgetTest(QObject *parent)
 
 void ConfigureActivitiesWidgetTest::shouldHaveDefaultValues()
 {
-    ConfigureActivitiesWidget w;
+    const ConfigureActivitiesWidget w;
 
     auto mListView = w.findChild<QListView *>("mListView"_L1);
     QVERIFY(mListView);

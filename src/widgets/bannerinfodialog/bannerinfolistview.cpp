@@ -33,6 +33,11 @@ BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *pare
 
 BannerInfoListView::~BannerInfoListView() = default;
 
+void BannerInfoListView::setSearchText(const QString &str)
+{
+    mBannerInfoListViewDelegate->setSearchText(str);
+}
+
 bool BannerInfoListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     return mBannerInfoListViewDelegate->maybeStartDrag(event, option, index);
@@ -49,7 +54,6 @@ void BannerInfoListView::slotCustomContextMenuRequested(const QPoint &pos)
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
             QMenu menu(this);
-            menu.addSeparator();
             menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, index]() {
                 slotSelectAll(index);
             });

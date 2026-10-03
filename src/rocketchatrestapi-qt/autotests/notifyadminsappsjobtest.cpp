@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "apps/notifyadminsappsjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -45,26 +44,14 @@ void NotifyAdminsAppsJobTest::shouldGenerateJson()
     const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{"app1 id"_ba, u"app test"_s, u"app version"_s, u"test message"_s};
     job.setInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"appId":"app1 id","appName":"app test","appVersion":"app version","message":"test message"})").toLatin1());
+             uR"({"appId":"app1 id","appName":"app test","appVersion":"app version","message":"test message"})"_s.toLatin1());
 }
 
 void NotifyAdminsAppsJobTest::shouldNotStarting()
 {
     NotifyAdminsAppsJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const NotifyAdminsAppsJob::NotifyAdminsAppsInfo info{"app1 id"_ba, u"app test"_s, u"app version"_s, u"test message"_s};
     job.setInfo(info);
     QVERIFY(job.canStart());

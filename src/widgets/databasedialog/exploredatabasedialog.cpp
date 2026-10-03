@@ -5,24 +5,22 @@
 */
 
 #include "exploredatabasedialog.h"
-#include "databasedialog/exploredatabaseroomspendingtypedinfostoragewidget.h"
-#include "databasedialog/exploredatabaseroomsubscriptionswidget.h"
 #include "exploredatabaseaccountstoragewidget.h"
+#include "exploredatabasee2eroomsstoragewidget.h"
 #include "exploredatabasee2estoragewidget.h"
 #include "exploredatabaseglobalstoragewidget.h"
 #include "exploredatabasejsonwidget.h"
 #include "exploredatabasemessagesstoragewidget.h"
+#include "exploredatabaseroomspendingtypedinfostoragewidget.h"
 #include "exploredatabaseroomsstoragewidget.h"
+#include "exploredatabaseroomsubscriptionswidget.h"
 
 #include "exploredatabaseviewmessageswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QTabWidget>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 using namespace Qt::Literals::StringLiterals;
 namespace
@@ -37,6 +35,7 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     , mExploreDatabaseAccountStorageWidget(new ExploreDatabaseAccountStorageWidget(account, this))
     , mExploreDatabaseRoomsStorageWidget(new ExploreDatabaseRoomsStorageWidget(account, this))
     , mExploreDatabaseGlobalStorageWidget(new ExploreDatabaseGlobalStorageWidget(account, this))
+    , mExploreDatabaseE2ERoomsStorageWidget(new ExploreDatabaseE2ERoomsStorageWidget(account, this))
     , mExploreDatabaseE2EStorageWidget(new ExploreDatabaseE2EStorageWidget(account, this))
     , mExploreDatabaseRoomsPendingTypedInfoStorageWidget(new ExploreDatabaseRoomsPendingTypedInfoStorageWidget(account, this))
     , mExploreDatabaseRoomSubscriptionsWidget(new ExploreDatabaseRoomSubscriptionsWidget(account, this))
@@ -70,6 +69,9 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     mExploreDatabaseE2EStorageWidget->setObjectName(u"mExploreDatabaseE2EStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseE2EStorageWidget, i18n("DataBase E2E"));
 
+    mExploreDatabaseE2ERoomsStorageWidget->setObjectName(u"mExploreDatabaseE2ERoomsStorageWidget"_s);
+    tabWidget->addTab(mExploreDatabaseE2ERoomsStorageWidget, i18n("DataBase E2E Rooms"));
+
     mExploreDatabaseRoomsPendingTypedInfoStorageWidget->setObjectName(u"mExploreDatabaseRoomsPendingTypedInfoStorageWidget"_s);
     tabWidget->addTab(mExploreDatabaseRoomsPendingTypedInfoStorageWidget, i18n("DataBase Room Pending Typed Info"));
 
@@ -94,24 +96,11 @@ ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget
     readConfig();
 }
 
-ExploreDatabaseDialog::~ExploreDatabaseDialog()
-{
-    writeConfig();
-}
+ExploreDatabaseDialog::~ExploreDatabaseDialog() = default;
 
 void ExploreDatabaseDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreDatabaseDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ExploreDatabaseDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExploreDatabaseDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myExploreDatabaseDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_exploredatabasedialog.cpp"

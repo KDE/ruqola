@@ -7,13 +7,10 @@
 #include "teamconverttochanneldialog.h"
 
 #include "teamconverttochannelwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myTeamConvertToChannelDialogConfigGroupName[] = "TeamConvertToChannelDialog";
@@ -38,19 +35,16 @@ TeamConvertToChannelDialog::TeamConvertToChannelDialog(QWidget *parent)
     readConfig();
 }
 
-TeamConvertToChannelDialog::~TeamConvertToChannelDialog()
-{
-    writeConfig();
-}
+TeamConvertToChannelDialog::~TeamConvertToChannelDialog() = default;
 
 QList<QByteArray> TeamConvertToChannelDialog::roomIdsToDelete() const
 {
     return mTeamConvertToChannelWidget->roomIdsToDelete();
 }
 
-void TeamConvertToChannelDialog::setTeamRooms(const QList<TeamRoom> &rooms)
+void TeamConvertToChannelDialog::setTeamRooms(QList<TeamRoom> rooms)
 {
-    mTeamConvertToChannelWidget->setTeamRooms(rooms);
+    mTeamConvertToChannelWidget->setTeamRooms(std::move(rooms));
 }
 
 void TeamConvertToChannelDialog::setTeamName(const QString &name)
@@ -60,17 +54,7 @@ void TeamConvertToChannelDialog::setTeamName(const QString &name)
 
 void TeamConvertToChannelDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void TeamConvertToChannelDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myTeamConvertToChannelDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_teamconverttochanneldialog.cpp"

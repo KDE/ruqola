@@ -24,7 +24,6 @@ ShowImagePrevNextImageWidget::ShowImagePrevNextImageWidget(QWidget *parent)
     mPreviousButton->setObjectName(u"mPreviousButton"_s);
     connect(mPreviousButton, &QToolButton::clicked, this, &ShowImagePrevNextImageWidget::showPreviousImage);
 
-    mNextButton->setIcon(QIcon::fromTheme(u"nextButton"_s));
     mNextButton->setEnabled(false);
     mNextButton->setObjectName(u"mNextButton"_s);
     mNextButton->setIcon(QIcon::fromTheme(u"go-next"_s));

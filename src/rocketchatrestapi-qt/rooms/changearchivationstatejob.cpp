@@ -28,7 +28,7 @@ bool ChangeArchivationStateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ChangeArchivationStateJob::start");
+    addStartRestApiInfo("ChangeArchivationStateJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool ChangeArchivationStateJob::start()
 
 void ChangeArchivationStateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ChangeArchivationStateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("ChangeArchivationStateJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT changeArchivationStateDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ChangeArchivationStateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

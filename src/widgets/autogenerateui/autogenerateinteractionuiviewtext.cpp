@@ -38,7 +38,7 @@ QString AutoGenerateInteractionUiViewText::convertTextTypeToString() const
     return {};
 }
 
-AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::convertTypeFromString(const QString &str) const
+AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::convertTypeFromString(const QString &str)
 {
     if (str.isEmpty()) {
         return AutoGenerateInteractionUiViewText::TextType::Unknown;
@@ -54,7 +54,7 @@ AutoGenerateInteractionUiViewText::TextType AutoGenerateInteractionUiViewText::c
 
 bool AutoGenerateInteractionUiViewText::operator==(const AutoGenerateInteractionUiViewText &other) const
 {
-    return other.text() == text() && other.emoji() == emoji() && other.type() == type();
+    return other.mText == mText && other.mEmoji == mEmoji && other.mType == mType;
 }
 
 bool AutoGenerateInteractionUiViewText::emoji() const

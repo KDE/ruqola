@@ -33,17 +33,16 @@ NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
 static NotificationHistoryDelegate::RoomAccount roomAccountInfo(const QModelIndex &index)
 {
     NotificationHistoryDelegate::RoomAccount info;
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
     if (channelName.isEmpty()) {
         channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
     }
-    info.accountName = accountName;
-    info.channelName = channelName;
+    info.accountName = index.data(NotificationHistoryModel::AccountName).toString();
+    info.channelName = std::move(channelName);
     return info;
 }
 
-void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -77,7 +76,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     // Draw the pixmap
     if (!layout.avatarPixmap.isNull()) {
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.size()), layout.avatarPos, layout.avatarPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.deviceIndependentSize()), layout.avatarPixmap);
 #else
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 #endif
@@ -119,11 +118,13 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 {
 #if USE_SIZEHINT_CACHE_SUPPORT
     const QByteArray identifier = cacheIdentifier(index);
-    auto it = mSizeHintCache.find(identifier);
-    if (it != mSizeHintCache.end()) {
-        const QSize result = it->value;
-        qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "NotificationHistoryDelegate: SizeHint found in cache: " << result;
-        return result;
+    if (!identifier.isEmpty()) {
+        auto it = mSizeHintCache.find(identifier);
+        if (it != mSizeHintCache.end()) {
+            const QSize result = it->value;
+            qCDebug(RUQOLA_SIZEHINT_CACHE_LOG) << "NotificationHistoryDelegate: SizeHint found in cache: " << result;
+            return result;
+        }
     }
 #endif
 
@@ -145,7 +146,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 
     const QSize size = {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 #if USE_SIZEHINT_CACHE_SUPPORT
-    if (!size.isEmpty()) {
+    if (!identifier.isEmpty() && !size.isEmpty()) {
         mSizeHintCache.insert(identifier, size);
     }
 #endif
@@ -190,8 +191,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     // Resize pixmap TODO cache ?
     const auto pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
     if (!pix.isNull()) {
-        const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        layout.avatarPixmap = scaledPixmap;
+        layout.avatarPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
@@ -224,11 +224,9 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     return layout;
 }
 
-QByteArray NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray NotificationHistoryDelegate::cacheIdentifier(const QModelIndex &index)
 {
-    const QByteArray identifier = index.data(NotificationHistoryModel::Identifier).toByteArray();
-    Q_ASSERT(!identifier.isEmpty());
-    return identifier;
+    return index.data(NotificationHistoryModel::Identifier).toByteArray();
 }
 
 QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
@@ -251,10 +249,6 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
     }
 
     const Layout layout = doLayout(option, index);
-    const auto *doc = documentForModelIndex(index, layout.textRect.width());
-    if (!doc) {
-        return false;
-    }
 
     const QPoint helpEventPos{helpEvent->pos()};
     if (layout.senderRect.contains(helpEventPos)) {
@@ -279,18 +273,22 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
         return true;
     }
 
+    const auto *doc = documentForModelIndex(index, layout.textRect.width());
+    if (!doc) {
+        return false;
+    }
+
     const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
-    return true;
+    return false;
 }
 
-QPoint NotificationHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+QPoint NotificationHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, [[maybe_unused]] const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }

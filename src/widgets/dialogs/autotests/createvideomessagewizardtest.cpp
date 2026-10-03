@@ -5,7 +5,6 @@
 */
 
 #include "createvideomessagewizardtest.h"
-#include "dialogs/createvideomessagewizard.h"
 #include <QStandardPaths>
 #include <QTest>
 QTEST_MAIN(CreateVideoMessageWizardTest)

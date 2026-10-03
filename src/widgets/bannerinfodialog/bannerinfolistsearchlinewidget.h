@@ -22,6 +22,8 @@ public:
 
     [[nodiscard]] bool showOnlyUnread() const;
 
+    [[nodiscard]] QLineEdit *searchLineEdit() const;
+
 Q_SIGNALS:
     void filterChanged();
 

@@ -20,7 +20,7 @@ AdministratorOauthCreateWidgetTest::AdministratorOauthCreateWidgetTest(QObject *
 
 void AdministratorOauthCreateWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorOauthCreateWidget w;
+    const AdministratorOauthCreateWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

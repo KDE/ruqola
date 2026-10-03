@@ -26,7 +26,7 @@ ShowVideoWidgetTest::ShowVideoWidgetTest(QObject *parent)
 
 void ShowVideoWidgetTest::shouldHaveDefaultValues()
 {
-    ShowVideoWidget w(nullptr);
+    const ShowVideoWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

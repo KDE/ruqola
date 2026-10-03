@@ -26,7 +26,7 @@ MessageLineWidgetTest::MessageLineWidgetTest(QObject *parent)
 
 void MessageLineWidgetTest::shouldHaveDefaultValues()
 {
-    MessageLineWidget w;
+    const MessageLineWidget w;
     QCOMPARE(w.mode(), MessageLineWidget::EditingMode::NewMessage);
     QVERIFY(w.threadMessageId().isEmpty());
 

@@ -5,16 +5,15 @@
 */
 
 #include "updatemessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/updatemessagejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UpdateMessageJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UpdateMessageJobTest::UpdateMessageJobTest(QObject *parent)
     : QObject(parent)
@@ -51,28 +50,15 @@ void UpdateMessageJobTest::shouldGenerateJson()
     job.setRoomId(roomId);
     job.setMessageId(messageId);
     job.setUpdatedText(updatedText);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"msgId":"%2","roomId":"%1","text":"%3"})").arg(QLatin1StringView(roomId), QLatin1StringView(messageId), updatedText).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"msgId":"%2","roomId":"%1","text":"%3"})"_s.arg(QLatin1StringView(roomId), QLatin1StringView(messageId), updatedText).toLatin1());
 }
 
 void UpdateMessageJobTest::shouldNotStarting()
 {
     UpdateMessageJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
     QVERIFY(!job.canStart());

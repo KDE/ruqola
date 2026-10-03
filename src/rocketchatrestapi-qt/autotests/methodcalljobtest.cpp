@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "misc/methodcalljob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -57,7 +56,7 @@ void MethodCallJobTest::shouldGenerateJson()
     info.anonymous = true;
     job.setMethodCallJobInfo(info);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"message":"{}"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"message":"{}"})"_s.toLatin1());
 
     QVariantMap map;
     map.insert(u"msg"_s, u"method"_s);
@@ -75,19 +74,7 @@ void MethodCallJobTest::shouldNotStarting()
 {
     MethodCallJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     // TODO
 }
 

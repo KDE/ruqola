@@ -9,13 +9,10 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingswidget.h"
 #include "rocketchataccount.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -41,10 +38,7 @@ ApplicationsSettingsDialog::ApplicationsSettingsDialog(RocketChatAccount *accoun
     readConfig();
 }
 
-ApplicationsSettingsDialog::~ApplicationsSettingsDialog()
-{
-    writeConfig();
-}
+ApplicationsSettingsDialog::~ApplicationsSettingsDialog() = default;
 
 void ApplicationsSettingsDialog::setFeature(ApplicationsSettingsSearchWidget::Feature feature)
 {
@@ -58,17 +52,7 @@ void ApplicationsSettingsDialog::initialize()
 
 void ApplicationsSettingsDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ApplicationsSettingsDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myApplicationsSettingsDialogGroupName), QSize(400, 300));
 }
 
 #include "moc_applicationssettingsdialog.cpp"

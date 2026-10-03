@@ -103,7 +103,7 @@ void CreateSoundMessageWidget::updateAudioInputs()
 
 void CreateSoundMessageWidget::loadSettings()
 {
-    KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(mySoundGroupName));
+    const KConfigGroup group(KSharedConfig::openConfig(), QLatin1StringView(mySoundGroupName));
     const QByteArray deviceIdentifier = group.readEntry("SoundDevice", QByteArray());
     if (!deviceIdentifier.isEmpty()) {
         for (int i = 0; i < mDeviceComboBox->count(); ++i) {

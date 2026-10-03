@@ -27,7 +27,7 @@ bool RoomsBanUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsBanUserJob::start");
+    addStartRestApiInfo("RoomsBanUserJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool RoomsBanUserJob::start()
 
 void RoomsBanUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsBanUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsBanUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsBanUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsBanUserJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

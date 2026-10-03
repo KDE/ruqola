@@ -5,7 +5,6 @@
 */
 
 #include "messagedelegateutils.h"
-#include "config-ruqola.h"
 #include "delegateutils/textselection.h"
 #include "model/messagesmodel.h"
 
@@ -22,6 +21,7 @@ using namespace Qt::Literals::StringLiterals;
 std::unique_ptr<QTextDocument> MessageDelegateUtils::createTextDocument(bool useItalic, const QString &text, int width)
 {
     std::unique_ptr<QTextDocument> doc(new QTextDocument);
+    doc->setUndoRedoEnabled(false);
     doc->setHtml(text);
     doc->setTextWidth(width);
     QFont font = qApp->font();
@@ -56,7 +56,7 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
     QTextStream stream(&formattedTooltip);
     auto addLine = [&](const QString &line) {
         if (!line.isEmpty()) {
-            stream << "<p>"_L1 << line << "</p>"_L1;
+            stream << "<p>"_L1 << line.toHtmlEscaped() << "</p>"_L1;
         }
     };
 
@@ -68,12 +68,16 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
 
 bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
 {
+    const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
+    if (!message) {
+        return false;
+    }
     const auto messageType = index.data(MessagesModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = messageType == Message::System
         && index.data(MessagesModel::SystemMessageType).value<SystemMessageTypeUtil::SystemMessageType>()
             != SystemMessageTypeUtil::SystemMessageType::JitsiCallStarted;
-    const bool isEncrypted = messageType == Message::EncryptedText;
-    return isEncrypted || isSystemMessage || index.data(MessagesModel::PrivateMessage).toBool();
+    const bool isEncrypted = messageType == Message::EncryptedText && !message->hasDescriptedContent();
+    return isEncrypted || isSystemMessage || message->privateMessage();
 }
 
 bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)
@@ -124,10 +128,8 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
 
     QAbstractTextDocumentLayout::PaintContext ctx;
     if (selection) {
-        const QList<QAbstractTextDocumentLayout::Selection> selections =
-            MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, msgUrl, isAMessage);
         // Same as pDoc->drawContents(painter, clip) but we also set selections
-        ctx.selections = selections;
+        ctx.selections = MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, msgUrl, isAMessage);
         if (clip.isValid()) {
             painter->setClipRect(clip);
             ctx.clip = clip;
@@ -163,7 +165,19 @@ QSize MessageDelegateUtils::timeStampSize(const QString &timeStampText, const QS
 {
     // This gives incorrect results (too small bounding rect), no idea why!
     // const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
-    return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
+    static QFontMetrics sFontMetrics{QFont()};
+    static QHash<QString, QSize> sCache;
+    if (sFontMetrics != option.fontMetrics || sCache.size() > 4096) {
+        sFontMetrics = option.fontMetrics;
+        sCache.clear();
+    }
+    const auto it = sCache.constFind(timeStampText);
+    if (it != sCache.cend()) {
+        return it.value();
+    }
+    const QSize size(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
+    sCache.insert(timeStampText, size);
+    return size;
 }
 
 QSize MessageDelegateUtils::textSizeHint(QTextDocument *doc, qreal *pBaseLine)

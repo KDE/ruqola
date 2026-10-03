@@ -15,8 +15,6 @@ AccountRoomSettings::AccountRoomSettings(RocketChatAccount *account)
 {
 }
 
-AccountRoomSettings::~AccountRoomSettings() = default;
-
 void AccountRoomSettings::remove(const QByteArray &roomId)
 {
     if (mPendingTypedTexts.remove(roomId) > 0) {
@@ -61,7 +59,7 @@ void AccountRoomSettings::setPendingTypedTexts(const QMap<QByteArray, PendingTyp
 
 bool AccountRoomSettings::PendingTypedInfo::hasPendingMessageTyped() const
 {
-    return !text.isEmpty();
+    return !text.isEmpty() || !pendingAttachmentInfos.isEmpty();
 }
 
 bool AccountRoomSettings::PendingTypedInfo::operator==(const AccountRoomSettings::PendingTypedInfo &other) const
@@ -150,7 +148,7 @@ AccountRoomSettings::PendingTypedInfo AccountRoomSettings::PendingTypedInfo::des
         for (int i = 0; i < arraySize; ++i) {
             lst.append(AccountRoomSettings::PendingAttachmentInfo::deserialize(array.at(i).toObject()));
         }
-        pendingTypedInfo.pendingAttachmentInfos = lst;
+        pendingTypedInfo.pendingAttachmentInfos = std::move(lst);
     }
     return pendingTypedInfo;
 }

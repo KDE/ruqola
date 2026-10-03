@@ -7,6 +7,7 @@
 #include "localdatabasemanager.h"
 #include "e2edatabase.h"
 #include "localaccountsdatabase.h"
+#include "localdatabase/e2eroomsdatabase.h"
 #include "localdatabaseutils.h"
 #include "localmessagelogger.h"
 #include "localmessagesdatabase.h"
@@ -15,9 +16,7 @@
 #include "localroomsubscriptionsdatabase.h"
 #include "messages/message.h"
 #include "room.h"
-#include "ruqola_database_debug.h"
 #include "ruqolaglobalconfig.h"
-#include <QDir>
 
 LocalDatabaseManager::LocalDatabaseManager()
     : mMessageLogger(std::make_unique<LocalMessageLogger>())
@@ -26,6 +25,7 @@ LocalDatabaseManager::LocalDatabaseManager()
     , mAccountDatabase(std::make_unique<LocalAccountsDatabase>())
     , mGlobalDatabase(std::make_unique<GlobalDatabase>())
     , mE2EDatabase(std::make_unique<E2EDataBase>())
+    , mE2ERoomsDataBase(std::make_unique<E2ERoomsDataBase>())
     , mRoomPendingTypedInfoDatabase(std::make_unique<LocalRoomPendingTypedInfoDatabase>())
     , mRoomSubscriptionsDatabase(std::make_unique<LocalRoomSubscriptionsDatabase>())
 {
@@ -45,11 +45,20 @@ LocalRoomPendingTypedInfoDatabase *LocalDatabaseManager::roomPendingTypedInfoDat
 
 void LocalDatabaseManager::addMessage(const QString &accountName, const QByteArray &roomId, const Message &m)
 {
-    mMessageLogger->addMessage(accountName, roomId, m);
+    addMessages(accountName, roomId, {m});
+}
+
+void LocalDatabaseManager::addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages)
+{
+    if (messages.isEmpty()) {
+        return;
+    }
+    mMessageLogger->addMessages(accountName, roomId, messages);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-        mMessagesDatabase->addMessage(accountName, roomId, m);
-        // Update timestamp.
-        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, roomId, m.timeStamp(), GlobalDatabase::TimeStampType::MessageTimeStamp);
+        mMessagesDatabase->addMessages(accountName, roomId, messages);
+        // Update timestamp. Both rows used to be rewritten once per message, where only the last
+        // write survived: keep that value, write it once.
+        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, roomId, messages.constLast().timeStamp(), GlobalDatabase::TimeStampType::MessageTimeStamp);
         mGlobalDatabase->insertOrReplaceTimeStamp(accountName,
                                                   {},
                                                   LocalDatabaseUtils::currentTimeStamp(),
@@ -63,7 +72,7 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QByte
     mMessageLogger->deleteMessage(accountName, roomId, msgId);
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
         mMessagesDatabase->deleteMessage(accountName, roomId, msgId);
-        mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
+        // Don't remove MessageTimeStamp - it tracks when messages existed in this room
         mGlobalDatabase->insertOrReplaceTimeStamp(accountName,
                                                   {},
                                                   LocalDatabaseUtils::currentTimeStamp(),
@@ -120,6 +129,7 @@ void LocalDatabaseManager::setDatabaseLogger(RocketChatRestApi::AbstractLogger *
     mE2EDatabase->setDatabaseLogger(logger);
     mRoomPendingTypedInfoDatabase->setDatabaseLogger(logger);
     mRoomSubscriptionsDatabase->setDatabaseLogger(logger);
+    mE2ERoomsDataBase->setDatabaseLogger(logger);
 }
 
 LocalMessagesDatabase *LocalDatabaseManager::messagesDatabase() const
@@ -161,6 +171,11 @@ QByteArray LocalDatabaseManager::roomId(const QString &accountName, const QByteA
     return mRoomSubscriptionsDatabase->roomId(accountName, subscriptionId);
 }
 
+E2ERoomsDataBase *LocalDatabaseManager::e2ERoomsDataBase() const
+{
+    return mE2ERoomsDataBase.get();
+}
+
 void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArray &roomId)
 {
     if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
@@ -168,6 +183,8 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArr
         mMessagesDatabase->deleteDatabaseFromRoomId(accountName, roomId);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::RoomTimeStamp);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
+        mRoomPendingTypedInfoDatabase->deleteRoomPendingTypedInfo(accountName, roomId);
+        // TODO remove rooms from mE2ERoomsDataBase
     }
 }
 
@@ -225,4 +242,17 @@ QList<QByteArray> LocalDatabaseManager::loadRooms(const QString &accountName)
     } else {
         return {};
     }
+}
+
+// E2E keys are stored regardless of storeMessageInDataBase() (E2eKeyManager writes them straight
+// through e2EDatabase()), so removing them must not be conditional either: gating it here left the
+// key on disk forever whenever the user had disabled message storage.
+bool LocalDatabaseManager::deleteKey(const QString &accountName, const QString &userId)
+{
+    return mE2EDatabase->deleteKey(accountName, userId);
+}
+
+bool LocalDatabaseManager::deleteAllRoomKeys(const QString &accountName)
+{
+    return mE2ERoomsDataBase->deleteAllKeys(accountName);
 }

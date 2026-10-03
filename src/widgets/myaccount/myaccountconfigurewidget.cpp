@@ -69,7 +69,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     }
     mMyAccountPersonalAccessTokenConfigureWidget->setObjectName(u"mMyAccountPersonalAccessTokenConfigureWidget"_s);
     const int pageIndex = tabWidget->addTab(mMyAccountPersonalAccessTokenConfigureWidget, i18n("Personal Access Token"));
-    if (account && !account->hasPermission(u"create-personal-access-tokens"_s)) {
+    if (account && !account->hasPermission(u"create-personal-access-tokens")) {
         tabWidget->setTabVisible(pageIndex, false);
     }
     mMyAccountFeaturePreviewConfigureWidget->setObjectName(u"mMyAccountFeaturePreviewConfigureWidget"_s);
@@ -88,6 +88,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         mMyAccountPersonalAccessTokenConfigureWidget->setEnabled(false);
         mMyAccountFeaturePreviewConfigureWidget->setEnabled(false);
     }
+    connect(mMyAccount2e2ConfigureWidget, &MyAccount2e2ConfigureWidget::forceCloseMyAccountDialog, this, &MyAccountConfigureWidget::forceCloseMyAccountDialog);
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
@@ -125,7 +126,7 @@ void MyAccountConfigureWidget::initialize()
     mMyAccount2ProfileConfigureWidget->initialize();
     mMyAccount2FaConfigureWidget->initialize();
     mMyAccountFeaturePreviewConfigureWidget->initialize();
-    if (mRocketChatAccount && mRocketChatAccount->hasPermission(u"create-personal-access-tokens"_s)) {
+    if (mRocketChatAccount && mRocketChatAccount->hasPermission(u"create-personal-access-tokens")) {
         mMyAccountPersonalAccessTokenConfigureWidget->initialize();
     }
 }

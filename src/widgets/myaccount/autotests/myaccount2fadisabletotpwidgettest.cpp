@@ -20,7 +20,7 @@ MyAccount2FaDisableTotpWidgetTest::MyAccount2FaDisableTotpWidgetTest(QObject *pa
 
 void MyAccount2FaDisableTotpWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccount2FaDisableTotpWidget w(nullptr);
+    const MyAccount2FaDisableTotpWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

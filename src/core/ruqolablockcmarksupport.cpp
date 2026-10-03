@@ -9,9 +9,7 @@
 #include "config-ruqola.h"
 #include "emoticons/emojimanager.h"
 #include "ruqola_texttohtml_cmark_debug.h"
-#include <KColorScheme>
 #include <KSyntaxHighlighting/Theme>
-#include <QColor>
 #include <QTextStream>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
 #include <TextUtils/TextUtilsSyntaxHighlightingManager>
@@ -23,6 +21,19 @@ RuqolaBlockCMarkSupport::~RuqolaBlockCMarkSupport() = default;
 
 namespace
 {
+// True when @p regionMarker starts a line of @p str, i.e. it sits at the very beginning or
+// right after a newline. Equivalent to str.startsWith(m) || str.contains(u'\n' + m), but
+// without allocating the concatenated marker on every call.
+[[nodiscard]] bool hasMarkerAtLineStart(const QString &str, const QString &regionMarker)
+{
+    for (qsizetype i = str.indexOf(regionMarker); i != -1; i = str.indexOf(regionMarker, i + 1)) {
+        if (i == 0 || str.at(i - 1) == u'\n') {
+            return true;
+        }
+    }
+    return false;
+}
+
 template<typename InRegionCallback, typename OutsideRegionCallback>
 void iterateOverRegionsCmark(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
 {
@@ -56,8 +67,8 @@ void iterateOverEndLineRegions(const QString &str,
                                OutsideRegionCallback &&outsideRegion,
                                NewLineCallBack &&newLine)
 {
-    // We have quote text if text start with > or we have "\n>"
-    if (str.startsWith(regionMarker) || str.contains(u"\n"_s + regionMarker)) {
+    // We have quote text if the marker starts the text or starts any line of it
+    if (hasMarkerAtLineStart(str, regionMarker)) {
         int startFrom = 0;
         const auto markerSize = regionMarker.size();
         bool hasCode = false;
@@ -107,13 +118,14 @@ QString markdownToRichTextCMark(const QString &markDown)
 
 QString generateRichTextCMark(const QString &str,
                               const QString &username,
-                              const QStringList &highlightWords,
+                              const QList<QRegularExpression> &highlightWords,
                               const QMap<QString, QByteArray> &mentions,
                               const Channels *const channels,
-                              const QString &searchedText)
+                              const QRegularExpression &searchedTextRegularExpression)
 {
     QString newStr = markdownToRichTextCMark(str);
     static const QRegularExpression regularExpressionAHref(u"(<a href=\'.*\'>|<a href=\".*\">)"_s);
+    regularExpressionAHref.optimize();
     struct HrefPos {
         int start = 0;
         int end = 0;
@@ -131,6 +143,8 @@ QString generateRichTextCMark(const QString &str,
 
         static const QRegularExpression regularExpressionRoom(u"(^|\\s+)#([\\w._-]+)"_s, QRegularExpression::UseUnicodePropertiesOption);
         QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
+        const QList<Channels::ChannelInfo> channelsList = channels ? channels->channels() : QList<Channels::ChannelInfo>{};
+        int offset = 0;
         while (roomIterator.hasNext()) {
             const QRegularExpressionMatch match = roomIterator.next();
             const QStringView word = match.capturedView(2);
@@ -148,28 +162,30 @@ QString generateRichTextCMark(const QString &str,
 
             QString wordName = word.toString();
             QByteArray roomIdentifier;
-            if (channels) {
-                auto it = std::find_if(channels->channels().cbegin(), channels->channels().cend(), [wordName](const auto &channel) {
-                    return channel.name == wordName;
-                });
-                if (it == channels->channels().cend()) {
-                    roomIdentifier = wordName.toLatin1();
-                } else {
-                    roomIdentifier = (*it).identifier;
-                    if (!(*it).fname.isEmpty()) {
-                        wordName = (*it).fname;
-                    }
-                }
-            } else {
+            const auto it = std::find_if(channelsList.cbegin(), channelsList.cend(), [&wordName](const auto &channel) {
+                return channel.name == wordName;
+            });
+            if (it == channelsList.cend()) {
                 roomIdentifier = wordName.toLatin1();
+            } else {
+                roomIdentifier = it->identifier;
+                if (!it->fname.isEmpty()) {
+                    wordName = it->fname;
+                }
             }
-            newStr.replace(u'#' + word.toString(), u"<a href=\'ruqola:/room/%2\'>#%1</a>"_s.arg(wordName, QString::fromLatin1(roomIdentifier)));
+            const QString replaceStr = u"<a href=\'ruqola:/room/%2\'>#%1</a>"_s.arg(wordName, QString::fromLatin1(roomIdentifier));
+            // Replace at the match position: replacing by value would rewrite every other
+            // occurrence of the same room, nesting the anchors we just inserted.
+            const int replaceWordLength = word.length() + 1; // '#' + word
+            newStr.replace(matchCapturedStart - 1 + offset, replaceWordLength, replaceStr);
+            // We added a new string => increase offset
+            offset += replaceStr.length() - replaceWordLength;
         }
     }
 
     if (!highlightWords.isEmpty()) {
-        const auto userHighlightForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color().name();
-        const auto userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::PositiveBackground).color().name();
+        const QString &userHighlightForegroundColor = ColorsAndMessageViewStyle::self().positiveText();
+        const QString &userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().positiveBackground();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -180,8 +196,7 @@ QString generateRichTextCMark(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        for (const QString &word : highlightWords) {
-            const QRegularExpression exp(u"(\\b%1\\b)"_s.arg(QRegularExpression::escape(word)), QRegularExpression::CaseInsensitiveOption);
+        for (const auto &exp : highlightWords) {
             QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
             int offset = 0;
             while (userIterator.hasNext()) {
@@ -207,9 +222,9 @@ QString generateRichTextCMark(const QString &str,
         }
     }
 
-    if (!searchedText.isEmpty()) {
-        const auto userHighlightForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
-        const auto userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
+    if (!searchedTextRegularExpression.pattern().isEmpty()) {
+        const QString &userHighlightForegroundColor = ColorsAndMessageViewStyle::self().neutralText();
+        const QString &userHighlightBackgroundColor = ColorsAndMessageViewStyle::self().neutralBackground();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -220,8 +235,7 @@ QString generateRichTextCMark(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        const QRegularExpression exp(u"(%1)"_s.arg(QRegularExpression::escape(searchedText)), QRegularExpression::CaseInsensitiveOption);
-        QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
+        QRegularExpressionMatchIterator userIterator = searchedTextRegularExpression.globalMatch(newStr);
         int offset = 0;
         while (userIterator.hasNext()) {
             const QRegularExpressionMatch match = userIterator.next();
@@ -247,42 +261,39 @@ QString generateRichTextCMark(const QString &str,
     static const QRegularExpression regularExpressionUser(u"(^|\\s+)@([\\w._-]+)"_s, QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
-    const auto userMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NegativeText).color().name();
-    const auto userMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NegativeBackground).color().name();
-    const auto hereAllMentionBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
-    const auto hereAllMentionForegroundColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
+    int offset = 0;
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
         const QStringView word = match.capturedView(2);
         // Highlight only if it's yours
 
-        const QByteArray userIdentifier = mentions.value(word.toString());
+        const QString wordStr = word.toString();
+        const QByteArray userIdentifier = mentions.value(wordStr);
         QString wordFromUserIdentifier = QString::fromLatin1(userIdentifier);
         if (/*userIdentifier.isEmpty()*/ 1) {
-            wordFromUserIdentifier = word.toString();
+            wordFromUserIdentifier = wordStr;
         }
         const int capturedStart = match.capturedStart(2) - 1;
-        const int replaceWordLength = word.toString().length() + 1;
+        const int replaceWordLength = wordStr.length() + 1; // '@' + word
+        QString replaceStr;
         if (word == username) {
-            newStr.replace(capturedStart,
-                           replaceWordLength,
-                           u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(word.toString(),
-                                                                                                                                userMentionForegroundColor,
-                                                                                                                                userMentionBackgroundColor,
-                                                                                                                                wordFromUserIdentifier));
-
+            replaceStr = u"<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>"_s.arg(
+                wordStr,
+                ColorsAndMessageViewStyle::self().negativeText(),
+                ColorsAndMessageViewStyle::self().negativeBackground(),
+                wordFromUserIdentifier);
+        } else if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
+            replaceStr = u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(wordStr,
+                                                                                                    ColorsAndMessageViewStyle::self().neutralText(),
+                                                                                                    ColorsAndMessageViewStyle::self().neutralBackground());
         } else {
-            if (!Utils::validUser(wordFromUserIdentifier)) { // here ? all ?
-                newStr.replace(capturedStart,
-                               replaceWordLength,
-                               u"<a style=\"color:%2;background-color:%3;font-weight:bold\">%1</a>"_s.arg(word.toString(),
-                                                                                                          hereAllMentionForegroundColor,
-                                                                                                          hereAllMentionBackgroundColor));
-            } else {
-                newStr.replace(capturedStart, replaceWordLength, u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(word, wordFromUserIdentifier));
-            }
+            replaceStr = u"<a href=\'ruqola:/user/%2\'>@%1</a>"_s.arg(wordStr, wordFromUserIdentifier);
         }
-        userIterator = regularExpressionUser.globalMatch(newStr);
+        // Inserted anchors put the '@' behind a '>', so a single pass is enough: the text we
+        // add can never match the regexp again.
+        newStr.replace(capturedStart + offset, replaceWordLength, replaceStr);
+        // We added a new string => increase offset
+        offset += replaceStr.length() - replaceWordLength;
     }
 
     return newStr;
@@ -301,26 +312,25 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
         qCWarning(RUQOLA_TEXTTOHTML_CMARK_LOG) << " TextConverter::ConvertMessageTextSettings is null. IT's a bug";
         return {};
     }
+    regenerateSearchText();
     QString richText;
     QTextStream richTextStream(&richText);
-    const QColor codeBackgroundColor = ColorsAndMessageViewStyle::self().schemeView().background(KColorScheme::AlternateBackground).color();
-    const auto codeBorderColor = ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color().name();
 
     QString highlighted;
     QTextStream stream(&highlighted);
     TextUtils::TextUtilsSyntaxHighlighter highlighter(&stream);
-    const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized();
+    const auto useHighlighter = TextUtils::TextUtilsSyntaxHighlightingManager::self()->syntaxHighlightingInitialized() && language != "text"_L1;
 
     if (useHighlighter) {
         auto &repo = TextUtils::TextUtilsSyntaxHighlightingManager::self()->repo();
-        const auto theme = (codeBackgroundColor.lightness() < 128) ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                                                                   : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
+        const auto theme = ColorsAndMessageViewStyle::self().darkTheme() ? repo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                                         : repo.defaultTheme(KSyntaxHighlighting::Repository::LightTheme);
         // qDebug() << " theme .n am" << theme.name();
         highlighter.setTheme(theme);
     }
     auto highlight = [&](const QString &codeBlock) {
         if (!useHighlighter) {
-            return codeBlock.toHtmlEscaped();
+            return codeBlock.toHtmlEscaped().replace(u'\n', u"<br />"_s);
         }
         stream.reset();
         stream.seek(0);
@@ -337,17 +347,19 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
         highlighter.setDefinition(definition);
         // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-        richTextStream << "<table><tr><td style='background-color:"_L1 << codeBackgroundColor.name() << "; padding: 5px; border: 1px solid "_L1
-                       << codeBorderColor << "'>"_L1 << highlight(chunk) << "</td></tr></table>"_L1;
+        richTextStream << "<table><tr><td style='background-color:"_L1 << ColorsAndMessageViewStyle::self().alternateBackground()
+                       << "; padding: 5px; border: 1px solid "_L1 << ColorsAndMessageViewStyle::self().inactiveText() << "'>"_L1 << highlight(chunk)
+                       << "</td></tr></table>"_L1;
     };
 
     auto addInlineCodeChunk = [&](const QString &chunk) {
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColor.name() << "'>"_L1 << chunk.toHtmlEscaped() << "</code>"_L1;
+        richTextStream << "<code style='background-color:"_L1 << ColorsAndMessageViewStyle::self().alternateBackground() << "'>"_L1 << chunk.toHtmlEscaped()
+                       << "</code>"_L1;
     };
 
     auto addTextChunk = [&](const QString &chunk) {
         auto htmlChunk =
-            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSettings->searchedText);
+            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSearchRegularExpression);
         if (mSettings->emojiManager) {
             mSettings->emojiManager->replaceEmojis(&htmlChunk);
         }
@@ -355,11 +367,12 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
     };
     auto addInlineQuoteCodeChunk = [&](const QString &chunk) {
         auto htmlChunk =
-            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSettings->searchedText);
+            generateRichTextCMark(chunk, mSettings->userName, mSettings->highlightWords, mSettings->mentions, mSettings->channels, mSearchRegularExpression);
         if (mSettings->emojiManager) {
             mSettings->emojiManager->replaceEmojis(&htmlChunk);
         }
-        richTextStream << "<code style='background-color:"_L1 << codeBackgroundColor.name() << "'>"_L1 << htmlChunk << "</code>"_L1;
+        richTextStream << "<code style='background-color:"_L1 << ColorsAndMessageViewStyle::self().alternateBackground() << "'>"_L1 << htmlChunk
+                       << "</code>"_L1;
     };
 
     auto addInlineQuoteCodeNewLineChunk = [&]() {
@@ -381,6 +394,19 @@ QString RuqolaBlockCMarkSupport::addHighlighter(const QString &str,
 
     qCDebug(RUQOLA_TEXTTOHTML_CMARK_LOG) << " richText generated: " << richText;
     return richText;
+}
+
+void RuqolaBlockCMarkSupport::regenerateSearchText()
+{
+    if (mSearchText == mSettings->searchedText) {
+        return;
+    }
+    mSearchText = mSettings->searchedText;
+    // An empty searched text must clear the pattern: escaping it would build "()", which matches
+    // the empty string at every position.
+    mSearchRegularExpression = mSearchText.isEmpty()
+        ? QRegularExpression{}
+        : QRegularExpression(u"(%1)"_s.arg(QRegularExpression::escape(mSearchText)), QRegularExpression::CaseInsensitiveOption);
 }
 
 TextConverter::ConvertMessageTextSettings *RuqolaBlockCMarkSupport::settings() const

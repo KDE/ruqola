@@ -40,7 +40,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
         c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
-        discussionList.append(std::move(c));
+        discussionList.append(c);
     }
     model.setDiscussions(discussionList);
 
@@ -53,7 +53,7 @@ void DiscussionsFilterProxyModelTest::shouldAssignValue()
         c.setDescription(u"roomid%1"_s.arg(i));
         c.setNumberMessages(i);
         c.setParentRoomId("online"_ba);
-        discussionList.append(std::move(c));
+        discussionList.append(c);
     }
     model.setDiscussions(discussionList);
     QCOMPARE(model.rowCount(), 3);

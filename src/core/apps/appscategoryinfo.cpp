@@ -12,8 +12,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(AppsCategoryInfo, Ruqola_AppsCategoryInfo)
 using namespace Qt::Literals::StringLiterals;
 AppsCategoryInfo::AppsCategoryInfo() = default;
 
-AppsCategoryInfo::~AppsCategoryInfo() = default;
-
 void AppsCategoryInfo::parseAppsCategoryInfo(const QJsonObject &replyObject)
 {
     mTitle = replyObject["title"_L1].toString();

@@ -5,9 +5,7 @@
 */
 
 #include "usersupdatejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/usersupdatejob.h"
@@ -15,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersUpdateJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UsersUpdateJobTest::UsersUpdateJobTest(QObject *parent)
     : QObject(parent)
@@ -63,8 +62,7 @@ void UsersUpdateJobTest::shouldGenerateJson()
     job.setUpdateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"data":{"email":"%1","name":"%2","password":"%4","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"username":"%3","verified":false},"userId":"%5"})")
+        uR"({"data":{"email":"%1","name":"%2","password":"%4","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"username":"%3","verified":false},"userId":"%5"})"_s
             .arg(mEmail, mName, mUserName, mPassword, mUserId)
             .toLatin1());
 }
@@ -73,18 +71,7 @@ void UsersUpdateJobTest::shouldNotStarting()
 {
     UsersUpdateJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     UpdateUserInfo info;
     info.mUserId = u"userid"_s;

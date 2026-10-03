@@ -42,7 +42,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void addLabel(RuqolaServerConfig::PasswordSettings::PasswordSettingCheck c, int row, int col, int value = -1);
     LIBRUQOLAWIDGETS_NO_EXPORT void initializeWidget();
     LIBRUQOLAWIDGETS_NO_EXPORT void setValidStatus(RuqolaServerConfig::PasswordSettings::PasswordSettingCheck c, bool b);
-    LIBRUQOLAWIDGETS_NO_EXPORT void updateGridPosition(int &row, int &col);
+    static LIBRUQOLAWIDGETS_NO_EXPORT void updateGridPosition(int &row, int &col);
     RuqolaServerConfig::PasswordSettings mPasswordSettings;
     QMap<RuqolaServerConfig::PasswordSettings::PasswordSettingCheck, PasswordValidateLabel *> mWidgetMap;
     QGridLayout *const mGridLayout;

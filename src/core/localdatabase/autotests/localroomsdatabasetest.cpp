@@ -41,20 +41,20 @@ void LocalRoomsDatabaseTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalRoomsDatabase roomDatabase;
+    const LocalRoomsDatabase roomDatabase;
     QFile::remove(roomDatabase.dbFileName(accountName()));
     QFile::remove(roomDatabase.dbFileName(otherAccountName()));
 }
 
 void LocalRoomsDatabaseTest::shouldDefaultValues()
 {
-    LocalRoomsDatabase roomDatabase;
+    const LocalRoomsDatabase roomDatabase;
     QCOMPARE(roomDatabase.schemaDatabaseStr(), u"CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)"_s);
 }
 
 void LocalRoomsDatabaseTest::shouldVerifyDbFileName()
 {
-    LocalRoomsDatabase roomDatabase;
+    const LocalRoomsDatabase roomDatabase;
     QCOMPARE(roomDatabase.dbFileName(accountName()),
              QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + u"/database/rooms/myAccount/myAccount.sqlite"_s);
 }

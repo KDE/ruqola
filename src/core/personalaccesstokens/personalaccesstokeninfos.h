@@ -8,14 +8,15 @@
 #include "libruqolacore_export.h"
 #include "personalaccesstokeninfo.h"
 #include <QList>
-
+class QDebug;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfos
 {
 public:
     PersonalAccessTokenInfos();
 
-    [[nodiscard]] QList<PersonalAccessTokenInfo> personalAccessTokenInfos() const;
-    void setPersonalAccessTokenInfos(const QList<PersonalAccessTokenInfo> &tokenInfos);
+    [[nodiscard]] const QList<PersonalAccessTokenInfo> &personalAccessTokenInfos() const;
+    void setPersonalAccessTokenInfos(QList<PersonalAccessTokenInfo> tokenInfos);
 
     void parsePersonalAccessTokenInfos(const QJsonObject &obj);
     [[nodiscard]] bool isEmpty() const;
@@ -23,7 +24,7 @@ public:
     [[nodiscard]] int count() const;
     void clear();
 
-    [[nodiscard]] PersonalAccessTokenInfo at(int index) const;
+    [[nodiscard]] const PersonalAccessTokenInfo &at(int index) const;
 
     void removeAt(int index);
 
@@ -32,4 +33,7 @@ public:
 private:
     QList<PersonalAccessTokenInfo> mPersonalAccessTokenInfos;
 };
+
+QT_DECL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfos, Ruqola_PersonalAccessTokenInfos, LIBRUQOLACORE_EXPORT)
+Q_DECLARE_TYPEINFO(PersonalAccessTokenInfos, Q_RELOCATABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t);

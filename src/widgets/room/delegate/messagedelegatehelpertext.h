@@ -11,6 +11,7 @@
 
 #include "messagedelegatehelperbase.h"
 
+#include <QByteArrayList>
 #include <QModelIndex>
 #include <QSize>
 class QTextDocument;
@@ -41,8 +42,22 @@ public:
     [[nodiscard]] QString urlAt(const QModelIndex &index, QPoint relativePos) const;
 
 private:
+    friend class MessageListDelegateTest;
     friend class TextSelection; // for documentForIndex
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const;
+    struct MessageTextInfo {
+        QString text;
+        /** Messages whose loading would change @c text (thread context), if any. */
+        QByteArrayList pendingMessageIds;
+        /** @c true if the thread model still has to be loaded before @c text is complete. */
+        bool pendingThreadModel = false;
+    };
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT MessageTextInfo makeMessageText(const QPersistentModelIndex &index) const;
+    /**
+     * Arranges for @p doc to be rebuilt when the messages/model that @p info is still waiting for
+     * are loaded. The connections are owned by @p doc (so they die with it when the cache drops it)
+     * and are disconnected as soon as there is nothing left to wait for.
+     */
+    LIBRUQOLAWIDGETS_TESTS_EXPORT void connectToMessageUpdates(const MessageTextInfo &info, const QPersistentModelIndex &index, QTextDocument *doc) const;
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)

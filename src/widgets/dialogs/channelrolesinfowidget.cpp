@@ -36,34 +36,34 @@ void ChannelRolesInfoWidget::setRoom(Room *room)
     if (room) {
         const Roles rolesForRoom = room->rolesForRooms();
         QStringList listOwners;
+        QStringList listModerators;
+        QStringList listLeaders;
         const auto roles = rolesForRoom.roles();
         for (const Role &role : roles) {
             if (role.isOwner()) {
                 listOwners.append(role.userName());
             }
-        }
-        QStringList listModerators;
-        for (const Role &role : roles) {
             if (role.isModerator()) {
                 listModerators.append(role.userName());
             }
-        }
-        QStringList listLeaders;
-        for (const Role &role : roles) {
             if (role.isLeader()) {
                 listLeaders.append(role.userName());
             }
         }
+        bool showWidget = false;
         if (!listOwners.isEmpty()) {
+            showWidget = true;
             generateInfo(i18np("Owner:", "Owners:", listOwners.count()), listOwners);
         }
         if (!listModerators.isEmpty()) {
+            showWidget = true;
             generateInfo(i18np("Moderator:", "Moderators:", listModerators.count()), listModerators);
         }
         if (!listLeaders.isEmpty()) {
+            showWidget = true;
             generateInfo(i18np("Leader:", "Leaders:", listLeaders.count()), listLeaders);
         }
-        if (!listOwners.isEmpty() || !listModerators.isEmpty() || !listLeaders.isEmpty()) {
+        if (showWidget) {
             show();
         } else {
             hide();
@@ -79,7 +79,7 @@ void ChannelRolesInfoWidget::generateInfo(const QString &labelStr, const QString
     label->setTextFormat(Qt::PlainText);
     label->setText(list.join(u','));
     label->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    label->setWordWrap(true);
+    label->setWordWrap(false);
     auto labelInfo = new QLabel(this);
     labelInfo->setTextFormat(Qt::RichText);
     labelInfo->setText(u"<qt><b>%1</b></qt>"_s.arg(labelStr));

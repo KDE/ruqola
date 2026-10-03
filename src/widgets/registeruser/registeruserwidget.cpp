@@ -8,13 +8,13 @@
 
 #include "misc/passwordconfirmwidget.h"
 
-#include <KAuthorized>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <QTextDocument>
 
 using namespace Qt::Literals::StringLiterals;
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)
@@ -24,37 +24,36 @@ RegisterUserWidget::RegisterUserWidget(QWidget *parent)
     , mEmail(new QLineEdit(this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
     , mReasonTextEdit(new QPlainTextEdit(this))
-    , mReasonLabel(new QLabel(i18n("Reason:"), this))
+    , mMainLayout(new QFormLayout(this))
 {
-    auto mainLayout = new QFormLayout(this);
-    mainLayout->setObjectName(u"mainLayout"_s);
-    mainLayout->setContentsMargins({});
+    auto reasonLabel = new QLabel(i18n("Reason:"), this);
+    mMainLayout->setObjectName(u"mainLayout"_s);
+    mMainLayout->setContentsMargins({});
 
     mUserName->setObjectName(u"mUserName"_s);
-    mainLayout->addRow(i18n("Username:"), mUserName);
+    mMainLayout->addRow(i18n("Username:"), mUserName);
     mUserName->setClearButtonEnabled(true);
     connect(mUserName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mEmail->setObjectName(u"mEmail"_s);
     mEmail->setClearButtonEnabled(true);
-    mainLayout->addRow(i18n("Email:"), mEmail);
+    mMainLayout->addRow(i18n("Email:"), mEmail);
     connect(mEmail, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mPasswordConfirmWidget->setObjectName(u"mPasswordConfirmWidget"_s);
-    mainLayout->addRow(mPasswordConfirmWidget);
+    mMainLayout->addRow(mPasswordConfirmWidget);
     connect(mPasswordConfirmWidget, &PasswordConfirmWidget::passwordValidated, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mReasonTextEdit->setObjectName(u"mReasonTextEdit"_s);
-    mReasonLabel->setObjectName(u"mReasonLabel"_s);
-    mainLayout->addRow(mReasonLabel, mReasonTextEdit);
+    reasonLabel->setObjectName(u"mReasonLabel"_s);
+    mMainLayout->addRow(reasonLabel, mReasonTextEdit);
     // Hide by default
-    mReasonLabel->setVisible(false);
-    mReasonTextEdit->setVisible(false);
+    mMainLayout->setRowVisible(mReasonTextEdit, mManuallyApproveNewUsersRequired);
     connect(mReasonTextEdit, &QPlainTextEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mRegisterButton->setObjectName(u"mRegisterButton"_s);
     connect(mRegisterButton, &QPushButton::clicked, this, &RegisterUserWidget::slotRegisterNewUser);
-    mainLayout->addWidget(mRegisterButton);
+    mMainLayout->addWidget(mRegisterButton);
     mRegisterButton->setEnabled(false);
 }
 
@@ -67,16 +66,17 @@ void RegisterUserWidget::setPasswordValidChecks(const RuqolaServerConfig::Passwo
 
 void RegisterUserWidget::setManuallyApproveNewUsersRequired(bool manual)
 {
-    mReasonTextEdit->setVisible(manual);
-    mReasonLabel->setVisible(manual);
+    mManuallyApproveNewUsersRequired = manual;
+    mMainLayout->setRowVisible(mReasonTextEdit, mManuallyApproveNewUsersRequired);
+    slotUpdateRegisterButton();
 }
 
 void RegisterUserWidget::slotUpdateRegisterButton()
 {
     bool enableRegisterButton =
         !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() && mPasswordConfirmWidget->isNewPasswordConfirmed();
-    if (mReasonTextEdit->isVisible()) {
-        enableRegisterButton &= !mReasonTextEdit->document()->isEmpty();
+    if (mManuallyApproveNewUsersRequired) {
+        enableRegisterButton &= !mReasonTextEdit->toPlainText().trimmed().isEmpty();
     }
     mRegisterButton->setEnabled(enableRegisterButton);
 }
@@ -90,12 +90,16 @@ void RegisterUserWidget::slotRegisterNewUser()
 RocketChatRestApi::RegisterUserJob::RegisterUserInfo RegisterUserWidget::registerUserInfo() const
 {
     RocketChatRestApi::RegisterUserJob::RegisterUserInfo info;
-    info.email = mEmail->text();
-    info.name = mUserName->text();
-    info.username = mUserName->text().remove(u' ');
+    info.email = mEmail->text().trimmed();
+
+    QString name = mUserName->text().trimmed();
+    info.username = name;
+    info.username.remove(u' ');
+    info.name = std::move(name);
+
     info.password = mPasswordConfirmWidget->password();
-    if (mReasonTextEdit->isVisible()) {
-        info.reason = mReasonTextEdit->toPlainText();
+    if (mManuallyApproveNewUsersRequired) {
+        info.reason = mReasonTextEdit->toPlainText().trimmed();
     }
     return info;
 }

@@ -7,7 +7,6 @@
 #include "customsoundsupdatejobtest.h"
 
 #include "custom/customsoundsupdatejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -35,12 +34,12 @@ void CustomSoundsUpdateJobTest::shouldGenerateRequest()
     QNetworkRequest request = QNetworkRequest(QUrl());
     RuqolaRestApiHelper::verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/custom-sounds.update"_s));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
+    QVERIFY(!request.header(QNetworkRequest::ContentTypeHeader).isValid());
 }
 
 void CustomSoundsUpdateJobTest::shouldGenerateJson()
 {
-    CustomSoundsUpdateJob job;
+    const CustomSoundsUpdateJob job;
     // TODO
     //    const QString emojiId = u"foo1"_s;
     //    job.setEmojiId(emojiId);

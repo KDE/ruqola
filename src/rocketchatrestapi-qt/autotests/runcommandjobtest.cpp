@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "commands/runcommandjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -49,26 +48,14 @@ void RunCommandJobTest::shouldGenerateJson()
     info.threadMessageId = u"threadId"_s;
     job.setRunCommandInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"command":"%1","roomId":"%2","tmid":"%3"})").arg(info.commandName, info.roomId, info.threadMessageId).toLatin1());
+             uR"({"command":"%1","roomId":"%2","tmid":"%3"})"_s.arg(info.commandName, info.roomId, info.threadMessageId).toLatin1());
 }
 
 void RunCommandJobTest::shouldNotStarting()
 {
     RunCommandJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     RunCommandJob::RunCommandInfo info;
     info.commandName = u"command1"_s;
     job.setRunCommandInfo(info);
@@ -83,7 +70,7 @@ void RunCommandJobTest::shouldNotStarting()
 
 void RunCommandJobTest::shouldHaveDefaultValueRunCommandInfo()
 {
-    RunCommandJob::RunCommandInfo job;
+    const RunCommandJob::RunCommandInfo job;
     QVERIFY(job.commandName.isEmpty());
     QVERIFY(job.roomId.isEmpty());
     QVERIFY(job.threadMessageId.isEmpty());
@@ -114,8 +101,12 @@ void RunCommandJobTest::testRunCommandInfo_data()
     QTest::addColumn<bool>("valid");
 
     {
-        RunCommandJob::RunCommandInfo empty;
+        const RunCommandJob::RunCommandInfo empty;
         QTest::addRow("empty") << QString() << QByteArray() << QByteArray() << empty << false;
+    }
+    {
+        const RunCommandJob::RunCommandInfo empty;
+        QTest::addRow("only-spaces") << u"/   "_s << "bla"_ba << "bli"_ba << empty << false;
     }
     {
         RunCommandJob::RunCommandInfo info;
@@ -124,7 +115,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         // info.params;
-        QTest::addRow("test1") << u"/poll"_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test1") << u"/poll"_s << "bla"_ba << "bli"_ba << info << true;
     }
     {
         RunCommandJob::RunCommandInfo info;
@@ -133,7 +124,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         info.params = "test1"_L1;
-        QTest::addRow("test2") << u"/poll test1"_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test2") << u"/poll test1"_s << "bla"_ba << "bli"_ba << info << true;
     }
     {
         RunCommandJob::RunCommandInfo info;
@@ -142,7 +133,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         info.params = "test1 voiture"_L1;
-        QTest::addRow("test3") << u"/poll test1 voiture"_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test3") << u"/poll test1 voiture"_s << "bla"_ba << "bli"_ba << info << true;
     }
     {
         RunCommandJob::RunCommandInfo info;
@@ -151,7 +142,7 @@ void RunCommandJobTest::testRunCommandInfo_data()
         info.threadMessageId = "bli"_L1;
         info.triggerId = "AUTOTEST"_L1;
         info.params = "test1 voiture"_L1;
-        QTest::addRow("test4") << u"/poll test1 voiture    "_s << QByteArray("bla") << QByteArray("bli") << info << true;
+        QTest::addRow("test4") << u"/poll test1 voiture    "_s << "bla"_ba << "bli"_ba << info << true;
     }
 }
 

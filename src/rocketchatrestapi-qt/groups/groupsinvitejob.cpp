@@ -27,7 +27,7 @@ bool GroupsInviteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupsInviteJob::start");
+    addStartRestApiInfo("GroupsInviteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool GroupsInviteJob::start()
 
 void GroupsInviteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupsInviteJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupsInviteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT inviteGroupsDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupsInviteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -94,7 +88,7 @@ QJsonDocument GroupsInviteJob::json() const
     if (!inviteUserId().isEmpty()) {
         jsonObj["userId"_L1] = inviteUserId();
     } else if (!inviteUserName().isEmpty()) {
-        jsonObj["userName"_L1] = inviteUserName();
+        jsonObj["username"_L1] = inviteUserName();
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

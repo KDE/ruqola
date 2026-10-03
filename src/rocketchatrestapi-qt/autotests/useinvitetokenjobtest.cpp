@@ -5,16 +5,15 @@
 */
 
 #include "useinvitetokenjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "invite/useinvitetokenjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UseInviteTokenJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UseInviteTokenJobTest::UseInviteTokenJobTest(QObject *parent)
     : QObject(parent)
@@ -44,26 +43,14 @@ void UseInviteTokenJobTest::shouldGenerateJson()
 {
     UseInviteTokenJob job;
     job.setToken(u"bla"_s);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"token":"bla"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"token":"bla"})"_s.toLatin1());
 }
 
 void UseInviteTokenJobTest::shouldNotStarting()
 {
     UseInviteTokenJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     job.setToken(u"bla"_s);
     QVERIFY(job.canStart());
 }

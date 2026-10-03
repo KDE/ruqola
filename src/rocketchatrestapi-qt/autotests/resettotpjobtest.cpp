@@ -8,6 +8,7 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
+#include "ruqola_restapi_helper.h"
 #include "users/resettotpjob.h"
 #include <QJsonDocument>
 #include <QTest>
@@ -47,26 +48,14 @@ void ResetTOTPJobTest::shouldGenerateJson()
     ResetTOTPJob job;
     const QByteArray resetUserId("foo");
     job.setResetUserId(resetUserId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(QLatin1StringView(resetUserId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"userId":"%1"})"_s.arg(QLatin1StringView(resetUserId)).toLatin1());
 }
 
 void ResetTOTPJobTest::shouldNotStarting()
 {
     ResetTOTPJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     job.setResetUserId("ss"_ba);
     QVERIFY(!job.canStart());

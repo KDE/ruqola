@@ -15,7 +15,6 @@ class LIBRUQOLACORE_EXPORT OwnUser
 {
 public:
     OwnUser();
-    ~OwnUser();
     void parseOwnUserInfo(const QJsonObject &replyObject);
 
     [[nodiscard]] QByteArray userId() const;
@@ -60,7 +59,7 @@ public:
     [[nodiscard]] ServicePassword servicePassword() const;
     void setServicePassword(const ServicePassword &servicePassword);
 
-    [[nodiscard]] OwnUserPreferences ownUserPreferences() const;
+    [[nodiscard]] const OwnUserPreferences &ownUserPreferences() const;
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
 private:

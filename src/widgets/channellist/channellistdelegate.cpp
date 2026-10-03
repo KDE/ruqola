@@ -52,6 +52,7 @@ void ChannelListDelegate::setListDisplay(OwnUserPreferences::RoomListDisplay dis
     if (mRoomListDisplay != display) {
         mRoomListDisplay = display;
         clearAvatarCache();
+        Q_EMIT sizeHintChanged(QModelIndex());
     }
 }
 
@@ -61,27 +62,29 @@ ChannelListDelegate::Layout ChannelListDelegate::doLayout(const QStyleOptionView
     layout.isHeader = !index.parent().isValid();
     layout.unreadText = layout.isHeader ? QString() : makeUnreadText(index);
     const int margin = DelegatePaintUtil::margin();
-    layout.unreadSize = !layout.unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, layout.unreadText) : QSize(0, 0);
-    layout.unreadRect = QRect(option.rect.width() - layout.unreadSize.width() - 2 * margin,
-                              option.rect.y() + padding,
-                              layout.unreadSize.width() + margin,
-                              layout.unreadSize.height());
+    const QSize unreadSize = !layout.unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, layout.unreadText) : QSize(0, 0);
+    const QRect unreadRect(option.rect.x() + option.rect.width() - unreadSize.width() - 2 * margin,
+                           option.rect.y() + padding,
+                           unreadSize.width() + margin,
+                           unreadSize.height());
+
+    layout.mentionRect = QRect(unreadRect.x(), unreadRect.y(), qMax(unreadRect.width(), unreadRect.height()), unreadRect.height());
+    // unreadRect.y() is already offset by padding, so this centers the badge in option.rect.
+    layout.mentionRect.translate(0, (option.rect.height() - layout.mentionRect.height()) / 2 - padding);
+    layout.mentionRect.moveRight(unreadRect.right());
 
     return layout;
 }
 
 bool ChannelListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    if (!helpEvent || !view || !index.isValid() || !index.parent().isValid() /* header*/) {
+    if (!helpEvent || !view || !index.isValid() || !index.parent().isValid() /* header*/ || helpEvent->type() != QEvent::ToolTip) {
         return QItemDelegate::helpEvent(helpEvent, view, option, index);
     }
 
-    if (helpEvent->type() != QEvent::ToolTip) {
-        return false;
-    }
     const ChannelListDelegate::Layout layout = doLayout(option, index);
     const QPoint helpEventPos{helpEvent->pos()};
-    if (layout.unreadRect.contains(helpEventPos)) {
+    if (layout.mentionRect.contains(helpEventPos)) {
         const QString unreadToolTip = index.data(RoomModel::RoomUnreadToolTip).toString();
         if (!unreadToolTip.isEmpty()) {
             QToolTip::showText(helpEvent->globalPos(), unreadToolTip, view);
@@ -89,12 +92,8 @@ bool ChannelListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         }
     }
 
-    const QString toolTip = index.data(Qt::ToolTipRole).toString();
-    if (!toolTip.isEmpty()) {
-        QToolTip::showText(helpEvent->globalPos(), toolTip, view);
-        return true;
-    }
-    return true;
+    // Falls back to Qt::ToolTipRole, and hides an already visible tooltip when there is nothing to show.
+    return QItemDelegate::helpEvent(helpEvent, view, option, index);
 }
 
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -114,10 +113,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const ChannelListDelegate::Layout layout = doLayout(option, index);
 
-    const int xText = offsetAvatarRoom + option.rect.x() + iconSize + (isHeader ? 1 : 2) * margin;
-    const QRect displayRect(xText,
+    const int xTextOffset = offsetAvatarRoom + iconSize + (isHeader ? 1 : 2) * margin;
+    const QRect displayRect(option.rect.x() + xTextOffset,
                             option.rect.y() + padding,
-                            option.rect.width() - xText - layout.unreadSize.width() - 2 * margin,
+                            layout.mentionRect.left() - option.rect.x() - xTextOffset,
                             option.rect.height() - extraMargins);
 
     QStyleOptionViewItem optionCopy = option;
@@ -132,35 +131,29 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             if (avatarInfo.isValid()) {
                 const QPixmap pix = mAvatarCacheManager->makeAvatarPixmap(option.widget, avatarInfo, option.rect.height() - extraMargins);
 #if USE_ROUNDED_RECT_PIXMAP
-                const QPointF pos(margin, option.rect.top() + padding);
-                DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(pos, pix.size()), pos, pix);
+                const QPointF pos(option.rect.x() + margin, option.rect.top() + padding);
+                DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(pos, pix.deviceIndependentSize()), pix);
 #else
-                painter->drawPixmap(margin, option.rect.top() + padding, pix);
+                painter->drawPixmap(option.rect.x() + margin, option.rect.top() + padding, pix);
 #endif
             }
         }
     }
 
+    // Note: drawDisplay() uses QPalette::HighlightedText when the row is selected, so overriding
+    // QPalette::Text below only affects unselected rows.
     if (!(layout.unreadText.isEmpty() && !index.data(RoomModel::RoomAlert).toBool())) {
         if (!index.data(RoomModel::HideBadgeForMention).toBool()) {
             optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::Link));
-            if (option.state & QStyle::State_Selected) {
-                optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::HighlightedText));
-            }
         }
-    } else {
-        if (option.state & QStyle::State_Selected) {
-            optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::LinkVisited));
-        }
-        if (index.data(RoomModel::UserOffline).toBool()) {
-            optionCopy.palette.setBrush(QPalette::Text, ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color());
-        }
+    } else if (index.data(RoomModel::UserOffline).toBool()) {
+        optionCopy.palette.setBrush(QPalette::Text, ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color());
     }
     const bool hasPendingMessageTyped = index.data(RoomModel::RoomHasPendingMessageTyped).toBool();
     if (hasPendingMessageTyped) {
         QFont font = optionCopy.font;
         font.setItalic(true);
-        optionCopy.font = font;
+        optionCopy.font = std::move(font);
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
     if (!isHeader && !layout.unreadText.isEmpty()) {
@@ -180,22 +173,16 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             painter->setBrush(ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::InactiveText).color());
             break;
         }
-        QRect mentionRect =
-            QRect(layout.unreadRect.x(), layout.unreadRect.y(), qMax(layout.unreadRect.width(), layout.unreadRect.height()), layout.unreadRect.height());
-
-        mentionRect.translate(0, (option.rect.height() - mentionRect.height()) / 2 - 2);
-
-        mentionRect.moveRight(layout.unreadRect.right());
         painter->setPen(Qt::NoPen);
         painter->setRenderHint(QPainter::Antialiasing);
-        painter->drawEllipse(mentionRect);
+        painter->drawEllipse(layout.mentionRect);
         painter->setPen(Qt::white);
-        painter->drawText(mentionRect.adjusted(1, -1, 0, 0), Qt::AlignCenter, layout.unreadText);
+        painter->drawText(layout.mentionRect.adjusted(1, -1, 0, 0), Qt::AlignCenter, layout.unreadText);
         painter->restore();
     }
 }
 
-QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
+QString ChannelListDelegate::makeUnreadText(const QModelIndex &index)
 {
     const bool hideBadgeForMention = index.data(RoomModel::HideBadgeForMention).toBool();
     if (hideBadgeForMention) {

@@ -11,18 +11,18 @@
 #include <QDate>
 #include <QObject>
 #include <QString>
+#include <memory>
 
-namespace QKeychain
-{
-class Job;
-}
+class AccountCredentialStore;
 
 class QSettings;
 class LIBRUQOLACORE_EXPORT RocketChatAccountSettings : public QObject
 {
     Q_OBJECT
 public:
-    explicit RocketChatAccountSettings(const QString &accountFileName = QString(), QObject *parent = nullptr);
+    explicit RocketChatAccountSettings(const QString &accountFileName = QString(),
+                                       QObject *parent = nullptr,
+                                       AccountCredentialStore *credentialStore = nullptr);
     ~RocketChatAccountSettings() override;
 
     [[nodiscard]] bool isValid() const;
@@ -51,7 +51,7 @@ public:
     [[nodiscard]] QString password() const;
     void setPassword(const QString &password);
 
-    void removeSettings();
+    bool removeSettings();
 
     [[nodiscard]] qint64 expireToken() const;
     void setExpireToken(qint64 expireToken);
@@ -100,8 +100,11 @@ Q_SIGNALS:
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeSettings(const QString &accountFileName);
-    LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *job);
-    LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *job);
+    LIBRUQOLACORE_NO_EXPORT void loadPassword();
+
+    AccountCredentialStore *const mCredentialStore;
+    quint64 mPasswordGeneration = 0;
+    bool mPasswordDelivered = false;
 
     AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Unknown; // By default
     QByteArray mUserId;
@@ -116,7 +119,7 @@ private:
     QDate mLastCheckedPreviewUrlCacheDate;
     QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;
-    QSettings *mSetting = nullptr;
+    std::unique_ptr<QSettings> mSetting;
     bool mKeySaved = false;
     bool mUseLdap = false;
     bool mAccountEnabled = true;

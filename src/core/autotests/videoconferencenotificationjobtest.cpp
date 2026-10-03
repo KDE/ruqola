@@ -16,7 +16,7 @@ VideoConferenceNotificationJobTest::VideoConferenceNotificationJobTest(QObject *
 
 void VideoConferenceNotificationJobTest::shouldHaveDefaultValues()
 {
-    VideoConferenceNotificationJob job;
+    const VideoConferenceNotificationJob job;
     QVERIFY(!job.canStart());
     // TODO
 }

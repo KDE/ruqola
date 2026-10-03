@@ -35,7 +35,7 @@ protected:
 
     using JobCallback = std::function<void(bool ok, const QString &error)>;
 
-    [[nodiscard]] QString targetUserName() const;
+    [[nodiscard]] static QString targetUserName();
 
     void resolveUserId(const QString &userName, const std::function<void(bool ok, const QByteArray &userId)> &callback);
     void invite(const QByteArray &userId, const JobCallback &callback);

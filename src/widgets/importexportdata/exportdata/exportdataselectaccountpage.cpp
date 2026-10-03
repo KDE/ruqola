@@ -46,12 +46,12 @@ QList<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountPage::s
 
 bool ExportDataSelectAccountPage::validatePage()
 {
-    return !mExportDataSelectAccountListWidget->selectedAccounts().isEmpty();
+    return mExportDataSelectAccountListWidget->hasSelectedAccounts();
 }
 
 bool ExportDataSelectAccountPage::isComplete() const
 {
-    return !mExportDataSelectAccountListWidget->selectedAccounts().isEmpty();
+    return mExportDataSelectAccountListWidget->hasSelectedAccounts();
 }
 
 #include "moc_exportdataselectaccountpage.cpp"

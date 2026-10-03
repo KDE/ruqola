@@ -19,7 +19,7 @@ ConferenceInfoWidgetTest::ConferenceInfoWidgetTest(QObject *parent)
 
 void ConferenceInfoWidgetTest::shouldHaveDefaultValues()
 {
-    ConferenceInfoWidget w(nullptr);
+    const ConferenceInfoWidget w(nullptr);
     QVERIFY(w.conferenceId().isEmpty());
     auto mFormLayout = w.findChild<QFormLayout *>(u"mFormLayout"_s);
     QVERIFY(mFormLayout);

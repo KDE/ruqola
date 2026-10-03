@@ -16,7 +16,7 @@ CustomSoundInfoTest::CustomSoundInfoTest(QObject *parent)
 
 void CustomSoundInfoTest::shouldHaveDefaultValues()
 {
-    CustomSoundInfo info;
+    const CustomSoundInfo info;
     QVERIFY(info.identifier().isEmpty());
     QVERIFY(info.name().isEmpty());
     QVERIFY(info.extension().isEmpty());

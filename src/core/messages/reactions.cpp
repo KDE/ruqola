@@ -35,7 +35,7 @@ void Reactions::setReactions(const QList<Reaction> &reactions)
     mReactions = reactions;
 }
 
-QList<Reaction> Reactions::reactions() const
+const QList<Reaction> &Reactions::reactions() const
 {
     return mReactions;
 }
@@ -55,10 +55,9 @@ void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiMan
                 users.append(array.at(i).toString());
             }
             if (!users.isEmpty()) {
-                Reaction r;
+                Reaction &r = mReactions.emplace_back();
                 r.setReactionName(str, emojiManager);
                 r.setUserNames(users);
-                mReactions.append(std::move(r));
             }
         }
     }
@@ -66,13 +65,13 @@ void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiMan
 
 bool Reactions::operator==(const Reactions &other) const
 {
-    return mReactions == other.reactions();
+    return mReactions == other.mReactions;
 }
 
 QDebug operator<<(QDebug d, const Reactions &t)
 {
-    for (int i = 0; i < t.reactions().count(); i++) {
-        d.space() << t.reactions().at(i) << "\n";
+    for (const Reaction &reaction : t.reactions()) {
+        d.space() << reaction << "\n";
     }
     return d;
 }
@@ -80,18 +79,19 @@ QDebug operator<<(QDebug d, const Reactions &t)
 QJsonObject Reactions::serialize(const Reactions &reactions)
 {
     QJsonObject obj;
-    for (int i = 0; i < reactions.reactions().count(); ++i) {
+    for (const Reaction &reaction : reactions.reactions()) {
         QJsonObject react;
-        react["usernames"_L1] = QJsonArray::fromStringList(reactions.reactions().at(i).userNames());
-        obj[reactions.reactions().at(i).reactionName()] = react;
+        react["usernames"_L1] = QJsonArray::fromStringList(reaction.userNames());
+        obj[reaction.reactionName()] = std::move(react);
     }
     return obj;
 }
 
-Reactions *Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
+std::unique_ptr<Reactions> Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     QList<Reaction> reacts;
     const QStringList lst = o.keys();
+    reacts.reserve(lst.count());
     QStringList users;
     for (const QString &str : lst) {
         const QJsonObject obj = o.value(str).toObject();
@@ -102,15 +102,14 @@ Reactions *Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManag
                 users.append(array.at(i).toString());
             }
             if (!users.isEmpty()) {
-                Reaction r;
+                Reaction &r = reacts.emplace_back();
                 r.setReactionName(str, emojiManager);
                 r.setUserNames(users);
-                reacts.append(std::move(r));
             }
         }
         users.clear();
     }
-    auto final = new Reactions;
+    auto final = std::make_unique<Reactions>();
     final->setReactions(reacts);
     return final;
 }

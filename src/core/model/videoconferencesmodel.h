@@ -42,7 +42,7 @@ public:
 
     void clear();
 
-    void setVideoConferenceInfos(const QList<VideoConferenceInfo> &files);
+    void setVideoConferenceInfos(QList<VideoConferenceInfo> files);
 Q_SIGNALS:
     void hasFullListChanged();
     void totalChanged();

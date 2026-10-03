@@ -7,7 +7,6 @@
 #include "changearchivationstatejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "rooms/changearchivationstatejob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -45,28 +44,16 @@ void ChangeArchivationStateJobTest::shouldGenerateJson()
     const QString roomId = u"foo1"_s;
     job.setRoomId(roomId);
     job.setArchive(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"action":"archive","rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"action":"archive","rid":"%1"})"_s.arg(roomId).toLatin1());
     job.setArchive(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"action":"unarchive","rid":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"action":"unarchive","rid":"%1"})"_s.arg(roomId).toLatin1());
 }
 
 void ChangeArchivationStateJobTest::shouldNotStarting()
 {
     ChangeArchivationStateJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString roomId = u"foo1"_s;
     job.setRoomId(roomId);
     QVERIFY(job.canStart());

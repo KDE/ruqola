@@ -26,25 +26,29 @@ ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     mainLayout->addWidget(mAutoCorrectionWidget);
     // We don't have html support here.
     mAutoCorrectionWidget->setHasHtmlSupport(false);
     mAutoCorrectionWidget->setAutoCorrection(Ruqola::self()->autoCorrection());
+#endif
 }
 
 ConfigureAutoCorrectionWidget::~ConfigureAutoCorrectionWidget() = default;
 
 void ConfigureAutoCorrectionWidget::save()
 {
-    mAutoCorrectionWidget->writeConfig();
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    mAutoCorrectionWidget->writeConfig();
     TextAutoCorrectionCore::TextAutoCorrectionSettings::self()->save();
 #endif
 }
 
 void ConfigureAutoCorrectionWidget::load()
 {
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     mAutoCorrectionWidget->loadConfig();
+#endif
 }
 
 void ConfigureAutoCorrectionWidget::restoreToDefaults()

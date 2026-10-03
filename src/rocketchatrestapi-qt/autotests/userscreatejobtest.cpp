@@ -5,9 +5,7 @@
 */
 
 #include "userscreatejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/userscreatejob.h"
@@ -15,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(UsersCreateJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 UsersCreateJobTest::UsersCreateJobTest(QObject *parent)
     : QObject(parent)
 {
@@ -46,19 +45,17 @@ void UsersCreateJobTest::shouldGenerateJson()
     const QString email{u"bla@kde.org"_s};
     info.mEmail = email;
     job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"email":"%1","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
-            .arg(email, password)
-            .toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             uR"({"email":"%1","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})"_s
+                 .arg(email, password)
+                 .toLatin1());
 
     const QString nickame{u"blu"_s};
     info.mNickName = nickame;
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+        uR"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})"_s
             .arg(email, password, nickame)
             .toLatin1());
 
@@ -67,16 +64,14 @@ void UsersCreateJobTest::shouldGenerateJson()
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+        uR"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})"_s
             .arg(email, password, nickame)
             .toLatin1());
     info.mRequirePasswordChange = true;
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+        uR"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})"_s
             .arg(email, password, nickame)
             .toLatin1());
 
@@ -84,8 +79,7 @@ void UsersCreateJobTest::shouldGenerateJson()
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":false})")
+        uR"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":false})"_s
             .arg(email, password, nickame)
             .toLatin1());
 
@@ -93,8 +87,7 @@ void UsersCreateJobTest::shouldGenerateJson()
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})")
+        uR"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})"_s
             .arg(email, password, nickame)
             .toLatin1());
 
@@ -103,8 +96,7 @@ void UsersCreateJobTest::shouldGenerateJson()
     job.setCreateInfo(info);
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})")
+        uR"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})"_s
             .arg(email, password, nickame)
             .toLatin1());
 }
@@ -113,18 +105,7 @@ void UsersCreateJobTest::shouldNotStarting()
 {
     UsersCreateJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     CreateUpdateUserInfo info;
     info.mPassword = u"ccc"_s;

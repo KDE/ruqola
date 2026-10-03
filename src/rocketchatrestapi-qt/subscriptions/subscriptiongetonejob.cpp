@@ -48,19 +48,14 @@ bool SubscriptionGetOneJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("SubscriptionGetOneJob: Ask if room name already exists"_ba);
+    addStartRestApiInfo("SubscriptionGetOneJob: Ask subscription for room"_ba);
     return true;
 }
 
 void SubscriptionGetOneJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SubscriptionGetOneJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomInfoDone(replyObject["subscription"_L1].toObject());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SubscriptionGetOneJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SubscriptionGetOneJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT roomInfoDone(replyObject->value("subscription"_L1).toObject());
     }
 }
 

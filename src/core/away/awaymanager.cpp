@@ -19,7 +19,10 @@ AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
     KIdleTime::instance()->catchNextResumeEvent();
 }
 
-AwayManager::~AwayManager() = default;
+AwayManager::~AwayManager()
+{
+    KIdleTime::instance()->removeIdleTimeout(mTimerId);
+}
 
 void AwayManager::slotResumeFromIdle()
 {
@@ -61,7 +64,7 @@ void AwayManager::slotResumeFromIdle()
 int AwayManager::calculateRemainingTime() const
 {
     // The remaining time until the user will be marked as "auto-away".
-    const int remainingTime = mIdleTiming - KIdleTime::instance()->idleTime();
+    const int remainingTime = mIdleTiming * 1000 - KIdleTime::instance()->idleTime();
 
     return remainingTime;
 }
@@ -121,11 +124,11 @@ void AwayManager::setEnabled(bool newEnabled)
 
 int AwayManager::timeValue() const
 {
-    constexpr int minute = 60 * 1000;
 #ifdef DEBUG_IDLETIME
+    constexpr int minute = 60 * 1000;
     const int timerValue = minute; // 1 minutes
 #else
-    const int timerValue = mIdleTiming * minute;
+    const int timerValue = mIdleTiming * 1000;
 #endif
     return timerValue;
 }

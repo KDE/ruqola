@@ -33,7 +33,7 @@ protected:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSaveAsFile();
     LIBRUQOLAWIDGETS_NO_EXPORT void saveTextAs(const QString &text, const QString &filter, QWidget *parent, const QUrl &url = {}, const QString &caption = {});
-    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool saveToFile(const QString &filename, const QString &text);
+    [[nodiscard]] static LIBRUQOLAWIDGETS_NO_EXPORT bool saveToFile(const QString &filename, const QString &text);
 };
 #else
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ViewLogPlainTextEdit : public QPlainTextEdit

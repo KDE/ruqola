@@ -40,20 +40,15 @@ bool RegisterUserJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RegisterUserJob::start");
+    addStartRestApiInfo("RegisterUserJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void RegisterUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RegisterUserJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RegisterUserJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT registerUserDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RegisterUserJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -106,7 +101,8 @@ QJsonDocument RegisterUserJob::json() const
 
 bool RegisterUserJob::RegisterUserInfo::isValid() const
 {
-    return !username.trimmed().isEmpty() && !name.trimmed().isEmpty() && !email.trimmed().isEmpty() && !password.trimmed().isEmpty();
+    return !QStringView(username).trimmed().isEmpty() && !QStringView(name).trimmed().isEmpty() && !QStringView(email).trimmed().isEmpty()
+        && !QStringView(password).trimmed().isEmpty();
 }
 
 #include "moc_registeruserjob.cpp"

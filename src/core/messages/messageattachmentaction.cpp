@@ -11,8 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentAction::MessageAttachmentAction() = default;
 
-MessageAttachmentAction::~MessageAttachmentAction() = default;
-
 bool MessageAttachmentAction::isValid() const
 {
     return !mType.isEmpty();
@@ -37,7 +35,7 @@ void MessageAttachmentAction::setText(const QString &newText)
 
 bool MessageAttachmentAction::operator==(const MessageAttachmentAction &other) const
 {
-    return mText == other.text() && mMsg == other.msg() && mType == other.type();
+    return mText == other.mText && mMsg == other.mMsg && mType == other.mType;
 }
 
 QString MessageAttachmentAction::msg() const

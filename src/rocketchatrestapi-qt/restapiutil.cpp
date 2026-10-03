@@ -132,8 +132,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"chat.getMentionedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatGetStarredMessages:
         return u"chat.getStarredMessages"_s;
-    case RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages:
-        return u"chat.getSnippetedMessages"_s;
     case RestApiUtil::RestApiUrlType::ChatSyncMessages:
         return u"chat.syncMessages"_s;
     case RestApiUtil::RestApiUrlType::ChannelsAddAll:
@@ -388,18 +386,16 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"e2e.requestSubscriptionKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey:
         return u"e2e.resetOwnE2EKey"_s;
-
     case RestApiUtil::RestApiUrlType::E2EAcceptSuggestedGroupKey:
         return u"e2e.acceptSuggestedGroupKey"_s;
     case RestApiUtil::RestApiUrlType::E2ERejectSuggestedGroupKey:
         return u"e2e.rejectSuggestedGroupKey"_s;
     case RestApiUtil::RestApiUrlType::E2EProvideUsersWithSuggestedGroupKeys:
-        return u"e2e.provideUsersWithSuggestedGroupKeys"_s;
+        return u"e2e.provideUsersSuggestedGroupKeys"_s;
     case RestApiUtil::RestApiUrlType::E2EResetRoomKey:
         return u"e2e.resetRoomKey"_s;
     case RestApiUtil::RestApiUrlType::E2EFetchUsersWaitingForGroupKey:
-        return u"e2e.provideUsersSuggestedGroupKeys"_s;
-
+        return u"e2e.fetchUsersWaitingForGroupKey"_s;
     case RestApiUtil::RestApiUrlType::RolesList:
         return u"roles.list"_s;
     case RestApiUtil::RestApiUrlType::RolesCreate:
@@ -414,13 +410,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"roles.addUserToRole"_s;
     case RestApiUtil::RestApiUrlType::RolesRemoveUserFromRole:
         return u"roles.removeUserFromRole"_s;
-
     case RestApiUtil::RestApiUrlType::RolesDelete:
         return u"roles.delete"_s;
-
     case RestApiUtil::RestApiUrlType::VideoConfJitsi:
         return u"video-conference/jitsi.update-timeout"_s;
-
     case RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages:
         return u"autotranslate.getSupportedLanguages"_s;
     case RestApiUtil::RestApiUrlType::AutoTranslateSaveSettings:
@@ -535,8 +528,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"licenses.maxActiveUsers"_s;
     case RestApiUtil::RestApiUrlType::LicensesAdd:
         return u"licenses.add"_s;
-    case RestApiUtil::RestApiUrlType::LicensesIsEntreprise:
-        return u"licenses.isEnterprise"_s;
     case RestApiUtil::RestApiUrlType::LicensesInfo:
         return u"licenses.info"_s;
 

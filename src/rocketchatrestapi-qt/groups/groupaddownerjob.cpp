@@ -5,7 +5,6 @@
 */
 
 #include "groupaddownerjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GroupAddOwnerJob::GroupAddOwnerJob(QObject *parent)
     : ChannelGroupBaseJob(parent)
@@ -27,7 +27,7 @@ bool GroupAddOwnerJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupAddOwnerJob::start");
+    addStartRestApiInfo("GroupAddOwnerJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool GroupAddOwnerJob::start()
 
 void GroupAddOwnerJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupAddOwnerJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupAddOwnerJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT addOwnerDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupAddOwnerJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -64,7 +58,7 @@ bool GroupAddOwnerJob::requireHttpAuthentication() const
 bool GroupAddOwnerJob::canStart() const
 {
     if (mAddownerUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: add owner userid is empty";
         return false;
     }
     if (!hasIdentifier()) {

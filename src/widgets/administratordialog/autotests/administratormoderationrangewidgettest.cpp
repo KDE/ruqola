@@ -21,7 +21,7 @@ AdministratorModerationRangeWidgetTest::AdministratorModerationRangeWidgetTest(Q
 
 void AdministratorModerationRangeWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorModerationRangeWidget w;
+    const AdministratorModerationRangeWidget w;
 
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupskickjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -51,27 +50,14 @@ void GroupsKickJobTest::shouldGenerateJson()
     const QByteArray userkick("bla");
     job.setKickUserId(userkick);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomId":"%1","userId":"%2"})").arg(channelname, QLatin1StringView(userkick)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","userId":"%2"})"_s.arg(channelname, QLatin1StringView(userkick)).toLatin1());
 }
 
 void GroupsKickJobTest::shouldNotStarting()
 {
     GroupsKickJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString roomId = u"foo1"_s;
     ChannelGroupBaseJob::ChannelGroupInfo info;
     info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::RoomIdentifier;

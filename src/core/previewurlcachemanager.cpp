@@ -11,13 +11,16 @@
 #include <KSharedConfig>
 #include <QDir>
 #include <QTimer>
-#include <chrono>
 using namespace std::chrono_literals;
 
 PreviewUrlCacheManager::PreviewUrlCacheManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
+    , mRefreshCheckCache(new QTimer(this))
 {
+    mRefreshCheckCache->setInterval(24h);
+    mRefreshCheckCache->setSingleShot(true);
+    connect(mRefreshCheckCache, &QTimer::timeout, this, &PreviewUrlCacheManager::checkCache);
 }
 
 PreviewUrlCacheManager::~PreviewUrlCacheManager() = default;
@@ -74,7 +77,8 @@ void PreviewUrlCacheManager::checkCache()
     }
 
     // Reactivate check each day
-    QTimer::singleShot(24h, this, &PreviewUrlCacheManager::checkCache);
+    mRefreshCheckCache->stop();
+    mRefreshCheckCache->start();
 }
 
 QDate PreviewUrlCacheManager::currentDate() const

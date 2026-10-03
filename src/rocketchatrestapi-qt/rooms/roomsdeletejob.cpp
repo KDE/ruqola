@@ -28,7 +28,7 @@ bool RoomsDeleteJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsDeleteJob::start");
+    addStartRestApiInfo("RoomsDeleteJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool RoomsDeleteJob::start()
 
 void RoomsDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsDeleteJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsDeleteJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomDeleteDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsDeleteJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

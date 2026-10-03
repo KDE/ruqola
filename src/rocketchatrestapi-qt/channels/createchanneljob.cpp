@@ -28,21 +28,15 @@ bool CreateChannelJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CreateChannelJob::start");
+    addStartRestApiInfo("CreateChannelJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void CreateChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CreateChannelJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT createChannelDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CreateChannelJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("CreateChannelJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT createChannelDone(*replyObject);
     }
 }
 
@@ -59,9 +53,9 @@ void CreateChannelJob::setCreateChannelInfo(const CreateChannelTeamInfo &createC
 QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
     if (str == "error-duplicate-channel-name"_L1) {
-        return i18n("A channel with name '%1' exists", detail.value(u"channel_name"_s).toString());
+        return i18n("A channel with name '%1' exists", detail.value("channel_name"_L1).toString());
     } else if (str == "error-invalid-room-name"_L1) {
-        return i18n("'%1' is not a valid room name", detail.value(u"channel_name"_s).toString());
+        return i18n("'%1' is not a valid room name", detail.value("channel_name"_L1).toString());
     }
 
     return RestApiAbstractJob::errorMessage(str, detail);

@@ -27,7 +27,7 @@ bool SetChannelTypeJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SetChannelTypeJob::start");
+    addStartRestApiInfo("SetChannelTypeJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool SetChannelTypeJob::start()
 
 void SetChannelTypeJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SetChannelTypeJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SetChannelTypeJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT setGroupTypeDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SetChannelTypeJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

@@ -7,13 +7,10 @@
 #include "teamselectdeletedroomdialog.h"
 
 #include "teamselectdeletedroomwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myTeamSelectDeletedRoomDialogConfigGroupName[] = "TeamSelectDeletedRoomDialog";
@@ -38,29 +35,16 @@ TeamSelectDeletedRoomDialog::TeamSelectDeletedRoomDialog(QWidget *parent)
     readConfig();
 }
 
-TeamSelectDeletedRoomDialog::~TeamSelectDeletedRoomDialog()
-{
-    writeConfig();
-}
+TeamSelectDeletedRoomDialog::~TeamSelectDeletedRoomDialog() = default;
 
-void TeamSelectDeletedRoomDialog::setTeamRooms(const QList<TeamRoom> &rooms)
+void TeamSelectDeletedRoomDialog::setTeamRooms(QList<TeamRoom> rooms)
 {
-    mTeamSelectDeletedRoomWidget->setTeamRooms(rooms);
+    mTeamSelectDeletedRoomWidget->setTeamRooms(std::move(rooms));
 }
 
 void TeamSelectDeletedRoomDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamSelectDeletedRoomDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void TeamSelectDeletedRoomDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamSelectDeletedRoomDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myTeamSelectDeletedRoomDialogConfigGroupName), QSize(400, 300));
 }
 
 QList<QByteArray> TeamSelectDeletedRoomDialog::roomsId() const

@@ -7,7 +7,6 @@
 #include "teamscreatejobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "teams/teamscreatejob.h"
@@ -26,7 +25,7 @@ void TeamsCreateJobTest::shouldHaveDefaultValue()
     TeamsCreateJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    CreateChannelTeamInfo info = job.teamsCreateJobInfo();
+    const CreateChannelTeamInfo info = job.teamsCreateJobInfo();
     QVERIFY(!info.readOnly);
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());
@@ -50,54 +49,41 @@ void TeamsCreateJobTest::shouldGenerateJson()
     const QString channelname = u"foo1"_s;
     info.name = channelname;
     job.setTeamsCreateJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"name":"%1","room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
     bool readOnly = false;
     info.readOnly = readOnly;
     job.setTeamsCreateJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"name":"%1","room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"name":"%1","room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
     readOnly = true;
     info.readOnly = readOnly;
     job.setTeamsCreateJobInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
     const QStringList members = {u"foo"_s, u"bla"_s};
     info.members = members;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})").arg(channelname).toLatin1());
+             uR"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":0})"_s.arg(channelname).toLatin1());
 
-    bool privateTeam = true;
+    const bool privateTeam = true;
     info.privateChannel = privateTeam;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":1})").arg(channelname).toLatin1());
+             uR"({"members":["foo","bla"],"name":"%1","readOnly":true,"room":{"extraData":{}},"type":1})"_s.arg(channelname).toLatin1());
 
     info.infoType = CreateChannelTeamInfo::CreateInfoType::Channel;
     job.setTeamsCreateJobInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+             uR"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})"_s.arg(channelname).toLatin1());
 }
 
 void TeamsCreateJobTest::shouldNotStarting()
 {
     TeamsCreateJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     CreateChannelTeamInfo info;
     const QString channel = u"foo1"_s;

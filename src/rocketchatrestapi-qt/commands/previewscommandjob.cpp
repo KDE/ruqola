@@ -12,6 +12,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
+#include <QUrlQuery>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
@@ -29,7 +30,7 @@ bool PreviewsCommandJob::start()
         return false;
     }
     if (mPreviewsCommandInfo.itemInfo.isValid()) {
-        addStartRestApiInfo("PreviewsCommandJob::start");
+        addStartRestApiInfo("PreviewsCommandJob::start"_ba);
         submitPostRequest(json());
     } else {
         submitGetRequest();
@@ -81,6 +82,9 @@ PreviewsCommandJob::PreviewsCommandInfo PreviewsCommandJob::parseString(const QS
     if (str.length() > 1) {
         const QString newStr = str.mid(1);
         QStringList lst = newStr.split(u' ', Qt::SkipEmptyParts);
+        if (lst.isEmpty()) {
+            return info;
+        }
         const int numberElement = lst.count();
         info.commandName = lst.takeAt(0);
         info.roomId = QLatin1StringView(roomId);

@@ -6,6 +6,7 @@
 
 #include "accountmanager.h"
 #include "job/validateinviteserverjob.h"
+#include "localdatabase/localdatabasebase.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -15,8 +16,8 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_debug.h"
-#if HAVE_TEXT_TO_SPEECH
 #include "texttospeech/texttospeechenqueuemanager.h"
+#if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeech>
 #endif
 
@@ -32,6 +33,7 @@
 #include <KNotification>
 #include <QDir>
 #include <QDirIterator>
+#include <QPointer>
 #include <QSettings>
 #include <TextEmoticonsCore/EmojiModelManager>
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
@@ -60,13 +62,17 @@ AccountManager::AccountManager(QObject *parent)
     // TODO disable/enable account
 #endif
     mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
-    TextEmoticonsCore::UnicodeEmoticonManager::self(u":/emoji_ruqola.json"_s);
+    // ktextaddons generates its emoji set from emojibase, the one Rocket.Chat names its
+    // emojis after, so there is nothing left for us to ship.
+    TextEmoticonsCore::UnicodeEmoticonManager::self();
     loadAccount();
     connect(this, &AccountManager::activitiesChanged, mRocketChatAccountProxyModel, &RocketChatAccountFilterProxyModel::slotActivitiesChanged);
+#if HAVE_TEXT_TO_SPEECH
     connect(TextEditTextToSpeech::TextToSpeech::self(),
             &TextEditTextToSpeech::TextToSpeech::aboutToSynthesize,
             this,
             &AccountManager::slotAboutToSynthesizeChanged);
+#endif
 }
 
 AccountManager::~AccountManager() = default;
@@ -81,12 +87,12 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
     auto rocketChatAccount = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
     if (rocketChatAccount) {
         // const QString path{parseUrl.path()};
-        const QByteArray messageId = parseInfo.messageId.toLatin1();
         qCDebug(RUQOLA_LOG) << " parseUrl " << parseInfo;
         // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(rocketChatAccount->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
         if (mCurrentAccount) {
+            const QByteArray messageId = parseInfo.messageId.toLatin1();
             Q_EMIT mCurrentAccount->raiseWindow();
             Q_EMIT mCurrentAccount->selectChannelAndMessage(messageId, parseInfo.roomId, parseInfo.roomIdType, parseInfo.channelType);
         }
@@ -97,11 +103,9 @@ bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &par
 
 void AccountManager::disconnectAccount(RocketChatAccount *account)
 {
-    disconnect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
-    disconnect(account, &RocketChatAccount::roomNeedAttention, this, &AccountManager::roomNeedAttention);
-    disconnect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
-    disconnect(account, &RocketChatAccount::activitiesChanged, this, &AccountManager::activitiesChanged);
-    // TODO connect(account, &RocketChatAccount::notification
+    // Everything linking this account to us, lambdas included: enumerating the signals one by one is
+    // what let the notification lambda survive a disconnect.
+    disconnect(account, nullptr, this, nullptr);
 }
 
 #if HAVE_ACTIVITY_SUPPORT
@@ -131,20 +135,23 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
             }
             job->setInfo(newNotification);
             connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
-            connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QByteArray &roomId, const QByteArray &tmId) {
+            // The notification outlives the job, and the account can be removed while it is still on
+            // screen, so don't capture it raw.
+            connect(job, &NotifierJob::sendReply, this, [accountPtr = QPointer(account)](const QString &str, const QByteArray &roomId, const QByteArray &tmId) {
+                if (!accountPtr) {
+                    return;
+                }
                 if (tmId.isEmpty()) {
-                    account->sendMessage(roomId, str);
+                    accountPtr->sendMessage(roomId, str);
                 } else {
-                    account->replyOnThread(roomId, tmId, str);
+                    accountPtr->replyOnThread(roomId, tmId, str);
                 }
                 // qDebug() << " str" << str << " Room Name " << roomName;
             });
             job->start();
             break;
         }
-        case NotificationInfo::NotificationType::ConferenceCall: {
-            break;
-        }
+        case NotificationInfo::NotificationType::ConferenceCall:
         case NotificationInfo::NotificationType::NewRoom: {
             break;
         }
@@ -171,7 +178,7 @@ void AccountManager::slotSwitchToAccountAndRoomName(const QString &accountName, 
     }
 }
 
-AccountManager::MigrateDatabaseTypes AccountManager::needToHandleDataMigration() const
+AccountManager::MigrateDatabaseTypes AccountManager::needToHandleDataMigration()
 {
     if (RuqolaGlobalConfig::self()->databaseVersion() == 0 && currentDataBaseVersion == 1) {
         return MigrateDatabaseType::All;
@@ -233,6 +240,7 @@ QStringList AccountManager::databasePathsToRemoved(AccountManager::MigrateDataba
     }
     if (types & AccountManager::MigrateDatabaseType::DatabaseE2E) {
         lst.append(LocalDatabaseUtils::localE2EDatabasePath());
+        lst.append(LocalDatabaseUtils::localE2ERoomsDatabasePath());
     }
     if (types & AccountManager::MigrateDatabaseType::DatabaseRoomPendingTypedInfo) {
         lst.append(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath());
@@ -273,7 +281,7 @@ void AccountManager::loadAccount()
 
     qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()" << ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()),
-                    QStringList() << u"ruqola.conf"_s,
+                    QStringList{u"ruqola.conf"_s},
                     QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot,
                     QDirIterator::Subdirectories);
     QList<RocketChatAccount *> lstAccounts;
@@ -282,9 +290,7 @@ void AccountManager::loadAccount()
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
         auto account = new RocketChatAccount(val);
         if (account->settings()->isValid()) {
-            if (account->accountEnabled()) {
-                connectToAccount(account);
-            }
+            connectToAccount(account);
             lstAccounts.append(account);
         } else {
             account->deleteLater();
@@ -322,15 +328,6 @@ RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel()
 RocketChatAccount *AccountManager::account() const
 {
     return mCurrentAccount;
-}
-
-void AccountManager::changeEnableState(RocketChatAccount *account, bool enabled)
-{
-    if (enabled) {
-        connectToAccount(account);
-    } else {
-        disconnectAccount(account);
-    }
 }
 
 void AccountManager::addInvitedAccount(const AccountManagerInfo &info)
@@ -374,9 +371,7 @@ void AccountManager::addAccount(AccountManagerInfo &&info)
         // GitHub ?
     }
     settings->setAuthMethodType(info.authMethodType);
-    if (info.enabled) {
-        connectToAccount(account);
-    }
+    connectToAccount(account);
     addAccount(account);
 }
 
@@ -387,7 +382,6 @@ void AccountManager::modifyAccount(AccountManagerInfo &&info)
         auto settings = account->settings();
         settings->setDisplayName(info.displayName);
         account->setServerUrl(info.serverUrl);
-        settings->setAccountEnabled(info.enabled);
         settings->setAuthMethodType(info.authMethodType);
         settings->setActivities(info.activitiesSettings.activities);
         settings->setActivityEnabled(info.activitiesSettings.enabled);
@@ -400,11 +394,10 @@ void AccountManager::modifyAccount(AccountManagerInfo &&info)
         } else {
             // TODO ????
         }
-        if (!info.enabled && account->accountEnabled()) {
-            changeEnableState(account, false);
-        } else if (info.enabled && !account->accountEnabled()) {
-            changeEnableState(account, true);
-        }
+        // Last, so that a reconnection picks up the settings written above. Enabling/disabling is a
+        // network-state matter, not a signal-wiring one: a disconnected account emits nothing.
+        account->setAccountEnabled(info.enabled);
+        Q_EMIT accountsChanged();
     }
 }
 
@@ -427,10 +420,11 @@ void AccountManager::addAccount(RocketChatAccount *account)
 {
     const bool wasEmpty = isEmpty();
     mRocketChatAccountModel->insertAccount(account);
-    const QString accountName = account->accountName();
     if (wasEmpty) {
+        const QString accountName = account->accountName();
         setCurrentAccount(accountName);
     }
+    Q_EMIT accountsChanged();
 }
 
 void AccountManager::selectAccount(const QString &accountName)
@@ -473,6 +467,13 @@ void AccountManager::removeLogs(const QString &accountName)
 
 void AccountManager::removeDatabaseAccount(const QString &accountName)
 {
+    if (accountName.isEmpty()) {
+        return;
+    }
+    // Sqlite connections are process-wide and outlive the account: close them before removing the
+    // files, otherwise re-adding an account with the same name would reuse a connection pointing at
+    // a deleted file (writes lost, tables gone).
+    LocalDatabaseBase::removeDataBaseConnections(accountName);
     {
         const QString directory = LocalDatabaseUtils::localAccountsDatabasePath() + accountName;
         removeDirectory(directory);
@@ -505,6 +506,10 @@ void AccountManager::removeDatabaseAccount(const QString &accountName)
         const QString directory = LocalDatabaseUtils::localRoomSubscriptionsDatabasePath() + accountName;
         removeDirectory(directory);
     }
+    {
+        const QString directory = LocalDatabaseUtils::localE2ERoomsDatabasePath() + accountName;
+        removeDirectory(directory);
+    }
 }
 
 void AccountManager::removeDirectory(const QString &directory)
@@ -520,9 +525,10 @@ void AccountManager::removeDirectory(const QString &directory)
 void AccountManager::removeAccount(const QString &accountName, bool removeLogFiles)
 {
     auto account = mRocketChatAccountModel->removeAccount(accountName);
-    if (account) {
-        disconnectAccount(account);
+    if (!account) {
+        return;
     }
+    disconnectAccount(account);
     removeDatabaseAccount(accountName);
     if (removeLogFiles) {
         removeLogs(accountName);
@@ -550,6 +556,7 @@ void AccountManager::removeAccount(const QString &accountName, bool removeLogFil
     if (account) {
         account->deleteLater();
     }
+    Q_EMIT accountsChanged();
 }
 
 RocketChatAccountModel *AccountManager::rocketChatAccountModel() const
@@ -561,10 +568,12 @@ QList<AccountManager::AccountDisplayInfo> AccountManager::accountDisplayInfoSort
 {
     QList<AccountManager::AccountDisplayInfo> lst;
     auto model = rocketChatAccountProxyModel();
-    for (int i = 0; i < model->rowCount(); ++i) {
+    const auto total = model->rowCount();
+    lst.reserve(total);
+    for (int i = 0; i < total; ++i) {
         const auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        if (account->accountEnabled()) {
+        if (account && account->accountEnabled()) {
             AccountManager::AccountDisplayInfo info;
             info.name = account->settings()->displayName();
             info.icon = Utils::iconFromAccount(account);

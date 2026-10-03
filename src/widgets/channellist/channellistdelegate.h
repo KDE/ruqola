@@ -31,13 +31,14 @@ public:
 private:
     struct Layout {
         QString unreadText;
-        QSize unreadSize;
-        QRect unreadRect;
+        // The badge actually painted for unreadText: right-aligned on the text extent, widened to
+        // a circle and vertically centered in the row. Used for painting *and* tooltip hit-testing.
+        QRect mentionRect;
         bool isHeader = false;
     };
 
     [[nodiscard]] ChannelListDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    [[nodiscard]] QString makeUnreadText(const QModelIndex &index) const;
+    [[nodiscard]] static QString makeUnreadText(const QModelIndex &index);
     void clearAvatarCache();
 
     OwnUserPreferences::RoomListDisplay mRoomListDisplay = OwnUserPreferences::RoomListDisplay::Unknown;

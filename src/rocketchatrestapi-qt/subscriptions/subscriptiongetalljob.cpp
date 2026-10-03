@@ -12,7 +12,6 @@
 #include <QJsonObject>
 #include <QNetworkRequest>
 
-#include <QUrlQuery>
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 SubscriptionGetAllJob::SubscriptionGetAllJob(QObject *parent)
@@ -36,19 +35,14 @@ bool SubscriptionGetAllJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("SubscriptionGetAllJob: Ask if room name already exists"_ba);
+    addStartRestApiInfo("SubscriptionGetAllJob: Ask all subscriptions"_ba);
     return true;
 }
 
 void SubscriptionGetAllJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SubscriptionGetAllJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT subscriptionGetAllDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SubscriptionGetAllJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SubscriptionGetAllJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT subscriptionGetAllDone(*replyObject);
     }
 }
 

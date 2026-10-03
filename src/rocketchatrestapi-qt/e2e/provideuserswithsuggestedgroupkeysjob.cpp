@@ -53,21 +53,15 @@ bool ProvideUsersWithSuggestedGroupKeysJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("ProvideUsersWithSuggestedGroupKeysJob::start");
+    addStartRestApiInfo("ProvideUsersWithSuggestedGroupKeysJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void ProvideUsersWithSuggestedGroupKeysJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ProvideUsersWithSuggestedGroupKeysJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT provideUsersWithSuggestedGroupKeysDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ProvideUsersWithSuggestedGroupKeysJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ProvideUsersWithSuggestedGroupKeysJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT provideUsersWithSuggestedGroupKeysDone(*replyObject);
     }
 }
 
@@ -83,15 +77,28 @@ QNetworkRequest ProvideUsersWithSuggestedGroupKeysJob::request() const
 QJsonDocument ProvideUsersWithSuggestedGroupKeysJob::json() const
 {
     QJsonObject obj;
-    obj["rid"_L1] = mRoomId;
+    QJsonObject usersSuggestedGroupKeys;
     QJsonArray keysArr;
     for (const auto &k : mSuggestedGroupKeys) {
         QJsonObject keyObj;
-        keyObj["userId"_L1] = k.userId;
+        keyObj["_id"_L1] = k.userId;
         keyObj["key"_L1] = k.encryptedKey;
-        keysArr.append(keyObj);
+        // The endpoint refuses unknown members, so only send "oldKeys" when there is one to send.
+        if (!k.oldKeys.isEmpty()) {
+            QJsonArray oldKeysArr;
+            for (const auto &oldKey : k.oldKeys) {
+                QJsonObject oldKeyObj;
+                oldKeyObj["e2eKeyId"_L1] = oldKey.keyId;
+                oldKeyObj["E2EKey"_L1] = oldKey.encryptedKey;
+                oldKeyObj["ts"_L1] = oldKey.timeStamp;
+                oldKeysArr.append(std::move(oldKeyObj));
+            }
+            keyObj["oldKeys"_L1] = std::move(oldKeysArr);
+        }
+        keysArr.append(std::move(keyObj));
     }
-    obj["keys"_L1] = keysArr;
+    usersSuggestedGroupKeys.insert(mRoomId, std::move(keysArr));
+    obj["usersSuggestedGroupKeys"_L1] = std::move(usersSuggestedGroupKeys);
     return QJsonDocument(obj);
 }
 

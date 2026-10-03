@@ -38,11 +38,11 @@ MessageDelegateHelperConferenceVideo::~MessageDelegateHelperConferenceVideo() = 
 void MessageDelegateHelperConferenceVideo::draw(const Block &block,
                                                 QPainter *painter,
                                                 QRect blockRect,
-                                                const QModelIndex &index,
+                                                [[maybe_unused]] const QModelIndex &index,
                                                 const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
+    painter->setRenderHint(QPainter::Antialiasing);
     // Draw title and buttons
     const int positionY = blockRect.y() + option.fontMetrics.ascent();
     painter->drawText(blockRect.x(), positionY, layout.title);
@@ -71,19 +71,18 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     for (const UserLayout &userLayout : layout.usersLayout) {
         const QRectF avatarRect = userLayout.userAvatarRect.translated(blockRect.topLeft());
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter,
-                                                      QRectF(avatarRect.topLeft(), avatarRect.toRect().size()),
-                                                      avatarRect.topLeft(),
-                                                      userLayout.avatarPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, avatarRect, userLayout.avatarPixmap);
 #else
         painter->drawPixmap(avatarRect.toRect(), userLayout.avatarPixmap);
 #endif
     }
 }
 
-QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block,
+                                                     [[maybe_unused]] const QModelIndex &index,
+                                                     int maxWidth,
+                                                     const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     // Button
@@ -106,9 +105,8 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
                                                             QMouseEvent *mouseEvent,
                                                             QRect blocksRect,
                                                             const QStyleOptionViewItem &option,
-                                                            const QModelIndex &index)
+                                                            [[maybe_unused]] const QModelIndex &index)
 {
-    Q_UNUSED(index);
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
     case QEvent::MouseButtonRelease: {
@@ -154,9 +152,8 @@ bool MessageDelegateHelperConferenceVideo::handleHelpEvent(QHelpEvent *helpEvent
 }
 
 MessageDelegateHelperConferenceVideo::ConferenceCallLayout
-MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
+MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, [[maybe_unused]] int blockRectWidth) const
 {
-    Q_UNUSED(blockRectWidth)
     ConferenceCallLayout layout;
     layout.title = block.title();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);

@@ -12,12 +12,9 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -45,24 +42,11 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget
     setAttribute(Qt::WA_DeleteOnClose);
 }
 
-ShowDiscussionsDialog::~ShowDiscussionsDialog()
-{
-    writeConfig();
-}
+ShowDiscussionsDialog::~ShowDiscussionsDialog() = default;
 
 void ShowDiscussionsDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDiscussionsDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowDiscussionsDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowDiscussionsDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowDiscussionsDialogGroupName), QSize(800, 600));
 }
 
 void ShowDiscussionsDialog::slotLoadMoreDiscussions()

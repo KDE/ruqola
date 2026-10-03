@@ -9,14 +9,15 @@
 #include "featurepreviewpreferences.h"
 #include "libruqolacore_export.h"
 #include <QMetaType>
+#include <QRegularExpression>
 #include <QStringList>
+class QDebug;
 
 class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {
     Q_GADGET
 public:
     OwnUserPreferences();
-    ~OwnUserPreferences();
     void parsePreferences(const QJsonObject &replyObject);
     [[nodiscard]] bool operator==(const OwnUserPreferences &other) const;
     [[nodiscard]] QStringList highlightWords() const;
@@ -110,7 +111,12 @@ public:
     [[nodiscard]] int masterVolume() const;
     void setMasterVolume(int newMasterVolume);
 
+    [[nodiscard]] const QList<QRegularExpression> &highlightWordsRegularExpressions() const;
+
+    [[nodiscard]] static QList<QRegularExpression> generateRegularExpressions(const QStringList &highlightWords);
+
 private:
+    QList<QRegularExpression> mHighlightWordsRegularExpressions;
     FeaturePreviewPreferences mFeaturePreviewPreferences;
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -136,5 +142,4 @@ private:
     bool mMuteFocusedConversations = false;
 };
 Q_DECLARE_TYPEINFO(OwnUserPreferences, Q_RELOCATABLE_TYPE);
-class QDebug;
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const OwnUserPreferences &t);

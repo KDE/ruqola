@@ -11,6 +11,11 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(CustomSoundInfo, Ruqola_CustomSoundInfo)
 using namespace Qt::Literals::StringLiterals;
 CustomSoundInfo::CustomSoundInfo() = default;
 
+bool CustomSoundInfo::operator==(const CustomSoundInfo &other) const
+{
+    return mIdentifier == other.mIdentifier && mName == other.mName && mExtension == other.mExtension && mDefaultSound == other.mDefaultSound;
+}
+
 const QByteArray &CustomSoundInfo::identifier() const
 {
     return mIdentifier;

@@ -9,6 +9,7 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "role/getusersinrolejob.h"
+#include "ruqola_restapi_helper.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(GetUsersInRoleJobTest)
@@ -47,18 +48,7 @@ void GetUsersInRoleJobTest::shouldNotStarting()
 {
     GetUsersInRoleJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     QVERIFY(!job.canStart());
     job.setRoleId(u"ss"_s);

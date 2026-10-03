@@ -36,7 +36,7 @@ QString ApplictionSettingsCustomWidgetsBase::getTranslatedIdentifier(const QStri
     if (id.isEmpty()) {
         return {};
     }
-    const QString translatedString = mRocketChatAccount->getTranslatedIdentifier(lang, u"app-"_s + QString::fromLatin1(mAppId) + u'.' + id);
+    QString translatedString = mRocketChatAccount->getTranslatedIdentifier(lang, u"app-"_s + QString::fromLatin1(mAppId) + u'.' + id);
     if (translatedString.isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << " Translated string not found: " << QString::fromLatin1(mAppId) + id;
         return id;

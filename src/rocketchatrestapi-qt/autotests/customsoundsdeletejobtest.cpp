@@ -7,7 +7,6 @@
 #include "customsoundsdeletejobtest.h"
 
 #include "custom/customsoundsdeletejob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -44,25 +43,14 @@ void CustomSoundsDeleteJobTest::shouldGenerateJson()
 
     const QByteArray customSoundId("foo1");
     job.setCustomSoundId(customSoundId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"_id":"%1"})").arg(QLatin1StringView(customSoundId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"_id":"%1"})"_s.arg(QLatin1StringView(customSoundId)).toLatin1());
 }
 
 void CustomSoundsDeleteJobTest::shouldNotStarting()
 {
     CustomSoundsDeleteJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     const QByteArray customSoundId("foo1");
     job.setCustomSoundId(customSoundId);

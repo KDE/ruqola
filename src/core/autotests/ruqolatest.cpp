@@ -19,7 +19,7 @@ RuqolaTest::RuqolaTest(QObject *parent)
 
 void RuqolaTest::shouldHaveDefaultValue()
 {
-    Ruqola r(nullptr);
+    const Ruqola r(nullptr);
     QVERIFY(r.accountManager());
 }
 

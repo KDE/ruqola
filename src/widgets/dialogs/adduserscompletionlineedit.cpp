@@ -13,7 +13,6 @@
 #include <TextAddonsWidgets/CompletionListView>
 
 #include <QTimer>
-#include <chrono>
 
 using namespace std::chrono_literals;
 
@@ -52,7 +51,7 @@ void AddUsersCompletionLineEdit::slotSearchTimerFired()
 {
     mSearchTimer->stop();
     QString str = text();
-    if (!str.trimmed().isEmpty()) {
+    if (!QStringView(str).trimmed().isEmpty()) {
         if (str.startsWith(u'@')) {
             str.removeFirst();
         }

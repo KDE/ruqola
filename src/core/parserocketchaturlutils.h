@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QString>
+class QDebug;
 class LIBRUQOLACORE_EXPORT ParseRocketChatUrlUtils
 {
     Q_GADGET
@@ -49,7 +50,6 @@ public:
     };
 
     ParseRocketChatUrlUtils();
-    ~ParseRocketChatUrlUtils();
 
     [[nodiscard]] UrlType parseUrl(const QString &messageUrl);
 
@@ -61,5 +61,4 @@ private:
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils::ParsingInfo &t);
-class QDebug;
 Q_DECLARE_TYPEINFO(ParseRocketChatUrlUtils::ParsingInfo, Q_RELOCATABLE_TYPE);

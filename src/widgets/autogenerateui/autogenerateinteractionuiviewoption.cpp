@@ -57,7 +57,7 @@ void AutoGenerateInteractionUiViewOption::setUrl(const QString &newUrl)
 
 bool AutoGenerateInteractionUiViewOption::operator==(const AutoGenerateInteractionUiViewOption &other) const
 {
-    return other.url() == url() && other.value() == value() && other.text() == text();
+    return other.mUrl == mUrl && other.mValue == mValue && other.mText == mText;
 }
 
 AutoGenerateInteractionUiViewText AutoGenerateInteractionUiViewOption::text() const

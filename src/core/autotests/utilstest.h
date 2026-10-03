@@ -40,4 +40,7 @@ private Q_SLOTS:
 
     void shouldParseDate();
     void shouldParseDate_data();
+
+    void shouldParseIsoDate();
+    void shouldParseIsoDate_data();
 };

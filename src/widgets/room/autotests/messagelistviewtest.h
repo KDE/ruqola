@@ -15,4 +15,5 @@ public:
     ~MessageListViewTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldKeepViewLiveWhenReassigningSameModel();
 };

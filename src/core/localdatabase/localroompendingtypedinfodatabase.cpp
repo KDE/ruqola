@@ -17,10 +17,13 @@
 using namespace Qt::Literals::StringLiterals;
 
 static const char s_schemaRoomPendingTypedDataBase[] = "CREATE TABLE ROOMPENDINGTYPED (roomId TEXT PRIMARY KEY NOT NULL, json TEXT)";
-enum class RoomSubscriptionFields {
+namespace
+{
+enum class RoomPendingTypeFields {
     RoomId,
     Json,
 }; // in the same order as the table
+}
 
 LocalRoomPendingTypedInfoDatabase::LocalRoomPendingTypedInfoDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localRoomPendingTypedInfoDatabasePath(), LocalDatabaseBase::DatabaseType::PendingTypedInfo)
@@ -57,7 +60,7 @@ std::unique_ptr<QSqlTableModel> LocalRoomPendingTypedInfoDatabase::createRoomsMo
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(u"ROOMPENDINGTYPED"_s);
-    model->setSort(int(RoomSubscriptionFields::RoomId), Qt::AscendingOrder);
+    model->setSort(int(RoomPendingTypeFields::RoomId), Qt::AscendingOrder);
     model->select();
     return model;
 }
@@ -68,13 +71,14 @@ void LocalRoomPendingTypedInfoDatabase::updateRoomPendingTypedInfo(const QString
 {
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        QSqlQuery query(LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo(), db);
+        QSqlQuery query(db);
+        query.prepare(LocalDatabaseUtils::insertReplaceRoomPendingTypedInfo());
         query.addBindValue(QString::fromLatin1(roomId));
         query.addBindValue(QJsonDocument(AccountRoomSettings::PendingTypedInfo::serialize(room)).toJson(QJsonDocument::Compact));
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();
         } else if (mRuqolaLogger) {
-            mRuqolaLogger->dataSaveFromDatabase("Update roomPendingTypedInfo roomId " + roomId + " in account " + accountName.toUtf8());
+            mRuqolaLogger->dataSaveFromDatabase("Update roomPendingTypedInfo roomId "_ba + roomId + " in account "_ba + accountName.toUtf8());
         }
     }
 }
@@ -85,12 +89,13 @@ void LocalRoomPendingTypedInfoDatabase::deleteRoomPendingTypedInfo(const QString
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    QSqlQuery query(LocalDatabaseUtils::deleteRoomPendingTypedInfo(), db);
+    QSqlQuery query(db);
+    query.prepare(LocalDatabaseUtils::deleteRoomPendingTypedInfo());
     query.addBindValue(QString::fromLatin1(roomId));
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from ROOMPENDINGTYPED table" << db.databaseName() << query.lastError();
     } else if (mRuqolaLogger) {
-        mRuqolaLogger->dataSaveFromDatabase("Delete roomPendingTypedInfo " + roomId + " in account " + accountName.toUtf8());
+        mRuqolaLogger->dataSaveFromDatabase("Delete roomPendingTypedInfo "_ba + roomId + " in account "_ba + accountName.toUtf8());
     }
 }
 
@@ -106,7 +111,7 @@ QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalRoomPend
     Q_ASSERT(db.isValid());
     Q_ASSERT(db.isOpen());
 
-    const QString query = u"SELECT * FROM ROOMPENDINGTYPED"_s;
+    const QString query = u"SELECT roomId, json FROM ROOMPENDINGTYPED"_s;
     QSqlQuery resultQuery(db);
     if (!resultQuery.prepare(query)) {
         qCWarning(RUQOLA_DATABASE_LOG) << " Invalid query" << query << " resultQuery " << resultQuery.lastError().text();
@@ -118,16 +123,16 @@ QMap<QByteArray /*RoomId*/, AccountRoomSettings::PendingTypedInfo> LocalRoomPend
     }
 
     while (resultQuery.next()) {
-        const QString json = resultQuery.value(u"json"_s).toString();
-        const QByteArray roomId = resultQuery.value(u"roomId"_s).toByteArray();
+        const QByteArray json = resultQuery.value(1).toByteArray();
+        const QByteArray roomId = resultQuery.value(0).toByteArray();
         info.insert(roomId, convertJsonToRoomPendingTypedInfo(json));
     }
     return info;
 }
 
-AccountRoomSettings::PendingTypedInfo LocalRoomPendingTypedInfoDatabase::convertJsonToRoomPendingTypedInfo(const QString &json)
+AccountRoomSettings::PendingTypedInfo LocalRoomPendingTypedInfoDatabase::convertJsonToRoomPendingTypedInfo(const QByteArray &json)
 {
-    const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    const QJsonDocument doc = QJsonDocument::fromJson(json);
     const AccountRoomSettings::PendingTypedInfo msg = AccountRoomSettings::PendingTypedInfo::deserialize(doc.object());
     return msg;
 }

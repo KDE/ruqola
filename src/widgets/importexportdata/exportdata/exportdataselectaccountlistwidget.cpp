@@ -18,6 +18,7 @@ ExportDataSelectAccountListWidget::~ExportDataSelectAccountListWidget() = defaul
 
 void ExportDataSelectAccountListWidget::setAccountList(const QList<ImportExportUtils::AccountImportExportInfo> &lst)
 {
+    clear();
     for (const auto &accountName : lst) {
         auto item = new QListWidgetItem(this);
         item->setText(accountName.accountName);
@@ -37,6 +38,18 @@ QList<ImportExportUtils::AccountImportExportInfo> ExportDataSelectAccountListWid
         }
     }
     return selectAccountsList;
+}
+
+bool ExportDataSelectAccountListWidget::hasSelectedAccounts() const
+{
+    const int numberOfItems(count());
+    for (int i = 0; i < numberOfItems; ++i) {
+        QListWidgetItem *it = item(i);
+        if (it->checkState() == Qt::Checked) {
+            return true;
+        }
+    }
+    return false;
 }
 
 #include "moc_exportdataselectaccountlistwidget.cpp"

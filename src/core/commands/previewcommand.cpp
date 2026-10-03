@@ -12,9 +12,7 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(PreviewCommand, Ruqola_PreviewCommand)
 using namespace Qt::Literals::StringLiterals;
 PreviewCommand::PreviewCommand() = default;
 
-PreviewCommand::~PreviewCommand() = default;
-
-PreviewCommand::TypePreview PreviewCommand::convertStringToPreviewType(const QString &str) const
+PreviewCommand::TypePreview PreviewCommand::convertStringToPreviewType(const QString &str)
 {
     if (str == "image"_L1) {
         return PreviewCommand::TypePreview::Image;
@@ -103,7 +101,7 @@ void PreviewCommand::parse(const QJsonObject &obj)
 
 bool PreviewCommand::operator==(const PreviewCommand &other) const
 {
-    return other.id() == id() && other.type() == type() && other.value() == value();
+    return other.mId == mId && other.mType == mType && other.mValue == mValue;
 }
 
 bool PreviewCommand::isValid() const

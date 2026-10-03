@@ -53,9 +53,8 @@ AvatarImage::AvatarImage(RocketChatAccount *account, QWidget *parent)
 
 AvatarImage::~AvatarImage() = default;
 
-void AvatarImage::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
+void AvatarImage::slotFileDownloaded([[maybe_unused]] const QString &filePath, const QUrl &cacheImageUrl)
 {
-    Q_UNUSED(filePath)
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
     info.identifier = mRocketChatAccount->ownUser().userName();
@@ -109,7 +108,7 @@ void AvatarImage::resetAvatar()
 
 void AvatarImage::contextMenuEvent(QContextMenuEvent *event)
 {
-    QMenu menu;
+    QMenu menu(this);
     menu.addAction(i18nc("@action", "Change Picture…"), this, &AvatarImage::changeImage);
     menu.addAction(i18nc("@action", "Change URL for avatar…"), this, &AvatarImage::changeUrl);
     menu.addSeparator();

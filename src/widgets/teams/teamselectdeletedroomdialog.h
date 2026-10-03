@@ -17,12 +17,11 @@ public:
     explicit TeamSelectDeletedRoomDialog(QWidget *parent = nullptr);
     ~TeamSelectDeletedRoomDialog() override;
 
-    void setTeamRooms(const QList<TeamRoom> &rooms);
+    void setTeamRooms(QList<TeamRoom> rooms);
 
     [[nodiscard]] QList<QByteArray> roomsId() const;
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     TeamSelectDeletedRoomWidget *const mTeamSelectDeletedRoomWidget;
 };

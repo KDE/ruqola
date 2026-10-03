@@ -29,7 +29,7 @@ bool PermissionUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("PermissionUpdateJob::start");
+    addStartRestApiInfo("PermissionUpdateJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -37,13 +37,8 @@ bool PermissionUpdateJob::start()
 
 void PermissionUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("PermissionUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT permissionUpdateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("PermissionUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("PermissionUpdateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT permissionUpdateDone(*replyObject);
     }
 }
 

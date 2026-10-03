@@ -21,7 +21,7 @@ ShowListMessageBaseDialogTest::ShowListMessageBaseDialogTest(QObject *parent)
 void ShowListMessageBaseDialogTest::shouldHaveDefaultValues()
 {
     // TODO
-    ShowListMessageBaseDialog w(nullptr);
+    const ShowListMessageBaseDialog w(nullptr);
 }
 
 #include "moc_showlistmessagebasedialogtest.cpp"

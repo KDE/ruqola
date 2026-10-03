@@ -29,20 +29,15 @@ bool SendInvitationEmailJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SendInvitationEmailJob::start");
+    addStartRestApiInfo("SendInvitationEmailJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void SendInvitationEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SendInvitationEmailJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SendInvitationEmailJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT sendInvitationEmailsDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SendInvitationEmailJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -67,7 +62,7 @@ bool SendInvitationEmailJob::canStart() const
         return false;
     }
     if (mEmails.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SendInvitationEmailJob: no email defined";
         return false;
     }
     return true;

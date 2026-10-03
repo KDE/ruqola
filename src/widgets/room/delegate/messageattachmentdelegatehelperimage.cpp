@@ -31,6 +31,9 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
+    , mCloudDownloadIcon(QIcon::fromTheme(u"cloud-download"_s))
+    , mVisibilityIcon(QIcon::fromTheme(u"visibility"_s))
+    , mHintIcon(QIcon::fromTheme(u"hint"_s))
 {
     mPixmapCache.setMaxEntries(32); // Enough ?
 }
@@ -42,25 +45,34 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                                                 const QStyleOptionViewItem &option) const
 {
     const ImageLayout layout = layoutImage(msgAttach, option, messageRect.width(), messageRect.height());
+    // Only an animated attachment that we actually paint may keep a running QMovie: otherwise it would
+    // go on emitting frameChanged() -> view->update() forever, repainting something we don't draw.
+    const bool animateImage = !layout.pixmap.isNull() && layout.isShown && layout.isAnimatedImage && RuqolaGlobalConfig::self()->animateGifImage();
+    const QByteArray attachmentId = msgAttach.attachmentId();
+    if (!animateImage) {
+        removeRunningAnimatedImage(index, attachmentId);
+    }
     // drawTitle(msgAttach, painter, );
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-    const QIcon downloadIcon = QIcon::fromTheme(u"cloud-download"_s);
     if (!layout.pixmap.isNull()) {
         // Draw title and buttons
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? u"visibility"_s : u"hint"_s);
-        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
-        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+        if (layout.isShown) {
+            mVisibilityIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        } else {
+            mHintIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        }
+        mCloudDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
         // Draw main pixmap (if shown)
         if (layout.isShown) {
             QPixmap scaledPixmap;
-            if (layout.isAnimatedImage && RuqolaGlobalConfig::self()->animateGifImage()) {
-                auto it = findRunningAnimatedImage(index);
+            if (animateImage) {
+                auto it = findRunningAnimatedImage(index, attachmentId);
                 if (it != mRunningAnimatedImages.end()) {
                     scaledPixmap = (*it).movie->currentPixmap();
                 } else {
-                    mRunningAnimatedImages.emplace_back(index);
+                    mRunningAnimatedImages.emplace_back(index, attachmentId);
                     auto &rai = mRunningAnimatedImages.back();
                     rai.movie->setFileName(layout.imagePreviewPath);
                     rai.movie->setScaledSize(layout.imageSize);
@@ -71,10 +83,11 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                         &QMovie::frameChanged,
                         view,
                         [view, idx, this]() {
-                            if (view->viewport()->rect().contains(view->visualRect(idx))) {
+                            if (view->viewport()->rect().intersects(view->visualRect(idx))) {
                                 view->update(idx);
                             } else {
-                                removeRunningAnimatedImage(idx);
+                                // The whole message is out of sight: stop all its animations, not just this one.
+                                removeRunningAnimatedImages(idx);
                             }
                         },
                         Qt::QueuedConnection);
@@ -93,7 +106,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
             // Not a bug, it's just that the image is currently being downloaded by RocketChatCache::downloadFileFromServer
         } else {
             qCWarning(RUQOLAWIDGETS_LOG) << "Invalid image (Qt bug or others). It will not render: " << layout.imagePreviewPath;
-            downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+            mCloudDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
         }
     }
 
@@ -101,11 +114,10 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
 }
 
 QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach,
-                                                     const QModelIndex &index,
+                                                     [[maybe_unused]] const QModelIndex &index,
                                                      int maxWidth,
                                                      const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const ImageLayout layout = layoutImage(msgAttach, option, maxWidth, -1);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int pixmapWidth = 0;
@@ -151,9 +163,11 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             job->setInfo(info);
             job->start();
             return true;
-        } else if (!layout.pixmap.isNull()) {
+        } else if (layout.isShown && !layout.pixmap.isNull()) {
+            // imageSize is in device pixels (as the cached pixmap is), draw() paints it scaled down by the dpr.
+            const qreal dpr = layout.pixmap.devicePixelRatioF();
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-            const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
+            const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width() / dpr, layout.imageSize.height() / dpr);
             if (imageRect.contains(pos)) {
                 auto parentWidget = const_cast<QWidget *>(option.widget);
                 auto dlg = new ShowImageDialog(mRocketChatAccount, parentWidget);
@@ -195,8 +209,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     if (!previewImageUrl.isEmpty() && previewImageUrl.isLocalFile()) {
         layout.imagePreviewPath = previewImageUrl.toLocalFile();
         layout.imageBigPath = msgAttach.link();
-        layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePreviewPath);
-        layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
+        layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePreviewPath, option.widget->devicePixelRatioF());
         // or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.isShown = msgAttach.showAttachment();
         layout.isAnimatedImage = msgAttach.isAnimatedImage();
@@ -223,20 +236,28 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     return layout;
 }
 
-std::vector<RunningAnimatedImage>::iterator MessageAttachmentDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index) const
+std::vector<RunningAnimatedImage>::iterator MessageAttachmentDelegateHelperImage::findRunningAnimatedImage(const QModelIndex &index,
+                                                                                                           const QByteArray &identifier) const
 {
-    auto matchesIndex = [&](const RunningAnimatedImage &rai) {
-        return rai.index == index;
+    auto matchesImage = [&](const RunningAnimatedImage &rai) {
+        return rai.index == index && rai.identifier == identifier;
     };
-    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
+    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesImage);
 }
 
-void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &index) const
+void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImage(const QModelIndex &index, const QByteArray &identifier) const
 {
-    auto it = findRunningAnimatedImage(index);
+    auto it = findRunningAnimatedImage(index, identifier);
     if (it != mRunningAnimatedImages.end()) {
         mRunningAnimatedImages.erase(it);
     }
+}
+
+void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImages(const QModelIndex &index) const
+{
+    std::erase_if(mRunningAnimatedImages, [&](const RunningAnimatedImage &rai) {
+        return rai.index == index;
+    });
 }
 
 QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &pos,
@@ -245,24 +266,28 @@ QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &po
                                                                 const QStyleOptionViewItem &option)
 {
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.titleSize.height() + DelegatePaintUtil::margin());
+    // Same vertical layout as draw(): title | margin [| image | margin] | description
+    int descriptionY = layout.titleSize.height() + DelegatePaintUtil::margin();
+    if (layout.isShown && !layout.pixmap.isNull()) {
+        descriptionY += layout.imageSize.height() / layout.pixmap.devicePixelRatioF() + DelegatePaintUtil::margin();
+    }
+    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, descriptionY);
     return relativePos;
 }
 
 bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
-                                                       const QPoint &globalPos,
+                                                       [[maybe_unused]] const QPoint &globalPos,
                                                        const MessageAttachment &msgAttach,
                                                        QRect attachmentsRect,
                                                        const QStyleOptionViewItem &option,
                                                        QMenu *menu)
 {
-    Q_UNUSED(globalPos);
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    if (layout.isShown) {
+    if (layout.isShown && !layout.pixmap.isNull()) {
         const QRect rectAdjusted = attachmentsRect.adjusted(0, 0, 0, -(layout.titleSize.height() + DelegatePaintUtil::margin()));
         if (rectAdjusted.contains(pos)) {
             auto copyImageAction = new QAction(QIcon::fromTheme(u"edit-copy"_s), i18n("Copy Image to Clipboard"), menu);
-            connect(copyImageAction, &QAction::triggered, this, [msgAttach, option, layout]() {
+            connect(copyImageAction, &QAction::triggered, this, [layout]() {
                 auto data = new QMimeData();
                 data->setImageData(layout.pixmap.toImage());
                 data->setData(u"x-kde-force-image-copy"_s, QByteArray());

@@ -52,7 +52,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewBlockBase::StateI
 
 bool AutoGenerateInteractionUiViewBlockBase::operator==(const AutoGenerateInteractionUiViewBlockBase &other) const
 {
-    return other.blockId() == blockId() && other.appId() == appId() && other.type() == type();
+    return other.mBlockId == mBlockId && other.mAppId == mAppId && other.mType == mType;
 }
 
 void AutoGenerateInteractionUiViewBlockBase::parse(const QJsonObject &json)

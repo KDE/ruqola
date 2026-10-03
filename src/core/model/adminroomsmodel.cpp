@@ -106,18 +106,11 @@ RoomsInfo AdminRoomsModel::adminRooms() const
     return mAdminRooms;
 }
 
-void AdminRoomsModel::setAdminRooms(const RoomsInfo &adminrooms)
+void AdminRoomsModel::setAdminRooms(RoomsInfo adminrooms)
 {
-    if (rowCount() != 0) {
-        beginResetModel();
-        mAdminRooms.clear();
-        endResetModel();
-    }
-    if (!adminrooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, adminrooms.count() - 1);
-        mAdminRooms = adminrooms;
-        endInsertRows();
-    }
+    beginResetModel();
+    mAdminRooms = std::move(adminrooms);
+    endResetModel();
 }
 
 int AdminRoomsModel::total() const
@@ -127,16 +120,10 @@ int AdminRoomsModel::total() const
 
 void AdminRoomsModel::parseElements(const QJsonObject &obj)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminRooms.count() - 1);
-        mAdminRooms.clear();
-        endRemoveRows();
-    }
+    beginResetModel();
+    mAdminRooms.clear();
     mAdminRooms.parseRooms(obj, RoomsInfo::ParseType::Administrator);
-    if (!mAdminRooms.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mAdminRooms.count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -149,9 +136,16 @@ void AdminRoomsModel::checkFullList()
 void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mAdminRooms.count();
-    mAdminRooms.parseMoreRooms(obj, RoomsInfo::ParseType::Administrator);
-    beginInsertRows(QModelIndex(), numberOfElement, mAdminRooms.count() - 1);
-    endInsertRows();
+    RoomsInfo adminRooms = mAdminRooms;
+    adminRooms.parseMoreRooms(obj, RoomsInfo::ParseType::Administrator);
+    const int newNumberOfElement = adminRooms.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        mAdminRooms = std::move(adminRooms);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        mAdminRooms = std::move(adminRooms);
+    }
     checkFullList();
 }
 

@@ -21,7 +21,7 @@ ConfigurePluginsWidgetTest::ConfigurePluginsWidgetTest(QObject *parent)
 
 void ConfigurePluginsWidgetTest::shouldHaveDefaultValues()
 {
-    ConfigurePluginsWidget w;
+    const ConfigurePluginsWidget w;
 
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

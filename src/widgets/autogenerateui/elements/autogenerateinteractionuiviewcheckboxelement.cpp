@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewcheckboxelement.h"
+#include "autogenerateui/autogenerateinteractionutil.h"
 #include "autogenerateui/widgets/actionelementwidget.h"
 
 #include <QCheckBox>
@@ -32,7 +33,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::parseElement(const QJsonObjec
         option->parse(opt.toObject());
         mOptions.append(option);
     }
-    const QJsonArray initialOptionsArray = json["initialOption"_L1].toArray();
+    const QJsonArray initialOptionsArray = json["initialOptions"_L1].toArray();
     for (const auto &opt : initialOptionsArray) {
         AutoGenerateInteractionUiViewOption *option = new AutoGenerateInteractionUiViewOption;
         option->parse(opt.toObject());
@@ -60,7 +61,8 @@ ActionElementWidget *AutoGenerateInteractionUiViewCheckboxElement::generateWidge
 
 bool AutoGenerateInteractionUiViewCheckboxElement::operator==(const AutoGenerateInteractionUiViewCheckboxElement &other) const
 {
-    return other.initialOptions() == initialOptions() && other.options() == options() && AutoGenerateInteractionUiViewActionable::operator==(other);
+    return AutoGenerateInteractionUtil::isEqual(mInitialOptions, other.mInitialOptions) && AutoGenerateInteractionUtil::isEqual(mOptions, other.mOptions)
+        && AutoGenerateInteractionUiViewActionable::operator==(other);
 }
 
 QList<AutoGenerateInteractionUiViewOption *> AutoGenerateInteractionUiViewCheckboxElement::options() const
@@ -85,7 +87,7 @@ void AutoGenerateInteractionUiViewCheckboxElement::serializeElement(QJsonObject 
         for (const auto &r : std::as_const(mInitialOptions)) {
             initialOptions.append(r->serialize());
         }
-        o["initialOption"_L1] = initialOptions;
+        o["initialOptions"_L1] = initialOptions;
     }
 }
 

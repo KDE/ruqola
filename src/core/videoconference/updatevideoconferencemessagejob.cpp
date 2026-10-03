@@ -36,7 +36,7 @@ void UpdateVideoConferenceMessageJob::start()
         // Search messages
         if (messageModel) {
             Message msg = messageModel->findMessageById(mVideoConferenceInfo.messageId().toLatin1());
-            msg.setVideoConferenceInfo(std::move(mVideoConferenceInfo));
+            msg.setVideoConferenceInfo(mVideoConferenceInfo);
             // qDebug() << " msg " << msg;
             mRocketChatAccount->addMessageToDataBase(room->roomId(), msg);
             messageModel->addMessages({msg});
@@ -53,9 +53,9 @@ VideoConferenceInfo UpdateVideoConferenceMessageJob::videoConferenceInfo() const
     return mVideoConferenceInfo;
 }
 
-void UpdateVideoConferenceMessageJob::setVideoConferenceInfo(const VideoConferenceInfo &newVideoConferenceInfo)
+void UpdateVideoConferenceMessageJob::setVideoConferenceInfo(VideoConferenceInfo newVideoConferenceInfo)
 {
-    mVideoConferenceInfo = newVideoConferenceInfo;
+    mVideoConferenceInfo = std::move(newVideoConferenceInfo);
 }
 
 RocketChatAccount *UpdateVideoConferenceMessageJob::rocketChatAccount() const

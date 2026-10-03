@@ -42,13 +42,8 @@ bool SearchMessageJob::start()
 
 void SearchMessageJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SearchMessageJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT searchMessageDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SearchMessageJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("SearchMessageJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT searchMessageDone(*replyObject);
     }
 }
 

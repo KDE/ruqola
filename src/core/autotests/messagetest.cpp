@@ -6,8 +6,10 @@
 
 #include "messagetest.h"
 #include "messages/message.h"
+#include "messages/messageencrypted.h"
 #include "ruqola_autotest_helper.h"
 #include <QCborValue>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
@@ -20,7 +22,7 @@ MessageTest::MessageTest(QObject *parent)
 
 void MessageTest::shouldHaveDefaultValues()
 {
-    Message m;
+    const Message m;
     QVERIFY(!m.pendingMessage());
     QVERIFY(!m.showIgnoredMessage());
     QVERIFY(m.showTranslatedMessage());
@@ -34,11 +36,61 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.privateMessage());
     QVERIFY(!m.textToSpeechInProgress());
     // 14/03/2024 => size 816
-    QCOMPARE(sizeof(Message), 432);
+    // 27/08/2026 => size 432 (removed the pointless virtual destructor)
+    // 01/09/2026 => size 440 (store the local QDate)
+    QCOMPARE(sizeof(Message), 440);
     QCOMPARE(m.messageStates(), Message::MessageStates(Message::MessageState::Groupable | Message::MessageState::Translated));
 }
 
 // TODO add check for default value ???
+
+void MessageTest::shouldParseEncryptedContentVersions()
+{
+    const QString legacyPayload = u"a1b2c3d4e5f6MDEyMzQ1Njc4OWFiY2RlZps+T56cXa0c2AQQwbeyd5PcYf9WhRr3YpIuJZ3+mkmD"_s;
+    const auto parsed = [](const QByteArray &json) {
+        Message message;
+        message.parseMessage(QJsonDocument::fromJson(json).object(), false, nullptr);
+        return message;
+    };
+
+    // Current format: "content" is an object.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","content":{"algorithm":"rc.v2.aes-sha2","kid":"23e2720d-b3e0-4753-85ff-bad2caeb867b",)"
+                                       R"("iv":"MDEyMzQ1Njc4OWFi","ciphertext":"ej0KsqEKP7tIhPFauxLZfLCDiI6PY2Ex68Kv4kt2sCFIA24="}})"_ba);
+        QVERIFY(message.messageEncrypted());
+        QCOMPARE(message.messageEncrypted()->algorithm(), "rc.v2.aes-sha2"_ba);
+        QCOMPARE(message.messageEncrypted()->keyId(), "23e2720d-b3e0-4753-85ff-bad2caeb867b"_ba);
+    }
+
+    // "rc.v1.aes-sha2": "content" is the payload string itself.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","content":")"_ba + legacyPayload.toLatin1() + R"("})"_ba);
+        QVERIFY(message.messageEncrypted());
+        QCOMPARE(message.messageEncrypted()->algorithm(), "rc.v1.aes-sha2"_ba);
+        QCOMPARE(message.messageEncrypted()->keyId(), "a1b2c3d4e5f6"_ba);
+    }
+
+    // The oldest ones carry the payload in "msg" and have no "content" at all.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","msg":")"_ba + legacyPayload.toLatin1() + R"("})"_ba);
+        QVERIFY(message.messageEncrypted());
+        QCOMPARE(message.messageEncrypted()->keyId(), "a1b2c3d4e5f6"_ba);
+    }
+
+    // An encrypted message whose "msg" already holds the plaintext must be left alone rather than
+    // mistaken for a payload: that is what a message we just sent looks like.
+    {
+        const Message message = parsed(R"({"_id":"msgid","t":"e2e","msg":"already readable"})"_ba);
+        QVERIFY(!message.messageEncrypted());
+        QCOMPARE(message.text(), u"already readable"_s);
+    }
+
+    // A plain message has nothing encrypted about it.
+    {
+        const Message message = parsed(R"({"_id":"msgid","msg":"hello"})"_ba);
+        QVERIFY(!message.messageEncrypted());
+    }
+}
 
 void MessageTest::shouldParseMessage_data()
 {
@@ -349,7 +401,7 @@ void MessageTest::shouldParseMessage()
     const QByteArray content = f.readAll();
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    QJsonObject obj = doc.object();
+    const QJsonObject obj = doc.object();
     Message originalMessage;
     originalMessage.parseMessage(obj, false, nullptr);
     const bool messageIsEqual = (originalMessage == expectedMessage);
@@ -557,7 +609,7 @@ void MessageTest::shouldSerializeData()
 
         input.setAttachments(attachments);
         // Urls
-        QList<MessageUrl> lstUrls;
+        const QList<MessageUrl> lstUrls;
 #if 0 // TODO FIXME
         {
             MessageUrl url1;
@@ -674,7 +726,7 @@ void MessageTest::shouldSerializeData()
 
         // Replies
         Replies replies;
-        const QList<QByteArray> bareplies({QByteArrayLiteral("reply1"), "reply2"_ba});
+        const QList<QByteArray> bareplies({"reply1"_ba, "reply2"_ba});
         replies.setReplies(bareplies);
         input.setReplies(replies);
 
@@ -775,8 +827,8 @@ void MessageTest::shouldParseJsonMessage()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(u"/messages/"_s, jsonIndented, fileName);
 
-    Message m = Message::deserialize(docSerialized.object());
-    bool compareMessage = (r == m);
+    const Message m = Message::deserialize(docSerialized.object());
+    const bool compareMessage = (r == m);
     if (!compareMessage) {
         qDebug() << "loaded message" << r;
         qDebug() << "fromJson " << m;
@@ -790,9 +842,9 @@ void MessageTest::shouldUpdateJsonMessage_data()
     QTest::addColumn<QStringList>("fileNameupdate");
     QTest::newRow("standardmessage") << u"standardmessage"_s << QStringList();
     QTest::newRow("message1-init") << u"message1-init"_s << QStringList();
-    QTest::newRow("message1") << u"message1"_s << (QStringList() << u"message1-updated"_s);
-    QTest::newRow("message2") << u"message2"_s << (QStringList() << u"message2-updated"_s << u"message2-updated-stared"_s);
-    QTest::newRow("message3") << u"message3"_s << (QStringList() << u"message3-updated"_s);
+    QTest::newRow("message1") << u"message1"_s << QStringList{u"message1-updated"_s};
+    QTest::newRow("message2") << u"message2"_s << QStringList{u"message2-updated"_s, u"message2-updated-stared"_s};
+    QTest::newRow("message3") << u"message3"_s << QStringList{u"message3-updated"_s};
     // TODO add more !
 }
 
@@ -832,13 +884,64 @@ void MessageTest::shouldUpdateJsonMessage()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(u"/messages-updated/"_s, jsonIndented, fileNameinit);
 
-    Message m = Message::deserialize(docSerialized.object());
+    const Message m = Message::deserialize(docSerialized.object());
     const bool compareMessage = (r == m);
     if (!compareMessage) {
         qDebug() << "loaded message" << r;
         qDebug() << "fromJson " << m;
     }
     QVERIFY(compareMessage);
+}
+
+void MessageTest::shouldClearStaleDependentDataOnUpdate()
+{
+    Message message;
+
+    QJsonObject initial;
+    initial.insert("_id"_L1, "msg-id"_L1);
+    initial.insert("rid"_L1, "room-id"_L1);
+    initial.insert("msg"_L1, "initial"_L1);
+    initial.insert("t"_L1, "room_changed_topic"_L1);
+
+    QJsonObject user;
+    user.insert("username"_L1, "alice"_L1);
+    user.insert("name"_L1, "Alice"_L1);
+    user.insert("_id"_L1, "alice-id"_L1);
+    initial.insert("u"_L1, user);
+
+    QJsonArray attachments;
+    QJsonObject attachment;
+    attachment.insert("text"_L1, "attachment text"_L1);
+    attachments.append(attachment);
+    initial.insert("attachments"_L1, attachments);
+
+    QJsonObject reactions;
+    QJsonObject smileReaction;
+    QJsonArray usernames;
+    usernames.append("alice"_L1);
+    smileReaction.insert("usernames"_L1, usernames);
+    reactions.insert(":smile:"_L1, smileReaction);
+    initial.insert("reactions"_L1, reactions);
+
+    message.parseMessage(initial, false, nullptr);
+
+    QVERIFY(message.attachments());
+    QVERIFY(message.reactions());
+    QCOMPARE(message.systemMessageType(), SystemMessageTypeUtil::SystemMessageType::RoomTopicChanged);
+    QCOMPARE(message.messageType(), Message::MessageType::System);
+
+    QJsonObject updated;
+    updated.insert("_id"_L1, "msg-id"_L1);
+    updated.insert("rid"_L1, "room-id"_L1);
+    updated.insert("msg"_L1, "updated"_L1);
+    updated.insert("u"_L1, user);
+
+    message.parseMessage(updated, false, nullptr);
+
+    QVERIFY(!message.attachments());
+    QVERIFY(!message.reactions());
+    QCOMPARE(message.systemMessageType(), SystemMessageTypeUtil::SystemMessageType::Unknown);
+    QCOMPARE(message.messageType(), Message::MessageType::NormalText);
 }
 
 #include "moc_messagetest.cpp"

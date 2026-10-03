@@ -7,7 +7,6 @@
 #include "imblockuserjobtest.h"
 
 #include "im/imblockuserjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -44,28 +43,17 @@ void ImBlockUserJobTest::shouldGenerateJson()
 
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"block":false,"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"block":false,"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 
     job.setBlockUser(true);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"block":true,"roomId":"%1"})").arg(QLatin1StringView(roomId)).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"block":true,"roomId":"%1"})"_s.arg(QLatin1StringView(roomId)).toLatin1());
 }
 
 void ImBlockUserJobTest::shouldNotStarting()
 {
     ImBlockUserJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     const QByteArray roomId("foo1");
     job.setRoomId(roomId);

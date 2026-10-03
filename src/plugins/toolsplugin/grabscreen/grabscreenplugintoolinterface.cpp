@@ -5,7 +5,6 @@
 */
 #include "grabscreenplugintoolinterface.h"
 
-#include "accountmanager.h"
 #include "grabscreenplugin_debug.h"
 #include "grabscreenpluginjob.h"
 #include "grabscreenplugintoolutil.h"
@@ -15,8 +14,8 @@
 #include "uploadfilejob.h"
 #include "uploadfilemanager.h"
 
+#include <QFile>
 #include <QFileInfo>
-#include <QPixmap>
 #include <QPointer>
 #include <QUrl>
 
@@ -44,9 +43,11 @@ void GrabScreenPluginToolInterface::activateTool()
     connect(job, &GrabScreenPluginJob::captureDone, this, [this, imagePath]() {
         const QFileInfo fi(imagePath);
         if (fi.size() == 0) { // Canceled
+            // Don't keep an empty file around, otherwise generateFileName() will skip over it forever.
+            QFile::remove(imagePath);
             return;
         }
-        QPointer<UploadFileDialog> dlg = new UploadFileDialog();
+        QPointer<UploadFileDialog> dlg = new UploadFileDialog(mParentWidget);
         dlg->setFileUrl(QUrl::fromLocalFile(imagePath));
         if (dlg->exec()) {
             const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
@@ -67,14 +68,19 @@ void GrabScreenPluginToolInterface::sendFile(const UploadFileDialog::UploadFileI
     info.threadMessageId = mInfo.tmid;
     info.fileName = uploadFileInfo.fileName;
     info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
-    info.rc80Server = Ruqola::self()->rocketChatAccount()->hasAtLeastVersion(8, 0, 0);
     // Make sure that we don't switch account
     Ruqola::self()->setCurrentAccount(mInfo.accountName);
+    auto account = Ruqola::self()->rocketChatAccount();
+    if (!account) {
+        qCWarning(RUQOLA_GRABSCREEN_PLUGIN_LOG) << "Impossible to find account" << mInfo.accountName;
+        return;
+    }
+    info.rc80Server = account->hasAtLeastVersion(8, 0, 0);
 
-    const int identifier = Ruqola::self()->rocketChatAccount()->uploadFileManager()->addUpload(info);
+    const int identifier = account->uploadFileManager()->addUpload(info);
     if (identifier != -1) {
         // TODO mUploadFileProgressStatusListWidget->addProgressStatusWidget(identifier);
     }
-
-    // Q_EMIT createUploadJob(std::move(info));
 }
+
+#include "moc_grabscreenplugintoolinterface.cpp"

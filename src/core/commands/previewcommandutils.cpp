@@ -14,6 +14,7 @@ QList<PreviewCommand> PreviewCommandUtils::parsePreviewJson(const QJsonObject &r
     const QJsonObject previewObj = replyObject["preview"_L1].toObject();
     if (!previewObj.isEmpty()) {
         const QJsonArray items = previewObj["items"_L1].toArray();
+        commands.reserve(items.count());
         for (const auto &i : items) {
             PreviewCommand command;
             command.parse(i.toObject());

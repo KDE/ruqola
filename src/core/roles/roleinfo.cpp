@@ -7,13 +7,12 @@
 #include "roleinfo.h"
 QT_IMPL_METATYPE_EXTERN_TAGGED(RoleInfo, Ruqola_RoleInfo)
 
+#include <QDebug>
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
 //{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},
 RoleInfo::RoleInfo() = default;
-
-RoleInfo::~RoleInfo() = default;
 
 const QString &RoleInfo::identifier() const
 {
@@ -37,8 +36,8 @@ void RoleInfo::setScope(const QString &newScope)
 
 bool RoleInfo::operator==(const RoleInfo &other) const
 {
-    return mScope == other.scope() && mIdentifier == other.identifier() && mName == other.name() && mDescription == other.description() && mRoleProtected
-        && other.roleProtected() && mMandatory2fa == other.mandatory2fa();
+    return mScope == other.mScope && mIdentifier == other.mIdentifier && mName == other.mName && mDescription == other.mDescription
+        && mRoleProtected == other.mRoleProtected && mMandatory2fa == other.mMandatory2fa;
 }
 
 void RoleInfo::parseRoleInfo(const QJsonObject &obj)

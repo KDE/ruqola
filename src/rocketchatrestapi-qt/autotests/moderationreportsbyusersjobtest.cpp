@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2023-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -8,7 +8,6 @@
 
 #include "moderation/moderationreportsbyusersjob.h"
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 

@@ -51,14 +51,12 @@ void AutoGenerateInteractionUiViewImageBlock::setTitle(AutoGenerateInteractionUi
     mTitle = newText;
 }
 
-void AutoGenerateInteractionUiViewImageBlock::setErrorMessages(const QMap<QString, QString> &map)
+void AutoGenerateInteractionUiViewImageBlock::setErrorMessages([[maybe_unused]] const QMap<QString, QString> &map)
 {
-    Q_UNUSED(map);
 }
 
-void AutoGenerateInteractionUiViewImageBlock::assignState(const QList<StateInfo> &info)
+void AutoGenerateInteractionUiViewImageBlock::assignState([[maybe_unused]] const QList<StateInfo> &info)
 {
-    Q_UNUSED(info);
 }
 
 AutoGenerateInteractionUiViewImage AutoGenerateInteractionUiViewImageBlock::image() const
@@ -83,7 +81,7 @@ QDebug operator<<(QDebug d, const AutoGenerateInteractionUiViewImageBlock &t)
 bool AutoGenerateInteractionUiViewImageBlock::operator==(const AutoGenerateInteractionUiViewImageBlock &other) const
 {
     // TODO title
-    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.image() == image();
+    return AutoGenerateInteractionUiViewBlockBase::operator==(other) && other.mImage == mImage;
 }
 
 void AutoGenerateInteractionUiViewImageBlock::serializeBlock(QJsonObject &o) const

@@ -21,7 +21,6 @@ public:
     Q_ENUM(FeaturePreviewType)
 
     FeaturePreviewPreferences();
-    ~FeaturePreviewPreferences();
 
     [[nodiscard]] bool operator==(const FeaturePreviewPreferences &other) const;
     void parseFeaturePreview(const QJsonArray &array);

@@ -54,13 +54,8 @@ bool RoomsNameExistsJob::start()
 
 void RoomsNameExistsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsNameExistsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomNameExistsDone(replyObject["exists"_L1].toBool());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsNameExistsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomsNameExistsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT roomNameExistsDone(replyObject->value("exists"_L1).toBool());
     }
 }
 
@@ -69,9 +64,9 @@ const QString &RoomsNameExistsJob::roomName() const
     return mRoomName;
 }
 
-void RoomsNameExistsJob::setRoomName(const QString &newRoomId)
+void RoomsNameExistsJob::setRoomName(const QString &newRoomName)
 {
-    mRoomName = newRoomId;
+    mRoomName = newRoomName;
 }
 
 QNetworkRequest RoomsNameExistsJob::request() const

@@ -10,18 +10,15 @@
 #include <KApplicationTrader>
 #include <QMimeDatabase>
 
-#include <KConfigGroup>
 #include <KLocalizedString>
 
-#include <KSharedConfig>
 #include <KStandardActions>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QMenu>
 #include <QPushButton>
 #include <QToolButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -83,17 +80,12 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     readConfig();
 }
 
-ShowImageDialog::~ShowImageDialog()
-{
-    writeConfig();
-}
+ShowImageDialog::~ShowImageDialog() = default;
 
 void ShowImageDialog::slotUpdateMenu(const ShowImageWidget::ImageInfo &info)
 {
     updateServiceList();
-    if (info.isAnimatedImage) {
-        mClipboardImageAction->setEnabled(false);
-    }
+    mClipboardImageAction->setEnabled(!info.isAnimatedImage);
 }
 
 void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
@@ -103,17 +95,7 @@ void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
 
 void ShowImageDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowImageDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ShowImageDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myShowImageDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myShowImageDialogGroupName), QSize(800, 600));
 }
 
 void ShowImageDialog::showImages(const QByteArray &fileId, const QByteArray &roomId)

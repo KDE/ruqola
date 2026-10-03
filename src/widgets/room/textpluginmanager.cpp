@@ -28,12 +28,12 @@ TextPluginManager *TextPluginManager::self()
     return &s_self;
 }
 
-QString TextPluginManager::configGroupName() const
+QString TextPluginManager::configGroupName()
 {
     return u"RuqolaPlugin-textplugins"_s;
 }
 
-QString TextPluginManager::configPrefixSettingKey() const
+QString TextPluginManager::configPrefixSettingKey()
 {
     return u"textpluginsPlugin"_s;
 }
@@ -67,8 +67,8 @@ void TextPluginManager::initializePluginList()
             continue;
         }
         info.plugin = nullptr;
-        mPluginList.push_back(info);
         unique.insert(info.metaDataFileNameBaseName);
+        mPluginList.push_back(std::move(info));
     }
     QList<TextPluginManagerInfo>::iterator end(mPluginList.end());
     for (QList<TextPluginManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
@@ -78,7 +78,7 @@ void TextPluginManager::initializePluginList()
 
 void TextPluginManager::loadPlugin(TextPluginManagerInfo *item)
 {
-    if (auto plugin = KPluginFactory::instantiatePlugin<PluginText>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
+    if (auto plugin = KPluginFactory::instantiatePlugin<PluginText>(item->data, this, QVariantList{item->metaDataFileNameBaseName}).plugin) {
         item->plugin = plugin;
         item->plugin->setEnabled(item->isEnabled);
         item->pluginData.mHasConfigureDialog = item->plugin->hasConfigureDialog();
@@ -93,10 +93,10 @@ QList<TextAddonsWidgets::PluginUtilData> TextPluginManager::pluginDataList() con
 
 PluginText *TextPluginManager::pluginFromIdentifier(const QString &identifier) const
 {
-    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [identifier](const TextPluginManagerInfo &info) {
+    const auto it = std::find_if(mPluginList.constBegin(), mPluginList.constEnd(), [&identifier](const TextPluginManagerInfo &info) {
         return info.pluginData.mIdentifier == identifier;
     });
-    if (it != mPluginList.end()) {
+    if (it != mPluginList.constEnd()) {
         return (*it).plugin;
     }
     return nullptr;

@@ -27,7 +27,7 @@ bool SendMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("SendMessageJob::start");
+    addStartRestApiInfo("SendMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -40,14 +40,8 @@ bool SendMessageJob::requireHttpAuthentication() const
 
 void SendMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("SendMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("SendMessageJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT sendMessageDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("SendMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -97,7 +91,12 @@ QJsonDocument SendMessageJob::json() const
         jsonObj["tmid"_L1] = mSendMessageArguments.threadMessageId;
     }
     jsonObj["rid"_L1] = mSendMessageArguments.roomId;
-    jsonObj["msg"_L1] = mSendMessageArguments.message;
+    if (mSendMessageArguments.info.isValid()) {
+        jsonObj["content"_L1] = mSendMessageArguments.info.generateJson();
+        jsonObj["t"_L1] = u"e2e"_s;
+    } else {
+        jsonObj["msg"_L1] = mSendMessageArguments.message;
+    }
     message["message"_L1] = jsonObj;
     const QJsonDocument postData = QJsonDocument(message);
     return postData;

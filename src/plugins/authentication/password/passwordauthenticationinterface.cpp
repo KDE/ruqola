@@ -10,7 +10,6 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 
-#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"

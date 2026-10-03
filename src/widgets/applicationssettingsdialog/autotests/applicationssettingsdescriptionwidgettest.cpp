@@ -18,7 +18,7 @@ ApplicationsSettingsDescriptionWidgetTest::ApplicationsSettingsDescriptionWidget
 
 void ApplicationsSettingsDescriptionWidgetTest::shouldHaveDefaultValues()
 {
-    ApplicationsSettingsDescriptionWidget d;
+    const ApplicationsSettingsDescriptionWidget d;
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

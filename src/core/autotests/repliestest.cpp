@@ -16,7 +16,7 @@ RepliesTest::RepliesTest(QObject *parent)
 
 void RepliesTest::shouldHaveDefaultValues()
 {
-    Replies w;
+    const Replies w;
     QVERIFY(w.replies().isEmpty());
     QVERIFY(w.isEmpty());
 }

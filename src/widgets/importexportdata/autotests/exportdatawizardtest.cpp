@@ -19,7 +19,7 @@ ExportDataWizardTest::ExportDataWizardTest(QObject *parent)
 
 void ExportDataWizardTest::shouldHaveDefaultValues()
 {
-    ExportDataWizard w;
+    const ExportDataWizard w;
     // TODO
 }
 

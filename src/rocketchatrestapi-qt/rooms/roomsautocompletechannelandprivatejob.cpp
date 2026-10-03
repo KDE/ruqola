@@ -42,13 +42,8 @@ bool RoomsAutocompleteChannelAndPrivateJob::start()
 
 void RoomsAutocompleteChannelAndPrivateJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsAutocompleteChannelAndPrivateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsAutocompleteChannelAndPrivateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RoomsAutocompleteChannelAndPrivateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT roomsAutoCompleteChannelAndPrivateDone(*replyObject);
     }
 }
 

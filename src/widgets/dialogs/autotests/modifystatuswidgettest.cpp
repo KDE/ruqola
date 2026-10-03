@@ -21,7 +21,7 @@ ModifyStatusWidgetTest::ModifyStatusWidgetTest(QObject *parent)
 
 void ModifyStatusWidgetTest::shouldHaveDefaultValues()
 {
-    ModifyStatusWidget w;
+    const ModifyStatusWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

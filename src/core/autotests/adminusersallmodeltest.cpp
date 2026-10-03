@@ -16,7 +16,7 @@ AdminUsersAllModelTest::AdminUsersAllModelTest(QObject *parent)
 
 void AdminUsersAllModelTest::shouldHaveDefaultValues()
 {
-    AdminUsersAllModel m;
+    const AdminUsersAllModel m;
     // TODO
 }
 

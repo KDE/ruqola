@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -52,8 +52,9 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
     case AdministratorUsersWidget::UsersType::Pending: {
         adminUsersModel = new AdminUsersPendingModel(this);
         auto delegate = new AdministratorUsersPendingActionDelegate(this);
-        connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &index) {
-            const bool isActive = index.model()->index(index.row(), AdminUsersPendingModel::ActiveUser).data().toBool();
+        connect(delegate, &AdministratorUsersPendingActionDelegate::pendingActionActivated, this, [this](const QModelIndex &proxyIndex) {
+            const QModelIndex index = mProxyModelModel->mapToSource(proxyIndex);
+            const bool isActive = mModel->index(index.row(), AdminUsersPendingModel::ActiveUser).data().toBool();
             if (isActive) {
                 resendWelcomeEmail(index);
             } else {
@@ -72,14 +73,14 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         break;
     }
 
-    adminUsersModel->setObjectName("mAdminUsersModel"_L1);
+    adminUsersModel->setObjectName(u"mAdminUsersModel"_s);
     if (account) {
         adminUsersModel->setRoles(account->roleInfo());
     }
     mModel = adminUsersModel;
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
-    mProxyModelModel->setObjectName("mAdminUsersProxyModel"_L1);
+    mProxyModelModel->setObjectName(u"mAdminUsersProxyModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search users…"));
     mTreeView->setModel(mProxyModelModel);
     if (type == AdministratorUsersWidget::UsersType::Pending) {
@@ -97,7 +98,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(AdministratorUsersWidget::Use
         mProxyModelModel->setSortFunction(funct);
     }
 
-    mRolesComboBox->setObjectName("mRolesComboBox"_L1);
+    mRolesComboBox->setObjectName(u"mRolesComboBox"_s);
     mSearchLineLayout->addWidget(mRolesComboBox);
     if (account) {
         mRolesComboBox->setRolesInfo(account->roleInfo());
@@ -291,10 +292,10 @@ void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyO
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    if (mRocketChatAccount->hasPermission(u"bulk-register-user"_s)) {
+    if (mRocketChatAccount->hasPermission(u"bulk-register-user")) {
         menu.addAction(QIcon::fromTheme(u"list-add"_s), i18nc("@action", "Invite…"), this, &AdministratorUsersWidget::slotInviteUsers);
     }
-    if (mRocketChatAccount->hasPermission(u"create-user"_s)) {
+    if (mRocketChatAccount->hasPermission(u"create-user")) {
         if (!menu.isEmpty()) {
             menu.addSeparator();
         }
@@ -304,14 +305,14 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
 
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-info"_s)) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-info")) {
             menu.addAction(QIcon::fromTheme(u"document-edit"_s), i18nc("@action", "Modify…"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotModifyUser(modelIndex);
             });
             menu.addSeparator();
         }
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-active-status"_s)) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-active-status")) {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::ActiveUser);
             const bool activateUser = modelIndex.data().toBool();
             menu.addAction(activateUser ? i18nc("@action", "Deactivate") : i18nc("@action", "Active"), this, [this, newModelIndex, activateUser]() {
@@ -319,7 +320,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             });
             menu.addSeparator();
         }
-        if (mRocketChatAccount->hasPermission(u"assign-admin-role"_s)) {
+        if (mRocketChatAccount->hasPermission(u"assign-admin-role")) {
             const QModelIndex administratorIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::Administrator);
             const bool isAdministrator = administratorIndex.data().toBool();
 
@@ -328,19 +329,19 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 slotChangeAdmin(modelIndex, !isAdministrator);
             });
         }
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-e2ee"_s)) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-e2ee")) {
             menu.addAction(i18nc("@action", "Reset E2E Key"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetE2EKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(u"edit-other-user-totp"_s) && mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
+        if (mRocketChatAccount->hasPermission(u"edit-other-user-totp") && mRocketChatAccount->ruqolaServerConfig()->twoFactorAuthenticationEnabled()) {
             menu.addAction(i18nc("@action", "Reset Totp"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
                 slotResetTOTPKey(modelIndex);
             });
         }
-        if (mRocketChatAccount->hasPermission(u"delete-user"_s)) {
+        if (mRocketChatAccount->hasPermission(u"delete-user")) {
             menu.addSeparator();
             menu.addAction(QIcon::fromTheme(u"list-remove"_s), i18nc("@action", "Remove"), this, [this, newModelIndex]() {
                 const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersAllModel::UserId);
@@ -428,8 +429,6 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
 
 void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool adminStatus)
 {
-    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
-    const QByteArray userId = modelIndex.data().toByteArray();
     if (mRocketChatAccount->hasAtLeastVersion(8, 0, 0)) {
         if (adminStatus) {
             auto job = new RocketChatRestApi::AddUserToRoleJob(this);
@@ -461,6 +460,8 @@ void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool ad
             }
         }
     } else {
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersAllModel::UserId);
+        const QByteArray userId = modelIndex.data().toByteArray();
         mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
     }
 }

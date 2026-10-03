@@ -7,7 +7,6 @@
 #include "teamconverttochanneljobtest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "teams/teamconverttochanneljob.h"
@@ -46,30 +45,18 @@ void TeamConvertToChannelJobTest::shouldGenerateJson()
     const QByteArray teamId("foo2");
     job.setTeamId(teamId);
 
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
-    const QList<QByteArray> roomsToRemove{QByteArrayLiteral("bla"), QByteArrayLiteral("bla1"), "bla2"_ba};
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"teamId":"%1"})"_s.arg(QLatin1StringView(teamId)).toLatin1());
+    const QList<QByteArray> roomsToRemove{"bla"_ba, "bla1"_ba, "bla2"_ba};
     job.setRoomsToRemove(roomsToRemove);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})").arg(QLatin1StringView(teamId)).toLatin1());
+             uR"({"roomsToRemove":["bla","bla1","bla2"],"teamId":"%1"})"_s.arg(QLatin1StringView(teamId)).toLatin1());
 }
 
 void TeamConvertToChannelJobTest::shouldNotStarting()
 {
     TeamConvertToChannelJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QByteArray teamId("foo2");
     job.setTeamId(teamId);
     QVERIFY(job.canStart());

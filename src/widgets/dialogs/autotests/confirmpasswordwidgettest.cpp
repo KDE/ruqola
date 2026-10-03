@@ -21,7 +21,7 @@ ConfirmPasswordWidgetTest::ConfirmPasswordWidgetTest(QObject *parent)
 
 void ConfirmPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    ConfirmPasswordWidget w;
+    const ConfirmPasswordWidget w;
     QVERIFY(w.password().isEmpty());
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QVERIFY(mPasswordLineEdit);

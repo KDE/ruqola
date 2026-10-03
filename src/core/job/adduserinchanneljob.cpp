@@ -7,10 +7,8 @@
 #include "adduserinchanneljob.h"
 
 #include "connection.h"
-#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 using namespace RocketChatRestApi;
-using namespace Qt::Literals::StringLiterals;
 
 AddUserInChannelJob::AddUserInChannelJob(Connection *restApiConnection, QObject *parent)
     : QObject{parent}
@@ -41,7 +39,14 @@ void AddUserInChannelJob::start()
     };
     job->setChannelInviteInfo(inviteInfo);
     connect(job, &ChannelInviteJob::needUnbanned, this, &AddUserInChannelJob::slotNeedUnbanned);
-    connect(job, &ChannelInviteJob::inviteDone, this, &AddUserInChannelJob::deleteLater);
+    connect(job, &ChannelInviteJob::inviteDone, this, [this]() {
+        Q_EMIT addUserInChannelDone(mInfo.roomId, mInfo.userId);
+        deleteLater();
+    });
+    connect(job, &ChannelInviteJob::failed, this, [this](const QString &serverErrorStr) {
+        qCWarning(RUQOLA_LOG) << "ChannelInviteJob failed:" << serverErrorStr;
+        deleteLater();
+    });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start addUserInChannel job";
         deleteLater();

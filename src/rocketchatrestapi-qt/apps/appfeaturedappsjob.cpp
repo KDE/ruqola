@@ -29,25 +29,20 @@ bool AppFeaturedAppsJob::requireHttpAuthentication() const
 bool AppFeaturedAppsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app count job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get featured apps job";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("AppFeaturedAppsJob: get report info starting"_ba);
+    addStartRestApiInfo("AppFeaturedAppsJob: get featured apps starting"_ba);
     return true;
 }
 
 void AppFeaturedAppsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("AppFeaturedAppsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT appFeaturedAppsDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("AppFeaturedAppsJob: Problem when we tried to get app featured info : "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("AppFeaturedAppsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT appFeaturedAppsDone(*replyObject);
     }
 }
 

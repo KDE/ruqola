@@ -29,25 +29,20 @@ bool ListCommandsJob::requireHttpAuthentication() const
 bool ListCommandsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListCommandsJob job";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("ListCommandsJob: Ask info about me"_ba);
+    addStartRestApiInfo("ListCommandsJob: Ask list of commands"_ba);
     return true;
 }
 
 void ListCommandsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("ListCommandsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT listCommandsDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("ListCommandsJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("ListCommandsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT listCommandsDone(*replyObject);
     }
 }
 

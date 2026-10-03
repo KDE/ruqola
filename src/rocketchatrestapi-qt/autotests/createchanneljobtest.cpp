@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "channels/createchanneljob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -26,7 +25,7 @@ void CreateChannelJobTest::shouldHaveDefaultValue()
     CreateChannelJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    CreateChannelTeamInfo info = job.createChannelInfo();
+    const CreateChannelTeamInfo info = job.createChannelInfo();
     QVERIFY(!info.readOnly);
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());
@@ -49,48 +48,36 @@ void CreateChannelJobTest::shouldGenerateJson()
     CreateChannelTeamInfo info;
     info.name = channelname;
     job.setCreateChannelInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1"})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"extraData":{},"name":"%1"})"_s.arg(channelname).toLatin1());
 
     bool readOnly = false;
     info.readOnly = readOnly;
     job.setCreateChannelInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1"})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"extraData":{},"name":"%1"})"_s.arg(channelname).toLatin1());
 
     readOnly = true;
     info.readOnly = readOnly;
     job.setCreateChannelInfo(info);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"extraData":{},"name":"%1","readOnly":true})"_s.arg(channelname).toLatin1());
 
     const QStringList members = {u"foo"_s, u"bla"_s};
     info.members = members;
     job.setCreateChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+             uR"({"extraData":{},"members":["foo","bla"],"name":"%1","readOnly":true})"_s.arg(channelname).toLatin1());
 
     const QByteArray teamId("foo");
     info.teamId = teamId;
     job.setCreateChannelInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"extraData":{"teamId":"foo"},"members":["foo","bla"],"name":"%1","readOnly":true})").arg(channelname).toLatin1());
+             uR"({"extraData":{"teamId":"foo"},"members":["foo","bla"],"name":"%1","readOnly":true})"_s.arg(channelname).toLatin1());
 }
 
 void CreateChannelJobTest::shouldNotStarting()
 {
     CreateChannelJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString channelName = u"foo1"_s;
     CreateChannelTeamInfo info;
     info.name = channelName;

@@ -27,7 +27,7 @@ void RocketChatAccountSettingsTest::shouldNotEmitSignalWhenNewServerUrlIsSameAsO
     const QString url = u"some.url.com"_s;
     SampleChatAccount.setServerUrl(url);
 
-    QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
+    const QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
     SampleChatAccount.setServerUrl(url);
     QCOMPARE(SpyURL.count(), 0);
 }
@@ -36,7 +36,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenSetServerURLChanged()
 {
     RocketChatAccountSettings SampleChatAccount;
 
-    QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
+    const QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
     const QString serverUrlDefault = u"bla bla"_s;
     SampleChatAccount.setServerUrl(serverUrlDefault);
     QCOMPARE(SpyURL.count(), 1);
@@ -61,7 +61,7 @@ void RocketChatAccountSettingsTest::shouldNotEmitSignalWhenNewUsernameIsSameAsOl
     const QString username = u"dummyUsername"_s;
     SampleChat.setUserName(username);
 
-    QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
+    const QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
     SampleChat.setUserName(username);
     QCOMPARE(SpyName.count(), 0);
 }
@@ -70,7 +70,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserNameChanged()
 {
     RocketChatAccountSettings SampleChat;
 
-    QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
+    const QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
     const QString userNameDefault = u"Donald Knuth"_s;
     SampleChat.setUserName(userNameDefault);
     QCOMPARE(SpyName.count(), 1);
@@ -92,10 +92,10 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserIDChanged()
 {
     RocketChatAccountSettings SampleChat1;
 
-    QSignalSpy SpyID(&SampleChat1, &RocketChatAccountSettings::userIdChanged);
-    const QByteArray userId = QByteArray("RA15");
+    const QSignalSpy SpyID(&SampleChat1, &RocketChatAccountSettings::userIdChanged);
+    const QByteArray userId = "RA15"_ba;
     QVERIFY(userId != SampleChat1.userId());
-    SampleChat1.setUserId(QByteArray("RA15"));
+    SampleChat1.setUserId("RA15"_ba);
     QCOMPARE(SpyID.count(), 1);
 }
 
@@ -109,7 +109,7 @@ void RocketChatAccountSettingsTest::shouldLogout()
     RocketChatAccountSettings SampleChat;
 
     SampleChat.setAuthToken(u"Token305"_s);
-    SampleChat.setUserId(QByteArray("ECE305"));
+    SampleChat.setUserId("ECE305"_ba);
     SampleChat.setPassword(u"masterPassword"_s);
     // Make sure that values are not null
     QVERIFY(!SampleChat.authToken().isEmpty());
@@ -125,7 +125,7 @@ void RocketChatAccountSettingsTest::shouldLogout()
 void RocketChatAccountSettingsTest::shouldSetAccountName()
 {
     RocketChatAccountSettings sampleChat;
-    QSignalSpy spy(&sampleChat, &RocketChatAccountSettings::accountNameChanged);
+    const QSignalSpy spy(&sampleChat, &RocketChatAccountSettings::accountNameChanged);
 
     const QString val = u"myAccount#$^56"_s;
     sampleChat.setAccountName(val);
@@ -187,7 +187,7 @@ void RocketChatAccountSettingsTest::shouldSetUserName()
 
 void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
 {
-    RocketChatAccountSettings chat;
+    const RocketChatAccountSettings chat;
 
     QVERIFY(chat.accountName().isEmpty());
     QVERIFY(chat.authToken().isEmpty());

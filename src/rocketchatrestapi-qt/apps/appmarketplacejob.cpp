@@ -41,9 +41,8 @@ bool AppMarketPlaceJob::start()
     return true;
 }
 
-void AppMarketPlaceJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void AppMarketPlaceJob::onGetRequestResponse([[maybe_unused]] const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    Q_UNUSED(replyErrorString)
     const QJsonArray replyArray = replyJson.array();
     Q_EMIT appMarketPlaceDone(replyArray);
 #if 0

@@ -30,11 +30,11 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     [[nodiscard]] QList<TeamRoom> teamRooms() const;
-    void setTeamRooms(const QList<TeamRoom> &teamRooms);
+    void setTeamRooms(QList<TeamRoom> teamRooms);
 
     void setRoomChanged(const TeamRoom &teamRoom);
 
-    void insertRooms(const QList<TeamRoom> &teamRooms);
+    void insertRooms(QList<TeamRoom> teamRooms);
 
     [[nodiscard]] bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     [[nodiscard]] Qt::ItemFlags flags(const QModelIndex &index) const override;
@@ -43,7 +43,7 @@ public:
     void setIsCheckable(bool isCheckable);
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoom &room) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT Utils::AvatarInfo avatarInfo(const TeamRoom &room);
     QList<TeamRoom> mTeamRooms;
     QList<QByteArray> mRoomSelected;
     bool mIsCheckable = false;

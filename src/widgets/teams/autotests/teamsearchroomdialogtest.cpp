@@ -22,7 +22,7 @@ TeamSearchRoomDialogTest::TeamSearchRoomDialogTest(QObject *parent)
 
 void TeamSearchRoomDialogTest::shouldHaveDefaultValues()
 {
-    TeamSearchRoomDialog d(nullptr);
+    const TeamSearchRoomDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);

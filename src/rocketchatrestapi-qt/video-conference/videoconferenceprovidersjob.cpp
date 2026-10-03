@@ -41,15 +41,9 @@ bool VideoConferenceProvidersJob::start()
 
 void VideoConferenceProvidersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("VideoConferenceProvidersJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("VideoConferenceProvidersJob"_ba, replyErrorString, replyJson)) {
         // {"data":[{"key":"jitsi","label":"Jitsi"}]
-        Q_EMIT videoConferenceProvidersDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("VideoConferenceProvidersJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT videoConferenceProvidersDone(*replyObject);
     }
 }
 

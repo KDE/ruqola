@@ -26,7 +26,7 @@ ExplorePermissionsWidgetTest::ExplorePermissionsWidgetTest(QObject *parent)
 
 void ExplorePermissionsWidgetTest::shouldHaveDefaultValues()
 {
-    ExplorePermissionsWidget w;
+    const ExplorePermissionsWidget w;
     auto mTreeView = w.findChild<QTreeView *>(u"mTreeView"_s);
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());

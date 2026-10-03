@@ -19,7 +19,7 @@ FileTest::FileTest(QObject *parent)
 
 void FileTest::shouldHaveDefaultValue()
 {
-    File f;
+    const File f;
     QVERIFY(f.fileName().isEmpty());
     QVERIFY(f.description().isEmpty());
     QVERIFY(f.userId().isEmpty());
@@ -77,7 +77,7 @@ void FileTest::shouldCopyValue()
     const QString mimetype = u"ble1"_s;
     const QByteArray fileId("blabla");
     const qint64 timeUploaded = 55;
-    bool complete = true;
+    const bool complete = true;
     f.setComplete(complete);
     f.setUrl(url);
     f.setFileName(name);
@@ -87,7 +87,7 @@ void FileTest::shouldCopyValue()
     f.setUploadedAt(timeUploaded);
     f.setFileId(fileId);
 
-    File f2 = f;
+    const File f2 = f;
     QCOMPARE(f2, f);
 }
 

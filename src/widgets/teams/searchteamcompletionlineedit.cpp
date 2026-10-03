@@ -14,7 +14,6 @@
 
 #include <QJsonArray>
 #include <QTimer>
-#include <chrono>
 
 using namespace Qt::Literals::StringLiterals;
 using namespace std::chrono_literals;
@@ -57,7 +56,7 @@ void SearchTeamCompletionLineEdit::slotSearchTextEdited()
 
 void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    if (text.trimmed().isEmpty()) {
+    if (QStringView(text).trimmed().isEmpty()) {
         mTeamCompleterModel->clear();
         mCompletionListView->hide();
         mTeamId.clear();
@@ -82,14 +81,12 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
     const auto total = items.count();
     teams.reserve(total);
     for (auto i = 0; i < total; ++i) {
-        TeamCompleter teamCompleter;
-        teamCompleter.parse(items.at(i).toObject());
-        teams.append(std::move(teamCompleter));
+        teams.emplace_back().parse(items.at(i).toObject());
     }
-    mTeamCompleterModel->insertTeams(teams);
     if (teams.isEmpty()) {
         mCompletionListView->hide();
     }
+    mTeamCompleterModel->insertTeams(std::move(teams));
 }
 
 void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
@@ -100,6 +97,7 @@ void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
     disconnect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
     setText(completerName);
     mTeamId = teamIdentifier;
+    mSearchTimer->stop();
     connect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT teamIdChanged(mTeamId.isEmpty());
 }

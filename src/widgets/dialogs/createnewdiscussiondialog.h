@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -36,7 +36,6 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     QByteArray mMessageId;
     CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;

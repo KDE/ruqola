@@ -5,7 +5,6 @@
 */
 
 #include "oauthappsupdatejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 OauthAppsUpdateJob::OauthAppsUpdateJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -28,7 +28,7 @@ bool OauthAppsUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("OauthAppsUpdateJob::start");
+    addStartRestApiInfo("OauthAppsUpdateJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,13 +36,8 @@ bool OauthAppsUpdateJob::start()
 
 void OauthAppsUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("OauthAppsUpdateJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT oauthAppsUpdateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("OauthAppsUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("OauthAppsUpdateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT oauthAppsUpdateDone(*replyObject);
     }
 }
 

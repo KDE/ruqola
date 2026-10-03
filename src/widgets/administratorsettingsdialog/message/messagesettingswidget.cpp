@@ -188,7 +188,6 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mApiEmbed->setObjectName(u"mApiEmbed"_s);
     mApiEmbed->setToolTip(i18nc("@info:tooltip", "Whether embedded link previews are enabled or not when a user posts a link to a website."));
-    mMainLayout->addWidget(mApiEmbed);
     addCheckBox(mApiEmbed, u"API_Embed"_s);
 
     mEmbedCacheExpirationDays->setObjectName(u"mEmbedCacheExpirationDays"_s);
@@ -213,7 +212,7 @@ void MessageSettingsWidget::initialize(const QMap<QString, SettingsWidgetBase::S
     initializeWidget(mBlockMessageDeletingAfterMinutes, mapSettings, 0);
     initializeWidget(mMaximumAllowedCharactersPerMessage, mapSettings, 5000);
     initializeWidget(mSafePort, mapSettings, u"80, 443"_s);
-    initializeWidget(mThumbnailMaxHeight, mapSettings, false);
+    initializeWidget(mRemoveEXIFMetadata, mapSettings, false);
     initializeWidget(mEnableImageThumbnails, mapSettings, true);
     initializeWidget(mThumbnailMaxWidth, mapSettings, 480);
     initializeWidget(mThumbnailMaxHeight, mapSettings, 360);

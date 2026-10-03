@@ -6,7 +6,6 @@
 
 #include "removeuserfromrolejobtest.h"
 
-#include "restapimethod.h"
 #include "role/removeuserfromrolejob.h"
 #include "ruqola_restapi_helper.h"
 
@@ -51,7 +50,7 @@ void RemoveUserFromRoleJobTest::shouldGenerateJson()
         job.setUsername(username);
         const QString rolename = u"role1"_s;
         job.setRoleName(rolename);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleName":"%1","username":"%2"})").arg(rolename, username).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roleName":"%1","username":"%2"})"_s.arg(rolename, username).toLatin1());
     }
     {
         RemoveUserFromRoleJob job;
@@ -63,7 +62,7 @@ void RemoveUserFromRoleJobTest::shouldGenerateJson()
         job.setRoleName(rolename);
         const QString roleId = u"roleId1"_s;
         job.setRoleId(roleId);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roleId":"%1","username":"%2"})").arg(roleId, username).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roleId":"%1","username":"%2"})"_s.arg(roleId, username).toLatin1());
     }
 }
 
@@ -72,18 +71,7 @@ void RemoveUserFromRoleJobTest::shouldNotStarting()
     RemoveUserFromRoleJob job;
     job.setUseRC80(false);
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     QVERIFY(!job.canStart());
     const QString username = u"foo1"_s;

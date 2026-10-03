@@ -5,7 +5,6 @@
 */
 
 #include "oauthappsjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QNetworkRequest>
 
 #include <QUrlQuery>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 OauthAppsJob::OauthAppsJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -58,14 +58,8 @@ bool OauthAppsJob::start()
 
 void OauthAppsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("OauthAppsJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT oauthAppDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("OauthAppsJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("OauthAppsJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT oauthAppDone(*replyObject);
     }
 }
 

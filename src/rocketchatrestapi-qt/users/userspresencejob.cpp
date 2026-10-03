@@ -29,24 +29,19 @@ bool UsersPresenceJob::requireHttpAuthentication() const
 bool UsersPresenceJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userspresence job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersPresenceJob job";
         deleteLater();
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo("UsersPresenceJob: Ask info about me"_ba);
+    addStartRestApiInfo("UsersPresenceJob: Ask users presence"_ba);
     return true;
 }
 
 void UsersPresenceJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersPresenceJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersPresenceDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersPresenceJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersPresenceJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersPresenceDone(*replyObject);
     }
 }
 

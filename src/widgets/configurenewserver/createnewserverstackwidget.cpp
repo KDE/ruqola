@@ -39,7 +39,7 @@ CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
         info.canRegisterAccount = serverInfo.canRegisterAccount;
         info.accountsManuallyApproveNewUsers = serverInfo.accountsManuallyApproveNewUsers;
         info.passwordSettings = serverInfo.passwordSettings;
-        setAccountInfo(std::move(info));
+        setAccountInfo(info);
     });
     connect(mCreateNewServerWidget, &CreateNewServerWidget::settingsIsValid, this, &CreateNewServerStackWidget::settingsIsValid);
     connect(mCreateNewServerWidget, &CreateNewServerWidget::authentication, this, &CreateNewServerStackWidget::addAuthenticationConfigureWidget);

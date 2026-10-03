@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QByteArray>
 #include <QMetaType>
 #include <QStringList>
 
@@ -16,7 +17,6 @@ class LIBRUQOLACORE_EXPORT BannerInfo
 {
 public:
     BannerInfo();
-    ~BannerInfo();
 
     [[nodiscard]] bool isValid() const;
 

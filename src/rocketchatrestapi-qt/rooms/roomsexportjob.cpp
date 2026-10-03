@@ -28,7 +28,7 @@ bool RoomsExportJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsExportJob::start");
+    addStartRestApiInfo("RoomsExportJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,13 +36,8 @@ bool RoomsExportJob::start()
 
 void RoomsExportJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RoomsExportJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RoomsExportJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomExportDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RoomsExportJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -57,7 +52,7 @@ bool RoomsExportJob::canStart() const
         return false;
     }
     if (!mRoomExportInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "mRoomExportInfo: mRoomExportInfo is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsExportJob: mRoomExportInfo is not valid.";
         return false;
     }
 

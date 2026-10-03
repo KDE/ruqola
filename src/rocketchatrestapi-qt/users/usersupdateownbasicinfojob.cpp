@@ -9,8 +9,6 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include <KLocalizedString>
-
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -30,23 +28,18 @@ bool UsersUpdateOwnBasicInfoJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersUpdateOwnBasicInfo::start");
+    addStartRestApiInfo("UsersUpdateOwnBasicInfoJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void UsersUpdateOwnBasicInfoJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersUpdateOwnBasicInfo: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("UsersUpdateOwnBasicInfoJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT updateOwnBasicInfoDone();
         if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Password) {
             Q_EMIT passwordChanged();
         }
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersUpdateOwnBasicInfo: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -71,7 +64,7 @@ bool UsersUpdateOwnBasicInfoJob::canStart() const
         return false;
     }
     if (!mUpdateOwnBasicInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfo: mUpdateOwnBasicInfo is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersUpdateOwnBasicInfoJob: mUpdateOwnBasicInfo is not valid.";
         return false;
     }
     return true;
@@ -92,6 +85,9 @@ QJsonDocument UsersUpdateOwnBasicInfoJob::json() const
     QJsonObject dataObj;
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Email) {
         dataObj["email"_L1] = mUpdateOwnBasicInfo.email;
+    }
+    if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::Name) {
+        dataObj["name"_L1] = mUpdateOwnBasicInfo.name;
     }
     if (mUpdateOwnBasicInfo.type & UpdateOwnBasicInfo::BasicInfoType::UserName) {
         dataObj["username"_L1] = mUpdateOwnBasicInfo.userName;
@@ -123,6 +119,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersUpdateOwnBasicInfoJob:
     d.space() << "email " << t.email;
     d.space() << "name " << t.name;
     d.space() << "userName " << t.userName;
+    d.space() << "nickName " << t.nickName;
     d.space() << "statusText " << t.statusText;
     d.space() << "currentPassword " << t.currentPassword;
     d.space() << "newPassword " << t.newPassword;

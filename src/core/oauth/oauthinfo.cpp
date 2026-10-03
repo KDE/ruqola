@@ -28,8 +28,8 @@ QDebug operator<<(QDebug d, const OauthInfo &t)
 
 bool OauthInfo::operator==(const OauthInfo &other) const
 {
-    return mIdentifier == other.identifier() && mActive == other.active() && mName == other.name() && mClientId == other.clientId()
-        && mClientSecret == other.clientSecret() && mRedirectUri == other.redirectUri() && mCreatedBy == other.createdBy();
+    return mIdentifier == other.mIdentifier && mActive == other.mActive && mName == other.mName && mClientId == other.mClientId
+        && mClientSecret == other.mClientSecret && mRedirectUri == other.mRedirectUri && mCreatedBy == other.mCreatedBy;
 }
 
 void OauthInfo::parseOauthInfo(const QJsonObject &replyObject, bool restApi)

@@ -20,7 +20,7 @@ BannedUsersModel::~BannedUsersModel()
 
 void BannedUsersModel::checkFullList()
 {
-    setHasFullList(mBannedUsers->bannedUsers().count() == mBannedUsers->total());
+    setHasFullList(mBannedUsers->list().count() == mBannedUsers->total());
 }
 
 bool BannedUsersModel::loadMoreBannedUsersInProgress() const
@@ -58,10 +58,17 @@ void BannedUsersModel::removeBannedUsers(const QString &userName)
 
 void BannedUsersModel::addMoreBannedUsers(const QJsonObject &bannedUsersObj)
 {
-    const int numberOfElement = mBannedUsers->bannedUsers().count();
-    mBannedUsers->parseMoreBannedUsers(bannedUsersObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mBannedUsers->bannedUsers().count() - 1);
-    endInsertRows();
+    const int numberOfElement = mBannedUsers->count();
+    BannedUsers bannedUsers = *mBannedUsers;
+    bannedUsers.parseMoreBannedUsers(bannedUsersObj);
+    const int newNumberOfElement = bannedUsers.count();
+    if (newNumberOfElement > numberOfElement) {
+        beginInsertRows(QModelIndex(), numberOfElement, newNumberOfElement - 1);
+        *mBannedUsers = std::move(bannedUsers);
+        endInsertRows();
+    } else { // No new element but offset/total may have changed
+        *mBannedUsers = std::move(bannedUsers);
+    }
     checkFullList();
 }
 
@@ -75,14 +82,10 @@ void BannedUsersModel::initialize()
 void BannedUsersModel::parseBannedUsers(const QJsonObject &bannedUsersObj, const QByteArray &roomId)
 {
     mRoomId = roomId;
-    if (rowCount() != 0) {
-        clear();
-    }
+    beginResetModel();
+    mBannedUsers->clear();
     mBannedUsers->parseBannedUsers(bannedUsersObj);
-    if (!mBannedUsers->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mBannedUsers->bannedUsers().count() - 1);
-        endInsertRows();
-    }
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -97,14 +100,11 @@ void BannedUsersModel::setRoomId(const QByteArray &roomId)
     mRoomId = roomId;
 }
 
-void BannedUsersModel::setBannedUsers(const QList<BannedUser> &users)
+void BannedUsersModel::setBannedUsers(QList<BannedUser> users)
 {
-    clear();
-    if (!users.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, users.count() - 1);
-        mBannedUsers->setBannedUsers(users);
-        endInsertRows();
-    }
+    beginResetModel();
+    mBannedUsers->setList(std::move(users));
+    endResetModel();
     checkFullList();
     Q_EMIT totalChanged();
 }
@@ -115,16 +115,16 @@ int BannedUsersModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    return mBannedUsers->bannedUsers().count();
+    return mBannedUsers->list().count();
 }
 
 QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mBannedUsers->bannedUsers().count()) {
+    if (index.row() < 0 || index.row() >= mBannedUsers->list().count()) {
         return {};
     }
 
-    const BannedUser user = mBannedUsers->bannedUsers().at(index.row());
+    const BannedUser user = mBannedUsers->list().at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case BannedUserRoles::Name:
@@ -165,7 +165,7 @@ bool BannedUsersModel::hasFullList() const
     return mHasFullList;
 }
 
-Utils::AvatarInfo BannedUsersModel::avatarInfo(const BannedUser &user) const
+Utils::AvatarInfo BannedUsersModel::avatarInfo(const BannedUser &user)
 {
     const Utils::AvatarInfo info{
         .etag = {},

@@ -7,14 +7,10 @@
 #include "exportmessagesdialog.h"
 
 #include "exportmessageswidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myExportMessagesDialogConfigGroupName[] = "ExportMessagesDialog";
@@ -39,10 +35,7 @@ ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     readConfig();
 }
 
-ExportMessagesDialog::~ExportMessagesDialog()
-{
-    writeConfig();
-}
+ExportMessagesDialog::~ExportMessagesDialog() = default;
 
 RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExportInfo() const
 {
@@ -51,17 +44,7 @@ RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExp
 
 void ExportMessagesDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExportMessagesDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ExportMessagesDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myExportMessagesDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myExportMessagesDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_exportmessagesdialog.cpp"

@@ -11,6 +11,7 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QLabel>
+#include <QMimeData>
 #include <QToolButton>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
@@ -18,10 +19,10 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
     : QWidget{parent}
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
     auto label = new QLabel(this);
-    label->setObjectName("label"_L1);
+    label->setObjectName(u"label"_s);
     label->setTextFormat(Qt::RichText);
     QString randomPassword;
     if (account) {
@@ -36,15 +37,15 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
     mainLayout->addWidget(label);
 
     auto passwordLayout = new QHBoxLayout;
-    passwordLayout->setObjectName("passwordLayout"_L1);
+    passwordLayout->setObjectName(u"passwordLayout"_s);
     passwordLayout->setContentsMargins({});
 
     mainLayout->addLayout(passwordLayout);
 
     auto passwordLabel = new QLabel(this);
-    passwordLabel->setObjectName("passwordLabel"_L1);
+    passwordLabel->setObjectName(u"passwordLabel"_s);
     passwordLabel->setTextFormat(Qt::PlainText);
-    passwordLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    passwordLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
 
     QFont labFont = passwordLabel->font();
     labFont.setBold(true);
@@ -54,15 +55,17 @@ E2eCopyPasswordWidget::E2eCopyPasswordWidget(RocketChatAccount *account, QWidget
     passwordLayout->addWidget(passwordLabel);
 
     auto copyToolButton = new QToolButton(this);
-    copyToolButton->setObjectName("copyToolButton"_L1);
+    copyToolButton->setObjectName(u"copyToolButton"_s);
     passwordLayout->addWidget(copyToolButton);
     copyToolButton->setAutoRaise(true);
     copyToolButton->setToolTip(i18n("Copy password"));
-    copyToolButton->setIcon(QIcon::fromTheme("password-copy"_L1));
+    copyToolButton->setIcon(QIcon::fromTheme(u"password-copy"_s));
     connect(copyToolButton, &QToolButton::clicked, this, [randomPassword]() {
         QClipboard *clip = QApplication::clipboard();
-        clip->setText(randomPassword, QClipboard::Clipboard);
-        clip->setText(randomPassword, QClipboard::Selection);
+        auto *mimeData = new QMimeData;
+        mimeData->setText(randomPassword);
+        mimeData->setData(u"x-kde-passwordManagerHint"_s, "secret");
+        clip->setMimeData(mimeData);
     });
     passwordLayout->addStretch(1);
 

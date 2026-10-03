@@ -6,11 +6,11 @@
 
 #pragma once
 
+#include "teams/teamroom.h"
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
 class TeamConvertToChannelWidget;
-class TeamRoom;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamConvertToChannelDialog : public QDialog
 {
     Q_OBJECT
@@ -19,12 +19,11 @@ public:
     ~TeamConvertToChannelDialog() override;
 
     [[nodiscard]] QList<QByteArray> roomIdsToDelete() const;
-    void setTeamRooms(const QList<TeamRoom> &rooms);
+    void setTeamRooms(QList<TeamRoom> rooms);
 
     void setTeamName(const QString &name);
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     TeamConvertToChannelWidget *const mTeamConvertToChannelWidget;
 };

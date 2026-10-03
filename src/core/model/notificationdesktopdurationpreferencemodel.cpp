@@ -19,7 +19,7 @@ NotificationDesktopDurationPreferenceModel::~NotificationDesktopDurationPreferen
 
 int NotificationDesktopDurationPreferenceModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) {// flat model
+    if (parent.isValid()) { // flat model
         return 0;
     }
     return mNotificationDestktopDurationPreferenceList.count();
@@ -31,7 +31,7 @@ QVariant NotificationDesktopDurationPreferenceModel::data(const QModelIndex &ind
     if (rowIndex < 0 || rowIndex >= mNotificationDestktopDurationPreferenceList.count()) {
         return {};
     }
-    NotificationDesktopDurationPreferenceInfo preferenceInfo = mNotificationDestktopDurationPreferenceList.at(rowIndex);
+    const NotificationDesktopDurationPreferenceInfo &preferenceInfo = mNotificationDestktopDurationPreferenceList.at(rowIndex);
     switch (role) {
     case Qt::DisplayRole:
     case NotificationPreferenceI18n:

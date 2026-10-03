@@ -31,7 +31,7 @@ public:
 
     void clear();
 
-    void addModerationReportInfos(const ModerationReportInfos &infos);
+    void addModerationReportInfos(ModerationReportInfos infos);
 
 private:
     ModerationReportInfos mModerationReportInfos;

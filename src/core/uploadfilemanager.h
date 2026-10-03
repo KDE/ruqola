@@ -23,9 +23,11 @@ public:
     void cancelJob(int identifier);
 Q_SIGNALS:
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier, const QString &accountName);
+    // Emitted when the upload is over (done, failed or canceled). Can be emitted several times for the same identifier.
+    void uploadFinished(int identifier);
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
+    static LIBRUQOLACORE_NO_EXPORT void removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
     LIBRUQOLACORE_NO_EXPORT void confirmMedia(const RocketChatRestApi::UploadFileJob::ConfirmMediaInfo &info);
     RocketChatAccount *const mRocketChatAccount;
     QMap<int, QPointer<RocketChatRestApi::UploadFileJob>> mUploadMap;

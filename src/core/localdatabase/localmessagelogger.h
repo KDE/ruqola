@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
+#include <QList>
 #include <QString>
 #include <memory>
 
@@ -20,6 +21,8 @@ public:
     LocalMessageLogger();
 
     void addMessage(const QString &accountName, const QByteArray &roomId, const Message &message);
+    // Stores the whole list in a single transaction, reusing one prepared statement.
+    void addMessages(const QString &accountName, const QByteArray &roomId, const QList<Message> &messages);
     void deleteMessage(const QString &accountName, const QByteArray &roomId, const QString &messageId);
     [[nodiscard]] std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QByteArray &roomId) const;
     [[nodiscard]] bool saveToFile(QFile &file, const QString &accountName, const QByteArray &roomId) const;
@@ -28,5 +31,5 @@ protected:
     [[nodiscard]] QString schemaDataBase() const override;
 
 private:
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT QString generateTextFromMessage(const Message &m) const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT QString generateTextFromMessage(const Message &m);
 };

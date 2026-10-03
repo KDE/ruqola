@@ -26,7 +26,6 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomNameValid(bool state);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotFnameChanged(const QString &fname);
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
-    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     ChannelInfoWidget *const mChannelInfoWidget;
     QDialogButtonBox *const mButtonBox;
     QPushButton *mOkButton = nullptr;

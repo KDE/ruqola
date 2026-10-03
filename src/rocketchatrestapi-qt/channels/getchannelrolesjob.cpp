@@ -39,13 +39,13 @@ bool GetChannelRolesJob::canStart() const
 bool GetChannelRolesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetChannelRolesJob";
         deleteLater();
         return false;
     }
 
     submitGetRequest();
-    addStartRestApiInfo("GetChannelRolesJob::start");
+    addStartRestApiInfo("GetChannelRolesJob::start"_ba);
     return true;
 }
 
@@ -66,13 +66,8 @@ bool GetChannelRolesJob::requireHttpAuthentication() const
 
 void GetChannelRolesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GetChannelRolesJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelRolesDone(replyObject, channelGroupInfo());
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GetChannelRolesJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("GetChannelRolesJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT channelRolesDone(*replyObject, channelGroupInfo());
     }
 }
 

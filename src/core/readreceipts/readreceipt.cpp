@@ -6,13 +6,10 @@
 #include "readreceipt.h"
 #include "utils.h"
 #include <QJsonObject>
-using namespace Qt::Literals::StringLiterals;
 QT_IMPL_METATYPE_EXTERN_TAGGED(ReadReceipt, Ruqola_ReadReceipt)
 using namespace Qt::Literals::StringLiterals;
 
 ReadReceipt::ReadReceipt() = default;
-
-ReadReceipt::~ReadReceipt() = default;
 
 QByteArray ReadReceipt::userId() const
 {

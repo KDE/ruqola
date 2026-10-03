@@ -9,8 +9,6 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
-#include <KLocalizedString>
-
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -27,10 +25,11 @@ RemovePersonalAccessTokenJob::~RemovePersonalAccessTokenJob() = default;
 bool RemovePersonalAccessTokenJob::start()
 {
     if (!canStart()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RemovePersonalAccessTokenJob: cannot start";
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RemovePersonalAccessTokenJob::start");
+    addStartRestApiInfo("RemovePersonalAccessTokenJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -38,14 +37,8 @@ bool RemovePersonalAccessTokenJob::start()
 
 void RemovePersonalAccessTokenJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RemovePersonalAccessTokenJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT removeTokenDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RemovePersonalAccessTokenJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RemovePersonalAccessTokenJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT removeTokenDone(*replyObject);
     }
 }
 

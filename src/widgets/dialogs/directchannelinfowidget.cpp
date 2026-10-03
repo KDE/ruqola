@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -181,7 +181,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
                 }
             }
         }
-        rolesLabel->setText(newRolesList.join(u", "_s));
+        rolesLabel->setText(newRolesList.join(", "_L1));
         rolesLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
         label = new QLabel(i18n("Roles:"), this);
         label->setFont(f);
@@ -209,8 +209,8 @@ void DirectChannelInfoWidget::setUser(const User &user)
 
     const auto userEmailsInfo = user.userEmailsInfo();
     if (userEmailsInfo.isValid()) {
-        const QString generateEmail = u"<a href=\'mailto:%1\'>%1</a>"_s.arg(user.userEmailsInfo().email);
-        const QString infoStr = i18n("%1 [%2]", generateEmail, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
+        const QString generateEmail = u"<a href=\'mailto:%1\'>%1</a>"_s.arg(userEmailsInfo.email);
+        const QString infoStr = i18n("%1 [%2]", generateEmail, userEmailsInfo.verified ? i18n("Verified") : i18n("Not verified"));
         auto emailsInfoLabel = new QLabel(infoStr, this);
         emailsInfoLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
         emailsInfoLabel->setTextFormat(Qt::RichText);

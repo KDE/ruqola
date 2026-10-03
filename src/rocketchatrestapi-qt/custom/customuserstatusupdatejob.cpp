@@ -28,7 +28,7 @@ bool CustomUserStatusUpdateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("CustomUserStatusUpdateJob::start");
+    addStartRestApiInfo("CustomUserStatusUpdateJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,13 +36,8 @@ bool CustomUserStatusUpdateJob::start()
 
 void CustomUserStatusUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("CustomUserStatusUpdateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("CustomUserStatusUpdateJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT customUserUpdateDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("CustomUserStatusUpdateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 
@@ -67,7 +62,7 @@ bool CustomUserStatusUpdateJob::canStart() const
         return false;
     }
     if (!mStatusUpdateInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusUpdateJob: CustomUserStatusUpdateJob is not valid.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CustomUserStatusUpdateJob: mStatusUpdateInfo is not valid.";
         return false;
     }
     return true;

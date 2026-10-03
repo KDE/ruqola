@@ -20,7 +20,7 @@ ModerationMessageInfoWidgetTest::ModerationMessageInfoWidgetTest(QObject *parent
 
 void ModerationMessageInfoWidgetTest::shouldHaveDefaultValues()
 {
-    ModerationMessageInfoWidget d(nullptr);
+    const ModerationMessageInfoWidget d(nullptr);
     auto mainLayout = d.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

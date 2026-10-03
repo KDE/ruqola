@@ -7,9 +7,9 @@
 #include "createsoundmessagewidgettest.h"
 using namespace Qt::Literals::StringLiterals;
 
-#include "dialogs/createsoundmessagewidget.h"
 #include <QComboBox>
 #include <QLabel>
+#include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -18,6 +18,7 @@ QTEST_MAIN(CreateSoundMessageWidgetTest)
 CreateSoundMessageWidgetTest::CreateSoundMessageWidgetTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void CreateSoundMessageWidgetTest::shouldHaveDefaultValues()

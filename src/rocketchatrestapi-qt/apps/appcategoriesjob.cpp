@@ -30,13 +30,13 @@ bool AppCategoriesJob::requireHttpAuthentication() const
 bool AppCategoriesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app count job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start get app categories job";
         deleteLater();
         return false;
     }
     submitGetRequest();
 
-    addStartRestApiInfo("AppCategoriesJob: get report info starting"_ba);
+    addStartRestApiInfo("AppCategoriesJob: get app categories starting"_ba);
     return true;
 }
 

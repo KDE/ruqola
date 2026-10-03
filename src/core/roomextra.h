@@ -25,9 +25,6 @@ public:
     [[nodiscard]] QStringList ignoredUsers() const;
     void setIgnoredUsers(const QStringList &newIgnoredUsers);
 
-    [[nodiscard]] QStringList highlightsWord() const;
-    void setHighlightsWord(const QStringList &newHighlightsWord);
-
     [[nodiscard]] TeamInfo teamInfo() const;
     void setTeamInfo(const TeamInfo &newTeamInfo);
 
@@ -46,8 +43,6 @@ private:
     QStringList mMutedUsers;
 
     QStringList mIgnoredUsers;
-
-    QStringList mHighlightsWord;
 
     // Autotranslate
     QString mAutotranslateLanguage;

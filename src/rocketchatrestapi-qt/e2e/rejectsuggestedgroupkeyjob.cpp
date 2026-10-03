@@ -6,7 +6,6 @@
 
 #include "rejectsuggestedgroupkeyjob.h"
 #include "rocketchatqtrestapi_debug.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 RejectSuggestedGroupKeyJob::RejectSuggestedGroupKeyJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -28,21 +28,15 @@ bool RejectSuggestedGroupKeyJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RejectSuggestedGroupKeyJob::start");
+    addStartRestApiInfo("RejectSuggestedGroupKeyJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void RejectSuggestedGroupKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RejectSuggestedGroupKeyJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT rejectSuggestedGroupKeyDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RejectSuggestedGroupKeyJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("RejectSuggestedGroupKeyJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT rejectSuggestedGroupKeyDone(*replyObject);
     }
 }
 

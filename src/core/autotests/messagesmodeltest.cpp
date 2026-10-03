@@ -36,10 +36,10 @@ void MessagesModelTest::initTestCase()
 
 void MessagesModelTest::shouldHaveDefaultValue()
 {
-    MessagesModel w("roomId"_ba, Ruqola::self()->rocketChatAccount());
+    const MessagesModel w("roomId"_ba, Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.searchText().isEmpty());
-    const MessagesModel::HighlightSearchStringIndexInMessage initValue = {.index = -1, .messageId = ""};
+    const MessagesModel::HighlightSearchStringIndexInMessage initValue = {.index = -1, .messageId = ""_ba};
     QCOMPARE(w.highlightSearchStringIndexInMessage(), initValue);
 }
 
@@ -231,11 +231,7 @@ void MessagesModelTest::shouldAddMessages()
     messages << makeMessage("msgD", 2);
     model.addMessages(messages);
     QCOMPARE(model.rowCount(), 4);
-    QCOMPARE(extractMessageIds(model),
-             QByteArrayList() << "msgD"
-                              << "msgB"
-                              << "msgC"
-                              << "msgA");
+    QCOMPARE(extractMessageIds(model), (QByteArrayList{"msgD", "msgB", "msgC", "msgA"}));
 
     messages.clear();
     messages << makeMessage("msgE", 1);
@@ -246,16 +242,91 @@ void MessagesModelTest::shouldAddMessages()
     messages << makeMessage("msgA", 8); // update
     model.addMessages(messages);
     QCOMPARE(model.rowCount(), 8);
-    QCOMPARE(extractMessageIds(model),
-             QByteArrayList() << "msgE"
-                              << "msgD"
-                              << "msgF"
-                              << "msgB"
-                              << "msgH"
-                              << "msgC"
-                              << "msgA"
-                              << "msgG");
+    QCOMPARE(extractMessageIds(model), (QByteArrayList{"msgE", "msgD", "msgF", "msgB", "msgH", "msgC", "msgA", "msgG"}));
     QCOMPARE(model.index(6, 0).data(MessagesModel::OriginalMessage).toString(), u"modified"_s);
+}
+
+void MessagesModelTest::shouldMergeMessagesFromSync()
+{
+    // chat.syncMessages hands us every message updated since the last one we know about: new ones,
+    // but also edits of old ones. Whatever its size, it must be merged into what the room already
+    // shows (the page read from the local database, plus whatever the user scrolled up to) and
+    // never replace it.
+    auto fillModel = [](MessagesModel &model, int count) {
+        Message input;
+        fillTestMessage(input);
+        QList<Message> messages;
+        messages.reserve(count);
+        for (int i = 0; i < count; ++i) {
+            input.setMessageId("db"_ba + QByteArray::number(i));
+            input.setTimeStamp(1000 + i);
+            messages << input;
+        }
+        model.addMessages(messages);
+    };
+
+    // Small batch: merged one by one.
+    {
+        MessagesModel model;
+        fillModel(model, 50);
+        Message input;
+        fillTestMessage(input);
+        QList<Message> sync;
+        for (int i = 0; i < 10; ++i) {
+            input.setMessageId("sync"_ba + QByteArray::number(i));
+            input.setTimeStamp(2000 + i);
+            sync << input;
+        }
+        model.addMessagesSyncAfterLoadingFromDatabase(sync);
+        QCOMPARE(model.rowCount(), 60);
+        QCOMPARE(model.index(0, 0).data(MessagesModel::MessageId).toByteArray(), "db0"_ba);
+    }
+
+    // Large batch: merged in one reset. This used to assign the incoming list to the model and drop
+    // the 50 messages read from the database.
+    {
+        MessagesModel model;
+        fillModel(model, 50);
+        Message input;
+        fillTestMessage(input);
+        QList<Message> sync;
+        for (int i = 0; i < 55; ++i) {
+            input.setMessageId("sync"_ba + QByteArray::number(i));
+            input.setTimeStamp(2000 + i);
+            sync << input;
+        }
+        // ... plus edits of old messages, which is what makes the incoming list non-contiguous.
+        input.setText(u"edited"_s);
+        for (int i = 0; i < 5; ++i) {
+            input.setMessageId("db"_ba + QByteArray::number(i));
+            input.setTimeStamp(1000 + i);
+            sync << input;
+        }
+        model.addMessagesSyncAfterLoadingFromDatabase(sync);
+        QCOMPARE(model.rowCount(), 105);
+        QCOMPARE(model.index(0, 0).data(MessagesModel::MessageId).toByteArray(), "db0"_ba);
+        QCOMPARE(model.index(0, 0).data(MessagesModel::OriginalMessage).toString(), u"edited"_s);
+        QCOMPARE(model.index(49, 0).data(MessagesModel::MessageId).toByteArray(), "db49"_ba);
+        QCOMPARE(model.index(104, 0).data(MessagesModel::MessageId).toByteArray(), "sync54"_ba);
+    }
+
+    // Large batch made only of edits: no row is added or removed.
+    {
+        MessagesModel model;
+        fillModel(model, 60);
+        Message input;
+        fillTestMessage(input);
+        input.setText(u"edited"_s);
+        QList<Message> sync;
+        for (int i = 0; i < 60; ++i) {
+            input.setMessageId("db"_ba + QByteArray::number(i));
+            input.setTimeStamp(1000 + i);
+            sync << input;
+        }
+        model.addMessagesSyncAfterLoadingFromDatabase(sync);
+        QCOMPARE(model.rowCount(), 60);
+        QCOMPARE(model.index(59, 0).data(MessagesModel::OriginalMessage).toString(), u"edited"_s);
+    }
 }
 
 void MessagesModelTest::shouldUpdateFirstMessage()
@@ -323,18 +394,18 @@ void MessagesModelTest::shouldFindPrevNextMessage()
         input.setTimeStamp(timestamp);
         return input;
     };
-    messages << makeMessage(QByteArrayLiteral("msgA"), "userid1"_ba);
-    messages << makeMessage(QByteArrayLiteral("msgB"), "userid2"_ba);
-    messages << makeMessage(QByteArrayLiteral("msgC"), "userid1"_ba);
+    messages << makeMessage("msgA"_ba, "userid1"_ba);
+    messages << makeMessage("msgB"_ba, "userid2"_ba);
+    messages << makeMessage("msgC"_ba, "userid1"_ba);
     model.addMessages(messages);
 
     // WHEN/THEN
     QCOMPARE(model.findLastMessageBefore(QByteArray(), isByMe).messageId(), "msgC"_ba);
-    QCOMPARE(model.findLastMessageBefore(QByteArrayLiteral("msgC"), isByMe).messageId(), "msgA"_ba);
+    QCOMPARE(model.findLastMessageBefore("msgC"_ba, isByMe).messageId(), "msgA"_ba);
     QCOMPARE(model.findLastMessageBefore("msgA"_ba, isByMe).messageId(), QByteArray());
     QCOMPARE(model.findNextMessageAfter(QByteArray(), isByMe).messageId(), QByteArray());
     QCOMPARE(model.findNextMessageAfter("msgC"_ba, isByMe).messageId(), QByteArray());
-    QCOMPARE(model.findNextMessageAfter(QByteArrayLiteral("msgA"), isByMe).messageId(), "msgC"_ba);
+    QCOMPARE(model.findNextMessageAfter("msgA"_ba, isByMe).messageId(), "msgC"_ba);
 }
 
 #include "moc_messagesmodeltest.cpp"

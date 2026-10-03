@@ -23,7 +23,7 @@ QString Reaction::convertedUsersNameAsToolTip() const
     } else {
         QString notificationStr;
         for (int i = 0, total = mUserNames.count(); i < total; ++i) {
-            const QString user = mUserNames.at(i);
+            const QString &user = mUserNames.at(i);
             if (i == 0) {
                 notificationStr = user;
             } else if (i < (total - 1)) {
@@ -62,7 +62,7 @@ void Reaction::setReactionName(const QString &reactionName, EmojiManager *emojiM
     }
 }
 
-QStringList Reaction::userNames() const
+const QStringList &Reaction::userNames() const
 {
     return mUserNames;
 }
@@ -79,7 +79,7 @@ int Reaction::count() const
 
 bool Reaction::operator==(const Reaction &other) const
 {
-    return (mUserNames == other.userNames()) && (mReactionName == other.reactionName());
+    return (mUserNames == other.mUserNames) && (mReactionName == other.mReactionName);
 }
 
 QDebug operator<<(QDebug d, const Reaction &t)

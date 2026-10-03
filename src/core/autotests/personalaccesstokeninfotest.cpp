@@ -14,11 +14,13 @@ PersonalAccessTokenInfoTest::PersonalAccessTokenInfoTest(QObject *parent)
 
 void PersonalAccessTokenInfoTest::shouldHaveDefaultValues()
 {
-    PersonalAccessTokenInfo w;
+    const PersonalAccessTokenInfo w;
     QVERIFY(!w.bypassTwoFactor());
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.lastTokenPart().isEmpty());
     QVERIFY(!w.isValid());
+    QCOMPARE(w.createdAt(), -1);
+    QVERIFY(w.createAtDisplayDateTime().isEmpty());
 }
 
 #include "moc_personalaccesstokeninfotest.cpp"

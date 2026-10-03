@@ -31,7 +31,6 @@
 #include "dialogs/showpinnedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
-#include "dialogs/unbanusersdialog.h"
 #include "discussions/showdiscussionsdialog.h"
 #include "exportmessages/exportmessagesdialog.h"
 #include "job/unbanuserinchanneljob.h"
@@ -47,7 +46,6 @@
 
 #include "offlinewidget/offlinewidget.h"
 
-#include "otr/otrwidget.h"
 #include "reconnectinfowidget.h"
 #include "rocketchataccountsettings.h"
 #include "roomcounterinfowidget.h"
@@ -77,10 +75,10 @@
 #include <QTimeZone>
 #include <QVBoxLayout>
 
-#include "config-ruqola.h"
 #include "video-conference/videoconferencecapabilitiesjob.h"
 
 #if HAVE_TEXT_TO_SPEECH
+#include "misc/texttospeechenqueueutils.h"
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 #include <TextAddonsWidgets/OpenSavedFileFolderWidget>
@@ -100,12 +98,13 @@ RoomWidget::RoomWidget(QWidget *parent)
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
+    mainLayout->setSpacing(0);
 
     mRoomHeaderWidget->setObjectName(u"mRoomHeaderWidget"_s);
     mainLayout->addWidget(mRoomHeaderWidget);
 
     auto roomWidget = new QWidget(this);
-    mainLayout->addWidget(roomWidget);
+    mainLayout->addWidget(roomWidget, 1);
     mRoomWidgetLayout = new QVBoxLayout(roomWidget);
     mRoomWidgetLayout->setObjectName(u"roomWidgetLayout"_s);
     mRoomWidgetLayout->setContentsMargins({});
@@ -135,7 +134,9 @@ RoomWidget::RoomWidget(QWidget *parent)
 #if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(u"mTextToSpeechWidget"_s);
     mRoomWidgetLayout->addWidget(mTextToSpeechWidget);
-    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::enqueue);
+    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, this, [this](const QString &str, const TextToSpeechEnqueueInfo &info) {
+        TextToSpeechEnqueueUtils::enqueue(mTextToSpeechWidget, str, info);
+    });
 #endif
     mOpenSavedFileFolderWidget->setObjectName(u"mOpenSavedFileFolderWidget"_s);
     mRoomWidgetLayout->addWidget(mOpenSavedFileFolderWidget);
@@ -221,29 +222,17 @@ void RoomWidget::createOffLineWidget()
     mRoomWidgetLayout->insertWidget(1, mOffLineWidget);
 }
 
-// TODO using it.
-void RoomWidget::createOtrWidget()
-{
-    mOtrWidget = new OtrWidget(this);
-    mOtrWidget->setObjectName(u"mOtrWidget"_s);
-    connect(mOtrWidget, &OtrWidget::closeOtr, this, &RoomWidget::slotCloseOtr);
-    connect(mOtrWidget, &OtrWidget::refreshKeys, this, &RoomWidget::slotRefreshOtrKeys);
-    // After mUsersInRoomFlowWidget
-    mRoomWidgetLayout->insertWidget(1, mOtrWidget);
-}
-
 void RoomWidget::createE2eSaveEncryptionKeyWidget()
 {
     if (mCurrentRocketChatAccount && !mCurrentRocketChatAccount->e2eKeyManager()->keySaved()) {
         mE2eSaveEncryptionKeyWidget = new E2eSaveEncryptionKeyWidget(this);
-        mE2eSaveEncryptionKeyWidget->setObjectName(u"mE2eDecodeEncryptionKeyWidget"_s);
+        mE2eSaveEncryptionKeyWidget->setObjectName(u"mE2eSaveEncryptionKeyWidget"_s);
         connect(mE2eSaveEncryptionKeyWidget, &E2eSaveEncryptionKeyWidget::saveEncrytionKey, this, &RoomWidget::slotGenerateNewPassword);
         // After mUsersInRoomFlowWidget
         mRoomWidgetLayout->insertWidget(1, mE2eSaveEncryptionKeyWidget);
     }
 }
 
-// TODO use it
 void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
 {
     mE2eDecodeEncryptionKeyFailedWidget = new E2eDecodeEncryptionKeyFailedWidget(this);
@@ -255,11 +244,28 @@ void RoomWidget::createE2eDecodeEncryptionKeyFailedWidget()
 
 void RoomWidget::slotDecodeEncryptionKey()
 {
+    if (!mCurrentRocketChatAccount) {
+        return;
+    }
+
     QPointer<E2ePasswordDecodeKeyDialog> dlg = new E2ePasswordDecodeKeyDialog(this);
     if (dlg->exec()) {
-        // TODO we saved it => don't ask it again
         const QString password = dlg->password();
-        // TODO generate private key
+        if (mCurrentRocketChatAccount->e2eKeyManager()->decodeEncryptionKey(password)) {
+            if (mE2eDecodeEncryptionKeyWidget) {
+                mE2eDecodeEncryptionKeyWidget->animatedHide();
+            }
+            if (mE2eDecodeEncryptionKeyFailedWidget) {
+                mE2eDecodeEncryptionKeyFailedWidget->animatedHide();
+            }
+        } else {
+            if (!mE2eDecodeEncryptionKeyFailedWidget) {
+                createE2eDecodeEncryptionKeyFailedWidget();
+            }
+            mE2eDecodeEncryptionKeyFailedWidget->animatedShow();
+        }
+    } else {
+        mCurrentRocketChatAccount->e2eKeyManager()->postponeDecryption();
     }
     delete dlg;
 }
@@ -278,6 +284,10 @@ void RoomWidget::slotGenerateNewPassword()
     QPointer<E2eCopyPasswordDialog> dlg = new E2eCopyPasswordDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         mCurrentRocketChatAccount->settings()->setKeySaved(true);
+        // Retry only after an actual upload failure, otherwise this is a no-op that creates noise.
+        if (mCurrentRocketChatAccount->e2eKeyManager()->hasPendingUploadFailure() && !mCurrentRocketChatAccount->e2eKeyManager()->retryUploadGeneratedKey()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Unable to retry failed upload of generated E2E key";
+        }
         // TODO save it in kwalletmanagers ?
     }
     // Hide it.
@@ -365,11 +375,11 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::ExportMessages:
         slotExportMessages();
         break;
-    case RoomHeaderWidget::OtrMessages:
-        // TODO
-        break;
     case RoomHeaderWidget::EncryptMessages:
-        // TODO
+        slotEncryptedChanged(true);
+        break;
+    case RoomHeaderWidget::UnEncryptMessages:
+        slotEncryptedChanged(false);
         break;
     case RoomHeaderWidget::ShowBannedUsers:
         slotShowBannedUsers();
@@ -466,7 +476,7 @@ void RoomWidget::slotInviteUsers()
 
 void RoomWidget::displayUiInteractionDialog(const QJsonObject &obj)
 {
-    auto dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
+    QPointer<AutoGenerateInteractionUiDialog> dialog = new AutoGenerateInteractionUiDialog(mCurrentRocketChatAccount, this);
     if (dialog->parse(obj)) {
         dialog->exec();
     }
@@ -637,7 +647,7 @@ void RoomWidget::slotCallRequested()
             auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
             RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
             startInfo.roomId = mRoomWidgetBase->roomId();
-            startInfo.allowRinging = mRoom->hasPermission(u"videoconf-ring-users"_s);
+            startInfo.allowRinging = mRoom->hasPermission(u"videoconf-ring-users");
             job->setInfo(startInfo);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, conferenceCallInfo](const QJsonObject &obj) {
@@ -661,7 +671,7 @@ void RoomWidget::slotCallRequested()
                 }
             });
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceStartJob job";
             }
         }
         delete dlg;
@@ -719,6 +729,13 @@ void RoomWidget::dropEvent(QDropEvent *event)
 void RoomWidget::storeRoomSettings()
 {
     if (mCurrentRocketChatAccount) {
+        // When we switch account, we clear roomId and if we call select channel
+        // it will call storeRoomSettings() method with roomId is empty
+        // It will write debug about invalid line in database.
+        // => Make sure that it's not empty.
+        if (mRoomWidgetBase->roomId().isEmpty()) {
+            return;
+        }
         if (mRoomWidgetBase->messageLineWidget()->text().isEmpty() && !mRoomWidgetBase->messageLineWidget()->hasAttachments()) {
             auto *vbar = mRoomWidgetBase->messageListView()->verticalScrollBar();
             if (vbar->value() != vbar->maximum()) {
@@ -781,6 +798,9 @@ void RoomWidget::setChannelSelected(const QByteArray &roomId, Room::RoomType roo
         mRoomWidgetBase->messageLineWidget()->setPendingAttachmentInfos(currentPendingInfo.pendingAttachmentInfos);
     } else {
         mRoomWidgetBase->messageLineWidget()->setText(QString());
+        // No stored draft for this room: drop the previous room's pending attachments, otherwise they
+        // stay in the composer and get uploaded to this room on the next send.
+        mRoomWidgetBase->messageLineWidget()->setPendingAttachmentInfos({});
     }
     mRoomWidgetBase->messageLineWidget()->setMode(mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited().isEmpty()
                                                       ? MessageLineWidget::EditingMode::NewMessage
@@ -805,7 +825,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomAnnouncement(mRoom->displayAnnouncement());
         mRoomHeaderWidget->setRoomTopic(mRoom->displayTopic());
         mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
-        mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(u"edit-room"_s));
+        mRoomHeaderWidget->setEncypted(mRoom->encrypted() && mRoom->hasPermission(u"edit-room"));
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());
@@ -895,7 +915,6 @@ void RoomWidget::connectRoom()
         connect(mRoom, &Room::autoTranslateChanged, this, &RoomWidget::updateListView);
         connect(mRoom, &Room::ignoredUsersChanged, this, &RoomWidget::updateListView);
         connect(mRoom, &Room::channelCounterInfoChanged, this, &RoomWidget::slotUpdateRoomCounterInfoWidget);
-        connect(mRoom, &Room::highlightsWordChanged, this, &RoomWidget::updateListView);
     }
     slotUpdateRoomCounterInfoWidget();
     updateRoomHeader();
@@ -1218,16 +1237,6 @@ void RoomWidget::slotDisplayReconnectWidget(int seconds)
         }
         mRoomReconnectInfoWidget->setReconnectSecondDelay(seconds);
     }
-}
-
-void RoomWidget::slotCloseOtr()
-{
-    mCurrentRocketChatAccount->streamNotifyUserOtrEnd(roomId(), mCurrentRocketChatAccount->userId());
-}
-
-void RoomWidget::slotRefreshOtrKeys()
-{
-    // TODO
 }
 
 void RoomWidget::slotOfflineModeChanged()

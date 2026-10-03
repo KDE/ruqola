@@ -15,7 +15,7 @@ DownloadAppsLanguagesInfoTest::DownloadAppsLanguagesInfoTest(QObject *parent)
 
 void DownloadAppsLanguagesInfoTest::shouldHaveDefaultValues()
 {
-    DownloadAppsLanguagesInfo info;
+    const DownloadAppsLanguagesInfo info;
     QVERIFY(info.languageMap().isEmpty());
     QVERIFY(info.isEmpty());
 }

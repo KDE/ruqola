@@ -19,10 +19,10 @@ void BannedUsersTest::shouldHaveDefaultValues()
 {
     const BannedUsers w;
     QVERIFY(w.isEmpty());
-    QVERIFY(w.bannedUsers().isEmpty());
+    QVERIFY(w.list().isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);
-    QCOMPARE(w.bannedUsersCount(), 0);
+    QCOMPARE(w.loadedCount(), 0);
 }
 
 void BannedUsersTest::shouldLoadBannedUsers_data()
@@ -33,7 +33,7 @@ void BannedUsersTest::shouldLoadBannedUsers_data()
     QTest::addColumn<QList<BannedUser>>("userlist");
 
     {
-        QList<BannedUser> lst;
+        const QList<BannedUser> lst;
         QTest::addRow("bannedusers1") << u"bannedusers1"_s << 0 << 0 << lst;
     }
     {
@@ -74,9 +74,9 @@ void BannedUsersTest::shouldLoadBannedUsers()
 
     BannedUsers r;
     r.parseBannedUsers(obj);
-    QCOMPARE(r.bannedUsersCount(), bannedUsersCount);
+    QCOMPARE(r.loadedCount(), bannedUsersCount);
     QCOMPARE(r.total(), total);
-    QCOMPARE(r.bannedUsers(), userlist);
+    QCOMPARE(r.list(), userlist);
 }
 
 #include "moc_banneduserstest.cpp"

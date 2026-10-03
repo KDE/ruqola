@@ -5,7 +5,6 @@
 */
 
 #include "twitterauthjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authentication/twitterauthjob.h"
 #include "restapimethod.h"
@@ -15,6 +14,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(TwitterAuthJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 TwitterAuthJobTest::TwitterAuthJobTest(QObject *parent)
     : QObject(parent)
@@ -63,7 +63,7 @@ void TwitterAuthJobTest::shouldGenerateJson()
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"accessToken":"%1","accessTokenSecret":"%2","appId":"%3","appSecret":"%4","expiresIn":300,"serviceName":"twitter"})")
+             uR"({"accessToken":"%1","accessTokenSecret":"%2","appId":"%3","appSecret":"%4","expiresIn":300,"serviceName":"twitter"})"_s
                  .arg(accessToken, secret, appId, appSecret)
                  .toLatin1());
 }
@@ -72,19 +72,7 @@ void TwitterAuthJobTest::shouldNotStarting()
 {
     TwitterAuthJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString secret = u"secret:"_s;
     job.setSecret(secret);
     QVERIFY(!job.canStart());

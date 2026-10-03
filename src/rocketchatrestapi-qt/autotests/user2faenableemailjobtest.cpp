@@ -5,7 +5,6 @@
 */
 
 #include "user2faenableemailjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "2fa/user2faenableemailjob.h"
 #include "restapimethod.h"
@@ -16,6 +15,7 @@ using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(User2FAEnableEmailJobTest)
 using namespace RocketChatRestApi;
+using namespace Qt::Literals::StringLiterals;
 User2FAEnableEmailJobTest::User2FAEnableEmailJobTest(QObject *parent)
     : QObject(parent)
 {
@@ -41,8 +41,8 @@ void User2FAEnableEmailJobTest::shouldGenerateRequest()
 
 void User2FAEnableEmailJobTest::shouldGenerateJson()
 {
-    User2FAEnableEmailJob job;
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QByteArray("{}"));
+    const User2FAEnableEmailJob job;
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), "{}"_ba);
 }
 
 void User2FAEnableEmailJobTest::shouldNotStarting()

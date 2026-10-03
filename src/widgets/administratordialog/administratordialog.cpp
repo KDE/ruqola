@@ -9,13 +9,10 @@ using namespace Qt::Literals::StringLiterals;
 
 #include "administratorwidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -41,10 +38,7 @@ AdministratorDialog::AdministratorDialog(RocketChatAccount *account, QWidget *pa
     readConfig();
 }
 
-AdministratorDialog::~AdministratorDialog()
-{
-    writeConfig();
-}
+AdministratorDialog::~AdministratorDialog() = default;
 
 void AdministratorDialog::initialize()
 {
@@ -54,17 +48,7 @@ void AdministratorDialog::initialize()
 
 void AdministratorDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myAdministratorDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void AdministratorDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myAdministratorDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myAdministratorDialogGroupName), QSize(400, 300));
 }
 
 #include "moc_administratordialog.cpp"

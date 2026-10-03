@@ -5,13 +5,13 @@
 */
 
 #include "fetchmykeysjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 FetchMyKeysJob::FetchMyKeysJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -28,21 +28,15 @@ bool FetchMyKeysJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("Start FetchMyKeysJob");
+    addStartRestApiInfo("Start FetchMyKeysJob"_ba);
 
     return true;
 }
 
 void FetchMyKeysJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("FetchMyKeysJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT fetchMyKeysDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("FetchMyKeysJob: problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("FetchMyKeysJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT fetchMyKeysDone(*replyObject);
     }
 }
 

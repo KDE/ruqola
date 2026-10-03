@@ -21,7 +21,7 @@ MyAccountPersonalAccessCreateWidgetTest::MyAccountPersonalAccessCreateWidgetTest
 
 void MyAccountPersonalAccessCreateWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccountPersonalAccessCreateWidget w;
+    const MyAccountPersonalAccessCreateWidget w;
     auto formLayout = w.findChild<QFormLayout *>(u"formLayout"_s);
     QVERIFY(formLayout);
 

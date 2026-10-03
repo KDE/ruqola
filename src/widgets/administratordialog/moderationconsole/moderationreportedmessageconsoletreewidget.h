@@ -9,7 +9,6 @@
 #include "administratormoderationrangewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
-class QWidget;
 class ModerationMessagesModel;
 class CommonMessageFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportedMessageConsoleTreeWidget : public SearchTreeBaseWidget

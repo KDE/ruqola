@@ -16,6 +16,9 @@ public:
     ~RoomHeaderWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldCenterCollapsedHeaderItems();
+    void shouldAlignExpandedHeaderItemsWithFirstRow();
+    void shouldGrowExpandedHeaderForNarrowWidth();
     void shouldShowHideIcon();
     void shouldEmitSignal();
 };

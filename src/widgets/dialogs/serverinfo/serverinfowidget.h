@@ -20,6 +20,8 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void setServerConfigInfo(ServerConfigInfo *info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    LIBRUQOLAWIDGETS_NO_EXPORT void setCurrentIconPath(const QString &path);
     QLabel *const mAccountName;
     QLabel *const mUserName;
     QLabel *const mServerVersion;

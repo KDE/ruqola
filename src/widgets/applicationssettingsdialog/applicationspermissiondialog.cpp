@@ -8,13 +8,10 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "applicationspermissionwidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -38,13 +35,10 @@ ApplicationsPermissionDialog::ApplicationsPermissionDialog(QWidget *parent)
 
     connect(button, &QDialogButtonBox::rejected, this, &ApplicationsPermissionDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &ApplicationsPermissionDialog::accept);
-    writeConfig();
+    readConfig();
 }
 
-ApplicationsPermissionDialog::~ApplicationsPermissionDialog()
-{
-    writeConfig();
-}
+ApplicationsPermissionDialog::~ApplicationsPermissionDialog() = default;
 
 void ApplicationsPermissionDialog::setApplicationPermission(const QString &desc)
 {
@@ -53,17 +47,9 @@ void ApplicationsPermissionDialog::setApplicationPermission(const QString &desc)
 
 void ApplicationsPermissionDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void ApplicationsPermissionDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this,
+                                                             QLatin1StringView(myApplicationsSettingsApplicationsPermissionDialogGroupName),
+                                                             QSize(400, 300));
 }
 
 #include "moc_applicationspermissiondialog.cpp"

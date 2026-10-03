@@ -15,7 +15,7 @@ AuthenticationButtonTest::AuthenticationButtonTest(QObject *parent)
 
 void AuthenticationButtonTest::shouldHaveDefaultValues()
 {
-    AuthenticationButton w;
+    const AuthenticationButton w;
     QVERIFY(w.text().isEmpty());
     QVERIFY(!w.authenticationInfo().isValid());
 }

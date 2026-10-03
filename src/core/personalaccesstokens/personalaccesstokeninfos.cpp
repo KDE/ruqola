@@ -11,10 +11,11 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+QT_IMPL_METATYPE_EXTERN_TAGGED(PersonalAccessTokenInfos, Ruqola_PersonalAccessTokenInfos)
 using namespace Qt::Literals::StringLiterals;
 PersonalAccessTokenInfos::PersonalAccessTokenInfos() = default;
 
-QList<PersonalAccessTokenInfo> PersonalAccessTokenInfos::personalAccessTokenInfos() const
+const QList<PersonalAccessTokenInfo> &PersonalAccessTokenInfos::personalAccessTokenInfos() const
 {
     return mPersonalAccessTokenInfos;
 }
@@ -29,17 +30,22 @@ void PersonalAccessTokenInfos::clear()
     mPersonalAccessTokenInfos.clear();
 }
 
-PersonalAccessTokenInfo PersonalAccessTokenInfos::at(int index) const
+const PersonalAccessTokenInfo &PersonalAccessTokenInfos::at(int index) const
 {
     if (index < 0 || index >= mPersonalAccessTokenInfos.count()) {
         qCWarning(RUQOLA_LOG) << "Invalid index " << index;
-        return {};
+        static const PersonalAccessTokenInfo invalidInfo;
+        return invalidInfo;
     }
     return mPersonalAccessTokenInfos.at(index);
 }
 
 void PersonalAccessTokenInfos::removeAt(int index)
 {
+    if (index < 0 || index >= mPersonalAccessTokenInfos.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return;
+    }
     mPersonalAccessTokenInfos.removeAt(index);
 }
 
@@ -48,37 +54,37 @@ bool PersonalAccessTokenInfos::isEmpty() const
     return mPersonalAccessTokenInfos.isEmpty();
 }
 
-void PersonalAccessTokenInfos::setPersonalAccessTokenInfos(const QList<PersonalAccessTokenInfo> &tokenInfos)
+void PersonalAccessTokenInfos::setPersonalAccessTokenInfos(QList<PersonalAccessTokenInfo> tokenInfos)
 {
-    mPersonalAccessTokenInfos = tokenInfos;
+    mPersonalAccessTokenInfos = std::move(tokenInfos);
 }
 
 void PersonalAccessTokenInfos::parsePersonalAccessTokenInfos(const QJsonObject &obj)
 {
     mPersonalAccessTokenInfos.clear();
     const QJsonArray tokensArray = obj["tokens"_L1].toArray();
-    const auto tokensArrayCount = tokensArray.count();
-    mPersonalAccessTokenInfos.reserve(tokensArrayCount);
-    for (auto i = 0; i < tokensArrayCount; ++i) {
+    mPersonalAccessTokenInfos.reserve(tokensArray.count());
+    for (const auto &current : tokensArray) {
+        const QJsonObject tokenObject = current.toObject();
         PersonalAccessTokenInfo r;
-        r.parsePersonalAccessTokenInfo(tokensArray.at(i).toObject());
+        r.parsePersonalAccessTokenInfo(tokenObject);
         if (r.isValid()) {
             mPersonalAccessTokenInfos.append(std::move(r));
         } else {
-            qCWarning(RUQOLA_LOG) << "Invalid personal Access Token Info: " << tokensArray.at(i).toObject();
+            qCWarning(RUQOLA_LOG) << "Invalid personal Access Token Info: " << tokenObject;
         }
     }
 }
 
 QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t)
 {
-    for (int i = 0, total = t.personalAccessTokenInfos().count(); i < total; ++i) {
-        d.space() << t.personalAccessTokenInfos().at(i) << "\n";
+    for (const PersonalAccessTokenInfo &info : t.personalAccessTokenInfos()) {
+        d.space() << info << "\n";
     }
     return d;
 }
 
 bool PersonalAccessTokenInfos::operator==(const PersonalAccessTokenInfos &other) const
 {
-    return personalAccessTokenInfos() == other.personalAccessTokenInfos();
+    return mPersonalAccessTokenInfos == other.mPersonalAccessTokenInfos;
 }

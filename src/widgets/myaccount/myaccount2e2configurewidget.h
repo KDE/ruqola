@@ -19,8 +19,12 @@ public:
     explicit MyAccount2e2ConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2e2ConfigureWidget() override;
 
+Q_SIGNALS:
+    void forceCloseMyAccountDialog();
+
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReset2E2KeyDone(const QJsonObject &replyObject);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotReset2E2KeyFailed(const QJsonObject &errorObject);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetE2EKey();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyPassword();
     PasswordConfirmWidget *const mPasswordConfirmWidget;

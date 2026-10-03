@@ -25,10 +25,11 @@ GeneratePersonalAccessTokenJob::~GeneratePersonalAccessTokenJob() = default;
 bool GeneratePersonalAccessTokenJob::start()
 {
     if (!canStart()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GeneratePersonalAccessTokenJob: cannot start";
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GeneratePersonalAccessTokenJob::start");
+    addStartRestApiInfo("GeneratePersonalAccessTokenJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -39,7 +40,7 @@ void GeneratePersonalAccessTokenJob::onPostRequestResponse(const QString &replyE
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GeneratePersonalAccessTokenJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo("GeneratePersonalAccessTokenJob success: "_ba);
         Q_EMIT generateTokenDone(replyObject);
     } else {
         emitFailedMessage(replyErrorString, replyObject);

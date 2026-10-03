@@ -75,7 +75,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
 
 SearchTreeBaseWidget::~SearchTreeBaseWidget() = default;
 
-QString SearchTreeBaseWidget::clickableStr() const
+QString SearchTreeBaseWidget::clickableStr()
 {
     return u" <a href=\"loadmoreelement\">%1</a>"_s.arg(i18n("(Click here for Loading more…)"));
 }
@@ -100,8 +100,8 @@ void SearchTreeBaseWidget::slotLoadMoreElements()
 void SearchTreeBaseWidget::hideColumns()
 {
     if (mModel) {
-        const auto hideColumns = mModel->hideColumns();
-        for (const auto col : hideColumns) {
+        const auto currentHideColumnsList = mModel->hideColumns();
+        for (const auto col : currentHideColumnsList) {
             mTreeView->setColumnHidden(col, true);
         }
     }
@@ -122,8 +122,9 @@ void SearchTreeBaseWidget::finishSearching()
 
 void SearchTreeBaseWidget::resizeColumToContents()
 {
+    const auto excludeResizeToContentColumns = mModel->excludeResizeToContentColumns();
     for (int i = 0, total = mTreeView->header()->count(); i < total; ++i) {
-        if (!mModel->excludeResizeToContentColumns().contains(i)) {
+        if (!excludeResizeToContentColumns.contains(i)) {
             mTreeView->resizeColumnToContents(i);
         }
     }

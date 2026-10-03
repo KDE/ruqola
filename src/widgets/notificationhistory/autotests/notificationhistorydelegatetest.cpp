@@ -63,9 +63,9 @@ void NotificationHistoryDelegateTest::shouldCompareAccountInfo()
     }
 
     {
-        NotificationHistoryDelegate::RoomAccount info;
+        const NotificationHistoryDelegate::RoomAccount info;
 
-        NotificationHistoryDelegate::RoomAccount info2;
+        const NotificationHistoryDelegate::RoomAccount info2;
         QCOMPARE(info, info2);
     }
 }

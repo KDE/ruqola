@@ -6,32 +6,31 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include "translatorenginemanager.h"
 #include <QObject>
+#include <QPointer>
+namespace TextTranslator
+{
+class TranslatorEnginePlugin;
+}
 class LIBRUQOLACORE_EXPORT TranslateTextJob : public QObject
 {
     Q_OBJECT
 public:
-    struct LIBRUQOLACORE_EXPORT TranslateInfo {
-        QString from;
-        QString to;
-        QString inputText;
-        [[nodiscard]] bool isValid() const;
-    };
     explicit TranslateTextJob(QObject *parent = nullptr);
     ~TranslateTextJob() override;
 
     void translate();
 
-    [[nodiscard]] const TranslateInfo &info() const;
-    void setInfo(const TranslateInfo &newInfo);
+    [[nodiscard]] const TranslatorEngineManager::TranslateRequest &translateRequest() const;
+    void setTranslateRequest(TranslatorEngineManager::TranslateRequest newInfo);
 
 Q_SIGNALS:
-    void translateDone(const QString &translatedText);
-    void translateFailed(const QString &errorMessage = QString());
+    void translateDone(const QByteArray &messageId, const QString &translatedText);
+    void translateFailed(const QByteArray &messageId, const QString &errorMessage = QString());
 
 private:
-    LIBRUQOLACORE_NO_EXPORT void initializeTranslateEngine();
-    TranslateInfo mInfo;
+    LIBRUQOLACORE_NO_EXPORT void disconnectFromEngine();
+    TranslatorEngineManager::TranslateRequest mTranslateRequest;
+    QPointer<TextTranslator::TranslatorEnginePlugin> mTranslatorEnginePlugin;
 };
-class QDebug;
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t);

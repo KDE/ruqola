@@ -115,15 +115,19 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
         }
     });
 
-    auto pushButtonExportEncryptedPrivateKey = new QPushButton(QStringLiteral("Export Encrypted Private Key"), this);
-    mainLayout->addWidget(pushButtonExportEncryptedPrivateKey);
-    connect(pushButtonExportEncryptedPrivateKey, &QPushButton::clicked, this, [this]() {
-        if (mEncryptedPrivateKey.isEmpty()) {
-            mTextEditResult->setPlainText(QStringLiteral("Encrypted private key is empty, exporting failed!\n"));
+    // The envelope every Rocket.Chat client can read back: PBKDF2-SHA256 + AES-GCM-256, with the
+    // salt and the iteration count carried along ({"iv":…,"ciphertext":…,"salt":…,"iterations":…}).
+    auto pushButtonEncryptPrivateKeyV2 = new QPushButton(u"Encrypt Private Key (V2 envelope)"_s, this);
+    mainLayout->addWidget(pushButtonEncryptPrivateKeyV2);
+    connect(pushButtonEncryptPrivateKeyV2, &QPushButton::clicked, this, [this]() {
+        if (mRsaKeyPair.privateKey.isEmpty()) {
+            mTextEditResult->setPlainText(u"Private key is empty, V2 encryption failed!\n"_s);
+        } else if (mPassword.isEmpty()) {
+            mTextEditResult->setPlainText(u"Password is empty, V2 encryption failed! Derive the master key first.\n"_s);
         } else {
-            const auto expPrivKey = EncryptionUtils::exportJWKEncryptedPrivateKey(mEncryptedPrivateKey);
-            qDebug() << "Private Key:\n " << mRsaKeyPair.privateKey << "Exported Encrypted Private Key:\n " << expPrivKey;
-            mTextEditResult->setPlainText(QStringLiteral("Encrypted private key export succeeded!\n") + QString::fromUtf8(expPrivKey));
+            const auto envelope = EncryptionUtils::encryptPrivateKeyV2(mRsaKeyPair.privateKey, mPassword, mSalt);
+            qDebug() << "V2 encrypted private key:\n " << envelope;
+            mTextEditResult->setPlainText(u"Private key V2 encryption succeeded!\n"_s + QString::fromUtf8(envelope));
         }
     });
 
@@ -171,8 +175,13 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
         if (text.isEmpty()) {
             mTextEditResult->setPlainText(u"Text cannot be null, message encryption failed!\n"_s);
         } else {
-            mEncryptedMessage = EncryptionUtils::encryptMessage(text.toUtf8(), mSessionKey);
-            qDebug() << "Encrypted message:" << mEncryptedMessage.toBase64();
+            // The room key picks the mode, as in Rocket.Chat's Aes.encrypt(): AES-GCM-256 with a
+            // 12-byte IV for a 32-byte key, the legacy AES-CBC-128 with a 16-byte one otherwise.
+            const bool legacyCbc = mSessionKey.size() == 16;
+            mMessageIv = EncryptionUtils::generateRandomIV(legacyCbc ? 16 : 12);
+            mEncryptedMessage = legacyCbc ? EncryptionUtils::encryptAES_CBC_128(text.toUtf8(), mSessionKey, mMessageIv)
+                                          : EncryptionUtils::encryptAES_GCM_256(text.toUtf8(), mSessionKey, mMessageIv);
+            qDebug() << "Encrypted message:" << mEncryptedMessage.toBase64() << "iv:" << mMessageIv.toBase64();
             mTextEditResult->setPlainText(u"Message encryption succeeded!\n"_s + QString::fromUtf8(mEncryptedMessage.toBase64()));
             mTextEdit->clear();
         }
@@ -185,7 +194,8 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
             mTextEditResult->setPlainText(u"Encrypted message is null, message decryption failed!\n"_s);
             return;
         }
-        mDecryptedMessage = EncryptionUtils::decryptMessage(mEncryptedMessage, mSessionKey);
+        mDecryptedMessage = mSessionKey.size() == 16 ? EncryptionUtils::decryptAES_CBC_128(mEncryptedMessage, mSessionKey, mMessageIv)
+                                                     : EncryptionUtils::decryptAES_GCM_256(mEncryptedMessage, mSessionKey, mMessageIv);
         qDebug() << "Decrypted message:" << mDecryptedMessage;
         mTextEditResult->setPlainText(u"Message decryption succeeded!\n"_s + QString::fromUtf8(mDecryptedMessage));
     });
@@ -203,6 +213,7 @@ EncryptionTestGui::EncryptionTestGui(QWidget *parent)
         mSessionKey.clear();
         mEncryptedSessionKey.clear();
         mDecryptedSessionKey.clear();
+        mMessageIv.clear();
         mEncryptedMessage.clear();
         mDecryptedMessage.clear();
         qDebug() << "Master Key: " << mMasterKey << "\nsalt: " << mSalt << "\npassword: " << mPassword << "\nprivatekey: " << mRsaKeyPair.privateKey

@@ -14,6 +14,4 @@ class MultiStaticSelectLineEditProxyModel : public QSortFilterProxyModel
 public:
     explicit MultiStaticSelectLineEditProxyModel(QObject *parent = nullptr);
     ~MultiStaticSelectLineEditProxyModel() override;
-
-    void clear();
 };

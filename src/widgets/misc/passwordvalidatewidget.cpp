@@ -16,7 +16,7 @@ PasswordValidateWidget::PasswordValidateWidget(QWidget *parent)
     : QWidget{parent}
     , mGridLayout(new QGridLayout(this))
 {
-    mGridLayout->setObjectName("mGridLayout"_L1);
+    mGridLayout->setObjectName(u"mGridLayout"_s);
     mGridLayout->setContentsMargins({});
 }
 
@@ -90,6 +90,7 @@ void PasswordValidateWidget::initializeWidget()
         c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharactersCount;
         if (checks & c) {
             addLabel(c, row, col, mPasswordSettings.accountsPasswordPolicyForbidRepeatingCharactersCount);
+            updateGridPosition(row, col);
         }
         c = RuqolaServerConfig::PasswordSettings::PasswordSettingCheck::ForbidRepeatingCharacters;
         if (checks & c) {
@@ -143,11 +144,11 @@ PasswordValidateLabel::PasswordValidateLabel(QWidget *parent)
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setSpacing(0);
 
-    mIconLabel->setObjectName("mIconLabel"_L1);
-    mLabel->setObjectName("mLabel"_L1);
+    mIconLabel->setObjectName(u"mIconLabel"_s);
+    mLabel->setObjectName(u"mLabel"_s);
     mainLayout->addWidget(mIconLabel);
     mainLayout->addWidget(mLabel);
 }
@@ -187,7 +188,7 @@ void PasswordValidateLabel::setText(RuqolaServerConfig::PasswordSettings::Passwo
 
 void PasswordValidateLabel::setValidStatus(bool b)
 {
-    mIconLabel->setPixmap(b ? QIcon::fromTheme(u"data-success"_s).pixmap(18, 18) : QIcon::fromTheme(u"data-error"_s).pixmap(18, 18));
+    mIconLabel->setPixmap(QIcon::fromTheme(b ? u"data-success"_s : u"data-error"_s).pixmap(QSize(18, 18), devicePixelRatio()));
     QPalette pal = mLabel->palette();
     pal.setColor(mLabel->foregroundRole(),
                  b ? ColorsAndMessageViewStyle::self().schemeView().foreground(KColorScheme::PositiveText).color()

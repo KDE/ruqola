@@ -24,7 +24,7 @@ RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
 
 void RocketChatAccountModelTest::shouldHaveDefaultValue()
 {
-    RocketChatAccountModel w;
+    const RocketChatAccountModel w;
     // TODO
 }
 
@@ -175,7 +175,7 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
 
 void RocketChatAccountModelTest::shouldRejectInvalidIndexAccess()
 {
-    RocketChatAccountModel w;
+    const RocketChatAccountModel w;
 
     QVERIFY(!w.data(QModelIndex(), RocketChatAccountModel::Name).isValid());
     QVERIFY(w.account(-1) == nullptr);

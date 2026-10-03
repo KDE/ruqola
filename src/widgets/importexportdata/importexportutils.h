@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QString>
+class QDebug;
 namespace ImportExportUtils
 {
 struct AccountImportExportInfo {
@@ -20,7 +21,6 @@ struct AccountImportExportInfo {
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString logsPath();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString databasePath();
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString cachePath();
-};
-class QDebug;
+}
 LIBRUQOLAWIDGETS_TESTS_EXPORT QDebug operator<<(QDebug d, const ImportExportUtils::AccountImportExportInfo &t);
 Q_DECLARE_TYPEINFO(ImportExportUtils::AccountImportExportInfo, Q_RELOCATABLE_TYPE);

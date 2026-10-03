@@ -1,4 +1,4 @@
-﻿/*
+/*
    SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
@@ -6,6 +6,7 @@
 
 #include "ruqolamainwindow.h"
 
+#include "accountcredentialstore.h"
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
@@ -44,7 +45,6 @@
 #include "model/statusmodelfilterproxymodel.h"
 #include "myaccount/myaccountconfiguredialog.h"
 #include "notificationhistory/notificationhistorydialog.h"
-#include "notifications/notification.h"
 #include "notifications/notificationmanager.h"
 #include "ownuser/ownuserpreferences.h"
 #include "receivetypingnotificationmanager.h"
@@ -135,23 +135,25 @@ RuqolaMainWindow::RuqolaMainWindow(const QList<KAboutRelease> &releases, QWidget
     mSwitchChannelTreeManager->setParentWidget(mMainWidget);
     connect(mSwitchChannelTreeManager, &SwitchChannelTreeViewManager::switchToChannel, this, &RuqolaMainWindow::slotHistorySwitchChannel);
     mAccountManager = Ruqola::self()->accountManager();
-    connect(mAccountManager, &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
+    connect(mAccountManager, &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotCurrentAccountChanged);
     connect(mAccountManager, &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(mAccountManager, &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
+    connect(mAccountManager, &AccountManager::accountsChanged, this, &RuqolaMainWindow::slotAccountsChanged);
 
     connect(Ruqola::self(), &Ruqola::addInviteServer, this, &RuqolaMainWindow::slotAddInviteServer);
 #if ADD_OFFLINE_SUPPORT
     connect(Ruqola::self(), &Ruqola::offlineModeChanged, this, &RuqolaMainWindow::slotOfflineModeChanged);
 #endif
 
-    slotAccountChanged();
+    slotCurrentAccountChanged();
 #if HAVE_KUSERFEEDBACK
     auto userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
     mShowMenuBarAction->setChecked(RuqolaGlobalConfig::self()->showMenuBar());
     slotToggleMenubar(true);
+    slotAccountsChanged();
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()
@@ -251,7 +253,12 @@ void RuqolaMainWindow::slotNewNotification()
     mNotificationToolButton->show();
 }
 
-void RuqolaMainWindow::slotAccountChanged()
+void RuqolaMainWindow::slotAccountsChanged()
+{
+    mServerMenu->slotUpdateAccountMenu();
+}
+
+void RuqolaMainWindow::slotCurrentAccountChanged()
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
@@ -305,8 +312,8 @@ void RuqolaMainWindow::slotAccountChanged()
     }
     updateActions();
     slotClearNotification(); // Clear notification when we switch too.
+    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     if (mCurrentRocketChatAccount) {
-        mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
         mSwitchChannelTreeManager->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 
         mStatusComboBox->blockSignals(true);
@@ -386,17 +393,17 @@ void RuqolaMainWindow::updateActions()
 
 bool RuqolaMainWindow::canCreateChannels() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-c"_s);
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-c");
 }
 
 bool RuqolaMainWindow::canCreateDirectMessages() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-d"_s);
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-d");
 }
 
 bool RuqolaMainWindow::canCreateTeams() const
 {
-    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-team"_s);
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(u"create-team");
 }
 
 bool RuqolaMainWindow::hasBannerInfo() const
@@ -435,6 +442,20 @@ void RuqolaMainWindow::setupActions()
     KStandardActions::quit(this, &RuqolaMainWindow::slotClose, ac);
     KStandardActions::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardActions::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
+
+    auto retryWallet = new QAction(QIcon::fromTheme(u"wallet-open"_s), i18nc("@action", "Retry Wallet Access"), this);
+    retryWallet->setEnabled(false);
+    auto credentialStore = AccountCredentialStore::self();
+    connect(retryWallet, &QAction::triggered, credentialStore, &AccountCredentialStore::retry);
+    connect(credentialStore, &AccountCredentialStore::accessFailed, this, [this, retryWallet] {
+        retryWallet->setEnabled(true);
+        statusBar()->showMessage(i18n("Could not access the wallet. Password changes may not be saved. Use Tools > Retry Wallet Access to try again."));
+    });
+    connect(credentialStore, &AccountCredentialStore::retryRequested, this, [this, retryWallet] {
+        retryWallet->setEnabled(false);
+        statusBar()->clearMessage();
+    });
+    ac->addAction(u"retry_wallet_access"_s, retryWallet);
 
     mAddServer = new QAction(i18nc("@action", "Add Server…"), this);
     connect(mAddServer, &QAction::triggered, this, &RuqolaMainWindow::slotAddServer);
@@ -707,7 +728,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(u"room_favorite"_s, mRoomFavorite);
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    const QString defaultUrlPath = QStringLiteral("https://origin.cdn.kde.org/ci-builds/network/ruqola/");
+    const QString defaultUrlPath = u"https://origin.cdn.kde.org/ci-builds/network/ruqola/"_s;
     const QString stableBranch = u"2.8"_s;
     bool stableVersion = false;
 #if RUQOLA_STABLE_VERSION
@@ -916,6 +937,8 @@ void RuqolaMainWindow::slotConfigure()
 
         mAccountOverviewWidget->updateButtons();
         mNotificationManager->createSystemTray(this);
+        // Enabling the systray again creates a new (empty and hidden) status menu => fill it.
+        updateContextStatusMenu();
         Q_EMIT Ruqola::self()->translatorMenuChanged();
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
     }
@@ -976,7 +999,7 @@ void RuqolaMainWindow::slotShowPermissions()
 {
     ExplorePermissionsDialog dlg(this);
     dlg.setPermissions(mCurrentRocketChatAccount->permissions());
-    dlg.setOWnRoles(mCurrentRocketChatAccount->ownUserPermission());
+    dlg.setOwnRoles(mCurrentRocketChatAccount->ownUserPermission());
     dlg.exec();
 }
 
@@ -1011,6 +1034,7 @@ void RuqolaMainWindow::slotShowLog()
                 job->start();
             } else {
                 KMessageBox::information(this, i18n("Cannot write to log file %1", tempFile.fileName()), i18nc("@title:window", "Show Channel Log"));
+                tempFile.setAutoRemove(true);
             }
         }
     }
@@ -1029,7 +1053,8 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 
 void RuqolaMainWindow::slotDisableActions(bool loginPageActivated)
 {
-    const bool offline = mCurrentRocketChatAccount->offlineMode();
+    mLoginPageActivated = loginPageActivated;
+    const bool offline = mCurrentRocketChatAccount && mCurrentRocketChatAccount->offlineMode();
     mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels() && !offline);
     mCreateDirectMessages->setEnabled(!loginPageActivated && canCreateDirectMessages() && !offline);
     mLogout->setEnabled(!loginPageActivated);
@@ -1099,10 +1124,10 @@ void RuqolaMainWindow::slotRegisterNewUser()
     if (mCurrentRocketChatAccount) {
         dlg->setPasswordValidChecks(mCurrentRocketChatAccount->ruqolaServerConfig()->passwordSettings());
         dlg->setManuallyApproveNewUsersRequired(mCurrentRocketChatAccount->ruqolaServerConfig()->accountsManuallyApproveNewUsers());
+        connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
+            mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
+        });
     }
-    connect(dlg, &RegisterUserDialog::registerNewAccount, this, [this, dlg]() {
-        mCurrentRocketChatAccount->registerNewUser(dlg->registerUserInfo());
-    });
     dlg->exec();
     delete dlg;
 }
@@ -1203,6 +1228,15 @@ void RuqolaMainWindow::slotUpdateStatusMenu()
     }
 }
 
+void RuqolaMainWindow::updateContextStatusMenu()
+{
+    if (auto contextStatusMenu = mNotificationManager->contextStatusMenu()) {
+        contextStatusMenu->menuAction()->setVisible(!mLoginPageActivated);
+    }
+    slotUpdateCustomUserStatus();
+    slotUpdateStatusMenu();
+}
+
 void RuqolaMainWindow::slotUpdateCustomUserStatus()
 {
     mStatusProxyModel->sort(0);
@@ -1267,8 +1301,6 @@ void RuqolaMainWindow::updateHamburgerMenu()
     menu->addSeparator();
     menu->addAction(actionCollection()->action(u"configure_my_account"_s));
     menu->addSeparator();
-    menu->addAction(actionCollection()->action(u"directory"_s));
-    menu->addSeparator();
     menu->addAction(actionCollection()->action(u"logout"_s));
     menu->addSeparator();
     menu->addAction(actionCollection()->action(KStandardActions::name(KStandardActions::Quit)));
@@ -1290,6 +1322,8 @@ void RuqolaMainWindow::slotFullScreen(bool t)
     } else {
         QWidget *w = mb->cornerWidget(Qt::TopRightCorner);
         if (w) {
+            mb->setCornerWidget(nullptr, Qt::TopRightCorner);
+            w->hide();
             w->deleteLater();
         }
     }
@@ -1386,7 +1420,6 @@ void RuqolaMainWindow::slotShowLogsFile()
 {
     auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->loggerFilePath()), this);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-    job->setDeleteTemporaryFile(true);
     job->start();
 }
 
@@ -1394,7 +1427,6 @@ void RuqolaMainWindow::slotShowRestApiLogsFile()
 {
     auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->restApiLoggerFilePath()), this);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-    job->setDeleteTemporaryFile(true);
     job->start();
 }
 
@@ -1402,7 +1434,6 @@ void RuqolaMainWindow::slotShowDatabaseLogsFile()
 {
     auto job = new KIO::OpenUrlJob(QUrl::fromLocalFile(mCurrentRocketChatAccount->ruqolaLogger()->databaseLogFilePath()), this);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
-    job->setDeleteTemporaryFile(true);
     job->start();
 }
 
@@ -1437,10 +1468,10 @@ void RuqolaMainWindow::updateOfflineAction()
 #if ADD_OFFLINE_SUPPORT
     if (Ruqola::self()->offlineMode()) {
         mOfflineMode->setText(i18nc("@action", "Work Online"));
-        mOfflineMode->setIcon(QIcon::fromTheme(QStringLiteral("user-online")));
+        mOfflineMode->setIcon(QIcon::fromTheme(u"user-online"_s));
     } else {
         mOfflineMode->setText(i18nc("@action", "Work Offline"));
-        mOfflineMode->setIcon(QIcon::fromTheme(QStringLiteral("user-offline")));
+        mOfflineMode->setIcon(QIcon::fromTheme(u"user-offline"_s));
     }
 #endif
 }

@@ -5,20 +5,17 @@
 */
 
 #include "administratoroauthcreatedialog.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myConfigAdministratorOauthCreateDialogGroupName[] = "AdministratorOauthCreateDialog";
 }
+using namespace Qt::Literals::StringLiterals;
 AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
     : QDialog(parent)
     , mCreateWidget(new AdministratorOauthCreateWidget(this))
@@ -42,10 +39,7 @@ AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
     readConfig();
 }
 
-AdministratorOauthCreateDialog::~AdministratorOauthCreateDialog()
-{
-    writeConfig();
-}
+AdministratorOauthCreateDialog::~AdministratorOauthCreateDialog() = default;
 
 AdministratorOauthCreateWidget::OauthCreateInfo AdministratorOauthCreateDialog::oauthInfo() const
 {
@@ -59,17 +53,7 @@ void AdministratorOauthCreateDialog::setOauthInfo(const AdministratorOauthCreate
 
 void AdministratorOauthCreateDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void AdministratorOauthCreateDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigAdministratorOauthCreateDialogGroupName), QSize(800, 300));
 }
 
 #include "moc_administratoroauthcreatedialog.cpp"

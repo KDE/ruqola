@@ -17,7 +17,7 @@ AccountRoomSettingsTest::AccountRoomSettingsTest(QObject *parent)
 
 void AccountRoomSettingsTest::shouldHaveDefaultValues()
 {
-    AccountRoomSettings s(nullptr);
+    const AccountRoomSettings s(nullptr);
     QVERIFY(s.isEmpty());
 
     const AccountRoomSettings::PendingTypedInfo info;
@@ -72,7 +72,7 @@ void AccountRoomSettingsTest::shouldChangePendingTypedInfo()
         });
         info.pendingAttachmentInfos = lst;
         QVERIFY(info.isValid());
-        QVERIFY(!info.hasPendingMessageTyped());
+        QVERIFY(info.hasPendingMessageTyped());
     }
 }
 

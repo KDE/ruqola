@@ -27,7 +27,7 @@ bool GroupRemoveModeratorJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("GroupRemoveModeratorJob::start");
+    addStartRestApiInfo("GroupRemoveModeratorJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -35,14 +35,8 @@ bool GroupRemoveModeratorJob::start()
 
 void GroupRemoveModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("GroupRemoveModeratorJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("GroupRemoveModeratorJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT removeModeratorDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("GroupRemoveModeratorJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

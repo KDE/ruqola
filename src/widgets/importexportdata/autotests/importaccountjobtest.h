@@ -16,4 +16,6 @@ public:
     ~ImportAccountJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldImportAccount();
+    void shouldRenameDatabaseFilesWhenAccountAlreadyExists();
 };

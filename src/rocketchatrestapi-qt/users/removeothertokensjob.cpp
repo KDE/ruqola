@@ -27,20 +27,15 @@ bool RemoveOtherTokensJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RemoveOtherTokensJob::start");
+    addStartRestApiInfo("RemoveOtherTokensJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void RemoveOtherTokensJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("RemoveOtherTokensJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("RemoveOtherTokensJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT removeOtherTokensDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("RemoveOtherTokensJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

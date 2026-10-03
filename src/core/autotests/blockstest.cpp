@@ -15,7 +15,7 @@ BlocksTest::BlocksTest(QObject *parent)
 
 void BlocksTest::shouldHaveDefaultValue()
 {
-    Blocks w;
+    const Blocks w;
     QVERIFY(w.isEmpty());
     QVERIFY(w.blocks().isEmpty());
 }

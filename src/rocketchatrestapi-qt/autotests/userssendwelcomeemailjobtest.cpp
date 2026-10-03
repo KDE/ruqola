@@ -5,9 +5,7 @@
 */
 
 #include "userssendwelcomeemailjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "users/userssendwelcomeemailjob.h"
@@ -15,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersSendWelcomeEmailJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 UsersSendWelcomeEmailJobTest::UsersSendWelcomeEmailJobTest(QObject *parent)
     : QObject(parent)
@@ -45,26 +44,14 @@ void UsersSendWelcomeEmailJobTest::shouldGenerateJson()
     UsersSendWelcomeEmailJob job;
     const QString email = u"bla@kde.org"_s;
     job.setEmail(email);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"bla@kde.org"})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"email":"bla@kde.org"})"_s.toLatin1());
 }
 
 void UsersSendWelcomeEmailJobTest::shouldNotStarting()
 {
     UsersSendWelcomeEmailJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString email{u"foo"_s};
     job.setEmail(email);
     QVERIFY(job.canStart());

@@ -8,14 +8,11 @@
 
 #include "teamsearchroomwidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace
 {
 const char myTeamSearchRoomDialogConfigGroupName[] = "TeamSearchRoomDialog";
@@ -43,10 +40,7 @@ TeamSearchRoomDialog::TeamSearchRoomDialog(RocketChatAccount *account, QWidget *
     readConfig();
 }
 
-TeamSearchRoomDialog::~TeamSearchRoomDialog()
-{
-    writeConfig();
-}
+TeamSearchRoomDialog::~TeamSearchRoomDialog() = default;
 
 QList<QByteArray> TeamSearchRoomDialog::roomIds() const
 {
@@ -55,17 +49,7 @@ QList<QByteArray> TeamSearchRoomDialog::roomIds() const
 
 void TeamSearchRoomDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(400, 300));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamSearchRoomDialogConfigGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void TeamSearchRoomDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myTeamSearchRoomDialogConfigGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myTeamSearchRoomDialogConfigGroupName), QSize(400, 300));
 }
 
 #include "moc_teamsearchroomdialog.cpp"

@@ -21,7 +21,7 @@ ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
 
 void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelPasswordWidget w;
+    const ChannelPasswordWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -38,7 +38,7 @@ void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
 
 void ChannelPasswordWidgetTest::shouldEmitSignals()
 {
-    ChannelPasswordWidget w;
+    const ChannelPasswordWidget w;
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(u"mPasswordLineEdit"_s);
     QSignalSpy spy(&w, &ChannelPasswordWidget::updateOkButton);
     mPasswordLineEdit->setPassword(u"bla"_s);

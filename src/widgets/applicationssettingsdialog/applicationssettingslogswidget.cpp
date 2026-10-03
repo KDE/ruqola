@@ -19,17 +19,16 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-using namespace Qt::Literals::StringLiterals;
 ApplicationsSettingsLogsWidget::ApplicationsSettingsLogsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTextBrowser(new QTextBrowser(this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName("mainLayout"_L1);
+    mainLayout->setObjectName(u"mainLayout"_s);
     mainLayout->setContentsMargins({});
 
-    mTextBrowser->setObjectName("mTextBrowser"_L1);
+    mTextBrowser->setObjectName(u"mTextBrowser"_s);
     mainLayout->addWidget(mTextBrowser);
     mTextBrowser->setOpenExternalLinks(true);
 }
@@ -49,7 +48,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
 {
     QString message;
     // qDebug() << " obj " << obj;
-    const QJsonArray array = obj[u"logs"_s].toArray();
+    const QJsonArray array = obj["logs"_L1].toArray();
     for (const auto &log : array) {
         // qDebug() << " log " << log;
         ApplicationsSettingsLogsInfo logInfo;

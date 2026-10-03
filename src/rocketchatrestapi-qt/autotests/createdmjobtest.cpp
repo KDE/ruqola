@@ -8,7 +8,6 @@
 using namespace Qt::Literals::StringLiterals;
 
 #include "directmessage/createdmjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -45,12 +44,12 @@ void CreateDmJobTest::shouldGenerateJson()
     {
         const QString channelname = u"foo1"_s;
         job.setUserNames({channelname});
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"username":"%1"})").arg(channelname).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"username":"%1"})"_s.arg(channelname).toLatin1());
     }
     {
         const QStringList userNames = {u"foo1"_s, u"bla"_s, u"bli"_s};
         job.setUserNames(userNames);
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"usernames":"foo1,bla,bli"})").toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"usernames":"foo1,bla,bli"})"_s.toLatin1());
     }
 }
 
@@ -58,19 +57,7 @@ void CreateDmJobTest::shouldNotStarting()
 {
     CreateDmJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
     const QString username = u"foo1"_s;
     job.setUserNames({username});
     QVERIFY(job.canStart());

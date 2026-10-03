@@ -7,10 +7,33 @@
 #include "usersforroomfilterproxymodel.h"
 
 #include "usersforroommodel.h"
+#include <QAbstractProxyModel>
 
 using namespace Qt::Literals::StringLiterals;
+
+namespace
+{
+[[nodiscard]] const UsersForRoomModel *sourceUsersForRoomModel(const QAbstractItemModel *model)
+{
+    const QAbstractItemModel *currentModel = model;
+    while (currentModel) {
+        if (const auto *usersModel = qobject_cast<const UsersForRoomModel *>(currentModel)) {
+            return usersModel;
+        }
+
+        const auto *proxyModel = qobject_cast<const QAbstractProxyModel *>(currentModel);
+        if (!proxyModel) {
+            return nullptr;
+        }
+        currentModel = proxyModel->sourceModel();
+    }
+
+    return nullptr;
+}
+}
+
 UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+    : SortFilterProxyModelBase(parent)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setSortRole(UsersForRoomModel::UsersForRoomRoles::UserName);
@@ -22,22 +45,18 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel() = default;
 
 void UsersForRoomFilterProxyModel::clearFilter()
 {
+    beginFilterChange();
     mFilterString.clear();
     mStatusType = UsersForRoomFilterProxyModel::FilterUserType::All;
-}
-
-void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
-{
-    if (mFilterString != string) {
-        beginFilterChange();
-        mFilterString = string;
-        endFilterChange(QSortFilterProxyModel::Direction::Rows);
-    }
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
 }
 
 bool UsersForRoomFilterProxyModel::hasFullList() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->hasFullList();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->hasFullList();
+    }
+    return false;
 }
 
 bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
@@ -65,24 +84,33 @@ void UsersForRoomFilterProxyModel::setStatusType(UsersForRoomFilterProxyModel::F
 
 bool UsersForRoomFilterProxyModel::loadMoreUsersInProgress() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->loadMoreUsersInProgress();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->loadMoreUsersInProgress();
+    }
+    return false;
 }
 
 int UsersForRoomFilterProxyModel::total() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->total();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->total();
+    }
+    return 0;
 }
 
 int UsersForRoomFilterProxyModel::numberOfUsers() const
 {
-    return static_cast<UsersForRoomModel *>(sourceModel())->usersCount();
+    if (const auto *usersModel = sourceUsersForRoomModel(sourceModel())) {
+        return usersModel->usersCount();
+    }
+    return 0;
 }
 
 bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
     auto match = [&](int role) {
-        return mFilterString.isEmpty() || sourceIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+        return mFilterString.isEmpty() || contains(sourceIndex.data(role).toString());
     };
     switch (mStatusType) {
     case UsersForRoomFilterProxyModel::FilterUserType::All:
@@ -97,7 +125,7 @@ bool UsersForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModel
 
     if (mStatusType == UsersForRoomFilterProxyModel::FilterUserType::Owners) {
         const QStringList roles = sourceIndex.data(UsersForRoomModel::Roles).toStringList();
-        return roles.contains(u"owner"_s) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
+        return roles.contains("owner"_L1) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     } else {
         UsersForRoomFilterProxyModel::FilterUserType userStatus = UsersForRoomFilterProxyModel::FilterUserType::All;
         const User::PresenceStatus statusType = sourceIndex.data(UsersForRoomModel::Status).value<User::PresenceStatus>();

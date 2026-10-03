@@ -16,6 +16,8 @@ Permission::Permission() = default;
 
 bool Permission::parsePermission(const QJsonObject &replyObject, const QList<RoleInfo> &roleInfo, bool restApi)
 {
+    mRoles.clear();
+    mRolesStr.clear();
     // Don't store settings value.
     if (!replyObject.value("settingId"_L1).toString().isEmpty()) {
         return false;
@@ -29,17 +31,20 @@ bool Permission::parsePermission(const QJsonObject &replyObject, const QList<Rol
     const QJsonArray roleArray = replyObject.value("roles"_L1).toArray();
     const auto roleArrayCount{roleArray.count()};
     mRoles.reserve(roleArrayCount);
+    mRolesStr.reserve(roleArrayCount);
     for (int i = 0; i < roleArrayCount; ++i) {
         const QString role{roleArray.at(i).toString()};
         mRoles.append(role);
         if (roleInfo.isEmpty()) {
             mRolesStr.append(role);
         } else {
-            auto index = std::find_if(roleInfo.begin(), roleInfo.end(), [role](const RoleInfo &info) {
+            auto index = std::find_if(roleInfo.begin(), roleInfo.end(), [&role](const RoleInfo &info) {
                 return (role == info.identifier());
             });
             if (index != roleInfo.end()) {
                 mRolesStr.append((*index).name());
+            } else {
+                mRolesStr.append(role);
             }
         }
     }
@@ -88,7 +93,12 @@ const QStringList &Permission::rolesStr() const
 
 bool Permission::operator==(const Permission &other) const
 {
-    return other.roles() == roles() && other.updatedAt() == updatedAt() && other.identifier() == identifier();
+    return other.mRolesStr == mRolesStr && other.mRoles == mRoles && other.mUpdatedAt == mUpdatedAt && other.mIdentifier == mIdentifier;
+}
+
+void Permission::setRolesStr(const QStringList &newRolesStr)
+{
+    mRolesStr = newRolesStr;
 }
 
 QDebug operator<<(QDebug d, const Permission &t)

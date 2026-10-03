@@ -14,8 +14,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(OwnUser, Ruqola_OwnUser)
 using namespace Qt::Literals::StringLiterals;
 OwnUser::OwnUser() = default;
 
-OwnUser::~OwnUser() = default;
-
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {
     // qDebug() << "replyObject " << replyObject;
@@ -42,7 +40,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 
 bool OwnUser::isAdministrator() const
 {
-    return mRoles.contains(u"admin"_s);
+    return mRoles.contains("admin"_L1);
 }
 
 ServicePassword OwnUser::servicePassword() const
@@ -55,7 +53,7 @@ void OwnUser::setServicePassword(const ServicePassword &servicePassword)
     mServicePassword = servicePassword;
 }
 
-OwnUserPreferences OwnUser::ownUserPreferences() const
+const OwnUserPreferences &OwnUser::ownUserPreferences() const
 {
     return mOwnUserPreferences;
 }
@@ -115,10 +113,10 @@ QDebug operator<<(QDebug d, const OwnUser &t)
 
 bool OwnUser::operator==(const OwnUser &other) const
 {
-    return (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName()) && (mEmail == other.email())
-        && (mStatusText == other.statusText()) && (mName == other.name()) && (mAvatarUrl == other.avatarUrl()) && (mUtcOffset == other.utcOffset())
-        && (mStatusDefault == other.statusDefault()) && (mNickName == other.nickName()) && (mRoles == other.roles())
-        && (mServicePassword == other.servicePassword()) && (mOwnUserPreferences == other.ownUserPreferences());
+    return (mUserId == other.mUserId) && (mStatus == other.mStatus) && (mUserName == other.mUserName) && (mEmail == other.mEmail)
+        && (mStatusText == other.mStatusText) && (mName == other.mName) && (mAvatarUrl == other.mAvatarUrl) && (mUtcOffset == other.mUtcOffset)
+        && (mStatusDefault == other.mStatusDefault) && (mNickName == other.mNickName) && (mRoles == other.mRoles)
+        && (mServicePassword == other.mServicePassword) && (mOwnUserPreferences == other.mOwnUserPreferences);
 }
 
 QString OwnUser::email() const

@@ -30,7 +30,7 @@ bool ServerInfoJob::start()
     }
 
     submitGetRequest();
-    addStartRestApiInfo("ServerInfoJob::start");
+    addStartRestApiInfo("ServerInfoJob::start"_ba);
     return true;
 }
 

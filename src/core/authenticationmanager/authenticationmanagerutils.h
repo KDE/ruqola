@@ -19,4 +19,4 @@ namespace AuthenticationManagerUtils
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QJsonArray login(const QString &user, const QString &password);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QJsonArray sendOTP(const QString &otpCode, const QJsonObject &lastLoginPayload);
 [[nodiscard]] LIBRUQOLACORE_TESTS_EXPORT QJsonObject hashPassword(const QString &password);
-};
+}

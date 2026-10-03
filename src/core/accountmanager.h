@@ -35,8 +35,8 @@ public:
         DatabaseRoomSubscriptions = 32,
         DatabaseMessages = 64,
         DatabaseLogger = 128,
-        DatabaseWithoutLogger =
-            DatabaseMessages | DatabaseRooms | DatabaseAccounts | DatabaseGlobal | DatabaseE2E | DatabaseRoomPendingTypedInfo | DatabaseRoomSubscriptions,
+        DatabaseWithoutLogger = DatabaseMessages | DatabaseRooms | DatabaseAccounts | DatabaseGlobal | DatabaseE2E | DatabaseRoomPendingTypedInfo
+            | DatabaseRoomSubscriptions,
         All = DatabaseLogger | DatabaseWithoutLogger,
     };
     Q_DECLARE_FLAGS(MigrateDatabaseTypes, MigrateDatabaseType)
@@ -57,9 +57,7 @@ public:
                     activities.append(currentActivity);
                 }
             } else {
-                if (activities.contains(currentActivity)) {
-                    activities.removeAll(currentActivity);
-                }
+                activities.removeAll(currentActivity);
             }
             enabled = true;
         }
@@ -132,19 +130,19 @@ Q_SIGNALS:
     void currentAccountChanged();
     void roomNeedAttention();
     void activitiesChanged();
+    void accountsChanged();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void selectAccount(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void removeDatabaseAccount(const QString &accountName);
-    LIBRUQOLACORE_NO_EXPORT void removeDirectory(const QString &directory);
+    static LIBRUQOLACORE_NO_EXPORT void removeDirectory(const QString &directory);
     LIBRUQOLACORE_NO_EXPORT void removeLogs(const QString &accountName);
     LIBRUQOLACORE_NO_EXPORT void loadAccount();
     LIBRUQOLACORE_NO_EXPORT void connectToAccount(RocketChatAccount *account);
     LIBRUQOLACORE_NO_EXPORT void slotSwitchToAccountAndRoomName(const QString &accountName, const QByteArray &roomId, const QString &channelType);
-    LIBRUQOLACORE_NO_EXPORT void changeEnableState(RocketChatAccount *account, bool enabled);
     LIBRUQOLACORE_NO_EXPORT void disconnectAccount(RocketChatAccount *account);
     LIBRUQOLACORE_NO_EXPORT void slotAboutToSynthesizeChanged(qsizetype previousId, qsizetype currentId);
-    [[nodiscard]] LIBRUQOLACORE_NO_EXPORT MigrateDatabaseTypes needToHandleDataMigration() const;
+    [[nodiscard]] static LIBRUQOLACORE_NO_EXPORT MigrateDatabaseTypes needToHandleDataMigration();
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;

@@ -24,7 +24,7 @@ AdministratorRoomsEditWidgetTest::AdministratorRoomsEditWidgetTest(QObject *pare
 
 void AdministratorRoomsEditWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorRoomsEditWidget w;
+    const AdministratorRoomsEditWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

@@ -27,7 +27,7 @@
 
 using namespace Qt::Literals::StringLiterals;
 
-QString AbstractUserCheck::targetUserName() const
+QString AbstractUserCheck::targetUserName()
 {
     // A dedicated test account that isn't normally a channel member, so these checks
     // don't disrupt real users or fail because the target is already present.
@@ -146,7 +146,7 @@ void AbstractUserCheck::changeChannelLeaderUser(const QByteArray &userId, const 
         });
         connectFailure(job, callback);
         if (!job->start()) {
-            callback(false, i18n("Could not start the add moderator request."));
+            callback(false, i18n("Could not start the add leader request."));
         }
     } else {
         auto job = new RocketChatRestApi::ChannelRemoveLeaderJob(this);
@@ -158,7 +158,7 @@ void AbstractUserCheck::changeChannelLeaderUser(const QByteArray &userId, const 
         });
         connectFailure(job, callback);
         if (!job->start()) {
-            callback(false, i18n("Could not start the remove moderator request."));
+            callback(false, i18n("Could not start the remove leader request."));
         }
     }
 }

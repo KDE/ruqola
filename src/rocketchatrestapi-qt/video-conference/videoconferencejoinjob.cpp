@@ -28,7 +28,7 @@ bool VideoConferenceJoinJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("VideoConferenceJoinJob::start");
+    addStartRestApiInfo("VideoConferenceJoinJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,13 +36,8 @@ bool VideoConferenceJoinJob::start()
 
 void VideoConferenceJoinJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("VideoConferenceJoinJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT videoConferenceJoinDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("VideoConferenceJoinJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("VideoConferenceJoinJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT videoConferenceJoinDone(*replyObject);
     }
 }
 
@@ -67,7 +62,7 @@ bool VideoConferenceJoinJob::canStart() const
         return false;
     }
     if (!mInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceJoinJob: mInfo is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceJoinJob: mInfo is invalid";
         return false;
     }
     return true;

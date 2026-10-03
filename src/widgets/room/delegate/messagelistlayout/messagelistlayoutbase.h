@@ -106,6 +106,10 @@ public:
         bool showIgnoreMessage = false;
         bool sameSenderAsPreviousMessage = false;
         bool messageIsFollowing = false;
+        // The timestamp lives in the gutter and should only be painted while the row is
+        // hovered. Set solely by the Normal layout for grouped rows; other layouts leave
+        // it false so their timestamp is always drawn.
+        bool timeStampHoverOnly = false;
     };
 
     [[nodiscard]] virtual MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const = 0;
@@ -116,6 +120,7 @@ public:
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 protected:
+    [[nodiscard]] QSizeF senderTextSize(const QFont &senderFont, const QString &senderText) const;
     void generateSenderInfo(Layout &layout, const Message *message, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void generateAttachmentBlockAndUrlPreviewLayout(MessageListDelegate *delegate,
                                                     Layout &layout,
@@ -129,4 +134,8 @@ protected:
     [[nodiscard]] QString senderText(const Message *message) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
     MessageListDelegate *mDelegate = nullptr;
+
+private:
+    mutable QHash<QString, QSizeF> mSenderTextSizeCache;
+    mutable QFont mSenderTextSizeCacheFont;
 };

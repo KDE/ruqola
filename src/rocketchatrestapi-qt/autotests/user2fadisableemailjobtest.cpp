@@ -5,16 +5,15 @@
 */
 
 #include "user2fadisableemailjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "2fa/user2fadisableemailjob.h"
-#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(User2FAEnableEmailJobTest)
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 User2FAEnableEmailJobTest::User2FAEnableEmailJobTest(QObject *parent)
     : QObject(parent)
@@ -41,27 +40,15 @@ void User2FAEnableEmailJobTest::shouldGenerateRequest()
 
 void User2FAEnableEmailJobTest::shouldGenerateJson()
 {
-    User2FADisableEmailJob job;
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QByteArray("{}"));
+    const User2FADisableEmailJob job;
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), "{}"_ba);
 }
 
 void User2FAEnableEmailJobTest::shouldNotStarting()
 {
     User2FADisableEmailJob job;
 
-    RestApiMethod method;
-    method.setServerUrl(u"http://www.kde.org"_s);
-    job.setRestApiMethod(&method);
-
-    QNetworkAccessManager mNetworkAccessManager;
-    job.setNetworkAccessManager(&mNetworkAccessManager);
-    QVERIFY(!job.canStart());
-    const QString auth = u"foo"_s;
-    const QString userId = u"foo"_s;
-    job.setAuthToken(auth);
-    QVERIFY(!job.canStart());
-    job.setUserId(userId);
-    QVERIFY(!job.canStart());
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
     job.setAuthCode(u"bla"_s);
     QVERIFY(!job.canStart());

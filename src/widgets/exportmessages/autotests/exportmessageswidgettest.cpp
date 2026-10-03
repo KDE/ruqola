@@ -20,7 +20,7 @@ ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
 
 void ExportMessagesWidgetTest::shouldHaveDefaultValues()
 {
-    ExportMessagesWidget w;
+    const ExportMessagesWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 

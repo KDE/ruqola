@@ -22,7 +22,7 @@ UsersInRoomDialogTest::UsersInRoomDialogTest(QObject *parent)
 
 void UsersInRoomDialogTest::shouldHaveDefaultValues()
 {
-    UsersInRoomDialog w(nullptr);
+    const UsersInRoomDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);

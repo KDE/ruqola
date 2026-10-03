@@ -22,10 +22,16 @@ MessageAttachmentDownloadAndSaveJob::~MessageAttachmentDownloadAndSaveJob() = de
 void MessageAttachmentDownloadAndSaveJob::slotDownloadDone(const QString &path)
 {
     switch (mInfo.actionType) {
-    case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave:
-        TextAddonsWidgets::SaveFileUtils::saveFile(mInfo.parentWidget, path, saveFileString());
-        Q_EMIT mRocketChatAccount->openSavedFileFolderDone({QUrl::fromLocalFile(path)}, RocketChatAccount::FileType::File);
+    case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadAndSave: {
+        if (mProgressDialogBox) {
+            mProgressDialogBox->hide();
+        }
+        const QString file = TextAddonsWidgets::SaveFileUtils::saveFile(mInfo.parentWidget, path, saveFileString());
+        if (!file.isEmpty()) {
+            Q_EMIT mRocketChatAccount->openSavedFileFolderDone({QUrl::fromLocalFile(file)}, RocketChatAccount::FileType::File);
+        }
         break;
+    }
     case MessageAttachmentDownloadAndSaveJob::ActionType::DownloadOnly:
         Q_EMIT attachmentFileDownloadDone(path);
         break;
@@ -69,7 +75,7 @@ QString MessageAttachmentDownloadAndSaveJob::saveFileString() const
     return str;
 }
 
-void MessageAttachmentDownloadAndSaveJob::assignProgressDialogStr(QProgressDialog *progressDialog)
+void MessageAttachmentDownloadAndSaveJob::assignProgressDialogStr(QProgressDialog *progressDialog) const
 {
     switch (mInfo.attachmentType) {
     case MessageAttachmentDownloadAndSaveJob::AttachmentType::Unknown:
@@ -144,9 +150,9 @@ MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo MessageAtt
     return mInfo;
 }
 
-void MessageAttachmentDownloadAndSaveJob::setInfo(const MessageAttachmentDownloadJobInfo &newInfo)
+void MessageAttachmentDownloadAndSaveJob::setInfo(MessageAttachmentDownloadJobInfo newInfo)
 {
-    mInfo = newInfo;
+    mInfo = std::move(newInfo);
 }
 
 bool MessageAttachmentDownloadAndSaveJob::MessageAttachmentDownloadJobInfo::isValid() const

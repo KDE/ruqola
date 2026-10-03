@@ -18,7 +18,7 @@ public:
     explicit DownloadAppsLanguagesManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~DownloadAppsLanguagesManager() override;
 
-    [[nodiscard]] QString translatedString(const QString &language, const QString &id);
+    [[nodiscard]] QString translatedString(const QString &language, const QString &id) const;
     void parse();
 
     [[nodiscard]] QMap<QString, DownloadAppsLanguagesInfo> languagesAppsMap() const;

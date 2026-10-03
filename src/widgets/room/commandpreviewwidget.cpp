@@ -42,7 +42,7 @@ CommandPreviewWidget::CommandPreviewWidget(QWidget *parent)
     mListView->setFlow(QListView::LeftToRight);
     mListView->setResizeMode(QListView::Adjust);
     mListView->setWrapping(false);
-    mListView->setItemDelegate(new CommandPreviewImageDelegate(mListView, this));
+    mListView->setItemDelegate(new CommandPreviewImageDelegate(this));
     mListView->setModel(mPreviewCommandModel);
     mListView->setSpacing(2);
 
@@ -104,9 +104,19 @@ void CommandPreviewWidget::setPreviewCommandInfo(const RocketChatRestApi::Previe
             }
             slotParsePreviewCommandItems(replyObject);
         });
+        connect(job,
+                &RocketChatRestApi::PreviewsCommandJob::previewsCommandFailed,
+                this,
+                [this, requestToken](const RocketChatRestApi::PreviewsCommandJob::PreviewsCommandInfo &) {
+                    if (requestToken != mPreviewRequestToken) {
+                        return;
+                    }
+                    hidePreview();
+                });
 
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start PreviewsCommandJob job";
+            hidePreview();
         }
     }
 }
@@ -121,9 +131,9 @@ void CommandPreviewWidget::hidePreview()
 
 void CommandPreviewWidget::slotParsePreviewCommandItems(const QJsonObject &replyObject)
 {
-    const QList<PreviewCommand> commands = PreviewCommandUtils::parsePreviewJson(replyObject);
-    mPreviewCommandModel->setPreviewCommands(commands);
+    QList<PreviewCommand> commands = PreviewCommandUtils::parsePreviewJson(replyObject);
     setVisible(!commands.isEmpty());
+    mPreviewCommandModel->setPreviewCommands(std::move(commands));
     mCommandPreviewLoadingWidget->stop();
     mStackWidget->setCurrentWidget(mListView);
 }
@@ -140,7 +150,7 @@ void CommandPreviewWidget::slotDoubleClicked(const QModelIndex &index)
         .type = command.typeStr(),
     };
 
-    mPreviewCommandInfo.itemInfo = std::move(info);
+    mPreviewCommandInfo.itemInfo = info;
     setVisible(false);
     mPreviewCommandModel->clear();
     Q_EMIT sendPreviewCommandInfo(mPreviewCommandInfo);

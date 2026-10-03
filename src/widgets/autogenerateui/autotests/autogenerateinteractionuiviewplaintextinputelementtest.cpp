@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "autogenerateinteractionuiviewplaintextinputelementtest.h"
+#include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/elements/autogenerateinteractionuiviewplaintextinputelement.h"
 #include "ruqola_autogenerateui_autotest_helper.h"
 #include <QTest>
@@ -17,7 +18,7 @@ AutoGenerateInteractionUiViewPlainTextInputElementTest::AutoGenerateInteractionU
 
 void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldHaveDefaultValues()
 {
-    AutoGenerateInteractionUiViewPlainTextInputElement e;
+    const AutoGenerateInteractionUiViewPlainTextInputElement e;
     QVERIFY(!e.placeHolder());
     QVERIFY(e.initialValue().isEmpty());
     QVERIFY(!e.multiLine());
@@ -53,8 +54,12 @@ void AutoGenerateInteractionUiViewPlainTextInputElementTest::shouldLoadJson_data
         AutoGenerateInteractionUiViewPlainTextInputElement *textElement = new AutoGenerateInteractionUiViewPlainTextInputElement;
         textElement->setInitialValue("Hey, I received your message and will get back to you as soon as possible."_L1);
         textElement->setMultiLine(true);
-        textElement->setType("plain_text_input");
-        textElement->setActionId("AutoReplyMessage");
+        textElement->setType("plain_text_input"_ba);
+        textElement->setActionId("AutoReplyMessage"_ba);
+        auto placeHolder = new AutoGenerateInteractionUiViewText;
+        placeHolder->setType(AutoGenerateInteractionUiViewText::TextType::PlainText);
+        placeHolder->setText(u"Type your auto-reply message"_s);
+        textElement->setPlaceHolder(placeHolder);
         QTest::addRow("plaintextinput") << u"plaintextinput"_s << textElement;
     }
 }

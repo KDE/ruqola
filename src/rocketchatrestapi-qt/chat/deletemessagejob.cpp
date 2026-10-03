@@ -28,7 +28,7 @@ bool DeleteMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("DeleteMessageJob::start");
+    addStartRestApiInfo("DeleteMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -36,14 +36,8 @@ bool DeleteMessageJob::start()
 
 void DeleteMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("DeleteMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (checkResponse("DeleteMessageJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT deleteMessageDone();
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("DeleteMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
     }
 }
 

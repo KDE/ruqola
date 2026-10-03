@@ -32,7 +32,6 @@ public:
 
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCurrentIdChanged(int id);
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotAccepted();
 
     enum CreateSoundMessageEnum : uint8_t {
         CreateSound,

@@ -29,7 +29,7 @@ bool PostMessageJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("PostMessageJob::start");
+    addStartRestApiInfo("PostMessageJob::start"_ba);
     submitPostRequest(json());
 
     return true;
@@ -42,15 +42,19 @@ bool PostMessageJob::requireHttpAuthentication() const
 
 void PostMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("PostMessageJob success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT postMessageDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("PostMessageJob problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("PostMessageJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT postMessageDone(*replyObject);
     }
+}
+
+EncryptedInfo PostMessageJob::encryptedInfo() const
+{
+    return mEncryptedInfo;
+}
+
+void PostMessageJob::setEncryptedInfo(const EncryptedInfo &newEncryptedInfo)
+{
+    mEncryptedInfo = newEncryptedInfo;
 }
 
 QNetworkRequest PostMessageJob::request() const
@@ -113,7 +117,12 @@ QJsonDocument PostMessageJob::json() const
         }
         jsonObj["roomId"_L1] = QJsonArray::fromStringList(lst);
     }
-    jsonObj["text"_L1] = mText;
+    if (mEncryptedInfo.isValid()) {
+        jsonObj["content"_L1] = mEncryptedInfo.generateJson();
+        jsonObj["t"_L1] = u"e2e"_s;
+    } else {
+        jsonObj["text"_L1] = mText;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     // qDebug() << " postData " << postData;

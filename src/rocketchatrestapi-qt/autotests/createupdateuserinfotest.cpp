@@ -6,7 +6,6 @@
 
 #include "createupdateuserinfotest.h"
 #include "createupdateuserinfo.h"
-#include "restapimethod.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(CreateUpdateUserInfoTest)
@@ -17,7 +16,7 @@ CreateUpdateUserInfoTest::CreateUpdateUserInfoTest(QObject *parent)
 
 void CreateUpdateUserInfoTest::shouldHaveDefaultValues()
 {
-    RocketChatRestApi::CreateUpdateUserInfo info;
+    const RocketChatRestApi::CreateUpdateUserInfo info;
     QVERIFY(info.mRoles.isEmpty());
     QVERIFY(info.mUserId.isEmpty());
     QVERIFY(info.mEmail.isEmpty());

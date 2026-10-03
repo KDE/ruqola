@@ -17,7 +17,7 @@ PasswordPluginAuthenticationTest::PasswordPluginAuthenticationTest(QObject *pare
 
 void PasswordPluginAuthenticationTest::shouldHaveDefaultValue()
 {
-    PasswordPluginAuthentication w(nullptr, {});
+    const PasswordPluginAuthentication w(nullptr, {});
     QVERIFY(!w.name().isEmpty());
     QCOMPARE(w.authenticationType(), AuthenticationManager::AuthMethodType::Password);
 }

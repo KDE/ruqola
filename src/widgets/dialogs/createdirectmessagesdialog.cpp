@@ -11,13 +11,10 @@
 
 #include <KLocalizedString>
 
-#include <KConfigGroup>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -45,12 +42,8 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *accoun
     okButton->setEnabled(false);
     okButton->setText(i18nc("@action:button", "Create"));
     connect(mCreateDirectMessagesWidget, &CreateDirectMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateDirectMessagesDialog::accept);
 }
-CreateDirectMessagesDialog::~CreateDirectMessagesDialog()
-{
-    writeConfig();
-}
+CreateDirectMessagesDialog::~CreateDirectMessagesDialog() = default;
 
 QStringList CreateDirectMessagesDialog::userNames() const
 {
@@ -59,17 +52,7 @@ QStringList CreateDirectMessagesDialog::userNames() const
 
 void CreateDirectMessagesDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateDirectMessagesDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void CreateDirectMessagesDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateDirectMessagesDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigCreateDirectMessagesDialogGroupName), QSize(800, 600));
 }
 
 #include "moc_createdirectmessagesdialog.cpp"

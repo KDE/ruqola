@@ -61,12 +61,8 @@ private:
 
     [[nodiscard]] ApplicationsSettingsDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
-    [[nodiscard]] QByteArray cacheIdentifier(const QModelIndex &index) const;
+    [[nodiscard]] static QByteArray cacheIdentifier(const QModelIndex &index);
     [[nodiscard]] QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
-    // Cache SizeHint value
-    // We need to clear it when we resize widget.
-    mutable LRUCache<QByteArray, QSize> mSizeHintCache;
-    mutable LRUCache<QByteArray, std::unique_ptr<QTextDocument>> mDocumentCache;
     RocketChatAccount *const mRocketChatAccount;
 
 protected:

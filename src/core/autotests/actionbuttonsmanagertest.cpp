@@ -18,7 +18,7 @@ ActionButtonsManagerTest::ActionButtonsManagerTest(QObject *parent)
 
 void ActionButtonsManagerTest::shouldHaveDefaultValues()
 {
-    ActionButtonsManager m(nullptr);
+    const ActionButtonsManager m(nullptr);
     QVERIFY(m.actionButtons().isEmpty());
 }
 
@@ -28,14 +28,14 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
     QTest::addColumn<QList<ActionButton>>("actionButtons");
 
     {
-        QList<ActionButton> buttons;
+        const QList<ActionButton> buttons;
         QTest::addRow("actionbuttons-empty") << u"actionbuttons-empty"_s << buttons;
     }
     {
         QList<ActionButton> buttons;
         ActionButton b;
-        b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
-        b.setActionId("auto-reply-room-action-id");
+        b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6"_ba);
+        b.setActionId("auto-reply-room-action-id"_ba);
         b.setLabelI18n("auto-reply-room-action-name"_L1);
         b.setButtonContext(ActionButton::ButtonContext::RoomAction);
         b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
@@ -46,8 +46,8 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
         QList<ActionButton> buttons;
         {
             ActionButton b;
-            b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6");
-            b.setActionId("auto-reply-room-action-id");
+            b.setAppId("821cd5c6-1fb5-4d9e-8e88-e6176463efb6"_ba);
+            b.setActionId("auto-reply-room-action-id"_ba);
             b.setLabelI18n("auto-reply-room-action-name"_L1);
             b.setButtonContext(ActionButton::ButtonContext::RoomAction);
             b.setRoomTypeFilters(ActionButton::RoomTypeFilter::Direct);
@@ -55,32 +55,32 @@ void ActionButtonsManagerTest::shouldLoadActionButtons_data()
         }
         {
             ActionButton b;
-            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
-            b.setActionId("remind_me_about_this_msg_action");
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"_ba);
+            b.setActionId("remind_me_about_this_msg_action"_ba);
             b.setLabelI18n("remind_me_about_this_msg_action"_L1);
             b.setButtonContext(ActionButton::ButtonContext::MessageAction);
             buttons.append(b);
         }
         {
             ActionButton b;
-            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
-            b.setActionId("add_reminder_message_box_action");
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"_ba);
+            b.setActionId("add_reminder_message_box_action"_ba);
             b.setLabelI18n("add_reminder_message_box_action"_L1);
             b.setButtonContext(ActionButton::ButtonContext::MessageBoxAction);
             buttons.append(b);
         }
         {
             ActionButton b;
-            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
-            b.setActionId("show_my_reminders_room_action");
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"_ba);
+            b.setActionId("show_my_reminders_room_action"_ba);
             b.setLabelI18n("show_my_reminders_room_action"_L1);
             b.setButtonContext(ActionButton::ButtonContext::RoomAction);
             buttons.append(b);
         }
         {
             ActionButton b;
-            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8");
-            b.setActionId("manage_all_reminders_room_action");
+            b.setAppId("7a8cd36b-5f7b-4177-bd7f-bfc9be908bf8"_ba);
+            b.setActionId("manage_all_reminders_room_action"_ba);
             b.setLabelI18n("manage_all_reminders_room_action"_L1);
             b.setButtonContext(ActionButton::ButtonContext::RoomAction);
             b.setHasOneRole({"admin"_L1, "owner"_L1});

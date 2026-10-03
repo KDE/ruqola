@@ -99,6 +99,10 @@ void AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged()
 
 void AutoTranslateConfigureWidget::setRoom(Room *room)
 {
+    if (mRoom) {
+        disconnect(mRoom, &Room::autoTranslateChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateChanged);
+        disconnect(mRoom, &Room::autoTranslateLanguageChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged);
+    }
     mRoom = room;
     connect(mRoom, &Room::autoTranslateChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateChanged);
     connect(mRoom, &Room::autoTranslateLanguageChanged, this, &AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged);

@@ -31,7 +31,6 @@
 #include "room/delegate/messagedelegatehelpercontext.h"
 #include "room/delegate/messagedelegatehelperdivider.h"
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
-#include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
 #include "room/roomutil.h"
 #include "ruqola_delegate_lastunseedline_debug.h"
@@ -69,10 +68,12 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mPinIcon(QIcon::fromTheme(u"pin"_s))
     , mTranslatedIcon(QIcon::fromTheme(u"translate"_s))
     , mReplyInThreadIcon(QIcon::fromTheme(u"view-conversation-balloon-symbolic"_s))
-    , mEncryptedIcon(QIcon::fromTheme(u"document-encrypt"_s))
+    , mEncryptedIcon(QIcon(u":/messages_icons/icons/document-encrypted-symbolic.svg"_s))
     , mTextToSpeechIcon(QIcon::fromTheme(u"player-volume"_s))
     , mSingleCheckIcon(QIcon(u":/messages_icons/icons/single-check.svg"_s))
     , mDoubleCheckIcon(QIcon(u":/messages_icons/icons/double-check.svg"_s))
+    , mVisibilityIcon(QIcon::fromTheme(u"visibility"_s))
+    , mHintIcon(QIcon::fromTheme(u"hint"_s))
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
     , mHelperText(new MessageDelegateHelperText(account, view, mTextSelectionImpl))
@@ -242,13 +243,12 @@ void MessageListDelegate::setSearchText(const QString &newSearchText)
     }
 }
 
-void MessageListDelegate::drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const
+void MessageListDelegate::drawLastSeenLine(QPainter *painter, int displayLastSeenY, const QStyleOptionViewItem &option)
 {
     qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG) << "Draw last unseed line";
     const QPen origPen = painter->pen();
-    const int lineY = displayLastSeenY;
     painter->setPen(Qt::red);
-    painter->drawLine(option.rect.x(), lineY, option.rect.width(), lineY);
+    painter->drawLine(option.rect.left(), displayLastSeenY, option.rect.right(), displayLastSeenY);
     painter->setPen(origPen);
 }
 
@@ -262,7 +262,11 @@ MessageDelegateHelperText *MessageListDelegate::helperText() const
     return mHelperText.data();
 }
 
-void MessageListDelegate::drawModerationDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QString &roomName) const
+void MessageListDelegate::drawModerationDate(QPainter *painter,
+                                             const QModelIndex &index,
+                                             const QStyleOptionViewItem &option,
+                                             const QString &roomName,
+                                             bool drawLastSeenLine)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -272,15 +276,20 @@ void MessageListDelegate::drawModerationDate(QPainter *painter, const QModelInde
     const QRect dateTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, dateSize, dateAreaRect);
     painter->drawText(dateTextRect, dateAndRoomNameStr);
     const int lineY = (dateAreaRect.top() + dateAreaRect.bottom()) / 2;
-    QColor lightColor(painter->pen().color());
-    lightColor.setAlpha(60);
-    painter->setPen(lightColor);
+    if (drawLastSeenLine) {
+        qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG) << "Draw last unseed line on moderation date" << dateAndRoomNameStr;
+        painter->setPen(Qt::red);
+    } else {
+        QColor lightColor(painter->pen().color());
+        lightColor.setAlpha(60);
+        painter->setPen(lightColor);
+    }
     painter->drawLine(dateAreaRect.left(), lineY, dateTextRect.left() - margin, lineY);
     painter->drawLine(dateTextRect.right() + margin, lineY, dateAreaRect.right(), lineY);
     painter->setPen(origPen);
 }
 
-void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine) const
+void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine)
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -319,12 +328,12 @@ void MessageListDelegate::needUpdateIndexBackground(const QPersistentModelIndex 
 {
     removeNeedUpdateIndexBackground(index);
     const IndexBackgroundColor back{.index = index, .color = color};
-    mIndexBackgroundColorList.append(std::move(back));
+    mIndexBackgroundColorList.append(back);
 }
 
 void MessageListDelegate::removeNeedUpdateIndexBackground(const QPersistentModelIndex &index)
 {
-    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
+    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [&index](const IndexBackgroundColor &key) {
         return key.index == index;
     });
     if (it != mIndexBackgroundColorList.cend()) {
@@ -339,7 +348,7 @@ void MessageListDelegate::removeMessageCache(const Message *message)
     mHelperText->removeMessageCache(messageId);
 
     if (message->attachments()) {
-        const auto attachments{message->attachments()->messageAttachments()};
+        const auto &attachments = message->attachments()->messageAttachments();
         for (const auto &attachment : attachments) {
             mHelperAttachmentImage->removeMessageDescriptionTitleCache(attachment);
             mHelperAttachmentFile->removeMessageDescriptionTitleCache(attachment);
@@ -350,7 +359,7 @@ void MessageListDelegate::removeMessageCache(const Message *message)
     }
     if (mPreviewEmbed) {
         if (message->urls()) {
-            const auto messageUrls{message->urls()->messageUrls()};
+            const auto &messageUrls = message->urls()->messageUrls();
             for (const auto &url : messageUrls) {
                 mHelperUrlPreview->removeMessageCache(url.urlId());
             }
@@ -386,7 +395,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
         const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
         Q_ASSERT(message);
         if (message->attachments()) {
-            const auto attachments = message->attachments()->messageAttachments();
+            const auto &attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             for (const MessageAttachment &msgAttach : attachments) {
                 MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
@@ -402,7 +411,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
 
         if (mPreviewEmbed) {
             if (message->urls()) {
-                const auto urlsMessage = message->urls()->messageUrls();
+                const auto &urlsMessage = message->urls()->messageUrls();
                 int messageUrlIndex = 0;
                 for (const MessageUrl &messageUrl : urlsMessage) {
                     url = mHelperUrlPreview->urlAt(option, messageUrl, layout.messageUrlsRectList.at(messageUrlIndex), pos);
@@ -428,18 +437,19 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
     if (layout.senderRect.contains(info.pos) && !layout.sameSenderAsPreviousMessage) {
         QMenu menu;
         auto userInfoAction = new QAction(QIcon::fromTheme(u"documentinfo"_s), i18n("User Info"), &menu);
-        connect(userInfoAction, &QAction::triggered, this, [message, this]() {
-            Q_EMIT showUserInfo(message->username());
+        const QString userName = message->username();
+        connect(userInfoAction, &QAction::triggered, this, [userName, this]() {
+            Q_EMIT showUserInfo(userName);
         });
 
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
-                if (mRocketChatAccount->hasPermission(u"create-d"_s) && !mRocketChatAccount->offlineMode()) {
+                if (mRocketChatAccount->hasPermission(u"create-d") && !mRocketChatAccount->offlineMode()) {
                     menu.addSeparator();
                     auto startPrivateConversationAction =
                         new QAction(QIcon::fromTheme(u"document-send-symbolic"_s), i18nc("@action", "Start a Private Conversation"), &menu);
-                    connect(startPrivateConversationAction, &QAction::triggered, this, [this, message]() {
-                        Q_EMIT startPrivateConversation(message->username());
+                    connect(startPrivateConversationAction, &QAction::triggered, this, [this, userName]() {
+                        Q_EMIT startPrivateConversation(userName);
                     });
                     menu.addAction(startPrivateConversationAction);
                 }
@@ -454,8 +464,10 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
         QMenu menu;
         const bool isTranslated = message->showTranslatedMessage();
         auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
-        connect(translateAction, &QAction::triggered, this, [this, index, isTranslated]() {
-            Q_EMIT translateMessage(index, !isTranslated);
+        connect(translateAction, &QAction::triggered, this, [this, index = QPersistentModelIndex(index), isTranslated]() {
+            if (index.isValid()) {
+                Q_EMIT translateMessage(index, !isTranslated);
+            }
         });
         menu.addAction(translateAction);
         menu.exec(info.globalPos);
@@ -475,7 +487,7 @@ void MessageListDelegate::attachmentContextMenu(const QStyleOptionViewItem &opti
     }
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
     if (message->attachments()) {
-        const auto attachments = message->attachments()->messageAttachments();
+        const auto &attachments = message->attachments()->messageAttachments();
         int attachmentIdx = 0;
         for (const MessageAttachment &msgAttach : attachments) {
             MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
@@ -513,7 +525,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
 
-    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [index](const IndexBackgroundColor &key) {
+    auto it = std::find_if(mIndexBackgroundColorList.cbegin(), mIndexBackgroundColorList.cend(), [&index](const IndexBackgroundColor &key) {
         return key.index == index;
     });
     QColor goToMessageBackgroundColor;
@@ -522,7 +534,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
     if (message->textToSpeechInProgress()) {
         painter->fillRect(option.rect, mTextToSpeechInProgressColor);
-    } else if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
+    } else if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor.alpha() != 0) {
         painter->fillRect(option.rect, goToMessageBackgroundColor);
     } else if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);
@@ -541,7 +553,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Draw date if it differs from the previous message
     const bool displayLastSeenMessage = index.data(MessagesModel::DisplayLastSeenMessage).toBool();
     if (message->moderationMessage() && !message->moderationMessage()->isEmpty()) {
-        drawModerationDate(painter, index, option, message->moderationMessage()->roomName());
+        drawModerationDate(painter, index, option, message->moderationMessage()->roomName(), displayLastSeenMessage);
     } else if (index.data(MessagesModel::DateDiffersFromPrevious).toBool()) {
         if (displayLastSeenMessage) {
             qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG)
@@ -550,11 +562,17 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         drawDate(painter, index, option, displayLastSeenMessage);
     } else if (displayLastSeenMessage) {
         qCDebug(RUQOLA_NOTIFICATION_DELEGATE_LAST_UNSEENLINE_WIDGETS_LOG) << "Draw last unseed line displayLastSeenMessage: " << message->text();
-        drawLastSeenLine(painter, layout.displayLastSeenMessageY, option);
+        drawLastSeenLine(painter, qRound(layout.displayLastSeenMessageY), option);
     }
 
-    // Timestamp
-    DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
+    // Timestamp. Normally drawn at its laid-out position; only the Normal layout's
+    // grouped rows mark it gutter/hover-only, in which case it appears while the row is
+    // hovered. Gate on the actual hover state (not the background-highlight preference,
+    // which only controls the row fill), so the time still appears when that is off.
+    const bool showTimestamp = !layout.timeStampHoverOnly || message->hoverHighlight();
+    if (showTimestamp) {
+        DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
+    }
 
     // Message
     if (layout.textRect.isValid()) {
@@ -570,7 +588,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Draw the pixmap
     if (mRocketChatAccount->displayAvatars() && !layout.sameSenderAsPreviousMessage) {
 #if USE_ROUNDED_RECT_PIXMAP
-        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.size()), layout.avatarPos, layout.avatarPixmap);
+        DelegatePaintUtil::createClipRoundedRectangle(painter, QRectF(layout.avatarPos, layout.avatarPixmap.deviceIndependentSize()), layout.avatarPixmap);
 #else
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 #endif
@@ -617,26 +635,39 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
-    if (message->unread()) {
-        mSingleCheckIcon.paint(painter, layout.readReceiptIconRect);
-    } else {
-        mDoubleCheckIcon.paint(painter, layout.readReceiptIconRect);
+    if (mRocketChatAccount->ruqolaServerConfig()->messageReadReceiptEnabled()) {
+        // A read receipt only carries meaning for one's own messages in a direct conversation:
+        // in rooms "read by everyone" rarely resolves so the per-message flag is just noise, and
+        // the flag only tracks read state at all when the server-side feature is enabled.
+        const Room *room = mRocketChatAccount->room(message->roomId());
+        const bool ownMessageInDirectRoom = room && room->channelType() == Room::RoomType::Direct && message->userId() == mRocketChatAccount->userId();
+        // The read receipt follows the timestamp: on the author line for a new sender,
+        // and suppressed for grouped rows (null rect) where the timestamp is gutter-only.
+        if (showTimestamp && layout.readReceiptIconRect.isValid() && ownMessageInDirectRoom) {
+            if (message->unread()) {
+                mSingleCheckIcon.paint(painter, layout.readReceiptIconRect);
+            } else {
+                mDoubleCheckIcon.paint(painter, layout.readReceiptIconRect);
+            }
+        }
     }
 
     // Draw encrypted icon
-    // TODO implement encrypted message
     if (message->isEncryptedMessage()) {
         mEncryptedIcon.paint(painter, layout.encryptedIconRect);
     }
 
     if (MessageDelegateUtils::showIgnoreMessages(index)) {
-        const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? u"visibility"_s : u"hint"_s);
-        hideShowIcon.paint(painter, layout.showIgnoredMessageIconRect);
+        if (layout.showIgnoreMessage) {
+            mVisibilityIcon.paint(painter, layout.showIgnoredMessageIconRect);
+        } else {
+            mHintIcon.paint(painter, layout.showIgnoredMessageIconRect);
+        }
     }
 
     // Attachments
     if (message->attachments()) {
-        const auto attachments = message->attachments()->messageAttachments();
+        const auto &attachments = message->attachments()->messageAttachments();
         int attachmentIdx = 0;
         int attachmentActionsIdx = 0;
         for (const MessageAttachment &att : attachments) {
@@ -652,18 +683,18 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             }
             ++attachmentIdx;
             if (att.hasMessageAttachmentActions()) {
-                mHelperAttachmentActions.get()->draw(att.messageAttachmentActions(),
-                                                     painter,
-                                                     layout.attachmentsActionRectList.at(attachmentActionsIdx),
-                                                     index,
-                                                     option);
+                mHelperAttachmentActions->draw(att.messageAttachmentActions(),
+                                               painter,
+                                               layout.attachmentsActionRectList.at(attachmentActionsIdx),
+                                               index,
+                                               option);
                 ++attachmentActionsIdx;
             }
         }
     }
     // Blocks
     if (message->blocks()) {
-        const auto blocks = message->blocks()->blocks();
+        const auto &blocks = message->blocks()->blocks();
         int blockIndex = 0;
         for (const Block &block : blocks) {
             const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
@@ -683,12 +714,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (mPreviewEmbed) {
         // Preview Url
         if (message->urls()) {
-            const QList<MessageUrl> messageUrls = message->urls()->messageUrls();
+            const QList<MessageUrl> &messageUrls = message->urls()->messageUrls();
             int messageUrlIndex = 0;
             for (const MessageUrl &messageUrl : messageUrls) {
-                if (messageUrl.hasPreviewUrl()) {
+                if (messageUrl.hasRichPreview()) {
                     // qDebug() << "messageUrl  " << messageUrl;
-                    mHelperUrlPreview.get()->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
+                    mHelperUrlPreview->draw(messageUrl, painter, layout.messageUrlsRectList.at(messageUrlIndex), index, option);
                 }
                 ++messageUrlIndex;
             }
@@ -724,7 +755,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // debug painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
     if (!isSystemMessage(message) && message->hoverHighlight() && mEmojiMenuEnabled) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
-        mReplyInThreadIcon.paint(painter, layout.replyToThreadRect, Qt::AlignCenter);
+        if (!message->isEncryptedMessage()) {
+            mReplyInThreadIcon.paint(painter, layout.replyToThreadRect, Qt::AlignCenter);
+        }
 #if HAVE_TEXT_TO_SPEECH
         if (RuqolaGlobalConfig::self()->enableTextToSpeech()) {
             mTextToSpeechIcon.paint(painter, layout.textToSpeechIconRect, Qt::AlignCenter);
@@ -740,7 +773,7 @@ void MessageListDelegate::clearSizeHintCache()
     mSizeHintCache.clear();
 }
 
-QByteArray MessageListDelegate::cacheIdentifier(const QModelIndex &index) const
+QByteArray MessageListDelegate::cacheIdentifier(const QModelIndex &index)
 {
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
@@ -778,12 +811,12 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     return size;
 }
 
-bool MessageListDelegate::isSystemMessage(const Message *message) const
+bool MessageListDelegate::isSystemMessage(const Message *message)
 {
     const Message::MessageType messageType = message->messageType();
-    const bool isSystemMessage = (messageType == Message::EncryptedText) || (messageType == Message::System)
-        || (messageType == Message::Information) /* || (messageType == Message::VideoConference)*/;
-    return isSystemMessage || message->privateMessage();
+    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) /* || (messageType == Message::VideoConference)*/;
+    const bool isEncrypted = messageType == Message::EncryptedText && !message->hasDescriptedContent();
+    return isEncrypted || isSystemMessage || message->privateMessage();
 }
 
 bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -797,14 +830,16 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
         if (!isSystemMessage(message) && mEmojiMenuEnabled && !mRocketChatAccount->offlineMode()) {
             if (layout.addReactionRect.contains(mev->pos())) {
-                auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
-                mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-                mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
-                mEmoticonMenuWidget->forceLineEditFocus();
-                RoomUtil::positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
-                mEmoticonMenuWidget->show();
-                connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, message](const QString &id) {
-                    mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
+                auto emoticonMenuWidget = new EmoticonMenuWidget(mListView);
+                emoticonMenuWidget->setWindowFlag(Qt::Popup);
+                emoticonMenuWidget->setAttribute(Qt::WA_DeleteOnClose);
+                emoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
+                emoticonMenuWidget->forceLineEditFocus();
+                RoomUtil::positionPopup(mev->globalPosition().toPoint(), mListView, emoticonMenuWidget);
+                emoticonMenuWidget->show();
+                const QByteArray messageId = message->messageId();
+                connect(emoticonMenuWidget, &EmoticonMenuWidget::insertEmojiIdentifier, this, [this, messageId](const QString &id) {
+                    mRocketChatAccount->reactOnMessage(messageId, id, true /*add*/);
                 });
                 return true;
             } else if (layout.replyToThreadRect.contains(mev->pos())) {
@@ -869,6 +904,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
 
         if (message->attachments()) {
+            // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
             const auto attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             int attachmentActionsIdx = 0;
@@ -891,6 +927,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
 
         if (message->blocks()) {
+            // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
             const auto blocks = message->blocks()->blocks();
             int blockIndex = 0;
             for (const Block &block : blocks) {
@@ -903,6 +940,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         }
         if (mPreviewEmbed) {
             if (auto urls = message->urls()) {
+                // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
                 const auto messageUrls = urls->messageUrls();
                 int messageUrlsIndex = 0;
                 for (const MessageUrl &url : messageUrls) {
@@ -923,6 +961,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
             const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
             if (auto messageAttachments = message->attachments()) {
+                // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
                 const auto attachments = messageAttachments->messageAttachments();
                 int attachmentIdx = 0;
                 for (const MessageAttachment &att : attachments) {
@@ -935,6 +974,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
             if (mPreviewEmbed) {
                 if (auto urls = message->urls()) {
+                    // Deliberate copy: the helpers called below can mutate the model (setData) and destroy the message's list.
                     const auto messageUrls = urls->messageUrls();
                     int messageUrlsIndex = 0;
                     for (const MessageUrl &url : messageUrls) {
@@ -960,6 +1000,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     const Message *message = index.data(MessagesModel::MessagePointer).value<Message *>();
     {
         if (message->attachments()) {
+            // Deliberate copy: maybeStartDrag() runs a nested event loop, the message's list can be replaced meanwhile.
             const auto attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             for (const MessageAttachment &att : attachments) {
@@ -974,6 +1015,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     {
         if (mPreviewEmbed) {
             if (auto messageUrls = message->urls()) {
+                // Deliberate copy: maybeStartDrag() runs a nested event loop, the message's list can be replaced meanwhile.
                 const auto urls = messageUrls->messageUrls();
                 int i = 0;
                 for (const MessageUrl &url : urls) {
@@ -1067,7 +1109,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         }
         // Attachments
         if (message->attachments()) {
-            const auto attachments = message->attachments()->messageAttachments();
+            const auto &attachments = message->attachments()->messageAttachments();
             int attachmentIdx = 0;
             for (const MessageAttachment &att : attachments) {
                 MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
@@ -1083,7 +1125,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 
         // Block
         if (message->blocks()) {
-            const auto blocks = message->blocks()->blocks();
+            const auto &blocks = message->blocks()->blocks();
             int blockIndex = 0;
             for (const Block &block : blocks) {
                 MessageBlockDelegateHelperBase *helper = blocksHelper(block);
@@ -1100,7 +1142,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         if (mPreviewEmbed) {
             // messageurls
             if (message->urls()) {
-                const auto messageUrls = message->urls()->messageUrls();
+                const auto &messageUrls = message->urls()->messageUrls();
                 int messageUrlsIndex = 0;
                 for (const MessageUrl &url : messageUrls) {
                     if (layout.messageUrlsRectList.at(messageUrlsIndex).contains(helpEventPos)
@@ -1138,9 +1180,6 @@ void MessageListDelegate::switchMessageLayout()
     switch (RuqolaGlobalConfig::self()->messageStyle()) {
     case RuqolaGlobalConfig::EnumMessageStyle::Normal:
         mMessageListLayoutBase = new MessageListNormalLayout(this);
-        break;
-    case RuqolaGlobalConfig::EnumMessageStyle::Cozy:
-        mMessageListLayoutBase = new MessageListCozyLayout(this);
         break;
     case RuqolaGlobalConfig::EnumMessageStyle::Compact:
         mMessageListLayoutBase = new MessageListCompactLayout(this);

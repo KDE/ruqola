@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "customsound/customsoundinfo.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 class CustomSoundsManager;

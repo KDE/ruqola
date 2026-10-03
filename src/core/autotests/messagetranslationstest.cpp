@@ -16,7 +16,7 @@ MessageTranslationsTest::MessageTranslationsTest(QObject *parent)
 
 void MessageTranslationsTest::shouldHaveDefaultValues()
 {
-    MessageTranslations t;
+    const MessageTranslations t;
     QVERIFY(t.translatedString().isEmpty());
     QVERIFY(t.isEmpty());
 }

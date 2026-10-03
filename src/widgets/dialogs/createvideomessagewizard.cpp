@@ -8,16 +8,13 @@
 
 #include "createvideomessagewidget.h"
 #include "showvideowidget.h"
-#include <KConfigGroup>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 namespace
 {
@@ -35,20 +32,14 @@ CreateVideoMessageWizard::CreateVideoMessageWizard(RocketChatAccount *account, Q
     readConfig();
     connect(this, &CreateVideoMessageWizard::currentIdChanged, this, &CreateVideoMessageWizard::slotCurrentIdChanged);
     setButtonText(QWizard::FinishButton, i18nc("@action:button", "Send"));
-    connect(this, &CreateVideoMessageWizard::finished, this, &CreateVideoMessageWizard::slotAccepted);
+    connect(this, &QWizard::finished, this, [this](int) {
+        mCreateVideoMessagePage->saveSettings();
+    });
+
     mCreateVideoMessagePage->loadSettings();
 }
 
-CreateVideoMessageWizard::~CreateVideoMessageWizard()
-{
-    writeConfig();
-}
-
-void CreateVideoMessageWizard::slotAccepted()
-{
-    mCreateVideoMessagePage->saveSettings();
-    accept();
-}
+CreateVideoMessageWizard::~CreateVideoMessageWizard() = default;
 
 void CreateVideoMessageWizard::slotCurrentIdChanged(int id)
 {
@@ -68,17 +59,7 @@ CreateVideoMessageWizard::CreateVideoMessageInfo CreateVideoMessageWizard::video
 
 void CreateVideoMessageWizard::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateVideoMessageWizardGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
-}
-
-void CreateVideoMessageWizard::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myConfigCreateVideoMessageWizardGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myConfigCreateVideoMessageWizardGroupName), QSize(800, 600));
 }
 
 CreateVideoMessagePage::CreateVideoMessagePage(QWidget *parent)
@@ -179,7 +160,7 @@ QDebug operator<<(QDebug d, const CreateVideoMessageWizard::CreateVideoMessageIn
 {
     d.space() << "mDescription " << t.mDescription;
     d.space() << "mFileName " << t.mFileName;
-    d.space() << "mDescription " << t.mDescription;
+    d.space() << "mFileUrl " << t.mFileUrl;
     return d;
 }
 

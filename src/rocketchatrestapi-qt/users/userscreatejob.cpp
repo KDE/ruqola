@@ -30,20 +30,15 @@ bool UsersCreateJob::start()
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("UsersCreateJob::start");
+    addStartRestApiInfo("UsersCreateJob::start"_ba);
     submitPostRequest(json());
     return true;
 }
 
 void UsersCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    const QJsonObject replyObject = replyJson.object();
-    if (replyObject["success"_L1].toBool()) {
-        addLoggerInfo("UsersCreateJob: success: "_ba + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersCreateDone(replyObject);
-    } else {
-        emitFailedMessage(replyErrorString, replyObject);
-        addLoggerWarning("UsersCreateJob: Problem: "_ba + replyJson.toJson(QJsonDocument::Indented));
+    if (const auto replyObject = checkResponse("UsersCreateJob"_ba, replyErrorString, replyJson)) {
+        Q_EMIT usersCreateDone(*replyObject);
     }
 }
 

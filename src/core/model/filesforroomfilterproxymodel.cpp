@@ -8,7 +8,7 @@
 #include "filesforroommodel.h"
 
 FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel, QObject *parent)
-    : QSortFilterProxyModel(parent)
+    : SortFilterProxyModelBase(parent)
     , mFilesForRoomModel(fileModel)
 {
     setSourceModel(mFilesForRoomModel);
@@ -25,15 +25,6 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fi
 }
 
 FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel() = default;
-
-void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
-{
-    if (mSearchText != string) {
-        beginFilterChange();
-        mSearchText = string;
-        endFilterChange(QSortFilterProxyModel::Direction::Rows);
-    }
-}
 
 int FilesForRoomFilterProxyModel::total() const
 {
@@ -71,20 +62,19 @@ void FilesForRoomFilterProxyModel::setTypeGroup(const QString &typeGroup)
 
 bool FilesForRoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
-    const QString fileName = sourceIndex.data(FilesForRoomModel::FileName).toString();
-    const QString username = sourceIndex.data(FilesForRoomModel::UserName).toString();
-
-    if (mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
+    if (mFilterString.isEmpty() && mTypeGroup.isEmpty()) {
         return true;
     } else {
-        const bool indexContains = fileName.contains(mSearchText) || username.contains(mSearchText);
-        if (!mSearchText.isEmpty() && mTypeGroup.isEmpty()) {
+        const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+        const QString fileName = sourceIndex.data(FilesForRoomModel::FileName).toString();
+        const QString username = sourceIndex.data(FilesForRoomModel::UserName).toString();
+        const bool indexContains = contains(fileName) || contains(username);
+        if (!mFilterString.isEmpty() && mTypeGroup.isEmpty()) {
             return indexContains;
         }
         if (!mTypeGroup.isEmpty()) {
-            return (mTypeGroup == typegroup) && (indexContains);
+            const QString typegroup = sourceIndex.data(FilesForRoomModel::TypeGroup).toString();
+            return (mTypeGroup == typegroup) && indexContains;
         }
     }
     return false;

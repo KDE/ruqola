@@ -27,7 +27,7 @@ RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
 
 void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 {
-    RuqolaCentralWidget w({});
+    const RuqolaCentralWidget w({});
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainlayout"_s);
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "encryptedinfo.h"
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
@@ -30,16 +31,20 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
+    [[nodiscard]] EncryptedInfo encryptedInfo() const;
+    void setEncryptedInfo(const EncryptedInfo &newEncryptedInfo);
+
 Q_SIGNALS:
     void postMessageDone(const QJsonObject &replyObject);
 
 protected:
     [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;
     [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &details) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QList<QByteArray> mRoomIds;
     QString mText;
+    EncryptedInfo mEncryptedInfo;
 };
 }

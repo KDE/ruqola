@@ -8,13 +8,10 @@
 
 #include "usersinroomwidget.h"
 
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
-#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-#include <QWindow>
+#include <TextAddonsWidgets/LoadDialogSizeUtils>
 
 using namespace Qt::Literals::StringLiterals;
 namespace
@@ -40,29 +37,16 @@ UsersInRoomDialog::UsersInRoomDialog(RocketChatAccount *account, QWidget *parent
     readConfig();
 }
 
-UsersInRoomDialog::~UsersInRoomDialog()
-{
-    writeConfig();
-}
+UsersInRoomDialog::~UsersInRoomDialog() = default;
 
 void UsersInRoomDialog::setRoom(Room *room)
 {
     mUsersInRoomWidget->setRoom(room);
 }
 
-void UsersInRoomDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myUsersInRoomDialogGroupName));
-    KWindowConfig::saveWindowSize(windowHandle(), group);
-}
-
 void UsersInRoomDialog::readConfig()
 {
-    create(); // ensure a window is created
-    windowHandle()->resize(QSize(800, 600));
-    const KConfigGroup group(KSharedConfig::openStateConfig(), QLatin1StringView(myUsersInRoomDialogGroupName));
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
-    resize(windowHandle()->size()); // workaround for QTBUG-40584
+    TextAddonsWidgets::LoadDialogSizeUtils::manageDialogSize(this, QLatin1StringView(myUsersInRoomDialogGroupName), QSize(800, 600));
 }
 
 #include "moc_usersinroomdialog.cpp"

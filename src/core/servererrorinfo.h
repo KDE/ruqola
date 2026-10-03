@@ -14,7 +14,6 @@ class LIBRUQOLACORE_EXPORT ServerErrorInfo
     Q_GADGET
 public:
     ServerErrorInfo();
-    ~ServerErrorInfo();
 
     [[nodiscard]] QString accountName() const;
     void setAccountName(const QString &newAccountName);

@@ -64,16 +64,17 @@ void FileUploadCheck::checkState()
     }
     const int rows = model->rowCount();
     for (int row = 0; row < rows; ++row) {
-        const QByteArray messageId = model->messageIdFromIndex(row);
-        const Message message = model->findMessageById(messageId);
+        const Message &message = model->messageAt(row);
         if (message.pendingMessage() || !message.attachments()) {
             continue;
         }
-        const QList<MessageAttachment> attachments = message.attachments()->messageAttachments();
+        const QList<MessageAttachment> &attachments = message.attachments()->messageAttachments();
         for (const MessageAttachment &attachment : attachments) {
             if (attachment.title() != mFileName && !attachment.link().contains(mFileName)) {
                 continue;
             }
+            // Copy the id out before report*(): the reference points into the model's message list.
+            const QByteArray messageId = message.messageId();
             if (attachment.attachmentType() == MessageAttachment::AttachmentType::File) {
                 reportPassed();
             } else {

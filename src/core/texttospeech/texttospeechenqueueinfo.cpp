@@ -9,8 +9,6 @@
 
 TextToSpeechEnqueueInfo::TextToSpeechEnqueueInfo() = default;
 
-TextToSpeechEnqueueInfo::~TextToSpeechEnqueueInfo() = default;
-
 QByteArray TextToSpeechEnqueueInfo::roomId() const
 {
     return mRoomId;
@@ -43,7 +41,7 @@ void TextToSpeechEnqueueInfo::setAccountName(const QString &newAccountName)
 
 bool TextToSpeechEnqueueInfo::operator==(const TextToSpeechEnqueueInfo &other) const
 {
-    return mRoomId == other.roomId() && mAccountName == other.accountName() && mMessageId == other.messageId();
+    return mRoomId == other.mRoomId && mAccountName == other.mAccountName && mMessageId == other.mMessageId;
 }
 
 bool TextToSpeechEnqueueInfo::isValid() const
