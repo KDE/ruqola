@@ -452,7 +452,7 @@ if(NOT USE_DBUS)
 endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-ecm_set_disabled_deprecation_versions(QT 6.13.0
+ecm_set_disabled_deprecation_versions(QT 6.12.0
     KF 6.30.0
 )
 
