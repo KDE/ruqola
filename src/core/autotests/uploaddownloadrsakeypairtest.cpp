@@ -46,6 +46,4 @@ void UploadDownloadRsaKeyPairTest::uploadDownloadCompare()
     QVERIFY(testPassed);
 }
 
-#include "uploaddownloadrsakeypairtest.moc"
-
 #include "moc_uploaddownloadrsakeypairtest.cpp"
