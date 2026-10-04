@@ -58,7 +58,7 @@ void GitHubAuthenticationJob::start()
     google->setScope("email");
     google->setAuthorizationUrl(authUri);
     google->setClientIdentifier(clientId);
-    google->setAccessTokenUrl(tokenUri);
+    google->setTokenUrl(tokenUri);
     google->setClientIdentifierSharedKey(clientSecret);
 
     // Use the same port number as above
@@ -111,8 +111,8 @@ void GitHubAuthenticationJob::start()
     mOAuth2->setClientIdentifier(mGitHubInfo.clientId);
     mOAuth2->setReplyHandler(replyHandler);
     mOAuth2->setAuthorizationUrl(GitHubAuthenticationSettings::authorizeUrl());
-    mOAuth2->setAccessTokenUrl(GitHubAuthenticationSettings::accessTokenUrl());
-    mOAuth2->setScope(u"openid"_s);
+    mOAuth2->setTokenUrl(GitHubAuthenticationSettings::accessTokenUrl());
+    mOAuth2->setRequestedScopeTokens({"openid"_ba});
     mOAuth2->setToken(mGitHubInfo.token);
     mOAuth2->setRefreshToken(mGitHubInfo.refreshToken);
 
@@ -125,13 +125,13 @@ void GitHubAuthenticationJob::start()
             doRequest();
             QTimer::singleShot(std::max<qint64>(5 * 60 * 1000, QDateTime::currentDateTime().secsTo(mOAuth2->expirationAt()) * 800),
                                mOAuth2,
-                               &QOAuth2AuthorizationCodeFlow::refreshAccessToken);
+                               &QOAuth2AuthorizationCodeFlow::refreshTokens);
         }
     });
     QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizationCallbackReceived, this, [](const QVariantMap &m) {
         qCDebug(RUQOLA_GITHUBAUTHENTICATION_PLUGIN_LOG) << "auth callback received" << m;
     });
-    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::error, this, [](const QString &err, const QString &desc) {
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::serverReportedErrorOccurred, this, [](const QString &err, const QString &desc) {
         qCDebug(RUQOLA_GITHUBAUTHENTICATION_PLUGIN_LOG) << "error" << err << desc;
     });
     QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizeWithBrowser, this, &QDesktopServices::openUrl);
@@ -139,7 +139,7 @@ void GitHubAuthenticationJob::start()
     if (mOAuth2->refreshToken().isEmpty()) {
         mOAuth2->grant();
     } else if (!mOAuth2->expirationAt().isValid() || mOAuth2->expirationAt() < QDateTime::currentDateTimeUtc()) {
-        mOAuth2->refreshAccessToken();
+        mOAuth2->refreshTokens();
     }
 }
 

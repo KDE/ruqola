@@ -50,8 +50,8 @@ void GitLabAuthenticationJob::start()
     mOAuth2->setClientIdentifier(mGitLabInfo.clientId);
     mOAuth2->setReplyHandler(replyHandler);
     mOAuth2->setAuthorizationUrl(QUrl(u"https://gitlab.com/login/oauth/authorize"_s));
-    mOAuth2->setAccessTokenUrl(QUrl(u"https://gitlab.com/login/oauth/access_token"_s));
-    mOAuth2->setScope(u"openid"_s);
+    mOAuth2->setTokenUrl(QUrl(u"https://gitlab.com/login/oauth/access_token"_s));
+    mOAuth2->setRequestedScopeTokens({"openid"_ba});
 
     mOAuth2->setToken(mGitLabInfo.token);
     mOAuth2->setRefreshToken(mGitLabInfo.refreshToken);
@@ -65,13 +65,13 @@ void GitLabAuthenticationJob::start()
             doRequest();
             QTimer::singleShot(std::max<qint64>(5 * 60 * 1000, QDateTime::currentDateTime().secsTo(mOAuth2->expirationAt()) * 800),
                                mOAuth2,
-                               &QOAuth2AuthorizationCodeFlow::refreshAccessToken);
+                               &QOAuth2AuthorizationCodeFlow::refreshTokens);
         }
     });
     QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizationCallbackReceived, this, [](const QVariantMap &m) {
         qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "auth callback received" << m;
     });
-    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::error, this, [](const QString &err, const QString &desc) {
+    QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::serverReportedErrorOccurred, this, [](const QString &err, const QString &desc) {
         qCDebug(RUQOLA_GITLABAUTHENTICATION_PLUGIN_LOG) << "error" << err << desc;
     });
     QObject::connect(mOAuth2, &QOAuth2AuthorizationCodeFlow::authorizeWithBrowser, this, &QDesktopServices::openUrl);
@@ -79,7 +79,7 @@ void GitLabAuthenticationJob::start()
     if (mOAuth2->refreshToken().isEmpty()) {
         mOAuth2->grant();
     } else if (!mOAuth2->expirationAt().isValid() || mOAuth2->expirationAt() < QDateTime::currentDateTimeUtc()) {
-        mOAuth2->refreshAccessToken();
+        mOAuth2->refreshTokens();
     }
 }
 
