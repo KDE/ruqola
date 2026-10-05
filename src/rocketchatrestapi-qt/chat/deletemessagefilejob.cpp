@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -87,7 +88,7 @@ QNetworkRequest DeleteMessageFileJob::request() const
 
 QString DeleteMessageFileJob::jobName() const
 {
-    return u"Delete File Message"_s;
+    return i18n("Delete File Message");
 }
 
 #include "moc_deletemessagefilejob.cpp"
