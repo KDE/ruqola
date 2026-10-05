@@ -298,6 +298,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                             if (tempFile.open()) {
                                 QTextStream stream(&tempFile);
                                 stream << msg;
+                                stream.flush();
                                 tempFile.close();
 
                                 QFile f(tempFile.fileName());
