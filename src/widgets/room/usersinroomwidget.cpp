@@ -177,7 +177,7 @@ void UsersInRoomWidget::updateLabel()
     if (usersForRoomModel && usersForRoomModel->loadMoreUsersInProgress()) {
         mMessageListInfo->setText(i18n("Loading…"));
     } else {
-        mMessageListInfo->setText((usersForRoomModel && usersForRoomModel->usersCount() > 0) ? displayShowMessageInRoom() : i18n("No Message found"));
+        mMessageListInfo->setText((usersForRoomModel && usersForRoomModel->usersCount() > 0) ? displayShowMessageInRoom() : i18n("No User found"));
     }
 }
 
