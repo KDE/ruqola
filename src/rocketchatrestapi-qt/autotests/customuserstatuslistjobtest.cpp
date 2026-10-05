@@ -5,11 +5,12 @@
 */
 
 #include "customuserstatuslistjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "custom/customuserstatuslistjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(CustomUserStatusListJobTest)
 using namespace RocketChatRestApi;

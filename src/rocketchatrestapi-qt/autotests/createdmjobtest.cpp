@@ -5,13 +5,14 @@
 */
 
 #include "createdmjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directmessage/createdmjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(CreateDmJobTest)
 using namespace RocketChatRestApi;

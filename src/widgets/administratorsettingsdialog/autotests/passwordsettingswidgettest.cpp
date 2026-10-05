@@ -5,7 +5,6 @@
 */
 
 #include "passwordsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
 #include "settingswidgetshelper.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PasswordSettingsWidgetTest)
 PasswordSettingsWidgetTest::PasswordSettingsWidgetTest(QObject *parent)
     : QObject{parent}

@@ -5,13 +5,14 @@
 */
 
 #include "groupsdeletejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupsdeletejob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GroupsDeleteJobTest)
 using namespace RocketChatRestApi;

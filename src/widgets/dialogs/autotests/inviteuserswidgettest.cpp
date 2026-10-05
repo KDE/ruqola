@@ -5,7 +5,6 @@
 */
 
 #include "inviteuserswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/inviteuserswidget.h"
 #include <KCollapsibleGroupBox>
@@ -17,6 +16,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(InviteUsersWidgetTest)
 
 InviteUsersWidgetTest::InviteUsersWidgetTest(QObject *parent)

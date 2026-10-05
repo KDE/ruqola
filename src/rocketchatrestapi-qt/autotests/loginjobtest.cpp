@@ -5,12 +5,13 @@
 */
 
 #include "loginjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authentication/loginjob.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(LoginJobTest)
 

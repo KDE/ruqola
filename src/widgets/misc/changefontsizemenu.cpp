@@ -5,13 +5,14 @@
 */
 
 #include "changefontsizemenu.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QGuiApplication>
 #include <QMenu>
+
+using namespace Qt::Literals::StringLiterals;
 
 ChangeFontSizeMenu::ChangeFontSizeMenu(QObject *parent)
     : KActionMenu{parent}

@@ -5,7 +5,6 @@
 */
 
 #include "bannerinfolistsearchlinewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfodialog/bannerinfolistsearchlinewidget.h"
 #include <QCheckBox>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(BannerInfoListSearchLineWidgetTest)
 BannerInfoListSearchLineWidgetTest::BannerInfoListSearchLineWidgetTest(QObject *parent)

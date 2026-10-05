@@ -5,10 +5,11 @@
 */
 
 #include "systemmessagesmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include <KLocalizedString>
+
+using namespace Qt::Literals::StringLiterals;
 
 SystemMessagesModel::SystemMessagesModel(QObject *parent)
     : QStandardItemModel(parent)

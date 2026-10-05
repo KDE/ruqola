@@ -5,7 +5,6 @@
 */
 
 #include "inputtextmanager.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/commandsmodelfilterproxymodel.h"
 #include "model/emoticonfilterproxymodel.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchataccount.h"
 
 #include "ruqola_completion_debug.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)

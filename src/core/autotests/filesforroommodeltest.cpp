@@ -5,11 +5,12 @@
 */
 
 #include "filesforroommodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/filesforroommodel.h"
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(FilesForRoomModelTest)
 

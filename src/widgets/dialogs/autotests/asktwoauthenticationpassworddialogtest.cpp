@@ -5,7 +5,6 @@
 */
 
 #include "asktwoauthenticationpassworddialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/asktwoauthenticationpassworddialog.h"
 #include "dialogs/asktwoauthenticationpasswordwidget.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AskTwoAuthenticationPasswordDialogTest)
 AskTwoAuthenticationPasswordDialogTest::AskTwoAuthenticationPasswordDialogTest(QObject *parent)
     : QObject(parent)

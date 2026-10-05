@@ -5,7 +5,6 @@
 */
 
 #include "messagemaximumsizedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messagemaximumsizedialog/messagemaximumsizedialog.h"
 #include "messagemaximumsizedialog/messagemaximumsizewidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(MessageMaximumSizeDialogTest)
 
 MessageMaximumSizeDialogTest::MessageMaximumSizeDialogTest(QObject *parent)

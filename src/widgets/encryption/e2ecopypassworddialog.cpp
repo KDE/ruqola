@@ -5,13 +5,14 @@
 */
 
 #include "e2ecopypassworddialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2ecopypasswordwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 E2eCopyPasswordDialog::E2eCopyPasswordDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

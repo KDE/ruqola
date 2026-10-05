@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationssettingssearchwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsdialog/applicationssettingscategoriescombobox.h"
 #include "applicationssettingsdialog/applicationssettingspricecombobox.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ApplicationsSettingsSearchWidgetTest)
 ApplicationsSettingsSearchWidgetTest::ApplicationsSettingsSearchWidgetTest(QObject *parent)
     : QObject{parent}

@@ -5,7 +5,6 @@
 */
 
 #include "removepersonalaccesstokenjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "personalaccesstoken/removepersonalaccesstokenjob.h"
 #include "restapimethod.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RemovePersonalAccessTokenJobTest)
 using namespace RocketChatRestApi;

@@ -5,13 +5,15 @@
 */
 
 #include "userdatadownloadwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/userdatadownload/userdatadownloadwidget.h"
 #include "settingswidgetshelper.h"
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(UserDataDownloadWidgetTest)
 
 UserDataDownloadWidgetTest::UserDataDownloadWidgetTest(QObject *parent)

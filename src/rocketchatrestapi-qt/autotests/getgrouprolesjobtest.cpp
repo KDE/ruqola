@@ -5,11 +5,12 @@
 */
 
 #include "getgrouprolesjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "groups/getgrouprolesjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GetGroupRolesJobTest)
 using namespace RocketChatRestApi;

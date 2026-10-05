@@ -5,7 +5,6 @@
 */
 
 #include "resetpassworddialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/resetpassworddialog.h"
 #include "dialogs/resetpasswordwidget.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ResetPasswordDialogTest)
 ResetPasswordDialogTest::ResetPasswordDialogTest(QObject *parent)

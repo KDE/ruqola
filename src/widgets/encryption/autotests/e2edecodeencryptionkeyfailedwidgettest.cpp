@@ -5,11 +5,13 @@
 */
 
 #include "e2edecodeencryptionkeyfailedwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
 #include <QAction>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(E2eDecodeEncryptionKeyFailedWidgetTest)
 E2eDecodeEncryptionKeyFailedWidgetTest::E2eDecodeEncryptionKeyFailedWidgetTest(QObject *parent)
     : QObject{parent}

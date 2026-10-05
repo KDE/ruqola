@@ -5,13 +5,15 @@
 */
 
 #include "createvideomessagewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/createvideomessagewidget.h"
 #include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CreateVideoMessageWidgetTest)
 
 CreateVideoMessageWidgetTest::CreateVideoMessageWidgetTest(QObject *parent)

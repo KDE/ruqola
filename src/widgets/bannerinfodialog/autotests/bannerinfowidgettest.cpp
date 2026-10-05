@@ -5,11 +5,13 @@
 */
 
 #include "bannerinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfodialog/bannerinfowidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(BannerInfoWidgetTest)
 BannerInfoWidgetTest::BannerInfoWidgetTest(QObject *parent)
     : QObject{parent}

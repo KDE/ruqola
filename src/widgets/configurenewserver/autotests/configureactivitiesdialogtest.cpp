@@ -5,7 +5,6 @@
 */
 
 #include "configureactivitiesdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configurenewserver/configureactivitiesdialog.h"
 #include "configurenewserver/configureactivitieswidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfigureActivitiesDialogTest)
 ConfigureActivitiesDialogTest::ConfigureActivitiesDialogTest(QObject *parent)
     : QObject{parent}

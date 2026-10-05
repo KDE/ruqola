@@ -5,13 +5,14 @@
 */
 
 #include "e2edisabledialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "encryption/e2edisabledialog.h"
 #include "encryption/e2edisablewidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(E2eDisableDialogTest)
 

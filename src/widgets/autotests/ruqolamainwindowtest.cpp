@@ -5,7 +5,6 @@
 */
 
 #include "ruqolamainwindowtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/statuscombobox.h"
 #include "ruqolamainwindow.h"
@@ -16,6 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(RuqolaMainWindowTest)
 

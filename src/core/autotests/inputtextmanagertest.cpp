@@ -5,7 +5,6 @@
 */
 
 #include "inputtextmanagertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "inputtextmanager.h"
 #include "model/inputcompletermodel.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(InputTextManagerTest)
 
 InputTextManagerTest::InputTextManagerTest(QObject *parent)

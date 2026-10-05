@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationssettingsaskapplicationdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsaskapplicationwidget.h"
 #include <KLocalizedString>
@@ -12,6 +11,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {

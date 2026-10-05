@@ -5,7 +5,6 @@
 */
 
 #include "moderationreporteduserconsoletreewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/moderationconsole/moderationmessagesdialog.h"
 #include "administratordialog/moderationconsole/moderationusersdialog.h"
@@ -28,6 +27,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QMenu>
 #include <QTreeView>
+
+using namespace Qt::Literals::StringLiterals;
 
 ModerationReportedUserConsoleTreeWidget::ModerationReportedUserConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)

@@ -5,13 +5,14 @@
 */
 
 #include "channelremoveleaderjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelremoveleaderjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ChannelRemoveLeaderJobTest)
 using namespace RocketChatRestApi;

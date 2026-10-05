@@ -5,7 +5,6 @@
 */
 
 #include "createnewdiscussionwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelsearchwidget.h"
 #include "dialogs/createnewdiscussionwidget.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(CreateNewDiscussionWidgetTest)
 

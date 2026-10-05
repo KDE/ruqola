@@ -4,13 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exportdataselectaccountpagetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/exportdata/exportdataselectaccountlistwidget.h"
 #include "importexportdata/exportdata/exportdataselectaccountpage.h"
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ExportDataSelectAccountPageTest)
 ExportDataSelectAccountPageTest::ExportDataSelectAccountPageTest(QObject *parent)

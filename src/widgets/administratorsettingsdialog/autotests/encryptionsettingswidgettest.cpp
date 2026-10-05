@@ -5,12 +5,13 @@
 */
 
 #include "encryptionsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(EncryptionSettingsWidgetTest)
 EncryptionSettingsWidgetTest::EncryptionSettingsWidgetTest(QObject *parent)

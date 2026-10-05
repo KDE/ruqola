@@ -4,13 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "ratelimiterwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}

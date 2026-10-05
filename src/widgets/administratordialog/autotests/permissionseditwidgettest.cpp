@@ -5,13 +5,15 @@
 */
 
 #include "permissionseditwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/permissions/permissionseditwidget.h"
 #include "misc/rolescombobox.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PermissionsEditWidgetTest)
 PermissionsEditWidgetTest::PermissionsEditWidgetTest(QObject *parent)
     : QObject(parent)

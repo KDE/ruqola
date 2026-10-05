@@ -5,13 +5,15 @@
 */
 
 #include "passwordlineeditwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordlineeditwidget.h"
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PasswordLineEditWidgetTest)
 PasswordLineEditWidgetTest::PasswordLineEditWidgetTest(QObject *parent)
     : QObject(parent)

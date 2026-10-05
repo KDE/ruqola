@@ -5,7 +5,6 @@
 */
 
 #include "createnewserverdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "config-ruqola.h"
 #include "configurenewserver/createnewserverstackwidget.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {

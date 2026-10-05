@@ -5,7 +5,6 @@
 */
 
 #include "uploadfiledialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/uploadfiledialog.h"
 #include "dialogs/uploadfilewidget.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(UploadFileDialogTest)
 
 UploadFileDialogTest::UploadFileDialogTest(QObject *parent)

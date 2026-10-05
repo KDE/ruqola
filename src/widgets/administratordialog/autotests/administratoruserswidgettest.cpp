@@ -4,13 +4,15 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoruserswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/users/administratoruserswidget.h"
 #include <QLineEdit>
 #include <QTest>
 #include <QTreeView>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorUsersWidgetTest)
 
 AdministratorUsersWidgetTest::AdministratorUsersWidgetTest(QObject *parent)

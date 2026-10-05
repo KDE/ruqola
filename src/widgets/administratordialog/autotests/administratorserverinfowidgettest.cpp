@@ -5,7 +5,6 @@
 */
 
 #include "administratorserverinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/serverinfo/administratorserverinfowidget.h"
 #include <KTreeWidgetSearchLineWidget>
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QTreeWidget>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorServerInfoWidgetTest)
 AdministratorServerInfoWidgetTest::AdministratorServerInfoWidgetTest(QObject *parent)
     : QObject(parent)

@@ -5,13 +5,15 @@
 */
 
 #include "myaccountpersonalaccesstokenconfigurewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccountpersonalaccesstokenconfigurewidget.h"
 #include "myaccount/myaccountpersonalaccesstokentreeview.h"
 #include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(MyAccountPersonalAccessTokenConfigureWidgetTest)
 MyAccountPersonalAccessTokenConfigureWidgetTest::MyAccountPersonalAccessTokenConfigureWidgetTest(QObject *parent)
     : QObject{parent}

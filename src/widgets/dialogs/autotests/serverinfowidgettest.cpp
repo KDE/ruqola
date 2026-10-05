@@ -5,12 +5,14 @@
 */
 
 #include "serverinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/serverinfo/serverinfowidget.h"
 #include <QFormLayout>
 #include <QLabel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ServerInfoWidgetTest)
 ServerInfoWidgetTest::ServerInfoWidgetTest(QWidget *parent)
     : QWidget(parent)

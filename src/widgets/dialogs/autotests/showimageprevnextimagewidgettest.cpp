@@ -5,12 +5,13 @@
 */
 
 #include "showimageprevnextimagewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showimageprevnextimagewidget.h"
 #include <QHBoxLayout>
 #include <QTest>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ShowImagePrevNextImageWidgetTest)
 ShowImagePrevNextImageWidgetTest::ShowImagePrevNextImageWidgetTest(QObject *parent)

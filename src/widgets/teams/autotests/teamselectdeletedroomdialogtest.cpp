@@ -5,7 +5,6 @@
 */
 
 #include "teamselectdeletedroomdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamselectdeletedroomdialog.h"
 #include "teams/teamselectdeletedroomwidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(TeamSelectDeletedRoomDialogTest)
 
 TeamSelectDeletedRoomDialogTest::TeamSelectDeletedRoomDialogTest(QObject *parent)

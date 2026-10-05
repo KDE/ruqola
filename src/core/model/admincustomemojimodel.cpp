@@ -5,12 +5,13 @@
 */
 
 #include "admincustomemojimodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QIcon>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdminCustomEmojiModel::AdminCustomEmojiModel(RocketChatAccount *account, QObject *parent)
     : CustomBaseModel(parent)

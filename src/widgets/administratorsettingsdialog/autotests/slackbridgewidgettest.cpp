@@ -5,13 +5,15 @@
 */
 
 #include "slackbridgewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/slackbridge/slackbridgewidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QPlainTextEdit>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(SlackBridgeWidgetTest)
 SlackBridgeWidgetTest::SlackBridgeWidgetTest(QObject *parent)
     : QObject{parent}

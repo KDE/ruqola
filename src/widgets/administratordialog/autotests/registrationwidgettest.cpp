@@ -5,11 +5,13 @@
 */
 
 #include "registrationwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/registration/registrationwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(RegistrationWidgetTest)
 RegistrationWidgetTest::RegistrationWidgetTest(QObject *parent)
     : QObject{parent}

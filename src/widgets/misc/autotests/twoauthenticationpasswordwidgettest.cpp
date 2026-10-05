@@ -5,13 +5,15 @@
 */
 
 #include "twoauthenticationpasswordwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/twoauthenticationpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(TwoAuthenticationPasswordWidgetTest)
 
 TwoAuthenticationPasswordWidgetTest::TwoAuthenticationPasswordWidgetTest(QObject *parent)

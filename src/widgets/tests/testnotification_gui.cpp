@@ -5,10 +5,12 @@
 */
 
 #include "notificationwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QCommandLineParser>
+
+using namespace Qt::Literals::StringLiterals;
+
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);

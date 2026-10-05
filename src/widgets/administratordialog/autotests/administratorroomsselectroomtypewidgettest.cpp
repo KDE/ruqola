@@ -5,12 +5,14 @@
 */
 
 #include "administratorroomsselectroomtypewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/rooms/administratorroomsselectroomtypewidget.h"
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorRoomsSelectRoomTypeWidgetTest)
 
 AdministratorRoomsSelectRoomTypeWidgetTest::AdministratorRoomsSelectRoomTypeWidgetTest(QObject *parent)

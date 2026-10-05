@@ -5,13 +5,15 @@
 */
 
 #include "roleeditdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/roles/roleeditdialog.h"
 #include "administratordialog/roles/roleeditwidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(RoleEditDialogTest)
 RoleEditDialogTest::RoleEditDialogTest(QObject *parent)
     : QObject{parent}

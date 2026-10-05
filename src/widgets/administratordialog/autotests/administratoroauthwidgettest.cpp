@@ -5,13 +5,15 @@
 */
 
 #include "administratoroauthwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/oauth/administratoroauthwidget.h"
 #include "administratordialog/oauth/oauthtreeview.h"
 #include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorOauthWidgetTest)
 AdministratorOauthWidgetTest::AdministratorOauthWidgetTest(QObject *parent)
     : QObject{parent}

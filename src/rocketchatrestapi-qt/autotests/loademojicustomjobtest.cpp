@@ -5,11 +5,12 @@
 */
 
 #include "loademojicustomjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "emoji/loademojicustomjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(LoadEmojiCustomJobTest)
 using namespace RocketChatRestApi;

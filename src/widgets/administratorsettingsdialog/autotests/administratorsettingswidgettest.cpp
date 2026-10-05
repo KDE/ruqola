@@ -5,7 +5,6 @@
 */
 
 #include "administratorsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
@@ -37,6 +36,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorSettingsWidgetTest)
 

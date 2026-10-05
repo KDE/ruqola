@@ -7,7 +7,6 @@
 #pragma once
 
 #include <QDebug>
-using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QProcess>
 #include <QString>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace AutoTestHelper
 {

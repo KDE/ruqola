@@ -5,7 +5,6 @@
 */
 
 #include "configurefontwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqolaglobalconfig.h"
 #include <KFontChooser>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QCheckBox>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     : QWidget(parent)

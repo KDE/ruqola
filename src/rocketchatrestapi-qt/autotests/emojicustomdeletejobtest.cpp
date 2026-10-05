@@ -5,13 +5,14 @@
 */
 
 #include "emojicustomdeletejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "emoji/emojicustomdeletejob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(EmojiCustomDeleteJobTest)
 using namespace RocketChatRestApi;

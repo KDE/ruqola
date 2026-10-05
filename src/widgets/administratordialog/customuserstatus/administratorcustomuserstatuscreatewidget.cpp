@@ -5,12 +5,13 @@
 */
 
 #include "administratorcustomuserstatuscreatewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/statuscombobox.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWidget(QWidget *parent)
     : QWidget(parent)

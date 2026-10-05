@@ -5,13 +5,15 @@
 */
 
 #include "personalaccesstokenauthenticationconfigwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "../personalaccesstokenauthenticationconfigwidget.h"
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PersonalAccessTokenAuthenticationConfigWidgetTest)
 PersonalAccessTokenAuthenticationConfigWidgetTest::PersonalAccessTokenAuthenticationConfigWidgetTest(QObject *parent)
     : QObject{parent}

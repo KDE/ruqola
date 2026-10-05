@@ -5,13 +5,15 @@
 */
 
 #include "passwordvalidatewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordvalidatewidget.h"
 
 #include <QGridLayout>
 #include <QLabel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PasswordValidateWidgetTest)
 PasswordValidateWidgetTest::PasswordValidateWidgetTest(QObject *parent)
     : QObject{parent}

@@ -5,13 +5,15 @@
 */
 
 #include "administratordirectroomseditwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/rooms/administratordirectroomseditwidget.h"
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorDirectRoomsEditWidgetTest)
 AdministratorDirectRoomsEditWidgetTest::AdministratorDirectRoomsEditWidgetTest(QObject *parent)
     : QObject{parent}

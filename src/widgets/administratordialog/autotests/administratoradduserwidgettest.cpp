@@ -5,7 +5,6 @@
 */
 
 #include "administratoradduserwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/users/administratoradduserwidget.h"
 #include "misc/rolescombobox.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorAddUserWidgetTest)
 AdministratorAddUserWidgetTest::AdministratorAddUserWidgetTest(QObject *parent)
     : QObject(parent)

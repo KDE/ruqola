@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomemojiwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorcustomemojicreateorupdatedialog.h"
 #include "connection.h"
@@ -25,6 +24,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)

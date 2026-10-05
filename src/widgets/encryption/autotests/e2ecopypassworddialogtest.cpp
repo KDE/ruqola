@@ -5,13 +5,15 @@
 */
 
 #include "e2ecopypassworddialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2ecopypasswordwidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(E2eCopyPasswordDialogTest)
 E2eCopyPasswordDialogTest::E2eCopyPasswordDialogTest(QObject *parent)
     : QObject{parent}

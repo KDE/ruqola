@@ -5,7 +5,6 @@
 */
 
 #include "administratorroomseditwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/rooms/administratorroomseditwidget.h"
 #include "dialogs/messagetexteditor.h"
@@ -15,6 +14,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorRoomsEditWidgetTest)
 
 AdministratorRoomsEditWidgetTest::AdministratorRoomsEditWidgetTest(QObject *parent)

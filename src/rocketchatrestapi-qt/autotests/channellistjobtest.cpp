@@ -5,13 +5,15 @@
 */
 
 #include "channellistjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channellistjob.h"
 
 #include <QTest>
 
 #include "restapimethod.h"
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ChannelListJobTest)
 using namespace RocketChatRestApi;
 ChannelListJobTest::ChannelListJobTest(QObject *parent)

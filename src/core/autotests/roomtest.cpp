@@ -5,7 +5,6 @@
 */
 
 #include "roomtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
@@ -17,6 +16,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RoomTest)
 

@@ -5,13 +5,15 @@
 */
 
 #include "accountsoverviewwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/accountsoverviewwidget.h"
 #include <QHBoxLayout>
 #include <QStandardPaths>
 #include <QTabBar>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AccountsOverviewWidgetTest)
 AccountsOverviewWidgetTest::AccountsOverviewWidgetTest(QObject *parent)
     : QObject(parent)

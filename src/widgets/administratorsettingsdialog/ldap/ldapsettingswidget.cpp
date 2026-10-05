@@ -5,7 +5,6 @@
 */
 
 #include "ldapsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

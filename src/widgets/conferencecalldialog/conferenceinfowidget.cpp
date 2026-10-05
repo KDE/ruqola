@@ -5,7 +5,6 @@
 */
 
 #include "conferenceinfowidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "rocketchataccount.h"
@@ -18,6 +17,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QScreen>
 #include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConferenceInfoWidget::ConferenceInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}

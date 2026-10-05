@@ -5,13 +5,14 @@
 */
 
 #include "oauthappsdeletejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/oauthappsdeletejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
 #include <QJsonDocument>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(OauthAppsDeleteJobTest)
 using namespace RocketChatRestApi;

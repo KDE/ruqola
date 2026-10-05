@@ -5,13 +5,14 @@
 */
 
 #include "getpinnedmessagesjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/getpinnedmessagesjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GetPinnedMessagesJobTest)
 using namespace RocketChatRestApi;

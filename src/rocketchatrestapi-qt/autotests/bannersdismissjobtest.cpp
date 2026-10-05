@@ -5,13 +5,14 @@
 */
 
 #include "bannersdismissjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "banner/bannersdismissjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(BannersDismissJobTest)
 using namespace RocketChatRestApi;

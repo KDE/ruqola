@@ -5,7 +5,6 @@
 */
 
 #include "createnewchannelwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelnamevalidlinewidget.h"
 #include "dialogs/createnewchannelwidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CreateNewChannelWidgetTest)
 CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
     : QObject(parent)

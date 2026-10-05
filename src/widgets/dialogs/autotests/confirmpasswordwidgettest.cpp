@@ -5,13 +5,15 @@
 */
 
 #include "confirmpasswordwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/confirmpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfirmPasswordWidgetTest)
 
 ConfirmPasswordWidgetTest::ConfirmPasswordWidgetTest(QObject *parent)

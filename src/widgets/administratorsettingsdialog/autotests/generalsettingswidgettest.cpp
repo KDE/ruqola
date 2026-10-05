@@ -5,7 +5,6 @@
 */
 
 #include "generalsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
 #include "settingswidgetshelper.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(GeneralSettingsWidgetTest)
 GeneralSettingsWidgetTest::GeneralSettingsWidgetTest(QObject *parent)

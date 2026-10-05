@@ -5,13 +5,15 @@
 */
 
 #include "myaccountpersonalaccesscreatedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccountpersonalaccesscreatedialog.h"
 #include "myaccount/myaccountpersonalaccesscreatewidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(MyAccountPersonalAccessCreateDialogTest)
 
 MyAccountPersonalAccessCreateDialogTest::MyAccountPersonalAccessCreateDialogTest(QObject *parent)

@@ -4,10 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "channelusercompletertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channelusercompleter.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ChannelUserCompleterTest)
 
 ChannelUserCompleterTest::ChannelUserCompleterTest(QObject *parent)

@@ -5,12 +5,13 @@
 */
 
 #include "syncmessagesjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/syncmessagesjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(SyncMessagesJobTest)
 using namespace RocketChatRestApi;

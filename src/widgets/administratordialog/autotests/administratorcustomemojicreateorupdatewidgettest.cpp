@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomemojicreateorupdatewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.h"
 
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorCustomEmojiCreateOrUpdateWidgetTest)
 AdministratorCustomEmojiCreateOrUpdateWidgetTest::AdministratorCustomEmojiCreateOrUpdateWidgetTest(QObject *parent)

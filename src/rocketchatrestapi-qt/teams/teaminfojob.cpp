@@ -5,7 +5,6 @@
 */
 
 #include "teaminfojob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QNetworkRequest>
 
 #include <QUrlQuery>
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 TeamInfoJob::TeamInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)

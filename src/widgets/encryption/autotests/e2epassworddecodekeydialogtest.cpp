@@ -5,13 +5,15 @@
 */
 
 #include "e2epassworddecodekeydialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "encryption/e2epassworddecodekeydialog.h"
 #include "encryption/e2epassworddecodekeywidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(E2ePasswordDecodeKeyDialogTest)
 E2ePasswordDecodeKeyDialogTest::E2ePasswordDecodeKeyDialogTest(QObject *parent)
     : QObject{parent}

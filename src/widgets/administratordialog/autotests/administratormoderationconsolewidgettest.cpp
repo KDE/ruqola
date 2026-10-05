@@ -4,13 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratormoderationconsolewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/moderationconsole/administratormoderationconsolewidget.h"
 #include "administratordialog/moderationconsole/administratormoderationreportedmessageconsoletreewidget.h"
 #include "administratordialog/moderationconsole/administratormoderationreporteduserconsoletreewidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorModerationConsoleWidgetTest)
 AdministratorModerationConsoleWidgetTest::AdministratorModerationConsoleWidgetTest(QObject *parent)

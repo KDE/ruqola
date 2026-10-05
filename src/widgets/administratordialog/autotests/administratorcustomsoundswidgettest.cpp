@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomsoundswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customsounds/administratorcustomsoundswidget.h"
 #include "model/admincustomsoundmodel.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <KTreeWidgetSearchLineWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorCustomSoundsWidgetTest)
 AdministratorCustomSoundsWidgetTest::AdministratorCustomSoundsWidgetTest(QObject *parent)
     : QObject(parent)

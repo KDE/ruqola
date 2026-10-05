@@ -5,13 +5,14 @@
 */
 
 #include "usercompletiondelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
 #include "model/usercompletermodel.h"
 
 #include <QPainter>
+
+using namespace Qt::Literals::StringLiterals;
 
 UserCompletionDelegate::UserCompletionDelegate(QObject *parent)
     : QItemDelegate{parent}

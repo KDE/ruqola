@@ -5,11 +5,13 @@
 */
 
 #include "showmentionsmessagesdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
+
+using namespace Qt::Literals::StringLiterals;
+
 namespace
 {
 const char myShowMentionsMessagesDialogGroupName[] = "ShowMentionsMessagesDialog";

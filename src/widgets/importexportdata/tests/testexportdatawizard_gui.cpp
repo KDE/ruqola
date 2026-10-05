@@ -5,10 +5,11 @@
 */
 
 #include "importexportdata/exportdata/exportdatawizard.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QApplication>
 #include <QCommandLineParser>
+
+using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char **argv)
 {

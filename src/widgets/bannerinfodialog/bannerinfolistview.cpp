@@ -5,7 +5,6 @@
 */
 
 #include "bannerinfolistview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfolistviewdelegate.h"
 #include "model/bannerinfosmodel.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QMouseEvent>
 #include <QScrollBar>
+
+using namespace Qt::Literals::StringLiterals;
 
 BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)

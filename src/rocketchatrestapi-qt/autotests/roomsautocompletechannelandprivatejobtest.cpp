@@ -5,11 +5,12 @@
 */
 
 #include "roomsautocompletechannelandprivatejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RoomsAutocompleteChannelAndPrivateJobTest)
 using namespace RocketChatRestApi;

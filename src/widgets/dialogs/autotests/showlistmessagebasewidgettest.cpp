@@ -5,7 +5,6 @@
 */
 
 #include "showlistmessagebasewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/searchmessagelinewidget.h"
 #include "dialogs/showlistmessagebasewidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ShowListMessageBaseWidgetTest)
 ShowListMessageBaseWidgetTest::ShowListMessageBaseWidgetTest(QObject *parent)

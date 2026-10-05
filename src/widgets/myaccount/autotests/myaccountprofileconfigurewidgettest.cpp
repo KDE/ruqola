@@ -5,7 +5,6 @@
 */
 
 #include "myaccountprofileconfigurewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/passwordconfirmwidget.h"
 #include "myaccount/myaccountprofileconfigureavatarwidget.h"
@@ -15,6 +14,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QPushButton>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(MyAccountProfileConfigureWidgetTest)
 
 MyAccountProfileConfigureWidgetTest::MyAccountProfileConfigureWidgetTest(QObject *parent)

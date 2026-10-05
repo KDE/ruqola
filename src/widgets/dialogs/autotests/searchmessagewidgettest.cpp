@@ -5,13 +5,15 @@
 */
 
 #include "searchmessagewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/searchmessagewidget.h"
 #include "dialogs/searchmessagewithdelaylineedit.h"
 #include "room/messagelistview.h"
 #include <QLabel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(SearchMessageWidgetTest)
 
 SearchMessageWidgetTest::SearchMessageWidgetTest(QObject *parent)

@@ -4,13 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "conferenceinfodialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "conferencecalldialog/conferenceinfodialog.h"
 #include "conferencecalldialog/conferenceinfowidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ConferenceInfoDialogTest)
 ConferenceInfoDialogTest::ConferenceInfoDialogTest(QObject *parent)

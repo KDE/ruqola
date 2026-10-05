@@ -5,7 +5,6 @@
 */
 
 #include "resetroomkeyjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/resetroomkeyjob.h"
 #include "restapimethod.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ResetRoomKeyJobTest)
 using namespace RocketChatRestApi;

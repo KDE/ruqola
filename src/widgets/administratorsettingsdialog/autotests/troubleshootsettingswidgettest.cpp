@@ -5,11 +5,12 @@
 */
 
 #include "troubleshootsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QFormLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(TroubleshootSettingsWidgetTest)
 TroubleshootSettingsWidgetTest::TroubleshootSettingsWidgetTest(QObject *parent)

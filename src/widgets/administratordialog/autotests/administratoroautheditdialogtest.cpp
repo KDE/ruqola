@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoroautheditdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/oauth/administratoroautheditdialog.h"
 #include "administratordialog/oauth/administratoroautheditwidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorOauthEditDialogTest)
 AdministratorOauthEditDialogTest::AdministratorOauthEditDialogTest(QObject *parent)
     : QObject{parent}

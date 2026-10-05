@@ -5,7 +5,6 @@
 */
 
 #include "retentionpolicysettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QComboBox>
 #include <QFormLayout>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

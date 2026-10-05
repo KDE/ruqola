@@ -5,13 +5,15 @@
 */
 
 #include "createdirectmessageswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/createdirectmessageswidget.h"
 #include "misc/adduserswidget.h"
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CreateDirectMessagesWidgetTest)
 CreateDirectMessagesWidgetTest::CreateDirectMessagesWidgetTest(QObject *parent)
     : QObject(parent)

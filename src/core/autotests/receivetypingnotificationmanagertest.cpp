@@ -5,11 +5,12 @@
 */
 
 #include "receivetypingnotificationmanagertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "receivetypingnotificationmanager.h"
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ReceiveTypingNotificationManagerTest)
 

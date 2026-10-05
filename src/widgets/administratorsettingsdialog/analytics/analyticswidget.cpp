@@ -5,7 +5,6 @@
 */
 
 #include "analyticswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 #include <QPlainTextEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

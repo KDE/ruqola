@@ -5,13 +5,14 @@
 */
 
 #include "permissionupdatejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "permissions/permissionupdatejob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(PermissionUpdateJobTest)
 using namespace RocketChatRestApi;

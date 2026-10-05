@@ -5,11 +5,13 @@
 */
 
 #include "usersinroomflowwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/usersinroomflowwidget.h"
 #include <QTest>
 #include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(UsersInRoomFlowWidgetTest)
 
 UsersInRoomFlowWidgetTest::UsersInRoomFlowWidgetTest(QObject *parent)

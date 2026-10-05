@@ -5,7 +5,6 @@
 */
 
 #include "createnewdiscussiondialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/createnewdiscussiondialog.h"
 #include "dialogs/createnewdiscussionwidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CreateNewDiscussionDialogTest)
 CreateNewDiscussionDialogTest::CreateNewDiscussionDialogTest(QObject *parent)
     : QObject(parent)

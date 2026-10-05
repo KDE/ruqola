@@ -5,9 +5,10 @@
 */
 
 #include "systemmessagescombobox.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/systemmessagesmodel.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     : QComboBox(parent)

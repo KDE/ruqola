@@ -5,7 +5,6 @@
 */
 
 #include "modifystatusdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/modifystatuswidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ModifyStatusDialogTest)
 ModifyStatusDialogTest::ModifyStatusDialogTest(QObject *parent)
     : QObject(parent)

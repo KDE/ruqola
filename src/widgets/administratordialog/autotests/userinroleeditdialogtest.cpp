@@ -5,7 +5,6 @@
 */
 
 #include "userinroleeditdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/roles/userinroleeditdialog.h"
 #include "administratordialog/roles/usersinrolewidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(UserInRoleEditDialogTest)
 UserInRoleEditDialogTest::UserInRoleEditDialogTest(QObject *parent)
     : QObject{parent}

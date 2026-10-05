@@ -5,7 +5,6 @@
 */
 
 #include "configureaccountserverwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "accountmanager.h"
 #include "activities/activitiesmanager.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "ui_configureaccountserverwidget.h"
 #include <KLocalizedString>
 #include <QPointer>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     : QWidget(parent)

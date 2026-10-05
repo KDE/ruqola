@@ -5,13 +5,14 @@
 */
 
 #include "oauthappsupdatejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/oauthappsupdatejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 
 #include <QJsonDocument>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(OauthAppsUpdateJobTest)
 using namespace RocketChatRestApi;

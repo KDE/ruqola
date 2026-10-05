@@ -6,13 +6,14 @@
 
 #include "ruqola_autotest_helper.h"
 #include <QDebug>
-using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QProcess>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 void AutoTestHelper::diffFile(const QString &refFile, const QString &generatedFile)
 {

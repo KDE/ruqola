@@ -5,13 +5,15 @@
 */
 
 #include "conferencecalldialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "conferencecalldialog/conferencecalldialog.h"
 #include "conferencecalldialog/conferencecallwidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConferenceCallDialogTest)
 ConferenceCallDialogTest::ConferenceCallDialogTest(QObject *parent)
     : QObject{parent}

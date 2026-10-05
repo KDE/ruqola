@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratormoderationrangewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QAction>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QMenu>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorModerationRangeWidget::AdministratorModerationRangeWidget(QWidget *parent)
     : QWidget{parent}

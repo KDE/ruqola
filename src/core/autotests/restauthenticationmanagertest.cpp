@@ -5,13 +5,14 @@
 */
 
 #include "restauthenticationmanagertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "rocketchataccount.h"
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 class RESTAuthenticationManagerTestImpl : public RESTAuthenticationManager
 {

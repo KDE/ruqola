@@ -5,12 +5,13 @@
 */
 
 #include "getusersinrolejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "role/getusersinrolejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GetUsersInRoleJobTest)
 using namespace RocketChatRestApi;

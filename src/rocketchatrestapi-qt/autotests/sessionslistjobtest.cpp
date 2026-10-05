@@ -5,11 +5,12 @@
 */
 
 #include "sessionslistjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "sessions/sessionslistjob.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(SessionsListJobTest)
 using namespace RocketChatRestApi;

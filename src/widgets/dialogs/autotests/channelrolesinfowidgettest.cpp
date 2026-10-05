@@ -5,12 +5,14 @@
 */
 
 #include "channelrolesinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelrolesinfowidget.h"
 #include <QFormLayout>
 #include <QGroupBox>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelRolesInfoWidgetTest)
 
 ChannelRolesInfoWidgetTest::ChannelRolesInfoWidgetTest(QObject *parent)

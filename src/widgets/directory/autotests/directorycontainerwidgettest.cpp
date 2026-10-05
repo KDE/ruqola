@@ -4,11 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "directorycontainerwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directory/directorycontainerwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(DirectoryContainerWidgetTest)
 DirectoryContainerWidgetTest::DirectoryContainerWidgetTest(QObject *parent)

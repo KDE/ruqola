@@ -5,13 +5,15 @@
 */
 
 #include "administratorcustomsoundscreatewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"
 #include <KUrlRequester>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorCustomSoundsCreateWidgetTest)
 AdministratorCustomSoundsCreateWidgetTest::AdministratorCustomSoundsCreateWidgetTest(QObject *parent)
     : QObject(parent)

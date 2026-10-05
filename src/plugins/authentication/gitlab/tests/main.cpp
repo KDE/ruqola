@@ -5,10 +5,11 @@
 */
 
 #include "../gitlabauthenticationjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QCommandLineParser>
 #include <QGuiApplication>
+
+using namespace Qt::Literals::StringLiterals;
 
 int main(int argc, char **argv)
 {

@@ -5,7 +5,6 @@
 */
 
 #include "configurenotificationwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/configurenotificationwidget.h"
 #include <QCheckBox>
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QGroupBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfigureNotificationWidgetTest)
 ConfigureNotificationWidgetTest::ConfigureNotificationWidgetTest(QObject *parent)
     : QObject(parent)

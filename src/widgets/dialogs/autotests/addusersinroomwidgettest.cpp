@@ -5,12 +5,14 @@
 */
 
 #include "addusersinroomwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/addusersinroomwidget.h"
 #include "misc/adduserswidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AddUsersInRoomWidgetTest)
 
 AddUsersInRoomWidgetTest::AddUsersInRoomWidgetTest(QObject *parent)

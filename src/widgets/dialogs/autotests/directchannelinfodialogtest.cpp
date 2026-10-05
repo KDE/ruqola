@@ -5,7 +5,6 @@
 */
 
 #include "directchannelinfodialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/directchannelinfowidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(DirectChannelInfoDialogTest)
 
 DirectChannelInfoDialogTest::DirectChannelInfoDialogTest(QObject *parent)

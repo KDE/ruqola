@@ -5,7 +5,6 @@
 */
 
 #include "reportuserdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/reportuserdialog.h"
 #include "dialogs/reportuserwidget.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ReportUserDialogTest)
 

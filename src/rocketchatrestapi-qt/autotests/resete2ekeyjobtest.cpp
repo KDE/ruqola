@@ -5,13 +5,14 @@
 */
 
 #include "resete2ekeyjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/resete2ekeyjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ResetE2EKeyJobTest)
 using namespace RocketChatRestApi;

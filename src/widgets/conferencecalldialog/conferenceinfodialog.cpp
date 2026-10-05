@@ -5,12 +5,13 @@
 */
 
 #include "conferenceinfodialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "conferenceinfowidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConferenceInfoDialog::ConferenceInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

@@ -5,7 +5,6 @@
 */
 
 #include "administratorroomswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/rooms/administratorroomsselectroomtypewidget.h"
 #include "administratordialog/rooms/administratorroomswidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QTreeView>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorRoomsWidgetTest)
 AdministratorRoomsWidgetTest::AdministratorRoomsWidgetTest(QObject *parent)
     : QObject(parent)

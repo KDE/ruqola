@@ -5,12 +5,14 @@
 */
 
 #include "messageurltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messages/messageurl.h"
 #include <QJsonObject>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(MessageUrlTest)
 
 MessageUrlTest::MessageUrlTest(QObject *parent)

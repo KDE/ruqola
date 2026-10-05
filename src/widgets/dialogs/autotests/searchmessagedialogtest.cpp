@@ -5,7 +5,6 @@
 */
 
 #include "searchmessagedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/searchmessagedialog.h"
 #include "dialogs/searchmessagewidget.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(SearchMessageDialogTest)
 SearchMessageDialogTest::SearchMessageDialogTest(QObject *parent)

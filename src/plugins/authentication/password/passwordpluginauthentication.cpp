@@ -5,11 +5,12 @@
 */
 
 #include "passwordpluginauthentication.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "passwordauthenticationinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
+
+using namespace Qt::Literals::StringLiterals;
 
 K_PLUGIN_CLASS_WITH_JSON(PasswordPluginAuthentication, "ruqola_passwordauthenticationplugin.json")
 

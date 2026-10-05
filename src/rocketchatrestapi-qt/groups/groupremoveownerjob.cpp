@@ -5,7 +5,6 @@
 */
 
 #include "groupremoveownerjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,6 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 GroupRemoveOwnerJob::GroupRemoveOwnerJob(QObject *parent)
     : ChannelGroupBaseJob(parent)

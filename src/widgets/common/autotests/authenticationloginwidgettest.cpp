@@ -5,7 +5,6 @@
 */
 
 #include "authenticationloginwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/authenticationloginwidget.h"
 #include <KPasswordLineEdit>
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AuthenticationLoginWidgetTest)
 
 AuthenticationLoginWidgetTest::AuthenticationLoginWidgetTest(QObject *parent)

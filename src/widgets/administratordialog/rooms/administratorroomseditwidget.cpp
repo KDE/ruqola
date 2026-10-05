@@ -5,7 +5,6 @@
 */
 
 #include "administratorroomseditwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/messagetexteditor.h"
 #include "dialogs/roomavatarwidget.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     : AdministratorRoomsEditBaseWidget{parent}

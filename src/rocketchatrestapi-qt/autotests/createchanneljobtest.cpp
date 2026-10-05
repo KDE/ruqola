@@ -5,13 +5,14 @@
 */
 
 #include "createchanneljobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channels/createchanneljob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(CreateChannelJobTest)
 using namespace RocketChatRestApi;

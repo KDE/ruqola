@@ -5,11 +5,13 @@
 */
 
 #include "serverconfiginfotest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "serverconfiginfo.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ServerConfigInfoTest)
 
 ServerConfigInfoTest::ServerConfigInfoTest(QObject *parent)

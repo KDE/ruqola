@@ -5,10 +5,12 @@
 */
 
 #include "parserocketchaturlutilstest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "parserocketchaturlutils.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ParseRocketChatUrlUtilsTest)
 ParseRocketChatUrlUtilsTest::ParseRocketChatUrlUtilsTest(QObject *parent)
     : QObject{parent}

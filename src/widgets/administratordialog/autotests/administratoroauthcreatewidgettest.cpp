@@ -5,13 +5,15 @@
 */
 
 #include "administratoroauthcreatewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/oauth/administratoroauthcreatewidget.h"
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorOauthCreateWidgetTest)
 AdministratorOauthCreateWidgetTest::AdministratorOauthCreateWidgetTest(QObject *parent)
     : QObject{parent}

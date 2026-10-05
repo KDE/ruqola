@@ -5,12 +5,13 @@
 */
 
 #include "conferencecallsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/conferencecall/conferencecallsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QComboBox>
 #include <QFormLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ConferenceCallSettingsWidgetTest)
 ConferenceCallSettingsWidgetTest::ConferenceCallSettingsWidgetTest(QObject *parent)

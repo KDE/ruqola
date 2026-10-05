@@ -5,13 +5,15 @@
 */
 
 #include "channelnamevalidlinewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelnamevalidlineedit.h"
 #include "dialogs/channelnamevalidlinewidget.h"
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelNameValidLineWidgetTest)
 ChannelNameValidLineWidgetTest::ChannelNameValidLineWidgetTest(QObject *parent)
     : QObject{parent}

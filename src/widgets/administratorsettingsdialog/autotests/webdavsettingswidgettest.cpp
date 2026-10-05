@@ -4,11 +4,12 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "webdavsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(WebDavSettingsWidgetTest)
 WebDavSettingsWidgetTest::WebDavSettingsWidgetTest(QObject *parent)

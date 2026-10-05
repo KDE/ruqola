@@ -5,10 +5,11 @@
 */
 
 #include "statusmodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/statusmodel.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(StatusModelTest)
 

@@ -5,7 +5,6 @@
 */
 
 #include "applictionsettingscustomwidgets.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -17,6 +16,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 ApplictionSettingsCustomWidgetsBase::ApplictionSettingsCustomWidgetsBase(const QByteArray &appId,
                                                                          RocketChatAccount *account,

@@ -5,10 +5,12 @@
 */
 
 #include "showattachmentcomboboxtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showattachmentcombobox.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ShowAttachmentComboBoxTest)
 ShowAttachmentComboBoxTest::ShowAttachmentComboBoxTest(QObject *parent)
     : QObject(parent)

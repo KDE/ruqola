@@ -5,7 +5,6 @@
 */
 
 #include "exportmessagesdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exportmessages/exportmessagesdialog.h"
 #include "exportmessages/exportmessageswidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ExportMessagesDialogTest)
 
 ExportMessagesDialogTest::ExportMessagesDialogTest(QObject *parent)

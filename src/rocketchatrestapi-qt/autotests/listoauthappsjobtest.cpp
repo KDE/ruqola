@@ -5,13 +5,14 @@
 */
 
 #include "listoauthappsjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/listoauthappsjob.h"
 
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ListOauthAppsJobTest)
 using namespace RocketChatRestApi;

@@ -5,7 +5,6 @@
 */
 
 #include "localmessagelogger.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabaseutils.h"
 #include "messages/message.h"
@@ -19,6 +18,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlRecord>
 #include <QSqlTableModel>
 #include <QTextStream>
+
+using namespace Qt::Literals::StringLiterals;
 
 LocalMessageLogger::LocalMessageLogger()
     : LocalDatabaseBase(LocalDatabaseUtils::localMessageLoggerPath(), LocalDatabaseBase::DatabaseType::Logger)

@@ -5,7 +5,6 @@
 */
 
 #include "usersforroommodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/usersforroommodel.h"
 #include "test_model_helpers.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(UsersForRoomModelTest)
 
 UsersForRoomModelTest::UsersForRoomModelTest(QObject *parent)

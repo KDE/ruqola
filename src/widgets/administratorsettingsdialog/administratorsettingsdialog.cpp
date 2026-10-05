@@ -5,7 +5,6 @@
 */
 
 #include "administratorsettingsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingswidget.h"
 
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {

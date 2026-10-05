@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "moderationusersdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/moderationconsole/moderationusersdialog.h"
 #include "administratordialog/moderationconsole/moderationuserswidget.h"
@@ -12,6 +11,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ModerationUsersDialogTest)
 ModerationUsersDialogTest::ModerationUsersDialogTest(QObject *parent)
     : QObject{parent}

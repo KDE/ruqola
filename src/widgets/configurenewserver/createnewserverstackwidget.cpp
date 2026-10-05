@@ -5,7 +5,6 @@
 */
 
 #include "createnewserverstackwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "checknewserverurlwidget.h"
 #include "config-ruqola.h"
@@ -19,6 +18,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqolawidgets_debug.h"
 
 #include <QPointer>
+
+using namespace Qt::Literals::StringLiterals;
 
 CreateNewServerStackWidget::CreateNewServerStackWidget(QWidget *parent)
     : QStackedWidget(parent)

@@ -5,11 +5,12 @@
 */
 
 #include "troubleshootsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

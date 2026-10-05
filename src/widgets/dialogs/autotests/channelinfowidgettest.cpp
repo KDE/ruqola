@@ -5,12 +5,13 @@
 */
 
 #include "channelinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelinfowidget.h"
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ChannelInfoWidgetTest)
 ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)

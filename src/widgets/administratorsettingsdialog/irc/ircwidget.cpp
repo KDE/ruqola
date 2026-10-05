@@ -5,7 +5,6 @@
 */
 
 #include "ircwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 IrcWidget::IrcWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

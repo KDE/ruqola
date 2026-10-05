@@ -6,7 +6,6 @@
 
 #include "generalsettingswidget.h"
 #include "rocketchataccount.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 
@@ -16,6 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

@@ -5,7 +5,6 @@
 */
 
 #include "fileuploadsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "settingswidgetshelper.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(FileUploadSettingsWidgetTest)
 
 FileUploadSettingsWidgetTest::FileUploadSettingsWidgetTest(QObject *parent)

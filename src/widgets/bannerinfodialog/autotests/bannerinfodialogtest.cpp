@@ -5,7 +5,6 @@
 */
 
 #include "bannerinfodialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "bannerinfodialog/bannerinfodialog.h"
 #include "bannerinfodialog/bannerinfowidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(BannerInfoDialogTest)
 BannerInfoDialogTest::BannerInfoDialogTest(QObject *parent)

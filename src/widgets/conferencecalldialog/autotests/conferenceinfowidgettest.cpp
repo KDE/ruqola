@@ -5,11 +5,12 @@
 */
 
 #include "conferenceinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "conferencecalldialog/conferenceinfowidget.h"
 #include <QFormLayout>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ConferenceInfoWidgetTest)
 ConferenceInfoWidgetTest::ConferenceInfoWidgetTest(QObject *parent)

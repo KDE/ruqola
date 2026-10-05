@@ -8,9 +8,10 @@
 #pragma once
 
 #include <QSignalSpy>
-using namespace Qt::Literals::StringLiterals;
 
 #include <QString>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace TestModelHelpers
 {

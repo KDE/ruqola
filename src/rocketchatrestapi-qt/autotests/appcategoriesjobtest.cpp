@@ -5,11 +5,13 @@
 */
 
 #include "appcategoriesjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "apps/appcategoriesjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(AppCategoriesJobTest)
 using namespace RocketChatRestApi;
 AppCategoriesJobTest::AppCategoriesJobTest(QObject *parent)

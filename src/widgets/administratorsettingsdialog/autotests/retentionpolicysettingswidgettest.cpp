@@ -5,13 +5,14 @@
 */
 
 #include "retentionpolicysettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QComboBox>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(RetentionPolicySettingsWidgetTest)
 RetentionPolicySettingsWidgetTest::RetentionPolicySettingsWidgetTest(QObject *parent)

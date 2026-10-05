@@ -5,7 +5,6 @@
 */
 
 #include "administratorinviteusersdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/users/administratorinviteusersdialog.h"
 #include "administratordialog/users/administratorinviteuserswidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorInviteUsersDialogTest)
 AdministratorInviteUsersDialogTest::AdministratorInviteUsersDialogTest(QObject *parent)

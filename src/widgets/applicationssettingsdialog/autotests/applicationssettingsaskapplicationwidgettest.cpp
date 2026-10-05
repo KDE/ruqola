@@ -5,13 +5,15 @@
 */
 
 #include "applicationssettingsaskapplicationwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsdialog/applicationssettingsaskapplicationwidget.h"
 #include <KTextEdit>
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ApplicationsSettingsAskApplicationWidgetTest)
 ApplicationsSettingsAskApplicationWidgetTest::ApplicationsSettingsAskApplicationWidgetTest(QObject *parent)
     : QObject{parent}

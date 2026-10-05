@@ -5,7 +5,6 @@
 */
 
 #include "createnewchanneldialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewchannelwidget.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(CreateNewChannelDialogTest)
 CreateNewChannelDialogTest::CreateNewChannelDialogTest(QObject *parent)

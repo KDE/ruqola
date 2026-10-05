@@ -5,11 +5,13 @@
 */
 
 #include "myaccountprofileconfigureavatarwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccountprofileconfigureavatarwidget.h"
 #include <QHBoxLayout>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(MyAccountProfileConfigureAvatarWidgetTest)
 MyAccountProfileConfigureAvatarWidgetTest::MyAccountProfileConfigureAvatarWidgetTest(QObject *parent)
     : QObject(parent)

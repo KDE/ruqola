@@ -5,13 +5,15 @@
 */
 
 #include "autotranslateconfiguredialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/autotranslateconfiguredialog.h"
 #include "dialogs/autotranslateconfigurewidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AutoTranslateConfigureDialogTest)
 
 AutoTranslateConfigureDialogTest::AutoTranslateConfigureDialogTest(QObject *parent)

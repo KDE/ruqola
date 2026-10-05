@@ -5,13 +5,14 @@
 */
 
 #include "createnewserverwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/authenticationloginwidget.h"
 #include "common/authenticationoauthwidget.h"
 
 #include <KLocalizedString>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     : QWidget(parent)

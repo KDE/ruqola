@@ -5,9 +5,10 @@
 */
 
 #include "moderationreportedmessagemodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
+
+using namespace Qt::Literals::StringLiterals;
 
 ModerationReportedMessageModel::ModerationReportedMessageModel(QObject *parent)
     : CustomBaseModel(parent)

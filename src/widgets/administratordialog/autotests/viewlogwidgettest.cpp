@@ -5,12 +5,13 @@
 */
 
 #include "viewlogwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/logs/viewlogplaintextedit.h"
 #include "administratordialog/logs/viewlogwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ViewLogWidgetTest)
 

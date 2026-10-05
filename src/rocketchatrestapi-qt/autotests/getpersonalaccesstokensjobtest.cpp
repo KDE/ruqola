@@ -5,11 +5,12 @@
 */
 
 #include "getpersonalaccesstokensjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "personalaccesstoken/getpersonalaccesstokensjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GetPersonalAccessTokensJobTest)
 using namespace RocketChatRestApi;

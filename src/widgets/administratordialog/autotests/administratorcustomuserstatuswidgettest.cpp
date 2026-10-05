@@ -5,13 +5,15 @@
 */
 
 #include "administratorcustomuserstatuswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customuserstatus/administratorcustomuserstatuswidget.h"
 #include <KTreeWidgetSearchLineWidget>
 #include <QTest>
 #include <QTreeWidget>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorCustomUserStatusWidgetTest)
 
 AdministratorCustomUserStatusWidgetTest::AdministratorCustomUserStatusWidgetTest(QObject *parent)

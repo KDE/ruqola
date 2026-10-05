@@ -5,11 +5,12 @@
 */
 
 #include "getbannersjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "banner/getbannersjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GetBannersJobTest)
 using namespace RocketChatRestApi;

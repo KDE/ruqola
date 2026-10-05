@@ -5,7 +5,6 @@
 */
 
 #include "showattachmentwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showattachmentcombobox.h"
 #include "dialogs/showattachmentwidget.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ShowAttachmentWidgetTest)
 ShowAttachmentWidgetTest::ShowAttachmentWidgetTest(QObject *parent)
     : QObject(parent)

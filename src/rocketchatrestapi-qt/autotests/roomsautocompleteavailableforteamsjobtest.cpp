@@ -5,11 +5,12 @@
 */
 
 #include "roomsautocompleteavailableforteamsjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "teams/roomsautocompleteavailableforteamsjob.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RoomsAutocompleteAvailableForTeamsJobTest)
 using namespace RocketChatRestApi;

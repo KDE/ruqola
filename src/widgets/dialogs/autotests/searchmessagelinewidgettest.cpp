@@ -4,12 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "searchmessagelinewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/searchmessagelinewidget.h"
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(SearchMessageLineWidgetTest)
 
 SearchMessageLineWidgetTest::SearchMessageLineWidgetTest(QObject *parent)

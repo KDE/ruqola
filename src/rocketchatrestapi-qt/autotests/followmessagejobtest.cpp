@@ -5,13 +5,14 @@
 */
 
 #include "followmessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/followmessagejob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(FollowMessageJobTest)
 using namespace RocketChatRestApi;

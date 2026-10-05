@@ -5,7 +5,6 @@
 */
 
 #include "cassettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 
@@ -16,6 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}

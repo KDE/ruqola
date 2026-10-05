@@ -5,13 +5,15 @@
 */
 
 #include "teamselectdeletedroomwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "teams/teamselectdeletedroomwidget.h"
 #include <QLineEdit>
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(TeamSelectDeletedRoomWidgetTest)
 TeamSelectDeletedRoomWidgetTest::TeamSelectDeletedRoomWidgetTest(QWidget *parent)
     : QWidget(parent)

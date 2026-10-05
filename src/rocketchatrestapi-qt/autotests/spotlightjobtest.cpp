@@ -5,11 +5,12 @@
 */
 
 #include "spotlightjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "spotlightjob.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(SpotlightJobTest)
 using namespace RocketChatRestApi;

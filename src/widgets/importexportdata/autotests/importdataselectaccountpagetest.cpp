@@ -5,13 +5,14 @@
 */
 
 #include "importdataselectaccountpagetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 #include <KUrlRequester>
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ImportDataSelectAccountPageTest)
 ImportDataSelectAccountPageTest::ImportDataSelectAccountPageTest(QObject *parent)

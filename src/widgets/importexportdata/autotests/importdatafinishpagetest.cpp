@@ -5,7 +5,6 @@
 */
 
 #include "importdatafinishpagetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include <KMessageWidget>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPlainTextEdit>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ImportDataFinishPageTest)
 

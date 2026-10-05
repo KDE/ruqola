@@ -5,12 +5,13 @@
 */
 
 #include "enterprisesettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 EnterpriseSettingsWidget::EnterpriseSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

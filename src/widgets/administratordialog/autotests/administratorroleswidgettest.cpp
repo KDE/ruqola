@@ -5,7 +5,6 @@
 */
 
 #include "administratorroleswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/roles/administratorroleswidget.h"
 #include "administratordialog/roles/rolestreeview.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSortFilterProxyModel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorRolesWidgetTest)
 AdministratorRolesWidgetTest::AdministratorRolesWidgetTest(QObject *parent)
     : QObject{parent}

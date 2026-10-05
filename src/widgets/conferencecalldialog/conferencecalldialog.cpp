@@ -5,12 +5,13 @@
 */
 
 #include "conferencecalldialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConferenceCallDialog::ConferenceCallDialog(QWidget *parent)
     : QDialog(parent)

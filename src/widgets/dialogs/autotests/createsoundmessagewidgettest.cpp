@@ -5,7 +5,6 @@
 */
 
 #include "createsoundmessagewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QComboBox>
 #include <QLabel>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(CreateSoundMessageWidgetTest)
 CreateSoundMessageWidgetTest::CreateSoundMessageWidgetTest(QObject *parent)

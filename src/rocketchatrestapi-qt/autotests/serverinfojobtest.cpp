@@ -5,13 +5,14 @@
 */
 
 #include "serverinfojobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include "serverinfojob.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ServerInfoJobTest)
 using namespace RocketChatRestApi;

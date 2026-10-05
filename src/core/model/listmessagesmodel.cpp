@@ -5,9 +5,10 @@
 */
 
 #include "listmessagesmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "listmessages.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 ListMessagesModel::ListMessagesModel(const QByteArray &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : MessagesModel(roomID, account, room, parent)

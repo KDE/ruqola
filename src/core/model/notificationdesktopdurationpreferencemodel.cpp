@@ -5,9 +5,10 @@
 */
 
 #include "notificationdesktopdurationpreferencemodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
+
+using namespace Qt::Literals::StringLiterals;
 
 NotificationDesktopDurationPreferenceModel::NotificationDesktopDurationPreferenceModel(QObject *parent)
     : QAbstractListModel(parent)

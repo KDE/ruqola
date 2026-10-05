@@ -5,7 +5,6 @@
 */
 
 #include "myaccount2fadisabletotpwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
@@ -16,6 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}

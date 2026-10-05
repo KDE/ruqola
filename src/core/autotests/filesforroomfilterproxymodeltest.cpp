@@ -5,11 +5,13 @@
 */
 
 #include "filesforroomfilterproxymodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(FilesForRoomFilterProxyModelTest)
 
 FilesForRoomFilterProxyModelTest::FilesForRoomFilterProxyModelTest(QObject *parent)

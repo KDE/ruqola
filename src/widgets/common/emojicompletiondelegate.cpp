@@ -5,13 +5,14 @@
 */
 
 #include "emojicompletiondelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "model/emoticonmodel.h"
 #include "utils.h"
 
 #include <QPainter>
+
+using namespace Qt::Literals::StringLiterals;
 
 EmojiCompletionDelegate::EmojiCompletionDelegate(QObject *parent)
     : QItemDelegate(parent)

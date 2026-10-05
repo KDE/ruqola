@@ -5,11 +5,12 @@
 */
 
 #include "usersforroomfilterproxymodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(UsersForRoomFilterProxyModelTest)
 

@@ -5,13 +5,14 @@
 */
 
 #include "gitlabauthenticationjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "gitlabauthenticationplugin_debug.h"
 #include <QDesktopServices>
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QOAuthHttpServerReplyHandler>
 #include <QTimer>
+
+using namespace Qt::Literals::StringLiterals;
 
 GitLabAuthenticationJob::GitLabAuthenticationJob(QObject *parent)
     : QObject{parent}

@@ -5,7 +5,6 @@
 */
 
 #include "soundconfigurewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configuresoundcombobox.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "rocketchataccount.h"
 #include <QHBoxLayout>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
 
 SoundConfigureWidget::SoundConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}

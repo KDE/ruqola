@@ -5,11 +5,12 @@
 */
 
 #include "administratorroomsselectroomtypewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QHBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(QWidget *parent)
     : QWidget(parent)

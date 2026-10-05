@@ -5,12 +5,14 @@
 */
 
 #include "channelinforeadonlywidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelinforeadonlywidget.h"
 #include <QFormLayout>
 #include <QLabel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelInfoReadOnlyWidgetTest)
 
 ChannelInfoReadOnlyWidgetTest::ChannelInfoReadOnlyWidgetTest(QObject *parent)

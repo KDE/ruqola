@@ -5,7 +5,6 @@
 */
 
 #include "githubauthenticationjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "githubauthenticationplugin_debug.h"
 #include "githubauthenticationsettings.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QOAuthHttpServerReplyHandler>
 #include <QTimer>
+
+using namespace Qt::Literals::StringLiterals;
 
 GitHubAuthenticationJob::GitHubAuthenticationJob(QObject *parent)
     : QObject{parent}

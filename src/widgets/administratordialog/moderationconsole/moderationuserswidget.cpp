@@ -5,12 +5,13 @@
 */
 
 #include "moderationuserswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "colorsandmessageviewstyle.h"
 #include <KLocalizedString>
 #include <QTextBrowser>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 ModerationUsersWidget::ModerationUsersWidget([[maybe_unused]] RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)

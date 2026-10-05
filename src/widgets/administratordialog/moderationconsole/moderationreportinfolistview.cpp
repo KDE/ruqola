@@ -5,7 +5,6 @@
 */
 
 #include "moderationreportinfolistview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/moderationreportinfomodel.h"
 #include "moderationreportinfodelegate.h"
@@ -17,6 +16,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QScrollBar>
 
 #include "config-ruqola.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 ModerationReportInfoListView::ModerationReportInfoListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)

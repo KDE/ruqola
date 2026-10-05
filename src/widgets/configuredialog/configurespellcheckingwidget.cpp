@@ -5,10 +5,11 @@
 */
 
 #include "configurespellcheckingwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QVBoxLayout>
 #include <Sonnet/ConfigWidget>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConfigureSpellCheckingWidget::ConfigureSpellCheckingWidget(QWidget *parent)
     : QWidget(parent)

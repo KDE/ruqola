@@ -5,13 +5,14 @@
 */
 
 #include "ignoreuserjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/ignoreuserjob.h"
 
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(IgnoreUserJobTest)
 using namespace RocketChatRestApi;

@@ -5,11 +5,12 @@
 */
 
 #include "authenticationwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/authenticationoauthwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AuthenticationWidgetTest)
 AuthenticationWidgetTest::AuthenticationWidgetTest(QWidget *parent)

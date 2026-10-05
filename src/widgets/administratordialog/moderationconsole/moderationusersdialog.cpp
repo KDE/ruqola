@@ -5,7 +5,6 @@
 */
 
 #include "moderationusersdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderationuserswidget.h"
 
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {

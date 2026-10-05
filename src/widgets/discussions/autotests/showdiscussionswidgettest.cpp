@@ -5,7 +5,6 @@
 */
 
 #include "showdiscussionswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "discussions/showdiscussionswidget.h"
 #include <QLabel>
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ShowDiscussionsWidgetTest)
 ShowDiscussionsWidgetTest::ShowDiscussionsWidgetTest(QObject *parent)
     : QObject(parent)

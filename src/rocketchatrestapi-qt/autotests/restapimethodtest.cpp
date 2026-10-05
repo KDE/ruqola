@@ -5,10 +5,11 @@
 */
 
 #include "restapimethodtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RestApiMethodTest)
 using namespace RocketChatRestApi;

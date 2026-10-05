@@ -5,7 +5,6 @@
 */
 
 #include "applicationssettingsdelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "config-ruqola.h"
@@ -21,6 +20,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPainter>
 #include <QTextDocument>
 #include <QTreeView>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {

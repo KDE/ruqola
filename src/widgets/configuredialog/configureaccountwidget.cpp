@@ -5,10 +5,11 @@
 */
 
 #include "configureaccountwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configureaccountserverwidget.h"
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
     : QWidget(parent)

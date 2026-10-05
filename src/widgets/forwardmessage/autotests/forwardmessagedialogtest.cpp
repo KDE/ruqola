@@ -5,7 +5,6 @@
 */
 
 #include "forwardmessagedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "forwardmessage/forwardmessagedialog.h"
 #include "forwardmessage/forwardmessagewidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ForwardMessageDialogTest)
 ForwardMessageDialogTest::ForwardMessageDialogTest(QObject *parent)
     : QObject{parent}

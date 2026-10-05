@@ -5,7 +5,6 @@
 */
 
 #include "e2epassworddecodekeywidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KAuthorized>
 #include <KLineEditEventHandler>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <KPasswordLineEdit>
 #include <QLabel>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     : QWidget{parent}

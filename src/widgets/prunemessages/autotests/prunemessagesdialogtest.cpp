@@ -5,7 +5,6 @@
 */
 
 #include "prunemessagesdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "prunemessages/prunemessagesdialog.h"
 #include "prunemessages/prunemessageswidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PruneMessagesDialogTest)
 
 PruneMessagesDialogTest::PruneMessagesDialogTest(QObject *parent)

@@ -5,10 +5,12 @@
 */
 
 #include "fileattachmentstest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "attachments/fileattachments.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(FileAttachmentsTest)
 FileAttachmentsTest::FileAttachmentsTest(QObject *parent)
     : QObject(parent)

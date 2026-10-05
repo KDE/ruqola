@@ -5,12 +5,14 @@
 */
 
 #include "changechannelreadonlyjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channels/changechannelreadonlyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ChangeChannelReadonlyJobTest)
 using namespace RocketChatRestApi;
 ChangeChannelReadonlyJobTest::ChangeChannelReadonlyJobTest(QObject *parent)

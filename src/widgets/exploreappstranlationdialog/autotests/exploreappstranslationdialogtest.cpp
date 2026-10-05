@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "exploreappstranslationdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exploreappstranlationdialog/exploreappstranslationdialog.h"
 #include "exploreappstranlationdialog/exploreappstranslationwidget.h"
@@ -12,6 +11,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ExploreAppsTranslationDialogTest)
 
 ExploreAppsTranslationDialogTest::ExploreAppsTranslationDialogTest(QObject *parent)

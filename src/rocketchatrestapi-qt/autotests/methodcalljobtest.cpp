@@ -5,13 +5,14 @@
 */
 
 #include "methodcalljobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/methodcalljob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(MethodCallJobTest)
 using namespace RocketChatRestApi;

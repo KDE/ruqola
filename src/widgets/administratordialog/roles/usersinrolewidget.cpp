@@ -5,7 +5,6 @@
 */
 
 #include "usersinrolewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "connection.h"
 #include "dialogs/addusersinroomdialog.h"
@@ -24,6 +23,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
+
+using namespace Qt::Literals::StringLiterals;
 
 UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)

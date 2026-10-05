@@ -5,9 +5,10 @@
 */
 
 #include "personalaccesstokeninfosmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
+
+using namespace Qt::Literals::StringLiterals;
 
 PersonalAccessTokenInfosModel::PersonalAccessTokenInfosModel(QObject *parent)
     : QAbstractListModel{parent}

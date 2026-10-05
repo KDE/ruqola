@@ -5,7 +5,6 @@
 */
 
 #include "checknewserverurlwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configurenewserver/checknewserverurlwidget.h"
 #include <KBusyIndicatorWidget>
@@ -15,6 +14,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CheckNewServerUrlWidgetTest)
 
 CheckNewServerUrlWidgetTest::CheckNewServerUrlWidgetTest(QObject *parent)

@@ -5,13 +5,14 @@
 */
 
 #include "logssettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/logs/logssettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(LogsSettingsWidgetTest)
 LogsSettingsWidgetTest::LogsSettingsWidgetTest(QObject *parent)

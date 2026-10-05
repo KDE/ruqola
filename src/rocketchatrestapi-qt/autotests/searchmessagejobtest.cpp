@@ -5,12 +5,13 @@
 */
 
 #include "searchmessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/searchmessagejob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(searchMessageJobTest)
 using namespace RocketChatRestApi;

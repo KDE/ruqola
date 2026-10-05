@@ -5,10 +5,12 @@
 */
 
 #include "soundconfigurewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/soundconfigurewidget.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(SoundConfigureWidgetTest)
 SoundConfigureWidgetTest::SoundConfigureWidgetTest(QObject *parent)
     : QObject{parent}

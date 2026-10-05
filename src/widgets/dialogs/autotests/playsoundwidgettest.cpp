@@ -5,7 +5,6 @@
 */
 
 #include "playsoundwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/playsoundwidget.h"
 #include <KMessageWidget>
@@ -16,6 +15,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PlaySoundWidgetTest)
 
 PlaySoundWidgetTest::PlaySoundWidgetTest(QObject *parent)

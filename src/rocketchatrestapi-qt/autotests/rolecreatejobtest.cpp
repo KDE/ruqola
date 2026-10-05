@@ -5,13 +5,14 @@
 */
 
 #include "rolecreatejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "role/rolecreatejob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RoleCreateJobTest)
 using namespace RocketChatRestApi;

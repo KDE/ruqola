@@ -5,12 +5,14 @@
 */
 
 #include "previewurlcachemanagertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "previewurlcachemanager.h"
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(PreviewUrlCacheManagerTest)
 
 PreviewUrlCacheManagerTest::PreviewUrlCacheManagerTest(QObject *parent)

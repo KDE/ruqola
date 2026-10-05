@@ -5,7 +5,6 @@
 */
 
 #include "localmessagesdatabasetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabase/localmessagesdatabase.h"
 #include "messages/message.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSqlTableModel>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(LocalMessagesDatabaseTest)
 

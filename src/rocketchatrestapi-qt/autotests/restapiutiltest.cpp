@@ -5,10 +5,11 @@
 */
 
 #include "restapiutiltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapiutil.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RestApiUtilTest)
 RestApiUtilTest::RestApiUtilTest(QObject *parent)

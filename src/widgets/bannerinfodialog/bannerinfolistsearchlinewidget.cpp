@@ -5,13 +5,14 @@
 */
 
 #include "bannerinfolistsearchlinewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
     : QWidget{parent}

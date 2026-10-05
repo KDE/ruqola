@@ -5,13 +5,14 @@
 */
 
 #include "settingsoauthjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/settingsoauthjob.h"
 
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(SettingsOauthJobTest)
 using namespace RocketChatRestApi;

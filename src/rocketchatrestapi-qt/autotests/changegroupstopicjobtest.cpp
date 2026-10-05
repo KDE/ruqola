@@ -5,13 +5,14 @@
 */
 
 #include "changegroupstopicjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "groups/changegroupstopicjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ChangeGroupsTopicJobTest)
 using namespace RocketChatRestApi;

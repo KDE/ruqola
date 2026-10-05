@@ -5,13 +5,14 @@
 */
 
 #include "channelremovemoderatorjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channels/channelremovemoderatorjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ChannelRemoveModeratorJobTest)
 using namespace RocketChatRestApi;

@@ -5,7 +5,6 @@
 */
 
 #include "oauthtreeview.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratoroauthcreatedialog.h"
 #include "administratoroautheditdialog.h"
@@ -20,6 +19,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <KMessageBox>
 #include <QMenu>
 #include <QPointer>
+
+using namespace Qt::Literals::StringLiterals;
 
 OauthTreeView::OauthTreeView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)

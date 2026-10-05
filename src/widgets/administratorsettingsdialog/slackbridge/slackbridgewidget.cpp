@@ -5,7 +5,6 @@
 */
 
 #include "slackbridgewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPlainTextEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

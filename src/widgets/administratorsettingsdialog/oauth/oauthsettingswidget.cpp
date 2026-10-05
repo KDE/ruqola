@@ -5,13 +5,14 @@
 */
 
 #include "oauthsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

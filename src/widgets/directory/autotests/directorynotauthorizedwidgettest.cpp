@@ -5,12 +5,14 @@
 */
 
 #include "directorynotauthorizedwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directory/directorynotauthorizedwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(DirectoryNotAuthorizedWidgetTest)
 DirectoryNotAuthorizedWidgetTest::DirectoryNotAuthorizedWidgetTest(QObject *parent)
     : QObject{parent}

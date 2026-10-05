@@ -5,12 +5,14 @@
 */
 
 #include "directorystackedwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directory/directorynotauthorizedwidget.h"
 #include "directory/directorystackedwidget.h"
 #include "directory/directorywidget.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(DirectoryStackedWidgetTest)
 
 DirectoryStackedWidgetTest::DirectoryStackedWidgetTest(QObject *parent)

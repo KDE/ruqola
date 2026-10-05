@@ -5,11 +5,12 @@
 */
 
 #include "commonmessagesmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 
 #include "listmessages.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 CommonMessagesModel::CommonMessagesModel(RocketChatAccount *account, QObject *parent)
     : MessagesModel("no_room"_ba, account, nullptr, parent)

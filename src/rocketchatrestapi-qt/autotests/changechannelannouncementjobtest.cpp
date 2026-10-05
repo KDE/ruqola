@@ -5,13 +5,14 @@
 */
 
 #include "changechannelannouncementjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channels/changechannelannouncementjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ChangeChannelAnnouncementJobTest)
 using namespace RocketChatRestApi;

@@ -5,13 +5,14 @@
 */
 
 #include "resettotpjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include "users/resettotpjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ResetTOTPJobTest)
 using namespace RocketChatRestApi;

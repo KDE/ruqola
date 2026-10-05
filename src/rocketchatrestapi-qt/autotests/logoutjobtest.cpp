@@ -5,11 +5,12 @@
 */
 
 #include "logoutjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "authentication/logoutjob.h"
 #include "restapimethod.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(LogoutJobTest)
 using namespace RocketChatRestApi;

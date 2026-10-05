@@ -5,12 +5,13 @@
 */
 
 #include "administratorinviteuserswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorInviteUsersWidget::AdministratorInviteUsersWidget(QWidget *parent)
     : QWidget{parent}

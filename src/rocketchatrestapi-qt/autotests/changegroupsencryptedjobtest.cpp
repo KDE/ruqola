@@ -5,12 +5,14 @@
 */
 
 #include "changegroupsencryptedjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "groups/changegroupsencryptedjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ChangeGroupsEncryptedJobTest)
 using namespace RocketChatRestApi;
 ChangeGroupsEncryptedJobTest::ChangeGroupsEncryptedJobTest(QObject *parent)

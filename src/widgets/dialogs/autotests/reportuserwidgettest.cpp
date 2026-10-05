@@ -5,13 +5,15 @@
 */
 
 #include "reportuserwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/reportmessagewidget.h"
 #include <KTextEdit>
 #include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ReportUserWidgetTest)
 ReportUserWidgetTest::ReportUserWidgetTest(QObject *parent)
     : QObject(parent)

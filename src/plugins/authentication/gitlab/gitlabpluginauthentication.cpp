@@ -5,11 +5,12 @@
 */
 
 #include "gitlabpluginauthentication.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "gitlabauthenticationinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
+
+using namespace Qt::Literals::StringLiterals;
 
 K_PLUGIN_CLASS_WITH_JSON(GitLabPluginAuthentication, "ruqola_gitlabauthenticationplugin.json")
 

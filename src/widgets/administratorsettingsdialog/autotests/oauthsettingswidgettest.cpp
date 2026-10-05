@@ -5,12 +5,14 @@
 */
 
 #include "oauthsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/oauth/oauthsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(OauthSettingsWidgetTest)
 OauthSettingsWidgetTest::OauthSettingsWidgetTest(QObject *parent)
     : QObject{parent}

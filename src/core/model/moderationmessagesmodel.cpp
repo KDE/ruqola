@@ -5,9 +5,10 @@
 */
 
 #include "moderationmessagesmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderation/moderationlistmessages.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 ModerationMessagesModel::ModerationMessagesModel(RocketChatAccount *account, QObject *parent)
     : CommonMessagesModel{account, parent}

@@ -5,12 +5,13 @@
 */
 
 #include "usersmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_debug.h"
 #include "utils.h"
 #include <KLocalizedString>
 #include <QJsonObject>
+
+using namespace Qt::Literals::StringLiterals;
 
 UsersModel::UsersModel(QObject *parent)
     : QAbstractListModel(parent)

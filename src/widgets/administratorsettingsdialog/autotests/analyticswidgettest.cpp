@@ -5,12 +5,14 @@
 */
 
 #include "analyticswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/analytics/analyticswidget.h"
 #include "settingswidgetshelper.h"
 #include <QLineEdit>
 #include <QPlainTextEdit>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AnalyticsWidgetTest)
 AnalyticsWidgetTest::AnalyticsWidgetTest(QObject *parent)
     : QObject{parent}

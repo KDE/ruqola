@@ -5,7 +5,6 @@
 */
 
 #include "moderationmessageinfodialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/moderationconsole/moderationmessageinfodialog.h"
 #include "administratordialog/moderationconsole/moderationmessageinfowidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ModerationMessageInfoDialogTest)
 ModerationMessageInfoDialogTest::ModerationMessageInfoDialogTest(QObject *parent)
     : QObject{parent}

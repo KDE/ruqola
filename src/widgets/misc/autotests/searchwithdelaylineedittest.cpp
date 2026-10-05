@@ -5,10 +5,12 @@
 */
 
 #include "searchwithdelaylineedittest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/searchwithdelaylineedit.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(SearchWithDelayLineEditTest)
 SearchWithDelayLineEditTest::SearchWithDelayLineEditTest(QObject *parent)
     : QObject(parent)

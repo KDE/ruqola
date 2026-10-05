@@ -5,7 +5,6 @@
 */
 
 #include "myaccountconfiguredialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccountconfiguredialog.h"
 #include "myaccount/myaccountconfigurewidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(MyAccountConfigureDialogTest)
 MyAccountConfigureDialogTest::MyAccountConfigureDialogTest(QObject *parent)

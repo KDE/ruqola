@@ -4,12 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "enterprisesettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/enterprise/enterprisesettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(EnterpriseSettingsWidgetTest)
 
 EnterpriseSettingsWidgetTest::EnterpriseSettingsWidgetTest(QObject *parent)

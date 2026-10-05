@@ -5,13 +5,15 @@
 */
 
 #include "createdirectmessagesdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/createdirectmessagesdialog.h"
 #include "dialogs/createdirectmessageswidget.h"
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CreateDirectMessagesDialogTest)
 CreateDirectMessagesDialogTest::CreateDirectMessagesDialogTest(QObject *parent)
     : QObject(parent)

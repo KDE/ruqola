@@ -5,13 +5,14 @@
 */
 
 #include "appscountinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsdialog/appscountinfowidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QProgressBar>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AppsCountInfoWidgetTest)
 

@@ -5,10 +5,12 @@
 */
 
 #include "servicepasswordtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "servicepassword.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ServicePasswordTest)
 ServicePasswordTest::ServicePasswordTest(QObject *parent)
     : QObject(parent)

@@ -5,7 +5,6 @@
 */
 
 #include "configurenotificationdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/configurenotificationdialog.h"
 #include "dialogs/configurenotificationwidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfigureNotificationDialogTest)
 ConfigureNotificationDialogTest::ConfigureNotificationDialogTest(QObject *parent)
     : QObject(parent)

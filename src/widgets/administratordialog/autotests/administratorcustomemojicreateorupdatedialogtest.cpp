@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomemojicreateorupdatedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.h"
 #include "administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorCustomEmojiCreateOrUpdateDialogTest)
 

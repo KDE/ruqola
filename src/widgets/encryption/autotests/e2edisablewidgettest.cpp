@@ -5,7 +5,6 @@
 */
 
 #include "e2edisablewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "encryption/e2edisablewidget.h"
 #include <KSeparator>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(E2eDisableWidgetTest)
 

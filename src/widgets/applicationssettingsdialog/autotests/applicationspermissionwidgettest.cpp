@@ -4,13 +4,15 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "applicationspermissionwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsdialog/applicationspermissionwidget.h"
 
 #include <QTest>
 #include <QTextEdit>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ApplicationsPermissionWidgetTest)
 ApplicationsPermissionWidgetTest::ApplicationsPermissionWidgetTest(QObject *parent)
     : QObject{parent}

@@ -5,13 +5,15 @@
 */
 
 #include "mobilesettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/mobile/mobilesettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QLabel>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(MobileSettingsWidgetTest)
 MobileSettingsWidgetTest::MobileSettingsWidgetTest(QObject *parent)
     : QObject{parent}

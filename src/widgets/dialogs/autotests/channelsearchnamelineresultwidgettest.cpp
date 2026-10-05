@@ -5,13 +5,15 @@
 */
 
 #include "channelsearchnamelineresultwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelsearchnamelineresultwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTest>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelSearchNameLineResultWidgetTest)
 
 ChannelSearchNameLineResultWidgetTest::ChannelSearchNameLineResultWidgetTest(QObject *parent)

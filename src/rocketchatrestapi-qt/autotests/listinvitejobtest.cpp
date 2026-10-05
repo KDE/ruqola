@@ -5,7 +5,6 @@
 */
 
 #include "listinvitejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "invite/listinvitejob.h"
 
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ListInviteJobTest)
 using namespace RocketChatRestApi;

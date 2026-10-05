@@ -5,7 +5,6 @@
 */
 
 #include "showimagedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showimagedialog.h"
 #include "dialogs/showimagewidget.h"
@@ -15,6 +14,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ShowImageDialogTest)
 
 ShowImageDialogTest::ShowImageDialogTest(QObject *parent)

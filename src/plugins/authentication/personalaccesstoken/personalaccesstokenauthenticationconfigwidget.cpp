@@ -5,12 +5,13 @@
 */
 
 #include "personalaccesstokenauthenticationconfigwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 PersonalAccessTokenAuthenticationConfigWidget::PersonalAccessTokenAuthenticationConfigWidget(QWidget *parent)
     : PluginAuthenticationConfigureWidget{parent}

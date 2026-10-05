@@ -5,13 +5,14 @@
 */
 
 #include "administratoradduserdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratoradduserwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorAddUserDialog::AdministratorAddUserDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)

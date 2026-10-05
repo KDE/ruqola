@@ -4,13 +4,15 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoroautheditwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/oauth/administratoroautheditwidget.h"
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorOauthEditWidgetTest)
 AdministratorOauthEditWidgetTest::AdministratorOauthEditWidgetTest(QObject *parent)
     : QObject{parent}

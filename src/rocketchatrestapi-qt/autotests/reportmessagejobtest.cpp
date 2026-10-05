@@ -5,7 +5,6 @@
 */
 
 #include "reportmessagejobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/reportmessagejob.h"
 
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ReportMessageJobTest)
 using namespace RocketChatRestApi;

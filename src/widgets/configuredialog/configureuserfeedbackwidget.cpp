@@ -5,7 +5,6 @@
 */
 
 #include "configureuserfeedbackwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QVBoxLayout>
 
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <KUserFeedback/FeedbackConfigWidget>
 #include <KUserFeedback/Provider>
 #endif
+
+using namespace Qt::Literals::StringLiterals;
 
 ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
     : QWidget(parent)

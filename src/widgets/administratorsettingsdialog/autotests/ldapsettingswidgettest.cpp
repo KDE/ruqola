@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "ldapsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/ldap/ldapsettingswidget.h"
 #include "settingswidgetshelper.h"
@@ -12,6 +11,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(LDapSettingsWidgetTest)
 LDapSettingsWidgetTest::LDapSettingsWidgetTest(QObject *parent)

@@ -5,7 +5,6 @@
 */
 
 #include "administratorroomseditdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordirectroomseditwidget.h"
 #include "administratorroomseditwidget.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QWidget *parent)
     : QDialog(parent)

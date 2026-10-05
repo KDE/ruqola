@@ -5,7 +5,6 @@
 */
 
 #include "notificationhistorywidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "misc/serverscombobox.h"
 #include "notificationhistory/notificationhistorydelegate.h"
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(NotificationHistoryWidgetTest)
 

@@ -5,7 +5,6 @@
 */
 
 #include "administratormoderationconsolewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratormoderationreportedmessageconsoletreewidget.h"
 #include "administratormoderationreporteduserconsoletreewidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorModerationConsoleWidget::AdministratorModerationConsoleWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}

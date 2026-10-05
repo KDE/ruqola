@@ -5,13 +5,15 @@
 */
 
 #include "resetpasswordwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/resetpasswordwidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ResetPasswordWidgetTest)
 ResetPasswordWidgetTest::ResetPasswordWidgetTest(QObject *parent)
     : QObject{parent}

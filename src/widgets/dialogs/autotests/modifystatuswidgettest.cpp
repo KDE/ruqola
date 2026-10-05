@@ -5,13 +5,15 @@
 */
 
 #include "modifystatuswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/modifystatuswidget.h"
 #include "misc/statuscombobox.h"
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ModifyStatusWidgetTest)
 
 ModifyStatusWidgetTest::ModifyStatusWidgetTest(QObject *parent)

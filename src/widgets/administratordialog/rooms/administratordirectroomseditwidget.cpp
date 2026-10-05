@@ -5,12 +5,13 @@
 */
 
 #include "administratordirectroomseditwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorDirectRoomsEditWidget::AdministratorDirectRoomsEditWidget(QWidget *parent)
     : AdministratorRoomsEditBaseWidget{parent}

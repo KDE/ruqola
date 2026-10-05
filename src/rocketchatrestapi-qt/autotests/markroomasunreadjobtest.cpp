@@ -5,13 +5,14 @@
 */
 
 #include "markroomasunreadjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 
 #include "subscriptions/markroomasunreadjob.h"
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(MarkRoomAsUnReadJobTest)
 using namespace RocketChatRestApi;

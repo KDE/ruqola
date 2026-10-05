@@ -5,7 +5,6 @@
 */
 
 #include "applicationssettingsdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingswidget.h"
 #include "rocketchataccount.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {

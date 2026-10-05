@@ -5,13 +5,14 @@
 */
 
 #include "videoconferencewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

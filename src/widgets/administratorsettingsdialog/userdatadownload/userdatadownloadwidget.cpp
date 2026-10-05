@@ -5,13 +5,14 @@
 */
 
 #include "userdatadownloadwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 UserDataDownloadWidget::UserDataDownloadWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

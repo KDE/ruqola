@@ -5,13 +5,15 @@
 */
 
 #include "configuregeneralwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configuredialog/configuregeneralwidget.h"
 #include <QCheckBox>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfigureGeneralWidgetTest)
 
 ConfigureGeneralWidgetTest::ConfigureGeneralWidgetTest(QObject *parent)

@@ -5,7 +5,6 @@
 */
 
 #include "administratoroauthcreatedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/oauth/administratoroauthcreatedialog.h"
 
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorOauthCreateDialogTest)
 AdministratorOauthCreateDialogTest::AdministratorOauthCreateDialogTest(QObject *parent)

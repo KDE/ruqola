@@ -4,11 +4,13 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "layoutsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/layout/layoutsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(LayoutSettingsWidgetTest)
 
 LayoutSettingsWidgetTest::LayoutSettingsWidgetTest(QObject *parent)

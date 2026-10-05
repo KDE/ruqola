@@ -5,7 +5,6 @@
 */
 
 #include "forwardmessagewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "forwardmessage/forwardmessagewidget.h"
 #include "misc/clickablewidget.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ForwardMessageWidgetTest)
 ForwardMessageWidgetTest::ForwardMessageWidgetTest(QObject *parent)

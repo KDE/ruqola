@@ -5,13 +5,14 @@
 */
 
 #include "customuserstatusdeletetestjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "custom/customuserstatusdeletejob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(CustomUserStatusDeleteTestJob)
 using namespace RocketChatRestApi;

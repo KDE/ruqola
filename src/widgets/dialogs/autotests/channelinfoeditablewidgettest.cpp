@@ -5,12 +5,14 @@
 */
 
 #include "channelinfoeditablewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelinfoeditablewidget.h"
 #include "dialogs/roomavatarwidget.h"
 #include <QFormLayout>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelInfoEditableWidgetTest)
 ChannelInfoEditableWidgetTest::ChannelInfoEditableWidgetTest(QObject *parent)
     : QObject(parent)

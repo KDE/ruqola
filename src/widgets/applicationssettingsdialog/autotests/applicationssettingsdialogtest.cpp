@@ -5,7 +5,6 @@
 */
 
 #include "applicationssettingsdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "applicationssettingsdialog/applicationssettingsdialog.h"
 #include "applicationssettingsdialog/applicationssettingswidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ApplicationsSettingsDialogTest)
 ApplicationsSettingsDialogTest::ApplicationsSettingsDialogTest(QObject *parent)

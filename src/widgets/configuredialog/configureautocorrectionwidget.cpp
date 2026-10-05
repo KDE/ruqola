@@ -5,7 +5,6 @@
 */
 
 #include "configureautocorrectionwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola.h"
 
@@ -16,6 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #endif
 
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     : QWidget{parent}

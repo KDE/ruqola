@@ -5,12 +5,14 @@
 */
 
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "servererrorinfohistorymanager.h"
 #include "testservererrorinfomessagehistorywidget.h"
 #include <QApplication>
 #include <QCommandLineParser>
+
+using namespace Qt::Literals::StringLiterals;
+
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);

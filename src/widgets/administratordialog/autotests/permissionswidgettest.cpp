@@ -5,7 +5,6 @@
 */
 
 #include "permissionswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/permissions/permissionstreeview.h"
 #include "administratordialog/permissions/permissionswidget.h"
@@ -15,6 +14,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QTreeView>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(PermissionsWidgetTest)
 
 PermissionsWidgetTest::PermissionsWidgetTest(QObject *parent)

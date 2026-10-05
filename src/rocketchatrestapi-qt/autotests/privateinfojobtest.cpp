@@ -5,11 +5,12 @@
 */
 
 #include "privateinfojobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 #include "settings/privateinfojob.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(PrivateInfoJobTest)
 using namespace RocketChatRestApi;

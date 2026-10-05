@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "emailsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -15,6 +14,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

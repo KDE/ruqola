@@ -8,7 +8,6 @@
  */
 
 #include "googlejob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "googleauthenticationplugin_debug.h"
 #include "ruqola_debug.h"
@@ -24,6 +23,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <o2/o0globals.h>
 #include <o2/o0settingsstore.h>
 #include <o2/o2google.h>
+
+using namespace Qt::Literals::StringLiterals;
 
 GoogleJob::GoogleJob(QObject *parent)
     : QObject(parent)

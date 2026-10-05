@@ -5,7 +5,6 @@
 */
 
 #include "autotranslateconfigurewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/autotranslateconfigurewidget.h"
 #include <QCheckBox>
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AutoTranslateConfigureWidgetTest)
 
 AutoTranslateConfigureWidgetTest::AutoTranslateConfigureWidgetTest(QObject *parent)

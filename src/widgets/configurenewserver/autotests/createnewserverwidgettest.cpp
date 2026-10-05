@@ -5,13 +5,15 @@
 */
 
 #include "createnewserverwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/authenticationloginwidget.h"
 #include "common/authenticationoauthwidget.h"
 #include "configurenewserver/createnewserverwidget.h"
 #include <QFormLayout>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CreateNewServerWidgetTest)
 CreateNewServerWidgetTest::CreateNewServerWidgetTest(QObject *parent)
     : QObject(parent)

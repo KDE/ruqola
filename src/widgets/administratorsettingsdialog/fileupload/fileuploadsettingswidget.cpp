@@ -5,7 +5,6 @@
 */
 
 #include "fileuploadsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <QFormLayout>
 
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}

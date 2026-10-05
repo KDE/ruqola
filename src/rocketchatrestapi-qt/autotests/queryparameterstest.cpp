@@ -5,12 +5,14 @@
 */
 
 #include "queryparameterstest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "queryparameters.h"
 #include <QTest>
 
 #include <QUrlQuery>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(QueryParametersTest)
 
 QueryParametersTest::QueryParametersTest(QObject *parent)

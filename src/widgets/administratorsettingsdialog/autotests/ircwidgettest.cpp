@@ -5,12 +5,13 @@
 */
 
 #include "ircwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/irc/ircwidget.h"
 #include "settingswidgetshelper.h"
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(IrcWidgetTest)
 

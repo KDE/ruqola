@@ -5,10 +5,12 @@
 */
 
 #include "importexportutilstest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/importexportutils.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ImportExportUtilsTest)
 ImportExportUtilsTest::ImportExportUtilsTest(QObject *parent)
     : QObject{parent}

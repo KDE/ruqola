@@ -5,11 +5,12 @@
 */
 
 #include "personalaccesstokenpluginauthentication.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "personalaccesstokenauthenticationinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
+
+using namespace Qt::Literals::StringLiterals;
 
 K_PLUGIN_CLASS_WITH_JSON(PersonalAccessTokenPluginAuthentication, "ruqola_personalaccesstokenauthenticationplugin.json")
 

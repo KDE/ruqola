@@ -5,12 +5,13 @@
 */
 
 #include "moderationmessageinfowidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/moderationconsole/moderationmessageinfowidget.h"
 #include "administratordialog/moderationconsole/moderationreportinfowidget.h"
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ModerationMessageInfoWidgetTest)
 ModerationMessageInfoWidgetTest::ModerationMessageInfoWidgetTest(QObject *parent)

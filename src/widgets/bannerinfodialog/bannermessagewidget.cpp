@@ -4,13 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "bannermessagewidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqolautils.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QAction>
 #include <QUrl>
+
+using namespace Qt::Literals::StringLiterals;
 
 BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     : KMessageWidget(parent)

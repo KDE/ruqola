@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomsoundscreatedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customsounds/administratorcustomsoundscreatedialog.h"
 #include "administratordialog/customsounds/administratorcustomsoundscreatewidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorCustomSoundsCreateDialogTest)
 AdministratorCustomSoundsCreateDialogTest::AdministratorCustomSoundsCreateDialogTest(QObject *parent)

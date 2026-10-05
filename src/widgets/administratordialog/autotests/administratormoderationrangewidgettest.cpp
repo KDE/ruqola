@@ -5,7 +5,6 @@
 */
 
 #include "administratormoderationrangewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/moderationconsole/administratormoderationrangewidget.h"
 #include <QDateEdit>
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QTest>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorModerationRangeWidgetTest)
 AdministratorModerationRangeWidgetTest::AdministratorModerationRangeWidgetTest(QObject *parent)
     : QObject{parent}

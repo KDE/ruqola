@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "channelinfoprunewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelinfoprunewidget.h"
 #include <QCheckBox>
@@ -12,6 +11,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSpinBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelInfoPruneWidgetTest)
 
 ChannelInfoPruneWidgetTest::ChannelInfoPruneWidgetTest(QObject *parent)

@@ -5,12 +5,14 @@
 */
 
 #include "searchmessagewithdelaylineedittest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/searchmessagewithdelaylineedit.h"
 #include <QCompleter>
 #include <QStringListModel>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(SearchMessageWithDelayLineEditTest)
 
 SearchMessageWithDelayLineEditTest::SearchMessageWithDelayLineEditTest(QObject *parent)

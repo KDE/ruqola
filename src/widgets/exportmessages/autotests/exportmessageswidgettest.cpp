@@ -5,13 +5,15 @@
 */
 
 #include "exportmessageswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "exportmessages/exportmessageswidget.h"
 #include <QComboBox>
 #include <QDateEdit>
 #include <QFormLayout>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ExportMessagesWidgetTest)
 ExportMessagesWidgetTest::ExportMessagesWidgetTest(QObject *parent)
     : QObject(parent)

@@ -5,12 +5,14 @@
 */
 
 #include "e2esaveencryptionkeywidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "encryption/e2esaveencryptionkeywidget.h"
 #include <QAction>
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(E2eSaveEncryptionKeyWidgetTest)
 E2eSaveEncryptionKeyWidgetTest::E2eSaveEncryptionKeyWidgetTest(QObject *parent)
     : QObject{parent}

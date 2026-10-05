@@ -4,12 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "createnewserverstackwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configurenewserver/checknewserverurlwidget.h"
 #include "configurenewserver/createnewserverstackwidget.h"
 #include "configurenewserver/createnewserverwidget.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CreateNewServerStackWidgetTest)
 CreateNewServerStackWidgetTest::CreateNewServerStackWidgetTest(QObject *parent)
     : QObject{parent}

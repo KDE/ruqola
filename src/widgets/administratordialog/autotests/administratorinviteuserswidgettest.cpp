@@ -5,13 +5,15 @@
 */
 
 #include "administratorinviteuserswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/users/administratorinviteuserswidget.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorInviteUsersWidgetTest)
 AdministratorInviteUsersWidgetTest::AdministratorInviteUsersWidgetTest(QObject *parent)
     : QObject{parent}

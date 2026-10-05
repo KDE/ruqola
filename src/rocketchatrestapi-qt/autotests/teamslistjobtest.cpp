@@ -5,12 +5,13 @@
 */
 
 #include "teamslistjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "ruqola_restapi_helper.h"
 
 #include "teams/teamslistjob.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(TeamsListJobTest)
 using namespace RocketChatRestApi;

@@ -5,7 +5,6 @@
 */
 
 #include "channellistwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ChannelListWidgetTest)
 ChannelListWidgetTest::ChannelListWidgetTest(QObject *parent)

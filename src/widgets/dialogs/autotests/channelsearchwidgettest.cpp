@@ -5,13 +5,15 @@
 */
 
 #include "channelsearchwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelsearchnamelineedit.h"
 #include "dialogs/channelsearchwidget.h"
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelSearchWidgetTest)
 ChannelSearchWidgetTest::ChannelSearchWidgetTest(QObject *parent)
     : QObject(parent)

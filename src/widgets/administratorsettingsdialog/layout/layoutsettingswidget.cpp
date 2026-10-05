@@ -5,12 +5,13 @@
 */
 
 #include "layoutsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

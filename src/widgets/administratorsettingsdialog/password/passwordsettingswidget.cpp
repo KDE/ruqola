@@ -5,7 +5,6 @@
 */
 
 #include "passwordsettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

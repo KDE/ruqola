@@ -5,13 +5,14 @@
 */
 
 #include "webrtcsettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/webrtc/webrtcsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QComboBox>
 #include <QFormLayout>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(WebRtcSettingsWidgetTest)
 

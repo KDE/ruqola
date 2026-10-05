@@ -5,13 +5,14 @@
 */
 
 #include "licensesmaxactiveusersjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "license/licensesmaxactiveusersjob.h"
 
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(LicensesMaxActiveUsersJobTest)
 using namespace RocketChatRestApi;

@@ -5,11 +5,12 @@
 */
 
 #include "moderationreportsbyuseridjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "moderation/moderationreportsbyuseridjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ModerationReportsByUserIdJobTest)
 using namespace RocketChatRestApi;

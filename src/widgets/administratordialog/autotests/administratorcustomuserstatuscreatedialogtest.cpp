@@ -5,7 +5,6 @@
 */
 
 #include "administratorcustomuserstatuscreatedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.h"
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorCustomUserStatusCreateDialogTest)
 

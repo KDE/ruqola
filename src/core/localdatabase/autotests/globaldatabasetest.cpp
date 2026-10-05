@@ -5,11 +5,13 @@
 */
 
 #include "globaldatabasetest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "localdatabase/globaldatabase.h"
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(GlobalDatabaseTest)
 static QString accountName()
 {

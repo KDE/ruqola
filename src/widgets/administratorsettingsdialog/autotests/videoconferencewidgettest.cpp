@@ -5,13 +5,15 @@
 */
 
 #include "videoconferencewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/videoconference/videoconferencewidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(VideoConferenceWidgetTest)
 VideoConferenceWidgetTest::VideoConferenceWidgetTest(QObject *parent)
     : QObject{parent}

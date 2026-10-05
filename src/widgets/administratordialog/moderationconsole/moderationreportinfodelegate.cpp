@@ -5,7 +5,6 @@
 */
 
 #include "moderationreportinfodelegate.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
@@ -16,6 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QListView>
 #include <QPainter>
 #include <QToolTip>
+
+using namespace Qt::Literals::StringLiterals;
 
 ModerationReportInfoDelegate::ModerationReportInfoDelegate(RocketChatAccount *account, QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}

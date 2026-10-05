@@ -5,13 +5,14 @@
 */
 
 #include "mobilesettingswidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 MobileSettingsWidget::MobileSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)

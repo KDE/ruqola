@@ -5,13 +5,14 @@
 */
 
 #include "getmentionedmessagesjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "chat/getmentionedmessagesjob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GetMentionedMessagesJobTest)
 using namespace RocketChatRestApi;

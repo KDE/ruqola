@@ -5,13 +5,14 @@
 */
 
 #include "configureaccessibilitywidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configuredialog/configureaccessibilitywidget.h"
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ConfigureAccessibilityWidgetTest)
 ConfigureAccessibilityWidgetTest::ConfigureAccessibilityWidgetTest(QObject *parent)

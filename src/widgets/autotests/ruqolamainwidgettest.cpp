@@ -5,7 +5,6 @@
 */
 
 #include "ruqolamainwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #if 0
 #include "bannerinfodialog/bannermessagewidget.h"
@@ -19,6 +18,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStackedWidget>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(RuqolaMainWidgetTest)
 
 RuqolaMainWidgetTest::RuqolaMainWidgetTest(QObject *parent)

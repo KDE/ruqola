@@ -5,13 +5,15 @@
 */
 
 #include "removeaccountdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configuredialog/removeaccountdialog.h"
 #include "configuredialog/removeaccountwidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(RemoveAccountDialogTest)
 RemoveAccountDialogTest::RemoveAccountDialogTest(QObject *parent)
     : QObject{parent}

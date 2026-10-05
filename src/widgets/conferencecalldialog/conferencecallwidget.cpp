@@ -5,11 +5,12 @@
 */
 
 #include "conferencecallwidget.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
 
 ConferenceCallWidget::ConferenceCallWidget(QWidget *parent)
     : QWidget{parent}

@@ -5,7 +5,6 @@
 */
 
 #include "inviteusersdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/inviteusersdialog.h"
 #include "dialogs/inviteuserswidget.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(InviteUsersDialogTest)
 
 InviteUsersDialogTest::InviteUsersDialogTest(QObject *parent)

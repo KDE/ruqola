@@ -5,7 +5,6 @@
 */
 
 #include "channelpasswordwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/channelpasswordwidget.h"
 #include <KPasswordLineEdit>
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QLabel>
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ChannelPasswordWidgetTest)
 ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
     : QObject(parent)

@@ -5,10 +5,12 @@
 */
 
 #include "systemmessagesmodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/systemmessagesmodel.h"
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(SystemMessagesModelTest)
 SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
     : QObject(parent)

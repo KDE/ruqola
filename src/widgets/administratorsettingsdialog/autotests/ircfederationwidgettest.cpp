@@ -5,7 +5,6 @@
 */
 
 #include "ircfederationwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/ircfederation/ircfederationwidget.h"
 #include "settingswidgetshelper.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(IrcFederationWidgetTest)
 IrcFederationWidgetTest::IrcFederationWidgetTest(QObject *parent)

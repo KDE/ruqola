@@ -5,7 +5,6 @@
 */
 
 #include "threadmessagedialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "threadwidget/threadmessagedialog.h"
 #include "threadwidget/threadmessagewidget.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ThreadMessageDialogTest)
 ThreadMessageDialogTest::ThreadMessageDialogTest(QObject *parent)

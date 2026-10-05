@@ -5,11 +5,13 @@
 */
 
 #include "reactiontest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "messages/reaction.h"
 
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(ReactionTest)
 
 ReactionTest::ReactionTest(QObject *parent)

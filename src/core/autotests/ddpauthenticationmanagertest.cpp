@@ -7,7 +7,6 @@
  */
 
 #include "ddpauthenticationmanagertest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rocketchataccount.h"
 #include "utils.h"
@@ -17,6 +16,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(DDPAuthenticationManagerTest)
 

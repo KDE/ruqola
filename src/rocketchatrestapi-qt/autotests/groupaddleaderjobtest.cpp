@@ -5,13 +5,14 @@
 */
 
 #include "groupaddleaderjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "groups/groupaddleaderjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(GroupAddLeaderJobTest)
 using namespace RocketChatRestApi;

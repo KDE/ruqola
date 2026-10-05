@@ -5,11 +5,12 @@
 */
 
 #include "usercompletermodeltest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "model/usercompletermodel.h"
 #include <QSignalSpy>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(UserCompleterModelTest)
 

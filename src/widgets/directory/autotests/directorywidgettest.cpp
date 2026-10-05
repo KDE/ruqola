@@ -5,7 +5,6 @@
 */
 
 #include "directorywidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directory/directorywidget.h"
 #include "misc/searchwithdelaylineedit.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QTreeView>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(DirectoryWidgetTest)
 DirectoryWidgetTest::DirectoryWidgetTest(QObject *parent)
     : QObject(parent)

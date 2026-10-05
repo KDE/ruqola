@@ -5,7 +5,6 @@
 */
 
 #include "showthreadsdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/showtheadscombobox.h"
 #include "dialogs/showthreadsdialog.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ShowThreadsDialogTest)
 
 ShowThreadsDialogTest::ShowThreadsDialogTest(QObject *parent)

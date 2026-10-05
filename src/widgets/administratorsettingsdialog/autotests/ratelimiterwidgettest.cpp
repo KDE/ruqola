@@ -4,12 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "ratelimiterwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "settingswidgetshelper.h"
 #include <QLabel>
 #include <QSpinBox>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(RateLimiterWidgetTest)
 RateLimiterWidgetTest::RateLimiterWidgetTest(QObject *parent)
     : QObject{parent}

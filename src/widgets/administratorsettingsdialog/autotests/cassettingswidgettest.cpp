@@ -5,7 +5,6 @@
 */
 
 #include "cassettingswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorsettingsdialog/cas/cassettingswidget.h"
 #include "settingswidgetshelper.h"
@@ -14,6 +13,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(CasSettingsWidgetTest)
 CasSettingsWidgetTest::CasSettingsWidgetTest(QObject *parent)
     : QObject{parent}

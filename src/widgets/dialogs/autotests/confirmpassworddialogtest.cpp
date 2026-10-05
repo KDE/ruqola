@@ -4,13 +4,15 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "confirmpassworddialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "dialogs/confirmpassworddialog.h"
 #include "dialogs/confirmpasswordwidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfirmPasswordDialogTest)
 ConfirmPasswordDialogTest::ConfirmPasswordDialogTest(QObject *parent)
     : QObject{parent}

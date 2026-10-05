@@ -5,7 +5,6 @@
 */
 
 #include "configurefontwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configuredialog/configurefontwidget.h"
 #include <KFontChooser>
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfigureFontWidgetTest)
 
 ConfigureFontWidgetTest::ConfigureFontWidgetTest(QObject *parent)

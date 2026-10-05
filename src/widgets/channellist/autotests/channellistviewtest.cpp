@@ -5,7 +5,6 @@
 */
 
 #include "channellistviewtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "channellist/channellistview.h"
 #include "model/roomfilterproxymodel.h"
@@ -16,6 +15,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QSignalSpy>
 #include <QTest>
 #include <memory>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ChannelListViewTest)
 ChannelListViewTest::ChannelListViewTest(QObject *parent)

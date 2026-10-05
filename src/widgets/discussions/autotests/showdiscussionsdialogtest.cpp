@@ -5,13 +5,15 @@
 */
 
 #include "showdiscussionsdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "discussions/showdiscussionsdialog.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ShowDiscussionsDialogTest)
 
 ShowDiscussionsDialogTest::ShowDiscussionsDialogTest(QObject *parent)

@@ -6,12 +6,13 @@
 
 #pragma once
 #include <QCheckBox>
-using namespace Qt::Literals::StringLiterals;
 
 #include <QLabel>
 #include <QString>
 #include <QTest>
 #include <QToolButton>
+
+using namespace Qt::Literals::StringLiterals;
 
 namespace SettingsWidgetHelper
 {

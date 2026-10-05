@@ -5,13 +5,15 @@
 */
 
 #include "configurepluginswidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configuredialog/configurepluginswidget.h"
 #include <KTreeWidgetSearchLine>
 #include <KTreeWidgetSearchLineWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfigurePluginsWidgetTest)
 
 ConfigurePluginsWidgetTest::ConfigurePluginsWidgetTest(QObject *parent)

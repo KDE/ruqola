@@ -5,12 +5,14 @@
 */
 
 #include "configureautocorrectionwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "configuredialog/configureautocorrectionwidget.h"
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ConfigureAutoCorrectionWidgetTest)
 ConfigureAutoCorrectionWidgetTest::ConfigureAutoCorrectionWidgetTest(QObject *parent)
     : QObject{parent}

@@ -5,7 +5,6 @@
 */
 
 #include "explorepermissionsdialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
 #include "explorepermissionsdialog/explorepermissionswidget.h"
@@ -14,6 +13,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ExplorePermissionsDialogTest)
 ExplorePermissionsDialogTest::ExplorePermissionsDialogTest(QObject *parent)

@@ -5,7 +5,6 @@
 */
 
 #include "user2faenableemailjob.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "restapimethod.h"
 
@@ -13,6 +12,7 @@ using namespace Qt::Literals::StringLiterals;
 #include <QJsonObject>
 #include <QNetworkRequest>
 
+using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 User2FAEnableEmailJob::User2FAEnableEmailJob(QObject *parent)
     : RestApiAbstractJob(parent)

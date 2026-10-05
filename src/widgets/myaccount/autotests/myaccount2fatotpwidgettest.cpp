@@ -4,7 +4,6 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "myaccount2fatotpwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "myaccount/myaccount2fatotpwidget.h"
 #include <QLabel>
@@ -12,6 +11,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(MyAccount2FaTotpWidgetTest)
 MyAccount2FaTotpWidgetTest::MyAccount2FaTotpWidgetTest(QObject *parent)
     : QObject{parent}

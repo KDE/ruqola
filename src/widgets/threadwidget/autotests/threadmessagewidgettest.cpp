@@ -5,7 +5,6 @@
 */
 
 #include "threadmessagewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "room/messagelinewidget.h"
 #include "room/roomwidgetbase.h"
@@ -15,6 +14,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(ThreadMessageWidgetTest)
 
 ThreadMessageWidgetTest::ThreadMessageWidgetTest(QObject *parent)

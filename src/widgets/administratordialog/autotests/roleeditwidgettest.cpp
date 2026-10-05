@@ -5,7 +5,6 @@
 */
 
 #include "roleeditwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/roles/roleeditwidget.h"
 #include "administratordialog/roles/rolescopecombobox.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(RoleEditWidgetTest)
 RoleEditWidgetTest::RoleEditWidgetTest(QObject *parent)
     : QObject{parent}

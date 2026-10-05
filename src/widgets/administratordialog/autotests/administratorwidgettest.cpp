@@ -5,7 +5,6 @@
 */
 
 #include "administratorwidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/administratorwidget.h"
 #include "administratordialog/customemoji/administratorcustomemojiwidget.h"
@@ -25,6 +24,8 @@ using namespace Qt::Literals::StringLiterals;
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(AdministratorWidgetTest)
 AdministratorWidgetTest::AdministratorWidgetTest(QObject *parent)

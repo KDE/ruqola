@@ -5,7 +5,6 @@
 */
 
 #include "provideuserswithsuggestedgroupkeysjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "e2e/provideuserswithsuggestedgroupkeysjob.h"
 #include "restapimethod.h"
@@ -13,6 +12,8 @@ using namespace Qt::Literals::StringLiterals;
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(ProvideUsersWithSuggestedGroupKeysJobTest)
 using namespace RocketChatRestApi;

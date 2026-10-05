@@ -5,7 +5,6 @@
 */
 
 #include "directorydialogtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "directory/directorycontainerwidget.h"
 #include "directory/directorydialog.h"
@@ -13,6 +12,9 @@ using namespace Qt::Literals::StringLiterals;
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(DirectoryDialogTest)
 DirectoryDialogTest::DirectoryDialogTest(QObject *parent)
     : QObject(parent)

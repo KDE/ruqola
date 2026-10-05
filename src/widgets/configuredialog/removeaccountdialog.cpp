@@ -5,12 +5,13 @@
 */
 
 #include "removeaccountdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "removeaccountwidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 RemoveAccountDialog::RemoveAccountDialog(QWidget *parent)
     : QDialog(parent)

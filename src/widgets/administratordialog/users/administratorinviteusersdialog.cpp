@@ -5,13 +5,14 @@
 */
 
 #include "administratorinviteusersdialog.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratorinviteuserswidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+using namespace Qt::Literals::StringLiterals;
 
 AdministratorInviteUsersDialog::AdministratorInviteUsersDialog(QWidget *parent)
     : QDialog(parent)

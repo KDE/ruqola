@@ -5,13 +5,14 @@
 */
 
 #include "roomscleanhistoryjobtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "rooms/roomscleanhistoryjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_GUILESS_MAIN(RoomsCleanHistoryJobTest)
 using namespace RocketChatRestApi;

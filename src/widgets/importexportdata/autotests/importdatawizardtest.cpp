@@ -4,13 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "importdatawizardtest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "importexportdata/importdata/importdatafinishpage.h"
 #include "importexportdata/importdata/importdataselectaccountpage.h"
 #include "importexportdata/importdata/importdatawizard.h"
 #include <QStandardPaths>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
 
 QTEST_MAIN(ImportDataWizardTest)
 ImportDataWizardTest::ImportDataWizardTest(QObject *parent)

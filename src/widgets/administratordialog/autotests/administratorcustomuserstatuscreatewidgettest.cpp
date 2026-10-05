@@ -5,13 +5,15 @@
 */
 
 #include "administratorcustomuserstatuscreatewidgettest.h"
-using namespace Qt::Literals::StringLiterals;
 
 #include "administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.h"
 #include "misc/statuscombobox.h"
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_MAIN(AdministratorCustomUserStatusCreateWidgetTest)
 AdministratorCustomUserStatusCreateWidgetTest::AdministratorCustomUserStatusCreateWidgetTest(QObject *parent)
     : QObject(parent)
