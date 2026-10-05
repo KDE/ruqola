@@ -9,7 +9,21 @@
 ConfigureAccessibilityTabWidget::ConfigureAccessibilityTabWidget(QWidget *parent)
     : QTabWidget(parent)
 {
+    setTabBarAutoHide(true);
 }
 
 ConfigureAccessibilityTabWidget::~ConfigureAccessibilityTabWidget() = default;
+
+void ConfigureAccessibilityTabWidget::save()
+{
+}
+
+void ConfigureAccessibilityTabWidget::load()
+{
+}
+
+void ConfigureAccessibilityTabWidget::restoreToDefaults()
+{
+}
+
 #include "moc_configureaccessibilitytabwidget.cpp"

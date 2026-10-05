@@ -14,4 +14,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccessibilityTabWidget : public QTa
 public:
     explicit ConfigureAccessibilityTabWidget(QWidget *parent = nullptr);
     ~ConfigureAccessibilityTabWidget() override;
+
+    void save();
+    void load();
+    void restoreToDefaults();
 };
