@@ -152,7 +152,9 @@ void MessageListView::paintEvent(QPaintEvent *e)
     if (mRoom && mRoom->encrypted()) {
         p.drawPixmap(width() - mEncryptedRoomBackground.width(), height() - mEncryptedRoomBackground.height(), mEncryptedRoomBackground);
     }
-    if (mRoom && (mRoom->numberMessages() == 0)) {
+    // "msgs" can be missing or stale (e.g. a room restored from the local database), so trust the model
+    // when it already has messages.
+    if (mRoom && (mRoom->numberMessages() == 0) && (!model() || model()->rowCount() == 0)) {
         QFont font = p.font();
         font.setItalic(true);
         p.setFont(font);
