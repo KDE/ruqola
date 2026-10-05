@@ -26,8 +26,8 @@ void UsersInRoomComboBox::fillCombobox(bool hasOwnerSupport)
     addItem(QIcon::fromTheme(u"user-offline"_s), i18n("Disconnected"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Offline));
     addItem(QIcon::fromTheme(u"user-away"_s), i18n("Away"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Away));
     addItem(QIcon::fromTheme(u"user-busy"_s), i18n("Busy"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Busy));
-    insertSeparator(6);
     if (hasOwnerSupport) {
+        insertSeparator(6);
         addItem(i18n("Owners"), QVariant::fromValue(UsersForRoomFilterProxyModel::FilterUserType::Owners));
     }
 }
