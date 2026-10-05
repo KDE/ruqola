@@ -33,7 +33,7 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     QString html;
     const User user = infos.user();
     if (!infos.user().userEmailsInfo().email.isEmpty()) {
-        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name(), user.userName()) + u"</b></div>"_s;
+        html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name().toHtmlEscaped(), user.userName().toHtmlEscaped()) + u"</b></div>"_s;
         html += u"<br/>"_s;
         html += u"<div><b>"_s + i18n("Email:") + u"</b>"_s + u" %1"_s.arg(infos.user().userEmailsInfo().email) + u"</div>"_s;
         html += u"<br/>"_s;
@@ -49,9 +49,9 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     int i = 1;
     for (const auto &info : moderationReportUserInfosList) {
         html += u"<div><a style='background-color:"_s + codeBackgroundColor.name() + "'>"_L1 + i18n("Report #%1", i) + u"</a></div>"_s;
-        html += u"<div>"_s + info.description() + u"</div>"_s;
+        html += u"<div>"_s + info.description().toHtmlEscaped() + u"</div>"_s;
         const QString createAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(info.timeStamp()), QLocale::ShortFormat);
-        html += u"<div><i>"_s + info.reportedBy().userName() + u' ' + createAtDisplayDateTime + u"</i></div>"_s;
+        html += u"<div><i>"_s + info.reportedBy().userName().toHtmlEscaped() + u' ' + createAtDisplayDateTime + u"</i></div>"_s;
         html += u"<br/>"_s;
         ++i;
     }
