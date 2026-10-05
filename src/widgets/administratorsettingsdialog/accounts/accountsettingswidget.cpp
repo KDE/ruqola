@@ -152,7 +152,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     addCheckBox(mLoginLogsClientIp, u"Login_Logs_ClientIp"_s);
 
     mLoginLogsForwardedForIp->setObjectName(u"mLoginLogsForwardedForIp"_s);
-    addCheckBox(mLoginLogsForwardedForIp, u"mLoginLogsForwardedForIp"_s);
+    addCheckBox(mLoginLogsForwardedForIp, u"Login_Logs_ForwardedForIp"_s);
 
     auto regislationLabel = createBoldLabel(i18n("Registration"));
     regislationLabel->setObjectName(u"regislationLabel"_s);

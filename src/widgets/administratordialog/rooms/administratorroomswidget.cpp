@@ -254,7 +254,7 @@ void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
             job->setChannelGroupInfo(info);
             connect(job, &RocketChatRestApi::DeleteDmJob::deleteDirectMessagesDone, this, &AdministratorRoomsWidget::slotDeleteDirectMessageDone);
             if (!job->start()) {
-                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelDeleteJob";
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start DeleteDmJob";
             }
             break;
         }
