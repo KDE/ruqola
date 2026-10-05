@@ -7,6 +7,7 @@
 #include "configuresettingsdialog.h"
 
 #include "configureaccountwidget.h"
+#include "configuredialog/configureaccessibilitytabwidget.h"
 #include "configurefontwidget.h"
 #include "configuregeneralwidget.h"
 #include "configurepluginswidget.h"
@@ -24,10 +25,6 @@
 
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
 #include "configureautocorrectionwidget.h"
-#endif
-
-#if HAVE_TEXT_TO_SPEECH
-#include "configureaccessibilitywidget.h"
 #endif
 
 #if HAVE_KUSERFEEDBACK
@@ -54,9 +51,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #if HAVE_TEXT_TRANSLATOR
     , mConfigureTranslateWidget(new TextTranslator::TranslatorConfigureListsWidget(this))
 #endif
-#if HAVE_TEXT_TO_SPEECH
-    , mConfigureTextToSpeechWidget(new ConfigureAccessibilityWidget(this))
-#endif
+    , mConfigureAccessibilityTabWidget(new ConfigureAccessibilityTabWidget(this))
     , mConfigurePluginsWidget(new ConfigurePluginsWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
@@ -105,12 +100,10 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureUserFeedBackWidgetPage);
 #endif
 
-#if HAVE_TEXT_TO_SPEECH
     const QString textToSpeechPageName = i18nc("@title Preferences page name", "Accessibility");
-    mConfigureTextToSpeechWidgetPage = new KPageWidgetItem(mConfigureTextToSpeechWidget, textToSpeechPageName);
+    mConfigureTextToSpeechWidgetPage = new KPageWidgetItem(mConfigureAccessibilityTabWidget, textToSpeechPageName);
     mConfigureTextToSpeechWidgetPage->setIcon(QIcon::fromTheme(u"preferences-desktop-accessibility"_s));
     addPage(mConfigureTextToSpeechWidgetPage);
-#endif
 
     const QString pluginsPageName = i18nc("@title Preferences page name", "Plugins");
     mConfigurePluginsWidgetPage = new KPageWidgetItem(mConfigurePluginsWidget, pluginsPageName);
@@ -154,9 +147,7 @@ void ConfigureSettingsDialog::slotRestoreToDefault()
         mConfigureUserFeedBackWidget->restoreToDefaults();
 #endif
     } else if (currentPage() == mConfigureTextToSpeechWidgetPage) {
-#if HAVE_TEXT_TO_SPEECH
-        mConfigureTextToSpeechWidget->restoreToDefaults();
-#endif
+        mConfigureAccessibilityTabWidget->restoreToDefaults();
     } else if (currentPage() == mConfigurePluginsWidgetPage) {
         mConfigurePluginsWidget->restoreToDefaults();
     } else {
@@ -179,9 +170,7 @@ void ConfigureSettingsDialog::slotAccepted()
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     mConfigureAutoCorrectionWidget->save();
 #endif
-#if HAVE_TEXT_TO_SPEECH
-    mConfigureTextToSpeechWidget->save();
-#endif
+    mConfigureAccessibilityTabWidget->save();
     mConfigurePluginsWidget->save();
 }
 
@@ -200,9 +189,7 @@ void ConfigureSettingsDialog::load()
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     mConfigureAutoCorrectionWidget->load();
 #endif
-#if HAVE_TEXT_TO_SPEECH
-    mConfigureTextToSpeechWidget->load();
-#endif
+    mConfigureAccessibilityTabWidget->load();
     mConfigurePluginsWidget->load();
 }
 

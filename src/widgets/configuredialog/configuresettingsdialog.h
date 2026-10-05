@@ -15,7 +15,7 @@ class ConfigureSpellCheckingWidget;
 class ConfigureUserFeedbackWidget;
 class ConfigureGeneralWidget;
 class ConfigureFontWidget;
-class ConfigureAccessibilityWidget;
+class ConfigureAccessibilityTabWidget;
 class ConfigurePluginsWidget;
 
 namespace TextTranslator
@@ -43,9 +43,7 @@ private:
     ConfigureAutoCorrectionWidget *const mConfigureAutoCorrectionWidget = nullptr;
     ConfigureUserFeedbackWidget *const mConfigureUserFeedBackWidget = nullptr;
     TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget = nullptr;
-#if HAVE_TEXT_TO_SPEECH
-    ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget = nullptr;
-#endif
+    ConfigureAccessibilityTabWidget *const mConfigureAccessibilityTabWidget;
     ConfigurePluginsWidget *const mConfigurePluginsWidget;
     KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
     KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
