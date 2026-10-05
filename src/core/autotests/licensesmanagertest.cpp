@@ -102,6 +102,7 @@ void LicensesManagerTest::shouldConvertFromString()
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"experimental-enterprise-features"_s),
              LicensesManager::ActiveModule::ExperimentalEnterpriseFeatures);
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"experimental-features"_s), LicensesManager::ActiveModule::ExperimentalFeatures);
+    QCOMPARE(LicensesManager::convertStringToActiveModule(u"unlimited-presence"_s), LicensesManager::ActiveModule::UnlimitedPresence);
 
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"foo"_s), LicensesManager::ActiveModule::Unknown);
     QCOMPARE(LicensesManager::convertStringToActiveModule(QString()), LicensesManager::ActiveModule::Unknown);
@@ -138,6 +139,7 @@ void LicensesManagerTest::shouldConvertToString()
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::ExperimentalEnterpriseFeatures),
              u"experimental-enterprise-features"_s);
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::ExperimentalFeatures), u"experimental-features"_s);
+    QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::UnlimitedPresence), u"unlimited-presence"_s);
 
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::Unknown), QString());
 }

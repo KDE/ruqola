@@ -87,6 +87,8 @@ LicensesManager::ActiveModule LicensesManager::convertStringToActiveModule(const
         return LicensesManager::ActiveModule::ExperimentalEnterpriseFeatures;
     } else if (str == "experimental-features"_L1) {
         return LicensesManager::ActiveModule::ExperimentalFeatures;
+    } else if (str == "unlimited-presence"_L1) {
+        return LicensesManager::ActiveModule::UnlimitedPresence;
     } else {
         qCWarning(RUQOLA_LICENSE_LOG) << "Unknown license module type " << str;
         return LicensesManager::ActiveModule::Unknown;
@@ -152,6 +154,8 @@ QString LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModu
         return u"experimental-enterprise-features"_s;
     case LicensesManager::ActiveModule::ExperimentalFeatures:
         return u"experimental-features"_s;
+    case LicensesManager::ActiveModule::UnlimitedPresence:
+        return u"unlimited-presence"_s;
     case LicensesManager::ActiveModule::Unknown:
     default:
         qCWarning(RUQOLA_LICENSE_LOG) << "Unknown license module type";

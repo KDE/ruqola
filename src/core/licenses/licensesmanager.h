@@ -44,6 +44,7 @@ public:
         OutboundMessaging,
         ExperimentalEnterpriseFeatures,
         ExperimentalFeatures,
+        UnlimitedPresence,
     };
     Q_ENUM(ActiveModule)
 
