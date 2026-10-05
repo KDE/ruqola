@@ -7,7 +7,7 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QTabWidget>
-
+class ConfigureAccessibilityWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccessibilityTabWidget : public QTabWidget
 {
     Q_OBJECT
@@ -18,4 +18,7 @@ public:
     void save();
     void load();
     void restoreToDefaults();
+
+private:
+    ConfigureAccessibilityWidget *const mConfigureAccessibilityWidget;
 };
