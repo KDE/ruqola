@@ -472,7 +472,7 @@ void RuqolaMainWindow::setupActions()
 
     mNextUnreadChannel = new QAction(i18nc("@action", "Jump to Next Unread Channel"), this);
     connect(mNextUnreadChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSelectNextUnreadChannel);
-    ac->setDefaultShortcut(mNextUnreadChannel, Qt::Key_Control | Qt::Key_PageDown);
+    ac->setDefaultShortcut(mNextUnreadChannel, Qt::CTRL | Qt::Key_PageDown);
     ac->addAction(u"next_unread_channel"_s, mNextUnreadChannel);
 
     mCreateNewChannel = new QAction(QIcon::fromTheme(u"irc-join-channel"_s), i18n("Create New Channel…"), this);
