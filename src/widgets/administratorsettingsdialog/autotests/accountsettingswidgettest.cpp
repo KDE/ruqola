@@ -292,7 +292,7 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLoginLogsForwardedForIp);
     QVERIFY(!mLoginLogsForwardedForIp->isChecked());
     QVERIFY(!mLoginLogsForwardedForIp->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogsForwardedForIp), u"mLoginLogsForwardedForIp"_s);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginLogsForwardedForIp), u"Login_Logs_ForwardedForIp"_s);
 }
 
 #include "moc_accountsettingswidgettest.cpp"
