@@ -17,15 +17,15 @@ public:
     explicit GroupAddLeaderJob(QObject *parent = nullptr);
     ~GroupAddLeaderJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
-    QNetworkRequest request() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
+    [[nodiscard]] QJsonDocument json() const;
 
-    QString addLeaderUserId() const;
+    [[nodiscard]] QString addLeaderUserId() const;
     void setAddLeaderUserId(const QString &addLeaderUserId);
 
 Q_SIGNALS:
