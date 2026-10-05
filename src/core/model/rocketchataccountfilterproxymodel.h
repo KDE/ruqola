@@ -39,6 +39,7 @@ protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
+    void slotInvalidateFilter();
     QStringList mAccountOrder;
     bool mFilterActivities = true;
 #if HAVE_ACTIVITY_SUPPORT

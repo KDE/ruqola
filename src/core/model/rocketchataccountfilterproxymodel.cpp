@@ -69,15 +69,21 @@ ActivitiesManager *RocketChatAccountFilterProxyModel::activitiesManager() const
     return mActivitiesManager;
 }
 
+void RocketChatAccountFilterProxyModel::slotInvalidateFilter()
+{
+    qCDebug(RUQOLA_PLASMAACTIVITIES_LOG) << " invalidate filter";
+    beginFilterChange();
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
+}
+
 void RocketChatAccountFilterProxyModel::setActivitiesManager(ActivitiesManager *newActivitiesManager)
 {
+    if (mActivitiesManager) {
+        disconnect(mActivitiesManager, &ActivitiesManager::activitiesChanged, this, &RocketChatAccountFilterProxyModel::slotInvalidateFilter);
+    }
     mActivitiesManager = newActivitiesManager;
     if (mActivitiesManager) {
-        connect(mActivitiesManager, &ActivitiesManager::activitiesChanged, this, [this]() {
-            qCDebug(RUQOLA_PLASMAACTIVITIES_LOG) << " invalidate filter";
-            beginFilterChange();
-            endFilterChange(QSortFilterProxyModel::Direction::Rows);
-        });
+        connect(mActivitiesManager, &ActivitiesManager::activitiesChanged, this, &RocketChatAccountFilterProxyModel::slotInvalidateFilter);
     }
 }
 #endif
