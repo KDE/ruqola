@@ -81,7 +81,7 @@ bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) cons
     if (mServerVersionMajor > major) {
         return true;
     }
-    return (major <= mServerVersionMajor) && (minor <= mServerVersionMinor) && (patch <= mServerVersionPatch);
+    return std::tie(mServerVersionMajor, mServerVersionMinor, mServerVersionPatch) >= std::tie(major, minor, patch);
 }
 
 void RuqolaServerConfig::setServerVersion(const QString &version)

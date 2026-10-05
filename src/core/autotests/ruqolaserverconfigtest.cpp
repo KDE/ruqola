@@ -288,6 +288,7 @@ void RuqolaServerConfigTest::shouldTestVersion_data()
     QTest::newRow("0.60.0-supperior-2") << u"0.60.1"_s << 0 << 60 << 0 << true;
     QTest::newRow("1.0.0-develop") << u"1.0.0-develop"_s << 0 << 60 << 0 << true;
     QTest::newRow("4.0") << u"4.0"_s << 4 << 0 << 0 << true;
+    QTest::newRow("7.4.0") << u"7.4.0"_s << 7 << 3 << 1 << true;
 }
 
 void RuqolaServerConfigTest::shouldTestVersion()
