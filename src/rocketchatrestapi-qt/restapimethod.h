@@ -22,7 +22,7 @@ public:
 
     [[nodiscard]] QUrl generateUrl(RestApiUtil::RestApiUrlType type,
                                    RestApiUtil::RestApiUrlExtensionType restApiUrlExtensionType = RestApiUtil::RestApiUrlExtensionType::V1,
-                                   const QString &urlExtension = QString());
+                                   const QString &urlExtension = QString()) const;
 
 private:
     QString mServerUrl;

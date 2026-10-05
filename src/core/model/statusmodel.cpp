@@ -26,7 +26,7 @@ User::PresenceStatus StatusModel::currentUserStatus() const
 
 StatusModel::StatusInfo StatusModel::currentStatusInfo() const
 {
-    const DisplayStatusInfo info = mStatusList.at(mCurrentStatus);
+    const DisplayStatusInfo &info = mStatusList.at(mCurrentStatus);
     StatusInfo currentStatusInfo;
     currentStatusInfo.status = info.status;
     currentStatusInfo.statusStr = info.statusStr;

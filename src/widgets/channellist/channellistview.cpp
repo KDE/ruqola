@@ -263,13 +263,13 @@ void ChannelListView::slotConfigureNotification(Room *room)
 
 void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 {
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
     QPointer<SearchTeamDialog> dlg = new SearchTeamDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const QByteArray teamId = dlg->teamId();
         if (!teamId.isEmpty()) {
             auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
             job->setTeamId(teamId);
-            const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
             job->setRoomIds({roomId});
 
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -327,13 +327,13 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
 
 void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType)
 {
+    const QString roomId = index.data(RoomModel::RoomId).toString();
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
                                            i18n("Are you sure to convert it to team? It can not be undo."),
                                            i18nc("@title:window", "Convert to Team"),
                                            KStandardGuiItem::ok(),
                                            KStandardGuiItem::cancel())) {
-        const QString roomId = index.data(RoomModel::RoomId).toString();
         switch (roomType) {
         case Room::RoomType::Unknown:
             qCWarning(RUQOLAWIDGETS_LOG) << "Unknown type used it's a bug";

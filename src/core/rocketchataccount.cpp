@@ -2117,7 +2117,7 @@ bool RocketChatAccount::isMessageEditable(const Message &message) const
     if (ruqolaServerConfig()->blockEditingMessageInMinutes() == 0) {
         return true;
     }
-    constexpr int minutes = 60 * 1000;
+    constexpr qint64 minutes = 60 * 1000;
     return (message.timeStamp() + ruqolaServerConfig()->blockEditingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
 }
 
@@ -2143,7 +2143,7 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
         return false;
     }
 
-    constexpr int minutes = 60 * 1000;
+    constexpr qint64 minutes = 60 * 1000;
     const int blockDeleteInMinutes = ruqolaServerConfig()->blockDeletingMessageInMinutes();
     const bool bypassBlockTimeLimit = hasPermission(u"bypass-time-limit-edit-and-delete", message.roomId());
     const bool elapsedMinutes = (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * minutes) > QDateTime::currentMSecsSinceEpoch();
