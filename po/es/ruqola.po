@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 00:45+0000\n"
-"PO-Revision-Date: 2026-09-26 17:39+0100\n"
+"PO-Revision-Date: 2026-10-05 00:10+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -11621,7 +11621,7 @@ msgstr "Mostrar nuevas notificaciones"
 #, kde-format
 msgctxt "@action"
 msgid "Retry Wallet Access"
-msgstr ""
+msgstr "Reintentar acceso a cartera"
 
 #: widgets/ruqolamainwindow.cpp:452
 #, kde-format
@@ -11629,6 +11629,9 @@ msgid ""
 "Could not access the wallet. Password changes may not be saved. Use Tools > "
 "Retry Wallet Access to try again."
 msgstr ""
+"No se pudo acceder a la cartera. Los cambios en las contraseñas pueden no "
+"haberse guardado. Use Herramientas > Reintentar acceso a cartera para probar "
+"otra vez."
 
 #: widgets/ruqolamainwindow.cpp:460
 #, kde-format
