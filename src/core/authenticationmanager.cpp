@@ -87,7 +87,7 @@ QString AuthenticationManager::loginStatusToText(LoginStatus status)
     case AuthenticationManager::Connecting:
         return i18n("Connecting");
     case AuthenticationManager::LoginOtpAuthOngoing:
-        return i18n("Login OTP code required");
+        return i18n("Verifying OTP code");
     case AuthenticationManager::LoginFailedInvalidUserOrPassword:
         return i18n("Login failed: invalid username or password");
     case AuthenticationManager::LoginOngoing:

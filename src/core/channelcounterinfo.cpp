@@ -13,15 +13,14 @@
 QT_IMPL_METATYPE_EXTERN_TAGGED(ChannelCounterInfo, Ruqola_ChannelCounterInfo)
 using namespace Qt::Literals::StringLiterals;
 ChannelCounterInfo::ChannelCounterInfo()
-
 {
-    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra created " << this;
+    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " ChannelCounterInfo created " << this;
 }
 
 ChannelCounterInfo::ChannelCounterInfo(const ChannelCounterInfo &other)
     : QSharedData(other)
 {
-    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra created " << this;
+    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " ChannelCounterInfo created " << this;
 
     mUnreadFrom = other.mUnreadFrom;
     mUnreadMessages = other.mUnreadMessages;
@@ -32,7 +31,7 @@ ChannelCounterInfo::ChannelCounterInfo(const ChannelCounterInfo &other)
 
 ChannelCounterInfo::~ChannelCounterInfo()
 {
-    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " RoomExtra deleted " << this;
+    qCDebug(RUQOLA_ROOM_MEMORY_LOG) << " ChannelCounterInfo deleted " << this;
 }
 
 void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)

@@ -594,7 +594,7 @@ void Connection::hideMentionStatus(const QByteArray &roomId, bool value)
     job->setRoomId(roomId);
     job->setHideMentionStatus(value);
     if (!job->start()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start desktopSoundNotifications job";
+        qCWarning(RUQOLA_LOG) << "Impossible to start SaveNotificationJob job";
     }
 }
 
