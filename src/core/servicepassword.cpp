@@ -67,7 +67,7 @@ void ServicePassword::setTotp(bool totp)
 QDebug operator<<(QDebug d, const ServicePassword &t)
 {
     d.space() << "mEmail2faEnabled" << t.email2faEnabled();
-    d.space() << "mPassword" << t.password();
+    d.space() << "mPassword is not empty" << !t.password().isEmpty();
     d.space() << "mTotp" << t.totp();
     return d;
 }
