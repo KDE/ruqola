@@ -33,7 +33,7 @@ ViewLogPlainTextEditor::~ViewLogPlainTextEditor() = default;
 
 void ViewLogPlainTextEditor::addExtraMenuEntry(QMenu *menu, [[maybe_unused]] QPoint pos)
 {
-    auto action = new QAction(QIcon::fromTheme(u"document-save"_s), i18n("Save as &File"), this);
+    auto action = new QAction(QIcon::fromTheme(u"document-save"_s), i18n("Save as &File"), menu);
     connect(action, &QAction::triggered, this, &ViewLogPlainTextEditor::slotSaveAsFile);
     menu->addSeparator();
     menu->addAction(action);
@@ -89,7 +89,7 @@ void ViewLogPlainTextEdit::contextMenuEvent(QContextMenuEvent *event)
 {
     QMenu *popup = createStandardContextMenu();
     if (popup) {
-        auto action = new QAction(QIcon::fromTheme(u"document-save"_s), i18n("Save as &File"), this);
+        auto action = new QAction(QIcon::fromTheme(u"document-save"_s), i18n("Save as &File"), popup);
         connect(action, &QAction::triggered, this, &ViewLogPlainTextEdit::slotSaveAsFile);
         popup->addSeparator();
         popup->addAction(action);
