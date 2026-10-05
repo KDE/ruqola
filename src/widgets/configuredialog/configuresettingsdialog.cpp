@@ -18,8 +18,6 @@
 #include <QPushButton>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 
-#include "config-ruqola.h"
-
 #if HAVE_TEXT_TRANSLATOR
 #include <TextTranslator/TranslatorConfigureListsWidget>
 #endif

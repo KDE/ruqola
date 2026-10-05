@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
+#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 
 #include <QTabWidget>
@@ -20,5 +21,7 @@ public:
     void restoreToDefaults();
 
 private:
+#if HAVE_TEXT_TO_SPEECH
     ConfigureAccessibilityWidget *const mConfigureAccessibilityWidget;
+#endif
 };

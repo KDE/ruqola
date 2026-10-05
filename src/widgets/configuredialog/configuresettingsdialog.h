@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
 #include <KPageDialog>
 
@@ -42,7 +43,9 @@ private:
     ConfigureAutoCorrectionWidget *const mConfigureAutoCorrectionWidget = nullptr;
     ConfigureUserFeedbackWidget *const mConfigureUserFeedBackWidget = nullptr;
     TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget = nullptr;
+#if HAVE_TEXT_TO_SPEECH
     ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget = nullptr;
+#endif
     ConfigurePluginsWidget *const mConfigurePluginsWidget;
     KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
     KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;

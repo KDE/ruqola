@@ -5,12 +5,17 @@
 */
 
 #include "configureaccessibilitytabwidget.h"
-#include "configuredialog/configureaccessibilitywidget.h"
+#include "config-ruqola.h"
+#if HAVE_TEXT_TO_SPEECH
+#include "configureaccessibilitywidget.h"
+#endif
 #include <KLocalizedString>
 
 ConfigureAccessibilityTabWidget::ConfigureAccessibilityTabWidget(QWidget *parent)
     : QTabWidget(parent)
+#if HAVE_TEXT_TO_SPEECH
     , mConfigureAccessibilityWidget(new ConfigureAccessibilityWidget(this))
+#endif
 {
     setTabBarAutoHide(true);
     addTab(mConfigureAccessibilityWidget, i18n("Text to Speech"));
