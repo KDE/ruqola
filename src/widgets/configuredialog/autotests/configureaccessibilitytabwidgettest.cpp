@@ -20,3 +20,5 @@ void ConfigureAccessibilityTabWidgetTest::shouldHaveDefaultValues()
     const ConfigureAccessibilityTabWidget w;
     QVERIFY(w.tabBarAutoHide());
 }
+
+#include "moc_configureaccessibilitytabwidgettest.cpp"
