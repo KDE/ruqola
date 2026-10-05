@@ -553,9 +553,7 @@ void AccountManager::removeAccount(const QString &accountName, bool removeLogFil
         mCurrentAccount = nullptr;
     }
     Q_EMIT currentAccountChanged();
-    if (account) {
-        account->deleteLater();
-    }
+    account->deleteLater();
     Q_EMIT accountsChanged();
 }
 
