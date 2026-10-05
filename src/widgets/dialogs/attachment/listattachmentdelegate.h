@@ -7,6 +7,8 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QHash>
+#include <QIcon>
 #include <QItemDelegate>
 class RocketChatAccount;
 class File;
@@ -58,4 +60,5 @@ private:
     const QIcon mDownloadIcon;
     const QIcon mDeleteIcon;
     RocketChatAccount *const mRocketChatAccount;
+    mutable QHash<QString, QIcon> mMimeTypeIcon;
 };

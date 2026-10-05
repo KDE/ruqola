@@ -43,11 +43,15 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const Layout layout = doLayout(option, index);
     const File *file = index.data(FilesForRoomModel::FilePointer).value<File *>();
     const bool fileComplete = layout.isFileComplete;
-    QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForName(file->mimeType());
-    const QPixmap pix = QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(u"application-octet-stream"_s)).pixmap(layout.mimetypeHeight);
+    const QString mimeTypeStr = file->mimeType();
 
-    painter->drawPixmap(option.rect.x(), option.rect.y(), pix);
+    auto it = mMimeTypeIcon.constFind(mimeTypeStr);
+    if (it == mMimeTypeIcon.cend()) {
+        const QMimeType mimeType = QMimeDatabase().mimeTypeForName(mimeTypeStr);
+        it = mMimeTypeIcon.insert(mimeTypeStr, QIcon::fromTheme(mimeType.iconName(), QIcon::fromTheme(u"application-octet-stream"_s)));
+    }
+
+    painter->drawPixmap(option.rect.x(), option.rect.y(), it->pixmap(layout.mimetypeHeight));
 
     // Draw filename
     const QFont oldFont = painter->font();
