@@ -9,10 +9,7 @@
 
 #include <QTabWidget>
 class ConfigureTextToSpeechConfigWidget;
-namespace TextSpeechToText
-{
-class SpeechToTextConfigureWidget;
-}
+class ConfigureSpeechToTextConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccessibilityTabWidget : public QTabWidget
 {
     Q_OBJECT
@@ -29,6 +26,6 @@ private:
     ConfigureTextToSpeechConfigWidget *const mConfigureAccessibilityWidget;
 #endif
 #if HAVE_SPEECH_TO_TEXT
-    TextSpeechToText::SpeechToTextConfigureWidget *const mConfigureSpeechToTextWidget;
+    ConfigureSpeechToTextConfigureWidget *const mConfigureSpeechToTextWidget;
 #endif
 };

@@ -10,7 +10,7 @@
 #include "configuretexttospeechconfigwidget.h"
 #endif
 #if HAVE_SPEECH_TO_TEXT
-#include <TextSpeechToText/SpeechToTextConfigureWidget>
+#include "configurespeechtotextconfigurewidget.h"
 #endif
 #include <KLocalizedString>
 
@@ -20,7 +20,7 @@ ConfigureAccessibilityTabWidget::ConfigureAccessibilityTabWidget(QWidget *parent
     , mConfigureAccessibilityWidget(new ConfigureTextToSpeechConfigWidget(this))
 #endif
 #if HAVE_SPEECH_TO_TEXT
-    , mConfigureSpeechToTextWidget(new TextSpeechToText::SpeechToTextConfigureWidget(this))
+    , mConfigureSpeechToTextWidget(new ConfigureSpeechToTextConfigureWidget(this))
 #endif
 {
     setTabBarAutoHide(true);
@@ -40,7 +40,7 @@ void ConfigureAccessibilityTabWidget::save()
     mConfigureAccessibilityWidget->save();
 #endif
 #if HAVE_SPEECH_TO_TEXT
-    mConfigureSpeechToTextWidget->saveSettings();
+    mConfigureSpeechToTextWidget->save();
 #endif
 }
 
@@ -50,7 +50,7 @@ void ConfigureAccessibilityTabWidget::load()
     mConfigureAccessibilityWidget->load();
 #endif
 #if HAVE_SPEECH_TO_TEXT
-    mConfigureSpeechToTextWidget->loadSettings();
+    mConfigureSpeechToTextWidget->load();
 #endif
 }
 
@@ -60,7 +60,7 @@ void ConfigureAccessibilityTabWidget::restoreToDefaults()
     mConfigureAccessibilityWidget->restoreToDefaults();
 #endif
 #if HAVE_SPEECH_TO_TEXT
-    // TODO mConfigureSpeechToTextWidget->restoreToDefaults();
+    mConfigureSpeechToTextWidget->restoreToDefaults();
 #endif
 }
 

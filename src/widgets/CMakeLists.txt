@@ -1117,6 +1117,15 @@ if(HAVE_TEXT_TO_SPEECH)
     )
 endif()
 
+if(HAVE_SPEECH_TO_TEXT)
+    target_sources(
+        libruqolawidgets
+        PRIVATE
+            configuredialog/configurespeechtotextconfigurewidget.h
+            configuredialog/configurespeechtotextconfigurewidget.cpp
+    )
+endif()
+
 # precompiled headers support
 if(ENABLE_PCH)
     target_precompile_headers(
