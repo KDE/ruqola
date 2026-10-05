@@ -80,7 +80,7 @@ void CustomSoundsManager::initializeDefaultSounds()
         info.setExtension(u"mp3"_s);
         info.setDefaultSound(true);
         info.setIdentifier("droplet"_ba);
-        info.setName(u"Droplet"_s);
+        info.setName(i18n("Droplet"));
         listSounds.append(std::move(info));
     }
     {
