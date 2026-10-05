@@ -18,24 +18,32 @@ ConfigureAccessibilityTabWidget::ConfigureAccessibilityTabWidget(QWidget *parent
 #endif
 {
     setTabBarAutoHide(true);
+#if HAVE_TEXT_TO_SPEECH
     addTab(mConfigureAccessibilityWidget, i18n("Text to Speech"));
+#endif
 }
 
 ConfigureAccessibilityTabWidget::~ConfigureAccessibilityTabWidget() = default;
 
 void ConfigureAccessibilityTabWidget::save()
 {
+#if HAVE_TEXT_TO_SPEECH
     mConfigureAccessibilityWidget->save();
+#endif
 }
 
 void ConfigureAccessibilityTabWidget::load()
 {
+#if HAVE_TEXT_TO_SPEECH
     mConfigureAccessibilityWidget->load();
+#endif
 }
 
 void ConfigureAccessibilityTabWidget::restoreToDefaults()
 {
+#if HAVE_TEXT_TO_SPEECH
     mConfigureAccessibilityWidget->restoreToDefaults();
+#endif
 }
 
 #include "moc_configureaccessibilitytabwidget.cpp"
