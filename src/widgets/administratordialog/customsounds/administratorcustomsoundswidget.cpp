@@ -217,6 +217,8 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
     const QModelIndex nameModelIndex = mModel->index(index.row(), AdminCustomSoundModel::Name);
     const AdministratorCustomSoundsCreateWidget::CustomSoundInfo originalCustomSoundInfo{.name = nameModelIndex.data().toString(), .fileNameUrl = {}};
     dlg->setCustomSoundInfo(originalCustomSoundInfo);
+    const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
+    const QByteArray soundIdentifier = modelIndex.data().toByteArray();
     if (dlg->exec()) {
         // Use new RESTAPI method when RC >= 8.5.0
         if (mRocketChatAccount->hasAtLeastVersion(8, 5, 0)) {
@@ -225,21 +227,20 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
             const auto customSoundInfo = dlg->customSoundInfo();
             info.fileNameUrl = customSoundInfo.fileNameUrl;
             info.name = customSoundInfo.name;
+            info.soundId = QString::fromLatin1(soundIdentifier);
             job->setSoundInfo(info);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::CustomSoundsUpdateJob::customSoundUpdateDone, this, [](const QJsonObject &root) {
                 // qDebug() << " root " << root;
             });
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CustomSoundsCreateJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start CustomSoundsUpdateJob job";
             }
         } else {
             /// api/v1/method.call/uploadCustomSound when we upload new sound file
             ///
 
             const AdministratorCustomSoundsCreateWidget::CustomSoundInfo newCustomInfo = dlg->customSoundInfo();
-            const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
-            const QByteArray soundIdentifier = modelIndex.data().toByteArray();
 
             //{"message":"{\"msg\":\"method\",\"id\":\"19\",\"method\":\"insertOrUpdateSound\",\"params\"
             // :[{\"_id\":\"6985976bd5a24b2ff76aceed\",\"name\":\"sdfgh\",\"extension\":\"sdf\",
