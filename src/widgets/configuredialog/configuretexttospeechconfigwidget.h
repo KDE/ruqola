@@ -13,12 +13,12 @@ namespace TextEditTextToSpeech
 class TextToSpeechConfigWidget;
 }
 class QCheckBox;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccessibilityWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureTextToSpeechConfigWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ConfigureAccessibilityWidget(QWidget *parent = nullptr);
-    ~ConfigureAccessibilityWidget() override;
+    explicit ConfigureTextToSpeechConfigWidget(QWidget *parent = nullptr);
+    ~ConfigureTextToSpeechConfigWidget() override;
 
     void save();
     void load();

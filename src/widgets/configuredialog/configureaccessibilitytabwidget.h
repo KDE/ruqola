@@ -8,7 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QTabWidget>
-class ConfigureAccessibilityWidget;
+class ConfigureTextToSpeechConfigWidget;
 namespace TextSpeechToText
 {
 class SpeechToTextConfigureWidget;
@@ -26,7 +26,7 @@ public:
 
 private:
 #if HAVE_TEXT_TO_SPEECH
-    ConfigureAccessibilityWidget *const mConfigureAccessibilityWidget;
+    ConfigureTextToSpeechConfigWidget *const mConfigureAccessibilityWidget;
 #endif
 #if HAVE_SPEECH_TO_TEXT
     TextSpeechToText::SpeechToTextConfigureWidget *const mConfigureSpeechToTextWidget;

@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "configureaccessibilitywidget.h"
+#include "configuretexttospeechconfigwidget.h"
 #include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
@@ -15,7 +15,7 @@
 #include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 using namespace Qt::Literals::StringLiterals;
-ConfigureAccessibilityWidget::ConfigureAccessibilityWidget(QWidget *parent)
+ConfigureTextToSpeechConfigWidget::ConfigureTextToSpeechConfigWidget(QWidget *parent)
     : QWidget{parent}
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechConfigWidget(this))
     , mEnableTextToSpeech(new QCheckBox(i18nc("@option:check", "Enable Text To Speech"), this))
@@ -31,9 +31,9 @@ ConfigureAccessibilityWidget::ConfigureAccessibilityWidget(QWidget *parent)
     connect(mEnableTextToSpeech, &QCheckBox::clicked, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechConfigWidget::setEnabled);
 }
 
-ConfigureAccessibilityWidget::~ConfigureAccessibilityWidget() = default;
+ConfigureTextToSpeechConfigWidget::~ConfigureTextToSpeechConfigWidget() = default;
 
-void ConfigureAccessibilityWidget::save()
+void ConfigureTextToSpeechConfigWidget::save()
 {
     if (mWasInitialized) {
         RuqolaGlobalConfig::self()->setEnableTextToSpeech(mEnableTextToSpeech->isChecked());
@@ -43,14 +43,14 @@ void ConfigureAccessibilityWidget::save()
     }
 }
 
-void ConfigureAccessibilityWidget::load()
+void ConfigureTextToSpeechConfigWidget::load()
 {
     mTextToSpeechWidget->initializeSettings();
     mEnableTextToSpeech->setChecked(RuqolaGlobalConfig::self()->enableTextToSpeech());
     mTextToSpeechWidget->setEnabled(mEnableTextToSpeech->isChecked());
 }
 
-void ConfigureAccessibilityWidget::restoreToDefaults()
+void ConfigureTextToSpeechConfigWidget::restoreToDefaults()
 {
     const bool bUseDefaults = RuqolaGlobalConfig::self()->useDefaults(true);
     const bool enableTextToSpeech = RuqolaGlobalConfig::self()->enableTextToSpeech();
@@ -59,7 +59,7 @@ void ConfigureAccessibilityWidget::restoreToDefaults()
     mTextToSpeechWidget->restoreDefaults();
 }
 
-void ConfigureAccessibilityWidget::showEvent(QShowEvent *event)
+void ConfigureTextToSpeechConfigWidget::showEvent(QShowEvent *event)
 {
     if (!event->spontaneous() && !mWasInitialized) {
         mWasInitialized = true;
@@ -68,4 +68,4 @@ void ConfigureAccessibilityWidget::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 }
 
-#include "moc_configureaccessibilitywidget.cpp"
+#include "moc_configuretexttospeechconfigwidget.cpp"

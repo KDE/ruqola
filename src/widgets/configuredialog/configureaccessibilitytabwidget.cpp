@@ -7,7 +7,7 @@
 #include "configureaccessibilitytabwidget.h"
 #include "config-ruqola.h"
 #if HAVE_TEXT_TO_SPEECH
-#include "configureaccessibilitywidget.h"
+#include "configuretexttospeechconfigwidget.h"
 #endif
 #if HAVE_SPEECH_TO_TEXT
 #include <TextSpeechToText/SpeechToTextConfigureWidget>
@@ -17,7 +17,7 @@
 ConfigureAccessibilityTabWidget::ConfigureAccessibilityTabWidget(QWidget *parent)
     : QTabWidget(parent)
 #if HAVE_TEXT_TO_SPEECH
-    , mConfigureAccessibilityWidget(new ConfigureAccessibilityWidget(this))
+    , mConfigureAccessibilityWidget(new ConfigureTextToSpeechConfigWidget(this))
 #endif
 #if HAVE_SPEECH_TO_TEXT
     , mConfigureSpeechToTextWidget(new TextSpeechToText::SpeechToTextConfigureWidget(this))

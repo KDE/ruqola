@@ -1110,8 +1110,8 @@ if(HAVE_TEXT_TO_SPEECH)
     target_sources(
         libruqolawidgets
         PRIVATE
-            configuredialog/configureaccessibilitywidget.h
-            configuredialog/configureaccessibilitywidget.cpp
+            configuredialog/configuretexttospeechconfigwidget.h
+            configuredialog/configuretexttospeechconfigwidget.cpp
             misc/texttospeechenqueueutils.h
             misc/texttospeechenqueueutils.cpp
     )

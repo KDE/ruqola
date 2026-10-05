@@ -6,7 +6,7 @@
 
 #include "configureaccessibilitywidgettest.h"
 
-#include "configuredialog/configureaccessibilitywidget.h"
+#include "configuredialog/configuretexttospeechconfigwidget.h"
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
@@ -23,7 +23,7 @@ ConfigureAccessibilityWidgetTest::ConfigureAccessibilityWidgetTest(QObject *pare
 
 void ConfigureAccessibilityWidgetTest::shouldHaveDefaultValues()
 {
-    const ConfigureAccessibilityWidget w;
+    const ConfigureTextToSpeechConfigWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(u"mainLayout"_s);
     QVERIFY(mainLayout);
 
