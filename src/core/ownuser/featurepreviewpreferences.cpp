@@ -24,7 +24,7 @@ QDebug operator<<(QDebug d, const FeaturePreviewPreferences &t)
 
 void FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array)
 {
-    qDebug() << " FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array) " << array;
+    // qDebug() << " FeaturePreviewPreferences::parseFeaturePreview(const QJsonArray &array) " << array;
     mPreviewStatus.clear();
     for (const auto &v : array) {
         const QJsonObject o = v.toObject();
