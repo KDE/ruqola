@@ -662,6 +662,9 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setLastSeenAt(ls);
     }
     setLastMessageAt(Utils::parseDate(u"lm"_s, json));
+    if (json.contains("msgs"_L1)) {
+        setNumberMessages(json["msgs"_L1].toInteger());
+    }
     setUnread(json["unread"_L1].toInt());
     setOpen(json["open"_L1].toBool());
     setAlert(json["alert"_L1].toBool());
