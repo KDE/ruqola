@@ -1254,6 +1254,10 @@ if(HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets KF6::TextEditTextToSpeech)
 endif()
 
+if(HAVE_SPEECH_TO_TEXT)
+    target_link_libraries(libruqolawidgets KF6::TextSpeechToText)
+endif()
+
 if(HAVE_TEXT_CUSTOM_EDITOR)
     target_link_libraries(libruqolawidgets KF6::TextCustomEditor)
 endif()
