@@ -21,7 +21,7 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     , mNewPasswordLineEdit(new KPasswordLineEdit(this))
     , mConfirmPasswordLineEdit(new KPasswordLineEdit(this))
     , mPasswordValidateWidget(new PasswordValidateWidget(this))
-    , mInvalidPassword(new QLabel(i18n("Your passwords do no match."), this))
+    , mInvalidPassword(new QLabel(i18n("Your passwords do not match."), this))
 {
     const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
     const QColor color = bgBrush.brush(palette()).color();
