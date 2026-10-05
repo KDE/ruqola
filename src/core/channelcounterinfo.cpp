@@ -114,7 +114,6 @@ QDebug operator<<(QDebug d, const ChannelCounterInfo &t)
     d.space() << "mUnreadFrom Messages" << t.unreadFrom();
     d.space() << "Unread Messages" << t.unreadMessages();
     d.space() << "Messages count" << t.messageCount();
-    d.space() << "Unread from" << t.unreadFrom();
     d.space() << "joined" << t.joined();
     return d;
 }

@@ -588,7 +588,7 @@ QDebug operator<<(QDebug d, const AccountManager::AccountManagerInfo &t)
     d.space() << "accountName" << t.accountName;
     d.space() << "userName" << t.userName;
     d.space() << "serverUrl" << t.serverUrl;
-    d.space() << "token" << t.token;
+    d.space() << "token is empty?" << !t.token.isEmpty();
     d.space() << "userId" << t.userId;
     d.space() << "authMethodType" << t.authMethodType;
     d.space() << "canResetPassword" << t.canResetPassword;
