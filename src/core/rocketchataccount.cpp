@@ -3772,7 +3772,9 @@ void RocketChatAccount::getsubscriptionParsing(const QJsonObject &root)
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
                 const QByteArray subscriptionId = room.value("_id"_L1).toString().toLatin1();
-                if (timeStamp == -1) {
+                // A room created while Ruqola was not running is not in the local database yet:
+                // create it from its subscription, updateSubscriptionRoom() would silently drop it.
+                if (timeStamp == -1 || !model->findRoom(room.value("rid"_L1).toString().toLatin1())) {
                     const QByteArray roomId = model->addRoom(room);
                     if (roomId.isEmpty()) {
                         qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << "insert room: roomId is empty, root:" << root;
