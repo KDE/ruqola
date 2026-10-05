@@ -18,13 +18,13 @@ SoundManager::SoundManager(QObject *parent)
     // Initialize
     constexpr float volume = 50.0 / 100.0;
     mAudioOutput->setVolume(volume);
+    mPlayer->setAudioOutput(mAudioOutput);
 }
 
 SoundManager::~SoundManager() = default;
 
 void SoundManager::playSound(const QUrl &url)
 {
-    mPlayer->setAudioOutput(mAudioOutput);
     mPlayer->setSource(url);
     mPlayer->play();
 }
