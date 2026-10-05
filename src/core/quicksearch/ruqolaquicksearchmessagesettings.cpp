@@ -70,7 +70,8 @@ void RuqolaQuickSearchMessageSettings::next()
     const auto hasSearchedString = [](const Message &msg) {
         return msg.numberOfTextSearched() > 0;
     };
-    if (mCurrentSearchIndex >= mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched()) {
+    const int numberOfTextSearched = mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched();
+    if (mCurrentSearchIndex >= numberOfTextSearched) {
         mCurrentSearchIndex = 0;
         auto msg = mMessageModel->findNextMessageAfter(mCurrentMessageIdentifier, hasSearchedString);
         if (!msg.messageId().isEmpty()) {
@@ -84,8 +85,7 @@ void RuqolaQuickSearchMessageSettings::next()
         }
         Q_EMIT updateNextPreviousButtons((msg.numberOfTextSearched() > 0), mFoundSearchCount < 2 ? false : true);
     } else {
-        Q_EMIT updateNextPreviousButtons(((mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched() > 0)
-                                          && (mCurrentSearchIndex < mMessageModel->findMessageById(mCurrentMessageIdentifier).numberOfTextSearched() - 1))
+        Q_EMIT updateNextPreviousButtons(((numberOfTextSearched > 0) && (mCurrentSearchIndex < numberOfTextSearched - 1))
                                              || !mMessageModel->findNextMessageAfter(mCurrentMessageIdentifier, hasSearchedString).messageId().isEmpty(),
                                          true);
     }
