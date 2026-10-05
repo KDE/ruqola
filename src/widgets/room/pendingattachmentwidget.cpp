@@ -6,13 +6,7 @@
 
 #include "pendingattachmentwidget.h"
 #include "pendingattachmentclickablewidget.h"
-#include <KLocalizedString>
 #include <QFileInfo>
-#include <QFrame>
-#include <QHBoxLayout>
-#include <QIcon>
-#include <QLabel>
-#include <QToolButton>
 #include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
 using namespace Qt::Literals::StringLiterals;

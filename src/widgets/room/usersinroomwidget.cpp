@@ -19,7 +19,6 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
-#include <QListView>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
