@@ -24,7 +24,7 @@ JsonPlainTextEditor::~JsonPlainTextEditor() = default;
 
 JsonPlainTextEditWidget::JsonPlainTextEditWidget(QWidget *parent)
     : QWidget{parent}
-    , mPlainTextEdit(new TextCustomEditor::PlainTextEditorWidget(new JsonPlainTextEditor(parent), this))
+    , mPlainTextEdit(new TextCustomEditor::PlainTextEditorWidget(new JsonPlainTextEditor(this), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
