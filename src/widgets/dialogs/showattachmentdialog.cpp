@@ -61,7 +61,10 @@ void ShowAttachmentDialog::slotShowImage(const QByteArray &fileId)
 
 void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
 {
-    if (mRocketChatAccount && mRocketChatAccount->hasAtLeastVersion(8, 6, 0)) {
+    if (!mRocketChatAccount) {
+        return;
+    }
+    if (mRocketChatAccount->hasAtLeastVersion(8, 6, 0)) {
         auto job = new RocketChatRestApi::DeleteMessageFileJob(this);
         job->setFileId(fileId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
@@ -86,7 +89,7 @@ void ShowAttachmentDialog::slotDeleteAttachment(const QByteArray &fileId)
             mRocketChatAccount->roomFiles(mRoomId, mRoomType);
         });
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getRoomByTypeAndName job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start MethodCallJob job";
         }
     }
 }
