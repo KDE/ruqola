@@ -34,7 +34,7 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
     addCheckBox(mEnabled, u"LDAP_Enable"_s);
 
     mPort->setObjectName(u"mPort"_s);
-    mPort->setMaximum(9999);
+    mPort->setMaximum(65535);
     mPort->setToolTip(i18nc("@info:tooltip", "Port to access LDAP. eg: 389 or 636 for LDAPS"));
     addSpinbox(i18n("Port"), mPort, u"LDAP_Port"_s);
 
