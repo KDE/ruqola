@@ -6,8 +6,6 @@
 
 #include "slackbridgewidget.h"
 
-#include "rocketchataccount.h"
-
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
