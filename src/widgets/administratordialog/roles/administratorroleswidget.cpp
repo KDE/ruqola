@@ -238,7 +238,7 @@ void AdministratorRolesWidget::deleteRole(const QModelIndex &modelIndex)
         roleDeleteJob->setRoleId(identifier);
         connect(roleDeleteJob, &RocketChatRestApi::RoleDeleteJob::deleteRoleDone, this, &AdministratorRolesWidget::slotRoleDeleteDone);
         if (!roleDeleteJob->start()) {
-            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleUpdateJob";
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleDeleteJob";
         }
     }
 }
