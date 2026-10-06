@@ -22,7 +22,6 @@ using namespace Qt::Literals::StringLiterals;
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(account, this))
-    , mCurrentRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Create Discussion - %1", account ? account->accountName() : u"account"_s));
     auto mainLayout = new QVBoxLayout(this);

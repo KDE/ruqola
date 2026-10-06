@@ -45,6 +45,5 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void emitIsValid(bool state);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTextIsValid(bool state);
     QString mNegativeBackground;
-    QRegularExpression mRegularExpression;
     RocketChatAccount *const mRocketChatAccount;
 };

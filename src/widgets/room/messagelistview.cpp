@@ -61,7 +61,6 @@
 
 #include "config-ruqola.h"
 #if HAVE_TEXT_TRANSLATOR
-#include "translatetext/translatetextjob.h"
 #include "translatetext/translatorenginemanager.h"
 #include <TextTranslator/TranslatorMenu>
 #endif

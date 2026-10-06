@@ -21,5 +21,4 @@ public:
 private:
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
     ShowBannedUsersWidget *const mShowBannedUsersWidget;
-    RocketChatAccount *const mRocketChatAccount;
 };

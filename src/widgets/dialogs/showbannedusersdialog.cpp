@@ -20,7 +20,6 @@ using namespace Qt::Literals::StringLiterals;
 ShowBannedUsersDialog::ShowBannedUsersDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowBannedUsersWidget(new ShowBannedUsersWidget(account, this))
-    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Banned Users - %1", account ? account->accountName() : u"account"_s));
     auto mainLayout = new QVBoxLayout(this);
