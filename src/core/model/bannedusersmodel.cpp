@@ -124,7 +124,7 @@ QVariant BannedUsersModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const BannedUser user = mBannedUsers->list().at(index.row());
+    const BannedUser &user = mBannedUsers->list().at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case BannedUserRoles::Name:
@@ -146,10 +146,7 @@ BannedUsers *BannedUsersModel::bannedUsers() const
 
 int BannedUsersModel::total() const
 {
-    if (mBannedUsers) {
-        return mBannedUsers->total();
-    }
-    return -1;
+    return mBannedUsers->total();
 }
 
 void BannedUsersModel::setHasFullList(bool state)
