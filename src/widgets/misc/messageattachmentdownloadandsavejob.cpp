@@ -169,6 +169,7 @@ QDebug operator<<(QDebug d, const MessageAttachmentDownloadAndSaveJob::MessageAt
     d.space() << "attachmentPath : " << t.attachmentPath;
     d.space() << "actionType : " << t.actionType;
     d.space() << "needToDownloadAttachment : " << t.needToDownloadAttachment;
+    d.space() << "attachmentType : " << t.attachmentType;
     return d;
 }
 
