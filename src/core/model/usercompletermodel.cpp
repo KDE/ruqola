@@ -27,9 +27,13 @@ void UserCompleterModel::clear()
 void UserCompleterModel::addUsers(QList<User> users)
 {
     // qDebug() << " users " << users;
-    beginResetModel();
-    mUsers = std::move(users);
-    endResetModel();
+    clear();
+    // We can't use modelReset here otherwise completion popup is not shown
+    if (!users.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, users.count() - 1);
+        mUsers = std::move(users);
+        endInsertRows();
+    }
 }
 
 int UserCompleterModel::rowCount(const QModelIndex &parent) const

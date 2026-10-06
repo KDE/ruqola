@@ -25,9 +25,13 @@ void TeamCompleterModel::clear()
 
 void TeamCompleterModel::insertTeams(QList<TeamCompleter> teams)
 {
-    beginResetModel();
-    mTeams = std::move(teams);
-    endResetModel();
+    clear();
+    // We can't use modelReset here otherwise completion popup is not shown
+    if (!teams.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, teams.count() - 1);
+        mTeams = std::move(teams);
+        endInsertRows();
+    }
 }
 
 int TeamCompleterModel::rowCount(const QModelIndex &parent) const
