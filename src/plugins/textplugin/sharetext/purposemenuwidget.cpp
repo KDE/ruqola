@@ -5,6 +5,7 @@
 */
 
 #include "purposemenuwidget.h"
+#include "ruqola_sharetextplugin_debug.h"
 #include <KLocalizedString>
 #include <Purpose/AlternativesModel>
 #include <Purpose/Menu>
@@ -49,7 +50,7 @@ void PurposeMenuWidget::slotInitializeShareMenu()
 {
     mTemporaryShareFile.reset(new QTemporaryFile());
     if (!mTemporaryShareFile->open()) {
-        qWarning() << " Impossible to open temporary share file";
+        qCWarning(RUQOLA_SHARETEXT_PLUGIN_LOG) << " Impossible to open temporary share file";
         return;
     }
     mTemporaryShareFile->write(text());

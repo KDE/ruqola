@@ -14,7 +14,6 @@
 #include <QLineEdit>
 #include <QPlainTextEdit>
 #include <QPushButton>
-#include <QTextDocument>
 
 using namespace Qt::Literals::StringLiterals;
 RegisterUserWidget::RegisterUserWidget(QWidget *parent)

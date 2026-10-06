@@ -3,6 +3,11 @@
 
 kcoreaddons_add_plugin(ruqola_sharetextplugin INSTALL_NAMESPACE ruqolaplugins/textplugins)
 
+ecm_qt_declare_logging_category(ruqola_sharetextplugin HEADER ruqola_sharetextplugin_debug.h
+    IDENTIFIER RUQOLA_SHARETEXT_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_sharetextplugin
+    DESCRIPTION "ruqola (share text plugin)" EXPORT RUQOLA
+)
+
 target_sources(
     ruqola_sharetextplugin
     PRIVATE

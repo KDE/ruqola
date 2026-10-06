@@ -43,7 +43,7 @@ void GitHubAuthenticationJob::setGitHubInfo(const GitHubInfo &newGitHubInfo)
 void GitHubAuthenticationJob::start()
 {
     if (!mGitHubInfo.isValid()) {
-        qCWarning(RUQOLA_GITHUBAUTHENTICATION_PLUGIN_LOG) << "Lab info is invalid";
+        qCWarning(RUQOLA_GITHUBAUTHENTICATION_PLUGIN_LOG) << "GitHub info is invalid";
         deleteLater();
         return;
     }
