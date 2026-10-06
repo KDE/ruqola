@@ -103,22 +103,6 @@ void CustomSoundsManager::initializeDefaultSounds()
         CustomSoundInfo info;
         info.setDefaultSound(true);
         info.setExtension(u"mp3"_s);
-        info.setName(i18n("Chime"));
-        info.setIdentifier("chime"_ba);
-        listSounds.append(std::move(info));
-    }
-    {
-        CustomSoundInfo info;
-        info.setDefaultSound(true);
-        info.setExtension(u"mp3"_s);
-        info.setName(i18n("Door"));
-        info.setIdentifier("door"_ba);
-        listSounds.append(std::move(info));
-    }
-    {
-        CustomSoundInfo info;
-        info.setDefaultSound(true);
-        info.setExtension(u"mp3"_s);
         info.setName(i18n("Telephone"));
         info.setIdentifier("telephone"_ba);
         listSounds.append(std::move(info));
