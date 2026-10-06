@@ -933,7 +933,7 @@ void RocketChatAccount::joinJitsiConfCall(const QByteArray &roomId)
 #endif
     const QString url = scheme + mRuqolaServerConfig->jitsiMeetUrl() + u'/' + mRuqolaServerConfig->jitsiMeetPrefix() + hash;
     const QUrl clickedUrl = QUrl::fromUserInput(url);
-    RuqolaUtils::self()->openUrl(clickedUrl);
+    RuqolaUtils::openUrl(clickedUrl);
 }
 
 void RocketChatAccount::eraseRoom(const QByteArray &roomId, Room::RoomType channelType)

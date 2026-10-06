@@ -664,7 +664,7 @@ void RoomWidget::slotCallRequested()
                 mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
                 connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &joinObject) {
                     // qDebug() << " join info " << obj;
-                    RuqolaUtils::self()->openUrl(QUrl(joinObject["url"_L1].toString()));
+                    RuqolaUtils::openUrl(QUrl(joinObject["url"_L1].toString()));
                 });
                 if (!conferenceJoinJob->start()) {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";

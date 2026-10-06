@@ -15,7 +15,7 @@ PluginTextMessageWidget::PluginTextMessageWidget(QWidget *parent)
     setPosition(KMessageWidget::Header);
     setCloseButtonVisible(true);
     connect(this, &KMessageWidget::linkActivated, this, [](const QString &contents) {
-        RuqolaUtils::self()->openUrl(QUrl(contents));
+        RuqolaUtils::openUrl(QUrl(contents));
     });
 }
 

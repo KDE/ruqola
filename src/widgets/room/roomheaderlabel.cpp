@@ -108,7 +108,7 @@ void RoomHeaderLabel::slotMoreInfo(const QString &content)
     } else if (content == "add_topic"_L1) {
         Q_EMIT configureTopic();
     } else {
-        RuqolaUtils::self()->openUrl(QUrl(content));
+        RuqolaUtils::openUrl(QUrl(content));
     }
 }
 

@@ -69,7 +69,7 @@ void BannerMessageWidget::updateInfo()
 
 void BannerMessageWidget::slotOpenUrl(const QString &url)
 {
-    RuqolaUtils::self()->openUrl(QUrl(url));
+    RuqolaUtils::openUrl(QUrl(url));
 }
 
 #include "moc_bannermessagewidget.cpp"

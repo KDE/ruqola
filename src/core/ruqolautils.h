@@ -14,8 +14,7 @@ class QUrl;
 class LIBRUQOLACORE_EXPORT RuqolaUtils
 {
 public:
-    static RuqolaUtils *self();
-    void openUrl(const QString &url);
+    static void openUrl(const QString &url);
 
     [[nodiscard]] static QString extractRoomUserFromUrl(const QString &url);
 

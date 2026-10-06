@@ -20,12 +20,6 @@
 using namespace Qt::Literals::StringLiterals;
 RuqolaUtils::RuqolaUtils() = default;
 
-RuqolaUtils *RuqolaUtils::self()
-{
-    static RuqolaUtils s_self;
-    return &s_self;
-}
-
 QString RuqolaUtils::extractRoomUserFromUrl(const QString &url)
 {
     return Utils::extractRoomUserFromUrl(url);

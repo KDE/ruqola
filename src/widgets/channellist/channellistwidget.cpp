@@ -286,7 +286,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 {
     // qDebug() << " void ChannelListWidget::slotOpenLinkRequested(const QString &link)" << link;
     if (link.startsWith("ruqola:"_L1)) {
-        const QString roomOrUserId = RuqolaUtils::self()->extractRoomUserFromUrl(link);
+        const QString roomOrUserId = RuqolaUtils::extractRoomUserFromUrl(link);
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
             const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
@@ -332,7 +332,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
         if (RocketChatUrlUtils::parseUrl(link)) {
             return;
         }
-        RuqolaUtils::self()->openUrl(link);
+        RuqolaUtils::openUrl(link);
     }
 }
 

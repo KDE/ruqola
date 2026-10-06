@@ -139,7 +139,7 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
                 if (layout.downloadButtonRect.isValid()) {
                     handleDownloadClicked(layout.link, const_cast<QWidget *>(option.widget));
                 } else {
-                    RuqolaUtils::self()->openUrl(layout.link);
+                    RuqolaUtils::openUrl(layout.link);
                 }
                 return true;
             }
