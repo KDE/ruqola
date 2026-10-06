@@ -15,6 +15,7 @@
 
 #include <KColorScheme>
 #include <KStatefulBrush>
+#include <QRegularExpression>
 using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;
 

@@ -9,11 +9,8 @@
 #include "channelinfoeditablewidget.h"
 #include "channelinforeadonlywidget.h"
 #include "channelrolesinfowidget.h"
-#include "rocketchataccount.h"
 #include "room.h"
 
-#include <QCheckBox>
-#include <QPushButton>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
