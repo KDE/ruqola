@@ -261,13 +261,15 @@ void RoomEncryptionKey::parseSessionKey()
         mSessionKey.clear();
         return;
     }
-    const QByteArray keyFingerprint = QCryptographicHash::hash(encryptedKey, QCryptographicHash::Sha256).toHex().left(16);
-    qCDebug(RUQOLA_ENCRYPTION_LOG) << "E2EKey parsed candidate" << "keyId=" << mE2eKeyId << "base64Len=" << mEncryptedKeyBase64.size()
-                                   << "decodedLen=" << encryptedKey.size() << "format=" << (useFullPayload ? "full" : "prefixed")
-                                   << "sha256[:16]=" << keyFingerprint;
+    if (RUQOLA_ENCRYPTION_LOG().isDebugEnabled()) {
+        const QByteArray keyFingerprint = QCryptographicHash::hash(encryptedKey, QCryptographicHash::Sha256).toHex().left(16);
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "E2EKey parsed candidate" << "keyId=" << mE2eKeyId << "base64Len=" << mEncryptedKeyBase64.size()
+                                       << "decodedLen=" << encryptedKey.size() << "format=" << (useFullPayload ? "full" : "prefixed")
+                                       << "sha256[:16]=" << keyFingerprint;
 
-    qCDebug(RUQOLA_ENCRYPTION_LOG) << "E2EKey parsed - keyId:" << mE2eKeyId << "encryptedKey size:" << encryptedKey.size();
-    // Waiting for RSA private key to decrypt session key
+        qCDebug(RUQOLA_ENCRYPTION_LOG) << "E2EKey parsed - keyId:" << mE2eKeyId << "encryptedKey size:" << encryptedKey.size();
+        // Waiting for RSA private key to decrypt session key
+    }
 }
 
 QString RoomEncryptionKey::e2ESuggestedKey() const
