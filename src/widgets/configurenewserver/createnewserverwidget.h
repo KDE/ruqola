@@ -31,5 +31,4 @@ Q_SIGNALS:
 private:
     AuthenticationOauthWidget *const mAuthenticationWidget;
     AuthenticationLoginWidget *const mAuthenticationLoginWidget;
-    AccountManager::AccountManagerInfo mAccountInfo;
 };
