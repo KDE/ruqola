@@ -167,7 +167,7 @@ void ChannelInfoEditableWidget::deleteTeam(const QByteArray &teamId, const QList
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamDeleteJob job";
     }
 }
 
@@ -182,14 +182,7 @@ void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
         dlg->setTeamRooms(std::move(teamRooms));
         if (dlg->exec()) {
             const QList<QByteArray> roomIds = dlg->roomsId();
-            auto job = new RocketChatRestApi::TeamDeleteJob(this);
-            job->setRoomsId(roomIds);
-            job->setTeamId(teamId);
-            mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
-            }
+            deleteTeam(teamId, roomIds);
         }
         delete dlg;
     }
