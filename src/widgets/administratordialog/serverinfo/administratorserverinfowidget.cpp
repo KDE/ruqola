@@ -67,8 +67,8 @@ void AdministratorServerInfoWidget::slotContextMenu(const QPoint &pos)
 {
     QMenu menu(this);
     const QModelIndex index = mTreeWidget->indexAt(pos);
-    menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [index]() {
-        const QString currentValue = index.data().toString();
+    const QString currentValue = index.data().toString();
+    menu.addAction(QIcon::fromTheme(u"edit-copy"_s), i18nc("@action", "Copy"), this, [currentValue]() {
         QClipboard *clip = QApplication::clipboard();
         clip->setText(currentValue, QClipboard::Clipboard);
         clip->setText(currentValue, QClipboard::Selection);
