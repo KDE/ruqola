@@ -159,7 +159,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     QJsonArray configs = obj.value("result"_L1).toArray();
     // qDebug() << " obj XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx" << obj;
     QMap<QString, SettingsWidgetBase::SettingsInfo> mapSettings;
-    for (auto currentConfig : std::as_const(configs)) {
+    for (const auto &currentConfig : std::as_const(configs)) {
         const QJsonObject currentConfObject = currentConfig.toObject();
         const QString id = currentConfObject["_id"_L1].toString();
         const QVariant value = currentConfObject["value"_L1].toVariant();
@@ -167,7 +167,8 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
         const bool enterprise = currentConfObject["enterprise"_L1].toBool(false);
         const QJsonArray modulesArrays = currentConfObject["modules"_L1].toArray();
         QStringList modules;
-        for (auto module : modulesArrays) {
+        modules.reserve(modulesArrays.count());
+        for (const auto &module : modulesArrays) {
             modules.append(module.toString());
             // qDebug() << "modules" << modules;
         }
