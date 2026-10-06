@@ -29,9 +29,9 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
     connect(buttonBox, &QDialogButtonBox::rejected, this, &AskTwoAuthenticationPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &AskTwoAuthenticationPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);
-    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
-    mOkButton->setEnabled(false);
-    connect(mAskTwoAuthicationPasswordWidget, &AskTwoAuthenticationPasswordWidget::updateButtonOk, mOkButton, &QPushButton::setEnabled);
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mAskTwoAuthicationPasswordWidget, &AskTwoAuthenticationPasswordWidget::updateButtonOk, okButton, &QPushButton::setEnabled);
 }
 
 AskTwoAuthenticationPasswordDialog::~AskTwoAuthenticationPasswordDialog() = default;
