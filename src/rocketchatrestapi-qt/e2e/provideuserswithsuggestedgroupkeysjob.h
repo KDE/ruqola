@@ -8,8 +8,7 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
-#include <QString>
-#include <QVector>
+#include <QList>
 
 namespace RocketChatRestApi
 {
@@ -33,7 +32,7 @@ struct SuggestedOldGroupKey {
 struct SuggestedGroupKey {
     QString userId;
     QString encryptedKey; // base64 ????
-    QVector<SuggestedOldGroupKey> oldKeys;
+    QList<SuggestedOldGroupKey> oldKeys;
 };
 
 class LIBROCKETCHATRESTAPI_QT_EXPORT ProvideUsersWithSuggestedGroupKeysJob : public RestApiAbstractJob
@@ -44,10 +43,10 @@ public:
     ~ProvideUsersWithSuggestedGroupKeysJob() override;
 
     void setRoomId(const QString &roomId);
-    void setKeys(const QVector<SuggestedGroupKey> &keys);
+    void setKeys(const QList<SuggestedGroupKey> &keys);
 
     [[nodiscard]] QString roomId() const;
-    [[nodiscard]] QVector<SuggestedGroupKey> keys() const;
+    [[nodiscard]] QList<SuggestedGroupKey> keys() const;
     [[nodiscard]] QNetworkRequest request() const override;
     [[nodiscard]] QJsonDocument json() const;
 
@@ -63,6 +62,6 @@ Q_SIGNALS:
 
 private:
     QString mRoomId;
-    QVector<SuggestedGroupKey> mSuggestedGroupKeys;
+    QList<SuggestedGroupKey> mSuggestedGroupKeys;
 };
 }

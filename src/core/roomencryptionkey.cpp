@@ -12,8 +12,8 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QList>
 #include <QUuid>
-#include <QVector>
 #include <algorithm>
 #if USE_E2E_SUPPORT
 #include "encryption/encryptionutils.h"
@@ -61,9 +61,9 @@ QString stripKeyIdPrefix(const QString &prefixedKey, const QString &keyId)
 }
 
 #if USE_E2E_SUPPORT
-QVector<QByteArray> decodeAllBase64Variants(const QString &text)
+QList<QByteArray> decodeAllBase64Variants(const QString &text)
 {
-    QVector<QByteArray> out;
+    QList<QByteArray> out;
     const QByteArray bytes = text.toLatin1();
 
     QByteArray plain = QByteArray::fromBase64(bytes, QByteArray::Base64Encoding);
@@ -78,9 +78,9 @@ QVector<QByteArray> decodeAllBase64Variants(const QString &text)
     return out;
 }
 
-QVector<QByteArray> encryptedKeyCandidates(const QString &fullE2EKey, const QString &selectedPayload, const QString &knownKeyId)
+QList<QByteArray> encryptedKeyCandidates(const QString &fullE2EKey, const QString &selectedPayload, const QString &knownKeyId)
 {
-    QVector<QByteArray> out;
+    QList<QByteArray> out;
 
     auto appendDecoded = [&](const QString &candidateText) {
         if (candidateText.isEmpty()) {
@@ -344,7 +344,7 @@ void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)
     }
 
     const int rsaSize = RSA_size(privateKey);
-    const QVector<QByteArray> keyCandidates = encryptedKeyCandidates(mE2EKey, mEncryptedKeyBase64, mE2eKeyId);
+    const QList<QByteArray> keyCandidates = encryptedKeyCandidates(mE2EKey, mEncryptedKeyBase64, mE2eKeyId);
     if (keyCandidates.isEmpty()) {
         qCWarning(RUQOLA_ENCRYPTION_LOG) << "Failed to decode encrypted key from base64/base64url";
         mSessionKey.clear();
@@ -352,7 +352,7 @@ void RoomEncryptionKey::decryptWithPrivateKey(RSA *privateKey)
     }
 
     QByteArray lastDecryptedPayload;
-    QVector<int> candidateSizes;
+    QList<int> candidateSizes;
     candidateSizes.reserve(keyCandidates.size());
 
     for (int i = 0; i < keyCandidates.size(); ++i) {

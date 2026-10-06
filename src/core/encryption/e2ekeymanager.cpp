@@ -87,10 +87,10 @@ namespace
 
 // Port of Rocket.Chat's encryptOldKeysForParticipant(): each old key is re-encrypted for the
 // recipient and keeps its own key id, which is what lets them decrypt the messages of that era.
-[[nodiscard]] QVector<RocketChatRestApi::SuggestedOldGroupKey> encryptOldRoomKeysForPublicKey(const QList<RoomEncryptionKey::OldRoomKey> &oldRoomKeys,
-                                                                                              const QByteArray &publicKey)
+[[nodiscard]] QList<RocketChatRestApi::SuggestedOldGroupKey> encryptOldRoomKeysForPublicKey(const QList<RoomEncryptionKey::OldRoomKey> &oldRoomKeys,
+                                                                                            const QByteArray &publicKey)
 {
-    QVector<RocketChatRestApi::SuggestedOldGroupKey> encryptedOldKeys;
+    QList<RocketChatRestApi::SuggestedOldGroupKey> encryptedOldKeys;
     encryptedOldKeys.reserve(oldRoomKeys.size());
     for (const RoomEncryptionKey::OldRoomKey &oldKey : oldRoomKeys) {
         const QByteArray encryptedOldKey = encryptSessionKeyForPublicKey(oldKey.sessionKey, publicKey);
@@ -579,7 +579,7 @@ void E2eKeyManager::sendRoomKeyToUsers([[maybe_unused]] const QByteArray &roomId
             }
         }
     }
-    QVector<RocketChatRestApi::SuggestedGroupKey> suggestedKeys;
+    QList<RocketChatRestApi::SuggestedGroupKey> suggestedKeys;
     suggestedKeys.reserve(users.size());
 
     for (const QJsonValue &userValue : users) {

@@ -27,7 +27,7 @@ void ProvideUsersWithSuggestedGroupKeysJob::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-void ProvideUsersWithSuggestedGroupKeysJob::setKeys(const QVector<SuggestedGroupKey> &keys)
+void ProvideUsersWithSuggestedGroupKeysJob::setKeys(const QList<SuggestedGroupKey> &keys)
 {
     mSuggestedGroupKeys = keys;
 }
@@ -37,7 +37,7 @@ QString ProvideUsersWithSuggestedGroupKeysJob::roomId() const
     return mRoomId;
 }
 
-QVector<SuggestedGroupKey> ProvideUsersWithSuggestedGroupKeysJob::keys() const
+QList<SuggestedGroupKey> ProvideUsersWithSuggestedGroupKeysJob::keys() const
 {
     return mSuggestedGroupKeys;
 }

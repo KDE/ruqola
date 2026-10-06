@@ -25,7 +25,7 @@ void SessionKeyDistributionTest::testJsonPayload()
 {
     RocketChatRestApi::ProvideUsersWithSuggestedGroupKeysJob job;
     job.setRoomId(u"123"_s);
-    const QVector<RocketChatRestApi::SuggestedGroupKey> suggestedGroupKeys = {{u"users"_s, u"base64keyA"_s}, {u"userB"_s, u"base64keyB"_s}};
+    const QList<RocketChatRestApi::SuggestedGroupKey> suggestedGroupKeys = {{u"users"_s, u"base64keyA"_s}, {u"userB"_s, u"base64keyB"_s}};
     job.setKeys(suggestedGroupKeys);
 
     const QJsonDocument doc = job.json();
@@ -52,7 +52,7 @@ void SessionKeyDistributionTest::testCanStartValidation()
     job.setRoomId(u"room123"_s);
     QVERIFY(!job.canStart());
 
-    const QVector<RocketChatRestApi::SuggestedGroupKey> keys = {{u"users"_s, u"base64keyA"_s}};
+    const QList<RocketChatRestApi::SuggestedGroupKey> keys = {{u"users"_s, u"base64keyA"_s}};
     job.setKeys(keys);
     QVERIFY(job.canStart());
     delete restApiMethod;
