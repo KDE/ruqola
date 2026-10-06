@@ -32,7 +32,7 @@ public:
         QString desktopNotifications;
         QString pushNotifications;
         QString emailNotificationMode;
-        QStringList highlights;
+        std::optional<QStringList> highlights;
         State useEmoji = State::Unknown;
         State convertAsciiToEmoji = State::Unknown;
         State hideRoles = State::Unknown;
