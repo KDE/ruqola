@@ -315,7 +315,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
         if (mRocketChatAccount->hasPermission(u"edit-other-user-active-status")) {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersAllModel::ActiveUser);
             const bool activateUser = modelIndex.data().toBool();
-            menu.addAction(activateUser ? i18nc("@action", "Deactivate") : i18nc("@action", "Active"), this, [this, newModelIndex, activateUser]() {
+            menu.addAction(activateUser ? i18nc("@action", "Deactivate") : i18nc("@action", "Activate"), this, [this, newModelIndex, activateUser]() {
                 slotActivateUser(newModelIndex, activateUser);
             });
             menu.addSeparator();
