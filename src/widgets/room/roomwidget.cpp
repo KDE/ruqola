@@ -407,7 +407,7 @@ void RoomWidget::slotPruneMessages()
             job->setCleanHistoryInfo(info);
             mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             if (!job->start()) {
-                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelCleanHistoryJob";
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsCleanHistoryJob";
             }
         }
     }

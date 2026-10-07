@@ -774,7 +774,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 slotShowReportInfo(infos);
             });
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsJob job";
             }
         });
         menu.addAction(showReportInfo);
@@ -797,7 +797,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 // TODO update element!
             });
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationDismissReportsJob job";
             }
         });
         menu.addAction(dismissReports);

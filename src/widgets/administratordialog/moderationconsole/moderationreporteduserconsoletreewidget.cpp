@@ -110,7 +110,7 @@ void ModerationReportedUserConsoleTreeWidget::slotLoadElements(int offset, int c
         connect(job, &RocketChatRestApi::ModerationUserReportsJob::moderationUserReportJobDone, this, &ModerationReportedUserConsoleTreeWidget::slotSearchDone);
     }
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationUserReportsJob job";
     }
 }
 
@@ -128,7 +128,7 @@ void ModerationReportedUserConsoleTreeWidget::slotShowReports(const QModelIndex 
             this,
             &ModerationReportedUserConsoleTreeWidget::slotShowReportedUsers);
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUserIdJob job";
     }
 }
 
