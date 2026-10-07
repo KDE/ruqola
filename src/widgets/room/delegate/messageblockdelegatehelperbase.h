@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageBlockDelegateHelperBase : public Mess
     Q_OBJECT
 public:
     explicit MessageBlockDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
-    virtual ~MessageBlockDelegateHelperBase();
+    ~MessageBlockDelegateHelperBase() override;
 
     virtual void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
     [[nodiscard]] virtual bool
