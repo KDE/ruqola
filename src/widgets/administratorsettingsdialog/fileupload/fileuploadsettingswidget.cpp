@@ -57,13 +57,13 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     addLineEdit(i18n("Accepted Media Types"), mAcceptedMediaTypes, u"FileUpload_MediaTypeWhiteList"_s);
 
     mBlockedMediaTypes->setObjectName(u"mBlockedMediaTypes"_s);
-    mBlockedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. This setting has priority over the Accepted Media Types."));
+    mBlockedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. This setting has priority over the Blocked Media Types."));
     addLineEdit(i18n("Accepted Media Types"), mBlockedMediaTypes, u"FileUpload_MediaTypeBlackList"_s);
 
     mFileUploadJsonWebTokenSecret->setObjectName(u"mFileUploadJsonWebTokenSecret"_s);
     mFileUploadJsonWebTokenSecret->setToolTip(
         i18nc("@info:tooltip", "File Upload Json Web Token Secret (Used to be able to access uploaded files without authentication)."));
-    addLineEdit(i18n("Accepted Media Types"), mFileUploadJsonWebTokenSecret, u"FileUpload_json_web_token_secret_for_files"_s);
+    addLineEdit(i18n("Json Web Token Secret"), mFileUploadJsonWebTokenSecret, u"FileUpload_json_web_token_secret_for_files"_s);
 
     mStorageType->setObjectName(u"mStorageType"_s);
     const QMap<QString, QString> maps = {
