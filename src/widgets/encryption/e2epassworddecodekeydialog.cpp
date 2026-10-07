@@ -29,8 +29,11 @@ E2ePasswordDecodeKeyDialog::E2ePasswordDecodeKeyDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &E2ePasswordDecodeKeyDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &E2ePasswordDecodeKeyDialog::reject);
     mainLayout->addWidget(buttonBox);
-    buttonBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Enable Encryption"));
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    okButton->setText(i18nc("@action:button", "Enable Encryption"));
     buttonBox->button(QDialogButtonBox::Cancel)->setText(i18nc("@action:button", "Do it later"));
+    connect(mE2ePasswordDecodeKeyWidget, &E2ePasswordDecodeKeyWidget::updateButton, okButton, &QPushButton::setEnabled);
 }
 
 E2ePasswordDecodeKeyDialog::~E2ePasswordDecodeKeyDialog() = default;

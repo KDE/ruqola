@@ -18,6 +18,9 @@ public:
 
     [[nodiscard]] QString password() const;
 
+Q_SIGNALS:
+    void updateButton(bool state);
+
 private:
     KPasswordLineEdit *const mPassword;
 };

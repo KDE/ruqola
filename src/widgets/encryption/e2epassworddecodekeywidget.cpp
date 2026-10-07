@@ -38,6 +38,9 @@ E2ePasswordDecodeKeyWidget::E2ePasswordDecodeKeyWidget(QWidget *parent)
     mPassword->setObjectName(u"mPassword"_s);
     mainLayout->addWidget(mPassword);
     mainLayout->addStretch(1);
+    connect(mPassword, &KPasswordLineEdit::passwordChanged, this, [this](const QString &pwd) {
+        Q_EMIT updateButton(!pwd.isEmpty());
+    });
 }
 
 E2ePasswordDecodeKeyWidget::~E2ePasswordDecodeKeyWidget() = default;

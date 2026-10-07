@@ -9,6 +9,7 @@
 #include "encryption/e2epassworddecodekeydialog.h"
 #include "encryption/e2epassworddecodekeywidget.h"
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -35,6 +36,7 @@ void E2ePasswordDecodeKeyDialogTest::shouldHaveDefaultValues()
     QVERIFY(button);
 
     QVERIFY(d.password().isEmpty());
+    QVERIFY(!button->button(QDialogButtonBox::Ok)->isEnabled());
 }
 
 #include "moc_e2epassworddecodekeydialogtest.cpp"

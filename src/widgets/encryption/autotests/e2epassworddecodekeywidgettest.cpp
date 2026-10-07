@@ -9,8 +9,11 @@
 #include "encryption/e2epassworddecodekeywidget.h"
 #include <KPasswordLineEdit>
 #include <QLabel>
+#include <QSignalSpy>
 #include <QTest>
 #include <QVBoxLayout>
+#include <qsignalspy.h>
+#include <qtestcase.h>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -37,6 +40,22 @@ void E2ePasswordDecodeKeyWidgetTest::shouldHaveDefaultValues()
     auto mPassword = w.findChild<KPasswordLineEdit *>(u"mPassword"_s);
     QVERIFY(mPassword);
     QVERIFY(mPassword->password().isEmpty());
+}
+
+void E2ePasswordDecodeKeyWidgetTest::shouldEmitUpdateButtonSignal()
+{
+    const E2ePasswordDecodeKeyWidget w;
+    auto mPassword = w.findChild<KPasswordLineEdit *>(u"mPassword"_s);
+    QSignalSpy updateButtonStateSpy(&w, &E2ePasswordDecodeKeyWidget::updateButton);
+
+    mPassword->setPassword(u"foo"_s);
+    QCOMPARE(updateButtonStateSpy.count(), 1);
+    QVERIFY(updateButtonStateSpy.at(0).at(0).toBool());
+
+    updateButtonStateSpy.clear();
+    mPassword->setPassword({});
+    QCOMPARE(updateButtonStateSpy.count(), 1);
+    QVERIFY(!updateButtonStateSpy.at(0).at(0).toBool());
 }
 
 #include "moc_e2epassworddecodekeywidgettest.cpp"
