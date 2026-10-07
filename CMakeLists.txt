@@ -7,7 +7,7 @@ set(RUQOLA_VERSION "2.9.0")
 set(RUQOLA_RELEASE_VERSION "26.10.30") # yy.MM.dd
 
 # Use true if stable version => we will check specific version
-set(RUQOLA_STABLE_VERSION false)
+set(RUQOLA_STABLE_VERSION true)
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.10.0")
