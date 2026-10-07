@@ -30,7 +30,7 @@ AdministratorInviteUsersWidget::AdministratorInviteUsersWidget(QWidget *parent)
     mainLayout->addWidget(label);
     mainLayout->addWidget(mListEmails);
     connect(mListEmails, &QLineEdit::textChanged, this, [this](const QString &text) {
-        Q_EMIT updateButtonOk(!QStringView(text).trimmed().isEmpty());
+        Q_EMIT updateButtonOk(!emails().isEmpty());
     });
 }
 
@@ -38,7 +38,16 @@ AdministratorInviteUsersWidget::~AdministratorInviteUsersWidget() = default;
 
 QStringList AdministratorInviteUsersWidget::emails() const
 {
-    return mListEmails->text().split(u',', Qt::SkipEmptyParts);
+    const QStringList lst = mListEmails->text().split(u',', Qt::SkipEmptyParts);
+    QStringList result;
+    result.reserve(lst.count());
+    for (const auto &e : lst) {
+        QString value = e.trimmed();
+        if (!value.isEmpty()) {
+            result.append(std::move(value));
+        }
+    }
+    return result;
 }
 
 #include "moc_administratorinviteuserswidget.cpp"

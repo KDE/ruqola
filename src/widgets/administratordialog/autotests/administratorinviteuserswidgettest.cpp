@@ -38,4 +38,22 @@ void AdministratorInviteUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!label->text().isEmpty());
 }
 
+void AdministratorInviteUsersWidgetTest::shouldValidateEmails()
+{
+    const AdministratorInviteUsersWidget w;
+    auto mListEmails = w.findChild<QLineEdit *>(u"mListEmails"_s);
+    {
+        mListEmails->setText(u"foo,bla"_s);
+        QCOMPARE(w.emails(), QStringList() << u"foo"_s << u"bla"_s);
+    }
+    {
+        mListEmails->setText(u"foo, bla"_s);
+        QCOMPARE(w.emails(), QStringList() << u"foo"_s << u"bla"_s);
+    }
+    {
+        mListEmails->setText(u"foo, , bla"_s);
+        QCOMPARE(w.emails(), QStringList() << u"foo"_s << u"bla"_s);
+    }
+}
+
 #include "moc_administratorinviteuserswidgettest.cpp"
