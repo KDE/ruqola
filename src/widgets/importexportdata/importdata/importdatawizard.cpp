@@ -41,6 +41,7 @@ void ImportDataWizard::slotCurrentIdChanged(int id)
 {
     if (id == FinishPage) {
         mImportDataFinishPage->setZipFileUrl(mImportDataSelectAccountPage->zipFileUrl());
+        mImportDataSelectAccountPage->setCommitPage(true);
     }
 }
 
