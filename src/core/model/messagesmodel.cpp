@@ -22,8 +22,6 @@
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
 #include "utils.h"
-#include <QJsonDocument>
-#include <QJsonObject>
 
 #include <KLocalizedString>
 

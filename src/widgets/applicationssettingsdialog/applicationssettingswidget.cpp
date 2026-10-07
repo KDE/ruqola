@@ -9,6 +9,7 @@
 #include "applicationssettingsinprogresswidget.h"
 #include "applicationssettingslistview.h"
 #include "memorymanager/memorymanager.h"
+#include "rocketchataccount.h"
 
 #include <QStackedWidget>
 #include <QVBoxLayout>

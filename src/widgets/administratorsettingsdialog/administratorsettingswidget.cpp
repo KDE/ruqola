@@ -28,7 +28,6 @@
 #include "ratelimiter/ratelimiterwidget.h"
 #include "retentionpolicy/retentionpolicysettingswidget.h"
 #include "rocketchataccount.h"
-#include "rocketchatbackend.h"
 #include "slackbridge/slackbridgewidget.h"
 #include "troubleshoot/troubleshootsettingswidget.h"
 #include "userdatadownload/userdatadownloadwidget.h"

@@ -8,7 +8,6 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "ruqola_previewurlcache_debug.h"
-#include <KSharedConfig>
 #include <QDir>
 #include <QTimer>
 using namespace std::chrono_literals;

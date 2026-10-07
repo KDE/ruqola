@@ -5,7 +5,6 @@
 */
 
 #include "moderationreportinfomodel.h"
-#include <KLocalizedString>
 
 ModerationReportInfoModel::ModerationReportInfoModel(QObject *parent)
     : QAbstractListModel{parent}

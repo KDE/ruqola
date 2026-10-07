@@ -5,7 +5,6 @@
 */
 
 #include "appsmarketplacemodel.h"
-#include <KLocalizedString>
 
 AppsMarketPlaceModel::AppsMarketPlaceModel(QObject *parent)
     : QAbstractListModel(parent)

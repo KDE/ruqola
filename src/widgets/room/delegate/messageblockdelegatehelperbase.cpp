@@ -6,8 +6,6 @@
 
 #include "messageblockdelegatehelperbase.h"
 
-#include <QAbstractItemView>
-
 MessageBlockDelegateHelperBase::MessageBlockDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {

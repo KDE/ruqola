@@ -24,7 +24,6 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDir>
-#include <QMediaFormat>
 #include <QTemporaryFile>
 
 using namespace Qt::Literals::StringLiterals;

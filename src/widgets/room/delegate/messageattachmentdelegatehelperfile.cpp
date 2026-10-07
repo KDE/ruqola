@@ -9,15 +9,11 @@
 #include "common/delegatepaintutil.h"
 #include "rocketchataccount.h"
 #include "ruqolautils.h"
-#include <KIO/ApplicationLauncherJob>
-#include <KIO/JobUiDelegate>
-#include <KLocalizedString>
 
 #include "messageattachmentdelegatehelperopenfilejob.h"
 #include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QPushButton>
 #include <QStyleOptionViewItem>
 
 //  Name <download icon>

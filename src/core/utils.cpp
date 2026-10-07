@@ -12,7 +12,6 @@
 #include "ruqolaserverconfig.h"
 #include <KLocalizedString>
 
-#include <KColorScheme>
 #include <QApplication>
 #include <QCryptographicHash>
 #include <QDateTime>

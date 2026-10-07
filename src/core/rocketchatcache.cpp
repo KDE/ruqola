@@ -18,7 +18,6 @@
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTimer>
-#include <QUrlQuery>
 
 using namespace std::chrono_literals;
 using namespace Qt::Literals::StringLiterals;

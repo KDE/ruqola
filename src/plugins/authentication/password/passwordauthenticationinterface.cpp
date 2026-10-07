@@ -6,15 +6,11 @@
 
 #include "passwordauthenticationinterface.h"
 #include "common/authenticationloginwidget.h"
-#include "config-ruqola.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "connection.h"
-#include "ddpapi/ddpclient.h"
-
-#include "ruqola.h"
 
 PasswordAuthenticationInterface::PasswordAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)

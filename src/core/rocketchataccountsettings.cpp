@@ -13,7 +13,6 @@
 #include <QDateTime>
 #include <QFile>
 #include <QSettings>
-#include <QStandardPaths>
 using namespace Qt::Literals::StringLiterals;
 
 static QString normalizeServerUrl(const QString &serverUrl)

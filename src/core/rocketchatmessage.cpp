@@ -7,7 +7,6 @@
 #include "rocketchatmessage.h"
 #include "utils.h"
 
-#include <QCryptographicHash>
 #include <QJsonArray>
 #include <QJsonObject>
 using namespace Qt::Literals::StringLiterals;

@@ -9,7 +9,6 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "userbasejob.h"
 
-#include <QNetworkRequest>
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT UsersListJob : public UserBaseJob

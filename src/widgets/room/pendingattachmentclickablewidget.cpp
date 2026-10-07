@@ -8,7 +8,6 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <QFileInfo>
-#include <QFrame>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMimeDatabase>

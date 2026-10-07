@@ -5,7 +5,6 @@
 */
 
 #include "messagedelegatehelperactions.h"
-#include "autogenerateui/autogenerateinteractionui.h"
 #include "autogenerateui/autogenerateinteractionuidialog.h"
 #include "common/delegatepaintutil.h"
 #include "connection.h"
@@ -13,11 +12,6 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
-#include <KLocalizedString>
-
-#include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
-#include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPointer>

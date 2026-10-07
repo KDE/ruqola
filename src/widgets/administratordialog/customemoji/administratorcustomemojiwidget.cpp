@@ -12,7 +12,6 @@
 #include "emoji/emojicustomcreatejob.h"
 #include "emoji/emojicustomdeletejob.h"
 #include "emoji/emojicustomupdatejob.h"
-#include "emoticons/emojimanager.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomemojimodel.h"
 #include "model/searchtreebasefilterproxymodel.h"

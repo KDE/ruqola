@@ -8,7 +8,6 @@
 
 #include "uploadfilewidget.h"
 #include <KLocalizedString>
-#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>

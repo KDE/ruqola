@@ -17,7 +17,6 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QMenu>
-#include <QPushButton>
 #include <QToolButton>
 
 using namespace Qt::Literals::StringLiterals;

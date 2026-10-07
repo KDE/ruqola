@@ -5,7 +5,6 @@
 */
 
 #include "listmessagesfilterproxymodel.h"
-#include <KLocalizedString>
 
 ListMessagesFilterProxyModel::ListMessagesFilterProxyModel(ListMessagesModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)

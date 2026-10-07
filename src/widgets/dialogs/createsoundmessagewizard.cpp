@@ -12,7 +12,6 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

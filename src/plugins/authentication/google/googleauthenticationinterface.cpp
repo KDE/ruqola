@@ -6,7 +6,6 @@
 
 #include "googleauthenticationinterface.h"
 #include "ddpapi/ddpclient.h"
-#include "googleauthenticationplugin_debug.h"
 #include "googlejob.h"
 #include "rocketchataccount.h"
 

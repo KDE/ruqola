@@ -6,8 +6,6 @@
 
 #include "servererrorinfohistorymodel.h"
 
-#include <KLocalizedString>
-
 ServerErrorInfoHistoryModel::ServerErrorInfoHistoryModel(QObject *parent)
     : QAbstractListModel{parent}
 {

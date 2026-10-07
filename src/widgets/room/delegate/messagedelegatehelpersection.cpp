@@ -13,9 +13,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_autogenerateui_debug.h"
 
-#include <KLocalizedString>
-
-#include <QAbstractItemView>
 #include <QListView>
 #include <QMenu>
 #include <QMouseEvent>

@@ -8,16 +8,10 @@
 
 #include "common/delegatepaintutil.h"
 #include "connection.h"
-#include "dialogs/showvideodialog.h"
-#include "misc/messageattachmentdownloadandsavejob.h"
 #include "misc/methodcalljob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
-#include <KLocalizedString>
-
-#include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
 #include <QJsonArray>
 #include <QMouseEvent>
 #include <QPainter>

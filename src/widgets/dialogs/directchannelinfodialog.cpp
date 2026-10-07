@@ -7,9 +7,7 @@
 #include "directchannelinfodialog.h"
 
 #include "directchannelinfowidget.h"
-#include "room.h"
 #include <KLocalizedString>
-#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 

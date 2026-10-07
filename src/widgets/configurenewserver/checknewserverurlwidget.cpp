@@ -6,8 +6,6 @@
 
 #include "checknewserverurlwidget.h"
 
-#include "config-ruqola.h"
-
 #include <KBusyIndicatorWidget>
 #include <KLineEditEventHandler>
 #include <KLocalizedString>

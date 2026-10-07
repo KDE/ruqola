@@ -12,7 +12,6 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
-#include <QPushButton>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 

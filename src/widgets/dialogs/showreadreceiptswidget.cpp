@@ -16,7 +16,6 @@
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <QJsonArray>
-#include <QLabel>
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>

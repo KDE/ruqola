@@ -6,7 +6,6 @@
 
 #include "roomencryptsavepasswordwidget.h"
 
-#include <KLocalizedString>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

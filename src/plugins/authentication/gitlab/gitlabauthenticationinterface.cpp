@@ -6,7 +6,6 @@
 
 #include "gitlabauthenticationinterface.h"
 #include "gitlabauthenticationjob.h"
-#include "rocketchataccount.h"
 
 GitLabAuthenticationInterface::GitLabAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)

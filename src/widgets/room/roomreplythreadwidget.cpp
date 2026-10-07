@@ -8,7 +8,6 @@
 
 #include <KLocalizedString>
 #include <QAction>
-#include <QPushButton>
 
 using namespace Qt::Literals::StringLiterals;
 RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)

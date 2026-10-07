@@ -5,7 +5,6 @@
 */
 
 #include "videoconferencesmodel.h"
-#include <KLocalizedString>
 
 VideoConferencesModel::VideoConferencesModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)

@@ -5,14 +5,9 @@
 */
 
 #include "messagedelegatehelpercontext.h"
-#include "autogenerateui/autogenerateinteractionui.h"
 #include "common/delegatepaintutil.h"
 #include "rocketchataccount.h"
 
-#include <KLocalizedString>
-
-#include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>

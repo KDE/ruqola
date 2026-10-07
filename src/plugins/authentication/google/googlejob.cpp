@@ -10,7 +10,6 @@
 #include "googlejob.h"
 
 #include "googleauthenticationplugin_debug.h"
-#include "ruqola_debug.h"
 
 #include <QDesktopServices>
 #include <QFile>

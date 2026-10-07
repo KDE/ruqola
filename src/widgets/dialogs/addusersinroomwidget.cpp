@@ -6,7 +6,6 @@
 
 #include "addusersinroomwidget.h"
 
-#include "adduserscompletionlineedit.h"
 #include "misc/adduserswidget.h"
 
 #include <KLocalizedString>

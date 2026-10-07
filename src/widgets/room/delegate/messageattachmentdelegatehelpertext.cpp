@@ -12,8 +12,6 @@
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
 
-#include <KColorScheme>
-#include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
 #include <QListView>
 #include <QMouseEvent>

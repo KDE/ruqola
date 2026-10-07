@@ -6,8 +6,6 @@
 
 #include "cassettingswidget.h"
 
-#include "rocketchataccount.h"
-
 #include <KLocalizedString>
 
 #include <QCheckBox>

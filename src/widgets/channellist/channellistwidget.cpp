@@ -5,8 +5,6 @@
 */
 
 #include "channellistwidget.h"
-#include "config-ruqola.h"
-#include "ddpapi/ddpclient.h"
 #include "model/roomfilterproxymodel.h"
 #include "model/roommodel.h"
 #include "rocketchaturlutils.h"
@@ -15,10 +13,8 @@
 #include <TextUtils/TextUtilsBlockCodeManager>
 #include <TextUtils/TextUtilsSyntaxHighlighter>
 
-#include "accountmanager.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
-#include "ruqola.h"
 #include "ruqolautils.h"
 
 #include <KLocalizedString>

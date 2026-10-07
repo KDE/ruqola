@@ -6,7 +6,6 @@
 
 #include "registrationwidget.h"
 
-#include <KLocalizedString>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

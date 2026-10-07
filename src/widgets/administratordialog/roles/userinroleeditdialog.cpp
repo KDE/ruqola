@@ -10,7 +10,6 @@
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
 #include <TextAddonsWidgets/LoadDialogSizeUtils>
 namespace

@@ -6,7 +6,6 @@
 
 #include "showattachmentdialog.h"
 
-#include "attachments/fileattachments.h"
 #include "chat/deletemessagefilejob.h"
 #include "connection.h"
 #include "dialogs/showimagedialog.h"

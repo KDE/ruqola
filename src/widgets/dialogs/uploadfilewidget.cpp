@@ -11,12 +11,13 @@
 #include <KLocalizedString>
 
 #include <KFormat>
-#include <KLineEdit>
 #include <QFileInfo>
 #include <QFormLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <QMimeDatabase>
 #include <QStyle>
+#include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)

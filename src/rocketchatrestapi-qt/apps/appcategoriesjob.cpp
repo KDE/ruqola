@@ -10,7 +10,6 @@
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonArray>
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QNetworkRequest>
 
 using namespace Qt::Literals::StringLiterals;

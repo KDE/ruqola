@@ -11,10 +11,6 @@
 #include "misc/messageattachmentdownloadandsavejob.h"
 #include "rocketchataccount.h"
 
-#include <KLocalizedString>
-
-#include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>

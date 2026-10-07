@@ -5,7 +5,6 @@
 */
 
 #include "readreceiptsmodel.h"
-#include <KLocalizedString>
 
 ReadReceiptsModel::ReadReceiptsModel(QObject *parent)
     : QAbstractListModel(parent)

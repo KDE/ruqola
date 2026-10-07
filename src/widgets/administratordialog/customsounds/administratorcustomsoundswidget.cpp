@@ -18,7 +18,6 @@
 #include "model/admincustomsoundmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
-#include "rocketchatbackend.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>

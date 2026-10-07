@@ -7,7 +7,6 @@
 #pragma once
 #include "applicationssettingssearchwidget.h"
 #include "libruqolawidgets_private_export.h"
-#include "rocketchataccount.h"
 #include <QWidget>
 class RocketChatAccount;
 class ApplicationsSettingsListWidget;

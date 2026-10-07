@@ -9,7 +9,6 @@
 #include "channellistview.h"
 #include "libruqolawidgets_private_export.h"
 #include "parserocketchaturlutils.h"
-#include "room.h"
 #include <QPointer>
 #include <QWidget>
 class ChannelListView;

@@ -14,8 +14,6 @@
 
 #include <KLocalizedString>
 
-#include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>

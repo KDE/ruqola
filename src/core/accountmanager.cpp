@@ -35,7 +35,6 @@
 #include <QDirIterator>
 #include <QPointer>
 #include <QSettings>
-#include <TextEmoticonsCore/EmojiModelManager>
 #include <TextEmoticonsCore/UnicodeEmoticonManager>
 
 using namespace Qt::Literals::StringLiterals;

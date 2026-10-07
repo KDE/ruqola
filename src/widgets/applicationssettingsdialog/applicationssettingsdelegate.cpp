@@ -19,7 +19,6 @@
 #include <KLocalizedString>
 #include <QPainter>
 #include <QTextDocument>
-#include <QTreeView>
 
 using namespace Qt::Literals::StringLiterals;
 

@@ -6,7 +6,6 @@
 
 #include "commandpreviewimagedelegate.h"
 #include "model/previewcommandmodel.h"
-#include <QListView>
 #include <QPainter>
 
 namespace

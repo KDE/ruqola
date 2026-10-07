@@ -7,7 +7,6 @@
 #include "personalaccesstokenauthenticationinterface.h"
 #include "authenticationmanager/ddpauthenticationmanager.h"
 #include "authenticationmanager/restauthenticationmanager.h"
-#include "config-ruqola.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"

@@ -17,7 +17,6 @@
 #include <KLocalizedString>
 
 #include <QAbstractItemView>
-#include <QAbstractTextDocumentLayout>
 #include <QApplication>
 #include <QClipboard>
 #include <QMenu>
@@ -25,7 +24,6 @@
 #include <QMouseEvent>
 #include <QMovie>
 #include <QPainter>
-#include <QPixmapCache>
 #include <QStyleOptionViewItem>
 
 using namespace Qt::Literals::StringLiterals;

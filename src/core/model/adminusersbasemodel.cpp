@@ -6,7 +6,6 @@
 
 #include "adminusersbasemodel.h"
 
-#include <KLocalizedString>
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;
