@@ -38,10 +38,7 @@ ForwardMessageWidget::ForwardMessageWidget(RocketChatAccount *account, QWidget *
     mainLayout->addStretch();
 }
 
-ForwardMessageWidget::~ForwardMessageWidget()
-{
-    delete mFlowLayout;
-}
+ForwardMessageWidget::~ForwardMessageWidget() = default;
 
 void ForwardMessageWidget::slotForwardToChannel(const JoinedChannelCompletionLineEditBase::JoinedChannelCompletionInfo &channelInfo)
 {
