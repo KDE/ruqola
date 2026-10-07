@@ -284,8 +284,14 @@ void ShowImageWidget::showImages(const QByteArray &fileId, const QByteArray &roo
         mShowImagePrevNextImageWidget->setVisible(true);
         updateButtons();
     });
+    connect(job, &RocketChatRestApi::RoomsImagesJob::failed, this, [this]() {
+        qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "RoomsImagesJob failed";
+        mDownloadInProgress = false;
+    });
+
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Impossible to start RoomsImagesJob job";
+        mDownloadInProgress = false;
     }
 }
 
