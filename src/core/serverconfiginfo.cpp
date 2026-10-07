@@ -10,7 +10,6 @@
 #include "rocketchataccountsettings.h"
 #include "ruqolaserverconfig.h"
 
-using namespace Qt::Literals::StringLiterals;
 ServerConfigInfo::ServerConfigInfo(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)

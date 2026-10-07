@@ -9,7 +9,6 @@
 #include <QTest>
 QTEST_MAIN(ConfigureAccessibilityTabWidgetTest)
 
-using namespace Qt::Literals::StringLiterals;
 ConfigureAccessibilityTabWidgetTest::ConfigureAccessibilityTabWidgetTest(QObject *parent)
     : QObject{parent}
 {

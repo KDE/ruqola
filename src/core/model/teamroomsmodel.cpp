@@ -9,7 +9,6 @@
 
 #include <KLocalizedString>
 
-using namespace Qt::Literals::StringLiterals;
 TeamRoomsModel::TeamRoomsModel(QObject *parent)
     : QAbstractListModel(parent)
 {

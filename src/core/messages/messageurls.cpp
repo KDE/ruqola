@@ -12,7 +12,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(MessageUrls, Ruqola_MessageUrls)
 #include <QJsonArray>
 #include <QJsonObject>
 
-using namespace Qt::Literals::StringLiterals;
 MessageUrls::MessageUrls()
 
 {

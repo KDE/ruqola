@@ -13,7 +13,6 @@
 #include <QAbstractListModel>
 #include <QPointer>
 class QRegularExpression;
-using namespace Qt::Literals::StringLiterals;
 class RocketChatAccount;
 class LoadRecentHistoryManager;
 class Room;
@@ -94,7 +93,10 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    explicit MessagesModel(const QByteArray &roomID = "no_room"_ba, RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
+    explicit MessagesModel(const QByteArray &roomID = QByteArrayLiteral("no_room"),
+                           RocketChatAccount *account = nullptr,
+                           Room *room = nullptr,
+                           QObject *parent = nullptr);
     ~MessagesModel() override;
 
     /**

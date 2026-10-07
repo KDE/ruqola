@@ -15,12 +15,11 @@
 #include <QString>
 #include <QTest>
 
-using namespace Qt::Literals::StringLiterals;
-
 namespace AutoTestHelper
 {
 void diffFile(const QString &refFile, const QString &generatedFile)
 {
+    using namespace Qt::Literals::StringLiterals;
     QProcess proc;
 #ifdef _WIN32
     QStringList args = QStringList{u"Compare-Object"_s, QString(u"(Get-Content %1)"_s).arg(refFile), QString(u"(Get-Content %1)"_s).arg(generatedFile)};
@@ -47,6 +46,7 @@ void diffFile(const QString &refFile, const QString &generatedFile)
 
 void compareFile(const QString &repo, const QByteArray &data, const QString &name)
 {
+    using namespace Qt::Literals::StringLiterals;
     const QString refFile = QLatin1StringView(RUQOLA_AUTOGENERATEUI_DATA_DIR) + repo + name + u".ref"_s;
     const QString generatedFile = QLatin1StringView(RUQOLA_BINARY_AUTOGENERATEUI_DATA_DIR) + repo + name + u"-generated.ref"_s;
     QDir().mkpath(QLatin1StringView(RUQOLA_BINARY_AUTOGENERATEUI_DATA_DIR) + repo + name);

@@ -10,8 +10,6 @@
 
 #include <QTest>
 
-using namespace Qt::Literals::StringLiterals;
-
 QTEST_GUILESS_MAIN(ServerConfigInfoTest)
 
 ServerConfigInfoTest::ServerConfigInfoTest(QObject *parent)

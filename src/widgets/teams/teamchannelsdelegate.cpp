@@ -9,7 +9,6 @@
 #include "misc/avatarcachemanager.h"
 #include "model/teamroomsmodel.h"
 #include <QPainter>
-using namespace Qt::Literals::StringLiterals;
 TeamChannelsDelegate::TeamChannelsDelegate(QObject *parent)
     : QItemDelegate{parent}
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))

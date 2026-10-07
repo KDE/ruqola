@@ -12,8 +12,6 @@
 #include <QTest>
 #include <QToolButton>
 
-using namespace Qt::Literals::StringLiterals;
-
 namespace SettingsWidgetHelper
 {
 QString widgetSettingsName(QWidget *widget)
@@ -26,6 +24,7 @@ QString widgetSettingsName(QWidget *widget)
 
 void checkLabelToolButton(QWidget *widget, const QString &variableName)
 {
+    using namespace Qt::Literals::StringLiterals;
     auto toolButton = widget->findChild<QToolButton *>(u"toolbutton_%1"_s.arg(variableName));
     QVERIFY(toolButton);
     QVERIFY(!toolButton->isEnabled());

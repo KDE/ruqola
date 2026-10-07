@@ -15,7 +15,6 @@
 #include <QTextDocument>
 #include <QTextDocumentFragment>
 
-using namespace Qt::Literals::StringLiterals;
 TextSelection::TextSelection() = default;
 
 DocumentFactoryInterface::~DocumentFactoryInterface() = default;

@@ -22,8 +22,6 @@
 #include "delegateutils/textselectionimpl.h"
 #include "rocketchataccount.h"
 
-using namespace Qt::Literals::StringLiterals;
-
 BannerInfoListViewDelegate::BannerInfoListViewDelegate(QListView *view, RocketChatAccount *account, QObject *parent)
     : MessageListDelegateBase(view, parent)
     , mRocketChatAccount(account)

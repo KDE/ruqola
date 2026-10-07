@@ -11,6 +11,8 @@
 #include <QPlainTextEdit>
 #include <QSplitter>
 
+using namespace Qt::Literals::StringLiterals;
+
 SerializeMessageWidget::SerializeMessageWidget(QWidget *parent)
     : QWidget{parent}
     , mPlainTextEdit(new QPlainTextEdit(this))

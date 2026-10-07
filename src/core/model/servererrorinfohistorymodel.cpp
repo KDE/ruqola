@@ -8,7 +8,6 @@
 
 #include <KLocalizedString>
 
-using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoHistoryModel::ServerErrorInfoHistoryModel(QObject *parent)
     : QAbstractListModel{parent}
 {

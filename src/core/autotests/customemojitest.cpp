@@ -9,6 +9,8 @@
 #include "ruqola_autotest_helper.h"
 #include <QJsonObject>
 
+using namespace Qt::Literals::StringLiterals;
+
 QTEST_GUILESS_MAIN(CustomEmojiTest)
 
 CustomEmojiTest::CustomEmojiTest(QObject *parent)

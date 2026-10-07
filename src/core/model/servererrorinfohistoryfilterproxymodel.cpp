@@ -8,7 +8,6 @@
 
 #include "servererrorinfohistorymodel.h"
 
-using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoHistoryFilterProxyModel::ServerErrorInfoHistoryFilterProxyModel(QObject *parent)
     : SortFilterProxyModelBase{parent}
 {

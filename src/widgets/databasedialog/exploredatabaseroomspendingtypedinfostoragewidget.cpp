@@ -11,7 +11,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
 #include <QTableView>
-using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseRoomsPendingTypedInfoStorageWidget::ExploreDatabaseRoomsPendingTypedInfoStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalRoomsPendingTypedInfo(account ? account->localDatabaseManager()->roomPendingTypedInfoDatabase() : nullptr)

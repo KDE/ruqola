@@ -11,7 +11,6 @@
 #include <TextUtils/ConvertText>
 #endif
 
-using namespace Qt::Literals::StringLiterals;
 SortFilterProxyModelBase::SortFilterProxyModelBase(QObject *parent)
     : QSortFilterProxyModel{parent}
 {

@@ -9,8 +9,6 @@
 #include <QFileInfo>
 #include <TextAddonsWidgets/TextAddonsWidgetFlowLayout>
 
-using namespace Qt::Literals::StringLiterals;
-
 PendingAttachmentWidget::PendingAttachmentWidget(QWidget *parent)
     : QWidget(parent)
     , mFlowLayout(new TextAddonsWidgets::TextAddonsWidgetFlowLayout(this))

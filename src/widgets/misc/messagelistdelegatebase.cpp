@@ -21,7 +21,6 @@
 #include <QMimeData>
 #include <QMouseEvent>
 
-using namespace Qt::Literals::StringLiterals;
 MessageListDelegateBase::MessageListDelegateBase(QAbstractItemView *view, QObject *parent)
     : QItemDelegate{parent}
     , MessageListTextUi(new TextSelectionImpl, view)

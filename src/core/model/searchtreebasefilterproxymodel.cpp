@@ -5,7 +5,6 @@
 */
 
 #include "searchtreebasefilterproxymodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 SearchTreeBaseFilterProxyModel::SearchTreeBaseFilterProxyModel(QAbstractListModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)

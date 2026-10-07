@@ -10,7 +10,6 @@
 #include <QStandardPaths>
 #include <QTextEdit>
 #include <QVBoxLayout>
-using namespace Qt::Literals::StringLiterals;
 TextDocumentTestGui::TextDocumentTestGui(QWidget *parent)
     : QWidget(parent)
 {

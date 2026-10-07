@@ -7,7 +7,6 @@
 #include "timestamp/timestampinmessagesconverter.h"
 
 #include <KLocalizedString>
-using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesFormatComboBox::TimeStampInMessagesFormatComboBox(QWidget *parent)
     : QComboBox(parent)
 {

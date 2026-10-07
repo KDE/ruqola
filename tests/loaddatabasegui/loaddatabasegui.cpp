@@ -18,6 +18,8 @@
 #include <QStandardPaths>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
+
 // Same as in localmessagedatabase.cpp
 enum class Fields {
     MessageId,

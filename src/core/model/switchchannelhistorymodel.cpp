@@ -5,7 +5,6 @@
 */
 
 #include "switchchannelhistorymodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 SwitchChannelHistoryModel::SwitchChannelHistoryModel(QObject *parent)
     : QAbstractListModel{parent}

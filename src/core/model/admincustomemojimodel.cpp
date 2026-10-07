@@ -11,8 +11,6 @@
 #include <KLocalizedString>
 #include <QIcon>
 
-using namespace Qt::Literals::StringLiterals;
-
 AdminCustomEmojiModel::AdminCustomEmojiModel(RocketChatAccount *account, QObject *parent)
     : CustomBaseModel(parent)
     , mRocketChatAccount(account)

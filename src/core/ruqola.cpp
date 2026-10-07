@@ -24,7 +24,6 @@
 #endif
 static Ruqola *s_self = nullptr;
 
-using namespace Qt::Literals::StringLiterals;
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 #if HAVE_TEXT_AUTOCORRECTION_WIDGETS

@@ -15,12 +15,11 @@
 #include <QString>
 #include <QTest>
 
-using namespace Qt::Literals::StringLiterals;
-
 namespace AutoTestHelper
 {
 void diffFile(const QString &refFile, const QString &generatedFile)
 {
+    using namespace Qt::Literals::StringLiterals;
     QProcess proc;
 #ifdef _WIN32
     QStringList args = QStringList{u"Compare-Object"_s, QString(u"(Get-Content %1)"_s).arg(refFile), QString(u"(Get-Content %1)"_s).arg(generatedFile)};

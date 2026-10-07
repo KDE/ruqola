@@ -10,7 +10,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(Replies, Ruqola_Replies)
 #include "ruqola_message_memory_debug.h"
 #include <QJsonArray>
 
-using namespace Qt::Literals::StringLiterals;
 Replies::Replies()
 
 {

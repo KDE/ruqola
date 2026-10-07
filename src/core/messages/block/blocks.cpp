@@ -13,7 +13,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(Blocks, Ruqola_Blocks)
 #include <QJsonObject>
 #include <algorithm>
 
-using namespace Qt::Literals::StringLiterals;
 Blocks::Blocks()
 
 {

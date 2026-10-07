@@ -9,8 +9,6 @@
 #include "misc/statuscombobox.h"
 #include <QTest>
 
-using namespace Qt::Literals::StringLiterals;
-
 QTEST_MAIN(StatusComboboxTest)
 StatusComboboxTest::StatusComboboxTest(QObject *parent)
     : QObject(parent)

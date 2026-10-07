@@ -16,7 +16,6 @@
 
 using namespace std::chrono_literals;
 
-using namespace Qt::Literals::StringLiterals;
 AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : TextAddonsWidgets::CompletionLineEdit(parent)
     , mRocketChatAccount(account)

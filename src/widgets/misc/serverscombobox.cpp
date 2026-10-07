@@ -8,7 +8,6 @@
 
 #include <KLocalizedString>
 
-using namespace Qt::Literals::StringLiterals;
 ServersComboBox::ServersComboBox(QWidget *parent)
     : QComboBox(parent)
 {

@@ -18,7 +18,6 @@
 #include <QScrollBar>
 #include <TextEditTextToSpeech/TextToSpeech>
 
-using namespace Qt::Literals::StringLiterals;
 MessageListViewBase::MessageListViewBase(QWidget *parent)
     : QListView(parent)
 {

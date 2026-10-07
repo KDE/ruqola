@@ -13,7 +13,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(MessageAttachments, Ruqola_MessageAttachments)
 #include <QJsonArray>
 #include <QJsonObject>
 
-using namespace Qt::Literals::StringLiterals;
 MessageAttachments::MessageAttachments()
 {
     qCDebug(RUQOLA_MESSAGE_MEMORY_LOG) << " MessageAttachments created " << this;

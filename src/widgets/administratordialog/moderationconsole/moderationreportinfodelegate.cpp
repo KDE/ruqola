@@ -16,8 +16,6 @@
 #include <QPainter>
 #include <QToolTip>
 
-using namespace Qt::Literals::StringLiterals;
-
 ModerationReportInfoDelegate::ModerationReportInfoDelegate(RocketChatAccount *account, QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
     , mRocketChatAccount(account)

@@ -8,7 +8,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
 
-using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseRoomSubscriptionsWidget::ExploreDatabaseRoomSubscriptionsWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalRoomSubscriptions(account ? account->localDatabaseManager()->roomSubscriptionsDatabase() : nullptr)

@@ -7,7 +7,6 @@
 
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include <QTest>
-using namespace Qt::Literals::StringLiterals;
 QTEST_MAIN(SwitchChannelTreeViewManagerTest)
 
 SwitchChannelTreeViewManagerTest::SwitchChannelTreeViewManagerTest(QObject *parent)

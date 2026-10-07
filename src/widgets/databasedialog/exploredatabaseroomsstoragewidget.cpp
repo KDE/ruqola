@@ -12,7 +12,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
 #include <QTableView>
-using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseRoomsStorageWidget::ExploreDatabaseRoomsStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalRoomsDatabase(account ? account->localDatabaseManager()->roomsDatabase() : nullptr)

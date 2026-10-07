@@ -9,7 +9,6 @@
 #include "messages/systemmessagetypeutil.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(SystemMessageTypeUtilTest)
-using namespace Qt::Literals::StringLiterals;
 SystemMessageTypeUtilTest::SystemMessageTypeUtilTest(QObject *parent)
     : QObject{parent}
 {

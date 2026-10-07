@@ -8,6 +8,8 @@
 
 #include "listmessages.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 ThreadMessageModel::ThreadMessageModel(RocketChatAccount *account, QObject *parent)
     : MessagesModel("no_room"_ba, account, nullptr, parent)
 {

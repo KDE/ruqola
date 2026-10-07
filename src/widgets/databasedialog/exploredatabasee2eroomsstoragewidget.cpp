@@ -10,7 +10,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
 #include <QTableView>
-using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseE2ERoomsStorageWidget::ExploreDatabaseE2ERoomsStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalE2ERoomsDatabase(account ? account->localDatabaseManager()->e2ERoomsDataBase() : nullptr)

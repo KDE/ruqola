@@ -7,7 +7,6 @@
 #include "timestampinmessages/timestampinmessagesformatcombobox.h"
 #include <QTest>
 QTEST_MAIN(TimeStampInMessagesFormatComboBoxTest)
-using namespace Qt::Literals::StringLiterals;
 TimeStampInMessagesFormatComboBoxTest::TimeStampInMessagesFormatComboBoxTest(QObject *parent)
     : QObject{parent}
 {

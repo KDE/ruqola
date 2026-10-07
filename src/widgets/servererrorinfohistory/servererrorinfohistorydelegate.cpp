@@ -19,7 +19,6 @@
 #include <QPainter>
 #include <QToolTip>
 
-using namespace Qt::Literals::StringLiterals;
 ServerErrorInfoHistoryDelegate::ServerErrorInfoHistoryDelegate(QListView *view, QObject *parent)
     : MessageListDelegateBase{view, parent}
 {

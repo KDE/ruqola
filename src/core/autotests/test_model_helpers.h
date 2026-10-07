@@ -11,12 +11,11 @@
 
 #include <QString>
 
-using namespace Qt::Literals::StringLiterals;
-
 namespace TestModelHelpers
 {
 inline QString rowSpyToText(const QSignalSpy &spy)
 {
+    using namespace Qt::Literals::StringLiterals;
     if (!spy.isValid()) {
         return u"THE SIGNALSPY IS INVALID!"_s;
     }

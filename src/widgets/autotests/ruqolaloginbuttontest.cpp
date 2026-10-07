@@ -10,7 +10,6 @@
 #include <QTest>
 #include <qtestmouse.h>
 QTEST_MAIN(RuqolaLoginButtonTest)
-using namespace Qt::Literals::StringLiterals;
 
 RuqolaLoginButtonTest::RuqolaLoginButtonTest(QObject *parent)
     : QObject{parent}

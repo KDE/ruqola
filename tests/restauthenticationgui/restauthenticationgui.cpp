@@ -15,6 +15,8 @@
 #include <QStandardPaths>
 #include <QVBoxLayout>
 
+using namespace Qt::Literals::StringLiterals;
+
 RestAuthenticationGui::RestAuthenticationGui(QWidget *parent)
     : QWidget(parent)
     , mAuthenticationLoginWidget(new AuthenticationLoginWidget(this))

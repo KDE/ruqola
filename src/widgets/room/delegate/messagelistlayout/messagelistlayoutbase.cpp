@@ -18,7 +18,6 @@
 #include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagedelegatehelperurlpreview.h"
 
-using namespace Qt::Literals::StringLiterals;
 MessageListLayoutBase::MessageListLayoutBase(MessageListDelegate *delegate)
     : mDelegate(delegate)
 {

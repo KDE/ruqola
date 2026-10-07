@@ -8,8 +8,6 @@
 
 #include <KLocalizedString>
 
-using namespace Qt::Literals::StringLiterals;
-
 PermissionsModel::PermissionsModel(QObject *parent)
     : QAbstractListModel(parent)
 {

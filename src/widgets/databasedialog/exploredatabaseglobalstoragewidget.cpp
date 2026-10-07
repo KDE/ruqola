@@ -11,7 +11,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
 #include <QTableView>
-using namespace Qt::Literals::StringLiterals;
 ExploreDatabaseGlobalStorageWidget::ExploreDatabaseGlobalStorageWidget(RocketChatAccount *account, QWidget *parent)
     : ExploreDatabaseBaseStorageWidget{account, parent}
     , mLocalGlobalDatabase(account ? account->localDatabaseManager()->globalDatabase() : nullptr)

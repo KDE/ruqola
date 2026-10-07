@@ -18,6 +18,8 @@
 
 #include <QTimer>
 
+using namespace Qt::Literals::StringLiterals;
+
 ManageChannels::ManageChannels(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)

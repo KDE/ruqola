@@ -7,7 +7,6 @@
 #include "readreceiptsmodel.h"
 #include <KLocalizedString>
 
-using namespace Qt::Literals::StringLiterals;
 ReadReceiptsModel::ReadReceiptsModel(QObject *parent)
     : QAbstractListModel(parent)
 {

@@ -7,7 +7,6 @@
 #include "directoryusersmodel.h"
 #include <KLocalizedString>
 #include <QJsonObject>
-using namespace Qt::Literals::StringLiterals;
 DirectoryUsersModel::DirectoryUsersModel(QObject *parent)
     : CustomBaseModel(parent)
 {

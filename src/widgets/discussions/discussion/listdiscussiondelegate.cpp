@@ -23,7 +23,6 @@
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
 
-using namespace Qt::Literals::StringLiterals;
 ListDiscussionDelegate::ListDiscussionDelegate(QListView *view, RocketChatAccount *account, QObject *parent)
     : MessageListDelegateBase(view, parent)
     , mRocketChatAccount(account)

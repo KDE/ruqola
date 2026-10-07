@@ -11,7 +11,6 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-using namespace Qt::Literals::StringLiterals;
 ReadReceipts::ReadReceipts() = default;
 
 QList<ReadReceipt> ReadReceipts::readReceipts() const

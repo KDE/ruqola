@@ -9,7 +9,6 @@
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include <QTest>
 QTEST_MAIN(ServerErrorInfoMessageWidgetTest)
-using namespace Qt::Literals::StringLiterals;
 
 ServerErrorInfoMessageWidgetTest::ServerErrorInfoMessageWidgetTest(QObject *parent)
     : QObject{parent}

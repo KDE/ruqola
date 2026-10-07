@@ -5,7 +5,6 @@
 */
 
 #include "commandsmodel.h"
-using namespace Qt::Literals::StringLiterals;
 
 CommandsModel::CommandsModel(QObject *parent)
     : QAbstractListModel(parent)

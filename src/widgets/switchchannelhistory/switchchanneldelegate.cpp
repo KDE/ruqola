@@ -18,7 +18,6 @@ namespace
 constexpr int padding = 4;
 }
 
-using namespace Qt::Literals::StringLiterals;
 SwitchChannelDelegate::SwitchChannelDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::Room, this))

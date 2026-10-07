@@ -10,7 +10,6 @@
 #include <QAction>
 #include <QContextMenuEvent>
 #include <QMenu>
-using namespace Qt::Literals::StringLiterals;
 ShowBannedUsersListView::ShowBannedUsersListView(QWidget *parent)
     : QListView(parent)
 {

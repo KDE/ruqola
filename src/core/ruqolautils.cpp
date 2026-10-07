@@ -17,7 +17,6 @@
 #include <PlasmaActivities/ResourceInstance>
 #endif
 
-using namespace Qt::Literals::StringLiterals;
 RuqolaUtils::RuqolaUtils() = default;
 
 QString RuqolaUtils::extractRoomUserFromUrl(const QString &url)

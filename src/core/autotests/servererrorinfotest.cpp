@@ -8,7 +8,6 @@
 #include "servererrorinfo.h"
 #include <QTest>
 
-using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(ServerErrorInfoTest)
 ServerErrorInfoTest::ServerErrorInfoTest(QObject *parent)
     : QObject{parent}

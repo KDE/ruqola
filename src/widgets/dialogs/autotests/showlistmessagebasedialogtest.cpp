@@ -10,8 +10,6 @@
 #include <QStandardPaths>
 #include <QTest>
 
-using namespace Qt::Literals::StringLiterals;
-
 QTEST_MAIN(ShowListMessageBaseDialogTest)
 
 ShowListMessageBaseDialogTest::ShowListMessageBaseDialogTest(QObject *parent)

@@ -14,8 +14,6 @@
 
 #include "ruqola_completion_debug.h"
 
-using namespace Qt::Literals::StringLiterals;
-
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mInputCompleterModel(new InputCompleterModel(account, this))
