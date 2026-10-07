@@ -6,7 +6,6 @@
 
 #include "createnewchannelwidget.h"
 
-#include "channelnamevalidlineedit.h"
 #include "channelnamevalidlinewidget.h"
 #include "misc/adduserswidget.h"
 #include <KAuthorized>

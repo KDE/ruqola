@@ -46,7 +46,7 @@ void ShowImageDialogTest::shouldHaveDefaultValues()
     auto mClipboardMenu = w.findChild<QMenu *>(u"mClipboardMenu"_s);
     QVERIFY(mClipboardMenu);
 
-    auto clipboardImageAction = w.findChild<QAction *>(u"clipboardLocationAction"_s);
+    auto clipboardImageAction = w.findChild<QAction *>(u"mClipboardImageAction"_s);
     QVERIFY(clipboardImageAction);
     QVERIFY(!clipboardImageAction->text().isEmpty());
 
