@@ -213,4 +213,19 @@ void BlockTest::shouldSerializeData()
     QCOMPARE(input, output);
 }
 
+void BlockTest::shouldCompareBlockType()
+{
+    Block b1;
+    b1.setBlockId(u"63936e304ef3f3baa9658bd7"_s);
+    b1.setAppId(u"videoconf-core"_s);
+    b1.setCallId(u"63936e304ef"_s);
+    b1.setBlockType(Block::BlockType::VideoConf);
+
+    Block b2 = b1;
+    QCOMPARE(b1, b2);
+
+    b2.setBlockType(Block::BlockType::Section);
+    QVERIFY(!(b1 == b2));
+}
+
 #include "moc_blocktest.cpp"

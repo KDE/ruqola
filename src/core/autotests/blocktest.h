@@ -20,4 +20,5 @@ private Q_SLOTS:
     void shouldLoadBlock();
     void shouldLoadBlock_data();
     void shouldHaveDefaultValues();
+    void shouldCompareBlockType();
 };
