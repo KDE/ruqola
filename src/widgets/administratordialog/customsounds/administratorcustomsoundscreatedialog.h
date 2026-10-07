@@ -9,7 +9,6 @@
 #include "administratorcustomsoundscreatewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class AdministratorCustomSoundsCreateWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomSoundsCreateDialog : public QDialog
 {
     Q_OBJECT
