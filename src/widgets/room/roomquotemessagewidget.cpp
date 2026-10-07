@@ -7,7 +7,6 @@
 #include "roomquotemessagewidget.h"
 #include <KLocalizedString>
 #include <QAction>
-#include <QPushButton>
 
 RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
