@@ -21,6 +21,11 @@ void ReadReceipt::setUserId(const QByteArray &newUserId)
     mUserId = newUserId;
 }
 
+QString ReadReceipt::localeDateTime() const
+{
+    return mLocaleDateTime;
+}
+
 qint64 ReadReceipt::timeStamp() const
 {
     return mTimeStamp;
@@ -29,6 +34,11 @@ qint64 ReadReceipt::timeStamp() const
 void ReadReceipt::setTimeStamp(qint64 newTimeStamp)
 {
     mTimeStamp = newTimeStamp;
+    if (mTimeStamp > 0) {
+        mLocaleDateTime = QLocale().toString(QDateTime::fromMSecsSinceEpoch(mTimeStamp), QLocale::ShortFormat);
+    } else {
+        mLocaleDateTime.clear();
+    }
 }
 
 qint64 ReadReceipt::updatedAt() const
@@ -56,7 +66,7 @@ bool ReadReceipt::operator==(const ReadReceipt &other) const = default;
 void ReadReceipt::parseReadReceiptInfo(const QJsonObject &obj)
 {
     mUserId = obj["userId"_L1].toString().toLatin1();
-    mTimeStamp = Utils::parseDate(u"ts"_s, obj);
+    setTimeStamp(Utils::parseDate(u"ts"_s, obj));
     mUpdatedAt = Utils::parseDate(u"_updatedAt"_s, obj);
     const QJsonObject userObj = obj["user"_L1].toObject();
     mUserName = userObj["username"_L1].toString();

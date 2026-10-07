@@ -36,12 +36,15 @@ public:
     [[nodiscard]] QString name() const;
     void setName(const QString &newName);
 
+    [[nodiscard]] QString localeDateTime() const;
+
 private:
     QString mUserName;
     QString mName;
     QByteArray mUserId;
     qint64 mTimeStamp = -1;
     qint64 mUpdatedAt = -1;
+    QString mLocaleDateTime;
 };
 
 QT_DECL_METATYPE_EXTERN_TAGGED(ReadReceipt, Ruqola_ReadReceipt, LIBRUQOLACORE_EXPORT)

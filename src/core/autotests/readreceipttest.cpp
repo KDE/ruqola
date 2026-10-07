@@ -24,6 +24,7 @@ void ReadReceiptTest::shouldHaveDefaultValues()
     QVERIFY(!w.isValid());
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.userName().isEmpty());
+    QVERIFY(w.localeDateTime().isEmpty());
 }
 
 void ReadReceiptTest::shouldLoadReadReceipt_data()

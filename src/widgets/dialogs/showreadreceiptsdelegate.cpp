@@ -44,9 +44,8 @@ void ShowReadReceiptsDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     // The timestamp is right aligned and drawn with the view font, so paint it first:
     // it tells us how much room is left for the name/username.
     int rightLimit = option.rect.right() - margin;
-    const qint64 timeStamp = index.data(ReadReceiptsModel::TimeStamp).toLongLong();
-    if (timeStamp > 0) {
-        const QString timeStampStr = QLocale().toString(QDateTime::fromMSecsSinceEpoch(timeStamp), QLocale::ShortFormat);
+    const QString timeStampStr = index.data(ReadReceiptsModel::LocalDateTime).toString();
+    if (!timeStampStr.isEmpty()) {
         const int timeStampWidth = option.fontMetrics.horizontalAdvance(timeStampStr);
         DelegatePaintUtil::drawLighterText(painter, timeStampStr, QPoint(rightLimit - timeStampWidth, defaultCharHeight));
         rightLimit -= timeStampWidth + margin;

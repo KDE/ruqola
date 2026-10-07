@@ -40,6 +40,8 @@ QVariant ReadReceiptsModel::data(const QModelIndex &index, int role) const
         return receiptInfo.timeStamp();
     case ReadReceiptsModel::AvatarInfo:
         return QVariant::fromValue(avatarInfo(receiptInfo));
+    case ReadReceiptsModel::LocalDateTime:
+        return receiptInfo.localeDateTime();
     default:
         break;
     }

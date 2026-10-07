@@ -20,6 +20,7 @@ public:
         Name,
         TimeStamp,
         AvatarInfo,
+        LocalDateTime,
     };
     Q_ENUM(ReadReceiptsInfo)
 
