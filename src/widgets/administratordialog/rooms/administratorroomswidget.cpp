@@ -119,12 +119,13 @@ void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &
         connect(saveRoomSettingsJob,
                 &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone,
                 this,
-                [this, oldArchivedValue, newArchivedValue](const QString &roomId) {
+                [this, oldArchivedValue, newArchivedValue, roomIdentifier](const QString &roomId) {
                     slotSaveRoomSettingsDone(roomId);
                     if (newArchivedValue != oldArchivedValue) {
                         auto changeArchivationStateJob = new RocketChatRestApi::ChangeArchivationStateJob(this);
                         mRocketChatAccount->restApi()->initializeRestApiJob(changeArchivationStateJob);
                         changeArchivationStateJob->setArchive(newArchivedValue);
+                        changeArchivationStateJob->setRoomId(QString::fromLatin1(roomIdentifier));
                         connect(changeArchivationStateJob, &RocketChatRestApi::ChangeArchivationStateJob::changeArchivationStateDone, this, []() {
 
                         });
