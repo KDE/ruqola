@@ -31,7 +31,7 @@ void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
 void TeamNameLabel::setTeamRoomInfo(const Room::TeamRoomInfo &newTeamNameInfo)
 {
     mTeamNameInfo = newTeamNameInfo;
-    setText(u"<a href=\"gotoroomteam\">[%1]</a>"_s.arg(mTeamNameInfo.teamName));
+    setText(u"<a href=\"gotoroomteam\">[%1]</a>"_s.arg(mTeamNameInfo.teamName.toHtmlEscaped()));
 }
 
 #include "moc_teamnamelabel.cpp"
