@@ -846,9 +846,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #endif
         menu.addSeparator();
         auto goToMessageAction = new QAction(i18nc("@action", "Go to Message"), &menu); // Add icon
-        connect(goToMessageAction, &QAction::triggered, this, [this, index, message]() {
-            const QByteArray messageId = message->messageId();
-            const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
+        const QByteArray messageId = message->messageId();
+        const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
+        connect(goToMessageAction, &QAction::triggered, this, [this, messageId, messageDateTimeUtc]() {
             Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
         });
         menu.addAction(goToMessageAction);
