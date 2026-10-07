@@ -8,6 +8,7 @@
 
 #include "e2e/getusersofroomwithoutkeyjob.h"
 #include "restapimethod.h"
+#include "ruqola_restapi_helper.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(GetUsersOfRoomWithoutKeyJobTest)
@@ -38,6 +39,17 @@ void GetUsersOfRoomWithoutKeyJobTest::shouldGenerateRequest()
     job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/e2e.getUsersOfRoomWithoutKey?rid=foo"_s));
+}
+
+void GetUsersOfRoomWithoutKeyJobTest::shouldNotStarting()
+{
+    GetUsersOfRoomWithoutKeyJob job;
+
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
+
+    QVERIFY(!job.canStart());
+    job.setRoomId("ss"_ba);
+    QVERIFY(job.canStart());
 }
 
 #include "moc_getusersofroomwithoutkeyjobtest.cpp"

@@ -7,6 +7,7 @@
 #include "getusersofroomwithoutkeyjob.h"
 
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -63,6 +64,18 @@ QNetworkRequest GetUsersOfRoomWithoutKeyJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+bool GetUsersOfRoomWithoutKeyJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mRoomId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetUsersOfRoomWithoutKeyJob: roomId";
+        return false;
+    }
+    return true;
 }
 
 bool GetUsersOfRoomWithoutKeyJob::requireHttpAuthentication() const

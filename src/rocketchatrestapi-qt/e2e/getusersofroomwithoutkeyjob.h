@@ -26,6 +26,7 @@ public:
     [[nodiscard]] QByteArray roomId() const;
     void setRoomId(const QByteArray &newRoomId);
 
+    [[nodiscard]] bool canStart() const override;
 Q_SIGNALS:
     void getUsersOfRoomWithoutKeyDone(const QJsonObject &replyObject);
 
