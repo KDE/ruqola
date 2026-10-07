@@ -50,6 +50,23 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
 
         const QByteArray userId = "foo"_ba;
         info.userId = userId;
+        info.highlights = QStringList({u"dd"_s});
+        job.setUsersSetPreferencesInfo(info);
+        QCOMPARE(
+            job.json().toJson(QJsonDocument::Compact),
+            uR"({"data":{"desktopNotifications":"%2","highlights":["dd"]},"userId":"%1"})"_s.arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
+    }
+    {
+        UsersSetPreferencesJob job;
+        UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+        const QString desktopNotifications = u"Bla"_s;
+        info.desktopNotifications = desktopNotifications;
+        job.setUsersSetPreferencesInfo(info);
+        QVERIFY(!job.canStart());
+
+        const QByteArray userId = "foo"_ba;
+        info.userId = userId;
+        info.highlights = QStringList();
         job.setUsersSetPreferencesInfo(info);
         QCOMPARE(job.json().toJson(QJsonDocument::Compact),
                  uR"({"data":{"desktopNotifications":"%2","highlights":[]},"userId":"%1"})"_s.arg(QLatin1StringView(userId), desktopNotifications).toLatin1());
@@ -68,11 +85,10 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         info.featuresPreview = featuresPreview;
         job.setUsersSetPreferencesInfo(info);
 
-        QCOMPARE(
-            job.json().toJson(QJsonDocument::Compact),
-            uR"({"data":{"featuresPreview":[{"name":"secondarySidebar","value":true},{"name":"sidebarDrafts","value":true}],"highlights":[]},"userId":"%1"})"_s
-                .arg(QLatin1StringView(userId))
-                .toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+                 uR"({"data":{"featuresPreview":[{"name":"secondarySidebar","value":true},{"name":"sidebarDrafts","value":true}]},"userId":"%1"})"_s
+                     .arg(QLatin1StringView(userId))
+                     .toLatin1());
     }
 }
 
