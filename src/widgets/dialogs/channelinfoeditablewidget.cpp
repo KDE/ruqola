@@ -80,7 +80,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(Room *room, RocketChatAccou
 
     mReadOnly->setObjectName(u"mReadOnly"_s);
     layout->addRow(i18n("ReadOnly:"), mReadOnly);
-    mReadOnly->setToolTip(i18nc("@info:tooltip", "Messages are end-to-end encrypted, search will not work and notifications may not show message content"));
+    mReadOnly->setToolTip(i18nc("@info:tooltip", "Only owners can send new messages"));
 
     mArchive->setObjectName(u"mArchive"_s);
     layout->addRow(i18n("Archive:"), mArchive);

@@ -70,7 +70,7 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"Room announcement changed\" messages"), u"room_changed_announcement"_s);
     createItem(i18n("Hide \"Room description changed\" messages"), u"room_changed_description"_s);
 
-    createItem(i18n("Joined this Team"), u"ujt"_s);
+    createItem(i18n("Hide \"Joined this Team\" messages"), u"ujt"_s);
 }
 
 void SystemMessagesModel::setMessagesSystem(const QStringList &lst)

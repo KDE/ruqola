@@ -344,7 +344,7 @@ namespace
         {u"error-user-is-not-activated", kli18n("User is not activated")},
         {u"error-user-limit-exceeded", kli18n("The number of users you are trying to invite to #channel_name exceeds the limit set by the administrator")},
         {u"error-user-not-in-room", kli18n("User is not in this room")},
-        {u"error-logged-user-not-in-room", kli18n("You are not in the room `%s`")},
+        {u"error-logged-user-not-in-room", kli18n("You are not in the room `%1`")},
         {u"error-user-registration-disabled", kli18n("User registration is disabled")},
         {u"error-user-registration-secret", kli18n("User registration is only allowed via Secret URL")},
         {u"error-you-are-last-owner", kli18n("You are the last owner. Please set new owner before leaving the room.")},
