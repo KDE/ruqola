@@ -86,15 +86,20 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
         menu.addAction(QIcon::fromTheme(u"edit-clear-history"_s), i18nc("@action", "Clear"), this, &NotificationHistoryListView::slotClearList);
         const QModelIndex index = indexAt(pos);
         if (index.isValid()) {
+            QPersistentModelIndex qmi = index;
             menu.addSeparator();
             if (index.data(NotificationHistoryModel::NotificationType).value<NotificationInfo::NotificationType>()
                 == NotificationInfo::NotificationType::NewRoom) {
-                menu.addAction(i18nc("@action", "Switch To New Room"), this, [this, index]() {
-                    Q_EMIT switchToRoom(index);
+                menu.addAction(i18nc("@action", "Switch To New Room"), this, [this, qmi]() {
+                    if (qmi.isValid()) {
+                        Q_EMIT switchToRoom(qmi);
+                    }
                 });
             } else {
-                menu.addAction(i18nc("@action", "Go to Message"), this, [this, index]() {
-                    Q_EMIT showMessage(index);
+                menu.addAction(i18nc("@action", "Go to Message"), this, [this, qmi]() {
+                    if (qmi.isValid()) {
+                        Q_EMIT showMessage(qmi);
+                    }
                 });
             }
             menu.addSeparator();
@@ -106,8 +111,10 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
                 copyAction->setText(i18nc("@action", "Copy Message"));
             }
             copyAction->setShortcut(QKeySequence::Copy);
-            connect(copyAction, &QAction::triggered, this, [this, index]() {
-                copyMessageToClipboard(index);
+            connect(copyAction, &QAction::triggered, this, [this, qmi]() {
+                if (qmi.isValid()) {
+                    copyMessageToClipboard(qmi);
+                }
             });
             menu.addAction(copyAction);
             if (hasSelection()) {
@@ -116,13 +123,17 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
 #if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();
             auto speakAction = menu.addAction(QIcon::fromTheme(u"text-speak-symbolic"_s), i18nc("@action", "Speak Text"));
-            connect(speakAction, &QAction::triggered, this, [this, index]() {
-                slotTextToSpeech(index);
+            connect(speakAction, &QAction::triggered, this, [this, qmi]() {
+                if (qmi.isValid()) {
+                    slotTextToSpeech(qmi);
+                }
             });
 #endif
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, index]() {
-                slotSelectAll(index);
+            menu.addAction(QIcon::fromTheme(u"edit-select-all"_s), i18nc("@action", "Select All"), this, [this, qmi]() {
+                if (qmi.isValid()) {
+                    slotSelectAll(qmi);
+                }
             });
         }
         menu.exec(viewport()->mapToGlobal(pos));
