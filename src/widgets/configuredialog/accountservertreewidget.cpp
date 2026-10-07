@@ -199,6 +199,7 @@ void AccountServerTreeWidget::slotMoveAccountDown()
 AccountServerListWidgetItem::AccountServerListWidgetItem(QTreeWidget *parent)
     : QTreeWidgetItem(parent)
 {
+    setFlags(flags() & ~Qt::ItemIsDropEnabled);
 }
 
 AccountServerListWidgetItem::~AccountServerListWidgetItem() = default;
