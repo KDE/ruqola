@@ -2213,10 +2213,10 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
             const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
             // qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
             if (!iconFileName.isEmpty()) {
-                const QUrl url = QUrl::fromLocalFile(iconFileName);
+                const QUrl url(iconFileName);
                 QPixmap pix;
                 // qDebug() << "url.toLocalFile()" << url.toLocalFile();
-                const bool loaded = pix.load(url.toLocalFile(), "JPEG");
+                const bool loaded = pix.load(url.toLocalFile());
                 // qDebug() << " load pixmap : " << loaded;
                 // qDebug() << " pix " << pix.isNull();
                 std::ignore = loaded;
