@@ -86,6 +86,7 @@ void AuthenticationLoginWidget::changeAuthenticationWidgetStatus(bool enabled)
     mServerUrl->setEnabled(enabled);
     mUserName->setEnabled(enabled);
     mPasswordLineEditWidget->setEnabled(enabled);
+    mAccountName->setEnabled(enabled);
 }
 
 void AuthenticationLoginWidget::slotResetPasswordRequested(const QString &email)
