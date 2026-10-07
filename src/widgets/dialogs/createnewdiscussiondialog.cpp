@@ -39,9 +39,7 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account,
     QPushButton *button = buttonBox->button(QDialogButtonBox::Ok);
     button->setText(i18nc("@action:button", "Create"));
     button->setEnabled(false);
-    connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, this, [button](bool state) {
-        button->setEnabled(state);
-    });
+    connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, button, &QPushButton::setEnabled);
 }
 
 CreateNewDiscussionDialog::~CreateNewDiscussionDialog() = default;
