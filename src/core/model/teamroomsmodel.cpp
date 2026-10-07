@@ -83,7 +83,7 @@ void TeamRoomsModel::setRoomChanged(const TeamRoom &t)
         if (teamRoom.identifier() == t.identifier()) {
             teamRoom.setAutoJoin(t.autoJoin());
             const QModelIndex idx = createIndex(i, 0);
-            Q_EMIT dataChanged(idx, idx, {TeamRoomsModel::AutoJoin});
+            Q_EMIT dataChanged(idx, idx, {TeamRoomsModel::AutoJoin, TeamRoomsModel::Name, Qt::DisplayRole});
             break;
         }
     }
