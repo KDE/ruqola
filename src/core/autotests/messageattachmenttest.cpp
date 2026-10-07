@@ -7,6 +7,7 @@
 #include "messageattachmenttest.h"
 
 #include "messages/messageattachment.h"
+#include "messages/messageattachmentfield.h"
 #include <QJsonObject>
 #include <QStandardPaths>
 #include <QTest>
@@ -95,6 +96,23 @@ void MessageAttachmentTest::shouldAllowToDownloadAttachment()
     QVERIFY(!input.canDownloadAttachment());
     input.setLink(u"bla"_s);
     QVERIFY(input.canDownloadAttachment());
+}
+
+void MessageAttachmentTest::shouldEscapeAttachmentFieldsText()
+{
+    MessageAttachment input;
+    QVERIFY(input.attachmentFieldsText().isEmpty());
+
+    MessageAttachmentField field;
+    field.setTitle(u"<b>title</b>"_s);
+    field.setValue(u"<i>value</i> & co"_s);
+    input.setAttachmentFields({field});
+
+    const QString text = input.attachmentFieldsText();
+    QVERIFY(text.contains(u"<b>&lt;b&gt;title&lt;/b&gt;</b>"_s));
+    QVERIFY(text.contains(u"&lt;i&gt;value&lt;/i&gt; &amp; co"_s));
+    QVERIFY(!text.contains(u"<b>title</b>"_s));
+    QVERIFY(!text.contains(u"<i>value</i>"_s));
 }
 
 #include "moc_messageattachmenttest.cpp"

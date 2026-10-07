@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldSerializeData();
 
     void shouldAllowToDownloadAttachment();
+    void shouldEscapeAttachmentFieldsText();
 };
