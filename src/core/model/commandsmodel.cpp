@@ -53,15 +53,6 @@ Commands CommandsModel::commands() const
     return mCommands;
 }
 
-void CommandsModel::clear()
-{
-    if (!mCommands.isEmpty()) {
-        beginResetModel();
-        mCommands.clear();
-        endResetModel();
-    }
-}
-
 void CommandsModel::setCommands(Commands commands)
 {
     beginResetModel();
