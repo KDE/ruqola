@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:46+0000\n"
-"PO-Revision-Date: 2026-09-28 19:20+0300\n"
+"POT-Creation-Date: 2026-10-07 00:48+0000\n"
+"PO-Revision-Date: 2026-10-06 20:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -475,7 +475,7 @@ msgstr "Bağlanıyor"
 #: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Verifying OTP code"
-msgstr ""
+msgstr "Tek kerelik parola kodu doğrulanıyor"
 
 #: core/authenticationmanager.cpp:92
 #, kde-format
@@ -719,13 +719,11 @@ msgid "Default"
 msgstr "Öntanımlı"
 
 #: core/customsound/customsoundsmanager.cpp:43
-#: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Chime"
 msgstr "Zil"
 
 #: core/customsound/customsoundsmanager.cpp:51
-#: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Door"
 msgstr "Kapı"
@@ -748,7 +746,7 @@ msgstr "Ding"
 #: core/customsound/customsoundsmanager.cpp:83
 #, kde-format
 msgid "Droplet"
-msgstr ""
+msgstr "Damlacık"
 
 #: core/customsound/customsoundsmanager.cpp:91
 #, kde-format
@@ -760,27 +758,27 @@ msgstr "Yüksek Çan"
 msgid "Seasons"
 msgstr "Mevsimler"
 
-#: core/customsound/customsoundsmanager.cpp:122
+#: core/customsound/customsoundsmanager.cpp:106
 #, kde-format
 msgid "Telephone"
 msgstr "Telefon"
 
-#: core/customsound/customsoundsmanager.cpp:130
+#: core/customsound/customsoundsmanager.cpp:114
 #, kde-format
 msgid "Outbound Call Ringing"
 msgstr "Dışarı Giden Arama"
 
-#: core/customsound/customsoundsmanager.cpp:138
+#: core/customsound/customsoundsmanager.cpp:122
 #, kde-format
 msgid "Call Ended"
 msgstr "Arama Sonlandı"
 
-#: core/customsound/customsoundsmanager.cpp:146
+#: core/customsound/customsoundsmanager.cpp:130
 #, kde-format
 msgid "Dialtone"
 msgstr "Çağrı Tonu"
 
-#: core/customsound/customsoundsmanager.cpp:154
+#: core/customsound/customsoundsmanager.cpp:138
 #, kde-format
 msgid "Ringtone"
 msgstr "Zil Sesi"
@@ -2151,22 +2149,22 @@ msgstr "Jeton:"
 msgid "Personal Access Token"
 msgstr "Kişisel Erişim Jetonu"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:21
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:22
 #, kde-format
 msgid "Share Text…"
 msgstr "Metin Paylaş…"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:67
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:68
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Belgeyi paylaşırken bir sorun oluştu: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
 #, kde-format
 msgid "File was shared."
 msgstr "Dosya, paylaşıldı."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:73
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:74
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Yeni isteği şurada bulabilirsiniz:<br /><a href='%1'>%1</a> </qt>"
@@ -2280,11 +2278,9 @@ msgid "Extract Roles"
 msgstr "Rolleri Çıkar"
 
 #: rocketchatrestapi-qt/chat/deletemessagefilejob.cpp:91
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete File Message"
-msgstr "İleti Sil"
+msgstr "Dosya İletisini Sil"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
@@ -2940,7 +2936,7 @@ msgstr "Görünmez durumu devre dışı"
 msgid "%1 is already in use."
 msgstr "%1, hâlihazırda kullanımda."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:173
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:175
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Geçersiz parametreler"
@@ -3501,7 +3497,7 @@ msgstr "Tüm Raporları Yok Say"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:84
 #: widgets/notificationhistory/notificationhistorylistview.cpp:104
-#: widgets/room/messagelistview.cpp:454
+#: widgets/room/messagelistview.cpp:453
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgctxt "@action"
@@ -3510,7 +3506,7 @@ msgstr "Seçimi Kopyala"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:86
 #: widgets/notificationhistory/notificationhistorylistview.cpp:106
-#: widgets/room/messagelistview.cpp:456
+#: widgets/room/messagelistview.cpp:455
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, kde-format
 msgctxt "@action"
@@ -3531,7 +3527,7 @@ msgstr "Metni Konuş"
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
 #: widgets/notificationhistory/notificationhistorylistview.cpp:124
-#: widgets/room/messagelistview.cpp:487
+#: widgets/room/messagelistview.cpp:486
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, kde-format
 msgctxt "@action"
@@ -3559,7 +3555,7 @@ msgstr "Moderasyon Kullanıcılarını Göster"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
 #: widgets/dialogs/directchannelinfowidget.cpp:218
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
-#: widgets/registeruser/registeruserwidget.cpp:40
+#: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
 msgstr "E-posta:"
@@ -3911,7 +3907,7 @@ msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "Yenile"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:70
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:71
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:59
 #, kde-format
 msgctxt "@action"
@@ -4148,7 +4144,7 @@ msgstr "E-postaları onaylı olarak imle"
 #: widgets/dialogs/directchannelinfowidget.cpp:120
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
-#: widgets/registeruser/registeruserwidget.cpp:34
+#: widgets/registeruser/registeruserwidget.cpp:33
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı adı:"
@@ -4228,10 +4224,11 @@ msgid "Deactivate"
 msgstr "Pasifleştir"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Activate"
 msgctxt "@action"
-msgid "Active"
-msgstr "Etkin"
+msgid "Activate"
+msgstr "Etkinleştir"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:327
 #, kde-format
@@ -4872,7 +4869,7 @@ msgstr "Dışarı Giden Bağlantıları Gizle"
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:19
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:25
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:19
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:23
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
@@ -6846,55 +6843,55 @@ msgctxt "@info:tooltip"
 msgid "Restore to Default Server Value"
 msgstr "Öntanımlı sunucu değerine geri yükle"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:23
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "File Upload"
 msgstr "Dosya karşıya yükle"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:22
 #, kde-format
 msgctxt "@option:check"
 msgid "SlackBridge Out Enabled"
 msgstr "SlackBridge çıkışı etkin"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:25
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:23
 #, kde-format
 msgctxt "@option:check"
 msgid "SlackBridge Out All"
 msgstr "SlackBridge tümü çıkışı"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Reactions"
 msgstr "Tepkiler"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:31
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:29
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enable Rocket.Chat to communicate directly with Slack."
 msgstr "Rocket.Chat’in doğrudan Slack ile iletişim kurmasına izin verin."
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:35
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
 msgid "API Tokens"
 msgstr "API Jetonları"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:41
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:39
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr "SlackBridge’in iletileri Slack’e geri gönderip göndermeyeceğini seç"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
 msgstr "Slack’te bulunan ve botun katıldığı tüm kanallardan ileti gönder"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6904,12 +6901,12 @@ msgstr ""
 "Slack’ten bir arma ile iletileri içe aktar; %s, kullanıcının kullanıcı adı "
 "yerine geçer. Boşsa arma kullanılmaz."
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:49
 #, kde-format
 msgid "Alias Format"
 msgstr "Arma Biçimi"
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:55
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:53
 #, kde-format
 msgid ""
 "Do not propagate messages from bots whose name matches the regular "
@@ -6918,7 +6915,7 @@ msgstr ""
 "Adı yukarıdaki düzenli ifade ile eşleşen botlardan iletileri yayma. Boş "
 "bırakılmışsa botlardan gelen tüm iletiler yayılır."
 
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:54
 #, kde-format
 msgid "Exclude Bots"
 msgstr "Botları Dışla"
@@ -7477,7 +7474,7 @@ msgid "Mark as Unread"
 msgstr "Okunmadı Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:149
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
@@ -7697,18 +7694,14 @@ msgid "Display Account in Current Activity"
 msgstr "Geçerli Etkinlikte Hesabı Görüntüle"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgid "Text to Speech"
-msgstr "Metin konuşmayı etkinleştir"
+msgstr "Konuşma"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgid "Speech to Text"
-msgstr "Metni Konuş"
+msgstr "Dikte"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:32
 #, kde-format
@@ -7883,18 +7876,16 @@ msgid "Plugins"
 msgstr "Eklentiler"
 
 #: widgets/configuredialog/configurespeechtotextconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Speech To Text"
-msgstr "Metin konuşmayı etkinleştir"
+msgstr "Dikteyi etkinleştir"
 
 #: widgets/configuredialog/configuretexttospeechconfigwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable Text To Speech"
-msgstr "Metin konuşmayı etkinleştir"
+msgstr "Konuşmayı etkinleştir"
 
 #: widgets/configuredialog/removeaccountdialog.cpp:20
 #, kde-format
@@ -8192,13 +8183,13 @@ msgctxt "@title"
 msgid "Delete Room"
 msgstr "Odayı Sil"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:277
+#: widgets/dialogs/channelinfoeditablewidget.cpp:270
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "This room has a password"
 msgstr "Bu odanın bir parolası var"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:278
+#: widgets/dialogs/channelinfoeditablewidget.cpp:271
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Add password"
@@ -8378,7 +8369,7 @@ msgstr "Doğrudan İletiler Oluştur — %1"
 
 #: widgets/dialogs/createdirectmessagesdialog.cpp:43
 #: widgets/dialogs/createnewchanneldialog.cpp:39
-#: widgets/dialogs/createnewdiscussiondialog.cpp:41
+#: widgets/dialogs/createnewdiscussiondialog.cpp:40
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:34
 #, kde-format
 msgctxt "@action:button"
@@ -8508,7 +8499,7 @@ msgstr "Şifreli oda:"
 msgid "Federated:"
 msgstr "Federe edilen:"
 
-#: widgets/dialogs/createnewdiscussiondialog.cpp:27
+#: widgets/dialogs/createnewdiscussiondialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Discussion - %1"
@@ -9057,7 +9048,7 @@ msgstr[1] "Odada %1 ek (Toplam: %2)"
 msgid "(Click here for Loading more…)"
 msgstr "(Daha fazla yüklemek için buraya tıklayın…)"
 
-#: widgets/dialogs/showbannedusersdialog.cpp:25
+#: widgets/dialogs/showbannedusersdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Banned Users - %1"
@@ -9887,8 +9878,7 @@ msgid "Compact"
 msgstr "Sıkışık"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Your passwords do no match."
+#, kde-format
 msgid "Your passwords do not match."
 msgstr "Parolalarınız eşleşmiyor."
 
@@ -10522,7 +10512,7 @@ msgid "Switch To New Room"
 msgstr "Yeni Odaya Geç"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:96
-#: widgets/room/messagelistview.cpp:849
+#: widgets/room/messagelistview.cpp:848
 #, kde-format
 msgctxt "@action"
 msgid "Go to Message"
@@ -10621,13 +10611,13 @@ msgctxt "@title:window"
 msgid "Register User"
 msgstr "Kullanıcı Kaydet"
 
-#: widgets/registeruser/registeruserwidget.cpp:22
+#: widgets/registeruser/registeruserwidget.cpp:21
 #, kde-format
 msgctxt "@action:button"
 msgid "Register"
 msgstr "Kayıt Ol"
 
-#: widgets/registeruser/registeruserwidget.cpp:29
+#: widgets/registeruser/registeruserwidget.cpp:28
 #, kde-format
 msgid "Reason:"
 msgstr "Gerekçe:"
@@ -10748,21 +10738,21 @@ msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:450
-#: widgets/room/messagelistview.cpp:582
+#: widgets/room/messagelistview.cpp:581
 #, kde-format
 msgctxt "@action"
 msgid "Start a Private Conversation"
 msgstr "Özel Bir Konuşma Başlat"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:466
-#: widgets/room/messagelistview.cpp:694 widgets/room/messagelistview.cpp:756
+#: widgets/room/messagelistview.cpp:693 widgets/room/messagelistview.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Show Original Message"
 msgstr "Özgün İletiyi Göster"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:466
-#: widgets/room/messagelistview.cpp:694 widgets/room/messagelistview.cpp:756
+#: widgets/room/messagelistview.cpp:693 widgets/room/messagelistview.cpp:755
 #, kde-format
 msgctxt "@action"
 msgid "Translate Message"
@@ -10957,148 +10947,148 @@ msgstr "Dosya Karşıya Yükle"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Sunucu, bu dosya türünü yetkilendirmedi (geçersiz MIME türü %1)"
 
-#: widgets/room/messagelistview.cpp:124
+#: widgets/room/messagelistview.cpp:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagelistview.cpp:162
+#: widgets/room/messagelistview.cpp:161
 #, kde-format
 msgid "You have joined a new direct message"
 msgstr "Yeni bir doğrudan iletiye katıldınız"
 
-#: widgets/room/messagelistview.cpp:164
+#: widgets/room/messagelistview.cpp:163
 #, kde-format
 msgid "Start of conversation"
 msgstr "Konuşma başlangıcı"
 
-#: widgets/room/messagelistview.cpp:465
+#: widgets/room/messagelistview.cpp:464
 #, kde-format
 msgctxt "@action"
 msgid "Unpin Message"
 msgstr "İletiyi Sabitleme"
 
-#: widgets/room/messagelistview.cpp:465
+#: widgets/room/messagelistview.cpp:464
 #, kde-format
 msgctxt "@action"
 msgid "Pin Message"
 msgstr "İletiyi Sabitle"
 
-#: widgets/room/messagelistview.cpp:474
+#: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgctxt "@action"
 msgid "Remove as Favorite"
 msgstr "Sık Kullanılanlardan Kaldır"
 
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:480
 #, kde-format
 msgctxt "@action"
 msgid "Delete"
 msgstr "Sil"
 
-#: widgets/room/messagelistview.cpp:494
+#: widgets/room/messagelistview.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "Mark Message As Unread"
 msgstr "İletiyi Okunmadı Olarak İmle"
 
-#: widgets/room/messagelistview.cpp:499
+#: widgets/room/messagelistview.cpp:498
 #, kde-format
 msgctxt "@action"
 msgid "Show Full Thread"
 msgstr "Tüm İlmeği Göster"
 
-#: widgets/room/messagelistview.cpp:504
+#: widgets/room/messagelistview.cpp:503
 #, kde-format
 msgctxt "@action"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: widgets/room/messagelistview.cpp:509
+#: widgets/room/messagelistview.cpp:508
 #, kde-format
 msgctxt "@action"
 msgid "Quote"
 msgstr "Alıntı"
 
-#: widgets/room/messagelistview.cpp:514
+#: widgets/room/messagelistview.cpp:513
 #, kde-format
 msgctxt "@action"
 msgid "Read Receipts"
 msgstr "Okundu Makbuzları"
 
-#: widgets/room/messagelistview.cpp:519
+#: widgets/room/messagelistview.cpp:518
 #, kde-format
 msgctxt "@action"
 msgid "Copy Link To Message"
 msgstr "Bağlantıyı İletiye Kopyala"
 
-#: widgets/room/messagelistview.cpp:524
+#: widgets/room/messagelistview.cpp:523
 #, kde-format
 msgctxt "@action"
 msgid "Forward Message"
 msgstr "İletiyi İlet"
 
-#: widgets/room/messagelistview.cpp:535
+#: widgets/room/messagelistview.cpp:534
 #, kde-format
 msgctxt "@action"
 msgid "Unfollow Message"
 msgstr "İletiyi Takipten Çıkar"
 
-#: widgets/room/messagelistview.cpp:535
+#: widgets/room/messagelistview.cpp:534
 #, kde-format
 msgctxt "@action"
 msgid "Follow Message"
 msgstr "İletiyi Takip Et"
 
-#: widgets/room/messagelistview.cpp:549
+#: widgets/room/messagelistview.cpp:548
 #, kde-format
 msgctxt "@action"
 msgid "Copy URL"
 msgstr "URL’yi Kopyala"
 
-#: widgets/room/messagelistview.cpp:573 widgets/room/usersinroommenu.cpp:142
+#: widgets/room/messagelistview.cpp:572 widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
 
-#: widgets/room/messagelistview.cpp:620
+#: widgets/room/messagelistview.cpp:619
 #, kde-format
 msgctxt "@action"
 msgid "Start a Discussion"
 msgstr "Bir Tartışma Başlat"
 
-#: widgets/room/messagelistview.cpp:627
+#: widgets/room/messagelistview.cpp:626
 #, kde-format
 msgctxt "@action"
 msgid "Reply in Thread"
 msgstr "Dizide Yanıtla"
 
-#: widgets/room/messagelistview.cpp:766
+#: widgets/room/messagelistview.cpp:765
 #, kde-format
 msgctxt "@action"
 msgid "View Reports"
 msgstr "Raporları Görüntüle"
 
-#: widgets/room/messagelistview.cpp:789
+#: widgets/room/messagelistview.cpp:788
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss Reports"
 msgstr "Raporları Göz Ardı Et"
 
-#: widgets/room/messagelistview.cpp:866
+#: widgets/room/messagelistview.cpp:865
 #, kde-format
 msgctxt "@action"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
-#: widgets/room/messagelistview.cpp:1120
+#: widgets/room/messagelistview.cpp:1119
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Bu iletiyi silmek istiyor musunuz?"
 
-#: widgets/room/messagelistview.cpp:1121
+#: widgets/room/messagelistview.cpp:1120
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
@@ -12284,10 +12274,9 @@ msgstr ""
 "odaya gereksinimleri vardır.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "<b>Check can not executed in direct channel.</b>"
+#, kde-format
 msgid "<b>Checks cannot be executed in direct channel.</b>"
-msgstr "<b>Kontrol işlemi doğrudan kanal üzerinden gerçekleştirilemez.</b>"
+msgstr "<b>Kontrol işlemleri doğrudan kanal üzerinden gerçekleştirilemez.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:105
 #, kde-format
@@ -12595,6 +12584,10 @@ msgstr "Kullanıcı adı:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Hesap Ekle…"
+
+#~ msgctxt "@action"
+#~ msgid "Active"
+#~ msgstr "Etkin"
 
 #~ msgid "Login OTP code required"
 #~ msgstr "Oturum açma için tek kerelik parola gerekiyor"
