@@ -33,8 +33,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2025-12-06</date>
-<releaseinfo>2.7.0</releaseinfo>
+<date>2026-10-07</date>
+<releaseinfo>2.9.0</releaseinfo>
 
 <abstract>
 <para>
@@ -50,15 +50,262 @@
 
 <chapter id="introduction">
 <title>Introduction</title>
-<para>&i18n-kapplication; is a client application for RocketChat.</para>
+<para>&i18n-kapplication; is a desktop client for Rocket.Chat servers. It lets you
+chat in channels, private groups, discussions and teams, exchange direct messages,
+share files, and administer a server, all from a native &kde; application.</para>
 
-<sect1 id="using-kapp">
-<title>Using &i18n-kapplication;</title>
+<para>&i18n-kapplication; can be connected to several Rocket.Chat servers at the
+same time and lets you switch between them quickly.</para>
+</chapter>
 
-<para>&i18n-kapplication; allows to connect to RocketChat server.</para>
+<chapter id="getting-started">
+<title>Getting Started</title>
 
+<sect1 id="adding-server">
+<title>Adding a Server</title>
+<para>When &i18n-kapplication; is started for the first time, you are asked to add
+a server account. You can add other accounts later with
+<menuchoice><guimenu>File</guimenu><guimenuitem>Add Server…</guimenuitem></menuchoice>.
+Enter the server &URL; and choose an authentication method.</para>
+
+<para>Depending on what the server allows, the following authentication methods are
+available:</para>
+<itemizedlist>
+<listitem><para>User name (or email) and password</para></listitem>
+<listitem><para>Personal access token</para></listitem>
+<listitem><para>OAuth providers such as Google, GitHub, GitLab, Facebook or Twitter</para></listitem>
+</itemizedlist>
+
+<para>If two-factor authentication is enabled on your account, &i18n-kapplication;
+asks for the code when you log in. Passwords are stored in the system wallet.</para>
+
+<para>If the server allows it, you can create a new account with
+<menuchoice><guimenu>File</guimenu><guimenuitem>Register a New User…</guimenuitem></menuchoice>.</para>
 </sect1>
 
+<sect1 id="multiple-servers">
+<title>Using Several Servers</title>
+<para>Each configured account appears as a tab. Use
+<menuchoice><guimenu>Window</guimenu><guimenuitem>Next Server</guimenuitem></menuchoice> and
+<menuchoice><guimenu>Window</guimenu><guimenuitem>Previous Server</guimenuitem></menuchoice>
+to switch between them. Accounts can be enabled, disabled, reordered or removed in the
+<guilabel>Accounts</guilabel> page of the settings dialog.</para>
+
+<para><menuchoice><guimenu>Tools</guimenu><guimenuitem>Export Accounts</guimenuitem></menuchoice>
+and <menuchoice><guimenu>Tools</guimenu><guimenuitem>Import Accounts</guimenuitem></menuchoice>
+let you move your account configuration to another computer.</para>
+</sect1>
+</chapter>
+
+<chapter id="main-window">
+<title>The Main Window</title>
+
+<sect1 id="room-list">
+<title>The Room List</title>
+<para>The left side of the window lists your channels, private groups, direct messages,
+discussions and teams. A search field at the top filters the list. Your status
+(online, busy, away, offline, or a custom status) can be changed from the status bar
+at the bottom of the window.</para>
+
+<para>The <guimenu>View</guimenu> menu changes how the list looks:</para>
+<itemizedlist>
+<listitem><para><guimenuitem>Condensed</guimenuitem>, <guimenuitem>Medium</guimenuitem> or
+<guimenuitem>Extended</guimenuitem> display</para></listitem>
+<listitem><para>Sorting <guimenuitem>By Last Message</guimenuitem> or
+<guimenuitem>Alphabetically</guimenuitem>, with optional <guimenuitem>Unread on Top</guimenuitem></para></listitem>
+<listitem><para><guimenuitem>Show Room Avatar</guimenuitem> and
+<guimenuitem>Show Favorite Room</guimenuitem></para></listitem>
+<listitem><para><guimenuitem>Mark All Channels as Read</guimenuitem></para></listitem>
+</itemizedlist>
+
+<para><menuchoice><guimenu>Channel</guimenu><guimenuitem>Jump to Next Unread Channel</guimenuitem></menuchoice>
+takes you to the next room with unread messages.</para>
+</sect1>
+
+<sect1 id="room-view">
+<title>The Room View</title>
+<para>The right side of the window shows the messages of the selected room. The header
+displays the room name and topic, and contains buttons to mark the room as favorite,
+open the room information, list its users, search messages, start a call, and open
+the room menu.</para>
+
+<para>The room menu gives access to:</para>
+<itemizedlist>
+<listitem><para>Pinned, starred and mentioned messages, threads, discussions and file attachments</para></listitem>
+<listitem><para>Adding or inviting users, showing banned users</para></listitem>
+<listitem><para>Notification settings for this room</para></listitem>
+<listitem><para>Automatic translation of messages</para></listitem>
+<listitem><para>Exporting or pruning messages (with the required permissions)</para></listitem>
+<listitem><para>End-to-end encryption, when the server supports it</para></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="messages">
+<title>Messages</title>
+
+<sect1 id="writing-messages">
+<title>Writing Messages</title>
+<para>Type your message in the text field at the bottom of the room and press &Enter;
+to send it. Messages support Markdown formatting. Typing <literal>@</literal> completes
+user names, <literal>#</literal> completes channel names, <literal>:</literal> completes
+emoji and <literal>/</literal> lists the slash commands available on the server.</para>
+
+<para>The buttons next to the text field let you:</para>
+<itemizedlist>
+<listitem><para>Insert an emoji, including the custom emoji of the server</para></listitem>
+<listitem><para>Attach one or more files (you can also drag and drop or paste them)</para></listitem>
+<listitem><para>Record and send a sound message or a video message</para></listitem>
+<listitem><para>Use the tools provided by plugins, such as taking a screenshot</para></listitem>
+</itemizedlist>
+
+<para>Spell checking and auto-correction are available while typing and can be configured
+in the settings dialog.</para>
+</sect1>
+
+<sect1 id="message-actions">
+<title>Acting on Messages</title>
+<para>Hovering a message shows buttons to add a reaction, reply in a thread or star the
+message. Its context menu offers more actions, depending on your permissions:</para>
+<itemizedlist>
+<listitem><para>Edit, delete or quote the message</para></listitem>
+<listitem><para>Copy the message, the selection, or a link to the message</para></listitem>
+<listitem><para>Reply in a thread, follow or unfollow it, show the full thread</para></listitem>
+<listitem><para>Start a discussion or a private conversation from the message</para></listitem>
+<listitem><para>Pin, star, forward or report the message</para></listitem>
+<listitem><para>Mark the message as unread</para></listitem>
+<listitem><para>Translate the message, or show the original text</para></listitem>
+<listitem><para>Show read receipts, when enabled on the server</para></listitem>
+</itemizedlist>
+
+<para>Images, videos and sounds are displayed inline and can be opened in a viewer.
+&URL; previews can be enabled in the settings.</para>
+</sect1>
+
+<sect1 id="searching">
+<title>Searching</title>
+<para>Use the search button of the room header to search the messages of the current room.
+<menuchoice><guimenu>Channel</guimenu><guimenuitem>Join Room…</guimenuitem></menuchoice>,
+<guimenuitem>Join Team…</guimenuitem> and <guimenuitem>Open Private Conversation…</guimenuitem>
+search the server directory for rooms, teams and users.</para>
+</sect1>
+</chapter>
+
+<chapter id="rooms">
+<title>Rooms, Discussions and Teams</title>
+<para>The <guimenu>Channel</guimenu> menu lets you create:</para>
+<itemizedlist>
+<listitem><para><guimenuitem>Create New Channel…</guimenuitem>: a public channel or a private group,
+optionally read-only, broadcast or encrypted</para></listitem>
+<listitem><para><guimenuitem>Create Direct Messages…</guimenuitem>: a conversation with one or more users</para></listitem>
+<listitem><para><guimenuitem>Create Discussion…</guimenuitem>: a sub-conversation attached to a room</para></listitem>
+<listitem><para><guimenuitem>Create Team…</guimenuitem>: a group of users with its own channels</para></listitem>
+</itemizedlist>
+
+<para>The room information dialog shows the name, topic, announcement, description and
+avatar of the room. Owners can edit them, change the room type, set a password, and
+configure options such as read-only mode or message pruning. Team owners can add,
+remove and convert team channels.</para>
+</chapter>
+
+<chapter id="notifications">
+<title>Notifications</title>
+<para>&i18n-kapplication; uses the desktop notification system to tell you about new
+messages and mentions, and shows unread counters in the room list and in the system tray.
+Notification behavior (desktop alert, sound, email) can be set for each room with
+<guimenuitem>Configure Notification…</guimenuitem> in the room menu.</para>
+
+<para><menuchoice><guimenu>Tools</guimenu><guimenuitem>Show Notify History</guimenuitem></menuchoice>
+lists the notifications you received during the session.</para>
+</chapter>
+
+<chapter id="encryption">
+<title>End-to-End Encryption</title>
+<para>When the server enables it, &i18n-kapplication; supports Rocket.Chat end-to-end
+encryption for direct messages and private groups. Your encryption keys are protected
+by a password that you can manage in the <guilabel>Encryption</guilabel> page of
+<menuchoice><guimenu>File</guimenu><guimenuitem>My Account…</guimenuitem></menuchoice>.
+Encrypted rooms show a lock icon in their header. Note that the content of encrypted
+messages cannot be searched.</para>
+</chapter>
+
+<chapter id="my-account">
+<title>My Account</title>
+<para><menuchoice><guimenu>File</guimenu><guimenuitem>My Account…</guimenuitem></menuchoice>
+lets you manage your Rocket.Chat profile:</para>
+<itemizedlist>
+<listitem><para>Profile: name, user name, email, avatar, status message and password</para></listitem>
+<listitem><para>Preferences offered by the server</para></listitem>
+<listitem><para>Two-factor authentication (email or TOTP)</para></listitem>
+<listitem><para>End-to-end encryption keys</para></listitem>
+<listitem><para>Personal access tokens</para></listitem>
+<listitem><para>Devices logged in to your account</para></listitem>
+<listitem><para>Feature previews</para></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="administration">
+<title>Server Administration</title>
+<para>Users with the required permissions can administer the server from
+<menuchoice><guimenu>File</guimenu><guimenuitem>Administration</guimenuitem></menuchoice>.</para>
+
+<para><guimenuitem>Administrator…</guimenuitem> gives access to server information, rooms,
+users, invites, custom emoji, custom sounds, custom user statuses, roles, permissions,
+OAuth applications, the moderation console and the server logs.</para>
+
+<para><guimenuitem>Server Settings…</guimenuitem> lets you change the server configuration,
+and the <guimenuitem>Applications</guimenuitem> entries let you browse and manage
+Rocket.Chat Marketplace applications.</para>
+
+<para><menuchoice><guimenu>Tools</guimenu><guimenuitem>Server Checklist…</guimenuitem></menuchoice>
+checks the server configuration for common problems.</para>
+</chapter>
+
+<chapter id="offline">
+<title>Offline Mode</title>
+<para>&i18n-kapplication; can keep messages in a local database (enable
+<guilabel>Enable local database</guilabel> in the <guilabel>General</guilabel> settings),
+so that rooms are displayed faster and remain readable when the connection is lost.
+<menuchoice><guimenu>File</guimenu><guimenuitem>Work Offline</guimenuitem></menuchoice>
+disconnects from the server on purpose.</para>
+</chapter>
+
+<chapter id="configuration">
+<title>Configuring &i18n-kapplication;</title>
+<para><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &i18n-kapplication;…</guimenuitem></menuchoice>
+opens the settings dialog, which contains the following pages:</para>
+<variablelist>
+<varlistentry><term><guilabel>Accounts</guilabel></term>
+<listitem><para>Add, modify, enable, disable or remove server accounts.</para></listitem></varlistentry>
+<varlistentry><term><guilabel>General</guilabel></term>
+<listitem><para>System tray icon, status on startup, image and &URL; previews, animated GIFs,
+local database, logging, and other behavior options.</para></listitem></varlistentry>
+<varlistentry><term><guilabel>Font</guilabel></term>
+<listitem><para>Font used to display messages.</para></listitem></varlistentry>
+<varlistentry><term><guilabel>Spell Checking</guilabel> and <guilabel>Auto-Correction</guilabel></term>
+<listitem><para>Language and correction rules used while typing.</para></listitem></varlistentry>
+<varlistentry><term><guilabel>Translation</guilabel></term>
+<listitem><para>Translation engine used to translate messages.</para></listitem></varlistentry>
+<varlistentry><term><guilabel>Accessibility</guilabel></term>
+<listitem><para>Text-to-speech and speech-to-text options, when available.</para></listitem></varlistentry>
+<varlistentry><term><guilabel>Plugins</guilabel></term>
+<listitem><para>Enable or disable plugins, for example sharing text, web shortcuts,
+screenshots, or text generation with an AI engine.</para></listitem></varlistentry>
+<varlistentry><term><guilabel>User Feedback</guilabel></term>
+<listitem><para>Choose which anonymous usage statistics are sent to the developers.</para></listitem></varlistentry>
+</variablelist>
+<para>The color scheme can be changed in the <guimenu>Settings</guimenu> menu, and the
+message font size in the <guimenu>View</guimenu> menu.</para>
+</chapter>
+
+<chapter id="tools">
+<title>Tools</title>
+<para>The <guimenu>Tools</guimenu> menu provides helpers mostly useful for troubleshooting:</para>
+<itemizedlist>
+<listitem><para><guimenuitem>Show Channel Log</guimenuitem> and <guimenuitem>Show Server Errors</guimenuitem></para></listitem>
+<listitem><para><guimenuitem>Show RocketChat Information</guimenuitem>: version and capabilities of the server</para></listitem>
+<listitem><para><guimenuitem>Retry Wallet Access</guimenuitem>, when the password could not be read from the wallet</para></listitem>
+</itemizedlist>
 </chapter>
 
 <chapter id="credits">
@@ -67,7 +314,7 @@
 
 <para>&i18n-kapplication;</para>
 <para>
-Program copyright 2018-2025 &Laurent.Montel; &Laurent.Montel.mail;
+Program copyright 2018-2026 &Laurent.Montel; &Laurent.Montel.mail;
 </para>
 <para>
 Documentation Copyright &copy; &Laurent.Montel; &Laurent.Montel.mail;
