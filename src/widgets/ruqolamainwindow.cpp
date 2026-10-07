@@ -729,7 +729,7 @@ void RuqolaMainWindow::setupActions()
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     const QString defaultUrlPath = u"https://origin.cdn.kde.org/ci-builds/network/ruqola/"_s;
-    const QString stableBranch = u"2.8"_s;
+    const QString stableBranch = u"2.9"_s;
     bool stableVersion = false;
 #if RUQOLA_STABLE_VERSION
     stableVersion = true;
