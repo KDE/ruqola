@@ -65,7 +65,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
             message += u"<br/>"_s;
             message += i18n("%1 Caller: %2", arg.severity, arg.caller) + u"<br/>"_s;
             message += arg.method + u"<br/>"_s;
-            message += QString::fromLatin1(arg.args);
+            message += QString::fromUtf8(arg.args);
         }
     }
     if (message.isEmpty()) {
