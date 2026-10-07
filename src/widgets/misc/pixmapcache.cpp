@@ -35,7 +35,9 @@ QPixmap PixmapCache::scaledPixmapForLocalFile(const QString &path, int maxSize, 
     }
     if (maxSize > 0) {
         const int deviceSize = qRound(maxSize * dpr);
-        pixmap = pixmap.scaled(deviceSize, deviceSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        if (pixmap.width() > deviceSize || pixmap.height() > deviceSize) {
+            pixmap = pixmap.scaled(deviceSize, deviceSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        }
     }
     pixmap.setDevicePixelRatio(dpr);
     insertCachedPixmap(key, pixmap);

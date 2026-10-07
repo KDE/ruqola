@@ -96,9 +96,7 @@ void MessageDelegateHelperUrlPreview::draw(const MessageUrl &messageUrl,
     }
 
     if (!layout.pixmap.isNull()) {
-        QPixmap scaledPixmap = layout.pixmap.scaled(layout.imageSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        scaledPixmap.setDevicePixelRatio(layout.pixmap.devicePixelRatioF());
-        painter->drawPixmap(contentTopLeft, scaledPixmap);
+        painter->drawPixmap(contentTopLeft, layout.pixmap);
     }
     drawDescription(messageUrl, previewRect, painter, index, option, layout);
 }
@@ -140,15 +138,13 @@ MessageDelegateHelperUrlPreview::PreviewLayout MessageDelegateHelperUrlPreview::
         layout.imageUrl = messageUrl.imageUrl();
 
         const QString imagePreviewPath = previewImageUrl.toLocalFile();
-        layout.pixmap = mPixmapCache.pixmapForLocalFile(imagePreviewPath, option.widget->devicePixelRatioF());
-        const auto dpr = layout.pixmap.devicePixelRatioF();
         // Regular link previews get a small, favicon-like thumbnail; links whose
         // content *is* an image/video keep a larger picture since that is the
         // point. Never upscale past the image's own size.
         const bool mediaContent = messageUrl.contentType() != MessageUrl::ContentType::None;
         const int maxEdge = mediaContent ? PreviewMediaMaxEdge : PreviewThumbnailMaxEdge;
-        const int maxEdgeDevice = qRound(maxEdge * dpr);
-        layout.imageSize = layout.pixmap.size().scaled(maxEdgeDevice, maxEdgeDevice, Qt::KeepAspectRatio).boundedTo(layout.pixmap.size());
+        layout.pixmap = mPixmapCache.scaledPixmapForLocalFile(imagePreviewPath, maxEdge, option.widget->devicePixelRatioF());
+        layout.imageSize = layout.pixmap.size();
     }
 
     const qreal dpr = layout.pixmap.isNull() ? 1.0 : layout.pixmap.devicePixelRatioF();
