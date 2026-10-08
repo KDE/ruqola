@@ -83,23 +83,23 @@ void ChannelInfoReadOnlyWidget::setRoom(Room *room)
 void ChannelInfoReadOnlyWidget::updateReadOnlyChannelInfo()
 {
     mNameReadOnly->setText(mRoom->displayFName());
-    if (!mRoom->displayTopic().isEmpty()) {
+    if (const QString displayTopic = mRoom->displayTopic(); !displayTopic.isEmpty()) {
         if (!mCommentReadOnly) {
             createCommentReadOnly();
         }
-        mCommentReadOnly->setText(mRoom->displayTopic());
+        mCommentReadOnly->setText(displayTopic);
     }
-    if (!mRoom->displayAnnouncement().isEmpty()) {
+    if (const QString displayAnnouncement = mRoom->displayAnnouncement(); !displayAnnouncement.isEmpty()) {
         if (!mAnnouncementReadOnly) {
             createAnnouncementReadOnly();
         }
-        mAnnouncementReadOnly->setText(mRoom->displayAnnouncement());
+        mAnnouncementReadOnly->setText(displayAnnouncement);
     }
-    if (!mRoom->description().isEmpty()) {
+    if (const QString description = mRoom->description(); !description.isEmpty()) {
         if (!mDescriptionReadOnly) {
             createDescriptionReadOnly();
         }
-        mDescriptionReadOnly->setText(mRoom->description());
+        mDescriptionReadOnly->setText(description);
     }
 }
 
