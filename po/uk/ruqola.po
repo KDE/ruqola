@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-07 00:48+0000\n"
-"PO-Revision-Date: 2026-10-06 08:55+0300\n"
+"POT-Creation-Date: 2026-10-08 02:57+0000\n"
+"PO-Revision-Date: 2026-10-07 20:34+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -200,7 +200,7 @@ msgid "Description"
 msgstr "Опис"
 
 #: core/apps/appsmarketplaceinfo.cpp:424
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:140
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
 #, kde-format
 msgid "Version"
 msgstr "Версія"
@@ -1057,17 +1057,17 @@ msgstr "%1, %2"
 msgid "%1 and %2"
 msgstr "%1 і %2"
 
-#: core/model/admincustomemojimodel.cpp:37
+#: core/model/admincustomemojimodel.cpp:35
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:32
 #: core/model/adminusersallmodel.cpp:68
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
 #: core/model/directoryroomsmodel.cpp:119 core/model/directoryteamsmodel.cpp:93
-#: core/model/directoryusersmodel.cpp:104
-#: core/model/moderationreportedmessagemodel.cpp:33
+#: core/model/directoryusersmodel.cpp:103
+#: core/model/moderationreportedmessagemodel.cpp:31
 #: core/model/moderationreportedusermodel.cpp:39
-#: core/model/permissionsmodel.cpp:33
+#: core/model/permissionsmodel.cpp:31
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:89
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:46
@@ -1076,7 +1076,7 @@ msgstr "%1 і %2"
 msgid "Name"
 msgstr "Назва"
 
-#: core/model/admincustomemojimodel.cpp:39
+#: core/model/admincustomemojimodel.cpp:37
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:30
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:40
 #: core/model/directoryroomsmodel.cpp:125 core/model/directoryteamsmodel.cpp:97
@@ -1085,7 +1085,7 @@ msgstr "Назва"
 msgid "Identifier"
 msgstr "Ідентифікатор"
 
-#: core/model/admincustomemojimodel.cpp:42
+#: core/model/admincustomemojimodel.cpp:40
 #, kde-format
 msgid "Aliases"
 msgstr "Псевдоніми"
@@ -1359,12 +1359,12 @@ msgstr "Належить"
 msgid "Rooms"
 msgstr "Кімнати"
 
-#: core/model/directoryusersmodel.cpp:106 core/model/usersinrolemodel.cpp:91
+#: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
 msgstr "Ел. пошта"
 
-#: core/model/directoryusersmodel.cpp:108
+#: core/model/directoryusersmodel.cpp:107
 #, kde-format
 msgid "Join At"
 msgstr "Приєднатися"
@@ -1404,31 +1404,31 @@ msgstr "Ігнороване повідомлення"
 msgid "Only you can see this message"
 msgstr "Бачити це повідомлення можете лише ви"
 
-#: core/model/moderationreportedmessagemodel.cpp:40
+#: core/model/moderationreportedmessagemodel.cpp:38
 #, kde-format
 msgid "Reported message"
 msgstr "Повідомлення зі скаргами"
 
-#: core/model/moderationreportedmessagemodel.cpp:42
+#: core/model/moderationreportedmessagemodel.cpp:40
 #: core/model/moderationreportedusermodel.cpp:37
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:69
 #, kde-format
 msgid "Username"
 msgstr "Користувач"
 
-#: core/model/moderationreportedmessagemodel.cpp:44
+#: core/model/moderationreportedmessagemodel.cpp:42
 #: core/model/moderationreportedusermodel.cpp:30
 #, kde-format
 msgid "Reports"
 msgstr "Скарги"
 
-#: core/model/moderationreportedmessagemodel.cpp:46
+#: core/model/moderationreportedmessagemodel.cpp:44
 #: core/model/moderationreportedusermodel.cpp:32
 #, kde-format
 msgid "Report date"
 msgstr "Дата скарги"
 
-#: core/model/moderationreportedmessagemodel.cpp:48
+#: core/model/moderationreportedmessagemodel.cpp:46
 #, kde-format
 msgid "Room"
 msgstr "Кімната"
@@ -1465,7 +1465,7 @@ msgstr "Згадування"
 msgid "Nothing"
 msgstr "Нічого"
 
-#: core/model/permissionsmodel.cpp:36 core/model/rolesmodel.cpp:33
+#: core/model/permissionsmodel.cpp:34 core/model/rolesmodel.cpp:33
 #: widgets/administratordialog/administratorwidget.cpp:84
 #: widgets/dialogs/channelrolesinfowidget.cpp:23
 #, kde-format
@@ -1553,7 +1553,7 @@ msgstr "Кімната обговорення"
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:17
+#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
@@ -1770,11 +1770,12 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Приховати повідомлення «Змінено опис кімнати»"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, kde-format
-msgid "Joined this Team"
-msgstr "Долучено до цієї команди"
+#, fuzzy, kde-format
+#| msgid "Hide \"User Left Team\" messages"
+msgid "Hide \"Joined this Team\" messages"
+msgstr "Приховати повідомлення «Користувач полишив команду»"
 
-#: core/model/teamroomsmodel.cpp:38
+#: core/model/teamroomsmodel.cpp:37
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Автодолучення)"
@@ -1924,7 +1925,7 @@ msgid "Direct message"
 msgstr "Безпосереднє повідомлення"
 
 #: core/roominfo/roominfo.cpp:145
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:111
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
 #, kde-format
 msgid "Omnichannel"
 msgstr "Омніканал"
@@ -2753,8 +2754,9 @@ msgid "User is not in this room"
 msgstr "Користувача немає у цій кімнаті"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#, c-format
-msgid "You are not in the room `%s`"
+#, fuzzy, kde-format
+#| msgid "You are not in the room `%s`"
+msgid "You are not in the room `%1`"
 msgstr "Ви не перебуваєте у кімнаті «%s»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:348
@@ -3000,7 +3002,7 @@ msgid "Administrator"
 msgstr "Адміністратор"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:241
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:243
 #, kde-format
 msgid "Server Info"
 msgstr "Дані щодо сервера"
@@ -3021,7 +3023,7 @@ msgid "Custom Emojis"
 msgstr "Нетипові емодзі"
 
 #: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:253
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
 #, kde-format
 msgid "Users"
 msgstr "Користувачі"
@@ -3077,7 +3079,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:61
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
-#: widgets/dialogs/createnewchannelwidget.cpp:37
+#: widgets/dialogs/createnewchannelwidget.cpp:36
 #: widgets/dialogs/directchannelinfowidget.cpp:111
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
@@ -3238,7 +3240,7 @@ msgid "Presence"
 msgstr "Присутність"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:156
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:214
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "Хочете вилучити «%1»?"
@@ -3251,7 +3253,7 @@ msgstr "Вилучення нетипового запису стану кори
 
 #: widgets/administratordialog/featurepreview/featurepreviewmessagewidget.cpp:19
 #: widgets/dialogs/roomavatarwidget.cpp:35
-#: widgets/room/roomquotemessagewidget.cpp:21
+#: widgets/room/roomquotemessagewidget.cpp:20
 #: widgets/room/roomreplythreadwidget.cpp:22
 #, kde-format
 msgctxt "@action"
@@ -3556,7 +3558,7 @@ msgid "Dismiss All Reports"
 msgstr "Відкинути усі скарги"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:84
-#: widgets/notificationhistory/notificationhistorylistview.cpp:104
+#: widgets/notificationhistory/notificationhistorylistview.cpp:109
 #: widgets/room/messagelistview.cpp:453
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
@@ -3565,7 +3567,7 @@ msgid "Copy Selection"
 msgstr "Копіювати позначене"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:86
-#: widgets/notificationhistory/notificationhistorylistview.cpp:106
+#: widgets/notificationhistory/notificationhistorylistview.cpp:111
 #: widgets/room/messagelistview.cpp:455
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:56
 #, kde-format
@@ -3575,7 +3577,7 @@ msgstr "Копіювати повідомлення"
 
 #: widgets/administratordialog/moderationconsole/moderationreportinfolistview.cpp:98
 #: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:118
+#: widgets/notificationhistory/notificationhistorylistview.cpp:125
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:69
 #, kde-format
 msgctxt "@action"
@@ -3586,7 +3588,7 @@ msgstr "Декламувати текст"
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:107
 #: widgets/bannerinfodialog/bannerinfolistview.cpp:58
 #: widgets/discussions/discussionlistview.cpp:77
-#: widgets/notificationhistory/notificationhistorylistview.cpp:124
+#: widgets/notificationhistory/notificationhistorylistview.cpp:133
 #: widgets/room/messagelistview.cpp:486
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:76
 #, kde-format
@@ -3902,7 +3904,7 @@ msgid "Only authorized users can write new messages"
 msgstr "Писати нові повідомлення можуть лише уповноважені користувачі"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:70
-#: widgets/dialogs/createnewchannelwidget.cpp:69
+#: widgets/dialogs/createnewchannelwidget.cpp:68
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Just invited people can access this channel."
@@ -3959,7 +3961,7 @@ msgstr[1] "%1 кімнати (загалом: %2)"
 msgstr[2] "%1 кімнат (загалом: %2)"
 msgstr[3] "%1 кімната (загалом: %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:216
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
@@ -3971,199 +3973,199 @@ msgctxt "@info:tooltip"
 msgid "Refresh"
 msgstr "Освіжити"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:71
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:72
 #: widgets/exploreappstranlationdialog/exploreappstranslationwidget.cpp:59
 #, kde-format
 msgctxt "@action"
 msgid "Copy"
 msgstr "Копіювати"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:107
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:109
 #, kde-format
 msgid "Licenses"
 msgstr "Ліцензування"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:112
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:114
 #, kde-format
 msgid "Auditing"
 msgstr "Аудит"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:113
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:115
 #, kde-format
 msgid "Canned Responses"
 msgstr "Консервовані повідомлення"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:114
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:116
 #, kde-format
 msgid "Engagement Dashboard"
 msgstr "Панель залученості"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:115
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:117
 #, kde-format
 msgid "Read Receipts"
 msgstr "Підтвердження прочитання"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:141
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
 #, kde-format
 msgid "Deployment ID"
 msgstr "Ід. розгортання"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:142
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:144
 #, kde-format
 msgid "Mongo Version"
 msgstr "Версія Mongo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:143
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:145
 #, kde-format
 msgid "Mongo Storage Engine"
 msgstr "Рушій зберігання Mongo"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:161
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
 #, kde-format
 msgid "Online Users"
 msgstr "Користувачів у мережі"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:162
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
 #, kde-format
 msgid "Away Users"
 msgstr "Відсутніх користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:163
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
 #, kde-format
 msgid "Offline Users"
 msgstr "Користувачів поза мережею"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:164
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:166
 #, kde-format
 msgid "Busy Users"
 msgstr "Зайнятих користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:165
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:167
 #, kde-format
 msgid "Total Users"
 msgstr "Загалом користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:171
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Користувачів програми Rocket.Chat"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:172
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:174
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "Загальний розмір вивантажень"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:173
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, kde-format
 msgid "Total Uploads"
 msgstr "Загалом вивантажень"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
 msgid "Activated Users"
 msgstr "Активованих користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Activated Guests"
 msgstr "Активованих гостьових"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Deactivated Users"
 msgstr "Деактивованих користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Channels"
 msgstr "Загалом каналів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Rooms"
 msgstr "Загалом кімнат"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Total Private Groups"
 msgstr "Загалом приватних груп"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "Загалом кімнат безпосередніх повідомлень"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Threads"
 msgstr "Загалом потоків"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Discussions"
 msgstr "Загалом обговорень"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Загалом загальноканальних кімнат"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Messages"
 msgstr "Загалом повідомлень"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Загалом повідомлень на каналах"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Загалом повідомлень у приватних групах"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Загалом повідомлень у безпосередніх повідомленнях"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Загалом з'єднаних користувачів"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:227
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
 #, kde-format
 msgid "OS Release"
 msgstr "Випуск ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:228
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
 #, kde-format
 msgid "OS Type"
 msgstr "Тип ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:231
 #, kde-format
 msgid "OS Platform"
 msgstr "Платформа ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:232
 #, kde-format
 msgid "OS Total Memory"
 msgstr "Загалом пам'яті в ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:231
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:233
 #, kde-format
 msgid "OS Free Memory"
 msgstr "Вільна пам'ять в ОС"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:248
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:250
 #, kde-format
 msgid "Usage"
 msgstr "Користування"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:259
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:261
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Середовище виконання"
@@ -4258,7 +4260,7 @@ msgstr "Скористайтеся «,» для відокремлення ад�
 
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:33
 #: widgets/dialogs/showattachmentcombobox.cpp:21
-#: widgets/dialogs/showtheadscombobox.cpp:15
+#: widgets/dialogs/showtheadscombobox.cpp:14
 #: widgets/room/usersinroomcombobox.cpp:23
 #: widgets/teams/teamchannelscombobox.cpp:19
 #, kde-format
@@ -4288,8 +4290,7 @@ msgid "Deactivate"
 msgstr "Деактивувати"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Активувати"
@@ -4645,7 +4646,7 @@ msgstr ""
 msgid "Blocked Username List"
 msgstr "Список заблокованих імен користувачів"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4654,12 +4655,12 @@ msgstr ""
 "Типові ролі (відокремлені комами), які буде надано користувачам при "
 "реєстрації за допомогою служб розпізнавання"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:211
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "Типові ролі для служб розпізнавання"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:216
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4668,7 +4669,7 @@ msgstr ""
 "Типові ролі (відокремлені комами), які буде надано користувачам при "
 "реєстрації вручну (включно з реєстрацією за допомогою програмного інтерфейсу)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:218
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "Типові ролі для користувачів"
@@ -5418,17 +5419,20 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "Прийнятні типи мультимедійних даних"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Comma-separated list of media types. This setting has priority over the "
+#| "Accepted Media Types."
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
-"Accepted Media Types."
+"Blocked Media Types."
 msgstr ""
 "Список відокремлених комами типів мультимедійних даних. Цей параметр має "
 "вищий пріоритет за «Прийнятні типи мультимедійних даних»."
@@ -5442,6 +5446,12 @@ msgid ""
 msgstr ""
 "Реєстраційний вебжетон Json для вивантаження файлів (використовують для "
 "доступу до вивантажених файлів без розпізнавання)."
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
+#, fuzzy, kde-format
+#| msgid "Tokenpass Secret"
+msgid "Json Web Token Secret"
+msgstr "Ключ Tokenpass"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -7712,7 +7722,7 @@ msgstr "Ім'я користувача або адреса ел. пошти"
 msgid "Username or email:"
 msgstr "Ім'я користувача або адреса ел. пошти:"
 
-#: widgets/common/authenticationloginwidget.cpp:168
+#: widgets/common/authenticationloginwidget.cpp:169
 #: widgets/ruqolamainwindow.cpp:1139
 #, kde-format
 msgid ""
@@ -7724,7 +7734,7 @@ msgstr ""
 "Якщо ви не отримаєте це повідомлення найближчим часом, будь ласка, "
 "поверніться сюди і повторіть спробу."
 
-#: widgets/common/authenticationloginwidget.cpp:169
+#: widgets/common/authenticationloginwidget.cpp:170
 #: widgets/ruqolamainwindow.cpp:1140
 #, kde-format
 msgctxt "@title:window"
@@ -7794,7 +7804,7 @@ msgstr "Адреса засідання:"
 msgid "Provider:"
 msgstr "Надавач:"
 
-#: widgets/configuredialog/accountservertreewidget.cpp:217
+#: widgets/configuredialog/accountservertreewidget.cpp:218
 #, kde-format
 msgid "Display Account in Current Activity"
 msgstr "Показувати обліковий запис у поточному просторі дій"
@@ -8210,15 +8220,11 @@ msgid "ReadOnly:"
 msgstr "Лише читання:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:83
-#: widgets/dialogs/channelinfoeditablewidget.cpp:106
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
-msgid ""
-"Messages are end-to-end encrypted, search will not work and notifications "
-"may not show message content"
-msgstr ""
-"Повідомлення зашифровано міжвузловим шифруванням — пошук не працюватиме, а у "
-"сповіщеннях може бути не показано вміст повідомлень"
+msgid "Only owners can send new messages"
+msgstr "Лише власники можуть надсилати нові повідомлення"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:86
 #, kde-format
@@ -8262,6 +8268,16 @@ msgstr "Користувачі можуть долучатися, лише як�
 #, kde-format
 msgid "Encrypted:"
 msgstr "Шифрований:"
+
+#: widgets/dialogs/channelinfoeditablewidget.cpp:106
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Messages are end-to-end encrypted, search will not work and notifications "
+"may not show message content"
+msgstr ""
+"Повідомлення зашифровано міжвузловим шифруванням — пошук не працюватиме, а у "
+"сповіщеннях може бути не показано вміст повідомлень"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:111
 #, kde-format
@@ -8521,37 +8537,37 @@ msgctxt "@title:window"
 msgid "Create Channel"
 msgstr "Створення каналу"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:41
+#: widgets/dialogs/createnewchannelwidget.cpp:40
 #, kde-format
 msgid "Topic:"
 msgstr "Тема:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:45
+#: widgets/dialogs/createnewchannelwidget.cpp:44
 #: widgets/dialogs/createnewdiscussionwidget.cpp:64
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Invite users…"
 msgstr "Запросити користувачів…"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:46
+#: widgets/dialogs/createnewchannelwidget.cpp:45
 #, kde-format
 msgid "Users:"
 msgstr "Користувачі:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:50
-#: widgets/dialogs/createnewchannelwidget.cpp:54
+#: widgets/dialogs/createnewchannelwidget.cpp:49
+#: widgets/dialogs/createnewchannelwidget.cpp:53
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Anyone can send new messages"
 msgstr "Будь-хто може надсилати нові повідомлення"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:50
 #, kde-format
 msgid "Read-Only:"
 msgstr "Лише читання:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:52
-#: widgets/dialogs/createnewchannelwidget.cpp:55
+#: widgets/dialogs/createnewchannelwidget.cpp:51
+#: widgets/dialogs/createnewchannelwidget.cpp:54
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Anyone can send new messages"
@@ -8559,17 +8575,11 @@ msgstr "Будь-хто може надсилати нові повідомле�
 
 #: widgets/dialogs/createnewchannelwidget.cpp:54
 #, kde-format
-msgctxt "@info:tooltip"
-msgid "Only owners can send new messages"
-msgstr "Лише власники можуть надсилати нові повідомлення"
-
-#: widgets/dialogs/createnewchannelwidget.cpp:55
-#, kde-format
 msgctxt "@label:textbox"
 msgid "Only owners can send new messages"
 msgstr "Лише власники можуть надсилати нові повідомлення"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:61
+#: widgets/dialogs/createnewchannelwidget.cpp:60
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -8579,23 +8589,23 @@ msgstr ""
 "Писати нові повідомлення можуть лише уповноважені користувачі, але інші "
 "користувачі можуть відповідати"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:62
+#: widgets/dialogs/createnewchannelwidget.cpp:61
 #, kde-format
 msgid "Broadcast:"
 msgstr "Трансляція:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:66
+#: widgets/dialogs/createnewchannelwidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Only invited people can join"
 msgstr "Долучатися можуть лише запрошені"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:68
+#: widgets/dialogs/createnewchannelwidget.cpp:67
 #, kde-format
 msgid "Private Room:"
 msgstr "Приватна кімната:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:76
+#: widgets/dialogs/createnewchannelwidget.cpp:75
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -8605,12 +8615,12 @@ msgstr ""
 "Канал із наскрізним шифруванням. У зашифрованому каналі не працюватиме "
 "пошук, а у сповіщеннях може бути не показано вміст повідомлень."
 
-#: widgets/dialogs/createnewchannelwidget.cpp:82
+#: widgets/dialogs/createnewchannelwidget.cpp:81
 #, kde-format
 msgid "Encrypted Room:"
 msgstr "Зашифрована кімната:"
 
-#: widgets/dialogs/createnewchannelwidget.cpp:89
+#: widgets/dialogs/createnewchannelwidget.cpp:88
 #, kde-format
 msgid "Federated:"
 msgstr "Інтегрований:"
@@ -9180,7 +9190,7 @@ msgctxt "@title:window"
 msgid "Show Banned Users - %1"
 msgstr "Показ блокованих користувачів - %1"
 
-#: widgets/dialogs/showbanneduserslistview.cpp:28
+#: widgets/dialogs/showbanneduserslistview.cpp:27
 #, kde-format
 msgctxt "@action"
 msgid "Unban User"
@@ -9313,7 +9323,7 @@ msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
 msgstr "Показ повідомлень із зіркою – %1"
 
-#: widgets/dialogs/showtheadscombobox.cpp:16
+#: widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
 msgid "Following"
 msgstr "Стеження"
@@ -9455,7 +9465,7 @@ msgstr[1] "%1 команди (загалом: %2)"
 msgstr[2] "%1 команд (загалом: %2)"
 msgstr[3] "%1 команда (загалом: %2)"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:81
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:80
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
@@ -9464,7 +9474,7 @@ msgstr[1] "%1 повідомлення"
 msgstr[2] "%1 повідомлень"
 msgstr[3] "%1 повідомлення"
 
-#: widgets/discussions/discussion/listdiscussiondelegate.cpp:250
+#: widgets/discussions/discussion/listdiscussiondelegate.cpp:249
 #, kde-format
 msgid "Open Discussion"
 msgstr "Відкрити обговорення"
@@ -9508,7 +9518,7 @@ msgid "I saved my Password"
 msgstr "Мій пароль збережено"
 
 #: widgets/encryption/e2ecopypassworddialog.cpp:37
-#: widgets/encryption/e2epassworddecodekeydialog.cpp:33
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:35
 #, kde-format
 msgctxt "@action:button"
 msgid "Do it later"
@@ -9637,7 +9647,7 @@ msgctxt "@title:window"
 msgid "Decode Key"
 msgstr "Розшифрувати ключ"
 
-#: widgets/encryption/e2epassworddecodekeydialog.cpp:32
+#: widgets/encryption/e2epassworddecodekeydialog.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Enable Encryption"
@@ -10068,7 +10078,7 @@ msgstr "Принаймні один символ пунктуації"
 msgid "At least one number"
 msgstr "Принаймні одна цифра"
 
-#: widgets/misc/searchwithdelaylineedit.cpp:18
+#: widgets/misc/searchwithdelaylineedit.cpp:17
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search Word…"
@@ -10079,7 +10089,7 @@ msgstr "Шукати слово…"
 msgid "Server"
 msgstr "Сервер"
 
-#: widgets/misc/serverscombobox.cpp:22
+#: widgets/misc/serverscombobox.cpp:21
 #, kde-format
 msgid "Filter Account…"
 msgstr "Фільтрувати обліковий запис…"
@@ -10644,13 +10654,13 @@ msgctxt "@action"
 msgid "Clear"
 msgstr "Спорожнити"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:92
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
 #, kde-format
 msgctxt "@action"
 msgid "Switch To New Room"
 msgstr "Перемкнутися на нову кімнату"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:96
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:848
 #, kde-format
 msgctxt "@action"
@@ -11415,7 +11425,7 @@ msgstr "Шукати повідомлення…"
 msgid "Team's Information"
 msgstr "Дані щодо команди"
 
-#: widgets/room/roomquotemessagewidget.cpp:30
+#: widgets/room/roomquotemessagewidget.cpp:29
 #, kde-format
 msgid "Quote Message: '%1'"
 msgstr "Цитата повідомлення: «%1»"
@@ -12645,37 +12655,37 @@ msgctxt "@title:window"
 msgid "Add TimeStamp"
 msgstr "Додати позначку часу"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:22
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:21
 #, kde-format
 msgid "Short Time (%1)"
 msgstr "Час скорочено (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:24
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:23
 #, kde-format
 msgid "Long Time (%1)"
 msgstr "Час повністю (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:26
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:25
 #, kde-format
 msgid "Short Date (%1)"
 msgstr "Дата скорочено (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:28
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:27
 #, kde-format
 msgid "Long Date (%1)"
 msgstr "Дата повністю (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:30
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:29
 #, kde-format
 msgid "Full Date and Time (%1)"
 msgstr "Дата і час повністю (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:32
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:31
 #, kde-format
 msgid "Full Date and Time (long) (%1)"
 msgstr "Дата і час повністю (повністю) (%1)"
 
-#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:35
+#: widgets/timestampinmessages/timestampinmessagesformatcombobox.cpp:34
 #, kde-format
 msgid "Relative time (%1)"
 msgstr "Відносний час (%1)"
@@ -12737,6 +12747,9 @@ msgstr "Користувач:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Додати обліковий запис…"
+
+#~ msgid "Joined this Team"
+#~ msgstr "Долучено до цієї команди"
 
 #~ msgctxt "@action"
 #~ msgid "Active"
