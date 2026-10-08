@@ -19,6 +19,9 @@ CommandsModelFilterProxyModel::CommandsModelFilterProxyModel(RocketChatAccount *
 
 void CommandsModelFilterProxyModel::setRoomId(const QByteArray &roomId)
 {
+    if (mRoomId == roomId) {
+        return;
+    }
     beginFilterChange();
     mRoomId = roomId;
     endFilterChange(QSortFilterProxyModel::Direction::Rows);
