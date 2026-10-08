@@ -2988,7 +2988,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 // TODO update private key!!!!!
                 qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "e2e.private_key changed" << updateJson.value(key).toString();
             } else {
-                const static QRegularExpression bannerRegularExpression(u"banners.(.*).read"_s);
+                const static QRegularExpression bannerRegularExpression(u"^banners\\.(.*)\\.read$"_s);
                 QRegularExpressionMatch rmatch;
                 if (key.contains(bannerRegularExpression, &rmatch)) {
                     if (rmatch.hasMatch()) {
