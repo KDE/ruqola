@@ -54,7 +54,7 @@ QString VideoConferenceNotificationJob::generateText() const
 void VideoConferenceNotificationJob::inComingCall()
 {
     auto notification = new KNotification(u"VideoConference-Incoming"_s, KNotification::CloseOnTimeout);
-    notification->setTitle(i18n("InComing Call"));
+    notification->setTitle(i18n("Incoming Call"));
     // notification->setIconName(u"network-connect"_s);
     notification->setText(generateText());
 
