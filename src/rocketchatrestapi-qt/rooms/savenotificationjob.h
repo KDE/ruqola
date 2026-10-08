@@ -78,6 +78,7 @@ private:
         HideMentionStatus = 512,
     };
     Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
+    Q_FLAG(SettingsChanged)
 
     SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
 

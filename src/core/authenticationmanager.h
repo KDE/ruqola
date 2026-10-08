@@ -54,6 +54,7 @@ public:
     };
     Q_ENUM(AuthMethodType)
     Q_DECLARE_FLAGS(AuthMethodTypes, AuthMethodType)
+    Q_FLAG(AuthMethodTypes)
 
     // state == LoginOngoing for all the time since the login request until a response
     //   comes back, then it may result in

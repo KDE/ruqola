@@ -27,7 +27,7 @@ public:
         All = Direct | Private | Channel | Team | OmniChannel | Discussion,
     };
     Q_DECLARE_FLAGS(AdminRoomSearchTypes, AdminRoomSearchType)
-    Q_FLAG(AdminRoomSearchType)
+    Q_FLAG(AdminRoomSearchTypes)
 
     struct LIBROCKETCHATRESTAPI_QT_EXPORT AdminRoomsJobInfo {
         QString filter;
