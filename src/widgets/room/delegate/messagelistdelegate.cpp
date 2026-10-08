@@ -435,7 +435,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
     if (layout.senderRect.contains(info.pos) && !layout.sameSenderAsPreviousMessage) {
-        QMenu menu;
+        QMenu menu(mListView);
         auto userInfoAction = new QAction(QIcon::fromTheme(u"documentinfo"_s), i18n("User Info"), &menu);
         const QString userName = message->username();
         connect(userInfoAction, &QAction::triggered, this, [userName, this]() {
@@ -461,7 +461,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
         menu.exec(info.globalPos);
         return true;
     } else if (layout.translatedIconRect.contains(info.pos)) {
-        QMenu menu;
+        QMenu menu(mListView);
         const bool isTranslated = message->showTranslatedMessage();
         auto translateAction = new QAction(isTranslated ? i18nc("@action", "Show Original Message") : i18nc("@action", "Translate Message"), &menu);
         connect(translateAction, &QAction::triggered, this, [this, index = QPersistentModelIndex(index), isTranslated]() {
