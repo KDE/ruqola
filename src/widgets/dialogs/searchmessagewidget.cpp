@@ -104,12 +104,7 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     updateLabel();
 }
 
-SearchMessageWidget::~SearchMessageWidget()
-{
-    if (mCurrentRocketChatAccount) {
-        clearSearchModel();
-    }
-}
+SearchMessageWidget::~SearchMessageWidget() = default;
 
 void SearchMessageWidget::clearSearchModel()
 {
