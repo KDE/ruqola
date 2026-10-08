@@ -24,7 +24,7 @@
 #include <algorithm>
 
 using namespace Qt::Literals::StringLiterals;
-#define USE_LOCALDATABASE
+#define USE_LOCALDATABASE 1
 ManageLocalDatabase::ManageLocalDatabase(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
@@ -37,7 +37,7 @@ void ManageLocalDatabase::loadAccountSettings()
 {
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << "loadAccountSettings";
     qint64 timeStamp = -1;
-#ifdef USE_LOCALDATABASE
+#if USE_LOCALDATABASE
     const QString accountName{mRocketChatAccount->accountName()};
     const QByteArray ba = mRocketChatAccount->localDatabaseManager()->jsonAccount(accountName);
     if (!ba.isEmpty()) {
@@ -90,7 +90,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     // Load history
     if (info.initial || info.roomModel->isEmpty()) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-#ifdef USE_LOCALDATABASE
+#if USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
             const QList<Message> lstMessages =
                 mRocketChatAccount->localDatabaseManager()->loadMessages(accountName, info.roomId, -1, -1, 50, mRocketChatAccount->emojiManager());
@@ -155,7 +155,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         qint64 oldestLoadedDateTime = info.roomModel->firstTimestamp();
         int downloadMessage = 50;
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
-#ifdef USE_LOCALDATABASE
+#if USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
             const QList<Message> lstMessages = mRocketChatAccount->localDatabaseManager()
                                                    ->loadMessages(accountName, info.roomId, -1, oldestLoadedDateTime, 50, mRocketChatAccount->emojiManager());
