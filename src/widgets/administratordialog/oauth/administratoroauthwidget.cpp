@@ -64,7 +64,7 @@ void AdministratorOauthWidget::initialize()
     mRocketChatAccount->restApi()->initializeRestApiJob(oauthListJob);
     connect(oauthListJob, &RocketChatRestApi::ListOauthAppsJob::listOauthDone, this, &AdministratorOauthWidget::slotListOauthDone);
     if (!oauthListJob->start()) {
-        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ListInviteJob";
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ListOauthAppsJob";
     }
 }
 

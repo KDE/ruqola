@@ -202,7 +202,6 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     addCheckBox(mUseDNSDomainCheck, u"Accounts_UseDNSDomainCheck"_s);
 
     mRegistrationAuthenticationServices->setObjectName(u"mRegistrationAuthenticationServices"_s);
-    mMainLayout->addWidget(mRegistrationAuthenticationServices);
     addCheckBox(mRegistrationAuthenticationServices, u"Accounts_Registration_AuthenticationServices_Enabled"_s);
 
     mRegistrationAuthenticationServicesDefaultRoles->setObjectName(u"mRegistrationAuthenticationServicesDefaultRoles"_s);

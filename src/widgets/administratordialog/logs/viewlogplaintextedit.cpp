@@ -46,7 +46,7 @@ void ViewLogPlainTextEditor::slotSaveAsFile()
 
 void ViewLogPlainTextEditor::saveTextAs(const QString &text, const QString &filter, QWidget *parent, const QUrl &url, const QString &caption)
 {
-    QPointer<QFileDialog> fdlg(new QFileDialog(parent, QString(), url.path(), filter));
+    QPointer<QFileDialog> fdlg(new QFileDialog(parent, QString(), url.toLocalFile(), filter));
     if (!caption.isEmpty()) {
         fdlg->setWindowTitle(caption);
     }

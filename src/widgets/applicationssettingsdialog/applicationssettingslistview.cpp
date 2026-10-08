@@ -181,7 +181,7 @@ void ApplicationsSettingsListView::slotUninstallApplication(const QModelIndex &i
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppUpdateInfoJob";
         }
     }
 }
@@ -201,7 +201,7 @@ void ApplicationsSettingsListView::slotChangeStatusApplication(const QModelIndex
         Q_EMIT refreshListApplications();
     });
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppUpdateInfoJob";
     }
 }
 
@@ -222,7 +222,7 @@ void ApplicationsSettingsListView::slotInstallApplication(const QModelIndex &ind
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppUpdateInfoJob";
         }
     }
     delete dlg;

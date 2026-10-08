@@ -184,7 +184,7 @@ void TeamChannelsWidget::removeRoomFromTeam(const QByteArray &roomId)
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamRemoveRoomJob job";
         }
     }
 }

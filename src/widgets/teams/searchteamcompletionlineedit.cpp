@@ -68,7 +68,7 @@ void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsAutoCompleteJob::teamAutoCompleteDone, this, &SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsAutoCompleteJob job";
         }
     }
 }

@@ -114,7 +114,7 @@ void ApplicationsSettingsSettingsWidget::generateSettingsWidgets(const QList<App
         job->setAppUpdateInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start appUpdateInfoDone";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AppUpdateInfoJob";
         }
     });
     applyButton->setEnabled(false);

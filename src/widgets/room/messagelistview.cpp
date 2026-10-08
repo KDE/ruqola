@@ -774,7 +774,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 slotShowReportInfo(infos);
             });
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsJob job";
             }
         });
         menu.addAction(showReportInfo);
@@ -797,7 +797,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 // TODO update element!
             });
             if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportInfoJob job";
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationDismissReportsJob job";
             }
         });
         menu.addAction(dismissReports);
@@ -846,9 +846,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #endif
         menu.addSeparator();
         auto goToMessageAction = new QAction(i18nc("@action", "Go to Message"), &menu); // Add icon
-        connect(goToMessageAction, &QAction::triggered, this, [this, index, message]() {
-            const QByteArray messageId = message->messageId();
-            const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
+        const QByteArray messageId = message->messageId();
+        const QString messageDateTimeUtc = index.data(MessagesModel::DateTimeUtc).toString();
+        connect(goToMessageAction, &QAction::triggered, this, [this, messageId, messageDateTimeUtc]() {
             Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
         });
         menu.addAction(goToMessageAction);

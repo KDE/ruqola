@@ -77,7 +77,7 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
                 this,
                 &AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsAutocompleteAvailableForTeamsJob job";
         }
     }
 }

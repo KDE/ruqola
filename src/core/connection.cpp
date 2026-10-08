@@ -765,7 +765,7 @@ void Connection::listAllPermissions()
     initializeRestApiJob(job);
     connect(job, &PermissionsListAllJob::permissionListAllDone, this, &Connection::permissionListAllDone);
     if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start ListPermissionsJob job";
+        qCDebug(RUQOLA_LOG) << "Impossible to start PermissionsListAllJob job";
     }
 }
 
@@ -809,7 +809,7 @@ void Connection::groupKick(const QByteArray &roomId, const QByteArray &userId)
     job->setChannelGroupInfo(info);
 
     if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << "Impossible to start channelKick";
+        qCDebug(RUQOLA_LOG) << "Impossible to start groupKick";
     }
 }
 

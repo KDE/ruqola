@@ -2549,7 +2549,7 @@ void RocketChatAccount::listCustomSounds()
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::CustomSoundsListJob::customSoundsListDone, this, &RocketChatAccount::slotListCustomSounds);
     if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start CustomUserStatusJob";
+        qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start CustomSoundsListJob";
     }
 }
 
@@ -2559,7 +2559,7 @@ void RocketChatAccount::customUserStatus()
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::CustomUserStatusListJob::customUserStatusDone, this, &RocketChatAccount::slotCustomUserStatusDone);
     if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start CustomUserStatusJob";
+        qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start CustomUserStatusListJob";
     }
 }
 
@@ -2628,7 +2628,7 @@ void RocketChatAccount::slotUpdateCommands()
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::ListCommandsJob::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
     if (!job->start()) {
-        qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start ListPermissionsJob job";
+        qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start ListCommandsJob job";
     }
 }
 

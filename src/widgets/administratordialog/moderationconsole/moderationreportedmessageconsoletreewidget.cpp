@@ -128,7 +128,7 @@ void ModerationReportedMessageConsoleTreeWidget::slotShowMessages(const QModelIn
             this,
             &ModerationReportedMessageConsoleTreeWidget::slotShowReportedMessages);
     if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationReportsByUsersJob job";
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ModerationUserReportedMessagesJob job";
     }
 }
 
