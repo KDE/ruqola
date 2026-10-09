@@ -30,6 +30,8 @@ RestApiAbstractJob::~RestApiAbstractJob()
 {
     if (mReply) {
         mReply->disconnect(this);
+        mReply->abort();
+        mReply->deleteLater();
     }
 }
 

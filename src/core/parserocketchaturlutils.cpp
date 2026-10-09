@@ -112,7 +112,7 @@ QDebug operator<<(QDebug d, const ParseRocketChatUrlUtils::ParsingInfo &t)
     d.space() << "mPath" << t.path;
     d.space() << "mRoomIdType" << t.roomIdType;
     d.space() << "mChannelType" << t.channelType;
-    d.space() << "mToken" << t.token;
+    d.space() << "mToken is empty: " << t.token.isEmpty();
     d.space() << "mUserId" << t.userId;
     return d;
 }

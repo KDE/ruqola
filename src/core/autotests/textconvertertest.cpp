@@ -93,6 +93,9 @@ void TextConverterTest::shouldConvertText_data()
     QTest::newRow("word#-6") << u"#foo-bla"_s << u"<p><a href='ruqola:/room/foo-bla'>#foo-bla</a></p>\n"_s;
     QTest::newRow("word#-7") << u"#foo_bla"_s << u"<p><a href='ruqola:/room/foo_bla'>#foo_bla</a></p>\n"_s;
     QTest::newRow("word#-8") << u"#réunion"_s << u"<p><a href='ruqola:/room/réunion'>#réunion</a></p>\n"_s;
+    QTest::newRow("word#-between-two-urls") << u"http://www.kde.org #foo http://www.kde.org/b"_s
+                                            << u"<p><a href=\"http://www.kde.org\">http://www.kde.org</a> <a href='ruqola:/room/foo'>#foo</a> <a "
+                                               u"href=\"http://www.kde.org/b\">http://www.kde.org/b</a></p>\n"_s;
     // Test parsing when it's in an url... don't replace it.
 
     QTest::newRow("url") << u"http://www.kde.org#foo_bla"_s << u"<p><a href=\"http://www.kde.org#foo_bla\">http://www.kde.org#foo_bla</a></p>\n"_s;

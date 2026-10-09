@@ -192,7 +192,5 @@ private:
     RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
     QString mUserId;
     QString mAuthToken;
-    QString mUserName;
-    QString mPassword;
     bool mNetworkErrorEmitted = false;
 };

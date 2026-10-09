@@ -283,7 +283,7 @@ QString Utils::convertTextWithUrl(const QString &str)
 QJsonObject Utils::strToJsonObject(const QString &jsonString)
 {
     QJsonParseError jsonParseError;
-    const auto doc = QJsonDocument::fromJson(jsonString.toLatin1(), &jsonParseError);
+    const auto doc = QJsonDocument::fromJson(jsonString.toUtf8(), &jsonParseError);
 
     if (jsonParseError.error != QJsonParseError::NoError) {
         qCWarning(RUQOLA_LOG).nospace() << Q_FUNC_INFO << " Couldn't parse a valid JSON from argument: " << jsonString

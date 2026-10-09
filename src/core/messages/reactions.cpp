@@ -110,7 +110,7 @@ std::unique_ptr<Reactions> Reactions::deserialize(const QJsonObject &o, EmojiMan
         users.clear();
     }
     auto final = std::make_unique<Reactions>();
-    final->setReactions(reacts);
+    final->setReactions(std::move(reacts));
     return final;
 }
 

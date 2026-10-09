@@ -80,7 +80,9 @@ void DownloadFileJob::setRequiredAuthentication(bool newRequiredAuthentication)
 QNetworkRequest DownloadFileJob::request() const
 {
     QNetworkRequest req(mUrl);
-    addAuthRawHeader(req);
+    if (mRequiredAuthentication) {
+        addAuthRawHeader(req);
+    }
     if (!mMimeType.isEmpty()) {
         req.setHeader(QNetworkRequest::ContentTypeHeader, mMimeType);
     }

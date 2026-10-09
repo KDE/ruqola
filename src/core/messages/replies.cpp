@@ -47,7 +47,7 @@ void Replies::parseReplies(const QJsonArray &replieArray)
     for (auto i = 0; i < nbReplieArrayCount; ++i) {
         lst.append(replieArray.at(i).toString().toLatin1());
     }
-    mReplies = lst;
+    mReplies = std::move(lst);
 }
 
 bool Replies::operator==(const Replies &other) const

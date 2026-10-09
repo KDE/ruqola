@@ -89,7 +89,9 @@ QString RoomAvatarWidget::roomAvatar() const
         QImage b(mRoomAvatarPath);
         QByteArray ba;
         QBuffer buf(&ba);
-        b.save(&buf, "png");
+        if (b.isNull() || !b.save(&buf, "png")) {
+            return {};
+        }
         const QByteArray hexed = ba.toBase64();
         buf.close();
         return QString::fromUtf8("data:image/png;base64,"_ba + hexed);

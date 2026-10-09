@@ -187,16 +187,6 @@ void Connection::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &err
     reply->ignoreSslErrors(error);
 }
 
-void Connection::setPassword(const QString &password)
-{
-    mPassword = password;
-}
-
-void Connection::setUserName(const QString &userName)
-{
-    mUserName = userName;
-}
-
 QString Connection::serverUrl() const
 {
     return mRestApiMethod->serverUrl();

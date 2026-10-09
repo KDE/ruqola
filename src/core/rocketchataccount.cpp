@@ -1218,7 +1218,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
 
         ListMessages messages;
         messages.parseMessages(obj, "threads"_L1);
-        const auto listMessages = messages.list();
+        const auto &listMessages = messages.list();
         for (const auto &msg : listMessages) {
             QJsonObject params;
             params.insert("tmid"_L1, QString::fromLatin1(msg.messageId()));
@@ -2988,7 +2988,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 // TODO update private key!!!!!
                 qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "e2e.private_key changed" << updateJson.value(key).toString();
             } else {
-                const static QRegularExpression bannerRegularExpression(u"banners.(.*).read"_s);
+                const static QRegularExpression bannerRegularExpression(u"^banners\\.(.*)\\.read$"_s);
                 QRegularExpressionMatch rmatch;
                 if (key.contains(bannerRegularExpression, &rmatch)) {
                     if (rmatch.hasMatch()) {

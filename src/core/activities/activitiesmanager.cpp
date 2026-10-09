@@ -36,7 +36,10 @@ bool ActivitiesManager::enabled() const
 
 void ActivitiesManager::setEnabled(bool newEnabled)
 {
-    mEnabled = newEnabled;
+    if (mEnabled != newEnabled) {
+        mEnabled = newEnabled;
+        Q_EMIT activitiesChanged();
+    }
 }
 
 bool ActivitiesManager::isInCurrentActivity(const QStringList &lst) const
