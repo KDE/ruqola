@@ -1,0 +1,688 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!-- Define an entity for your application if it is not part of KDE
+       CVS -->
+  <!ENTITY i18n-kapplication "<application
+>Ruqola</application
+>">
+  <!ENTITY kappname "&i18n-kapplication;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+
+<book id="ruqola" lang="&language;">
+
+<bookinfo id="ruqolainfo">
+
+<title
+>El manual del &i18n-kapplication;</title>
+
+<authorgroup>
+<author
+><personname
+> <firstname
+>Laurent</firstname
+> <surname
+>Montel</surname
+> </personname
+> <email
+>montel@kde.org</email
+> </author>
+&traductor.JosepMa.Ferrer; 
+</authorgroup>
+
+<copyright>
+<year
+>2018</year>
+<holder
+>Laurent Montel</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>7 d'octubre de 2026</date>
+<releaseinfo
+>2.9.0</releaseinfo>
+
+<abstract>
+<para
+>El &i18n-kapplication; és una aplicació client per a RocketChat. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>RocketChat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+<para
+>El &i18n-kapplication; és un client d'escriptori per als servidors de Rocket.Chat. Permet xatejar en canals, grups privats, debats i equips, intercanviar missatges directes, compartir fitxers i administrar un servidor, tot des d'una aplicació nativa de &kde;.</para>
+
+<para
+>El &i18n-kapplication; es pot connectar a diversos servidors de Rocket.Chat al mateix temps i permet canviar entre ells ràpidament.</para>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Com començar</title>
+
+<sect1 id="adding-server">
+<title
+>Afegir un servidor</title>
+<para
+>Quan s'inicia el &i18n-kapplication; per primera vegada, se us demana que afegiu un compte de servidor. Podeu afegir altres comptes més tard amb <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Afegeix un servidor…</guimenuitem
+></menuchoice
+>. Introduïu l'&URL; del servidor i trieu un mètode d'autenticació.</para>
+
+<para
+>Depenent del que permeti el servidor, hi ha disponibles els mètodes d'autenticació següents:</para>
+<itemizedlist>
+<listitem
+><para
+>Nom d'usuari (o correu electrònic) i contrasenya</para
+></listitem>
+<listitem
+><para
+>Testimoni d'accés personal</para
+></listitem>
+<listitem
+><para
+>Proveïdors d'OAuth com Google, GitHub, GitLab, Facebook o Twitter</para
+></listitem>
+</itemizedlist>
+
+<para
+>Si està activada l'autenticació de dos factors al vostre compte, el &i18n-kapplication; us demanarà el codi quan inicieu la sessió. Les contrasenyes s'emmagatzemen a la cartera del sistema.</para>
+
+<para
+>Si el servidor ho permet, podeu crear un compte nou amb <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Registra un usuari nou…</guimenuitem
+></menuchoice
+>.</para>
+</sect1>
+
+<sect1 id="multiple-servers">
+<title
+>Ús amb diversos servidors</title>
+<para
+>Cada compte configurat apareix com una pestanya. Utilitzeu <menuchoice
+><guimenu
+>Finestra</guimenu
+><guimenuitem
+>Servidor següent</guimenuitem
+></menuchoice
+> i <menuchoice
+><guimenu
+>Finestra</guimenu
+><guimenuitem
+>Servidor anterior</guimenuitem
+></menuchoice
+> per canviar entre ells. Els comptes es poden activar, desactivar, reordenar o eliminar a la pàgina <guilabel
+>Comptes</guilabel
+> del diàleg de configuració.</para>
+
+<para
+><menuchoice
+><guimenu
+>Eines</guimenu
+><guimenuitem
+>Exporta comptes</guimenuitem
+></menuchoice
+> i <menuchoice
+><guimenu
+>Eines</guimenu
+><guimenuitem
+>Importa comptes</guimenuitem
+></menuchoice
+> us permet moure la configuració dels vostres comptes a un altre ordinador.</para>
+</sect1>
+</chapter>
+
+<chapter id="main-window">
+<title
+>La finestra principal</title>
+
+<sect1 id="room-list">
+<title
+>La llista de sales</title>
+<para
+>El costat esquerre de la finestra llista els vostres canals, grups privats, missatges directes, debats i equips. Un camp de cerca a la part superior filtra la llista. Es pot canviar el vostre estat (en línia, ocupat, absent, desconnectat o un estat personalitzat) des de la barra d'estat a la part inferior de la finestra.</para>
+
+<para
+>El menú <guimenu
+>Vista</guimenu
+> canvia l'aspecte de la llista:</para>
+<itemizedlist>
+<listitem
+><para
+>Visualització <guimenuitem
+>Condensada</guimenuitem
+>, <guimenuitem
+>Mitjana</guimenuitem
+> o <guimenuitem
+>Ampliada</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+>Ordenació <guimenuitem
+>Per darrer missatge</guimenuitem
+> o <guimenuitem
+>Alfabèticament</guimenuitem
+> i opcionalment <guimenuitem
+>No llegits a la part superior</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Mostra l'avatar de la sala</guimenuitem
+> i <guimenuitem
+>Mostra la sala preferida</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Marca tots els canals com a llegits</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+><menuchoice
+><guimenu
+>Canal</guimenu
+><guimenuitem
+>Ves al canal següent sense llegir</guimenuitem
+></menuchoice
+> us porta a la sala següent amb missatges sense llegir.</para>
+</sect1>
+
+<sect1 id="room-view">
+<title
+>La vista de sala</title>
+<para
+>El costat dret de la finestra mostra els missatges de la sala seleccionada. La capçalera mostra el nom de la sala i el tema i conté botons per marcar la sala com a favorita, obrir la informació de la sala, llistar els seus usuaris, cercar missatges, iniciar una trucada i obrir el menú de la sala.</para>
+
+<para
+>El menú de la sala dona accés a:</para>
+<itemizedlist>
+<listitem
+><para
+>Missatges fixats, destacats i mencionats, fils, debats i fitxers adjunts</para
+></listitem>
+<listitem
+><para
+>Afegir o convidar usuaris, mostrant usuaris bandejats</para
+></listitem>
+<listitem
+><para
+>Configuració de notificacions d'aquesta sala</para
+></listitem>
+<listitem
+><para
+>Traducció automàtica de missatges</para
+></listitem>
+<listitem
+><para
+>Exportació o eliminació de missatges (amb els permisos requerits)</para
+></listitem>
+<listitem
+><para
+>Encriptatge d'extrem a extrem, quan el servidor ho admet</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="messages">
+<title
+>Missatges</title>
+
+<sect1 id="writing-messages">
+<title
+>Escriure missatges</title>
+<para
+>Escriviu el missatge al camp de text a la part inferior de la sala i premeu &Intro; per a enviar-lo. Els missatges admeten el format Markdown. Escriure <literal
+>@</literal
+> completa els noms dels usuaris, <literal
+>#</literal
+> completa els noms dels canals, <literal
+>:</literal
+> completa l'emoji i <literal
+>/</literal
+> llista les ordres de barra disponibles al servidor.</para>
+
+<para
+>Els botons al costat del camp de text us permeten:</para>
+<itemizedlist>
+<listitem
+><para
+>Inserir un emoji, incloent-hi l'emoji personalitzat del servidor</para
+></listitem>
+<listitem
+><para
+>Adjuntar un o més fitxers (també els podeu arrossegar i deixar anar o enganxar)</para
+></listitem>
+<listitem
+><para
+>Enregistrar i enviar un missatge de so o un missatge de vídeo</para
+></listitem>
+<listitem
+><para
+>Utilitzar les eines proporcionades pels connectors, com ara prendre una captura de pantalla</para
+></listitem>
+</itemizedlist>
+
+<para
+>Mentre s'escriu estan disponibles la verificació ortogràfica i la correcció automàtica i es poden configurar al diàleg de configuració.</para>
+</sect1>
+
+<sect1 id="message-actions">
+<title
+>Accions en els missatges</title>
+<para
+>En passar per sobre d'un missatge es mostren botons per afegir una reacció, respondre en un fil o destacar el missatge. El seu menú contextual ofereix més accions en funció dels vostres permisos:</para>
+<itemizedlist>
+<listitem
+><para
+>Editar, suprimir o citar el missatge</para
+></listitem>
+<listitem
+><para
+>Copiar el missatge, la selecció o un enllaç al missatge</para
+></listitem>
+<listitem
+><para
+>Respondre en un fil, seguir-lo o deixar de seguir-lo, mostrar el fil complet</para
+></listitem>
+<listitem
+><para
+>Iniciar un debat o una conversa privada des del missatge</para
+></listitem>
+<listitem
+><para
+>Fixar, destacar, reenviar o informar del missatge</para
+></listitem>
+<listitem
+><para
+>Marcar el missatge com a no llegit</para
+></listitem>
+<listitem
+><para
+>Traduir el missatge o mostrar el text original</para
+></listitem>
+<listitem
+><para
+>Mostrar els rebuts de lectura, quan estigui activat al servidor</para
+></listitem>
+</itemizedlist>
+
+<para
+>Les imatges, els vídeos i els sons es mostren en línia i es poden obrir en un visualitzador. Les vistes prèvies d'&URL; es poden habilitar a la configuració.</para>
+</sect1>
+
+<sect1 id="searching">
+<title
+>Cerques</title>
+<para
+>Utilitzeu el botó de cerca de la capçalera de la sala per a cercar els missatges de la sala actual. <menuchoice
+><guimenu
+>Canal</guimenu
+><guimenuitem
+>Uneix-te a una sala…</guimenuitem
+></menuchoice
+>, <guimenuitem
+>Uneix-te a un equip…</guimenuitem
+> i <guimenuitem
+>Obre una conversa privada…</guimenuitem
+> cerca sales, equips i usuaris al directori del servidor.</para>
+</sect1>
+</chapter>
+
+<chapter id="rooms">
+<title
+>Sales, debats i equips</title>
+<para
+>El menú <guimenu
+>Canal</guimenu
+> us permet crear:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Crea un canal nou…</guimenuitem
+>: un canal públic o un grup privat, opcionalment només de lectura, de difusió o encriptat</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Crea missatges directes…</guimenuitem
+>: una conversa amb un o més usuaris</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Crea un debat…</guimenuitem
+>: una subconversa adjuntada a una sala</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Crea un equip…</guimenuitem
+>: un grup d'usuaris amb els seus canals propis</para
+></listitem>
+</itemizedlist>
+
+<para
+>El diàleg d'informació de la sala mostra el nom, el tema, l'anunci, la descripció i l'avatar de la sala. Els propietaris poden editar-los, canviar el tipus de sala, establir una contrasenya i configurar opcions com el mode de només lectura o l'eliminació de missatges. Els propietaris de l'equip poden afegir, eliminar i convertir els canals de l'equip.</para>
+</chapter>
+
+<chapter id="notifications">
+<title
+>Notificacions</title>
+<para
+>El &i18n-kapplication; utilitza el sistema de notificacions d'escriptori per a informar-vos sobre missatges nous i mencions, i mostra comptadors de missatges sense llegir a la llista de sales i a la safata del sistema. El comportament de les notificacions (alerta d'escriptori, so, correu electrònic) es pot establir per a cada sala amb <guimenuitem
+>Configura la notificació…</guimenuitem
+> al menú de la sala.</para>
+
+<para
+><menuchoice
+><guimenu
+>Eines</guimenu
+><guimenuitem
+>Mostra l'historial de notificacions</guimenuitem
+></menuchoice
+> llista les notificacions que heu rebut durant la sessió.</para>
+</chapter>
+
+<chapter id="encryption">
+<title
+>Encriptatge d'extrem a extrem</title>
+<para
+>Quan el servidor l'habilita, el &i18n-kapplication; permet Rocket.Chat xifrat d'extrem a extrem per a missatges directes i grups privats. Les vostres claus d'encriptació estan protegides per una contrasenya que podeu gestionar a la pàgina <guilabel
+>Encriptatge</guilabel
+> de <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>El meu compte…</guimenuitem
+></menuchoice
+>. Les sales encriptades mostren una icona de cadenat a la capçalera. Tingueu en compte que el contingut dels missatges encriptats no es pot cercar.</para>
+</chapter>
+
+<chapter id="my-account">
+<title
+>El meu compte</title>
+<para
+><menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>El meu compte…</guimenuitem
+></menuchoice
+> us permet gestionar el vostre perfil de Rocket.Chat:</para>
+<itemizedlist>
+<listitem
+><para
+>Perfil: nom, nom d'usuari, correu electrònic, avatar, missatge d'estat i contrasenya</para
+></listitem>
+<listitem
+><para
+>Preferències que ofereix el servidor</para
+></listitem>
+<listitem
+><para
+>Autenticació de dos factors (correu electrònic o TOTP)</para
+></listitem>
+<listitem
+><para
+>Claus d'encriptatge d'extrem a extrem</para
+></listitem>
+<listitem
+><para
+>Testimonis d'accés personal</para
+></listitem>
+<listitem
+><para
+>Dispositius connectats al vostre compte</para
+></listitem>
+<listitem
+><para
+>Vista prèvia de característiques</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="administration">
+<title
+>Administració del servidor</title>
+<para
+>Els usuaris amb els permisos necessaris poden administrar el servidor des de <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Administració</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+><guimenuitem
+>Administrador…</guimenuitem
+> dona accés a la informació del servidor, sales, usuaris, invitacions, emojis personalitzats, sons personalitzats, estats d'usuari personalitzats, rols, permisos, aplicacions OAuth, la consola de moderació i els registres del servidor.</para>
+
+<para
+><guimenuitem
+>Configuració del servidor…</guimenuitem
+> us permet canviar la configuració del servidor i les entrades d'<guimenuitem
+>Aplicacions</guimenuitem
+> us permeten navegar i gestionar les aplicacions del mercat de Rocket.Chat.</para>
+
+<para
+><menuchoice
+><guimenu
+>Eines</guimenu
+><guimenuitem
+>Llista de comprovació del servidor…</guimenuitem
+></menuchoice
+> comprova si hi ha problemes comuns a la configuració del servidor.</para>
+</chapter>
+
+<chapter id="offline">
+<title
+>Mode desconnectat</title>
+<para
+>El &i18n-kapplication; pot mantenir els missatges en una base de dades local (activeu <guilabel
+>Activa la base de dades local</guilabel
+> a la configuració <guilabel
+>General</guilabel
+>), de manera que les sales es mostren més ràpidament i es poden llegir quan es perd la connexió. <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Treballa desconnectat</guimenuitem
+></menuchoice
+> desconnecta del servidor expressament.</para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>Configuració del &i18n-kapplication;</title>
+<para
+><menuchoice
+><guimenu
+>Configuració</guimenu
+><guimenuitem
+>Configura el &i18n-kapplication;…</guimenuitem
+></menuchoice
+> obre el diàleg de configuració, que conté les pàgines següents:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Comptes</guilabel
+></term>
+<listitem
+><para
+>Afegeix, modifica, activa, desactiva o elimina comptes del servidor.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>General</guilabel
+></term>
+<listitem
+><para
+>Icona de la safata del sistema, estat a l'inici, vista prèvia d'imatges i &URL;, GIF animats, base de dades local, registre i altres opcions de comportament.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Lletra</guilabel
+></term>
+<listitem
+><para
+>Lletra utilitzada per a mostrar els missatges.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Verificació ortogràfica</guilabel
+> i <guilabel
+>Correcció automàtica</guilabel
+></term>
+<listitem
+><para
+>Llenguatge i regels de correcció utilitzades durant l'escriptura.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Traducció</guilabel
+></term>
+<listitem
+><para
+>Motor de traducció utilitzat per traduir missatges.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Accessibilitat</guilabel
+></term>
+<listitem
+><para
+>Opcions de text a veu i de veu a text, quan estigui disponible.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Connectors</guilabel
+></term>
+<listitem
+><para
+>Activa o desactiva connectors, per exemple compartir text, dreceres web, captures de pantalla o generació de text amb un motor d'IA.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Comentaris de l'usuari</guilabel
+></term>
+<listitem
+><para
+>Trieu quines estadístiques d'ús anònimes s'envien als desenvolupadors.</para
+></listitem
+></varlistentry>
+</variablelist>
+<para
+>L'esquema de color es pot canviar al menú <guimenu
+>Configuració</guimenu
+> i la mida de la lletra del missatge al menú <guimenu
+>Vista</guimenu
+>.</para>
+</chapter>
+
+<chapter id="tools">
+<title
+>Eines</title>
+<para
+>El menú <guimenu
+>Eines</guimenu
+> proporciona ajudants principalment útils per a la resolució de problemes:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Mostra el registre del canal</guimenuitem
+> i <guimenuitem
+>Mostra els errors del servidor</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Mostra informació del RocketChat</guimenuitem
+>: versió i capacitats del servidor</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Reintenta l'accés a la cartera</guimenuitem
+>, quan la contrasenya no es pot llegir des de la cartera</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Crèdits i llicència</title>
+
+<para
+>&i18n-kapplication;</para>
+<para
+>Copyright del programa 2018-2026 &Laurent.Montel; &Laurent.Montel.mail; </para>
+<para
+>Copyright de la documentació &copy; &Laurent.Montel; &Laurent.Montel.mail; </para>
+
+<para
+>Traductor de la documentació: &credits.JosepMa.Ferrer;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
