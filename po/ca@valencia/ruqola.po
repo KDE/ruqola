@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
-"PO-Revision-Date: 2026-10-06 09:50+0200\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"PO-Revision-Date: 2026-10-08 11:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -829,7 +829,7 @@ msgstr "%1 ha abandonat este equip"
 #: core/messages/message.cpp:807
 #, kde-format
 msgid "Topic was cleared by: %1"
-msgstr "El tema s'ha esborrat per a: %1"
+msgstr "%1 ha esborrat el tema"
 
 #: core/messages/message.cpp:809
 #, kde-format
@@ -854,7 +854,7 @@ msgstr "%2 ha eliminat l'usuari %1"
 #: core/messages/message.cpp:819
 #, kde-format
 msgid "Description was cleared by %1"
-msgstr "La descripció s'ha esborrat per a: %1"
+msgstr "%1 ha esborrat la descripció"
 
 #: core/messages/message.cpp:821
 #, kde-format
@@ -864,7 +864,7 @@ msgstr "%2 ha canviat la descripció de la sala a %1"
 #: core/messages/message.cpp:825
 #, kde-format
 msgid "Announcement was cleared by %1"
-msgstr "L'anunci s'ha esborrat per a: %1"
+msgstr "%1 ha esborrat l'anunci"
 
 #: core/messages/message.cpp:827
 #, kde-format
@@ -1763,10 +1763,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Oculta els missatges «Ha canviat la descripció de la sala»"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "Oculta els missatges «Usuari ha abandonat l'equip»"
+msgstr "Oculta els missatges «S'ha unit a este equip»"
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2732,10 +2731,9 @@ msgstr "L'usuari no es troba en esta sala"
 
 # skip-rule: rst-link0italic,rst-italic2
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "No esteu a la sala «%s»"
+msgstr "No esteu a la sala «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 msgid "User registration is disabled"
@@ -3216,7 +3214,7 @@ msgid "Presence"
 msgstr "Presència"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:156
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:214
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "Voleu eliminar «%1»?"
@@ -3928,7 +3926,7 @@ msgid_plural "%1 rooms (Total: %2)"
 msgstr[0] "%1 sala (Total: %2)"
 msgstr[1] "%1 sales (Total: %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:216
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
@@ -4257,8 +4255,7 @@ msgid "Deactivate"
 msgstr "Desactiva"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Activa"
@@ -4614,7 +4611,7 @@ msgstr ""
 msgid "Blocked Username List"
 msgstr "Llista de noms d'usuari bloquejats"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4623,12 +4620,12 @@ msgstr ""
 "Es donaran rols predeterminats (separats per comes) als usuaris quan es "
 "registren a través de serveis d'autenticació"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:211
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "Rols predeterminats per a serveis d'autenticació"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:216
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4637,7 +4634,7 @@ msgstr ""
 "Es donaran rols predeterminats (separats per comes) als usuaris quan es "
 "registren a través d'un registre manual (incloent-hi via una API)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:218
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "Rols predeterminats per als usuaris"
@@ -5392,18 +5389,14 @@ msgid "Accepted Media Types"
 msgstr "Tipus de fitxers multimèdia acceptats"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
 "Una llista de tipus de fitxers multimèdia separats per comes. Este paràmetre "
-"té prioritat sobre els Tipus de fitxers multimèdia acceptats."
+"té prioritat sobre els Tipus de fitxers multimèdia bloquejats."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5416,10 +5409,9 @@ msgstr ""
 "accedir als fitxers pujats sense autenticació)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Secret de Tokenpass"
+msgstr "Secret de testimonio web JSON"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -11686,7 +11678,7 @@ msgstr "Desconnecta del servidor actual"
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
-msgstr "Ves fins al següent canal sense llegir"
+msgstr "Ves fins al canal següent sense llegir"
 
 #: widgets/ruqolamainwindow.cpp:478
 #, kde-format
@@ -12668,10 +12660,3 @@ msgstr "Nom d'usuari:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Afig un compte…"
-
-#~ msgid "Joined this Team"
-#~ msgstr "S'ha unit a este equip"
-
-#~ msgctxt "@action"
-#~ msgid "Active"
-#~ msgstr "Actiu"

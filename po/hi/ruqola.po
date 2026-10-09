@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -3236,7 +3236,7 @@ msgid "Presence"
 msgstr "उपस्थिति"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:156
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:214
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "क्या आप \"%1\" को हटाना चाहते हैं?"
@@ -3953,7 +3953,7 @@ msgid_plural "%1 rooms (Total: %2)"
 msgstr[0] "%1 कमरे (कुल: %2)"
 msgstr[1] "%1 कमरे (कुल: %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:216
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
@@ -4632,7 +4632,7 @@ msgstr "ब्लॉक किए गए उपयोगकर्ता ना�
 msgid "Blocked Username List"
 msgstr "अवरुद्ध उपयोगकर्ता नाम सूची"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4641,12 +4641,12 @@ msgstr ""
 "प्रमाणीकरण सेवाओं के माध्यम से पंजीकरण करते समय उपयोगकर्ताओं को डिफ़ॉल्ट भूमिकाएँ "
 "(अल्पविराम से अलग की गई) दी जाएंगी"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:211
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "प्रमाणीकरण सेवाओं के लिए डिफ़ॉल्ट भूमिकाएँ"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:216
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4655,7 +4655,7 @@ msgstr ""
 "मैन्युअल पंजीकरण (एपीआई के माध्यम से) के माध्यम से पंजीकरण करते समय उपयोगकर्ताओं को डिफ़ॉल्ट "
 "भूमिकाएं (अल्पविराम से अलग) दी जाएंगी"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:218
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "उपयोगकर्ताओं के लिए डिफ़ॉल्ट भूमिकाएँ"

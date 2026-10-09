@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
-"PO-Revision-Date: 2026-10-07 13:42+0200\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"PO-Revision-Date: 2026-10-08 18:43+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1760,10 +1760,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Berichten \"Beschrijving van room gewijzigd\" verbergen"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "Berichten \"Gebruiker heeft team verlaten\" verbergen"
+msgstr "Berichten \"Doet mee met dit team\" verbergen"
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2732,10 +2731,9 @@ msgid "User is not in this room"
 msgstr "Gebruiker is niet in deze room"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "U bent niet in de room `%s`"
+msgstr "U bent niet in de room `%1`"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 msgid "User registration is disabled"
@@ -3213,7 +3211,7 @@ msgid "Presence"
 msgstr "Aanwezigheid"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:156
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:214
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "Wilt u \"%1\" verwijderen?"
@@ -3926,7 +3924,7 @@ msgid_plural "%1 rooms (Total: %2)"
 msgstr[0] "%1 room (totaal: %2)"
 msgstr[1] "%1 rooms (totaal: %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:216
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
@@ -4607,7 +4605,7 @@ msgstr ""
 msgid "Blocked Username List"
 msgstr "Lijst met geblokkeerde gebruikersnamen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4616,12 +4614,12 @@ msgstr ""
 "Standaard rollen (komma-gescheiden) ven gebruikers zullen gegeven worden bij "
 "registeren via authenticatieservices"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:211
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "Standaard rollen voor authenticatieservices"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:216
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4630,7 +4628,7 @@ msgstr ""
 "Standaard rollen (komma-gescheiden) ven gebruikers zullen gegeven worden bij "
 "registeren via handmatige registratie (inclusief via API)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:218
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "Standaard rollen voor gebruikers"
@@ -5385,18 +5383,14 @@ msgid "Accepted Media Types"
 msgstr "Geaccepteerde typen media"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
 "Kommagescheiden lijst van typen media. Deze instellingen hebben prioriteit "
-"boven de geaccepteerde typen media."
+"boven de geblokkeerde typen media."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5409,10 +5403,9 @@ msgstr ""
 "zijn toegang te hebben tot geüploade bestanden zonder authenticatie)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Geheim van Tokenpass"
+msgstr "Json-webtokengeheim"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format

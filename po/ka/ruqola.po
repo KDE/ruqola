@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:45+0000\n"
-"PO-Revision-Date: 2026-10-07 03:46+0200\n"
+"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"PO-Revision-Date: 2026-10-08 05:48+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1755,10 +1755,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "\"ოთახის აღწერა შეიცვალა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "\"მომხმარებელი გავიდა გუნდიდან\" შეტყობინებების დამალვა"
+msgstr "\"შემოუერთდა ამ გუნდს\" შეტყობინებების დამალვა"
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2721,10 +2720,9 @@ msgid "User is not in this room"
 msgstr "მომხმარებელი ამ ოთახში არაა"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:347
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "თქვენ ოთახში '%s' არ იმყოფებით"
+msgstr "თქვენ ოთახში '%1' არ იმყოფებით"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 msgid "User registration is disabled"
@@ -3201,7 +3199,7 @@ msgid "Presence"
 msgstr "სტატუსი"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:156
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:214
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
 msgstr "მართლა გნებავთ %1 -ის წაშლა?"
@@ -3911,7 +3909,7 @@ msgid_plural "%1 rooms (Total: %2)"
 msgstr[0] "%1 ოთახი (სულ: %2)"
 msgstr[1] "%1 ოთახი (სულl: %2)"
 
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:215
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:216
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
@@ -4589,7 +4587,7 @@ msgstr ""
 msgid "Blocked Username List"
 msgstr "დაბლოკილი მომხმარებლების სია"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:209
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4598,12 +4596,12 @@ msgstr ""
 "ნაგულისხმევი როლები (მძიმით გამოყოფილი), რომლებიც მომხმარებლებს მიენიჭებათ "
 "ავთენტიკაციის სერვერით რეგისტრაციისას"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:211
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:210
 #, kde-format
 msgid "Default Roles for Authentication Services"
 msgstr "ნაგულისხმევი როლები ავთენტიკაციის სერვისებისთვის"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:216
 #, kde-format
 msgid ""
 "Default roles (comma-separated) users will be given when registering through "
@@ -4612,7 +4610,7 @@ msgstr ""
 "ნაგულისხმევი როლები (მძიმით გამოყოფილი), რომლებიც მომხმარებლებს ხელით "
 "რეგისტრაციისას (API-ის ჩათვლით) მიენიჭებათ"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:218
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:217
 #, kde-format
 msgid "Default Roles for Users"
 msgstr "ნაგულისხმევი როლები მომხმარებლებისთვის"
@@ -5361,18 +5359,14 @@ msgid "Accepted Media Types"
 msgstr "მედიის მხარდაჭერილი ტიპები"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
-"მედიის ტიპების მძიმით გამოყოფილი სია. ამ პარამეტრს აქვს პრიორიტეტი მიღებული "
-"მედიის ტიპებზე."
+"მედიის ტიპების მძიმით გამოყოფილი სია. ამ პარამეტრს აქვს დაბლოკილ მედიის "
+"ტიპებზე მაღალი პრიორიტეტი."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5385,10 +5379,9 @@ msgstr ""
 "ასატვირთად)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Tokenpass -ის საიდუმლო"
+msgstr "Json ვებ-ტოკენის საიდუმლო"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
