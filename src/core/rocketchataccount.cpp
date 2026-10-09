@@ -1218,7 +1218,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QB
 
         ListMessages messages;
         messages.parseMessages(obj, "threads"_L1);
-        const auto listMessages = messages.list();
+        const auto &listMessages = messages.list();
         for (const auto &msg : listMessages) {
             QJsonObject params;
             params.insert("tmid"_L1, QString::fromLatin1(msg.messageId()));
