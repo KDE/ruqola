@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-09 02:59+0000\n"
-"PO-Revision-Date: 2026-10-07 20:34+0300\n"
+"PO-Revision-Date: 2026-10-09 19:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1770,10 +1770,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Приховати повідомлення «Змінено опис кімнати»"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "Приховати повідомлення «Користувач полишив команду»"
+msgstr "Приховати повідомлення «Долучився/Долучилася до цієї команди»"
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2109,8 +2108,7 @@ msgid "Call ongoing"
 msgstr "У процесі виклику"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "InComing Call"
+#, kde-format
 msgid "Incoming Call"
 msgstr "Вхідний виклик"
 
@@ -2755,10 +2753,9 @@ msgid "User is not in this room"
 msgstr "Користувача немає у цій кімнаті"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "Ви не перебуваєте у кімнаті «%s»"
+msgstr "Ви не перебуваєте у кімнаті «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -5425,18 +5422,14 @@ msgid "Accepted Media Types"
 msgstr "Прийнятні типи мультимедійних даних"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
 "Список відокремлених комами типів мультимедійних даних. Цей параметр має "
-"вищий пріоритет за «Прийнятні типи мультимедійних даних»."
+"вищий пріоритет за «Заблоковані типи мультимедійних даних»."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5449,10 +5442,9 @@ msgstr ""
 "доступу до вивантажених файлів без розпізнавання)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Ключ Tokenpass"
+msgstr "Вебключ JSON"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format

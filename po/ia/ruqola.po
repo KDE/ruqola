@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-09 02:59+0000\n"
-"PO-Revision-Date: 2026-09-23 11:14+0200\n"
+"PO-Revision-Date: 2026-10-09 11:37+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -383,28 +383,24 @@ msgid "Modify Livechat custom field configuration"
 msgstr ""
 
 #: core/apps/appsmarketplaceinfo.cpp:698
-#, fuzzy, kde-format
-#| msgid "Access Livechat status information"
+#, kde-format
 msgid "Access to multiple Livechat messages information"
-msgstr "Accede information de stato de LiveChat"
+msgstr "Accede a information demessages multiple de LiveChat"
 
 #: core/apps/appsmarketplaceinfo.cpp:700
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#, kde-format
 msgid "Access thread information"
-msgstr "Accede information de sala"
+msgstr "Accede a information de topico"
 
 #: core/apps/appsmarketplaceinfo.cpp:702
-#, fuzzy, kde-format
-#| msgid "Modify user information"
+#, kde-format
 msgid "Modify moderation information"
-msgstr "Modifica information de usator"
+msgstr "Modifica information de moderation"
 
 #: core/apps/appsmarketplaceinfo.cpp:704
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#, kde-format
 msgid "Access moderation information"
-msgstr "Accede information de sala"
+msgstr "Accede a information de moderation"
 
 #: core/apps/appsmarketplaceinfo.cpp:706
 #, kde-format
@@ -437,16 +433,14 @@ msgid "Allow to register button"
 msgstr "Permitte registrar button"
 
 #: core/apps/appsmarketplaceinfo.cpp:718
-#, fuzzy, kde-format
-#| msgid "Access room information"
+#, kde-format
 msgid "Access contact information"
-msgstr "Accede information de sala"
+msgstr "Accede a information de contacto"
 
 #: core/apps/appsmarketplaceinfo.cpp:720
-#, fuzzy, kde-format
-#| msgid "Modify user information"
+#, kde-format
 msgid "Modify contact information"
-msgstr "Modifica information de usator"
+msgstr "Modifica information de contacto"
 
 #: core/apps/appsmarketplaceinfo.cpp:722
 #, kde-format
@@ -1761,10 +1755,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Cela messages de \"Description de sala cambiate\""
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "Cela messages de \"Usator Lassa Equipa\""
+msgstr "Cela messages de \"Unite a iste Equipa\""
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2086,8 +2079,7 @@ msgid "Call ongoing"
 msgstr "Appello in arrivata"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "InComing Call"
+#, kde-format
 msgid "Incoming Call"
 msgstr "Appello in arrivata"
 
@@ -2283,11 +2275,9 @@ msgid "Extract Roles"
 msgstr "Extrahe Rolos"
 
 #: rocketchatrestapi-qt/chat/deletemessagefilejob.cpp:91
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete File Message"
-msgstr "Dele Messages"
+msgstr "Dele Messagede file"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
@@ -2733,10 +2723,9 @@ msgid "User is not in this room"
 msgstr "Usator non es in iste sala"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "Tu non es in le sala '%s'"
+msgstr "Tu non es in le sala '%1'"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -2925,15 +2914,12 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Tu non ha permission a adder iste canal al equipa"
 
 #: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
-#, fuzzy, kde-format
-#| msgid ""
-#| "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-#| "match any teams"
+#, kde-format
 msgid ""
 "The required \"teamId\" or \"teamName\" param provided does not match any "
 "teams"
 msgstr ""
-"Le parametro requirite \\\"roomId\\\" o \"\\roomName\\\" fornite non ha "
+"Le parametro requirite \"teamId\" o \"teamName\"  fornite non ha "
 "correspondentia con alcun equipos"
 
 #: rocketchatrestapi-qt/users/getavatarjob.cpp:82
@@ -4247,8 +4233,7 @@ msgid "Deactivate"
 msgstr "Deactivate"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Activa"
@@ -4999,12 +4984,10 @@ msgid "Enable in public channels"
 msgstr "Habilita Canales in public"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable for Private Channels"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable in private channels"
-msgstr "Habilita per Canales Private"
+msgstr "Habilita in canales private"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:26
 #, kde-format
@@ -5331,10 +5314,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Secreto de Tokenpass"
+msgstr "Secreto de Token de Web de Json"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -7573,18 +7555,14 @@ msgid "Display Account in Current Activity"
 msgstr "Monstra conto in  Activitate Currente"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgid "Text to Speech"
-msgstr "Habilita Texto-a-Discurso (TextToSpeech)"
+msgstr "Texto-a-Pronunciation (TextToSpeech)"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgid "Speech to Text"
-msgstr "Pronuncia texto"
+msgstr "Pronuncia Texto"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:32
 #, kde-format
@@ -7759,12 +7737,10 @@ msgid "Plugins"
 msgstr "Plugins"
 
 #: widgets/configuredialog/configurespeechtotextconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Speech To Text"
-msgstr "Habilita Texto-a-Discurso (TextToSpeech)"
+msgstr "Habilita Texto-a-Pronunciation (TextToSpeech)"
 
 #: widgets/configuredialog/configuretexttospeechconfigwidget.cpp:21
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-09 02:59+0000\n"
-"PO-Revision-Date: 2026-09-27 22:44+0200\n"
+"PO-Revision-Date: 2026-10-09 10:12+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -476,7 +476,7 @@ msgstr "Connessione"
 #: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Verifying OTP code"
-msgstr ""
+msgstr "Verifica del codice OTP"
 
 #: core/authenticationmanager.cpp:92
 #, kde-format
@@ -1758,10 +1758,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Nascondi i messaggi Descrizione della stanza modificata»"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "Nascondi i messaggi «L'utente ha lasciato la squadra»"
+msgstr "Nascondi i messaggi «Si è unito a questa squadra»"
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2285,11 +2284,9 @@ msgid "Extract Roles"
 msgstr "Estrai ruoli"
 
 #: rocketchatrestapi-qt/chat/deletemessagefilejob.cpp:91
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete File Message"
-msgstr "Elimina messaggio"
+msgstr "Elimina messaggio allegato"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
@@ -2735,10 +2732,9 @@ msgid "User is not in this room"
 msgstr "L'utente non è in questa stanza"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "Non sei nella stanza «%s»"
+msgstr "Non sei nella stanza «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4257,8 +4253,7 @@ msgid "Deactivate"
 msgstr "Disattiva"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Attiva"
@@ -5397,18 +5392,14 @@ msgid "Accepted Media Types"
 msgstr "Tipi di supporti accettati"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
 "Elenco separato da virgola di tipi di supporti. Questa impostazione ha la "
-"priorità sui tipi di supporti accettati."
+"priorità sui tipi di supporti bloccati."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5421,10 +5412,9 @@ msgstr ""
 "senza autenticazione)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Segreto Tokenpass"
+msgstr "Chiave segreta per token web JSON"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -7773,17 +7763,14 @@ msgid "Display Account in Current Activity"
 msgstr "Visualizza account nell'attività attuale"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgid "Text to Speech"
-msgstr "Abilita la sintesi vocale"
+msgstr "Sintesi vocale"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Speech text"
+#, kde-format
 msgid "Speech to Text"
-msgstr "Testo sintetizzato"
+msgstr "Riconoscimento vocale"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:32
 #, kde-format
@@ -7958,11 +7945,10 @@ msgid "Plugins"
 msgstr "Estensioni"
 
 #: widgets/configuredialog/configurespeechtotextconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Speech text"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Speech To Text"
-msgstr "Testo sintetizzato"
+msgstr "Abilita riconoscimento vocale"
 
 #: widgets/configuredialog/configuretexttospeechconfigwidget.cpp:21
 #, kde-format
@@ -9962,8 +9948,7 @@ msgid "Compact"
 msgstr "Compatto"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Your passwords do no match."
+#, kde-format
 msgid "Your passwords do not match."
 msgstr "Le tue password non corrispondono."
 
@@ -11898,19 +11883,19 @@ msgstr "Esporta account"
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
-msgstr "Medio"
+msgstr "Media"
 
 #: widgets/ruqolamainwindow.cpp:775
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
-msgstr "Condensato"
+msgstr "Condensata"
 
 #: widgets/ruqolamainwindow.cpp:784
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
-msgstr "Esteso"
+msgstr "Estesa"
 
 #: widgets/ruqolamainwindow.cpp:792
 #, kde-format
@@ -12367,10 +12352,9 @@ msgstr ""
 "cui inviare i loro messaggi di prova.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "<b>Check can not executed in direct channel.</b>"
+#, kde-format
 msgid "<b>Checks cannot be executed in direct channel.</b>"
-msgstr "<b>Il controllo non può essere eseguito nel canale diretto.</b>"
+msgstr "<b>I controlli non possono essere eseguiti nel canale diretto.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:105
 #, kde-format
