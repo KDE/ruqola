@@ -1,0 +1,686 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!-- Define an entity for your application if it is not part of KDE
+       CVS -->
+  <!ENTITY i18n-kapplication "<application
+>Ruqola</application
+>">
+  <!ENTITY kappname "&i18n-kapplication;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+
+<book id="ruqola" lang="&language;">
+
+<bookinfo id="ruqolainfo">
+
+<title
+>Het handboek van &i18n-kapplication;</title>
+
+<authorgroup>
+<author
+><personname
+> <firstname
+>Laurent</firstname
+> <surname
+>Montel</surname
+> </personname
+> <email
+>montel@kde.org</email
+> </author>
+&Freek.de.Kruijf; 
+</authorgroup>
+
+<copyright>
+<year
+>2018</year>
+<holder
+>Laurent Montel</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2026-10-07</date>
+<releaseinfo
+>2.9.0</releaseinfo>
+
+<abstract>
+<para
+>&i18n-kapplication; is een client-toepassing voor RocketChat. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>RocketChat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+<para
+>&i18n-kapplication; is een bureaublad-client voor Rocket.Chat-servers. Hiermee kunt u chatten in kanalen, privégroepen, discussies en teams, directe berichten uitwisselen, bestanden delen en een server beheren – en dat alles vanuit een inheemse &kde;-toepassing.</para>
+
+<para
+>&i18n-kapplication; kan tegelijkertijd met meerdere Rocket.Chat-servers worden verbonden en stelt u in staat snel tussen deze te schakelen.</para>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Hoe te beginnen</title>
+
+<sect1 id="adding-server">
+<title
+>Een server toevoegen</title>
+<para
+>Wanneer &i18n-kapplication; voor de eerste keer wordt gestart, wordt u gevraagd een serveraccount toe te voegen. U kunt later andere accounts toevoegen via <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Server toevoegen…</guimenuitem
+></menuchoice
+>. Voer de server-&URL; in en kies een authenticatiemethode.</para>
+
+<para
+>Afhankelijk van wat de server toestaat, zijn de volgende authenticatiemethoden beschikbaar:</para>
+<itemizedlist>
+<listitem
+><para
+>Uw naam (of e-mailadres) en wachtwoord</para
+></listitem>
+<listitem
+><para
+>Persoonlijk toegangstoken</para
+></listitem>
+<listitem
+><para
+>OAuth aanbieders zoals Google, GitHub, GitLab, Facebook of Twitter</para
+></listitem>
+</itemizedlist>
+
+<para
+>Als tweefactorauthenticatie voor uw account is ingeschakeld, vraagt ​​&i18n-kapplication; om de code wanneer u zich aanmeldt. Wachtwoorden worden opgeslagen in de systeemportefeuille,</para>
+
+<para
+>Als de server dit toestaat, kunt u een nieuw account aanmaken via <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Nieuwe gebruiker registreren…</guimenuitem
+></menuchoice
+>.</para>
+</sect1>
+
+<sect1 id="multiple-servers">
+<title
+>Verschillende servers gebruiken</title>
+<para
+>Elk geconfigureerd account wordt als tabblad weergegeven. Gebruik  <menuchoice
+><guimenu
+>Venster</guimenu
+><guimenuitem
+>Volgende server</guimenuitem
+></menuchoice
+> en <menuchoice
+><guimenu
+>Venster</guimenu
+><guimenuitem
+>Vorige server</guimenuitem
+></menuchoice
+> om ertussen te wisselen. Accounts kunnen worden ingeschakeld, uitgeschakeld, opnieuw gerangschikt of verwijderd op de pagina <guilabel
+>Accounts</guilabel
+> in het instellingendialoogvenster.</para>
+
+<para
+>Met <menuchoice
+><guimenu
+>Hulpmiddelen</guimenu
+><guimenuitem
+>Accounts exporteren</guimenuitem
+></menuchoice
+> en <menuchoice
+><guimenu
+>Hulpmiddelen</guimenu
+><guimenuitem
+>Accounts importeren</guimenuitem
+></menuchoice
+> kunt u uw accountconfiguratie naar een andere computer verplaatsen.</para>
+</sect1>
+</chapter>
+
+<chapter id="main-window">
+<title
+>Het hoofdvenster</title>
+
+<sect1 id="room-list">
+<title
+>De lijst met rooms</title>
+<para
+>Aan de linkerkant van het venster worden uw kanalen, privégroepen, directe berichten, discussies en teams weergegeven. Met een zoekveld bovenaan kunt u de lijst filteren. Uw status (online, bezet, afwezig, offline of een aangepaste status) kunt u wijzigen via de statusbalk onderaan het venster.</para>
+
+<para
+>Het menu <guimenu
+>Beeld</guimenu
+> verandert het uiterlijk van de lijst:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Gecondenseerd</guimenuitem
+>, <guimenuitem
+>Gemiddeld</guimenuitem
+> of <guimenuitem
+>Uitgebreide</guimenuitem
+> weergave</para
+></listitem>
+<listitem
+><para
+>Sorteren <guimenuitem
+>op laatste bericht</guimenuitem
+> of <guimenuitem
+>alfabetisch</guimenuitem
+>, met de optie <guimenuitem
+>ongelezen berichten bovenaan</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Toon room-avatar</guimenuitem
+> en <guimenuitem
+>Toon favoriete room</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Alle kanalen markeren als gelezen</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+><menuchoice
+><guimenu
+>Kanaal</guimenu
+><guimenuitem
+>Ga naar volgend ongelezen kanaal</guimenuitem
+></menuchoice
+> brengt u naar het volgende kanaal met ongelezen berichten.</para>
+</sect1>
+
+<sect1 id="room-view">
+<title
+>Het Beeld Room</title>
+<para
+>Aan de rechterkant van het venster worden de berichten van de geselecteerde room weergegeven. De koptekst toont de naam en het onderwerp van de room en bevat knoppen om de ruimte als favoriet te markeren, de informatie over de room te openen, de gebruikers ervan weer te geven, berichten te doorzoeken, een chat te starten en het menu van de room te openen.</para>
+
+<para
+>Het menu Room geeft toegang tot:</para>
+<itemizedlist>
+<listitem
+><para
+>Vastgemaakte, gemarkeerde en vermelde berichten, threads, discussies en bijlagen</para
+></listitem>
+<listitem
+><para
+>Gebruikers toevoegen of uitnodigen, verbannen gebruikers weergeven</para
+></listitem>
+<listitem
+><para
+>Meldingsinstellingen voor deze room</para
+></listitem>
+<listitem
+><para
+>Automatische vertaling van berichten</para
+></listitem>
+<listitem
+><para
+>Berichten exporteren of opschonen (met de vereiste rechten)</para
+></listitem>
+<listitem
+><para
+>End-to-end-versleuteling, wanneer de server dit ondersteunt</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="messages">
+<title
+>Meldingen</title>
+
+<sect1 id="writing-messages">
+<title
+>Berichten schrijven</title>
+<para
+>Typ uw bericht in het tekstveld onderaan de ruimte en druk op &Enter; om het te verzenden. Berichten ondersteunen Markdown-opmaak. Door <literal
+>@</literal
+> te typen worden gebruikersnamen aangevuld, <literal
+>#</literal
+> vult kanaalnamen aan, <literal
+>:</literal
+> vult emoji's aan en <literal
+>/</literal
+> toont de slash-commando's die op de server beschikbaar zijn.</para>
+
+<para
+>Met de knoppen naast het tekstveld kunt u:</para>
+<itemizedlist>
+<listitem
+><para
+>Voeg een emoji in, inclusief de aangepaste emoji van de server</para
+></listitem>
+<listitem
+><para
+>Voeg een of meer bestanden toe (u kunt ze ook slepen en neerzetten of plakken)</para
+></listitem>
+<listitem
+><para
+>Neem een ​​geluids- of videoboodschap op en verstuur deze</para
+></listitem>
+<listitem
+><para
+>Gebruik de hulpmiddelen die door plug-ins worden aangeboden, zoals het maken van een schermafbeelding.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Spellingscontrole en automatische correctie zijn beschikbaar tijdens het typen en kunnen in het instellingenvenster worden geconfigureerd.</para>
+</sect1>
+
+<sect1 id="message-actions">
+<title
+>Op berichten reageren</title>
+<para
+>Als u met de muis over een bericht beweegt, verschijnen er knoppen om een ​​reactie toe te voegen, in een thread te reageren of het bericht met een ster te markeren. Het contextmenu biedt meer acties, afhankelijk van uw rechten:</para>
+<itemizedlist>
+<listitem
+><para
+>Bewerk, verwijder of haal een bericht aan</para
+></listitem>
+<listitem
+><para
+>Kopieer het bericht, de selectie of een koppeling naar het bericht</para
+></listitem>
+<listitem
+><para
+>Reageer in een thread (discussie), volg deze of maak volgen ongedaan, toon de volledige thread</para
+></listitem>
+<listitem
+><para
+>Start een discussie of een privégesprek vanuit het bericht</para
+></listitem>
+<listitem
+><para
+>Het bericht vastpinnen, markeren met een ster, doorsturen of rapporteren</para
+></listitem>
+<listitem
+><para
+>Markeer het bericht als ongelezen</para
+></listitem>
+<listitem
+><para
+>Vertaal het bericht of toon de oorspronkelijke tekst</para
+></listitem>
+<listitem
+><para
+>Leesbevestigingen weergeven, indien ingeschakeld op de server</para
+></listitem>
+</itemizedlist>
+
+<para
+>Afbeeldingen, video's en geluiden worden inline weergegeven en kunnen in een viewer worden geopend. Voorbeelden van URL's kunnen in de instellingen worden ingeschakeld.</para>
+</sect1>
+
+<sect1 id="searching">
+<title
+>Zoeken</title>
+<para
+>Gebruik de zoekknop in de kop van de room om de berichten in de huidige room te doorzoeken. <menuchoice
+><guimenu
+>Kanaal</guimenu
+><guimenuitem
+>Deelnemen aan room…</guimenuitem
+></menuchoice
+>, <guimenuitem
+>Deelnemen aan team…</guimenuitem
+> en <guimenuitem
+>Privégesprek openen…</guimenuitem
+> doorzoeken de serverlijst op rooms, teams en gebruikers.</para>
+</sect1>
+</chapter>
+
+<chapter id="rooms">
+<title
+>Rooms, discussies en teams</title>
+<para
+>Met het menu <guimenu
+>Kanaal</guimenu
+> kunt u het volgende aanmaken:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Nieuw kanaal aanmaken…</guimenuitem
+>: een openbaar kanaal of een besloten groep, optioneel alleen-lezen, voor uitzendingen of versleuteld</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Directe berichten aanmaken…</guimenuitem
+>: een gesprek met een of meer gebruikers</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Discussie aanmaken…</guimenuitem
+>: een subgesprek dat aan een room is gekoppeld</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Team aanmaken…</guimenuitem
+>: een groep gebruikers met eigen kanalen</para
+></listitem>
+</itemizedlist>
+
+<para
+>Het dialoogvenster met roominformatie toont de naam, het onderwerp, de aankondiging, de beschrijving en de avatar van de room. Eigenaren kunnen deze gegevens bewerken, het roomtype wijzigen, een wachtwoord instellen en opties configureren zoals de modus alleen-lezen of het opschonen van berichten. Teameigenaren kunnen teamkanalen toevoegen, verwijderen en omzetten.</para>
+</chapter>
+
+<chapter id="notifications">
+<title
+>Meldingen</title>
+<para
+>&i18n-kapplication; gebruikt het bureaubladmeldingssysteem om u te informeren over nieuwe berichten en vermeldingen, en toont tellers voor ongelezen berichten in de lijst met rooms en in het systeemvak. Het meldingsgedrag (bureaubladmelding, geluid, e-mail) kan per ruimte worden ingesteld via <guimenuitem
+>Meldingen configureren…</guimenuitem
+> in het menu Room.</para>
+
+<para
+><menuchoice
+><guimenu
+>Hulpmiddelen</guimenu
+><guimenuitem
+>Meldingsgeschiedenis weergeven</guimenuitem
+></menuchoice
+> toont de meldingen die u tijdens de sessie hebt ontvangen.</para>
+</chapter>
+
+<chapter id="encryption">
+<title
+>End-to-end versleuteling</title>
+<para
+>Wanneer de server dit ondersteunt, biedt &i18n-kapplication; ondersteuning voor end-to-end-versleuteling van Rocket.Chat voor directe berichten en privégroepen. Uw versleutelingssleutels worden beveiligd met een wachtwoord dat u kunt beheren op de pagina <guilabel
+>Versleuteling</guilabel
+> onder <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Mijn account…</guimenuitem
+></menuchoice
+>. Bij versleutelde kanalen wordt een hangslotpictogram in de koptekst weergegeven. Houd er rekening mee dat de inhoud van versleutelde berichten niet doorzoekbaar is.</para>
+</chapter>
+
+<chapter id="my-account">
+<title
+>Mijn account</title>
+<para
+>Met <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Mijn account…</guimenuitem
+></menuchoice
+> kunt u uw Rocket.Chat-profiel beheren:</para>
+<itemizedlist>
+<listitem
+><para
+>Profiel: naam, gebruikersnaam, e-mailadres, avatar, statusbericht en wachtwoord</para
+></listitem>
+<listitem
+><para
+>Door de server aangeboden voorkeuren</para
+></listitem>
+<listitem
+><para
+>Twee-factor-authenticatie (e-mail of TOTP)</para
+></listitem>
+<listitem
+><para
+>End-to-end versleutelingssleutels</para
+></listitem>
+<listitem
+><para
+>Persoonlijk toegangstoken</para
+></listitem>
+<listitem
+><para
+>Apparaten die op uw account zijn ingelogd</para
+></listitem>
+<listitem
+><para
+>Voorbeelden van mogelijkheden</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="administration">
+<title
+>Serverbeheer</title>
+<para
+>Gebruikers met de vereiste rechten kunnen de server beheren via <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Beheer</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+><guimenuitem
+>Beheerder…</guimenuitem
+> biedt toegang tot serverinformatie, kanalen, gebruikers, uitnodigingen, aangepaste emoji, aangepaste geluiden, aangepaste gebruikersstatussen, rollen, rechten, OAuth-applicaties, de moderatieconsole en de serverlogboeken.</para>
+
+<para
+>Met <guimenuitem
+>Serverinstellingen…</guimenuitem
+> kunt u de serverconfiguratie wijzigen en via de items onder <guimenuitem
+>Toepassingen</guimenuitem
+> kunt u door toepassingen uit de Rocket.Chat Marketplace bladeren en deze beheren.</para>
+
+<para
+><menuchoice
+><guimenu
+>Hulpmiddelen</guimenu
+><guimenuitem
+>Servercontrolelijst…</guimenuitem
+></menuchoice
+> controleert de serverconfiguratie op veelvoorkomende problemen.</para>
+</chapter>
+
+<chapter id="offline">
+<title
+>Offline-modus</title>
+<para
+>&i18n-kapplication; kan berichten in een lokale database opslaan (schakel <guilabel
+>Lokale database inschakelen</guilabel
+> in bij de instellingen onder <guilabel
+>Algemeen</guilabel
+>), zodat rooms sneller worden weergegeven en leesbaar blijven als de verbinding wegvalt. Met <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Offline werken</guimenuitem
+></menuchoice
+> verbreekt u bewust de verbinding met de server.</para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>&i18n-kapplication; configureren</title>
+<para
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>&i18n-kapplication; configureren…</guimenuitem
+></menuchoice
+> opent het instellingendialoogvenster, dat de volgende pagina's bevat:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Accounts</guilabel
+></term>
+<listitem
+><para
+>Serveraccounts toevoegen, wijzigen, inschakelen, uitschakelen of verwijderen.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Algemeen</guilabel
+></term>
+<listitem
+><para
+>Pictogram in het systeemvak, status bij opstarten, voorbeelden van afbeeldingen en &URL;s, geanimeerde GIF's, lokale database, logboekregistratie en andere gedragsopties.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Lettertype</guilabel
+></term>
+<listitem
+><para
+>Lettertype dat wordt gebruikt om berichten weer te geven.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Spellingscontrole</guilabel
+> en <guilabel
+>Automatische correctie</guilabel
+></term>
+<listitem
+><para
+>Taal- en correctieregels die tijdens het typen worden gebruikt.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Vertaling</guilabel
+></term>
+<listitem
+><para
+>Vertaalmachine die wordt gebruikt om berichten te vertalen.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Toegankelijkheid</guilabel
+></term>
+<listitem
+><para
+>Opties voor tekst-naar-spraak en spraak-naar-tekst, indien beschikbaar.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Plug-ins</guilabel
+></term>
+<listitem
+><para
+>Schakel plug-ins in of uit, bijvoorbeeld voor het delen van tekst, websnelkoppelingen, schermafbeeldingen of tekstgeneratie met een AI-engine.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Terugkoppeling van gebruiker</guilabel
+></term>
+<listitem
+><para
+>Kies welke anonieme gebruiksstatistieken naar de ontwikkelaars worden verzonden.</para
+></listitem
+></varlistentry>
+</variablelist>
+<para
+>Het kleurenschema kan worden gewijzigd in het menu <guimenu
+>Instellingen</guimenu
+> en de lettergrootte van berichten in het menu <guimenu
+>Beeld</guimenu
+>.</para>
+</chapter>
+
+<chapter id="tools">
+<title
+>Hulpmiddelen</title>
+<para
+>Het menu <guimenu
+>Hulpmiddelen</guimenu
+> biedt hulpmiddelen die vooral nuttig zijn voor probleemoplossing:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Kanaallog tonen</guimenuitem
+> en <guimenuitem
+>Serverfouten tonen</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>RocketChat-informatie weergeven</guimenuitem
+>: versie en mogelijkheden van de server</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Toegang tot portefeuille opnieuw proberen</guimenuitem
+>, wanneer het wachtwoord niet uit de portefeuille kon worden gelezen</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&i18n-kapplication;</para>
+<para
+>Programma copyright 2018-2026 &Laurent.Montel; &Laurent.Montel.mail; </para>
+<para
+>Documentatie Copyright &copy; &Laurent.Montel; &Laurent.Montel.mail; </para>
+
+&meld.fouten;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

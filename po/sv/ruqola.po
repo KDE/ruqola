@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"POT-Creation-Date: 2026-10-10 00:46+0000\n"
 "PO-Revision-Date: 2026-09-27 14:59+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2081,8 +2081,9 @@ msgid "Call ongoing"
 msgstr "Samtal pågår"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, kde-format
-msgid "InComing Call"
+#, fuzzy, kde-format
+#| msgid "InComing Call"
+msgid "Incoming Call"
 msgstr "Inkommande samtal"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -2257,13 +2258,13 @@ msgid "User is not an owner."
 msgstr "Användare är inte en ägare."
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:56
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "En kanal som heter '%1' finns"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:58
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:60
 #, kde-format
 msgid "'%1' is not a valid room name"
@@ -2350,7 +2351,7 @@ msgid "The custom emoji or one of its aliases is already in use."
 msgstr "Egen emoji eller en av dess alias används redan."
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
@@ -2361,113 +2362,113 @@ msgstr "Det här är den sista ägaren. Ange en ny ägare innan den här tas bor
 msgid "Generate link is not authorized in this channel."
 msgstr "Saknar behörighet för att generera länk i kanalen."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "Unauthorized"
 msgstr "Obehörig"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 msgid "Application not found"
 msgstr "Program hittades inte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 msgid "Can't invite user to direct rooms"
 msgstr "Kan inte bjuda in användare till direkta rum"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr "Kanalens standardinställning är likadan som den skulle ändras till."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
 msgid "The bodyParam 'default' is required"
 msgstr "bodyParam 'default' krävs"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 msgid "Could not change email"
 msgstr "Kunde inte ändra e-post"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
 msgid "Could not change name"
 msgstr "Kunde inte ändra namn"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 msgid "Could not change username"
 msgstr "Kunde inte ändra användarnamn"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
 msgid "Cannot delete a protected role"
 msgstr "Kan inte ta bort skyddad roll"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 msgid "Department not found"
 msgstr "Avdelning hittades inte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 msgid "File sharing not allowed in direct messages"
 msgstr "Fildelning tillåts inte i direkta meddelanden"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 msgid "Editing permissions is not allowed"
 msgstr "Rättigheter att redigera tillåts inte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 msgid "The email domain is blacklisted"
 msgstr "E-postdomänen är svartlistad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 msgid "File is too large"
 msgstr "Filen är för stor"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "Importören definierades inte korrekt. Den saknar importklassen."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 msgid "Failed to extract import file."
 msgstr "Misslyckades extrahera importfil."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 msgid "Imported file seems to be empty."
 msgstr "Importerad fil verkar vara tom."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
 msgid "The file to be imported was not found on the specified path."
 msgstr "Filen att importera hittades inte med den angivna sökvägen."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 msgid "Invalid action link"
 msgstr "Ogiltig åtgärdslänk"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 msgid "Invalid Account"
 msgstr "Ogiltigt konto"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
 msgid "Invalid arguments"
 msgstr "Ogiltiga argument"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 msgid "Invalid asset"
 msgstr "Ogiltig tillgång"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
 msgid "Invalid channel."
 msgstr "Ogiltig kanal."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 msgid "Invalid channel. Start with @ or #"
 msgstr "Ogiltig kanal. Inled med @ eller #"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 msgid "Invalid custom field"
 msgstr "Ogiltigt eget fält"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
 "underscores."
@@ -2475,142 +2476,142 @@ msgstr ""
 "Ogiltigt eget fältnamn. Använd bara bokstäver, siffror, bindestreck och "
 "understreck."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 msgid "Invalid date provided."
 msgstr "Ogiltigt datum angivet."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 msgid "Invalid description"
 msgstr "Ogiltig beskrivning"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
 msgid "Invalid domain"
 msgstr "Ogiltig domän"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 msgid "Invalid email address"
 msgstr "Ogiltig e-postadress"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
 msgid "Invalid file height"
 msgstr "Ogiltig filhöjd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 msgid "Invalid file type"
 msgstr "Ogiltig filtyp"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 msgid "Invalid file width"
 msgstr "Ogiltig filbredd"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 msgid "You informed an invalid FROM address."
 msgstr "Du informerade en ogiltig FRÅN-adress."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 msgid "Invalid integration"
 msgstr "Ogiltig integrering"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 msgid "Invalid message"
 msgstr "Ogiltigt meddelande"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 msgid "Invalid method"
 msgstr "Ogiltig metod"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 msgid "Invalid name"
 msgstr "Ogiltigt namn"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 msgid "Invalid password"
 msgstr "Ogiltig lösenord"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 msgid "Invalid permission"
 msgstr "Ogiltig rättighet"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 msgid "Invalid redirectUri"
 msgstr "Ogiltig omdirigeringswebbadress"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 msgid "Invalid role"
 msgstr "Ogiltig roll"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:181
 #, kde-format
 msgid "Invalid room"
 msgstr "Ogiltigt rum"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
 msgid "Invalid settings provided"
 msgstr "Ogiltiga inställningar angivna"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 msgid "Invalid subscription"
 msgstr "Ogiltig prenumeration"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
 msgid "Invalid token"
 msgstr "Ogiltig symbol"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 msgid "Invalid triggerWords"
 msgstr "Ogiltiga utlösningsord"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
 msgid "Invalid URLs"
 msgstr "Ogiltiga webbadresser"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 msgid "Invalid user"
 msgstr "Ogiltig användare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 msgid "Invalid username"
 msgstr "Ogiltigt användarnamn"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 msgid "The webhook URL responded with a status other than 200"
 msgstr "Webbadressen svarade med en status skild från 200"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
 msgid "Message deleting is blocked"
 msgstr "Meddelandeborttagning är blockerad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 msgid "Message editing is blocked"
 msgstr "Meddelanderedigering är blockerad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Meddelandestorlek överskrider Message_MaxAllowedSize"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 msgid "You must provide the [unsubscribe] link."
 msgstr "Du måste tillhandahålla länken [unsubscribe]."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
 msgid "There are no tokens for this user"
 msgstr "Det finns inga symboler för användaren"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 msgid "Not allowed"
 msgstr "Tillåts inte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 msgid "Not authorized"
 msgstr "Saknar behörighet"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
 msgid "Password does not meet the server's policy"
 msgstr "Lösenordet uppfyller inte serverns policy"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
 "long)"
@@ -2618,7 +2619,7 @@ msgstr ""
 "Lösenordet uppfyller inte serverns policy för maximal lösenordslängd "
 "(lösenordet för långt)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
 "short)"
@@ -2626,30 +2627,30 @@ msgstr ""
 "Lösenordet uppfyller inte serverns policy för minimal lösenordslängd "
 "(lösenordet för kort)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
 msgstr "Lösenordet uppfyller inte serverns policy för minst en liten bokstav"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr "Lösenordet uppfyller inte serverns policy för minst ett siffertecken"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr "Lösenordet uppfyller inte serverns policy för minst ett specialtecken"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
 msgstr "Lösenordet uppfyller inte serverns policy för minst en stor bokstav"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
 "(you have too many of the same characters next to each other)"
@@ -2657,51 +2658,51 @@ msgstr ""
 "Lösenordet uppfyller inte serverns policy av förbjudna upprepade tecken (du "
 "har för många likadana tecken intill varandra)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 msgid "Push is disabled"
 msgstr "Push är inaktiverad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 msgid "Cannot delete role because it's in use"
 msgstr "Kan inte ta bort roll eftersom den används"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 msgid "Role name is required"
 msgstr "Rollnamn krävs"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 msgid "Room is not closed"
 msgstr "Rummet är inte stängt"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
 msgid "The room already has an end-to-end encryption key ID"
 msgstr "Rummet har redan nyckel-id för kryptering början till slut"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 msgid "This is not a Livechat room"
 msgstr "Det här är inte ett LiveChat-rum"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Personliga åtkomstsymboler är för närvarande inaktiverade"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
 msgid "A token with this name already exists"
 msgstr "En symbol med det här namnet finns redan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
 msgid "Token does not exists"
 msgstr "Symbol finns inte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 msgid "User has no roles"
 msgstr "Användare har inga roller"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
 msgid "User is not activated"
 msgstr "Användare är inte aktiverad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
 "limit set by the administrator"
@@ -2709,73 +2710,73 @@ msgstr ""
 "Antal användare som du försöker inbjuda till #channel_name överskrider "
 "gränsen inställd av administratören"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 msgid "User is not in this room"
 msgstr "Användare finns inte i det här rummet"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
 #, fuzzy, kde-format
 #| msgid "You are not in the room `%s`"
 msgid "You are not in the room `%1`"
 msgstr "Du är inte i rummet `%s`"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
 msgstr "Användarregistrering är inaktiverad"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 msgid "User registration is only allowed via Secret URL"
 msgstr "Användarregistrering tillåts bara via hemlig webbadress"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr "Du är den sista ägaren. Ange ny ägare innan du lämnar rummet."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 msgid "The private group is archived"
 msgstr "Den privata gruppen har arkiverats"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
 msgid "User is already an owner"
 msgstr "Användaren är redan en ägare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 msgid "User is already a leader"
 msgstr "Användaren är redan en ledare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
 msgid "User is already a moderator"
 msgstr "Användaren är redan en moderator"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 msgid "Invalid message id"
 msgstr "Ogiltigt meddelande-id"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
 msgid "User is not a leader"
 msgstr "Användare är inte en ledare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 msgid "App user is not allowed to login"
 msgstr "Applikationsanvändare tillåts inte logga in"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
 msgid "Direct Messages can not be archived"
 msgstr "Direktmeddelanden kan inte arkiveras"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 msgid "Message not found."
 msgstr "Meddelande hittades inte."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
 msgid "Two Authentication Password Required"
 msgstr "Tvåfaktorslösenord krävs"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 msgid "Invalid Password"
 msgstr "Ogiltigt lösenord"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
@@ -2783,63 +2784,63 @@ msgstr ""
 "De tillhandahållna nödvändiga parametrarna \\\"roomId\\\" eller \\\"roomName"
 "\\\" motsvarar inte någon kanal"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 msgid "A role with this name already exists"
 msgstr "En roll med det här namnet finns redan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
 msgid "Message could not be pinned"
 msgstr "Meddelandet kunde inte sättas upp"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 msgid "Entered password has been previously used"
 msgstr "Angivet lösenord har använts tidigare"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:368
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Maximalt antal rum per gäst har nåtts."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "'%1' tillåts inte"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "Det finns en arkiverad kanal med namn '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Fel vid försök att skicka e-post: %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "'%1' används redan"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "%1 är inte en giltig %2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "Ogiltig e-post '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "'%1' är inte en giltig rumstyp"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "Fältet '%1' krävs."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:393
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -3362,7 +3363,7 @@ msgid "Show Moderation Messages"
 msgstr "Visa modereringsmeddelanden"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
-#: widgets/dialogs/searchmessagewidget.cpp:218
+#: widgets/dialogs/searchmessagewidget.cpp:213
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #: widgets/discussions/showdiscussionswidget.cpp:107
 #: widgets/room/commandpreviewwidget.cpp:171
@@ -3372,14 +3373,14 @@ msgid "Loading…"
 msgstr "Läser in…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
-#: widgets/dialogs/searchmessagewidget.cpp:222
+#: widgets/dialogs/searchmessagewidget.cpp:217
 #: widgets/dialogs/showlistmessagebasewidget.cpp:109
 #, kde-format
 msgid "No Message found"
 msgstr "Inga meddelanden hittades"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
-#: widgets/dialogs/searchmessagewidget.cpp:228
+#: widgets/dialogs/searchmessagewidget.cpp:223
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"

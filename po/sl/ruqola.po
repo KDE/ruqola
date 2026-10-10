@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-09 00:46+0000\n"
+"POT-Creation-Date: 2026-10-10 00:46+0000\n"
 "PO-Revision-Date: 2026-10-08 07:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2105,8 +2105,9 @@ msgid "Call ongoing"
 msgstr "Klic v teku"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, kde-format
-msgid "InComing Call"
+#, fuzzy, kde-format
+#| msgid "InComing Call"
+msgid "Incoming Call"
 msgstr "Dohodni klic"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -2283,13 +2284,13 @@ msgid "User is not an owner."
 msgstr "Uporabnik ni lastnik."
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:56
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
 #, kde-format
 msgid "A channel with name '%1' exists"
 msgstr "Kanal z imenom »%1« obstaja"
 
 #: rocketchatrestapi-qt/channels/createchanneljob.cpp:58
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:60
 #, kde-format
 msgid "'%1' is not a valid room name"
@@ -2374,7 +2375,7 @@ msgid "The custom emoji or one of its aliases is already in use."
 msgstr "Emodži po meri ali eden od njegovih vzdevkov je že v uporabi."
 
 #: rocketchatrestapi-qt/groups/groupremoveownerjob.cpp:48
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
 #, kde-format
 msgid ""
 "This is the last owner. Please set a new owner before removing this one."
@@ -2386,116 +2387,116 @@ msgstr ""
 msgid "Generate link is not authorized in this channel."
 msgstr "Tvori povezavo ni dovoljeno v tem kanalu."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:239
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
 msgid "Unauthorized"
 msgstr "Neavtorizirano"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:257
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
 msgid "%1:%2"
 msgstr "%1:%2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:266
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
 msgid "Application not found"
 msgstr "Programa ni mogoče najti"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:267
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
 msgid "Can't invite user to direct rooms"
 msgstr "Uporabnika ni mogoče povabiti v neposredne sobe"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:268
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
 msgid "The channel default setting is the same as what it would be changed to."
 msgstr ""
 "Privzeta nastavitev kanala je enaka nastavitvi, v katero jo želite "
 "spremeniti."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:269
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
 msgid "The bodyParam 'default' is required"
 msgstr "Potreben je teloParam »privzeto«"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:270
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
 msgid "Could not change email"
 msgstr "E-pošte ni bilo mogoče spremeniti"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:271
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
 msgid "Could not change name"
 msgstr "Ni mogoče spremeniti imena"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:272
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
 msgid "Could not change username"
 msgstr "Uporabniškega imena ni bilo mogoče spremeniti"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:273
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
 msgid "Cannot delete a protected role"
 msgstr "Zaščitene vloge ni mogoče izbrisati"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:274
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
 msgid "Department not found"
 msgstr "Oddelek ni bil najden"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:275
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
 msgid "File sharing not allowed in direct messages"
 msgstr "Skupna raba datotek ni dovoljena v neposrednih sporočilih"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:276
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
 msgid "Editing permissions is not allowed"
 msgstr "Dovoljenja za urejanje niso dovoljena"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:277
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
 msgid "The email domain is blacklisted"
 msgstr "Domena e-pošte je na črnem seznamu"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:278
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
 msgid "File is too large"
 msgstr "Datoteka je prevelika"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:279
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
 msgid "The importer was not defined correctly, it is missing the Import class."
 msgstr "Uvoznik ni bil pravilno definiran, manjka mu razred Import."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:280
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
 msgid "Failed to extract import file."
 msgstr "Izvleček uvozne datoteke ni uspel."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:281
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
 msgid "Imported file seems to be empty."
 msgstr "Uvožena datoteka je videti prazna."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:282
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
 msgid "The file to be imported was not found on the specified path."
 msgstr ""
 "Datoteke, ki jo je treba uvoziti, ni bilo mogoče najti na navedeni poti."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:283
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
 msgid "Invalid action link"
 msgstr "Neveljavna povezava dejanja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:284
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
 msgid "Invalid Account"
 msgstr "Neveljaven račun"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:285
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
 msgid "Invalid arguments"
 msgstr "Neveljavni argumenti"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:286
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
 msgid "Invalid asset"
 msgstr "Neveljavno sredstvo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:287
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
 msgid "Invalid channel."
 msgstr "Neveljaven kanal."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:288
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
 msgid "Invalid channel. Start with @ or #"
 msgstr "Neveljaven kanal. Začnite z @ ali #"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:289
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
 msgid "Invalid custom field"
 msgstr "Neveljavno polje po meri"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:290
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
 msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
 "underscores."
@@ -2503,142 +2504,142 @@ msgstr ""
 "Neveljavno ime polja po meri. Uporabite samo črke, števke, vezaje in "
 "podčrtaje."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:291
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
 msgid "Invalid date provided."
 msgstr "Podani podatki so neveljavni."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:292
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
 msgid "Invalid description"
 msgstr "Neveljaven opis"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:293
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
 msgid "Invalid domain"
 msgstr "Neveljavna domena"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:294
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
 msgid "Invalid email address"
 msgstr "Neveljaven e-poštni naslov"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:295
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
 msgid "Invalid file height"
 msgstr "Neveljavna višina datoteke"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:296
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
 msgid "Invalid file type"
 msgstr "Neveljavna vrsta datoteke"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:297
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
 msgid "Invalid file width"
 msgstr "Neveljavna širina datoteke"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:298
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
 msgid "You informed an invalid FROM address."
 msgstr "Obvestili ste neveljaven naslov FROM."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:299
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
 msgid "Invalid integration"
 msgstr "Neveljavna integracija"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:300
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
 msgid "Invalid message"
 msgstr "Neveljavno sporočilo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:301
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
 msgid "Invalid method"
 msgstr "Neveljavna metoda"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:302
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
 msgid "Invalid name"
 msgstr "Neveljavno ime"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:303
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
 msgid "Invalid password"
 msgstr "Neveljavno geslo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:304
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
 msgid "Invalid permission"
 msgstr "Neveljavno dovoljenje"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:305
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
 msgid "Invalid redirectUri"
 msgstr "Neveljavna preusmeritev URI"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:306
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
 msgid "Invalid role"
 msgstr "Neveljavna vloga"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:307
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:181
 #, kde-format
 msgid "Invalid room"
 msgstr "Neveljavna soba"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:308
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
 msgid "Invalid settings provided"
 msgstr "Podane nastavitve so neveljavne"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:309
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
 msgid "Invalid subscription"
 msgstr "Neveljavna naročnina"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:310
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
 msgid "Invalid token"
 msgstr "Neveljaven žeton"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:311
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
 msgid "Invalid triggerWords"
 msgstr "Neveljaven sprožilec besed"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:312
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
 msgid "Invalid URLs"
 msgstr "Neveljavni URL-ji"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:313
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
 msgid "Invalid user"
 msgstr "Neveljaven uporabnik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:314
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
 msgid "Invalid username"
 msgstr "Napačno uporabniško ime"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:315
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
 msgid "The webhook URL responded with a status other than 200"
 msgstr "Spletni naslov webhook se je odzval s statusom, ki ni 200"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:316
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
 msgid "Message deleting is blocked"
 msgstr "Brisanje sporočil je blokirano"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:317
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
 msgid "Message editing is blocked"
 msgstr "Urejanje sporočil je blokirano"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:318
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
 msgid "Message size exceeds Message_MaxAllowedSize"
 msgstr "Velikost sporočila presega Message_MaxAllowedSize"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:319
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
 msgid "You must provide the [unsubscribe] link."
 msgstr "Navedite povezavo [za odjavo]."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:320
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
 msgid "There are no tokens for this user"
 msgstr "Za tega uporabnika ni žetonov"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:321
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
 msgid "Not allowed"
 msgstr "Ni dovoljeno"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:322
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:323
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
 msgid "Not authorized"
 msgstr "Ni pooblaščen"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:324
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
 msgid "Password does not meet the server's policy"
 msgstr "Geslo ne ustreza pravilom strežnika"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:325
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
 msgid ""
 "Password does not meet the server's policy of maximum length (password too "
 "long)"
@@ -2646,7 +2647,7 @@ msgstr ""
 "Geslo ne ustreza pravilom strežnika glede največje dolžine (geslo je "
 "predolgo)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:326
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
 msgid ""
 "Password does not meet the server's policy of minimum length (password too "
 "short)"
@@ -2654,30 +2655,30 @@ msgstr ""
 "Geslo ne ustreza pravilom strežnika glede najmanjše dolžine (geslo je "
 "prekratko)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:327
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
 msgstr "Geslo ne ustreza pravilom strežnika glede vsaj ene male črke"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:328
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
 msgstr "Geslo ne ustreza pravilom strežnika glede vsaj ene števke"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:329
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:331
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr "Geslo ne ustreza pravilom strežnika glede vsaj enega posebnega znaka"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:330
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
 msgstr "Geslo ne ustreza pravilom strežnika glede vsaj ene velike črke"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:332
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:334
 msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
 "(you have too many of the same characters next to each other)"
@@ -2685,51 +2686,51 @@ msgstr ""
 "Geslo ne ustreza pravilom strežnika o prepovedanih ponavljajočih se znakih "
 "(med seboj imate preveč soležnih istih znakov)"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:333
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
 msgid "Push is disabled"
 msgstr "Potiskanje je onemogočeno"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:335
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
 msgid "Cannot delete role because it's in use"
 msgstr "Vloge ni mogoče izbrisati, ker je v uporabi"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:336
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
 msgid "Role name is required"
 msgstr "Zahtevano je ime vloge"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:337
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
 msgid "Room is not closed"
 msgstr "Soba ni zaprta"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:338
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
 msgid "The room already has an end-to-end encryption key ID"
 msgstr "Soba že ima ID ključa za šifriranje od enega do drugega konca"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:339
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
 msgid "This is not a Livechat room"
 msgstr "To ni soba Livechat"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:340
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
 msgid "Personal Access Tokens are currently disabled"
 msgstr "Žetoni za osebni dostop so trenutno onemogočeni"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:341
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
 msgid "A token with this name already exists"
 msgstr "Žeton s tem imenom že obstaja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:342
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
 msgid "Token does not exists"
 msgstr "Žeton ne obstaja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:343
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
 msgid "User has no roles"
 msgstr "Uporabnik nima vlog"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:344
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
 msgid "User is not activated"
 msgstr "Uporabnik ni aktiviran"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:345
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
 msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
 "limit set by the administrator"
@@ -2737,72 +2738,72 @@ msgstr ""
 "Število uporabnikov, ki jih želite povabiti v #channel_name, presega "
 "omejitev, ki jo je določil skrbnik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:346
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
 msgid "User is not in this room"
 msgstr "Uporabnik ni v tej sobi"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:347
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
 #, kde-format
 msgid "You are not in the room `%1`"
 msgstr "Niste v sobi `%1`"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:348
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
 msgstr "Registracija uporabnika je onemogočena"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:349
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
 msgid "User registration is only allowed via Secret URL"
 msgstr "Registracija uporabnika je dovoljena le prek tajnega URL-ja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:350
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr "Vi ste zadnji lastnik. Pred odhodom iz sobe postavite novega lastnika."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:351
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
 msgid "The private group is archived"
 msgstr "Zasebna skupina je arhivirana"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:352
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
 msgid "User is already an owner"
 msgstr "Uporabnik je že lastnik"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:353
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
 msgid "User is already a leader"
 msgstr "Uporabnik je že vodja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:354
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
 msgid "User is already a moderator"
 msgstr "Uporabnik je že moderator"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:355
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
 msgid "Invalid message id"
 msgstr "Neveljaven ID sporočila"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:356
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
 msgid "User is not a leader"
 msgstr "Uporabnik ni vodja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:357
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
 msgid "App user is not allowed to login"
 msgstr "Uporabniku programa ni dovoljena prijavo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:358
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
 msgid "Direct Messages can not be archived"
 msgstr "Neposrednih sporočil ni mogoče arhivirati"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:359
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
 msgid "Message not found."
 msgstr "Sporočila ni mogoče najti."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:360
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
 msgid "Two Authentication Password Required"
 msgstr "Zahtevano je geslo za dvostopenjsko preverjanje pristnosti"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:361
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
 msgid "Invalid Password"
 msgstr "Neveljavno geslo"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:362
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
@@ -2810,63 +2811,63 @@ msgstr ""
 "Zahtevani in dani parameter \\\"roomId\\\" ali \\\"roomName\\\" se ne ujema "
 "z nobenim kanalom"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:363
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
 msgid "A role with this name already exists"
 msgstr "Vloga s tem imenom že obstaja"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:364
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
 msgid "Message could not be pinned"
 msgstr "Sporočila ni bilo mogoče pripeti"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:365
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:367
 msgid "Entered password has been previously used"
 msgstr "Vneseno geslo je že bilo uporabljeno prej"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:366
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:368
 msgid "The maximum number of rooms per guest has been reached."
 msgstr "Doseženo je maksimalno število sob za gosta."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:381
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:383
 #, kde-format
 msgid "'%1' is not allowed"
 msgstr "'%1' ni dovoljeno"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:382
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
 #, kde-format
 msgid "There's an archived channel with name '%1'"
 msgstr "Obstaja arhiviran kanal z imenom '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:384
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
 #, kde-format
 msgid "Error trying to send email: %1"
 msgstr "Napaka pri poskusu pošiljanja e-pošte %1"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:385
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
 #, kde-format
 msgid "'%1' is already in use :("
 msgstr "%1 je že v uporabi :("
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:386
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:388
 #, kde-format
 msgid "%1 is not a valid %2"
 msgstr "%1 ni veljavno %2"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:387
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
 #, kde-format
 msgid "Invalid email '%1'"
 msgstr "Neveljavna e-pošta '%1'"
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:389
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
 #, kde-format
 msgid "'%1' is not a valid room type."
 msgstr "'%1' ni veljavna vrsta sobe."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:390
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:392
 #, kde-format
 msgid "The field '%1' is required."
 msgstr "Polje '%1' je obvezno."
 
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:391
+#: rocketchatrestapi-qt/restapiabstractjob.cpp:393
 #, kde-format
 msgid ""
 "Error, too many requests. Please slow down. You must wait %1 seconds before "
@@ -3392,7 +3393,7 @@ msgid "Show Moderation Messages"
 msgstr "Pokaži sporočila moderiranja"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:56
-#: widgets/dialogs/searchmessagewidget.cpp:218
+#: widgets/dialogs/searchmessagewidget.cpp:213
 #: widgets/dialogs/showlistmessagebasewidget.cpp:107
 #: widgets/discussions/showdiscussionswidget.cpp:107
 #: widgets/room/commandpreviewwidget.cpp:171
@@ -3402,14 +3403,14 @@ msgid "Loading…"
 msgstr "Nalaganje…"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:58
-#: widgets/dialogs/searchmessagewidget.cpp:222
+#: widgets/dialogs/searchmessagewidget.cpp:217
 #: widgets/dialogs/showlistmessagebasewidget.cpp:109
 #, kde-format
 msgid "No Message found"
 msgstr "Ni zadetkov med sporočili"
 
 #: widgets/administratordialog/moderationconsole/moderationmessageswidget.cpp:64
-#: widgets/dialogs/searchmessagewidget.cpp:228
+#: widgets/dialogs/searchmessagewidget.cpp:223
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
