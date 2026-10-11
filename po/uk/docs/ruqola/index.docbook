@@ -1,0 +1,704 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!-- Define an entity for your application if it is not part of KDE
+       CVS -->
+  <!ENTITY i18n-kapplication "<application
+>Ruqola</application
+>">
+  <!ENTITY kappname "&i18n-kapplication;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<book id="ruqola" lang="&language;">
+
+<bookinfo id="ruqolainfo">
+
+<title
+>Підручник з &i18n-kapplication;</title>
+
+<authorgroup>
+<author
+><personname
+> <firstname
+>Laurent</firstname
+> <surname
+>Montel</surname
+> </personname
+> <email
+>montel@kde.org</email
+> </author>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2018</year>
+<holder
+>Laurent Montel</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>7 жовтня 2026 року</date>
+<releaseinfo
+>2.9.0</releaseinfo>
+
+<abstract>
+<para
+>&i18n-kapplication; — клієнтська програма для RocketChat. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>RocketChat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+<para
+>&i18n-kapplication; — це клієнт серверів Rocket.Chat для робочих станцій. Програма надає змогу спілкуватися в каналах, приватних групах, обговореннях і командах, обмінюватися особистими повідомленнями, ділитися файлами та адмініструвати сервер — і все це за допомогою рідної програми &kde;.</para>
+
+<para
+>&i18n-kapplication; може встановлювати з'єднання з кількома серверами Rocket.Chat одночасно та дозволяє швидко перемикатися між ними.</para>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Початкові зауваження</title>
+
+<sect1 id="adding-server">
+<title
+>Додавання сервера</title>
+<para
+>Під час першого запуску &i18n-kapplication; вам буде запропоновано додати обліковий запис сервера. Ви зможете додати інші облікові записи пізніше за допомогою пункту меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Додати сервер…</guimenuitem
+></menuchoice
+>. Введіть адресу сервера та виберіть метод розпізнавання.</para>
+
+<para
+>Залежно від того, що уможливлює сервер, доступні такі методи розпізнавання:</para>
+<itemizedlist>
+<listitem
+><para
+>Ім'я користувача (або адреса електронної пошти) і пароль</para
+></listitem>
+<listitem
+><para
+>Особистий жетон доступу</para
+></listitem>
+<listitem
+><para
+>Надавачі послуг OAuth, зокрема Google, GitHub, GitLab, Facebook і Twitter</para
+></listitem>
+</itemizedlist>
+
+<para
+>Якщо для вашого облікового запису увімкнено двофакторне розпізнавання, &i18n-kapplication; запитуватиме код під час входу. Паролі зберігаються у загальносистемному сховищі паролів.</para>
+
+<para
+>Якщо сервер це дозволяє, ви можете створити новий обліковий запис за допомогою <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Зареєструвати нового користувача…</guimenuitem
+></menuchoice
+>.</para>
+</sect1>
+
+<sect1 id="multiple-servers">
+<title
+>Використання декількох серверів</title>
+<para
+>Кожен налаштований обліковий запис буде показано як вкладку. Для перемикання між ними використовуйте пункти <menuchoice
+><guimenu
+>Вікно</guimenu
+><guimenuitem
+>Наступний сервер</guimenuitem
+></menuchoice
+> та <menuchoice
+><guimenu
+>Вікно</guimenu
+><guimenuitem
+>Попередній сервер</guimenuitem
+></menuchoice
+>. Облікові записи можна вмикати, вимикати, змінювати їхній порядок або вилучати на сторінці <guilabel
+>Облікові записи</guilabel
+> у вікні налаштувань.</para>
+
+<para
+>Пункти <menuchoice
+><guimenu
+>Інструменти</guimenu
+><guimenuitem
+>Експортувати облікові записи</guimenuitem
+></menuchoice
+> та <menuchoice
+><guimenu
+>Інструменти</guimenu
+><guimenuitem
+>Імпортувати облікові записи</guimenuitem
+></menuchoice
+> дозволяють перенести налаштування ваших облікових записів на інший комп’ютер.</para>
+</sect1>
+</chapter>
+
+<chapter id="main-window">
+<title
+>Головне вікно</title>
+
+<sect1 id="room-list">
+<title
+>Список кімнат</title>
+<para
+>У лівій частині вікна буде показано список ваших каналів, приватних груп, особистих повідомлень, обговорень і команд. Поле пошуку у верхній частині дозволяє фільтрувати цей список. Змінити свій стан (у мережі, зайнятий, відсутній, не в мережі або нетиповий стан) можна за допомогою панелі стану в нижній частині вікна.</para>
+
+<para
+>За допомогою меню <guimenu
+>Перегляд</guimenu
+> можна змінити вигляд списку:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Стислий</guimenuitem
+>, <guimenuitem
+>Середній</guimenuitem
+> або <guimenuitem
+>Розширений</guimenuitem
+> показ</para
+></listitem>
+<listitem
+><para
+>Упорядкування <guimenuitem
+>за останнім повідомленням</guimenuitem
+> або <guimenuitem
+>за абеткою</guimenuitem
+> з додатковим пунктом <guimenuitem
+>непрочитані зверху</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Показати аватар кімнати</guimenuitem
+> і <guimenuitem
+>Показати улюблену кімнату</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Позначити усі канали як прочитані</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+><menuchoice
+><guimenu
+>Канал</guimenu
+><guimenuitem
+>Перейти до наступного непрочитаного каналу</guimenuitem
+></menuchoice
+> переміщує вас до наступної кімнати з непрочитаними повідомленнями.</para>
+</sect1>
+
+<sect1 id="room-view">
+<title
+>Перегляд кімнати</title>
+<para
+>У правій частині вікна буде показано повідомлення вибраної кімнати. У заголовку показано назву і тему кімнати, а також розміщено кнопки для додавання кімнати до улюблених, перегляду відомостей про неї, списку учасників, пошуку повідомлень, започаткування виклику та відкриття меню кімнати.</para>
+
+<para
+>Меню кімнати надає доступ до такого:</para>
+<itemizedlist>
+<listitem
+><para
+>Пришпилених повідомлень, повідомлень із зірочками і повідомлень зі згадками, гілок обговорення, обговорень та файлових долучень</para
+></listitem>
+<listitem
+><para
+>Додавання або запрошення користувачів, показу заблокованих користувачів</para
+></listitem>
+<listitem
+><para
+>Параметрів сповіщення для цієї кімнати</para
+></listitem>
+<listitem
+><para
+>Автоматичного перекладу повідомлень</para
+></listitem>
+<listitem
+><para
+>Експортування або витирання повідомлень (з відповідними правами доступу)</para
+></listitem>
+<listitem
+><para
+>Міжвузлового шифрування, якщо на сервері передбачено його підтримку</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="messages">
+<title
+>Повідомлення</title>
+
+<sect1 id="writing-messages">
+<title
+>Написання повідомлень</title>
+<para
+>Введіть повідомлення в текстовому полі внизу вікна спілкування і натисніть Enter, щоб надіслати його. У повідомленнях передбачено підтримку розмітки Markdown. Введення символу <literal
+>@</literal
+> надає змогу доповнити ім'я користувача, <literal
+>#</literal
+> — назву каналу, <literal
+>:</literal
+> — емодзі, а <literal
+>/</literal
+> — переглянути список доступних на сервері слеш-команд.</para>
+
+<para
+>За допомогою кнопок поряд із полем для введення тексту ви можете:</para>
+<itemizedlist>
+<listitem
+><para
+>Вставити емодзі, включно із нетиповими емодзі сервера</para
+></listitem>
+<listitem
+><para
+>Долучити один або декілька файлів (ви можете перетягувати і скидати позначки файлів або вставляти їх)</para
+></listitem>
+<listitem
+><para
+>Записувати і надсилати звукові повідомлення або відеоповідомлення</para
+></listitem>
+<listitem
+><para
+>Використовувати інструменти, які надаються додатками, зокрема інструмент створення знімків екрана</para
+></listitem>
+</itemizedlist>
+
+<para
+>При введенні тексту доступні перевірка правопису та автовиправлення; їх можна налаштувати у вікні параметрів.</para>
+</sect1>
+
+<sect1 id="message-actions">
+<title
+>Дії з повідомленнями</title>
+<para
+>При наведенні вказівника на повідомлення з'являються кнопки для додавання реакції, відповіді у гілці обговорення або позначення повідомлення зірочкою. Контекстне меню повідомлення пропонує додаткові дії залежно від ваших прав доступу:</para>
+<itemizedlist>
+<listitem
+><para
+>Редагування, вилучення або цитування повідомлення</para
+></listitem>
+<listitem
+><para
+>Копіювання повідомлення, позначеного фрагмента або посилання на повідомлення</para
+></listitem>
+<listitem
+><para
+>Надсилання відповіді до гілки, стеження за гілкою та скасування стеження за гілкою, показ гілки повністю</para
+></listitem>
+<listitem
+><para
+>Започаткування обговорення або конфіденційного спілкування з повідомлення</para
+></listitem>
+<listitem
+><para
+>Пришпилення, додавання зірочки або надсилання скарги на повідомлення</para
+></listitem>
+<listitem
+><para
+>Позначення повідомлення як непрочитаного</para
+></listitem>
+<listitem
+><para
+>Переклад повідомлення або показ початкового тексту</para
+></listitem>
+<listitem
+><para
+>Показ сповіщень про прочитання, якщо його увімкнено на сервері</para
+></listitem>
+</itemizedlist>
+
+<para
+>Зображення, відео та звукові файли буде показано безпосередньо у тексті і можуть бути відкриті у засобі перегляду. Попередній перегляд сторінок за вказаними адресами можна ввімкнути у параметрах.</para>
+</sect1>
+
+<sect1 id="searching">
+<title
+>Пошук</title>
+<para
+>Скористайтеся кнопкою пошуку у заголовку кімнати, щоб виконати пошук повідомлення у поточній кімнаті. За допомогою пунктів меню <menuchoice
+><guimenu
+>Канал</guimenu
+><guimenuitem
+>Приєднатися до кімнати…</guimenuitem
+></menuchoice
+>, <guimenuitem
+>Приєднатися до команди…</guimenuitem
+> та <guimenuitem
+>Відкрити конфіденційне спілкування…</guimenuitem
+> можна шукати кімнати, команди та користувачів у каталозі сервера.</para>
+</sect1>
+</chapter>
+
+<chapter id="rooms">
+<title
+>Кімнати, обговорення та команди</title>
+<para
+>За допомогою меню <guimenu
+>Канал</guimenu
+> ви можете створити таке:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Створити канал…</guimenuitem
+>: загальнодоступний канал або приватну групу, якщо потрібно, лише для читання, трансляції або з шифруванням</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Створити безпосередні повідомлення…</guimenuitem
+>: спілкування з одним або декількома користувачами</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Створити обговорення…</guimenuitem
+>: підлегле обговорення, яке пов'язано із кімнатоюto a room</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Створити команду…</guimenuitem
+>: групу користувачів з її власними каналами</para
+></listitem>
+</itemizedlist>
+
+<para
+>У вікні з відомостями щодо кімнати буде показано її назву, тему, оголошення, опис та аватар. Власники можуть редагувати ці дані, змінювати тип кімнати, встановлювати пароль і налаштовувати такі параметри, як режим «тільки для читання» або автоматичне вилучення повідомлень. Власники команди можуть додавати і вилучати канали команди, а також змінювати їхній тип.</para>
+</chapter>
+
+<chapter id="notifications">
+<title
+>Сповіщення</title>
+<para
+>&i18n-kapplication; використовує систему сповіщень стільничного середовища для інформування про нові повідомлення та згадки, а також показує лічильники непрочитаних повідомлень у списку кімнат і в системному лотку. Параметри сповіщень (спливне вікно, звук, електронна пошта) можна налаштувати для кожної кімнати за допомогою пункту <guimenuitem
+>Налаштувати сповіщення…</guimenuitem
+> у меню кімнати.</para>
+
+<para
+>У пункті меню <menuchoice
+><guimenu
+>Інструменти</guimenu
+><guimenuitem
+>Показати журнал сповіщень</guimenuitem
+></menuchoice
+> буде показано список сповіщень, які ви отримали під час сеансу.</para>
+</chapter>
+
+<chapter id="encryption">
+<title
+>Міжвузлове шифрування</title>
+<para
+>Якщо цю можливість активовано на сервері, у &i18n-kapplication; передбачено підтримку наскрізного шифрування Rocket.Chat для безпосередніх повідомлень і приватних груп. Ваші ключі шифрування захищено паролем, яким можна керувати на сторінці <guilabel
+>Шифрування</guilabel
+> у розділі <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Мій обліковий запис…</guimenuitem
+></menuchoice
+>. У заголовку зашифрованих кімнат буде показано піктограму замка. Зауважте, що вміст зашифрованих повідомлень недоступний для пошуку.</para>
+</chapter>
+
+<chapter id="my-account">
+<title
+>Обліковий запис</title>
+<para
+>За допомогою пункту меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Мій обліковий запис…</guimenuitem
+></menuchoice
+> можна керувати вашим профілем Rocket.Chat:</para>
+<itemizedlist>
+<listitem
+><para
+>Профіль: назва, ім'я користувача, електронна пошта, аватар, повідомлення стану і пароль</para
+></listitem>
+<listitem
+><para
+>Налаштування, які передбачено на сервері</para
+></listitem>
+<listitem
+><para
+>Однофакторне розпізнавання (електронна пошта або TOTP)</para
+></listitem>
+<listitem
+><para
+>Ключі міжвузлового шифрування</para
+></listitem>
+<listitem
+><para
+>Жетони особистого доступу</para
+></listitem>
+<listitem
+><para
+>Пристрої, на яких здійснено вхід до вашого облікового запису</para
+></listitem>
+<listitem
+><para
+>Попередній перегляд можливостей</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="administration">
+<title
+>Адміністрування сервера</title>
+<para
+>Користувачі з відповідними правами можуть адмініструвати сервер за допомогою меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Адміністрування</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+><guimenuitem
+>Адміністратор…</guimenuitem
+> надає доступ до відомостей щодо сервера, кімнат, користувачів, запрошень, власних емодзі, власних звуків, власних станів користувачів, ролей, прав доступу, програм OAuth, консолі модерації та журналів сервера.</para>
+
+<para
+>Пункт <guimenuitem
+>Параметри сервера…</guimenuitem
+> надає змогу змінювати налаштування сервера, а пункти у розділі <guimenuitem
+>Програми</guimenuitem
+> дають змогу переглядати програми з Rocket.Chat Marketplace та керувати ними.</para>
+
+<para
+><menuchoice
+><guimenu
+>Інструменти</guimenu
+><guimenuitem
+>Контрольний список сервера…</guimenuitem
+></menuchoice
+> перевіряє налаштування сервера на наявність поширених проблем.</para>
+</chapter>
+
+<chapter id="offline">
+<title
+>Автономний режим</title>
+<para
+>&i18n-kapplication; може зберігати повідомлення у локальній базі даних (позначте пункт <guilabel
+>Використовувати локальну базу даних</guilabel
+> у розділі параметрів <guilabel
+>Загальне</guilabel
+>), завдяки чому кімнати завантажуються швидше та залишаються доступними для читання навіть за відсутності з'єднання. Пункт меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Працювати в автономному режимі</guimenuitem
+></menuchoice
+> надає змогу примусово розірвати з'єднання із сервером.</para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>Налаштовування &i18n-kapplication;</title>
+<para
+><menuchoice
+><guimenu
+>Параметри</guimenu
+><guimenuitem
+>Налаштувати &i18n-kapplication;…</guimenuitem
+></menuchoice
+> відкриває вікно параметрів, яке містить такі сторінки:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Облікові записи</guilabel
+></term>
+<listitem
+><para
+>Додавання, внесення змін, вмикання, вимикання або вилучення облікових записів сервера.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Загальне</guilabel
+></term>
+<listitem
+><para
+>Піктограма у системному лотку, стан під час запуску, попередній перегляд зображень і адрес, анімовані GIF-файли, локальна база даних, ведення журналу та інші параметри поведінки.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Шрифт</guilabel
+></term>
+<listitem
+><para
+>Шрифт, який буде використано для показу повідомлень.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Перевірка правопису</guilabel
+> і <guilabel
+>Автовиправлення</guilabel
+></term>
+<listitem
+><para
+>Мова і правила виправлення, які буде використано при введенні текстів.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Переклад</guilabel
+></term>
+<listitem
+><para
+>Рушій перекладу, який буде використано для перекладу повідомлень.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Доступність</guilabel
+></term>
+<listitem
+><para
+>Функції озвучення тексту та перетворення звуку на текст (за наявності).</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Додатки</guilabel
+></term>
+<listitem
+><para
+>Увімкніть або вимкніть додатки, наприклад, для поширення тексту, створення вебскорочень, знімків екрана чи генерування тексту за допомогою механізму штучного інтелекту.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Відгуки користувача</guilabel
+></term>
+<listitem
+><para
+>Виберіть, які анонімні статистичні дані про використання буде надіслано розробникам.</para
+></listitem
+></varlistentry>
+</variablelist>
+<para
+>Схему кольорів можна змінити у меню <guimenu
+>Параметри</guimenu
+>, а розмір шрифту повідомлень — у меню <guimenu
+>Перегляд</guimenu
+>.</para>
+</chapter>
+
+<chapter id="tools">
+<title
+>Інструменти</title>
+<para
+>Меню <guimenu
+>Інструменти</guimenu
+> містить пункти допоміжних засобі, корисні переважно для усунення проблем:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Показати журнал каналу</guimenuitem
+> і <guimenuitem
+>Показати помилки сервера</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Показати відомості про RocketChat</guimenuitem
+>: версія і можливості сервера</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Повторити спробу отримати доступ до торбинки</guimenuitem
+> — якщо не вдалося зчитати пароль із сховища паролів</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&i18n-kapplication;</para>
+<para
+>Авторські права на програму належать &Laurent.Montel; &Laurent.Montel.mail;, 2026 </para>
+<para
+>Авторські права на документацію належать &Laurent.Montel; &Laurent.Montel.mail; </para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->

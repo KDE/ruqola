@@ -2113,8 +2113,7 @@ msgid "Call ongoing"
 msgstr "Вызов продолжается"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "InComing Call"
+#, kde-format
 msgid "Incoming Call"
 msgstr "Входящий вызов"
 
