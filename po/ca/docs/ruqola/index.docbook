@@ -424,7 +424,7 @@
 ><guimenuitem
 >El meu compte…</guimenuitem
 ></menuchoice
->. Les sales encriptades mostren una icona de cadenat a la capçalera. Tingueu en compte que el contingut dels missatges encriptats no es pot cercar.</para>
+>. Les sales encriptades mostren una icona d'un cadenat a la capçalera. Tingueu en compte que el contingut dels missatges encriptats no es pot cercar.</para>
 </chapter>
 
 <chapter id="my-account">
@@ -572,7 +572,7 @@
 ></term>
 <listitem
 ><para
->Llenguatge i regels de correcció utilitzades durant l'escriptura.</para
+>Llenguatge i regles de correcció utilitzades durant l'escriptura.</para
 ></listitem
 ></varlistentry>
 <varlistentry
