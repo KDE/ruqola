@@ -24,8 +24,13 @@ void LicensesManager::parseLicenses(const QJsonObject &root)
     const QJsonObject license = root["license"_L1].toObject();
     const QJsonArray replyArray = license["activeModules"_L1].toArray();
     mActiveModules.clear();
-    for (int i = 0, total = replyArray.count(); i < total; ++i) {
-        mActiveModules.append(convertStringToActiveModule(replyArray.at(i).toString()));
+    const int total = replyArray.count();
+    mActiveModules.reserve(total);
+    for (int i = 0; i < total; ++i) {
+        const LicensesManager::ActiveModule type = convertStringToActiveModule(replyArray.at(i).toString());
+        if (type != LicensesManager::ActiveModule::Unknown) {
+            mActiveModules.append(type);
+        }
     }
 }
 
