@@ -30,8 +30,7 @@ public:
 
     [[nodiscard]] bool isValid() const;
 
-    [[nodiscard]] bool operator==(const TeamInfo &other) const;
-    [[nodiscard]] bool operator!=(const TeamInfo &other) const;
+    [[nodiscard]] bool operator==(const TeamInfo &other) const = default;
 
     [[nodiscard]] bool autoJoin() const;
     void setAutoJoin(bool autoJoin);

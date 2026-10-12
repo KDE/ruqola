@@ -31,7 +31,7 @@ public:
 
     void parseCustomStatus(const QJsonObject &customStatusObj, bool useRestApi = true);
 
-    [[nodiscard]] bool operator==(const CustomUserStatus &other) const;
+    [[nodiscard]] bool operator==(const CustomUserStatus &other) const = default;
 
 private:
     QByteArray mIdentifier;

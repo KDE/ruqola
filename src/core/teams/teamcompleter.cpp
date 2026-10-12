@@ -13,11 +13,6 @@ using namespace Qt::Literals::StringLiterals;
 
 TeamCompleter::TeamCompleter() = default;
 
-bool TeamCompleter::operator==(const TeamCompleter &other) const
-{
-    return mName == other.mName && mFname == other.mFname && mTeamId == other.mTeamId;
-}
-
 QString TeamCompleter::name() const
 {
     return mName;

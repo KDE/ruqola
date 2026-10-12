@@ -78,10 +78,7 @@ struct LIBRUQOLACORE_EXPORT AvatarInfo {
         return (avatarType != AvatarType::Unknown) && !identifier.isEmpty();
     }
 
-    [[nodiscard]] bool operator==(const AvatarInfo &other) const
-    {
-        return etag == other.etag && identifier == other.identifier && avatarType == other.avatarType;
-    }
+    [[nodiscard]] bool operator==(const AvatarInfo &other) const = default;
 
     [[nodiscard]] QUrl avatarUrl(const QString &url) const;
     [[nodiscard]] QString generateAvatarIdentifier() const;

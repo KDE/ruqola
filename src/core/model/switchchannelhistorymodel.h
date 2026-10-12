@@ -29,7 +29,7 @@ public:
             , mAvatarInfo(info)
         {
         }
-        [[nodiscard]] bool operator==(const SwitchChannelInfo &other) const;
+        [[nodiscard]] bool operator==(const SwitchChannelInfo &other) const = default;
         QString mName;
         QByteArray mIdentifier;
         Utils::AvatarInfo mAvatarInfo;

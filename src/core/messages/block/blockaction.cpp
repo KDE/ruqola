@@ -104,12 +104,6 @@ void BlockAction::setActionId(const QString &newActionId)
     mActionId = newActionId;
 }
 
-bool BlockAction::operator==(const BlockAction &other) const
-{
-    return mActionId == other.mActionId && mText == other.mText && mType == other.mType && mBlockId == other.mBlockId && mValue == other.mValue
-        && mUrl == other.mUrl;
-}
-
 QString BlockAction::text() const
 {
     return mText;

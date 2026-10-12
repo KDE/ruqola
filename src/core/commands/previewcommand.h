@@ -37,7 +37,7 @@ public:
     [[nodiscard]] QString typeStr() const;
 
     void parse(const QJsonObject &obj);
-    [[nodiscard]] bool operator==(const PreviewCommand &other) const;
+    [[nodiscard]] bool operator==(const PreviewCommand &other) const = default;
 
     [[nodiscard]] bool isValid() const;
 

@@ -50,12 +50,6 @@ QString BannerInfo::defaultText(const BannerInfo &info)
     return str;
 }
 
-bool BannerInfo::operator==(const BannerInfo &other) const
-{
-    return mText == other.mText && mTitle == other.mTitle && mLink == other.mLink && mRead == other.mRead && mTextArguments == other.mTextArguments
-        && mIdentifier == other.mIdentifier && mPriority == other.mPriority;
-}
-
 const QString &BannerInfo::text() const
 {
     return mText;

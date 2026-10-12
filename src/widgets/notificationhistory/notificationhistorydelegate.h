@@ -17,14 +17,7 @@ public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT RoomAccount {
         QString channelName;
         QString accountName;
-        [[nodiscard]] bool operator==(const RoomAccount &other) const
-        {
-            return (channelName == other.channelName) && (accountName == other.accountName);
-        }
-        [[nodiscard]] bool operator!=(const RoomAccount &other) const
-        {
-            return !operator==(other);
-        }
+        [[nodiscard]] bool operator==(const RoomAccount &other) const = default;
     };
     explicit NotificationHistoryDelegate(QListView *view, QObject *parent = nullptr);
     ~NotificationHistoryDelegate() override;

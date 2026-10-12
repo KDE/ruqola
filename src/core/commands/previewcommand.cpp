@@ -99,11 +99,6 @@ void PreviewCommand::parse(const QJsonObject &obj)
     mId = obj["id"_L1].toString();
 }
 
-bool PreviewCommand::operator==(const PreviewCommand &other) const
-{
-    return other.mId == mId && other.mType == mType && other.mValue == mValue;
-}
-
 bool PreviewCommand::isValid() const
 {
     return mType != PreviewCommand::TypePreview::Unknown && !mId.isEmpty() && !mValue.isEmpty();

@@ -31,7 +31,7 @@ public:
     Q_ENUM(BlockType)
 
     Block();
-    [[nodiscard]] bool operator==(const Block &other) const;
+    [[nodiscard]] bool operator==(const Block &other) const = default;
 
     [[nodiscard]] static QJsonObject serialize(const Block &block);
     [[nodiscard]] static Block deserialize(const QJsonObject &o);

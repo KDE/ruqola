@@ -91,11 +91,6 @@ const QStringList &Permission::rolesStr() const
     return mRolesStr;
 }
 
-bool Permission::operator==(const Permission &other) const
-{
-    return other.mRolesStr == mRolesStr && other.mRoles == mRoles && other.mUpdatedAt == mUpdatedAt && other.mIdentifier == mIdentifier;
-}
-
 void Permission::setRolesStr(const QStringList &newRolesStr)
 {
     mRolesStr = newRolesStr;

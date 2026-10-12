@@ -22,7 +22,7 @@ public:
         QString triggerId;
         QString params;
         [[nodiscard]] bool isValid() const;
-        [[nodiscard]] bool operator==(const RunCommandInfo &info) const;
+        [[nodiscard]] bool operator==(const RunCommandInfo &info) const = default;
     };
     explicit RunCommandJob(QObject *parent = nullptr);
     ~RunCommandJob() override;

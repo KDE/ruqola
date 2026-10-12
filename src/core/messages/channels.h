@@ -23,7 +23,7 @@ public:
         QString fname;
         QString name;
         QByteArray identifier;
-        [[nodiscard]] bool operator==(const ChannelInfo &other) const;
+        [[nodiscard]] bool operator==(const ChannelInfo &other) const = default;
     };
 
     void setChannels(const QList<ChannelInfo> &channels);

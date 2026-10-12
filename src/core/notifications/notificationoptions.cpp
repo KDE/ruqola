@@ -145,20 +145,6 @@ void NotificationOptions::setDesktopNotifications(const NotificationValue &deskt
     mDesktopNotifications = desktopNotifications;
 }
 
-bool NotificationOptions::operator==(const NotificationOptions &other) const
-{
-    return (mDesktopNotifications == other.mDesktopNotifications) && (mMobilePushNotification == other.mMobilePushNotification)
-        && (mEmailNotifications == other.mEmailNotifications) && (mUnreadTrayIconAlert == other.mUnreadTrayIconAlert)
-        && (mDisableNotifications == other.mDisableNotifications) && (mHideUnreadStatus == other.mHideUnreadStatus)
-        && (mAudioNotificationValue == other.mAudioNotificationValue) && (mMuteGroupMentions == other.mMuteGroupMentions)
-        && (mHideMentionStatus == other.mHideMentionStatus);
-}
-
-bool NotificationOptions::operator!=(const NotificationOptions &other) const
-{
-    return !operator==(other);
-}
-
 bool NotificationOptions::muteGroupMentions() const
 {
     return mMuteGroupMentions;
@@ -198,11 +184,6 @@ QDebug operator<<(QDebug d, const NotificationOptions::NotificationValue &t)
     d.space() << "value" << t.value;
     d.space() << "preferenceOrigin" << t.preferenceOrigin;
     return d;
-}
-
-bool NotificationOptions::NotificationValue::operator==(const NotificationValue &other) const
-{
-    return other.preferenceOrigin == preferenceOrigin && other.value == value;
 }
 
 QByteArray NotificationOptions::NotificationValue::currentValue() const

@@ -59,12 +59,6 @@ void RunCommandJob::setRunCommandInfo(const RunCommandInfo &runCommandInfo)
     mRunCommandInfo = runCommandInfo;
 }
 
-bool RunCommandJob::RunCommandInfo::operator==(const RunCommandInfo &info) const
-{
-    return commandName == info.commandName && roomId == info.roomId && threadMessageId == info.threadMessageId && triggerId == info.triggerId
-        && params == info.params;
-}
-
 RunCommandJob::RunCommandInfo RunCommandJob::parseString(const QString &str, const QByteArray &roomId, const QByteArray &tmid, const QString &forceUuid)
 {
     RunCommandJob::RunCommandInfo info;

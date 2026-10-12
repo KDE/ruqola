@@ -203,13 +203,6 @@ void Block::setBlockType(BlockType newBlockType)
     mBlockType = newBlockType;
 }
 
-bool Block::operator==(const Block &other) const
-{
-    return mBlockId == other.mBlockId && mCallId == other.mCallId && mAppId == other.mAppId && mBlockActions == other.mBlockActions
-        && mSectionText == other.mSectionText && mBlockAccessory == other.mBlockAccessory && mVideoConferenceInfo == other.mVideoConferenceInfo
-        && mBlockType == other.mBlockType;
-}
-
 QString Block::sectionText() const
 {
     return mSectionText;

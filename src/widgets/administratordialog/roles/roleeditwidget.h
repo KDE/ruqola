@@ -27,11 +27,7 @@ public:
         {
             return !mName.isEmpty();
         }
-        [[nodiscard]] bool operator==(const RoleEditDialogInfo &other) const;
-        [[nodiscard]] bool operator!=(const RoleEditDialogInfo &other) const
-        {
-            return !operator==(other);
-        }
+        [[nodiscard]] bool operator==(const RoleEditDialogInfo &other) const = default;
     };
 
     explicit RoleEditWidget(QWidget *parent = nullptr);

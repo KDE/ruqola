@@ -28,7 +28,7 @@ public:
 
     VideoConference();
 
-    [[nodiscard]] bool operator==(const VideoConference &other) const;
+    [[nodiscard]] bool operator==(const VideoConference &other) const = default;
 
     void parseVideoConference(const QJsonObject &content);
     [[nodiscard]] QByteArray callId() const;

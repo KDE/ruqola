@@ -89,7 +89,7 @@ public:
 
     void parseActionButton(const QJsonObject &json);
 
-    [[nodiscard]] bool operator==(const ActionButton &other) const;
+    [[nodiscard]] bool operator==(const ActionButton &other) const = default;
 
     [[nodiscard]] ButtonContext buttonContext() const;
     void setButtonContext(ButtonContext newContext);

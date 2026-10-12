@@ -116,9 +116,4 @@ bool DirectoryJob::DirectoryInfo::canStart() const
     return searchType != SearchType::Unknown;
 }
 
-bool DirectoryJob::DirectoryInfo::operator==(const DirectoryJob::DirectoryInfo &other) const
-{
-    return other.searchType == searchType && other.pattern == pattern;
-}
-
 #include "moc_directoryjob.cpp"

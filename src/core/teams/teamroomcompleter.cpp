@@ -12,11 +12,6 @@ using namespace Qt::Literals::StringLiterals;
 
 TeamRoomCompleter::TeamRoomCompleter() = default;
 
-bool TeamRoomCompleter::operator==(const TeamRoomCompleter &other) const
-{
-    return mName == other.mName && mFname == other.mFname && mIdentifier == other.mIdentifier;
-}
-
 QString TeamRoomCompleter::name() const
 {
     return mName;

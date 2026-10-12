@@ -22,7 +22,7 @@ public:
 
     void parseBannerInfo(const QJsonObject &object);
 
-    [[nodiscard]] bool operator==(const BannerInfo &other) const;
+    [[nodiscard]] bool operator==(const BannerInfo &other) const = default;
 
     [[nodiscard]] const QString &text() const;
     void setText(const QString &newText);

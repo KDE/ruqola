@@ -80,8 +80,3 @@ QDebug operator<<(QDebug d, const CustomUserStatus &t)
     d.space() << "StatusType" << t.statusType() << '\n';
     return d;
 }
-
-bool CustomUserStatus::operator==(const CustomUserStatus &other) const
-{
-    return mIdentifier == other.mIdentifier && mName == other.mName && mStatusType == other.mStatusType && mUpdatedAt == other.mUpdatedAt;
-}

@@ -50,7 +50,7 @@ public:
     [[nodiscard]] QString providerName() const;
     void setProviderName(const QString &newProviderName);
 
-    [[nodiscard]] bool operator==(const VideoConferenceInfo &other) const;
+    [[nodiscard]] bool operator==(const VideoConferenceInfo &other) const = default;
 
     [[nodiscard]] QList<User> users() const;
     void setUsers(QList<User> newUsers);

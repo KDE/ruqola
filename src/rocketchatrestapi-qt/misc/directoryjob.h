@@ -27,7 +27,7 @@ public:
         SearchType searchType = SearchType::Unknown;
         QString pattern;
         [[nodiscard]] bool canStart() const;
-        [[nodiscard]] bool operator==(const DirectoryInfo &other) const;
+        [[nodiscard]] bool operator==(const DirectoryInfo &other) const = default;
     };
 
     [[nodiscard]] bool requireHttpAuthentication() const override;

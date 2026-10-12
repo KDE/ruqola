@@ -62,13 +62,6 @@ bool AccountRoomSettings::PendingTypedInfo::hasPendingMessageTyped() const
     return !text.isEmpty() || !pendingAttachmentInfos.isEmpty();
 }
 
-bool AccountRoomSettings::PendingTypedInfo::operator==(const AccountRoomSettings::PendingTypedInfo &other) const
-{
-    return text == other.text && messageIdBeingEdited == other.messageIdBeingEdited && threadMessageId == other.threadMessageId
-        && quotePermalink == other.quotePermalink && quoteText == other.quoteText && scrollbarPosition == other.scrollbarPosition
-        && pendingAttachmentInfos == other.pendingAttachmentInfos;
-}
-
 QJsonObject AccountRoomSettings::PendingAttachmentInfo::serialize(const AccountRoomSettings::PendingAttachmentInfo &att)
 {
     QJsonObject obj;

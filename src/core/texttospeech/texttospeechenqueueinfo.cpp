@@ -39,11 +39,6 @@ void TextToSpeechEnqueueInfo::setAccountName(const QString &newAccountName)
     mAccountName = newAccountName;
 }
 
-bool TextToSpeechEnqueueInfo::operator==(const TextToSpeechEnqueueInfo &other) const
-{
-    return mRoomId == other.mRoomId && mAccountName == other.mAccountName && mMessageId == other.mMessageId;
-}
-
 bool TextToSpeechEnqueueInfo::isValid() const
 {
     return !mRoomId.isEmpty() && !mAccountName.isEmpty() && !mMessageId.isEmpty();

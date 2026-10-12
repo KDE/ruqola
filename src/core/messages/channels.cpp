@@ -108,11 +108,6 @@ bool Channels::isEmpty() const
     return mChannels.isEmpty();
 }
 
-bool Channels::ChannelInfo::operator==(const ChannelInfo &other) const
-{
-    return other.fname == fname && other.identifier == identifier && other.name == name;
-}
-
 QDebug operator<<(QDebug d, const Channels::ChannelInfo &t)
 {
     d.space() << "fname:" << t.fname;

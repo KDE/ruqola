@@ -998,11 +998,6 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj, bool update
     }
 }
 
-bool RuqolaServerConfig::ConfigWithDefaultValue::operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const
-{
-    return other.url == url && other.defaultUrl == defaultUrl;
-}
-
 bool RuqolaServerConfig::operator==(const RuqolaServerConfig &other) const
 {
     return mUniqueId == other.mUniqueId && mJitsiMeetUrl == other.mJitsiMeetUrl && mJitsiMeetPrefix == other.mJitsiMeetPrefix
@@ -1059,18 +1054,6 @@ bool RuqolaServerConfig::PasswordSettings::loadSettings(const QString &id, const
         return false;
     }
     return true;
-}
-
-bool RuqolaServerConfig::PasswordSettings::operator==(const PasswordSettings &other) const
-{
-    return accountsPasswordPolicyMinLength == other.accountsPasswordPolicyMinLength && accountsPasswordPolicyMaxLength == other.accountsPasswordPolicyMaxLength
-        && accountsPasswordPolicyForbidRepeatingCharactersCount == other.accountsPasswordPolicyForbidRepeatingCharactersCount
-        && accountsPasswordPolicyEnabled == other.accountsPasswordPolicyEnabled
-        && accountsPasswordPolicyForbidRepeatingCharacters == other.accountsPasswordPolicyForbidRepeatingCharacters
-        && accountsPasswordPolicyAtLeastOneLowercase == other.accountsPasswordPolicyAtLeastOneLowercase
-        && accountsPasswordPolicyAtLeastOneUppercase == other.accountsPasswordPolicyAtLeastOneUppercase
-        && accountsPasswordPolicyAtLeastOneNumber == other.accountsPasswordPolicyAtLeastOneNumber
-        && accountsPasswordPolicyAtLeastOneSpecialCharacter == other.accountsPasswordPolicyAtLeastOneSpecialCharacter;
 }
 
 RuqolaServerConfig::PasswordSettings::PasswordSettingChecks RuqolaServerConfig::PasswordSettings::validatePassword(const QString &str) const

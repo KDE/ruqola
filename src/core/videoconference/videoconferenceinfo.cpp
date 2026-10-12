@@ -271,13 +271,6 @@ QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
     return d;
 }
 
-bool VideoConferenceInfo::operator==(const VideoConferenceInfo &other) const
-{
-    return mCreatedAtDateTime == other.mCreatedAtDateTime && mEndedAtDateTime == other.mEndedAtDateTime && mUrl == other.mUrl && mRoomId == other.mRoomId
-        && mProviderName == other.mProviderName && mConferenceType == other.mConferenceType && mStatus == other.mStatus && mRinging == other.mRinging
-        && mUsers == other.mUsers && mMessageId == other.mMessageId && mBlockId == other.mBlockId;
-}
-
 QString VideoConferenceInfo::statusInformation() const
 {
     if (endedAtDateTime() >= 0) {

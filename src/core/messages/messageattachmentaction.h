@@ -20,7 +20,7 @@ public:
     [[nodiscard]] QString text() const;
     void setText(const QString &newText);
 
-    [[nodiscard]] bool operator==(const MessageAttachmentAction &other) const;
+    [[nodiscard]] bool operator==(const MessageAttachmentAction &other) const = default;
 
     [[nodiscard]] QString msg() const;
     void setMsg(const QString &newMsg);

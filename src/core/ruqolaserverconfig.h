@@ -21,7 +21,7 @@ public:
         {
             return url.isEmpty() || defaultUrl.isEmpty();
         }
-        [[nodiscard]] bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const;
+        [[nodiscard]] bool operator==(const RuqolaServerConfig::ConfigWithDefaultValue &other) const = default;
 
         [[nodiscard]] QString value() const
         {
@@ -57,7 +57,7 @@ public:
         bool accountsPasswordPolicyAtLeastOneNumber = true;
         bool accountsPasswordPolicyAtLeastOneSpecialCharacter = true;
         [[nodiscard]] bool loadSettings(const QString &id, const QVariant &value);
-        [[nodiscard]] bool operator==(const RuqolaServerConfig::PasswordSettings &other) const;
+        [[nodiscard]] bool operator==(const RuqolaServerConfig::PasswordSettings &other) const = default;
         [[nodiscard]] PasswordSettingChecks validatePassword(const QString &str) const;
         [[nodiscard]] bool isValidatePassword(PasswordSettingChecks checks) const;
         [[nodiscard]] PasswordSettingChecks passwordValidChecks() const;

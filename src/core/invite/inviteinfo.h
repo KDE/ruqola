@@ -36,7 +36,7 @@ public:
     [[nodiscard]] const QDateTime &createDateTime() const;
     void setCreateDateTime(const QDateTime &newCreateDateTime);
 
-    [[nodiscard]] bool operator==(const InviteInfo &other) const;
+    [[nodiscard]] bool operator==(const InviteInfo &other) const = default;
 
 private:
     QByteArray mUserIdentifier;

@@ -11,11 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 FeaturePreviewPreferences::FeaturePreviewPreferences() = default;
 
-bool FeaturePreviewPreferences::operator==(const FeaturePreviewPreferences &other) const
-{
-    return mPreviewStatus == other.mPreviewStatus;
-}
-
 QDebug operator<<(QDebug d, const FeaturePreviewPreferences &t)
 {
     d.space() << "previewStatus:" << t.previewStatus();

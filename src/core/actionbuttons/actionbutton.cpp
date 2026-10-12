@@ -240,14 +240,6 @@ ActionButton::ButtonContext ActionButton::convertContextFromString(const QString
     }
 }
 
-bool ActionButton::operator==(const ActionButton &other) const
-{
-    return other.mActionId == mActionId && other.mAppId == mAppId && other.mLabelI18n == mLabelI18n && other.mRoomTypeFilters == mRoomTypeFilters
-        && other.mHasOneRole == mHasOneRole && other.mButtonContext == mButtonContext && other.mHasAllRoles == mHasAllRoles
-        && other.mHasAllPermissions == mHasAllPermissions && other.mHasOnePermission == mHasOnePermission
-        && other.mMessageActionContexts == mMessageActionContexts && other.mCategory == mCategory;
-}
-
 ActionButton::ButtonContext ActionButton::buttonContext() const
 {
     return mButtonContext;

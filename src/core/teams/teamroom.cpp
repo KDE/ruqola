@@ -13,11 +13,6 @@ QT_IMPL_METATYPE_EXTERN_TAGGED(TeamRoom, Ruqola_TeamRoom)
 using namespace Qt::Literals::StringLiterals;
 TeamRoom::TeamRoom() = default;
 
-bool TeamRoom::operator==(const TeamRoom &other) const
-{
-    return mAutoJoin == other.mAutoJoin && mName == other.mName && mFname == other.mFname && mIdentifier == other.mIdentifier;
-}
-
 bool TeamRoom::autoJoin() const
 {
     return mAutoJoin;

@@ -17,7 +17,7 @@ class LIBRUQOLACORE_EXPORT AppsMarketPlaceInfo
 {
 public:
     struct LIBRUQOLACORE_EXPORT PricePlan {
-        [[nodiscard]] bool operator==(const PricePlan &other) const;
+        [[nodiscard]] bool operator==(const PricePlan &other) const = default;
 
         enum Strategy : uint8_t {
             Unknown,
@@ -84,7 +84,7 @@ public:
             OutboundComms,
             RoomSystemViewAll,
         };
-        [[nodiscard]] bool operator==(const Permission &other) const;
+        [[nodiscard]] bool operator==(const Permission &other) const = default;
         [[nodiscard]] static PermissionType convertStringToPermissionType(const QString &str);
         [[nodiscard]] QString convertTypeToI18n() const;
         PermissionType type = PermissionType::Unknown;

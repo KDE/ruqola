@@ -34,12 +34,6 @@ void RoleInfo::setScope(const QString &newScope)
     mScope = newScope;
 }
 
-bool RoleInfo::operator==(const RoleInfo &other) const
-{
-    return mScope == other.mScope && mIdentifier == other.mIdentifier && mName == other.mName && mDescription == other.mDescription
-        && mRoleProtected == other.mRoleProtected && mMandatory2fa == other.mMandatory2fa;
-}
-
 void RoleInfo::parseRoleInfo(const QJsonObject &obj)
 {
     // TODO updateAt!

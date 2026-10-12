@@ -23,7 +23,7 @@ public:
         QString roomId;
         QString userId;
         QString expireDateTime;
-        [[nodiscard]] bool operator==(const InviteUsersInfo &other) const;
+        [[nodiscard]] bool operator==(const InviteUsersInfo &other) const = default;
     };
     explicit FindOrCreateInviteJob(QObject *parent = nullptr);
     ~FindOrCreateInviteJob() override;

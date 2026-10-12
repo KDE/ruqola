@@ -22,7 +22,7 @@ public:
         QByteArray args;
         void parseArguments(const QJsonObject &obj);
 
-        [[nodiscard]] bool operator==(const LogsArgument &other) const;
+        [[nodiscard]] bool operator==(const LogsArgument &other) const = default;
     };
 
     ApplicationsSettingsLogsInfo();
@@ -31,7 +31,7 @@ public:
 
     void parseLogs(const QJsonObject &obj);
 
-    [[nodiscard]] bool operator==(const ApplicationsSettingsLogsInfo &other) const;
+    [[nodiscard]] bool operator==(const ApplicationsSettingsLogsInfo &other) const = default;
 
     [[nodiscard]] QList<LogsArgument> arguments() const;
     void setArguments(const QList<LogsArgument> &newArguments);

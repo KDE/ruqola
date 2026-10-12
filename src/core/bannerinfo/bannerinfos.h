@@ -18,14 +18,7 @@ public:
     struct UnreadInformation {
         QByteArray identifier;
         QString i18nMessage;
-        [[nodiscard]] bool operator==(const UnreadInformation &other) const
-        {
-            return identifier == other.identifier && i18nMessage == other.i18nMessage;
-        }
-        [[nodiscard]] bool operator!=(const UnreadInformation &other) const
-        {
-            return !operator==(other);
-        }
+        [[nodiscard]] bool operator==(const UnreadInformation &other) const = default;
     };
 
     BannerInfos();

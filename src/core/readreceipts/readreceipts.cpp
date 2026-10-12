@@ -81,8 +81,3 @@ QDebug operator<<(QDebug d, const ReadReceipts &t)
     }
     return d;
 }
-
-bool ReadReceipts::operator==(const ReadReceipts &other) const
-{
-    return mReadReceipts == other.mReadReceipts;
-}

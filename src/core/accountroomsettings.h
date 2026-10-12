@@ -42,7 +42,7 @@ public:
         [[nodiscard]] bool hasPendingMessageTyped() const;
         [[nodiscard]] static QJsonObject serialize(const PendingTypedInfo &url);
         [[nodiscard]] static PendingTypedInfo deserialize(const QJsonObject &o);
-        [[nodiscard]] bool operator==(const PendingTypedInfo &other) const;
+        [[nodiscard]] bool operator==(const PendingTypedInfo &other) const = default;
     };
     explicit AccountRoomSettings(RocketChatAccount *account);
 

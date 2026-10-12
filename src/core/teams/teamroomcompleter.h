@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT TeamRoomCompleter
 {
 public:
     TeamRoomCompleter();
-    [[nodiscard]] bool operator==(const TeamRoomCompleter &other) const;
+    [[nodiscard]] bool operator==(const TeamRoomCompleter &other) const = default;
 
     [[nodiscard]] QString name() const;
     void setName(const QString &name);

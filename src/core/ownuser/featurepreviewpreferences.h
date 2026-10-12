@@ -22,7 +22,7 @@ public:
 
     FeaturePreviewPreferences();
 
-    [[nodiscard]] bool operator==(const FeaturePreviewPreferences &other) const;
+    [[nodiscard]] bool operator==(const FeaturePreviewPreferences &other) const = default;
     void parseFeaturePreview(const QJsonArray &array);
 
     [[nodiscard]] QMap<FeaturePreviewType, bool> previewStatus() const;

@@ -23,7 +23,7 @@ public:
     [[nodiscard]] QString accountName() const;
     void setAccountName(const QString &newAccountName);
 
-    [[nodiscard]] bool operator==(const TextToSpeechEnqueueInfo &other) const;
+    [[nodiscard]] bool operator==(const TextToSpeechEnqueueInfo &other) const = default;
 
     [[nodiscard]] bool isValid() const;
 

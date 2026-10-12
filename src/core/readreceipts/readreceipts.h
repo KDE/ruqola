@@ -28,7 +28,7 @@ public:
 
     void removeAt(int index);
 
-    [[nodiscard]] bool operator==(const ReadReceipts &other) const;
+    [[nodiscard]] bool operator==(const ReadReceipts &other) const = default;
 
 private:
     QList<ReadReceipt> mReadReceipts;

@@ -27,7 +27,7 @@ public:
     [[nodiscard]] AlignmentButton alignment() const;
     void setAlignment(AlignmentButton newAlignment);
 
-    [[nodiscard]] bool operator==(const MessageAttachmentActions &other) const;
+    [[nodiscard]] bool operator==(const MessageAttachmentActions &other) const = default;
 
     [[nodiscard]] const QList<MessageAttachmentAction> &actions() const;
     void setActions(const QList<MessageAttachmentAction> &newActions);

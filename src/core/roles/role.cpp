@@ -55,12 +55,6 @@ void Role::setIsOwner(bool isOwner)
     mIsOwner = isOwner;
 }
 
-bool Role::operator==(const Role &other) const
-{
-    return (mIsOwner == other.mIsOwner) && (mIsModerator == other.mIsModerator) && (mIsLeader == other.mIsLeader) && (mUserId == other.mUserId)
-        && (mUserName == other.mUserName);
-}
-
 bool Role::isValid() const
 {
     return !mUserId.isEmpty();

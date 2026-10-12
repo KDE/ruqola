@@ -17,7 +17,7 @@ public:
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);
 
-    [[nodiscard]] bool operator==(const BlockAccessoryOption &other) const;
+    [[nodiscard]] bool operator==(const BlockAccessoryOption &other) const = default;
 
     [[nodiscard]] QString text() const;
     void setText(const QString &newText);

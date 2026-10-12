@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT CustomSoundInfo
 public:
     CustomSoundInfo();
 
-    [[nodiscard]] bool operator==(const CustomSoundInfo &other) const;
+    [[nodiscard]] bool operator==(const CustomSoundInfo &other) const = default;
 
     [[nodiscard]] const QByteArray &identifier() const;
     void setIdentifier(const QByteArray &newIdentifier);

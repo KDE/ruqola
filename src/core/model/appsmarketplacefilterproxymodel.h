@@ -43,8 +43,7 @@ public:
         QString text;
         Status status = Status::UnknownStatus;
         Price price = Price::UnknownPrice;
-        [[nodiscard]] bool operator==(const FilterInfo &other) const;
-        [[nodiscard]] bool operator!=(const FilterInfo &other) const;
+        [[nodiscard]] bool operator==(const FilterInfo &other) const = default;
     };
 
     explicit AppsMarketPlaceFilterProxyModel(QObject *parent = nullptr);

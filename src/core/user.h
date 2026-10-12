@@ -28,10 +28,7 @@ public:
     struct LIBRUQOLACORE_EXPORT UserEmailsInfo {
         QString email;
         bool verified = false;
-        [[nodiscard]] bool operator==(const UserEmailsInfo &other) const
-        {
-            return (email == other.email) && (verified == other.verified);
-        }
+        [[nodiscard]] bool operator==(const UserEmailsInfo &other) const = default;
 
         [[nodiscard]] bool isValid() const
         {

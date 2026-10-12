@@ -20,7 +20,7 @@ public:
     [[nodiscard]] QString actionId() const;
     void setActionId(const QString &newActionId);
 
-    [[nodiscard]] bool operator==(const BlockAction &other) const;
+    [[nodiscard]] bool operator==(const BlockAction &other) const = default;
 
     [[nodiscard]] QString text() const;
     void setText(const QString &newText);

@@ -140,11 +140,6 @@ void AppsMarketPlaceInfo::setSupport(const QString &newSupport)
     mSupport = newSupport;
 }
 
-bool AppsMarketPlaceInfo::PricePlan::operator==(const AppsMarketPlaceInfo::PricePlan &other) const
-{
-    return price == other.price && trialDays == other.trialDays && strategy == other.strategy && enabled == other.enabled && isPerSeat == other.isPerSeat;
-}
-
 AppsMarketPlaceInfo::PricePlan::Strategy AppsMarketPlaceInfo::PricePlan::convertStringToStrategy(const QString &str)
 {
     if (str == "monthly"_L1) {
@@ -524,11 +519,6 @@ QList<AppsMarketPlaceInfo::Permission> AppsMarketPlaceInfo::permissions() const
 void AppsMarketPlaceInfo::setPermissions(const QList<Permission> &newPermissions)
 {
     mPermissions = newPermissions;
-}
-
-bool AppsMarketPlaceInfo::Permission::operator==(const Permission &other) const
-{
-    return type == other.type;
 }
 
 AppsMarketPlaceInfo::Permission::PermissionType AppsMarketPlaceInfo::Permission::convertStringToPermissionType(const QString &str)

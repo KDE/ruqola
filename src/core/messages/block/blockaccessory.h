@@ -32,7 +32,7 @@ public:
     [[nodiscard]] QString value() const;
     void setValue(const QString &newValue);
 
-    [[nodiscard]] bool operator==(const BlockAccessory &other) const;
+    [[nodiscard]] bool operator==(const BlockAccessory &other) const = default;
 
     void parseAccessory(const QJsonObject &o);
 

@@ -29,7 +29,7 @@ public:
     [[nodiscard]] int totalPrivateEnabled() const;
     void setTotalPrivateEnabled(int newTotalPrivateEnabled);
 
-    [[nodiscard]] bool operator==(const AppsCountInfo &other) const;
+    [[nodiscard]] bool operator==(const AppsCountInfo &other) const = default;
 
     [[nodiscard]] bool isValid() const;
 

@@ -24,7 +24,7 @@ public:
         }
         QByteArray value;
         QByteArray preferenceOrigin;
-        [[nodiscard]] bool operator==(const NotificationValue &other) const;
+        [[nodiscard]] bool operator==(const NotificationValue &other) const = default;
         [[nodiscard]] QByteArray currentValue() const;
         [[nodiscard]] bool isEmpty() const;
     };
@@ -55,8 +55,7 @@ public:
 
     void parseNotificationOptions(const QJsonObject &obj);
 
-    [[nodiscard]] bool operator==(const NotificationOptions &other) const;
-    [[nodiscard]] bool operator!=(const NotificationOptions &other) const;
+    [[nodiscard]] bool operator==(const NotificationOptions &other) const = default;
 
     [[nodiscard]] bool muteGroupMentions() const;
     void setMuteGroupMentions(bool muteGroupMentions);

@@ -217,16 +217,6 @@ void AppsMarketPlaceFilterProxyModel::setFilterInfo(const FilterInfo &newFilterI
     }
 }
 
-bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator==(const FilterInfo &other) const
-{
-    return categories == other.categories && text == other.text && other.status == status && price == other.price;
-}
-
-bool AppsMarketPlaceFilterProxyModel::FilterInfo::operator!=(const FilterInfo &other) const
-{
-    return !operator==(other);
-}
-
 QDebug operator<<(QDebug d, const AppsMarketPlaceFilterProxyModel::FilterInfo &t)
 {
     d.space() << "categories:" << t.categories;

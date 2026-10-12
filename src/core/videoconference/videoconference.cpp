@@ -13,11 +13,6 @@
 using namespace Qt::Literals::StringLiterals;
 VideoConference::VideoConference() = default;
 
-bool VideoConference::operator==(const VideoConference &other) const
-{
-    return mAction == other.mAction && mCallId == other.mCallId && mRoomId == other.mRoomId && mUserId == other.mUserId;
-}
-
 void VideoConference::parseVideoConference(const QJsonObject &content)
 {
     mAction = convertActionToEnum(content["action"_L1].toString());

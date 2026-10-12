@@ -66,12 +66,6 @@ RoleEditWidget::RoleEditDialogInfo RoleEditWidget::roleEditDialogInfo() const
     return info;
 }
 
-bool RoleEditWidget::RoleEditDialogInfo::operator==(const RoleEditDialogInfo &other) const
-{
-    return mName == other.mName && mDescription == other.mDescription && mScope == other.mScope && mTwoFactor == other.mTwoFactor
-        && mIsProtected == other.mIsProtected;
-}
-
 QDebug operator<<(QDebug d, const RoleEditWidget::RoleEditDialogInfo &info)
 {
     d.space() << "mName : " << info.mName;

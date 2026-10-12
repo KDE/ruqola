@@ -32,7 +32,7 @@ public:
 
     void parseRole(const QJsonObject &obj);
 
-    [[nodiscard]] bool operator==(const Role &other) const;
+    [[nodiscard]] bool operator==(const Role &other) const = default;
 
     [[nodiscard]] bool isValid() const;
     void updateRole(const QString &str, bool b);

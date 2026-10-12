@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT TeamRoom
 {
 public:
     TeamRoom();
-    [[nodiscard]] bool operator==(const TeamRoom &other) const;
+    [[nodiscard]] bool operator==(const TeamRoom &other) const = default;
 
     [[nodiscard]] bool autoJoin() const;
     void setAutoJoin(bool autoJoin);

@@ -15,7 +15,7 @@ class LIBRUQOLACORE_EXPORT TeamCompleter
 {
 public:
     TeamCompleter();
-    [[nodiscard]] bool operator==(const TeamCompleter &other) const;
+    [[nodiscard]] bool operator==(const TeamCompleter &other) const = default;
 
     [[nodiscard]] QString name() const;
     void setName(const QString &name);

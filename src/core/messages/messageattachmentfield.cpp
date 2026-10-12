@@ -11,11 +11,6 @@
 using namespace Qt::Literals::StringLiterals;
 MessageAttachmentField::MessageAttachmentField() = default;
 
-bool MessageAttachmentField::operator==(const MessageAttachmentField &other) const
-{
-    return mTitle == other.mTitle && mValue == other.mValue;
-}
-
 QString MessageAttachmentField::title() const
 {
     return mTitle;

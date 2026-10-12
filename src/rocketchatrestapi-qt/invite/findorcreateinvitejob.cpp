@@ -147,9 +147,4 @@ QDebug operator<<(QDebug d, const FindOrCreateInviteJob::InviteUsersInfo &t)
     return d;
 }
 
-bool FindOrCreateInviteJob::InviteUsersInfo::operator==(const FindOrCreateInviteJob::InviteUsersInfo &other) const
-{
-    return other.url == url && other.roomId == roomId && other.userId == userId && other.expireDateTime == expireDateTime && other.maxUses == maxUses;
-}
-
 #include "moc_findorcreateinvitejob.cpp"

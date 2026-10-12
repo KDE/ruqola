@@ -38,7 +38,7 @@ public:
     [[nodiscard]] bool mandatory2fa() const;
     void setMandatory2fa(bool newMandatory2fa);
 
-    [[nodiscard]] bool operator==(const RoleInfo &other) const;
+    [[nodiscard]] bool operator==(const RoleInfo &other) const = default;
 
 private:
     QString mName;

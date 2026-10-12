@@ -31,7 +31,7 @@ public:
 
     [[nodiscard]] const QStringList &rolesStr() const;
 
-    [[nodiscard]] bool operator==(const Permission &other) const;
+    [[nodiscard]] bool operator==(const Permission &other) const = default;
 
     void setRolesStr(const QStringList &newRolesStr);
 

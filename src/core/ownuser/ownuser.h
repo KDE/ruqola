@@ -26,7 +26,7 @@ public:
     [[nodiscard]] QString status() const;
     void setStatus(const QString &status);
 
-    [[nodiscard]] bool operator==(const OwnUser &other) const;
+    [[nodiscard]] bool operator==(const OwnUser &other) const = default;
 
     [[nodiscard]] QString email() const;
     void setEmail(const QString &email);

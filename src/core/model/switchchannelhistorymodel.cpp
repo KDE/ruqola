@@ -55,9 +55,4 @@ void SwitchChannelHistoryModel::addHistory(const SwitchChannelInfo &info)
     endResetModel();
 }
 
-bool SwitchChannelHistoryModel::SwitchChannelInfo::operator==(const SwitchChannelInfo &other) const
-{
-    return other.mIdentifier == mIdentifier && other.mName == mName && other.mAvatarInfo == mAvatarInfo;
-}
-
 #include "moc_switchchannelhistorymodel.cpp"

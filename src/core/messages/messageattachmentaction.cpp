@@ -33,11 +33,6 @@ void MessageAttachmentAction::setText(const QString &newText)
     mText = newText;
 }
 
-bool MessageAttachmentAction::operator==(const MessageAttachmentAction &other) const
-{
-    return mText == other.mText && mMsg == other.mMsg && mType == other.mType;
-}
-
 QString MessageAttachmentAction::msg() const
 {
     return mMsg;

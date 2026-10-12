@@ -29,11 +29,6 @@ void ApplicationsSettingsLogsInfo::parseLogs(const QJsonObject &obj)
     }
 }
 
-bool ApplicationsSettingsLogsInfo::operator==(const ApplicationsSettingsLogsInfo &other) const
-{
-    return mMethod == other.mMethod && mArguments == other.mArguments && mCreatedAt == other.mCreatedAt && mTotalTime == other.mTotalTime;
-}
-
 QList<ApplicationsSettingsLogsInfo::LogsArgument> ApplicationsSettingsLogsInfo::arguments() const
 {
     return mArguments;
@@ -91,11 +86,6 @@ void ApplicationsSettingsLogsInfo::LogsArgument::parseArguments(const QJsonObjec
     const QJsonArray arrayArgs = obj["args"_L1].toArray();
     const QJsonDocument r(arrayArgs);
     args = r.toJson().replace("\n"_ba, "<br/>"_ba).replace(" "_ba, "&nbsp;"_ba);
-}
-
-bool ApplicationsSettingsLogsInfo::LogsArgument::operator==(const LogsArgument &other) const
-{
-    return caller == other.caller && method == other.method && severity == other.severity && args == other.args;
 }
 
 QDebug operator<<(QDebug d, const ApplicationsSettingsLogsInfo::LogsArgument &arg)

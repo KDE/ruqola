@@ -1021,9 +1021,4 @@ void MessagesModel::HighlightSearchStringIndexInMessage::clear()
     messageId.clear();
 }
 
-bool MessagesModel::HighlightSearchStringIndexInMessage::operator==(const HighlightSearchStringIndexInMessage &other) const
-{
-    return index == other.index && messageId == other.messageId;
-}
-
 #include "moc_messagesmodel.cpp"
