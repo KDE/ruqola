@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include <QObject>
+#include <QMetaType>
 class QDebug;
 class QJsonObject;
 class LIBRUQOLACORE_EXPORT RetentionInfo
