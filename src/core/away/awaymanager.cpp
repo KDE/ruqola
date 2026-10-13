@@ -90,7 +90,13 @@ int AwayManager::idleTiming() const
 
 void AwayManager::setIdleTiming(int newIdleTiming)
 {
-    mIdleTiming = newIdleTiming;
+    if (mIdleTiming != newIdleTiming) {
+        mIdleTiming = newIdleTiming;
+        if (mTimerId != -1) {
+            KIdleTime::instance()->removeIdleTimeout(mTimerId);
+        }
+        mTimerId = KIdleTime::instance()->addIdleTimeout(timeValue());
+    }
 }
 
 void AwayManager::updateSettings()
