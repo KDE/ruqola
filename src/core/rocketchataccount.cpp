@@ -825,7 +825,9 @@ void RocketChatAccount::tryLogin()
     }
     qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << accountName() << "attempting login" << mSettings->userName() << "on"
                                   << mSettings->serverUrl();
-    Q_ASSERT(ddp());
+
+    auto ddpClient = ddp();
+    Q_ASSERT(ddpClient);
 
     if (auto interface = mDefaultAuthenticationInterface) {
         qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "RESTAPI login" << accountName();

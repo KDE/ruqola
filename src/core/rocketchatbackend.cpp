@@ -651,6 +651,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // TODO Perhaps not necessary to convert to variantlist. Need to investigate
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-room: typing event ? " << eventname << " content  " << contents.toVariantList() << " object "
                                         << object;
+            if (contents.isEmpty()) {
+                return;
+            }
             const QString typingUserName = contents.toVariantList().at(0).toString();
             if (typingUserName != mRocketChatAccount->settings()->userName()) {
                 const bool status = Utils::userActivity(contents);
