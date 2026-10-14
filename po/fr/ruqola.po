@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 00:46+0000\n"
+"POT-Creation-Date: 2026-10-14 00:46+0000\n"
 "PO-Revision-Date: 2026-06-03 22:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -1850,13 +1850,13 @@ msgstr "Non connecté"
 msgid "Not connected yet"
 msgstr "Pas encore connecté"
 
-#: core/rocketchataccount.cpp:3271
+#: core/rocketchataccount.cpp:3273
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Ajout d'un compte"
 
-#: core/rocketchataccount.cpp:3272
+#: core/rocketchataccount.cpp:3274
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
