@@ -26,12 +26,12 @@ namespace
 {
 // ktextaddons generates its emoji set from emojibase, the one Rocket.Chat names its
 // emojis after.
-constexpr int unicodeEmojiCount = 3979;
-constexpr int peopleEmojiCount = 2593;
-constexpr int firstSymbolOrder = 4645;
+constexpr int unicodeEmojiCount = 3816;
+constexpr int peopleEmojiCount = 2434;
+constexpr int firstSymbolOrder = 4462;
 constexpr auto firstSymbolIdentifier = ":atm:";
 constexpr auto firstRegionalIdentifier = ":regional_indicator_a:";
-constexpr auto slightlySmilingFace = ":slightly_smiling_face:";
+constexpr auto slightlySmilingFace = ":slight_smile:";
 }
 EmojiManagerTest::EmojiManagerTest(QObject *parent)
     : QObject(parent)
