@@ -283,10 +283,10 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     smiley += QChar(0xD83D);
     smiley += QChar(0xDE42);
     // The title is the identifier of the emoji, which ktextaddons takes from emojibase.
-    const auto smileyIdentifier = u":slightly_smiling_face:"_s;
+    const auto smileyIdentifier = u":slight_smile:"_s;
     const auto smileyText = u"<span style=\"font: x-large %2\" title=\"%3\">%1</span>"_s.arg(smiley, Utils::emojiFontName(), smileyIdentifier);
     QTest::newRow("ascii-smiley") << u":)"_s << u"<p>%1</p>\n"_s.arg(smileyText) << u"www.kde.org"_s;
-    QTest::newRow("multi-smiley") << u":):slightly_smiling_face::):)"_s << u"<p>%1</p>\n"_s.arg(smileyText.repeated(4)) << u"www.kde.org"_s;
+    QTest::newRow("multi-smiley") << u":):slight_smile::):)"_s << u"<p>%1</p>\n"_s.arg(smileyText.repeated(4)) << u"www.kde.org"_s;
 
     QTest::newRow("url") << u"https://www.kde.org"_s << u"<p><a href=\"https://www.kde.org\">https://www.kde.org</a></p>\n"_s << u"www.kde.org"_s;
 
