@@ -1,0 +1,704 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!-- Define an entity for your application if it is not part of KDE
+       CVS -->
+  <!ENTITY i18n-kapplication "<application
+>Ruqola</application
+>">
+  <!ENTITY kappname "&i18n-kapplication;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE">
+]>
+
+<book id="ruqola" lang="&language;">
+
+<bookinfo id="ruqolainfo">
+
+<title
+>Руководство пользователя &i18n-kapplication;</title>
+
+<authorgroup>
+<author
+><personname
+> <firstname
+>Laurent</firstname
+> <surname
+>Montel</surname
+> </personname
+> <email
+>montel@kde.org</email
+> </author>
+<othercredit role="translator"
+><firstname
+>Александр</firstname
+><surname
+>Яворский</surname
+><affiliation
+><address
+><email
+>kekcuha@gmail.com</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2018</year>
+<holder
+>Laurent Montel</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>7 октября 2026 г.</date>
+<releaseinfo
+>2.9.0</releaseinfo>
+
+<abstract>
+<para
+>&i18n-kapplication; — клиент для RocketChat. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>RocketChat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+<para
+>&i18n-kapplication; — клиент Rocket.Chat для рабочего стола. Он позволяет общаться в каналах, закрытых группах, обсуждениях и командах, обмениваться личными сообщениями и файлами, а также администрировать сервер, и всё это в собственном приложении &kde;.</para>
+
+<para
+>&i18n-kapplication; может быть подключён одновременно к нескольким серверам Rocket.Chat и позволяет быстро переключаться между ними.</para>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Начало работы</title>
+
+<sect1 id="adding-server">
+<title
+>Добавление сервера</title>
+<para
+>При первом запуске &i18n-kapplication; предлагает добавить учётную запись сервера. Другие учётные записи можно добавить позже с помощью пункта меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Добавить сервер…</guimenuitem
+></menuchoice
+>. Введите &URL; сервера и выберите способ аутентификации.</para>
+
+<para
+>В зависимости от того, что разрешает сервер, доступны следующие способы аутентификации:</para>
+<itemizedlist>
+<listitem
+><para
+>Имя пользователя (или адрес электронной почты) и пароль</para
+></listitem>
+<listitem
+><para
+>Личный маркер доступа</para
+></listitem>
+<listitem
+><para
+>Поставщики OAuth, например Google, GitHub, GitLab, Facebook или Twitter</para
+></listitem>
+</itemizedlist>
+
+<para
+>Если для учётной записи включена двухфакторная аутентификация, при входе &i18n-kapplication; запрашивает код. Пароли хранятся в системном бумажнике.</para>
+
+<para
+>Если сервер это разрешает, новую учётную запись можно создать с помощью пункта меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Зарегистрировать нового пользователя…</guimenuitem
+></menuchoice
+>.</para>
+</sect1>
+
+<sect1 id="multiple-servers">
+<title
+>Работа с несколькими серверами</title>
+<para
+>Каждая настроенная учётная запись показывается в виде вкладки. Для переключения между ними используйте пункты меню <menuchoice
+><guimenu
+>Окно</guimenu
+><guimenuitem
+>Следующий сервер</guimenuitem
+></menuchoice
+> и <menuchoice
+><guimenu
+>Окно</guimenu
+><guimenuitem
+>Предыдущий сервер</guimenuitem
+></menuchoice
+>. Включать, отключать, переупорядочивать и удалять учётные записи можно на странице <guilabel
+>Учётные записи</guilabel
+> диалога параметров.</para>
+
+<para
+>Пункты меню <menuchoice
+><guimenu
+>Сервис</guimenu
+><guimenuitem
+>Экспорт учётных записей</guimenuitem
+></menuchoice
+> и <menuchoice
+><guimenu
+>Сервис</guimenu
+><guimenuitem
+>Импорт учётных записей</guimenuitem
+></menuchoice
+> позволяют перенести конфигурацию учётных записей на другой компьютер.</para>
+</sect1>
+</chapter>
+
+<chapter id="main-window">
+<title
+>Главное окно</title>
+
+<sect1 id="room-list">
+<title
+>Список комнат</title>
+<para
+>В левой части окна перечислены каналы, закрытые группы, личные сообщения, обсуждения и команды. Поле поиска вверху фильтрует список. Свой статус (в сети, занят, отсутствует, не в сети или пользовательский статус) можно изменить в строке состояния внизу окна.</para>
+
+<para
+>Меню <guimenu
+>Вид</guimenu
+> изменяет внешний вид списка:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Компактный</guimenuitem
+>, <guimenuitem
+>Обычный</guimenuitem
+> или <guimenuitem
+>Расширенный</guimenuitem
+> вид</para
+></listitem>
+<listitem
+><para
+>Сортировка <guimenuitem
+>По последнему сообщению</guimenuitem
+> или <guimenuitem
+>По алфавиту</guimenuitem
+>, при необходимости — <guimenuitem
+>Непрочитанное сверху</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Показать аватар комнаты</guimenuitem
+> и <guimenuitem
+>Показать избранную комнату</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Отметить все каналы как прочитанные</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+>Пункт меню <menuchoice
+><guimenu
+>Канал</guimenu
+><guimenuitem
+>Перейти к следующему непрочитанному каналу</guimenuitem
+></menuchoice
+> открывает следующую комнату с непрочитанными сообщениями.</para>
+</sect1>
+
+<sect1 id="room-view">
+<title
+>Просмотр комнаты</title>
+<para
+>В правой части окна показываются сообщения выбранной комнаты. В заголовке выводятся название и тема комнаты, а также кнопки, позволяющие добавить комнату в избранное, открыть сведения о ней, показать список её пользователей, искать сообщения, начать звонок и открыть меню комнаты.</para>
+
+<para
+>Меню комнаты даёт доступ к следующему:</para>
+<itemizedlist>
+<listitem
+><para
+>закреплённые сообщения, сообщения со звёздочкой и с упоминаниями, ветки, обсуждения и вложенные файлы;</para
+></listitem>
+<listitem
+><para
+>добавление и приглашение пользователей, просмотр заблокированных пользователей;</para
+></listitem>
+<listitem
+><para
+>параметры уведомлений для этой комнаты;</para
+></listitem>
+<listitem
+><para
+>автоматический перевод сообщений;</para
+></listitem>
+<listitem
+><para
+>экспорт и вырезание сообщений (при наличии необходимых прав);</para
+></listitem>
+<listitem
+><para
+>сквозное шифрование, если сервер его поддерживает.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="messages">
+<title
+>Сообщения</title>
+
+<sect1 id="writing-messages">
+<title
+>Написание сообщений</title>
+<para
+>Введите сообщение в текстовое поле внизу комнаты и нажмите &Enter;, чтобы его отправить. В сообщениях поддерживается форматирование Markdown. Ввод <literal
+>@</literal
+> дополняет имена пользователей, <literal
+>#</literal
+> — названия каналов, <literal
+>:</literal
+> — эмодзи, а <literal
+>/</literal
+> выводит список доступных на сервере команд с косой чертой.</para>
+
+<para
+>Кнопки рядом с текстовым полем позволяют:</para>
+<itemizedlist>
+<listitem
+><para
+>вставить эмодзи, в том числе собственные эмодзи сервера;</para
+></listitem>
+<listitem
+><para
+>прикрепить один или несколько файлов (их также можно перетащить или вставить);</para
+></listitem>
+<listitem
+><para
+>записать и отправить звуковое или видеосообщение;</para
+></listitem>
+<listitem
+><para
+>воспользоваться инструментами, которые предоставляют модули, например сделать снимок экрана.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Проверка орфографии и автоисправление работают во время ввода и настраиваются в диалоге параметров.</para>
+</sect1>
+
+<sect1 id="message-actions">
+<title
+>Действия с сообщениями</title>
+<para
+>При наведении указателя мыши на сообщение появляются кнопки, позволяющие добавить реакцию, ответить в ветке или отметить сообщение звёздочкой. В контекстном меню сообщения доступны и другие действия (в зависимости от прав):</para>
+<itemizedlist>
+<listitem
+><para
+>изменить, удалить или процитировать сообщение;</para
+></listitem>
+<listitem
+><para
+>скопировать сообщение, выделенный фрагмент или ссылку на сообщение;</para
+></listitem>
+<listitem
+><para
+>ответить в ветке, начать или прекратить её отслеживание, показать ветку целиком;</para
+></listitem>
+<listitem
+><para
+>начать по сообщению обсуждение или конфиденциальный разговор;</para
+></listitem>
+<listitem
+><para
+>закрепить сообщение, отметить его звёздочкой, переслать или пожаловаться на него;</para
+></listitem>
+<listitem
+><para
+>отметить сообщение как непрочитанное;</para
+></listitem>
+<listitem
+><para
+>перевести сообщение или показать исходный текст;</para
+></listitem>
+<listitem
+><para
+>показать подтверждения прочтения, если они включены на сервере.</para
+></listitem>
+</itemizedlist>
+
+<para
+>Изображения, видео и звуки показываются прямо в сообщениях, их можно открыть в программе просмотра. Предварительный просмотр &URL; можно включить в параметрах.</para>
+</sect1>
+
+<sect1 id="searching">
+<title
+>Поиск</title>
+<para
+>Для поиска сообщений в текущей комнате используйте кнопку поиска в заголовке комнаты. Пункты меню <menuchoice
+><guimenu
+>Канал</guimenu
+><guimenuitem
+>Присоединиться к комнате…</guimenuitem
+></menuchoice
+>, <guimenuitem
+>Присоединиться к команде…</guimenuitem
+> и <guimenuitem
+>Открыть конфиденциальный разговор…</guimenuitem
+> выполняют поиск комнат, команд и пользователей в каталоге сервера.</para>
+</sect1>
+</chapter>
+
+<chapter id="rooms">
+<title
+>Комнаты, обсуждения и команды</title>
+<para
+>Меню <guimenu
+>Канал</guimenu
+> позволяет создать:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Создать новый канал…</guimenuitem
+>: открытый канал или закрытую группу, при необходимости — только для чтения, для трансляции или зашифрованную</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Создать личные сообщения…</guimenuitem
+>: разговор с одним или несколькими пользователями</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Создать обсуждение…</guimenuitem
+>: вложенный разговор, привязанный к комнате</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Создать команду…</guimenuitem
+>: группу пользователей с собственными каналами</para
+></listitem>
+</itemizedlist>
+
+<para
+>В диалоге сведений о комнате показываются её название, тема, объявление, описание и аватар. Владельцы комнаты могут изменять их, менять тип комнаты, устанавливать пароль и настраивать такие параметры, как режим «только чтение» или вырезание сообщений. Владельцы команды могут добавлять, удалять и преобразовывать каналы команды.</para>
+</chapter>
+
+<chapter id="notifications">
+<title
+>Уведомления</title>
+<para
+>&i18n-kapplication; сообщает о новых сообщениях и упоминаниях через системные уведомления, а также показывает счётчики непрочитанного в списке комнат и в системном лотке. Поведение уведомлений (всплывающее уведомление, звук, электронная почта) настраивается для каждой комнаты с помощью пункта <guimenuitem
+>Настроить уведомление…</guimenuitem
+> в меню комнаты.</para>
+
+<para
+>Пункт меню <menuchoice
+><guimenu
+>Сервис</guimenu
+><guimenuitem
+>Показать журнал уведомлений</guimenuitem
+></menuchoice
+> выводит список уведомлений, полученных за сеанс.</para>
+</chapter>
+
+<chapter id="encryption">
+<title
+>Сквозное шифрование</title>
+<para
+>Если сервер это разрешает, &i18n-kapplication; поддерживает сквозное шифрование Rocket.Chat для личных сообщений и закрытых групп. Ключи шифрования защищены паролем, которым можно управлять на странице <guilabel
+>Шифрование</guilabel
+> диалога <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Моя учётная запись…</guimenuitem
+></menuchoice
+>. В заголовке зашифрованных комнат показывается значок замка. Обратите внимание, что по содержимому зашифрованных сообщений поиск невозможен.</para>
+</chapter>
+
+<chapter id="my-account">
+<title
+>Моя учётная запись</title>
+<para
+>Пункт меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Моя учётная запись…</guimenuitem
+></menuchoice
+> позволяет управлять профилем Rocket.Chat:</para>
+<itemizedlist>
+<listitem
+><para
+>профиль: имя, имя пользователя, адрес электронной почты, аватар, сообщение о статусе и пароль;</para
+></listitem>
+<listitem
+><para
+>предпочтения, которые предлагает сервер;</para
+></listitem>
+<listitem
+><para
+>двухфакторная аутентификация (по электронной почте или TOTP);</para
+></listitem>
+<listitem
+><para
+>ключи сквозного шифрования;</para
+></listitem>
+<listitem
+><para
+>личные маркеры доступа;</para
+></listitem>
+<listitem
+><para
+>устройства, на которых выполнен вход в учётную запись;</para
+></listitem>
+<listitem
+><para
+>предварительный просмотр возможностей.</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="administration">
+<title
+>Администрирование сервера</title>
+<para
+>Пользователи с необходимыми правами могут администрировать сервер с помощью меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Администрирование</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Пункт <guimenuitem
+>Администратор…</guimenuitem
+> даёт доступ к сведениям о сервере, комнатам, пользователям, приглашениям, пользовательским эмодзи, звукам и статусам, ролям, правам, приложениям OAuth, консоли модерации и журналам сервера.</para>
+
+<para
+>Пункт <guimenuitem
+>Параметры сервера…</guimenuitem
+> позволяет изменить конфигурацию сервера, а пункты <guimenuitem
+>Приложения</guimenuitem
+> — просматривать приложения Rocket.Chat Marketplace и управлять ими.</para>
+
+<para
+>Пункт меню <menuchoice
+><guimenu
+>Сервис</guimenu
+><guimenuitem
+>Контрольный список сервера…</guimenuitem
+></menuchoice
+> проверяет конфигурацию сервера на типичные проблемы.</para>
+</chapter>
+
+<chapter id="offline">
+<title
+>Автономный режим</title>
+<para
+>&i18n-kapplication; может хранить сообщения в локальной базе данных (параметр <guilabel
+>Включить локальную базу данных</guilabel
+> на странице <guilabel
+>Общие</guilabel
+> диалога параметров): тогда комнаты показываются быстрее и остаются доступными для чтения при потере подключения. Пункт меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Работать автономно</guimenuitem
+></menuchoice
+> намеренно отключает приложение от сервера.</para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>Настройка &i18n-kapplication;</title>
+<para
+>Пункт меню <menuchoice
+><guimenu
+>Настройка</guimenu
+><guimenuitem
+>Настроить &i18n-kapplication;…</guimenuitem
+></menuchoice
+> открывает диалог параметров, который содержит следующие страницы:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Учётные записи</guilabel
+></term>
+<listitem
+><para
+>Добавление, изменение, включение, отключение и удаление учётных записей серверов.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Общие</guilabel
+></term>
+<listitem
+><para
+>Значок в системном лотке, статус при запуске, предварительный просмотр изображений и &URL;, анимированные GIF, локальная база данных, ведение журнала и другие параметры поведения.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Шрифт</guilabel
+></term>
+<listitem
+><para
+>Шрифт, которым показываются сообщения.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Проверка орфографии</guilabel
+> и <guilabel
+>Автоисправление</guilabel
+></term>
+<listitem
+><para
+>Язык и правила исправления, применяемые при вводе.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Перевод</guilabel
+></term>
+<listitem
+><para
+>Механизм перевода сообщений.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Специальные возможности</guilabel
+></term>
+<listitem
+><para
+>Параметры синтеза и распознавания речи (если доступны).</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Модули</guilabel
+></term>
+<listitem
+><para
+>Включение и отключение модулей, например отправки текста, веб-сокращений, снимков экрана или создания текста с помощью ИИ.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Обратная связь</guilabel
+></term>
+<listitem
+><para
+>Выбор анонимной статистики использования, которая отправляется разработчикам.</para
+></listitem
+></varlistentry>
+</variablelist>
+<para
+>Цветовую схему можно изменить в меню <guimenu
+>Настройка</guimenu
+>, а размер шрифта сообщений — в меню <guimenu
+>Вид</guimenu
+>.</para>
+</chapter>
+
+<chapter id="tools">
+<title
+>Сервис</title>
+<para
+>Меню <guimenu
+>Сервис</guimenu
+> содержит вспомогательные инструменты, полезные в основном для устранения неполадок:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Показать журнал канала</guimenuitem
+> и <guimenuitem
+>Показать ошибки сервера</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Показать сведения о RocketChat</guimenuitem
+>: версия и возможности сервера</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Повторить попытку доступа к бумажнику</guimenuitem
+>, если пароль не удалось прочитать из бумажника</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&i18n-kapplication;</para>
+<para
+>Авторские права на программу 2018-2026 &Laurent.Montel; &Laurent.Montel.mail; </para>
+<para
+>Авторские права на документацию &copy; &Laurent.Montel; &Laurent.Montel.mail; </para>
+
+<para
+>Перевод на русский — Александр Яворский<email
+>kekcuha@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
