@@ -17,6 +17,9 @@ class ConfigureGeneralWidget;
 class ConfigureFontWidget;
 class ConfigureAccessibilityTabWidget;
 class ConfigurePluginsWidget;
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+class ConfigureServerMcpWidget;
+#endif
 
 namespace TextTranslator
 {
@@ -45,6 +48,9 @@ private:
     TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget = nullptr;
     ConfigureAccessibilityTabWidget *const mConfigureAccessibilityTabWidget;
     ConfigurePluginsWidget *const mConfigurePluginsWidget;
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    ConfigureServerMcpWidget *const mConfigureServerMcpWidget;
+#endif
     KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
     KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
     KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
@@ -54,4 +60,5 @@ private:
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
     KPageWidgetItem *mConfigureTextToSpeechWidgetPage = nullptr;
     KPageWidgetItem *mConfigurePluginsWidgetPage = nullptr;
+    KPageWidgetItem *mConfigureMcpWidgetPage = nullptr;
 };

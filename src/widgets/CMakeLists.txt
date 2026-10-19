@@ -1126,6 +1126,15 @@ if(HAVE_SPEECH_TO_TEXT)
     )
 endif()
 
+if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
+    target_sources(
+        libruqolawidgets
+        PRIVATE
+            configuredialog/configureservermcpwidget.h
+            configuredialog/configureservermcpwidget.cpp
+    )
+endif()
+
 # precompiled headers support
 if(ENABLE_PCH)
     target_precompile_headers(
@@ -1272,6 +1281,10 @@ if(HAVE_TEXT_CUSTOM_EDITOR)
 endif()
 
 target_link_libraries(libruqolawidgets KF6::TextAddonsWidgets)
+
+if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
+    target_link_libraries(libruqolawidgets KF6::TextAutoGenerateTextMcpProtocolWidgets)
+endif()
 
 if(NOT WIN32 AND NOT APPLE)
     target_link_libraries(libruqolawidgets KF6::WindowSystem)

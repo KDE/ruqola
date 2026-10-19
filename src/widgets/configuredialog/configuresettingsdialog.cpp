@@ -31,6 +31,10 @@
 #include "configureuserfeedbackwidget.h"
 #endif
 
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+#include "configureservermcpwidget.h"
+#endif
+
 namespace
 {
 const char myConfigGroupName[] = "ConfigureSettingsDialog";
@@ -53,6 +57,9 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #endif
     , mConfigureAccessibilityTabWidget(new ConfigureAccessibilityTabWidget(this))
     , mConfigurePluginsWidget(new ConfigurePluginsWidget(this))
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    , mConfigureServerMcpWidget(new ConfigureServerMcpWidget(this))
+#endif
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);
@@ -98,6 +105,13 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureUserFeedBackWidgetPage = new KPageWidgetItem(mConfigureUserFeedBackWidget, userFeedBackPageName);
     mConfigureUserFeedBackWidgetPage->setIcon(QIcon::fromTheme(u"preferences-other"_s));
     addPage(mConfigureUserFeedBackWidgetPage);
+#endif
+
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    const QString serverMcpPageName = i18nc("@title Mcp page name", "MCP Server");
+    mConfigureMcpWidgetPage = new KPageWidgetItem(mConfigureServerMcpWidget, serverMcpPageName);
+    mConfigureMcpWidgetPage->setIcon(QIcon::fromTheme(u"preferences-system-network-server"_s));
+    addPage(mConfigureMcpWidgetPage);
 #endif
 
     const QString textToSpeechPageName = i18nc("@title Preferences page name", "Accessibility");
@@ -146,6 +160,10 @@ void ConfigureSettingsDialog::slotRestoreToDefault()
 #if HAVE_KUSERFEEDBACK
         mConfigureUserFeedBackWidget->restoreToDefaults();
 #endif
+    } else if (currentPage() == mConfigureMcpWidgetPage) {
+#if HAVE_KUSERFEEDBACK
+        mConfigureServerMcpWidget->restoreToDefaults();
+#endif
     } else if (currentPage() == mConfigureTextToSpeechWidgetPage) {
         mConfigureAccessibilityTabWidget->restoreToDefaults();
     } else if (currentPage() == mConfigurePluginsWidgetPage) {
@@ -172,6 +190,9 @@ void ConfigureSettingsDialog::slotAccepted()
 #endif
     mConfigureAccessibilityTabWidget->save();
     mConfigurePluginsWidget->save();
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    mConfigureServerMcpWidget->save();
+#endif
 }
 
 void ConfigureSettingsDialog::load()
@@ -191,6 +212,9 @@ void ConfigureSettingsDialog::load()
 #endif
     mConfigureAccessibilityTabWidget->load();
     mConfigurePluginsWidget->load();
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    mConfigureServerMcpWidget->load();
+#endif
 }
 
 #include "moc_configuresettingsdialog.cpp"
