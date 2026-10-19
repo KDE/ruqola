@@ -12,6 +12,7 @@ namespace TextAutoGenerateTextMcpProtocolWidgets
 {
 class McpProtocolServerConfigureWidget;
 }
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureServerMcpWidget : public QWidget
 {
     Q_OBJECT
@@ -25,4 +26,5 @@ public:
 
 private:
     TextAutoGenerateTextMcpProtocolWidgets::McpProtocolServerConfigureWidget *const mMcpProtocolServerConfigureWidget;
+    QCheckBox *const mEnabled;
 };

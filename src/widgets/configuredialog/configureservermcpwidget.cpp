@@ -5,6 +5,9 @@
 */
 
 #include "configureservermcpwidget.h"
+#include "ruqolaglobalconfig.h"
+#include <KLocalizedString>
+#include <QCheckBox>
 #include <QVBoxLayout>
 #include <TextAutoGenerateTextMcpProtocolWidgets/McpProtocolServerConfigureWidget>
 
@@ -12,24 +15,33 @@ using namespace Qt::Literals::StringLiterals;
 ConfigureServerMcpWidget::ConfigureServerMcpWidget(QWidget *parent)
     : QWidget{parent}
     , mMcpProtocolServerConfigureWidget(new TextAutoGenerateTextMcpProtocolWidgets::McpProtocolServerConfigureWidget(this))
+    , mEnabled(new QCheckBox(i18nc("@option:check", "Enable")))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(u"mainLayout"_s);
 
+    mEnabled->setObjectName(u"mEnabled"_s);
+    mainLayout->addWidget(mEnabled);
+
     mMcpProtocolServerConfigureWidget->setObjectName(u"mMcpProtocolServerConfigureWidget"_s);
     mainLayout->addWidget(mMcpProtocolServerConfigureWidget);
+
+    connect(mEnabled,
+            &QCheckBox::clicked,
+            mMcpProtocolServerConfigureWidget,
+            &TextAutoGenerateTextMcpProtocolWidgets::McpProtocolServerConfigureWidget::setEnabled);
 }
 
 ConfigureServerMcpWidget::~ConfigureServerMcpWidget() = default;
 
 void ConfigureServerMcpWidget::save()
 {
-    // TODO
+    RuqolaGlobalConfig::self()->setEnableMcpServer(mEnabled->isChecked());
 }
 
 void ConfigureServerMcpWidget::load()
 {
-    // TODO
+    mEnabled->setChecked(RuqolaGlobalConfig::self()->enableMcpServer());
 }
 
 void ConfigureServerMcpWidget::restoreToDefaults()

@@ -97,4 +97,9 @@
     </entry>
   </group>
 
+  <group name="MCP">
+    <entry name="EnableMcpServer" type="Bool">
+      <default>false</default>
+    </entry>
+  </group>
 </kcfg>
