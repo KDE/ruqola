@@ -196,6 +196,7 @@ option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib 
 
 set(KTEXTADDONS_MIN_VERSION "2.2.0")
 set(KTEXTADDONS_MIN_VERSION_SPEECH_TO_TEXT "2.2.1")
+set(KTEXTADDONS_MIN_VERSION_MCP_PROTOCOL "2.2.49")
 set(QT6KEYCHAIN_LIB_VERSION "0.15.0")
 
 find_package(
@@ -358,6 +359,25 @@ endif()
 
 if(TARGET KF6::TextAutoGenerateText)
     set(HAVE_TEXT_AUTOGENERATE_TEXT TRUE)
+endif()
+
+option(OPTION_ADD_AUTOGENERATETEXT_MCP_PROTOCOL "Allow to build with mcp protocol server support (experimental)" ON)
+if(OPTION_ADD_AUTOGENERATETEXT_MCP_PROTOCOL)
+    find_package(KF6TextAutoGenerateTextMcpProtocolWidgets ${KTEXTADDONS_MIN_VERSION_MCP_PROTOCOL} CONFIG)
+    set_package_properties(
+        KF6TextAutoGenerateTextMcpProtocolWidgets
+        PROPERTIES
+            TYPE
+                OPTIONAL
+            PURPOSE
+                "Required for building mcp protocol server"
+            DESCRIPTION
+                "Use MCP server protocol"
+    )
+endif()
+
+if(TARGET KF6::TextAutoGenerateTextMcpProtocolWidgets)
+    set(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL TRUE)
 endif()
 
 find_package(KF6TextAddonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
