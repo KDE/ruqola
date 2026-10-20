@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-14 00:46+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2026-09-23 11:14+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -4768,6 +4768,7 @@ msgstr "Usatores"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
+#: widgets/configuredialog/configureservermcpwidget.cpp:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"
@@ -7698,61 +7699,68 @@ msgstr "Plugins de instrumentos"
 msgid "Text Plugins"
 msgstr "Plugins de Texto"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:57
+#: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configura Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:62
+#: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "General"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "Contos"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Font"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:78
+#: widgets/configuredialog/configuresettingsdialog.cpp:85
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "Auto-Correction"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:84
+#: widgets/configuredialog/configuresettingsdialog.cpp:91
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Controlo Orthographic"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:90
+#: widgets/configuredialog/configuresettingsdialog.cpp:97
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "Traduction"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:97
+#: widgets/configuredialog/configuresettingsdialog.cpp:104
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Responsa del usator"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:103
+#: widgets/configuredialog/configuresettingsdialog.cpp:111
+#, fuzzy, kde-format
+#| msgid "Server"
+msgctxt "@title Mcp page name"
+msgid "MCP Server"
+msgstr "Servitor"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:117
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibilitate"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:108
+#: widgets/configuredialog/configuresettingsdialog.cpp:122
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-14 00:46+0000\n"
+"POT-Creation-Date: 2026-10-20 00:52+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4808,6 +4808,7 @@ msgstr "उपयोक्तारः"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
+#: widgets/configuredialog/configureservermcpwidget.cpp:18
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"
@@ -7885,61 +7886,68 @@ msgstr ""
 msgid "Text Plugins"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:57
+#: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "रुकोला विन्यस्तं कुर्वन्तु"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:62
+#: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "सामान्य"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accounts"
 msgstr "लेखा"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "फॉन्ट्"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:78
+#: widgets/configuredialog/configuresettingsdialog.cpp:85
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "Auto-Correction"
 msgstr "स्वतः सुधारः"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:84
+#: widgets/configuredialog/configuresettingsdialog.cpp:91
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "वर्तनीपरीक्षा"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:90
+#: widgets/configuredialog/configuresettingsdialog.cpp:97
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translation"
 msgstr "अनुवाद"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:97
+#: widgets/configuredialog/configuresettingsdialog.cpp:104
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "उपयोक्तृप्रतिक्रिया"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:103
+#: widgets/configuredialog/configuresettingsdialog.cpp:111
+#, fuzzy, kde-format
+#| msgid "Server"
+msgctxt "@title Mcp page name"
+msgid "MCP Server"
+msgstr "सर्वर"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:117
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "सुलभता"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:108
+#: widgets/configuredialog/configuresettingsdialog.cpp:122
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Plugins"
