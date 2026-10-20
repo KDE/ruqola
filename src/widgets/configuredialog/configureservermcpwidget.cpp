@@ -27,9 +27,10 @@ ConfigureServerMcpWidget::ConfigureServerMcpWidget(QWidget *parent)
     mainLayout->addWidget(mMcpProtocolServerConfigureWidget);
 
     connect(mEnabled,
-            &QCheckBox::clicked,
+            &QCheckBox::toggled,
             mMcpProtocolServerConfigureWidget,
             &TextAutoGenerateTextMcpProtocolWidgets::McpProtocolServerConfigureWidget::setEnabled);
+    mMcpProtocolServerConfigureWidget->setEnabled(false);
 }
 
 ConfigureServerMcpWidget::~ConfigureServerMcpWidget() = default;
