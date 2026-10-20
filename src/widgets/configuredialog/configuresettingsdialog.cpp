@@ -161,7 +161,7 @@ void ConfigureSettingsDialog::slotRestoreToDefault()
         mConfigureUserFeedBackWidget->restoreToDefaults();
 #endif
     } else if (currentPage() == mConfigureMcpWidgetPage) {
-#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
         mConfigureServerMcpWidget->restoreToDefaults();
 #endif
     } else if (currentPage() == mConfigureTextToSpeechWidgetPage) {
