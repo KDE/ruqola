@@ -620,6 +620,14 @@ if(HAVE_TEXT_TRANSLATOR)
             translatetext/translatorenginemanager.h
     )
 endif()
+if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
+    target_sources(
+        libruqolacore
+        PRIVATE
+            mcpserver/mcpservermanager.h
+            mcpserver/mcpservermanager.cpp
+    )
+endif()
 
 # precompiled headers support
 if(ENABLE_PCH)
@@ -637,6 +645,10 @@ endif()
 # TODO remove it from core
 if(TARGET KF6::TextEditTextToSpeech)
     target_link_libraries(libruqolacore PRIVATE KF6::TextEditTextToSpeech)
+endif()
+
+if(TARGET KF6::TextAutoGenerateTextMcpProtocolCore)
+    target_link_libraries(libruqolacore PRIVATE KF6::TextAutoGenerateTextMcpProtocolCore)
 endif()
 
 if(TARGET KF6::TextAutoGenerateText)
