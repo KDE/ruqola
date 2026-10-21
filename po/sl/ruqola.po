@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-20 00:52+0000\n"
-"PO-Revision-Date: 2026-10-10 08:58+0200\n"
+"PO-Revision-Date: 2026-10-20 12:28+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7919,11 +7919,10 @@ msgid "User Feedback"
 msgstr "Povratne informacije uporabnika"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:111
-#, fuzzy, kde-format
-#| msgid "Server"
+#, kde-format
 msgctxt "@title Mcp page name"
 msgid "MCP Server"
-msgstr "Strežnik"
+msgstr "Strežnik MCP"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:117
 #, kde-format

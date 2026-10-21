@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-20 00:52+0000\n"
-"PO-Revision-Date: 2026-10-10 06:58-0300\n"
+"PO-Revision-Date: 2026-10-20 07:32-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -7916,11 +7916,10 @@ msgid "User Feedback"
 msgstr "Feedback do usuário"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:111
-#, fuzzy, kde-format
-#| msgid "Server"
+#, kde-format
 msgctxt "@title Mcp page name"
 msgid "MCP Server"
-msgstr "Servidor"
+msgstr "Servidor MCP"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:117
 #, kde-format
