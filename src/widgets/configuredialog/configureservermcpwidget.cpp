@@ -49,3 +49,5 @@ void ConfigureServerMcpWidget::restoreToDefaults()
 {
     // TODO
 }
+
+#include "moc_configureservermcpwidget.cpp"
