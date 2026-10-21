@@ -1388,7 +1388,7 @@
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
-    <release version="2.9.0" type="snapshot">
+    <release version="2.9.0" date="2026-10-14">
       <description>
         <ul>
           <li>Update Emoji list</li>
