@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "mcpservermanager.h"
+#include "listaccounts/listaccountstool.h"
 #include <KLocalizedString>
 namespace
 {
@@ -21,6 +22,9 @@ McpServerManager::McpServerManager(QObject *parent)
     setServerInfo(serverInfo);
     setInstructions(i18n("Manage information from Ruqola"));
     setToolsPageSize(toolsPageSize);
+
+    addTool(std::make_unique<ListAccountsTool>());
+    // TODO add more
 }
 
 McpServerManager::~McpServerManager() = default;

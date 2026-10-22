@@ -626,6 +626,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
         PRIVATE
             mcpserver/mcpservermanager.h
             mcpserver/mcpservermanager.cpp
+            mcpserver/listaccounts/listaccountstool.h
+            mcpserver/listaccounts/listaccountstool.cpp
     )
 endif()
 
