@@ -525,7 +525,7 @@ void RoomModel::userStatusChanged(const User &user)
         const Room *const room = mRoomsList.at(i);
         if (room->name() == user.userName()) {
             const QModelIndex idx = createIndex(i, 0);
-            Q_EMIT dataChanged(idx, idx);
+            Q_EMIT dataChanged(idx, idx, {UserOffline, Qt::ToolTipRole, Qt::DecorationRole, RoomIcon});
         }
         room->usersModelForRoom()->setUserStatusChanged(user);
     }
