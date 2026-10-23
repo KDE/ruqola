@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:52+0000\n"
+"POT-Creation-Date: 2026-10-23 00:48+0000\n"
 "PO-Revision-Date: 2026-09-30 18:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -795,6 +795,11 @@ msgstr "عنوان الخادم مفقود."
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "أُغلق المقبس بشكل غير متوقع."
+
+#: core/mcpserver/mcpservermanager.cpp:23
+#, kde-format
+msgid "Manage information from Ruqola"
+msgstr ""
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69

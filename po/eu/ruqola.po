@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:52+0000\n"
+"POT-Creation-Date: 2026-10-23 00:48+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -820,6 +820,11 @@ msgstr "Zerbitzariaren URLa falta da."
 #, kde-format
 msgid "Socket was unexpectedly closed."
 msgstr "Hargunea ustekabean itxi da."
+
+#: core/mcpserver/mcpservermanager.cpp:23
+#, kde-format
+msgid "Manage information from Ruqola"
+msgstr ""
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
