@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 03:20+0000\n"
-"PO-Revision-Date: 2026-10-09 16:07+0200\n"
+"PO-Revision-Date: 2026-10-20 15:24+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Poedit 3.10\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -944,12 +944,12 @@ msgstr "Questa stanza è stata tolta dall'archivio da %1"
 #: core/messages/message.cpp:862 core/messages/message.cpp:909
 #, kde-format
 msgid "Unknown action!"
-msgstr "Azione sconosciuta."
+msgstr "Azione sconosciuta!"
 
 #: core/messages/message.cpp:866
 #, kde-format
 msgid "Welcome %1!"
-msgstr "Benvenuto %1."
+msgstr "Benvenuto %1!"
 
 #: core/messages/message.cpp:868
 #, kde-format
@@ -1720,22 +1720,22 @@ msgstr "Nascondi i messaggi «L'utente ha convertito la squadra in canale»"
 #: core/model/systemmessagesmodel.cpp:63
 #, kde-format
 msgid "Hide \"User converted channel to a Team\" messages"
-msgstr "Nascondi i messaggi «L'utente ha convertito il canale in una squadra»."
+msgstr "Nascondi i messaggi «L'utente ha convertito il canale in una squadra»"
 
 #: core/model/systemmessagesmodel.cpp:64
 #, kde-format
 msgid "Hide \"User deleted room from Team\" messages"
-msgstr "Nascondi i messaggi «L'utente ha eliminato la stanza dalla squadra»."
+msgstr "Nascondi i messaggi «L'utente ha eliminato la stanza dalla squadra»"
 
 #: core/model/systemmessagesmodel.cpp:65
 #, kde-format
 msgid "Hide \"User removed room from Team\" messages"
-msgstr "Nascondi i messaggi «L'utente ha rimosso la stanza dalla squadra»."
+msgstr "Nascondi i messaggi «L'utente ha rimosso la stanza dalla squadra»"
 
 #: core/model/systemmessagesmodel.cpp:67
 #, kde-format
 msgid "Hide \"Removed user from Team\" messages"
-msgstr "Nascondi i messaggi «Utente rimosso dalla squadra»."
+msgstr "Nascondi i messaggi «Utente rimosso dalla squadra»"
 
 #: core/model/systemmessagesmodel.cpp:68
 #, kde-format
@@ -2025,7 +2025,7 @@ msgstr "Nessun motore di traduzione disponibile."
 #: core/translatetext/translatetextjob.cpp:55
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr "Informazioni mancanti sul traduttore. È un bug."
+msgstr "Informazioni mancanti sul traduttore. È un bug"
 
 #: core/translatetext/translatorenginemanager.cpp:104
 #, kde-format
@@ -2290,7 +2290,7 @@ msgstr "Elimina messaggio allegato"
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
 msgid "Message deletion is not allowed."
-msgstr "L'eliminazione del messaggio non è permessa"
+msgstr "L'eliminazione del messaggio non è permessa."
 
 #: rocketchatrestapi-qt/chat/getmessagejob.cpp:100
 #, kde-format
@@ -2365,7 +2365,7 @@ msgstr ""
 #: rocketchatrestapi-qt/invite/findorcreateinvitejob.cpp:135
 #, kde-format
 msgid "Generate link is not authorized in this channel."
-msgstr "La generazione di collegamenti non è autorizzata in questo canale"
+msgstr "La generazione di collegamenti non è autorizzata in questo canale."
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:241
 #, kde-format
@@ -3114,7 +3114,7 @@ msgstr "Rimuovi emoji"
 #, kde-format
 msgctxt "@action"
 msgid "Add…"
-msgstr "Aggiungi..."
+msgstr "Aggiungi…"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:189
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:333
@@ -5273,7 +5273,7 @@ msgid ""
 "direct messages to be encrypted."
 msgstr ""
 "Abilita l'opzione per creare gruppi cifrati ed essere in grado di modificare "
-"i gruppi e i messaggi diretti da cifrare"
+"i gruppi e i messaggi diretti da cifrare."
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:41
 #, kde-format
@@ -7358,7 +7358,9 @@ msgid "Install"
 msgstr "Installa"
 
 #: widgets/applicationssettingsdialog/applicationssettingslistview.cpp:68
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Ask Application…"
 msgctxt "@action"
 msgid "Ask Application…"
 msgstr "Aggiungi applicazione..."
@@ -8748,7 +8750,7 @@ msgstr[1] "Il tuo collegamento d'invito scadrà %2 o dopo %1 utilizzi."
 #: widgets/dialogs/inviteuserswidget.cpp:119
 #, kde-format
 msgid "Your invite link will expire on %1."
-msgstr "Il tuo collegamento d'invito scadrà %1"
+msgstr "Il tuo collegamento d'invito scadrà %1."
 
 #: widgets/dialogs/inviteuserswidget.cpp:152
 #, kde-format
@@ -10918,7 +10920,7 @@ msgstr "Altre azioni"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
-msgstr "Allega un file..."
+msgstr "Allega un file…"
 
 #: widgets/room/messagelinewidget.cpp:92
 #, kde-format
@@ -10941,7 +10943,7 @@ msgstr "Messaggio video"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
-msgstr "Invia un messaggi sonoro..."
+msgstr "Invia un messaggi sonoro…"
 
 #: widgets/room/messagelinewidget.cpp:113
 #, kde-format
@@ -10952,7 +10954,7 @@ msgstr "Messaggio audio"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
-msgstr "Aggiungi faccina..."
+msgstr "Aggiungi faccina…"
 
 #: widgets/room/messagelinewidget.cpp:127
 #, kde-format
@@ -11792,7 +11794,7 @@ msgstr "Applicazioni private…"
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
-msgstr "Unisciti alla stanza..."
+msgstr "Unisciti alla stanza…"
 
 #: widgets/ruqolamainwindow.cpp:617
 #, kde-format
@@ -11804,7 +11806,7 @@ msgstr "Unisciti alla squadra…"
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
-msgstr "Apri conversazione privata..."
+msgstr "Apri conversazione privata…"
 
 #: widgets/ruqolamainwindow.cpp:642
 #, kde-format
@@ -11849,7 +11851,7 @@ msgstr "Mostra informazioni Rocket.Chat"
 #, kde-format
 msgctxt "@action"
 msgid "Server Checklist…"
-msgstr "Lista di controllo del server..."
+msgstr "Lista di controllo del server…"
 
 #: widgets/ruqolamainwindow.cpp:720
 #, kde-format

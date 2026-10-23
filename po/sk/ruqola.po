@@ -472,7 +472,7 @@ msgstr "Pripájam"
 #: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Verifying OTP code"
-msgstr ""
+msgstr "Overuje sa kód OTP"
 
 #: core/authenticationmanager.cpp:92
 #, kde-format
@@ -741,7 +741,7 @@ msgstr "Ding"
 #: core/customsound/customsoundsmanager.cpp:83
 #, kde-format
 msgid "Droplet"
-msgstr ""
+msgstr "Droplet"
 
 #: core/customsound/customsoundsmanager.cpp:91
 #, kde-format
@@ -1757,10 +1757,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Správa"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "Správa"
+msgstr "Skryť správy „Pripojil sa k tímu“"
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2090,10 +2089,9 @@ msgid "Call ongoing"
 msgstr "Call ongoing"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "InComing Call"
+#, kde-format
 msgid "Incoming Call"
-msgstr "InComing Call"
+msgstr "Prichádzajúci hovor"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:61
 #, kde-format
@@ -2287,11 +2285,9 @@ msgid "Extract Roles"
 msgstr "Extract Roles"
 
 #: rocketchatrestapi-qt/chat/deletemessagefilejob.cpp:91
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete File Message"
-msgstr "Zmazať správu"
+msgstr "Zmazať správu so súborom"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
@@ -2726,10 +2722,9 @@ msgid "User is not in this room"
 msgstr "Používateľ nie je v tejto miestnosti"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "Nie ste v miestnosti `%s`"
+msgstr "Nie ste v miestnosti `%1`"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -2919,16 +2914,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Nemáte oprávnenie pridať tento kanál do tímu"
 
 #: rocketchatrestapi-qt/teams/teamslistroomsjob.cpp:91
-#, fuzzy, kde-format
-#| msgid ""
-#| "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
-#| "match any teams"
+#, kde-format
 msgid ""
 "The required \"teamId\" or \"teamName\" param provided does not match any "
 "teams"
 msgstr ""
-"Zadaný požadovaný parameter \\\"roomId\\\" alebo \\\"roomName\\\" "
-"nezodpovedá žiadnemu tímu"
+"Zadaný požadovaný parameter \"teamId\" alebo \"teamName\" nezodpovedá "
+"žiadnemu tímu"
 
 #: rocketchatrestapi-qt/users/getavatarjob.cpp:82
 #, kde-format
@@ -4254,8 +4246,7 @@ msgid "Deactivate"
 msgstr "Deaktivovať"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Aktivovať"
@@ -5377,18 +5368,14 @@ msgid "Accepted Media Types"
 msgstr "Accepted Media Types"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
-"Comma-separated zoznam media types. Toto nastavenie has priority over the "
-"Accepted Media Types."
+"Zoznam typov médií oddelených čiarkou. Toto nastavenie má prednosť pred "
+"blokovanými typmi médií."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5401,10 +5388,9 @@ msgstr ""
 "without authentication)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Tokenpass Secret"
+msgstr "Tajomstvo JSON Web Token"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -7734,18 +7720,14 @@ msgid "Display Account in Current Activity"
 msgstr "Zobraziť účet v aktuálnej aktivite"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgid "Text to Speech"
-msgstr "Aktivovať prevod textu na reč"
+msgstr "Prevod textu na reč"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgid "Speech to Text"
-msgstr "Povedať text"
+msgstr "Prevod reči na text"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:32
 #, kde-format
@@ -7920,12 +7902,10 @@ msgid "Plugins"
 msgstr "Plugins"
 
 #: widgets/configuredialog/configurespeechtotextconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Speech To Text"
-msgstr "Aktivovať prevod textu na reč"
+msgstr "Povoliť prevod reči na text"
 
 #: widgets/configuredialog/configuretexttospeechconfigwidget.cpp:21
 #, kde-format
@@ -8082,7 +8062,7 @@ msgstr "Pridať používateľov do miestnosti"
 #, kde-format
 msgctxt "@title:window"
 msgid "Code 2FA"
-msgstr ""
+msgstr "Kód 2FA"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:98
 #, kde-format
@@ -9927,8 +9907,7 @@ msgid "Compact"
 msgstr "Compact"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Your passwords do no match."
+#, kde-format
 msgid "Your passwords do not match."
 msgstr "Vaše heslá sa nezhodujú."
 
@@ -11625,7 +11604,7 @@ msgstr "Upozornenia"
 #, kde-format
 msgctxt "@action"
 msgid "Retry Wallet Access"
-msgstr ""
+msgstr "Znova skúsiť prístup k peňaženke"
 
 #: widgets/ruqolamainwindow.cpp:452
 #, kde-format
@@ -11633,6 +11612,8 @@ msgid ""
 "Could not access the wallet. Password changes may not be saved. Use Tools > "
 "Retry Wallet Access to try again."
 msgstr ""
+"Nepodarilo sa získať prístup k peňaženke. Zmeny hesla sa nemusia uložiť. Ak "
+"to chcete skúsiť znova, použite Nástroje > Znova skúsiť prístup k peňaženke."
 
 #: widgets/ruqolamainwindow.cpp:460
 #, kde-format
@@ -12322,10 +12303,9 @@ msgstr ""
 "správy.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "<b>Check can not executed in direct channel.</b>"
+#, kde-format
 msgid "<b>Checks cannot be executed in direct channel.</b>"
-msgstr "<b>Kontrolu nemožno vykonať v priamom kanáli.</b>"
+msgstr "<b>Kontroly nemožno vykonať v priamom kanáli.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:105
 #, kde-format
@@ -12708,8 +12688,6 @@ msgstr "Pridať účet…"
 #~ msgstr "Link Preview"
 
 #, fuzzy
-#~| msgctxt "@action"
-#~| msgid "Ignore"
 #~ msgctxt "@action:button"
 #~ msgid "Ignore"
 #~ msgstr "Ignorovať"
@@ -12718,7 +12696,6 @@ msgstr "Pridať účet…"
 #~ msgstr "Chatovací klient Rocket"
 
 #, fuzzy
-#~| msgid "Do you want to mute this user?"
 #~ msgctxt "@label:textbox"
 #~ msgid "Do you want to unban user?"
 #~ msgstr "Opustiť kanál"
@@ -12739,17 +12716,14 @@ msgstr "Pridať účet…"
 #~ msgstr "Použitie nového textmessagewidget na oznámenie chyby."
 
 #, fuzzy
-#~| msgid "Implement message style"
 #~ msgid "Implement Draft message sorting channel."
 #~ msgstr "Hľadať súbor..."
 
 #, fuzzy
-#~| msgid "Implement Pending Typed database storage."
 #~ msgid "Implement Banned Users list dialog."
 #~ msgstr "Implement Pending Typed database storage."
 
 #, fuzzy
-#~| msgid "Implement mute/unmute user."
 #~ msgid "Implement Banned/Unbanned Users."
 #~ msgstr "Hľadať súbor..."
 
