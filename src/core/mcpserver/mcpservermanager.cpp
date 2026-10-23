@@ -4,19 +4,19 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "mcpservermanager.h"
+#include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
-#include "rocketchataccount.h"
 #include <KLocalizedString>
 namespace
 {
 constexpr int toolsPageSize = 2;
 }
 using namespace Qt::Literals::StringLiterals;
-McpServerManager::McpServerManager(RocketChatAccount *account, QObject *parent)
+McpServerManager::McpServerManager(AccountManager *accountManager, QObject *parent)
     : TextAutoGenerateTextMcpProtocolCore::McpProtocolServerProtocolManager{
           TextAutoGenerateTextMcpProtocolCore::McpProtocolPlugin::TransportType::StreamableHttp,
           parent}
-    , mAccount(account)
+    , mAccountManager(accountManager)
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolImplementation serverInfo;
     serverInfo.setName(u"ruqola_mcp_protocol"_s);
@@ -25,7 +25,7 @@ McpServerManager::McpServerManager(RocketChatAccount *account, QObject *parent)
     setInstructions(i18n("Manage information from Ruqola"));
     setToolsPageSize(toolsPageSize);
 
-    addTool(std::make_unique<ListAccountsTool>());
+    addTool(std::make_unique<ListAccountsTool>(mAccountManager));
     // TODO add more
 }
 

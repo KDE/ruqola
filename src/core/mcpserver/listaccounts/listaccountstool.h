@@ -5,12 +5,12 @@
 */
 #pragma once
 
-#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerTool>
+#include "mcpserver/common/toolbase.h"
 
-class ListAccountsTool : public TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool
+class ListAccountsTool : public ToolBase
 {
 public:
-    ListAccountsTool();
+    explicit ListAccountsTool(AccountManager *accountManager);
     ~ListAccountsTool() override;
 
     [[nodiscard]] TextAutoGenerateTextMcpProtocolCore::McpProtocolTool definition() const override;
