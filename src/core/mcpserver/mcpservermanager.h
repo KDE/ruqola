@@ -7,11 +7,14 @@
 #pragma once
 
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerProtocolManager>
-
+class RocketChatAccount;
 class McpServerManager : public TextAutoGenerateTextMcpProtocolCore::McpProtocolServerProtocolManager
 {
     Q_OBJECT
 public:
-    explicit McpServerManager(QObject *parent = nullptr);
+    explicit McpServerManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~McpServerManager() override;
+
+private:
+    RocketChatAccount *const mAccount;
 };

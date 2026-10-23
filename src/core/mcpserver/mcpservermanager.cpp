@@ -5,16 +5,18 @@
 */
 #include "mcpservermanager.h"
 #include "listaccounts/listaccountstool.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 namespace
 {
 constexpr int toolsPageSize = 2;
 }
 using namespace Qt::Literals::StringLiterals;
-McpServerManager::McpServerManager(QObject *parent)
+McpServerManager::McpServerManager(RocketChatAccount *account, QObject *parent)
     : TextAutoGenerateTextMcpProtocolCore::McpProtocolServerProtocolManager{
           TextAutoGenerateTextMcpProtocolCore::McpProtocolPlugin::TransportType::StreamableHttp,
           parent}
+    , mAccount(account)
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolImplementation serverInfo;
     serverInfo.setName(u"ruqola_mcp_protocol"_s);
