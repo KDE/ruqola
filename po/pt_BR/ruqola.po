@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:48+0000\n"
-"PO-Revision-Date: 2026-10-20 07:32-0300\n"
+"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"PO-Revision-Date: 2026-10-23 06:47-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -799,10 +799,16 @@ msgstr "Sem url do servidor."
 msgid "Socket was unexpectedly closed."
 msgstr "O soquete foi fechado inesperadamente."
 
-#: core/mcpserver/mcpservermanager.cpp:23
+#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "List Accounts"
+msgstr "Contas"
+
+#: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
 msgid "Manage information from Ruqola"
-msgstr ""
+msgstr "Gerenciar informações do Ruqola"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69

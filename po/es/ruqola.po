@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:48+0000\n"
+"POT-Creation-Date: 2026-10-24 00:49+0000\n"
 "PO-Revision-Date: 2026-10-10 15:28+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -802,7 +802,13 @@ msgstr "URL del servidor no encontrada."
 msgid "Socket was unexpectedly closed."
 msgstr "Se cerró un socket inesperadamente"
 
-#: core/mcpserver/mcpservermanager.cpp:23
+#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "List Accounts"
+msgstr "Cuentas"
+
+#: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""

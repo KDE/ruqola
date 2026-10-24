@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:48+0000\n"
+"POT-Creation-Date: 2026-10-24 00:49+0000\n"
 "PO-Revision-Date: 2026-06-03 22:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -806,7 +806,13 @@ msgstr "Absence de l'URL du serveur."
 msgid "Socket was unexpectedly closed."
 msgstr "Le canal de connexion (socket) a été fermée de manière inattendue."
 
-#: core/mcpserver/mcpservermanager.cpp:23
+#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "List Accounts"
+msgstr "Comptes"
+
+#: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:48+0000\n"
-"PO-Revision-Date: 2026-10-20 09:19+0300\n"
+"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"PO-Revision-Date: 2026-10-23 11:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -800,10 +800,16 @@ msgstr "Пропущено адресу сервера."
 msgid "Socket was unexpectedly closed."
 msgstr "Сокет неочікувано закрито."
 
-#: core/mcpserver/mcpservermanager.cpp:23
+#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "List Accounts"
+msgstr "Облікові записи"
+
+#: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
 msgid "Manage information from Ruqola"
-msgstr ""
+msgstr "Керування відомостями від Ruqola"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
