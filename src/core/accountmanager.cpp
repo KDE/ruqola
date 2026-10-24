@@ -9,6 +9,9 @@
 #include "localdatabase/localdatabasebase.h"
 #include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+#include "mcpserver/mcpservermanager.h"
+#endif
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "notificationhistorymanager.h"
@@ -55,6 +58,9 @@ AccountManager::AccountManager(QObject *parent)
     , mActivitiesManager(new ActivitiesManager(this))
 #endif
     , mTextToSpeechEnqueueManager(new TextToSpeechEnqueueManager(this))
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    , mMcpServerManager(new McpServerManager(this, this))
+#endif
 {
 #if HAVE_ACTIVITY_SUPPORT
     mRocketChatAccountProxyModel->setActivitiesManager(mActivitiesManager);

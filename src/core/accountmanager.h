@@ -21,6 +21,9 @@ class ActivitiesManager;
 class RocketChatAccountModel;
 class RocketChatAccountFilterProxyModel;
 class TextToSpeechEnqueueManager;
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+class McpServerManager;
+#endif
 class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
@@ -150,6 +153,9 @@ private:
     ActivitiesManager *const mActivitiesManager;
 #endif
     TextToSpeechEnqueueManager *const mTextToSpeechEnqueueManager;
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    McpServerManager *const mMcpServerManager;
+#endif
 };
 Q_DECLARE_TYPEINFO(AccountManager::AccountManagerInfo, Q_RELOCATABLE_TYPE);
 Q_DECLARE_TYPEINFO(AccountManager::AccountDisplayInfo, Q_RELOCATABLE_TYPE);
