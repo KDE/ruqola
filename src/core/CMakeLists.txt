@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolacore
-    mcpserver/common/toolbase.h
-    mcpserver/common/toolbase.cpp
-)
+add_library(libruqolacore)
 
 target_sources(
     libruqolacore
@@ -632,6 +628,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/mcpservermanager.cpp
             mcpserver/listaccounts/listaccountstool.h
             mcpserver/listaccounts/listaccountstool.cpp
+            mcpserver/common/toolbase.h
+            mcpserver/common/toolbase.cpp
     )
 endif()
 
