@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -165,13 +165,13 @@ msgstr "नवीनं विशेषता"
 msgid "The following accounts are available:"
 msgstr "निम्नलिखितलेखाः उपलभ्यन्ते-"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "अमान्य टोकन"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -813,11 +813,17 @@ msgstr "सेवकस्य URL अनुपस्थितम्।"
 msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट् अप्रत्याशितरूपेण बन्दः आसीत् ।"
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "लेखा"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "My Account"
+msgid "No account found"
+msgstr "मम खाता"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

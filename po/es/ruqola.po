@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
-"PO-Revision-Date: 2026-10-10 15:28+0100\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"PO-Revision-Date: 2026-10-25 00:39+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -165,12 +165,12 @@ msgstr "Nueva funcionalidad"
 msgid "The following accounts are available:"
 msgstr "Las siguientes cuentas están disponibles:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Símbolo de invitación inválido"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -802,16 +802,21 @@ msgstr "URL del servidor no encontrada."
 msgid "Socket was unexpectedly closed."
 msgstr "Se cerró un socket inesperadamente"
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
+#, kde-format
 msgid "List Accounts"
-msgstr "Cuentas"
+msgstr "Listar cuentas"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No account."
+msgid "No account found"
+msgstr "Sin cuenta."
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
 msgid "Manage information from Ruqola"
-msgstr ""
+msgstr "Administre información desde Ruqola"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -2354,7 +2359,7 @@ msgstr "Archivo no encontrado «%1»"
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
 msgid "Download failed: %1"
-msgstr "Descargar fallida: %1"
+msgstr "Descarga fallida: %1"
 
 #: rocketchatrestapi-qt/downloadfilejob.cpp:65
 #, kde-format
@@ -7946,11 +7951,10 @@ msgid "User Feedback"
 msgstr "Comentarios de usuario"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:111
-#, fuzzy, kde-format
-#| msgid "Server"
+#, kde-format
 msgctxt "@title Mcp page name"
 msgid "MCP Server"
-msgstr "Servidor"
+msgstr "Servidor MCP"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:117
 #, kde-format

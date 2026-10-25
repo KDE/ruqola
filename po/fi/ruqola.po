@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2026-03-03 17:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -162,12 +162,12 @@ msgstr "Uusi ominaisuus"
 msgid "The following accounts are available:"
 msgstr "Käytettävissä ovat seuraavat tilit:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Virheellinen kutsumerkki"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Kutsumerkki on virheellinen. Tilin luonti peruttu."
@@ -815,11 +815,17 @@ msgstr "Palvelimen verkko-osoite puuttuu."
 msgid "Socket was unexpectedly closed."
 msgstr "Pistoke suljettiin odottamatta."
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "Tilit"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No Attachment found"
+msgid "No account found"
+msgstr "Liitettä ei löytynyt"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
@@ -14346,9 +14352,6 @@ msgstr "Lisää tili…"
 
 #~ msgid "Attachments"
 #~ msgstr "Liitteet"
-
-#~ msgid "No Attachment found"
-#~ msgstr "Liitettä ei löytynyt"
 
 #~ msgid "%1 attachment in room (Total: %2)"
 #~ msgid_plural "%1 attachments in room (Total: %2)"

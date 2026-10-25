@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2026-06-03 22:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -161,12 +161,12 @@ msgstr "Nouvelle fonctionnalité"
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Jeton d'invitation non valable"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -806,11 +806,17 @@ msgstr "Absence de l'URL du serveur."
 msgid "Socket was unexpectedly closed."
 msgstr "Le canal de connexion (socket) a été fermée de manière inattendue."
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "Comptes"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No Attachment found"
+msgid "No account found"
+msgstr "Aucune pièce jointe trouvée"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
@@ -14897,9 +14903,6 @@ msgstr "Ajouter un compte..."
 
 #~ msgid "Attachments"
 #~ msgstr "Pièces jointes"
-
-#~ msgid "No Attachment found"
-#~ msgstr "Aucune pièce jointe trouvée"
 
 #~ msgid "%1 attachment in room (Total: %2)"
 #~ msgid_plural "%1 attachments in room (Total: %2)"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -167,12 +167,12 @@ msgstr "新功能"
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "無效的邀請權杖"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "邀請權杖無效。已取消建立帳戶。"
@@ -807,11 +807,17 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "帳戶"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No Attachment found"
+msgid "No account found"
+msgstr "未找到附件"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
@@ -13896,9 +13902,6 @@ msgstr "新增帳戶…"
 #~ msgid "%1 discussion in room (Total: %2)"
 #~ msgid_plural "%1 discussions in room (Total: %2)"
 #~ msgstr[0] "聊天室中有 %1 個討論區 (總計：%2)"
-
-#~ msgid "No Attachment found"
-#~ msgstr "未找到附件"
 
 #~ msgid "%1 attachment in room (Total: %2)"
 #~ msgid_plural "%1 attachments in room (Total: %2)"

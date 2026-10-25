@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -160,12 +160,12 @@ msgstr "New feature"
 msgid "The following accounts are available:"
 msgstr "Nasledujúce accounts are available:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Neplatný token pozvánky"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Pozvánkový token je neplatný. Vytvorenie účtu bolo zrušené."
@@ -793,11 +793,17 @@ msgstr "Missing server url."
 msgid "Socket was unexpectedly closed."
 msgstr "Soket bol neočakávane zatvorený."
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "Účty"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No account."
+msgid "No account found"
+msgstr "Žiadny účet."
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

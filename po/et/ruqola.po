@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -174,13 +174,13 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Saadaval on järgmised kontod:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, fuzzy, kde-format
 #| msgid "Invalid token"
 msgid "Invalid invite token"
 msgstr "Vigane pääsmik"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -845,11 +845,17 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "List Accounts"
 msgstr "Konto"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No Attachment found"
+msgid "No account found"
+msgstr "Ühtegi manust ei leitud"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
@@ -14794,9 +14800,6 @@ msgstr "Lisa konto ..."
 
 #~ msgid "Attachments"
 #~ msgstr "Manused"
-
-#~ msgid "No Attachment found"
-#~ msgstr "Ühtegi manust ei leitud"
 
 #~ msgid "%1 attachment in room (Total: %2)"
 #~ msgid_plural "%1 attachments in room (Total: %2)"

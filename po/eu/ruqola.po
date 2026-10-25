@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -165,12 +165,12 @@ msgstr "Ezaugarri berria"
 msgid "The following accounts are available:"
 msgstr "Ondoko kontuak erabilgarri daude:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Gonbidapen token baliogabea"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Gonbidapen tokena baliogabea da. Kontua sortzea bertan behera utzi da."
@@ -821,11 +821,17 @@ msgstr "Zerbitzariaren URLa falta da."
 msgid "Socket was unexpectedly closed."
 msgstr "Hargunea ustekabean itxi da."
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "Kontuak"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "My Account"
+msgid "No account found"
+msgstr "Nire kontua"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

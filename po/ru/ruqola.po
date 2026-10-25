@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
-"PO-Revision-Date: 2026-10-23 07:47+0200\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"PO-Revision-Date: 2026-10-24 07:46+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -167,12 +167,12 @@ msgstr "Новая возможность"
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некорректный маркер приглашения"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Некорректный маркер приглашения. Создание учётной записи отменено."
@@ -804,11 +804,16 @@ msgstr "Не указан URL-адрес сервера."
 msgid "Socket was unexpectedly closed."
 msgstr "Сокет был неожиданно закрыт."
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
+#, kde-format
 msgid "List Accounts"
-msgstr "Учётные записи"
+msgstr "Список учётных записей"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No account."
+msgid "No account found"
+msgstr "Нет учётной записи."
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

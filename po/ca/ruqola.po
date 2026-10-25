@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
-"PO-Revision-Date: 2026-10-23 10:50+0200\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"PO-Revision-Date: 2026-10-24 12:47+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -166,12 +166,12 @@ msgstr "Característica nova"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Testimoni d'invitació no vàlid"
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -803,11 +803,16 @@ msgstr "Manca l'URL del servidor."
 msgid "Socket was unexpectedly closed."
 msgstr "El sòcol s'ha tancat inesperadament."
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
+#, kde-format
 msgid "List Accounts"
-msgstr "Comptes"
+msgstr "Llista de comptes"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "No account."
+msgid "No account found"
+msgstr "Sense compte."
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

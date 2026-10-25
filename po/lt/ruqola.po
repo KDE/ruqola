@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:49+0000\n"
+"POT-Creation-Date: 2026-10-25 00:50+0000\n"
 "PO-Revision-Date: 2026-09-08 14:50+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -165,12 +165,12 @@ msgstr "Nauja ypatybė"
 msgid "The following accounts are available:"
 msgstr "Yra prieinamos šios paskyros:"
 
-#: core/accountmanager.cpp:338
+#: core/accountmanager.cpp:344
 #, kde-format
 msgid "Invalid invite token"
 msgstr ""
 
-#: core/accountmanager.cpp:339
+#: core/accountmanager.cpp:345
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -823,12 +823,18 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:25
+#: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "List Accounts"
 msgstr "Paskyra"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#, fuzzy, kde-format
+#| msgid "My Account"
+msgid "No account found"
+msgstr "Mano paskyra"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
