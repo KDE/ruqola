@@ -6,6 +6,7 @@
 #include "mcpservermanager.h"
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
+#include "ruqola_mcp_server_debug.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -40,6 +41,10 @@ void McpServerManager::loadConfig()
     TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings;
     const KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
     settings.load(group);
+    if (!settings.isValid()) {
+        qCWarning(RUQOLA_MCP_SERVER_LOG) << "MCP Server settings is invalid";
+        return; // TODO return or opening settings ?
+    }
     setSettings(settings);
 }
 #include "moc_mcpservermanager.cpp"

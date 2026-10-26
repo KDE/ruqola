@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolacore
-    mcpserver/common/toolutils.h
-    mcpserver/common/toolutils.cpp
-)
+add_library(libruqolacore)
 
 target_sources(
     libruqolacore
@@ -634,6 +630,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/listaccounts/listaccountstool.cpp
             mcpserver/common/toolbase.h
             mcpserver/common/toolbase.cpp
+            mcpserver/common/toolutils.h
+            mcpserver/common/toolutils.cpp
     )
 endif()
 
@@ -833,6 +831,10 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_license_d
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_model_lastseendate_debug.h IDENTIFIER RUQOLA_LAST_SEENDATE_LOG
     CATEGORY_NAME org.kde.ruqola.model_lastseendate DESCRIPTION "ruqola model last seen date" EXPORT RUQOLA
+)
+
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_mcp_server_debug.h IDENTIFIER RUQOLA_MCP_SERVER_LOG
+    CATEGORY_NAME org.kde.ruqola.mcp_server DESCRIPTION "ruqola mcp server" EXPORT RUQOLA
 )
 
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
