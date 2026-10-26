@@ -1025,7 +1025,7 @@ void RuqolaMainWindow::slotShowLog()
         QTemporaryFile tempFile(QDir::tempPath() + u"/XXXXXX.log.txt"_s);
         tempFile.setAutoRemove(false);
         if (tempFile.open()) {
-            LocalMessageLogger logger;
+            const LocalMessageLogger logger;
             if (logger.saveToFile(tempFile, mCurrentRocketChatAccount->accountName(), room->roomId())) {
                 const QString fileName = tempFile.fileName();
                 tempFile.close();
