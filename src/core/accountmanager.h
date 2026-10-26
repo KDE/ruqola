@@ -127,6 +127,8 @@ public:
 
     [[nodiscard]] static QStringList databasePathsToRemoved(AccountManager::MigrateDatabaseTypes types);
 
+    void updateMcpServerSettings();
+
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

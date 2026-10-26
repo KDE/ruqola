@@ -54,5 +54,6 @@ void McpServerManager::loadConfig()
         return; // TODO return or opening settings ?
     }
     setSettings(settings);
+    start();
 }
 #include "moc_mcpservermanager.cpp"

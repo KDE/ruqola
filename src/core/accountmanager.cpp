@@ -87,6 +87,13 @@ int AccountManager::accountNumber() const
     return mRocketChatAccountModel->accountNumber();
 }
 
+void AccountManager::updateMcpServerSettings()
+{
+#if HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL
+    mMcpServerManager->reloadConfig();
+#endif
+}
+
 bool AccountManager::showMessage(const ParseRocketChatUrlUtils::ParsingInfo &parseInfo)
 {
     auto rocketChatAccount = mRocketChatAccountModel->accountFromServerUrl(parseInfo.serverHost);
