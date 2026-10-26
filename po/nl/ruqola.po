@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-24 15:45+0200\n"
+"PO-Revision-Date: 2026-10-25 17:15+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -805,10 +805,9 @@ msgid "List Accounts"
 msgstr "Accounts weergeven"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
-#, fuzzy, kde-format
-#| msgid "No Attachment found"
+#, kde-format
 msgid "No account found"
-msgstr "Geen bijlage gevonden"
+msgstr "Geen account gevonden"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

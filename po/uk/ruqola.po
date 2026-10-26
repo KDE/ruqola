@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-24 12:37+0300\n"
+"PO-Revision-Date: 2026-10-25 12:33+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -806,10 +806,9 @@ msgid "List Accounts"
 msgstr "Вивести список облікових записів"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
-#, fuzzy, kde-format
-#| msgid "No Attachment found"
+#, kde-format
 msgid "No account found"
-msgstr "Долучень не знайдено"
+msgstr "Не знайдено жодного облікового запису"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

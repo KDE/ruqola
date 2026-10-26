@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-24 21:30+0300\n"
+"PO-Revision-Date: 2026-10-25 20:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -804,10 +804,9 @@ msgid "List Accounts"
 msgstr "Hesapları Listele"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
-#, fuzzy, kde-format
-#| msgid "No account."
+#, kde-format
 msgid "No account found"
-msgstr "Hesap yok"
+msgstr "Bulunan hesap yok"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

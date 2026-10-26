@@ -794,21 +794,19 @@ msgid "Socket was unexpectedly closed."
 msgstr "Soket bol neočakávane zatvorený."
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "List Accounts"
-msgstr "Účty"
+msgstr "Zoznam účtov"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
-#, fuzzy, kde-format
-#| msgid "No account."
+#, kde-format
 msgid "No account found"
-msgstr "Žiadny účet."
+msgstr "Nenašiel sa žiadny účet"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
 msgid "Manage information from Ruqola"
-msgstr ""
+msgstr "Spravovať informácie z Ruqola"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69

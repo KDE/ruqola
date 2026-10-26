@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-24 12:47+0200\n"
+"PO-Revision-Date: 2026-10-25 08:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -809,10 +809,9 @@ msgid "List Accounts"
 msgstr "Llista de comptes"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
-#, fuzzy, kde-format
-#| msgid "No account."
+#, kde-format
 msgid "No account found"
-msgstr "Sense compte."
+msgstr "No s'ha trobat cap compte"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-25 00:50+0000\n"
-"PO-Revision-Date: 2026-10-24 07:46+0200\n"
+"PO-Revision-Date: 2026-10-25 07:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -810,10 +810,9 @@ msgid "List Accounts"
 msgstr "Список учётных записей"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
-#, fuzzy, kde-format
-#| msgid "No account."
+#, kde-format
 msgid "No account found"
-msgstr "Нет учётной записи."
+msgstr "Учётная запись не найдена"
 
 #: core/mcpserver/mcpservermanager.cpp:25
 #, kde-format
