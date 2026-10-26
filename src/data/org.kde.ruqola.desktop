@@ -73,5 +73,6 @@ GenericName[uk]=Клієнт Rocket.Chat
 GenericName[zh_TW]=Rocket.Chat 用戶端
 StartupNotify=true
 Categories=Qt;KDE;Network;InstantMessaging;
+X-DocPath=ruqola/index.html
 SingleMainWindow=true
 Version=1.5
