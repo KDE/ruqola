@@ -15,6 +15,8 @@ public:
     explicit McpServerManager(AccountManager *accountManager, QObject *parent = nullptr);
     ~McpServerManager() override;
 
+    void loadConfig();
+
 private:
     AccountManager *const mAccountManager;
 };

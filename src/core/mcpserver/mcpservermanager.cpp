@@ -6,7 +6,10 @@
 #include "mcpservermanager.h"
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolSettings>
 namespace
 {
 constexpr int toolsPageSize = 2;
@@ -26,8 +29,17 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     setToolsPageSize(toolsPageSize);
 
     addTool(std::make_unique<ListAccountsTool>(mAccountManager));
+    loadConfig();
     // TODO add more
 }
 
 McpServerManager::~McpServerManager() = default;
+
+void McpServerManager::loadConfig()
+{
+    TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings;
+    const KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
+    settings.load(group);
+    setSettings(settings);
+}
 #include "moc_mcpservermanager.cpp"
