@@ -953,6 +953,7 @@ void RuqolaMainWindow::slotAddServer()
     if (dlg->exec()) {
         AccountManager::AccountManagerInfo info = dlg->accountInfo();
         mAccountManager->addAccount(std::move(info));
+        mAccountManager->updateMcpServerSettings();
     }
     delete dlg;
 }
