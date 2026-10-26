@@ -36,6 +36,14 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
 
 McpServerManager::~McpServerManager() = default;
 
+void McpServerManager::reloadConfig()
+{
+    if (isRunning()) {
+        stop();
+    }
+    loadConfig();
+}
+
 void McpServerManager::loadConfig()
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings;
