@@ -6,6 +6,7 @@
 #include "mcpservermanager.h"
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
+#include "mcpserver/listrooms/listroomstool.h"
 #include "ruqola_mcp_server_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <KConfigGroup>
@@ -14,7 +15,7 @@
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolSettings>
 namespace
 {
-constexpr int toolsPageSize = 2;
+constexpr int toolsPageSize = 10;
 }
 using namespace Qt::Literals::StringLiterals;
 McpServerManager::McpServerManager(AccountManager *accountManager, QObject *parent)
@@ -31,6 +32,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     setToolsPageSize(toolsPageSize);
 
     addTool(std::make_unique<ListAccountsTool>(mAccountManager));
+    addTool(std::make_unique<ListRoomsTool>(mAccountManager));
     loadConfig();
     // TODO add more
 }
