@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2026-10-25 07:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -167,12 +167,12 @@ msgstr "Новая возможность"
 msgid "The following accounts are available:"
 msgstr "Доступны следующие учётные записи:"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:351
 #, kde-format
 msgid "Invalid invite token"
 msgstr "Некорректный маркер приглашения"
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:352
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "Некорректный маркер приглашения. Создание учётной записи отменено."
@@ -814,7 +814,7 @@ msgstr "Список учётных записей"
 msgid "No account found"
 msgstr "Учётная запись не найдена"
 
-#: core/mcpserver/mcpservermanager.cpp:25
+#: core/mcpserver/mcpservermanager.cpp:29
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Управление данными Ruqola"
@@ -1867,12 +1867,12 @@ msgstr "Не подключено"
 msgid "Not connected yet"
 msgstr "Ещё не подключено"
 
-#: core/rocketchataccount.cpp:3273
+#: core/rocketchataccount.cpp:3269
 #, kde-format
 msgid "Room Added"
 msgstr "Добавлена комната"
 
-#: core/rocketchataccount.cpp:3274
+#: core/rocketchataccount.cpp:3270
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "В «%1» добавлена новая комната."
@@ -7741,7 +7741,7 @@ msgid "Username or email:"
 msgstr "Имя пользователя или адрес эл. почты:"
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1139
+#: widgets/ruqolamainwindow.cpp:1140
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7751,7 +7751,7 @@ msgstr ""
 "Если оно не придёт в ближайшее время, повторите попытку."
 
 #: widgets/common/authenticationloginwidget.cpp:170
-#: widgets/ruqolamainwindow.cpp:1140
+#: widgets/ruqolamainwindow.cpp:1141
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -12009,18 +12009,18 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Создание команды"
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Не удалось выполнить запись в файл журнала %1"
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Просмотр журнала канала"
 
-#: widgets/ruqolamainwindow.cpp:1283
+#: widgets/ruqolamainwindow.cpp:1284
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -12029,19 +12029,19 @@ msgstr ""
 "<qt>Это действие полностью скроет меню. Чтобы снова вывести его, нажмите %1."
 "</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1286
+#: widgets/ruqolamainwindow.cpp:1287
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Скрытие строки меню"
 
-#: widgets/ruqolamainwindow.cpp:1470
+#: widgets/ruqolamainwindow.cpp:1471
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Работать в сети"
 
-#: widgets/ruqolamainwindow.cpp:1473
+#: widgets/ruqolamainwindow.cpp:1474
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"

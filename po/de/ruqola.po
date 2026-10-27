@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2026-02-07 13:34+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -178,13 +178,13 @@ msgstr "Natur"
 msgid "The following accounts are available:"
 msgstr "Die folgenden Zugänge sind vorhanden:"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:351
 #, fuzzy, kde-format
 #| msgid "Invalid file type"
 msgid "Invalid invite token"
 msgstr "Ungültiger Dateityp"
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:352
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -855,7 +855,7 @@ msgstr "Zugang"
 msgid "No account found"
 msgstr "Kein Anhang gefunden"
 
-#: core/mcpserver/mcpservermanager.cpp:25
+#: core/mcpserver/mcpservermanager.cpp:29
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1976,13 +1976,13 @@ msgstr "Nicht verbunden"
 msgid "Not connected yet"
 msgstr "Nicht verbunden"
 
-#: core/rocketchataccount.cpp:3273
+#: core/rocketchataccount.cpp:3269
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Room Added"
 msgstr "Zugangsname"
 
-#: core/rocketchataccount.cpp:3274
+#: core/rocketchataccount.cpp:3270
 #, fuzzy, kde-format
 #| msgid "Enter Account Name"
 msgid "A new room was added in '%1'."
@@ -8036,7 +8036,7 @@ msgid "Username or email:"
 msgstr "Benutzername"
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1139
+#: widgets/ruqolamainwindow.cpp:1140
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8044,7 +8044,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:170
-#: widgets/ruqolamainwindow.cpp:1140
+#: widgets/ruqolamainwindow.cpp:1141
 #, fuzzy, kde-format
 #| msgid "Register New User"
 msgctxt "@title:window"
@@ -12631,39 +12631,39 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Team erstellen"
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Kein Kanal gefunden"
 
-#: widgets/ruqolamainwindow.cpp:1283
+#: widgets/ruqolamainwindow.cpp:1284
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1286
+#: widgets/ruqolamainwindow.cpp:1287
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1470
+#: widgets/ruqolamainwindow.cpp:1471
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Offline"
 
-#: widgets/ruqolamainwindow.cpp:1473
+#: widgets/ruqolamainwindow.cpp:1474
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgctxt "@action"

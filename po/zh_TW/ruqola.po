@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -167,12 +167,12 @@ msgstr "新功能"
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:351
 #, kde-format
 msgid "Invalid invite token"
 msgstr "無效的邀請權杖"
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:352
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr "邀請權杖無效。已取消建立帳戶。"
@@ -819,7 +819,7 @@ msgstr "帳戶"
 msgid "No account found"
 msgstr "未找到附件"
 
-#: core/mcpserver/mcpservermanager.cpp:25
+#: core/mcpserver/mcpservermanager.cpp:29
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1858,13 +1858,13 @@ msgstr "未連線"
 msgid "Not connected yet"
 msgstr "尚未連線"
 
-#: core/rocketchataccount.cpp:3273
+#: core/rocketchataccount.cpp:3269
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "帳戶已新增"
 
-#: core/rocketchataccount.cpp:3274
+#: core/rocketchataccount.cpp:3270
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -7528,7 +7528,7 @@ msgid "Username or email:"
 msgstr "使用者名稱或電子郵件："
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1139
+#: widgets/ruqolamainwindow.cpp:1140
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7538,7 +7538,7 @@ msgstr ""
 "如果您沒有收到該郵件，請回來再試一次。"
 
 #: widgets/common/authenticationloginwidget.cpp:170
-#: widgets/ruqolamainwindow.cpp:1140
+#: widgets/ruqolamainwindow.cpp:1141
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -11751,37 +11751,37 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立團隊"
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "無法寫入紀錄檔 %1"
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "顯示頻道紀錄"
 
-#: widgets/ruqolamainwindow.cpp:1283
+#: widgets/ruqolamainwindow.cpp:1284
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr "<qt>這會完全隱藏選單列。您可以按下 %1 重新顯示選單列。</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1286
+#: widgets/ruqolamainwindow.cpp:1287
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "隱藏選單列"
 
-#: widgets/ruqolamainwindow.cpp:1470
+#: widgets/ruqolamainwindow.cpp:1471
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "回到線上"
 
-#: widgets/ruqolamainwindow.cpp:1473
+#: widgets/ruqolamainwindow.cpp:1474
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"

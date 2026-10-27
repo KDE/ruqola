@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:50+0000\n"
+"POT-Creation-Date: 2026-10-27 00:59+0000\n"
 "PO-Revision-Date: 2026-09-08 14:50+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -165,12 +165,12 @@ msgstr "Nauja ypatybė"
 msgid "The following accounts are available:"
 msgstr "Yra prieinamos šios paskyros:"
 
-#: core/accountmanager.cpp:344
+#: core/accountmanager.cpp:351
 #, kde-format
 msgid "Invalid invite token"
 msgstr ""
 
-#: core/accountmanager.cpp:345
+#: core/accountmanager.cpp:352
 #, kde-format
 msgid "Invite Token is invalid. Creating account canceled."
 msgstr ""
@@ -836,7 +836,7 @@ msgstr "Paskyra"
 msgid "No account found"
 msgstr "Mano paskyra"
 
-#: core/mcpserver/mcpservermanager.cpp:25
+#: core/mcpserver/mcpservermanager.cpp:29
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1935,13 +1935,13 @@ msgstr ""
 msgid "Not connected yet"
 msgstr "Pridėti naudotojus"
 
-#: core/rocketchataccount.cpp:3273
+#: core/rocketchataccount.cpp:3269
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Paskyra pridėta"
 
-#: core/rocketchataccount.cpp:3274
+#: core/rocketchataccount.cpp:3270
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -7889,7 +7889,7 @@ msgid "Username or email:"
 msgstr "Naudotojo vardas ar el. paštas:"
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1139
+#: widgets/ruqolamainwindow.cpp:1140
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7897,7 +7897,7 @@ msgid ""
 msgstr ""
 
 #: widgets/common/authenticationloginwidget.cpp:170
-#: widgets/ruqolamainwindow.cpp:1140
+#: widgets/ruqolamainwindow.cpp:1141
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgctxt "@title:window"
@@ -12413,38 +12413,38 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1036
+#: widgets/ruqolamainwindow.cpp:1037
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:1283
+#: widgets/ruqolamainwindow.cpp:1284
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1286
+#: widgets/ruqolamainwindow.cpp:1287
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Slėpti meniu juosta"
 
-#: widgets/ruqolamainwindow.cpp:1470
+#: widgets/ruqolamainwindow.cpp:1471
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:1473
+#: widgets/ruqolamainwindow.cpp:1474
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
