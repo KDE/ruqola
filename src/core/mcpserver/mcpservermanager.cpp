@@ -7,6 +7,7 @@
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
 #include "ruqola_mcp_server_debug.h"
+#include "ruqolaglobalconfig.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -46,14 +47,16 @@ void McpServerManager::reloadConfig()
 
 void McpServerManager::loadConfig()
 {
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings;
-    const KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
-    settings.load(group);
-    if (!settings.isValid()) {
-        qCWarning(RUQOLA_MCP_SERVER_LOG) << "MCP Server settings is invalid";
-        return; // TODO return or opening settings ?
+    if (RuqolaGlobalConfig::self()->enableMcpServer()) {
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings;
+        const KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
+        settings.load(group);
+        if (!settings.isValid()) {
+            qCWarning(RUQOLA_MCP_SERVER_LOG) << "MCP Server settings is invalid";
+            return; // TODO return or opening settings ?
+        }
+        setSettings(settings);
+        start();
     }
-    setSettings(settings);
-    start();
 }
 #include "moc_mcpservermanager.cpp"

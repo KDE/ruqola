@@ -6,7 +6,9 @@
 
 #include "configureservermcpwidget.h"
 #include "ruqolaglobalconfig.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QCheckBox>
 #include <QVBoxLayout>
 #include <TextAutoGenerateTextMcpProtocolWidgets/McpProtocolServerConfigureWidget>
@@ -37,12 +39,20 @@ ConfigureServerMcpWidget::~ConfigureServerMcpWidget() = default;
 
 void ConfigureServerMcpWidget::save()
 {
+    const TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings = mMcpProtocolServerConfigureWidget->settings();
+    KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
+    settings.save(group);
     RuqolaGlobalConfig::self()->setEnableMcpServer(mEnabled->isChecked());
+    RuqolaGlobalConfig::self()->save();
 }
 
 void ConfigureServerMcpWidget::load()
 {
     mEnabled->setChecked(RuqolaGlobalConfig::self()->enableMcpServer());
+    TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings;
+    const KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
+    settings.load(group);
+    mMcpProtocolServerConfigureWidget->setSettings(settings);
 }
 
 void ConfigureServerMcpWidget::restoreToDefaults()

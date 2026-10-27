@@ -941,6 +941,7 @@ void RuqolaMainWindow::slotConfigure()
         updateContextStatusMenu();
         Q_EMIT Ruqola::self()->translatorMenuChanged();
         Q_EMIT ColorsAndMessageViewStyle::self().needUpdateFontSize();
+        mAccountManager->updateMcpServerSettings();
     }
     delete dlg;
 }
@@ -953,7 +954,6 @@ void RuqolaMainWindow::slotAddServer()
     if (dlg->exec()) {
         AccountManager::AccountManagerInfo info = dlg->accountInfo();
         mAccountManager->addAccount(std::move(info));
-        mAccountManager->updateMcpServerSettings();
     }
     delete dlg;
 }
