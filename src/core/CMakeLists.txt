@@ -1,6 +1,10 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(libruqolacore)
+add_library(
+    libruqolacore
+    mcpserver/listrooms/listroomstool.h
+    mcpserver/listrooms/listroomstool.cpp
+)
 
 target_sources(
     libruqolacore
