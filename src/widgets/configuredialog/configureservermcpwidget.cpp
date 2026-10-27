@@ -57,7 +57,10 @@ void ConfigureServerMcpWidget::load()
 
 void ConfigureServerMcpWidget::restoreToDefaults()
 {
-    // TODO
+    const bool bUseDefaults = RuqolaGlobalConfig::self()->useDefaults(true);
+    mEnabled->setChecked(RuqolaGlobalConfig::self()->enableMcpServer());
+    RuqolaGlobalConfig::self()->useDefaults(bUseDefaults);
+    mMcpProtocolServerConfigureWidget->setSettings(TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings{});
 }
 
 #include "moc_configureservermcpwidget.cpp"
