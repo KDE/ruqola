@@ -7,6 +7,7 @@
 
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerTool>
 class AccountManager;
+class RocketChatAccount;
 
 class ToolBase : public TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool
 {
@@ -15,5 +16,7 @@ public:
     ~ToolBase();
 
 protected:
+    [[nodiscard]] RocketChatAccount *accountFromArguments(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call) const;
+
     AccountManager *const mAccountManager;
 };
