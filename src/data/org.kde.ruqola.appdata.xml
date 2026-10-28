@@ -1395,6 +1395,7 @@
           <li xml:lang="ca">Afegeix un servidor MCP.</li>
           <li xml:lang="ca-valencia">Afig un servidor MCP.</li>
           <li xml:lang="es">Añadido servidor MCP.</li>
+          <li xml:lang="it">Aggiunge il server MCP.</li>
           <li xml:lang="ka">MCP სერვერის დამატება.</li>
           <li xml:lang="nl">MCP-server toevoegen.</li>
           <li xml:lang="pt-BR">Adicionar servidor MCP.</li>
@@ -1697,7 +1698,7 @@
           <li xml:lang="es">Permite la rotación de imágenes en el diálogo mostrar imagen</li>
           <li xml:lang="he">מתן אפשרות לסובב תמונה בחלונית הצגת תמונה.</li>
           <li xml:lang="ia">Permitte rotar imagine in dialogo de  monstrar imagine.</li>
-          <li xml:lang="it">Consenti di ruotare l'immagine nella finestra «Mostra immagine».</li>
+          <li xml:lang="it">Consente di ruotare l'immagine nella finestra di visualizzazione delle immagini</li>
           <li xml:lang="ka">გამოსახულების შებრუნების დაშვება გამოსახულების ჩვენების დიალოგში</li>
           <li xml:lang="nl">In dialoog voor tonen van afbeelding draaien toestaan</li>
           <li xml:lang="pt-BR">Permitir rotação da imagem na caixa de diálogo de exibição de imagem</li>
@@ -1731,7 +1732,7 @@
           <li xml:lang="es">Uso de los nuevos widgets de mensajes de texto para las notificaciones de error</li>
           <li xml:lang="he">שימוש ב־textmessagewidget להתראות על שגיאות</li>
           <li xml:lang="ia">Usa nove textmessagewidget per notification de error</li>
-          <li xml:lang="it">Utilizzare il nuovo oggetto per i messaggi di testo per la notifica degli errori.</li>
+          <li xml:lang="it">Utilizza il nuovo oggetto per i messaggi di testo per la notifica degli errori</li>
           <li xml:lang="ka">ახალი textmessagewidget-ის გამოყენება შეცდომის შეტყობინებისთვის</li>
           <li xml:lang="nl">Gebruik het nieuwe widget voor tekstberichten voor foutmeldingen</li>
           <li xml:lang="pt-BR">Usar o novo textmessagewidget para notificação de erro</li>
