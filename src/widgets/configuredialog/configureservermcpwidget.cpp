@@ -11,6 +11,7 @@
 #include <KSharedConfig>
 #include <QCheckBox>
 #include <QVBoxLayout>
+#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerUtils>
 #include <TextAutoGenerateTextMcpProtocolWidgets/McpProtocolServerConfigureWidget>
 
 using namespace Qt::Literals::StringLiterals;
@@ -39,9 +40,7 @@ ConfigureServerMcpWidget::~ConfigureServerMcpWidget() = default;
 
 void ConfigureServerMcpWidget::save()
 {
-    const TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings = mMcpProtocolServerConfigureWidget->settings();
-    KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
-    settings.save(group);
+    TextAutoGenerateTextMcpProtocolCore::McpProtocolServerUtils::saveSettings(KSharedConfig::openConfig(), mMcpProtocolServerConfigureWidget->settings());
     RuqolaGlobalConfig::self()->setEnableMcpServer(mEnabled->isChecked());
     RuqolaGlobalConfig::self()->save();
 }
@@ -49,10 +48,11 @@ void ConfigureServerMcpWidget::save()
 void ConfigureServerMcpWidget::load()
 {
     mEnabled->setChecked(RuqolaGlobalConfig::self()->enableMcpServer());
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings settings;
-    const KConfigGroup group(KSharedConfig::openConfig(), u"mcpserver"_s);
-    settings.load(group);
-    mMcpProtocolServerConfigureWidget->setSettings(settings);
+    TextAutoGenerateTextMcpProtocolCore::McpProtocolServerUtils::loadSettings(KSharedConfig::openConfig(),
+                                                                              this,
+                                                                              [this](const TextAutoGenerateTextMcpProtocolCore::McpProtocolSettings &settings) {
+                                                                                  mMcpProtocolServerConfigureWidget->setSettings(settings);
+                                                                              });
 }
 
 void ConfigureServerMcpWidget::restoreToDefaults()
