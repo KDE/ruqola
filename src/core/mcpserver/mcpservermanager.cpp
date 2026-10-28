@@ -7,6 +7,7 @@
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
 #include "mcpserver/getroominfo/getroominfotool.h"
+#include "mcpserver/getserverinfo/getserverinfotool.h"
 #include "mcpserver/listrooms/listroomstool.h"
 #include "ruqola_mcp_server_debug.h"
 #include "ruqolaglobalconfig.h"
@@ -35,6 +36,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<ListAccountsTool>(mAccountManager));
     addTool(std::make_unique<ListRoomsTool>(mAccountManager));
     addTool(std::make_unique<GetRoomInfoTool>(mAccountManager));
+    addTool(std::make_unique<GetServerInfoTool>(mAccountManager));
     loadConfig();
     // TODO add more
 }

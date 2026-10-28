@@ -636,6 +636,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/listrooms/listroomstool.cpp
             mcpserver/getroominfo/getroominfotool.h
             mcpserver/getroominfo/getroominfotool.cpp
+            mcpserver/getserverinfo/getserverinfotool.h
+            mcpserver/getserverinfo/getserverinfotool.cpp
     )
 endif()
 
