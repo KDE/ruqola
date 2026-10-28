@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 00:59+0000\n"
+"POT-Creation-Date: 2026-10-28 01:00+0000\n"
 "PO-Revision-Date: 2026-09-23 06:56+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -796,19 +796,48 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
+#: core/mcpserver/getroominfo/getroominfotool.cpp:37
+#, kde-format
+msgid "Get Room Info"
+msgstr ""
+
+#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#: core/mcpserver/listrooms/listroomstool.cpp:44
+#, fuzzy, kde-format
+#| msgid "No device found"
+msgid "No account found"
+msgstr "ئۈسكۈنە تېپىلمىدى"
+
+#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#, kde-format
+msgid "Missing room identifier"
+msgstr ""
+
+#: core/mcpserver/getroominfo/getroominfotool.cpp:56
+#, kde-format
+msgid "No room found with identifier \"%1\""
+msgstr ""
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "ھېساب"
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#: core/mcpserver/listrooms/listroomstool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "List Rooms"
+msgstr "ھېساب"
+
+#: core/mcpserver/listrooms/listroomstool.cpp:68
 #, fuzzy, kde-format
 #| msgid "No device found"
-msgid "No account found"
+msgid "No rooms found"
 msgstr "ئۈسكۈنە تېپىلمىدى"
 
-#: core/mcpserver/mcpservermanager.cpp:29
+#: core/mcpserver/mcpservermanager.cpp:32
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -4716,7 +4745,7 @@ msgstr "ئىشلەتكۈچى"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:18
+#: widgets/configuredialog/configureservermcpwidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"

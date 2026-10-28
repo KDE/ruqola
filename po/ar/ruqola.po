@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 00:59+0000\n"
+"POT-Creation-Date: 2026-10-28 01:00+0000\n"
 "PO-Revision-Date: 2026-09-30 18:38+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -796,19 +796,50 @@ msgstr "عنوان الخادم مفقود."
 msgid "Socket was unexpectedly closed."
 msgstr "أُغلق المقبس بشكل غير متوقع."
 
+#: core/mcpserver/getroominfo/getroominfotool.cpp:37
+#, fuzzy, kde-format
+#| msgid "No Room found"
+msgid "Get Room Info"
+msgstr "لم يعثر على أي غرفة"
+
+#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#: core/mcpserver/listrooms/listroomstool.cpp:44
+#, fuzzy, kde-format
+#| msgid "No account."
+msgid "No account found"
+msgstr "لا حساب."
+
+#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#, kde-format
+msgid "Missing room identifier"
+msgstr ""
+
+#: core/mcpserver/getroominfo/getroominfotool.cpp:56
+#, kde-format
+msgid "No room found with identifier \"%1\""
+msgstr ""
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "الحسابات"
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:62
+#: core/mcpserver/listrooms/listroomstool.cpp:34
 #, fuzzy, kde-format
-#| msgid "No account."
-msgid "No account found"
-msgstr "لا حساب."
+#| msgctxt "@title:window"
+#| msgid "Edit Room"
+msgid "List Rooms"
+msgstr "حرّر الغرفة"
 
-#: core/mcpserver/mcpservermanager.cpp:29
+#: core/mcpserver/listrooms/listroomstool.cpp:68
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No rooms found"
+msgstr "لم يعثر على أي غرفة"
+
+#: core/mcpserver/mcpservermanager.cpp:32
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -4847,7 +4878,7 @@ msgstr "المستخدمون"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:18
+#: widgets/configuredialog/configureservermcpwidget.cpp:20
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"
