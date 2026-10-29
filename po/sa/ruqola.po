@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -820,6 +820,7 @@ msgid "Get Room Info"
 msgstr "No Room न लब्धम्"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, fuzzy, kde-format
@@ -836,6 +837,12 @@ msgstr ""
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Get Server Info"
+msgstr "सर्वर इन्फो"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
@@ -856,7 +863,7 @@ msgstr "सम्पादन कक्ष"
 msgid "No rooms found"
 msgstr "न स्थानं लब्धम्"
 
-#: core/mcpserver/mcpservermanager.cpp:32
+#: core/mcpserver/mcpservermanager.cpp:33
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -4856,7 +4863,7 @@ msgstr "उपयोक्तारः"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:20
+#: widgets/configuredialog/configureservermcpwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"

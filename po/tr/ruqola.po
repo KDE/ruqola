@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2026-10-25 20:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -805,6 +805,7 @@ msgid "Get Room Info"
 msgstr "Oda bulunamadı"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -820,6 +821,12 @@ msgstr ""
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Get Server Info"
+msgstr "Sunucu Bilgisi"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
@@ -839,7 +846,7 @@ msgstr "Odayı Düzenle"
 msgid "No rooms found"
 msgstr "Oda bulunamadı"
 
-#: core/mcpserver/mcpservermanager.cpp:32
+#: core/mcpserver/mcpservermanager.cpp:33
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Ruqola’dan bilgiyi yönetin"
@@ -4798,7 +4805,7 @@ msgstr "Kullanıcılar"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:20
+#: widgets/configuredialog/configureservermcpwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"

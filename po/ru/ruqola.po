@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
-"PO-Revision-Date: 2026-10-25 07:45+0200\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"PO-Revision-Date: 2026-10-28 07:44+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -805,12 +805,12 @@ msgid "Socket was unexpectedly closed."
 msgstr "Сокет был неожиданно закрыт."
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:37
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Info"
-msgstr "Комнат не найдено"
+msgstr "Сведения о комнате"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -820,12 +820,18 @@ msgstr "Учётная запись не найдена"
 #: core/mcpserver/getroominfo/getroominfotool.cpp:51
 #, kde-format
 msgid "Missing room identifier"
-msgstr ""
+msgstr "Не указан идентификатор комнаты"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:56
 #, kde-format
 msgid "No room found with identifier \"%1\""
-msgstr ""
+msgstr "Комната с идентификатором «%1» не найдена"
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Get Server Info"
+msgstr "Сведения о сервере"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
@@ -833,19 +839,16 @@ msgid "List Accounts"
 msgstr "Список учётных записей"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Rooms"
-msgstr "Изменение комнаты"
+msgstr "Список комнат"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:68
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No rooms found"
-msgstr "Комнат не найдено"
+msgstr "Комнаты не найдены"
 
-#: core/mcpserver/mcpservermanager.cpp:32
+#: core/mcpserver/mcpservermanager.cpp:33
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Управление данными Ruqola"
@@ -4873,7 +4876,7 @@ msgstr "Пользователи"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:20
+#: widgets/configuredialog/configureservermcpwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"

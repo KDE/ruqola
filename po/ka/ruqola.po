@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
-"PO-Revision-Date: 2026-10-25 05:27+0100\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"PO-Revision-Date: 2026-10-28 03:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -797,12 +797,12 @@ msgid "Socket was unexpectedly closed."
 msgstr "სოკეტი მოულოდნელად დაიხურა."
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:37
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Info"
-msgstr "ოთახი ვერ ვიპოვე"
+msgstr "ინფორმაციის მიღება ოთახის შესახებ"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -812,12 +812,18 @@ msgstr "ანგარიში ვერ ვიპოვე"
 #: core/mcpserver/getroominfo/getroominfotool.cpp:51
 #, kde-format
 msgid "Missing room identifier"
-msgstr ""
+msgstr "აკლია ოთახის იდენტიფიკატორი"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:56
 #, kde-format
 msgid "No room found with identifier \"%1\""
-msgstr ""
+msgstr "იდენტიფიკატორით \"%1\" ოთახი აღმოჩენილი არაა"
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Get Server Info"
+msgstr "სერვერის ინფორმაცია"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
@@ -825,19 +831,16 @@ msgid "List Accounts"
 msgstr "ანგარიშების სია"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Rooms"
-msgstr "ოთახის ჩასწორება"
+msgstr "ოთახების სია"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:68
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No rooms found"
-msgstr "ოთახი ვერ ვიპოვე"
+msgstr "ოთახები ვერ ვიპოვე"
 
-#: core/mcpserver/mcpservermanager.cpp:32
+#: core/mcpserver/mcpservermanager.cpp:33
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Ruqola-დან მიღებული ინფორმაციის მართვა"
@@ -4809,7 +4812,7 @@ msgstr "მომხმარებლები"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:20
+#: widgets/configuredialog/configureservermcpwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"

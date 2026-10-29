@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -794,12 +794,12 @@ msgid "Socket was unexpectedly closed."
 msgstr "Soket bol neočakávane zatvorený."
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:37
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Info"
-msgstr "Súkromné adresy"
+msgstr "Získať informácie o miestnosti"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -809,12 +809,18 @@ msgstr "Nenašiel sa žiadny účet"
 #: core/mcpserver/getroominfo/getroominfotool.cpp:51
 #, kde-format
 msgid "Missing room identifier"
-msgstr ""
+msgstr "Chýba identifikátor miestnosti"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:56
 #, kde-format
 msgid "No room found with identifier \"%1\""
-msgstr ""
+msgstr "Nenašla sa žiadna miestnosť s identifikátorom „%1“"
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Get Server Info"
+msgstr "Informácie o serveri"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
@@ -822,19 +828,16 @@ msgid "List Accounts"
 msgstr "Zoznam účtov"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Rooms"
-msgstr "Stav:"
+msgstr "Zoznam miestností"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:68
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No rooms found"
-msgstr "Súkromné adresy"
+msgstr "Nenašli sa žiadne miestnosti"
 
-#: core/mcpserver/mcpservermanager.cpp:32
+#: core/mcpserver/mcpservermanager.cpp:33
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Spravovať informácie z Ruqola"
@@ -4820,7 +4823,7 @@ msgstr "Užívatelia:"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:20
+#: widgets/configuredialog/configureservermcpwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-28 01:00+0000\n"
+"POT-Creation-Date: 2026-10-29 00:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -802,6 +802,7 @@ msgid "Get Room Info"
 msgstr ""
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -816,6 +817,11 @@ msgstr ""
 #: core/mcpserver/getroominfo/getroominfotool.cpp:56
 #, kde-format
 msgid "No room found with identifier \"%1\""
+msgstr ""
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
+#, kde-format
+msgid "Get Server Info"
 msgstr ""
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
@@ -833,7 +839,7 @@ msgstr ""
 msgid "No rooms found"
 msgstr ""
 
-#: core/mcpserver/mcpservermanager.cpp:32
+#: core/mcpserver/mcpservermanager.cpp:33
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -4770,7 +4776,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:23
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:55
-#: widgets/configuredialog/configureservermcpwidget.cpp:20
+#: widgets/configuredialog/configureservermcpwidget.cpp:21
 #, kde-format
 msgctxt "@option:check"
 msgid "Enable"
