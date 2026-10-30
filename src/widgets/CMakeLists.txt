@@ -460,6 +460,10 @@ target_sources(
         dialogs/unbanuserswidget.cpp
         dialogs/showbannedusersdelegate.h
         dialogs/showbannedusersdelegate.cpp
+        category/categorydialog.h
+        category/categorydialog.cpp
+        category/categorywidget.h
+        category/categorywidget.cpp
         discussions/showdiscussionsdialog.cpp
         discussions/showdiscussionsdialog.h
         discussions/showdiscussionswidget.cpp
@@ -1341,6 +1345,7 @@ if(BUILD_TESTING)
     add_subdirectory(exploreappstranlationdialog/autotests)
     add_subdirectory(webdav/autotests)
     add_subdirectory(timestampinmessages/autotests)
+    add_subdirectory(category/autotests)
 endif()
 
 install(
