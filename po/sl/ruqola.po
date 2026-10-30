@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-29 00:53+0000\n"
-"PO-Revision-Date: 2026-10-28 07:29+0100\n"
+"PO-Revision-Date: 2026-10-29 07:16+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -822,10 +822,9 @@ msgid "No room found with identifier \"%1\""
 msgstr "Sobe z določilnikom \"%1\" ni bilo mogoče najti"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Get Server Info"
-msgstr "Podatki o strežniku"
+msgstr "Pridobi podatke o strežniku"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format

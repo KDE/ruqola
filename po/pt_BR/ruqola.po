@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-29 00:53+0000\n"
-"PO-Revision-Date: 2026-10-28 09:04-0300\n"
+"PO-Revision-Date: 2026-10-29 10:44-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -823,10 +823,9 @@ msgid "No room found with identifier \"%1\""
 msgstr "Nenhuma sala encontrada com o identificador \"%1\""
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Get Server Info"
-msgstr "Informação do servidor"
+msgstr "Obter informações do servidor"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-29 00:53+0000\n"
-"PO-Revision-Date: 2026-10-28 15:04+0200\n"
+"PO-Revision-Date: 2026-10-29 16:11+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -824,10 +824,9 @@ msgid "No room found with identifier \"%1\""
 msgstr "Не знайдено кімнати з ідентифікатором «%1»"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Get Server Info"
-msgstr "Дані щодо сервера"
+msgstr "Встановити дані щодо сервера"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
