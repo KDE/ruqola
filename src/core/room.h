@@ -250,6 +250,9 @@ public:
     [[nodiscard]] QString autoTranslateLanguage() const;
     void setAutoTranslateLanguage(const QString &autoTranslateLanguage);
 
+    [[nodiscard]] QByteArray category() const;
+    void setCategory(const QByteArray &newCategory);
+
     [[nodiscard]] bool autoTranslate() const;
     void setAutoTranslate(bool autoTranslate);
 
@@ -380,6 +383,7 @@ Q_SIGNALS:
     void teamInfoChanged();
 
     void pendingTypedChanged();
+    void categoryChanged();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void parseCommonData(const QJsonObject &json);

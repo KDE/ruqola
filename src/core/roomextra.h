@@ -38,6 +38,9 @@ public:
 
     [[nodiscard]] bool canCleanHistory() const;
 
+    [[nodiscard]] QByteArray category() const;
+    void setCategory(const QByteArray &newCategory);
+
 private:
     // muted - collection of muted users by its usernames
     QStringList mMutedUsers;
@@ -51,6 +54,8 @@ private:
 
     // Parent Rid when we have a discussion.
     QByteArray mParentRid;
+
+    QByteArray mCategory;
 
     qint64 mLastOpenedAt = -1;
 };

@@ -96,3 +96,13 @@ bool RoomExtra::canCleanHistory() const
     }
     return false;
 }
+
+QByteArray RoomExtra::category() const
+{
+    return mCategory;
+}
+
+void RoomExtra::setCategory(const QByteArray &newCategory)
+{
+    mCategory = newCategory;
+}

@@ -83,7 +83,7 @@ bool Room::isEqual(const Room &other) const
         && (mAvatarETag == other.avatarETag()) && (mUids == other.uids()) && (mUserNames == other.userNames()) && (mRetentionInfo == other.retentionInfo())
         && (teamInfo() == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt()) && (mGroupMentions == other.groupMentions())
         && (mThreadUnread == other.threadUnread()) && (mRoomStates == other.roomStates()) && e2EKey() == other.e2EKey() && e2eKeyId() == other.e2eKeyId()
-        && (autoTranslate() == other.autoTranslate());
+        && (autoTranslate() == other.autoTranslate() && (category() == other.category()));
 }
 
 QString Room::displayRoomName() const
@@ -148,6 +148,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d.space() << "TeamInfo " << t.teamInfo();
     d.space() << "Number Of messages in room " << t.numberMessages();
     d.space() << "threadUnread " << t.threadUnread();
+    d.space() << "category " << t.category();
     return d;
 }
 
@@ -336,6 +337,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         lstUserNames << userNamesArray.at(i).toString();
     }
     setUserNames(lstUserNames);
+    if (json.contains("category"_L1)) {
+        setCategory(json["category"_L1].toString().toLatin1());
+    }
 
     setMutedUsers(extractStringList(json, "muted"_L1));
     setAvatarETag(json.value("avatarETag"_L1).toString().toLatin1());
@@ -1057,6 +1061,22 @@ void Room::setAutoTranslate(bool autoTranslate)
     }
 }
 
+QByteArray Room::category() const
+{
+    if (!mRoomExtra) {
+        return {};
+    }
+    return mRoomExtra->category();
+}
+
+void Room::setCategory(const QByteArray &newCategory)
+{
+    if (category() != newCategory) {
+        roomExtra()->setCategory(newCategory);
+        Q_EMIT categoryChanged();
+    }
+}
+
 QString Room::autoTranslateLanguage() const
 {
     if (!mRoomExtra) {
@@ -1456,6 +1476,9 @@ void Room::deserialize(Room *r, const QJsonObject &o)
     }
 
     r->setUserNames(extractStringList(o, "usernames"_L1));
+    if (o.contains("category"_L1)) {
+        r->setCategory(o["category"_L1].toString().toLatin1());
+    }
 }
 
 QStringList Room::extractStringList(const QJsonObject &o, const QString &key)
@@ -1608,6 +1631,10 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o["prid"_L1] = QLatin1StringView(parentRid);
     }
 
+    const QByteArray ba = r->category();
+    if (!ba.isEmpty()) {
+        o["category"_L1] = QString::fromLatin1(ba);
+    }
     serializeStringList(o, "usernames"_L1, r->userNames());
 
     if (toBinary) {
