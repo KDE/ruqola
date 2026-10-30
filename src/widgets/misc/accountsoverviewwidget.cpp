@@ -51,7 +51,7 @@ struct UnreadAlert {
             text += u" (%1)"_s.arg(unread);
         }
         if (unreadAlert.mentions) {
-            text += u" @"_s;
+            text += u" @";
         }
     }
 

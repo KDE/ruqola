@@ -50,10 +50,10 @@ void ListAccountsTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServ
         QString entry =
             u"%1 (display name: %2, server: %3, user: %4)"_s.arg(accountName, account->settings()->displayName(), account->serverUrl(), account->userName());
         if (!account->accountEnabled()) {
-            entry += u" [disabled]"_s;
+            entry += u" [disabled]";
         }
         if (accountName == currentAccountName) {
-            entry += u" [current]"_s;
+            entry += u" [current]";
         }
         entries.append(entry);
     }

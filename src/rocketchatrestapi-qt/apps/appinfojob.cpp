@@ -95,22 +95,22 @@ QString AppInfoJob::generateUrlExtension() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown type";
         break;
     case AppInfoType::Versions:
-        url += u"versions"_s;
+        url += u"versions";
         break;
     case AppInfoType::Logs:
-        url += u"logs"_s;
+        url += u"logs";
         break;
     case AppInfoType::Apis:
-        url += u"apis"_s;
+        url += u"apis";
         break;
     case AppInfoType::Languages:
-        url += u"languages"_s;
+        url += u"languages";
         break;
     case AppInfoType::ScreenShots:
-        url += u"screenshots"_s;
+        url += u"screenshots";
         break;
     case AppInfoType::Settings:
-        url += u"settings"_s;
+        url += u"settings";
         break;
     }
     return url;

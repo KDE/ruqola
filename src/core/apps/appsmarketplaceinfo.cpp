@@ -107,7 +107,7 @@ QString AppsMarketPlaceInfo::generatePriceInfo() const
     QString pricingStr;
     for (const auto &p : mPricePlan) {
         if (!pricingStr.isEmpty()) {
-            pricingStr += u"<br/>"_s;
+            pricingStr += u"<br/>";
         }
         QString value;
         const QString strategy = p.strategyToI18n();
@@ -392,7 +392,7 @@ QString AppsMarketPlaceInfo::applicationInformations() const
     if (!mShortDescription.isEmpty()) {
         str += mShortDescription.toHtmlEscaped() + u"<br/><br/>"_s;
     } else {
-        str += u"<br/>"_s;
+        str += u"<br/>";
     }
 
     const QString pricingInfo = generatePriceInfo();
@@ -485,13 +485,13 @@ QString AppsMarketPlaceInfo::permissionsDescription() const
     QString str;
     if (!mPermissions.isEmpty()) {
         str = u"<b>%1</b><br/>"_s.arg(i18n("Permissions"));
-        str += u"<ol>"_s;
+        str += u"<ol>";
         for (const Permission &p : mPermissions) {
             if (const QString description = p.convertTypeToI18n(); !description.isEmpty()) {
                 str += u"<li>%1</li>"_s.arg(description);
             }
         }
-        str += u"</ol>"_s;
+        str += u"</ol>";
     }
     return str;
 }

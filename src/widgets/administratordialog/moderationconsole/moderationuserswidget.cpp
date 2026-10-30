@@ -34,14 +34,14 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
     const User user = infos.user();
     if (!user.userEmailsInfo().email.isEmpty()) {
         html += u"<div><b>"_s + u"%1 (@%2)"_s.arg(user.name().toHtmlEscaped(), user.userName().toHtmlEscaped()) + u"</b></div>"_s;
-        html += u"<br/>"_s;
+        html += u"<br/>";
         html += u"<div><b>"_s + i18n("Email:") + u"</b>"_s + u" %1"_s.arg(user.userEmailsInfo().email) + u"</div>"_s;
-        html += u"<br/>"_s;
+        html += u"<br/>";
     }
 
     if (!user.roles().isEmpty()) {
         html += u"<div><b>"_s + i18n("Roles:") + u"</b>"_s + u" %1"_s.arg(user.roles().join(", "_L1)) + u"</div>"_s;
-        html += u"<br/>"_s;
+        html += u"<br/>";
     }
 
     const QList<ModerationReportUserInfo> moderationReportUserInfosList = infos.list();
@@ -52,7 +52,7 @@ void ModerationUsersWidget::setModerationReportUserInfos(const ModerationReportU
         html += u"<div>"_s + info.description().toHtmlEscaped() + u"</div>"_s;
         const QString createAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(info.timeStamp()), QLocale::ShortFormat);
         html += u"<div><i>"_s + info.reportedBy().userName().toHtmlEscaped() + u' ' + createAtDisplayDateTime + u"</i></div>"_s;
-        html += u"<br/>"_s;
+        html += u"<br/>";
         ++i;
     }
 

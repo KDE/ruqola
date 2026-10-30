@@ -340,11 +340,11 @@ QUrl Utils::AvatarInfo::avatarUrl(const QString &serverRcUrl) const
         break;
     }
     subFolder += u'/' + identifier;
-    subFolder += u"?format=png"_s;
+    subFolder += u"?format=png";
     if (!etag.isEmpty()) {
         subFolder += u"&etag=%1"_s.arg(etag);
     }
-    subFolder += u"&size=22"_s;
+    subFolder += u"&size=22";
     // serverRcUrl is scheme-qualified (see RocketChatAccountSettings normalization).
     return QUrl(serverRcUrl + u"/avatar"_s + subFolder);
 }

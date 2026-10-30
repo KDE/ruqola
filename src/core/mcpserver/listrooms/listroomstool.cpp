@@ -56,7 +56,7 @@ void ListRoomsTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerT
                                                                          QString::fromLatin1(room->roomId()),
                                                                          Room::roomFromRoomType(room->channelType()));
         if (room->archived()) {
-            entry += u" [archived]"_s;
+            entry += u" [archived]";
         }
         if (room->unread() > 0) {
             entry += u" [unread: %1]"_s.arg(room->unread());

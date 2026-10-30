@@ -49,16 +49,16 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
     switch (type) {
     case PathType::Picture:
     case PathType::Video:
-        path += u"/Ruqola/recordings"_s;
+        path += u"/Ruqola/recordings";
         break;
     case PathType::PreviewUrl:
-        path += u"/PreviewUrl"_s;
+        path += u"/PreviewUrl";
         break;
     case PathType::CustomSound:
-        path += u"/CustomSound"_s;
+        path += u"/CustomSound";
         break;
     case PathType::Cache:
-        path += u"/MainCache"_s;
+        path += u"/MainCache";
         break;
     case PathType::Config:
         break;

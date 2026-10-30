@@ -403,13 +403,13 @@ void MessageAttachment::generateAttachmentFieldsText()
             values << field.value();
             ++i;
         }
-        result += u"</tr><tr>"_s;
+        result += u"</tr><tr>";
         i = 0;
         for (const QString &res : std::as_const(values)) {
             result += u"<td style=\"text-align: left;%2\">%1</td>"_s.arg(res.toHtmlEscaped(), (i == 0) ? formatFirstCell : QString());
             ++i;
         }
-        result += u"</tr></table></qt>"_s;
+        result += u"</tr></table></qt>";
         mAttachmentFieldsText = result;
     }
 }

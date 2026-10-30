@@ -54,7 +54,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
         ApplicationsSettingsLogsInfo logInfo;
         logInfo.parseLogs(log.toObject());
         if (!message.isEmpty()) {
-            message += u"<br/>"_s;
+            message += u"<br/>";
         }
 
         message += u"<b>%1: %2 (%3 ms)</b>"_s.arg(QLocale().toString(logInfo.createdAt(), QLocale::ShortFormat),
@@ -62,7 +62,7 @@ void ApplicationsSettingsLogsWidget::generateInfo(const QJsonObject &obj)
                                                   QString::number(logInfo.totalTime()));
         const auto arguments = logInfo.arguments();
         for (const auto &arg : arguments) {
-            message += u"<br/>"_s;
+            message += u"<br/>";
             message += i18n("%1 Caller: %2", arg.severity, arg.caller) + u"<br/>"_s;
             message += arg.method + u"<br/>"_s;
             message += QString::fromUtf8(arg.args);

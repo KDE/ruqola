@@ -116,8 +116,7 @@ QList<QByteArray> encryptedKeyCandidates(const QString &fullE2EKey, const QStrin
     }
 
     if (fullE2EKey.size() > 36) {
-        const QString possibleKeyId = fullE2EKey.left(36);
-        if (!QUuid(possibleKeyId).isNull()) {
+        if (!QUuid::fromString(QStringView(fullE2EKey).left(36)).isNull()) {
             appendDecoded(fullE2EKey.mid(36));
         }
     }

@@ -128,17 +128,17 @@ QString LocalMessagesDatabase::generateQueryStr(qint64 startId, qint64 endId, qi
     QString query = u"SELECT json FROM MESSAGES"_s;
 
     if (startId != -1) {
-        query += u" WHERE timestamp >= :startId"_s;
+        query += u" WHERE timestamp >= :startId";
         if (endId != -1) {
-            query += u" AND timestamp <= :endId"_s;
+            query += u" AND timestamp <= :endId";
         }
     } else if (endId != -1) {
-        query += u" WHERE timestamp <= :endId"_s;
+        query += u" WHERE timestamp <= :endId";
     }
-    query += u" ORDER BY timestamp DESC"_s;
+    query += u" ORDER BY timestamp DESC";
 
     if (numberElements != -1) {
-        query += u" LIMIT :limit"_s;
+        query += u" LIMIT :limit";
     }
 
     qCDebug(RUQOLA_DATABASE_LOG) << " query " << query;

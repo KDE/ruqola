@@ -87,7 +87,7 @@ bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) cons
 void RuqolaServerConfig::setServerVersion(const QString &version)
 {
     mServerVersionStr = version;
-    const QStringList lst = version.split(u'.');
+    const QList<QStringView> lst = QStringView(version).split(u'.');
     // 0.70.0-rc.1 has 4 "."
     if (lst.count() >= 3) {
         bool ok;
