@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:51+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1832,7 +1832,7 @@ msgstr "Skrýt zprávy \"Místnost Avatar místnosti byl změněn\""
 msgid "(Autojoin)"
 msgstr "(Automatické připojení)"
 
-#: core/model/usersforroommodel.cpp:304 core/room.cpp:1170
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1190
 #, kde-format
 msgid "Owner"
 msgstr "Vlastník"
@@ -1920,27 +1920,27 @@ msgstr "Účet byl přidán"
 msgid "A new account was added."
 msgstr "Byl přidán nový účet."
 
-#: core/room.cpp:1173
+#: core/room.cpp:1193
 #, kde-format
 msgid "Leader"
 msgstr "Vedoucí"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1196
 #, kde-format
 msgid "Moderator"
 msgstr "Moderátor"
 
-#: core/room.cpp:1700
+#: core/room.cpp:1727
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanál je pouze ke čtení."
 
-#: core/room.cpp:1703
+#: core/room.cpp:1730
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Zablokoval jste tento kanál."
 
-#: core/room.cpp:1706
+#: core/room.cpp:1733
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanál byl zablokován."
@@ -7415,6 +7415,25 @@ msgstr ""
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Označit jako přečtený"
+
+#: widgets/category/categorydialog.cpp:19
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Add Category"
+msgstr "Kategorie"
+
+#: widgets/category/categorydialog.cpp:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Rename Category"
+msgstr ""
+
+#: widgets/category/categorywidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgid "Category:"
+msgstr "Kategorie"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format

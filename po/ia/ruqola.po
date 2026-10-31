@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:51+0000\n"
 "PO-Revision-Date: 2026-09-23 11:14+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1826,7 +1826,7 @@ msgstr "Cela messages de \"Usator Lassa Equipa\""
 msgid "(Autojoin)"
 msgstr "(Autouni)"
 
-#: core/model/usersforroommodel.cpp:304 core/room.cpp:1170
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1190
 #, kde-format
 msgid "Owner"
 msgstr "Proprietario"
@@ -1912,27 +1912,27 @@ msgstr "Conto addite"
 msgid "A new account was added."
 msgstr ""
 
-#: core/room.cpp:1173
+#: core/room.cpp:1193
 #, kde-format
 msgid "Leader"
 msgstr "Chef"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1196
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1700
+#: core/room.cpp:1727
 #, kde-format
 msgid "Channel is read only."
 msgstr "Canal es de sol lectura"
 
-#: core/room.cpp:1703
+#: core/room.cpp:1730
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Tu ha blocate iste canal."
 
-#: core/room.cpp:1706
+#: core/room.cpp:1733
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Canal esseva blocate."
@@ -7401,6 +7401,25 @@ msgstr "Monstra Non Legite"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marca como legite"
+
+#: widgets/category/categorydialog.cpp:19
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Add Category"
+msgstr "Categorias"
+
+#: widgets/category/categorydialog.cpp:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Rename Category"
+msgstr ""
+
+#: widgets/category/categorywidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgid "Category:"
+msgstr "Categorias"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format

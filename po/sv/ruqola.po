@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:51+0000\n"
 "PO-Revision-Date: 2026-09-27 14:59+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1819,7 +1819,7 @@ msgstr "Dölj \"Användare lämnade lag\" meddelanden"
 msgid "(Autojoin)"
 msgstr "(automatiskt anslutning)"
 
-#: core/model/usersforroommodel.cpp:304 core/room.cpp:1170
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1190
 #, kde-format
 msgid "Owner"
 msgstr "Ägare"
@@ -1907,27 +1907,27 @@ msgstr "Konto tillagt"
 msgid "A new account was added."
 msgstr "Ett nytt konto har lagts till."
 
-#: core/room.cpp:1173
+#: core/room.cpp:1193
 #, kde-format
 msgid "Leader"
 msgstr "Ledare"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1196
 #, kde-format
 msgid "Moderator"
 msgstr "Moderator"
 
-#: core/room.cpp:1700
+#: core/room.cpp:1727
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalen är skrivskyddad."
 
-#: core/room.cpp:1703
+#: core/room.cpp:1730
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Du har blockerat kanalen."
 
-#: core/room.cpp:1706
+#: core/room.cpp:1733
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalen har blockerats."
@@ -7551,6 +7551,25 @@ msgstr "Visa olästa"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Markera som läst"
+
+#: widgets/category/categorydialog.cpp:19
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Add Category"
+msgstr "Kategorier"
+
+#: widgets/category/categorydialog.cpp:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Rename Category"
+msgstr ""
+
+#: widgets/category/categorywidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgid "Category:"
+msgstr "Kategorier"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:51+0000\n"
 "PO-Revision-Date: 2026-10-29 11:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1819,7 +1819,7 @@ msgstr "Oculta els missatges «S'ha unit a aquest equip»"
 msgid "(Autojoin)"
 msgstr "(Unió automàtica)"
 
-#: core/model/usersforroommodel.cpp:304 core/room.cpp:1170
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1190
 #, kde-format
 msgid "Owner"
 msgstr "Propietari"
@@ -1907,27 +1907,27 @@ msgstr "S'ha afegit un compte"
 msgid "A new account was added."
 msgstr "S'ha afegit un compte nou."
 
-#: core/room.cpp:1173
+#: core/room.cpp:1193
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1196
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1700
+#: core/room.cpp:1727
 #, kde-format
 msgid "Channel is read only."
 msgstr "El canal només és de lectura."
 
-#: core/room.cpp:1703
+#: core/room.cpp:1730
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Heu blocat aquest canal."
 
-#: core/room.cpp:1706
+#: core/room.cpp:1733
 #, kde-format
 msgid "Channel was blocked."
 msgstr "El canal està blocat."
@@ -7579,6 +7579,25 @@ msgstr "Mostra els no llegits"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
+
+#: widgets/category/categorydialog.cpp:19
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Add Category"
+msgstr "Categories"
+
+#: widgets/category/categorydialog.cpp:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Rename Category"
+msgstr ""
+
+#: widgets/category/categorywidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgid "Category:"
+msgstr "Categories"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format

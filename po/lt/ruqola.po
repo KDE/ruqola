@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:51+0000\n"
 "PO-Revision-Date: 2026-09-08 14:50+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1904,7 +1904,7 @@ msgstr "Šifruota žinutė"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/model/usersforroommodel.cpp:304 core/room.cpp:1170
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1190
 #, kde-format
 msgid "Owner"
 msgstr "Savininkas"
@@ -1994,27 +1994,27 @@ msgstr "Paskyra pridėta"
 msgid "A new account was added."
 msgstr "Buvo pridėta nauja paskyra."
 
-#: core/room.cpp:1173
+#: core/room.cpp:1193
 #, kde-format
 msgid "Leader"
 msgstr ""
 
-#: core/room.cpp:1176
+#: core/room.cpp:1196
 #, kde-format
 msgid "Moderator"
 msgstr ""
 
-#: core/room.cpp:1700
+#: core/room.cpp:1727
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanalas yra tik skaitymui."
 
-#: core/room.cpp:1703
+#: core/room.cpp:1730
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Jūs užblokavote šį kanalą."
 
-#: core/room.cpp:1706
+#: core/room.cpp:1733
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanalas buvo užblokuotas."
@@ -7763,6 +7763,25 @@ msgstr "Gijos"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Nerasta jokių žinučių"
+
+#: widgets/category/categorydialog.cpp:19
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Add Category"
+msgstr "Kategorijos"
+
+#: widgets/category/categorydialog.cpp:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Rename Category"
+msgstr ""
+
+#: widgets/category/categorywidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgid "Category:"
+msgstr "Kategorijos"
 
 #: widgets/channellist/channellistview.cpp:139
 #, fuzzy, kde-format

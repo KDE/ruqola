@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:53+0000\n"
+"POT-Creation-Date: 2026-10-31 00:51+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -1840,7 +1840,7 @@ msgstr "\"उपयोक्तृवामदलम्\" इति सन्द
 msgid "(Autojoin)"
 msgstr "(स्वयं संयोगः)"
 
-#: core/model/usersforroommodel.cpp:304 core/room.cpp:1170
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1190
 #, kde-format
 msgid "Owner"
 msgstr "स्वामी"
@@ -1930,27 +1930,27 @@ msgstr "खाता योजितः"
 msgid "A new account was added."
 msgstr "नूतनं खातं योजितम्।"
 
-#: core/room.cpp:1173
+#: core/room.cpp:1193
 #, kde-format
 msgid "Leader"
 msgstr "नेता"
 
-#: core/room.cpp:1176
+#: core/room.cpp:1196
 #, kde-format
 msgid "Moderator"
 msgstr "संचालकः"
 
-#: core/room.cpp:1700
+#: core/room.cpp:1727
 #, kde-format
 msgid "Channel is read only."
 msgstr "चैनलः केवलं पठनीयः अस्ति।"
 
-#: core/room.cpp:1703
+#: core/room.cpp:1730
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "भवता एतत् चैनलं अवरुद्धम् अस्ति।"
 
-#: core/room.cpp:1706
+#: core/room.cpp:1733
 #, kde-format
 msgid "Channel was blocked."
 msgstr "चैनल् अवरुद्धम् आसीत्।"
@@ -7588,6 +7588,25 @@ msgstr "अपठितं दर्शयतु"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Read इति चिह्नं कुर्वन्तु"
+
+#: widgets/category/categorydialog.cpp:19
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Add Category"
+msgstr "श्रेणियाँ"
+
+#: widgets/category/categorydialog.cpp:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Rename Category"
+msgstr ""
+
+#: widgets/category/categorywidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgid "Category:"
+msgstr "श्रेणियाँ"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format
