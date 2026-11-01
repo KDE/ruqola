@@ -38,6 +38,8 @@ public:
     [[nodiscard]] bool userIsOffline(const QString &name) const;
 
     [[nodiscard]] QString userStatusStr(const QString &name) const;
+
+    [[nodiscard]] User userFromUserName(const QString &userName) const;
 Q_SIGNALS:
     void userStatusChanged(const User &user);
     void userNameChanged(const User &user);

@@ -640,6 +640,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/getroominfo/getroominfotool.cpp
             mcpserver/getserverinfo/getserverinfotool.h
             mcpserver/getserverinfo/getserverinfotool.cpp
+            mcpserver/getuserstatus/getuserstatustool.h
+            mcpserver/getuserstatus/getuserstatustool.cpp
     )
 endif()
 

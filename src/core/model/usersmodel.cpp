@@ -78,6 +78,16 @@ QString UsersModel::userStatusStr(const QString &name) const
     return i18n("Offline");
 }
 
+User UsersModel::userFromUserName(const QString &userName) const
+{
+    for (const User &user : mUsers) {
+        if (user.userName() == userName) {
+            return user;
+        }
+    }
+    return {};
+}
+
 QString UsersModel::userStatusIconFileName(const QString &name) const
 {
     const int userCount = mUsers.count();
