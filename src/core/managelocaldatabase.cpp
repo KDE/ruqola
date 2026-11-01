@@ -7,6 +7,7 @@
 #include "managelocaldatabase.h"
 #include "config-ruqola.h"
 #include "misc/methodcalljob.h"
+#include "rooms/getroomhistoryjob.h"
 #include "ruqola_offline_mode_debug.h"
 
 #include "chat/syncmessagesjob.h"
@@ -21,6 +22,7 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include <QJsonArray>
+#include <QTimeZone>
 #include <algorithm>
 
 using namespace Qt::Literals::StringLiterals;
@@ -208,23 +210,44 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
+    if (mRocketChatAccount->hasAtLeastVersion(8, 9, 0)) {
+        // Use rooms.history
+        auto job = new RocketChatRestApi::GetRoomHistoryJob(this);
+        const RocketChatRestApi::GetRoomHistoryJob::GetRoomHistoryInfo roomHistoryInfo{
+            .roomId = info.roomId,
+            .count = 50,
+            .showThreadMessages = false,
+            .lastSeen = info.lastSeenAt > 0 ? QDateTime::fromMSecsSinceEpoch(info.lastSeenAt, QTimeZone::UTC).toString(Qt::ISODateWithMs) : QString(),
+        };
+        job->setRoomHistoryInfo(roomHistoryInfo);
 
-    // use /api/v1/method.call/loadHistory directly => restapi
-    auto job = new RocketChatRestApi::MethodCallJob(this);
-    RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
-    loadHistoryInfo.methodName = u"loadHistory"_s;
-    loadHistoryInfo.anonymous = false;
-    loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
-    job->setMethodCallJobInfo(loadHistoryInfo);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
-        const QJsonObject obj = root.value("result"_L1).toObject();
-        // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
-        mRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start loadHistory job";
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::GetRoomHistoryJob::getRoomHistoryDone, this, [this](const QJsonObject &root) {
+            // TODO cursor etc.
+            mRocketChatAccount->rocketChatBackend()->processIncomingMessages(root.value("messages"_L1).toArray(), true);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start GetRoomHistoryJob job";
+        }
+    } else {
+        // use /api/v1/method.call/loadHistory directly => restapi
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
+        loadHistoryInfo.methodName = u"loadHistory"_s;
+        loadHistoryInfo.anonymous = false;
+        loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
+        job->setMethodCallJobInfo(loadHistoryInfo);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+            const QJsonObject obj = root.value("result"_L1).toObject();
+            // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
+            mRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start loadHistory job";
+        }
     }
     // TODO MISSING load rooms from database too
 }
