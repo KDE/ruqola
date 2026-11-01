@@ -35,8 +35,6 @@ public:
     [[nodiscard]] bool start() override;
 
     [[nodiscard]] QNetworkRequest request() const override;
-    [[nodiscard]] const QString &roomId() const;
-    void setRoomId(const QString &newRoomId);
 
     [[nodiscard]] bool canStart() const override;
 
