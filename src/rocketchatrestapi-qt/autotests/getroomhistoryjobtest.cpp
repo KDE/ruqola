@@ -1,0 +1,45 @@
+/*
+   SPDX-FileCopyrightText: 2021-2026 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#include "getroomhistoryjobtest.h"
+
+#include "restapimethod.h"
+#include "rooms/adminroomsgetroomjob.h"
+#include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+
+QTEST_GUILESS_MAIN(GetRoomHistoryJobTest)
+using namespace RocketChatRestApi;
+GetRoomHistoryJobTest::GetRoomHistoryJobTest(QObject *parent)
+    : QObject(parent)
+{
+}
+
+void GetRoomHistoryJobTest::shouldHaveDefaultValue()
+{
+    AdminRoomsGetRoomJob job;
+    QVERIFY(!job.restApiMethod());
+    QVERIFY(!job.networkAccessManager());
+    QVERIFY(!job.start());
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.restApiLogger());
+    QVERIFY(job.roomId().isEmpty());
+}
+
+void GetRoomHistoryJobTest::shouldGenerateRequest()
+{
+    AdminRoomsGetRoomJob job;
+    const QString roomId{u"foo"_s};
+    job.setRoomId(roomId);
+    RestApiMethod method;
+    method.setServerUrl(u"http://www.kde.org"_s);
+    job.setRestApiMethod(&method);
+    const QNetworkRequest request = job.request();
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.adminRooms.getRoom?rid=%1"_s.arg(roomId)));
+}
+
+#include "moc_getroomhistoryjobtest.cpp"

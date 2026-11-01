@@ -380,6 +380,8 @@ target_sources(
         rooms/roomsbanuserjob.h
         rooms/roomsunbanuserjob.cpp
         rooms/roomsunbanuserjob.h
+        rooms/getroomhistoryjob.cpp
+        rooms/getroomhistoryjob.h
         serverinfojob.cpp
         serverinfojob.h
         sessions/sessionslistjob.cpp
