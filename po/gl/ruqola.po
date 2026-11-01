@@ -8110,9 +8110,7 @@ msgid "Database Info"
 msgstr "Información da base de datos"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
+#, kde-format
 msgid "Messages"
 msgstr "Mensaxes"
 

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 03:20+0000\n"
-"PO-Revision-Date: 2026-09-27 14:59+0200\n"
+"PO-Revision-Date: 2026-10-31 15:35+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -474,7 +474,7 @@ msgstr "Ansluter"
 #: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Verifying OTP code"
-msgstr ""
+msgstr "Verifierar OTP-kod"
 
 #: core/authenticationmanager.cpp:92
 #, kde-format
@@ -1754,10 +1754,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "Dölj \"Rummets beskrivning ändrades\" meddelanden"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "Dölj \"Användare lämnade lag\" meddelanden"
+msgstr "Dölj \"Gick med i lag\" meddelanden"
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2081,8 +2080,7 @@ msgid "Call ongoing"
 msgstr "Samtal pågår"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "InComing Call"
+#, kde-format
 msgid "Incoming Call"
 msgstr "Inkommande samtal"
 
@@ -2277,11 +2275,9 @@ msgid "Extract Roles"
 msgstr "Extrahera roller"
 
 #: rocketchatrestapi-qt/chat/deletemessagefilejob.cpp:91
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete File Message"
-msgstr "Ta bort meddelande"
+msgstr "Ta bort filmeddelande"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
@@ -2715,10 +2711,9 @@ msgid "User is not in this room"
 msgstr "Användare finns inte i det här rummet"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "Du är inte i rummet `%s`"
+msgstr "Du är inte i rummet `%1`"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4235,8 +4230,7 @@ msgid "Deactivate"
 msgstr "Inaktivera"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Aktivera"
@@ -5360,18 +5354,14 @@ msgid "Accepted Media Types"
 msgstr "Accepterade medietyper"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
 "Lista över medietyper åtskilda med kommatecken. Inställningen har prioritet "
-"över Accepterade medietyper."
+"över Blockerade medietyper."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5384,10 +5374,9 @@ msgstr ""
 "uppladdade filer utan behörighetskontroll)"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "Tokenpass-hemlighet"
+msgstr "Json-webbsymbolhemlighet"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -7723,15 +7712,12 @@ msgid "Display Account in Current Activity"
 msgstr "Visa konton i aktuell aktivitet"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgid "Text to Speech"
-msgstr "Aktivera text till tal"
+msgstr "Text till tal"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Speech text"
+#, kde-format
 msgid "Speech to Text"
 msgstr "Tal till text"
 
@@ -7908,11 +7894,10 @@ msgid "Plugins"
 msgstr "Insticksprogram"
 
 #: widgets/configuredialog/configurespeechtotextconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Speech text"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Speech To Text"
-msgstr "Tal till text"
+msgstr "Aktivera Tal till text"
 
 #: widgets/configuredialog/configuretexttospeechconfigwidget.cpp:21
 #, kde-format
@@ -9907,8 +9892,7 @@ msgid "Compact"
 msgstr "Kompakt"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Your passwords do no match."
+#, kde-format
 msgid "Your passwords do not match."
 msgstr "Lösenorden stämmer inte överens."
 
@@ -12293,14 +12277,13 @@ msgid ""
 "<b>Open a channel first: the checks need a room to send their test messages "
 "to.</b>"
 msgstr ""
-"<b>Öppna först en kanal: checkerna behöver ett rum att skicka sina "
+"<b>Öppna först en kanal: kontrollerna behöver ett rum att skicka sina "
 "testmeddelanden till.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "<b>Check can not executed in direct channel.</b>"
+#, kde-format
 msgid "<b>Checks cannot be executed in direct channel.</b>"
-msgstr "<b>Checken kan inte utföras i en direktkanal.</b>"
+msgstr "<b>Kontroller kan inte utföras i en direktkanal.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:105
 #, kde-format
