@@ -5,7 +5,7 @@
 */
 
 #include "categorydialog.h"
-#include "category/categorywidget.h"
+#include "categorywidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
