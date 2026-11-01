@@ -32,7 +32,7 @@ bool GetRoomHistoryJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (!mRoomHistoryInfo.isValid()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetRoomHistoryJob: RoomId is empty";
         return false;
     }
@@ -48,37 +48,63 @@ bool GetRoomHistoryJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("GetRoomHistoryJob: Ask info about room admin info"_ba);
+    addStartRestApiInfo("GetRoomHistoryJob: Ask info about room history info"_ba);
     return true;
 }
 
 void GetRoomHistoryJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     if (const auto replyObject = checkResponse("GetRoomHistoryJob"_ba, replyErrorString, replyJson)) {
-        Q_EMIT adminRoomGetRoomDone(*replyObject);
+        Q_EMIT getRoomHistoryDone(*replyObject);
     }
 }
 
-const QString &GetRoomHistoryJob::roomId() const
+GetRoomHistoryJob::GetRoomHistoryInfo GetRoomHistoryJob::roomHistoryInfo() const
 {
-    return mRoomId;
+    return mRoomHistoryInfo;
 }
 
-void GetRoomHistoryJob::setRoomId(const QString &newRoomId)
+void GetRoomHistoryJob::setRoomHistoryInfo(const GetRoomHistoryInfo &newRoomHistoryInfo)
 {
-    mRoomId = newRoomId;
+    mRoomHistoryInfo = newRoomHistoryInfo;
 }
 
 QNetworkRequest GetRoomHistoryJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRoomsGetRoom);
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"rid"_s, mRoomId);
-    url.setQuery(queryUrl);
+    mRoomHistoryInfo.addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+bool GetRoomHistoryJob::GetRoomHistoryInfo::isValid() const
+{
+    return !roomId.isEmpty();
+}
+
+void GetRoomHistoryJob::GetRoomHistoryInfo::addQueryItem(QUrl &url) const
+{
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(u"roomId"_s, QLatin1StringView(roomId));
+    if (count != 20) {
+        queryUrl.addQueryItem(u"count"_s, QString::number(count));
+    }
+    queryUrl.addQueryItem(u"showThreadMessages"_s, showThreadMessages ? u"true"_s : u"false"_s);
+    if (!aroundId.isEmpty()) {
+        queryUrl.addQueryItem(u"aroundId"_s, QLatin1StringView(aroundId));
+    }
+    if (!lastSeen.isEmpty()) {
+        queryUrl.addQueryItem(u"lastSeen"_s, lastSeen);
+    }
+    if (!previous.isEmpty()) {
+        queryUrl.addQueryItem(u"previous"_s, previous);
+    }
+    if (!next.isEmpty()) {
+        queryUrl.addQueryItem(u"next"_s, next);
+    }
+    url.setQuery(queryUrl);
 }
 
 #include "moc_getroomhistoryjob.cpp"
