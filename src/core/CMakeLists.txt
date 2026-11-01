@@ -574,6 +574,8 @@ target_sources(
         readreceipts/readreceipt.cpp
         readreceipts/readreceipts.h
         readreceipts/readreceipts.cpp
+        categories/category.h
+        categories/category.cpp
 )
 
 if(HAVE_TEXT_AUTOGENERATE_TEXT)
