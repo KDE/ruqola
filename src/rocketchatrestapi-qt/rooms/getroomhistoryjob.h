@@ -15,6 +15,18 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT GetRoomHistoryJob : public RestApiAbstractJ
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT GetRoomHistoryInfo {
+        [[nodiscard]] bool isValid() const;
+        void addQueryItem(QUrl &url) const;
+        QByteArray roomId;
+        int count = 20; // Default
+        bool showThreadMessages = true; // Default
+        QByteArray aroundId;
+        QString lastSeen;
+        QString previous;
+        QString next;
+    };
+
     explicit GetRoomHistoryJob(QObject *parent = nullptr);
     ~GetRoomHistoryJob() override;
 
@@ -28,11 +40,14 @@ public:
 
     [[nodiscard]] bool canStart() const override;
 
+    [[nodiscard]] GetRoomHistoryInfo roomHistoryInfo() const;
+    void setRoomHistoryInfo(const GetRoomHistoryInfo &newRoomHistoryInfo);
+
 Q_SIGNALS:
-    void adminRoomGetRoomDone(const QJsonObject &obj);
+    void getRoomHistoryDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QString mRoomId;
+    GetRoomHistoryInfo mRoomHistoryInfo;
 };
 }
