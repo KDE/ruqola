@@ -642,6 +642,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/getserverinfo/getserverinfotool.cpp
             mcpserver/getuserstatus/getuserstatustool.h
             mcpserver/getuserstatus/getuserstatustool.cpp
+            mcpserver/getunreadsummary/getunreadsummarytool.h
+            mcpserver/getunreadsummary/getunreadsummarytool.cpp
     )
 endif()
 

@@ -8,6 +8,7 @@
 #include "listaccounts/listaccountstool.h"
 #include "mcpserver/getroominfo/getroominfotool.h"
 #include "mcpserver/getserverinfo/getserverinfotool.h"
+#include "mcpserver/getunreadsummary/getunreadsummarytool.h"
 #include "mcpserver/getuserstatus/getuserstatustool.h"
 #include "mcpserver/listrooms/listroomstool.h"
 #include "ruqola_mcp_server_debug.h"
@@ -39,6 +40,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<GetRoomInfoTool>(mAccountManager));
     addTool(std::make_unique<GetServerInfoTool>(mAccountManager));
     addTool(std::make_unique<GetUserStatusTool>(mAccountManager));
+    addTool(std::make_unique<GetUnreadSummaryTool>(mAccountManager));
     loadConfig();
     // TODO add more
 }
