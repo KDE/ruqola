@@ -22,3 +22,5 @@ void CategoryTest::shouldHaveDefaultValues()
     QVERIFY(cat.identifier().isEmpty());
     QVERIFY(cat.name().isEmpty());
 }
+
+#include "moc_categorytest.cpp"
