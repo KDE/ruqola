@@ -182,6 +182,7 @@ enum class RestApiUrlType {
     RoomsAdminRoomsGetRoom,
     RoomsMedia,
     RoomsMediaConfirm,
+    RoomsHistory, // Since 8.9
     ImClose,
     ImCreate,
     ImHistory,
