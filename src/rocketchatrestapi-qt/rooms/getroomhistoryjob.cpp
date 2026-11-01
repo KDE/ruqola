@@ -71,7 +71,7 @@ void GetRoomHistoryJob::setRoomHistoryInfo(const GetRoomHistoryInfo &newRoomHist
 
 QNetworkRequest GetRoomHistoryJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRoomsGetRoom);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsHistory);
     mRoomHistoryInfo.addQueryItem(url);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
