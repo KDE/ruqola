@@ -8,7 +8,7 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
-
+class QDebug;
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT GetRoomHistoryJob : public RestApiAbstractJob
@@ -49,3 +49,4 @@ private:
     GetRoomHistoryInfo mRoomHistoryInfo;
 };
 }
+LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::GetRoomHistoryJob::GetRoomHistoryInfo &t);

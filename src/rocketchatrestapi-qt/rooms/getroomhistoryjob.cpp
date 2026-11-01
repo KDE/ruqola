@@ -107,4 +107,16 @@ void GetRoomHistoryJob::GetRoomHistoryInfo::addQueryItem(QUrl &url) const
     url.setQuery(queryUrl);
 }
 
+QDebug operator<<(QDebug d, const RocketChatRestApi::GetRoomHistoryJob::GetRoomHistoryInfo &t)
+{
+    d.space() << "roomId:" << t.roomId;
+    d.space() << "count:" << t.count;
+    d.space() << "showThreadMessages:" << t.showThreadMessages;
+    d.space() << "aroundId:" << t.aroundId;
+    d.space() << "lastSeen:" << t.lastSeen;
+    d.space() << "previous:" << t.previous;
+    d.space() << "next:" << t.next;
+    return d;
+}
+
 #include "moc_getroomhistoryjob.cpp"
