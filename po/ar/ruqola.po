@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the ruqola package.
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-31 00:51+0000\n"
-"PO-Revision-Date: 2026-09-30 18:38+0400\n"
+"PO-Revision-Date: 2026-10-31 20:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -475,7 +475,7 @@ msgstr "يتّصل"
 #: core/authenticationmanager.cpp:90
 #, kde-format
 msgid "Verifying OTP code"
-msgstr ""
+msgstr "التحقق من رمز OTP"
 
 #: core/authenticationmanager.cpp:92
 #, kde-format
@@ -744,7 +744,7 @@ msgstr "دنغ"
 #: core/customsound/customsoundsmanager.cpp:83
 #, kde-format
 msgid "Droplet"
-msgstr "قطرة"
+msgstr "قطيرة"
 
 #: core/customsound/customsoundsmanager.cpp:91
 #, kde-format
@@ -797,59 +797,52 @@ msgid "Socket was unexpectedly closed."
 msgstr "أُغلق المقبس بشكل غير متوقع."
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:37
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Info"
-msgstr "لم يعثر على أي غرفة"
+msgstr "جلب معلومات الغرفة"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
-#, fuzzy, kde-format
-#| msgid "No account."
+#, kde-format
 msgid "No account found"
-msgstr "لا حساب."
+msgstr "لم يُعثر على حساب"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:51
 #, kde-format
 msgid "Missing room identifier"
-msgstr ""
+msgstr "معرّف الغرفة مفقود"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:56
 #, kde-format
 msgid "No room found with identifier \"%1\""
-msgstr ""
+msgstr "لم تُعثر على غرفة بالمعرّف \"%1\""
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:33
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Get Server Info"
-msgstr "معلومات الخادم"
+msgstr "جلب معلومات الخادم"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
-#, fuzzy, kde-format
-#| msgid "Accounts"
+#, kde-format
 msgid "List Accounts"
-msgstr "الحسابات"
+msgstr "سرد الحسابات"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Rooms"
-msgstr "حرّر الغرفة"
+msgstr "سرد الغرف"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:68
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No rooms found"
-msgstr "لم يعثر على أي غرفة"
+msgstr "لم تُعثر على غرف"
 
 #: core/mcpserver/mcpservermanager.cpp:33
 #, kde-format
 msgid "Manage information from Ruqola"
-msgstr ""
+msgstr "إدارة المعلومات من رُقولة"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1830,10 +1823,9 @@ msgid "Hide \"Room description changed\" messages"
 msgstr "أخْفِ رسائل ”تغيير وصف الغرفة“"
 
 #: core/model/systemmessagesmodel.cpp:73
-#, fuzzy, kde-format
-#| msgid "Hide \"User Left Team\" messages"
+#, kde-format
 msgid "Hide \"Joined this Team\" messages"
-msgstr "أخفِ رسائل ”ترك مستخدم الفريق“"
+msgstr "إخفاء رسائل \"انضم إلى هذا الفريق\""
 
 #: core/model/teamroomsmodel.cpp:37
 #, kde-format
@@ -2181,8 +2173,7 @@ msgid "Call ongoing"
 msgstr "المكالمة جارية"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:57
-#, fuzzy, kde-format
-#| msgid "InComing Call"
+#, kde-format
 msgid "Incoming Call"
 msgstr "مكالمة واردة"
 
@@ -2381,11 +2372,9 @@ msgid "Extract Roles"
 msgstr "استخراج الأدوار"
 
 #: rocketchatrestapi-qt/chat/deletemessagefilejob.cpp:91
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete File Message"
-msgstr "احذف الرّسالة"
+msgstr "حذف رسالة ملف"
 
 #: rocketchatrestapi-qt/chat/deletemessagejob.cpp:112
 #, kde-format
@@ -2822,10 +2811,9 @@ msgid "User is not in this room"
 msgstr "المستخدم غير موجود في هذه الغرفة"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
-#| msgid "You are not in the room `%s`"
+#, kde-format
 msgid "You are not in the room `%1`"
-msgstr "أنت لست في الغرفة `%s`"
+msgstr "لست في الغرفة `%1`"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4359,8 +4347,7 @@ msgid "Deactivate"
 msgstr "ألغِ التنشيط"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:318
-#, fuzzy, kde-format
-#| msgid "Activate"
+#, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "نشّط"
@@ -5477,18 +5464,14 @@ msgid "Accepted Media Types"
 msgstr "أنواع الوسائط المقبولة"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Accepted Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Blocked Media Types."
 msgstr ""
-"قائمة مفصولة بفواصل لأنواع الوسائط. هذا الإعداد له الأولوية على أنواع "
-"الوسائط المقبولة."
+"قائمة أنواع الوسائط مفصولة بفواصل. لهذا الإعداد أولوية على أنواع الوسائط "
+"المحظورة."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -5501,10 +5484,9 @@ msgstr ""
 "المُحملة دون استيثاق)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Tokenpass Secret"
+#, kde-format
 msgid "Json Web Token Secret"
-msgstr "سر توكنباس"
+msgstr "سر رمز Json Web"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
@@ -7842,18 +7824,14 @@ msgid "Display Account in Current Activity"
 msgstr "اعرض الحساب في النشاط الحالي"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgid "Text to Speech"
-msgstr "مكّن نطق النّصّ"
+msgstr "تحويل النص إلى كلام"
 
 #: widgets/configuredialog/configureaccessibilitytabwidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Speak Text"
+#, kde-format
 msgid "Speech to Text"
-msgstr "نطق النص"
+msgstr "تحويل الكلام إلى نص"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:32
 #, kde-format
@@ -8016,11 +7994,10 @@ msgid "User Feedback"
 msgstr "ملاحظات المستخدمين"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:111
-#, fuzzy, kde-format
-#| msgid "Server"
+#, kde-format
 msgctxt "@title Mcp page name"
 msgid "MCP Server"
-msgstr "الخادم"
+msgstr "خادم MCP"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:117
 #, kde-format
@@ -8035,12 +8012,10 @@ msgid "Plugins"
 msgstr "الملحقات"
 
 #: widgets/configuredialog/configurespeechtotextconfigurewidget.cpp:19
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Enable Text To Speech"
+#, kde-format
 msgctxt "@option:check"
 msgid "Enable Speech To Text"
-msgstr "مكّن نطق النّصّ"
+msgstr "مكّن تحويل الكلام إلى نص"
 
 #: widgets/configuredialog/configuretexttospeechconfigwidget.cpp:21
 #, kde-format
@@ -10060,10 +10035,9 @@ msgid "Compact"
 msgstr "مُدمج"
 
 #: widgets/misc/passwordconfirmwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Your passwords do no match."
+#, kde-format
 msgid "Your passwords do not match."
-msgstr "كلمات السر لم تتطابق"
+msgstr "كلمتا السر غير متطابقتين."
 
 #: widgets/misc/passwordconfirmwidget.cpp:38
 #, kde-format
@@ -12467,10 +12441,9 @@ msgstr ""
 "<b>افتح قناة أولًا: تحتاج الفحوصات إلى غرفة لإرسال رسائل اختبارها إليها.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "<b>Check can not executed in direct channel.</b>"
+#, kde-format
 msgid "<b>Checks cannot be executed in direct channel.</b>"
-msgstr "<b>لا يمكن تنفيذ التحقق في قناة مباشرة.</b>"
+msgstr "<b>لا يمكن تنفيذ الفحوصات في القناة المباشرة.</b>"
 
 #: widgets/serverchecks/serverchecklistdialog.cpp:105
 #, kde-format

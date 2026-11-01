@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-31 00:51+0000\n"
-"PO-Revision-Date: 2026-10-29 10:44-0300\n"
+"PO-Revision-Date: 2026-10-31 07:26-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -7568,23 +7568,21 @@ msgid "Mark as Read"
 msgstr "Marcar como lidas"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "Categorias"
+msgstr "Adicionar categoria"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "Renomear categoria"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "Categorias"
+msgstr "Categoria:"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format

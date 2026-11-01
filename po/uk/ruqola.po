@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-31 00:51+0000\n"
-"PO-Revision-Date: 2026-10-29 16:11+0200\n"
+"PO-Revision-Date: 2026-10-31 16:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -7623,23 +7623,21 @@ msgid "Mark as Read"
 msgstr "Позначити як прочитане"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "Категорії"
+msgstr "Додати категорію"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "Перейменувати категорію"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "Категорії"
+msgstr "Категорія:"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format

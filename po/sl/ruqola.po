@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-31 00:51+0000\n"
-"PO-Revision-Date: 2026-10-29 07:16+0100\n"
+"PO-Revision-Date: 2026-10-31 07:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7570,23 +7570,21 @@ msgid "Mark as Read"
 msgstr "Označi kot prebrano"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "Katagorije"
+msgstr "Dodaj kategorijo"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "Preimenuj kategorijo"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "Katagorije"
+msgstr "Katagorija:"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format
