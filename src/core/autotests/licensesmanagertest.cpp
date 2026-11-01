@@ -103,6 +103,7 @@ void LicensesManagerTest::shouldConvertFromString()
              LicensesManager::ActiveModule::ExperimentalEnterpriseFeatures);
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"experimental-features"_s), LicensesManager::ActiveModule::ExperimentalFeatures);
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"unlimited-presence"_s), LicensesManager::ActiveModule::UnlimitedPresence);
+    QCOMPARE(LicensesManager::convertStringToActiveModule(u"video-conference-native"_s), LicensesManager::ActiveModule::VideoConferenceNative);
 
     QCOMPARE(LicensesManager::convertStringToActiveModule(u"foo"_s), LicensesManager::ActiveModule::Unknown);
     QCOMPARE(LicensesManager::convertStringToActiveModule(QString()), LicensesManager::ActiveModule::Unknown);
@@ -140,6 +141,7 @@ void LicensesManagerTest::shouldConvertToString()
              u"experimental-enterprise-features"_s);
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::ExperimentalFeatures), u"experimental-features"_s);
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::UnlimitedPresence), u"unlimited-presence"_s);
+    QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::VideoConferenceNative), u"video-conference-native"_s);
 
     QCOMPARE(LicensesManager::convertActiveModuleToString(LicensesManager::ActiveModule::Unknown), QString());
 }

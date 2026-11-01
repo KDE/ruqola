@@ -45,6 +45,7 @@ public:
         ExperimentalEnterpriseFeatures,
         ExperimentalFeatures,
         UnlimitedPresence,
+        VideoConferenceNative,
     };
     Q_ENUM(ActiveModule)
 
