@@ -19,3 +19,5 @@ endmacro()
 
 add_ruqolacategory_test(categorydialogtest.cpp)
 add_ruqolacategory_test(categorywidgettest.cpp)
+add_ruqolacategory_test(managecategorieswidgettest.cpp)
+add_ruqolacategory_test(managecategoriesdialogtest.cpp)

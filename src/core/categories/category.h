@@ -25,6 +25,8 @@ public:
     [[nodiscard]] bool showUnreads() const;
     void setShowUnreads(bool newShowUnreads);
 
+    [[nodiscard]] bool operator==(const Category &other) const = default;
+
 private:
     QByteArray mIdentifier;
     QString mName;

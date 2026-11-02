@@ -468,6 +468,10 @@ target_sources(
         category/categorydialog.cpp
         category/categorywidget.h
         category/categorywidget.cpp
+        category/managecategorieswidget.h
+        category/managecategorieswidget.cpp
+        category/managecategoriesdialog.h
+        category/managecategoriesdialog.cpp
         discussions/showdiscussionsdialog.cpp
         discussions/showdiscussionsdialog.h
         discussions/showdiscussionswidget.cpp
