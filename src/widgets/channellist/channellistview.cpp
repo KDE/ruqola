@@ -163,12 +163,17 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         }
     });
 
-    auto categoryMenu = new CategoriesMenu(mCurrentRocketChatAccount, this);
-    connect(categoryMenu, &CategoriesMenu::assignCategory, this, [this, index](const QByteArray &identifier) {
-        if (index.isValid()) {
-            slotSetCategory(index, identifier);
-        }
-    });
+    if (mCurrentRocketChatAccount->hasAtLeastVersion(8, 9, 0)) { // TODO we need to be sure that RC support it. Settings ?
+        menu.addSeparator();
+        auto categoryMenu = new CategoriesMenu(mCurrentRocketChatAccount, this);
+        categoryMenu->setCategories(mCurrentRocketChatAccount->ownUserPreferences().categories());
+        connect(categoryMenu, &CategoriesMenu::assignCategory, this, [this, index](const QByteArray &identifier) {
+            if (index.isValid()) {
+                slotSetCategory(index, identifier);
+            }
+        });
+        menu.addMenu(categoryMenu);
+    }
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
         const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
