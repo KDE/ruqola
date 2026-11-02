@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:51+0000\n"
+"POT-Creation-Date: 2026-11-02 00:54+0000\n"
 "PO-Revision-Date: 2026-10-25 00:39+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -810,6 +810,8 @@ msgstr "No se encontró ninguna habitación"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, fuzzy, kde-format
@@ -833,6 +835,32 @@ msgstr ""
 msgid "Get Server Info"
 msgstr "Información del servidor"
 
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Privacy Summary"
+msgid "Get Unread Summary"
+msgstr "Resumen de privacidad"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 Unread Message"
+#| msgid_plural "%1 Unread Messages"
+msgid "No unread messages"
+msgstr "%1 mensaje sin leer"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get User Status"
+msgstr "Editar estado de usuario"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Missing server url."
+msgid "Missing user name"
+msgstr "URL del servidor no encontrada."
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
 msgid "List Accounts"
@@ -851,7 +879,7 @@ msgstr "Editar sala"
 msgid "No rooms found"
 msgstr "No se encontró ninguna habitación"
 
-#: core/mcpserver/mcpservermanager.cpp:33
+#: core/mcpserver/mcpservermanager.cpp:35
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Administre información desde Ruqola"

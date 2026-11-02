@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:51+0000\n"
+"POT-Creation-Date: 2026-11-02 00:54+0000\n"
 "PO-Revision-Date: 2026-10-31 12:02+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -811,6 +811,8 @@ msgstr "Сведения о комнате"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -832,6 +834,32 @@ msgstr "Комната с идентификатором «%1» не найде�
 msgid "Get Server Info"
 msgstr "Сведения о сервере"
 
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Privacy Summary"
+msgid "Get Unread Summary"
+msgstr "Сводка по конфиденциальности"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 Unread Message"
+#| msgid_plural "%1 Unread Messages"
+msgid "No unread messages"
+msgstr "%1 непрочитанное сообщение"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get User Status"
+msgstr "Изменение статуса пользователя"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Missing server url."
+msgid "Missing user name"
+msgstr "Не указан URL-адрес сервера."
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
 msgid "List Accounts"
@@ -847,7 +875,7 @@ msgstr "Список комнат"
 msgid "No rooms found"
 msgstr "Комнаты не найдены"
 
-#: core/mcpserver/mcpservermanager.cpp:33
+#: core/mcpserver/mcpservermanager.cpp:35
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Управление данными Ruqola"

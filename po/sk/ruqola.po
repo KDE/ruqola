@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:51+0000\n"
+"POT-Creation-Date: 2026-11-02 00:54+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -800,6 +800,8 @@ msgstr "Získať informácie o miestnosti"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -822,6 +824,32 @@ msgstr "Nenašla sa žiadna miestnosť s identifikátorom „%1“"
 msgid "Get Server Info"
 msgstr "Informácie o serveri"
 
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Privacy Summary"
+msgid "Get Unread Summary"
+msgstr "Prehľad súkromia"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 Unread Message"
+#| msgid_plural "%1 Unread Messages"
+msgid "No unread messages"
+msgstr "%1 Unread Message"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get User Status"
+msgstr "Stav:"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Missing server url."
+msgid "Missing user name"
+msgstr "Missing server url."
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
 msgid "List Accounts"
@@ -837,7 +865,7 @@ msgstr "Zoznam miestností"
 msgid "No rooms found"
 msgstr "Nenašli sa žiadne miestnosti"
 
-#: core/mcpserver/mcpservermanager.cpp:33
+#: core/mcpserver/mcpservermanager.cpp:35
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Spravovať informácie z Ruqola"

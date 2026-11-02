@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:51+0000\n"
-"PO-Revision-Date: 2026-10-29 03:25+0100\n"
+"POT-Creation-Date: 2026-11-02 00:54+0000\n"
+"PO-Revision-Date: 2026-11-01 04:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -803,6 +803,8 @@ msgstr "ინფორმაციის მიღება ოთახის 
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, kde-format
@@ -824,6 +826,32 @@ msgstr "იდენტიფიკატორით \"%1\" ოთახი ა
 msgid "Get Server Info"
 msgstr "სერვერის ინფორმაციის მიღება"
 
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Privacy Summary"
+msgid "Get Unread Summary"
+msgstr "კონფიდენციალობის შეჯამება"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 Unread Message"
+#| msgid_plural "%1 Unread Messages"
+msgid "No unread messages"
+msgstr "%1 წაუკითხავი შეტყობინება"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get User Status"
+msgstr "მომხმარებლის სტატუსის ჩასწორება"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Missing server url."
+msgid "Missing user name"
+msgstr "აკლია სერვერის ბმული."
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
 msgid "List Accounts"
@@ -839,7 +867,7 @@ msgstr "ოთახების სია"
 msgid "No rooms found"
 msgstr "ოთახები ვერ ვიპოვე"
 
-#: core/mcpserver/mcpservermanager.cpp:33
+#: core/mcpserver/mcpservermanager.cpp:35
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Ruqola-დან მიღებული ინფორმაციის მართვა"
@@ -7533,23 +7561,21 @@ msgid "Mark as Read"
 msgstr "მონიშნე როგორც წაკითხული"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "კატეგორიები"
+msgstr "კატეგორიის დამატება"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "კატეგორიის სახელის გადარქმევა"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "კატეგორიები"
+msgstr "კატეგორია:"
 
 #: widgets/channellist/channellistview.cpp:139
 #, kde-format

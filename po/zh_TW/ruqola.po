@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:51+0000\n"
+"POT-Creation-Date: 2026-11-02 00:54+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -815,6 +815,8 @@ msgstr "找不到聊天室"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, fuzzy, kde-format
@@ -838,6 +840,32 @@ msgstr ""
 msgid "Get Server Info"
 msgstr "伺服器資訊"
 
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Privacy Summary"
+msgid "Get Unread Summary"
+msgstr "隱私權摘要"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 Unread Message"
+#| msgid_plural "%1 Unread Messages"
+msgid "No unread messages"
+msgstr "%1 個未讀訊息"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User Status"
+msgid "Get User Status"
+msgstr "編輯使用者狀態"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing user name"
+msgstr "輸入使用者名稱"
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Accounts"
@@ -857,7 +885,7 @@ msgstr "編輯聊天室"
 msgid "No rooms found"
 msgstr "找不到聊天室"
 
-#: core/mcpserver/mcpservermanager.cpp:33
+#: core/mcpserver/mcpservermanager.cpp:35
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -13893,9 +13921,6 @@ msgstr "新增帳戶…"
 
 #~ msgid "Enter address of the server"
 #~ msgstr "輸入伺服器位址"
-
-#~ msgid "Enter username"
-#~ msgstr "輸入使用者名稱"
 
 #~ msgid ""
 #~ "You have enabled second factor authentication. Please enter the generated "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:51+0000\n"
+"POT-Creation-Date: 2026-11-02 00:54+0000\n"
 "PO-Revision-Date: 2026-09-08 14:50+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -831,6 +831,8 @@ msgstr "Nerasta jokių žinučių"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, fuzzy, kde-format
@@ -854,6 +856,30 @@ msgstr ""
 msgid "Get Server Info"
 msgstr "Informacija apie serverį"
 
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Privacy Summary"
+msgid "Get Unread Summary"
+msgstr "Privatumo santrauka"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "No unread messages"
+msgstr "Šifruota žinutė"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#, fuzzy, kde-format
+#| msgid "Custom User Status"
+msgid "Get User Status"
+msgstr "Tinkinta naudotojo būsena"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing user name"
+msgstr "Įveskite naudotojo vardą"
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
@@ -873,7 +899,7 @@ msgstr "Tinkinta naudotojo būsena"
 msgid "No rooms found"
 msgstr "Nerasta jokių žinučių"
 
-#: core/mcpserver/mcpservermanager.cpp:33
+#: core/mcpserver/mcpservermanager.cpp:35
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -14101,9 +14127,6 @@ msgstr "Pridėti paskyrą…"
 
 #~ msgid "Enter address of the server"
 #~ msgstr "Įveskite serverio adresą"
-
-#~ msgid "Enter username"
-#~ msgstr "Įveskite naudotojo vardą"
 
 #~ msgid "Log in"
 #~ msgstr "Prisijungti"

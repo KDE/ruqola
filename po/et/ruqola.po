@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:51+0000\n"
+"POT-Creation-Date: 2026-11-02 00:54+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -853,6 +853,8 @@ msgstr "Ühtegi mainimist ei leitud"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:46
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:42
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:62
 #: core/mcpserver/listrooms/listroomstool.cpp:44
 #, fuzzy, kde-format
@@ -876,6 +878,30 @@ msgstr ""
 msgid "Get Server Info"
 msgstr "Serveri teave"
 
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#, fuzzy, kde-format
+#| msgid "Private:"
+msgid "Get Unread Summary"
+msgstr "Privaatne:"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#, fuzzy, kde-format
+#| msgid "%1 has %2 Unread Message"
+msgid "No unread messages"
+msgstr "%1 ei ole lugenud %2 sõnumit"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#, fuzzy, kde-format
+#| msgid "Custom User Status"
+msgid "Get User Status"
+msgstr "Kasutaja kohandatud olek"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing user name"
+msgstr "Kasutajanimi"
+
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, fuzzy, kde-format
 #| msgid "Account"
@@ -894,7 +920,7 @@ msgstr "Kasutaja kohandatud olek"
 msgid "No rooms found"
 msgstr "Ühtegi mainimist ei leitud"
 
-#: core/mcpserver/mcpservermanager.cpp:33
+#: core/mcpserver/mcpservermanager.cpp:35
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -14776,9 +14802,6 @@ msgstr "Lisa konto ..."
 
 #~ msgid "Enter address of the server"
 #~ msgstr "Serveri aadress"
-
-#~ msgid "Enter username"
-#~ msgstr "Kasutajanimi"
 
 #~ msgid ""
 #~ "You have enabled second factor authentication. Please enter the generated "
