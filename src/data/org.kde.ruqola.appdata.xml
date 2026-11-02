@@ -1391,6 +1391,7 @@
     <release version="3.0.0" type="snapshot">
       <description>
         <ul>
+          <li>Add category support.</li>
           <li>Add RC 8.9.0 support.</li>
           <li>Add MCP server.</li>
           <li xml:lang="ar">إضافة خادوم MCP.</li>
