@@ -39,6 +39,7 @@ void RestApiUtilTest::shouldConvertRestApiUrlExtensionType()
     QCOMPARE(RestApiUtil::restApiUrlExtensionType(RestApiUtil::RestApiUrlExtensionType::V1), u"/api/v1/"_s);
     QCOMPARE(RestApiUtil::restApiUrlExtensionType(RestApiUtil::RestApiUrlExtensionType::Apps), u"/api/apps/"_s);
     QCOMPARE(RestApiUtil::restApiUrlExtensionType(RestApiUtil::RestApiUrlExtensionType::NoExtension), u"/api/"_s);
+    QCOMPARE(RestApiUtil::restApiUrlExtensionType(RestApiUtil::RestApiUrlExtensionType::Experimental), u"/api/experimental/"_s);
 }
 
 #include "moc_restapiutiltest.cpp"

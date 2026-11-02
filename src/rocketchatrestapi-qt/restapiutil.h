@@ -16,6 +16,7 @@ enum class RestApiUrlExtensionType : uint8_t {
     NoExtension,
     V1,
     Apps,
+    Experimental,
 };
 
 enum class RestApiUrlType {

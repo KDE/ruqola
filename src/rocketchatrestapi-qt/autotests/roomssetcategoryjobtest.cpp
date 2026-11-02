@@ -1,0 +1,72 @@
+/*
+   SPDX-FileCopyrightText: 2026 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#include "roomsbanuserjobtest.h"
+
+#include "rooms/roomsbanuserjob.h"
+#include "ruqola_restapi_helper.h"
+
+#include <QJsonDocument>
+#include <QTest>
+
+using namespace Qt::Literals::StringLiterals;
+QTEST_GUILESS_MAIN(RoomsBanUserJobTest)
+using namespace RocketChatRestApi;
+RoomsBanUserJobTest::RoomsBanUserJobTest(QObject *parent)
+    : QObject(parent)
+{
+}
+
+void RoomsBanUserJobTest::shouldHaveDefaultValue()
+{
+    RoomsBanUserJob job;
+    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(job.userName().isEmpty());
+    RuqolaRestApiHelper::verifyDefaultValue(&job);
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
+}
+
+void RoomsBanUserJobTest::shouldGenerateRequest()
+{
+    {
+        RoomsBanUserJob job;
+        QNetworkRequest request = QNetworkRequest(QUrl());
+        RuqolaRestApiHelper::verifyAuthentication(&job, request);
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.banUser"_s));
+        QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
+    }
+}
+
+void RoomsBanUserJobTest::shouldGenerateJson()
+{
+    {
+        RoomsBanUserJob job;
+
+        const QByteArray roomId("rr1"_ba);
+        job.setRoomId(roomId);
+        const QString userName(u"foo1"_s);
+        job.setUserName(userName);
+
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","username":"%2"})"_s.arg(QString::fromLatin1(roomId), userName).toLatin1());
+    }
+}
+
+void RoomsBanUserJobTest::shouldNotStarting()
+{
+    RoomsBanUserJob job;
+
+    RuqolaRestApiHelper::verifyNotStartingJob(&job);
+
+    const QByteArray roomId("room1");
+    job.setRoomId(roomId);
+    QVERIFY(!job.canStart());
+    const QString username(u"file25"_s);
+    job.setUserName(username);
+    QVERIFY(job.canStart());
+}
+
+#include "moc_roomsbanuserjobtest.cpp"

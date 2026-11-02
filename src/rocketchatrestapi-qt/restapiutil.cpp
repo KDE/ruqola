@@ -668,8 +668,10 @@ QString RestApiUtil::restApiUrlExtensionType(RestApiUrlExtensionType type)
         return u"/api/v1/"_s;
     case RestApiUrlExtensionType::Apps:
         return u"/api/apps/"_s;
-    case RestApiUtil::RestApiUrlExtensionType::NoExtension:
+    case RestApiUrlExtensionType::NoExtension:
         return u"/api/"_s;
+    case RestApiUrlExtensionType::Experimental:
+        return u"/api/experimental/"_s;
     }
     return {};
 }
