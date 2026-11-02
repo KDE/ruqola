@@ -51,6 +51,11 @@ void Category::setShowUnreads(bool newShowUnreads)
     mShowUnreads = newShowUnreads;
 }
 
+bool Category::isValid() const
+{
+    return !mIdentifier.isEmpty();
+}
+
 QDebug operator<<(QDebug d, const Category &t)
 {
     d.space() << "identifier:" << t.identifier();

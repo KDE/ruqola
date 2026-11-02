@@ -27,6 +27,8 @@ public:
 
     [[nodiscard]] bool operator==(const Category &other) const = default;
 
+    [[nodiscard]] bool isValid() const;
+
 private:
     QByteArray mIdentifier;
     QString mName;

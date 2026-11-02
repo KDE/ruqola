@@ -81,7 +81,20 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 
 void OwnUserPreferences::parseCategories(const QJsonArray &array)
 {
-    // TODO
+    mCategories.clear();
+    const int categoryArrayCount = array.count();
+    mCategories.reserve(categoryArrayCount);
+    for (int i = 0; i < categoryArrayCount; ++i) {
+        const QJsonObject obj = array.at(i).toObject();
+        Category cat;
+        cat.setDefaultCategory(obj["default"_L1].toBool());
+        cat.setIdentifier(obj["_id"_L1].toString().toLatin1());
+        cat.setName(obj["name"_L1].toString());
+        cat.setShowUnreads(obj["showUnreads"_L1].toBool());
+        if (cat.isValid()) {
+            mCategories.append(std::move(cat));
+        }
+    }
 }
 
 QStringList OwnUserPreferences::highlightWords() const
