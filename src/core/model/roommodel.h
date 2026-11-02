@@ -53,6 +53,7 @@ public:
         RoomUnreadToolTip,
         RoomMentionsInfoType,
         RoomHasPendingMessageTyped,
+        RoomCategory,
     };
     Q_ENUM(RoomRoles)
 

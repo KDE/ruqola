@@ -197,6 +197,9 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomHasPendingMessageTyped: {
         return hasPendingMessageTyped(r);
     }
+    case RoomModel::RoomCategory: {
+        return r->category();
+    }
     }
     return {};
 }
