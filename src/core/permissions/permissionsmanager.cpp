@@ -33,16 +33,15 @@ QList<Permission> PermissionsManager::permissions() const
     return mMapPermissions.values();
 }
 
-bool PermissionsManager::contains(QStringView permissionId) const
-{
-    return mMapPermissions.contains(permissionId);
-}
-
 QStringList PermissionsManager::roles(QStringView permissionId) const
 {
     const Permission p = mMapPermissions.value(permissionId);
     if (p.isValid()) {
         return p.roles();
+    }
+    // Stored ids may just not be loaded yet (e.g. before login)
+    if (!storePermission(permissionId)) {
+        qCWarning(RUQOLA_LOG) << "Permission id missing from PermissionsManager::storePermission:" << permissionId;
     }
     return {};
 }
@@ -57,7 +56,7 @@ void PermissionsManager::parseRemovePermission(const QJsonArray &removeArray)
     qCWarning(RUQOLA_LOG) << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet" << removeArray;
 }
 
-bool PermissionsManager::storePermission(const QString &id)
+bool PermissionsManager::storePermission(QStringView id)
 {
     return id == "mail-messages"_L1 || id == "pin-message"_L1 || id == "delete-own-message"_L1 || id == "create-invite-links"_L1 || id == "edit-message"_L1
         || id == "delete-message"_L1 || id == "edit-room"_L1 || id == "clean-channel-history"_L1 || id == "auto-translate"_L1 || id == "snippet-message"_L1

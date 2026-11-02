@@ -20,7 +20,6 @@ public:
 
     [[nodiscard]] QStringList roles(QStringView permissionId) const;
     [[nodiscard]] int permissionCount() const;
-    [[nodiscard]] bool contains(QStringView permissionId) const;
 
     [[nodiscard]] bool updatePermission(const QJsonArray &updateArray);
     void parseUpdatePermission(const QJsonArray &removeArray);
@@ -31,7 +30,7 @@ public:
     [[nodiscard]] QList<Permission> permissions() const;
 
 private:
-    [[nodiscard]] static bool storePermission(const QString &id);
+    [[nodiscard]] static bool storePermission(QStringView id);
     static void parseRemovePermission(const QJsonArray &removeArray);
     QHash<QString, Permission> mMapPermissions;
 };

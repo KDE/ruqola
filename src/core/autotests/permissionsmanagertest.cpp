@@ -8,6 +8,7 @@
 #include "permissions/permissionsmanager.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonArray>
+#include <QRegularExpression>
 #include <QTest>
 using namespace Qt::Literals::StringLiterals;
 QTEST_GUILESS_MAIN(PermissionsManagerTest)
@@ -25,7 +26,10 @@ void PermissionsManagerTest::shouldHaveDefaultValues()
 void PermissionsManagerTest::shouldHasRoles()
 {
     const PermissionsManager w;
+    QTest::ignoreMessage(QtWarningMsg, QRegularExpression(u"storePermission.*bla"_s));
     QVERIFY(w.roles(u"bla"_s).isEmpty());
+    QTest::failOnWarning();
+    QVERIFY(w.roles(u"create-c"_s).isEmpty());
 }
 
 void PermissionsManagerTest::shouldLoadPermissions_data()
