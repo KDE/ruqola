@@ -68,6 +68,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomRemoved(const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPressed(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotSetCategory(const QModelIndex &index, const QByteArray &identifier);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;

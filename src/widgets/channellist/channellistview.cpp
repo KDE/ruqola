@@ -6,6 +6,7 @@
 
 #include "channellistview.h"
 
+#include "category/categoriesmenu.h"
 #include "channellistdelegate.h"
 #include "connection.h"
 #include "dialogs/configurenotificationdialog.h"
@@ -131,7 +132,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     QMenu menu(this);
     // Use QPersistentModelIndex as model might have changed by the time an action is triggered
     // and will crash us if we use QModelIndex
-    QPersistentModelIndex index = qmi;
+    const QPersistentModelIndex index = qmi;
 
     const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
 
@@ -159,6 +160,13 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     connect(hideChannel, &QAction::triggered, this, [this, index, roomType]() {
         if (index.isValid()) {
             slotHideChannel(index, roomType);
+        }
+    });
+
+    auto categoryMenu = new CategoriesMenu(mCurrentRocketChatAccount, this);
+    connect(categoryMenu, &CategoriesMenu::assignCategory, this, [this, index](const QByteArray &identifier) {
+        if (index.isValid()) {
+            slotSetCategory(index, identifier);
         }
     });
 
@@ -429,6 +437,14 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelCloseJob job";
     }
+}
+
+void ChannelListView::slotSetCategory(const QModelIndex &index, const QByteArray &identifier)
+{
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
+    // TODO mCurrentRocketChatAccount->leaveRoom(roomId, roomType);
+
+    // TODO
 }
 
 void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType)
