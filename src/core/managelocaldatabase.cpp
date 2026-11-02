@@ -216,7 +216,7 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         const RocketChatRestApi::GetRoomHistoryJob::GetRoomHistoryInfo roomHistoryInfo{
             .roomId = info.roomId,
             .count = 50,
-            .showThreadMessages = false,
+            .showThreadMessages = true,
             .lastSeen = info.lastSeenAt > 0 ? QDateTime::fromMSecsSinceEpoch(info.lastSeenAt, QTimeZone::UTC).toString(Qt::ISODateWithMs) : QString(),
         };
         job->setRoomHistoryInfo(roomHistoryInfo);
