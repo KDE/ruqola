@@ -60,6 +60,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setMuteFocusedConversations(replyObject.value("muteFocusedConversations"_L1).toBool(false));
     setCallRingerVolume(replyObject.value("voipRingerVolume"_L1).toInt(-1));
     setMasterVolume(replyObject.value("masterVolume"_L1).toInt(-1));
+    parseCategories(replyObject.value("sidebarCategories"_L1).toArray());
     // featuresPreview
     mFeaturePreviewPreferences.parseFeaturePreview(replyObject.value("featuresPreview"_L1).toArray());
 }
@@ -75,7 +76,12 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mNewMessageNotification == other.mNewMessageNotification && mNewRoomNotification == other.mNewRoomNotification
         && mNotificationsSoundVolume == other.mNotificationsSoundVolume && mMuteFocusedConversations == other.mMuteFocusedConversations
         && mFeaturePreviewPreferences == other.mFeaturePreviewPreferences && mMasterVolume == other.mMasterVolume
-        && mCallRingerVolume == other.mCallRingerVolume;
+        && mCallRingerVolume == other.mCallRingerVolume && mCategories == other.mCategories;
+}
+
+void OwnUserPreferences::parseCategories(const QJsonArray &array)
+{
+    // TODO
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -113,6 +119,16 @@ QList<QRegularExpression> OwnUserPreferences::generateRegularExpressions(const Q
         lst.append(exp);
     }
     return lst;
+}
+
+QList<Category> OwnUserPreferences::categories() const
+{
+    return mCategories;
+}
+
+void OwnUserPreferences::setCategories(const QList<Category> &newCategories)
+{
+    mCategories = newCategories;
 }
 
 QString OwnUserPreferences::emailNotificationMode() const
@@ -330,6 +346,7 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d.space() << "featurePreviewPreferences" << t.featurePreviewPreferences();
     d.space() << "callRingerVolume" << t.callRingerVolume();
     d.space() << "masterVolume" << t.masterVolume();
+    d.space() << "categories" << t.categories();
     return d;
 }
 

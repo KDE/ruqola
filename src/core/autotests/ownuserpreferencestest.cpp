@@ -35,6 +35,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QCOMPARE(p.roomListDisplay(), OwnUserPreferences::RoomListDisplay::Unknown);
     QCOMPARE(p.callRingerVolume(), -1);
     QCOMPARE(p.notificationsSoundVolume(), -1);
+    QVERIFY(p.categories().isEmpty());
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()

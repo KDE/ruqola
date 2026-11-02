@@ -6,13 +6,14 @@
 
 #pragma once
 
+#include "categories/category.h"
 #include "featurepreviewpreferences.h"
 #include "libruqolacore_export.h"
 #include <QMetaType>
 #include <QRegularExpression>
 #include <QStringList>
 class QDebug;
-
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {
     Q_GADGET
@@ -115,7 +116,12 @@ public:
 
     [[nodiscard]] static QList<QRegularExpression> generateRegularExpressions(const QStringList &highlightWords);
 
+    [[nodiscard]] QList<Category> categories() const;
+    void setCategories(const QList<Category> &newCategories);
+
 private:
+    LIBRUQOLACORE_NO_EXPORT void parseCategories(const QJsonArray &array);
+    QList<Category> mCategories;
     QList<QRegularExpression> mHighlightWordsRegularExpressions;
     FeaturePreviewPreferences mFeaturePreviewPreferences;
     QStringList mHighlightWords;
