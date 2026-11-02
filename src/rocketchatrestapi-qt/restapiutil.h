@@ -409,6 +409,9 @@ enum class RestApiUrlType {
     CustomSoundsDelete,
     ImBlockUser,
     RoomsJoin,
+
+    // Since 8.9.0
+    RoomsSetCategory,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

@@ -650,6 +650,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"rooms.join"_s;
     case RestApiUtil::RestApiUrlType::RoomsHistory:
         return u"rooms.history"_s;
+    case RestApiUtil::RestApiUrlType::RoomsSetCategory:
+        return u"rooms.setCategory"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

@@ -403,6 +403,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImBlockUser), QUrl(u"http://www.kde.org/api/v1/im.blockUser"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsJoin), QUrl(u"http://www.kde.org/api/v1/rooms.join"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsHistory), QUrl(u"http://www.kde.org/api/v1/rooms.history"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsSetCategory, RestApiUtil::RestApiUrlExtensionType::Experimental),
+             QUrl(u"http://www.kde.org/api/experimental/rooms.setCategory"_s));
 }
 
 #include "moc_restapimethodtest.cpp"
