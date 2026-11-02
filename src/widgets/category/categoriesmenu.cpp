@@ -5,19 +5,24 @@
 */
 #include "categoriesmenu.h"
 #include "managecategoriesdialog.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QActionGroup>
 #include <QPointer>
 using namespace Qt::Literals::StringLiterals;
 
-CategoriesMenu::CategoriesMenu(QWidget *parent)
+CategoriesMenu::CategoriesMenu(RocketChatAccount *account, QWidget *parent)
     : QMenu(parent)
     , mCategoriesGroup(new QActionGroup(this))
+    , mRocketChatAccount(account)
 {
     setObjectName(u"CategoriesMenu"_s);
     setTitle(i18nc("@title:menu", "Category"));
     setIcon(QIcon::fromTheme(u"folder"_s));
     updateMenu();
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::ownUserUiPreferencesChanged, this, &CategoriesMenu::updateMenu);
+    }
 }
 
 CategoriesMenu::~CategoriesMenu() = default;

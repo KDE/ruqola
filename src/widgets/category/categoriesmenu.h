@@ -7,6 +7,7 @@
 #include "categories/category.h"
 #include "libruqolawidgets_private_export.h"
 #include <QMenu>
+class RocketChatAccount;
 class QActionGroup;
 /**
  * A menu which moves a room to a category: one exclusive checkable action per category, plus an entry
@@ -16,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CategoriesMenu : public QMenu
 {
     Q_OBJECT
 public:
-    explicit CategoriesMenu(QWidget *parent = nullptr);
+    explicit CategoriesMenu(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CategoriesMenu() override;
 
     void setCategories(const QList<Category> &categories);
@@ -39,4 +40,5 @@ private:
     QList<Category> mCategories;
     QByteArray mCurrentCategory;
     QActionGroup *const mCategoriesGroup;
+    RocketChatAccount *const mRocketChatAccount;
 };

@@ -38,7 +38,7 @@ CategoriesMenuTest::CategoriesMenuTest(QObject *parent)
 
 void CategoriesMenuTest::shouldHaveDefaultValues()
 {
-    const CategoriesMenu m;
+    const CategoriesMenu m(nullptr);
     QVERIFY(!m.title().isEmpty());
     QVERIFY(m.categories().isEmpty());
     QVERIFY(m.currentCategory().isEmpty());
@@ -51,7 +51,7 @@ void CategoriesMenuTest::shouldHaveDefaultValues()
 
 void CategoriesMenuTest::shouldShowCategories()
 {
-    CategoriesMenu m;
+    CategoriesMenu m(nullptr);
     const QList<Category> categories{createCategory("category1", u"name-category1"_s), createCategory("category2", u"name-category2"_s)};
     m.setCategories(categories);
     QCOMPARE(m.categories(), categories);
@@ -76,7 +76,7 @@ void CategoriesMenuTest::shouldShowCategories()
 
 void CategoriesMenuTest::shouldEmitAssignCategory()
 {
-    CategoriesMenu m;
+    CategoriesMenu m(nullptr);
     m.setCategories({createCategory("category1", u"name-category1"_s)});
     QSignalSpy assignCategorySpy(&m, &CategoriesMenu::assignCategory);
 
