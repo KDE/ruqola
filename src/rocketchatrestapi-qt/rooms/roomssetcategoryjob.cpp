@@ -36,7 +36,7 @@ bool RoomsSetCategoryJob::start()
 void RoomsSetCategoryJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     if (checkResponse("RoomsSetCategoryJob"_ba, replyErrorString, replyJson)) {
-        Q_EMIT roomsBanUserDone();
+        Q_EMIT roomsSetCategoryDone();
     }
 }
 
