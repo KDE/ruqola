@@ -10,12 +10,12 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsBanUserJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsSetCategoryJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit RoomsBanUserJob(QObject *parent = nullptr);
-    ~RoomsBanUserJob() override;
+    explicit RoomsSetCategoryJob(QObject *parent = nullptr);
+    ~RoomsSetCategoryJob() override;
 
     [[nodiscard]] bool start() override;
     [[nodiscard]] bool requireHttpAuthentication() const override;

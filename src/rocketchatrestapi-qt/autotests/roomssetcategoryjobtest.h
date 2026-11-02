@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class RoomsBanUserJobTest : public QObject
+class RoomsSetCategoryJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit RoomsBanUserJobTest(QObject *parent = nullptr);
-    ~RoomsBanUserJobTest() override = default;
+    explicit RoomsSetCategoryJobTest(QObject *parent = nullptr);
+    ~RoomsSetCategoryJobTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();

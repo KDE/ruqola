@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "roomsbanuserjobtest.h"
+#include "roomssetcategoryjobtest.h"
 
 #include "rooms/roomsbanuserjob.h"
 #include "ruqola_restapi_helper.h"
@@ -13,14 +13,14 @@
 #include <QTest>
 
 using namespace Qt::Literals::StringLiterals;
-QTEST_GUILESS_MAIN(RoomsBanUserJobTest)
+QTEST_GUILESS_MAIN(RoomsSetCategoryJobTest)
 using namespace RocketChatRestApi;
-RoomsBanUserJobTest::RoomsBanUserJobTest(QObject *parent)
+RoomsSetCategoryJobTest::RoomsSetCategoryJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void RoomsBanUserJobTest::shouldHaveDefaultValue()
+void RoomsSetCategoryJobTest::shouldHaveDefaultValue()
 {
     RoomsBanUserJob job;
     QVERIFY(job.roomId().isEmpty());
@@ -30,7 +30,7 @@ void RoomsBanUserJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void RoomsBanUserJobTest::shouldGenerateRequest()
+void RoomsSetCategoryJobTest::shouldGenerateRequest()
 {
     {
         RoomsBanUserJob job;
@@ -41,7 +41,7 @@ void RoomsBanUserJobTest::shouldGenerateRequest()
     }
 }
 
-void RoomsBanUserJobTest::shouldGenerateJson()
+void RoomsSetCategoryJobTest::shouldGenerateJson()
 {
     {
         RoomsBanUserJob job;
@@ -55,7 +55,7 @@ void RoomsBanUserJobTest::shouldGenerateJson()
     }
 }
 
-void RoomsBanUserJobTest::shouldNotStarting()
+void RoomsSetCategoryJobTest::shouldNotStarting()
 {
     RoomsBanUserJob job;
 
@@ -69,4 +69,4 @@ void RoomsBanUserJobTest::shouldNotStarting()
     QVERIFY(job.canStart());
 }
 
-#include "moc_roomsbanuserjobtest.cpp"
+#include "moc_roomssetcategoryjobtest.cpp"

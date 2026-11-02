@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "roomsbanuserjob.h"
+#include "roomssetcategoryjob.h"
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
@@ -14,71 +14,71 @@
 
 using namespace RocketChatRestApi;
 using namespace Qt::Literals::StringLiterals;
-RoomsBanUserJob::RoomsBanUserJob(QObject *parent)
+RoomsSetCategoryJob::RoomsSetCategoryJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-RoomsBanUserJob::~RoomsBanUserJob() = default;
+RoomsSetCategoryJob::~RoomsSetCategoryJob() = default;
 
-bool RoomsBanUserJob::start()
+bool RoomsSetCategoryJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
-    addStartRestApiInfo("RoomsBanUserJob::start"_ba);
+    addStartRestApiInfo("RoomsSetCategoryJob::start"_ba);
     submitPostRequest(json());
 
     return true;
 }
 
-void RoomsBanUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
+void RoomsSetCategoryJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
-    if (checkResponse("RoomsBanUserJob"_ba, replyErrorString, replyJson)) {
+    if (checkResponse("RoomsSetCategoryJob"_ba, replyErrorString, replyJson)) {
         Q_EMIT roomsBanUserDone();
     }
 }
 
-QString RoomsBanUserJob::userName() const
+QString RoomsSetCategoryJob::userName() const
 {
     return mUserName;
 }
 
-void RoomsBanUserJob::setUserName(const QString &newUserName)
+void RoomsSetCategoryJob::setUserName(const QString &newUserName)
 {
     mUserName = newUserName;
 }
 
-QByteArray RoomsBanUserJob::roomId() const
+QByteArray RoomsSetCategoryJob::roomId() const
 {
     return mRoomId;
 }
 
-void RoomsBanUserJob::setRoomId(const QByteArray &newRoomId)
+void RoomsSetCategoryJob::setRoomId(const QByteArray &newRoomId)
 {
     mRoomId = newRoomId;
 }
 
-bool RoomsBanUserJob::requireHttpAuthentication() const
+bool RoomsSetCategoryJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool RoomsBanUserJob::canStart() const
+bool RoomsSetCategoryJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
     if (mUserName.isEmpty() || mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsBanUserJob: mUserName or mRoomId is empty.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsSetCategoryJob: mUserName or mRoomId is empty.";
         return false;
     }
 
     return true;
 }
 
-QJsonDocument RoomsBanUserJob::json() const
+QJsonDocument RoomsSetCategoryJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj["roomId"_L1] = QString::fromLatin1(mRoomId);
@@ -87,7 +87,7 @@ QJsonDocument RoomsBanUserJob::json() const
     return postData;
 }
 
-QNetworkRequest RoomsBanUserJob::request() const
+QNetworkRequest RoomsSetCategoryJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsBanUser);
     QNetworkRequest request(url);
@@ -96,4 +96,4 @@ QNetworkRequest RoomsBanUserJob::request() const
     return request;
 }
 
-#include "moc_roomsbanuserjob.cpp"
+#include "moc_roomssetcategoryjob.cpp"
