@@ -1,10 +1,6 @@
 # SPDX-FileCopyrightText: 2020-2026 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-add_library(
-    libruqolawidgets
-    category/categoriesmenu.h
-    category/categoriesmenu.cpp
-)
+add_library(libruqolawidgets)
 
 if(TARGET KF6::UserFeedbackWidgets)
     target_sources(
@@ -472,6 +468,8 @@ target_sources(
         category/managecategorieswidget.cpp
         category/managecategoriesdialog.h
         category/managecategoriesdialog.cpp
+        category/categoriesmenu.h
+        category/categoriesmenu.cpp
         discussions/showdiscussionsdialog.cpp
         discussions/showdiscussionsdialog.h
         discussions/showdiscussionswidget.cpp
