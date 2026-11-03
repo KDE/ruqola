@@ -369,6 +369,23 @@ void RoomTest::shouldParseOldRoomKeys()
     QVERIFY(input.hasEncryptedKeys());
 }
 
+void RoomTest::shouldParseSubscriptionCategory()
+{
+    Room input(nullptr);
+    QVERIFY(input.category().isEmpty());
+    QSignalSpy spy(&input, &Room::categoryChanged);
+
+    // The category belongs to the subscription, not to the room.
+    input.parseSubscriptionRoom(QJsonDocument::fromJson(R"({"_id":"subid","rid":"roomid","category":"work"})"_ba).object());
+    QCOMPARE(input.category(), "work"_ba);
+    QCOMPARE(spy.count(), 1);
+
+    // The server unsets the field when the room leaves its category.
+    input.parseSubscriptionRoom(QJsonDocument::fromJson(R"({"_id":"subid","rid":"roomid"})"_ba).object());
+    QVERIFY(input.category().isEmpty());
+    QCOMPARE(spy.count(), 2);
+}
+
 void RoomTest::shoudUserIsMuted()
 {
     {

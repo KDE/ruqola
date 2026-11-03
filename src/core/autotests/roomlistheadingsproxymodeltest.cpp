@@ -68,6 +68,10 @@ void RoomListHeadingsProxyModelTest::shouldReturnRowCount()
     // THEN
     const auto expectedCount = [](RoomModel::Section section) {
         switch (section) {
+        case RoomModel::Section::IncomingCalls:
+        case RoomModel::Section::IncomingLivechats:
+        case RoomModel::Section::OpenLivechats:
+        case RoomModel::Section::OnHoldChats:
         case RoomModel::Section::Unread:
         case RoomModel::Section::Favorites:
         case RoomModel::Section::Rooms:
@@ -370,6 +374,63 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnUnreadOnTopPreferenceChanges(
 
     // THEN the unread rooms are back on top
     QVERIFY(compareWithExpected(extractTexts(&proxy), unreadOnTop));
+}
+
+void RoomListHeadingsProxyModelTest::shouldAddCategorySections()
+{
+    // GIVEN an account with two categories
+    RocketChatAccount account(u"account"_s);
+    OwnUserPreferences ownUserPreferences;
+    ownUserPreferences.setShowUnread(true);
+    Category work;
+    work.setIdentifier("work"_ba);
+    work.setName(u"Work"_s);
+    Category friends;
+    friends.setIdentifier("friends"_ba);
+    friends.setName(u"Friends"_s);
+    ownUserPreferences.setCategories({work, friends});
+    account.setOwnUserPreferences(ownUserPreferences);
+
+    RoomModel sourceModel(&account);
+    std::vector<std::unique_ptr<Room>> rooms;
+    for (int i = 1; i <= 3; ++i) {
+        auto room = std::make_unique<Room>(&account);
+        room->setRoomId(QByteArray("room") + QByteArray::number(i));
+        room->setName(QStringLiteral("Room %1").arg(i));
+        room->setChannelType(Room::RoomType::Channel);
+        QVERIFY(sourceModel.addRoom(room.get()));
+        rooms.push_back(std::move(room));
+    }
+    rooms.at(0)->setCategory("work"_ba);
+
+    RoomListHeadingsProxyModel proxy;
+    proxy.setSourceModel(&sourceModel);
+
+    // THEN the categories come in addition to the standard sections, after the favorites
+    QCOMPARE(proxy.rowCount({}), int(proxy.sectionCount) + 2);
+    const QStringList initialExpected{u"Work"_s, u"Room 1"_s, u"Rooms"_s, u"Room 2"_s, u"Room 3"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpected));
+
+    // WHEN moving a room to a category
+    rooms.at(1)->setCategory("friends"_ba);
+    // THEN
+    const QStringList movedExpected{u"Work"_s, u"Room 1"_s, u"Friends"_s, u"Room 2"_s, u"Rooms"_s, u"Room 3"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), movedExpected));
+
+    // WHEN a room of a category becomes unread
+    rooms.at(0)->setUnread(1);
+    // THEN it goes to the Unread section, which comes before its category
+    const QStringList unreadExpected{u"Unread"_s, u"Room 1"_s, u"Friends"_s, u"Room 2"_s, u"Rooms"_s, u"Room 3"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), unreadExpected));
+
+    // WHEN removing a category from the account
+    ownUserPreferences.setCategories({work});
+    account.setOwnUserPreferences(ownUserPreferences);
+    Q_EMIT account.ownUserUiPreferencesChanged();
+    // THEN its room goes back to the standard sections
+    QCOMPARE(proxy.rowCount({}), int(proxy.sectionCount) + 1);
+    const QStringList removedExpected{u"Unread"_s, u"Room 1"_s, u"Rooms"_s, u"Room 2"_s, u"Room 3"_s};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), removedExpected));
 }
 
 #include "moc_roomlistheadingsproxymodeltest.cpp"

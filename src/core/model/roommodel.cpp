@@ -24,12 +24,23 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)
 {
+    // The account is not fully constructed yet (it owns this model), so its categories are only
+    // read when its preferences change.
     connect(account, &RocketChatAccount::ownUserUiPreferencesChanged, this, [this] {
+        if (const QList<Category> categories = mRocketChatAccount->ownUserPreferences().categories(); categories != mCategories) {
+            mCategories = categories;
+            Q_EMIT categoriesChanged();
+        }
         const int rc = rowCount();
         if (rc > 0) {
             Q_EMIT dataChanged(index(0), index(rc - 1), {RoomRoles::RoomSection});
         }
     });
+}
+
+QList<Category> RoomModel::categories() const
+{
+    return mRocketChatAccount ? mRocketChatAccount->ownUserPreferences().categories() : QList<Category>{};
 }
 
 RoomModel::~RoomModel()
@@ -401,6 +412,9 @@ bool RoomModel::addRoom(Room *room)
     });
     connect(room, &Room::pendingTypedChanged, this, [this, room] {
         emitRoomDataChanged(room, {RoomSection, Qt::DisplayRole});
+    });
+    connect(room, &Room::categoryChanged, this, [this, room] {
+        emitRoomDataChanged(room, {RoomCategory});
     });
 
     connect(room, &Room::openChanged, this, [this](const QByteArray &roomId) {

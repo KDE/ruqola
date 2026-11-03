@@ -7,6 +7,7 @@
  */
 
 #pragma once
+#include "categories/category.h"
 #include "libruqolacore_export.h"
 #include "room.h"
 #include "user.h"
@@ -128,11 +129,15 @@ public:
     void cleanRoomHistory();
     void deserializeRoom(const QJsonObject &room);
     [[nodiscard]] const QList<Room *> &rooms() const;
+
+    /*! The sidebar categories of the account, each one shown as an extra section in the room list. */
+    [[nodiscard]] QList<Category> categories() const;
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();
     void roomRemoved(const QByteArray &roomId);
     void openChanged(const QByteArray &roomId);
+    void categoriesChanged();
 
 private:
     LIBRUQOLACORE_NO_EXPORT bool hasPendingMessageTyped(Room *r) const;
@@ -146,6 +151,8 @@ private:
 
     RocketChatAccount *const mRocketChatAccount;
     QList<Room *> mRoomsList;
+    //! The categories when the account preferences last changed, to tell when they change.
+    QList<Category> mCategories;
 };
 
 Q_DECLARE_METATYPE(RoomModel::Section)

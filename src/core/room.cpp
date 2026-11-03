@@ -705,8 +705,12 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setRoomCreatorUserId(QByteArray());
         setRoomCreatorUserName(QString());
     }
+    if (json.contains("category"_L1)) {
+        setCategory(json["category"_L1].toString().toLatin1());
+    }
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
+
     parseTeamInfo(json);
 }
 
@@ -765,6 +769,8 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setGroupMentions(json["groupMentions"_L1].toInt());
     setOpen(json["open"_L1].toBool());
     setAlert(json["alert"_L1].toBool());
+    // The category belongs to the subscription: the server unsets it when the room leaves its category.
+    setCategory(json["category"_L1].toString().toLatin1());
     parseBlockerArchived(json);
     // TODO e2ekey
 

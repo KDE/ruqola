@@ -23,6 +23,7 @@ private Q_SLOTS:
 
     void shouldParseUsersWaitingForE2EKeys();
     void shouldParseOldRoomKeys();
+    void shouldParseSubscriptionCategory();
 
     // Rooms subscriptions only
     void shouldParseRoom_data();

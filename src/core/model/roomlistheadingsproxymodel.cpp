@@ -11,6 +11,12 @@
 RoomListHeadingsProxyModel::RoomListHeadingsProxyModel(QObject *parent)
     : QAbstractProxyModel(parent)
 {
+    rebuildSections();
+}
+
+bool RoomListHeadingsProxyModel::isValidSectionRow(int row) const
+{
+    return row >= 0 && row < int(mSections.size());
 }
 
 void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
@@ -22,6 +28,13 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
     }
 
     QAbstractProxyModel::setSourceModel(sourceModel);
+    mRoomModel = qobject_cast<RoomModel *>(sourceModel);
+
+    if (!sourceModel) {
+        rebuildSections();
+        endResetModel();
+        return;
+    }
 
     connect(sourceModel, &QAbstractItemModel::rowsInserted, this, &RoomListHeadingsProxyModel::onRowsInserted);
 
@@ -49,6 +62,12 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
         Q_EMIT layoutChanged();
     });
 
+    if (mRoomModel) {
+        // A category is a root row of this model: rebuilding everything is simpler than moving the
+        // rooms around by hand, and categories don't change often.
+        connect(mRoomModel, &RoomModel::categoriesChanged, this, &RoomListHeadingsProxyModel::resetSections);
+    }
+
     rebuildSections();
 
     endResetModel();
@@ -58,9 +77,12 @@ int RoomListHeadingsProxyModel::rowCount(const QModelIndex &parent) const
 {
     switch (type(parent)) {
     case IndexType::Root:
-        return sectionCount;
+        return int(mSections.size());
     case IndexType::Section:
-        return int(mSections.at(parent.row()).size());
+        if (!isValidSectionRow(parent.row())) {
+            return 0;
+        }
+        return int(mSections.at(parent.row()).rooms.size());
     case IndexType::Channel:
         return 0;
     }
@@ -89,8 +111,14 @@ QModelIndex RoomListHeadingsProxyModel::index(int row, int column, const QModelI
 {
     switch (type(parent)) {
     case IndexType::Root:
-        return createIndex(row, column, sectionCount);
+        if (!isValidSectionRow(row)) {
+            return {};
+        }
+        return createIndex(row, column, sectionMarker);
     case IndexType::Section:
+        if (!isValidSectionRow(parent.row()) || row < 0 || row >= int(mSections.at(parent.row()).rooms.size())) {
+            return {};
+        }
         return createIndex(row, column, parent.row());
     case IndexType::Channel:
         return {};
@@ -105,7 +133,7 @@ QModelIndex RoomListHeadingsProxyModel::parent(const QModelIndex &child) const
     case IndexType::Section:
         return {};
     case IndexType::Channel:
-        return createIndex(int(child.internalId()), 0, sectionCount);
+        return createIndex(int(child.internalId()), 0, sectionMarker);
     }
     Q_UNREACHABLE();
 }
@@ -115,15 +143,26 @@ QVariant RoomListHeadingsProxyModel::data(const QModelIndex &index, int role) co
     switch (type(index)) {
     case IndexType::Root:
         return {};
-    case IndexType::Section:
+    case IndexType::Section: {
+        if (!isValidSectionRow(index.row())) {
+            return {};
+        }
+        const auto &section = mSections.at(index.row());
         switch (role) {
         case Qt::ItemDataRole::DisplayRole:
-            return RoomModel::sectionName(RoomModel::Section(index.row()));
+            if (section.category.isValid()) {
+                return section.category.name();
+            }
+            return RoomModel::sectionName(section.kind);
+        case RoomModel::RoomCategory:
+            // Empty for a standard section, so that a caller can tell both apart.
+            return section.category.identifier();
         case Qt::BackgroundRole:
             return QApplication::palette().brush(QPalette::Window);
         default:
             return {};
         }
+    }
     case IndexType::Channel:
         return sourceModel()->data(mapToSource(index), role);
     }
@@ -141,11 +180,10 @@ QModelIndex RoomListHeadingsProxyModel::mapFromSource(const QModelIndex &sourceI
     }
 
     for (auto sectionId = size_t(0), iMax = mSections.size(); sectionId < iMax; ++sectionId) {
-        const auto &section = mSections.at(sectionId);
+        const auto &rooms = mSections.at(sectionId).rooms;
 
-        const auto it = std::lower_bound(section.cbegin(), section.cend(), sourceIndex);
-        if (it != section.cend() && *it == sourceIndex) {
-            return createIndex(int(it - section.cbegin()), 0, sectionId);
+        if (const auto it = std::lower_bound(rooms.cbegin(), rooms.cend(), sourceIndex); it != rooms.cend() && *it == sourceIndex) {
+            return createIndex(int(it - rooms.cbegin()), 0, sectionId);
         }
     }
 
@@ -162,8 +200,17 @@ QModelIndex RoomListHeadingsProxyModel::mapToSource(const QModelIndex &proxyInde
     case IndexType::Root:
     case IndexType::Section:
         return {};
-    case IndexType::Channel:
-        return mSections.at(proxyIndex.internalId()).at(proxyIndex.row());
+    case IndexType::Channel: {
+        const auto sectionId = int(proxyIndex.internalId());
+        if (!isValidSectionRow(sectionId)) {
+            return {};
+        }
+        const auto &rooms = mSections.at(sectionId).rooms;
+        if (proxyIndex.row() < 0 || proxyIndex.row() >= int(rooms.size())) {
+            return {};
+        }
+        return rooms.at(proxyIndex.row());
+    }
     }
     Q_UNREACHABLE();
 }
@@ -185,13 +232,13 @@ void RoomListHeadingsProxyModel::onRowsInserted(const QModelIndex &parent, int f
 {
     for (auto row = first; row <= last; ++row) {
         const QPersistentModelIndex index = sourceModel()->index(row, 0, parent);
-        const auto newSectionId = int(index.data(RoomModel::RoomSection).value<RoomModel::Section>());
-        auto &newSection = mSections.at(newSectionId);
+        const auto newSectionId = sectionId(index);
+        auto &newSection = mSections.at(newSectionId).rooms;
 
         const auto newLocation = std::lower_bound(newSection.cbegin(), newSection.cend(), index);
         const auto newLocationRow = int(newLocation - newSection.cbegin());
 
-        beginInsertRows(createIndex(newSectionId, 0, sectionCount), newLocationRow, newLocationRow);
+        beginInsertRows(createIndex(newSectionId, 0, sectionMarker), newLocationRow, newLocationRow);
 
         newSection.insert(newLocation, index);
 
@@ -206,7 +253,7 @@ void RoomListHeadingsProxyModel::onRowsAboutToBeRemoved(const QModelIndex &paren
 
         const auto ourOldIndex = mapFromSource(index);
         const auto oldSectionId = ourOldIndex.internalId();
-        auto &oldSection = mSections.at(oldSectionId);
+        auto &oldSection = mSections.at(oldSectionId).rooms;
 
         beginRemoveRows(ourOldIndex.parent(), ourOldIndex.row(), ourOldIndex.row());
 
@@ -224,7 +271,7 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
         Q_EMIT dataChanged(proxyIndex, proxyIndex, roles);
     }
 
-    if (!roles.empty() && !roles.contains(RoomModel::RoomSection)) {
+    if (!roles.empty() && !roles.contains(RoomModel::RoomSection) && !roles.contains(RoomModel::RoomCategory)) {
         return;
     }
 
@@ -233,19 +280,19 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
         const auto ourOldIndex = mapFromSource(sourceIndex);
 
         const auto oldSectionId = int(ourOldIndex.internalId());
-        const auto newSectionId = int(sourceIndex.data(RoomModel::RoomSection).value<RoomModel::Section>());
+        const auto newSectionId = sectionId(sourceIndex);
 
         if (oldSectionId == newSectionId) {
             continue;
         }
 
-        auto &oldSection = mSections.at(oldSectionId);
-        auto &newSection = mSections.at(newSectionId);
+        auto &oldSection = mSections.at(oldSectionId).rooms;
+        auto &newSection = mSections.at(newSectionId).rooms;
 
         const auto newLocation = std::lower_bound(newSection.cbegin(), newSection.cend(), sourceIndex);
         const auto newLocationRow = int(newLocation - newSection.cbegin());
 
-        beginMoveRows(ourOldIndex.parent(), ourOldIndex.row(), ourOldIndex.row(), createIndex(newSectionId, 0, sectionCount), newLocationRow);
+        beginMoveRows(ourOldIndex.parent(), ourOldIndex.row(), ourOldIndex.row(), createIndex(newSectionId, 0, sectionMarker), newLocationRow);
 
         auto persistantIndex = oldSection[ourOldIndex.row()];
         oldSection.erase(oldSection.begin() + ourOldIndex.row());
@@ -255,22 +302,72 @@ void RoomListHeadingsProxyModel::onDataChanged(const QModelIndex &topLeft, const
     }
 }
 
+int RoomListHeadingsProxyModel::sectionId(const QModelIndex &sourceIndex) const
+{
+    const auto kind = sourceIndex.data(RoomModel::RoomSection).value<RoomModel::Section>();
+    switch (kind) {
+    // As in Rocket.Chat, the dynamic sections come before the category of the room.
+    case RoomModel::Section::IncomingCalls:
+    case RoomModel::Section::IncomingLivechats:
+    case RoomModel::Section::OpenLivechats:
+    case RoomModel::Section::OnHoldChats:
+    case RoomModel::Section::Unread:
+        return mStandardSectionRows.at(uint(kind));
+    default:
+        break;
+    }
+    // Otherwise a room which belongs to a category is only listed in that category.
+    if (const QByteArray categoryId = sourceIndex.data(RoomModel::RoomCategory).toByteArray(); !categoryId.isEmpty()) {
+        const auto sameCategory = [&categoryId](const Section &section) {
+            return section.category.identifier() == categoryId;
+        };
+        if (const auto it = std::find_if(mSections.cbegin(), mSections.cend(), sameCategory); it != mSections.cend()) {
+            return int(it - mSections.cbegin());
+        }
+        // Unknown category: fall back to the standard sections.
+    }
+    return mStandardSectionRows.at(uint(kind));
+}
+
+void RoomListHeadingsProxyModel::resetSections()
+{
+    beginResetModel();
+    rebuildSections();
+    endResetModel();
+}
+
 void RoomListHeadingsProxyModel::rebuildSections()
 {
-    for (auto &section : mSections) {
-        section.clear();
+    mSections.clear();
+
+    const QList<Category> categories = mRoomModel ? mRoomModel->categories() : QList<Category>{};
+    mSections.reserve(sectionCount + categories.size());
+    for (uint i = 0; i < sectionCount; ++i) {
+        const auto kind = RoomModel::Section(i);
+        mStandardSectionRows[i] = int(mSections.size());
+        Section section;
+        section.kind = kind;
+        mSections.push_back(std::move(section));
+        if (kind == RoomModel::Section::Favorites) {
+            for (const Category &category : categories) {
+                Section categorySection;
+                categorySection.category = category;
+                mSections.push_back(std::move(categorySection));
+            }
+        }
+    }
+
+    if (!sourceModel()) {
+        return;
     }
 
     for (auto row = 0, until = sourceModel()->rowCount(); row < until; ++row) {
-        QPersistentModelIndex index = sourceModel()->index(row, 0);
-        const auto newSectionId = uint(index.data(RoomModel::RoomSection).value<RoomModel::Section>());
-        auto &newSection = mSections.at(newSectionId);
-
-        newSection.push_back(std::move(index));
+        const QPersistentModelIndex index = sourceModel()->index(row, 0);
+        mSections.at(sectionId(index)).rooms.push_back(index);
     }
 
     for (auto &section : mSections) {
-        std::sort(section.begin(), section.end());
+        std::sort(section.rooms.begin(), section.rooms.end());
     }
 }
 
@@ -280,7 +377,7 @@ auto RoomListHeadingsProxyModel::type(const QModelIndex &index) -> IndexType
         return IndexType::Root;
     }
 
-    if (index.internalId() == sectionCount) {
+    if (index.internalId() == sectionMarker) {
         return IndexType::Section;
     }
 

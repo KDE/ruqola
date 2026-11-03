@@ -30,6 +30,7 @@ private Q_SLOTS:
     void shouldUpdateOnFavoriteChanges();
     void shouldUpdateOnHideUnreadStatusChanges();
     void shouldUpdateOnUnreadOnTopPreferenceChanges();
+    void shouldAddCategorySections();
 
 private:
     QStandardItemModel mSourceModel;
