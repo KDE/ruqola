@@ -5,6 +5,7 @@
 */
 
 #pragma once
+#include "categories/category.h"
 #include "room.h"
 #include <QTreeView>
 
@@ -69,6 +70,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRoomRemoved(const QByteArray &roomId);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPressed(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetCategory(const QModelIndex &index, const QByteArray &identifier);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotCategoriesChanged(const QList<Category> &categories);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;

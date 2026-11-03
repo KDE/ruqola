@@ -174,6 +174,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 slotSetCategory(index, identifier);
             }
         });
+        connect(categoryMenu, &CategoriesMenu::categoriesChanged, this, &ChannelListView::slotCategoriesChanged);
         menu.addMenu(categoryMenu);
     }
 
@@ -264,6 +265,11 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
+}
+
+void ChannelListView::slotCategoriesChanged(const QList<Category> &categories)
+{
+    // TODO
 }
 
 void ChannelListView::slotConfigureNotification(Room *room)
