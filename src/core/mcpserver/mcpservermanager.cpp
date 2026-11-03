@@ -6,11 +6,13 @@
 #include "mcpservermanager.h"
 #include "accountmanager.h"
 #include "listaccounts/listaccountstool.h"
+#include "mcpserver/getmystatus/getmystatustool.h"
 #include "mcpserver/getroominfo/getroominfotool.h"
 #include "mcpserver/getserverinfo/getserverinfotool.h"
 #include "mcpserver/getunreadsummary/getunreadsummarytool.h"
 #include "mcpserver/getuserstatus/getuserstatustool.h"
 #include "mcpserver/listrooms/listroomstool.h"
+#include "mcpserver/setmystatus/setmystatustool.h"
 #include "ruqola_mcp_server_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <KConfigGroup>
@@ -41,6 +43,8 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<GetServerInfoTool>(mAccountManager));
     addTool(std::make_unique<GetUserStatusTool>(mAccountManager));
     addTool(std::make_unique<GetUnreadSummaryTool>(mAccountManager));
+    addTool(std::make_unique<GetMyStatusTool>(mAccountManager));
+    addTool(std::make_unique<SetMyStatusTool>(mAccountManager));
     loadConfig();
     // TODO add more
 }
