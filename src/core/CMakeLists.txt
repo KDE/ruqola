@@ -646,6 +646,10 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/getmystatus/getmystatustool.cpp
             mcpserver/setmystatus/setmystatustool.h
             mcpserver/setmystatus/setmystatustool.cpp
+            mcpserver/searchrooms/searchroomstool.h
+            mcpserver/searchrooms/searchroomstool.cpp
+            mcpserver/searchusers/searchuserstool.h
+            mcpserver/searchusers/searchuserstool.cpp
     )
 endif()
 

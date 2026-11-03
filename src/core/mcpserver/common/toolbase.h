@@ -5,7 +5,9 @@
 */
 #pragma once
 
+#include "misc/directoryjob.h"
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerTool>
+#include <functional>
 class AccountManager;
 class RocketChatAccount;
 
@@ -17,6 +19,11 @@ public:
 
 protected:
     [[nodiscard]] RocketChatAccount *accountFromArguments(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call) const;
+    // Search server directory, \a done is called with the reply (call is answered with an error on failure)
+    void searchDirectory(RocketChatAccount *account,
+                         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call,
+                         RocketChatRestApi::DirectoryJob::SearchType searchType,
+                         const std::function<void(const QJsonObject &)> &done) const;
 
     AccountManager *const mAccountManager;
 };
