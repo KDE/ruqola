@@ -707,8 +707,6 @@ target_sources(
         room/selectedmessagebackgroundanimation.cpp
         room/plugintextmessagewidget.h
         room/plugintextmessagewidget.cpp
-        room/textpluginmanager.cpp
-        room/textpluginmanager.h
         room/toolspluginmanager.h
         room/toolspluginmanager.cpp
         room/encryptedroominfo/roomencryptsavepasswordwidget.h

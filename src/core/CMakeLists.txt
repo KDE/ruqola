@@ -348,9 +348,7 @@ target_sources(
         notifications/notifierjob.cpp
         notifications/notifierjob.h
         notificationhistorymanager.cpp
-        servererrorinfohistorymanager.cpp
         notificationhistorymanager.h
-        servererrorinfohistorymanager.h
         oauth/oauthinfo.cpp
         oauth/oauthinfo.h
         ownuser/ownuser.cpp
