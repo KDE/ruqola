@@ -168,6 +168,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         auto categoryMenu = new CategoriesMenu(mCurrentRocketChatAccount, this);
         categoryMenu->setCategories(mCurrentRocketChatAccount->ownUserPreferences().categories());
+        categoryMenu->setCurrentCategory(index.data(RoomModel::RoomCategory).toByteArray());
         connect(categoryMenu, &CategoriesMenu::assignCategory, this, [this, index](const QByteArray &identifier) {
             if (index.isValid()) {
                 slotSetCategory(index, identifier);
