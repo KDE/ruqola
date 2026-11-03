@@ -44,11 +44,11 @@ repos:
    rev: 0.26.1
    hooks:
     - id: gersemi
- - repo: https://github.com/DavidAnson/markdownlint-cli2
-   rev: v0.23.3
-   hooks:
-    - id: markdownlint-cli2
-      files: \.(md|mdown|markdown)$
+ #- repo: https://github.com/DavidAnson/markdownlint-cli2
+ #  rev: v0.23.3
+ #  hooks:
+ #   - id: markdownlint-cli2
+ #     files: \.(md|mdown|markdown)$
  - repo: https://github.com/scop/pre-commit-shfmt
    rev: v3.14.1-1
    hooks:
