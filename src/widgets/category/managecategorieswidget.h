@@ -29,7 +29,7 @@ private:
     };
     LIBRUQOLAWIDGETS_NO_EXPORT void slotAddCategory();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyCategory();
-    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyCategory(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyCategoryFromIndex(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRemoveCategory();
     LIBRUQOLAWIDGETS_NO_EXPORT void updateButtons();
     LIBRUQOLAWIDGETS_NO_EXPORT void addCategory(const Category &category);

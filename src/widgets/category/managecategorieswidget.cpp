@@ -59,7 +59,7 @@ ManageCategoriesWidget::ManageCategoriesWidget(QWidget *parent)
     mCategoriesListView->setModel(mCategoriesProxyModel);
     mCategoriesListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     mainLayout->addWidget(mCategoriesListView);
-    connect(mCategoriesListView, &QListView::doubleClicked, this, qOverload<const QModelIndex &>(&ManageCategoriesWidget::slotModifyCategory));
+    connect(mCategoriesListView, &QListView::doubleClicked, this, &ManageCategoriesWidget::slotModifyCategoryFromIndex);
     connect(mCategoriesListView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ManageCategoriesWidget::updateButtons);
 
     auto buttonLayout = new QVBoxLayout;
@@ -79,7 +79,7 @@ ManageCategoriesWidget::ManageCategoriesWidget(QWidget *parent)
     mModifyButton->setToolTip(i18nc("@info:tooltip", "Rename Category…"));
     mModifyButton->setAutoRaise(true);
     buttonLayout->addWidget(mModifyButton);
-    connect(mModifyButton, &QToolButton::clicked, this, qOverload<>(&ManageCategoriesWidget::slotModifyCategory));
+    connect(mModifyButton, &QToolButton::clicked, this, &ManageCategoriesWidget::slotModifyCategory);
 
     mRemoveButton->setObjectName(u"mRemoveButton"_s);
     mRemoveButton->setIcon(QIcon::fromTheme(u"list-remove"_s));
@@ -141,10 +141,10 @@ void ManageCategoriesWidget::slotAddCategory()
 
 void ManageCategoriesWidget::slotModifyCategory()
 {
-    slotModifyCategory(mCategoriesListView->currentIndex());
+    slotModifyCategoryFromIndex(mCategoriesListView->currentIndex());
 }
 
-void ManageCategoriesWidget::slotModifyCategory(const QModelIndex &index)
+void ManageCategoriesWidget::slotModifyCategoryFromIndex(const QModelIndex &index)
 {
     if (!index.isValid()) {
         return;
