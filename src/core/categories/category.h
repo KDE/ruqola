@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolacore_export.h"
+#include <QMetaType>
 #include <QString>
 class QDebug;
 class LIBRUQOLACORE_EXPORT Category
