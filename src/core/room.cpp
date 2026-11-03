@@ -337,9 +337,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         lstUserNames << userNamesArray.at(i).toString();
     }
     setUserNames(lstUserNames);
-    if (json.contains("category"_L1)) {
-        setCategory(json["category"_L1].toString().toLatin1());
-    }
 
     setMutedUsers(extractStringList(json, "muted"_L1));
     setAvatarETag(json.value("avatarETag"_L1).toString().toLatin1());
@@ -704,9 +701,6 @@ void Room::parseInsertRoom(const QJsonObject &json)
         // owner and if it's empty => we need to clear it.
         setRoomCreatorUserId(QByteArray());
         setRoomCreatorUserName(QString());
-    }
-    if (json.contains("category"_L1)) {
-        setCategory(json["category"_L1].toString().toLatin1());
     }
     // qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
