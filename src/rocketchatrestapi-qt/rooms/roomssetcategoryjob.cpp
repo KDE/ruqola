@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -40,24 +41,24 @@ void RoomsSetCategoryJob::onPostRequestResponse(const QString &replyErrorString,
     }
 }
 
-QString RoomsSetCategoryJob::userName() const
+QList<QByteArray> RoomsSetCategoryJob::roomIds() const
 {
-    return mUserName;
+    return mRoomIds;
 }
 
-void RoomsSetCategoryJob::setUserName(const QString &newUserName)
+void RoomsSetCategoryJob::setRoomIds(const QList<QByteArray> &newRoomIds)
 {
-    mUserName = newUserName;
+    mRoomIds = newRoomIds;
 }
 
-QByteArray RoomsSetCategoryJob::roomId() const
+QByteArray RoomsSetCategoryJob::categoryId() const
 {
-    return mRoomId;
+    return mCategoryId;
 }
 
-void RoomsSetCategoryJob::setRoomId(const QByteArray &newRoomId)
+void RoomsSetCategoryJob::setCategoryId(const QByteArray &newCategoryId)
 {
-    mRoomId = newRoomId;
+    mCategoryId = newCategoryId;
 }
 
 bool RoomsSetCategoryJob::requireHttpAuthentication() const
@@ -70,26 +71,29 @@ bool RoomsSetCategoryJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mUserName.isEmpty() || mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsSetCategoryJob: mUserName or mRoomId is empty.";
+    if (mCategoryId.isEmpty() || mRoomIds.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsSetCategoryJob: mCategoryId or mRoomIds is empty.";
         return false;
     }
-
     return true;
 }
 
 QJsonDocument RoomsSetCategoryJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["roomId"_L1] = QString::fromLatin1(mRoomId);
-    jsonObj["username"_L1] = mUserName;
+    jsonObj["category"_L1] = QString::fromLatin1(mCategoryId);
+    QJsonArray roomIdsArray;
+    for (const QByteArray &ba : mRoomIds) {
+        roomIdsArray.append(QString::fromLatin1(ba));
+    }
+    jsonObj["roomIds"_L1] = roomIdsArray;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
 QNetworkRequest RoomsSetCategoryJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsBanUser);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsSetCategory, RestApiUtil::RestApiUrlExtensionType::Experimental);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

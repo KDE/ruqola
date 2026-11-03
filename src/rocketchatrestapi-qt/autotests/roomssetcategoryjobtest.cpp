@@ -6,7 +6,7 @@
 
 #include "roomssetcategoryjobtest.h"
 
-#include "rooms/roomsbanuserjob.h"
+#include "rooms/roomssetcategoryjob.h"
 #include "ruqola_restapi_helper.h"
 
 #include <QJsonDocument>
@@ -22,9 +22,9 @@ RoomsSetCategoryJobTest::RoomsSetCategoryJobTest(QObject *parent)
 
 void RoomsSetCategoryJobTest::shouldHaveDefaultValue()
 {
-    RoomsBanUserJob job;
-    QVERIFY(job.roomId().isEmpty());
-    QVERIFY(job.userName().isEmpty());
+    RoomsSetCategoryJob job;
+    QVERIFY(job.categoryId().isEmpty());
+    QVERIFY(job.roomIds().isEmpty());
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -33,10 +33,10 @@ void RoomsSetCategoryJobTest::shouldHaveDefaultValue()
 void RoomsSetCategoryJobTest::shouldGenerateRequest()
 {
     {
-        RoomsBanUserJob job;
+        RoomsSetCategoryJob job;
         QNetworkRequest request = QNetworkRequest(QUrl());
         RuqolaRestApiHelper::verifyAuthentication(&job, request);
-        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/rooms.banUser"_s));
+        QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/experimental/rooms.setCategory"_s));
         QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
     }
 }
@@ -44,28 +44,28 @@ void RoomsSetCategoryJobTest::shouldGenerateRequest()
 void RoomsSetCategoryJobTest::shouldGenerateJson()
 {
     {
-        RoomsBanUserJob job;
+        RoomsSetCategoryJob job;
 
-        const QByteArray roomId("rr1"_ba);
-        job.setRoomId(roomId);
-        const QString userName(u"foo1"_s);
-        job.setUserName(userName);
+        const QByteArray categoryId("rr1"_ba);
+        job.setCategoryId(categoryId);
+        const QList<QByteArray> roomIds({"foo1", "bla"});
+        job.setRoomIds(roomIds);
 
-        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"roomId":"%1","username":"%2"})"_s.arg(QString::fromLatin1(roomId), userName).toLatin1());
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"category":"%1","roomIds":["foo1","bla"]})"_s.arg(QString::fromLatin1(categoryId)).toLatin1());
     }
 }
 
 void RoomsSetCategoryJobTest::shouldNotStarting()
 {
-    RoomsBanUserJob job;
+    RoomsSetCategoryJob job;
 
     RuqolaRestApiHelper::verifyNotStartingJob(&job);
 
-    const QByteArray roomId("room1");
-    job.setRoomId(roomId);
+    const QByteArray categoryId("rr1"_ba);
+    job.setCategoryId(categoryId);
     QVERIFY(!job.canStart());
-    const QString username(u"file25"_s);
-    job.setUserName(username);
+    const QList<QByteArray> roomIds({"foo1", "bla"});
+    job.setRoomIds(roomIds);
     QVERIFY(job.canStart());
 }
 

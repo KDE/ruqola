@@ -25,18 +25,18 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] QByteArray roomId() const;
-    void setRoomId(const QByteArray &newRoomId);
+    [[nodiscard]] QByteArray categoryId() const;
+    void setCategoryId(const QByteArray &newCategoryId);
 
-    [[nodiscard]] QString userName() const;
-    void setUserName(const QString &newUserName);
+    [[nodiscard]] QList<QByteArray> roomIds() const;
+    void setRoomIds(const QList<QByteArray> &newRoomIds);
 
 Q_SIGNALS:
     void roomsSetCategoryDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    QByteArray mRoomId;
-    QString mUserName;
+    QByteArray mCategoryId;
+    QList<QByteArray> mRoomIds;
 };
 }
