@@ -5,7 +5,7 @@
 */
 #pragma once
 #include "categories/category.h"
-#include "libruqolawidgets_private_export.h"
+#include "libruqolawidgets_export.h"
 #include <QMenu>
 class RocketChatAccount;
 class QActionGroup;
@@ -13,7 +13,7 @@ class QActionGroup;
  * A menu which moves a room to a category: one exclusive checkable action per category, plus an entry
  * which removes the room from its category and one which opens the categories management dialog.
  */
-class LIBRUQOLAWIDGETS_TESTS_EXPORT CategoriesMenu : public QMenu
+class LIBRUQOLAWIDGETS_EXPORT CategoriesMenu : public QMenu
 {
     Q_OBJECT
 public:
