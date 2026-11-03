@@ -58,6 +58,10 @@ public:
     Q_ENUM(RoomRoles)
 
     enum class Section : uint8_t {
+        IncomingCalls,
+        IncomingLivechats,
+        OpenLivechats,
+        OnHoldChats,
         Unread,
         Favorites,
         Teams,

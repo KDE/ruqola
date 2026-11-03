@@ -685,6 +685,14 @@ QString RoomModel::sectionName(Section sectionId)
         return i18n("Private Messages");
     case RoomModel::Section::Unknown:
         return i18n("Unknown");
+    case RoomModel::Section::IncomingCalls:
+        return i18n("Incoming Calls");
+    case RoomModel::Section::IncomingLivechats:
+        return i18n("Incoming Live Chats");
+    case RoomModel::Section::OpenLivechats:
+        return i18n("Open Live chats");
+    case RoomModel::Section::OnHoldChats:
+        return i18n("On Hold Chats");
     case RoomModel::Section::NSections:
         break;
     }
