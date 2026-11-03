@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:54+0000\n"
+"POT-Creation-Date: 2026-11-03 00:55+0000\n"
 "PO-Revision-Date: 2026-02-12 07:57+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1459,7 +1459,7 @@ msgstr "Kanal-mota"
 msgid "Belongs To"
 msgstr "Honi dagokio,"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:686
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:689
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1602,85 +1602,85 @@ msgstr "Bi faktoreko kautotzea"
 msgid "Last token part"
 msgstr "Tokenaren azken zatia"
 
-#: core/model/roommodel.cpp:616
+#: core/model/roommodel.cpp:619
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
 msgstr[0] "Aipamen %1"
 msgstr[1] "%1 aipamen"
 
-#: core/model/roommodel.cpp:620
+#: core/model/roommodel.cpp:623
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
 msgstr[0] "Taldearen aipamen %1"
 msgstr[1] "Taldearen %1 aipamen"
 
-#: core/model/roommodel.cpp:624
+#: core/model/roommodel.cpp:627
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Hariko mezu %1 irakurri gabe"
 msgstr[1] "Hariko %1 mezu irakurri gabe"
 
-#: core/model/roommodel.cpp:628
+#: core/model/roommodel.cpp:631
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
 msgstr[0] "Irakurri gabeko mezu %1"
 msgstr[1] "Irakurri gabeko %1 mezu"
 
-#: core/model/roommodel.cpp:654
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Teams Room"
 msgstr "Taldearen gela"
 
-#: core/model/roommodel.cpp:660
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Private Room"
 msgstr "Gela pribatua"
 
-#: core/model/roommodel.cpp:662
+#: core/model/roommodel.cpp:665
 #, kde-format
 msgid "Discussion Room"
 msgstr "Elkarrizketa-gela"
 
-#: core/model/roommodel.cpp:666
+#: core/model/roommodel.cpp:669
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanalaren gela"
 
-#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:16
+#: core/model/roommodel.cpp:683 widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Unread"
 msgstr "Irakurri gabea"
 
-#: core/model/roommodel.cpp:682
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Favorites"
 msgstr "Gogokoak"
 
-#: core/model/roommodel.cpp:684
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Teams"
 msgstr "Taldeak"
 
-#: core/model/roommodel.cpp:688
+#: core/model/roommodel.cpp:691
 #, kde-format
 msgid "Discussions"
 msgstr "Eztabaidak"
 
-#: core/model/roommodel.cpp:690
+#: core/model/roommodel.cpp:693
 #, kde-format
 msgid "Private Messages"
 msgstr "Mezu pribatua"
 
-#: core/model/roommodel.cpp:692
+#: core/model/roommodel.cpp:695
 #, kde-format
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:694 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:697 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
@@ -7649,11 +7649,32 @@ msgid "Show Unread"
 msgstr "Erakutsi irakurri gabeak"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:25
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Markatu Irakurrita gisa"
+
+#: widgets/category/categoriesmenu.cpp:20
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:menu"
+msgid "Category"
+msgstr "Kategoriak"
+
+#: widgets/category/categoriesmenu.cpp:57
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@action"
+msgid "No Category"
+msgstr "Kategoriak"
+
+#: widgets/category/categoriesmenu.cpp:82
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@action"
+msgid "Manage Categories…"
+msgstr "Kategoriak"
 
 #: widgets/category/categorydialog.cpp:19
 #, fuzzy, kde-format
@@ -7674,89 +7695,131 @@ msgstr ""
 msgid "Category:"
 msgstr "Kategoriak"
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/category/managecategoriesdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Manage Categories"
+msgstr "Kategoriak"
+
+#: widgets/category/managecategorieswidget.cpp:45
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@info:tooltip"
+msgid "Add Category…"
+msgstr "Kategoriak"
+
+#: widgets/category/managecategorieswidget.cpp:52
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Rename Category…"
+msgstr ""
+
+#: widgets/category/managecategorieswidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove History"
+msgctxt "@info:tooltip"
+msgid "Remove Category"
+msgstr "Kendu historia"
+
+#: widgets/category/managecategorieswidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user \"%1\"?"
+msgid "Do you want to remove this category (%1)?"
+msgstr "\"%1\" erabiltzaile hau ezabatu nahi duzu?"
+
+#: widgets/category/managecategorieswidget.cpp:145
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove History"
+msgctxt "@title:window"
+msgid "Remove Category"
+msgstr "Kendu historia"
+
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Markatu irakurri gabeko gisa"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Ezarri gogoko gisa"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Kendu gogoko ezarpena"
 
-#: widgets/channellist/channellistview.cpp:158
+#: widgets/channellist/channellistview.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Ezkutatu kanala"
 
-#: widgets/channellist/channellistview.cpp:175
+#: widgets/channellist/channellistview.cpp:188
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Bihurtu talde"
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:199
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Bihurtu kanal"
 
-#: widgets/channellist/channellistview.cpp:189
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Taldea kanal bihurtu nahi duzu?"
 
-#: widgets/channellist/channellistview.cpp:190
+#: widgets/channellist/channellistview.cpp:203
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Bihurtu kanal"
 
-#: widgets/channellist/channellistview.cpp:205
+#: widgets/channellist/channellistview.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:221
+#: widgets/channellist/channellistview.cpp:234
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Konfiguratu jakinarazpena…"
 
-#: widgets/channellist/channellistview.cpp:238
+#: widgets/channellist/channellistview.cpp:251
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Irten kanaletik"
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Any team selected."
 msgstr "Hautatutako talde oro."
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mugitu taldera"
 
-#: widgets/channellist/channellistview.cpp:333
+#: widgets/channellist/channellistview.cpp:346
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Ziur zaude talde bihurtu nahi duzula? Ezin da desegin."
 
-#: widgets/channellist/channellistview.cpp:334
+#: widgets/channellist/channellistview.cpp:347
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"

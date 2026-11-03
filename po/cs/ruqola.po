@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:54+0000\n"
+"POT-Creation-Date: 2026-11-03 00:55+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1437,7 +1437,7 @@ msgstr "Typ kanálu"
 msgid "Belongs To"
 msgstr "Patří"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:686
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:689
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1581,7 +1581,7 @@ msgstr "Dvoufaktorové ověření"
 msgid "Last token part"
 msgstr "Poslední část tokenu"
 
-#: core/model/roommodel.cpp:616
+#: core/model/roommodel.cpp:619
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1589,7 +1589,7 @@ msgstr[0] "%1 Zmínka"
 msgstr[1] "%1 Zmínky"
 msgstr[2] "%1 Zmínek"
 
-#: core/model/roommodel.cpp:620
+#: core/model/roommodel.cpp:623
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1597,7 +1597,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/model/roommodel.cpp:624
+#: core/model/roommodel.cpp:627
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1605,7 +1605,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: core/model/roommodel.cpp:628
+#: core/model/roommodel.cpp:631
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1613,57 +1613,57 @@ msgstr[0] "%1 Nepřečtená zpráva"
 msgstr[1] "%1 Nepřečtené zprávy"
 msgstr[2] "%1 Nepřečtených zpráv"
 
-#: core/model/roommodel.cpp:654
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Teams Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:660
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Private Room"
 msgstr "Soukromá místnost"
 
-#: core/model/roommodel.cpp:662
+#: core/model/roommodel.cpp:665
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:666
+#: core/model/roommodel.cpp:669
 #, kde-format
 msgid "Channel Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:16
+#: core/model/roommodel.cpp:683 widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Unread"
 msgstr "Nepřečteno"
 
-#: core/model/roommodel.cpp:682
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Favorites"
 msgstr "Oblíbené"
 
-#: core/model/roommodel.cpp:684
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Teams"
 msgstr "Týmy"
 
-#: core/model/roommodel.cpp:688
+#: core/model/roommodel.cpp:691
 #, kde-format
 msgid "Discussions"
 msgstr "Diskuze"
 
-#: core/model/roommodel.cpp:690
+#: core/model/roommodel.cpp:693
 #, kde-format
 msgid "Private Messages"
 msgstr "Soukromé zprávy"
 
-#: core/model/roommodel.cpp:692
+#: core/model/roommodel.cpp:695
 #, kde-format
 msgid "Draft"
 msgstr "Koncept"
 
-#: core/model/roommodel.cpp:694 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:697 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Neznámý"
@@ -7437,11 +7437,32 @@ msgid "Show Unread"
 msgstr ""
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:25
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Označit jako přečtený"
+
+#: widgets/category/categoriesmenu.cpp:20
+#, fuzzy, kde-format
+#| msgid "Category:"
+msgctxt "@title:menu"
+msgid "Category"
+msgstr "Kategorie:"
+
+#: widgets/category/categoriesmenu.cpp:57
+#, fuzzy, kde-format
+#| msgid "Category:"
+msgctxt "@action"
+msgid "No Category"
+msgstr "Kategorie:"
+
+#: widgets/category/categoriesmenu.cpp:82
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@action"
+msgid "Manage Categories…"
+msgstr "Kategorie"
 
 #: widgets/category/categorydialog.cpp:19
 #, fuzzy, kde-format
@@ -7461,89 +7482,131 @@ msgstr ""
 msgid "Category:"
 msgstr "Kategorie:"
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/category/managecategoriesdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Manage Categories"
+msgstr "Kategorie"
+
+#: widgets/category/managecategorieswidget.cpp:45
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@info:tooltip"
+msgid "Add Category…"
+msgstr "Kategorie"
+
+#: widgets/category/managecategorieswidget.cpp:52
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Rename Category…"
+msgstr ""
+
+#: widgets/category/managecategorieswidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove History"
+msgctxt "@info:tooltip"
+msgid "Remove Category"
+msgstr "Odstranit historii"
+
+#: widgets/category/managecategorieswidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this account '%1'?"
+msgid "Do you want to remove this category (%1)?"
+msgstr "Chcete odstranit tento účet '%1'?"
+
+#: widgets/category/managecategorieswidget.cpp:145
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove History"
+msgctxt "@title:window"
+msgid "Remove Category"
+msgstr "Odstranit historii"
+
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Přidat do oblíbených"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Odebrat z oblíbených"
 
-#: widgets/channellist/channellistview.cpp:158
+#: widgets/channellist/channellistview.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Skrýt kanál"
 
-#: widgets/channellist/channellistview.cpp:175
+#: widgets/channellist/channellistview.cpp:188
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:199
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:189
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Přejete si převést tým na kanál?"
 
-#: widgets/channellist/channellistview.cpp:190
+#: widgets/channellist/channellistview.cpp:203
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Převést na kanál"
 
-#: widgets/channellist/channellistview.cpp:205
+#: widgets/channellist/channellistview.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:221
+#: widgets/channellist/channellistview.cpp:234
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Nastavit upozornění…"
 
-#: widgets/channellist/channellistview.cpp:238
+#: widgets/channellist/channellistview.cpp:251
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Odejít z kanálu"
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:333
+#: widgets/channellist/channellistview.cpp:346
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:334
+#: widgets/channellist/channellistview.cpp:347
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"

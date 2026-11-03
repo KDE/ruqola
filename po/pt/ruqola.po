@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:54+0000\n"
+"POT-Creation-Date: 2026-11-03 00:55+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1514,7 +1514,7 @@ msgstr "Tipo de Canal"
 msgid "Belongs To"
 msgstr "Pertence a"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:686
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:689
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1665,7 +1665,7 @@ msgstr "Autenticação em Dois Factores"
 msgid "Last token part"
 msgstr "Última parte do código"
 
-#: core/model/roommodel.cpp:616
+#: core/model/roommodel.cpp:619
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -1673,7 +1673,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Menções"
 msgstr[1] "Menções"
 
-#: core/model/roommodel.cpp:620
+#: core/model/roommodel.cpp:623
 #, fuzzy, kde-format
 #| msgid "Group mentions only"
 msgid "%1 Group Mention"
@@ -1681,7 +1681,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Apenas as menções do grupo"
 msgstr[1] "Apenas as menções do grupo"
 
-#: core/model/roommodel.cpp:624
+#: core/model/roommodel.cpp:627
 #, fuzzy, kde-format
 #| msgid "Unread Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -1689,7 +1689,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Mensagens dos Tópicos Não-Lidas"
 msgstr[1] "Mensagens dos Tópicos Não-Lidas"
 
-#: core/model/roommodel.cpp:628
+#: core/model/roommodel.cpp:631
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -1697,57 +1697,57 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Tem %2 Mensagens Não Lidas"
 msgstr[1] "%1 Tem %2 Mensagens Não Lidas"
 
-#: core/model/roommodel.cpp:654
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala das Equipas"
 
-#: core/model/roommodel.cpp:660
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Private Room"
 msgstr "Sala Privada"
 
-#: core/model/roommodel.cpp:662
+#: core/model/roommodel.cpp:665
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de Discussão"
 
-#: core/model/roommodel.cpp:666
+#: core/model/roommodel.cpp:669
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala do Canal"
 
-#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:16
+#: core/model/roommodel.cpp:683 widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Unread"
 msgstr "Não Lido"
 
-#: core/model/roommodel.cpp:682
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:684
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Teams"
 msgstr "Equipas"
 
-#: core/model/roommodel.cpp:688
+#: core/model/roommodel.cpp:691
 #, kde-format
 msgid "Discussions"
 msgstr "Discussões"
 
-#: core/model/roommodel.cpp:690
+#: core/model/roommodel.cpp:693
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensagens Privadas"
 
-#: core/model/roommodel.cpp:692
+#: core/model/roommodel.cpp:695
 #, kde-format
 msgid "Draft"
 msgstr ""
 
-#: core/model/roommodel.cpp:694 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:697 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -8136,12 +8136,31 @@ msgid "Show Unread"
 msgstr "Mostrar os Não-Lidos"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:25
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, fuzzy, kde-format
 #| msgid "Mark as Read"
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Marcar como Lido"
+
+#: widgets/category/categoriesmenu.cpp:20
+#, kde-format
+msgctxt "@title:menu"
+msgid "Category"
+msgstr ""
+
+#: widgets/category/categoriesmenu.cpp:57
+#, kde-format
+msgctxt "@action"
+msgid "No Category"
+msgstr ""
+
+#: widgets/category/categoriesmenu.cpp:82
+#, fuzzy, kde-format
+#| msgid "Manage Device"
+msgctxt "@action"
+msgid "Manage Categories…"
+msgstr "Gerir o Dispositivo"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
@@ -8160,14 +8179,55 @@ msgstr ""
 msgid "Category:"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/category/managecategoriesdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Manage Device"
+msgctxt "@title:window"
+msgid "Manage Categories"
+msgstr "Gerir o Dispositivo"
+
+#: widgets/category/managecategorieswidget.cpp:45
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Server"
+msgctxt "@info:tooltip"
+msgid "Add Category…"
+msgstr "Adicionar um Servidor"
+
+#: widgets/category/managecategorieswidget.cpp:52
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Rename Category…"
+msgstr ""
+
+#: widgets/category/managecategorieswidget.cpp:59
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "@info:tooltip"
+msgid "Remove Category"
+msgstr "Remover o Histórico"
+
+#: widgets/category/managecategorieswidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user \"%1\"?"
+msgid "Do you want to remove this category (%1)?"
+msgstr "Deseja remover este utilizador \"%1\"?"
+
+#: widgets/category/managecategorieswidget.cpp:145
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "@title:window"
+msgid "Remove Category"
+msgstr "Remover o Histórico"
+
+#: widgets/channellist/channellistview.cpp:140
 #, fuzzy, kde-format
 #| msgid "Mark As Unread"
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Marcar como Não-Lido"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #: widgets/room/messagelistview.cpp:473
 #, fuzzy, kde-format
 #| msgid "Set as Favorite"
@@ -8175,55 +8235,55 @@ msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Marcar como Favorito"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #, fuzzy, kde-format
 #| msgid "Unset as Favorite"
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Desmarcar como Favorito"
 
-#: widgets/channellist/channellistview.cpp:158
+#: widgets/channellist/channellistview.cpp:159
 #, fuzzy, kde-format
 #| msgid "Hide Channel"
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Esconder o Canal"
 
-#: widgets/channellist/channellistview.cpp:175
+#: widgets/channellist/channellistview.cpp:188
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Converter para uma Equipa"
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:199
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Converter para um Canal"
 
-#: widgets/channellist/channellistview.cpp:189
+#: widgets/channellist/channellistview.cpp:202
 #, fuzzy, kde-format
 #| msgid "Do you want to convert this big text as attachment?"
 msgid "Do you want to convert team to channel?"
 msgstr "Deseja converter este texto extenso para um anexo?"
 
-#: widgets/channellist/channellistview.cpp:190
+#: widgets/channellist/channellistview.cpp:203
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Converter para um Canal"
 
-#: widgets/channellist/channellistview.cpp:205
+#: widgets/channellist/channellistview.cpp:218
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Mover para a Equipa"
 
-#: widgets/channellist/channellistview.cpp:221
+#: widgets/channellist/channellistview.cpp:234
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Notification"
@@ -8231,33 +8291,33 @@ msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configurar a Notificação"
 
-#: widgets/channellist/channellistview.cpp:238
+#: widgets/channellist/channellistview.cpp:251
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Sair do Canal"
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Any team selected."
 msgstr "Qualquer equipa seleccionada."
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, fuzzy, kde-format
 #| msgid "Move To Team"
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Mover para a Equipa"
 
-#: widgets/channellist/channellistview.cpp:333
+#: widgets/channellist/channellistview.cpp:346
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Tem a certeza que o deseja converter a uma equipa? Isto não poderá ser "
 "anulado."
 
-#: widgets/channellist/channellistview.cpp:334
+#: widgets/channellist/channellistview.cpp:347
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgctxt "@title:window"

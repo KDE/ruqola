@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:54+0000\n"
-"PO-Revision-Date: 2026-10-31 16:02+0200\n"
+"POT-Creation-Date: 2026-11-03 00:55+0000\n"
+"PO-Revision-Date: 2026-11-02 09:00+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -831,30 +831,24 @@ msgid "Get Server Info"
 msgstr "Встановити дані щодо сервера"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
-#, fuzzy, kde-format
-#| msgid "Privacy Summary"
+#, kde-format
 msgid "Get Unread Summary"
-msgstr "Резюме щодо конфіденційності"
+msgstr "Отримати резюме щодо непрочитаних"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
-#, fuzzy, kde-format
-#| msgid "%1 Unread Message"
-#| msgid_plural "%1 Unread Messages"
+#, kde-format
 msgid "No unread messages"
-msgstr "%1 непрочитане повідомлення"
+msgstr "Немає непрочитаних повідомлень"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Get User Status"
-msgstr "Редагування запису стану користувача"
+msgstr "Отримати стани користувачів"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing user name"
-msgstr "Пропущено адресу сервера."
+msgstr "Пропущено ім'я користувача"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:31
 #, kde-format
@@ -1428,7 +1422,7 @@ msgstr "Тип каналу"
 msgid "Belongs To"
 msgstr "Належить"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:686
+#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:689
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1573,7 +1567,7 @@ msgstr "Двофакторне розпізнавання"
 msgid "Last token part"
 msgstr "Остання частина жетона"
 
-#: core/model/roommodel.cpp:616
+#: core/model/roommodel.cpp:619
 #, kde-format
 msgid "%1 Mention"
 msgid_plural "%1 Mentions"
@@ -1582,7 +1576,7 @@ msgstr[1] "%1 згадування"
 msgstr[2] "%1 згадувань"
 msgstr[3] "%1 згадування"
 
-#: core/model/roommodel.cpp:620
+#: core/model/roommodel.cpp:623
 #, kde-format
 msgid "%1 Group Mention"
 msgid_plural "%1 Group Mentions"
@@ -1591,7 +1585,7 @@ msgstr[1] "%1 згадування групи"
 msgstr[2] "%1 згадувань групи"
 msgstr[3] "%1 згадування групи"
 
-#: core/model/roommodel.cpp:624
+#: core/model/roommodel.cpp:627
 #, kde-format
 msgid "%1 Unread Threaded Message"
 msgid_plural "%1 Unread Threaded Messages"
@@ -1600,7 +1594,7 @@ msgstr[1] "%1 непрочитаних повідомлення з гілкою"
 msgstr[2] "%1 непрочитаних повідомлень з гілкою"
 msgstr[3] "%1 непрочитане повідомлення з гілкою"
 
-#: core/model/roommodel.cpp:628
+#: core/model/roommodel.cpp:631
 #, kde-format
 msgid "%1 Unread Message"
 msgid_plural "%1 Unread Messages"
@@ -1609,57 +1603,57 @@ msgstr[1] "%1 непрочитаних повідомлення"
 msgstr[2] "%1 непрочитаних повідомлень"
 msgstr[3] "%1 непрочитане повідомлення"
 
-#: core/model/roommodel.cpp:654
+#: core/model/roommodel.cpp:657
 #, kde-format
 msgid "Teams Room"
 msgstr "Кімната команд"
 
-#: core/model/roommodel.cpp:660
+#: core/model/roommodel.cpp:663
 #, kde-format
 msgid "Private Room"
 msgstr "Приватна кімната"
 
-#: core/model/roommodel.cpp:662
+#: core/model/roommodel.cpp:665
 #, kde-format
 msgid "Discussion Room"
 msgstr "Кімната обговорення"
 
-#: core/model/roommodel.cpp:666
+#: core/model/roommodel.cpp:669
 #, kde-format
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:680 widgets/dialogs/showtheadscombobox.cpp:16
+#: core/model/roommodel.cpp:683 widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
 
-#: core/model/roommodel.cpp:682
+#: core/model/roommodel.cpp:685
 #, kde-format
 msgid "Favorites"
 msgstr "Улюблене"
 
-#: core/model/roommodel.cpp:684
+#: core/model/roommodel.cpp:687
 #, kde-format
 msgid "Teams"
 msgstr "Команди"
 
-#: core/model/roommodel.cpp:688
+#: core/model/roommodel.cpp:691
 #, kde-format
 msgid "Discussions"
 msgstr "Обговорення"
 
-#: core/model/roommodel.cpp:690
+#: core/model/roommodel.cpp:693
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:692
+#: core/model/roommodel.cpp:695
 #, kde-format
 msgid "Draft"
 msgstr "Чернетка"
 
-#: core/model/roommodel.cpp:694 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:697 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -7644,11 +7638,32 @@ msgid "Show Unread"
 msgstr "Показати непрочитані"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:25
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"
+
+#: widgets/category/categoriesmenu.cpp:20
+#, fuzzy, kde-format
+#| msgid "Category:"
+msgctxt "@title:menu"
+msgid "Category"
+msgstr "Категорія:"
+
+#: widgets/category/categoriesmenu.cpp:57
+#, fuzzy, kde-format
+#| msgid "Category:"
+msgctxt "@action"
+msgid "No Category"
+msgstr "Категорія:"
+
+#: widgets/category/categoriesmenu.cpp:82
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@action"
+msgid "Manage Categories…"
+msgstr "Категорії"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
@@ -7667,91 +7682,136 @@ msgstr "Перейменувати категорію"
 msgid "Category:"
 msgstr "Категорія:"
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/category/managecategoriesdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Categories"
+msgctxt "@title:window"
+msgid "Manage Categories"
+msgstr "Категорії"
+
+#: widgets/category/managecategorieswidget.cpp:45
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Category"
+msgctxt "@info:tooltip"
+msgid "Add Category…"
+msgstr "Додати категорію"
+
+#: widgets/category/managecategorieswidget.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Category"
+msgctxt "@info:tooltip"
+msgid "Rename Category…"
+msgstr "Перейменувати категорію"
+
+#: widgets/category/managecategorieswidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Category"
+msgctxt "@info:tooltip"
+msgid "Remove Category"
+msgstr "Перейменувати категорію"
+
+#: widgets/category/managecategorieswidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Do you want to remove this user \"%1\"?"
+msgid "Do you want to remove this category (%1)?"
+msgstr "Хочете вилучити запис користувача «%1»?"
+
+#: widgets/category/managecategorieswidget.cpp:145
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Category"
+msgctxt "@title:window"
+msgid "Remove Category"
+msgstr "Перейменувати категорію"
+
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Mark as Unread"
 msgstr "Позначити як непрочитане"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #: widgets/room/messagelistview.cpp:473
 #, kde-format
 msgctxt "@action"
 msgid "Set as Favorite"
 msgstr "Зробити улюбленим"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Unset as Favorite"
 msgstr "Скасувати позначення улюбленим"
 
-#: widgets/channellist/channellistview.cpp:158
+#: widgets/channellist/channellistview.cpp:159
 #, kde-format
 msgctxt "@action"
 msgid "Hide Channel"
 msgstr "Приховати канал"
 
-#: widgets/channellist/channellistview.cpp:175
+#: widgets/channellist/channellistview.cpp:188
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Team"
 msgstr "Перетворити на команду"
 
-#: widgets/channellist/channellistview.cpp:186
+#: widgets/channellist/channellistview.cpp:199
 #, kde-format
 msgctxt "@action"
 msgid "Convert to Channel"
 msgstr "Перетворити на канал"
 
-#: widgets/channellist/channellistview.cpp:189
+#: widgets/channellist/channellistview.cpp:202
 #, kde-format
 msgid "Do you want to convert team to channel?"
 msgstr "Хочете перетворити команду на канал?"
 
-#: widgets/channellist/channellistview.cpp:190
+#: widgets/channellist/channellistview.cpp:203
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert To Channel"
 msgstr "Перетворення на канал"
 
-#: widgets/channellist/channellistview.cpp:205
+#: widgets/channellist/channellistview.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Move to Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:221
+#: widgets/channellist/channellistview.cpp:234
 #, kde-format
 msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Налаштувати сповіщення…"
 
-#: widgets/channellist/channellistview.cpp:238
+#: widgets/channellist/channellistview.cpp:251
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Вийти з каналу"
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgid "Any team selected."
 msgstr "Не вибрано жодної команди."
 
-#: widgets/channellist/channellistview.cpp:280
+#: widgets/channellist/channellistview.cpp:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:333
+#: widgets/channellist/channellistview.cpp:346
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Ви справді хочете перетворити це на команду? Наслідки дії не можна буде "
 "скасувати."
 
-#: widgets/channellist/channellistview.cpp:334
+#: widgets/channellist/channellistview.cpp:347
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
