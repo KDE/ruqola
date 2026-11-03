@@ -58,7 +58,6 @@ public:
     Q_ENUM(RoomRoles)
 
     enum class Section : uint8_t {
-        Draft,
         Unread,
         Favorites,
         Teams,

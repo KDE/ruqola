@@ -24,5 +24,4 @@ public:
 private:
     RocketChatAccount *const mRocketChatAccount;
     QCheckBox *const mTimeStampCheckBox;
-    QCheckBox *const mAddDraftCheckBox;
 };

@@ -561,14 +561,6 @@ MessagesModel *RoomModel::messageModel(const QByteArray &roomId) const
 
 RoomModel::Section RoomModel::section(Room *r) const
 {
-    if (mRocketChatAccount
-        && mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
-        if (mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
-            if (hasPendingMessageTyped(r)) {
-                return Section::Draft;
-            }
-        }
-    }
     const Room::RoomType roomType = r->channelType();
     if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
         if (!r->hideUnreadStatus()) {
@@ -691,8 +683,6 @@ QString RoomModel::sectionName(Section sectionId)
         return i18n("Discussions");
     case RoomModel::Section::PrivateMessages:
         return i18n("Private Messages");
-    case RoomModel::Section::Draft:
-        return i18n("Draft");
     case RoomModel::Section::Unknown:
         return i18n("Unknown");
     case RoomModel::Section::NSections:

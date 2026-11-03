@@ -68,7 +68,6 @@ void RoomListHeadingsProxyModelTest::shouldReturnRowCount()
     // THEN
     const auto expectedCount = [](RoomModel::Section section) {
         switch (section) {
-        case RoomModel::Section::Draft:
         case RoomModel::Section::Unread:
         case RoomModel::Section::Favorites:
         case RoomModel::Section::Rooms:

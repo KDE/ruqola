@@ -20,7 +20,6 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     , mAllowFeaturePreview(new QCheckBox(i18nc("@option:check", "Allow Feature Preview"), this))
     , mQuickReactions(new QCheckBox(i18nc("@option:check", "Quick Reactions"), this))
     , mTimestampInMessages(new QCheckBox(i18nc("@option:check", "Timestamp in Messages"), this))
-    , mDraftMessages(new QCheckBox(i18nc("@option:check", "Draft Messages"), this))
     , mRocketChatAccount(account)
     , mPreviewMessageWidget(new FeaturePreviewMessageWidget(this))
 {
@@ -35,22 +34,12 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     mQuickReactions->setObjectName(u"mQuickReactions"_s);
     mainLayout->addWidget(mQuickReactions);
 
-    mDraftMessages->setObjectName(u"mDraftMessages"_s);
-    mainLayout->addWidget(mDraftMessages);
-
     mTimestampInMessages->setObjectName(u"mTimestampInMessages"_s);
     mainLayout->addWidget(mTimestampInMessages);
     // Move in stable in RC 8.0.0
     if (account && account->hasAtLeastVersion(8, 0, 0)) {
         if (!account->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
             mTimestampInMessages->hide();
-        }
-        if (account->hasAtLeastVersion(8, 5, 0)) {
-            if (!account->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
-                mDraftMessages->hide();
-            }
-        } else {
-            mDraftMessages->hide();
         }
         mQuickReactions->hide();
     }
@@ -64,7 +53,6 @@ FeaturePreviewWidget::FeaturePreviewWidget(RocketChatAccount *account, QWidget *
     connect(mAllowFeaturePreview, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
     connect(mQuickReactions, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
     connect(mTimestampInMessages, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
-    connect(mDraftMessages, &QCheckBox::clicked, this, &FeaturePreviewWidget::slotNeedSaveSettings);
     connect(mPreviewMessageWidget, &FeaturePreviewMessageWidget::saveSettings, this, &FeaturePreviewWidget::slotSaveSettings);
 }
 
@@ -79,16 +67,12 @@ void FeaturePreviewWidget::slotFeaturePreviewChanged(bool checked)
 {
     mQuickReactions->setEnabled(checked);
     mTimestampInMessages->setEnabled(checked);
-    mDraftMessages->setEnabled(checked);
 }
 
 void FeaturePreviewWidget::initialize()
 {
     if (!mRocketChatAccount) {
         return;
-    }
-    if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport)) {
-        mDraftMessages->setChecked(mRocketChatAccount->ownUserPreferences().hasFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableDraftSupport));
     }
     if (mRocketChatAccount->ownUserPreferences().serverHasPreviewFeature(FeaturePreviewPreferences::FeaturePreviewType::EnableTimestampMessageParser)) {
         mTimestampInMessages->setChecked(
@@ -111,13 +95,6 @@ void FeaturePreviewWidget::slotSaveSettings()
         {
             QJsonObject obj;
             obj["_id"_L1] = u"Accounts_Default_User_Preferences_featuresPreview"_s;
-            if (mDraftMessages->isChecked()) {
-                const QString value = u"[{\"name\":\"sidebarDrafts\",\"value\":true}]"_s;
-                obj["value"_L1] = value;
-            } else {
-                const QString value = u"[{\"name\":\"sidebarDrafts\",\"value\":false}]"_s;
-                obj["value"_L1] = value;
-            }
             previewFeatures.append(std::move(obj));
         }
         params.append(std::move(previewFeatures));

@@ -16,7 +16,6 @@ public:
     enum FeaturePreviewType {
         None = 0,
         EnableTimestampMessageParser = 1,
-        EnableDraftSupport = 2,
     };
     Q_ENUM(FeaturePreviewType)
 
