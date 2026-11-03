@@ -5,10 +5,10 @@
 */
 
 #pragma once
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QString>
 class QDebug;
-class LIBRUQOLACORE_TESTS_EXPORT Category
+class LIBRUQOLACORE_EXPORT Category
 {
 public:
     Category();
