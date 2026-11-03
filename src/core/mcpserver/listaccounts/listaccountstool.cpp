@@ -11,7 +11,6 @@
 #include <KLocalizedString>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolTool>
-#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolToolAnnotations>
 using namespace Qt::Literals::StringLiterals;
 ListAccountsTool::ListAccountsTool(AccountManager *accountManager)
     : ToolBase(accountManager)
@@ -23,13 +22,10 @@ ListAccountsTool::~ListAccountsTool() = default;
 TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListAccountsTool::definition() const
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool =
-        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(u"list_accounts"_s, u"List the accounts"_s);
-
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolToolAnnotations annotation;
-    annotation.setReadOnlyHint(true);
-    annotation.setOpenWorldHint(false);
-    tool.setTitle(i18n("List Accounts"));
-    tool.setAnnotations(annotation);
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(u"list_accounts"_s,
+                                                                               i18n("List Accounts"),
+                                                                               u"List the accounts"_s,
+                                                                               TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly);
     // TODO ToolUtils::addToolMeta(tool, ToolUtils::Mail);
     return tool;
 }

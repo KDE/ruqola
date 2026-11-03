@@ -11,7 +11,6 @@
 #include <QDateTime>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolTool>
-#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolToolAnnotations>
 
 using namespace Qt::Literals::StringLiterals;
 GetRoomInfoTool::GetRoomInfoTool(AccountManager *accountManager)
@@ -25,17 +24,13 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetRoomInfoTool::definition
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
         u"get_room_info"_s,
+        i18n("Get Room Info"),
         u"Get information about a room"_s,
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
             {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms)"_s)}},
         {u"roomId"_s});
-
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolToolAnnotations annotation;
-    annotation.setReadOnlyHint(true);
-    annotation.setOpenWorldHint(false);
-    tool.setTitle(i18n("Get Room Info"));
-    tool.setAnnotations(annotation);
     return tool;
 }
 

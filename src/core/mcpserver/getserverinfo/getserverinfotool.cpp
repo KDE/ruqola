@@ -9,7 +9,6 @@
 #include <KLocalizedString>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolTool>
-#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolToolAnnotations>
 
 using namespace Qt::Literals::StringLiterals;
 GetServerInfoTool::GetServerInfoTool(AccountManager *accountManager)
@@ -23,15 +22,11 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetServerInfoTool::definiti
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
         u"get_server_info"_s,
+        i18n("Get Server Info"),
         u"Get information about the Rocket.Chat server of an account"_s,
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
-
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolToolAnnotations annotation;
-    annotation.setReadOnlyHint(true);
-    annotation.setOpenWorldHint(false);
-    tool.setTitle(i18n("Get Server Info"));
-    tool.setAnnotations(annotation);
     return tool;
 }
 

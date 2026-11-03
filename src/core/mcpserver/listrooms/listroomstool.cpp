@@ -10,7 +10,6 @@
 #include <KLocalizedString>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolTool>
-#include <TextAutoGenerateTextMcpProtocolCore/McpProtocolToolAnnotations>
 
 using namespace Qt::Literals::StringLiterals;
 ListRoomsTool::ListRoomsTool(AccountManager *accountManager)
@@ -24,15 +23,11 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListRoomsTool::definition()
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
         u"list_rooms"_s,
+        i18n("List Rooms"),
         u"List the rooms"_s,
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
-
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolToolAnnotations annotation;
-    annotation.setReadOnlyHint(true);
-    annotation.setOpenWorldHint(false);
-    tool.setTitle(i18n("List Rooms"));
-    tool.setAnnotations(annotation);
     // TODO ToolUtils::addToolMeta(tool, ToolUtils::Mail);
     return tool;
 }
