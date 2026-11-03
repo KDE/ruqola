@@ -14,6 +14,7 @@
 #include "model/roomlistheadingsproxymodel.h"
 #include "rocketchataccount.h"
 #include "room/debugdialog/showdebugdialog.h"
+#include "rooms/roomssetcategoryjob.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "subscriptions/markroomasunreadjob.h"
@@ -447,9 +448,14 @@ void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType r
 void ChannelListView::slotSetCategory(const QModelIndex &index, const QByteArray &identifier)
 {
     const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
-    // TODO mCurrentRocketChatAccount->leaveRoom(roomId, roomType);
+    auto job = new RocketChatRestApi::RoomsSetCategoryJob(this);
+    job->setCategoryId(identifier);
+    job->setRoomIds({roomId});
 
-    // TODO
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsSetCategoryJob job";
+    }
 }
 
 void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType)
