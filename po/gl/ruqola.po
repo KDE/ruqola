@@ -9627,8 +9627,7 @@ msgid "Disable Encryption"
 msgstr "Desactivar a cifraxe"
 
 #: widgets/encryption/e2edisablewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Reset encryption keys"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reset encryption keys"
 msgstr "Restabelecer as chaves de cifraxe"
