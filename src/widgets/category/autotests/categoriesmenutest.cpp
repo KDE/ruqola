@@ -97,4 +97,28 @@ void CategoriesMenuTest::shouldEmitAssignCategory()
     QVERIFY(m.currentCategory().isEmpty());
 }
 
+void CategoriesMenuTest::shouldHideDefaultCategories()
+{
+    CategoriesMenu m(nullptr);
+    Category defaultCategory = createCategory("default", u"name-default"_s);
+    defaultCategory.setDefaultCategory(true);
+    const QList<Category> categories{createCategory("category1", u"name-category1"_s), defaultCategory};
+    m.setCategories(categories);
+    // Default categories are hidden but kept
+    QCOMPARE(m.categories(), categories);
+
+    // no category + separator + 1 category + separator + manage
+    QCOMPARE(m.actions().count(), 5);
+    QVERIFY(actionFromText(m, u"name-category1"_s));
+    QVERIFY(!actionFromText(m, u"name-default"_s));
+
+    // WHEN
+    m.setCategories({defaultCategory});
+
+    // THEN: same as without categories
+    QCOMPARE(m.actions().count(), 1);
+    QVERIFY(m.findChild<QAction *>(u"manageCategoriesAction"_s));
+    QVERIFY(!m.findChild<QAction *>(u"noCategoryAction"_s));
+}
+
 #include "moc_categoriesmenutest.cpp"

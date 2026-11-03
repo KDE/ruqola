@@ -9,6 +9,7 @@
 #include <KLocalizedString>
 #include <QActionGroup>
 #include <QPointer>
+#include <algorithm>
 using namespace Qt::Literals::StringLiterals;
 
 CategoriesMenu::CategoriesMenu(RocketChatAccount *account, QWidget *parent)
@@ -52,7 +53,11 @@ QByteArray CategoriesMenu::currentCategory() const
 void CategoriesMenu::updateMenu()
 {
     clear();
-    if (!mCategories.isEmpty()) {
+    // Default categories are never shown.
+    const bool hasVisibleCategory = std::ranges::any_of(mCategories, [](const Category &category) {
+        return !category.defaultCategory();
+    });
+    if (hasVisibleCategory) {
         // A room belongs to at most one category, so the actions are exclusive.
         auto noCategoryAction = new QAction(i18nc("@action", "No Category"), this);
         noCategoryAction->setObjectName(u"noCategoryAction"_s);
@@ -67,6 +72,9 @@ void CategoriesMenu::updateMenu()
         addSeparator();
 
         for (const Category &category : std::as_const(mCategories)) {
+            if (category.defaultCategory()) {
+                continue;
+            }
             auto categoryAction = new QAction(category.name(), this);
             categoryAction->setCheckable(true);
             categoryAction->setChecked(category.identifier() == mCurrentCategory);
