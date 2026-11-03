@@ -71,7 +71,7 @@ bool RoomsSetCategoryJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (mCategoryId.isEmpty() || mRoomIds.isEmpty()) {
+    if (mRoomIds.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsSetCategoryJob: mCategoryId or mRoomIds is empty.";
         return false;
     }
@@ -81,7 +81,7 @@ bool RoomsSetCategoryJob::canStart() const
 QJsonDocument RoomsSetCategoryJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["category"_L1] = QString::fromLatin1(mCategoryId);
+    jsonObj["category"_L1] = mCategoryId.isEmpty() ? QJsonValue(QJsonValue::Null) : QJsonValue(QString::fromLatin1(mCategoryId));
     QJsonArray roomIdsArray;
     for (const QByteArray &ba : mRoomIds) {
         roomIdsArray.append(QString::fromLatin1(ba));

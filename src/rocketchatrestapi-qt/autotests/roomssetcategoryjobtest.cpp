@@ -67,6 +67,10 @@ void RoomsSetCategoryJobTest::shouldNotStarting()
     const QList<QByteArray> roomIds({"foo1", "bla"});
     job.setRoomIds(roomIds);
     QVERIFY(job.canStart());
+
+    // Only roomIds are necessary
+    job.setCategoryId({});
+    QVERIFY(job.canStart());
 }
 
 #include "moc_roomssetcategoryjobtest.cpp"
