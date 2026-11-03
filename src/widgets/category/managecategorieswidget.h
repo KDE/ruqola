@@ -9,6 +9,7 @@
 #include <QWidget>
 class QListView;
 class QModelIndex;
+class QSortFilterProxyModel;
 class QStandardItem;
 class QStandardItemModel;
 class QToolButton;
@@ -35,6 +36,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT static void updateItem(QStandardItem *item, const Category &category);
     QListView *const mCategoriesListView;
     QStandardItemModel *const mCategoriesModel;
+    QSortFilterProxyModel *const mCategoriesProxyModel;
     QToolButton *const mAddButton;
     QToolButton *const mModifyButton;
     QToolButton *const mRemoveButton;

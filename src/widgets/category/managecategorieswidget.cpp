@@ -11,15 +11,41 @@
 #include <QHBoxLayout>
 #include <QListView>
 #include <QPointer>
+#include <QSortFilterProxyModel>
 #include <QStandardItemModel>
 #include <QToolButton>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 
+namespace
+{
+class HideDefaultCategoriesProxyModel : public QSortFilterProxyModel
+{
+public:
+    explicit HideDefaultCategoriesProxyModel(int categoryRole, QObject *parent)
+        : QSortFilterProxyModel(parent)
+        , mCategoryRole(categoryRole)
+    {
+    }
+
+protected:
+    [[nodiscard]] bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override
+    {
+        // Hide default categories we don't want to see them.
+        const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
+        return !index.data(mCategoryRole).value<Category>().defaultCategory();
+    }
+
+private:
+    const int mCategoryRole;
+};
+}
+
 ManageCategoriesWidget::ManageCategoriesWidget(QWidget *parent)
     : QWidget{parent}
     , mCategoriesListView(new QListView(this))
     , mCategoriesModel(new QStandardItemModel(this))
+    , mCategoriesProxyModel(new HideDefaultCategoriesProxyModel(CategoryRole, this))
     , mAddButton(new QToolButton(this))
     , mModifyButton(new QToolButton(this))
     , mRemoveButton(new QToolButton(this))
@@ -29,7 +55,8 @@ ManageCategoriesWidget::ManageCategoriesWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mCategoriesListView->setObjectName(u"mCategoriesListView"_s);
-    mCategoriesListView->setModel(mCategoriesModel);
+    mCategoriesProxyModel->setSourceModel(mCategoriesModel);
+    mCategoriesListView->setModel(mCategoriesProxyModel);
     mCategoriesListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     mainLayout->addWidget(mCategoriesListView);
     connect(mCategoriesListView, &QListView::doubleClicked, this, qOverload<const QModelIndex &>(&ManageCategoriesWidget::slotModifyCategory));
@@ -122,7 +149,7 @@ void ManageCategoriesWidget::slotModifyCategory(const QModelIndex &index)
     if (!index.isValid()) {
         return;
     }
-    QStandardItem *item = mCategoriesModel->itemFromIndex(index);
+    QStandardItem *item = mCategoriesModel->itemFromIndex(mCategoriesProxyModel->mapToSource(index));
     // copy => we keep identifier
     Category category = item->data(CategoryRole).value<Category>();
     QPointer<CategoryDialog> dialog(new CategoryDialog(CategoryDialog::Mode::Rename, this));
@@ -146,7 +173,7 @@ void ManageCategoriesWidget::slotRemoveCategory()
                                         KStandardGuiItem::remove(),
                                         KStandardGuiItem::cancel())
         == KMessageBox::PrimaryAction) {
-        mCategoriesModel->removeRow(index.row());
+        mCategoriesModel->removeRow(mCategoriesProxyModel->mapToSource(index).row());
         updateButtons();
     }
 }

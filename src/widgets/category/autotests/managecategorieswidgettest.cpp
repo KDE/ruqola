@@ -73,7 +73,8 @@ void ManageCategoriesWidgetTest::shouldStoreCategories()
 
     auto mCategoriesListView = w.findChild<QListView *>(u"mCategoriesListView"_s);
     QVERIFY(mCategoriesListView);
-    QCOMPARE(mCategoriesListView->model()->rowCount(), 2);
+    // The default category is hidden but kept
+    QCOMPARE(mCategoriesListView->model()->rowCount(), 1);
     QCOMPARE(mCategoriesListView->model()->index(0, 0).data().toString(), u"name-category1"_s);
     QCOMPARE(w.categories(), categories);
 }
