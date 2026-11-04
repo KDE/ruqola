@@ -50,7 +50,6 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<SearchRoomsTool>(mAccountManager));
     addTool(std::make_unique<SearchUsersTool>(mAccountManager));
     loadConfig();
-    // TODO add more
 }
 
 McpServerManager::~McpServerManager() = default;
