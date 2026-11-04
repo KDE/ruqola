@@ -69,6 +69,7 @@ public:
         Rooms,
         PrivateMessages,
         Discussions,
+        Conversations,
         Unknown,
         NSections,
     };

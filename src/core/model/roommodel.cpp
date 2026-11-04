@@ -707,6 +707,8 @@ QString RoomModel::sectionName(Section sectionId)
         return i18n("Open Live chats");
     case RoomModel::Section::OnHoldChats:
         return i18n("On Hold Chats");
+    case RoomModel::Section::Conversations:
+        return i18n("Conversations");
     case RoomModel::Section::NSections:
         break;
     }

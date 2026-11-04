@@ -73,6 +73,7 @@ void RoomListHeadingsProxyModelTest::shouldReturnRowCount()
         case RoomModel::Section::OpenLivechats:
         case RoomModel::Section::OnHoldChats:
         case RoomModel::Section::Unread:
+        case RoomModel::Section::Conversations:
         case RoomModel::Section::Favorites:
         case RoomModel::Section::Rooms:
         case RoomModel::Section::Unknown:

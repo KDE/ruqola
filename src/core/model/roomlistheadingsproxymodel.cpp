@@ -311,6 +311,7 @@ int RoomListHeadingsProxyModel::sectionId(const QModelIndex &sourceIndex) const
     case RoomModel::Section::IncomingLivechats:
     case RoomModel::Section::OpenLivechats:
     case RoomModel::Section::OnHoldChats:
+    case RoomModel::Section::Conversations:
     case RoomModel::Section::Unread:
         return mStandardSectionRows.at(uint(kind));
     default:
