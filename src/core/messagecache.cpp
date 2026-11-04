@@ -68,19 +68,21 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
             mMessageJobs.insert(messageId, job);
         }
 #else
-        auto job = new RocketChatRestApi::GetMessageJob(this);
-        job->setMessageId(messageId);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone, this, [this, messageId](const QJsonObject &replyObj) {
-            slotGetSingleMessageDone(replyObj, messageId);
-        });
-        connect(job, &RocketChatRestApi::MethodCallJob::failed, this, [this, messageId]() {
-            mMessageJobs.remove(messageId);
-        });
-        if (!startJob(job)) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
-        } else {
-            mMessageJobs.insert(messageId, job);
+        if (mRocketChatAccount && mRocketChatAccount->restApi()) {
+            auto job = new RocketChatRestApi::GetMessageJob(this);
+            job->setMessageId(messageId);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone, this, [this, messageId](const QJsonObject &replyObj) {
+                slotGetSingleMessageDone(replyObj, messageId);
+            });
+            connect(job, &RocketChatRestApi::MethodCallJob::failed, this, [this, messageId]() {
+                mMessageJobs.remove(messageId);
+            });
+            if (!startJob(job)) {
+                qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
+            } else {
+                mMessageJobs.insert(messageId, job);
+            }
         }
 
 #endif
