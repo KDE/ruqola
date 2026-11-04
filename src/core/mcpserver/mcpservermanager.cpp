@@ -11,6 +11,7 @@
 #include "mcpserver/getserverinfo/getserverinfotool.h"
 #include "mcpserver/getunreadsummary/getunreadsummarytool.h"
 #include "mcpserver/getuserstatus/getuserstatustool.h"
+#include "mcpserver/listroommembers/listroommemberstool.h"
 #include "mcpserver/listrooms/listroomstool.h"
 #include "mcpserver/pinmessage/pinmessagetool.h"
 #include "mcpserver/searchmessages/searchmessagestool.h"
@@ -53,6 +54,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<SearchRoomsTool>(mAccountManager));
     addTool(std::make_unique<SearchUsersTool>(mAccountManager));
     addTool(std::make_unique<SearchMessagesTool>(mAccountManager));
+    addTool(std::make_unique<ListRoomMembersTool>(mAccountManager));
     addTool(std::make_unique<StarMessageTool>(mAccountManager));
     addTool(std::make_unique<PinMessageTool>(mAccountManager));
     loadConfig();
