@@ -45,7 +45,7 @@ private:
     QHash<QByteArray, RocketChatRestApi::GetThreadMessagesJob *> mThreadMessageJobs;
     QCache<QByteArray, ThreadMessageModel> mThreadMessageModels;
 
-    QHash<QByteArray, RocketChatRestApi::MethodCallJob *> mMessageJobs;
+    QHash<QByteArray, RocketChatRestApi::RestApiAbstractJob *> mMessageJobs;
     QCache<QByteArray, Message> mMessages;
     RocketChatAccount *const mRocketChatAccount;
 };
