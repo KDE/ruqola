@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "getroominfotool.h"
+#include "mcpserver/common/toolutils.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -31,6 +32,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetRoomInfoTool::definition
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
             {u"roomId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Room identifier (see list_rooms)"_s)}},
         {u"roomId"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::Rooms);
     return tool;
 }
 

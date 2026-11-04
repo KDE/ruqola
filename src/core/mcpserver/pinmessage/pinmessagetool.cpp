@@ -6,6 +6,7 @@
 #include "pinmessagetool.h"
 #include "chat/pinmessagejob.h"
 #include "connection.h"
+#include "mcpserver/common/toolutils.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
@@ -31,6 +32,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool PinMessageTool::definition(
             {u"messageId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Message identifier"_s)},
             {u"pinned"_s, McpProtocolServerTool::schemaProperty(u"boolean"_s, u"true to pin the message, false to unpin it; true if omitted"_s)}},
         {u"messageId"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::Messages);
     return tool;
 }
 

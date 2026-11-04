@@ -7,8 +7,20 @@
 
 #include <QString>
 
-class ToolUtils
+namespace TextAutoGenerateTextMcpProtocolCore
 {
-public:
-    ToolUtils();
+class McpProtocolMeta;
+class McpProtocolTool;
+}
+namespace ToolUtils
+{
+enum TitleType : uint8_t {
+    Rooms,
+    Messages,
 };
+
+void addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta &meta, TitleType type);
+void addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolTool &tool, TitleType type);
+[[nodiscard]] QString groupFromType(TitleType type);
+[[nodiscard]] QString groupTitleFromType(TitleType type);
+}

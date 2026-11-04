@@ -6,6 +6,7 @@
 #include "starmessagetool.h"
 #include "chat/starmessagejob.h"
 #include "connection.h"
+#include "mcpserver/common/toolutils.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
@@ -31,6 +32,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool StarMessageTool::definition
             {u"messageId"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Message identifier"_s)},
             {u"starred"_s, McpProtocolServerTool::schemaProperty(u"boolean"_s, u"true to star the message, false to unstar it; true if omitted"_s)}},
         {u"messageId"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::Messages);
     return tool;
 }
 
