@@ -6,6 +6,7 @@
 
 #include "messagecache.h"
 
+#include "chat/getmessagejob.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
@@ -50,6 +51,7 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
     if (cachedMessage) {
         return cachedMessage;
     } else if (!mMessageJobs.contains(messageId)) {
+#if 0
         auto job = new RocketChatRestApi::MethodCallJob(this);
 
         const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info = generateMethodCallInfo(messageId);
@@ -65,6 +67,23 @@ Message *MessageCache::messageForId(const QByteArray &messageId)
         } else {
             mMessageJobs.insert(messageId, job);
         }
+#else
+        auto job = new RocketChatRestApi::GetMessageJob(this);
+        job->setMessageId(messageId);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::GetMessageJob::getMessageDone, this, [this, messageId](const QJsonObject &replyObj) {
+            slotGetSingleMessageDone(replyObj, messageId);
+        });
+        connect(job, &RocketChatRestApi::MethodCallJob::failed, this, [this, messageId]() {
+            mMessageJobs.remove(messageId);
+        });
+        if (!startJob(job)) {
+            qCWarning(RUQOLA_LOG) << "Impossible to start MethodCallJobInfo/getSingleMessage job";
+        } else {
+            mMessageJobs.insert(messageId, job);
+        }
+
+#endif
     }
     return nullptr;
 }
@@ -86,8 +105,8 @@ void MessageCache::slotGetThreadMessagesDone(const QJsonObject &obj, const QByte
 void MessageCache::slotGetSingleMessageDone(const QJsonObject &obj, const QByteArray &messageId)
 {
     mMessageJobs.remove(messageId);
-    if (obj.contains("result"_L1)) {
-        const QJsonObject msgObject = obj["result"_L1].toObject();
+    if (obj.contains("message"_L1)) {
+        const QJsonObject msgObject = obj["message"_L1].toObject();
         if (msgObject.isEmpty()) {
             qCWarning(RUQOLA_LOG) << " Message " << messageId << " does not exist. It was removed it seems";
             // TODO load from attachment info ???
