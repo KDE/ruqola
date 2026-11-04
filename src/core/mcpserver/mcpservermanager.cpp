@@ -13,6 +13,7 @@
 #include "mcpserver/getuserstatus/getuserstatustool.h"
 #include "mcpserver/listrooms/listroomstool.h"
 #include "mcpserver/pinmessage/pinmessagetool.h"
+#include "mcpserver/searchmessages/searchmessagestool.h"
 #include "mcpserver/searchrooms/searchroomstool.h"
 #include "mcpserver/searchusers/searchuserstool.h"
 #include "mcpserver/setmystatus/setmystatustool.h"
@@ -51,6 +52,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<SetMyStatusTool>(mAccountManager));
     addTool(std::make_unique<SearchRoomsTool>(mAccountManager));
     addTool(std::make_unique<SearchUsersTool>(mAccountManager));
+    addTool(std::make_unique<SearchMessagesTool>(mAccountManager));
     addTool(std::make_unique<StarMessageTool>(mAccountManager));
     addTool(std::make_unique<PinMessageTool>(mAccountManager));
     loadConfig();
