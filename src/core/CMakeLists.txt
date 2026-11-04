@@ -650,6 +650,10 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/searchrooms/searchroomstool.cpp
             mcpserver/searchusers/searchuserstool.h
             mcpserver/searchusers/searchuserstool.cpp
+            mcpserver/starmessage/starmessagetool.h
+            mcpserver/starmessage/starmessagetool.cpp
+            mcpserver/pinmessage/pinmessagetool.h
+            mcpserver/pinmessage/pinmessagetool.cpp
     )
 endif()
 
