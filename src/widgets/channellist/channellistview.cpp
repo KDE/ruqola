@@ -166,7 +166,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     if (mCurrentRocketChatAccount->hasAtLeastVersion(8, 9, 0)) { // TODO we need to be sure that RC support it. Settings ?
         menu.addSeparator();
-        auto categoryMenu = new CategoriesMenu(mCurrentRocketChatAccount, this);
+        auto categoryMenu = new CategoriesMenu(mCurrentRocketChatAccount, &menu);
         categoryMenu->setCategories(mCurrentRocketChatAccount->ownUserPreferences().categories());
         categoryMenu->setCurrentCategory(index.data(RoomModel::RoomCategory).toByteArray());
         connect(categoryMenu, &CategoriesMenu::assignCategory, this, [this, index](const QByteArray &identifier) {
