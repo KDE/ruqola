@@ -38,8 +38,6 @@ public:
     void addMoreElements(const QJsonObject &obj) override;
     [[nodiscard]] QList<int> hideColumns() const override;
 
-    void removeElement(const QByteArray &identifier) override;
-
     [[nodiscard]] const ModerationReportedUserInfos &moderationInfos() const;
     void setModerationInfos(ModerationReportedUserInfos userInfos);
 

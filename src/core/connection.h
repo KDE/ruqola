@@ -54,9 +54,6 @@ public:
     [[nodiscard]] QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    void setUserName(const QString &userName);
-    void setPassword(const QString &password);
-
     void initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job);
 
     void logout();

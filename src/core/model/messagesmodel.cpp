@@ -492,14 +492,6 @@ QVariant MessagesModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-void MessagesModel::generateText(const Message &message, const QString &searchText, int hightLightStringIndex)
-{
-    // TODO
-    // int numberOfTextSearched = 0;
-    const QString mHtmlGenerated = convertedText(message, searchText);
-    // mNumberOfTextSearched = numberOfTextSearched;
-}
-
 void MessagesModel::decryptMessage(const Message &message) const
 {
     if (!mRoom) {

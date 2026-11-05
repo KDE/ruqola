@@ -185,8 +185,6 @@ public:
      */
     void markMessagesReadUntil(qint64 until);
 
-    void generateText(const Message &message, const QString &searchText, int hightLightStringIndex);
-
     void decryptMessages();
 
     void changeLocalTranslation(const QByteArray &messageId, const QString &result);

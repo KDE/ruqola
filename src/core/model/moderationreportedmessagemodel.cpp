@@ -156,21 +156,4 @@ QList<int> ModerationReportedMessageModel::hideColumns() const
             ModerationReportedMessageRoles::ReportDate};
 }
 
-void ModerationReportedMessageModel::removeElement([[maybe_unused]] const QByteArray &identifier)
-{
-#if 0
-    const int userCount = mModerationInfos.count();
-    for (int i = 0; i < userCount; ++i) {
-        if (mModerationInfos.at(i).sessionId() == identifier) {
-            beginRemoveRows(QModelIndex(), i, i);
-            mModerationInfos.takeAt(i);
-            mModerationInfos.setTotal(mModerationInfos.count()); // Update total
-            endRemoveRows();
-            Q_EMIT totalChanged();
-            break;
-        }
-    }
-#endif
-}
-
 #include "moc_moderationreportedmessagemodel.cpp"

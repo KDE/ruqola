@@ -203,12 +203,6 @@ quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
     return method(result, DDPClient::MethodRequestedType::UnBlockUser, DDPClient::MessageType::Persistent);
 }
 
-quint64 DDPClient::uploadCustomSound(const QByteArray &sound)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->uploadCustomSound(sound, mUid);
-    return method(result, DDPClient::MethodRequestedType::UpdateCustomSound, DDPClient::MessageType::Persistent);
-}
-
 quint64 DDPClient::enable2fa()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->enable2fa(mUid);

@@ -170,7 +170,6 @@ public:
     quint64 inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, bool threadDialog);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
-    quint64 uploadCustomSound(const QByteArray &sound);
     void unsubscribe(quint64 registerId);
     quint64 enable2fa();
     quint64 disable2fa(const QString &code);

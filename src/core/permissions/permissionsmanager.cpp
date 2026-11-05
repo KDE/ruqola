@@ -14,10 +14,6 @@ PermissionsManager::PermissionsManager() = default;
 void PermissionsManager::parsePermissions(const QJsonObject &replyObject)
 {
     mMapPermissions.clear(); // Full sync — remove stale permissions first
-    const QJsonArray removeArray = replyObject["remove"_L1].toArray();
-    if (!removeArray.isEmpty()) {
-        parseRemovePermission(removeArray);
-    }
     const QJsonArray updateArray = replyObject["update"_L1].toArray();
     parseUpdatePermission(updateArray);
     // qDebug() << "mMapPermissions  " << mMapPermissions;
@@ -49,11 +45,6 @@ QStringList PermissionsManager::roles(QStringView permissionId) const
 int PermissionsManager::permissionCount() const
 {
     return mMapPermissions.count();
-}
-
-void PermissionsManager::parseRemovePermission(const QJsonArray &removeArray)
-{
-    qCWarning(RUQOLA_LOG) << " void PermissionManager::parseRemovePermission(const QJsonArray &removeArray) not implemented yet" << removeArray;
 }
 
 bool PermissionsManager::storePermission(QStringView id)

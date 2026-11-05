@@ -31,6 +31,5 @@ public:
 
 private:
     [[nodiscard]] static bool storePermission(QStringView id);
-    static void parseRemovePermission(const QJsonArray &removeArray);
     QHash<QString, Permission> mMapPermissions;
 };

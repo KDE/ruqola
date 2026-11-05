@@ -39,8 +39,6 @@ public:
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult
     inputUserAutocomplete(const QByteArray &roomId, const QString &pattern, const QString &exceptions, quint64 id);
 
-    [[nodiscard]] RocketChatMessage::RocketChatMessageResult uploadCustomSound(const QByteArray &sound, quint64 id);
-
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult enable2fa(quint64 id);
 
     [[nodiscard]] RocketChatMessage::RocketChatMessageResult disable2fa(const QString &code, quint64 id);

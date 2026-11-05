@@ -51,16 +51,6 @@ void DirectChannelInfoWidget::setDirectChannelInfo(const DirectChannelInfo &info
     mDirectChannelActionWidget->setRoom(info.room);
 }
 
-void DirectChannelInfoWidget::slotIgnoreUser()
-{
-    // TODO
-}
-
-void DirectChannelInfoWidget::slotReportUser()
-{
-    // TODO
-}
-
 void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
 {
     auto userJob = new RocketChatRestApi::UserInfoJob(this);

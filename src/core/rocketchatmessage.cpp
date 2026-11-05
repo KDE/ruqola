@@ -88,15 +88,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setAdminStatus(con
     return generateMethod(u"setAdminStatus"_s, params, id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound([[maybe_unused]] const QByteArray &sound, quint64 id)
-{
-    // TODO: the server expects the binary sound data encoded as the params payload.
-    // The correct wire format is not yet implemented; sound is currently unused.
-    const QJsonArray params{{}};
-
-    return generateMethod(u"uploadCustomSound"_s, params, id);
-}
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
     const QJsonObject obj{
