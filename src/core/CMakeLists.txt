@@ -662,6 +662,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/markroomasread/markroomasreadtool.cpp
             mcpserver/getroomroles/getroomrolestool.h
             mcpserver/getroomroles/getroomrolestool.cpp
+            mcpserver/updateroomsettings/updateroomsettingstool.h
+            mcpserver/updateroomsettings/updateroomsettingstool.cpp
     )
 endif()
 

@@ -21,6 +21,7 @@
 #include "mcpserver/searchusers/searchuserstool.h"
 #include "mcpserver/setmystatus/setmystatustool.h"
 #include "mcpserver/starmessage/starmessagetool.h"
+#include "mcpserver/updateroomsettings/updateroomsettingstool.h"
 #include "ruqola_mcp_server_debug.h"
 #include "ruqolaglobalconfig.h"
 #include <KConfigGroup>
@@ -61,6 +62,7 @@ McpServerManager::McpServerManager(AccountManager *accountManager, QObject *pare
     addTool(std::make_unique<PinMessageTool>(mAccountManager));
     addTool(std::make_unique<MarkRoomAsReadTool>(mAccountManager));
     addTool(std::make_unique<GetRoomRolesTool>(mAccountManager));
+    addTool(std::make_unique<UpdateRoomSettingsTool>(mAccountManager));
     loadConfig();
 }
 
