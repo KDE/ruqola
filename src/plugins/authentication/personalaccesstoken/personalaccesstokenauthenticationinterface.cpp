@@ -5,11 +5,9 @@
 */
 
 #include "personalaccesstokenauthenticationinterface.h"
-#include "authenticationmanager/ddpauthenticationmanager.h"
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "config-ruqola.h"
 #include "connection.h"
-#include "ddpapi/ddpclient.h"
 #include "personalaccesstokenauthenticationconfigwidget.h"
 #include "personalaccesstokenauthenticationplugin_debug.h"
 #include "rocketchataccount.h"
@@ -33,13 +31,8 @@ bool PersonalAccessTokenAuthenticationInterface::login()
         mAccount->restApi()->authenticationManager()->setUserId(QString::fromLatin1(settings->userId()));
         // qDebug() << " settings->authToken() " << settings->authToken() << "settings->userId()  "
         //          << settings->userId();
-        mAccount->restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::LoggedIn);
-
         // https://developer.rocket.chat/reference/api/realtime-api/method-calls/authentication/login#using-an-authentication-token
-        mAccount->ddp()->authenticationManager()->setAuthToken(settings->authToken());
-        if (!mAccount->ddp()->authenticationManager()->login()) {
-            return false;
-        }
+        mAccount->restApi()->authenticationManager()->setLoginStatus(AuthenticationManager::LoggedIn);
         return true;
     }
     qCDebug(RUQOLA_PERSONALACCESSTOKENAUTHENTICATION_PLUGIN_LOG) << " authToken is empty !. Can't connect";
