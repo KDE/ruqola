@@ -48,7 +48,5 @@ QString ToolUtils::groupFromType(TitleType type)
 
 void ToolUtils::addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolTool &tool, TitleType type)
 {
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta meta = tool.meta().value_or(TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta{});
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolCommonUtils::addToolMeta(meta, groupFromType(type), groupTitleFromType(type));
-    tool.setMeta(meta);
+    TextAutoGenerateTextMcpProtocolCore::McpProtocolCommonUtils::addToolMeta(tool, groupFromType(type), groupTitleFromType(type));
 }
