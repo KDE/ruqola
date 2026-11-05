@@ -519,7 +519,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname.endsWith("/force_logout"_L1)) {
             qCDebug(RUQOLA_BACKEND_LOG) << " FORCE LOGOUT!!!!";
             // Clear auth token otherwise we can't reconnect.
-            mRocketChatAccount->settings()->setAuthToken({});
+            mRocketChatAccount->settings()->clearSessionAuthToken();
             qCDebug(RUQOLA_BACKEND_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         } else if (eventname.endsWith("/e2ekeyRequest"_L1)) {
             if (mRocketChatAccount->ruqolaLogger()) {

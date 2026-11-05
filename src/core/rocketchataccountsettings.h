@@ -32,6 +32,8 @@ public:
 
     [[nodiscard]] QString authToken() const;
     void setAuthToken(const QString &authToken);
+    // Clear the session token. Does nothing for personal access token: the token is the credential.
+    void clearSessionAuthToken();
 
     // account info
     [[nodiscard]] QString serverUrl() const;
@@ -97,6 +99,7 @@ Q_SIGNALS:
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
     void activitiesChanged();
+    void authMethodTypeChanged();
 
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeSettings(const QString &accountFileName);

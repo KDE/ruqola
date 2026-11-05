@@ -175,6 +175,7 @@ void RocketChatAccountSettings::setAuthMethodType(AuthenticationManager::AuthMet
         mAuthMethodType = newAuthMethodType;
         mSetting->setValue("authenticationMethodType"_L1, mAuthMethodType);
         mSetting->sync();
+        Q_EMIT authMethodTypeChanged();
     }
 }
 
@@ -288,8 +289,19 @@ void RocketChatAccountSettings::setAuthToken(const QString &authToken)
     }
 }
 
+void RocketChatAccountSettings::clearSessionAuthToken()
+{
+    if (mAuthMethodType != AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        setAuthToken({});
+    }
+}
+
 void RocketChatAccountSettings::logout()
 {
+    if (mAuthMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        // Keep authToken and userId: they are the credentials of the account.
+        return;
+    }
     mSetting->setValue("authToken"_L1, QString());
     mSetting->setValue("expireToken"_L1, -1);
     mSetting->sync();

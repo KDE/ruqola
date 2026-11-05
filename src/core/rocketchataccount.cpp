@@ -355,7 +355,7 @@ void RocketChatAccount::reconnectToServer()
 {
     qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "reconnecting" << accountName();
     // Clear auth token otherwise we can't reconnect.
-    mSettings->setAuthToken({});
+    mSettings->clearSessionAuthToken();
     ddp();
     if (accountEnabled()) {
         Q_ASSERT(mDdp);
@@ -381,6 +381,9 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
 {
     delete mSettings;
     mSettings = new RocketChatAccountSettings(accountFileName, this);
+    connect(mSettings, &RocketChatAccountSettings::authMethodTypeChanged, this, [this]() {
+        setDefaultAuthentication(mSettings->authMethodType());
+    });
     if (mSettings->isValid()) {
         connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, [this]() {
             ddp()->onServerURLChange();
@@ -2513,7 +2516,7 @@ void RocketChatAccount::autoReconnectDelayed()
     qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "starting single shot timer with" << mDelayReconnect << "ms" << "account name"
                                   << accountName();
     // Clear auth token otherwise we can't reconnect.
-    mSettings->setAuthToken({});
+    mSettings->clearSessionAuthToken();
 
     // This happens when we didn't react to pings for a while
     // (e.g. while stopped in gdb, or if network went down for a bit)
@@ -2739,7 +2742,7 @@ void RocketChatAccount::slotRESTLoginStatusChanged()
     } else if (loginStatus == AuthenticationManager::GenericError) {
         // Clear authToken it can be changed
         // If we don't clear it ruqola will want to login with resume method => it will failed all the time.
-        mSettings->setAuthToken({});
+        mSettings->clearSessionAuthToken();
     }
     Q_EMIT loginStatusChanged();
     if (!mRestApi && !mDdp) {
