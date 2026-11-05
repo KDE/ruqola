@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "setmystatustool.h"
+#include "mcpserver/common/toolutils.h"
 #include "rocketchataccount.h"
 #include "utils.h"
 #include <KLocalizedString>

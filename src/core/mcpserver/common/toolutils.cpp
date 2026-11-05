@@ -17,6 +17,12 @@ QString ToolUtils::groupTitleFromType(TitleType type)
         return i18n("Rooms");
     case Messages:
         return i18n("Messages");
+    case Users:
+        return i18n("Users");
+    case CurrentUser:
+        return i18n("Current User");
+    case Misc:
+        return i18n("Misc");
     }
     Q_UNREACHABLE();
     return {};
@@ -29,6 +35,12 @@ QString ToolUtils::groupFromType(TitleType type)
         return u"rooms"_s;
     case Messages:
         return u"messages"_s;
+    case Users:
+        return u"users"_s;
+    case CurrentUser:
+        return u"currentuser"_s;
+    case Misc:
+        return u"misc"_s;
     }
     Q_UNREACHABLE();
     return {};

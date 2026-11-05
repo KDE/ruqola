@@ -17,6 +17,9 @@ namespace ToolUtils
 enum TitleType : uint8_t {
     Rooms,
     Messages,
+    Users,
+    CurrentUser,
+    Misc,
 };
 
 void addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta &meta, TitleType type);

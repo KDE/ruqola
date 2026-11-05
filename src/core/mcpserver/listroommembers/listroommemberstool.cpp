@@ -6,6 +6,7 @@
 #include "listroommemberstool.h"
 #include "channels/channelmembersjob.h"
 #include "connection.h"
+#include "mcpserver/common/toolutils.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -59,6 +60,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListRoomMembersTool::defini
             {u"count"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Maximum number of results (1-100); 50 if omitted"_s)},
             {u"offset"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Number of results to skip, for paging; 0 if omitted"_s)}},
         {u"roomId"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::Rooms);
     return tool;
 }
 

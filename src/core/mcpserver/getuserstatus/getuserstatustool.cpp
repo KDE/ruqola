@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "getuserstatustool.h"
+#include "mcpserver/common/toolutils.h"
 #include "model/usersmodel.h"
 #include "rocketchataccount.h"
 #include "utils.h"
@@ -24,17 +25,15 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetUserStatusTool::definiti
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
         u"get_user_status"_s,
+        i18n("Get User Status"),
         u"Get the presence status of a user"_s,
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::Destructive,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
             {u"userName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"User name (without @)"_s)}},
         {u"userName"_s});
 
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolToolAnnotations annotation;
-    annotation.setReadOnlyHint(true);
-    annotation.setOpenWorldHint(false);
-    tool.setTitle(i18n("Get User Status"));
-    tool.setAnnotations(annotation);
+    ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
     return tool;
 }
 

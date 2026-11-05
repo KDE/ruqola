@@ -5,6 +5,7 @@
 */
 #include "listaccountstool.h"
 #include "accountmanager.h"
+#include "mcpserver/common/toolutils.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
@@ -26,7 +27,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListAccountsTool::definitio
                                                                                i18n("List Accounts"),
                                                                                u"List the accounts"_s,
                                                                                TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly);
-    // TODO ToolUtils::addToolMeta(tool, ToolUtils::Mail);
+    ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
     return tool;
 }
 

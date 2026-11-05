@@ -6,6 +6,7 @@
 #include "searchmessagestool.h"
 #include "chat/searchmessagejob.h"
 #include "connection.h"
+#include "mcpserver/common/toolutils.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QJsonArray>
@@ -72,6 +73,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchMessagesTool::definit
             {u"count"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Maximum number of results (1-100); 25 if omitted"_s)},
             {u"offset"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Number of results to skip, for paging; 0 if omitted"_s)}},
         {u"roomId"_s, u"pattern"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::Messages);
     return tool;
 }
 

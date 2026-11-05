@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "getunreadsummarytool.h"
+#include "mcpserver/common/toolutils.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -24,15 +25,12 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetUnreadSummaryTool::defin
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolTool tool = TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::createTool(
         u"get_unread_summary"_s,
+        i18n("Get Unread Summary"),
         u"Get a summary of the rooms with unread messages or mentions"_s,
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
-
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolToolAnnotations annotation;
-    annotation.setReadOnlyHint(true);
-    annotation.setOpenWorldHint(false);
-    tool.setTitle(i18n("Get Unread Summary"));
-    tool.setAnnotations(annotation);
+    ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
     return tool;
 }
 

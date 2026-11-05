@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "getmystatustool.h"
+#include "mcpserver/common/toolutils.h"
 #include "model/statusmodel.h"
 #include "rocketchataccount.h"
 #include "utils.h"
@@ -28,6 +29,8 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetMyStatusTool::definition
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
+    ToolUtils::addToolMeta(tool, ToolUtils::CurrentUser);
+
     return tool;
 }
 

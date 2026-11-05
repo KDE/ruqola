@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "searchuserstool.h"
+#include "mcpserver/common/toolutils.h"
 #include "users.h"
 #include <KLocalizedString>
 #include <TextAutoGenerateTextMcpProtocolCore/McpProtocolServerToolCall>
@@ -29,6 +30,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchUsersTool::definition
             {u"pattern"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Text to search in user names and names (without @)"_s)},
             {u"count"_s, McpProtocolServerTool::schemaProperty(u"integer"_s, u"Maximum number of results (1-100); 25 if omitted"_s)}},
         {u"pattern"_s});
+    ToolUtils::addToolMeta(tool, ToolUtils::Users);
     return tool;
 }
 

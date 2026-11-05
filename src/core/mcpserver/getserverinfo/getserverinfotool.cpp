@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "getserverinfotool.h"
+#include "mcpserver/common/toolutils.h"
 #include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
 #include <KLocalizedString>
@@ -27,6 +28,8 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetServerInfoTool::definiti
         TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)}});
+
+    ToolUtils::addToolMeta(tool, ToolUtils::Misc);
     return tool;
 }
 
