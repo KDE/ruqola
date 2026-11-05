@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:02+0000\n"
-"PO-Revision-Date: 2026-11-03 03:30+0100\n"
+"POT-Creation-Date: 2026-11-05 00:55+0000\n"
+"PO-Revision-Date: 2026-11-04 04:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -797,61 +797,84 @@ msgid "Socket was unexpectedly closed."
 msgstr "სოკეტი მოულოდნელად დაიხურა."
 
 #: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
 #: core/mcpserver/setmystatus/setmystatustool.cpp:44
-#, fuzzy, kde-format
-#| msgid "Account information"
+#: core/mcpserver/starmessage/starmessagetool.cpp:47
+#, kde-format
 msgid "Account is not logged in"
-msgstr "ანგარიშის ინფორმაცია"
+msgstr "ანგარიში სისტემაში შესული არაა"
 
 #: core/mcpserver/common/toolbase.cpp:50
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
+#, kde-format
 msgid "Missing search pattern"
-msgstr "აკლია მომხმარებლის სახელი"
+msgstr "აკლია საძიებო სტრიქონი"
 
 #: core/mcpserver/common/toolbase.cpp:66
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
+#, kde-format
 msgid "Search failed: %1"
-msgstr "გადმოწერის შეცდომა: %1"
+msgstr "ძებნა ჩავარდა: %1"
 
 #: core/mcpserver/common/toolbase.cpp:69
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
+#, kde-format
 msgid "Impossible to start search"
-msgstr "მონაცემების გატანა შეუძლებელია."
+msgstr "ძებნის დაწყება შეუძლებელია"
+
+#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/model/roommodel.cpp:695
+#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
+#, kde-format
+msgid "Rooms"
+msgstr "ოთახები"
+
+#: core/mcpserver/common/toolutils.cpp:19
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, kde-format
+msgid "Messages"
+msgstr "შეტყობინებები"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:26
-#, fuzzy, kde-format
-#| msgid "Get User Status"
+#, kde-format
 msgid "Get My Status"
-msgstr "მომხმარებლის სტატუსის მიღება"
+msgstr "ჩემი სტატუსის მიღება"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:38
-#: core/mcpserver/getroominfo/getroominfotool.cpp:41
+#: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listrooms/listroomstool.cpp:39
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
 #: core/mcpserver/searchusers/searchuserstool.cpp:39
 #: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/starmessage/starmessagetool.cpp:43
 #, kde-format
 msgid "No account found"
 msgstr "ანგარიში ვერ ვიპოვე"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:27
+#: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, kde-format
 msgid "Get Room Info"
 msgstr "ინფორმაციის მიღება ოთახის შესახებ"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getroominfo/getroominfotool.cpp:48
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
 #, kde-format
 msgid "Missing room identifier"
 msgstr "აკლია ოთახის იდენტიფიკატორი"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#: core/mcpserver/getroominfo/getroominfotool.cpp:53
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr "იდენტიფიკატორით \"%1\" ოთახი აღმოჩენილი არაა"
@@ -886,53 +909,134 @@ msgstr "აკლია მომხმარებლის სახელი"
 msgid "List Accounts"
 msgstr "ანგარიშების სია"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:26
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#, fuzzy, kde-format
+#| msgid "List Rooms"
+msgid "List Room Members"
+msgstr "ოთახების სია"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "უცნობი მდგომარეობა"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#, fuzzy, kde-format
+#| msgid "No users found"
+msgid "No members found"
+msgstr "მომხმარებლები ვერ მოიძებნა"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Listing members failed: %1"
+msgstr "ძებნა ჩავარდა: %1"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#, fuzzy, kde-format
+#| msgid "Impossible to start search"
+msgid "Impossible to start listing members"
+msgstr "ძებნის დაწყება შეუძლებელია"
+
+#: core/mcpserver/listrooms/listroomstool.cpp:27
 #, kde-format
 msgid "List Rooms"
 msgstr "ოთახების სია"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:63
+#: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
 #, kde-format
 msgid "No rooms found"
 msgstr "ოთახები ვერ ვიპოვე"
 
-#: core/mcpserver/mcpservermanager.cpp:39
+#: core/mcpserver/mcpservermanager.cpp:43
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Ruqola-დან მიღებული ინფორმაციის მართვა"
 
-#: core/mcpserver/searchrooms/searchroomstool.cpp:24
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin Message"
+msgstr "შეტყობინების ამაგრება"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Missing room identifier"
+msgid "Missing message identifier"
+msgstr "აკლია ოთახის იდენტიფიკატორი"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Pin message failed: %1"
+msgstr "ძებნა ჩავარდა: %1"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to start search"
+msgid "Impossible to start pin message job"
+msgstr "ძებნის დაწყება შეუძლებელია"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Search Rooms"
+#| msgid "Search Messages"
+msgid "Search Messages"
+msgstr "შეტყობინებებში ძებნა"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#, fuzzy, kde-format
+#| msgid "No Message found"
+msgid "No messages found"
+msgstr "შეტყობინებების გარეშე."
+
+#: core/mcpserver/searchrooms/searchroomstool.cpp:24
+#, kde-format
 msgid "Search Rooms"
 msgstr "ოთახების ძებნა"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgid "Search Users"
-msgstr "მომხმარებლების ძებნა…"
+msgstr "მომხმარებლების ძებნა"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:46
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users found"
-msgstr "ვერ ვიპოვე მომხმარებელი"
+msgstr "მომხმარებლები ვერ მოიძებნა"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:25
-#, fuzzy, kde-format
-#| msgid "Get User Status"
+#, kde-format
 msgid "Set My Status"
-msgstr "მომხმარებლის სტატუსის მიღება"
+msgstr "ჩემი სტატუსის დაყენება"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:49
-#, fuzzy, kde-format
-#| msgid "Invalid user"
+#, kde-format
 msgid "Invalid status"
-msgstr "არასწორი მომხმარებელი"
+msgstr "არასწორი სტატუსი"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Message"
+msgid "Star Message"
+msgstr "შეტყობინებაში ძებნა"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Star message failed: %1"
+msgstr "ძებნა ჩავარდა: %1"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Impossible to start search"
+msgid "Impossible to start star message job"
+msgstr "ძებნის დაწყება შეუძლებელია"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1486,13 +1590,6 @@ msgstr "არხის ტიპი"
 msgid "Belongs To"
 msgstr "ეკუთვნის"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:695
-#: widgets/administratordialog/administratorwidget.cpp:57
-#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
-#, kde-format
-msgid "Rooms"
-msgstr "ოთახები"
-
 #: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
@@ -1708,26 +1805,31 @@ msgid "Unknown"
 msgstr "უცნობი"
 
 #: core/model/roommodel.cpp:703
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Calls"
-msgstr "შემომავალი ზარი"
+msgstr "შემომავალი ზარები"
 
 #: core/model/roommodel.cpp:705
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Live Chats"
-msgstr "შემომავალი ზარი"
+msgstr "შემომავალი ცოცხალი ჩატები"
 
 #: core/model/roommodel.cpp:707
 #, kde-format
 msgid "Open Live chats"
-msgstr ""
+msgstr "ცოცხალი ჩატების გახსნა"
 
 #: core/model/roommodel.cpp:709
 #, kde-format
 msgid "On Hold Chats"
-msgstr ""
+msgstr "შეჩერებული ჩატები"
+
+#: core/model/roommodel.cpp:711
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Conversation"
+msgid "Conversations"
+msgstr "საუბრის დაწყება"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3073,11 +3175,6 @@ msgid ""
 msgstr ""
 "მიწოდებული აუცილებელი \"teamId\" და \"teamName\" პარამეტრებიდან არც ერთ არც "
 "ერთ გუნდს არ ემთხვევა"
-
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
-#, kde-format
-msgid "Get Avatar"
-msgstr "ავატარის მიღება"
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:69
 #, kde-format
@@ -8210,11 +8307,6 @@ msgctxt "@title:window"
 msgid "Database Info"
 msgstr "მონაცემთა ბაზის ინფორმაცია"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, kde-format
-msgid "Messages"
-msgstr "შეტყობინებები"
-
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
@@ -12817,6 +12909,9 @@ msgstr "მომხმარებლის სახელი:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "ანგარიშის დამატება…"
+
+#~ msgid "Get Avatar"
+#~ msgstr "ავატარის მიღება"
 
 #~ msgid "Draft"
 #~ msgstr "მონახაზი"

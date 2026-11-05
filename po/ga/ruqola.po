@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:02+0000\n"
+"POT-Creation-Date: 2026-11-05 00:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -797,24 +797,45 @@ msgid "Socket was unexpectedly closed."
 msgstr ""
 
 #: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
 #: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/starmessage/starmessagetool.cpp:47
 #, kde-format
 msgid "Account is not logged in"
 msgstr ""
 
 #: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
 #, kde-format
 msgid "Missing search pattern"
 msgstr ""
 
 #: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
 #, kde-format
 msgid "Search failed: %1"
 msgstr ""
 
 #: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
 #, kde-format
 msgid "Impossible to start search"
+msgstr ""
+
+#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/model/roommodel.cpp:695
+#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
+#, kde-format
+msgid "Rooms"
+msgstr ""
+
+#: core/mcpserver/common/toolutils.cpp:19
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, kde-format
+msgid "Messages"
 msgstr ""
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:26
@@ -823,30 +844,37 @@ msgid "Get My Status"
 msgstr ""
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:38
-#: core/mcpserver/getroominfo/getroominfotool.cpp:41
+#: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listrooms/listroomstool.cpp:39
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
 #: core/mcpserver/searchusers/searchuserstool.cpp:39
 #: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/starmessage/starmessagetool.cpp:43
 #, kde-format
 msgid "No account found"
 msgstr ""
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:27
+#: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, kde-format
 msgid "Get Room Info"
 msgstr ""
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getroominfo/getroominfotool.cpp:48
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
 #, kde-format
 msgid "Missing room identifier"
 msgstr ""
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#: core/mcpserver/getroominfo/getroominfotool.cpp:53
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
@@ -881,20 +909,76 @@ msgstr ""
 msgid "List Accounts"
 msgstr ""
 
-#: core/mcpserver/listrooms/listroomstool.cpp:26
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#, kde-format
+msgid "List Room Members"
+msgstr ""
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#, kde-format
+msgid "Unknown room type"
+msgstr ""
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#, kde-format
+msgid "No members found"
+msgstr ""
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#, kde-format
+msgid "Listing members failed: %1"
+msgstr ""
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#, kde-format
+msgid "Impossible to start listing members"
+msgstr ""
+
+#: core/mcpserver/listrooms/listroomstool.cpp:27
 #, kde-format
 msgid "List Rooms"
 msgstr ""
 
-#: core/mcpserver/listrooms/listroomstool.cpp:63
+#: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: core/mcpserver/mcpservermanager.cpp:39
+#: core/mcpserver/mcpservermanager.cpp:43
 #, kde-format
 msgid "Manage information from Ruqola"
+msgstr ""
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:27
+#, kde-format
+msgid "Pin Message"
+msgstr ""
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, kde-format
+msgid "Missing message identifier"
+msgstr ""
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#, kde-format
+msgid "Pin message failed: %1"
+msgstr ""
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#, kde-format
+msgid "Impossible to start pin message job"
+msgstr ""
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#, kde-format
+msgid "Search Messages"
+msgstr ""
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#, kde-format
+msgid "No messages found"
 msgstr ""
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
@@ -920,6 +1004,21 @@ msgstr ""
 #: core/mcpserver/setmystatus/setmystatustool.cpp:49
 #, kde-format
 msgid "Invalid status"
+msgstr ""
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:27
+#, kde-format
+msgid "Star Message"
+msgstr ""
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#, kde-format
+msgid "Star message failed: %1"
+msgstr ""
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#, kde-format
+msgid "Impossible to start star message job"
 msgstr ""
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
@@ -1472,13 +1571,6 @@ msgstr ""
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:695
-#: widgets/administratordialog/administratorwidget.cpp:57
-#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
-#, kde-format
-msgid "Rooms"
-msgstr ""
-
 #: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
@@ -1711,6 +1803,11 @@ msgstr ""
 #: core/model/roommodel.cpp:709
 #, kde-format
 msgid "On Hold Chats"
+msgstr ""
+
+#: core/model/roommodel.cpp:711
+#, kde-format
+msgid "Conversations"
 msgstr ""
 
 #: core/model/statusmodel.cpp:63
@@ -3046,11 +3143,6 @@ msgstr ""
 msgid ""
 "The required \"teamId\" or \"teamName\" param provided does not match any "
 "teams"
-msgstr ""
-
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
-#, kde-format
-msgid "Get Avatar"
 msgstr ""
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:69
@@ -8006,11 +8098,6 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
-msgstr ""
-
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, kde-format
-msgid "Messages"
 msgstr ""
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:55

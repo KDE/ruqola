@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:02+0000\n"
+"POT-Creation-Date: 2026-11-05 00:55+0000\n"
 "PO-Revision-Date: 2026-09-08 14:50+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -824,30 +824,52 @@ msgid "Socket was unexpectedly closed."
 msgstr ""
 
 #: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
 #: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/starmessage/starmessagetool.cpp:47
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
 msgstr "Informacija apie paskyrą"
 
 #: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
 #, fuzzy, kde-format
 #| msgid "Enter username"
 msgid "Missing search pattern"
 msgstr "Įveskite naudotojo vardą"
 
 #: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgid "Search failed: %1"
 msgstr "Įrašyti paveikslą"
 
 #: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Account"
 msgid "Impossible to start search"
 msgstr "Paskyra"
+
+#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/model/roommodel.cpp:695
+#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
+#, kde-format
+msgid "Rooms"
+msgstr ""
+
+#: core/mcpserver/common/toolutils.cpp:19
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Encrypted Message"
+msgid "Messages"
+msgstr "Šifruota žinutė"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:26
 #, fuzzy, kde-format
@@ -856,32 +878,39 @@ msgid "Get My Status"
 msgstr "Tinkinta naudotojo būsena"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:38
-#: core/mcpserver/getroominfo/getroominfotool.cpp:41
+#: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listrooms/listroomstool.cpp:39
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
 #: core/mcpserver/searchusers/searchuserstool.cpp:39
 #: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/starmessage/starmessagetool.cpp:43
 #, fuzzy, kde-format
 #| msgid "My Account"
 msgid "No account found"
 msgstr "Mano paskyra"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:27
+#: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Get Room Info"
 msgstr "Nerasta jokių žinučių"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getroominfo/getroominfotool.cpp:48
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
 #, kde-format
 msgid "Missing room identifier"
 msgstr ""
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#: core/mcpserver/getroominfo/getroominfotool.cpp:53
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
@@ -923,23 +952,93 @@ msgstr "Įveskite naudotojo vardą"
 msgid "List Accounts"
 msgstr "Paskyra"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:26
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Custom User Status"
+msgid "List Room Members"
+msgstr "Tinkinta naudotojo būsena"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "Nežinoma būsena"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#, fuzzy, kde-format
+#| msgid "No Messages found"
+msgid "No members found"
+msgstr "Nerasta jokių žinučių"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#, fuzzy, kde-format
+#| msgid "Save Image"
+msgid "Listing members failed: %1"
+msgstr "Įrašyti paveikslą"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Account"
+msgid "Impossible to start listing members"
+msgstr "Paskyra"
+
+#: core/mcpserver/listrooms/listroomstool.cpp:27
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "List Rooms"
 msgstr "Tinkinta naudotojo būsena"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:63
+#: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No rooms found"
 msgstr "Nerasta jokių žinučių"
 
-#: core/mcpserver/mcpservermanager.cpp:39
+#: core/mcpserver/mcpservermanager.cpp:43
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin Message"
+msgstr "Prisegti žinutę"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing message identifier"
+msgstr "Įveskite naudotojo vardą"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Save Image"
+msgid "Pin message failed: %1"
+msgstr "Įrašyti paveikslą"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Account"
+msgid "Impossible to start pin message job"
+msgstr "Paskyra"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search Messages"
+msgstr "Ieškoti žinučių..."
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#, fuzzy, kde-format
+#| msgid "No Messages found"
+msgid "No messages found"
+msgstr "Nerasta jokių žinučių"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
 #, fuzzy, kde-format
@@ -971,6 +1070,25 @@ msgstr "Tinkinta naudotojo būsena"
 #| msgid "Invalid Parameters"
 msgid "Invalid status"
 msgstr "Neteisingi parametrai"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Star Message"
+msgstr "Ieškoti žinučių..."
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#, fuzzy, kde-format
+#| msgid "Save Image"
+msgid "Star message failed: %1"
+msgstr "Įrašyti paveikslą"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Account"
+msgid "Impossible to start star message job"
+msgstr "Paskyra"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1541,13 +1659,6 @@ msgstr "Kanalo tipas"
 msgid "Belongs To"
 msgstr ""
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:695
-#: widgets/administratordialog/administratorwidget.cpp:57
-#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
-#, kde-format
-msgid "Rooms"
-msgstr ""
-
 #: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
@@ -1808,6 +1919,12 @@ msgstr ""
 #, kde-format
 msgid "On Hold Chats"
 msgstr ""
+
+#: core/model/roommodel.cpp:711
+#, fuzzy, kde-format
+#| msgid "Encrypted Conversation"
+msgid "Conversations"
+msgstr "Šifruotas pokalbis"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3197,11 +3314,6 @@ msgstr ""
 msgid ""
 "The required \"teamId\" or \"teamName\" param provided does not match any "
 "teams"
-msgstr ""
-
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
-#, kde-format
-msgid "Get Avatar"
 msgstr ""
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:69
@@ -8491,12 +8603,6 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informacija apie serverį"
-
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
-msgid "Messages"
-msgstr "Šifruota žinutė"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #: widgets/exportmessages/exportmessageswidget.cpp:40

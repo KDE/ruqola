@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:02+0000\n"
-"PO-Revision-Date: 2026-11-03 07:44+0200\n"
+"POT-Creation-Date: 2026-11-05 00:55+0000\n"
+"PO-Revision-Date: 2026-11-04 07:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -805,61 +805,84 @@ msgid "Socket was unexpectedly closed."
 msgstr "Сокет был неожиданно закрыт."
 
 #: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
 #: core/mcpserver/setmystatus/setmystatustool.cpp:44
-#, fuzzy, kde-format
-#| msgid "Account information"
+#: core/mcpserver/starmessage/starmessagetool.cpp:47
+#, kde-format
 msgid "Account is not logged in"
-msgstr "Сведения об учётной записи"
+msgstr "Вход в учётную запись не выполнен"
 
 #: core/mcpserver/common/toolbase.cpp:50
-#, fuzzy, kde-format
-#| msgid "Missing user name"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
+#, kde-format
 msgid "Missing search pattern"
-msgstr "Не указано имя пользователя."
+msgstr "Не указан шаблон поиска"
 
 #: core/mcpserver/common/toolbase.cpp:66
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
+#, kde-format
 msgid "Search failed: %1"
-msgstr "Ошибка загрузки: %1"
+msgstr "Ошибка поиска: %1"
 
 #: core/mcpserver/common/toolbase.cpp:69
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
+#, kde-format
 msgid "Impossible to start search"
-msgstr "Невозможно выполнить экспорт данных."
+msgstr "Не удалось начать поиск"
+
+#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/model/roommodel.cpp:695
+#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
+#, kde-format
+msgid "Rooms"
+msgstr "Комнаты"
+
+#: core/mcpserver/common/toolutils.cpp:19
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, kde-format
+msgid "Messages"
+msgstr "Сообщения"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:26
-#, fuzzy, kde-format
-#| msgid "Get User Status"
+#, kde-format
 msgid "Get My Status"
-msgstr "Статус пользователя"
+msgstr "Мой статус"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:38
-#: core/mcpserver/getroominfo/getroominfotool.cpp:41
+#: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listrooms/listroomstool.cpp:39
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
 #: core/mcpserver/searchusers/searchuserstool.cpp:39
 #: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/starmessage/starmessagetool.cpp:43
 #, kde-format
 msgid "No account found"
 msgstr "Учётная запись не найдена"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:27
+#: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, kde-format
 msgid "Get Room Info"
 msgstr "Сведения о комнате"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getroominfo/getroominfotool.cpp:48
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
 #, kde-format
 msgid "Missing room identifier"
 msgstr "Не указан идентификатор комнаты"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#: core/mcpserver/getroominfo/getroominfotool.cpp:53
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr "Комната с идентификатором «%1» не найдена"
@@ -894,53 +917,133 @@ msgstr "Не указано имя пользователя."
 msgid "List Accounts"
 msgstr "Список учётных записей"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:26
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#, fuzzy, kde-format
+#| msgid "List Rooms"
+msgid "List Room Members"
+msgstr "Список комнат"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "Неизвестное состояние"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#, fuzzy, kde-format
+#| msgid "No users found"
+msgid "No members found"
+msgstr "Пользователи не найдены"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Listing members failed: %1"
+msgstr "Ошибка поиска: %1"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#, fuzzy, kde-format
+#| msgid "Impossible to start search"
+msgid "Impossible to start listing members"
+msgstr "Не удалось начать поиск"
+
+#: core/mcpserver/listrooms/listroomstool.cpp:27
 #, kde-format
 msgid "List Rooms"
 msgstr "Список комнат"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:63
+#: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
 #, kde-format
 msgid "No rooms found"
 msgstr "Комнаты не найдены"
 
-#: core/mcpserver/mcpservermanager.cpp:39
+#: core/mcpserver/mcpservermanager.cpp:43
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Управление данными Ruqola"
 
-#: core/mcpserver/searchrooms/searchroomstool.cpp:24
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin Message"
+msgstr "Закрепить сообщение"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Missing room identifier"
+msgid "Missing message identifier"
+msgstr "Не указан идентификатор комнаты"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Pin message failed: %1"
+msgstr "Ошибка поиска: %1"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to start search"
+msgid "Impossible to start pin message job"
+msgstr "Не удалось начать поиск"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
-#| msgid "Search Rooms"
+#| msgid "Search Messages"
+msgid "Search Messages"
+msgstr "Поиск сообщений"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#, fuzzy, kde-format
+#| msgid "No Message found"
+msgid "No messages found"
+msgstr "Сообщений не найдено"
+
+#: core/mcpserver/searchrooms/searchroomstool.cpp:24
+#, kde-format
 msgid "Search Rooms"
 msgstr "Поиск комнат"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgid "Search Users"
-msgstr "Поиск пользователей…"
+msgstr "Поиск пользователей"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:46
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users found"
-msgstr "Пользователей не найдено"
+msgstr "Пользователи не найдены"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:25
-#, fuzzy, kde-format
-#| msgid "Get User Status"
+#, kde-format
 msgid "Set My Status"
-msgstr "Статус пользователя"
+msgstr "Установка моего статуса"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:49
-#, fuzzy, kde-format
-#| msgid "Invalid user"
+#, kde-format
 msgid "Invalid status"
-msgstr "Некорректный пользователь"
+msgstr "Некорректный статус"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgid "Starred Messages"
+msgid "Star Message"
+msgstr "Сообщения со звёздочкой"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#, fuzzy, kde-format
+#| msgid "Search failed: %1"
+msgid "Star message failed: %1"
+msgstr "Ошибка поиска: %1"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Impossible to start search"
+msgid "Impossible to start star message job"
+msgstr "Не удалось начать поиск"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1496,13 +1599,6 @@ msgstr "Тип канала"
 msgid "Belongs To"
 msgstr "Принадлежность"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:695
-#: widgets/administratordialog/administratorwidget.cpp:57
-#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
-#, kde-format
-msgid "Rooms"
-msgstr "Комнаты"
-
 #: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
@@ -1728,26 +1824,31 @@ msgid "Unknown"
 msgstr "Неизвестно"
 
 #: core/model/roommodel.cpp:703
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Calls"
-msgstr "Входящий вызов"
+msgstr "Входящие вызовы"
 
 #: core/model/roommodel.cpp:705
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Live Chats"
-msgstr "Входящий вызов"
+msgstr "Входящие онлайн-чаты"
 
 #: core/model/roommodel.cpp:707
 #, kde-format
 msgid "Open Live chats"
-msgstr ""
+msgstr "Открытые онлайн-чаты"
 
 #: core/model/roommodel.cpp:709
 #, kde-format
 msgid "On Hold Chats"
-msgstr ""
+msgstr "Чаты на удержании"
+
+#: core/model/roommodel.cpp:711
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Conversation"
+msgid "Conversations"
+msgstr "Начать разговор"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3110,11 +3211,6 @@ msgid ""
 msgstr ""
 "Указанный обязательный параметр «teamId» или «teamName» не соответствует ни "
 "одной команде"
-
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
-#, kde-format
-msgid "Get Avatar"
-msgstr "Получить аватар"
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:69
 #, kde-format
@@ -8311,11 +8407,6 @@ msgctxt "@title:window"
 msgid "Database Info"
 msgstr "База данных — информация"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, kde-format
-msgid "Messages"
-msgstr "Сообщения"
-
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
@@ -12965,6 +13056,9 @@ msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Добавить учётную запись…"
 
+#~ msgid "Get Avatar"
+#~ msgstr "Получить аватар"
+
 #~ msgid "Draft"
 #~ msgstr "Черновик"
 
@@ -13718,9 +13812,6 @@ msgstr "Добавить учётную запись…"
 #~ msgctxt "@option:check"
 #~ msgid "Join Default Channels"
 #~ msgstr "Присоединиться к каналам по умолчанию"
-
-#~ msgid "Starred Messages"
-#~ msgstr "Сообщения со звёздочкой"
 
 #~ msgid "Pinned Messages"
 #~ msgstr "Закреплённые сообщения"

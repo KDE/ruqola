@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:02+0000\n"
+"POT-Creation-Date: 2026-11-05 00:55+0000\n"
 "PO-Revision-Date: 2026-10-26 07:13+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -799,29 +799,50 @@ msgid "Socket was unexpectedly closed."
 msgstr "Il socket è stato chiuso inaspettatamente."
 
 #: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
 #: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/starmessage/starmessagetool.cpp:47
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
 msgstr "Informazioni sull'account"
 
 #: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing search pattern"
 msgstr "URL del server mancante."
 
 #: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
 #, fuzzy, kde-format
 #| msgid "Download failed: %1"
 msgid "Search failed: %1"
 msgstr "Scaricamento non riuscito: %1"
 
 #: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
 msgstr "Impossibile esportare i dati."
+
+#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/model/roommodel.cpp:695
+#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
+#, kde-format
+msgid "Rooms"
+msgstr "Stanze"
+
+#: core/mcpserver/common/toolutils.cpp:19
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, kde-format
+msgid "Messages"
+msgstr "Messaggi"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:26
 #, fuzzy, kde-format
@@ -831,32 +852,39 @@ msgid "Get My Status"
 msgstr "Modifica stato utente"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:38
-#: core/mcpserver/getroominfo/getroominfotool.cpp:41
+#: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listrooms/listroomstool.cpp:39
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
 #: core/mcpserver/searchusers/searchuserstool.cpp:39
 #: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/starmessage/starmessagetool.cpp:43
 #, fuzzy, kde-format
 #| msgid "No Attachment found"
 msgid "No account found"
 msgstr "Nessun allegato trovato"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:27
+#: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
 #| msgid "No Room found"
 msgid "Get Room Info"
 msgstr "Nessuna stanza trovata"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getroominfo/getroominfotool.cpp:48
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
 #, kde-format
 msgid "Missing room identifier"
 msgstr ""
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#: core/mcpserver/getroominfo/getroominfotool.cpp:53
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
@@ -898,24 +926,94 @@ msgstr "URL del server mancante."
 msgid "List Accounts"
 msgstr "Elenca account"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:26
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit Room"
+msgid "List Room Members"
+msgstr "Modifica stanza"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "Stato sconosciuto"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#, fuzzy, kde-format
+#| msgid "No user found"
+msgid "No members found"
+msgstr "Nessun utente trovato"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Listing members failed: %1"
+msgstr "Scaricamento non riuscito: %1"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start listing members"
+msgstr "Impossibile esportare i dati."
+
+#: core/mcpserver/listrooms/listroomstool.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit Room"
 msgid "List Rooms"
 msgstr "Modifica stanza"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:63
+#: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No rooms found"
 msgstr "Nessuna stanza trovata"
 
-#: core/mcpserver/mcpservermanager.cpp:39
+#: core/mcpserver/mcpservermanager.cpp:43
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Gestisci le informazioni da Ruqola"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin Message"
+msgstr "Appunta messaggio"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Missing server url."
+msgid "Missing message identifier"
+msgstr "URL del server mancante."
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Pin message failed: %1"
+msgstr "Scaricamento non riuscito: %1"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start pin message job"
+msgstr "Impossibile esportare i dati."
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgid "Search Messages"
+msgstr "Cerca messaggio"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#, fuzzy, kde-format
+#| msgid "No Messages found"
+msgid "No messages found"
+msgstr "Nessun messaggio trovato"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
 #, fuzzy, kde-format
@@ -948,6 +1046,24 @@ msgstr "Modifica stato utente"
 #| msgid "Invalid user"
 msgid "Invalid status"
 msgstr "Utente non valido"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgid "Starred Messages"
+msgid "Star Message"
+msgstr "Messaggi speciali"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Star message failed: %1"
+msgstr "Scaricamento non riuscito: %1"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start star message job"
+msgstr "Impossibile esportare i dati."
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1502,13 +1618,6 @@ msgstr "Tipo di canale"
 msgid "Belongs To"
 msgstr "Appartiene a"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:695
-#: widgets/administratordialog/administratorwidget.cpp:57
-#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
-#, kde-format
-msgid "Rooms"
-msgstr "Stanze"
-
 #: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
@@ -1744,6 +1853,13 @@ msgstr ""
 #, kde-format
 msgid "On Hold Chats"
 msgstr ""
+
+#: core/model/roommodel.cpp:711
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Conversation"
+msgid "Conversations"
+msgstr "Inizia conversazione"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3096,11 +3212,6 @@ msgid ""
 msgstr ""
 "Il parametro \"teamId\" o \"teamName\" fornito non corrisponde ad alcuna "
 "squadra"
-
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
-#, kde-format
-msgid "Get Avatar"
-msgstr "Ottieni avatar"
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:69
 #, kde-format
@@ -8287,11 +8398,6 @@ msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informazioni sulla banca dati"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, kde-format
-msgid "Messages"
-msgstr "Messaggi"
-
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
@@ -12914,6 +13020,9 @@ msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Aggiungi account…"
 
+#~ msgid "Get Avatar"
+#~ msgstr "Ottieni avatar"
+
 #~ msgid "Draft"
 #~ msgstr "Bozza"
 
@@ -13698,9 +13807,6 @@ msgstr "Aggiungi account…"
 #~ msgctxt "@option:check"
 #~ msgid "Join Default Channels"
 #~ msgstr "Unisciti ai canali predefiniti"
-
-#~ msgid "Starred Messages"
-#~ msgstr "Messaggi speciali"
 
 #~ msgid "Pinned Messages"
 #~ msgstr "Messaggi appuntati"
@@ -14829,9 +14935,6 @@ msgstr "Aggiungi account…"
 
 #~ msgid "Leave Channel"
 #~ msgstr "Lascia il canale"
-
-#~ msgid "No Messages found"
-#~ msgstr "Nessun messaggio trovato"
 
 #~ msgid "Enter address of the server"
 #~ msgstr "Inserisci l'indirizzo del server"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:02+0000\n"
+"POT-Creation-Date: 2026-11-05 00:55+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -814,19 +814,25 @@ msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट अप्रत्याशित रूप से बंद हो गया था."
 
 #: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
 #: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/starmessage/starmessagetool.cpp:47
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
 msgstr "खाता संबंधी जानकारी"
 
 #: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
 #, fuzzy, kde-format
 #| msgid "Invalid username"
 msgid "Missing search pattern"
 msgstr "अमान्य उपयोगकर्ता नाम"
 
 #: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
@@ -834,10 +840,27 @@ msgid "Search failed: %1"
 msgstr "छवि डाउनलोड करें"
 
 #: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
 msgstr "डेटा निर्यात करना असंभव है."
+
+#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/model/roommodel.cpp:695
+#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
+#, kde-format
+msgid "Rooms"
+msgstr "कमरा"
+
+#: core/mcpserver/common/toolutils.cpp:19
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Messages"
+msgid "Messages"
+msgstr "संदेशों"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:26
 #, fuzzy, kde-format
@@ -847,32 +870,39 @@ msgid "Get My Status"
 msgstr "उपयोगकर्ता स्थिति संपादित करें"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:38
-#: core/mcpserver/getroominfo/getroominfotool.cpp:41
+#: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listrooms/listroomstool.cpp:39
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
 #: core/mcpserver/searchusers/searchuserstool.cpp:39
 #: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/starmessage/starmessagetool.cpp:43
 #, fuzzy, kde-format
 #| msgid "My Account"
 msgid "No account found"
 msgstr "मेरा खाता"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:27
+#: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
 #| msgid "No Room found"
 msgid "Get Room Info"
 msgstr "कोई कमरा नहीं मिला"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getroominfo/getroominfotool.cpp:48
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
 #, kde-format
 msgid "Missing room identifier"
 msgstr ""
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#: core/mcpserver/getroominfo/getroominfotool.cpp:53
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
@@ -915,24 +945,96 @@ msgstr "अमान्य उपयोगकर्ता नाम"
 msgid "List Accounts"
 msgstr "हिसाब किताब"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:26
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit Room"
+msgid "List Room Members"
+msgstr "कक्ष संपादित करें"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "अज्ञात स्थिति"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#, fuzzy, kde-format
+#| msgid "No user found"
+msgid "No members found"
+msgstr "कोई उपयोगकर्ता नहीं मिला"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Listing members failed: %1"
+msgstr "छवि डाउनलोड करें"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start listing members"
+msgstr "डेटा निर्यात करना असंभव है."
+
+#: core/mcpserver/listrooms/listroomstool.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit Room"
 msgid "List Rooms"
 msgstr "कक्ष संपादित करें"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:63
+#: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No rooms found"
 msgstr "कोई कमरा नहीं मिला"
 
-#: core/mcpserver/mcpservermanager.cpp:39
+#: core/mcpserver/mcpservermanager.cpp:43
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin Message"
+msgstr "संदेश पिन करें"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Invalid username"
+msgid "Missing message identifier"
+msgstr "अमान्य उपयोगकर्ता नाम"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Pin message failed: %1"
+msgstr "छवि डाउनलोड करें"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start pin message job"
+msgstr "डेटा निर्यात करना असंभव है."
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgid "Search Messages"
+msgstr "संदेश खोजें"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#, fuzzy, kde-format
+#| msgid "No Message found"
+msgid "No messages found"
+msgstr "कोई संदेश नहीं मिला"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
 #, fuzzy, kde-format
@@ -966,6 +1068,26 @@ msgstr "उपयोगकर्ता स्थिति संपादित 
 #| msgid "Invalid user"
 msgid "Invalid status"
 msgstr "अमान्य उपयोगकर्ता"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgid "Star Message"
+msgstr "संदेश खोजें"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Star message failed: %1"
+msgstr "छवि डाउनलोड करें"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start star message job"
+msgstr "डेटा निर्यात करना असंभव है."
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1522,13 +1644,6 @@ msgstr "चैनल प्रकार"
 msgid "Belongs To"
 msgstr "से संबंधित"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:695
-#: widgets/administratordialog/administratorwidget.cpp:57
-#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
-#, kde-format
-msgid "Rooms"
-msgstr "कमरा"
-
 #: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
@@ -1764,6 +1879,13 @@ msgstr ""
 #, kde-format
 msgid "On Hold Chats"
 msgstr ""
+
+#: core/model/roommodel.cpp:711
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Conversation"
+msgid "Conversations"
+msgstr "बातचीत शुरू करें"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3125,11 +3247,6 @@ msgid ""
 msgstr ""
 "प्रदान किया गया आवश्यक \\\"roomId\\\" या \\\"roomName\\\" पैरामीटर किसी भी टीम "
 "से मेल नहीं खाता"
-
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
-#, kde-format
-msgid "Get Avatar"
-msgstr "अवतार प्राप्त करें"
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:69
 #, kde-format
@@ -8310,13 +8427,6 @@ msgctxt "@title:window"
 msgid "Database Info"
 msgstr "डेटाबेस जानकारी"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Messages"
-msgid "Messages"
-msgstr "संदेशों"
-
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
@@ -13096,6 +13206,9 @@ msgstr "उपयोगकर्ता नाम"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "खाता जोड़ें…"
+
+#~ msgid "Get Avatar"
+#~ msgstr "अवतार प्राप्त करें"
 
 #, fuzzy
 #~| msgid "Private Messages"

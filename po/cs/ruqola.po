@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:02+0000\n"
+"POT-Creation-Date: 2026-11-05 00:55+0000\n"
 "PO-Revision-Date: 2024-10-31 16:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -802,29 +802,50 @@ msgid "Socket was unexpectedly closed."
 msgstr ""
 
 #: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:47
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
 #: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/starmessage/starmessagetool.cpp:47
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
 msgstr "Informace o účtu"
 
 #: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
 #, fuzzy, kde-format
 #| msgid "Invalid username"
 msgid "Missing search pattern"
 msgstr "Neplatné uživatelské jméno"
 
 #: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
 #, fuzzy, kde-format
 #| msgid "Download failed: %1"
 msgid "Search failed: %1"
 msgstr "Stažení bylo neúspěšné: %1"
 
 #: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
 msgstr "Nelze exportovat data."
+
+#: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
+#: core/model/roommodel.cpp:695
+#: widgets/administratordialog/administratorwidget.cpp:57
+#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
+#, kde-format
+msgid "Rooms"
+msgstr "Místnosti"
+
+#: core/mcpserver/common/toolutils.cpp:19
+#: widgets/databasedialog/exploredatabasedialog.cpp:52
+#, kde-format
+msgid "Messages"
+msgstr "Zprávy"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:26
 #, fuzzy, kde-format
@@ -834,33 +855,40 @@ msgid "Get My Status"
 msgstr "Upravit stav uživatele"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:38
-#: core/mcpserver/getroominfo/getroominfotool.cpp:41
+#: core/mcpserver/getroominfo/getroominfotool.cpp:43
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
 #: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listrooms/listroomstool.cpp:39
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:43
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
 #: core/mcpserver/searchusers/searchuserstool.cpp:39
 #: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/starmessage/starmessagetool.cpp:43
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Remove Account"
 msgid "No account found"
 msgstr "Odstranit účet"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:27
+#: core/mcpserver/getroominfo/getroominfotool.cpp:28
 #, fuzzy, kde-format
 #| msgid "No Room found"
 msgid "Get Room Info"
 msgstr "Žádná místnost nebyla nalezena"
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:46
+#: core/mcpserver/getroominfo/getroominfotool.cpp:48
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
 #, kde-format
 msgid "Missing room identifier"
 msgstr ""
 
-#: core/mcpserver/getroominfo/getroominfotool.cpp:51
+#: core/mcpserver/getroominfo/getroominfotool.cpp:53
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
@@ -902,23 +930,92 @@ msgstr "Neplatné uživatelské jméno"
 msgid "List Accounts"
 msgstr "Účty"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:26
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Total Rooms"
+msgid "List Room Members"
+msgstr "Celkem místností"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "Neznámý stav"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#, fuzzy, kde-format
+#| msgid "No room found"
+msgid "No members found"
+msgstr "Žádná místnost nebyla nalezena"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Listing members failed: %1"
+msgstr "Stažení bylo neúspěšné: %1"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start listing members"
+msgstr "Nelze exportovat data."
+
+#: core/mcpserver/listrooms/listroomstool.cpp:27
 #, fuzzy, kde-format
 #| msgid "Total Rooms"
 msgid "List Rooms"
 msgstr "Celkem místností"
 
-#: core/mcpserver/listrooms/listroomstool.cpp:63
+#: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
 #, fuzzy, kde-format
 #| msgid "No room found"
 msgid "No rooms found"
 msgstr "Žádná místnost nebyla nalezena"
 
-#: core/mcpserver/mcpservermanager.cpp:39
+#: core/mcpserver/mcpservermanager.cpp:43
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Pin Message"
+msgid "Pin Message"
+msgstr "Připnout zprávu"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:52
+#: core/mcpserver/starmessage/starmessagetool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Invalid username"
+msgid "Missing message identifier"
+msgstr "Neplatné uživatelské jméno"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Pin message failed: %1"
+msgstr "Stažení bylo neúspěšné: %1"
+
+#: core/mcpserver/pinmessage/pinmessagetool.cpp:73
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start pin message job"
+msgstr "Nelze exportovat data."
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Search Messages"
+msgid "Search Messages"
+msgstr "Hledat zprávy"
+
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#, fuzzy, kde-format
+#| msgid "No Message found"
+msgid "No messages found"
+msgstr "Nenalezena žádná zpráva"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
 #, fuzzy, kde-format
@@ -952,6 +1049,24 @@ msgstr "Upravit stav uživatele"
 #| msgid "Invalid user"
 msgid "Invalid status"
 msgstr "Neplatný uživatel"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:27
+#, fuzzy, kde-format
+#| msgid "Status Message:"
+msgid "Star Message"
+msgstr "Stavová zpráva:"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:67
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Star message failed: %1"
+msgstr "Stažení bylo neúspěšné: %1"
+
+#: core/mcpserver/starmessage/starmessagetool.cpp:70
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start star message job"
+msgstr "Nelze exportovat data."
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1507,13 +1622,6 @@ msgstr "Typ kanálu"
 msgid "Belongs To"
 msgstr "Patří"
 
-#: core/model/directoryteamsmodel.cpp:95 core/model/roommodel.cpp:695
-#: widgets/administratordialog/administratorwidget.cpp:57
-#: widgets/administratordialog/roles/rolescopecombobox.cpp:15
-#, kde-format
-msgid "Rooms"
-msgstr "Místnosti"
-
 #: core/model/directoryusersmodel.cpp:105 core/model/usersinrolemodel.cpp:91
 #, kde-format
 msgid "Emails"
@@ -1754,6 +1862,13 @@ msgstr ""
 #, kde-format
 msgid "On Hold Chats"
 msgstr ""
+
+#: core/model/roommodel.cpp:711
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Start Conversation"
+msgid "Conversations"
+msgstr "Zahájit rozhovor"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3112,11 +3227,6 @@ msgid ""
 msgstr ""
 "Zadaný povinný parametr \\\"roomId\\\" nebo \\\"roomName\\\" neodpovídá "
 "žádnému týmu"
-
-#: rocketchatrestapi-qt/users/getavatarjob.cpp:82
-#, kde-format
-msgid "Get Avatar"
-msgstr "Získat avatara"
 
 #: rocketchatrestapi-qt/users/registeruserjob.cpp:69
 #, kde-format
@@ -8106,11 +8216,6 @@ msgctxt "@title:window"
 msgid "Database Info"
 msgstr "Informace o databázi"
 
-#: widgets/databasedialog/exploredatabasedialog.cpp:52
-#, kde-format
-msgid "Messages"
-msgstr "Zprávy"
-
 #: widgets/databasedialog/exploredatabasedialog.cpp:55
 #: widgets/exportmessages/exportmessageswidget.cpp:40
 #, kde-format
@@ -12763,6 +12868,9 @@ msgstr "Uživatelské jméno:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Přidat účet…"
+
+#~ msgid "Get Avatar"
+#~ msgstr "Získat avatara"
 
 #~ msgid "Draft"
 #~ msgstr "Koncept"
