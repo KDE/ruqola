@@ -819,7 +819,12 @@ ActionButtonsManager *RocketChatAccount::actionButtonsManager() const
 
 void RocketChatAccount::tryLogin()
 {
-    if (mSettings->userName().isEmpty()) {
+    if (mSettings->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        if (mSettings->authToken().isEmpty() || mSettings->userId().isEmpty()) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "AuthToken or userId is empty!!!";
+            return;
+        }
+    } else if (mSettings->userName().isEmpty()) {
         qCDebug(RUQOLA_RECONNECT_LOG) << debugCategoryAccountName() << "Username is empty!!!";
         return;
     }
