@@ -46,14 +46,9 @@ QString ToolUtils::groupFromType(TitleType type)
     return {};
 }
 
-void ToolUtils::addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta &meta, TitleType type)
-{
-    TextAutoGenerateTextMcpProtocolCore::McpProtocolCommonUtils::addToolMeta(meta, groupFromType(type), groupTitleFromType(type));
-}
-
 void ToolUtils::addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolTool &tool, TitleType type)
 {
     TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta meta = tool.meta().value_or(TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta{});
-    addToolMeta(meta, type);
+    TextAutoGenerateTextMcpProtocolCore::McpProtocolCommonUtils::addToolMeta(meta, groupFromType(type), groupTitleFromType(type));
     tool.setMeta(meta);
 }

@@ -22,7 +22,6 @@ enum TitleType : uint8_t {
     Misc,
 };
 
-void addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolMeta &meta, TitleType type);
 void addToolMeta(TextAutoGenerateTextMcpProtocolCore::McpProtocolTool &tool, TitleType type);
 [[nodiscard]] QString groupFromType(TitleType type);
 [[nodiscard]] QString groupTitleFromType(TitleType type);
