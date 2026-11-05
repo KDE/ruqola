@@ -27,7 +27,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetUserStatusTool::definiti
         u"get_user_status"_s,
         i18n("Get User Status"),
         u"Get the presence status of a user"_s,
-        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::Destructive,
+        TextAutoGenerateTextMcpProtocolCore::McpProtocolServerTool::ToolKind::ReadOnly,
         QMap<QString, QJsonObject>{
             {u"accountName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"Account name (see list_accounts); current account if omitted"_s)},
             {u"userName"_s, McpProtocolServerTool::schemaProperty(u"string"_s, u"User name (without @)"_s)}},
