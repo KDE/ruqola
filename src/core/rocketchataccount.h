@@ -455,6 +455,8 @@ public:
     void resetE2eKey();
 
     [[nodiscard]] const QList<QRegularExpression> &highlightWordsRegularExpressions() const;
+
+    void slotCategoriesChanged(const QList<Category> &categories);
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);

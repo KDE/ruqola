@@ -3047,6 +3047,11 @@ const QList<QRegularExpression> &RocketChatAccount::highlightWordsRegularExpress
     return mOwnUser.ownUserPreferences().highlightWordsRegularExpressions();
 }
 
+void RocketChatAccount::slotCategoriesChanged(const QList<Category> &categories)
+{
+    // TODO
+}
+
 void RocketChatAccount::setAvatarUrl(const QString &url)
 {
     const RocketChatRestApi::UserBaseJob::UserInfo userInfo{

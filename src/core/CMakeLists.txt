@@ -660,6 +660,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/pinmessage/pinmessagetool.cpp
             mcpserver/markroomasread/markroomasreadtool.h
             mcpserver/markroomasread/markroomasreadtool.cpp
+            mcpserver/getroomroles/getroomrolestool.h
+            mcpserver/getroomroles/getroomrolestool.cpp
     )
 endif()
 

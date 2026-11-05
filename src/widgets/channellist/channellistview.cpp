@@ -269,7 +269,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
 void ChannelListView::slotCategoriesChanged(const QList<Category> &categories)
 {
-    // TODO
+    mCurrentRocketChatAccount->slotCategoriesChanged(categories);
 }
 
 void ChannelListView::slotConfigureNotification(Room *room)
