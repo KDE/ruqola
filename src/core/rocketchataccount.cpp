@@ -889,11 +889,16 @@ void RocketChatAccount::clearAllUnreadMessages()
 void RocketChatAccount::markRoomAsRead(const QByteArray &roomId)
 {
     if (!offlineMode()) {
-        mMarkUnreadThreadsAsReadOnNextReply = true;
         restApi()->markRoomAsRead(roomId);
-        if (mRuqolaServerConfig->threadsEnabled()) {
-            getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
-        }
+        markRoomThreadsAsRead(roomId);
+    }
+}
+
+void RocketChatAccount::markRoomThreadsAsRead(const QByteArray &roomId)
+{
+    if (mRuqolaServerConfig->threadsEnabled()) {
+        mMarkUnreadThreadsAsReadOnNextReply = true;
+        getListMessages(roomId, ListMessagesModel::UnreadThreadsMessages);
     }
 }
 

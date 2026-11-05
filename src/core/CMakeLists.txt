@@ -658,6 +658,8 @@ if(HAVE_TEXT_AUTOGENERATE_MCP_PROTOCOL)
             mcpserver/starmessage/starmessagetool.cpp
             mcpserver/pinmessage/pinmessagetool.h
             mcpserver/pinmessage/pinmessagetool.cpp
+            mcpserver/markroomasread/markroomasreadtool.h
+            mcpserver/markroomasread/markroomasreadtool.cpp
     )
 endif()
 

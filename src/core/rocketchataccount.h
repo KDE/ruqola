@@ -160,6 +160,7 @@ public:
     void logOut();
     void clearAllUnreadMessages();
     void markRoomAsRead(const QByteArray &roomId);
+    void markRoomThreadsAsRead(const QByteArray &roomId);
     void changeFavorite(const QByteArray &roomId, bool checked);
     void sendMessage(const QByteArray &roomID, const QString &message);
     void updateMessage(const QByteArray &roomID, const QByteArray &messageId, const QString &message);
