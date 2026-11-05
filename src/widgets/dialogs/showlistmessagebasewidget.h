@@ -12,7 +12,6 @@
 #include "model/listmessagesfilterproxymodel.h"
 class MessageListView;
 class QLabel;
-class ListMessagesFilterProxyModel;
 class RocketChatAccount;
 class Room;
 class SearchMessageLineWidget;

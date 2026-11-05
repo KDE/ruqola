@@ -14,6 +14,7 @@
 #include <QObject>
 
 class Message;
+class RocketChatAccount;
 namespace RocketChatRestApi
 {
 class RestApiAbstractJob;

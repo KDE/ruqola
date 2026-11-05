@@ -11,7 +11,6 @@
 #include "parserocketchaturlutils.h"
 #include <QPointer>
 #include <QWidget>
-class ChannelListView;
 class QLineEdit;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListWidget : public QWidget

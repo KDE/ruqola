@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT

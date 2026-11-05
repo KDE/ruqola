@@ -6,8 +6,8 @@
 #pragma once
 
 #include "exploredatabasebasestoragewidget.h"
-#include "localdatabase/globaldatabase.h"
 class RocketChatAccount;
+class GlobalDatabase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseGlobalStorageWidget : public ExploreDatabaseBaseStorageWidget
 {
     Q_OBJECT

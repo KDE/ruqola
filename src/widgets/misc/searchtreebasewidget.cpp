@@ -17,6 +17,7 @@
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;
+using namespace std::chrono_literals;
 SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mLabelResultSearch(new QLabel(this))

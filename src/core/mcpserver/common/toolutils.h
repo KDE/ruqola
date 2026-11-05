@@ -9,7 +9,6 @@
 
 namespace TextAutoGenerateTextMcpProtocolCore
 {
-class McpProtocolMeta;
 class McpProtocolTool;
 }
 namespace ToolUtils

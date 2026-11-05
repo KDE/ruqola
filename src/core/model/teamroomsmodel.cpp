@@ -5,7 +5,6 @@
 */
 
 #include "teamroomsmodel.h"
-#include "utils.h"
 
 #include <KLocalizedString>
 

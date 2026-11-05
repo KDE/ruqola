@@ -7,9 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "notificationinfo.h"
 #include <QObject>
 class NotificationHistoryModel;
+class NotificationInfo;
 
 class LIBRUQOLACORE_EXPORT NotificationHistoryManager : public QObject
 {

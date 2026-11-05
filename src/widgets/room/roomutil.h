@@ -8,8 +8,8 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "room.h"
-#include <QString>
-#include <QWidget>
+#include <QPoint>
+class QWidget;
 namespace RoomUtil
 {
 [[nodiscard]] LIBRUQOLAWIDGETS_TESTS_EXPORT QString generateUserLink(const QString &userName);

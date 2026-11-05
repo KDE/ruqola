@@ -5,7 +5,7 @@
 */
 #include "roomlistheadingsproxymodel.h"
 
-#include <QApplication>
+#include <QGuiApplication>
 #include <QPalette>
 
 RoomListHeadingsProxyModel::RoomListHeadingsProxyModel(QObject *parent)
@@ -158,7 +158,7 @@ QVariant RoomListHeadingsProxyModel::data(const QModelIndex &index, int role) co
             // Empty for a standard section, so that a caller can tell both apart.
             return section.category.identifier();
         case Qt::BackgroundRole:
-            return QApplication::palette().brush(QPalette::Window);
+            return QGuiApplication::palette().brush(QPalette::Window);
         default:
             return {};
         }

@@ -5,11 +5,12 @@
 */
 
 #pragma once
+#include "accountroomsettings.h"
 #include "libruqolawidgets_private_export.h"
-#include "pendingattachmentclickablewidget.h"
 #include <QMap>
 #include <QUrl>
 #include <QWidget>
+class PendingAttachmentClickableWidget;
 namespace TextAddonsWidgets
 {
 class TextAddonsWidgetFlowLayout;

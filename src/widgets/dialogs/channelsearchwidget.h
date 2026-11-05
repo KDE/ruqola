@@ -11,7 +11,6 @@
 #include "channelsearchnamelineedit.h"
 #include "libruqolawidgets_private_export.h"
 class QStackedWidget;
-class ChannelSearchNameLineEdit;
 class ChannelSearchNameLineResultWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchWidget : public QWidget

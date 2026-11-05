@@ -10,6 +10,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QPushButton;
+class QJsonObject;
 class RocketChatAccount;
 class PasswordConfirmWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2e2ConfigureWidget : public QWidget

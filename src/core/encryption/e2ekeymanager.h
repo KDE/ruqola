@@ -5,7 +5,6 @@
 */
 
 #pragma once
-#include "config-ruqola.h"
 #include "libruqolacore_export.h"
 
 #include <QObject>

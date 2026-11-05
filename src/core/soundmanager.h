@@ -9,6 +9,7 @@
 #include <QObject>
 class QAudioOutput;
 class QMediaPlayer;
+class QUrl;
 class SoundManager : public QObject
 {
     Q_OBJECT

@@ -8,10 +8,10 @@
 
 #include "libruqolacore_export.h"
 #include <QList>
-#include <QObject>
 #include <QSharedData>
 #include <memory>
 class QDebug;
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT Channels : public QSharedData
 {
 public:

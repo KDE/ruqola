@@ -28,6 +28,7 @@ class UsersForRoomModel;
 class MessagesModel;
 class RocketChatAccount;
 class QJsonObject;
+class QIcon;
 class LIBRUQOLACORE_EXPORT Room : public QObject
 {
     Q_OBJECT

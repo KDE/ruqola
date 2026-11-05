@@ -10,6 +10,8 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QComboBox;
+class QLineEdit;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT IrcFederationWidget : public SettingsWidgetBase
 {
     Q_OBJECT

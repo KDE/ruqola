@@ -11,6 +11,7 @@ class CreateSoundMessageWidget;
 class GenerateSoundMessagePage;
 class CreateSoundMessagePage;
 class QLineEdit;
+class QDebug;
 class PlaySoundWidget;
 class RocketChatAccount;
 

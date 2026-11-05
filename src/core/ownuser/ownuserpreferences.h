@@ -14,6 +14,7 @@
 #include <QStringList>
 class QDebug;
 class QJsonArray;
+class QJsonObject;
 class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {
     Q_GADGET

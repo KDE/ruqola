@@ -11,6 +11,7 @@
 #include "libruqolacore_export.h"
 
 class QAbstractItemModel;
+class QJsonObject;
 class RocketChatAccount;
 class CommandsModelFilterProxyModel;
 class EmoticonFilterProxyModel;

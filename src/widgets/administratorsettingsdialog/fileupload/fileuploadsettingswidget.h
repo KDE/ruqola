@@ -10,6 +10,8 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QSpinBox;
+class QComboBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT FileUploadSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT

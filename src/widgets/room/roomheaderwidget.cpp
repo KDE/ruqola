@@ -15,6 +15,7 @@
 #include "encryption/e2edisabledialog.h"
 #include "misc/avatarcachemanager.h"
 #include "room/plugins/plugintool.h"
+#include "room/plugins/plugintoolinterface.h"
 #include "roomheaderlabel.h"
 #include "teamnamelabel.h"
 #include "toolspluginmanager.h"

@@ -11,6 +11,7 @@
 class QLineEdit;
 class QSpinBox;
 class QComboBox;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT LogsSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT

@@ -18,6 +18,7 @@
 #include "room/messagelineextratoolbutton.h"
 #include "room/plugins/plugintextinterface.h"
 #include "room/plugins/plugintool.h"
+#include "room/plugins/plugintoolinterface.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"

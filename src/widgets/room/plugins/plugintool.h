@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_export.h"
 #include "pluginbase.h"
-#include "plugintoolinterface.h"
+class PluginToolInterface;
 class LIBRUQOLAWIDGETS_EXPORT PluginTool : public PluginBase
 {
     Q_OBJECT

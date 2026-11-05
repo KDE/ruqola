@@ -7,10 +7,10 @@
 #pragma once
 
 #include "librocketchatrestapi-qt_export.h"
-#include <QJsonDocument>
 
 #include <QStringList>
 class QDebug;
+class QJsonDocument;
 namespace RocketChatRestApi
 {
 struct LIBROCKETCHATRESTAPI_QT_EXPORT CreateUpdateUserInfo {

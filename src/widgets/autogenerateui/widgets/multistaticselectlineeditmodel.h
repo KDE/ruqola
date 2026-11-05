@@ -8,7 +8,6 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QAbstractListModel>
-class QObject;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MultiStaticSelectLineEditModel : public QAbstractListModel
 {

@@ -7,6 +7,7 @@
 #include "notificationhistorymanager.h"
 
 #include "model/notificationhistorymodel.h"
+#include "notificationinfo.h"
 
 NotificationHistoryManager::NotificationHistoryManager(QObject *parent)
     : QObject{parent}

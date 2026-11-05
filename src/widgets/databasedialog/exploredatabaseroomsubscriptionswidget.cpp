@@ -5,6 +5,7 @@
 */
 #include "exploredatabaseroomsubscriptionswidget.h"
 #include "localdatabase/localdatabasemanager.h"
+#include "localdatabase/localroomsubscriptionsdatabase.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"
 

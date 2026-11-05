@@ -9,10 +9,6 @@
 #include <Prison/Barcode>
 #include <QWidget>
 class QLabel;
-namespace Prison
-{
-class Barcode;
-}
 class RocketChatAccount;
 class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaTotpWidget : public QWidget

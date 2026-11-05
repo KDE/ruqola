@@ -12,6 +12,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QFormLayout;
+class QJsonObject;
 class RocketChatAccount;
 class ResizablePixmapLabel;
 class QToolButton;

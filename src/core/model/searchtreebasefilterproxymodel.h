@@ -8,6 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
+#include <functional>
 class LIBRUQOLACORE_EXPORT SearchTreeBaseFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT

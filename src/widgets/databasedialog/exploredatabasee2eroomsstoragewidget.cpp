@@ -6,6 +6,7 @@
 
 #include "exploredatabasee2eroomsstoragewidget.h"
 #include "databasedialog/exploredatabasetooltipdelegate.h"
+#include "localdatabase/e2eroomsdatabase.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"

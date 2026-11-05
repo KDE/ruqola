@@ -8,6 +8,8 @@
 #include "libruqolacore_export.h"
 #include "usersforroommodel.h"
 #include <QAbstractProxyModel>
+#include <array>
+#include <vector>
 class LIBRUQOLACORE_EXPORT UsersForRoomListHeadingsProxyModel : public QAbstractProxyModel
 {
     Q_OBJECT

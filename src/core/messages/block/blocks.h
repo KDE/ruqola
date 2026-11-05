@@ -9,7 +9,9 @@
 #include "block.h"
 #include "libruqolacore_export.h"
 #include <QList>
+#include <QSharedData>
 #include <memory>
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT Blocks : public QSharedData
 {
 public:

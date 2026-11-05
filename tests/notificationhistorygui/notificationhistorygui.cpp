@@ -7,6 +7,7 @@
 #include "notificationhistorygui.h"
 #include "notificationhistory/notificationhistorydialog.h"
 #include "notificationhistorymanager.h"
+#include "notificationinfo.h"
 #include <QApplication>
 #include <QDebug>
 #include <QJsonArray>

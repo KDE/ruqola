@@ -8,6 +8,7 @@
 
 #include <QDialog>
 class QVBoxLayout;
+class QJsonObject;
 class RocketChatAccount;
 class AutoGenerateInteractionUi;
 class AutoGenerateInteractionUiDialog : public QDialog

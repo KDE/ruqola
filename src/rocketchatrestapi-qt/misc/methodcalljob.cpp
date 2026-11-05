@@ -10,6 +10,7 @@
 #include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
+#include <QNetworkRequest>
 using namespace Qt::Literals::StringLiterals;
 using namespace RocketChatRestApi;
 MethodCallJob::MethodCallJob(QObject *parent)

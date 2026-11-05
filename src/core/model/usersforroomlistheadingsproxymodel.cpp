@@ -5,8 +5,8 @@
 */
 
 #include "usersforroomlistheadingsproxymodel.h"
-#include <QApplication>
 #include <QFont>
+#include <QGuiApplication>
 #include <QPalette>
 
 UsersForRoomListHeadingsProxyModel::UsersForRoomListHeadingsProxyModel(QObject *parent)
@@ -28,7 +28,7 @@ QVariant UsersForRoomListHeadingsProxyModel::data(const QModelIndex &index, int 
             return sectionName;
         }
         case Qt::BackgroundRole:
-            return QApplication::palette().brush(QPalette::Window);
+            return QGuiApplication::palette().brush(QPalette::Window);
         case Qt::FontRole: {
             auto font = qvariant_cast<QFont>(QAbstractProxyModel::data(index, Qt::FontRole));
             font.setBold(true);

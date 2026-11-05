@@ -7,10 +7,10 @@
 #pragma once
 
 #include "bannedusers/banneduser.h"
-#include "bannedusers/bannedusers.h"
 #include "libruqolacore_export.h"
 #include "utils.h"
 #include <QAbstractListModel>
+class BannedUsers;
 class LIBRUQOLACORE_EXPORT BannedUsersModel : public QAbstractListModel
 {
     Q_OBJECT

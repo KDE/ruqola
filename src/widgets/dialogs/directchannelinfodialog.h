@@ -9,7 +9,6 @@
 
 #include "directchannelinfowidget.h"
 #include "libruqolawidgets_private_export.h"
-class DirectChannelInfoWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
 {

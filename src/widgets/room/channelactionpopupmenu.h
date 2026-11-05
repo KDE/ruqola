@@ -11,6 +11,7 @@
 #include <QObject>
 #include <QPointer>
 class QMenu;
+class QJsonObject;
 class QAction;
 class Room;
 class ActionButtonsGenerator;

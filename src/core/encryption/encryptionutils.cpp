@@ -15,7 +15,10 @@
 #include <QJsonObject>
 #include <QRandomGenerator>
 #include <QUuid>
+#include <openssl/bn.h>
 #include <openssl/evp.h>
+#include <openssl/pem.h>
+#include <openssl/rand.h>
 
 using namespace Qt::Literals::StringLiterals;
 

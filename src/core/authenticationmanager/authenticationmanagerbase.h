@@ -7,8 +7,10 @@
 #pragma once
 #include "authenticationmanager.h"
 #include "libruqolacore_export.h"
+#include <QJsonObject>
 #include <QObject>
 class OwnUser;
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT AuthenticationManagerBase : public QObject
 {
     Q_OBJECT

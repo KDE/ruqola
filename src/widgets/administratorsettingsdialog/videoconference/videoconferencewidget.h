@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT VideoConferenceWidget : public SettingsWidgetBase
 {
     Q_OBJECT

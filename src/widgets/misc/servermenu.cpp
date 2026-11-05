@@ -5,6 +5,7 @@
 */
 
 #include "servermenu.h"
+#include "utils.h"
 
 #include "accountmanager.h"
 #include "model/rocketchataccountfilterproxymodel.h"

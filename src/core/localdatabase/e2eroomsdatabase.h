@@ -9,6 +9,7 @@
 
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
+#include <memory>
 class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT E2ERoomsDataBase : public LocalDatabaseBase
 {

@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QAbstractItemModel>
+#include <functional>
 
 #include "libruqolacore_export.h"
 

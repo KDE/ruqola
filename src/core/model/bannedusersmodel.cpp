@@ -5,7 +5,7 @@
 */
 
 #include "bannedusersmodel.h"
-#include "utils.h"
+#include "bannedusers/bannedusers.h"
 
 BannedUsersModel::BannedUsersModel(QObject *parent)
     : QAbstractListModel(parent)

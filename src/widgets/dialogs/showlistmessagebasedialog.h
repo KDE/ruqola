@@ -11,7 +11,6 @@
 #include <QDialog>
 
 class ShowListMessageBaseWidget;
-class ListMessagesFilterProxyModel;
 class RocketChatAccount;
 class Room;
 class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog

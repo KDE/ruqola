@@ -6,8 +6,8 @@
 #pragma once
 
 #include "exploredatabasebasestoragewidget.h"
-#include "localdatabase/localroompendingtypedinfodatabase.h"
 class RocketChatAccount;
+class LocalRoomPendingTypedInfoDatabase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseRoomsPendingTypedInfoStorageWidget : public ExploreDatabaseBaseStorageWidget
 {
     Q_OBJECT

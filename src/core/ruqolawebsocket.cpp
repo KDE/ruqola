@@ -9,6 +9,7 @@
 #include "config-ruqola.h"
 #include "ruqola_debug.h"
 #include "ruqola_reconnect_core_debug.h"
+#include "ruqolalogger.h"
 
 #include <QWebSocket>
 

@@ -7,7 +7,6 @@
 #include "applicationssettingsdialog/applicationssettingssearchwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class ApplicationsSettingsSearchWidget;
 class ApplicationsSettingsListView;
 class AppsCountInfoWidget;
 class RocketChatAccount;

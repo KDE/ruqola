@@ -8,6 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QLabel;
+class QJsonObject;
 class SearchWithDelayLineEdit;
 class QTreeView;
 class CustomBaseModel;

@@ -12,6 +12,7 @@
 class QJsonArray;
 class QJsonObject;
 class QUrl;
+class QIcon;
 
 class RocketChatAccount;
 

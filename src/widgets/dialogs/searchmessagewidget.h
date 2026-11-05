@@ -12,6 +12,7 @@
 class SearchMessageWithDelayLineEdit;
 class MessageListView;
 class QLabel;
+class QJsonObject;
 class CommonMessageFilterProxyModel;
 class RocketChatAccount;
 class Room;

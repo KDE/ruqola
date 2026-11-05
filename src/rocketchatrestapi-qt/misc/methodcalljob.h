@@ -9,7 +9,6 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 #include <QJsonObject>
-#include <QNetworkRequest>
 class QDebug;
 namespace RocketChatRestApi
 {

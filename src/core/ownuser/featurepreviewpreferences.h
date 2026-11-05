@@ -9,6 +9,7 @@
 #include <QMap>
 #include <QMetaType>
 class QDebug;
+class QJsonArray;
 class LIBRUQOLACORE_EXPORT FeaturePreviewPreferences
 {
     Q_GADGET

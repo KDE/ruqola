@@ -6,6 +6,7 @@
 
 #include "exploredatabaseaccountstoragewidget.h"
 #include "exploredatabasetooltipdelegate.h"
+#include "localdatabase/localaccountsdatabase.h"
 #include "localdatabase/localdatabasemanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_database_widget_debug.h"

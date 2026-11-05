@@ -9,6 +9,7 @@
 #include "libruqolacore_export.h"
 #include <QDateTime>
 class QDebug;
+class QJsonObject;
 
 class LIBRUQOLACORE_EXPORT OauthInfo
 {

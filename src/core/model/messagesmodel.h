@@ -12,6 +12,8 @@
 #include "messages/message.h"
 #include <QAbstractListModel>
 #include <QPointer>
+#include <functional>
+#include <memory>
 class QRegularExpression;
 class RocketChatAccount;
 class LoadRecentHistoryManager;

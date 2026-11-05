@@ -7,9 +7,9 @@
 #pragma once
 
 #include "abstractwebsocket.h"
-#include "ruqolalogger.h"
 #include <QPointer>
 class QWebSocket;
+class RuqolaLogger;
 class RuqolaWebSocket : public AbstractWebSocket
 {
     Q_OBJECT

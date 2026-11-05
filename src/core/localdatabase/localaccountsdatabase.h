@@ -7,6 +7,7 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "localdatabasebase.h"
+#include <memory>
 class QSqlTableModel;
 class LIBRUQOLACORE_EXPORT LocalAccountsDatabase : public LocalDatabaseBase
 {

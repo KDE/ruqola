@@ -11,6 +11,7 @@
 class QCheckBox;
 class QLineEdit;
 class KPasswordLineEdit;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT LDapSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
