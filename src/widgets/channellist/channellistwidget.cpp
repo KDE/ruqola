@@ -260,8 +260,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QByteArray &messageId,
             }
             case ParseRocketChatUrlUtils::ChannelType::Group: {
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
-                    // TODO add support for roomId or roomName
-                    mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
+                    mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
                 } else {
                     selectMessageId(messageId);
                 }
