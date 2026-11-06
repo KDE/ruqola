@@ -43,6 +43,7 @@
 #include "previewurlcachemanager.h"
 #include "serverconfiginfo.h"
 #include "soundmanager.h"
+#include "users/setstatusjob.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"
 #include "model/appsmarketplacemodel.h"
@@ -2537,7 +2538,16 @@ void RocketChatAccount::initializeAccount()
     // Force set online.
     // TODO don't reset message status !
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
-        ddp()->setDefaultStatus(User::PresenceStatus::Online);
+        if (hasAtLeastVersion(8, 6, 0)) {
+            auto job = new RocketChatRestApi::SetStatusJob(this);
+            job->setStatus(RocketChatRestApi::SetStatusJob::StatusType::OnLine);
+            restApi()->initializeRestApiJob(job);
+            if (!job->start()) {
+                qCDebug(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start SetStatusJob";
+            }
+        } else {
+            ddp()->setDefaultStatus(User::PresenceStatus::Online);
+        }
     }
     // Initialize sounds
     mCustomSoundManager->initializeDefaultSounds();
