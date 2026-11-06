@@ -50,8 +50,12 @@ void GitLabAuthenticationJob::start()
     auto replyHandler = new QOAuthHttpServerReplyHandler(11450, mOAuth2);
     mOAuth2->setClientIdentifier(mGitLabInfo.clientId);
     mOAuth2->setReplyHandler(replyHandler);
-    mOAuth2->setAuthorizationUrl(QUrl(u"https://gitlab.com/login/oauth/authorize"_s));
-    mOAuth2->setTokenUrl(QUrl(u"https://gitlab.com/login/oauth/access_token"_s));
+    QString serverUrl = mGitLabInfo.url;
+    while (serverUrl.endsWith(u'/')) {
+        serverUrl.chop(1);
+    }
+    mOAuth2->setAuthorizationUrl(QUrl(serverUrl + u"/oauth/authorize"_s));
+    mOAuth2->setTokenUrl(QUrl(serverUrl + u"/oauth/token"_s));
     mOAuth2->setRequestedScopeTokens({"openid"_ba});
 
     mOAuth2->setToken(mGitLabInfo.token);
