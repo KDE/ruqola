@@ -66,30 +66,6 @@ bool GetUsersInRoleJob::hasQueryParameterSupport() const
 void GetUsersInRoleJob::initialUrlParameters(QUrlQuery &urlQuery) const
 {
     urlQuery.addQueryItem(u"role"_s, mRoleId);
-#if 0
-    // https://<server>/api/v1/rooms.adminRooms?filter=&types[]=d,p,c,teams&sort={"name":1}&count=25&offset=25
-    if (!mRoomsAdminInfo.filter.isEmpty()) {
-        urlQuery.addQueryItem(u"filter"_s, mRoomsAdminInfo.filter);
-    }
-    QStringList types;
-    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Direct) {
-        types << u"d"_s;
-    }
-    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Private) {
-        types << u"p"_s;
-    }
-    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Channel) {
-        types << u"c"_s;
-    }
-    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Team) {
-        types << u"teams"_s;
-    }
-    if (!types.isEmpty()) {
-        for (const QString &str : std::as_const(types)) {
-            urlQuery.addQueryItem(u"types[]"_s, str);
-        }
-    }
-#endif
 }
 
 const QString &GetUsersInRoleJob::roleId() const
