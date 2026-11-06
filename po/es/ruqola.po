@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 03:20+0000\n"
+"POT-Creation-Date: 2026-11-06 03:12+0000\n"
 "PO-Revision-Date: 2026-10-25 00:36+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1819,7 +1819,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo…"
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1828,22 +1828,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "No conectado"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected yet"
 msgstr "No conectado todavía"
 
-#: core/rocketchataccount.cpp:3273
+#: core/rocketchataccount.cpp:3281
 #, kde-format
 msgid "Room Added"
 msgstr "Sala añadida"
 
-#: core/rocketchataccount.cpp:3274
+#: core/rocketchataccount.cpp:3282
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Se añadió una nueva sala en «%1»."

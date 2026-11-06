@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 03:20+0000\n"
+"POT-Creation-Date: 2026-11-06 03:12+0000\n"
 "PO-Revision-Date: 2026-03-03 17:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -761,7 +761,8 @@ msgid "Ding"
 msgstr "Kilahdus"
 
 #: core/customsound/customsoundsmanager.cpp:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Droplet"
 msgid "Droplet"
 msgstr "Pisara"
 
@@ -1836,7 +1837,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1845,23 +1846,23 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "Ei yhteyttä"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected yet"
 msgstr "Ei vielä yhteyttä"
 
-#: core/rocketchataccount.cpp:3273
+#: core/rocketchataccount.cpp:3281
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Tili lisätty"
 
-#: core/rocketchataccount.cpp:3274
+#: core/rocketchataccount.cpp:3282
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 03:20+0000\n"
-"PO-Revision-Date: 2026-10-11 21:55+0300\n"
+"POT-Creation-Date: 2026-11-06 03:12+0000\n"
+"PO-Revision-Date: 2026-11-04 22:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -1579,7 +1579,7 @@ msgstr "Bilinmiyor"
 #: core/model/statusmodel.cpp:63
 #, kde-format
 msgid "Modify Status…"
-msgstr "Durumu Değiştir…"
+msgstr "Durumda Değişiklik Yap…"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1815,7 +1815,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> yazıyor…"
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -1824,22 +1824,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "Bağlı değil"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected yet"
 msgstr "Henüz bağlı değil"
 
-#: core/rocketchataccount.cpp:3273
+#: core/rocketchataccount.cpp:3281
 #, kde-format
 msgid "Room Added"
 msgstr "Oda Eklendi"
 
-#: core/rocketchataccount.cpp:3274
+#: core/rocketchataccount.cpp:3282
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "“%1” içine yeni bir oda eklendi."
