@@ -10,8 +10,6 @@
 #include "administratordialog/moderationconsole/moderationusersdialog.h"
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
-#include "model/commonmessagefilterproxymodel.h"
-#include "model/moderationmessagesmodel.h"
 #include "model/moderationreportedusermodel.h"
 #include "model/moderationreporteduserproxymodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
@@ -32,9 +30,7 @@ using namespace Qt::Literals::StringLiterals;
 
 ModerationReportedUserConsoleTreeWidget::ModerationReportedUserConsoleTreeWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
-    , mCommonMessagesModel(new ModerationMessagesModel(account, this))
 {
-    mCommonMessageFilterProxyModel = new CommonMessageFilterProxyModel(mCommonMessagesModel, this);
     mModel = new ModerationReportedUserModel(this);
     mModel->setObjectName(u"mModel"_s);
     mSearchLineEdit->setPlaceholderText(i18nc("@info:placeholder", "Search moderation message…"));

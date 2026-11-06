@@ -9,8 +9,6 @@
 #include "administratormoderationrangewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
-class ModerationMessagesModel;
-class CommonMessageFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationReportedUserConsoleTreeWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
@@ -35,6 +33,4 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotDesactivateUser(const QModelIndex &index);
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT QString displayShowMessage() const;
     AdministratorModerationRangeWidget::DateTimeRange mModerationRanges;
-    ModerationMessagesModel *const mCommonMessagesModel;
-    CommonMessageFilterProxyModel *mCommonMessageFilterProxyModel = nullptr;
 };
