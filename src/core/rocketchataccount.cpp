@@ -3655,21 +3655,26 @@ void RocketChatAccount::roomsParsing(const QJsonObject &root)
             || roomType == u'd' /*Direct chat*/) {
             // let's be extra safe around crashes
             if (loginStatus() == AuthenticationManager::LoggedIn) {
+                // subscriptions/get (parsed just before) already gave us the subscription of every known room.
+                // Only fetch it for rooms we didn't know yet, otherwise we send one REST request per room
+                // and hit the server rate limiter (error-too-many-requests).
+                const bool roomIsKnown = model->findRoom(roomJson.value("_id"_L1).toString().toLatin1());
                 const QByteArray roomId = model->updateRoom(roomJson);
-                auto job = new RocketChatRestApi::SubscriptionGetOneJob(this);
-                job->setRoomId(roomId);
-                restApi()->initializeRestApiJob(job);
+                if (!roomIsKnown && !roomId.isEmpty()) {
+                    auto job = new RocketChatRestApi::SubscriptionGetOneJob(this);
+                    job->setRoomId(roomId);
+                    restApi()->initializeRestApiJob(job);
 
-                connect(job, &RocketChatRestApi::SubscriptionGetOneJob::roomInfoDone, this, [this](const QJsonObject &room) {
-                    // qDebug() << "SubscriptionGetOneJob*********** " << room;
-                    RoomModel *model = roomModel();
-                    const QByteArray roomId = model->updateSubscriptionRoom(room);
-                    const QByteArray subscriptionId = room["_id"_L1].toString().toLatin1();
-                    insertRoomSubscription(subscriptionId, roomId);
-                    updateRoomInDatabase(roomId);
-                });
-                if (!job->start()) {
-                    qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start SubscriptionGetOneJob";
+                    connect(job, &RocketChatRestApi::SubscriptionGetOneJob::roomInfoDone, this, [this](const QJsonObject &room) {
+                        RoomModel *model = roomModel();
+                        const QByteArray roomId = model->updateSubscriptionRoom(room);
+                        const QByteArray subscriptionId = room["_id"_L1].toString().toLatin1();
+                        insertRoomSubscription(subscriptionId, roomId);
+                        updateRoomInDatabase(roomId);
+                    });
+                    if (!job->start()) {
+                        qCWarning(RUQOLA_LOG) << debugCategoryAccountName() << "Impossible to start SubscriptionGetOneJob";
+                    }
                 }
                 updateRoomInDatabase(roomId);
             }
