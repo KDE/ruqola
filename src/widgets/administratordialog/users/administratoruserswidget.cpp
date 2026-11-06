@@ -207,6 +207,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
             }
             delete dialog;
             if (!accepted) {
+                delete dlg;
                 return;
             }
         }
