@@ -38,7 +38,7 @@ QVariant AdminInviteModel::headerData(int section, Qt::Orientation orientation, 
         case AdminInviteModel::Uses:
             return i18n("Uses");
         case AdminInviteModel::MaxUses:
-            return i18n("Uses left");
+            return i18n("Max uses");
         case AdminInviteModel::Expire:
             return i18n("Expiration");
         }
@@ -108,11 +108,19 @@ QString AdminInviteModel::maxUses(int uses)
 
 QString AdminInviteModel::expireInvitation(const InviteInfo &inviteInfo)
 {
-    if (inviteInfo.expireDateTime() > QDateTime::currentDateTime()) {
-        return i18n("Expire in %1 days", QDateTime::currentDateTime().daysTo(inviteInfo.expireDateTime()));
-    } else {
-        return i18n("Expired");
+    const QDateTime &expireDateTime = inviteInfo.expireDateTime();
+    if (!expireDateTime.isValid()) {
+        return i18n("Never");
     }
+    const QDateTime now = QDateTime::currentDateTime();
+    if (expireDateTime > now) {
+        const qint64 days = now.daysTo(expireDateTime);
+        if (days == 0) {
+            return i18n("Expires today");
+        }
+        return i18np("Expires in 1 day", "Expires in %1 days", days);
+    }
+    return i18n("Expired");
 }
 
 void AdminInviteModel::removeInvite(const QByteArray &identifier)

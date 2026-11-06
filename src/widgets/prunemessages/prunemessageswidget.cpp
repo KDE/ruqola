@@ -36,7 +36,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
     lastestLayout->setContentsMargins({});
     mainLayout->addLayout(lastestLayout);
 
-    auto lastestLabel = new QLabel(i18nc("@label:textbox", "Newer than:"), this);
+    auto lastestLabel = new QLabel(i18nc("@label:textbox", "Older than:"), this);
     lastestLabel->setObjectName(u"lastestLabel"_s);
     lastestLayout->addWidget(lastestLabel);
 
@@ -49,7 +49,7 @@ PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *pa
     oldestLayout->setContentsMargins({});
     mainLayout->addLayout(oldestLayout);
 
-    auto oldestLabel = new QLabel(i18nc("@label:textbox", "Older than:"), this);
+    auto oldestLabel = new QLabel(i18nc("@label:textbox", "Newer than:"), this);
     oldestLabel->setObjectName(u"oldestLabel"_s);
     oldestLayout->addWidget(oldestLabel);
 

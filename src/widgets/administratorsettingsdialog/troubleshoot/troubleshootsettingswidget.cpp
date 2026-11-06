@@ -41,8 +41,7 @@ TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *accoun
     addCheckBox(mDisableInstanceBroadcast, u"Troubleshoot_Disable_Instance_Broadcast"_s);
 
     mDisableSessionsMonitor->setObjectName(u"mDisableSessionsMonitor"_s);
-    mDisableSessionsMonitor->setToolTip(
-        i18n("This setting prevents the Rocket.Chat instances from sending events to the other instances, it may cause syncing problems and misbehavior!"));
+    mDisableSessionsMonitor->setToolTip(i18n("This setting stops the processing of user sessions causing the statistics to stop working correctly!"));
     addCheckBox(mDisableSessionsMonitor, u"Troubleshoot_Disable_Sessions_Monitor"_s);
 
     mDisableLivechatActivityMonitor->setObjectName(u"mDisableLivechatActivityMonitor"_s);

@@ -56,7 +56,7 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     mTraceSubscriptionFilter->setObjectName(u"mTraceSubscriptionFilter"_s);
     mTraceSubscriptionFilter->setToolTip(
         i18nc("@info:tooltip", "The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
-    addLineEdit(i18n("Trace method filter"), mTraceSubscriptionFilter, u"Log_Trace_Subscriptions_Filter"_s);
+    addLineEdit(i18n("Trace subscription filter"), mTraceSubscriptionFilter, u"Log_Trace_Subscriptions_Filter"_s);
 }
 
 LogsSettingsWidget::~LogsSettingsWidget() = default;

@@ -49,11 +49,11 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
 
     mLimiteByIpRequestsAllowed->setObjectName(u"mLimiteByIpRequestsAllowed"_s);
     mLimiteByIpRequestsAllowed->setMaximum(9999999);
-    addSpinbox(i18n("Limit by IP: interval time"), mLimiteByIpRequestsAllowed, u"DDP_Rate_Limit_IP_Requests_Allowed"_s);
+    addSpinbox(i18n("Limit by IP: requests allowed"), mLimiteByIpRequestsAllowed, u"DDP_Rate_Limit_IP_Requests_Allowed"_s);
 
     mLimiteByIpIntervalTime->setObjectName(u"mLimiteByIpIntervalTime"_s);
     mLimiteByIpIntervalTime->setMaximum(9999999);
-    addSpinbox(i18n("Limit by IP: requests allowed"), mLimiteByIpIntervalTime, u"DDP_Rate_Limit_IP_Interval_Time"_s);
+    addSpinbox(i18n("Limit by IP: interval time"), mLimiteByIpIntervalTime, u"DDP_Rate_Limit_IP_Interval_Time"_s);
 
     mLimitByUser->setObjectName(u"mLimitByUser"_s);
     addCheckBox(mLimitByUser, u"DDP_Rate_Limit_User_Enabled"_s);
@@ -71,33 +71,37 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
 
     mLimiteByConnectionRequestsAllowed->setObjectName(u"mLimiteByConnectionRequestsAllowed"_s);
     mLimiteByConnectionRequestsAllowed->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByConnectionRequestsAllowed, u"DDP_Rate_Limit_Connection_Requests_Allowed"_s);
+    addSpinbox(i18n("Limit by Connection: requests allowed"), mLimiteByConnectionRequestsAllowed, u"DDP_Rate_Limit_Connection_Requests_Allowed"_s);
 
     mLimiteByConnectionIntervalTime->setObjectName(u"mLimiteByConnectionIntervalTime"_s);
     mLimiteByConnectionIntervalTime->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: interval time"), mLimiteByConnectionIntervalTime, u"DDP_Rate_Limit_Connection_Interval_Time"_s);
+    addSpinbox(i18n("Limit by Connection: interval time"), mLimiteByConnectionIntervalTime, u"DDP_Rate_Limit_Connection_Interval_Time"_s);
 
     mLimitByUserPerMethod->setObjectName(u"mLimitByUserPerMethod"_s);
     addCheckBox(mLimitByUserPerMethod, u"DDP_Rate_Limit_User_By_Method_Enabled"_s);
 
     mLimiteByUserRequestsAllowedPerMethod->setObjectName(u"mLimiteByUserRequestsAllowedPerMethod"_s);
     mLimiteByUserRequestsAllowedPerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByUserRequestsAllowedPerMethod, u"DDP_Rate_Limit_User_By_Method_Requests_Allowed"_s);
+    addSpinbox(i18n("Limit by User per Method: requests allowed"), mLimiteByUserRequestsAllowedPerMethod, u"DDP_Rate_Limit_User_By_Method_Requests_Allowed"_s);
 
     mLimiteByUserIntervalTimePerMethod->setObjectName(u"mLimiteByUserIntervalTimePerMethod"_s);
     mLimiteByUserIntervalTimePerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: interval time"), mLimiteByUserIntervalTimePerMethod, u"DDP_Rate_Limit_User_By_Method_Interval_Time"_s);
+    addSpinbox(i18n("Limit by User per Method: interval time"), mLimiteByUserIntervalTimePerMethod, u"DDP_Rate_Limit_User_By_Method_Interval_Time"_s);
 
     mLimitByConnectionPerMethod->setObjectName(u"mLimitByConnectionPerMethod"_s);
     addCheckBox(mLimitByConnectionPerMethod, u"DDP_Rate_Limit_Connection_By_Method_Enabled"_s);
 
     mLimiteByConnectionRequestsAllowedPerMethod->setObjectName(u"mLimiteByConnectionRequestsAllowedPerMethod"_s);
     mLimiteByConnectionRequestsAllowedPerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByConnectionRequestsAllowedPerMethod, u"DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"_s);
+    addSpinbox(i18n("Limit by Connection per Method: requests allowed"),
+               mLimiteByConnectionRequestsAllowedPerMethod,
+               u"DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"_s);
 
     mLimiteByConnectionIntervalTimePerMethod->setObjectName(u"mLimiteByConnectionIntervalTimePerMethod"_s);
     mLimiteByConnectionIntervalTimePerMethod->setMaximum(9999999);
-    addSpinbox(i18n("Limit by User: interval time"), mLimiteByConnectionIntervalTimePerMethod, u"DDP_Rate_Limit_Connection_By_Method_Interval_Time"_s);
+    addSpinbox(i18n("Limit by Connection per Method: interval time"),
+               mLimiteByConnectionIntervalTimePerMethod,
+               u"DDP_Rate_Limit_Connection_By_Method_Interval_Time"_s);
 }
 
 RateLimiterWidget::~RateLimiterWidget() = default;

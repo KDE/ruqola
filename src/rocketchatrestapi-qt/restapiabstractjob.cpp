@@ -238,7 +238,7 @@ QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
             return trStr;
         } else {
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << " errorType not defined as translated message: " << errorType;
-            return i18n("Unauthorized");
+            return generateErrorMessage(errorType);
         }
     } else if (replyObject["status"_L1].toString() == "error"_L1) {
         const QString message = replyObject["message"_L1].toString();
@@ -346,7 +346,7 @@ namespace
         {u"error-user-is-not-activated", kli18n("User is not activated")},
         {u"error-user-limit-exceeded", kli18n("The number of users you are trying to invite to #channel_name exceeds the limit set by the administrator")},
         {u"error-user-not-in-room", kli18n("User is not in this room")},
-        {u"error-logged-user-not-in-room", kli18n("You are not in the room `%1`")},
+        {u"error-logged-user-not-in-room", kli18n("You are not in the room")},
         {u"error-user-registration-disabled", kli18n("User registration is disabled")},
         {u"error-user-registration-secret", kli18n("User registration is only allowed via Secret URL")},
         {u"error-you-are-last-owner", kli18n("You are the last owner. Please set new owner before leaving the room.")},

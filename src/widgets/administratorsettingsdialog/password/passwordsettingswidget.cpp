@@ -47,7 +47,8 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
 
     mEnablePasswordPolicy->setObjectName(u"mEnablePasswordPolicy"_s);
     mEnablePasswordPolicy->setToolTip(
-        i18nc("@info:tooltip", "When enabled, users won't be able to update their passwords to some of their most recently used passwords."));
+        i18nc("@info:tooltip",
+              "When enabled, user passwords must adhere to the policies set forth. Note: this only applies to new passwords, not existing passwords."));
     addCheckBox(mEnablePasswordPolicy, u"Accounts_Password_Policy_Enabled"_s);
 
     mMinimumLength->setObjectName(u"mMinimumLength"_s);

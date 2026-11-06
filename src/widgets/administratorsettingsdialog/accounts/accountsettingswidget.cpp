@@ -131,7 +131,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
     // TODO add missing settings
     mHowManyFailedAttemptsUntilBlockByIPinMinutes->setObjectName(u"mHowManyFailedAttemptsUntilBlockByIPinMinutes"_s);
-    addSpinbox(i18n("How many failed attempts until block by IP"),
+    addSpinbox(i18n("Time to unblock IP (In Minutes)"),
                mHowManyFailedAttemptsUntilBlockByIPinMinutes,
                u"Block_Multiple_Failed_Logins_Time_To_Unblock_By_Ip_In_Minutes"_s);
 

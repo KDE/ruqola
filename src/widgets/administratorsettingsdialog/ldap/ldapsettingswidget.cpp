@@ -75,7 +75,7 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
 
     mConnectionTimeouts->setObjectName(u"mConnectionTimeouts"_s);
     mConnectionTimeouts->setMaximum(99999);
-    mConnectionTimeouts->setToolTip(i18nc("@info:tooltip", "How many milliseconds wait for a search result before return an error"));
+    mConnectionTimeouts->setToolTip(i18nc("@info:tooltip", "How many milliseconds wait for a connection to be established before return an error"));
     addSpinbox(i18n("Connection Timeout (ms)"), mConnectionTimeouts, u"LDAP_Connect_Timeout"_s);
 
     mIdleTimeouts->setObjectName(u"mIdleTimeouts"_s);

@@ -57,8 +57,8 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     addLineEdit(i18n("Accepted Media Types"), mAcceptedMediaTypes, u"FileUpload_MediaTypeWhiteList"_s);
 
     mBlockedMediaTypes->setObjectName(u"mBlockedMediaTypes"_s);
-    mBlockedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. This setting has priority over the Blocked Media Types."));
-    addLineEdit(i18n("Accepted Media Types"), mBlockedMediaTypes, u"FileUpload_MediaTypeBlackList"_s);
+    mBlockedMediaTypes->setToolTip(i18nc("@info:tooltip", "Comma-separated list of media types. This setting has priority over the Accepted Media Types."));
+    addLineEdit(i18n("Blocked Media Types"), mBlockedMediaTypes, u"FileUpload_MediaTypeBlackList"_s);
 
     mFileUploadJsonWebTokenSecret->setObjectName(u"mFileUploadJsonWebTokenSecret"_s);
     mFileUploadJsonWebTokenSecret->setToolTip(
