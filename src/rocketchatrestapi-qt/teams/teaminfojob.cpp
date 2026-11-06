@@ -36,7 +36,7 @@ bool TeamInfoJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("TeamInfoJob: ask list of rooms in team"_ba);
+    addStartRestApiInfo("TeamInfoJob: ask team info"_ba);
     return true;
 }
 

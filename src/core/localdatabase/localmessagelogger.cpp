@@ -132,7 +132,7 @@ void LocalMessageLogger::deleteMessage(const QString &accountName, const QByteAr
     query.prepare(LocalDatabaseUtils::deleteMessageFromLogs());
     query.addBindValue(messageId);
     if (!query.exec()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in LOGS table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't delete from LOGS table" << db.databaseName() << query.lastError();
     }
 }
 

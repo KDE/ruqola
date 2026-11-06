@@ -49,7 +49,7 @@ QStringList AppsCategoriesModel::categoriesSelected() const
 {
     QStringList lst;
     const int rowCountNb = rowCount();
-    // First one is not a message type
+    // Only checkable items are categories
     for (int i = 0; i < rowCountNb; i++) {
         QStandardItem *itemModel = item(i);
         if (itemModel) {

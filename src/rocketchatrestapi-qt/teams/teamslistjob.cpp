@@ -36,7 +36,7 @@ bool TeamsListJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("TeamsListJob: ask users list"_ba);
+    addStartRestApiInfo("TeamsListJob: ask teams list"_ba);
     return true;
 }
 

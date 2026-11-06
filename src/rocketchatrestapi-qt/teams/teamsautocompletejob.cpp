@@ -36,7 +36,7 @@ bool TeamsAutoCompleteJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo("TeamsAutoCompleteJob: ask list of rooms in team"_ba);
+    addStartRestApiInfo("TeamsAutoCompleteJob: ask team autocomplete"_ba);
     return true;
 }
 

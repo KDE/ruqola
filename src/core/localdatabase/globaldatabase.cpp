@@ -95,7 +95,7 @@ void GlobalDatabase::removeTimeStamp(const QString &accountName, const QByteArra
     query.prepare(LocalDatabaseUtils::removeGlobal());
     query.addBindValue(identifier);
     if (!query.exec()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't remove from GLOBAL table" << db.databaseName() << query.lastError();
     }
 }
 
