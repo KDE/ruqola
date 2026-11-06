@@ -90,7 +90,8 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     QJsonArray params;
     params.append(QJsonValue(QString::fromLatin1(info.roomId)));
     // Load history
-    if (info.initial || info.roomModel->isEmpty()) {
+    const bool initialLoading = info.initial || info.roomModel->isEmpty();
+    if (initialLoading) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #if USE_LOCALDATABASE
             const QString accountName{mRocketChatAccount->accountName()};
@@ -210,7 +211,9 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         params.append(std::move(dateObjectStart));
     }
     qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
-    if (mRocketChatAccount->hasAtLeastVersion(8, 9, 0)) {
+    // rooms.history pagination (cursor) is not implemented yet: only use it for initial loading,
+    // otherwise we always request the same messages and loop on the server (error-too-many-requests).
+    if (initialLoading && mRocketChatAccount->hasAtLeastVersion(8, 9, 0)) {
         // Use rooms.history
         auto job = new RocketChatRestApi::GetRoomHistoryJob(this);
         const RocketChatRestApi::GetRoomHistoryJob::GetRoomHistoryInfo roomHistoryInfo{
