@@ -27,11 +27,14 @@ bool AdminUsersAllModel::setData(const QModelIndex &id, const QVariant &value, i
     switch (role) {
     case AdminUsersStatusRoles::ActiveUser: {
         const int idx = id.row();
-        User &user = mUsers[idx];
-        user.setActive(value.toBool());
-        const QModelIndex newIndex = index(idx, AdminUsersAllModel::ActiveUserDisplay);
-        Q_EMIT dataChanged(newIndex, newIndex);
-        return true;
+        if (idx < mUsers.count()) {
+            User &user = mUsers[idx];
+            user.setActive(value.toBool());
+            const QModelIndex newIndex = index(idx, AdminUsersAllModel::ActiveUserDisplay);
+            Q_EMIT dataChanged(newIndex, newIndex);
+            return true;
+        }
+        return false;
     }
     case AdminUsersStatusRoles::Name:
     case AdminUsersStatusRoles::UserName:
