@@ -34,7 +34,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchUsersTool::definition
     return tool;
 }
 
-void SearchUsersTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void SearchUsersTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

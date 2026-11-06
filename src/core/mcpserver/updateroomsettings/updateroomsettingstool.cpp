@@ -42,7 +42,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool UpdateRoomSettingsTool::def
     return tool;
 }
 
-void UpdateRoomSettingsTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void UpdateRoomSettingsTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

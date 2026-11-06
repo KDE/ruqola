@@ -32,7 +32,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchRoomsTool::definition
     return tool;
 }
 
-void SearchRoomsTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void SearchRoomsTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

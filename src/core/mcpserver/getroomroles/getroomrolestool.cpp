@@ -80,7 +80,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetRoomRolesTool::definitio
     return tool;
 }
 
-void GetRoomRolesTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void GetRoomRolesTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

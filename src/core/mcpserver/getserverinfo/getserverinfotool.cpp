@@ -33,7 +33,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetServerInfoTool::definiti
     return tool;
 }
 
-void GetServerInfoTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void GetServerInfoTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     const RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

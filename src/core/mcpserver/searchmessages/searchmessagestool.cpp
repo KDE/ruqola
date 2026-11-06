@@ -77,7 +77,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool SearchMessagesTool::definit
     return tool;
 }
 
-void SearchMessagesTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void SearchMessagesTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

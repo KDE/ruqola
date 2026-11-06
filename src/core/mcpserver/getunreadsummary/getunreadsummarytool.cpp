@@ -34,7 +34,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetUnreadSummaryTool::defin
     return tool;
 }
 
-void GetUnreadSummaryTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void GetUnreadSummaryTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     const RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

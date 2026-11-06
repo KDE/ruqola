@@ -31,7 +31,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListAccountsTool::definitio
     return tool;
 }
 
-void ListAccountsTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void ListAccountsTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     const QString currentAccountName = mAccountManager->currentAccount();
     const RocketChatAccountModel *model = mAccountManager->rocketChatAccountModel();

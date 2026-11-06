@@ -33,7 +33,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListRoomsTool::definition()
     return tool;
 }
 
-void ListRoomsTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void ListRoomsTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     const RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

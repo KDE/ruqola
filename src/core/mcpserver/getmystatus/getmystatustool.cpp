@@ -34,7 +34,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetMyStatusTool::definition
     return tool;
 }
 
-void GetMyStatusTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void GetMyStatusTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     const RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

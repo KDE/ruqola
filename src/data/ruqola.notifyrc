@@ -262,3 +262,8 @@ Name[uk]=Додано новий обліковий запис
 Name[zh_TW]=帳戶已新增
 Action=Popup
 Urgency=Normal
+
+[Event/Mcp-Tool-Confirmation]
+Name=MCP Tool Asks Confirmation
+Action=Popup
+Urgency=Normal

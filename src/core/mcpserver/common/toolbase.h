@@ -17,6 +17,8 @@ public:
     explicit ToolBase(AccountManager *accountManager);
     ~ToolBase();
 
+    void call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call) final;
+
 protected:
     [[nodiscard]] RocketChatAccount *accountFromArguments(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call) const;
     // Search server directory, \a done is called with the reply (call is answered with an error on failure)
@@ -26,4 +28,7 @@ protected:
                          const std::function<void(const QJsonObject &)> &done) const;
 
     AccountManager *const mAccountManager;
+
+private:
+    virtual void doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call) = 0;
 };

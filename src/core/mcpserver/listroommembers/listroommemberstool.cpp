@@ -64,7 +64,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool ListRoomMembersTool::defini
     return tool;
 }
 
-void ListRoomMembersTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void ListRoomMembersTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

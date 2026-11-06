@@ -36,7 +36,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool PinMessageTool::definition(
     return tool;
 }
 
-void PinMessageTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void PinMessageTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

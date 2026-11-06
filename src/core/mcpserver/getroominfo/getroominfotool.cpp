@@ -36,7 +36,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool GetRoomInfoTool::definition
     return tool;
 }
 
-void GetRoomInfoTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void GetRoomInfoTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     const RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

@@ -37,7 +37,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool MarkRoomAsReadTool::definit
     return tool;
 }
 
-void MarkRoomAsReadTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void MarkRoomAsReadTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {

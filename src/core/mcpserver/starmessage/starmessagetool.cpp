@@ -36,7 +36,7 @@ TextAutoGenerateTextMcpProtocolCore::McpProtocolTool StarMessageTool::definition
     return tool;
 }
 
-void StarMessageTool::call(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
+void StarMessageTool::doCall(TextAutoGenerateTextMcpProtocolCore::McpProtocolServerToolCall *call)
 {
     RocketChatAccount *account = accountFromArguments(call);
     if (!account) {
