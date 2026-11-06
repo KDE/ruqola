@@ -4,6 +4,7 @@
 */
 #include "accountcredentialstoretest.h"
 #include "accountcredentialstore.h"
+#include "authenticationmanager.h"
 #include "encryption/e2ekeymanager.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
@@ -825,3 +826,103 @@ void AccountCredentialStoreTest::shouldBlockRecreationUntilRemovalJournalClears(
 
 QTEST_GUILESS_MAIN(AccountCredentialStoreTest)
 #include "moc_accountcredentialstoretest.cpp"
+
+void AccountCredentialStoreTest::shouldMigrateLegacyAuthToken()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    QTemporaryDir directory;
+    QVERIFY(directory.isValid());
+    const auto fileName = directory.filePath(u"ruqola.conf"_s);
+    {
+        QSettings config(fileName, QSettings::IniFormat);
+        config.setValue("accountName"_L1, u"a"_s);
+        config.setValue("authToken"_L1, u"token"_s);
+    }
+    Wallet wallet;
+    wallet.entries.insert({service, entry}, payload({{u"a"_s, QJsonObject{{u"login"_s, u"password"_s}}}}));
+    Store store(std::make_unique<FakeBackend>(wallet), {});
+    RocketChatAccountSettings settings(fileName, nullptr, &store);
+    // Usable right away, before the wallet answers.
+    QCOMPARE(settings.authToken(), u"token"_s);
+    QSignalSpy available(&settings, &RocketChatAccountSettings::passwordAvailable);
+    QTRY_COMPARE(available.count(), 1);
+    QTRY_VERIFY(!QSettings(fileName, QSettings::IniFormat).contains("authToken"_L1));
+    const auto credentials = accounts(wallet).value("a"_L1).toObject();
+    QCOMPARE(credentials.value("authToken"_L1).toString(), u"token"_s);
+    QCOMPARE(credentials.value("login"_L1).toString(), u"password"_s);
+    QCOMPARE(settings.authToken(), u"token"_s);
+}
+
+void AccountCredentialStoreTest::shouldKeepLegacyAuthTokenOnWalletFailure()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    QTemporaryDir directory;
+    QVERIFY(directory.isValid());
+    const auto fileName = directory.filePath(u"ruqola.conf"_s);
+    {
+        QSettings config(fileName, QSettings::IniFormat);
+        config.setValue("accountName"_L1, u"a"_s);
+        config.setValue("authToken"_L1, u"token"_s);
+    }
+    Wallet wallet;
+    wallet.failRead = 1;
+    Store store(std::make_unique<FakeBackend>(wallet), {});
+    QSignalSpy failures(&store, &Store::accessFailed);
+    RocketChatAccountSettings settings(fileName, nullptr, &store);
+    QTRY_COMPARE(failures.count(), 1);
+    QCOMPARE(settings.authToken(), u"token"_s);
+    QCOMPARE(QSettings(fileName, QSettings::IniFormat).value("authToken"_L1).toString(), u"token"_s);
+
+    // The retained migration is replayed on retry.
+    store.retry();
+    QTRY_VERIFY(!QSettings(fileName, QSettings::IniFormat).contains("authToken"_L1));
+    QCOMPARE(accounts(wallet).value("a"_L1).toObject().value("authToken"_L1).toString(), u"token"_s);
+}
+
+void AccountCredentialStoreTest::shouldLoadPersonalAccessTokenFromWallet()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    QTemporaryDir directory;
+    QVERIFY(directory.isValid());
+    const auto fileName = directory.filePath(u"ruqola.conf"_s);
+    {
+        QSettings config(fileName, QSettings::IniFormat);
+        config.setValue("accountName"_L1, u"a"_s);
+        config.setValue("serverURL"_L1, u"https://chat.example.org"_s);
+        config.setValue("userID"_L1, "user"_ba);
+        config.setValue("authenticationMethodType"_L1, QVariant::fromValue(AuthenticationManager::AuthMethodType::PersonalAccessToken));
+    }
+    Wallet wallet;
+    wallet.entries.insert({service, entry}, payload({{u"a"_s, QJsonObject{{u"authToken"_s, u"pat"_s}}}}));
+    Store store(std::make_unique<FakeBackend>(wallet), {});
+    RocketChatAccountSettings settings(fileName, nullptr, &store);
+    QVERIFY(settings.isValid());
+    QVERIFY(settings.authToken().isEmpty());
+    QSignalSpy available(&settings, &RocketChatAccountSettings::passwordAvailable);
+    QTRY_COMPARE(available.count(), 1);
+    QCOMPARE(settings.authToken(), u"pat"_s);
+    QVERIFY(settings.password().isEmpty());
+}
+
+void AccountCredentialStoreTest::shouldStoreAuthTokenInWallet()
+{
+    QStandardPaths::setTestModeEnabled(true);
+    QTemporaryDir directory;
+    QVERIFY(directory.isValid());
+    const auto fileName = directory.filePath(u"ruqola.conf"_s);
+    {
+        QSettings config(fileName, QSettings::IniFormat);
+        config.setValue("accountName"_L1, u"a"_s);
+    }
+    Wallet wallet;
+    Store store(std::make_unique<FakeBackend>(wallet), {});
+    RocketChatAccountSettings settings(fileName, nullptr, &store);
+    settings.setAuthToken(u"token"_s);
+    QCOMPARE(settings.authToken(), u"token"_s);
+    QTRY_COMPARE(accounts(wallet).value("a"_L1).toObject().value("authToken"_L1).toString(), u"token"_s);
+    QVERIFY(!QSettings(fileName, QSettings::IniFormat).contains("authToken"_L1));
+
+    settings.logout();
+    QVERIFY(settings.authToken().isEmpty());
+    QTRY_VERIFY(!accounts(wallet).contains("a"_L1));
+}

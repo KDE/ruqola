@@ -163,7 +163,25 @@ AccountCredentialStore *AccountCredentialStore::self()
 
 QString AccountCredentialStore::field(Kind kind)
 {
-    return kind == Kind::Login ? u"login"_s : u"encryption"_s;
+    switch (kind) {
+    case Kind::Login:
+        return u"login"_s;
+    case Kind::Encryption:
+        return u"encryption"_s;
+    case Kind::AuthToken:
+        return u"authToken"_s;
+    }
+    Q_UNREACHABLE();
+}
+
+std::optional<AccountCredentialStore::Kind> AccountCredentialStore::kindFromField(const QString &name)
+{
+    for (const auto kind : {Kind::Login, Kind::Encryption, Kind::AuthToken}) {
+        if (field(kind) == name) {
+            return kind;
+        }
+    }
+    return std::nullopt;
 }
 
 void AccountCredentialStore::read(const QString &account, Kind kind, QObject *context, Callback callback)
@@ -197,16 +215,15 @@ bool AccountCredentialStore::loadPendingRemovals()
     const auto removalIds = journal.childKeys();
     for (const auto &id : removalIds) {
         const auto record = journal.value(id).toStringList();
-        if (record.size() != 2 || record.at(0).isEmpty() || (record.at(1) != "account"_L1 && record.at(1) != "login"_L1 && record.at(1) != "encryption"_L1)) {
+        if (record.size() != 2 || record.at(0).isEmpty()) {
             return false;
         }
-        requests.enqueue({record.at(1) == "account"_L1 ? Operation::RemoveAccount : Operation::Remove,
-                          record.at(0),
-                          record.at(1) == "encryption"_L1 ? Kind::Encryption : Kind::Login,
-                          {},
-                          {},
-                          {},
-                          id});
+        const bool removeAccount = record.at(1) == "account"_L1;
+        const auto kind = kindFromField(record.at(1));
+        if (!removeAccount && !kind) {
+            return false;
+        }
+        requests.enqueue({removeAccount ? Operation::RemoveAccount : Operation::Remove, record.at(0), kind.value_or(Kind::Login), {}, {}, {}, id});
     }
     if (journal.status() != QSettings::NoError) {
         return false;
@@ -363,7 +380,7 @@ bool AccountCredentialStore::validDocument(const QJsonObject &document)
             return false;
         }
         const auto credentials = it.value().toObject();
-        for (const auto &name : {u"login"_s, u"encryption"_s}) {
+        for (const auto &name : {u"login"_s, u"encryption"_s, u"authToken"_s}) {
             if (credentials.contains(name) && !credentials.value(name).isString()) {
                 return false;
             }

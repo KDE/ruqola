@@ -36,4 +36,8 @@ private Q_SLOTS:
     void shouldCompleteEncryptionReadOnFailure();
     void shouldIgnoreEncryptionReadAfterReset();
     void shouldRemoveBothPasswordsAfterSettingsDestruction();
+    void shouldMigrateLegacyAuthToken();
+    void shouldKeepLegacyAuthTokenOnWalletFailure();
+    void shouldLoadPersonalAccessTokenFromWallet();
+    void shouldStoreAuthTokenInWallet();
 };

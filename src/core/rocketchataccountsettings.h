@@ -104,9 +104,12 @@ Q_SIGNALS:
 private:
     LIBRUQOLACORE_NO_EXPORT void initializeSettings(const QString &accountFileName);
     LIBRUQOLACORE_NO_EXPORT void loadPassword();
+    LIBRUQOLACORE_NO_EXPORT void migrateLegacyAuthToken();
+    LIBRUQOLACORE_NO_EXPORT void storeAuthToken();
 
     AccountCredentialStore *const mCredentialStore;
     quint64 mPasswordGeneration = 0;
+    quint64 mAuthTokenGeneration = 0;
     bool mPasswordDelivered = false;
 
     AuthenticationManager::AuthMethodType mAuthMethodType = AuthenticationManager::AuthMethodType::Unknown; // By default

@@ -42,7 +42,8 @@ bool RocketChatAccountSettings::isValid() const
     if (mAuthMethodType == AuthenticationManager::AuthMethodType::Password) {
         return !mServerUrl.isEmpty() && !mUserName.isEmpty();
     } else if (mAuthMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
-        return !mServerUrl.isEmpty() && !mAuthToken.isEmpty() && !mUserId.isEmpty();
+        // The token itself is loaded asynchronously from the wallet.
+        return !mServerUrl.isEmpty() && !mUserId.isEmpty();
     } else {
         qCWarning(RUQOLA_LOG) << "Need to define isValid for  " << mAuthMethodType;
     }
@@ -52,6 +53,7 @@ bool RocketChatAccountSettings::isValid() const
 void RocketChatAccountSettings::initializeSettings(const QString &accountFileName)
 {
     ++mPasswordGeneration;
+    ++mAuthTokenGeneration;
     mPassword.clear();
     mPasswordDelivered = false;
     mSetting.reset(new QSettings(accountFileName, QSettings::IniFormat));
@@ -65,6 +67,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     }
     mUserName = mSetting->value("username"_L1).toString();
     mUserId = mSetting->value("userID"_L1).toByteArray();
+    // Stored in the wallet; a value in the config file is a legacy one, see migrateLegacyAuthToken().
     mAuthToken = mSetting->value("authToken"_L1).toString();
     mExpireToken = mSetting->value("expireToken"_L1).toLongLong();
     mAccountName = mSetting->value("accountName"_L1).toString();
@@ -78,29 +81,91 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAuthMethodType =
         mSetting->value("authenticationMethodType"_L1, AuthenticationManager::AuthMethodType::Password).value<AuthenticationManager::AuthMethodType>();
     mKeySaved = mSetting->value("keySaved"_L1, false).toBool();
+    migrateLegacyAuthToken();
     loadPassword();
+}
+
+void RocketChatAccountSettings::migrateLegacyAuthToken()
+{
+    if (!mSetting->contains("authToken"_L1)) {
+        return;
+    }
+    if (mAuthToken.isEmpty()) {
+        mSetting->remove("authToken"_L1);
+        mSetting->sync();
+        return;
+    }
+    if (mAccountName.isEmpty()) {
+        return;
+    }
+    qCDebug(RUQOLA_LOG) << "Migrating auth token to the wallet for account" << mAccountName;
+    // Queued before loadPassword()'s reads, so they see the migrated value.
+    storeAuthToken();
+}
+
+void RocketChatAccountSettings::storeAuthToken()
+{
+    const auto generation = mAuthTokenGeneration;
+    auto onStored = [this, generation](const AccountCredentialStore::Result &result) {
+        // Keep the legacy value on disk until the wallet holds the token.
+        if (result.error == AccountCredentialStore::Error::None && generation == mAuthTokenGeneration && mSetting->contains("authToken"_L1)) {
+            mSetting->remove("authToken"_L1);
+            mSetting->sync();
+        }
+    };
+    if (mAuthToken.isEmpty()) {
+        mCredentialStore->remove(mAccountName, AccountCredentialStore::Kind::AuthToken, this, std::move(onStored));
+    } else {
+        mCredentialStore->write(mAccountName, AccountCredentialStore::Kind::AuthToken, mAuthToken, this, std::move(onStored));
+    }
 }
 
 void RocketChatAccountSettings::loadPassword()
 {
-    if (!mAccountEnabled || mAccountName.isEmpty()) {
+    if (mAccountName.isEmpty()) {
         return;
     }
     const auto generation = ++mPasswordGeneration;
-    mCredentialStore->read(mAccountName, AccountCredentialStore::Kind::Login, this, [this, generation](const AccountCredentialStore::Result &result) {
-        if (generation != mPasswordGeneration || !mAccountEnabled) {
-            return;
-        }
-        if (result.error == AccountCredentialStore::Error::None) {
-            const QString password = QString::fromUtf8(result.data);
-            if (mPasswordDelivered && mPassword == password) {
+    const auto tokenGeneration = mAuthTokenGeneration;
+    // Read the token first so that auto-login, triggered by passwordAvailable(), can resume the session.
+    mCredentialStore
+        ->read(mAccountName, AccountCredentialStore::Kind::AuthToken, this, [this, generation, tokenGeneration](const AccountCredentialStore::Result &result) {
+            bool tokenChanged = false;
+            if (tokenGeneration == mAuthTokenGeneration && result.error == AccountCredentialStore::Error::None) {
+                const QString token = QString::fromUtf8(result.data);
+                tokenChanged = token != mAuthToken;
+                mAuthToken = token;
+                // The migration may have been replayed by AccountCredentialStore::retry(), without our callback.
+                if (mSetting->value("authToken"_L1).toString() == token) {
+                    mSetting->remove("authToken"_L1);
+                    mSetting->sync();
+                }
+            }
+            // The token is also needed by disabled accounts, e.g. to show it in the account configuration.
+            if (generation != mPasswordGeneration || !mAccountEnabled) {
                 return;
             }
-            mPassword = password;
-            mPasswordDelivered = true;
-            Q_EMIT passwordAvailable();
-        }
-    });
+            mCredentialStore->read(mAccountName,
+                                   AccountCredentialStore::Kind::Login,
+                                   this,
+                                   [this, generation, tokenChanged](const AccountCredentialStore::Result &result) {
+                                       if (generation != mPasswordGeneration || !mAccountEnabled) {
+                                           return;
+                                       }
+                                       if (result.error == AccountCredentialStore::Error::None) {
+                                           const QString password = QString::fromUtf8(result.data);
+                                           if (mPasswordDelivered && mPassword == password) {
+                                               return;
+                                           }
+                                           mPassword = password;
+                                           mPasswordDelivered = true;
+                                           Q_EMIT passwordAvailable();
+                                       } else if (tokenChanged && mAuthMethodType == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+                                           // No password for this account type: the token is the credential.
+                                           Q_EMIT passwordAvailable();
+                                       }
+                                   });
+        });
 }
 
 QString RocketChatAccountSettings::inviteToken() const
@@ -284,8 +349,13 @@ void RocketChatAccountSettings::setAuthToken(const QString &authToken)
 {
     if (mAuthToken != authToken) {
         mAuthToken = authToken;
-        mSetting->setValue("authToken"_L1, authToken);
-        mSetting->sync();
+        ++mAuthTokenGeneration;
+        // Any legacy value on disk is stale now.
+        if (mSetting->contains("authToken"_L1)) {
+            mSetting->remove("authToken"_L1);
+            mSetting->sync();
+        }
+        storeAuthToken();
     }
 }
 
@@ -302,10 +372,9 @@ void RocketChatAccountSettings::logout()
         // Keep authToken and userId: they are the credentials of the account.
         return;
     }
-    mSetting->setValue("authToken"_L1, QString());
     mSetting->setValue("expireToken"_L1, -1);
     mSetting->sync();
-    mAuthToken.clear();
+    setAuthToken({});
     mUserId.clear();
     mExpireToken = -1;
 }
@@ -398,7 +467,9 @@ bool RocketChatAccountSettings::removeSettings()
         return false;
     }
     ++mPasswordGeneration;
+    ++mAuthTokenGeneration;
     mPassword.clear();
+    mAuthToken.clear();
     mPasswordDelivered = false;
     QFile f(mSetting->fileName());
     if (!f.remove()) {

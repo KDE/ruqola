@@ -11,8 +11,9 @@
 #include <QQueue>
 #include <functional>
 #include <memory>
+#include <optional>
 
-/** One cached, versioned wallet entry for login and E2E passwords.
+/** One cached, versioned wallet entry for login/E2E passwords and auth tokens.
  * All completions are asynchronous and guarded by the caller's context object.
  * A failed wallet operation suspends backend access until retry() is requested;
  * an already loaded cache remains readable, including pending changes.
@@ -23,7 +24,8 @@ class LIBRUQOLACORE_EXPORT AccountCredentialStore : public QObject
 public:
     enum class Kind {
         Login,
-        Encryption
+        Encryption,
+        AuthToken
     };
     enum class Error {
         None,
@@ -101,6 +103,7 @@ private:
     bool loadPendingRemovals();
     bool finishRemoval(const Request &request);
     static QString field(Kind kind);
+    static std::optional<Kind> kindFromField(const QString &name);
     static bool validDocument(const QJsonObject &document);
 
     std::unique_ptr<Backend> mBackend;
