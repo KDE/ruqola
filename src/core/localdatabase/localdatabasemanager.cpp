@@ -183,6 +183,7 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QByteArr
         mMessagesDatabase->deleteDatabaseFromRoomId(accountName, roomId);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::RoomTimeStamp);
         mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::MessageTimeStamp);
+        mGlobalDatabase->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::HistoryCursorTimeStamp);
         mRoomPendingTypedInfoDatabase->deleteRoomPendingTypedInfo(accountName, roomId);
         // TODO remove rooms from mE2ERoomsDataBase
     }
@@ -194,6 +195,20 @@ qint64 LocalDatabaseManager::timeStamp(const QString &accountName, const QByteAr
         return mGlobalDatabase->timeStamp(accountName, roomId, type);
     }
     return -1;
+}
+
+void LocalDatabaseManager::insertOrReplaceTimeStamp(const QString &accountName, const QByteArray &roomId, qint64 timestamp, GlobalDatabase::TimeStampType type)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        mGlobalDatabase->insertOrReplaceTimeStamp(accountName, roomId, timestamp, type);
+    }
+}
+
+void LocalDatabaseManager::removeTimeStamp(const QString &accountName, const QByteArray &roomId, GlobalDatabase::TimeStampType type)
+{
+    if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
+        mGlobalDatabase->removeTimeStamp(accountName, roomId, type);
+    }
 }
 
 void LocalDatabaseManager::updateRoomPendingTypedInfo(const QString &accountName,

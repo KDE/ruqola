@@ -18,6 +18,8 @@ public:
         RoomTimeStamp,
         AccountTimeStamp,
         UpdateGlobalRoomsTimeStamp,
+        // rooms.history "previous" cursor (timestamp of the oldest message loaded from the server)
+        HistoryCursorTimeStamp,
         // Etc.
     };
     Q_ENUM(TimeStampType);

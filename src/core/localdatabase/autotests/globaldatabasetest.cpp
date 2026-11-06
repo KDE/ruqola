@@ -86,6 +86,7 @@ void GlobalDatabaseTest::shouldGenerateIdentifier_data()
     QTest::addRow("test2") << u"account2"_s << "room2"_ba << GlobalDatabase::TimeStampType::RoomTimeStamp << u"rooms-account2-room2"_s;
     QTest::addRow("test3") << u"account3"_s << QByteArray() << GlobalDatabase::TimeStampType::AccountTimeStamp << u"account-account3"_s;
     QTest::addRow("test4") << u"account4"_s << QByteArray() << GlobalDatabase::TimeStampType::UpdateGlobalRoomsTimeStamp << u"update-global-rooms-account4"_s;
+    QTest::addRow("test5") << u"account5"_s << "room5"_ba << GlobalDatabase::TimeStampType::HistoryCursorTimeStamp << u"history-cursor-account5-room5"_s;
 }
 
 void GlobalDatabaseTest::shouldVerifyDbFileName()

@@ -55,6 +55,9 @@ QString GlobalDatabase::generateIdentifier(const QString &accountName, const QBy
     case TimeStampType::UpdateGlobalRoomsTimeStamp:
         identifier = u"update-global-rooms-"_s;
         break;
+    case TimeStampType::HistoryCursorTimeStamp:
+        identifier = u"history-cursor-"_s;
+        break;
     }
     identifier += accountName;
     if (roomId.isEmpty() && (type != TimeStampType::AccountTimeStamp && type != TimeStampType::UpdateGlobalRoomsTimeStamp)) {
