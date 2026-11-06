@@ -1392,20 +1392,24 @@
       <description>
         <ul>
           <li>Add category support.</li>
+          <li xml:lang="ar">إضافة الفئات.</li>
           <li xml:lang="ca">Afegeix el suport de categories.</li>
           <li xml:lang="ka">დაემატა კატეგორიების მხარდაჭერა.</li>
           <li xml:lang="nl">Ondersteuning voor categorieën toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte à categoria.</li>
           <li xml:lang="ru">Поддержка категорий.</li>
           <li xml:lang="sl">Doda podporo kategoriji.</li>
+          <li xml:lang="tr">Kategori desteği ekle</li>
           <li xml:lang="uk">Додано підтримку категорій.</li>
           <li>Add RC 8.9.0 support.</li>
+          <li xml:lang="ar">إضافة دعم الإصدار RC 8.9.0.</li>
           <li xml:lang="ca">Afegeix la implementació del RC 8.9.0.</li>
           <li xml:lang="ka">დაემატა RC 8.9.0-ის მხარდაჭერა.</li>
           <li xml:lang="nl">Ondersteuning voor RC 8.9.0 toevoegen.</li>
           <li xml:lang="pt-BR">Adicionar suporte ao RC 8.9.0.</li>
           <li xml:lang="ru">Поддержка RC 8.9.0.</li>
           <li xml:lang="sl">Doda podporo za RC 8.9.0.</li>
+          <li xml:lang="tr">RC 8.9.0 desteği ekle</li>
           <li xml:lang="uk">Додано підтримку RC 8.9.0</li>
           <li>Add MCP server.</li>
           <li xml:lang="ar">إضافة خادوم MCP.</li>
