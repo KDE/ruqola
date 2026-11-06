@@ -37,9 +37,11 @@ public:
             ReactWhenReadOnly = 131072,
             Featured = 262144,
             DefaultValue = 524288,
+            Data = 1048576,
         };
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
+        QJsonObject data;
         QStringList systemMessages;
         QString roomAvatar;
         QByteArray roomId;
