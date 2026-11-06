@@ -11,16 +11,6 @@
 #include <QList>
 #include <QObject>
 class PluginAuthentication;
-class PluginUtilData
-{
-public:
-    PluginUtilData() = default;
-
-    QStringList mExtraInfo;
-    QString mIdentifier;
-    QString mName;
-};
-
 class AuthenticationManagerInfo
 {
 public:
@@ -29,7 +19,6 @@ public:
     KPluginMetaData data;
     QString metaDataFileNameBaseName;
     QString metaDataFileName;
-    PluginUtilData pluginData;
     PluginAuthentication *plugin = nullptr;
 };
 Q_DECLARE_TYPEINFO(AuthenticationManagerInfo, Q_RELOCATABLE_TYPE);
