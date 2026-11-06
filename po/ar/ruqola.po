@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:55+0000\n"
-"PO-Revision-Date: 2026-10-31 20:31+0400\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"PO-Revision-Date: 2026-11-05 09:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -797,36 +797,35 @@ msgid "Socket was unexpectedly closed."
 msgstr "أُغلق المقبس بشكل غير متوقع."
 
 #: core/mcpserver/common/toolbase.cpp:42
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
-#: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
-#, fuzzy, kde-format
-#| msgid "Account information"
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
+#, kde-format
 msgid "Account is not logged in"
-msgstr "معلومات الحساب"
+msgstr "الحساب غير مسجل الدخول"
 
 #: core/mcpserver/common/toolbase.cpp:50
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
+#, kde-format
 msgid "Missing search pattern"
-msgstr "عنوان الخادم مفقود."
+msgstr "نمط البحث مفقود"
 
 #: core/mcpserver/common/toolbase.cpp:66
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
+#, kde-format
 msgid "Search failed: %1"
-msgstr "فشل التنزيل: %1"
+msgstr "فشل البحث: %1"
 
 #: core/mcpserver/common/toolbase.cpp:69
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
+#, kde-format
 msgid "Impossible to start search"
-msgstr "من المستحيل تصدير البيانات."
+msgstr "تعذر بدء البحث"
 
 #: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:695
@@ -842,27 +841,46 @@ msgstr "كل الغرف"
 msgid "Messages"
 msgstr "الرسائل"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
-msgid "Get My Status"
-msgstr "حرر حالة المستخدم"
+#: core/mcpserver/common/toolutils.cpp:21
+#: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
+#, kde-format
+msgid "Users"
+msgstr "المستخدمين"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:38
+#: core/mcpserver/common/toolutils.cpp:23
+#, fuzzy, kde-format
+#| msgid "Current Password"
+msgid "Current User"
+msgstr "كلمة السرّ الحاليّة"
+
+#: core/mcpserver/common/toolutils.cpp:25
+#, kde-format
+msgid "Misc"
+msgstr ""
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
+#, kde-format
+msgid "Get My Status"
+msgstr "احصل على حالتي"
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
-#: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
 #: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
-#: core/mcpserver/searchusers/searchuserstool.cpp:39
-#: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/searchusers/searchuserstool.cpp:41
+#: core/mcpserver/setmystatus/setmystatustool.cpp:41
 #: core/mcpserver/starmessage/starmessagetool.cpp:43
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
 #, kde-format
 msgid "No account found"
 msgstr "لم يُعثر على حساب"
@@ -873,79 +891,109 @@ msgid "Get Room Info"
 msgstr "جلب معلومات الغرفة"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
 msgstr "معرّف الغرفة مفقود"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr "لم تُعثر على غرفة بالمعرّف \"%1\""
 
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:25
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:47
+#, fuzzy, kde-format
+#| msgid "No users found"
+msgid "No users with roles found"
+msgstr "لم يعثر على مستخدمين"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:72
+#, fuzzy, kde-format
+#| msgid "Get Room Info"
+msgid "Get Room Roles"
+msgstr "جلب معلومات الغرفة"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
 #, kde-format
-msgid "Get Server Info"
-msgstr "جلب معلومات الخادم"
+msgid "Direct conversations have no room roles"
+msgstr ""
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
-#, fuzzy, kde-format
-#| msgid "Privacy Summary"
-msgid "Get Unread Summary"
-msgstr "ملخص الخصوصية"
-
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
-#, fuzzy, kde-format
-#| msgid "%1 Unread Message"
-#| msgid_plural "%1 Unread Messages"
-msgid "No unread messages"
-msgstr "لا يوجد رسائل غير مقروءة"
-
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
-msgid "Get User Status"
-msgstr "حرر حالة المستخدم"
-
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
-#, fuzzy, kde-format
-#| msgid "Missing server url."
-msgid "Missing user name"
-msgstr "عنوان الخادم مفقود."
-
-#: core/mcpserver/listaccounts/listaccountstool.cpp:26
-#, kde-format
-msgid "List Accounts"
-msgstr "سرد الحسابات"
-
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
-#, fuzzy, kde-format
-#| msgid "List Rooms"
-msgid "List Room Members"
-msgstr "سرد الغرف"
-
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown room type"
 msgstr "حالة مجهولة"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Getting room roles failed: %1"
+msgstr "فشل التنزيل: %1"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start getting room roles"
+msgstr "من المستحيل تصدير البيانات."
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
+#, kde-format
+msgid "Get Server Info"
+msgstr "جلب معلومات الخادم"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
+#, kde-format
+msgid "Get Unread Summary"
+msgstr "احصل على ملخص غير المقروء"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
+#, kde-format
+msgid "No unread messages"
+msgstr "لا رسائل غير مقروءة"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
+#, kde-format
+msgid "Get User Status"
+msgstr "احصل على حالة المستخدم"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
+#, kde-format
+msgid "Missing user name"
+msgstr "اسم المستخدم مفقود"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:27
+#, kde-format
+msgid "List Accounts"
+msgstr "سرد الحسابات"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:53
+#, fuzzy, kde-format
+#| msgid "List Rooms"
+msgid "List Room Members"
+msgstr "سرد الغرف"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No members found"
 msgstr "لم يعثر على أي مستخدم"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
 #, fuzzy, kde-format
 #| msgid "Download failed: %1"
 msgid "Listing members failed: %1"
 msgstr "فشل التنزيل: %1"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start listing members"
@@ -962,7 +1010,26 @@ msgstr "سرد الغرف"
 msgid "No rooms found"
 msgstr "لم تُعثر على غرف"
 
-#: core/mcpserver/mcpservermanager.cpp:43
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark as Read"
+msgid "Mark Room as Read"
+msgstr "علّم كمقروء"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Mark room as read failed: %1"
+msgstr "فشل التنزيل: %1"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start mark room as read job"
+msgstr "من المستحيل تصدير البيانات."
+
+#: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "إدارة المعلومات من رُقولة"
@@ -993,51 +1060,43 @@ msgstr "فشل التنزيل: %1"
 msgid "Impossible to start pin message job"
 msgstr "من المستحيل تصدير البيانات."
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "ابحث في الرسائل"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No messages found"
 msgstr "لم يُعثر على رسالة"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Rooms"
+#, kde-format
 msgid "Search Rooms"
 msgstr "ابحث عن الغرف"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#: core/mcpserver/searchusers/searchuserstool.cpp:25
+#, kde-format
 msgid "Search Users"
-msgstr "ابحث في المستخدمين…"
+msgstr "ابحث في المستخدمين"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:46
-#, fuzzy, kde-format
-#| msgid "No user found"
+#: core/mcpserver/searchusers/searchuserstool.cpp:48
+#, kde-format
 msgid "No users found"
-msgstr "لم يعثر على أي مستخدم"
+msgstr "لم يعثر على مستخدمين"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#: core/mcpserver/setmystatus/setmystatustool.cpp:26
+#, kde-format
 msgid "Set My Status"
-msgstr "حرر حالة المستخدم"
+msgstr "عيّن حالتي"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:49
-#, fuzzy, kde-format
-#| msgid "Invalid user"
+#: core/mcpserver/setmystatus/setmystatustool.cpp:50
+#, kde-format
 msgid "Invalid status"
-msgstr "مستخدم غير صالح"
+msgstr "حالة غير صالحة"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:27
 #, fuzzy, kde-format
@@ -1056,6 +1115,39 @@ msgstr "فشل التنزيل: %1"
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start star message job"
+msgstr "من المستحيل تصدير البيانات."
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
+#, kde-format
+msgid "Update Room Settings"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#, kde-format
+msgid "Settings of a direct room cannot be changed"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#, kde-format
+msgid "Room name cannot be empty"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#, kde-format
+msgid ""
+"Nothing to change: give at least one of name, topic, description or "
+"announcement"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#, kde-format
+msgid "Update room settings failed: %1"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start update room settings job"
 msgstr "من المستحيل تصدير البيانات."
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
@@ -1645,12 +1737,12 @@ msgstr "أعلم كل من في هذه الغرفة"
 msgid "Edited at %1 by %2"
 msgstr "حُررت في %1 من قبل %2"
 
-#: core/model/messagesmodel.cpp:572
+#: core/model/messagesmodel.cpp:564
 #, kde-format
 msgid "Ignored Message"
 msgstr "الرسالة المتجاهلة"
 
-#: core/model/messagesmodel.cpp:582
+#: core/model/messagesmodel.cpp:574
 #, kde-format
 msgid "Only you can see this message"
 msgstr "أنت الوحيد الذي يمكنه رؤية هذه الرسالة"
@@ -1845,26 +1937,24 @@ msgid "Unknown"
 msgstr "مجهول"
 
 #: core/model/roommodel.cpp:703
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Calls"
 msgstr "مكالمة واردة"
 
 #: core/model/roommodel.cpp:705
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Live Chats"
-msgstr "مكالمة واردة"
+msgstr "المحادثات المباشرة الواردة"
 
 #: core/model/roommodel.cpp:707
 #, kde-format
 msgid "Open Live chats"
-msgstr ""
+msgstr "افتح الدردشات المباشرة"
 
 #: core/model/roommodel.cpp:709
 #, kde-format
 msgid "On Hold Chats"
-msgstr ""
+msgstr "الدردشات المعلقة"
 
 #: core/model/roommodel.cpp:711
 #, fuzzy, kde-format
@@ -2058,7 +2148,7 @@ msgstr "أخْفِ رسائل ”تغيير وصف الغرفة“"
 msgid "Hide \"Joined this Team\" messages"
 msgstr "إخفاء رسائل \"انضم إلى هذا الفريق\""
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:36
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(انضمام آليّ)"
@@ -2112,7 +2202,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> يكتبون…"
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2121,22 +2211,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "غير متّصل"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected yet"
 msgstr "غير متّصل حتى الآن"
 
-#: core/rocketchataccount.cpp:3264
+#: core/rocketchataccount.cpp:3282
 #, kde-format
 msgid "Room Added"
 msgstr "أُضيفت الغرفة"
 
-#: core/rocketchataccount.cpp:3265
+#: core/rocketchataccount.cpp:3283
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "أضيف غرفة جديدة في '%1'."
@@ -3299,12 +3389,6 @@ msgstr "الأصوات المخصصة"
 msgid "Custom Emojis"
 msgstr "صورة تعبيرية مخصصة"
 
-#: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
-#, kde-format
-msgid "Users"
-msgstr "المستخدمين"
-
 #: widgets/administratordialog/administratorwidget.cpp:72
 #, kde-format
 msgid "Invites"
@@ -3356,7 +3440,7 @@ msgstr "يجب أن يكون اسم الرموز التعبيرية المخصص
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:36
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:100
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3508,7 +3592,7 @@ msgstr "حرر حالة المستخدم"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
-#: widgets/dialogs/directchannelinfowidget.cpp:126
+#: widgets/dialogs/directchannelinfowidget.cpp:116
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3887,7 +3971,7 @@ msgstr "أظهر مستخدمي الإشراف"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3896,7 +3980,7 @@ msgstr "البريد الإلكترونيّ:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:185
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Roles:"
 msgstr "الأدوار:"
@@ -4483,7 +4567,7 @@ msgid "Mark email as verified"
 msgstr "علّم البريد الإلكتروني أنه مُتحقق منه"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:109
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -4505,7 +4589,7 @@ msgid "Password:"
 msgstr "كلمة السر:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Bio:"
 msgstr "السيرة الذاتية:"
@@ -4955,7 +5039,7 @@ msgid "Accounts"
 msgstr "الحسابات"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:98
+#: widgets/room/roomheaderwidget.cpp:99
 #, kde-format
 msgid "Encryption"
 msgstr "التعمية"
@@ -7799,86 +7883,74 @@ msgid "Mark as Read"
 msgstr "علّم كمقروء"
 
 #: widgets/category/categoriesmenu.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Category"
-msgstr "الفئات"
+msgstr "الفئة"
 
 #: widgets/category/categoriesmenu.cpp:62
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "No Category"
-msgstr "الفئات"
+msgstr "لا توجد فئات"
 
 #: widgets/category/categoriesmenu.cpp:90
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "Manage Categories…"
-msgstr "الفئات"
+msgstr "مدير الفئات"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "الفئات"
+msgstr "أضف فئة"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "غيّر اسم الفئة"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "الفئات"
+msgstr "الفئة:"
 
 #: widgets/category/managecategoriesdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Manage Categories"
-msgstr "الفئات"
+msgstr "مدير الفئات"
 
 #: widgets/category/managecategorieswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add Category…"
-msgstr "الفئات"
+msgstr "أضف فئة…"
 
 #: widgets/category/managecategorieswidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rename Category…"
-msgstr ""
+msgstr "غيّر اسم الفئة…"
 
 #: widgets/category/managecategorieswidget.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove Category"
-msgstr "أزل التّاريخ"
+msgstr "أزل الفئة"
 
 #: widgets/category/managecategorieswidget.cpp:171
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#, kde-format
 msgid "Do you want to remove this category (%1)?"
-msgstr "هل تريد إزالة هذا المستخدم \"%1\"؟"
+msgstr "هل تريد إزالة هذه الفئة (%1)؟"
 
 #: widgets/category/managecategorieswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Category"
-msgstr "أزل التّاريخ"
+msgstr "أزل الفئة"
 
 #: widgets/channellist/channellistview.cpp:141
 #, kde-format
@@ -9012,42 +9084,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:134
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
 msgid "Custom Status:"
 msgstr "الحالة المخصصة:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:146
 #, kde-format
 msgid "Timezone:"
 msgstr "المنطقة الزمنية:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Local Time:"
 msgstr "التوقيت المحلي:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:195
+#: widgets/dialogs/directchannelinfowidget.cpp:185
 #, kde-format
 msgid "Created At:"
 msgstr "أُنشئ في:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:204
+#: widgets/dialogs/directchannelinfowidget.cpp:194
 #, kde-format
 msgid "Last Login:"
 msgstr "آخر ولوج:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Verified"
 msgstr "متحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Not verified"
 msgstr "لم يُتحقّق منه"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -9468,7 +9540,7 @@ msgstr[5] "%1 مرفق في الغرفة (الإجمالي: %2)"
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
 #: widgets/discussions/showdiscussionswidget.cpp:118
-#: widgets/misc/searchtreebasewidget.cpp:80
+#: widgets/misc/searchtreebasewidget.cpp:81
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:193
 #, kde-format
@@ -9655,7 +9727,7 @@ msgid ""
 msgstr "بعض المستخدمين محظورون من هذه الغرفة. أتريد رفع الحظر عنهم وإعادتهم؟"
 
 #: widgets/dialogs/uploadfiledialog.cpp:20
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:555
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10373,7 +10445,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "ابحث كلمة…"
 
-#: widgets/misc/servermenu.cpp:26
+#: widgets/misc/servermenu.cpp:27
 #, kde-format
 msgid "Server"
 msgstr "الخادم"
@@ -11285,106 +11357,106 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "المزيد من الإجراءات"
 
-#: widgets/room/messagelinewidget.cpp:89
+#: widgets/room/messagelinewidget.cpp:90
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "أرفق ملفًّا…"
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:93
 #, kde-format
 msgid "Attach File"
 msgstr "إرفاق ملفّ"
 
-#: widgets/room/messagelinewidget.cpp:100
+#: widgets/room/messagelinewidget.cpp:101
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "أرسل رسالة فيديو…"
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, kde-format
 msgid "Video Message"
 msgstr "رسالة فيديو"
 
-#: widgets/room/messagelinewidget.cpp:111
-#: widgets/room/messagelinewidget.cpp:118
+#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "أرسل رسالة صوتية…"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:114
 #, kde-format
 msgid "Sound Message"
 msgstr "رسالة صوتية"
 
-#: widgets/room/messagelinewidget.cpp:125
+#: widgets/room/messagelinewidget.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "أضف صورة تعبيرية…"
 
-#: widgets/room/messagelinewidget.cpp:127
+#: widgets/room/messagelinewidget.cpp:128
 #, kde-format
 msgid "Add Emoticon"
 msgstr "أضف صورة تعبيرية"
 
-#: widgets/room/messagelinewidget.cpp:134
+#: widgets/room/messagelinewidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "أرسل رسالة"
 
-#: widgets/room/messagelinewidget.cpp:136
+#: widgets/room/messagelinewidget.cpp:137
 #, kde-format
 msgid "Send Message"
 msgstr "أرسل رسالة"
 
-#: widgets/room/messagelinewidget.cpp:232
+#: widgets/room/messagelinewidget.cpp:233
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "فشل الأمر. هل تريد نسخ الأمر إلى الحافظة؟"
 
-#: widgets/room/messagelinewidget.cpp:233
+#: widgets/room/messagelinewidget.cpp:234
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "خطأ في الأمر"
 
-#: widgets/room/messagelinewidget.cpp:290
+#: widgets/room/messagelinewidget.cpp:291
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "هل تريد تحويل هذا النص الكبير إلى مرفق؟"
 
-#: widgets/room/messagelinewidget.cpp:291
+#: widgets/room/messagelinewidget.cpp:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "الرسالة طويلة جدًا"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "%1 رسالة في سلسلة"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "أرسل رسالة في %1…"
 
-#: widgets/room/messagelinewidget.cpp:584
+#: widgets/room/messagelinewidget.cpp:585
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "الملف المحدد كبير جدًا (الحجم الأقصى %1)"
 
-#: widgets/room/messagelinewidget.cpp:585
+#: widgets/room/messagelinewidget.cpp:586
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "رفع الملف"
 
-#: widgets/room/messagelinewidget.cpp:589
+#: widgets/room/messagelinewidget.cpp:590
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "الخادم لا يسمح بهذا الملف (%1 نوع mime غير صالح)"
@@ -11630,85 +11702,85 @@ msgstr "(اعرض معلومات أكثر…)"
 msgid "Add Topic"
 msgstr "أضف موضوعًا"
 
-#: widgets/room/roomheaderwidget.cpp:78
+#: widgets/room/roomheaderwidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "المفضّلة"
 
-#: widgets/room/roomheaderwidget.cpp:80
+#: widgets/room/roomheaderwidget.cpp:81
 #, kde-format
 msgid "Favorite"
 msgstr "المفضّلة"
 
-#: widgets/room/roomheaderwidget.cpp:96
+#: widgets/room/roomheaderwidget.cpp:97
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "التعمية من طرف لطرف ممكّنة"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "إجراءات الذكاء الاصطناعي"
 
-#: widgets/room/roomheaderwidget.cpp:170
+#: widgets/room/roomheaderwidget.cpp:171
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "اتصل"
 
-#: widgets/room/roomheaderwidget.cpp:172
+#: widgets/room/roomheaderwidget.cpp:173
 #, kde-format
 msgid "Call"
 msgstr "اتصل"
 
-#: widgets/room/roomheaderwidget.cpp:181
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "معلومات القناة"
 
-#: widgets/room/roomheaderwidget.cpp:183 widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:184 widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Channel's Information"
 msgstr "معلومات القناة"
 
-#: widgets/room/roomheaderwidget.cpp:192
+#: widgets/room/roomheaderwidget.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "قنوات الفريق"
 
-#: widgets/room/roomheaderwidget.cpp:194
+#: widgets/room/roomheaderwidget.cpp:195
 #, kde-format
 msgid "Team Channels"
 msgstr "قنوات الفريق"
 
-#: widgets/room/roomheaderwidget.cpp:204
+#: widgets/room/roomheaderwidget.cpp:205
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "أظهر قائمة المستخدمين"
 
-#: widgets/room/roomheaderwidget.cpp:206
+#: widgets/room/roomheaderwidget.cpp:207
 #, kde-format
 msgid "Show List of Users"
 msgstr "أظهر قائمة المستخدمين"
 
-#: widgets/room/roomheaderwidget.cpp:217
+#: widgets/room/roomheaderwidget.cpp:218
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "ابحث في الرسائل…"
 
-#: widgets/room/roomheaderwidget.cpp:219
+#: widgets/room/roomheaderwidget.cpp:220
 #, kde-format
 msgid "Search Messages…"
 msgstr "ابحث في الرسائل…"
 
-#: widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Team's Information"
 msgstr "معلومات الفريق"

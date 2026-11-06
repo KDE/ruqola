@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:55+0000\n"
-"PO-Revision-Date: 2026-11-04 10:19+0100\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"PO-Revision-Date: 2026-11-05 11:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -799,29 +799,32 @@ msgid "Socket was unexpectedly closed."
 msgstr "Vtičnica je bila nepričakovano zaprta."
 
 #: core/mcpserver/common/toolbase.cpp:42
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
-#: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
 #, kde-format
 msgid "Account is not logged in"
 msgstr "Račun ni prijavljen"
 
 #: core/mcpserver/common/toolbase.cpp:50
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
 #, kde-format
 msgid "Missing search pattern"
 msgstr "Manjka vzorec iskanja"
 
 #: core/mcpserver/common/toolbase.cpp:66
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, kde-format
 msgid "Search failed: %1"
 msgstr "Neuspelo iskanje: %1"
 
 #: core/mcpserver/common/toolbase.cpp:69
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, kde-format
 msgid "Impossible to start search"
 msgstr "Ni mogoče začeti iskanja"
@@ -840,25 +843,46 @@ msgstr "Sobe"
 msgid "Messages"
 msgstr "Sporočila"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:26
+#: core/mcpserver/common/toolutils.cpp:21
+#: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
+#, kde-format
+msgid "Users"
+msgstr "Uporabniki"
+
+#: core/mcpserver/common/toolutils.cpp:23
+#, fuzzy, kde-format
+#| msgid "Current Password"
+msgid "Current User"
+msgstr "Trenutno geslo"
+
+#: core/mcpserver/common/toolutils.cpp:25
+#, kde-format
+msgid "Misc"
+msgstr ""
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
 msgid "Get My Status"
 msgstr "Pridobi moje stanje"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:38
+#: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
-#: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
 #: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
-#: core/mcpserver/searchusers/searchuserstool.cpp:39
-#: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/searchusers/searchuserstool.cpp:41
+#: core/mcpserver/setmystatus/setmystatustool.cpp:41
 #: core/mcpserver/starmessage/starmessagetool.cpp:43
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
 #, kde-format
 msgid "No account found"
 msgstr "Ni najdenega računa"
@@ -869,77 +893,108 @@ msgid "Get Room Info"
 msgstr "Pridobi podatke o sobi"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
 msgstr "Manjka določilnik sobe"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr "Sobe z določilnikom \"%1\" ni bilo mogoče najti"
 
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:25
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:47
+#, fuzzy, kde-format
+#| msgid "No users found"
+msgid "No users with roles found"
+msgstr "Ni najdenih uporabnikov"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:72
+#, fuzzy, kde-format
+#| msgid "Get Room Info"
+msgid "Get Room Roles"
+msgstr "Pridobi podatke o sobi"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
+#, kde-format
+msgid "Direct conversations have no room roles"
+msgstr ""
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
+#, kde-format
+msgid "Unknown room type"
+msgstr "Neznana zvrst sobe"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#, fuzzy, kde-format
+#| msgid "Listing members failed: %1"
+msgid "Getting room roles failed: %1"
+msgstr "Seznam članov ni uspel: %1"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#, fuzzy, kde-format
+#| msgid "Impossible to start listing members"
+msgid "Impossible to start getting room roles"
+msgstr "Seznama članov ni mogoče začeti izpisovati"
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
 #, kde-format
 msgid "Get Server Info"
 msgstr "Pridobi podatke o strežniku"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
 #, kde-format
 msgid "Get Unread Summary"
 msgstr "Pridobi neprebran povzetek"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
 #, kde-format
 msgid "No unread messages"
 msgstr "Ni neprebranih sporočil"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
 #, kde-format
 msgid "Get User Status"
 msgstr "Pridobi stanje uporabnika"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
 #, kde-format
 msgid "Missing user name"
 msgstr "Manjka ime uporabnika"
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:26
+#: core/mcpserver/listaccounts/listaccountstool.cpp:27
 #, kde-format
 msgid "List Accounts"
 msgstr "Seznam računov"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
-#, fuzzy, kde-format
-#| msgid "List Rooms"
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:53
+#, kde-format
 msgid "List Room Members"
-msgstr "Seznam sob"
+msgstr "Seznam članov sob"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
-#, fuzzy, kde-format
-#| msgid "Unknown state"
-msgid "Unknown room type"
-msgstr "Neznano stanje"
-
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
-#, fuzzy, kde-format
-#| msgid "No users found"
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
+#, kde-format
 msgid "No members found"
-msgstr "Ni najdenih uporabnikov"
+msgstr "Ni najdenih članov"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
-#, fuzzy, kde-format
-#| msgid "Search failed: %1"
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
+#, kde-format
 msgid "Listing members failed: %1"
-msgstr "Neuspelo iskanje: %1"
+msgstr "Seznam članov ni uspel: %1"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
-#, fuzzy, kde-format
-#| msgid "Impossible to start search"
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
+#, kde-format
 msgid "Impossible to start listing members"
-msgstr "Ni mogoče začeti iskanja"
+msgstr "Seznama članov ni mogoče začeti izpisovati"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:27
 #, kde-format
@@ -952,92 +1007,133 @@ msgstr "Seznam sob"
 msgid "No rooms found"
 msgstr "Ni najdenih sob"
 
-#: core/mcpserver/mcpservermanager.cpp:43
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark as Read"
+msgid "Mark Room as Read"
+msgstr "Označi kot prebrano"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#, fuzzy, kde-format
+#| msgid "Star message failed: %1"
+msgid "Mark room as read failed: %1"
+msgstr "Odlikovanje sporočila z zvezdico ni uspelo: %1"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#, fuzzy, kde-format
+#| msgid "Impossible to start star message job"
+msgid "Impossible to start mark room as read job"
+msgstr "Ni mogoče začeti naloge odlikovanja sporočil z zvezdico"
+
+#: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Upravljaj informacije od Ruqole"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin Message"
 msgstr "Pripni sporočilo"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:52
 #: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
+#, kde-format
 msgid "Missing message identifier"
 msgstr "Manjka določilnik sobe"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Search failed: %1"
+#, kde-format
 msgid "Pin message failed: %1"
-msgstr "Neuspelo iskanje: %1"
+msgstr "Pripenjanje sporočila ni uspelo: %1"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to start search"
+#, kde-format
 msgid "Impossible to start pin message job"
-msgstr "Ni mogoče začeti iskanja"
+msgstr "Opravila za pripenjanje sporočila ni mogoče zagnati"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
+#, kde-format
 msgid "Search Messages"
 msgstr "Išči sporočila"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
+#, kde-format
 msgid "No messages found"
-msgstr "Ni zadetkov med sporočili"
+msgstr "Ni najdenih sporočil"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
 #, kde-format
 msgid "Search Rooms"
 msgstr "Išči sobe"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:24
+#: core/mcpserver/searchusers/searchuserstool.cpp:25
 #, kde-format
 msgid "Search Users"
 msgstr "Išči uporabnike"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:46
+#: core/mcpserver/searchusers/searchuserstool.cpp:48
 #, kde-format
 msgid "No users found"
 msgstr "Ni najdenih uporabnikov"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:25
+#: core/mcpserver/setmystatus/setmystatustool.cpp:26
 #, kde-format
 msgid "Set My Status"
 msgstr "Nastavi moje stanje"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:49
+#: core/mcpserver/setmystatus/setmystatustool.cpp:50
 #, kde-format
 msgid "Invalid status"
 msgstr "Neveljavno stanje"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Star Message"
-msgstr "Sporočila z zvezdico"
+msgstr "Odlikuj sporočilo z zvezdico"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:67
-#, fuzzy, kde-format
-#| msgid "Search failed: %1"
+#, kde-format
 msgid "Star message failed: %1"
-msgstr "Neuspelo iskanje: %1"
+msgstr "Odlikovanje sporočila z zvezdico ni uspelo: %1"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to start search"
+#, kde-format
 msgid "Impossible to start star message job"
-msgstr "Ni mogoče začeti iskanja"
+msgstr "Ni mogoče začeti naloge odlikovanja sporočil z zvezdico"
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
+#, kde-format
+msgid "Update Room Settings"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#, kde-format
+msgid "Settings of a direct room cannot be changed"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#, kde-format
+msgid "Room name cannot be empty"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#, kde-format
+msgid ""
+"Nothing to change: give at least one of name, topic, description or "
+"announcement"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#, kde-format
+msgid "Update room settings failed: %1"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#, fuzzy, kde-format
+#| msgid "Impossible to start pin message job"
+msgid "Impossible to start update room settings job"
+msgstr "Opravila za pripenjanje sporočila ni mogoče zagnati"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1626,12 +1722,12 @@ msgstr "Obvesti vse v tej sobi"
 msgid "Edited at %1 by %2"
 msgstr "Uredil %2: %1"
 
-#: core/model/messagesmodel.cpp:572
+#: core/model/messagesmodel.cpp:564
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
 
-#: core/model/messagesmodel.cpp:582
+#: core/model/messagesmodel.cpp:574
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Samo vi lahko vidite to sporočilo"
@@ -1836,11 +1932,9 @@ msgid "On Hold Chats"
 msgstr "Klepeti na čakanju"
 
 #: core/model/roommodel.cpp:711
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Conversations"
-msgstr "Začni pogovor"
+msgstr "Pogovori"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -2027,7 +2121,7 @@ msgstr "Skrij sporočila »Opis sobe spremenjeno«"
 msgid "Hide \"Joined this Team\" messages"
 msgstr "Skrij sporočila »Pridružil se je tej ekipi«"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:36
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Samodejno pridruži)"
@@ -2081,7 +2175,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> pravkar tipkajo…"
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2090,22 +2184,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "Brez povezave"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected yet"
 msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3264
+#: core/rocketchataccount.cpp:3282
 #, kde-format
 msgid "Room Added"
 msgstr "Soba je bila dodana"
 
-#: core/rocketchataccount.cpp:3265
+#: core/rocketchataccount.cpp:3283
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Novi soba je bila dodana v '%1'."
@@ -3257,12 +3351,6 @@ msgstr "Zvoki po meri"
 msgid "Custom Emojis"
 msgstr "Emodžiji po meri"
 
-#: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
-#, kde-format
-msgid "Users"
-msgstr "Uporabniki"
-
 #: widgets/administratordialog/administratorwidget.cpp:72
 #, kde-format
 msgid "Invites"
@@ -3314,7 +3402,7 @@ msgstr "Ime čustvenčka po meri in njegovi vzdevki morajo biti različni."
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:36
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:100
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3462,7 +3550,7 @@ msgstr "Uredi stanje uporabnika"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
-#: widgets/dialogs/directchannelinfowidget.cpp:126
+#: widgets/dialogs/directchannelinfowidget.cpp:116
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3840,7 +3928,7 @@ msgstr "Pokaži uporabnike moderatorje"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3849,7 +3937,7 @@ msgstr "E-naslov:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:185
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Roles:"
 msgstr "Vloge:"
@@ -4432,7 +4520,7 @@ msgid "Mark email as verified"
 msgstr "Označi e-pošto kot preverjeno"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:109
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -4454,7 +4542,7 @@ msgid "Password:"
 msgstr "Geslo:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Bio:"
 msgstr "Bio:"
@@ -4905,7 +4993,7 @@ msgid "Accounts"
 msgstr "Računi"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:98
+#: widgets/room/roomheaderwidget.cpp:99
 #, kde-format
 msgid "Encryption"
 msgstr "Šifriranje"
@@ -8964,42 +9052,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:134
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
 msgid "Custom Status:"
 msgstr "Stanje po meri:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:146
 #, kde-format
 msgid "Timezone:"
 msgstr "Časovni pas:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Local Time:"
 msgstr "Lokalni čas:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:195
+#: widgets/dialogs/directchannelinfowidget.cpp:185
 #, kde-format
 msgid "Created At:"
 msgstr "Ustvarjeno:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:204
+#: widgets/dialogs/directchannelinfowidget.cpp:194
 #, kde-format
 msgid "Last Login:"
 msgstr "Zadnja prijava:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Verified"
 msgstr "Preverjeno"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Not verified"
 msgstr "Nepreverjeno"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -9417,7 +9505,7 @@ msgstr[3] "%1 priponk v sobi (skupaj: %2)"
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
 #: widgets/discussions/showdiscussionswidget.cpp:118
-#: widgets/misc/searchtreebasewidget.cpp:80
+#: widgets/misc/searchtreebasewidget.cpp:81
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:193
 #, kde-format
@@ -9601,7 +9689,7 @@ msgstr ""
 "Nekaj uporabnikom je ta soba prepovedana. Ali jim želite umakniti prepoved?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:20
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:555
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10317,7 +10405,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Išči besedo…"
 
-#: widgets/misc/servermenu.cpp:26
+#: widgets/misc/servermenu.cpp:27
 #, kde-format
 msgid "Server"
 msgstr "Strežnik"
@@ -11226,106 +11314,106 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Več dejavnosti"
 
-#: widgets/room/messagelinewidget.cpp:89
+#: widgets/room/messagelinewidget.cpp:90
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Pripni datoteko…"
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:93
 #, kde-format
 msgid "Attach File"
 msgstr "Pripni datoteko"
 
-#: widgets/room/messagelinewidget.cpp:100
+#: widgets/room/messagelinewidget.cpp:101
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Pošlji video sporočilo…"
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, kde-format
 msgid "Video Message"
 msgstr "Video sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:111
-#: widgets/room/messagelinewidget.cpp:118
+#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Pošlji zvočno sporočilo…"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:114
 #, kde-format
 msgid "Sound Message"
 msgstr "Zvočno sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:125
+#: widgets/room/messagelinewidget.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Dodaj čustvenčka…"
 
-#: widgets/room/messagelinewidget.cpp:127
+#: widgets/room/messagelinewidget.cpp:128
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Poišči čustvenčka"
 
-#: widgets/room/messagelinewidget.cpp:134
+#: widgets/room/messagelinewidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Pošlji sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:136
+#: widgets/room/messagelinewidget.cpp:137
 #, kde-format
 msgid "Send Message"
 msgstr "Pošlji sporočilo"
 
-#: widgets/room/messagelinewidget.cpp:232
+#: widgets/room/messagelinewidget.cpp:233
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "Ukaz ni uspel. Ali želite kopirati ukaz na odložišče?"
 
-#: widgets/room/messagelinewidget.cpp:233
+#: widgets/room/messagelinewidget.cpp:234
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "Napaka ukaza"
 
-#: widgets/room/messagelinewidget.cpp:290
+#: widgets/room/messagelinewidget.cpp:291
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Ali želite pretvoriti to obširno besedilo kot prilogo?"
 
-#: widgets/room/messagelinewidget.cpp:291
+#: widgets/room/messagelinewidget.cpp:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sporočilo je preveliko"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Sporočilo %1 v niti"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Pošlji sporočilo v %1…"
 
-#: widgets/room/messagelinewidget.cpp:584
+#: widgets/room/messagelinewidget.cpp:585
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Izbrana datoteka je prevelika (največja velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:585
+#: widgets/room/messagelinewidget.cpp:586
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Prenos datoteke tja"
 
-#: widgets/room/messagelinewidget.cpp:589
+#: widgets/room/messagelinewidget.cpp:590
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna zvrst mime %1)"
@@ -11569,85 +11657,85 @@ msgstr "(Pokaži več informacij…)"
 msgid "Add Topic"
 msgstr "Dodaj temo"
 
-#: widgets/room/roomheaderwidget.cpp:78
+#: widgets/room/roomheaderwidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Priljubljeni"
 
-#: widgets/room/roomheaderwidget.cpp:80
+#: widgets/room/roomheaderwidget.cpp:81
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljeni"
 
-#: widgets/room/roomheaderwidget.cpp:96
+#: widgets/room/roomheaderwidget.cpp:97
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E omogočeno"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Dejavnosti umetne inteligence"
 
-#: widgets/room/roomheaderwidget.cpp:170
+#: widgets/room/roomheaderwidget.cpp:171
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Klic"
 
-#: widgets/room/roomheaderwidget.cpp:172
+#: widgets/room/roomheaderwidget.cpp:173
 #, kde-format
 msgid "Call"
 msgstr "Klic"
 
-#: widgets/room/roomheaderwidget.cpp:181
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informacije o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:183 widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:184 widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Channel's Information"
 msgstr "Podatki o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:192
+#: widgets/room/roomheaderwidget.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:194
+#: widgets/room/roomheaderwidget.cpp:195
 #, kde-format
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:204
+#: widgets/room/roomheaderwidget.cpp:205
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:206
+#: widgets/room/roomheaderwidget.cpp:207
 #, kde-format
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:217
+#: widgets/room/roomheaderwidget.cpp:218
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: widgets/room/roomheaderwidget.cpp:219
+#: widgets/room/roomheaderwidget.cpp:220
 #, kde-format
 msgid "Search Messages…"
 msgstr "Išči sporočila…"
 
-#: widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Team's Information"
 msgstr "Podatki o ekipi"

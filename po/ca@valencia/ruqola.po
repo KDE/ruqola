@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:55+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2026-10-29 11:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -805,32 +805,35 @@ msgid "Socket was unexpectedly closed."
 msgstr "El sòcol s'ha tancat inesperadament."
 
 #: core/mcpserver/common/toolbase.cpp:42
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
-#: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
 msgstr "Informació del compte"
 
 #: core/mcpserver/common/toolbase.cpp:50
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing search pattern"
 msgstr "Falta l'URL del servidor."
 
 #: core/mcpserver/common/toolbase.cpp:66
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, fuzzy, kde-format
 #| msgid "Download failed: %1"
 msgid "Search failed: %1"
 msgstr "Ha fallat la baixada: %1"
 
 #: core/mcpserver/common/toolbase.cpp:69
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
@@ -850,27 +853,48 @@ msgstr "Sales"
 msgid "Messages"
 msgstr "Missatges"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:26
+#: core/mcpserver/common/toolutils.cpp:21
+#: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
+#, kde-format
+msgid "Users"
+msgstr "Usuaris"
+
+#: core/mcpserver/common/toolutils.cpp:23
+#, fuzzy, kde-format
+#| msgid "Current Password"
+msgid "Current User"
+msgstr "Contrasenya actual"
+
+#: core/mcpserver/common/toolutils.cpp:25
+#, kde-format
+msgid "Misc"
+msgstr ""
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit User Status"
 msgid "Get My Status"
 msgstr "Edita l'estat de l'usuari"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:38
+#: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
-#: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
 #: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
-#: core/mcpserver/searchusers/searchuserstool.cpp:39
-#: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/searchusers/searchuserstool.cpp:41
+#: core/mcpserver/setmystatus/setmystatustool.cpp:41
 #: core/mcpserver/starmessage/starmessagetool.cpp:43
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
 #, kde-format
 msgid "No account found"
 msgstr "No s'ha trobat cap compte"
@@ -881,79 +905,115 @@ msgid "Get Room Info"
 msgstr "Obtín informació de la sala"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
 msgstr "Falta l'identificador de la sala"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr "No s'ha trobat cap sala amb l'identificador «%1»"
 
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:25
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:47
+#, fuzzy, kde-format
+#| msgid "No user found"
+msgid "No users with roles found"
+msgstr "No s'ha trobat cap usuari"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:72
+#, fuzzy, kde-format
+#| msgid "Get Room Info"
+msgid "Get Room Roles"
+msgstr "Obtín informació de la sala"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
+#, kde-format
+msgid "Direct conversations have no room roles"
+msgstr ""
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "Estat desconegut"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Getting room roles failed: %1"
+msgstr "Ha fallat la baixada: %1"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start getting room roles"
+msgstr "Impossible exportar les dades."
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
 #, kde-format
 msgid "Get Server Info"
 msgstr "Obtenció de la informació del servidor"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
 #, fuzzy, kde-format
 #| msgid "Privacy Summary"
 msgid "Get Unread Summary"
 msgstr "Resum de privadesa"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
 #, fuzzy, kde-format
 #| msgid "%1 Unread Message"
 #| msgid_plural "%1 Unread Messages"
 msgid "No unread messages"
 msgstr "%1 missatge sense llegir"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit User Status"
 msgid "Get User Status"
 msgstr "Edita l'estat de l'usuari"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing user name"
 msgstr "Falta l'URL del servidor."
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:26
+#: core/mcpserver/listaccounts/listaccountstool.cpp:27
 #, kde-format
 msgid "List Accounts"
 msgstr "Llista de comptes"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:53
 #, fuzzy, kde-format
 #| msgid "List Rooms"
 msgid "List Room Members"
 msgstr "Llista de sales"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
-#, fuzzy, kde-format
-#| msgid "Unknown state"
-msgid "Unknown room type"
-msgstr "Estat desconegut"
-
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No members found"
 msgstr "No s'ha trobat cap usuari"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
 #, fuzzy, kde-format
 #| msgid "Download failed: %1"
 msgid "Listing members failed: %1"
 msgstr "Ha fallat la baixada: %1"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start listing members"
@@ -970,7 +1030,26 @@ msgstr "Llista de sales"
 msgid "No rooms found"
 msgstr "No s'ha trobat cap sala"
 
-#: core/mcpserver/mcpservermanager.cpp:43
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark as Read"
+msgid "Mark Room as Read"
+msgstr "Marca com a llegit"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#, fuzzy, kde-format
+#| msgid "Download failed: %1"
+msgid "Mark room as read failed: %1"
+msgstr "Ha fallat la baixada: %1"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start mark room as read job"
+msgstr "Impossible exportar les dades."
+
+#: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr "Gestiona la informació de Ruqola"
@@ -1001,14 +1080,14 @@ msgstr "Ha fallat la baixada: %1"
 msgid "Impossible to start pin message job"
 msgstr "Impossible exportar les dades."
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "Busca missatges"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No messages found"
@@ -1021,27 +1100,27 @@ msgstr "No s'ha trobat el missatge"
 msgid "Search Rooms"
 msgstr "Busca de sales"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:24
+#: core/mcpserver/searchusers/searchuserstool.cpp:25
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search users…"
 msgid "Search Users"
 msgstr "Busca usuaris…"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:46
+#: core/mcpserver/searchusers/searchuserstool.cpp:48
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No users found"
 msgstr "No s'ha trobat cap usuari"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:25
+#: core/mcpserver/setmystatus/setmystatustool.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit User Status"
 msgid "Set My Status"
 msgstr "Edita l'estat de l'usuari"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:49
+#: core/mcpserver/setmystatus/setmystatustool.cpp:50
 #, fuzzy, kde-format
 #| msgid "Invalid user"
 msgid "Invalid status"
@@ -1064,6 +1143,39 @@ msgstr "Ha fallat la baixada: %1"
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start star message job"
+msgstr "Impossible exportar les dades."
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
+#, kde-format
+msgid "Update Room Settings"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#, kde-format
+msgid "Settings of a direct room cannot be changed"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#, kde-format
+msgid "Room name cannot be empty"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#, kde-format
+msgid ""
+"Nothing to change: give at least one of name, topic, description or "
+"announcement"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#, kde-format
+msgid "Update room settings failed: %1"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start update room settings job"
 msgstr "Impossible exportar les dades."
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
@@ -1653,12 +1765,12 @@ msgstr "Notifica a tothom en esta sala"
 msgid "Edited at %1 by %2"
 msgstr "Editat a les %1 per %2"
 
-#: core/model/messagesmodel.cpp:572
+#: core/model/messagesmodel.cpp:564
 #, kde-format
 msgid "Ignored Message"
 msgstr "Missatge ignorat"
 
-#: core/model/messagesmodel.cpp:582
+#: core/model/messagesmodel.cpp:574
 #, kde-format
 msgid "Only you can see this message"
 msgstr "Este missatge només el podeu veure vós"
@@ -2046,7 +2158,7 @@ msgstr "Oculta els missatges «Ha canviat la descripció de la sala»"
 msgid "Hide \"Joined this Team\" messages"
 msgstr "Oculta els missatges «S'ha unit a este equip»"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:36
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(Unió automàtica)"
@@ -2100,7 +2212,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2109,22 +2221,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
 
-#: core/rocketchataccount.cpp:3264
+#: core/rocketchataccount.cpp:3282
 #, kde-format
 msgid "Room Added"
 msgstr "S'ha afegit una sala"
 
-#: core/rocketchataccount.cpp:3265
+#: core/rocketchataccount.cpp:3283
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "S'ha afegit una sala nova a «%1»."
@@ -3274,12 +3386,6 @@ msgstr "Sons personalitzats"
 msgid "Custom Emojis"
 msgstr "Emoji personalitzats"
 
-#: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
-#, kde-format
-msgid "Users"
-msgstr "Usuaris"
-
 #: widgets/administratordialog/administratorwidget.cpp:72
 #, kde-format
 msgid "Invites"
@@ -3332,7 +3438,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:36
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:100
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3476,7 +3582,7 @@ msgstr "Edita l'estat de l'usuari"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
-#: widgets/dialogs/directchannelinfowidget.cpp:126
+#: widgets/dialogs/directchannelinfowidget.cpp:116
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3851,7 +3957,7 @@ msgstr "Mostra la moderació d'usuaris"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3860,7 +3966,7 @@ msgstr "Correu electrònic:"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:185
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Roles:"
 msgstr "Rols:"
@@ -4439,7 +4545,7 @@ msgid "Mark email as verified"
 msgstr "Marca el correu electrònic com a verificat"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:109
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -4461,7 +4567,7 @@ msgid "Password:"
 msgstr "Contrasenya:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Bio:"
 msgstr "Biografia:"
@@ -4918,7 +5024,7 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:98
+#: widgets/room/roomheaderwidget.cpp:99
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptació"
@@ -9007,42 +9113,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:134
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
 msgid "Custom Status:"
 msgstr "Estat personalitzat:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:146
 #, kde-format
 msgid "Timezone:"
 msgstr "Fus horari:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Local Time:"
 msgstr "Hora local:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:195
+#: widgets/dialogs/directchannelinfowidget.cpp:185
 #, kde-format
 msgid "Created At:"
 msgstr "Creat:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:204
+#: widgets/dialogs/directchannelinfowidget.cpp:194
 #, kde-format
 msgid "Last Login:"
 msgstr "Últim inici de sessió:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Verified"
 msgstr "Verificat"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Not verified"
 msgstr "No verificat"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -9456,7 +9562,7 @@ msgstr[1] "%1 adjunts a la sala (Total: %2)"
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
 #: widgets/discussions/showdiscussionswidget.cpp:118
-#: widgets/misc/searchtreebasewidget.cpp:80
+#: widgets/misc/searchtreebasewidget.cpp:81
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:193
 #, kde-format
@@ -9637,7 +9743,7 @@ msgstr ""
 "afegir?"
 
 #: widgets/dialogs/uploadfiledialog.cpp:20
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:555
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10360,7 +10466,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Busca una paraula…"
 
-#: widgets/misc/servermenu.cpp:26
+#: widgets/misc/servermenu.cpp:27
 #, kde-format
 msgid "Server"
 msgstr "Servidor"
@@ -11264,106 +11370,106 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Més accions"
 
-#: widgets/room/messagelinewidget.cpp:89
+#: widgets/room/messagelinewidget.cpp:90
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Adjunta un fitxer…"
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:93
 #, kde-format
 msgid "Attach File"
 msgstr "Adjunta un fitxer"
 
-#: widgets/room/messagelinewidget.cpp:100
+#: widgets/room/messagelinewidget.cpp:101
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Envia un missatge de vídeo…"
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, kde-format
 msgid "Video Message"
 msgstr "Missatge de vídeo"
 
-#: widgets/room/messagelinewidget.cpp:111
-#: widgets/room/messagelinewidget.cpp:118
+#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Envia un missatge de so…"
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:114
 #, kde-format
 msgid "Sound Message"
 msgstr "Missatge de so"
 
-#: widgets/room/messagelinewidget.cpp:125
+#: widgets/room/messagelinewidget.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Afig una emoticona…"
 
-#: widgets/room/messagelinewidget.cpp:127
+#: widgets/room/messagelinewidget.cpp:128
 #, kde-format
 msgid "Add Emoticon"
 msgstr "Afig una emoticona"
 
-#: widgets/room/messagelinewidget.cpp:134
+#: widgets/room/messagelinewidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Envia un missatge"
 
-#: widgets/room/messagelinewidget.cpp:136
+#: widgets/room/messagelinewidget.cpp:137
 #, kde-format
 msgid "Send Message"
 msgstr "Envia un missatge"
 
-#: widgets/room/messagelinewidget.cpp:232
+#: widgets/room/messagelinewidget.cpp:233
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr "L'ordre ha fallat. Voleu copiar l'ordre al porta-retalls?"
 
-#: widgets/room/messagelinewidget.cpp:233
+#: widgets/room/messagelinewidget.cpp:234
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr "S'ha produït un error d'ordre"
 
-#: widgets/room/messagelinewidget.cpp:290
+#: widgets/room/messagelinewidget.cpp:291
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Voleu convertir este text llarg en un adjunt?"
 
-#: widgets/room/messagelinewidget.cpp:291
+#: widgets/room/messagelinewidget.cpp:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Missatge massa llarg"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "Missatge %1 del fil"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "Envia un missatge en %1…"
 
-#: widgets/room/messagelinewidget.cpp:584
+#: widgets/room/messagelinewidget.cpp:585
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "El fitxer seleccionat és massa gran (la mida màxima és %1)"
 
-#: widgets/room/messagelinewidget.cpp:585
+#: widgets/room/messagelinewidget.cpp:586
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Pujada de fitxer"
 
-#: widgets/room/messagelinewidget.cpp:589
+#: widgets/room/messagelinewidget.cpp:590
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr "El servidor no ha autoritzat este fitxer (tipus MIME %1 no vàlid)"
@@ -11605,85 +11711,85 @@ msgstr "(Mostra més informació…)"
 msgid "Add Topic"
 msgstr "Afig un tema"
 
-#: widgets/room/roomheaderwidget.cpp:78
+#: widgets/room/roomheaderwidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:80
+#: widgets/room/roomheaderwidget.cpp:81
 #, kde-format
 msgid "Favorite"
 msgstr "Preferida"
 
-#: widgets/room/roomheaderwidget.cpp:96
+#: widgets/room/roomheaderwidget.cpp:97
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Accions d'IA"
 
-#: widgets/room/roomheaderwidget.cpp:170
+#: widgets/room/roomheaderwidget.cpp:171
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "Toca"
 
-#: widgets/room/roomheaderwidget.cpp:172
+#: widgets/room/roomheaderwidget.cpp:173
 #, kde-format
 msgid "Call"
 msgstr "Toca"
 
-#: widgets/room/roomheaderwidget.cpp:181
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:183 widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:184 widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:192
+#: widgets/room/roomheaderwidget.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:194
+#: widgets/room/roomheaderwidget.cpp:195
 #, kde-format
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:204
+#: widgets/room/roomheaderwidget.cpp:205
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:206
+#: widgets/room/roomheaderwidget.cpp:207
 #, kde-format
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:217
+#: widgets/room/roomheaderwidget.cpp:218
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Busca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:219
+#: widgets/room/roomheaderwidget.cpp:220
 #, kde-format
 msgid "Search Messages…"
 msgstr "Busca missatges…"
 
-#: widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"

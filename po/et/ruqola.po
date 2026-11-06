@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:55+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -846,25 +846,28 @@ msgid "Socket was unexpectedly closed."
 msgstr ""
 
 #: core/mcpserver/common/toolbase.cpp:42
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
-#: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
 msgstr "Kontoteave"
 
 #: core/mcpserver/common/toolbase.cpp:50
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
 #, fuzzy, kde-format
 #| msgid "Enter username"
 msgid "Missing search pattern"
 msgstr "Kasutajanimi"
 
 #: core/mcpserver/common/toolbase.cpp:66
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Display Image"
@@ -872,7 +875,7 @@ msgid "Search failed: %1"
 msgstr "Pildi näitamine"
 
 #: core/mcpserver/common/toolbase.cpp:69
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Impossible to start search"
@@ -893,26 +896,48 @@ msgstr "Toad"
 msgid "Messages"
 msgstr "Sõnum"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:26
+#: core/mcpserver/common/toolutils.cpp:21
+#: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
+#, fuzzy, kde-format
+#| msgid "Users:"
+msgid "Users"
+msgstr "Kasutajad:"
+
+#: core/mcpserver/common/toolutils.cpp:23
+#, fuzzy, kde-format
+#| msgid "Password"
+msgid "Current User"
+msgstr "Parool"
+
+#: core/mcpserver/common/toolutils.cpp:25
+#, kde-format
+msgid "Misc"
+msgstr ""
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Get My Status"
 msgstr "Kasutaja kohandatud olek"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:38
+#: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
-#: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
 #: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
-#: core/mcpserver/searchusers/searchuserstool.cpp:39
-#: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/searchusers/searchuserstool.cpp:41
+#: core/mcpserver/setmystatus/setmystatustool.cpp:41
 #: core/mcpserver/starmessage/starmessagetool.cpp:43
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
 #, fuzzy, kde-format
 #| msgid "No Attachment found"
 msgid "No account found"
@@ -925,80 +950,117 @@ msgid "Get Room Info"
 msgstr "Ühtegi mainimist ei leitud"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
 msgstr ""
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
 
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:25
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:47
 #, fuzzy, kde-format
-#| msgid "Server Info"
-msgid "Get Server Info"
-msgstr "Serveri teave"
+#| msgid "No Message found"
+msgid "No users with roles found"
+msgstr "Ühtegi sõnumit ei leitud"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:72
 #, fuzzy, kde-format
-#| msgid "Private:"
-msgid "Get Unread Summary"
-msgstr "Privaatne:"
+#| msgid "No Mention found"
+msgid "Get Room Roles"
+msgstr "Ühtegi mainimist ei leitud"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
-#, fuzzy, kde-format
-#| msgid "%1 has %2 Unread Message"
-msgid "No unread messages"
-msgstr "%1 ei ole lugenud %2 sõnumit"
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
+#, kde-format
+msgid "Direct conversations have no room roles"
+msgstr ""
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
-msgid "Get User Status"
-msgstr "Kasutaja kohandatud olek"
-
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
-#, fuzzy, kde-format
-#| msgid "Enter username"
-msgid "Missing user name"
-msgstr "Kasutajanimi"
-
-#: core/mcpserver/listaccounts/listaccountstool.cpp:26
-#, fuzzy, kde-format
-#| msgid "Account"
-msgid "List Accounts"
-msgstr "Konto"
-
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Custom User Status"
-msgid "List Room Members"
-msgstr "Kasutaja kohandatud olek"
-
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown room type"
 msgstr "Teadmata olek"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Display Image"
+msgid "Getting room roles failed: %1"
+msgstr "Pildi näitamine"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#, fuzzy, kde-format
+#| msgid "Account"
+msgid "Impossible to start getting room roles"
+msgstr "Konto"
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Get Server Info"
+msgstr "Serveri teave"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
+#, fuzzy, kde-format
+#| msgid "Private:"
+msgid "Get Unread Summary"
+msgstr "Privaatne:"
+
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
+#, fuzzy, kde-format
+#| msgid "%1 has %2 Unread Message"
+msgid "No unread messages"
+msgstr "%1 ei ole lugenud %2 sõnumit"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
+#, fuzzy, kde-format
+#| msgid "Custom User Status"
+msgid "Get User Status"
+msgstr "Kasutaja kohandatud olek"
+
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
+#, fuzzy, kde-format
+#| msgid "Enter username"
+msgid "Missing user name"
+msgstr "Kasutajanimi"
+
+#: core/mcpserver/listaccounts/listaccountstool.cpp:27
+#, fuzzy, kde-format
+#| msgid "Account"
+msgid "List Accounts"
+msgstr "Konto"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:53
+#, fuzzy, kde-format
+#| msgid "Custom User Status"
+msgid "List Room Members"
+msgstr "Kasutaja kohandatud olek"
+
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No members found"
 msgstr "Ühtegi sõnumit ei leitud"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Display Image"
 msgid "Listing members failed: %1"
 msgstr "Pildi näitamine"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Impossible to start listing members"
@@ -1017,7 +1079,26 @@ msgstr "Kasutaja kohandatud olek"
 msgid "No rooms found"
 msgstr "Ühtegi mainimist ei leitud"
 
-#: core/mcpserver/mcpservermanager.cpp:43
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
+#, fuzzy, kde-format
+#| msgid "Mark As Read"
+msgid "Mark Room as Read"
+msgstr "Märgi loetuks"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Display Image"
+msgid "Mark room as read failed: %1"
+msgstr "Pildi näitamine"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#, fuzzy, kde-format
+#| msgid "Account"
+msgid "Impossible to start mark room as read job"
+msgstr "Konto"
+
+#: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1048,14 +1129,14 @@ msgstr "Pildi näitamine"
 msgid "Impossible to start pin message job"
 msgstr "Konto"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "Sõnumite otsimine"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "No messages found"
@@ -1067,25 +1148,25 @@ msgstr "Sõnumeid ei leitud"
 msgid "Search Rooms"
 msgstr "Toa otsimine"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:24
+#: core/mcpserver/searchusers/searchuserstool.cpp:25
 #, fuzzy, kde-format
 #| msgid "Search Users..."
 msgid "Search Users"
 msgstr "Otsi kasutajaid ..."
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:46
+#: core/mcpserver/searchusers/searchuserstool.cpp:48
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No users found"
 msgstr "Ühtegi sõnumit ei leitud"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:25
+#: core/mcpserver/setmystatus/setmystatustool.cpp:26
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Set My Status"
 msgstr "Kasutaja kohandatud olek"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:49
+#: core/mcpserver/setmystatus/setmystatustool.cpp:50
 #, fuzzy, kde-format
 #| msgid "Invalid user"
 msgid "Invalid status"
@@ -1108,6 +1189,39 @@ msgstr "Pildi näitamine"
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Impossible to start star message job"
+msgstr "Konto"
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
+#, kde-format
+msgid "Update Room Settings"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#, kde-format
+msgid "Settings of a direct room cannot be changed"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#, kde-format
+msgid "Room name cannot be empty"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#, kde-format
+msgid ""
+"Nothing to change: give at least one of name, topic, description or "
+"announcement"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#, kde-format
+msgid "Update room settings failed: %1"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#, fuzzy, kde-format
+#| msgid "Account"
+msgid "Impossible to start update room settings job"
 msgstr "Konto"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
@@ -1744,12 +1858,12 @@ msgstr "Kasutaja ei ole selles toas"
 msgid "Edited at %1 by %2"
 msgstr "Muutnud %1"
 
-#: core/model/messagesmodel.cpp:572
+#: core/model/messagesmodel.cpp:564
 #, kde-format
 msgid "Ignored Message"
 msgstr "Eiratud sõnum"
 
-#: core/model/messagesmodel.cpp:582
+#: core/model/messagesmodel.cpp:574
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this message?"
 msgid "Only you can see this message"
@@ -2191,7 +2305,7 @@ msgstr "Videosõnum"
 msgid "Hide \"Joined this Team\" messages"
 msgstr "Videosõnum"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:36
 #, kde-format
 msgid "(Autojoin)"
 msgstr ""
@@ -2248,31 +2362,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Pole ühendatud"
 
-#: core/rocketchataccount.cpp:3264
+#: core/rocketchataccount.cpp:3282
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Room Added"
 msgstr "Konto nimi:"
 
-#: core/rocketchataccount.cpp:3265
+#: core/rocketchataccount.cpp:3283
 #, fuzzy, kde-format
 #| msgid "Enter account name"
 msgid "A new room was added in '%1'."
@@ -3493,13 +3607,6 @@ msgstr "Kohandatud olek:"
 msgid "Custom Emojis"
 msgstr "Kohandatud olek:"
 
-#: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
-#, fuzzy, kde-format
-#| msgid "Users:"
-msgid "Users"
-msgstr "Kasutajad:"
-
 #: widgets/administratordialog/administratorwidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Invite Users"
@@ -3555,7 +3662,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:36
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:100
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3717,7 +3824,7 @@ msgstr "Kasutaja kohandatud olek"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
-#: widgets/dialogs/directchannelinfowidget.cpp:126
+#: widgets/dialogs/directchannelinfowidget.cpp:116
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -4122,7 +4229,7 @@ msgstr "Mainitud sõnumite näitamine"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, fuzzy, kde-format
@@ -4132,7 +4239,7 @@ msgstr "E-post"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:185
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Roles:"
 msgstr ""
@@ -4791,7 +4898,7 @@ msgid "Mark email as verified"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:109
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -4814,7 +4921,7 @@ msgid "Password:"
 msgstr "Parool:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Bio:"
 msgstr ""
@@ -5287,7 +5394,7 @@ msgid "Accounts"
 msgstr "Konto"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:98
+#: widgets/room/roomheaderwidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
@@ -9491,46 +9598,46 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:134
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
 msgid "Custom Status:"
 msgstr "Kohandatud olek:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:146
 #, fuzzy, kde-format
 #| msgid "TimeZone:"
 msgid "Timezone:"
 msgstr "Ajavöönd:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:195
+#: widgets/dialogs/directchannelinfowidget.cpp:185
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Created At:"
 msgstr "Konto loomine"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:204
+#: widgets/dialogs/directchannelinfowidget.cpp:194
 #, fuzzy, kde-format
 #| msgid "Login"
 msgid "Last Login:"
 msgstr "Logi sisse"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Verified"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, fuzzy, kde-format
 #| msgid "Not authorized"
 msgid "Not verified"
 msgstr "Pole autoriseeritud"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "%1 [%2]"
 msgstr ""
@@ -9975,7 +10082,7 @@ msgstr[1] "%1 manust toas (kokku: %2)"
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
 #: widgets/discussions/showdiscussionswidget.cpp:118
-#: widgets/misc/searchtreebasewidget.cpp:80
+#: widgets/misc/searchtreebasewidget.cpp:81
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:193
 #, fuzzy, kde-format
@@ -10177,7 +10284,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:20
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:555
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10946,7 +11053,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Sõna otsimine ..."
 
-#: widgets/misc/servermenu.cpp:26
+#: widgets/misc/servermenu.cpp:27
 #, fuzzy, kde-format
 #| msgid "Server Url"
 msgid "Server"
@@ -11917,47 +12024,47 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "Rakendust ei leitud"
 
-#: widgets/room/messagelinewidget.cpp:89
+#: widgets/room/messagelinewidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Attach Files"
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "Failide manustamine"
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:93
 #, fuzzy, kde-format
 #| msgid "Attach Files"
 msgid "Attach File"
 msgstr "Failide manustamine"
 
-#: widgets/room/messagelinewidget.cpp:100
+#: widgets/room/messagelinewidget.cpp:101
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "Otsi sõnumeid ..."
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, fuzzy, kde-format
 #| msgid "Take a Video Message"
 msgid "Video Message"
 msgstr "Tee videosõnum"
 
-#: widgets/room/messagelinewidget.cpp:111
-#: widgets/room/messagelinewidget.cpp:118
+#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:119
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "Otsi sõnumeid ..."
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Sound Message"
 msgstr "Kõik sõnumid"
 
-#: widgets/room/messagelinewidget.cpp:125
+#: widgets/room/messagelinewidget.cpp:126
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
@@ -11965,75 +12072,75 @@ msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "Konto lisamine"
 
-#: widgets/room/messagelinewidget.cpp:127
+#: widgets/room/messagelinewidget.cpp:128
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Account"
 msgid "Add Emoticon"
 msgstr "Konto lisamine"
 
-#: widgets/room/messagelinewidget.cpp:134
+#: widgets/room/messagelinewidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Starred Messages"
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "Tärniga sõnumid"
 
-#: widgets/room/messagelinewidget.cpp:136
+#: widgets/room/messagelinewidget.cpp:137
 #, fuzzy, kde-format
 #| msgid "Starred Messages"
 msgid "Send Message"
 msgstr "Tärniga sõnumid"
 
-#: widgets/room/messagelinewidget.cpp:232
+#: widgets/room/messagelinewidget.cpp:233
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:233
+#: widgets/room/messagelinewidget.cpp:234
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:290
+#: widgets/room/messagelinewidget.cpp:291
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this attachment?"
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Kas tõesti kustutada see manus?"
 
-#: widgets/room/messagelinewidget.cpp:291
+#: widgets/room/messagelinewidget.cpp:292
 #, fuzzy, kde-format
 #| msgid "Message"
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "Sõnum"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message %1 in thread"
 msgstr "Sõnum kinnistatud"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Send a message in %1…"
 msgstr "Otsi sõnumeid ..."
 
-#: widgets/room/messagelinewidget.cpp:584
+#: widgets/room/messagelinewidget.cpp:585
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Valitud fail on liiga suur (maks. suurus %1)"
 
-#: widgets/room/messagelinewidget.cpp:585
+#: widgets/room/messagelinewidget.cpp:586
 #, fuzzy, kde-format
 #| msgid "File upload"
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "Fail üles laaditud"
 
-#: widgets/room/messagelinewidget.cpp:589
+#: widgets/room/messagelinewidget.cpp:590
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
 msgstr ""
@@ -12312,82 +12419,82 @@ msgstr "Näita mainimisi ..."
 msgid "Add Topic"
 msgstr "Konto lisamine"
 
-#: widgets/room/roomheaderwidget.cpp:78
+#: widgets/room/roomheaderwidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "Lemmikud"
 
-#: widgets/room/roomheaderwidget.cpp:80
+#: widgets/room/roomheaderwidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgid "Favorite"
 msgstr "Lemmikud"
 
-#: widgets/room/roomheaderwidget.cpp:96
+#: widgets/room/roomheaderwidget.cpp:97
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, fuzzy, kde-format
 #| msgid "Application not found"
 msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "Rakendust ei leitud"
 
-#: widgets/room/roomheaderwidget.cpp:170
+#: widgets/room/roomheaderwidget.cpp:171
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:172
+#: widgets/room/roomheaderwidget.cpp:173
 #, kde-format
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:181
+#: widgets/room/roomheaderwidget.cpp:182
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "Kanali teave"
 
-#: widgets/room/roomheaderwidget.cpp:183 widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:184 widgets/room/roomheaderwidget.cpp:334
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Channel's Information"
 msgstr "Kanali teave"
 
-#: widgets/room/roomheaderwidget.cpp:192
+#: widgets/room/roomheaderwidget.cpp:193
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "Välju kanalilt"
 
-#: widgets/room/roomheaderwidget.cpp:194
+#: widgets/room/roomheaderwidget.cpp:195
 #, fuzzy, kde-format
 #| msgid "Quit Channel"
 msgid "Team Channels"
 msgstr "Välju kanalilt"
 
-#: widgets/room/roomheaderwidget.cpp:204
+#: widgets/room/roomheaderwidget.cpp:205
 #, fuzzy, kde-format
 #| msgid "Show List of Users"
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "Näita kasutajate loendit"
 
-#: widgets/room/roomheaderwidget.cpp:206
+#: widgets/room/roomheaderwidget.cpp:207
 #, kde-format
 msgid "Show List of Users"
 msgstr "Näita kasutajate loendit"
 
-#: widgets/room/roomheaderwidget.cpp:217
+#: widgets/room/roomheaderwidget.cpp:218
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
@@ -12395,14 +12502,14 @@ msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "Sõnumite otsimine"
 
-#: widgets/room/roomheaderwidget.cpp:219
+#: widgets/room/roomheaderwidget.cpp:220
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages…"
 msgstr "Sõnumite otsimine"
 
-#: widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Team's Information"
 msgstr ""

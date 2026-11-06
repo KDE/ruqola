@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-05 00:55+0000\n"
+"POT-Creation-Date: 2026-11-06 00:51+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -814,25 +814,28 @@ msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट् अप्रत्याशितरूपेण बन्दः आसीत् ।"
 
 #: core/mcpserver/common/toolbase.cpp:42
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:73
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:91
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:75
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:47
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:86
-#: core/mcpserver/setmystatus/setmystatustool.cpp:44
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:88
+#: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
 #, fuzzy, kde-format
 #| msgid "Account information"
 msgid "Account is not logged in"
 msgstr "खाता सूचना"
 
 #: core/mcpserver/common/toolbase.cpp:50
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:97
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:99
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing search pattern"
 msgstr "सेवकस्य URL अनुपस्थितम्।"
 
 #: core/mcpserver/common/toolbase.cpp:66
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:127
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
@@ -840,7 +843,7 @@ msgid "Search failed: %1"
 msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 
 #: core/mcpserver/common/toolbase.cpp:69
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:130
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start search"
@@ -862,27 +865,48 @@ msgstr "कक्ष्याः"
 msgid "Messages"
 msgstr "सन्देशाः"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:26
+#: core/mcpserver/common/toolutils.cpp:21
+#: widgets/administratordialog/administratorwidget.cpp:69
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
+#, kde-format
+msgid "Users"
+msgstr "उपयोक्तारः"
+
+#: core/mcpserver/common/toolutils.cpp:23
+#, fuzzy, kde-format
+#| msgid "Current Password"
+msgid "Current User"
+msgstr "वर्तमान गुप्तशब्द"
+
+#: core/mcpserver/common/toolutils.cpp:25
+#, kde-format
+msgid "Misc"
+msgstr ""
+
+#: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit User Status"
 msgid "Get My Status"
 msgstr "उपयोक्तृस्थिति सम्पादयतु"
 
-#: core/mcpserver/getmystatus/getmystatustool.cpp:38
+#: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:37
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:43
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:45
-#: core/mcpserver/listaccounts/listaccountstool.cpp:58
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:69
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:87
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:40
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:41
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:44
+#: core/mcpserver/listaccounts/listaccountstool.cpp:59
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:71
 #: core/mcpserver/listrooms/listroomstool.cpp:40
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:44
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:43
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:82
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:84
 #: core/mcpserver/searchrooms/searchroomstool.cpp:39
-#: core/mcpserver/searchusers/searchuserstool.cpp:39
-#: core/mcpserver/setmystatus/setmystatustool.cpp:40
+#: core/mcpserver/searchusers/searchuserstool.cpp:41
+#: core/mcpserver/setmystatus/setmystatustool.cpp:41
 #: core/mcpserver/starmessage/starmessagetool.cpp:43
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
 #, fuzzy, kde-format
 #| msgid "My Account"
 msgid "No account found"
@@ -895,83 +919,120 @@ msgid "Get Room Info"
 msgstr "No Room न लब्धम्"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:48
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:79
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:92
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:96
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:81
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:53
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:94
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
 msgstr ""
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:53
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:84
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:101
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:86
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:58
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
 #, kde-format
 msgid "No room found with identifier \"%1\""
 msgstr ""
 
-#: core/mcpserver/getserverinfo/getserverinfotool.cpp:25
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:47
+#, fuzzy, kde-format
+#| msgid "No user found"
+msgid "No users with roles found"
+msgstr "कोऽपि उपयोक्ता न लब्धः"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:72
+#, fuzzy, kde-format
+#| msgid "No Room found"
+msgid "Get Room Roles"
+msgstr "No Room न लब्धम्"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:130
+#, kde-format
+msgid "Direct conversations have no room roles"
+msgstr ""
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:133
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:101
+#, fuzzy, kde-format
+#| msgid "Unknown state"
+msgid "Unknown room type"
+msgstr "अज्ञात अवस्था"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:139
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Getting room roles failed: %1"
+msgstr "चित्रं डाउनलोड् कुर्वन्तु"
+
+#: core/mcpserver/getroomroles/getroomrolestool.cpp:142
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start getting room roles"
+msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
+
+#: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Get Server Info"
 msgstr "सर्वर इन्फो"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:34
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
 #, fuzzy, kde-format
 #| msgid "Privacy Summary"
 msgid "Get Unread Summary"
 msgstr "गोपनीयता सारांश"
 
-#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:81
+#: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
 #, fuzzy, kde-format
 #| msgid "%1 Unread Message"
 #| msgid_plural "%1 Unread Messages"
 msgid "No unread messages"
 msgstr "%1 अपठितः सन्देशः"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:36
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit User Status"
 msgid "Get User Status"
 msgstr "उपयोक्तृस्थिति सम्पादयतु"
 
-#: core/mcpserver/getuserstatus/getuserstatustool.cpp:53
+#: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing user name"
 msgstr "सेवकस्य URL अनुपस्थितम्।"
 
-#: core/mcpserver/listaccounts/listaccountstool.cpp:26
+#: core/mcpserver/listaccounts/listaccountstool.cpp:27
 #, fuzzy, kde-format
 #| msgid "Accounts"
 msgid "List Accounts"
 msgstr "लेखा"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:52
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:53
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit Room"
 msgid "List Room Members"
 msgstr "सम्पादन कक्ष"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:99
-#, fuzzy, kde-format
-#| msgid "Unknown state"
-msgid "Unknown room type"
-msgstr "अज्ञात अवस्था"
-
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:123
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:125
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No members found"
 msgstr "कोऽपि उपयोक्ता न लब्धः"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:135
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:137
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Download Image"
 msgid "Listing members failed: %1"
 msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 
-#: core/mcpserver/listroommembers/listroommemberstool.cpp:138
+#: core/mcpserver/listroommembers/listroommemberstool.cpp:140
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start listing members"
@@ -991,7 +1052,27 @@ msgstr "सम्पादन कक्ष"
 msgid "No rooms found"
 msgstr "न स्थानं लब्धम्"
 
-#: core/mcpserver/mcpservermanager.cpp:43
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
+#, fuzzy, kde-format
+#| msgctxt "@action"
+#| msgid "Mark as Read"
+msgid "Mark Room as Read"
+msgstr "Read इति चिह्नं कुर्वन्तु"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgid "Mark room as read failed: %1"
+msgstr "चित्रं डाउनलोड् कुर्वन्तु"
+
+#: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start mark room as read job"
+msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
+
+#: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
 msgid "Manage information from Ruqola"
 msgstr ""
@@ -1023,14 +1104,14 @@ msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 msgid "Impossible to start pin message job"
 msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:63
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:64
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Search Messages"
 msgid "Search Messages"
 msgstr "सन्देशान् अन्वेष्टुम्"
 
-#: core/mcpserver/searchmessages/searchmessagestool.cpp:115
+#: core/mcpserver/searchmessages/searchmessagestool.cpp:117
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No messages found"
@@ -1043,27 +1124,27 @@ msgstr "कोऽपि सन्देशः न लब्धः"
 msgid "Search Rooms"
 msgstr "कक्षेषु अन्वेषणं कुर्वन्तु"
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:24
+#: core/mcpserver/searchusers/searchuserstool.cpp:25
 #, fuzzy, kde-format
 #| msgctxt "@info:placeholder"
 #| msgid "Search users…"
 msgid "Search Users"
 msgstr "उपयोक्तृन् अन्वेष्टुम्..."
 
-#: core/mcpserver/searchusers/searchuserstool.cpp:46
+#: core/mcpserver/searchusers/searchuserstool.cpp:48
 #, fuzzy, kde-format
 #| msgid "No user found"
 msgid "No users found"
 msgstr "कोऽपि उपयोक्ता न लब्धः"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:25
+#: core/mcpserver/setmystatus/setmystatustool.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit User Status"
 msgid "Set My Status"
 msgstr "उपयोक्तृस्थिति सम्पादयतु"
 
-#: core/mcpserver/setmystatus/setmystatustool.cpp:49
+#: core/mcpserver/setmystatus/setmystatustool.cpp:50
 #, fuzzy, kde-format
 #| msgid "Invalid user"
 msgid "Invalid status"
@@ -1087,6 +1168,39 @@ msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
 msgid "Impossible to start star message job"
+msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
+#, kde-format
+msgid "Update Room Settings"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
+#, kde-format
+msgid "Settings of a direct room cannot be changed"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
+#, kde-format
+msgid "Room name cannot be empty"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
+#, kde-format
+msgid ""
+"Nothing to change: give at least one of name, topic, description or "
+"announcement"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
+#, kde-format
+msgid "Update room settings failed: %1"
+msgstr ""
+
+#: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
+#, fuzzy, kde-format
+#| msgid "Impossible to export data."
+msgid "Impossible to start update room settings job"
 msgstr "दत्तांशस्य निर्यातं कर्तुं असम्भवम्।"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
@@ -1679,12 +1793,12 @@ msgstr "अस्मिन् कक्षे सर्वेभ्यः सू
 msgid "Edited at %1 by %2"
 msgstr "%2 द्वारा %1 इत्यत्र सम्पादितम्"
 
-#: core/model/messagesmodel.cpp:572
+#: core/model/messagesmodel.cpp:564
 #, kde-format
 msgid "Ignored Message"
 msgstr "उपेक्षितः सन्देशः"
 
-#: core/model/messagesmodel.cpp:582
+#: core/model/messagesmodel.cpp:574
 #, kde-format
 msgid "Only you can see this message"
 msgstr "केवलं भवन्तः एव एतत् सन्देशं द्रष्टुं शक्नुवन्ति"
@@ -2073,7 +2187,7 @@ msgstr "\"कक्षस्य विवरणं परिवर्तित�
 msgid "Hide \"Joined this Team\" messages"
 msgstr "\"उपयोक्तृवामदलम्\" इति सन्देशान् गोपयन्तु"
 
-#: core/model/teamroomsmodel.cpp:37
+#: core/model/teamroomsmodel.cpp:36
 #, kde-format
 msgid "(Autojoin)"
 msgstr "(स्वयं संयोगः)"
@@ -2127,7 +2241,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टङ्कयन्ति..."
 
-#: core/rocketchataccount.cpp:791
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2136,23 +2250,23 @@ msgstr ""
 "REST: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:799 core/rocketchataccount.cpp:812
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "न संबद्धः"
 
-#: core/rocketchataccount.cpp:806
+#: core/rocketchataccount.cpp:809
 #, kde-format
 msgid "Not connected yet"
 msgstr "अद्यापि न सम्बद्धम्"
 
-#: core/rocketchataccount.cpp:3264
+#: core/rocketchataccount.cpp:3282
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "खाता योजितः"
 
-#: core/rocketchataccount.cpp:3265
+#: core/rocketchataccount.cpp:3283
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -3309,12 +3423,6 @@ msgstr "कस्टम ध्वनयः"
 msgid "Custom Emojis"
 msgstr "कस्टम इमोजी"
 
-#: widgets/administratordialog/administratorwidget.cpp:69
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:255
-#, kde-format
-msgid "Users"
-msgstr "उपयोक्तारः"
-
 #: widgets/administratordialog/administratorwidget.cpp:72
 #, kde-format
 msgid "Invites"
@@ -3368,7 +3476,7 @@ msgstr "कस्टम् इमोजी नाम तेषां उपन�
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:36
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:100
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3512,7 +3620,7 @@ msgstr "उपयोक्तृस्थिति सम्पादयतु"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
-#: widgets/dialogs/directchannelinfowidget.cpp:126
+#: widgets/dialogs/directchannelinfowidget.cpp:116
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3891,7 +3999,7 @@ msgstr "मॉडरेशन उपयोक्तारः दर्शयत�
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:217
+#: widgets/dialogs/directchannelinfowidget.cpp:207
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
@@ -3900,7 +4008,7 @@ msgstr "ईमेल :"
 
 #: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:185
+#: widgets/dialogs/directchannelinfowidget.cpp:175
 #, kde-format
 msgid "Roles:"
 msgstr "भूमिकाः :"
@@ -4480,7 +4588,7 @@ msgid "Mark email as verified"
 msgstr "ईमेलं सत्यापितं इति चिह्नं कुर्वन्तु"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:119
+#: widgets/dialogs/directchannelinfowidget.cpp:109
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -4502,7 +4610,7 @@ msgid "Password:"
 msgstr "समाभाष्:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:142
+#: widgets/dialogs/directchannelinfowidget.cpp:132
 #, kde-format
 msgid "Bio:"
 msgstr "आसीत्‌:"
@@ -4952,7 +5060,7 @@ msgid "Accounts"
 msgstr "लेखा"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
-#: widgets/room/roomheaderwidget.cpp:98
+#: widgets/room/roomheaderwidget.cpp:99
 #, kde-format
 msgid "Encryption"
 msgstr "एन्क्रिप्शन"
@@ -9043,42 +9151,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "उपयोक्तृसूचना"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:134
+#: widgets/dialogs/directchannelinfowidget.cpp:124
 #, kde-format
 msgid "Custom Status:"
 msgstr "कस्टम् स्थितिः :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:146
 #, kde-format
 msgid "Timezone:"
 msgstr "समयक्षेत्रम् :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:166
+#: widgets/dialogs/directchannelinfowidget.cpp:156
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:195
+#: widgets/dialogs/directchannelinfowidget.cpp:185
 #, kde-format
 msgid "Created At:"
 msgstr "Created At:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:204
+#: widgets/dialogs/directchannelinfowidget.cpp:194
 #, kde-format
 msgid "Last Login:"
 msgstr "अन्तिमप्रवेशः :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Verified"
 msgstr "सत्यापित"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "Not verified"
 msgstr "न सत्यापितम्"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:212
+#: widgets/dialogs/directchannelinfowidget.cpp:202
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -9507,7 +9615,7 @@ msgstr[1] "%1 कक्षे संलग्नाः (कुलम्: %2)"
 #: widgets/dialogs/showbanneduserswidget.cpp:115
 #: widgets/dialogs/showlistmessagebasewidget.cpp:117
 #: widgets/discussions/showdiscussionswidget.cpp:118
-#: widgets/misc/searchtreebasewidget.cpp:80
+#: widgets/misc/searchtreebasewidget.cpp:81
 #: widgets/room/usersinroomflowwidget.cpp:145
 #: widgets/room/usersinroomwidget.cpp:193
 #, kde-format
@@ -9708,7 +9816,7 @@ msgid ""
 msgstr ""
 
 #: widgets/dialogs/uploadfiledialog.cpp:20
-#: widgets/room/messagelinewidget.cpp:554
+#: widgets/room/messagelinewidget.cpp:555
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload File"
@@ -10430,7 +10538,7 @@ msgctxt "@info:placeholder"
 msgid "Search Word…"
 msgstr "Search Word..."
 
-#: widgets/misc/servermenu.cpp:26
+#: widgets/misc/servermenu.cpp:27
 #, kde-format
 msgid "Server"
 msgstr "सर्वर"
@@ -11343,106 +11451,106 @@ msgctxt "@info:tooltip"
 msgid "More Actions"
 msgstr "आवेदनम् पृच्छतु"
 
-#: widgets/room/messagelinewidget.cpp:89
+#: widgets/room/messagelinewidget.cpp:90
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Attach a file…"
 msgstr "एकं सञ्चिकां संलग्नं कुर्वन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:92
+#: widgets/room/messagelinewidget.cpp:93
 #, kde-format
 msgid "Attach File"
 msgstr "सञ्चिका संलग्नं कुर्वन्तु"
 
-#: widgets/room/messagelinewidget.cpp:100
+#: widgets/room/messagelinewidget.cpp:101
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a video message…"
 msgstr "एकं विडियो सन्देशं प्रेषयन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:102
+#: widgets/room/messagelinewidget.cpp:103
 #, kde-format
 msgid "Video Message"
 msgstr "विडियो सन्देश"
 
-#: widgets/room/messagelinewidget.cpp:111
-#: widgets/room/messagelinewidget.cpp:118
+#: widgets/room/messagelinewidget.cpp:112
+#: widgets/room/messagelinewidget.cpp:119
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send a sound message…"
 msgstr "ध्वनिसन्देशं प्रेषयन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:113
+#: widgets/room/messagelinewidget.cpp:114
 #, kde-format
 msgid "Sound Message"
 msgstr "ध्वनि सन्देश"
 
-#: widgets/room/messagelinewidget.cpp:125
+#: widgets/room/messagelinewidget.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Add emoticon…"
 msgstr "इमोटिकॉन् योजयन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:127
+#: widgets/room/messagelinewidget.cpp:128
 #, kde-format
 msgid "Add Emoticon"
 msgstr "इमोटिकॉन् योजयतु"
 
-#: widgets/room/messagelinewidget.cpp:134
+#: widgets/room/messagelinewidget.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Send message"
 msgstr "सन्देशं प्रेषयन्तु"
 
-#: widgets/room/messagelinewidget.cpp:136
+#: widgets/room/messagelinewidget.cpp:137
 #, kde-format
 msgid "Send Message"
 msgstr "सन्देशं प्रेषयतु"
 
-#: widgets/room/messagelinewidget.cpp:232
+#: widgets/room/messagelinewidget.cpp:233
 #, kde-format
 msgid "Command was failed. Do you want to copy command in clipboard ?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:233
+#: widgets/room/messagelinewidget.cpp:234
 #, kde-format
 msgctxt "@title:window"
 msgid "Command Error"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:290
+#: widgets/room/messagelinewidget.cpp:291
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "किं भवन्तः एतत् महत् पाठं संलग्नकरूपेण परिवर्तयितुम् इच्छन्ति?"
 
-#: widgets/room/messagelinewidget.cpp:291
+#: widgets/room/messagelinewidget.cpp:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Message Too Big"
 msgstr "सन्देशः अतीव विशालः"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Message %1 in thread"
 msgstr "थ्रेड् मध्ये %1 सन्देशः"
 
-#: widgets/room/messagelinewidget.cpp:426
+#: widgets/room/messagelinewidget.cpp:427
 #, kde-format
 msgid "Send a message in %1…"
 msgstr "%1 इत्यत्र सन्देशं प्रेषयन्तु..."
 
-#: widgets/room/messagelinewidget.cpp:584
+#: widgets/room/messagelinewidget.cpp:585
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "चयनिता सञ्चिका अतीव विशाला अस्ति (अधिकतमः आकारः %1) ।"
 
-#: widgets/room/messagelinewidget.cpp:585
+#: widgets/room/messagelinewidget.cpp:586
 #, kde-format
 msgctxt "@title:window"
 msgid "File upload"
 msgstr "सञ्चिका अपलोड्"
 
-#: widgets/room/messagelinewidget.cpp:589
+#: widgets/room/messagelinewidget.cpp:590
 #, fuzzy, kde-format
 #| msgid "Server doesn't authorized this file (invalid mimetype)"
 msgid "Server doesn't authorized this file (invalid mimetype %1)"
@@ -11690,24 +11798,24 @@ msgstr "(अधिकं सूचनां दर्शयतु...)"
 msgid "Add Topic"
 msgstr "विषय"
 
-#: widgets/room/roomheaderwidget.cpp:78
+#: widgets/room/roomheaderwidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Favorite"
 msgstr "प्रिय"
 
-#: widgets/room/roomheaderwidget.cpp:80
+#: widgets/room/roomheaderwidget.cpp:81
 #, kde-format
 msgid "Favorite"
 msgstr "प्रिय"
 
-#: widgets/room/roomheaderwidget.cpp:96
+#: widgets/room/roomheaderwidget.cpp:97
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "E2E Enabled"
 msgstr "E2E सक्षमम्"
 
-#: widgets/room/roomheaderwidget.cpp:159
+#: widgets/room/roomheaderwidget.cpp:160
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Ask Application"
@@ -11715,62 +11823,62 @@ msgctxt "@info:tooltip"
 msgid "AI Actions"
 msgstr "आवेदनम् पृच्छतु"
 
-#: widgets/room/roomheaderwidget.cpp:170
+#: widgets/room/roomheaderwidget.cpp:171
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Call"
 msgstr "आह्वानम्‌"
 
-#: widgets/room/roomheaderwidget.cpp:172
+#: widgets/room/roomheaderwidget.cpp:173
 #, kde-format
 msgid "Call"
 msgstr "आह्वानम्‌"
 
-#: widgets/room/roomheaderwidget.cpp:181
+#: widgets/room/roomheaderwidget.cpp:182
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
 
-#: widgets/room/roomheaderwidget.cpp:183 widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:184 widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Channel's Information"
 msgstr "चैनलस्य सूचना"
 
-#: widgets/room/roomheaderwidget.cpp:192
+#: widgets/room/roomheaderwidget.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team Channels"
 msgstr "टीम चैनल्स्"
 
-#: widgets/room/roomheaderwidget.cpp:194
+#: widgets/room/roomheaderwidget.cpp:195
 #, kde-format
 msgid "Team Channels"
 msgstr "टीम चैनल्स्"
 
-#: widgets/room/roomheaderwidget.cpp:204
+#: widgets/room/roomheaderwidget.cpp:205
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show List of Users"
 msgstr "उपयोक्तृणां सूचीं दर्शयतु"
 
-#: widgets/room/roomheaderwidget.cpp:206
+#: widgets/room/roomheaderwidget.cpp:207
 #, kde-format
 msgid "Show List of Users"
 msgstr "उपयोक्तृणां सूचीं दर्शयतु"
 
-#: widgets/room/roomheaderwidget.cpp:217
+#: widgets/room/roomheaderwidget.cpp:218
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search Messages…"
 msgstr "अन्वेषणसन्देशाः..."
 
-#: widgets/room/roomheaderwidget.cpp:219
+#: widgets/room/roomheaderwidget.cpp:220
 #, kde-format
 msgid "Search Messages…"
 msgstr "अन्वेषणसन्देशाः..."
 
-#: widgets/room/roomheaderwidget.cpp:333
+#: widgets/room/roomheaderwidget.cpp:334
 #, kde-format
 msgid "Team's Information"
 msgstr "दलस्य सूचना"
