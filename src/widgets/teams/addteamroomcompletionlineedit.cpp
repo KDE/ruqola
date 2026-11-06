@@ -68,7 +68,7 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
     } else {
         auto job = new RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob(this);
 
-        RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo info;
+        RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteAvailableForTeamsInfo info;
         info.name = text;
         job->setRoomsCompleterInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);

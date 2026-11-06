@@ -42,12 +42,12 @@ void RoleUpdateJob::onPostRequestResponse(const QString &replyErrorString, const
 
 RoleUpdateJob::RoleUpdateInfo RoleUpdateJob::updateRoleInfo() const
 {
-    return mRoleCreateInfo;
+    return mRoleUpdateInfo;
 }
 
-void RoleUpdateJob::setUpdateRoleInfo(const RoleUpdateInfo &statusCreateInfo)
+void RoleUpdateJob::setUpdateRoleInfo(const RoleUpdateInfo &roleUpdateInfo)
 {
-    mRoleCreateInfo = statusCreateInfo;
+    mRoleUpdateInfo = roleUpdateInfo;
 }
 
 bool RoleUpdateJob::requireHttpAuthentication() const
@@ -60,8 +60,8 @@ bool RoleUpdateJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!mRoleCreateInfo.isValid()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoleUpdateJob: mRoleCreateInfo is not valid.";
+    if (!mRoleUpdateInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoleUpdateJob: mRoleUpdateInfo is not valid.";
         return false;
     }
     return true;
@@ -79,11 +79,11 @@ QNetworkRequest RoleUpdateJob::request() const
 QJsonDocument RoleUpdateJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["name"_L1] = mRoleCreateInfo.name;
-    jsonObj["description"_L1] = mRoleCreateInfo.description;
-    jsonObj["scope"_L1] = mRoleCreateInfo.scope;
-    jsonObj["mandatory2fa"_L1] = mRoleCreateInfo.mandatory2fa;
-    jsonObj["roleId"_L1] = mRoleCreateInfo.identifier;
+    jsonObj["name"_L1] = mRoleUpdateInfo.name;
+    jsonObj["description"_L1] = mRoleUpdateInfo.description;
+    jsonObj["scope"_L1] = mRoleUpdateInfo.scope;
+    jsonObj["mandatory2fa"_L1] = mRoleUpdateInfo.mandatory2fa;
+    jsonObj["roleId"_L1] = mRoleUpdateInfo.identifier;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -37,7 +37,7 @@ void RoomsAutocompleteAvailableForTeamsJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(u"http://www.kde.org"_s);
     job.setRestApiMethod(&method);
-    RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo info;
+    RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteAvailableForTeamsInfo info;
     info.name = u"foo"_s;
     job.setRoomsCompleterInfo(info);
     const QNetworkRequest request = job.request();

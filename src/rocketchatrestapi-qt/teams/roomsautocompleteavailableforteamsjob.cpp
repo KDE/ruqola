@@ -59,18 +59,18 @@ QNetworkRequest RoomsAutocompleteAvailableForTeamsJob::request() const
     return request;
 }
 
-RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo RoomsAutocompleteAvailableForTeamsJob::roomsCompleterInfo() const
+RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteAvailableForTeamsInfo RoomsAutocompleteAvailableForTeamsJob::roomsCompleterInfo() const
 {
     return mRoomsAutocompleteInfo;
 }
 
 void RoomsAutocompleteAvailableForTeamsJob::setRoomsCompleterInfo(
-    const RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo)
+    const RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteAvailableForTeamsInfo &roomCompleterInfo)
 {
     mRoomsAutocompleteInfo = roomCompleterInfo;
 }
 
-bool RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo::isValid() const
+bool RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteAvailableForTeamsInfo::isValid() const
 {
     return !name.isEmpty();
 }

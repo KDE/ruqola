@@ -15,29 +15,29 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsAutocompleteAvailableForTeamsJob : pub
 {
     Q_OBJECT
 public:
-    struct LIBROCKETCHATRESTAPI_QT_EXPORT RoomsAutocompleteChannelAndPrivateInfo {
+    struct LIBROCKETCHATRESTAPI_QT_EXPORT RoomsAutocompleteAvailableForTeamsInfo {
         [[nodiscard]] bool isValid() const;
         QString name;
-        QString exception;
     };
 
     explicit RoomsAutocompleteAvailableForTeamsJob(QObject *parent = nullptr);
     ~RoomsAutocompleteAvailableForTeamsJob() override;
 
     [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
 
     [[nodiscard]] bool start() override;
 
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] RoomsAutocompleteChannelAndPrivateInfo roomsCompleterInfo() const;
-    void setRoomsCompleterInfo(const RoomsAutocompleteChannelAndPrivateInfo &roomCompleterInfo);
+    [[nodiscard]] RoomsAutocompleteAvailableForTeamsInfo roomsCompleterInfo() const;
+    void setRoomsCompleterInfo(const RoomsAutocompleteAvailableForTeamsInfo &roomCompleterInfo);
 
 Q_SIGNALS:
     void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    RoomsAutocompleteChannelAndPrivateInfo mRoomsAutocompleteInfo;
+    RoomsAutocompleteAvailableForTeamsInfo mRoomsAutocompleteInfo;
 };
 }

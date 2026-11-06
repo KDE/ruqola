@@ -35,13 +35,13 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
     [[nodiscard]] RoleUpdateInfo updateRoleInfo() const;
-    void setUpdateRoleInfo(const RoleUpdateInfo &statusCreateInfo);
+    void setUpdateRoleInfo(const RoleUpdateInfo &roleUpdateInfo);
 
 Q_SIGNALS:
     void updateRoleDone();
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    RoleUpdateInfo mRoleCreateInfo;
+    RoleUpdateInfo mRoleUpdateInfo;
 };
 }
