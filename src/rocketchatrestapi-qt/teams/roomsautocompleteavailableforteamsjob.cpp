@@ -27,6 +27,18 @@ bool RoomsAutocompleteAvailableForTeamsJob::requireHttpAuthentication() const
     return true;
 }
 
+bool RoomsAutocompleteAvailableForTeamsJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (!mRoomsAutocompleteInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomsAutocompleteAvailableForTeamsJob: mRoomsAutocompleteInfo is not valid.";
+        return false;
+    }
+    return true;
+}
+
 bool RoomsAutocompleteAvailableForTeamsJob::start()
 {
     if (!canStart()) {
