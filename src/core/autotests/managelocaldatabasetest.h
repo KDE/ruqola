@@ -16,4 +16,6 @@ public:
     ~ManageLocalDatabaseTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldParseHistoryCursor_data();
+    void shouldParseHistoryCursor();
 };

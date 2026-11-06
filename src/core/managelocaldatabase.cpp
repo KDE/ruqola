@@ -91,6 +91,10 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
     params.append(QJsonValue(QString::fromLatin1(info.roomId)));
     // Load history
     const bool initialLoading = info.initial || info.roomModel->isEmpty();
+    if (!initialLoading && mLoadingHistoryRooms.contains(info.roomId)) {
+        qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " history request already in progress for room" << info.roomId;
+        return;
+    }
     if (initialLoading) {
         if (RuqolaGlobalConfig::self()->storeMessageInDataBase()) {
 #if USE_LOCALDATABASE
@@ -195,6 +199,18 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
 
 #endif
         }
+        if (mRocketChatAccount->hasAtLeastVersion(8, 9, 0)) {
+            const qint64 cursor = historyCursor(info.roomId);
+            if (cursor == HistoryCursorEnd) {
+                qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " rooms.history: oldest message already loaded for room" << info.roomId;
+                return;
+            }
+            // No cursor yet (initial loading came from database) or cursor older than the oldest loaded message (gap):
+            // restart from the oldest loaded message. The server cursor is the message timestamp in ms (see loadRoomHistory.ts).
+            const qint64 previousCursor = (cursor != HistoryCursorUnknown && cursor >= oldestLoadedDateTime) ? cursor : oldestLoadedDateTime;
+            loadRoomHistory(info.roomId, downloadMessage, -1, previousCursor);
+            return;
+        }
         QJsonObject dateObjectEnd;
         dateObjectEnd["$date"_L1] = QJsonValue(oldestLoadedDateTime);
         const qint64 startDateTime = info.roomModel->generateNewStartTimeStamp(oldestLoadedDateTime);
@@ -210,49 +226,114 @@ void ManageLocalDatabase::loadMessagesHistory(const ManageLocalDatabase::ManageL
         dateObjectStart["$date"_L1] = QJsonValue(startDateTime);
         params.append(std::move(dateObjectStart));
     }
-    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
-    // rooms.history pagination (cursor) is not implemented yet: only use it for initial loading,
-    // otherwise we always request the same messages and loop on the server (error-too-many-requests).
     if (initialLoading && mRocketChatAccount->hasAtLeastVersion(8, 9, 0)) {
-        // Use rooms.history
-        auto job = new RocketChatRestApi::GetRoomHistoryJob(this);
-        const RocketChatRestApi::GetRoomHistoryJob::GetRoomHistoryInfo roomHistoryInfo{
-            .roomId = info.roomId,
-            .count = 50,
-            .showThreadMessages = true,
-            .lastSeen = info.lastSeenAt > 0 ? QDateTime::fromMSecsSinceEpoch(info.lastSeenAt, QTimeZone::UTC).toString(Qt::ISODateWithMs) : QString(),
-        };
-        job->setRoomHistoryInfo(roomHistoryInfo);
-
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-        connect(job, &RocketChatRestApi::GetRoomHistoryJob::getRoomHistoryDone, this, [this](const QJsonObject &root) {
-            // TODO cursor etc.
-            mRocketChatAccount->rocketChatBackend()->processIncomingMessages(root.value("messages"_L1).toArray(), true);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start GetRoomHistoryJob job";
-        }
+        loadRoomHistory(info.roomId, 50, info.lastSeenAt, HistoryCursorUnknown);
     } else {
-        // use /api/v1/method.call/loadHistory directly => restapi
-        auto job = new RocketChatRestApi::MethodCallJob(this);
-        RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
-        loadHistoryInfo.methodName = u"loadHistory"_s;
-        loadHistoryInfo.anonymous = false;
-        loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
-        job->setMethodCallJobInfo(loadHistoryInfo);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
-            const QJsonObject obj = root.value("result"_L1).toObject();
-            // qCDebug(RUQOLA_DDPAPI_LOG) << obj.value("messages")).toArray().size();
-            mRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start loadHistory job";
-        }
+        loadHistoryMethod(info.roomId, params);
     }
     // TODO MISSING load rooms from database too
+}
+
+qint64 ManageLocalDatabase::parseHistoryCursor(const QJsonObject &root)
+{
+    const QJsonValue previous = root.value("cursor"_L1).toObject().value("previous"_L1);
+    if (previous.isNull()) {
+        // Server returns null when there is no older message
+        return HistoryCursorEnd;
+    }
+    // Cursor is opaque for the server API: if it is not a timestamp anymore, ignore it
+    bool ok = false;
+    const qint64 cursor = previous.toString().toLongLong(&ok);
+    return (ok && cursor > 0) ? cursor : HistoryCursorUnknown;
+}
+
+qint64 ManageLocalDatabase::historyCursor(const QByteArray &roomId)
+{
+    auto it = mHistoryCursors.constFind(roomId);
+    if (it == mHistoryCursors.constEnd()) {
+        // Returns -1 (HistoryCursorUnknown) if not stored or if database is disabled
+        const qint64 cursor = mRocketChatAccount->localDatabaseManager()->timeStamp(mRocketChatAccount->accountName(),
+                                                                                    roomId,
+                                                                                    GlobalDatabase::TimeStampType::HistoryCursorTimeStamp);
+        it = mHistoryCursors.insert(roomId, cursor);
+    }
+    return it.value();
+}
+
+void ManageLocalDatabase::setHistoryCursor(const QByteArray &roomId, qint64 cursor)
+{
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " rooms.history: new cursor" << cursor << "for room" << roomId;
+    mHistoryCursors.insert(roomId, cursor);
+    const QString accountName{mRocketChatAccount->accountName()};
+    if (cursor == HistoryCursorUnknown) {
+        mRocketChatAccount->localDatabaseManager()->removeTimeStamp(accountName, roomId, GlobalDatabase::TimeStampType::HistoryCursorTimeStamp);
+    } else {
+        mRocketChatAccount->localDatabaseManager()->insertOrReplaceTimeStamp(accountName,
+                                                                             roomId,
+                                                                             cursor,
+                                                                             GlobalDatabase::TimeStampType::HistoryCursorTimeStamp);
+    }
+}
+
+void ManageLocalDatabase::loadRoomHistory(const QByteArray &roomId, int count, qint64 lastSeenAt, qint64 previousCursor)
+{
+    auto job = new RocketChatRestApi::GetRoomHistoryJob(this);
+    RocketChatRestApi::GetRoomHistoryJob::GetRoomHistoryInfo roomHistoryInfo;
+    roomHistoryInfo.roomId = roomId;
+    roomHistoryInfo.count = count;
+    if (lastSeenAt > 0) {
+        roomHistoryInfo.lastSeen = QDateTime::fromMSecsSinceEpoch(lastSeenAt, QTimeZone::UTC).toString(Qt::ISODateWithMs);
+    }
+    if (previousCursor > 0) {
+        roomHistoryInfo.previous = QString::number(previousCursor);
+    }
+    job->setRoomHistoryInfo(roomHistoryInfo);
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history rooms.history:" << roomHistoryInfo;
+
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    trackHistoryJob(job, roomId);
+    connect(job, &RocketChatRestApi::GetRoomHistoryJob::getRoomHistoryDone, this, [this, roomId, previousCursor](const QJsonObject &root) {
+        // Initial loading always resets the cursor. Otherwise only update it if no other request moved it meanwhile.
+        if (previousCursor == HistoryCursorUnknown || historyCursor(roomId) == previousCursor) {
+            setHistoryCursor(roomId, parseHistoryCursor(root));
+        }
+        mRocketChatAccount->rocketChatBackend()->processIncomingMessages(root.value("messages"_L1).toArray(), true);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start GetRoomHistoryJob job";
+        mLoadingHistoryRooms.remove(roomId);
+    }
+}
+
+void ManageLocalDatabase::trackHistoryJob(QObject *job, const QByteArray &roomId)
+{
+    mLoadingHistoryRooms.insert(roomId);
+    // Job is always deleted after its reply (success or failure)
+    connect(job, &QObject::destroyed, this, [this, roomId]() {
+        mLoadingHistoryRooms.remove(roomId);
+    });
+}
+
+void ManageLocalDatabase::loadHistoryMethod(const QByteArray &roomId, const QJsonArray &params)
+{
+    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history ddp:" << params;
+    // use /api/v1/method.call/loadHistory directly => restapi
+    auto job = new RocketChatRestApi::MethodCallJob(this);
+    RocketChatRestApi::MethodCallJob::MethodCallJobInfo loadHistoryInfo;
+    loadHistoryInfo.methodName = u"loadHistory"_s;
+    loadHistoryInfo.anonymous = false;
+    loadHistoryInfo.messageObj = mRocketChatAccount->ddp()->generateJsonObject(loadHistoryInfo.methodName, params);
+    job->setMethodCallJobInfo(loadHistoryInfo);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    trackHistoryJob(job, roomId);
+    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &root) {
+        const QJsonObject obj = root.value("result"_L1).toObject();
+        mRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value("messages"_L1).toArray(), true);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOAD_HISTORY_LOG) << "Impossible to start loadHistory job";
+        mLoadingHistoryRooms.remove(roomId);
+    }
 }
 
 QDebug operator<<(QDebug d, const ManageLocalDatabase::ManageLoadHistoryInfo &t)

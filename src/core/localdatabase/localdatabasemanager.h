@@ -42,6 +42,8 @@ public:
     void deleteRoom(const QString &accountName, const QByteArray &roomId);
 
     [[nodiscard]] qint64 timeStamp(const QString &accountName, const QByteArray &roomId, GlobalDatabase::TimeStampType type);
+    void insertOrReplaceTimeStamp(const QString &accountName, const QByteArray &roomId, qint64 timestamp, GlobalDatabase::TimeStampType type);
+    void removeTimeStamp(const QString &accountName, const QByteArray &roomId, GlobalDatabase::TimeStampType type);
 
     [[nodiscard]] QList<Message>
     loadMessages(const QString &accountName, const QByteArray &roomId, qint64 startId, qint64 endId, qint64 numberElements, EmojiManager *emojiManager) const;
