@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-06 00:51+0000\n"
-"PO-Revision-Date: 2026-11-05 15:59+0100\n"
-"Last-Translator: freek <freekdekruijf@kde.nl>\n"
+"POT-Creation-Date: 2026-11-07 00:57+0000\n"
+"PO-Revision-Date: 2026-11-06 13:46+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -799,7 +799,41 @@ msgstr "Server-URL ontbreekt."
 msgid "Socket was unexpectedly closed."
 msgstr "Socket is onverwacht gesloten."
 
-#: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/common/toolbase.cpp:87
+#, kde-format
+msgid "Another confirmation is pending"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:93
+#, kde-format
+msgid "MCP tool asks confirmation"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:94
+#, kde-format
+msgid ""
+"Run \"%1\"?\n"
+"%2"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:108
+#, kde-format
+msgid "Action refused by user"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:111
+#: core/videoconference/videoconferencenotificationjob.cpp:61
+#, kde-format
+msgid "Accept"
+msgstr "Accepteren"
+
+#: core/mcpserver/common/toolbase.cpp:119
+#: core/videoconference/videoconferencenotificationjob.cpp:67
+#, kde-format
+msgid "Reject"
+msgstr "Afwijzen"
+
+#: core/mcpserver/common/toolbase.cpp:149
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
@@ -812,19 +846,19 @@ msgstr "Socket is onverwacht gesloten."
 msgid "Account is not logged in"
 msgstr "Account is niet aangemeld"
 
-#: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/common/toolbase.cpp:157
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:99
 #, kde-format
 msgid "Missing search pattern"
 msgstr "Zoekpatroon ontbreekt"
 
-#: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/common/toolbase.cpp:173
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, kde-format
 msgid "Search failed: %1"
 msgstr "Zoeken is mislukt: %1"
 
-#: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/common/toolbase.cpp:176
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, kde-format
 msgid "Impossible to start search"
@@ -852,15 +886,14 @@ msgid "Users"
 msgstr "Gebruikers"
 
 #: core/mcpserver/common/toolutils.cpp:23
-#, fuzzy, kde-format
-#| msgid "Current Password"
+#, kde-format
 msgid "Current User"
-msgstr "Huidig wachtwoord"
+msgstr "Huidige gebruiker"
 
 #: core/mcpserver/common/toolutils.cpp:25
 #, kde-format
 msgid "Misc"
-msgstr ""
+msgstr "Diversen"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -913,21 +946,19 @@ msgid "No room found with identifier \"%1\""
 msgstr "Geen room gevonden met identifier \"%1\""
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
-#, fuzzy, kde-format
-#| msgid "No users found"
+#, kde-format
 msgid "No users with roles found"
-msgstr "Geen gebruikers gevonden"
+msgstr "Geen gebruikers met rollen gevonden"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:72
-#, fuzzy, kde-format
-#| msgid "Get Room Info"
+#, kde-format
 msgid "Get Room Roles"
-msgstr "Roominformatie ophalen"
+msgstr "Roomrollen ophalen"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:130
 #, kde-format
 msgid "Direct conversations have no room roles"
-msgstr ""
+msgstr "Directe gesprekken kennen geen roomrollen"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:133
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:101
@@ -936,16 +967,14 @@ msgid "Unknown room type"
 msgstr "Onbekende type room"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:139
-#, fuzzy, kde-format
-#| msgid "Listing members failed: %1"
+#, kde-format
 msgid "Getting room roles failed: %1"
-msgstr "Weergeven van leden is mislukt: %1"
+msgstr "Roomrollen ophalen is mislukt: %1"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:142
-#, fuzzy, kde-format
-#| msgid "Impossible to start listing members"
+#, kde-format
 msgid "Impossible to start getting room roles"
-msgstr "Beginnen met weergeven van leden is onmogelijk"
+msgstr "Beginnen met roomrollen ophalen is onmogelijk"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
 #, kde-format
@@ -1009,23 +1038,19 @@ msgid "No rooms found"
 msgstr "Geen rooms gevonden"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgid "Mark Room as Read"
-msgstr "Als gelezen markeren"
+msgstr "Room als gelezen markeren"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
-#, fuzzy, kde-format
-#| msgid "Star message failed: %1"
+#, kde-format
 msgid "Mark room as read failed: %1"
-msgstr "Ster-bericht is mislukt: %1"
+msgstr "Room als gelezen markeren is mislukt: %1"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
-#, fuzzy, kde-format
-#| msgid "Impossible to start star message job"
+#, kde-format
 msgid "Impossible to start mark room as read job"
-msgstr "Kan taak voor ster-bericht niet starten"
+msgstr "Taak markeren van room als gelezen is onmogelijk"
 
 #: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
@@ -1106,17 +1131,17 @@ msgstr "Kan taak voor ster-bericht niet starten"
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
 #, kde-format
 msgid "Update Room Settings"
-msgstr ""
+msgstr "Room-instellingen bijwerken"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
-msgstr ""
+msgstr "Instellingen van een directe room kunnen niet gewijzigd worden"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
 #, kde-format
 msgid "Room name cannot be empty"
-msgstr ""
+msgstr "Roomnaam mag niet leeg zijn"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
 #, kde-format
@@ -1124,17 +1149,18 @@ msgid ""
 "Nothing to change: give at least one of name, topic, description or "
 "announcement"
 msgstr ""
+"Niets te wijzigen: geef ten minste één van de volgende gegevens op: naam, "
+"onderwerp, beschrijving of aankondiging."
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
 #, kde-format
 msgid "Update room settings failed: %1"
-msgstr ""
+msgstr "Bijwerken van roominstellingen is mislukt: %1"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
-#, fuzzy, kde-format
-#| msgid "Impossible to start pin message job"
+#, kde-format
 msgid "Impossible to start update room settings job"
-msgstr "Kan taak voor het vastzetten van bericht niet starten"
+msgstr "Taak voor beginnen met bijwerken van room-instellingen is onmogelijk"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1396,7 +1422,7 @@ msgstr "%1 en %2"
 #: core/model/admincustomemojimodel.cpp:35
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:32
-#: core/model/adminusersallmodel.cpp:68
+#: core/model/adminusersallmodel.cpp:71
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
 #: core/model/directoryroomsmodel.cpp:119 core/model/directoryteamsmodel.cpp:93
@@ -1442,9 +1468,10 @@ msgid "Uses"
 msgstr "Gebruikt"
 
 #: core/model/admininvitemodel.cpp:41
-#, kde-format
-msgid "Uses left"
-msgstr "Gebruikt links"
+#, fuzzy, kde-format
+#| msgid "Max number of uses"
+msgid "Max uses"
+msgstr "Max aantal keer gebruikt"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1456,12 +1483,27 @@ msgstr "Verloopdatum"
 msgid "Unlimited"
 msgstr "Onbeperkt"
 
-#: core/model/admininvitemodel.cpp:112
+#: core/model/admininvitemodel.cpp:113
+#: widgets/dialogs/inviteuserswidget.cpp:152
 #, kde-format
-msgid "Expire in %1 days"
-msgstr "Verlopen na %1 dagen"
+msgid "Never"
+msgstr "Nooit"
 
-#: core/model/admininvitemodel.cpp:114
+#: core/model/admininvitemodel.cpp:119
+#, fuzzy, kde-format
+#| msgid "Expired"
+msgid "Expires today"
+msgstr "Verlopen"
+
+#: core/model/admininvitemodel.cpp:121
+#, fuzzy, kde-format
+#| msgid "Expire in %1 days"
+msgid "Expires in 1 day"
+msgid_plural "Expires in %1 days"
+msgstr[0] "Verlopen na %1 dagen"
+msgstr[1] "Verlopen na %1 dagen"
+
+#: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expired"
 msgstr "Verlopen"
@@ -1481,8 +1523,8 @@ msgstr "Geheim van client"
 msgid "Redirect Url"
 msgstr "URL omleiden"
 
-#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:56
-#: core/model/adminusersallmodel.cpp:126
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:59
+#: core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:130
 #, kde-format
 msgid "Active"
@@ -1543,26 +1585,26 @@ msgstr "Standaard room"
 msgid "Type"
 msgstr "Type"
 
-#: core/model/adminusersallmodel.cpp:54
+#: core/model/adminusersallmodel.cpp:57
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr "In behandeling"
 
-#: core/model/adminusersallmodel.cpp:58
+#: core/model/adminusersallmodel.cpp:61
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
 msgstr "Deactiveren"
 
-#: core/model/adminusersallmodel.cpp:70
+#: core/model/adminusersallmodel.cpp:73
 #: core/model/adminuserspendingmodel.cpp:68
 #: core/model/adminusersstatusmodel.cpp:26
 #, kde-format
 msgid "UserName"
 msgstr "Gebruikersnaam"
 
-#: core/model/adminusersallmodel.cpp:72
+#: core/model/adminusersallmodel.cpp:75
 #: core/model/adminuserspendingmodel.cpp:70
 #: core/model/adminusersstatusmodel.cpp:28
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
@@ -1571,14 +1613,14 @@ msgstr "Gebruikersnaam"
 msgid "Email"
 msgstr "E-mail"
 
-#: core/model/adminusersallmodel.cpp:74
+#: core/model/adminusersallmodel.cpp:77
 #: core/model/adminuserspendingmodel.cpp:72
 #: core/model/adminusersstatusmodel.cpp:30
 #, kde-format
 msgid "Role"
 msgstr "Rol"
 
-#: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:126
+#: core/model/adminusersallmodel.cpp:79 core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
@@ -1588,14 +1630,14 @@ msgstr "Rol"
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: core/model/adminusersallmodel.cpp:78
+#: core/model/adminusersallmodel.cpp:81
 #: core/model/adminuserspendingmodel.cpp:76
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "Status"
 
-#: core/model/adminusersallmodel.cpp:80
+#: core/model/adminusersallmodel.cpp:83
 #, kde-format
 msgid "Registration status"
 msgstr "Registratiestatus"
@@ -2168,7 +2210,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:794
+#: core/rocketchataccount.cpp:795
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2177,22 +2219,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
+#: core/rocketchataccount.cpp:803 core/rocketchataccount.cpp:816
 #, kde-format
 msgid "Not connected"
 msgstr "Niet verbonden"
 
-#: core/rocketchataccount.cpp:809
+#: core/rocketchataccount.cpp:810
 #, kde-format
 msgid "Not connected yet"
 msgstr "Nog niet verbonden"
 
-#: core/rocketchataccount.cpp:3282
+#: core/rocketchataccount.cpp:3292
 #, kde-format
 msgid "Room Added"
 msgstr "Room toegevoegd"
 
-#: core/rocketchataccount.cpp:3283
+#: core/rocketchataccount.cpp:3293
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Een nieuw room is toegevoegd in '%1'."
@@ -2439,16 +2481,6 @@ msgstr "Oproep is gaande"
 #, kde-format
 msgid "Incoming Call"
 msgstr "Inkomende oproep"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:61
-#, kde-format
-msgid "Accept"
-msgstr "Accepteren"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:67
-#, kde-format
-msgid "Reject"
-msgstr "Afwijzen"
 
 #: plugins/authentication/github/githubpluginauthentication.cpp:36
 #, kde-format
@@ -2716,11 +2748,6 @@ msgstr ""
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "Koppeling genereren is niet geautoriseerd in dit kanaal."
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
-#, kde-format
-msgid "Unauthorized"
-msgstr "Niet geautoriseerd"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
@@ -3081,8 +3108,9 @@ msgid "User is not in this room"
 msgstr "Gebruiker is niet in deze room"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, kde-format
-msgid "You are not in the room `%1`"
+#, fuzzy
+#| msgid "You are not in the room `%1`"
+msgid "You are not in the room"
 msgstr "U bent niet in de room `%1`"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
@@ -3448,7 +3476,7 @@ msgstr "Emoji verwijderen"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:52
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:303
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3462,7 +3490,7 @@ msgstr "Toevoegen…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3476,7 +3504,7 @@ msgstr "Wijzigen…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:123
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:70
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:347
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3737,20 +3765,20 @@ msgstr[0] "%1 bericht in room"
 msgstr[1] "%1 berichten in room"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:39
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:36
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Moderatiebericht zoeken…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "Geen moderatiebericht gevonden"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:72
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:73
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3764,7 +3792,7 @@ msgid "See messages"
 msgstr "Zie meldingen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3777,14 +3805,14 @@ msgid "Delete all Messages"
 msgstr "Alle berichten verwijderen"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:155
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:152
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Gebruiker deactiveren"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:167
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3795,7 +3823,7 @@ msgstr ""
 "respectievelijke room."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:168
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3836,13 +3864,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Alle berichten verwijderen"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Zie rapporten"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:201
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3850,7 +3878,7 @@ msgstr ""
 "Alle rapporten zullen verwijderd worden en de gerapporteerde berichten "
 "zullen niet beïnvloed worden."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:202
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -4102,20 +4130,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Wilt u deze gebruiker \"%1\" verwijderen?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:89
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:242
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Gebruiker verwijderen"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:132
-#: widgets/administratordialog/users/administratoruserswidget.cpp:359
+#: widgets/administratordialog/users/administratoruserswidget.cpp:360
 #, kde-format
 msgid "No user found"
 msgstr "Geen gebruiker gevonden"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:137
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:365
 #: widgets/directory/directorywidget.cpp:209
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4567,54 +4595,54 @@ msgstr "Alles"
 msgid "Activated"
 msgstr "Geactiveerd"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:241
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Wilt u deze gebruiker verwijderen?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/users/administratoruserswidget.cpp:297
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Uitnodigen…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Deactiveren"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Activeren"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Admin verwijderen"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Beheerder maken"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:333
+#: widgets/administratordialog/users/administratoruserswidget.cpp:334
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "E2E-sleutel resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:339
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Totp resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4630,24 +4658,24 @@ msgstr ""
 "zal Rocket.Chat niet in staat zijn toegang te herstellen tot een "
 "versleutelde room die geen lid online heeft."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:478
+#: widgets/administratordialog/users/administratoruserswidget.cpp:479
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E-sleutel resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "E2E-sleutel voor %1 is gereset."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "E2E resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:524
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4656,14 +4684,14 @@ msgstr ""
 "De huidige Twee-factor TOTP zal de gebruiker afmelden. De gebruiker zal in "
 "staat zijn om de Twee-factor later opnieuw in te stellen."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:524
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:525
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP resetten"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "TOTP-sleutel voor %1 is gereset"
@@ -4876,10 +4904,15 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "Tijd om blokkering van gebruiker op te heffen (in minuten)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "Hoeveel mislukte pogingen tot aanmelden totdat IP wordt geblokkeerd"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
+#, fuzzy, kde-format
+#| msgid "Time to unblock User (In Minutes)"
+msgid "Time to unblock IP (In Minutes)"
+msgstr "Tijd om blokkering van gebruiker op te heffen (in minuten)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5710,20 +5743,29 @@ msgstr ""
 "accepteren."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "Geaccepteerde typen media"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Comma-separated list of media types. This setting has priority over the "
+#| "Blocked Media Types."
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
-"Blocked Media Types."
+"Accepted Media Types."
 msgstr ""
 "Kommagescheiden lijst van typen media. Deze instellingen hebben prioriteit "
 "boven de geblokkeerde typen media."
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Accepted Media Types"
+msgid "Blocked Media Types"
+msgstr "Geaccepteerde typen media"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6180,7 +6222,6 @@ msgid "Timeouts"
 msgstr "Timeouts"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:73
-#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
@@ -6192,6 +6233,19 @@ msgstr ""
 #, kde-format
 msgid "Timeout (ms)"
 msgstr "Timeout (ms)"
+
+#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "How many milliseconds wait for a search result before return an error"
+msgctxt "@info:tooltip"
+msgid ""
+"How many milliseconds wait for a connection to be established before return "
+"an error"
+msgstr ""
+"Hoeveel milliseconden wachten op een zoekresultaat alvorens een fout terug "
+"te geven"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6276,10 +6330,16 @@ msgstr ""
 "Laat het leeg om elke aanroep te volgen en deze te tonen."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:51
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
 #, kde-format
 msgid "Trace method filter"
 msgstr "Filter voor volgmethode"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Trace subscription calls"
+msgid "Trace subscription filter"
+msgstr "Aanroepen vgoor inschrijven volgen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6747,10 +6807,14 @@ msgid "Twitter Id"
 msgstr "Twitter-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Secret"
 msgstr "Geheim van Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
+#, kde-format
+msgid "Twitter Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6763,10 +6827,14 @@ msgid "LinkedIn Id"
 msgstr "LinkedIn-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Secret"
 msgstr "Geheim van LinkedIn"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
+#, kde-format
+msgid "LinkedIn Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6794,10 +6862,14 @@ msgid "Meteor Id"
 msgstr "Meteor-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Secret"
 msgstr "Geheim van Meteor"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
+#, kde-format
+msgid "Meteor Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6810,10 +6882,14 @@ msgid "Facebook Id"
 msgstr "Facebook-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Secret"
 msgstr "Geheim van Facebook"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
+#, kde-format
+msgid "Facebook Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6826,10 +6902,14 @@ msgid "Github Id"
 msgstr "Github-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:181
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Secret"
 msgstr "Geheim van GitHub"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
+#, kde-format
+msgid "Github Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6853,10 +6933,15 @@ msgid "Tokenpass Id"
 msgstr "Tokenpass-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:202
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
 #, kde-format
 msgid "Tokenpass Secret"
 msgstr "Geheim van Tokenpass"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Tokenpass Server URL"
+msgid "Tokenpass Callback URL"
+msgstr "URL van Tokenpass-server"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6864,10 +6949,14 @@ msgid "Google Id"
 msgstr "Google-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:219
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Secret"
 msgstr "Geheim van Google"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
+#, kde-format
+msgid "Google Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -6917,7 +7006,6 @@ msgid "Password History"
 msgstr "Wachtwoordgeschiedenis"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:37
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6946,7 +7034,15 @@ msgstr "Lengte van wachtwoordgeschiedenis"
 msgid "Password Policy"
 msgstr "Wachtwoordbeleid"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"When enabled, user passwords must adhere to the policies set forth. Note: "
+"this only applies to new passwords, not existing passwords."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6956,12 +7052,12 @@ msgstr ""
 "Verzekert dat wachtwoorden ten minste deze hoeveelheid tekens moet hebben. "
 "-1 gebruiken om uit te schakelen."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:57
 #, kde-format
 msgid "Minimum Length"
 msgstr "Minimumlengte"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:60
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6971,12 +7067,12 @@ msgstr ""
 "Verzekert dat wachtwoorden niet meer dan deze hoeveelheid tekens heeft. -1 "
 "gebruiken om uit te schakelen."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:62
 #, kde-format
 msgid "Maximum Length"
 msgstr "Maximale lengte"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6985,7 +7081,7 @@ msgid ""
 msgstr ""
 "Verzekert dat wachtwoorden niet hetzelfde naast elkaar herhaalde teken heeft."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6994,30 +7090,30 @@ msgstr ""
 "Het aantal keer dat een teken herhaald mag worden voordat dat niet meer is "
 "toegestaan."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:70
 #, kde-format
 msgid "Max Repeating Characters"
 msgstr "Maximaal zich herhalende tekens"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:73
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one lowercase character."
 msgstr "Verzekert dat een wachtwoord minstens een één kleine letter bevat."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one uppercase character."
 msgstr "Verzekert dat een wachtwoord minstens één hoofdletter bevat."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one numerical character."
 msgstr "Verzekert dat een wachtwoord minstens één numeriek teken bevat."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:85
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one special character."
@@ -7071,29 +7167,61 @@ msgstr "DDP-snelheidsbegrenzer"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:52
 #, kde-format
-msgid "Limit by IP: interval time"
-msgstr "Per IP-adres beperken: intervaltijd"
-
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
-#, kde-format
 msgid "Limit by IP: requests allowed"
 msgstr "Per IP-adres beperken: verzoeken toegestaan"
 
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
+#, kde-format
+msgid "Limit by IP: interval time"
+msgstr "Per IP-adres beperken: intervaltijd"
+
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:63
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
 #, kde-format
 msgid "Limit by User: requests allowed"
 msgstr "Per gebruiker beperken: verzoeken toegestaan"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:100
 #, kde-format
 msgid "Limit by User: interval time"
 msgstr "Per gebruiker beperken: intervaltijd"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by Connection: requests allowed"
+msgstr "Per gebruiker beperken: verzoeken toegestaan"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by Connection: interval time"
+msgstr "Per gebruiker beperken: intervaltijd"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by User per Method: requests allowed"
+msgstr "Per gebruiker beperken: verzoeken toegestaan"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by User per Method: interval time"
+msgstr "Per gebruiker beperken: intervaltijd"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: requests allowed"
+msgstr "Per verbinding per methode beperken"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: interval time"
+msgstr "Per verbinding per methode beperken"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7385,7 +7513,6 @@ msgstr ""
 "aanwezigheidsstatus behouden vanaf het eerste laden!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:40
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
@@ -7395,7 +7522,19 @@ msgstr ""
 "verzenden naar de andere exemplaren, het kan synchronisatieproblemen en fout "
 "gedrag veroorzaken!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting stops the processing of livechat visitor sessions causing "
+#| "the statistics to stop working correctly!"
+msgid ""
+"This setting stops the processing of user sessions causing the statistics to "
+"stop working correctly!"
+msgstr ""
+"Deze instelling stopt het verwerken van livechat bezoekerssessies die "
+"veroorzaakt dat de statistieken stoppen met juist te werken!"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
@@ -7404,7 +7543,7 @@ msgstr ""
 "Deze instelling stopt het verwerken van livechat bezoekerssessies die "
 "veroorzaakt dat de statistieken stoppen met juist te werken!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:54
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -7416,7 +7555,7 @@ msgstr ""
 "klikt en kan andere andere ontbrekende informatie rond het systeem "
 "veroorzaken!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:60
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
@@ -7426,7 +7565,7 @@ msgstr ""
 "gebruikers, ze zullen dus niet de koppeling ontvangen om hun gegevens te "
 "downloaden!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:65
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -7436,7 +7575,7 @@ msgstr ""
 "Rocket.Chat en kan problemen veroorzaken met licenties van marktplaats en "
 "ondernemerslicenties!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
 msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
@@ -8280,6 +8419,12 @@ msgstr "Plug-ins voor hulpmiddelen"
 #, kde-format
 msgid "Text Plugins"
 msgstr "Tekstplug-ins"
+
+#: widgets/configuredialog/configureservermcpwidget.cpp:22
+#, kde-format
+msgctxt "@option:check"
+msgid "Ask confirmation before running tools which modify data"
+msgstr ""
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -9150,11 +9295,6 @@ msgstr[1] "Uw invitatiekoppeling zal op %2 aflopen of na %1 keer gebruiken."
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "Uw invitatiekoppeling zal op %1 aflopen."
-
-#: widgets/dialogs/inviteuserswidget.cpp:152
-#, kde-format
-msgid "Never"
-msgstr "Nooit"
 
 #: widgets/dialogs/inviteuserswidget.cpp:160
 #, kde-format
@@ -11051,14 +11191,14 @@ msgstr "Alleen aangehechte bestanden verwijderen. Berichten bewaren"
 #: widgets/prunemessages/prunemessageswidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Newer than:"
-msgstr "Nieuwer dan:"
+msgid "Older than:"
+msgstr "Ouder dan:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Older than:"
-msgstr "Ouder dan:"
+msgid "Newer than:"
+msgstr "Nieuwer dan:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:60
 #, kde-format
@@ -13064,6 +13204,12 @@ msgstr "Gebruikersnaam:"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Account toevoegen…"
+
+#~ msgid "Uses left"
+#~ msgstr "Gebruikt links"
+
+#~ msgid "Unauthorized"
+#~ msgstr "Niet geautoriseerd"
 
 #~ msgid "Get Avatar"
 #~ msgstr "Avatar ophalen"

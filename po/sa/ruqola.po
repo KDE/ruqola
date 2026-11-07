@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"POT-Creation-Date: 2026-11-07 00:57+0000\n"
 "PO-Revision-Date: 2024-12-24 20:22+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -813,7 +813,41 @@ msgstr "सेवकस्य URL अनुपस्थितम्।"
 msgid "Socket was unexpectedly closed."
 msgstr "सॉकेट् अप्रत्याशितरूपेण बन्दः आसीत् ।"
 
-#: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/common/toolbase.cpp:87
+#, kde-format
+msgid "Another confirmation is pending"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:93
+#, kde-format
+msgid "MCP tool asks confirmation"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:94
+#, kde-format
+msgid ""
+"Run \"%1\"?\n"
+"%2"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:108
+#, kde-format
+msgid "Action refused by user"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:111
+#: core/videoconference/videoconferencenotificationjob.cpp:61
+#, kde-format
+msgid "Accept"
+msgstr "स्वीकरोतु"
+
+#: core/mcpserver/common/toolbase.cpp:119
+#: core/videoconference/videoconferencenotificationjob.cpp:67
+#, kde-format
+msgid "Reject"
+msgstr "अस्वीकार"
+
+#: core/mcpserver/common/toolbase.cpp:149
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
@@ -827,14 +861,14 @@ msgstr "सॉकेट् अप्रत्याशितरूपेण ब�
 msgid "Account is not logged in"
 msgstr "खाता सूचना"
 
-#: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/common/toolbase.cpp:157
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:99
 #, fuzzy, kde-format
 #| msgid "Missing server url."
 msgid "Missing search pattern"
 msgstr "सेवकस्य URL अनुपस्थितम्।"
 
-#: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/common/toolbase.cpp:173
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -842,7 +876,7 @@ msgstr "सेवकस्य URL अनुपस्थितम्।"
 msgid "Search failed: %1"
 msgstr "चित्रं डाउनलोड् कुर्वन्तु"
 
-#: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/common/toolbase.cpp:176
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
@@ -1466,7 +1500,7 @@ msgstr "%1 तथा %2"
 #: core/model/admincustomemojimodel.cpp:35
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:32
-#: core/model/adminusersallmodel.cpp:68
+#: core/model/adminusersallmodel.cpp:71
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
 #: core/model/directoryroomsmodel.cpp:119 core/model/directoryteamsmodel.cpp:93
@@ -1512,9 +1546,10 @@ msgid "Uses"
 msgstr "प्रयोगः"
 
 #: core/model/admininvitemodel.cpp:41
-#, kde-format
-msgid "Uses left"
-msgstr "वामस्य उपयोगं करोति"
+#, fuzzy, kde-format
+#| msgid "Max number of uses"
+msgid "Max uses"
+msgstr "अधिकतमं उपयोगानां संख्या"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1526,12 +1561,27 @@ msgstr "समाप्ति"
 msgid "Unlimited"
 msgstr "असीमित"
 
-#: core/model/admininvitemodel.cpp:112
+#: core/model/admininvitemodel.cpp:113
+#: widgets/dialogs/inviteuserswidget.cpp:152
 #, kde-format
-msgid "Expire in %1 days"
-msgstr "%1 दिवसेषु समाप्तं भवति"
+msgid "Never"
+msgstr "कदापि न"
 
-#: core/model/admininvitemodel.cpp:114
+#: core/model/admininvitemodel.cpp:119
+#, fuzzy, kde-format
+#| msgid "Expired"
+msgid "Expires today"
+msgstr "परीत"
+
+#: core/model/admininvitemodel.cpp:121
+#, fuzzy, kde-format
+#| msgid "Expire in %1 days"
+msgid "Expires in 1 day"
+msgid_plural "Expires in %1 days"
+msgstr[0] "%1 दिवसेषु समाप्तं भवति"
+msgstr[1] "%1 दिवसेषु समाप्तं भवति"
+
+#: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expired"
 msgstr "परीत"
@@ -1551,8 +1601,8 @@ msgstr "ग्राहक रहस्य"
 msgid "Redirect Url"
 msgstr "Url पुनर्निर्देशित करें"
 
-#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:56
-#: core/model/adminusersallmodel.cpp:126
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:59
+#: core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:130
 #, kde-format
 msgid "Active"
@@ -1613,26 +1663,26 @@ msgstr "पूर्वनिर्धारित कक्ष"
 msgid "Type"
 msgstr "प्रकारः"
 
-#: core/model/adminusersallmodel.cpp:54
+#: core/model/adminusersallmodel.cpp:57
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr "विचाराधीनः"
 
-#: core/model/adminusersallmodel.cpp:58
+#: core/model/adminusersallmodel.cpp:61
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
 msgstr "निष्क्रियः"
 
-#: core/model/adminusersallmodel.cpp:70
+#: core/model/adminusersallmodel.cpp:73
 #: core/model/adminuserspendingmodel.cpp:68
 #: core/model/adminusersstatusmodel.cpp:26
 #, kde-format
 msgid "UserName"
 msgstr "उपयोक्तृनाम"
 
-#: core/model/adminusersallmodel.cpp:72
+#: core/model/adminusersallmodel.cpp:75
 #: core/model/adminuserspendingmodel.cpp:70
 #: core/model/adminusersstatusmodel.cpp:28
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
@@ -1641,14 +1691,14 @@ msgstr "उपयोक्तृनाम"
 msgid "Email"
 msgstr "ईमेल"
 
-#: core/model/adminusersallmodel.cpp:74
+#: core/model/adminusersallmodel.cpp:77
 #: core/model/adminuserspendingmodel.cpp:72
 #: core/model/adminusersstatusmodel.cpp:30
 #, kde-format
 msgid "Role"
 msgstr "भूमिका"
 
-#: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:126
+#: core/model/adminusersallmodel.cpp:79 core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
@@ -1658,14 +1708,14 @@ msgstr "भूमिका"
 msgid "Disabled"
 msgstr "अक्षमित"
 
-#: core/model/adminusersallmodel.cpp:78
+#: core/model/adminusersallmodel.cpp:81
 #: core/model/adminuserspendingmodel.cpp:76
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "स्थितिः"
 
-#: core/model/adminusersallmodel.cpp:80
+#: core/model/adminusersallmodel.cpp:83
 #, kde-format
 msgid "Registration status"
 msgstr "पञ्जीकरणस्य स्थितिः"
@@ -2241,7 +2291,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> टङ्कयन्ति..."
 
-#: core/rocketchataccount.cpp:794
+#: core/rocketchataccount.cpp:795
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2250,23 +2300,23 @@ msgstr ""
 "REST: %1\n"
 "डीडीपी: %2"
 
-#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
+#: core/rocketchataccount.cpp:803 core/rocketchataccount.cpp:816
 #, kde-format
 msgid "Not connected"
 msgstr "न संबद्धः"
 
-#: core/rocketchataccount.cpp:809
+#: core/rocketchataccount.cpp:810
 #, kde-format
 msgid "Not connected yet"
 msgstr "अद्यापि न सम्बद्धम्"
 
-#: core/rocketchataccount.cpp:3282
+#: core/rocketchataccount.cpp:3292
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "खाता योजितः"
 
-#: core/rocketchataccount.cpp:3283
+#: core/rocketchataccount.cpp:3293
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -2523,16 +2573,6 @@ msgstr "आह्वानं प्रचलति"
 #| msgid "InComing Call"
 msgid "Incoming Call"
 msgstr "InComing Call इति आह्वानम्"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:61
-#, kde-format
-msgid "Accept"
-msgstr "स्वीकरोतु"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:67
-#, kde-format
-msgid "Reject"
-msgstr "अस्वीकार"
 
 #: plugins/authentication/github/githubpluginauthentication.cpp:36
 #, kde-format
@@ -2810,11 +2850,6 @@ msgstr "अयं अन्तिमः स्वामिः । कृपय�
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "अस्मिन् चैनले लिङ्कं जनयितुं अधिकृतं नास्ति।"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
-#, kde-format
-msgid "Unauthorized"
-msgstr "अनधिकृतः"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
@@ -3158,9 +3193,9 @@ msgid "User is not in this room"
 msgstr "उपयोक्ता अस्मिन् कक्षे नास्ति"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
+#, fuzzy
 #| msgid "You are not in the room `%s`"
-msgid "You are not in the room `%1`"
+msgid "You are not in the room"
 msgstr "त्वं `%s` कक्षे न असि"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
@@ -3530,7 +3565,7 @@ msgstr "इमोजी निकालें"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:52
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:303
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3544,7 +3579,7 @@ msgstr "संयोजयति…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3558,7 +3593,7 @@ msgstr "परिवर्तनं कुर्वन्तु..."
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:123
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:70
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:347
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3825,20 +3860,20 @@ msgstr[0] "%1 कक्षे सन्देशः"
 msgstr[1] "%1 कक्षे सन्देशाः"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:39
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:36
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "अन्वेषणं संचालनसन्देशः..."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "न संयमसन्देशः प्राप्तः"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:72
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:73
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3852,7 +3887,7 @@ msgid "See messages"
 msgstr "सन्देशान् पश्यन्तु"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3865,14 +3900,14 @@ msgid "Delete all Messages"
 msgstr "सर्वान् सन्देशान् विलोपयन्तु"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:155
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:152
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "उपयोक्तारं निष्क्रियं कुर्वन्तु"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:167
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3882,7 +3917,7 @@ msgstr ""
 "सर्वे निवेदिताः सन्देशाः स्वस्वकक्षात् स्थायिरूपेण विलोपिताः भविष्यन्ति।"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:168
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3921,19 +3956,19 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "सर्वे सन्देशाः विलोपयन्तु"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "प्रतिवेदनानि पश्यन्तु"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:201
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr "सर्वाणि प्रतिवेदनानि विलोप्यन्ते, निवेदितसन्देशाः अपि प्रभाविताः न भविष्यन्ति ।"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:202
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -4187,20 +4222,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "किं भवान् एतत् उपयोक्तारं \"%1\" अपसारयितुम् इच्छति?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:89
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:242
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "उपयोक्तारं निष्कासयन्तु"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:132
-#: widgets/administratordialog/users/administratoruserswidget.cpp:359
+#: widgets/administratordialog/users/administratoruserswidget.cpp:360
 #, kde-format
 msgid "No user found"
 msgstr "कोऽपि उपयोक्ता न लब्धः"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:137
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:365
 #: widgets/directory/directorywidget.cpp:209
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4653,55 +4688,55 @@ msgstr "सर्वे"
 msgid "Activated"
 msgstr "सक्रियः"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:241
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "किं भवान् एतत् उपयोक्तारं हर्तुं इच्छति ?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/users/administratoruserswidget.cpp:297
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "समाह्वे…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "निष्क्रियं कुर्वन्तु"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, fuzzy, kde-format
 #| msgid "Activate"
 msgctxt "@action"
 msgid "Activate"
 msgstr "सक्रियं कुर्वन्तु"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Admin"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Admin बनाये"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:333
+#: widgets/administratordialog/users/administratoruserswidget.cpp:334
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "E2E कुञ्जी पुनः सेट् कुर्वन्तु"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:339
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Totp पुनः सेट् करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4716,24 +4751,24 @@ msgstr ""
 "प्रकृतेः कारणात् Rocket.Chat कस्यापि एन्क्रिप्टेड् कक्षस्य प्रवेशं पुनः स्थापयितुं न शक्नोति यस्य "
 "सदस्यः ऑनलाइन नास्ति ।"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:478
+#: widgets/administratordialog/users/administratoruserswidget.cpp:479
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "E2E कुञ्जी पुनः सेट् कुर्वन्तु"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1 कृते E2E कीलं पुनः सेट् कृतम् अस्ति ।"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "E2E पुनः सेट् करें"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:524
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4742,14 +4777,14 @@ msgstr ""
 "वर्तमानं Two Factor TOTP पुनः सेट् कुर्वन्तु उपयोक्तारं लॉग आउट् करिष्यति । उपयोक्ता पश्चात् "
 "पुनः Two Factor सेट् कर्तुं शक्नोति ।"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:524
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:525
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "TOTP पुनः सेट् कुर्वन्तु"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1 कृते TOTP कुञ्जी पुनः सेट् कृता अस्ति"
@@ -4961,10 +4996,15 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "उपयोक्तारं अनब्लॉक् कर्तुं समयः (निमेषेषु)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "IP द्वारा अवरुद्धं यावत् कति असफलाः प्रयासाः"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
+#, fuzzy, kde-format
+#| msgid "Time to unblock User (In Minutes)"
+msgid "Time to unblock IP (In Minutes)"
+msgstr "उपयोक्तारं अनब्लॉक् कर्तुं समयः (निमेषेषु)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5783,7 +5823,6 @@ msgstr ""
 "त्यजन्तु ।"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "स्वीकृत मीडिया प्रकार"
@@ -5797,10 +5836,16 @@ msgstr "स्वीकृत मीडिया प्रकार"
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
-"Blocked Media Types."
+"Accepted Media Types."
 msgstr ""
 "माध्यमप्रकारस्य अल्पविरामेन पृथक्कृता सूची । अस्य सेटिङ्ग् इत्यस्य प्राथमिकता Accepted Media "
 "Types इत्यस्य अपेक्षया अस्ति ।"
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Accepted Media Types"
+msgid "Blocked Media Types"
+msgstr "स्वीकृत मीडिया प्रकार"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6251,7 +6296,6 @@ msgid "Timeouts"
 msgstr "समयसमाप्तिः"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:73
-#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
@@ -6261,6 +6305,17 @@ msgstr "त्रुटिं प्रत्यागन्तुं पूर�
 #, kde-format
 msgid "Timeout (ms)"
 msgstr "समयसमाप्ति (ms)"
+
+#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "How many milliseconds wait for a search result before return an error"
+msgctxt "@info:tooltip"
+msgid ""
+"How many milliseconds wait for a connection to be established before return "
+"an error"
+msgstr "त्रुटिं प्रत्यागन्तुं पूर्वं कति मिलीसेकेण्ड् अन्वेषणपरिणामस्य प्रतीक्षां कुर्वन्ति"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6344,10 +6399,16 @@ msgstr ""
 "लेशं दर्शयितुं रिक्तं स्थापयन्तु।"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:51
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
 #, kde-format
 msgid "Trace method filter"
 msgstr "ट्रेस विधि फ़िल्टर"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Trace subscription calls"
+msgid "Trace subscription filter"
+msgstr "सदस्यता-आह्वानस्य अनुसन्धानं कुर्वन्तु"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6811,10 +6872,14 @@ msgid "Twitter Id"
 msgstr "Twitter Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Secret"
 msgstr "ट्विटर रहस्य"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
+#, kde-format
+msgid "Twitter Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6827,10 +6892,14 @@ msgid "LinkedIn Id"
 msgstr "LinkedIn ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Secret"
 msgstr "लिंक्डइन गुप्त"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
+#, kde-format
+msgid "LinkedIn Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6858,10 +6927,14 @@ msgid "Meteor Id"
 msgstr "उल्का Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Secret"
 msgstr "उल्का रहस्य"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
+#, kde-format
+msgid "Meteor Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6874,10 +6947,14 @@ msgid "Facebook Id"
 msgstr "फेसबुक Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Secret"
 msgstr "फेसबुक रहस्य"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
+#, kde-format
+msgid "Facebook Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6890,10 +6967,14 @@ msgid "Github Id"
 msgstr "गिथुब Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:181
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Secret"
 msgstr "गिथुब रहस्य"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
+#, kde-format
+msgid "Github Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6917,10 +6998,15 @@ msgid "Tokenpass Id"
 msgstr "टोकनपास Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:202
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
 #, kde-format
 msgid "Tokenpass Secret"
 msgstr "टोकनपास रहस्य"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Tokenpass Server URL"
+msgid "Tokenpass Callback URL"
+msgstr "टोकनपास सर्वर URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6928,10 +7014,14 @@ msgid "Google Id"
 msgstr "Google Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:219
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Secret"
 msgstr "गूगल गुप्त"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
+#, kde-format
+msgid "Google Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -6981,7 +7071,6 @@ msgid "Password History"
 msgstr "गुप्तशब्द इतिहास"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:37
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7007,7 +7096,15 @@ msgstr "गुप्तशब्द इतिहास लम्बाई"
 msgid "Password Policy"
 msgstr "गुप्तशब्द नीति"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"When enabled, user passwords must adhere to the policies set forth. Note: "
+"this only applies to new passwords, not existing passwords."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7017,12 +7114,12 @@ msgstr ""
 "गुप्तशब्देषु न्यूनातिन्यूनं एतावता वर्णाः भवितुमर्हन्ति इति सुनिश्चितं करोति । अक्षमीकरणाय -1 "
 "इत्यस्य उपयोगं कुर्वन्तु ।"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:57
 #, kde-format
 msgid "Minimum Length"
 msgstr "न्यूनतम लम्बाई"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:60
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7032,12 +7129,12 @@ msgstr ""
 "गुप्तशब्देषु एतावता अधिकाः वर्णाः न सन्ति इति सुनिश्चितं करोति । अक्षमीकरणाय -1 इत्यस्य "
 "उपयोगं कुर्वन्तु ।"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:62
 #, kde-format
 msgid "Maximum Length"
 msgstr "अधिकतम लम्बाई"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7045,37 +7142,37 @@ msgid ""
 "other."
 msgstr "गुप्तशब्देषु परस्परं पार्श्वे पुनरावृत्तिः समानः वर्णः न भवति इति सुनिश्चितं करोति ।"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "The amount of times a character can be repeating before it is not allowed."
 msgstr "वर्णः यावत्वारं पुनरावृत्तिः भवितुम् अर्हति तस्य पूर्वं न अनुमतम् ।"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:70
 #, kde-format
 msgid "Max Repeating Characters"
 msgstr "अधिकतमं पुनरावृत्तिवर्णाः"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:73
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one lowercase character."
 msgstr "गुप्तशब्दे न्यूनातिन्यूनम् एकं लघुवर्णं भवति इति प्रवर्तयन्तु ।"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one uppercase character."
 msgstr "गुप्तशब्दे न्यूनातिन्यूनम् एकं बृहत्वर्णं भवति इति प्रवर्तयन्तु ।"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one numerical character."
 msgstr "गुप्तशब्दे न्यूनातिन्यूनम् एकं संख्यात्मकं वर्णं भवति इति प्रवर्तयन्तु ।"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:85
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one special character."
@@ -7129,29 +7226,61 @@ msgstr "डीडीपी दर सीमा"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:52
 #, kde-format
-msgid "Limit by IP: interval time"
-msgstr "IP द्वारा सीमा: अन्तरालसमयः"
-
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
-#, kde-format
 msgid "Limit by IP: requests allowed"
 msgstr "IP द्वारा सीमा: अनुरोधाः अनुमताः"
 
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
+#, kde-format
+msgid "Limit by IP: interval time"
+msgstr "IP द्वारा सीमा: अन्तरालसमयः"
+
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:63
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
 #, kde-format
 msgid "Limit by User: requests allowed"
 msgstr "उपयोक्तृद्वारा सीमा: अनुरोधाः अनुमताः"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:100
 #, kde-format
 msgid "Limit by User: interval time"
 msgstr "उपयोक्तृद्वारा सीमा: अन्तरालसमयः"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by Connection: requests allowed"
+msgstr "उपयोक्तृद्वारा सीमा: अनुरोधाः अनुमताः"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by Connection: interval time"
+msgstr "उपयोक्तृद्वारा सीमा: अन्तरालसमयः"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by User per Method: requests allowed"
+msgstr "उपयोक्तृद्वारा सीमा: अनुरोधाः अनुमताः"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by User per Method: interval time"
+msgstr "उपयोक्तृद्वारा सीमा: अन्तरालसमयः"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: requests allowed"
+msgstr "प्रति विधिं संयोजनेन सीमा"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: interval time"
+msgstr "प्रति विधिं संयोजनेन सीमा"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7444,7 +7573,6 @@ msgstr ""
 "स्थापयित्वा उपयोक्तृणां स्थितिपरिवर्तनं स्वग्राहकेभ्यः प्रेषयितुं निवारयति!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:40
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
@@ -7453,14 +7581,24 @@ msgstr ""
 "एषा सेटिंग् Rocket.Chat दृष्टान्तान् अन्यदृष्टान्तेभ्यः घटनां प्रेषयितुं निवारयति, एतत् "
 "समन्वयनसमस्यां दुर्व्यवहारं च जनयितुं शक्नोति!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting stops the processing of livechat visitor sessions causing "
+#| "the statistics to stop working correctly!"
+msgid ""
+"This setting stops the processing of user sessions causing the statistics to "
+"stop working correctly!"
+msgstr "एषा सेटिंग् livechat आगन्तुकसत्रस्य संसाधनं स्थगयति येन आँकडा: सम्यक् कार्यं स्थगयन्ति!"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr "एषा सेटिंग् livechat आगन्तुकसत्रस्य संसाधनं स्थगयति येन आँकडा: सम्यक् कार्यं स्थगयन्ति!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:54
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -7470,7 +7608,7 @@ msgstr ""
 "एषा सेटिंग् सूचनापृष्ठं पुरातनं कृत्वा सर्वाणि आँकडानि संसाधनं स्थगयति यावत् कोऽपि ताजगीबटनं "
 "क्लिक् न करोति तथा च प्रणाल्याः परितः अन्यसूचनाः गम्यन्ते!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:60
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
@@ -7479,7 +7617,7 @@ msgstr ""
 "एषा सेटिङ्ग् उपयोक्तृभ्यः सर्वेषां निर्यात-अनुरोधानाम् संसाधनं स्थगयति, अतः ते स्वदत्तांशं "
 "डाउनलोड् कर्तुं लिङ्कं न प्राप्नुयुः!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:65
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -7488,7 +7626,7 @@ msgstr ""
 "एषा सेटिङ्ग् अस्य सर्वरस्य Rocket.Chat इत्यस्य मेघेन सह समन्वयनं स्थगयति तथा च मार्केटप्लेस् "
 "तथा उद्यम-अनुज्ञापत्रेषु समस्यां जनयितुं शक्नोति!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
 msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
@@ -8354,6 +8492,12 @@ msgstr ""
 #: widgets/configuredialog/configurepluginswidget.cpp:59
 #, kde-format
 msgid "Text Plugins"
+msgstr ""
+
+#: widgets/configuredialog/configureservermcpwidget.cpp:22
+#, kde-format
+msgctxt "@option:check"
+msgid "Ask confirmation before running tools which modify data"
 msgstr ""
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
@@ -9241,11 +9385,6 @@ msgstr[1] "भवतः आमन्त्रणलिङ्क् %2 इत्�
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "भवतः आमन्त्रणलिङ्क् %1 दिनाङ्के समाप्तं भविष्यति ।"
-
-#: widgets/dialogs/inviteuserswidget.cpp:152
-#, kde-format
-msgid "Never"
-msgstr "कदापि न"
 
 #: widgets/dialogs/inviteuserswidget.cpp:160
 #, kde-format
@@ -11179,14 +11318,14 @@ msgstr "केवलं संलग्नसञ्चिकाः निष्�
 #: widgets/prunemessages/prunemessageswidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Newer than:"
-msgstr "इत्यस्मात् नवीनतरम् :"
+msgid "Older than:"
+msgstr "तः प्राचीनः :"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Older than:"
-msgstr "तः प्राचीनः :"
+msgid "Newer than:"
+msgstr "इत्यस्मात् नवीनतरम् :"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:60
 #, kde-format
@@ -13296,6 +13435,12 @@ msgstr "उपयोक्तृनाम"
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "खाता योजयतु..."
+
+#~ msgid "Uses left"
+#~ msgstr "वामस्य उपयोगं करोति"
+
+#~ msgid "Unauthorized"
+#~ msgstr "अनधिकृतः"
 
 #~ msgid "Get Avatar"
 #~ msgstr "अवतार प्राप्त करें"

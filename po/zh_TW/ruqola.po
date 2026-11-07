@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-06 00:51+0000\n"
+"POT-Creation-Date: 2026-11-07 00:57+0000\n"
 "PO-Revision-Date: 2025-12-21 08:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -807,7 +807,41 @@ msgstr ""
 msgid "Socket was unexpectedly closed."
 msgstr ""
 
-#: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/common/toolbase.cpp:87
+#, kde-format
+msgid "Another confirmation is pending"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:93
+#, kde-format
+msgid "MCP tool asks confirmation"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:94
+#, kde-format
+msgid ""
+"Run \"%1\"?\n"
+"%2"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:108
+#, kde-format
+msgid "Action refused by user"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:111
+#: core/videoconference/videoconferencenotificationjob.cpp:61
+#, kde-format
+msgid "Accept"
+msgstr "接起"
+
+#: core/mcpserver/common/toolbase.cpp:119
+#: core/videoconference/videoconferencenotificationjob.cpp:67
+#, kde-format
+msgid "Reject"
+msgstr "拒絕"
+
+#: core/mcpserver/common/toolbase.cpp:149
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
@@ -821,14 +855,14 @@ msgstr ""
 msgid "Account is not logged in"
 msgstr "帳戶資訊"
 
-#: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/common/toolbase.cpp:157
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:99
 #, fuzzy, kde-format
 #| msgid "Enter username"
 msgid "Missing search pattern"
 msgstr "輸入使用者名稱"
 
-#: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/common/toolbase.cpp:173
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -836,7 +870,7 @@ msgstr "輸入使用者名稱"
 msgid "Search failed: %1"
 msgstr "下載影像"
 
-#: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/common/toolbase.cpp:176
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:132
 #, fuzzy, kde-format
 #| msgid "Impossible to export data."
@@ -1456,7 +1490,7 @@ msgstr "%1 和 %2"
 #: core/model/admincustomemojimodel.cpp:35
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:32
-#: core/model/adminusersallmodel.cpp:68
+#: core/model/adminusersallmodel.cpp:71
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
 #: core/model/directoryroomsmodel.cpp:119 core/model/directoryteamsmodel.cpp:93
@@ -1502,9 +1536,10 @@ msgid "Uses"
 msgstr "使用次數"
 
 #: core/model/admininvitemodel.cpp:41
-#, kde-format
-msgid "Uses left"
-msgstr "剩餘使用次數"
+#, fuzzy, kde-format
+#| msgid "Max number of uses"
+msgid "Max uses"
+msgstr "最大使用次數"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1516,12 +1551,26 @@ msgstr "使用期限"
 msgid "Unlimited"
 msgstr "無限制"
 
-#: core/model/admininvitemodel.cpp:112
+#: core/model/admininvitemodel.cpp:113
+#: widgets/dialogs/inviteuserswidget.cpp:152
 #, kde-format
-msgid "Expire in %1 days"
-msgstr "將在 %1 天內過期"
+msgid "Never"
+msgstr "永不"
 
-#: core/model/admininvitemodel.cpp:114
+#: core/model/admininvitemodel.cpp:119
+#, fuzzy, kde-format
+#| msgid "Expired"
+msgid "Expires today"
+msgstr "已過期"
+
+#: core/model/admininvitemodel.cpp:121
+#, fuzzy, kde-format
+#| msgid "Expire in %1 days"
+msgid "Expires in 1 day"
+msgid_plural "Expires in %1 days"
+msgstr[0] "將在 %1 天內過期"
+
+#: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expired"
 msgstr "已過期"
@@ -1541,8 +1590,8 @@ msgstr "用戶端秘密"
 msgid "Redirect Url"
 msgstr "重新導向 URL"
 
-#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:56
-#: core/model/adminusersallmodel.cpp:126
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:59
+#: core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:130
 #, kde-format
 msgid "Active"
@@ -1603,26 +1652,26 @@ msgstr "預設聊天室"
 msgid "Type"
 msgstr "類型"
 
-#: core/model/adminusersallmodel.cpp:54
+#: core/model/adminusersallmodel.cpp:57
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr "待處理"
 
-#: core/model/adminusersallmodel.cpp:58
+#: core/model/adminusersallmodel.cpp:61
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
 msgstr "已停用"
 
-#: core/model/adminusersallmodel.cpp:70
+#: core/model/adminusersallmodel.cpp:73
 #: core/model/adminuserspendingmodel.cpp:68
 #: core/model/adminusersstatusmodel.cpp:26
 #, kde-format
 msgid "UserName"
 msgstr "使用者名稱"
 
-#: core/model/adminusersallmodel.cpp:72
+#: core/model/adminusersallmodel.cpp:75
 #: core/model/adminuserspendingmodel.cpp:70
 #: core/model/adminusersstatusmodel.cpp:28
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
@@ -1631,14 +1680,14 @@ msgstr "使用者名稱"
 msgid "Email"
 msgstr "電子信箱"
 
-#: core/model/adminusersallmodel.cpp:74
+#: core/model/adminusersallmodel.cpp:77
 #: core/model/adminuserspendingmodel.cpp:72
 #: core/model/adminusersstatusmodel.cpp:30
 #, kde-format
 msgid "Role"
 msgstr "角色"
 
-#: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:126
+#: core/model/adminusersallmodel.cpp:79 core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
@@ -1648,14 +1697,14 @@ msgstr "角色"
 msgid "Disabled"
 msgstr "已停用"
 
-#: core/model/adminusersallmodel.cpp:78
+#: core/model/adminusersallmodel.cpp:81
 #: core/model/adminuserspendingmodel.cpp:76
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "狀態"
 
-#: core/model/adminusersallmodel.cpp:80
+#: core/model/adminusersallmodel.cpp:83
 #, kde-format
 msgid "Registration status"
 msgstr "註冊狀態"
@@ -2226,7 +2275,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> 正在輸入…"
 
-#: core/rocketchataccount.cpp:794
+#: core/rocketchataccount.cpp:795
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2235,23 +2284,23 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
+#: core/rocketchataccount.cpp:803 core/rocketchataccount.cpp:816
 #, kde-format
 msgid "Not connected"
 msgstr "未連線"
 
-#: core/rocketchataccount.cpp:809
+#: core/rocketchataccount.cpp:810
 #, kde-format
 msgid "Not connected yet"
 msgstr "尚未連線"
 
-#: core/rocketchataccount.cpp:3282
+#: core/rocketchataccount.cpp:3292
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "帳戶已新增"
 
-#: core/rocketchataccount.cpp:3283
+#: core/rocketchataccount.cpp:3293
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."
@@ -2499,16 +2548,6 @@ msgstr "通話進行中"
 #| msgid "InComing Call"
 msgid "Incoming Call"
 msgstr "來電"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:61
-#, kde-format
-msgid "Accept"
-msgstr "接起"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:67
-#, kde-format
-msgid "Reject"
-msgstr "拒絕"
 
 #: plugins/authentication/github/githubpluginauthentication.cpp:36
 #, kde-format
@@ -2778,11 +2817,6 @@ msgstr "這是最後一個擁有者。請在移除這個擁有者之前先設定
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "此聊天室不允許「產生連結」"
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
-#, kde-format
-msgid "Unauthorized"
-msgstr "不被允許"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
@@ -3123,9 +3157,9 @@ msgid "User is not in this room"
 msgstr "使用者不在這個聊天室裡"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy, kde-format
+#, fuzzy
 #| msgid "You are not in the room `%s`"
-msgid "You are not in the room `%1`"
+msgid "You are not in the room"
 msgstr "您不在聊天室 `%s` 裡"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
@@ -3486,7 +3520,7 @@ msgstr "移除表情符號"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:52
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:303
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3500,7 +3534,7 @@ msgstr "新增…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3514,7 +3548,7 @@ msgstr "變更…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:123
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:70
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:347
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3776,20 +3810,20 @@ msgid_plural "%1 Messages in room"
 msgstr[0] "聊天室中有 %1 則訊息"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:39
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:36
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "搜尋站務訊息…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "找不到站務訊息"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:72
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:73
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3802,7 +3836,7 @@ msgid "See messages"
 msgstr "檢視訊息"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3815,14 +3849,14 @@ msgid "Delete all Messages"
 msgstr "刪除所有訊息"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:155
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:152
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "停用使用者"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:167
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3832,7 +3866,7 @@ msgstr ""
 "所有被檢舉的訊息都會從它們的聊天室當中永久刪除。"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:168
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3866,19 +3900,19 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "刪除所有訊息"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "檢視檢舉"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:201
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
 msgstr ""
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:202
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -4133,20 +4167,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "您確定要將這個使用者「%1」移除嗎？"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:89
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:242
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "移除使用者"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:132
-#: widgets/administratordialog/users/administratoruserswidget.cpp:359
+#: widgets/administratordialog/users/administratoruserswidget.cpp:360
 #, kde-format
 msgid "No user found"
 msgstr "找不到使用者"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:137
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:365
 #: widgets/directory/directorywidget.cpp:209
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4603,55 +4637,55 @@ msgstr "全部"
 msgid "Activated"
 msgstr "已啟用"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:241
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "您確定要移除這個使用者嗎？"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/users/administratoruserswidget.cpp:297
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "邀請…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "停用"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, fuzzy, kde-format
 #| msgid "Activate"
 msgctxt "@action"
 msgid "Activate"
 msgstr "啟用"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "移除管理員"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "設為管理員"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:333
+#: widgets/administratordialog/users/administratoruserswidget.cpp:334
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "重設點對點加密金鑰"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:339
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "重設 TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4664,38 +4698,38 @@ msgstr ""
 "會產生一個新金鑰並復原該使用者對有線上成員的加密聊天室的存取。由於點對點加密"
 "的特性，Rocket.Chat 沒有辦法復原沒有線上成員的加密聊天室的存取。"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:478
+#: widgets/administratordialog/users/administratoruserswidget.cpp:479
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "重設點對點加密金鑰"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1 的點對點加密金鑰已重設。"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "重設點對點加密"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:524
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:524
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:525
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "重設 TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1 的 TOTP 金鑰已重設"
@@ -4907,9 +4941,13 @@ msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
 #, kde-format
 msgid "How many failed attempts until block by IP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
+#, kde-format
+msgid "Time to unblock IP (In Minutes)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
@@ -5691,7 +5729,6 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "接受的媒體類型"
@@ -5701,8 +5738,14 @@ msgstr "接受的媒體類型"
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
-"Blocked Media Types."
+"Accepted Media Types."
 msgstr ""
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Accepted Media Types"
+msgid "Blocked Media Types"
+msgstr "接受的媒體類型"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6135,7 +6178,6 @@ msgid "Timeouts"
 msgstr "逾時"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:73
-#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
@@ -6145,6 +6187,14 @@ msgstr ""
 #, kde-format
 msgid "Timeout (ms)"
 msgstr "逾時（毫秒）"
+
+#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"How many milliseconds wait for a connection to be established before return "
+"an error"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6223,9 +6273,13 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:51
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
 #, kde-format
 msgid "Trace method filter"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
+#, kde-format
+msgid "Trace subscription filter"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
@@ -6672,10 +6726,14 @@ msgid "Twitter Id"
 msgstr "Twitter ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Secret"
 msgstr "Twitter 密鑰"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
+#, kde-format
+msgid "Twitter Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6688,10 +6746,14 @@ msgid "LinkedIn Id"
 msgstr "LinkedIn ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Secret"
 msgstr "LinkedIn 密鑰"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
+#, kde-format
+msgid "LinkedIn Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6719,10 +6781,14 @@ msgid "Meteor Id"
 msgstr "Meteor ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Secret"
 msgstr "Meteor 秘密"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
+#, kde-format
+msgid "Meteor Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6735,10 +6801,14 @@ msgid "Facebook Id"
 msgstr "Facebook ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Secret"
 msgstr "Facebook 秘密"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
+#, kde-format
+msgid "Facebook Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6751,10 +6821,14 @@ msgid "Github Id"
 msgstr "Github ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:181
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Secret"
 msgstr "Github 秘密"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
+#, kde-format
+msgid "Github Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6778,10 +6852,15 @@ msgid "Tokenpass Id"
 msgstr "Tokenpass ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:202
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
 #, kde-format
 msgid "Tokenpass Secret"
 msgstr "Tokenpass 秘密"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Tokenpass Server URL"
+msgid "Tokenpass Callback URL"
+msgstr "Tokenpass 伺服器網址"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6789,10 +6868,14 @@ msgid "Google Id"
 msgstr "Google ID"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:219
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Secret"
 msgstr "Google 秘密"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
+#, kde-format
+msgid "Google Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -6842,7 +6925,6 @@ msgid "Password History"
 msgstr "密碼歷史"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:37
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6866,7 +6948,15 @@ msgstr "密碼歷史長度"
 msgid "Password Policy"
 msgstr "密碼政策"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"When enabled, user passwords must adhere to the policies set forth. Note: "
+"this only applies to new passwords, not existing passwords."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6874,12 +6964,12 @@ msgid ""
 "to disable."
 msgstr "確保密碼必須有這麼多字元。用 -1 來停用。"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:57
 #, kde-format
 msgid "Minimum Length"
 msgstr "最小長度"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:60
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6887,12 +6977,12 @@ msgid ""
 "-1 to disable."
 msgstr "確保密碼最多只能有這麼多字元。用 -1 來停用。"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:62
 #, kde-format
 msgid "Maximum Length"
 msgstr "最大長度"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6900,19 +6990,19 @@ msgid ""
 "other."
 msgstr "確保密碼中沒有同一個字元連續重複。"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "The amount of times a character can be repeating before it is not allowed."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:70
 #, kde-format
 msgid "Max Repeating Characters"
 msgstr "字元最大連續重複次數"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:73
 #, fuzzy, kde-format
 #| msgid ""
 #| "Ensures that passwords must have at least this amount of characters. Use "
@@ -6921,19 +7011,19 @@ msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one lowercase character."
 msgstr "確保密碼必須有這麼多字元。用 -1 來停用。"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one uppercase character."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one numerical character."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:85
 #, fuzzy, kde-format
 #| msgid ""
 #| "Ensures that passwords must have at least this amount of characters. Use "
@@ -6990,29 +7080,61 @@ msgstr "DDP 使用量限制"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:52
 #, kde-format
-msgid "Limit by IP: interval time"
-msgstr "依 IP 限制：間隔時間"
-
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
-#, kde-format
 msgid "Limit by IP: requests allowed"
 msgstr "依 IP 限制：允許請求數"
 
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
+#, kde-format
+msgid "Limit by IP: interval time"
+msgstr "依 IP 限制：間隔時間"
+
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:63
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
 #, kde-format
 msgid "Limit by User: requests allowed"
 msgstr "依使用者限制：允許請求數"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:100
 #, kde-format
 msgid "Limit by User: interval time"
 msgstr "依使用者限制：間隔時間"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by Connection: requests allowed"
+msgstr "依使用者限制：允許請求數"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by Connection: interval time"
+msgstr "依使用者限制：間隔時間"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by User per Method: requests allowed"
+msgstr "依使用者限制：允許請求數"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by User per Method: interval time"
+msgstr "依使用者限制：間隔時間"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: requests allowed"
+msgstr "依各方法的連線進行限制"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: interval time"
+msgstr "依各方法的連線進行限制"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7296,21 +7418,27 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:40
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
+#, kde-format
+msgid ""
+"This setting stops the processing of user sessions causing the statistics to "
+"stop working correctly!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:54
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -7318,14 +7446,14 @@ msgid ""
 "missing information around the system!"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:60
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:65
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -7334,7 +7462,7 @@ msgstr ""
 "這個設定會停用此伺服器與 Rocket.Chat 的雲端的同步，使用商城授權或企業授權時可"
 "能會造成問題！"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
 msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
@@ -8187,6 +8315,12 @@ msgstr "工具外掛程式"
 #, kde-format
 msgid "Text Plugins"
 msgstr "文字外掛程式"
+
+#: widgets/configuredialog/configureservermcpwidget.cpp:22
+#, kde-format
+msgctxt "@option:check"
+msgid "Ask confirmation before running tools which modify data"
+msgstr ""
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -9045,11 +9179,6 @@ msgstr[0] "您的邀請連結將在 %2 或是使用 %1 後過期。"
 #, kde-format
 msgid "Your invite link will expire on %1."
 msgstr "您的邀請連結將在 %1 過期。"
-
-#: widgets/dialogs/inviteuserswidget.cpp:152
-#, kde-format
-msgid "Never"
-msgstr "永不"
 
 #: widgets/dialogs/inviteuserswidget.cpp:160
 #, kde-format
@@ -10930,14 +11059,14 @@ msgstr "只移除附加檔案。保留訊息"
 #: widgets/prunemessages/prunemessageswidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Newer than:"
-msgstr "新於："
+msgid "Older than:"
+msgstr "舊於："
 
 #: widgets/prunemessages/prunemessageswidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Older than:"
-msgstr "舊於："
+msgid "Newer than:"
+msgstr "新於："
 
 #: widgets/prunemessages/prunemessageswidget.cpp:60
 #, kde-format
@@ -13015,6 +13144,12 @@ msgstr "使用者名稱："
 msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "新增帳戶…"
+
+#~ msgid "Uses left"
+#~ msgstr "剩餘使用次數"
+
+#~ msgid "Unauthorized"
+#~ msgstr "不被允許"
 
 #~ msgid "Get Avatar"
 #~ msgstr "取得頭貼"

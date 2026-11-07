@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-06 00:51+0000\n"
-"PO-Revision-Date: 2026-10-29 11:01+0100\n"
+"POT-Creation-Date: 2026-11-07 00:57+0000\n"
+"PO-Revision-Date: 2026-11-06 11:36+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -804,7 +804,41 @@ msgstr "Falta l'URL del servidor."
 msgid "Socket was unexpectedly closed."
 msgstr "El sòcol s'ha tancat inesperadament."
 
-#: core/mcpserver/common/toolbase.cpp:42
+#: core/mcpserver/common/toolbase.cpp:87
+#, kde-format
+msgid "Another confirmation is pending"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:93
+#, kde-format
+msgid "MCP tool asks confirmation"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:94
+#, kde-format
+msgid ""
+"Run \"%1\"?\n"
+"%2"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:108
+#, kde-format
+msgid "Action refused by user"
+msgstr ""
+
+#: core/mcpserver/common/toolbase.cpp:111
+#: core/videoconference/videoconferencenotificationjob.cpp:61
+#, kde-format
+msgid "Accept"
+msgstr "Accepta"
+
+#: core/mcpserver/common/toolbase.cpp:119
+#: core/videoconference/videoconferencenotificationjob.cpp:67
+#, kde-format
+msgid "Reject"
+msgstr "Rebutja"
+
+#: core/mcpserver/common/toolbase.cpp:149
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:91
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:75
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:48
@@ -813,31 +847,27 @@ msgstr "El sòcol s'ha tancat inesperadament."
 #: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Account is not logged in"
-msgstr "Informació del compte"
+msgstr "El compte no ha iniciat la sessió"
 
-#: core/mcpserver/common/toolbase.cpp:50
+#: core/mcpserver/common/toolbase.cpp:157
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:99
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing search pattern"
-msgstr "Falta l'URL del servidor."
+msgstr "Falta el patró de busca"
 
-#: core/mcpserver/common/toolbase.cpp:66
+#: core/mcpserver/common/toolbase.cpp:173
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:129
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Search failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "No s'ha pogut fer la busca: %1"
 
-#: core/mcpserver/common/toolbase.cpp:69
+#: core/mcpserver/common/toolbase.cpp:176
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:132
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start search"
-msgstr "Impossible exportar les dades."
+msgstr "Impossible iniciar la busca"
 
 #: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:695
@@ -861,22 +891,19 @@ msgid "Users"
 msgstr "Usuaris"
 
 #: core/mcpserver/common/toolutils.cpp:23
-#, fuzzy, kde-format
-#| msgid "Current Password"
+#, kde-format
 msgid "Current User"
-msgstr "Contrasenya actual"
+msgstr "Usuari actual"
 
 #: core/mcpserver/common/toolutils.cpp:25
 #, kde-format
 msgid "Misc"
-msgstr ""
+msgstr "Miscel·lània"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Get My Status"
-msgstr "Edita l'estat de l'usuari"
+msgstr "Obtenció del meu estat"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
@@ -924,40 +951,35 @@ msgid "No room found with identifier \"%1\""
 msgstr "No s'ha trobat cap sala amb l'identificador «%1»"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users with roles found"
-msgstr "No s'ha trobat cap usuari"
+msgstr "No s'ha trobat cap usuari amb rol"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:72
-#, fuzzy, kde-format
-#| msgid "Get Room Info"
+#, kde-format
 msgid "Get Room Roles"
-msgstr "Obtín informació de la sala"
+msgstr "Obtín els rols de la sala"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:130
 #, kde-format
 msgid "Direct conversations have no room roles"
-msgstr ""
+msgstr "Les converses directes no tenen rols de sala"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:133
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:101
-#, fuzzy, kde-format
-#| msgid "Unknown state"
+#, kde-format
 msgid "Unknown room type"
-msgstr "Estat desconegut"
+msgstr "Tipus desconegut de sala"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:139
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Getting room roles failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "No s'ha pogut fer l'obtenció de rols de la sala: %1"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:142
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start getting room roles"
-msgstr "Impossible exportar les dades."
+msgstr "Impossible iniciar l'obtenció de rols de la sala"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
 #, kde-format
@@ -965,30 +987,24 @@ msgid "Get Server Info"
 msgstr "Obtenció de la informació del servidor"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
-#, fuzzy, kde-format
-#| msgid "Privacy Summary"
+#, kde-format
 msgid "Get Unread Summary"
-msgstr "Resum de privadesa"
+msgstr "Obtenció del resum sense llegir"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
-#, fuzzy, kde-format
-#| msgid "%1 Unread Message"
-#| msgid_plural "%1 Unread Messages"
+#, kde-format
 msgid "No unread messages"
-msgstr "%1 missatge sense llegir"
+msgstr "No hi ha missatges sense llegir"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Get User Status"
-msgstr "Edita l'estat de l'usuari"
+msgstr "Obtenció de l'estat de l'usuari"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing user name"
-msgstr "Falta l'URL del servidor."
+msgstr "Falta el nom d'usuari"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:27
 #, kde-format
@@ -996,28 +1012,24 @@ msgid "List Accounts"
 msgstr "Llista de comptes"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:53
-#, fuzzy, kde-format
-#| msgid "List Rooms"
+#, kde-format
 msgid "List Room Members"
-msgstr "Llista de sales"
+msgstr "Llista dels membres de la sala"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:125
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No members found"
-msgstr "No s'ha trobat cap usuari"
+msgstr "No s'ha trobat cap membre"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:137
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Listing members failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "Ha fallat el llistat de membres: %1"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:140
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start listing members"
-msgstr "Impossible exportar les dades."
+msgstr "Impossible iniciar el llistat de membres"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:27
 #, kde-format
@@ -1031,23 +1043,19 @@ msgid "No rooms found"
 msgstr "No s'ha trobat cap sala"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgid "Mark Room as Read"
-msgstr "Marca com a llegit"
+msgstr "Marca la sala com a llegida"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Mark room as read failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "Ha fallat mentre es marcava la sala com a llegida: %1"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start mark room as read job"
-msgstr "Impossible exportar les dades."
+msgstr "Impossible iniciar el treball de marcar la sala com a llegida"
 
 #: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
@@ -1055,110 +1063,90 @@ msgid "Manage information from Ruqola"
 msgstr "Gestiona la informació de Ruqola"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin Message"
 msgstr "Fixa el missatge"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:52
 #: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing room identifier"
+#, kde-format
 msgid "Missing message identifier"
-msgstr "Falta l'identificador de la sala"
+msgstr "Falta l'identificador del missatge"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Pin message failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "Ha fallat la fixació del missatge: %1"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start pin message job"
-msgstr "Impossible exportar les dades."
+msgstr "Impossible iniciar el treball de fixació del missatge"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgid "Search Messages"
 msgstr "Busca missatges"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:117
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No messages found"
-msgstr "No s'ha trobat el missatge"
+msgstr "No s'ha trobat cap missatge"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Rooms"
+#, kde-format
 msgid "Search Rooms"
-msgstr "Busca de sales"
+msgstr "Busca sales"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@info:placeholder"
-#| msgid "Search users…"
+#, kde-format
 msgid "Search Users"
-msgstr "Busca usuaris…"
+msgstr "Busca usuaris"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:48
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users found"
 msgstr "No s'ha trobat cap usuari"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Set My Status"
-msgstr "Edita l'estat de l'usuari"
+msgstr "Establix el meu estat"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:50
-#, fuzzy, kde-format
-#| msgid "Invalid user"
+#, kde-format
 msgid "Invalid status"
-msgstr "Usuari no vàlid"
+msgstr "Estat no vàlid"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Message"
+#, kde-format
 msgid "Star Message"
-msgstr "Busca de missatge"
+msgstr "Posa una estrela al missatge"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:67
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Star message failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "No s'ha pogut posar una estrela al missatge: %1"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start star message job"
-msgstr "Impossible exportar les dades."
+msgstr "Impossible iniciar el treball de posar una estrela"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
 #, kde-format
 msgid "Update Room Settings"
-msgstr ""
+msgstr "Actualització de la configuració de la sala"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
-msgstr ""
+msgstr "No es pot canviar la configuració d'una sala directa"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
 #, kde-format
 msgid "Room name cannot be empty"
-msgstr ""
+msgstr "El nom de la sala no pot estar buit"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
 #, kde-format
@@ -1166,17 +1154,19 @@ msgid ""
 "Nothing to change: give at least one of name, topic, description or "
 "announcement"
 msgstr ""
+"No hi ha res a canviar: indiqueu com a mínim un nom, tema, descripció o "
+"anunci"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
 #, kde-format
 msgid "Update room settings failed: %1"
-msgstr ""
+msgstr "No s'ha pogut fer l'actualització de la configuració de la sala: %1"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start update room settings job"
-msgstr "Impossible exportar les dades."
+msgstr ""
+"Impossible iniciar el treball d'actualització de la configuració de la sala"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1438,7 +1428,7 @@ msgstr "%1 i %2"
 #: core/model/admincustomemojimodel.cpp:35
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:32
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:32
-#: core/model/adminusersallmodel.cpp:68
+#: core/model/adminusersallmodel.cpp:71
 #: core/model/adminuserspendingmodel.cpp:66
 #: core/model/adminusersstatusmodel.cpp:24
 #: core/model/directoryroomsmodel.cpp:119 core/model/directoryteamsmodel.cpp:93
@@ -1484,9 +1474,10 @@ msgid "Uses"
 msgstr "Usos"
 
 #: core/model/admininvitemodel.cpp:41
-#, kde-format
-msgid "Uses left"
-msgstr "Usos romanents"
+#, fuzzy, kde-format
+#| msgid "Max number of uses"
+msgid "Max uses"
+msgstr "Nombre màxim d'usos"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1498,12 +1489,27 @@ msgstr "Venciment"
 msgid "Unlimited"
 msgstr "Sense límit"
 
-#: core/model/admininvitemodel.cpp:112
+#: core/model/admininvitemodel.cpp:113
+#: widgets/dialogs/inviteuserswidget.cpp:152
 #, kde-format
-msgid "Expire in %1 days"
-msgstr "Venç d'ací a %1 dies"
+msgid "Never"
+msgstr "Mai"
 
-#: core/model/admininvitemodel.cpp:114
+#: core/model/admininvitemodel.cpp:119
+#, fuzzy, kde-format
+#| msgid "Expired"
+msgid "Expires today"
+msgstr "Vençut"
+
+#: core/model/admininvitemodel.cpp:121
+#, fuzzy, kde-format
+#| msgid "Expire in %1 days"
+msgid "Expires in 1 day"
+msgid_plural "Expires in %1 days"
+msgstr[0] "Venç d'ací a %1 dies"
+msgstr[1] "Venç d'ací a %1 dies"
+
+#: core/model/admininvitemodel.cpp:123
 #, kde-format
 msgid "Expired"
 msgstr "Vençut"
@@ -1523,8 +1529,8 @@ msgstr "Secret del client"
 msgid "Redirect Url"
 msgstr "URL de redirecció"
 
-#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:56
-#: core/model/adminusersallmodel.cpp:126
+#: core/model/adminoauthmodel.cpp:40 core/model/adminusersallmodel.cpp:59
+#: core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:130
 #, kde-format
 msgid "Active"
@@ -1585,26 +1591,26 @@ msgstr "Sala predeterminada"
 msgid "Type"
 msgstr "Tipus"
 
-#: core/model/adminusersallmodel.cpp:54
+#: core/model/adminusersallmodel.cpp:57
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:34
 #, kde-format
 msgid "Pending"
 msgstr "Pendent"
 
-#: core/model/adminusersallmodel.cpp:58
+#: core/model/adminusersallmodel.cpp:61
 #: widgets/administratordialog/users/administratoruserstabwidget.cpp:35
 #, kde-format
 msgid "Deactivated"
 msgstr "Desactivat"
 
-#: core/model/adminusersallmodel.cpp:70
+#: core/model/adminusersallmodel.cpp:73
 #: core/model/adminuserspendingmodel.cpp:68
 #: core/model/adminusersstatusmodel.cpp:26
 #, kde-format
 msgid "UserName"
 msgstr "Nom d'usuari"
 
-#: core/model/adminusersallmodel.cpp:72
+#: core/model/adminusersallmodel.cpp:75
 #: core/model/adminuserspendingmodel.cpp:70
 #: core/model/adminusersstatusmodel.cpp:28
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
@@ -1613,14 +1619,14 @@ msgstr "Nom d'usuari"
 msgid "Email"
 msgstr "Correu electrònic"
 
-#: core/model/adminusersallmodel.cpp:74
+#: core/model/adminusersallmodel.cpp:77
 #: core/model/adminuserspendingmodel.cpp:72
 #: core/model/adminusersstatusmodel.cpp:30
 #, kde-format
 msgid "Role"
 msgstr "Rol"
 
-#: core/model/adminusersallmodel.cpp:76 core/model/adminusersallmodel.cpp:126
+#: core/model/adminusersallmodel.cpp:79 core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:130
 #: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
@@ -1630,14 +1636,14 @@ msgstr "Rol"
 msgid "Disabled"
 msgstr "Desactivat"
 
-#: core/model/adminusersallmodel.cpp:78
+#: core/model/adminusersallmodel.cpp:81
 #: core/model/adminuserspendingmodel.cpp:76
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "Estat"
 
-#: core/model/adminusersallmodel.cpp:80
+#: core/model/adminusersallmodel.cpp:83
 #, kde-format
 msgid "Registration status"
 msgstr "Estat de registre"
@@ -1945,33 +1951,29 @@ msgid "Unknown"
 msgstr "Desconegut"
 
 #: core/model/roommodel.cpp:703
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Calls"
-msgstr "Tocada entrant"
+msgstr "Tocades entrants"
 
 #: core/model/roommodel.cpp:705
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Live Chats"
-msgstr "Tocada entrant"
+msgstr "Xats en directe entrants"
 
 #: core/model/roommodel.cpp:707
 #, kde-format
 msgid "Open Live chats"
-msgstr ""
+msgstr "Obri els xats en directe"
 
 #: core/model/roommodel.cpp:709
 #, kde-format
 msgid "On Hold Chats"
-msgstr ""
+msgstr "Xats en espera"
 
 #: core/model/roommodel.cpp:711
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Conversations"
-msgstr "Inicia una conversa"
+msgstr "Converses"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -2212,7 +2214,7 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint…"
 
-#: core/rocketchataccount.cpp:794
+#: core/rocketchataccount.cpp:795
 #, kde-format
 msgid ""
 "REST: %1\n"
@@ -2221,22 +2223,22 @@ msgstr ""
 "REST: %1\n"
 "DDP: %2"
 
-#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
+#: core/rocketchataccount.cpp:803 core/rocketchataccount.cpp:816
 #, kde-format
 msgid "Not connected"
 msgstr "No connectat"
 
-#: core/rocketchataccount.cpp:809
+#: core/rocketchataccount.cpp:810
 #, kde-format
 msgid "Not connected yet"
 msgstr "Encara no connectat"
 
-#: core/rocketchataccount.cpp:3282
+#: core/rocketchataccount.cpp:3292
 #, kde-format
 msgid "Room Added"
 msgstr "S'ha afegit una sala"
 
-#: core/rocketchataccount.cpp:3283
+#: core/rocketchataccount.cpp:3293
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "S'ha afegit una sala nova a «%1»."
@@ -2483,16 +2485,6 @@ msgstr "Tocada en curs"
 #, kde-format
 msgid "Incoming Call"
 msgstr "Tocada entrant"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:61
-#, kde-format
-msgid "Accept"
-msgstr "Accepta"
-
-#: core/videoconference/videoconferencenotificationjob.cpp:67
-#, kde-format
-msgid "Reject"
-msgstr "Rebutja"
 
 #: plugins/authentication/github/githubpluginauthentication.cpp:36
 #, kde-format
@@ -2758,11 +2750,6 @@ msgstr ""
 #, kde-format
 msgid "Generate link is not authorized in this channel."
 msgstr "No s'ha autoritzat generar un enllaç en este canal."
-
-#: rocketchatrestapi-qt/restapiabstractjob.cpp:241
-#, kde-format
-msgid "Unauthorized"
-msgstr "No autoritzat"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:259
 #, kde-format
@@ -3122,8 +3109,9 @@ msgstr "L'usuari no es troba en esta sala"
 
 # skip-rule: rst-link0italic,rst-italic2
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, kde-format
-msgid "You are not in the room `%1`"
+#, fuzzy
+#| msgid "You are not in the room `%1`"
+msgid "You are not in the room"
 msgstr "No esteu a la sala «%1»"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
@@ -3492,7 +3480,7 @@ msgstr "Eliminació d'emoji"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:52
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:104
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:119
-#: widgets/administratordialog/users/administratoruserswidget.cpp:302
+#: widgets/administratordialog/users/administratoruserswidget.cpp:303
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgctxt "@action"
@@ -3506,7 +3494,7 @@ msgstr "Afig…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:94
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:108
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:309
+#: widgets/administratordialog/users/administratoruserswidget.cpp:310
 #, kde-format
 msgctxt "@action"
 msgid "Modify…"
@@ -3520,7 +3508,7 @@ msgstr "Modifica…"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:123
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:123
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:70
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:347
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgctxt "@action"
@@ -3781,20 +3769,20 @@ msgstr[0] "%1 missatge a la sala"
 msgstr[1] "%1 missatges a la sala"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:39
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:40
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:36
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Search moderation message…"
 msgstr "Busca un missatge de moderació…"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:67
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:68
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:64
 #, kde-format
 msgid "No moderation message found"
 msgstr "No s'ha trobat cap missatge de moderació"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:72
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:73
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:69
 #, kde-format
 msgid "%1 moderation message (Total: %2)"
 msgid_plural "%1 moderation messages (Total: %2)"
@@ -3808,7 +3796,7 @@ msgid "See messages"
 msgstr "Vegeu els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:146
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:146
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:142
 #, kde-format
 msgctxt "@action"
 msgid "Dismiss reports"
@@ -3821,14 +3809,14 @@ msgid "Delete all Messages"
 msgstr "Suprimix tots els missatges"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:155
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:152
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:148
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate user"
 msgstr "Desactiva l'usuari"
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:167
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:164
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:160
 #, kde-format
 msgid ""
 "User will be unable to log in unless reactivated.\n"
@@ -3839,7 +3827,7 @@ msgstr ""
 "respectiva."
 
 #: widgets/administratordialog/moderationconsole/moderationreportedmessageconsoletreewidget.cpp:168
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:165
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Deactivate User"
@@ -3879,13 +3867,13 @@ msgctxt "@title:window"
 msgid "Delete All Messages"
 msgstr "Suprimix tots els missatges"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:141
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:137
 #, kde-format
 msgctxt "@action"
 msgid "See reports"
 msgstr "Veure dels informes"
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:201
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:197
 #, kde-format
 msgid ""
 "All reports will be deleted and the reported messages won't be affected."
@@ -3893,7 +3881,7 @@ msgstr ""
 "Se suprimiran tots els informes i els missatges informats no es veuran "
 "afectats."
 
-#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:202
+#: widgets/administratordialog/moderationconsole/moderationreporteduserconsoletreewidget.cpp:198
 #, kde-format
 msgctxt "@title:window"
 msgid "Dismiss All Reports"
@@ -4145,20 +4133,20 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Voleu eliminar este usuari «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:89
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:242
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove User"
 msgstr "Elimina l'usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:132
-#: widgets/administratordialog/users/administratoruserswidget.cpp:359
+#: widgets/administratordialog/users/administratoruserswidget.cpp:360
 #, kde-format
 msgid "No user found"
 msgstr "No s'ha trobat cap usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:137
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:365
 #: widgets/directory/directorywidget.cpp:209
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -4610,54 +4598,54 @@ msgstr "Tot"
 msgid "Activated"
 msgstr "Activat"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:241
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Voleu eliminar este usuari?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:296
+#: widgets/administratordialog/users/administratoruserswidget.cpp:297
 #, kde-format
 msgctxt "@action"
 msgid "Invite…"
 msgstr "Invita…"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Deactivate"
 msgstr "Desactiva"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:318
+#: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, kde-format
 msgctxt "@action"
 msgid "Activate"
 msgstr "Activa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Remove Admin"
 msgstr "Elimina l'administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:327
+#: widgets/administratordialog/users/administratoruserswidget.cpp:328
 #, kde-format
 msgctxt "@action"
 msgid "Make Admin"
 msgstr "Fes-te administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:333
+#: widgets/administratordialog/users/administratoruserswidget.cpp:334
 #, kde-format
 msgctxt "@action"
 msgid "Reset E2E Key"
 msgstr "Reinicia la clau E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:339
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgctxt "@action"
 msgid "Reset Totp"
 msgstr "Reinicia TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:474
+#: widgets/administratordialog/users/administratoruserswidget.cpp:475
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4672,24 +4660,24 @@ msgstr ""
 "l'essència de l'encriptació E2E, Rocket.Chat no serà capaç de restaurar "
 "l'accés a les sales encriptades que no tinguen cap membre connectat."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:478
+#: widgets/administratordialog/users/administratoruserswidget.cpp:479
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E key"
 msgstr "Reinicia la clau E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "S'ha reiniciat la clau E2E per a %1."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:510
+#: widgets/administratordialog/users/administratoruserswidget.cpp:511
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset E2E"
 msgstr "Reinicia E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:523
+#: widgets/administratordialog/users/administratoruserswidget.cpp:524
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4698,14 +4686,14 @@ msgstr ""
 "Reiniciar TOTP de dos factors actual desconnectarà l'usuari. Després, "
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:524
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:525
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgctxt "@title:window"
 msgid "Reset TOTP"
 msgstr "Reinicia TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:555
+#: widgets/administratordialog/users/administratoruserswidget.cpp:556
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "S'ha reiniciat la clau TOTP per a %1"
@@ -4921,10 +4909,15 @@ msgid "Time to unblock User (In Minutes)"
 msgstr "Temps fins a desblocar l'usuari (en minuts)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
 #, kde-format
 msgid "How many failed attempts until block by IP"
 msgstr "El nombre d'intents fallits fins al bloqueig per IP"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
+#, fuzzy, kde-format
+#| msgid "Time to unblock User (In Minutes)"
+msgid "Time to unblock IP (In Minutes)"
+msgstr "Temps fins a desblocar l'usuari (en minuts)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5757,20 +5750,29 @@ msgstr ""
 "blanc per a acceptar tots els tipus de fitxers multimèdia."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
-#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
 #, kde-format
 msgid "Accepted Media Types"
 msgstr "Tipus de fitxers multimèdia acceptats"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Comma-separated list of media types. This setting has priority over the "
+#| "Blocked Media Types."
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
-"Blocked Media Types."
+"Accepted Media Types."
 msgstr ""
 "Una llista de tipus de fitxers multimèdia separats per comes. Este paràmetre "
 "té prioritat sobre els Tipus de fitxers multimèdia bloquejats."
+
+#: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
+#, fuzzy, kde-format
+#| msgid "Accepted Media Types"
+msgid "Blocked Media Types"
+msgstr "Tipus de fitxers multimèdia acceptats"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6228,7 +6230,6 @@ msgid "Timeouts"
 msgstr "Temps d'espera"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:73
-#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
@@ -6239,6 +6240,18 @@ msgstr ""
 #, kde-format
 msgid "Timeout (ms)"
 msgstr "Temps d'espera (ms)"
+
+#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "How many milliseconds wait for a search result before return an error"
+msgctxt "@info:tooltip"
+msgid ""
+"How many milliseconds wait for a connection to be established before return "
+"an error"
+msgstr ""
+"Quants mil·lisegons esperarà un resultat de busca abans de retornar un error"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6323,10 +6336,16 @@ msgstr ""
 "lo buit per a mostrar una traça de cada crida."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:51
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
 #, kde-format
 msgid "Trace method filter"
 msgstr "Traça les crides de mètode"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Trace subscription calls"
+msgid "Trace subscription filter"
+msgstr "Traça les crides de subscripció"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6792,10 +6811,14 @@ msgid "Twitter Id"
 msgstr "ID de Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Secret"
 msgstr "Secret de Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
+#, kde-format
+msgid "Twitter Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6808,10 +6831,14 @@ msgid "LinkedIn Id"
 msgstr "ID de LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Secret"
 msgstr "Secret de LinkedIn"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
+#, kde-format
+msgid "LinkedIn Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6839,10 +6866,14 @@ msgid "Meteor Id"
 msgstr "ID de Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Secret"
 msgstr "Secret de Meteor"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
+#, kde-format
+msgid "Meteor Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6855,10 +6886,14 @@ msgid "Facebook Id"
 msgstr "ID de Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Secret"
 msgstr "Secret de Facebook"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
+#, kde-format
+msgid "Facebook Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6871,10 +6906,14 @@ msgid "Github Id"
 msgstr "ID de GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:181
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Secret"
 msgstr "Secret de GitHub"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
+#, kde-format
+msgid "Github Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6898,10 +6937,15 @@ msgid "Tokenpass Id"
 msgstr "ID de Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:202
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
 #, kde-format
 msgid "Tokenpass Secret"
 msgstr "Secret de Tokenpass"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Tokenpass Server URL"
+msgid "Tokenpass Callback URL"
+msgstr "URL del servidor Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6909,10 +6953,14 @@ msgid "Google Id"
 msgstr "ID de Google"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:219
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Secret"
 msgstr "Secret de Google"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
+#, kde-format
+msgid "Google Callback URL"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -6962,7 +7010,6 @@ msgid "Password History"
 msgstr "Historial de contrasenyes"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:37
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6990,7 +7037,15 @@ msgstr "Llargària de l'historial de contrasenyes"
 msgid "Password Policy"
 msgstr "Política de contrasenyes"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:51
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"When enabled, user passwords must adhere to the policies set forth. Note: "
+"this only applies to new passwords, not existing passwords."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7000,12 +7055,12 @@ msgstr ""
 "Assegura que les contrasenyes cal que tinguen com a mínim este nombre de "
 "caràcters. Utilitzeu -1 per a desactivar."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:57
 #, kde-format
 msgid "Minimum Length"
 msgstr "Llargària mínima"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:60
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7015,12 +7070,12 @@ msgstr ""
 "Assegura que les contrasenyes no tindran més que este nombre de caràcters. "
 "Utilitzeu -1 per a desactivar."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:62
 #, kde-format
 msgid "Maximum Length"
 msgstr "Llargària màxima"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:65
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7029,7 +7084,7 @@ msgid ""
 msgstr ""
 "Assegura que les contrasenyes no tindran el mateix caràcter adjacent repetit."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7037,32 +7092,32 @@ msgid ""
 msgstr ""
 "El nombre de vegades que es pot repetir un caràcter abans que no s'admeta."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:70
 #, kde-format
 msgid "Max Repeating Characters"
 msgstr "Nombre màxim de caràcters repetits"
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:73
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one lowercase character."
 msgstr ""
 "Força que la contrasenya continga un caràcter en minúscula com a mínim."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one uppercase character."
 msgstr ""
 "Força que la contrasenya continga un caràcter en majúscula com a mínim."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one numerical character."
 msgstr "Força que la contrasenya continga un caràcter numèric com a mínim."
 
-#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:85
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Enforce that a password contain at least one special character."
@@ -7116,29 +7171,61 @@ msgstr "Límit de velocitat DDP"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:52
 #, kde-format
-msgid "Limit by IP: interval time"
-msgstr "Límit per IP: interval de temps"
-
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
-#, kde-format
 msgid "Limit by IP: requests allowed"
 msgstr "Límit per IP: sol·licituds permeses"
 
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
+#, kde-format
+msgid "Limit by IP: interval time"
+msgstr "Límit per IP: interval de temps"
+
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:63
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
 #, kde-format
 msgid "Limit by User: requests allowed"
 msgstr "Límit per usuari: sol·licituds permeses"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:100
 #, kde-format
 msgid "Limit by User: interval time"
 msgstr "Límit per usuari: interval de temps"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by Connection: requests allowed"
+msgstr "Límit per usuari: sol·licituds permeses"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by Connection: interval time"
+msgstr "Límit per usuari: interval de temps"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
+#, fuzzy, kde-format
+#| msgid "Limit by User: requests allowed"
+msgid "Limit by User per Method: requests allowed"
+msgstr "Límit per usuari: sol·licituds permeses"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
+#, fuzzy, kde-format
+#| msgid "Limit by User: interval time"
+msgid "Limit by User per Method: interval time"
+msgstr "Límit per usuari: interval de temps"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: requests allowed"
+msgstr "Límit per connexió i per mètode"
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Limit by Connection per Method"
+msgid "Limit by Connection per Method: interval time"
+msgstr "Límit per connexió i per mètode"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7429,7 +7516,6 @@ msgstr ""
 "estat de presència des de la primera càrrega!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:40
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
 #, kde-format
 msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
@@ -7439,7 +7525,19 @@ msgstr ""
 "esdeveniments a les altres instàncies, pot causar problemes de "
 "sincronització i mal comportament!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting stops the processing of livechat visitor sessions causing "
+#| "the statistics to stop working correctly!"
+msgid ""
+"This setting stops the processing of user sessions causing the statistics to "
+"stop working correctly!"
+msgstr ""
+"Esta opció de configuració para el processament de les sessions de visitant "
+"Livechat fent que les estadístiques deixen de funcionar correctament!"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
 msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
@@ -7448,7 +7546,7 @@ msgstr ""
 "Esta opció de configuració para el processament de les sessions de visitant "
 "Livechat fent que les estadístiques deixen de funcionar correctament!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:54
 #, kde-format
 msgid ""
 "This setting stops the processing all statistics making the info page "
@@ -7459,7 +7557,7 @@ msgstr ""
 "fent que la pàgina d'informació estiga obsoleta fins que algú clique damunt "
 "del botó «Actualitza» i pot causar que falte informació del sistema!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:60
 #, kde-format
 msgid ""
 "This setting stops the processing of all export requests from users, so they "
@@ -7469,7 +7567,7 @@ msgstr ""
 "d'exportació dels usuaris, de manera que no rebran l'enllaç per a baixar les "
 "seues dades!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:65
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
@@ -7479,7 +7577,7 @@ msgstr ""
 "núvol de Rocket.Chat i pot causar problemes amb les llicències comercials i "
 "corporatives!"
 
-#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
 msgid ""
 "This setting disables the teams mention feature. User's won't be able to "
@@ -7907,86 +8005,74 @@ msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
 #: widgets/category/categoriesmenu.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Category"
-msgstr "Categories"
+msgstr "Categoria"
 
 #: widgets/category/categoriesmenu.cpp:62
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "No Category"
-msgstr "Categories"
+msgstr "Sense categoria"
 
 #: widgets/category/categoriesmenu.cpp:90
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "Manage Categories…"
-msgstr "Categories"
+msgstr "Gestiona les categories…"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "Categories"
+msgstr "Afegiment de categoria"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "Canvi de nom de categoria"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "Categories"
+msgstr "Categoria:"
 
 #: widgets/category/managecategoriesdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Manage Categories"
-msgstr "Categories"
+msgstr "Gestió de categories"
 
 #: widgets/category/managecategorieswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add Category…"
-msgstr "Categories"
+msgstr "Afig una categoria…"
 
 #: widgets/category/managecategorieswidget.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rename Category…"
-msgstr ""
+msgstr "Canvia el nom d'una categoria…"
 
 #: widgets/category/managecategorieswidget.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove Category"
-msgstr "Elimina l'historial"
+msgstr "Elimina una categoria"
 
 #: widgets/category/managecategorieswidget.cpp:171
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#, kde-format
 msgid "Do you want to remove this category (%1)?"
-msgstr "Voleu eliminar este usuari «%1»?"
+msgstr "Voleu eliminar esta categoria (%1)?"
 
 #: widgets/category/managecategorieswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Category"
-msgstr "Elimina l'historial"
+msgstr "Eliminació de categoria"
 
 #: widgets/channellist/channellistview.cpp:141
 #, kde-format
@@ -8334,6 +8420,12 @@ msgstr "Connectors d'eines"
 #, kde-format
 msgid "Text Plugins"
 msgstr "Connectors de text"
+
+#: widgets/configuredialog/configureservermcpwidget.cpp:22
+#, kde-format
+msgctxt "@option:check"
+msgid "Ask confirmation before running tools which modify data"
+msgstr ""
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -9204,11 +9296,6 @@ msgstr[1] "L'enllaç de convit vencerà %2 o després de %1 usos."
 msgid "Your invite link will expire on %1."
 msgstr "L'enllaç de convit vencerà %1."
 
-#: widgets/dialogs/inviteuserswidget.cpp:152
-#, kde-format
-msgid "Never"
-msgstr "Mai"
-
 #: widgets/dialogs/inviteuserswidget.cpp:160
 #, kde-format
 msgid "No Limit"
@@ -9430,7 +9517,7 @@ msgstr "Té una estrela"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows messages you've starred."
-msgstr "Mostra els missatges que heu destacat."
+msgstr "Mostra els missatges que heu posat una estrela."
 
 #: widgets/dialogs/searchmessagedialog.cpp:27
 #, kde-format
@@ -9702,7 +9789,7 @@ msgstr "Busca confirmacions de lectura…"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Starred Messages - %1"
-msgstr "Mostra els missatges destacats – %1"
+msgstr "Mostra els missatges amb estrela – %1"
 
 #: widgets/dialogs/showtheadscombobox.cpp:15
 #, kde-format
@@ -11109,14 +11196,14 @@ msgstr "Elimina només els fitxers adjunts. Mantín els missatges"
 #: widgets/prunemessages/prunemessageswidget.cpp:39
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Newer than:"
-msgstr "Més nou de:"
+msgid "Older than:"
+msgstr "Més antic de:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:52
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Older than:"
-msgstr "Més antic de:"
+msgid "Newer than:"
+msgstr "Més nou de:"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:60
 #, kde-format
@@ -11171,7 +11258,7 @@ msgstr "Mostra els missatges fixats…"
 #, kde-format
 msgctxt "@action"
 msgid "Show Starred Messages…"
-msgstr "Mostra els missatges destacats…"
+msgstr "Mostra els missatges amb estrela…"
 
 #: widgets/room/channelactionpopupmenu.cpp:63
 #, kde-format
@@ -11320,7 +11407,7 @@ msgstr "El missatge s'ha fixat"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Message has been starred"
-msgstr "El missatge s'ha destacat"
+msgstr "S'ha posat una estrela al missatge"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:1088
 #, kde-format
@@ -13118,12 +13205,8 @@ msgctxt "@action:button"
 msgid "Add Account…"
 msgstr "Afig un compte…"
 
-#~ msgid "Get Avatar"
-#~ msgstr "Obtín l'avatar"
+#~ msgid "Uses left"
+#~ msgstr "Usos romanents"
 
-#~ msgid "Draft"
-#~ msgstr "Esborrany"
-
-#~ msgctxt "@option:check"
-#~ msgid "Draft Messages"
-#~ msgstr "Esborranys"
+#~ msgid "Unauthorized"
+#~ msgstr "No autoritzat"
