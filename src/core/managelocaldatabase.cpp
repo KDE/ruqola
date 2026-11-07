@@ -288,7 +288,7 @@ void ManageLocalDatabase::loadRoomHistory(const QByteArray &roomId, int count, q
         roomHistoryInfo.previous = QString::number(previousCursor);
     }
     job->setRoomHistoryInfo(roomHistoryInfo);
-    qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history rooms.history:" << roomHistoryInfo;
+    // qCDebug(RUQOLA_LOAD_HISTORY_LOG) << " load history rooms.history:" << roomHistoryInfo;
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     trackHistoryJob(job, roomId);
