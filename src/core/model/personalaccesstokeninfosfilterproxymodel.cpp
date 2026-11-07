@@ -36,7 +36,7 @@ bool PersonalAccessTokenInfosFilterProxyModel::lessThan(const QModelIndex &left,
     if (leftColumn == PersonalAccessTokenInfosModel::CreateAt) {
         const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), PersonalAccessTokenInfosModel::CreateAtDateTime);
         const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), PersonalAccessTokenInfosModel::CreateAtDateTime);
-        return lessThan(leftMessageModelIndex, rightMessageModelIndex);
+        return QSortFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
     return QSortFilterProxyModel::lessThan(left, right);
 }
