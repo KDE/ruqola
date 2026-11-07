@@ -1394,6 +1394,7 @@
           <li>Add category support.</li>
           <li xml:lang="ar">إضافة الفئات.</li>
           <li xml:lang="ca">Afegeix el suport de categories.</li>
+          <li xml:lang="ca-valencia">Afig el suport de categories.</li>
           <li xml:lang="ka">დაემატა კატეგორიების მხარდაჭერა.</li>
           <li xml:lang="nl">Ondersteuning voor categorieën toevoegen</li>
           <li xml:lang="pt-BR">Adicionar suporte à categoria.</li>
@@ -1404,6 +1405,7 @@
           <li>Add RC 8.9.0 support.</li>
           <li xml:lang="ar">إضافة دعم الإصدار RC 8.9.0.</li>
           <li xml:lang="ca">Afegeix la implementació del RC 8.9.0.</li>
+          <li xml:lang="ca-valencia">Afig la implementació del RC 8.9.0.</li>
           <li xml:lang="ka">დაემატა RC 8.9.0-ის მხარდაჭერა.</li>
           <li xml:lang="nl">Ondersteuning voor RC 8.9.0 toevoegen.</li>
           <li xml:lang="pt-BR">Adicionar suporte ao RC 8.9.0.</li>
