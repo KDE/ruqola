@@ -265,5 +265,14 @@ Urgency=Normal
 
 [Event/Mcp-Tool-Confirmation]
 Name=MCP Tool Asks Confirmation
+Name[ca]=L'eina MCP demana confirmació
+Name[es]=Herramienta MCP pide confirmación
+Name[ka]=MCP ხელსაწყო დადასტურებას ითხოვს
+Name[nl]=MCP-hulpmiddel vraagt ​​om bevestiging
+Name[pt_BR]=Ferramenta MCP solicita confirmação
+Name[ru]=Инструмент MCP запрашивает подтверждение
+Name[sl]=Orodje MCP prosi za potrditev
+Name[tr]=MCP Aracı Onay İstiyor
+Name[uk]=Інструмент MCP просить підтвердження
 Action=Popup
 Urgency=Normal
