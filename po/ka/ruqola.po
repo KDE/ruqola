@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-07 00:57+0000\n"
-"PO-Revision-Date: 2026-11-06 05:57+0100\n"
+"POT-Creation-Date: 2026-11-08 02:57+0000\n"
+"PO-Revision-Date: 2026-11-07 05:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -799,12 +799,12 @@ msgstr "სოკეტი მოულოდნელად დაიხურ�
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "რიგშია კიდევ ერთი დადასტურების მოთხოვნა"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "MCP-ის ხელსაწყო დადასტურებას მოითხოვს"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -812,11 +812,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"გაეშვას \"%1\"?\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "ქმედება უარყოფილია მომხმარებლის მიერ"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -1465,10 +1467,9 @@ msgid "Uses"
 msgstr "გამოყენებები"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
-msgstr "მომხმარებლების მაქს. რაოდენობა"
+msgstr "მაქს. გამოყენება"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1487,18 +1488,16 @@ msgid "Never"
 msgstr "არასდროს"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "ვადაგასული"
+msgstr "ვადა დღეს ეწურება"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
-msgstr[0] "ვადა %1 დღეში გაუვა"
-msgstr[1] "ვადა %1 დღეში გაუვა"
+msgstr[0] "ვადა იწურება 1 დღეში"
+msgstr[1] "ვადა იწურება %1 დღეში"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -3097,10 +3096,8 @@ msgid "User is not in this room"
 msgstr "მომხმარებელი ამ ოთახში არაა"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "თქვენ ოთახში '%1' არ იმყოფებით"
+msgstr "თქვენ ოთახში არ იმყოფებით"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4892,10 +4889,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "მცდელობების რიცხვი IP-ს დაბლოკვამდე"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "მომხმარებლის განბლოკვის დრო (წუთებში)"
+msgstr "IP-ის განბლოკვის დრო (წუთებში)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5724,24 +5720,19 @@ msgid "Accepted Media Types"
 msgstr "მედიის მხარდაჭერილი ტიპები"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
-"მედიის ტიპების მძიმით გამოყოფილი სია. ამ პარამეტრს აქვს დაბლოკილ მედიის "
+"მედიის ტიპების მძიმით გამოყოფილი სია. ამ პარამეტრს აქვს მიღებული მედიის "
 "ტიპებზე მაღალი პრიორიტეტი."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "მედიის მხარდაჭერილი ტიპები"
+msgstr "დაბლოკილი მედიის ტიპები"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6200,7 +6191,8 @@ msgstr "მოლოდინის დროები"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "How many milliseconds wait for a search result before return an error"
-msgstr "რამდენი მილიწამი დაველოდო სერვერიდან შედეგს, სანამ შეცდომას დავაბრუნებ"
+msgstr ""
+"რამდენი მილიწამი მოხდება სერვერიდან შედეგების მოლოდინი შეცდომის დაბრუნებამდე"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:74
 #, kde-format
@@ -6208,15 +6200,13 @@ msgid "Timeout (ms)"
 msgstr "მოლოდინის ვადა (მწმ)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
-msgstr "რამდენი მილიწამი დაველოდო სერვერიდან შედეგს, სანამ შეცდომას დავაბრუნებ"
+msgstr ""
+"რამდენი მილიწამი მოხდება კავშირის დამყარების მოლოდინი შეცდომის დაბრუნებამდე"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6306,11 +6296,9 @@ msgid "Trace method filter"
 msgstr "ტრეისის მეთოდის ფილტრი"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "გამოწერის ფუნქციების ტრეისი"
+msgstr "გამოწერის გამოწერის ტრეისი"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6783,7 +6771,7 @@ msgstr "Twitter-ის საიდუმლო"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "Twitter-ის უკუგამოძახების URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6803,7 +6791,7 @@ msgstr "LinkedIn-ის საიდუმლო"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "LinkedIn-ის უკუგამოძახების URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6838,7 +6826,7 @@ msgstr "Meteor -ის საიდუმლო"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "Meteor-ის უკუგამოძახების URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6858,7 +6846,7 @@ msgstr "Facebook-ის საიდუმლო ფრაზა"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "Facebook-ის უკუგამოძახების URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6878,7 +6866,7 @@ msgstr "Github-ის საიდუმლო ფრაზა"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "Github-ის უკუგამოძახების URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6907,10 +6895,9 @@ msgid "Tokenpass Secret"
 msgstr "Tokenpass -ის საიდუმლო"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "Tokenpass -ის სერვერის URL"
+msgstr "Tokenpass -ის უკუგამოძახების URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6925,7 +6912,7 @@ msgstr "Google-ის საიდუმლო ფრაზა"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "Google-ის უკუგამოძახების URL"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7007,6 +6994,8 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"როცა ჩართულია, მომხმარებლის პაროლები აღწერილი პოლიტიკის პირობებს უნდა "
+"აკმაყოფილებდნენ. შენიშვნა: ეს, მხოლოდ, ახალ პაროლებს ეხება და არა არსებულებს."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7112,7 +7101,7 @@ msgstr "მომხმარებლის გამოყენებულ�
 #, kde-format
 msgctxt "@option:check"
 msgid "Limit by Connection per Method"
-msgstr "შეერთეიბისას გამოყენებული მეთოდით შეზღუდვა"
+msgstr "შეზღუდვა კავშირით თითოეული მეთოდისთვის"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:36
 #, kde-format
@@ -7145,42 +7134,34 @@ msgid "Limit by User: interval time"
 msgstr "მომხმარებლით შეზღუდვა: ინტერვალის დრო"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "მომხმარებლით შეზღუდვა: მოთხოვნები დაშვებულია"
+msgstr "კავშირით შეზღუდვა: დაშვებული მოთხოვნები"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "მომხმარებლით შეზღუდვა: ინტერვალის დრო"
+msgstr "კავშირით შეზღუდვა: ინტერვალის დრო"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "მომხმარებლით შეზღუდვა: მოთხოვნები დაშვებულია"
+msgstr "მომხმარებლით შეზღუდვა თითოეული მეთოდისთვის: დაშვებული მოთხოვნები"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "მომხმარებლით შეზღუდვა: ინტერვალის დრო"
+msgstr "მომხმარებლის შეზღუდვა თითოეული მეთოდისთვის: ინტერვალის დრო"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "შეერთეიბისას გამოყენებული მეთოდით შეზღუდვა"
+msgstr "კავშირით შეზღუდვა თითოეული მეთოდისთვის: დაშვებული მოთხოვნები"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "შეერთეიბისას გამოყენებული მეთოდით შეზღუდვა"
+msgstr "კავშირით შეზღუდვა თითოეული მეთოდისთვის: ინტერვალის დრო"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7478,16 +7459,13 @@ msgstr ""
 "ქცევა გამოიწვიოს!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"ეს პარამეტრი გააჩერებს ცოცხალი ჩატის სტუმრის სესიების დამუშავებას, რაც "
-"სტატისტიკის არასწორად მუშაობას გამოიწვევს!"
+"ეს პარამეტრი გააჩერებს მომხმარებლის სესიების დამუშავებას, რაც სტატისტიკის "
+"არასწორად მუშაობას გამოიწვევს!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
@@ -8376,6 +8354,8 @@ msgstr "ტექსტის მოდულები"
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
 msgstr ""
+"დადასტურების მოთხოვნა ისეთი ხელსაწყოების გაშვებამდე, რომლებიც მონაცემებს "
+"ცვლიან"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format

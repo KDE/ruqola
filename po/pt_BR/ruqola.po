@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-07 00:57+0000\n"
-"PO-Revision-Date: 2026-11-06 08:26-0300\n"
+"POT-Creation-Date: 2026-11-08 02:57+0000\n"
+"PO-Revision-Date: 2026-11-07 05:52-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -802,12 +802,12 @@ msgstr "O soquete foi fechado inesperadamente."
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "Outra confirmação está pendente"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "A ferramenta MCP solicita confirmação"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -815,11 +815,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"Executar \"%1\"?\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "Ação recusada pelo usuário"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -1468,10 +1470,9 @@ msgid "Uses"
 msgstr "Usos"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
-msgstr "Número máximo de usos"
+msgstr "Máximo de usos"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1490,17 +1491,15 @@ msgid "Never"
 msgstr "Nunca"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "Expirado"
+msgstr "Expira hoje"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
-msgstr[0] "Expira em %1 dias"
+msgstr[0] "Expira em %1 dia"
 msgstr[1] "Expira em %1 dias"
 
 #: core/model/admininvitemodel.cpp:123
@@ -3102,10 +3101,8 @@ msgid "User is not in this room"
 msgstr "O usuário não está nesta sala"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "Você não está na sala `%1`"
+msgstr "Você não está na sala"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4902,10 +4899,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Quantas tentativas de login falhas por IP até bloquear"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "Tempo para desbloquear usuário (em minutos)"
+msgstr "Tempo para desbloquear IP (em minutos)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5739,24 +5735,19 @@ msgid "Accepted Media Types"
 msgstr "Tipos de mídias aceitas"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
 "Lista de tipos de mídia separados por vírgulas. Esta configuração tem "
-"prioridade sobre os Tipos de mídia bloqueadas."
+"prioridade sobre os Tipos de mídia aceitas."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "Tipos de mídias aceitas"
+msgstr "Tipos de mídias bloqueados"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6226,17 +6217,14 @@ msgid "Timeout (ms)"
 msgstr "Tempo limite (ms)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
 msgstr ""
-"Quantos milissegundos esperar por um resultado de pesquisa antes de retornar "
-"um erro"
+"Quantos milissegundos esperar para que uma conexão seja estabelecida antes "
+"de retornar um erro"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6323,14 +6311,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:51
 #, kde-format
 msgid "Trace method filter"
-msgstr "Rastrear filtro de método"
+msgstr "Filtro de método de rastreamento"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "Rastrear chamadas de assinatura"
+msgstr "Filtro de chamadas de assinatura"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6803,7 +6789,7 @@ msgstr "Chave do Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "URL de retorno do Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6823,7 +6809,7 @@ msgstr "Chave do LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "URL de retorno do LinkdeIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6858,7 +6844,7 @@ msgstr "Chave do Meteor"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "URL de retorno do Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6878,7 +6864,7 @@ msgstr "Chave do Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "URL de retorno do Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6898,7 +6884,7 @@ msgstr "Chave do Github"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "URL de retorno do Github"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6927,10 +6913,9 @@ msgid "Tokenpass Secret"
 msgstr "Chave do Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "URL do servidor Tokenpass"
+msgstr "URL de retorno do Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6945,7 +6930,7 @@ msgstr "Chave do Google"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "URL de retorno do Google"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7029,6 +7014,9 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"Quando habilitado, as senhas dos usuários devem estar em conformidade com as "
+"políticas estabelecidas. Observação: isso se aplica apenas a novas senhas, "
+"não às senhas já existentes."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7175,42 +7163,34 @@ msgid "Limit by User: interval time"
 msgstr "Limitar por usuário: intervalo de tempo"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "Limitar por usuário: solicitações permitidas"
+msgstr "Limitar por conexão: solicitações permitidas"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "Limitar por usuário: intervalo de tempo"
+msgstr "Limitar por conexão: intervalo de tempo"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "Limitar por usuário: solicitações permitidas"
+msgstr "Limitar por usuário por método: solicitações permitidas"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "Limitar por usuário: intervalo de tempo"
+msgstr "Limitar por usuário por método: intervalo de tempo"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "Limitar por conexão por método"
+msgstr "Limitar por conexão por método: solicitações permitidas"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "Limitar por conexão por método"
+msgstr "Limitar por conexão por método: intervalo de tempo"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7512,17 +7492,13 @@ msgstr ""
 "comportamento!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"Esta configuração interrompe o processamento das sessões de visitantes do "
-"chat ao vivo, fazendo com que as estatísticas parem de funcionar "
-"corretamente!"
+"Esta configuração interrompe o processamento das sessões de usuário, fazendo "
+"com que as estatísticas parem de funcionar corretamente!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
@@ -8414,6 +8390,7 @@ msgstr "Plugins de texto"
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
 msgstr ""
+"Solicite confirmação antes de executar ferramentas que modifiquem dados"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-07 00:57+0000\n"
-"PO-Revision-Date: 2026-10-25 20:24+0300\n"
+"POT-Creation-Date: 2026-11-08 02:57+0000\n"
+"PO-Revision-Date: 2026-11-07 19:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -801,12 +801,12 @@ msgstr "Yuva, beklenmedik bir biçimde kapandı."
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "Başka bir onay beklemede"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "MCP aracı onay istiyor"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -814,11 +814,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"“%1” çalıştırılsın mı?\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "Eylem, kullanıcı tarafından reddedildi"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -841,29 +843,25 @@ msgstr "Reddet"
 #: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Account is not logged in"
 msgstr "Hesap oturum açmamış"
 
 #: core/mcpserver/common/toolbase.cpp:157
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:99
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing search pattern"
 msgstr "Eksik arama dizgisi"
 
 #: core/mcpserver/common/toolbase.cpp:173
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:129
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Search failed: %1"
 msgstr "Arama başarısız: %1"
 
 #: core/mcpserver/common/toolbase.cpp:176
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:132
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start search"
 msgstr "Arama başlatılamıyor"
 
@@ -889,15 +887,14 @@ msgid "Users"
 msgstr "Kullanıcılar"
 
 #: core/mcpserver/common/toolutils.cpp:23
-#, fuzzy, kde-format
-#| msgid "Current Password"
+#, kde-format
 msgid "Current User"
-msgstr "Geçerli Parola"
+msgstr "Geçerli Kullanıcı"
 
 #: core/mcpserver/common/toolutils.cpp:25
 #, kde-format
 msgid "Misc"
-msgstr ""
+msgstr "Çeşitli"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
 #, kde-format
@@ -926,8 +923,7 @@ msgid "No account found"
 msgstr "Bulunan hesap yok"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Info"
 msgstr "Oda Bilgisini Al"
 
@@ -951,40 +947,35 @@ msgid "No room found with identifier \"%1\""
 msgstr "“%1” tanımlayıcısı ile bir oda bulunamadı"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
-#, fuzzy, kde-format
-#| msgid "No users found"
+#, kde-format
 msgid "No users with roles found"
-msgstr "Bulunan kullanıcı yok"
+msgstr "Bir role sahip kullanıcı bulunamadı"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:72
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Roles"
-msgstr "Oda Bilgisini Al"
+msgstr "Oda Rollerini Al"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:130
 #, kde-format
 msgid "Direct conversations have no room roles"
-msgstr ""
+msgstr "Doğrudan konuşmalarda oda rolü yoktur"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:133
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:101
-#, fuzzy, kde-format
-#| msgid "Unknown state"
+#, kde-format
 msgid "Unknown room type"
-msgstr "Bilinmeyen durum"
+msgstr "Bilinmeyen oda türü"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:139
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Getting room roles failed: %1"
-msgstr "İndirme başarısız: %1"
+msgstr "Oda rolleri alınamadı: %1"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:142
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start getting room roles"
-msgstr "Veriyi dışa aktarmak olanaksız."
+msgstr "Oda rollerini almaya başlamak olanaksız"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
 #, kde-format
@@ -1017,34 +1008,27 @@ msgid "List Accounts"
 msgstr "Hesapları Listele"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Room Members"
-msgstr "Odayı Düzenle"
+msgstr "Odayı Üyelerini Listele"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:125
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No members found"
-msgstr "Bulunan kullanıcı yok"
+msgstr "Bulunan üye yok"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:137
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Listing members failed: %1"
-msgstr "İndirme başarısız: %1"
+msgstr "Üyeler listelenemedi: %1"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:140
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start listing members"
-msgstr "Veriyi dışa aktarmak olanaksız."
+msgstr "Üyeleri listelemeye başlamak olanaksız"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Rooms"
 msgstr "Odaları Listele"
 
@@ -1055,23 +1039,19 @@ msgid "No rooms found"
 msgstr "Bulunan oda yok"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgid "Mark Room as Read"
-msgstr "Okundu Olarak İmle"
+msgstr "Odayı Okundu Olarak İmle"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Mark room as read failed: %1"
-msgstr "İndirme başarısız: %1"
+msgstr "Oda, okundu olarak imlenemedi: %1"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start mark room as read job"
-msgstr "Veriyi dışa aktarmak olanaksız."
+msgstr "Odayı okundu olarak imlemeye başlamak olanaksız"
 
 #: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
@@ -1079,43 +1059,35 @@ msgid "Manage information from Ruqola"
 msgstr "Ruqola’dan bilgiyi yönetin"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin Message"
 msgstr "İletiyi Sabitle"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:52
 #: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing message identifier"
-msgstr "Sunucu URL’si eksik."
+msgstr "İleti tanımlayıcısı eksik"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Pin message failed: %1"
-msgstr "İndirme başarısız: %1"
+msgstr "İleti sabitlenemedi: %1"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start pin message job"
-msgstr "Veriyi dışa aktarmak olanaksız."
+msgstr "İletiyi sabitlemeye başlamak olanaksız"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgid "Search Messages"
 msgstr "İletileri Ara"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:117
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No messages found"
-msgstr "İleti bulunamadı"
+msgstr "Bulunan ileti yok"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
 #, kde-format
@@ -1143,38 +1115,34 @@ msgid "Invalid status"
 msgstr "Geçersiz durum"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Message"
+#, kde-format
 msgid "Star Message"
-msgstr "İleti Ara"
+msgstr "İletiye Yıldız Koy"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:67
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Star message failed: %1"
-msgstr "İndirme başarısız: %1"
+msgstr "İletiye yıldız koyulamadı: %1"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start star message job"
-msgstr "Veriyi dışa aktarmak olanaksız."
+msgstr "İletiye yıldız koyma işi olanaksız"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
 #, kde-format
 msgid "Update Room Settings"
-msgstr ""
+msgstr "Oda Ayarlarını Güncelle"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
-msgstr ""
+msgstr "Bir doğrudan odanın ayarları değiştirilemez"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
 #, kde-format
 msgid "Room name cannot be empty"
-msgstr ""
+msgstr "Oda adı boş olamaz"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
 #, kde-format
@@ -1182,17 +1150,18 @@ msgid ""
 "Nothing to change: give at least one of name, topic, description or "
 "announcement"
 msgstr ""
+"Değiştirilecek bir şey yok: En azından bir ad, konu, açıklama veya duyuru "
+"verin."
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
 #, kde-format
 msgid "Update room settings failed: %1"
-msgstr ""
+msgstr "Oda ayarları güncellenemedi: %1"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start update room settings job"
-msgstr "Veriyi dışa aktarmak olanaksız."
+msgstr "Oda ayarlarını güncelleme işi olanaksız"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1500,10 +1469,9 @@ msgid "Uses"
 msgstr "Kullanımlar"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
-msgstr "En çok kullanım sayısı"
+msgstr "En çok kullanım"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -1522,17 +1490,15 @@ msgid "Never"
 msgstr "Asla"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "Süresi dolmuş"
+msgstr "Bugün süresi doluyor"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
-msgstr[0] "%1 gün içinde süresi doluyor"
+msgstr[0] "1 gün içinde süresi doluyor"
 msgstr[1] "%1 gün içinde süresi doluyor"
 
 #: core/model/admininvitemodel.cpp:123
@@ -1997,11 +1963,9 @@ msgid "On Hold Chats"
 msgstr "Bekleyen Sohbetler"
 
 #: core/model/roommodel.cpp:711
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Conversations"
-msgstr "Konuşma Başlat"
+msgstr "Konuşmalar"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -3122,10 +3086,8 @@ msgid "User is not in this room"
 msgstr "Kullanıcı, bu odada değil"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "“%1” odasında değilsiniz"
+msgstr "Odada değilsiniz"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4914,10 +4876,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "IP engellenmeden önce kaç hatalı giriş denemesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "Kullanıcı Engelini Kaldırma Süresi (Dakika)"
+msgstr "IP Engelini Kaldırma Süresi (Dakika)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5745,24 +5706,19 @@ msgid "Accepted Media Types"
 msgstr "Kabul Edilen Ortam Türleri"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
-"Ortam türlerinin virgülle ayrılmış listesi. Bu ayarın, Engellenen Ortam "
+"Ortam türlerinin virgülle ayrılmış listesi. Bu ayarın, Kabul Edilen Ortam "
 "Türleri üzerine önceliği vardır."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "Kabul Edilen Ortam Türleri"
+msgstr "Engellenen Ortam Türleri"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6229,16 +6185,13 @@ msgid "Timeout (ms)"
 msgstr "Zaman Aşımı (ms)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
 msgstr ""
-"Bir hata döndürmeden önce bir arama sonucu için kaç milisaniye bekleneceği"
+"Bir hata döndürmeden önce bir bağlantı kurulması için ne kadar bekleneceği"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6328,11 +6281,9 @@ msgid "Trace method filter"
 msgstr "Yöntem süzgecini izle"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "Abonelik çağrılarını izle"
+msgstr "Abonelik süzgecinin izini sür"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6804,7 +6755,7 @@ msgstr "Twitter Gizi"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "Twitter Geri Çağrı URL’si"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6824,7 +6775,7 @@ msgstr "LinkedIn Gizi"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "LinkedIn Geri Çağrı URL’si"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6859,7 +6810,7 @@ msgstr "Meteor Gizi"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "Meteor Geri Çağrı URL’si"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6879,7 +6830,7 @@ msgstr "Facebook Gizi"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "Facebook Geri Çağrı URL’si"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6899,7 +6850,7 @@ msgstr "Github Gizi"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "Github Geri Çağrı URL’si"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6928,10 +6879,9 @@ msgid "Tokenpass Secret"
 msgstr "Tokenpass Gizi"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "Tokenpass Sunucu URL’si"
+msgstr "Tokenpass Geri Çağrı URL’si"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6946,7 +6896,7 @@ msgstr "Google Gizi"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "Google Geri Çağrı URL’si"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7030,6 +6980,9 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"Etkinleştirildiğinde, kullanıcı parolaları, daha önceden ayarlı politikalara "
+"uymalıdır. Not: Bu yalnızca yeni parolalar için geçerlidir, var olan "
+"parolalar için değil."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7154,7 +7107,7 @@ msgstr "DDP Hız Sınırı"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:52
 #, kde-format
 msgid "Limit by IP: requests allowed"
-msgstr "IP’ye göre sınırla; isteklere izin verilir"
+msgstr "IP’ye göre sınırla; İsteklere izin verilir"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:56
 #, kde-format
@@ -7164,50 +7117,42 @@ msgstr "IP’ye göre sınırla: Zaman aralığı"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:63
 #, kde-format
 msgid "Limit by User: requests allowed"
-msgstr "Kullanıcıya göre sınırla; isteklere izin verilir"
+msgstr "Kullanıcıya göre sınırla; İsteklere izin verilir"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
 #, kde-format
 msgid "Limit by User: interval time"
-msgstr "Kullanıcıya Göre Sınırla: Zaman aralığı"
+msgstr "Kullanıcıya göre sınırla: Zaman aralığı"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "Kullanıcıya göre sınırla; isteklere izin verilir"
+msgstr "Bağlantıya göre sınırla: İsteklere izin verilir"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "Kullanıcıya Göre Sınırla: Zaman aralığı"
+msgstr "Bağlantıya göre sınırla: Zaman aralığı"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "Kullanıcıya göre sınırla; isteklere izin verilir"
+msgstr "Yöntem başına kullanıcıya göre sınırla: İsteklere izin verilir"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "Kullanıcıya Göre Sınırla: Zaman aralığı"
+msgstr "Yöntem başına kullanıcıya göre sınırla: Zaman aralığı"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "Yöntem başına, bağlantıya göre sınırla"
+msgstr "Yöntem başına bağlantıya göre sınırla: İsteklere izin verilir"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "Yöntem başına, bağlantıya göre sınırla"
+msgstr "Yöntem başına bağlantıya göre sınırla: Zaman aralığı"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7502,15 +7447,12 @@ msgstr ""
 "engeller; eşzamanlama sorunlarına ve hatalı davranışlara neden olabilir!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"Bu ayar, istatistiklerin düzgün çalışmasını engelleyen LiveChat ziyaretçi "
+"Bu ayar, istatistiklerin düzgün çalışmasını engelleyen kullanıcı "
 "oturumlarının işlenmesini durdurur!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
@@ -8399,6 +8341,7 @@ msgstr "Metin Eklentileri"
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
 msgstr ""
+"Veride değişiklik yapan araçları çalıştırmadan önce kullanıcı onayı iste"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format

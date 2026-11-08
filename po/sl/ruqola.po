@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-07 00:57+0000\n"
-"PO-Revision-Date: 2026-11-06 06:49+0100\n"
+"POT-Creation-Date: 2026-11-08 02:57+0000\n"
+"PO-Revision-Date: 2026-11-07 19:55+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -801,12 +801,12 @@ msgstr "Vtičnica je bila nepričakovano zaprta."
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "Čakanje na še eno potrditev"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "Orodje MCP prosi za potrditev"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -814,11 +814,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"Zaženi \"%1\"?\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "Uporabnik je zavrnil dejanje"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -1467,8 +1469,7 @@ msgid "Uses"
 msgstr "Uporablja"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
 msgstr "Največje število uporabnikov"
 
@@ -1489,18 +1490,16 @@ msgid "Never"
 msgstr "Nikoli"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "Poteklo"
+msgstr "Poteklo danes"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
 msgstr[0] "Poteče v %1 dneh"
-msgstr[1] "Poteče v %1 dneh"
+msgstr[1] "Poteče v %1 dnevu"
 msgstr[2] "Poteče v %1 dneh"
 msgstr[3] "Poteče v %1 dneh"
 
@@ -3121,10 +3120,8 @@ msgid "User is not in this room"
 msgstr "Uporabnik ni v tej sobi"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "Niste v sobi `%1`"
+msgstr "Niste v sobi"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4927,10 +4924,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Koliko zgrešenih poskusov pred blokiranjem na IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "Čas za deblokiranje uporabnika (v minutah)"
+msgstr "Čas za deblokiranje IP (v minutah)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5760,24 +5756,19 @@ msgid "Accepted Media Types"
 msgstr "Sprejemljive zvrsti medijev"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
 "Seznam zvrsti medijev ločenih z vejicami. Ta nastavitev ima prednost pred "
-"blokiranimi zvrstmi medijev."
+"sprejetimi zvrstmi medijev."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "Sprejemljive zvrsti medijev"
+msgstr "Blokirane zvrsti medijev"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6242,15 +6233,14 @@ msgid "Timeout (ms)"
 msgstr "Časovni rok (ms)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
-msgstr "Koliko milisekund čakanja na rezultate iskanja pred vračanjem napake"
+msgstr ""
+"Koliko milisekund počakati na vzpostavitev povezave, preden naj se vrne "
+"napaka"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6339,11 +6329,9 @@ msgid "Trace method filter"
 msgstr "Filter sledi metod"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "Sledi klice naročnikov"
+msgstr "Filter naročnine na sledenje"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6814,7 +6802,7 @@ msgstr "Skrivnost Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "Povratni URL za Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6834,7 +6822,7 @@ msgstr "Skrivnost LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "Povratni URL za LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6869,7 +6857,7 @@ msgstr "Skrivnost Meteor"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "URL za povratni klic Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6889,7 +6877,7 @@ msgstr "Skrivnost Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "Povratni URL za Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6909,7 +6897,7 @@ msgstr "Skrivnost Github"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "Povratni URL za GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6938,10 +6926,9 @@ msgid "Tokenpass Secret"
 msgstr "Skrivnost Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "URL strežnika Tokenpass"
+msgstr "Povratni URL za Tokepass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6956,7 +6943,7 @@ msgstr "Skrivnost Google"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "Povratni URL za Google"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7039,6 +7026,8 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"Ko je ta možnost omogočena, morajo uporabniška gesla ustrezati določenim "
+"pravilom. Opomba: to velja le za nova gesla, ne pa za obstoječa."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7181,42 +7170,34 @@ msgid "Limit by User: interval time"
 msgstr "Omeji po uporabniku: čas intervala"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "Omejeno za uporabnika: dovoljenih zahtevkov"
+msgstr "Omeji na povezavo: dovoljenih zahtevkov"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "Omeji po uporabniku: čas intervala"
+msgstr "Omeji po povezavi: čas intervala"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "Omejeno za uporabnika: dovoljenih zahtevkov"
+msgstr "Omejitev na uporabnika glede na metodo: dovoljenih zahtevkov"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "Omeji po uporabniku: čas intervala"
+msgstr "Omejitev na uporabnika po metodi: časovni interval"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "Omeji po povezavi na metodo"
+msgstr "Omejitev glede na povezavo po metodi: dovoljeni zahtevki"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "Omeji po povezavi na metodo"
+msgstr "Omeji glede na povezavo po metodi: časovni interval"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7512,16 +7493,13 @@ msgstr ""
 "pojavkom, to lahko povzroča probleme sinhronizacije in čudno obnašanje!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"Ta nastavitev ustavi obdelave obiskovalcev klepeta v živo, kar povzroči, da "
-"statistika ne deluje pravilno!"
+"Ta nastavitev ustavi obdelavo uporabniških sej, zaradi česar statistika "
+"preneha pravilno delovati!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
@@ -8415,7 +8393,7 @@ msgstr "Vtičniki besedila"
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
-msgstr ""
+msgstr "Zahtevaj potrditev pred zagonom orodij, ki spreminjajo podatke"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format

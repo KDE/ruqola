@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-07 00:57+0000\n"
-"PO-Revision-Date: 2026-11-06 13:46+0100\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"POT-Creation-Date: 2026-11-08 02:57+0000\n"
+"PO-Revision-Date: 2026-11-07 17:40+0100\n"
+"Last-Translator: freek <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -802,12 +802,12 @@ msgstr "Socket is onverwacht gesloten."
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "Een verdere bevestiging is in afwachting"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "MCP-hulpmiddel vraagt ​​om bevestiging"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -815,11 +815,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"\"%1\" uitvoeren?\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "Actie geweigerd door gebruiker"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -1468,8 +1470,7 @@ msgid "Uses"
 msgstr "Gebruikt"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
 msgstr "Max aantal keer gebruikt"
 
@@ -1490,18 +1491,16 @@ msgid "Never"
 msgstr "Nooit"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "Verlopen"
+msgstr "Verloopt vandaag"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
-msgstr[0] "Verlopen na %1 dagen"
-msgstr[1] "Verlopen na %1 dagen"
+msgstr[0] "Verloopt na 1 dag"
+msgstr[1] "Verloopt na %1 dagen"
 
 #: core/model/admininvitemodel.cpp:123
 #, kde-format
@@ -3108,10 +3107,8 @@ msgid "User is not in this room"
 msgstr "Gebruiker is niet in deze room"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "U bent niet in de room `%1`"
+msgstr "U bent niet in de room"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -4909,10 +4906,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Hoeveel mislukte pogingen tot aanmelden totdat IP wordt geblokkeerd"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "Tijd om blokkering van gebruiker op te heffen (in minuten)"
+msgstr "Tijd om blokkering van IP op te heffen (in minuten)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5748,24 +5744,19 @@ msgid "Accepted Media Types"
 msgstr "Geaccepteerde typen media"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
 "Kommagescheiden lijst van typen media. Deze instellingen hebben prioriteit "
-"boven de geblokkeerde typen media."
+"boven de geaccepteerde typen media."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "Geaccepteerde typen media"
+msgstr "Geblokkeerde typen media"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6235,17 +6226,14 @@ msgid "Timeout (ms)"
 msgstr "Timeout (ms)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
 msgstr ""
-"Hoeveel milliseconden wachten op een zoekresultaat alvorens een fout terug "
-"te geven"
+"Hoeveel milliseconden wachten op een verbinding om te worden geactiveerd "
+"alvorens een fout terug te geven"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6335,11 +6323,9 @@ msgid "Trace method filter"
 msgstr "Filter voor volgmethode"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "Aanroepen vgoor inschrijven volgen"
+msgstr "Inschrijvingsfilter volgen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6814,7 +6800,7 @@ msgstr "Geheim van Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "URL van Twitter beantwoording oproep"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6834,7 +6820,7 @@ msgstr "Geheim van LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "URL van LinkedIn beantwoording oproep"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6869,7 +6855,7 @@ msgstr "Geheim van Meteor"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "URL van Meteor beantwoording oproep"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6889,7 +6875,7 @@ msgstr "Geheim van Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "URL van Facebook beantwoording oproep"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6909,7 +6895,7 @@ msgstr "Geheim van GitHub"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "URL van Github beantwoording oproep"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -6938,10 +6924,9 @@ msgid "Tokenpass Secret"
 msgstr "Geheim van Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "URL van Tokenpass-server"
+msgstr "URL van Tokenpass beantwoording oproep"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -6956,7 +6941,7 @@ msgstr "Geheim van Google"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "URL van Google beantwoording oproep"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7041,6 +7026,9 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"Indien ingeschakeld, moeten gebruikerswachtwoorden voldoen aan de "
+"vastgestelde beleidsregels. Let op: dit geldt alleen voor nieuwe "
+"wachtwoorden, niet voor bestaande wachtwoorden."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7186,42 +7174,34 @@ msgid "Limit by User: interval time"
 msgstr "Per gebruiker beperken: intervaltijd"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "Per gebruiker beperken: verzoeken toegestaan"
+msgstr "Per verbinding beperken: verzoeken toegestaan"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "Per gebruiker beperken: intervaltijd"
+msgstr "Per verbinding beperken: intervaltijd"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "Per gebruiker beperken: verzoeken toegestaan"
+msgstr "Per gebruiker per periode beperken: verzoeken toegestaan"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "Per gebruiker beperken: intervaltijd"
+msgstr "Per gebruiker per methode beperken: intervaltijd"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "Per verbinding per methode beperken"
+msgstr "Per verbinding per methode beperken: verzoeken toegestaan"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "Per verbinding per methode beperken"
+msgstr "Per verbinding per methode beperken: intervaltijd"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7523,16 +7503,13 @@ msgstr ""
 "gedrag veroorzaken!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"Deze instelling stopt het verwerken van livechat bezoekerssessies die "
-"veroorzaakt dat de statistieken stoppen met juist te werken!"
+"Deze instelling stopt het verwerken van gebruikerssessies die veroorzaakt "
+"dat de statistieken stoppen met juist te werken!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
@@ -8425,6 +8402,8 @@ msgstr "Tekstplug-ins"
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
 msgstr ""
+"Vraag om bevestiging voordat hulpmiddelen worden uitgevoerd die gegevens "
+"wijzigen"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
