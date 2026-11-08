@@ -51,6 +51,7 @@ Q_SIGNALS:
     void startDiscussionDone(const QJsonObject &replyObject);
 
 protected:
+    [[nodiscard]] QString errorMessage(const QString &str, const QJsonObject &detail) override;
     [[nodiscard]] QString generateErrorMessage(const QString &errorStr) const override;
 
 private:

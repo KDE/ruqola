@@ -179,8 +179,18 @@ QString RoomStartDiscussionJob::generateErrorMessage(const QString &errorStr) co
 {
     if (errorStr == "error-invalid-room"_L1) {
         return i18n("Invalid room");
+    } else if (errorStr == "error-action-not-allowed"_L1) {
+        return i18n("You are not allowed to create a discussion");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
+}
+
+QString RoomStartDiscussionJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == "error-action-not-allowed"_L1) {
+        return i18n("You are not allowed to create a discussion.");
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
 
 #include "moc_roomstartdiscussionjob.cpp"
