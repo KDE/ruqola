@@ -56,6 +56,7 @@ private:
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateChannels() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateDirectMessages() const;
     [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateTeams() const;
+    [[nodiscard]] LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateDiscussions() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRegisterUserSuccessed();
     LIBRUQOLAWIDGETS_NO_EXPORT void setupActions();
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
