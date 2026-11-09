@@ -71,6 +71,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotPressed(const QModelIndex &index);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotSetCategory(const QModelIndex &index, const QByteArray &identifier);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCategoriesChanged(const QList<Category> &categories);
+    LIBRUQOLAWIDGETS_NO_EXPORT void addDumpRoomMenu(QMenu *menu, Room *room);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;

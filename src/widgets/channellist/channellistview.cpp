@@ -178,9 +178,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addMenu(categoryMenu);
     }
 
+    const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
+    Room *room = mCurrentRocketChatAccount->room(roomId);
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
-        const QByteArray roomId = index.data(RoomModel::RoomId).toByteArray();
-        Room *room = mCurrentRocketChatAccount->room(roomId);
         if (mCurrentRocketChatAccount->teamEnabled()) {
             if (room) {
                 const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
@@ -239,16 +239,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
                 slotConfigureNotification(room);
             });
             menu.addAction(configureNotificationChannel);
-            if (Ruqola::self()->debug()) {
-                menu.addSeparator();
-                auto debugRoomAction = new QAction(u"Dump Room"_s, &menu); // Don't translate it.
-                connect(debugRoomAction, &QAction::triggered, this, [this, room]() {
-                    ShowDebugDialog d(this);
-                    d.setPlainText(QString::fromUtf8(Room::serialize(room, false)));
-                    d.exec();
-                });
-                menu.addAction(debugRoomAction);
-            }
+            addDumpRoomMenu(&menu, room);
         }
         menu.addSeparator();
         auto quitChannel = new QAction(QIcon::fromTheme(u"dialog-close"_s), i18nc("@action", "Quit Channel"), &menu);
@@ -259,11 +250,26 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(quitChannel);
     } else {
+        addDumpRoomMenu(&menu, room);
         menu.addSeparator();
         menu.addAction(hideChannel);
     }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
+    }
+}
+
+void ChannelListView::addDumpRoomMenu(QMenu *menu, Room *room)
+{
+    if (Ruqola::self()->debug()) {
+        menu->addSeparator();
+        auto debugRoomAction = new QAction(u"Dump Room"_s, menu); // Don't translate it.
+        connect(debugRoomAction, &QAction::triggered, this, [this, room]() {
+            ShowDebugDialog d(this);
+            d.setPlainText(QString::fromUtf8(Room::serialize(room, false)));
+            d.exec();
+        });
+        menu->addAction(debugRoomAction);
     }
 }
 
