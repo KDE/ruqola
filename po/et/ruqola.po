@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:57+0000\n"
+"POT-Creation-Date: 2026-11-09 00:55+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -3513,6 +3513,16 @@ msgstr ""
 #| msgid "Invalid subscription"
 msgid "Invalid Subscription"
 msgstr "Vigane tellimus"
+
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:183
+#, kde-format
+msgid "You are not allowed to create a discussion"
+msgstr ""
+
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:191
+#, kde-format
+msgid "You are not allowed to create a discussion."
+msgstr ""
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:65
 #, kde-format

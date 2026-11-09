@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:57+0000\n"
+"POT-Creation-Date: 2026-11-09 00:55+0000\n"
 "PO-Revision-Date: 2026-11-07 05:52-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -3249,6 +3249,16 @@ msgstr "Esta é uma funcionalidade empresarial"
 #, kde-format
 msgid "Invalid Subscription"
 msgstr "Assinatura inválida"
+
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:183
+#, kde-format
+msgid "You are not allowed to create a discussion"
+msgstr ""
+
+#: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:191
+#, kde-format
+msgid "You are not allowed to create a discussion."
+msgstr ""
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:65
 #, kde-format
