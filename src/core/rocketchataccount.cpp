@@ -2808,6 +2808,11 @@ void RocketChatAccount::slotRegisterUserDone()
 void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 {
     mOwnUser.parseOwnUserInfo(replyObject);
+    if (mSettings->authMethodType() == AuthenticationManager::AuthMethodType::PersonalAccessToken) {
+        if (const QString name = mOwnUser.userName(); !name.isEmpty() && name != mSettings->userName()) {
+            mSettings->setUserName(name);
+        }
+    }
     mAwayManager->updateSettings();
     mBannerInfos.parseBannerInfos(replyObject);
     const User user = mOwnUser.user();
