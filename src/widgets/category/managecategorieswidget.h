@@ -23,6 +23,8 @@ public:
     void setCategories(const QList<Category> &categories);
     [[nodiscard]] QList<Category> categories() const;
 
+    [[nodiscard]] QList<QByteArray> categoriesRemoved() const;
+
 private:
     enum CategoryRoles {
         CategoryRole = Qt::UserRole + 1,
@@ -34,6 +36,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void updateButtons();
     LIBRUQOLAWIDGETS_NO_EXPORT void addCategory(const Category &category);
     LIBRUQOLAWIDGETS_NO_EXPORT static void updateItem(QStandardItem *item, const Category &category);
+    QList<QByteArray> mRemovedCategoriesIdentifier;
     QListView *const mCategoriesListView;
     QStandardItemModel *const mCategoriesModel;
     QSortFilterProxyModel *const mCategoriesProxyModel;

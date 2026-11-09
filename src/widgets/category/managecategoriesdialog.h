@@ -18,6 +18,8 @@ public:
     void setCategories(const QList<Category> &categories);
     [[nodiscard]] QList<Category> categories() const;
 
+    [[nodiscard]] QList<QByteArray> categoriesRemoved() const;
+
 private:
     ManageCategoriesWidget *const mManageCategoriesWidget;
 };

@@ -163,6 +163,9 @@ QJsonDocument UsersSetPreferencesJob::json() const
         }
         dataObj["featuresPreview"_L1] = array;
     }
+    if (mUsersSetPreferencesInfo.sidebarCategories.has_value()) {
+        dataObj["sidebarCategories"_L1] = *mUsersSetPreferencesInfo.sidebarCategories;
+    }
 
     jsonObj["data"_L1] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);

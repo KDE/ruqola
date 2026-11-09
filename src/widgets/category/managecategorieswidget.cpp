@@ -14,6 +14,7 @@
 #include <QSortFilterProxyModel>
 #include <QStandardItemModel>
 #include <QToolButton>
+#include <QUuid>
 #include <QVBoxLayout>
 using namespace Qt::Literals::StringLiterals;
 
@@ -133,6 +134,7 @@ void ManageCategoriesWidget::slotAddCategory()
     QPointer<CategoryDialog> dialog(new CategoryDialog(CategoryDialog::Mode::Add, this));
     if (dialog->exec()) {
         Category category;
+        category.setIdentifier(QUuid::createUuid().toByteArray(QUuid::WithoutBraces));
         category.setName(dialog->categoryName());
         addCategory(category);
     }
@@ -174,6 +176,7 @@ void ManageCategoriesWidget::slotRemoveCategory()
                                         KStandardGuiItem::cancel())
         == KMessageBox::PrimaryAction) {
         mCategoriesModel->removeRow(mCategoriesProxyModel->mapToSource(index).row());
+        // TODO add to mRemovedCategoriesIdentifier
         updateButtons();
     }
 }
@@ -185,4 +188,8 @@ void ManageCategoriesWidget::updateButtons()
     mRemoveButton->setEnabled(hasSelection);
 }
 
+QList<QByteArray> ManageCategoriesWidget::categoriesRemoved() const
+{
+    return mRemovedCategoriesIdentifier;
+}
 #include "moc_managecategorieswidget.cpp"

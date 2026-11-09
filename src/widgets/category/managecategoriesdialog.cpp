@@ -47,4 +47,9 @@ QList<Category> ManageCategoriesDialog::categories() const
     return mManageCategoriesWidget->categories();
 }
 
+QList<QByteArray> ManageCategoriesDialog::categoriesRemoved() const
+{
+    return mManageCategoriesWidget->categoriesRemoved();
+}
+
 #include "moc_managecategoriesdialog.cpp"

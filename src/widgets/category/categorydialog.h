@@ -6,6 +6,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
+
 class CategoryWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CategoryDialog : public QDialog
 {

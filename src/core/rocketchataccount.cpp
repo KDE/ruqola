@@ -3072,7 +3072,21 @@ const QList<QRegularExpression> &RocketChatAccount::highlightWordsRegularExpress
 
 void RocketChatAccount::slotCategoriesChanged(const QList<Category> &categories)
 {
-    // TODO
+    QJsonArray sidebarCategories;
+    for (const auto &cat : categories) {
+        QJsonObject obj;
+        obj["_id"_L1] = QString::fromLatin1(cat.identifier());
+        obj["name"_L1] = cat.name();
+        obj["default"_L1] = cat.defaultCategory();
+        if (!cat.defaultCategory()) {
+            obj["showUnreads"_L1] = cat.showUnreads();
+        }
+        sidebarCategories.append(obj);
+    }
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    info.sidebarCategories = sidebarCategories;
+    info.userId = userId();
+    setUserPreferences(info);
 }
 
 void RocketChatAccount::setAvatarUrl(const QString &url)

@@ -8,6 +8,7 @@
 
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
+#include <QJsonArray>
 class QDebug;
 
 namespace RocketChatRestApi
@@ -50,6 +51,7 @@ public:
         int masterVolume = -1;
         State muteFocusedConversations = State::Unknown;
         QMap<QString, bool> featuresPreview;
+        std::optional<QJsonArray> sidebarCategories;
 
         // Add more
     };
