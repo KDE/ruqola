@@ -958,9 +958,13 @@ Utils::AvatarInfo Room::avatarInfo() const
     } else if (uidsCount == 2) {
         info.avatarType = Utils::AvatarType::User;
         if (mRocketChatAccount) {
+            const QString ownUserName = mRocketChatAccount->userName();
+            if (ownUserName.isEmpty()) {
+                qCDebug(RUQOLA_LOG) << "account username is empty";
+            }
             QString otherUserName;
             for (const QString &userName : mUserNames) {
-                if (userName != mRocketChatAccount->userName()) {
+                if (userName != ownUserName) {
                     otherUserName = userName;
                 }
             }
