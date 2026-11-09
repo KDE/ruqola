@@ -267,6 +267,7 @@ Urgency=Normal
 Name=MCP Tool Asks Confirmation
 Name[ca]=L'eina MCP demana confirmació
 Name[es]=Herramienta MCP pide confirmación
+Name[he]=כלי MCP מבקש אישור
 Name[ka]=MCP ხელსაწყო დადასტურებას ითხოვს
 Name[nl]=MCP-hulpmiddel vraagt ​​om bevestiging
 Name[pt_BR]=Ferramenta MCP solicita confirmação
