@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 cmake_minimum_required(VERSION 3.29)
-set(RUQOLA_VERSION "2.9.40")
+set(RUQOLA_VERSION "2.9.41")
 # TODO: update it in each release version
 set(RUQOLA_RELEASE_VERSION "27.01.30") # yy.MM.dd
 
@@ -511,10 +511,6 @@ if(WARNINGS_AS_ERRORS)
         add_compile_options(-Werror)
         add_compile_options(-Wno-error=deprecated-declarations)
     endif()
-endif()
-
-if(PLUGINS_AUTHENTICATION_BASED_ON_O2)
-    find_package(o2)
 endif()
 
 add_subdirectory(src)

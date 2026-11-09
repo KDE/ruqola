@@ -15,11 +15,7 @@ kcoreaddons_add_plugin(ruqola_googleauthenticationplugin JSON ruqola_googleauthe
     ${ruqola_googleauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication
 )
 
-target_link_libraries(
-    ruqola_googleauthenticationplugin
-    libruqolacore
-    ${o2_LIBRARIES}
-)
+target_link_libraries(ruqola_googleauthenticationplugin libruqolacore)
 
 if(BUILD_TESTING)
     add_subdirectory(autotests)
