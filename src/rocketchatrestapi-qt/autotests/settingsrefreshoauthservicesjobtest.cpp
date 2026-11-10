@@ -8,7 +8,7 @@
 
 #include "ruqola_restapi_helper.h"
 
-#include "settings/updateadminsettingsjob.h"
+#include "settings/settingsrefreshoauthservicesjob.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(SettingsRefreshOAuthServicesJobTest)
@@ -21,7 +21,7 @@ SettingsRefreshOAuthServicesJobTest::SettingsRefreshOAuthServicesJobTest(QObject
 
 void SettingsRefreshOAuthServicesJobTest::shouldHaveDefaultValue()
 {
-    UpdateAdminSettingsJob job;
+    SettingsRefreshOAuthServicesJob job;
     RuqolaRestApiHelper::verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -30,31 +30,18 @@ void SettingsRefreshOAuthServicesJobTest::shouldHaveDefaultValue()
 
 void SettingsRefreshOAuthServicesJobTest::shouldGenerateRequest()
 {
-    UpdateAdminSettingsJob job;
+    SettingsRefreshOAuthServicesJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     RuqolaRestApiHelper::verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/settings"_s));
+    QCOMPARE(request.url(), QUrl(u"http://www.kde.org/api/v1/settings.refreshOAuthServices"_s));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), u"application/json"_s);
-}
-
-void SettingsRefreshOAuthServicesJobTest::shouldGenerateJson()
-{
-    const UpdateAdminSettingsJob job;
-    // TODO
 }
 
 void SettingsRefreshOAuthServicesJobTest::shouldNotStarting()
 {
-    UpdateAdminSettingsJob job;
+    SettingsRefreshOAuthServicesJob job;
 
     RuqolaRestApiHelper::verifyNotStartingJob(&job);
-    UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
-    info.settingName = u"bla"_s;
-    info.settingsValue = false;
-    info.valueType = UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Boolean;
-
-    job.setUpdateAdminSettingsInfo(info);
-
     QVERIFY(!job.canStart());
 
     job.setAuthCode(u"bla"_s);
