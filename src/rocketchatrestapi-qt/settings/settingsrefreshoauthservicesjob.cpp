@@ -35,7 +35,7 @@ bool SettingsRefreshOAuthServicesJob::start()
 void SettingsRefreshOAuthServicesJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     if (const auto replyObject = checkResponse("SettingsRefreshOAuthServicesJob"_ba, replyErrorString, replyJson)) {
-        Q_EMIT updateAdminSettingsDone(*replyObject);
+        Q_EMIT settingsRefreshOAuthServicesDone(*replyObject);
     }
 }
 

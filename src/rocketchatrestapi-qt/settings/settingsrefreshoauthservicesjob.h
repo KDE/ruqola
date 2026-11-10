@@ -46,7 +46,7 @@ public:
     [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
 Q_SIGNALS:
-    void updateAdminSettingsDone(const QJsonObject &obj);
+    void settingsRefreshOAuthServicesDone(const QJsonObject &obj);
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
