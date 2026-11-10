@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 00:13+0000\n"
+"POT-Creation-Date: 2026-11-10 03:04+0000\n"
 "PO-Revision-Date: 2026-10-09 07:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1844,12 +1844,12 @@ msgstr "Brez povezave"
 msgid "Not connected yet"
 msgstr "Še ne povezan"
 
-#: core/rocketchataccount.cpp:3291
+#: core/rocketchataccount.cpp:3296
 #, kde-format
 msgid "Room Added"
 msgstr "Soba je bila dodana"
 
-#: core/rocketchataccount.cpp:3292
+#: core/rocketchataccount.cpp:3297
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Novi soba je bila dodana v '%1'."

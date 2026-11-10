@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 00:13+0000\n"
+"POT-Creation-Date: 2026-11-10 03:04+0000\n"
 "PO-Revision-Date: 2026-11-04 22:21+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1859,13 +1859,13 @@ msgstr "Nincs kapcsolódva"
 msgid "Not connected yet"
 msgstr "Nincs kapcsolódva"
 
-#: core/rocketchataccount.cpp:3291
+#: core/rocketchataccount.cpp:3296
 #, fuzzy, kde-format
 #| msgid "Account Added"
 msgid "Room Added"
 msgstr "Fiók hozzáadva"
 
-#: core/rocketchataccount.cpp:3292
+#: core/rocketchataccount.cpp:3297
 #, fuzzy, kde-format
 #| msgid "A new account was added."
 msgid "A new room was added in '%1'."

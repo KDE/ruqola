@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 00:13+0000\n"
+"POT-Creation-Date: 2026-11-10 03:04+0000\n"
 "PO-Revision-Date: 2026-10-13 04:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1832,12 +1832,12 @@ msgstr "არაა დაკავშირებული"
 msgid "Not connected yet"
 msgstr "არაა დაკავშირებული"
 
-#: core/rocketchataccount.cpp:3291
+#: core/rocketchataccount.cpp:3296
 #, kde-format
 msgid "Room Added"
 msgstr "დაემატა ოთახი"
 
-#: core/rocketchataccount.cpp:3292
+#: core/rocketchataccount.cpp:3297
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "'%1'-ში დაემატა ახალი ოთახი."
