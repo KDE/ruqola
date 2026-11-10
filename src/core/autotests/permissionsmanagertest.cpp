@@ -72,7 +72,15 @@ void PermissionsManagerTest::shouldLoadPermissions_data()
             p.setUpdatedAt(1533550243889);
             permissions.append(std::move(p));
         }
-        QTest::addRow("permissions1") << u"permissions1"_s << 5 << 4 << permissions;
+        {
+            Permission p;
+            p.setIdentifier(u"add-oauth-service"_s);
+            p.setRoles({u"admin"_s});
+            p.setRolesStr({u"admin"_s});
+            p.setUpdatedAt(1533550243860);
+            permissions.append(p);
+        }
+        QTest::addRow("permissions1") << u"permissions1"_s << 5 << 5 << permissions;
     }
 }
 
@@ -142,6 +150,14 @@ void PermissionsManagerTest::shouldUpdatePermissions_data()
             p.setUpdatedAt(1533550243889);
             permissions.append(std::move(p));
         }
+        {
+            Permission p;
+            p.setIdentifier(u"add-oauth-service"_s);
+            p.setRoles({u"admin"_s});
+            p.setRolesStr({u"admin"_s});
+            p.setUpdatedAt(1533550243860);
+            permissions.append(p);
+        }
         QTest::addRow("permissions1") << u"permissions1"_s << u"update-permissions1"_s << permissions << permissions << false;
     }
     {
@@ -183,6 +199,15 @@ void PermissionsManagerTest::shouldUpdatePermissions_data()
             Permission p;
             p.setIdentifier(u"add-user-to-any-p-room"_s);
             p.setUpdatedAt(1533550243889);
+            permissions.append(p);
+            updatedPermissions.append(p);
+        }
+        {
+            Permission p;
+            p.setIdentifier(u"add-oauth-service"_s);
+            p.setRoles({u"admin"_s});
+            p.setRolesStr({u"admin"_s});
+            p.setUpdatedAt(1533550243860);
             permissions.append(p);
             updatedPermissions.append(p);
         }
