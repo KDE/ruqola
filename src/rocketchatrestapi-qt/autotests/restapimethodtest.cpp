@@ -405,6 +405,10 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsHistory), QUrl(u"http://www.kde.org/api/v1/rooms.history"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsSetCategory, RestApiUtil::RestApiUrlExtensionType::Experimental),
              QUrl(u"http://www.kde.org/api/experimental/rooms.setCategory"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ServiceConfigurations), QUrl(u"http://www.kde.org/api/v1/service.configurations"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsAddCustomOAuth), QUrl(u"http://www.kde.org/api/v1/settings.addCustomOAuth"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsRemoveCustomOAuth), QUrl(u"http://www.kde.org/api/v1/settings.removeCustomOAuth"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsRefreshOAuthServices), QUrl(u"http://www.kde.org/api/v1/settings.refreshOAuthServices"_s));
 }
 
 #include "moc_restapimethodtest.cpp"

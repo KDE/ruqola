@@ -652,6 +652,14 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"rooms.history"_s;
     case RestApiUtil::RestApiUrlType::RoomsSetCategory:
         return u"rooms.setCategory"_s;
+    case RestApiUtil::RestApiUrlType::ServiceConfigurations:
+        return u"service.configurations"_s;
+    case RestApiUtil::RestApiUrlType::SettingsAddCustomOAuth:
+        return u"settings.addCustomOAuth"_s;
+    case RestApiUtil::RestApiUrlType::SettingsRemoveCustomOAuth:
+        return u"settings.removeCustomOAuth"_s;
+    case RestApiUtil::RestApiUrlType::SettingsRefreshOAuthServices:
+        return u"settings.refreshOAuthServices"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
