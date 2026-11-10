@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:55+0000\n"
-"PO-Revision-Date: 2026-10-26 07:13+0100\n"
+"POT-Creation-Date: 2026-11-10 00:57+0000\n"
+"PO-Revision-Date: 2026-11-09 15:53+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.10\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: apps/main.cpp:60
 #, kde-format
@@ -801,12 +801,12 @@ msgstr "Il socket è stato chiuso inaspettatamente."
 #: core/mcpserver/common/toolbase.cpp:87
 #, kde-format
 msgid "Another confirmation is pending"
-msgstr ""
+msgstr "È in attesa un'ulteriore conferma"
 
 #: core/mcpserver/common/toolbase.cpp:93
 #, kde-format
 msgid "MCP tool asks confirmation"
-msgstr ""
+msgstr "Lo strumento MCP richiede una conferma"
 
 #: core/mcpserver/common/toolbase.cpp:94
 #, kde-format
@@ -814,11 +814,13 @@ msgid ""
 "Run \"%1\"?\n"
 "%2"
 msgstr ""
+"Vuoi eseguire «%1»?\n"
+"%2"
 
 #: core/mcpserver/common/toolbase.cpp:108
 #, kde-format
 msgid "Action refused by user"
-msgstr ""
+msgstr "Azione rifiutata dall'utente"
 
 #: core/mcpserver/common/toolbase.cpp:111
 #: core/videoconference/videoconferencenotificationjob.cpp:61
@@ -841,31 +843,27 @@ msgstr "Rifiuta"
 #: core/mcpserver/setmystatus/setmystatustool.cpp:45
 #: core/mcpserver/starmessage/starmessagetool.cpp:47
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:53
-#, fuzzy, kde-format
-#| msgid "Account information"
+#, kde-format
 msgid "Account is not logged in"
-msgstr "Informazioni sull'account"
+msgstr "L'account non ha effettuato l'accesso"
 
 #: core/mcpserver/common/toolbase.cpp:157
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:99
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing search pattern"
-msgstr "URL del server mancante."
+msgstr "Modello di ricerca mancante"
 
 #: core/mcpserver/common/toolbase.cpp:173
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:129
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Search failed: %1"
-msgstr "Scaricamento non riuscito: %1"
+msgstr "Ricerca non riuscita: %1"
 
 #: core/mcpserver/common/toolbase.cpp:176
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:132
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start search"
-msgstr "Impossibile esportare i dati."
+msgstr "Impossibile avviare la ricerca"
 
 #: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
 #: core/model/roommodel.cpp:695
@@ -889,22 +887,19 @@ msgid "Users"
 msgstr "Utenti"
 
 #: core/mcpserver/common/toolutils.cpp:23
-#, fuzzy, kde-format
-#| msgid "Current Password"
+#, kde-format
 msgid "Current User"
-msgstr "Password attuale"
+msgstr "Utente attuale"
 
 #: core/mcpserver/common/toolutils.cpp:25
 #, kde-format
 msgid "Misc"
-msgstr ""
+msgstr "Varie"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Get My Status"
-msgstr "Modifica stato utente"
+msgstr "Ottieni il mio stato"
 
 #: core/mcpserver/getmystatus/getmystatustool.cpp:41
 #: core/mcpserver/getroominfo/getroominfotool.cpp:43
@@ -923,16 +918,14 @@ msgstr "Modifica stato utente"
 #: core/mcpserver/setmystatus/setmystatustool.cpp:41
 #: core/mcpserver/starmessage/starmessagetool.cpp:43
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:49
-#, fuzzy, kde-format
-#| msgid "No Attachment found"
+#, kde-format
 msgid "No account found"
-msgstr "Nessun allegato trovato"
+msgstr "Nessun account trovato"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:28
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Info"
-msgstr "Nessuna stanza trovata"
+msgstr "Ottieni informazioni della stanza"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:48
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:96
@@ -942,7 +935,7 @@ msgstr "Nessuna stanza trovata"
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:59
 #, kde-format
 msgid "Missing room identifier"
-msgstr ""
+msgstr "Identificatore di stanza mancante"
 
 #: core/mcpserver/getroominfo/getroominfotool.cpp:53
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:101
@@ -951,75 +944,63 @@ msgstr ""
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:64
 #, kde-format
 msgid "No room found with identifier \"%1\""
-msgstr ""
+msgstr "Nessuna stanza trovata con identificativo «%1»"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:47
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users with roles found"
-msgstr "Nessun utente trovato"
+msgstr "Nessun utente con ruoli trovato"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:72
-#, fuzzy, kde-format
-#| msgid "No Room found"
+#, kde-format
 msgid "Get Room Roles"
-msgstr "Nessuna stanza trovata"
+msgstr "Ottieni i ruoli della stanza"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:130
 #, kde-format
 msgid "Direct conversations have no room roles"
-msgstr ""
+msgstr "Nelle conversazioni dirette non esistono ruoli"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:133
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:101
-#, fuzzy, kde-format
-#| msgid "Unknown state"
+#, kde-format
 msgid "Unknown room type"
-msgstr "Stato sconosciuto"
+msgstr "Tipo di stanza sconosciuto"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:139
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Getting room roles failed: %1"
-msgstr "Scaricamento non riuscito: %1"
+msgstr "Impossibile ottenere i ruoli della stanza: %1"
 
 #: core/mcpserver/getroomroles/getroomrolestool.cpp:142
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start getting room roles"
-msgstr "Impossibile esportare i dati."
+msgstr "Impossibile avviare il recupero dei ruoli della stanza"
 
 #: core/mcpserver/getserverinfo/getserverinfotool.cpp:26
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Get Server Info"
-msgstr "Informazioni sul server"
+msgstr "Ottieni informazioni sul server"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:28
-#, fuzzy, kde-format
-#| msgid "Privacy Summary"
+#, kde-format
 msgid "Get Unread Summary"
-msgstr "Riepilogo della riservatezza"
+msgstr "Ottieni riepilogo dei messaggi non letti"
 
 #: core/mcpserver/getunreadsummary/getunreadsummarytool.cpp:79
-#, fuzzy, kde-format
-#| msgid "%1 Unread Message"
-#| msgid_plural "%1 Unread Messages"
+#, kde-format
 msgid "No unread messages"
-msgstr "%1 messaggio non letto"
+msgstr "Nessun messaggio non letto"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Get User Status"
-msgstr "Modifica stato utente"
+msgstr "Ottieni stato dell'utente"
 
 #: core/mcpserver/getuserstatus/getuserstatustool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing user name"
-msgstr "URL del server mancante."
+msgstr "Nome utente mancante"
 
 #: core/mcpserver/listaccounts/listaccountstool.cpp:27
 #, kde-format
@@ -1027,62 +1008,50 @@ msgid "List Accounts"
 msgstr "Elenca account"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Room Members"
-msgstr "Modifica stanza"
+msgstr "Elenca membri delle stanze"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:125
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No members found"
-msgstr "Nessun utente trovato"
+msgstr "Nessun membro trovato"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:137
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Listing members failed: %1"
-msgstr "Scaricamento non riuscito: %1"
+msgstr "L'elencazione dei membri non è riuscita: %1"
 
 #: core/mcpserver/listroommembers/listroommemberstool.cpp:140
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start listing members"
-msgstr "Impossibile esportare i dati."
+msgstr "Impossibile iniziare a elencare i membri"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Room"
+#, kde-format
 msgid "List Rooms"
-msgstr "Modifica stanza"
+msgstr "Elenca le stanze"
 
 #: core/mcpserver/listrooms/listroomstool.cpp:64
 #: core/mcpserver/searchrooms/searchroomstool.cpp:46
-#, fuzzy, kde-format
-#| msgid "No room found"
+#, kde-format
 msgid "No rooms found"
 msgstr "Nessuna stanza trovata"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Mark as Read"
+#, kde-format
 msgid "Mark Room as Read"
-msgstr "Marca come letto"
+msgstr "Marca la stanza come letta"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:75
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Mark room as read failed: %1"
-msgstr "Scaricamento non riuscito: %1"
+msgstr "Impossibile marcare la stanza come letta: %1"
 
 #: core/mcpserver/markroomasread/markroomasreadtool.cpp:78
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start mark room as read job"
-msgstr "Impossibile esportare i dati."
+msgstr "Impossibile avviare l'operazione per marcare la stanza come letta"
 
 #: core/mcpserver/mcpservermanager.cpp:46
 #, kde-format
@@ -1090,108 +1059,90 @@ msgid "Manage information from Ruqola"
 msgstr "Gestisci le informazioni da Ruqola"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Pin Message"
+#, kde-format
 msgid "Pin Message"
 msgstr "Appunta messaggio"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:52
 #: core/mcpserver/starmessage/starmessagetool.cpp:52
-#, fuzzy, kde-format
-#| msgid "Missing server url."
+#, kde-format
 msgid "Missing message identifier"
-msgstr "URL del server mancante."
+msgstr "Identificativo del messaggio mancante"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Pin message failed: %1"
-msgstr "Scaricamento non riuscito: %1"
+msgstr "Fissaggio del messaggio non riuscito: %1"
 
 #: core/mcpserver/pinmessage/pinmessagetool.cpp:73
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start pin message job"
-msgstr "Impossibile esportare i dati."
+msgstr "Impossibile avviare l'operazione di fissaggio del messaggio"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Messages"
+#, kde-format
 msgid "Search Messages"
-msgstr "Cerca messaggio"
+msgstr "Cerca messaggi"
 
 #: core/mcpserver/searchmessages/searchmessagestool.cpp:117
-#, fuzzy, kde-format
-#| msgid "No Messages found"
+#, kde-format
 msgid "No messages found"
 msgstr "Nessun messaggio trovato"
 
 #: core/mcpserver/searchrooms/searchroomstool.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Search Rooms"
+#, kde-format
 msgid "Search Rooms"
 msgstr "Cerca stanze"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search Users..."
+#, kde-format
 msgid "Search Users"
-msgstr "Cerca utenti..."
+msgstr "Cerca utenti"
 
 #: core/mcpserver/searchusers/searchuserstool.cpp:48
-#, fuzzy, kde-format
-#| msgid "No user found"
+#, kde-format
 msgid "No users found"
 msgstr "Nessun utente trovato"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit User Status"
+#, kde-format
 msgid "Set My Status"
-msgstr "Modifica stato utente"
+msgstr "Imposta il mio stato"
 
 #: core/mcpserver/setmystatus/setmystatustool.cpp:50
-#, fuzzy, kde-format
-#| msgid "Invalid user"
+#, kde-format
 msgid "Invalid status"
-msgstr "Utente non valido"
+msgstr "Stato non valido"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:27
-#, fuzzy, kde-format
-#| msgid "Starred Messages"
+#, kde-format
 msgid "Star Message"
-msgstr "Messaggi speciali"
+msgstr "Messaggio speciale"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:67
-#, fuzzy, kde-format
-#| msgid "Download failed: %1"
+#, kde-format
 msgid "Star message failed: %1"
-msgstr "Scaricamento non riuscito: %1"
+msgstr "Aggiunta ai messaggi speciali non riuscita: %1"
 
 #: core/mcpserver/starmessage/starmessagetool.cpp:70
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start star message job"
-msgstr "Impossibile esportare i dati."
+msgstr "Impossibile avviare l'operazione di aggiunta ai messaggi speciali"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:30
 #, kde-format
 msgid "Update Room Settings"
-msgstr ""
+msgstr "Aggiorna impostazioni della stanza"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:68
 #, kde-format
 msgid "Settings of a direct room cannot be changed"
-msgstr ""
+msgstr "Le impostazioni di una stanza diretta non possono essere modificate"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:79
 #, kde-format
 msgid "Room name cannot be empty"
-msgstr ""
+msgstr "Il nome della stanza non può essere vuoto"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:102
 #, kde-format
@@ -1199,17 +1150,20 @@ msgid ""
 "Nothing to change: give at least one of name, topic, description or "
 "announcement"
 msgstr ""
+"Nulla da modificare: fornisci almeno uno tra nome, argomento, descrizione o "
+"annuncio"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:116
 #, kde-format
 msgid "Update room settings failed: %1"
-msgstr ""
+msgstr "Aggiornamento delle impostazioni della stanza non riuscito: %1"
 
 #: core/mcpserver/updateroomsettings/updateroomsettingstool.cpp:119
-#, fuzzy, kde-format
-#| msgid "Impossible to export data."
+#, kde-format
 msgid "Impossible to start update room settings job"
-msgstr "Impossibile esportare i dati."
+msgstr ""
+"Impossibile avviare l'operazione di aggiornamento delle impostazioni della "
+"stanza"
 
 #: core/messages/block/block.cpp:160 core/messages/message.cpp:900
 #: core/model/notificationhistorymodel.cpp:69
@@ -1518,8 +1472,7 @@ msgid "Uses"
 msgstr "Usi"
 
 #: core/model/admininvitemodel.cpp:41
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Max uses"
 msgstr "Numero massimo di utilizzi"
 
@@ -1540,17 +1493,15 @@ msgid "Never"
 msgstr "Mai"
 
 #: core/model/admininvitemodel.cpp:119
-#, fuzzy, kde-format
-#| msgid "Expired"
+#, kde-format
 msgid "Expires today"
-msgstr "Scaduto"
+msgstr "Scade oggi"
 
 #: core/model/admininvitemodel.cpp:121
-#, fuzzy, kde-format
-#| msgid "Expire in %1 days"
+#, kde-format
 msgid "Expires in 1 day"
 msgid_plural "Expires in %1 days"
-msgstr[0] "Scade tra %1 giorni"
+msgstr[0] "Scade tra 1 giorno"
 msgstr[1] "Scade tra %1 giorni"
 
 #: core/model/admininvitemodel.cpp:123
@@ -1995,33 +1946,29 @@ msgid "Unknown"
 msgstr "Sconosciuto"
 
 #: core/model/roommodel.cpp:703
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Calls"
-msgstr "Chiamata in ingresso"
+msgstr "Chiamate in ingresso"
 
 #: core/model/roommodel.cpp:705
-#, fuzzy, kde-format
-#| msgid "Incoming Call"
+#, kde-format
 msgid "Incoming Live Chats"
-msgstr "Chiamata in ingresso"
+msgstr "Chat dal vivo in ingresso"
 
 #: core/model/roommodel.cpp:707
 #, kde-format
 msgid "Open Live chats"
-msgstr ""
+msgstr "Apri chat dal vivo"
 
 #: core/model/roommodel.cpp:709
 #, kde-format
 msgid "On Hold Chats"
-msgstr ""
+msgstr "Chat in attesa"
 
 #: core/model/roommodel.cpp:711
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Conversations"
-msgstr "Inizia conversazione"
+msgstr "Conversazioni"
 
 #: core/model/statusmodel.cpp:63
 #, kde-format
@@ -2213,7 +2160,7 @@ msgstr "Nascondi i messaggi «Si è unito a questa squadra»"
 msgid "(Autojoin)"
 msgstr "(Unisciti automaticamente)"
 
-#: core/model/usersforroommodel.cpp:304 core/room.cpp:1190
+#: core/model/usersforroommodel.cpp:304 core/room.cpp:1194
 #, kde-format
 msgid "Owner"
 msgstr "Proprietario"
@@ -2281,12 +2228,12 @@ msgstr "Non connesso"
 msgid "Not connected yet"
 msgstr "Non ancora connesso"
 
-#: core/rocketchataccount.cpp:3292
+#: core/rocketchataccount.cpp:3311
 #, kde-format
 msgid "Room Added"
 msgstr "Stanza aggiunta"
 
-#: core/rocketchataccount.cpp:3293
+#: core/rocketchataccount.cpp:3312
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr "Una nuova stanza è stata aggiunta in «%1»."
@@ -2301,27 +2248,27 @@ msgstr "Account aggiunto"
 msgid "A new account was added."
 msgstr "Un nuovo account è stato aggiunto."
 
-#: core/room.cpp:1193
+#: core/room.cpp:1197
 #, kde-format
 msgid "Leader"
 msgstr "Leader"
 
-#: core/room.cpp:1196
+#: core/room.cpp:1200
 #, kde-format
 msgid "Moderator"
 msgstr "Moderatore"
 
-#: core/room.cpp:1727
+#: core/room.cpp:1731
 #, kde-format
 msgid "Channel is read only."
 msgstr "Il canale è in sola lettura."
 
-#: core/room.cpp:1730
+#: core/room.cpp:1734
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Hai bloccato questo canale."
 
-#: core/room.cpp:1733
+#: core/room.cpp:1737
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Il canale è stato bloccato."
@@ -3162,10 +3109,8 @@ msgid "User is not in this room"
 msgstr "L'utente non è in questa stanza"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:349
-#, fuzzy
-#| msgid "You are not in the room `%1`"
 msgid "You are not in the room"
-msgstr "Non sei nella stanza «%1»"
+msgstr "Non sei nella stanza"
 
 #: rocketchatrestapi-qt/restapiabstractjob.cpp:350
 msgid "User registration is disabled"
@@ -3315,12 +3260,12 @@ msgstr "Sottoscrizione non valida"
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:183
 #, kde-format
 msgid "You are not allowed to create a discussion"
-msgstr ""
+msgstr "Non ti è consentito creare una discussione"
 
 #: rocketchatrestapi-qt/rooms/roomstartdiscussionjob.cpp:191
 #, kde-format
 msgid "You are not allowed to create a discussion."
-msgstr ""
+msgstr "Non ti è consentito creare una discussione."
 
 #: rocketchatrestapi-qt/rooms/saveroomsettingsjob.cpp:65
 #, kde-format
@@ -3397,7 +3342,7 @@ msgstr "Lo stato Invisibile è disabilitato"
 msgid "%1 is already in use."
 msgstr "%1 è già in uso."
 
-#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:175
+#: rocketchatrestapi-qt/users/userssetpreferencesjob.cpp:178
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Parametri non validi"
@@ -4975,10 +4920,9 @@ msgid "How many failed attempts until block by IP"
 msgstr "Quanti tentativi non riusciti fino al blocco per IP"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "Time to unblock User (In Minutes)"
+#, kde-format
 msgid "Time to unblock IP (In Minutes)"
-msgstr "Tempo per sbloccare l'utente (in minuti)"
+msgstr "Tempo per sbloccare l'IP (in minuti)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:138
 #, kde-format
@@ -5820,24 +5764,19 @@ msgid "Accepted Media Types"
 msgstr "Tipi di supporti accettati"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Comma-separated list of media types. This setting has priority over the "
-#| "Blocked Media Types."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
 "Elenco separato da virgola di tipi di supporti. Questa impostazione ha la "
-"priorità sui tipi di supporti bloccati."
+"priorità sui tipi di supporti accettati."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Accepted Media Types"
+#, kde-format
 msgid "Blocked Media Types"
-msgstr "Tipi di supporti accettati"
+msgstr "Tipi di supporti bloccati"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:65
 #, kde-format
@@ -6308,17 +6247,14 @@ msgid "Timeout (ms)"
 msgstr "Timeout (ms)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "How many milliseconds wait for a search result before return an error"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "How many milliseconds wait for a connection to be established before return "
 "an error"
 msgstr ""
-"Quanti millisecondi attendere un risultato di ricerca prima di restituire un "
-"errore"
+"Quanti millisecondi attendere affinché una connessione venga stabilita prima "
+"di restituire un errore?"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
@@ -6408,11 +6344,9 @@ msgid "Trace method filter"
 msgstr "Filtro del metodo di tracciamento"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Trace subscription calls"
+#, kde-format
 msgid "Trace subscription filter"
-msgstr "Traccia le chiamate di sottoscrizione"
+msgstr "Filtro di tracciamento della sottoscrizione"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
@@ -6886,7 +6820,7 @@ msgstr "Segreto di Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Callback URL"
-msgstr ""
+msgstr "URL di callback di Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
@@ -6906,7 +6840,7 @@ msgstr "Segreto di LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
 #, kde-format
 msgid "LinkedIn Callback URL"
-msgstr ""
+msgstr "URL di callback di LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:125
 #, kde-format
@@ -6941,7 +6875,7 @@ msgstr "Segreto Meteor"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #, kde-format
 msgid "Meteor Callback URL"
-msgstr ""
+msgstr "URL di callback di Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
 #, kde-format
@@ -6961,7 +6895,7 @@ msgstr "Segreto Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #, kde-format
 msgid "Facebook Callback URL"
-msgstr ""
+msgstr "URL di callback di Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
@@ -6981,7 +6915,7 @@ msgstr "Segreto Github"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:184
 #, kde-format
 msgid "Github Callback URL"
-msgstr ""
+msgstr "URL di callback di GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
@@ -7010,10 +6944,9 @@ msgid "Tokenpass Secret"
 msgstr "Segreto Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Tokenpass Server URL"
+#, kde-format
 msgid "Tokenpass Callback URL"
-msgstr "URL server Tokenpass"
+msgstr "URL di callback di Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:216
 #, kde-format
@@ -7028,7 +6961,7 @@ msgstr "Segreto Google"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Callback URL"
-msgstr ""
+msgstr "URL di callback di Google"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:19
 #, kde-format
@@ -7112,6 +7045,9 @@ msgid ""
 "When enabled, user passwords must adhere to the policies set forth. Note: "
 "this only applies to new passwords, not existing passwords."
 msgstr ""
+"Se l'opzione è abilitata, le password degli utenti devono rispettare le "
+"politiche stabilite. Nota: ciò si applica solo alle nuove password, non a "
+"quelle esistenti."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:55
 #, kde-format
@@ -7258,42 +7194,34 @@ msgid "Limit by User: interval time"
 msgstr "Limite per utente: tempo di intervallo"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by Connection: requests allowed"
-msgstr "Limite per utente: richieste consentite"
+msgstr "Limite per connessione: richieste consentite"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:78
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by Connection: interval time"
-msgstr "Limite per utente: tempo di intervallo"
+msgstr "Limita per connessione: intervallo di tempo"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:85
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User per Method: requests allowed"
-msgstr "Limite per utente: richieste consentite"
+msgstr "Limite per utente per metodo: richieste consentite"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Limit by User: interval time"
+#, kde-format
 msgid "Limit by User per Method: interval time"
-msgstr "Limite per utente: tempo di intervallo"
+msgstr "Limite per utente per metodo: intervallo di tempo"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:96
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: requests allowed"
-msgstr "Limita per connessione per metodo"
+msgstr "Limite per connessione in base al metodo: richieste consentite"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Limit by Connection per Method"
+#, kde-format
 msgid "Limit by Connection per Method: interval time"
-msgstr "Limita per connessione per metodo"
+msgstr "Limite per connessione in base al metodo: intervallo di tempo"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:22
 #, kde-format
@@ -7592,16 +7520,13 @@ msgstr ""
 "comportamenti non corretti!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:44
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the processing of livechat visitor sessions causing "
-#| "the statistics to stop working correctly!"
+#, kde-format
 msgid ""
 "This setting stops the processing of user sessions causing the statistics to "
 "stop working correctly!"
 msgstr ""
-"Questa impostazione interrompe l'elaborazione delle sessioni dei visitatori "
-"di livechat causando il corretto funzionamento delle statistiche!"
+"Questa impostazione interrompe l'elaborazione delle sessioni utente, facendo "
+"sì che le statistiche smettano di funzionare correttamente!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:49
 #, kde-format
@@ -8073,86 +7998,74 @@ msgid "Mark as Read"
 msgstr "Marca come letto"
 
 #: widgets/category/categoriesmenu.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Category"
-msgstr "Categorie"
+msgstr "Categoria"
 
 #: widgets/category/categoriesmenu.cpp:62
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "No Category"
-msgstr "Categorie"
+msgstr "Nessuna categoria"
 
 #: widgets/category/categoriesmenu.cpp:90
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@action"
 msgid "Manage Categories…"
-msgstr "Categorie"
+msgstr "Gestisci categorie…"
 
 #: widgets/category/categorydialog.cpp:19
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Category"
-msgstr "Categorie"
+msgstr "Aggiungi categoria"
 
 #: widgets/category/categorydialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Category"
-msgstr ""
+msgstr "Rinomina categoria"
 
 #: widgets/category/categorywidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgid "Category:"
-msgstr "Categorie"
+msgstr "Categoria:"
 
 #: widgets/category/managecategoriesdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Categories"
+#, kde-format
 msgctxt "@title:window"
 msgid "Manage Categories"
-msgstr "Categorie"
+msgstr "Gestisci categorie"
 
-#: widgets/category/managecategorieswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "Categories"
+#: widgets/category/managecategorieswidget.cpp:73
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Add Category…"
-msgstr "Categorie"
+msgstr "Aggiungi categoria…"
 
-#: widgets/category/managecategorieswidget.cpp:79
+#: widgets/category/managecategorieswidget.cpp:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Rename Category…"
-msgstr ""
+msgstr "Rinomina categoria…"
 
-#: widgets/category/managecategorieswidget.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#: widgets/category/managecategorieswidget.cpp:87
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Remove Category"
-msgstr "Rimuovi cronologia"
+msgstr "Rimuovi categoria"
 
-#: widgets/category/managecategorieswidget.cpp:171
-#, fuzzy, kde-format
-#| msgid "Do you want to remove this user \"%1\"?"
+#: widgets/category/managecategorieswidget.cpp:173
+#, kde-format
 msgid "Do you want to remove this category (%1)?"
-msgstr "Vuoi rimuovere l'utente «%1»?"
+msgstr "Vuoi rimuovere questa categoria (%1)?"
 
-#: widgets/category/managecategorieswidget.cpp:172
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Remove History"
+#: widgets/category/managecategorieswidget.cpp:174
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Category"
-msgstr "Rimuovi cronologia"
+msgstr "Rimuovi categoria"
 
 #: widgets/channellist/channellistview.cpp:141
 #, kde-format
@@ -8214,29 +8127,29 @@ msgctxt "@action"
 msgid "Configure Notification…"
 msgstr "Configura le notifiche…"
 
-#: widgets/channellist/channellistview.cpp:254
+#: widgets/channellist/channellistview.cpp:245
 #, kde-format
 msgctxt "@action"
 msgid "Quit Channel"
 msgstr "Esci dal canale"
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:307
 #, kde-format
 msgid "Any team selected."
 msgstr "Qualsiasi squadra selezionata."
 
-#: widgets/channellist/channellistview.cpp:301
+#: widgets/channellist/channellistview.cpp:307
 #, kde-format
 msgctxt "@title:window"
 msgid "Move To Team"
 msgstr "Sposta nella squadra"
 
-#: widgets/channellist/channellistview.cpp:354
+#: widgets/channellist/channellistview.cpp:360
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Sei sicuro di convertirlo in squadra? Ciò non può essere annullato."
 
-#: widgets/channellist/channellistview.cpp:355
+#: widgets/channellist/channellistview.cpp:361
 #, kde-format
 msgctxt "@title:window"
 msgid "Convert to Team"
@@ -8295,7 +8208,7 @@ msgid "Username or email:"
 msgstr "Nome utente o indirizzo di posta:"
 
 #: widgets/common/authenticationloginwidget.cpp:169
-#: widgets/ruqolamainwindow.cpp:1140
+#: widgets/ruqolamainwindow.cpp:1159
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8305,7 +8218,7 @@ msgstr ""
 "Se non lo ricevi a breve, torna indietro e riprova."
 
 #: widgets/common/authenticationloginwidget.cpp:170
-#: widgets/ruqolamainwindow.cpp:1141
+#: widgets/ruqolamainwindow.cpp:1160
 #, kde-format
 msgctxt "@title:window"
 msgid "Register New User"
@@ -8505,7 +8418,7 @@ msgstr "Estensioni testo"
 #, kde-format
 msgctxt "@option:check"
 msgid "Ask confirmation before running tools which modify data"
-msgstr ""
+msgstr "Chiedi conferma prima di eseguire strumenti che modificano i dati"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:64
 #, kde-format
@@ -12250,24 +12163,24 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Un utente nella stanza (totale: %2)"
 msgstr[1] "%1 utenti nella stanza (totali: %2)"
 
-#: widgets/ruqolamainwindow.cpp:239
+#: widgets/ruqolamainwindow.cpp:240
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show New Notifications"
 msgstr "Mostra le nuove notifiche"
 
-#: widgets/ruqolamainwindow.cpp:241
+#: widgets/ruqolamainwindow.cpp:242
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Mostra le nuove notifiche"
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:465
 #, kde-format
 msgctxt "@action"
 msgid "Retry Wallet Access"
 msgstr "Riprova l'accesso al portafogli"
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgid ""
 "Could not access the wallet. Password changes may not be saved. Use Tools > "
@@ -12277,268 +12190,268 @@ msgstr ""
 "non essere salvate. Utilizza Strumenti > Riprova l'accesso al portafogli per "
 "provare ancora."
 
-#: widgets/ruqolamainwindow.cpp:460
+#: widgets/ruqolamainwindow.cpp:479
 #, kde-format
 msgctxt "@action"
 msgid "Add Server…"
 msgstr "Aggiungi server…"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:484
 #, kde-format
 msgctxt "@action"
 msgid "Server Info…"
 msgstr "Informazioni sul server…"
 
-#: widgets/ruqolamainwindow.cpp:469
+#: widgets/ruqolamainwindow.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "Logout Current Server"
 msgstr "Esci dal server corrente"
 
-#: widgets/ruqolamainwindow.cpp:473
+#: widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgctxt "@action"
 msgid "Jump to Next Unread Channel"
 msgstr "Vai al canale non letto successivo"
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:497
 #, kde-format
 msgid "Create New Channel…"
 msgstr "Crea nuovo canale…"
 
-#: widgets/ruqolamainwindow.cpp:482
+#: widgets/ruqolamainwindow.cpp:501
 #, kde-format
 msgid "Create Direct Messages…"
 msgstr "Crea messaggi diretti…"
 
-#: widgets/ruqolamainwindow.cpp:486
+#: widgets/ruqolamainwindow.cpp:505
 #, kde-format
 msgid "Create Discussion…"
 msgstr "Crea discussione…"
 
-#: widgets/ruqolamainwindow.cpp:490
+#: widgets/ruqolamainwindow.cpp:509
 #, kde-format
 msgid "Create Team…"
 msgstr "Crea squadra…"
 
-#: widgets/ruqolamainwindow.cpp:498
+#: widgets/ruqolamainwindow.cpp:517
 #, kde-format
 msgctxt "@action"
 msgid "Unread on Top"
 msgstr "Non letti in alto"
 
-#: widgets/ruqolamainwindow.cpp:506
+#: widgets/ruqolamainwindow.cpp:525
 #, kde-format
 msgctxt "@action"
 msgid "By Last Message"
 msgstr "Per ultimo messaggio"
 
-#: widgets/ruqolamainwindow.cpp:512
+#: widgets/ruqolamainwindow.cpp:531
 #, kde-format
 msgctxt "@action"
 msgid "Alphabetically"
 msgstr "In ordine alfabetico"
 
-#: widgets/ruqolamainwindow.cpp:518
+#: widgets/ruqolamainwindow.cpp:537
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostra il registro del canale"
 
-#: widgets/ruqolamainwindow.cpp:522
+#: widgets/ruqolamainwindow.cpp:541
 #, kde-format
 msgid "Show Server Errors"
 msgstr "Mostra errori del server"
 
-#: widgets/ruqolamainwindow.cpp:566
+#: widgets/ruqolamainwindow.cpp:585
 #, kde-format
 msgctxt "@action"
 msgid "Mark All Channels as Read"
 msgstr "Marca tutti i canali come letti"
 
-#: widgets/ruqolamainwindow.cpp:571
+#: widgets/ruqolamainwindow.cpp:590
 #, kde-format
 msgctxt "@action"
 msgid "Register a New User…"
 msgstr "Registra un nuovo utente…"
 
-#: widgets/ruqolamainwindow.cpp:575
+#: widgets/ruqolamainwindow.cpp:594
 #, kde-format
 msgctxt "@action"
 msgid "My Account…"
 msgstr "Il mio account…"
 
-#: widgets/ruqolamainwindow.cpp:579
+#: widgets/ruqolamainwindow.cpp:598
 #, kde-format
 msgid "administration"
 msgstr "amministrazione"
 
-#: widgets/ruqolamainwindow.cpp:580
+#: widgets/ruqolamainwindow.cpp:599
 #, kde-format
 msgctxt "@action"
 msgid "Administrator…"
 msgstr "Amministratore…"
 
-#: widgets/ruqolamainwindow.cpp:586
+#: widgets/ruqolamainwindow.cpp:605
 #, kde-format
 msgctxt "@action"
 msgid "Server Settings…"
 msgstr "Impostazioni server…"
 
-#: widgets/ruqolamainwindow.cpp:593
+#: widgets/ruqolamainwindow.cpp:612
 #, kde-format
 msgctxt "@action"
 msgid "Applications…"
 msgstr "Applicazioni…"
 
-#: widgets/ruqolamainwindow.cpp:598
+#: widgets/ruqolamainwindow.cpp:617
 #, kde-format
 msgctxt "@action"
 msgid "Requested Applications…"
 msgstr "Applicazioni richieste…"
 
-#: widgets/ruqolamainwindow.cpp:603
+#: widgets/ruqolamainwindow.cpp:622
 #, kde-format
 msgctxt "@action"
 msgid "Installed Applications…"
 msgstr "Applicazioni installate…"
 
-#: widgets/ruqolamainwindow.cpp:608
+#: widgets/ruqolamainwindow.cpp:627
 #, kde-format
 msgctxt "@action"
 msgid "Private Applications…"
 msgstr "Applicazioni private…"
 
-#: widgets/ruqolamainwindow.cpp:613
+#: widgets/ruqolamainwindow.cpp:632
 #, kde-format
 msgctxt "Action which allows to search room"
 msgid "Join Room…"
 msgstr "Unisciti alla stanza…"
 
-#: widgets/ruqolamainwindow.cpp:617
+#: widgets/ruqolamainwindow.cpp:636
 #, kde-format
 msgctxt "Action which allows to search team"
 msgid "Join Team…"
 msgstr "Unisciti alla squadra…"
 
-#: widgets/ruqolamainwindow.cpp:621
+#: widgets/ruqolamainwindow.cpp:640
 #, kde-format
 msgctxt "Action which allows to open private conversation (direct user)"
 msgid "Open Private Conversation…"
 msgstr "Apri conversazione privata…"
 
-#: widgets/ruqolamainwindow.cpp:642
+#: widgets/ruqolamainwindow.cpp:661
 #, kde-format
 msgid "&Next Server"
 msgstr "Ser&ver successivo"
 
-#: widgets/ruqolamainwindow.cpp:647
+#: widgets/ruqolamainwindow.cpp:666
 #, kde-format
 msgid "&Previous Server"
 msgstr "Server &precedente"
 
-#: widgets/ruqolamainwindow.cpp:656
+#: widgets/ruqolamainwindow.cpp:675
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Status:"
 msgstr "Stato:"
 
-#: widgets/ruqolamainwindow.cpp:671
+#: widgets/ruqolamainwindow.cpp:690
 #, kde-format
 msgctxt "@action"
 msgid "Previous Selected Channel"
 msgstr "Canale selezionato precedente"
 
-#: widgets/ruqolamainwindow.cpp:678
+#: widgets/ruqolamainwindow.cpp:697
 #, kde-format
 msgctxt "@action"
 msgid "Next Selected Channel"
 msgstr "Canale selezionato successivo"
 
-#: widgets/ruqolamainwindow.cpp:708
+#: widgets/ruqolamainwindow.cpp:727
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostra cronologia delle notifiche"
 
-#: widgets/ruqolamainwindow.cpp:712
+#: widgets/ruqolamainwindow.cpp:731
 #, kde-format
 msgctxt "@action"
 msgid "Show RocketChat Information"
 msgstr "Mostra informazioni Rocket.Chat"
 
-#: widgets/ruqolamainwindow.cpp:716
+#: widgets/ruqolamainwindow.cpp:735
 #, kde-format
 msgctxt "@action"
 msgid "Server Checklist…"
 msgstr "Lista di controllo del server…"
 
-#: widgets/ruqolamainwindow.cpp:720
+#: widgets/ruqolamainwindow.cpp:739
 #, kde-format
 msgctxt "@action"
 msgid "Show Room Avatar"
 msgstr "Mostra avatar della stanza"
 
-#: widgets/ruqolamainwindow.cpp:725
+#: widgets/ruqolamainwindow.cpp:744
 #, kde-format
 msgctxt "@action"
 msgid "Show Favorite Room"
 msgstr "Mostra la stanza preferita"
 
-#: widgets/ruqolamainwindow.cpp:742
+#: widgets/ruqolamainwindow.cpp:761
 #, kde-format
 msgid "What's new"
 msgstr "Cosa c'è di nuovo"
 
-#: widgets/ruqolamainwindow.cpp:746
+#: widgets/ruqolamainwindow.cpp:765
 #, kde-format
 msgid "Import Accounts"
 msgstr "Importa account"
 
-#: widgets/ruqolamainwindow.cpp:750
+#: widgets/ruqolamainwindow.cpp:769
 #, kde-format
 msgid "Export Accounts"
 msgstr "Esporta account"
 
-#: widgets/ruqolamainwindow.cpp:767
+#: widgets/ruqolamainwindow.cpp:786
 #, kde-format
 msgctxt "@action"
 msgid "Medium"
 msgstr "Media"
 
-#: widgets/ruqolamainwindow.cpp:775
+#: widgets/ruqolamainwindow.cpp:794
 #, kde-format
 msgctxt "@action"
 msgid "Condensed"
 msgstr "Condensata"
 
-#: widgets/ruqolamainwindow.cpp:784
+#: widgets/ruqolamainwindow.cpp:803
 #, kde-format
 msgctxt "@action"
 msgid "Extended"
 msgstr "Estesa"
 
-#: widgets/ruqolamainwindow.cpp:792
+#: widgets/ruqolamainwindow.cpp:811
 #, kde-format
 msgid "Clear history"
 msgstr "Cancella la cronologia"
 
-#: widgets/ruqolamainwindow.cpp:836
+#: widgets/ruqolamainwindow.cpp:855
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Crea squadra"
 
-#: widgets/ruqolamainwindow.cpp:1037
+#: widgets/ruqolamainwindow.cpp:1056
 #, kde-format
 msgid "Cannot write to log file %1"
 msgstr "Impossibile scrivere nel file di registro %1"
 
-#: widgets/ruqolamainwindow.cpp:1037
+#: widgets/ruqolamainwindow.cpp:1056
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Channel Log"
 msgstr "Mostra il registro del canale"
 
-#: widgets/ruqolamainwindow.cpp:1284
+#: widgets/ruqolamainwindow.cpp:1303
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -12547,19 +12460,19 @@ msgstr ""
 "<qt>Questo nasconderà completamente la barra dei menu. Potrai mostrarla "
 "nuovamente digitando %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:1287
+#: widgets/ruqolamainwindow.cpp:1306
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide menu bar"
 msgstr "Nascondi la barra dei menu"
 
-#: widgets/ruqolamainwindow.cpp:1471
+#: widgets/ruqolamainwindow.cpp:1490
 #, kde-format
 msgctxt "@action"
 msgid "Work Online"
 msgstr "Lavora in modalità in linea"
 
-#: widgets/ruqolamainwindow.cpp:1474
+#: widgets/ruqolamainwindow.cpp:1493
 #, kde-format
 msgctxt "@action"
 msgid "Work Offline"
