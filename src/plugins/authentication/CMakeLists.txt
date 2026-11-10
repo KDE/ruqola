@@ -8,7 +8,5 @@ if(PLUGINS_AUTHENTICATION_BASED_ON_O2)
 endif()
 
 #Experimental
-add_subdirectory(twitter)
-add_subdirectory(facebook)
 add_subdirectory(github)
 add_subdirectory(gitlab)
