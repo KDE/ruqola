@@ -396,6 +396,8 @@ target_sources(
         settings/publicsettingsjob.h
         settings/updateadminsettingsjob.cpp
         settings/updateadminsettingsjob.h
+        settings/serviceconfigurationsjob.cpp
+        settings/serviceconfigurationsjob.h
         spotlightjob.cpp
         spotlightjob.h
         subscriptions/markroomasreadjob.cpp
