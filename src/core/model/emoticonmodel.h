@@ -10,6 +10,7 @@
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 #include <TextEmoticonsCore/UnicodeEmoticon>
+#include <utility>
 
 class RocketChatAccount;
 // Model showing all emojis
@@ -45,7 +46,7 @@ private:
     QList<CustomEmoji> mCustomEmojiList;
     // first int is an index into mEmoticons
     // second is -1 for the emoticon identifier or otherwise an index into the alias list
-    QList<QPair<int, int>> mUnicodeRows;
-    QList<QPair<int, int>> mCustomRows;
+    QList<std::pair<int, int>> mUnicodeRows;
+    QList<std::pair<int, int>> mCustomRows;
     RocketChatAccount *const mRocketChatAccount;
 };

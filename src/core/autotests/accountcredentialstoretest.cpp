@@ -33,7 +33,7 @@ const QString entry = u"accounts-v1"_s;
 const QString legacyService = u"Ruqola"_s;
 
 struct Wallet {
-    QMap<QPair<QString, QString>, QByteArray> entries;
+    QMap<std::pair<QString, QString>, QByteArray> entries;
     QStringList operations;
     int reads = 0;
     int writes = 0;

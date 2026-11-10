@@ -129,7 +129,7 @@ bool DDPClient::isConnected() const
     return mConnected;
 }
 
-QQueue<QPair<QString, QJsonDocument>> DDPClient::messageQueue() const
+QQueue<std::pair<QString, QJsonDocument>> DDPClient::messageQueue() const
 {
     return mMessageQueue;
 }
@@ -298,7 +298,7 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::MessageType::Persistent) {
-            mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mMessageQueue.enqueue(std::make_pair(result.method, result.jsonDocument));
             mDDPClientAccountParameter->messageQueue->processQueue();
         }
     } else {
@@ -339,7 +339,7 @@ DDPClient::storeInQueue(const RocketChatMessage::RocketChatMessageResult &result
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::MessageType::Persistent) {
-            mMessageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
+            mMessageQueue.enqueue(std::make_pair(result.method, result.jsonDocument));
             mDDPClientAccountParameter->messageQueue->processQueue();
         }
     } else {
@@ -408,7 +408,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
 quint64 DDPClient::invokeMethodAndRegister(const QString &methodName, const QJsonArray &params, DDPManager *ddpManager, int operationId)
 {
     qCDebug(RUQOLA_DDPAPI_LOG) << "invoked with" << methodName << params;
-    mMethodResponseHash[mUid] = QPair<DDPManager *, int>(ddpManager, operationId);
+    mMethodResponseHash[mUid] = std::pair<DDPManager *, int>(ddpManager, operationId);
     return method(methodName, params);
 }
 
@@ -420,7 +420,7 @@ void DDPClient::deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpMa
     }
 
     const auto registerParams = mMethodResponseHash.value(methodId);
-    const QPair<DDPManager *, int> deregisterParams{ddpManager, operationId};
+    const std::pair<DDPManager *, int> deregisterParams{ddpManager, operationId};
     if (registerParams != deregisterParams) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Registration parameters for this method don't match the ones in the unregister request.";
         qCWarning(RUQOLA_DDPAPI_LOG).space() << "Method ID: " << methodId << ", registration parameters: " << registerParams
@@ -449,7 +449,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             // Checking first if any of the new DDPManager claimed the result,
             // otherwise defaulting to old behaviour.
             if (mMethodResponseHash.contains(id)) {
-                const QPair<DDPManager *, int> managerOperationPair = mMethodResponseHash.value(id);
+                const std::pair<DDPManager *, int> managerOperationPair = mMethodResponseHash.value(id);
                 managerOperationPair.first->processMethodResponse(managerOperationPair.second, root);
 
                 deregisterFromMethodResponse(id, managerOperationPair.first, managerOperationPair.second);

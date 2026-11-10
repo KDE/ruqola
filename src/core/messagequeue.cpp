@@ -17,7 +17,6 @@
 #include "connection.h"
 
 #include <QJsonArray>
-#include <QPair>
 
 MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -43,7 +42,7 @@ void MessageQueue::processQueue()
 {
     // can be optimized using single shot timer
     while (mRocketChatAccount->loginStatus() == AuthenticationManager::LoggedIn && !mRocketChatAccount->ddp()->messageQueue().empty()) {
-        const QPair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
+        const std::pair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
         const QString method = pair.first;
         QJsonArray arr;
         if (pair.second.isArray()) {

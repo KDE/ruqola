@@ -13,6 +13,7 @@
 #include <QAbstractSocket>
 #include <QQueue>
 #include <QSslError>
+#include <utility>
 
 class QJsonObject;
 class QJsonDocument;
@@ -152,9 +153,9 @@ public:
     /**
      * @brief Returns the queue used to cache unsent messages
      *
-     *@return QQueue<QPair<QString,QJsonDocument>>, The m_messageQueue object
+     *@return QQueue<std::pair<QString,QJsonDocument>>, The m_messageQueue object
      */
-    [[nodiscard]] QQueue<QPair<QString, QJsonDocument>> messageQueue() const;
+    [[nodiscard]] QQueue<std::pair<QString, QJsonDocument>> messageQueue() const;
 
     quint64 informTypingStatus(const QByteArray &room, bool typing, const QString &userName);
 
@@ -253,16 +254,16 @@ private:
      *   When a method response is received by the client, it will be dispatched
      *   to the corresponding manager iff the method call id matches.
      */
-    QHash<quint64, QPair<DDPManager *, int>> mMethodResponseHash;
+    QHash<quint64, std::pair<DDPManager *, int>> mMethodResponseHash;
 
     bool mConnected = false;
 
     /**
      * @brief Abstract queue for all requests regarding network management
      *
-     * @def QPair QString method and QJsonDocument params
+     * @def std::pair QString method and QJsonDocument params
      */
-    QQueue<QPair<QString, QJsonDocument>> mMessageQueue;
+    QQueue<std::pair<QString, QJsonDocument>> mMessageQueue;
 
     friend class Ruqola;
     RocketChatMessage *mRocketChatMessage = nullptr;
