@@ -398,6 +398,8 @@ target_sources(
         settings/updateadminsettingsjob.h
         settings/serviceconfigurationsjob.cpp
         settings/serviceconfigurationsjob.h
+        settings/settingsrefreshoauthservicesjob.h
+        settings/settingsrefreshoauthservicesjob.cpp
         spotlightjob.cpp
         spotlightjob.h
         subscriptions/markroomasreadjob.cpp

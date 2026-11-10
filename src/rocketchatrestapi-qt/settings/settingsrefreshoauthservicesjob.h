@@ -1,0 +1,55 @@
+/*
+   SPDX-FileCopyrightText: 2022-2026 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+
+#include "librocketchatrestapi-qt_export.h"
+#include "restapiabstractjob.h"
+
+#include <QVariant>
+
+namespace RocketChatRestApi
+{
+class LIBROCKETCHATRESTAPI_QT_EXPORT SettingsRefreshOAuthServicesJob : public RestApiAbstractJob
+{
+    Q_OBJECT
+public:
+    struct UpdateAdminSettingsInfo {
+        enum class ValueType : uint8_t {
+            Unknown,
+            Boolean,
+            Integer,
+            String,
+        };
+
+        QString settingName;
+        QVariant settingsValue;
+        UpdateAdminSettingsInfo::ValueType valueType = UpdateAdminSettingsInfo::ValueType::Unknown;
+        [[nodiscard]] bool isValid() const;
+        [[nodiscard]] bool canStart() const;
+    };
+    explicit SettingsRefreshOAuthServicesJob(QObject *parent = nullptr);
+    ~SettingsRefreshOAuthServicesJob() override;
+
+    [[nodiscard]] bool start() override;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
+    [[nodiscard]] bool canStart() const override;
+    [[nodiscard]] QNetworkRequest request() const override;
+
+    [[nodiscard]] QJsonDocument json() const;
+    [[nodiscard]] const UpdateAdminSettingsInfo &updateAdminSettingsInfo() const;
+    void setUpdateAdminSettingsInfo(const UpdateAdminSettingsInfo &newInfo);
+
+    [[nodiscard]] bool requireTwoFactorAuthentication() const override;
+
+Q_SIGNALS:
+    void updateAdminSettingsDone(const QJsonObject &obj);
+
+private:
+    LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    UpdateAdminSettingsInfo mInfo;
+};
+}
