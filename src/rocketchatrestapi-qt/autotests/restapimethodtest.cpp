@@ -317,7 +317,6 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::OauthAppsDelete), QUrl(u"http://www.kde.org/api/v1/oauth-apps.delete"_s));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsOauth), QUrl(u"http://www.kde.org/api/v1/settings.oauth"_s));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsAddCustomOauth), QUrl(u"http://www.kde.org/api/v1/settings.addCustomOAuth"_s));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers), QUrl(u"http://www.kde.org/api/v1/licenses.maxActiveUsers"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LicensesAdd), QUrl(u"http://www.kde.org/api/v1/licenses.add"_s));

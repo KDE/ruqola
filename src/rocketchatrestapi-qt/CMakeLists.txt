@@ -400,6 +400,10 @@ target_sources(
         settings/serviceconfigurationsjob.h
         settings/settingsrefreshoauthservicesjob.h
         settings/settingsrefreshoauthservicesjob.cpp
+        settings/settingsremovecustomoauthjob.h
+        settings/settingsremovecustomoauthjob.cpp
+        settings/settingsaddcustomoauthjob.h
+        settings/settingsaddcustomoauthjob.cpp
         spotlightjob.cpp
         spotlightjob.h
         subscriptions/markroomasreadjob.cpp

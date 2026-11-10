@@ -521,8 +521,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 
     case RestApiUtil::RestApiUrlType::SettingsOauth:
         return u"settings.oauth"_s;
-    case RestApiUtil::RestApiUrlType::SettingsAddCustomOauth:
-        return u"settings.addCustomOAuth"_s;
 
     case RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers:
         return u"licenses.maxActiveUsers"_s;
