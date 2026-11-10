@@ -17,20 +17,6 @@ class LIBROCKETCHATRESTAPI_QT_EXPORT SettingsRefreshOAuthServicesJob : public Re
 {
     Q_OBJECT
 public:
-    struct UpdateAdminSettingsInfo {
-        enum class ValueType : uint8_t {
-            Unknown,
-            Boolean,
-            Integer,
-            String,
-        };
-
-        QString settingName;
-        QVariant settingsValue;
-        UpdateAdminSettingsInfo::ValueType valueType = UpdateAdminSettingsInfo::ValueType::Unknown;
-        [[nodiscard]] bool isValid() const;
-        [[nodiscard]] bool canStart() const;
-    };
     explicit SettingsRefreshOAuthServicesJob(QObject *parent = nullptr);
     ~SettingsRefreshOAuthServicesJob() override;
 
@@ -39,10 +25,6 @@ public:
     [[nodiscard]] bool canStart() const override;
     [[nodiscard]] QNetworkRequest request() const override;
 
-    [[nodiscard]] QJsonDocument json() const;
-    [[nodiscard]] const UpdateAdminSettingsInfo &updateAdminSettingsInfo() const;
-    void setUpdateAdminSettingsInfo(const UpdateAdminSettingsInfo &newInfo);
-
     [[nodiscard]] bool requireTwoFactorAuthentication() const override;
 
 Q_SIGNALS:
@@ -50,6 +32,5 @@ Q_SIGNALS:
 
 private:
     LIBROCKETCHATRESTAPI_QT_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    UpdateAdminSettingsInfo mInfo;
 };
 }
