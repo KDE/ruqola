@@ -15,6 +15,7 @@
 #include "rocketchataccount.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
+#include "users/usersenabletotpjob.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QStackedWidget>
@@ -75,7 +76,18 @@ void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
 {
     if (checked) {
         if (!mRocketChatAccount->ownUser().servicePassword().totp()) {
-            mRocketChatAccount->ddp()->enable2fa();
+            if (mRocketChatAccount->hasAtLeastVersion(9, 0, 0)) {
+                auto job = new RocketChatRestApi::UsersEnableTotpJob(this);
+                mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::UsersEnableTotpJob::usersEnableTotpDone, this, [this](const QJsonObject &obj) {
+                    mRocketChatAccount->generate2FaTotp(obj);
+                });
+                if (!job->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersEnableTotpJob job";
+                }
+            } else {
+                mRocketChatAccount->ddp()->enable2fa();
+            }
         }
     } else {
         if (mRocketChatAccount->ownUser().servicePassword().totp()) {
