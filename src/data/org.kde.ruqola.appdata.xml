@@ -1391,6 +1391,7 @@
     <release version="3.0.0" type="snapshot">
       <description>
         <ul>
+          <li>Add RC 9.0.0 support.</li>
           <li>Add category support.</li>
           <li xml:lang="ar">إضافة الفئات.</li>
           <li xml:lang="ca">Afegeix el suport de categories.</li>
