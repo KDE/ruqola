@@ -1,0 +1,704 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!-- Define an entity for your application if it is not part of KDE
+       CVS -->
+  <!ENTITY i18n-kapplication "<application
+>Ruqola</application
+>">
+  <!ENTITY kappname "&i18n-kapplication;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Brazilian-Portuguese "INCLUDE">
+]>
+
+<book id="ruqola" lang="&language;">
+
+<bookinfo id="ruqolainfo">
+
+<title
+>Manual do &i18n-kapplication;</title>
+
+<authorgroup>
+<author
+><personname
+> <firstname
+>Laurent</firstname
+> <surname
+>Montel</surname
+> </personname
+> <email
+>montel@kde.org</email
+> </author>
+<othercredit role="translator"
+><firstname
+>Marcus</firstname
+><surname
+>Gama</surname
+><affiliation
+><address
+><email
+>marcus.gama@kde.org</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2018</year>
+<holder
+>Laurent Montel</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>07/10/2026</date>
+<releaseinfo
+>2.9.0</releaseinfo>
+
+<abstract>
+<para
+>O &i18n-kapplication; é um aplicativo cliente para o RocketChat. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>RocketChat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+<para
+>O &i18n-kapplication; é um cliente de desktop para servidores Rocket.Chat. Ele permite conversar em canais, grupos privados, discussões e equipes, trocar mensagens diretas, compartilhar arquivos e administrar um servidor, tudo a partir de um aplicativo nativo do &kde;.</para>
+
+<para
+>O &i18n-kapplication; pode se conectar a vários servidores Rocket.Chat simultaneamente e permite alternar rapidamente entre eles.</para>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Primeiros passos</title>
+
+<sect1 id="adding-server">
+<title
+>Adicionando um servidor</title>
+<para
+>Quando o &i18n-kapplication; é iniciado pela primeira vez, é solicitado que você adicione uma conta de servidor. Você pode adicionar outras contas mais tarde através de <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Adicionar servidor…</guimenuitem
+></menuchoice
+>. Insira a &URL; do servidor e escolha um método de autenticação.</para>
+
+<para
+>Dependendo do que o servidor permite, os seguintes métodos de autenticação estão disponíveis:</para>
+<itemizedlist>
+<listitem
+><para
+>Nome do usuário (ou e-mail) e senha</para
+></listitem>
+<listitem
+><para
+>Token de acesso pessoal</para
+></listitem>
+<listitem
+><para
+>Provedores de OAuth como Google, GitHub, GitLab, Facebook ou Twitter</para
+></listitem>
+</itemizedlist>
+
+<para
+>Se a autenticação de dois fatores estiver ativada na sua conta, o &i18n-kapplication; solicitará o código ao fazer login. As senhas são armazenadas na carteira do sistema.</para>
+
+<para
+>Se o servidor permitir, você pode criar uma nova conta com <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Registrar um novo usuário…</guimenuitem
+></menuchoice
+>.</para>
+</sect1>
+
+<sect1 id="multiple-servers">
+<title
+>Usando vários servidores</title>
+<para
+>Cada conta configurada aparece como uma aba. Use <menuchoice
+><guimenu
+>Janela</guimenu
+><guimenuitem
+>Próximo servidor</guimenuitem
+></menuchoice
+> e <menuchoice
+><guimenu
+>Janela</guimenu
+><guimenuitem
+>Servidor anterior</guimenuitem
+></menuchoice
+> para alternar entre elas. As contas podem ser habilitadas, desabilitadas, reordenadas ou removidas na página <guilabel
+>Contas</guilabel
+> da janela de configurações.</para>
+
+<para
+><menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Exportar contas</guimenuitem
+></menuchoice
+> e <menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Importar contas</guimenuitem
+></menuchoice
+> permitem transferir a configuração da sua conta para outro computador.</para>
+</sect1>
+</chapter>
+
+<chapter id="main-window">
+<title
+>A janela principal</title>
+
+<sect1 id="room-list">
+<title
+>A lista de salas</title>
+<para
+>O lado esquerdo da janela lista seus canais, grupos privados, mensagens diretas, discussões e equipes. Um campo de busca na parte superior filtra a lista. Seu status (online, ocupado, ausente, offline ou um status personalizado) pode ser alterado na barra de status, na parte inferior da janela.</para>
+
+<para
+>O menu <guimenu
+>Exibir</guimenu
+> altera a aparência da lista:</para>
+<itemizedlist>
+<listitem
+><para
+>Exibição <guimenuitem
+>Condensada</guimenuitem
+>, <guimenuitem
+>Média</guimenuitem
+> ou <guimenuitem
+>Estendida</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+>Ordenação <guimenuitem
+>Pela última mensagem</guimenuitem
+> ou <guimenuitem
+>Alfabeticamente</guimenuitem
+>, com a opção <guimenuitem
+>Não lidas no topo</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Mostrar avatar da sala</guimenuitem
+> e <guimenuitem
+>Mostrar sala favorita</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Marcar todos os canais como lido</guimenuitem
+></para
+></listitem>
+</itemizedlist>
+
+<para
+><menuchoice
+><guimenu
+>Canal</guimenu
+><guimenuitem
+>Ir para o próximo canal não lido</guimenuitem
+></menuchoice
+> leva você à próxima sala com mensagens não lidas.</para>
+</sect1>
+
+<sect1 id="room-view">
+<title
+>A exibição da sala</title>
+<para
+>O lado direito da janela exibe as mensagens da sala selecionada. O cabeçalho mostra o nome e o tópico da sala e contém botões para marcar a sala como favorita, abrir as informações da sala, listar seus usuários, pesquisar mensagens, iniciar uma chamada e abrir o menu da sala.</para>
+
+<para
+>O menu da sala dá acesso a:</para>
+<itemizedlist>
+<listitem
+><para
+>Mensagens fixadas, marcadas com estrela e mencionadas, tópicos, discussões e arquivos anexados</para
+></listitem>
+<listitem
+><para
+>Adicionar ou convidar usuários, exibir usuários banidos</para
+></listitem>
+<listitem
+><para
+>Configurações de notificação para esta sala</para
+></listitem>
+<listitem
+><para
+>Tradução automática de mensagens</para
+></listitem>
+<listitem
+><para
+>Exportar ou limpar mensagens (com as permissões necessárias)</para
+></listitem>
+<listitem
+><para
+>Criptografia de ponta a ponta, quando o servidor oferece suporte a ela</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="messages">
+<title
+>Mensagens</title>
+
+<sect1 id="writing-messages">
+<title
+>Escrevendo mensagens</title>
+<para
+>Digite sua mensagem no campo de texto na parte inferior da sala e pressione &Enter; para enviá-la. As mensagens suportam formatação Markdown. Digitar <literal
+>@</literal
+> completa nomes de usuário, <literal
+>#</literal
+> completa nomes de canais, <literal
+>:</literal
+> completa emojis e <literal
+>/</literal
+> lista os comandos de barra disponíveis no servidor.</para>
+
+<para
+>Os botões ao lado do campo de texto permitem que você:</para>
+<itemizedlist>
+<listitem
+><para
+>Insira um emoji, incluindo o emoji personalizado do servidor</para
+></listitem>
+<listitem
+><para
+>Anexe um ou mais arquivos (você também pode arrastar e soltar ou colá-los)</para
+></listitem>
+<listitem
+><para
+>Grave e envie uma mensagem de áudio ou de vídeo</para
+></listitem>
+<listitem
+><para
+>Use as ferramentas disponibilizadas pelos plugins, como realizar uma captura de tela</para
+></listitem>
+</itemizedlist>
+
+<para
+>A verificação ortográfica e a correção automática estão disponíveis durante a digitação e podem ser configuradas na caixa de diálogo de configurações.</para>
+</sect1>
+
+<sect1 id="message-actions">
+<title
+>Ações em mensagens</title>
+<para
+>Ao passar o cursor sobre uma mensagem, são exibidos botões para adicionar uma reação, responder em um tópico ou marcar a mensagem com uma estrela. O menu de contexto oferece mais ações, dependendo das suas permissões:</para>
+<itemizedlist>
+<listitem
+><para
+>Editar, excluir ou citar a mensagem</para
+></listitem>
+<listitem
+><para
+>Copiar a mensagem, a seleção ou um link para a mensagem</para
+></listitem>
+<listitem
+><para
+>Responder a uma discussão, segui-la ou deixar de segui-la, exibir a discussão completa</para
+></listitem>
+<listitem
+><para
+>Iniciar uma discussão ou uma conversa privada a partir da mensagem</para
+></listitem>
+<listitem
+><para
+>Fixar, marcar com estrela, encaminhar ou denunciar a mensagem</para
+></listitem>
+<listitem
+><para
+>Marcar a mensagem como não lida</para
+></listitem>
+<listitem
+><para
+>Traduzir a mensagem ou mostrar o texto original</para
+></listitem>
+<listitem
+><para
+>Mostrar confirmações de leitura, quando habilitadas no servidor</para
+></listitem>
+</itemizedlist>
+
+<para
+>Imagens, vídeos e sons são exibidos diretamente no conteúdo e podem ser abertos em um visualizador. Pré-visualizações de &URL; podem ser ativadas nas configurações.</para>
+</sect1>
+
+<sect1 id="searching">
+<title
+>Pesquisa</title>
+<para
+>Use o botão de pesquisa no cabeçalho da sala para pesquisar mensagens na sala atual. <menuchoice
+><guimenu
+>Canal</guimenu
+><guimenuitem
+>Entrar na sala…</guimenuitem
+></menuchoice
+>, <guimenuitem
+>Entrar na equipe…</guimenuitem
+> e <guimenuitem
+>Abrir conversa privada…</guimenuitem
+> pesquisam no diretório do servidor por salas, equipes e usuários.</para>
+</sect1>
+</chapter>
+
+<chapter id="rooms">
+<title
+>Salas, discussões e equipes</title>
+<para
+>O menu <guimenu
+>Canal</guimenu
+> permite criar:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Criar novo canal…</guimenuitem
+>: um canal público ou um grupo privado, opcionalmente somente leitura, de transmissão ou criptografado</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Criar mensagens diretas…</guimenuitem
+>: uma conversa com um ou mais usuários</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Criar discussão…</guimenuitem
+>: uma subconversação vinculada a uma sala</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Criar equipe…</guimenuitem
+>: um grupo de usuários com seus próprios canais</para
+></listitem>
+</itemizedlist>
+
+<para
+>A janela de informações da sala exibe o nome, o tópico, o anúncio, a descrição e o avatar da sala. Os proprietários podem editá-los, alterar o tipo de sala, definir uma senha e configurar opções como o modo somente leitura ou a limpeza de mensagens. Os proprietários da equipe podem adicionar, remover e converter canais da equipe.</para>
+</chapter>
+
+<chapter id="notifications">
+<title
+>Notificações</title>
+<para
+>O &i18n-kapplication; utiliza o sistema de notificações da área de trabalho para informá-lo sobre novas mensagens e menções, além de exibir contadores de mensagens não lidas na lista de salas e na bandeja do sistema. O comportamento das notificações (alerta na área de trabalho, som, e-mail) pode ser definido para cada sala através da opção <guimenuitem
+>Configurar notificação…</guimenuitem
+> no menu da sala.</para>
+
+<para
+><menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Mostrar histórico de notificações</guimenuitem
+></menuchoice
+> lista as notificações que você recebeu durante a sessão.</para>
+</chapter>
+
+<chapter id="encryption">
+<title
+>Criptografia de ponta a ponta</title>
+<para
+>Quando habilitado pelo servidor, o &i18n-kapplication; oferece suporte à criptografia de ponta a ponta do Rocket.Chat para mensagens diretas e grupos privados. Suas chaves de criptografia são protegidas por uma senha que você pode gerenciar na página <guilabel
+>Criptografia</guilabel
+> em <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Minha conta…</guimenuitem
+></menuchoice
+>. As salas criptografadas exibem um ícone de cadeado no cabeçalho. Observe que o conteúdo das mensagens criptografadas não pode ser pesquisado.</para>
+</chapter>
+
+<chapter id="my-account">
+<title
+>Minha conta</title>
+<para
+><menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Minha conta…</guimenuitem
+></menuchoice
+> permite gerenciar seu perfil no Rocket.Chat:</para>
+<itemizedlist>
+<listitem
+><para
+>Perfil: nome, nome de usuário, e-mail, avatar, mensagem de status e senha</para
+></listitem>
+<listitem
+><para
+>Preferências oferecidas pelo servidor</para
+></listitem>
+<listitem
+><para
+>Autenticação de dois fatores (e-mail ou TOTP)</para
+></listitem>
+<listitem
+><para
+>Chaves de criptografia de ponta a ponta</para
+></listitem>
+<listitem
+><para
+>Tokens de acesso pessoal</para
+></listitem>
+<listitem
+><para
+>Dispositivos conectados à sua conta</para
+></listitem>
+<listitem
+><para
+>Prévias de recursos</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="administration">
+<title
+>Administração do servidor</title>
+<para
+>Usuários com as permissões necessárias podem administrar o servidor a partir de <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Administração</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+><guimenuitem
+>Administrador…</guimenuitem
+> fornece acesso a informações do servidor, salas, usuários, convites, emojis personalizados, sons personalizados, status de usuário personalizados, cargos, permissões, aplicativos OAuth, console de moderação e registros do servidor.</para>
+
+<para
+><guimenuitem
+>Configurações do servidor…</guimenuitem
+> permite alterar a configuração do servidor, e as entradas <guimenuitem
+>Aplicativos</guimenuitem
+> permitem navegar e gerenciar aplicativos do Marketplace do Rocket.Chat.</para>
+
+<para
+><menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Lista de verificação do servidor…</guimenuitem
+></menuchoice
+> verifica a configuração do servidor em busca de problemas comuns.</para>
+</chapter>
+
+<chapter id="offline">
+<title
+>Modo desconectado</title>
+<para
+>O &i18n-kapplication; pode manter mensagens em um banco de dados local (ative a opção <guilabel
+>Ativar banco de dados local</guilabel
+> na seção <guilabel
+>Geral</guilabel
+> das configurações), para que as salas sejam exibidas mais rapidamente e permaneçam legíveis quando a conexão for perdida. A opção <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Trabalhar desconectado</guimenuitem
+></menuchoice
+> desconecta você do servidor intencionalmente.</para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>Configurando o &i18n-kapplication;</title>
+<para
+><menuchoice
+><guimenu
+>Configurações</guimenu
+><guimenuitem
+>Configurar o &i18n-kapplication;…</guimenuitem
+></menuchoice
+> abre a janela de configuração, que contém as seguintes páginas:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>Contas</guilabel
+></term>
+<listitem
+><para
+>Adiciona, modifica, habilita, desabilita ou remove contas de servidor.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Geral</guilabel
+></term>
+<listitem
+><para
+>Ícone na bandeja do sistema, status na inicialização, visualizações de imagem e &URL;, GIFs animados, banco de dados local, registro de atividades e outras opções de comportamento.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Fonte</guilabel
+></term>
+<listitem
+><para
+>Fonte usada para exibir mensagens.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Verificação ortográfica</guilabel
+> e <guilabel
+>Correção automática</guilabel
+></term>
+<listitem
+><para
+>Regras de idioma e correção aplicadas durante a digitação.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Tradução</guilabel
+></term>
+<listitem
+><para
+>Mecanismo de tradução usado para traduzir mensagens.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Acessibilidade</guilabel
+></term>
+<listitem
+><para
+>Opções de conversão de texto para fala e de fala para texto, quando disponíveis.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Plugins</guilabel
+></term>
+<listitem
+><para
+>Ativa ou desativa plugins, como compartilhamento de texto, atalhos da web, capturas de tela ou geração de texto com um mecanismo de IA.</para
+></listitem
+></varlistentry>
+<varlistentry
+><term
+><guilabel
+>Feedback do usuário</guilabel
+></term>
+<listitem
+><para
+>Escolha quais estatísticas de uso anônimas serão enviadas aos desenvolvedores.</para
+></listitem
+></varlistentry>
+</variablelist>
+<para
+>O esquema de cores pode ser alterado no menu <guimenu
+>Configurações</guimenu
+>, e o tamanho da fonte das mensagens, no menu <guimenu
+>Exibir</guimenu
+>.</para>
+</chapter>
+
+<chapter id="tools">
+<title
+>Ferramentas</title>
+<para
+>O menu <guimenu
+>Ferramentas</guimenu
+> disponibiliza recursos auxiliares úteis principalmente para a solução de problemas:</para>
+<itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Mostrar log do canal</guimenuitem
+> e <guimenuitem
+>Mostrar erros do servidor</guimenuitem
+></para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Mostrar informações do RocketChat</guimenuitem
+>: versão e recursos do servidor</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Tentar novamente acessar a carteira</guimenuitem
+>, quando a senha não pôde ser lida da carteira</para
+></listitem>
+</itemizedlist>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos e licença</title>
+
+<para
+>&i18n-kapplication;</para>
+<para
+>Direitos autorais do programa 2018-2026 &Laurent.Montel; &Laurent.Montel.mail; </para>
+<para
+>Direitos autorais da documentação &copy; &Laurent.Montel; &Laurent.Montel.mail; </para>
+
+<para
+>Tradução de Marcus Gama <email
+>marcus.gama@kde.org</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+kate: space-indent on; indent-width 2; tab-width 2; indent-mode none;
+-->
