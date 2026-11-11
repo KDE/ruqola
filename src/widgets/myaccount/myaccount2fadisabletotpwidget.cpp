@@ -6,8 +6,11 @@
 
 #include "myaccount2fadisabletotpwidget.h"
 
+#include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
+#include "users/usersdisabletotpjob.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -73,7 +76,25 @@ void MyAccount2FaDisableTotpWidget::slotTotpInvalid(bool check)
 
 void MyAccount2FaDisableTotpWidget::slotVerify()
 {
-    mRocketChatAccount->ddp()->disable2fa(mDisableCodeLineEdit->text());
+    if (mRocketChatAccount->hasAtLeastVersion(9, 0, 0)) {
+        auto job = new RocketChatRestApi::UsersDisableTotpJob(this);
+        job->setCode(mDisableCodeLineEdit->text());
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::UsersDisableTotpJob::usersDisableTotpDone, this, &MyAccount2FaDisableTotpWidget::slotUsersDisableTotpDone);
+        connect(job, &RocketChatRestApi::UsersDisableTotpJob::failed, this, [this]() {
+            slotTotpInvalid(false);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersDisableTotpJob job";
+        }
+    } else {
+        mRocketChatAccount->ddp()->disable2fa(mDisableCodeLineEdit->text());
+    }
+}
+
+void MyAccount2FaDisableTotpWidget::slotUsersDisableTotpDone(const QJsonObject &obj)
+{
+    slotTotpInvalid(obj["disabled"_L1].toBool(true));
 }
 
 void MyAccount2FaDisableTotpWidget::slotRegenerateCode()

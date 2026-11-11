@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class RocketChatAccount;
 class QLineEdit;
+class QJsonObject;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaDisableTotpWidget : public QWidget
 {
     Q_OBJECT
@@ -24,6 +25,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotVerify();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRegenerateCode();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotTotpInvalid(bool check);
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUsersDisableTotpDone(const QJsonObject &obj);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mDisableCodeLineEdit;
 };
