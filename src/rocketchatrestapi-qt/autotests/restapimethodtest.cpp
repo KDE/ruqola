@@ -403,6 +403,11 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImBlockUser), QUrl(u"http://www.kde.org/api/v1/im.blockUser"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsJoin), QUrl(u"http://www.kde.org/api/v1/rooms.join"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsHistory), QUrl(u"http://www.kde.org/api/v1/rooms.history"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersEnableTotp), QUrl(u"http://www.kde.org/api/v1/users.enableTotp"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersDisableTotp), QUrl(u"http://www.kde.org/api/v1/users.disableTotp"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRegenerateTotpCodes), QUrl(u"http://www.kde.org/api/v1/users.regenerateTotpCodes"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersValidateTotp), QUrl(u"http://www.kde.org/api/v1/users.validateTotp"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersTotpCodesRemaining), QUrl(u"http://www.kde.org/api/v1/users.totpCodesRemaining"_s));
 }
 
 #include "moc_restapimethodtest.cpp"

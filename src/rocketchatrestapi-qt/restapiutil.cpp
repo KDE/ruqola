@@ -650,6 +650,26 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"rooms.join"_s;
     case RestApiUtil::RestApiUrlType::RoomsHistory:
         return u"rooms.history"_s;
+    case RestApiUtil::RestApiUrlType::RoomsSetCategory:
+        return u"rooms.setCategory"_s;
+    case RestApiUtil::RestApiUrlType::ServiceConfigurations:
+        return u"service.configurations"_s;
+    case RestApiUtil::RestApiUrlType::SettingsAddCustomOAuth:
+        return u"settings.addCustomOAuth"_s;
+    case RestApiUtil::RestApiUrlType::SettingsRemoveCustomOAuth:
+        return u"settings.removeCustomOAuth"_s;
+    case RestApiUtil::RestApiUrlType::SettingsRefreshOAuthServices:
+        return u"settings.refreshOAuthServices"_s;
+    case RestApiUtil::RestApiUrlType::UsersEnableTotp:
+        return u"users.enableTotp"_s;
+    case RestApiUtil::RestApiUrlType::UsersDisableTotp:
+        return u"users.disableTotp"_s;
+    case RestApiUtil::RestApiUrlType::UsersRegenerateTotpCodes:
+        return u"users.regenerateTotpCodes"_s;
+    case RestApiUtil::RestApiUrlType::UsersValidateTotp:
+        return u"users.validateTotp"_s;
+    case RestApiUtil::RestApiUrlType::UsersTotpCodesRemaining:
+        return u"users.totpCodesRemaining"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

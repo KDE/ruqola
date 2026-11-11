@@ -478,6 +478,16 @@ target_sources(
         users/userspresencejob.h
         users/userssetpreferencesjob.cpp
         users/userssetpreferencesjob.h
+        users/usersdisabletotpjob.cpp
+        users/usersdisabletotpjob.h
+        users/usersenabletotpjob.cpp
+        users/usersenabletotpjob.h
+        users/usersregeneratetotpcodesjob.cpp
+        users/usersregeneratetotpcodesjob.h
+        users/userstotpcodesremainingjob.cpp
+        users/userstotpcodesremainingjob.h
+        users/usersvalidatetotpjob.cpp
+        users/usersvalidatetotpjob.h
         users/usersupdatejob.cpp
         users/usersupdatejob.h
         users/usersupdateownbasicinfojob.cpp
