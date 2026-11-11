@@ -55,8 +55,7 @@ QNetworkRequest ResetOwnE2eKeyJob::request() const
 
 QJsonDocument ResetOwnE2eKeyJob::json() const
 {
-    QJsonObject jsonObj;
-    // TODO
+    const QJsonObject jsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

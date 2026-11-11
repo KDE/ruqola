@@ -8,6 +8,7 @@
 
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
+#include "e2e/resetowne2ekeyjob.h"
 #include "misc/methodcalljob.h"
 #include "misc/passwordconfirmwidget.h"
 #include "rocketchataccount.h"
@@ -75,22 +76,32 @@ void MyAccount2e2ConfigureWidget::slotModifyPassword()
 
 void MyAccount2e2ConfigureWidget::slotResetE2EKey()
 {
-    // it uses "/api/v1/method.call/e2e.resetOwnE2EKey"
-    // => use restapi for calling ddp method
-    auto job = new RocketChatRestApi::MethodCallJob(this);
-    const QJsonArray params;
-    const QString methodName = u"e2e.resetOwnE2EKey"_s;
-    const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
-        .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
-        .methodName = methodName,
-        .anonymous = false,
-    };
-    job->setMethodCallJobInfo(info);
-    mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallFailed, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyFailed);
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetOwnE2eKeyJob job";
+    if (mRocketChatAccount->hasAtLeastVersion(8, 6, 0)) {
+        auto job = new RocketChatRestApi::ResetOwnE2eKeyJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::ResetOwnE2eKeyJob::resetE2eKeyDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);
+        connect(job, &RocketChatRestApi::ResetOwnE2eKeyJob::failed, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyOwnFailed);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetOwnE2eKeyJob job";
+        }
+    } else {
+        // it uses "/api/v1/method.call/e2e.resetOwnE2EKey"
+        // => use restapi for calling ddp method
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        const QJsonArray params;
+        const QString methodName = u"e2e.resetOwnE2EKey"_s;
+        const RocketChatRestApi::MethodCallJob::MethodCallJobInfo info{
+            .messageObj = mRocketChatAccount->ddp()->generateJsonObject(methodName, params),
+            .methodName = methodName,
+            .anonymous = false,
+        };
+        job->setMethodCallJobInfo(info);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyDone);
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallFailed, this, &MyAccount2e2ConfigureWidget::slotReset2E2KeyFailed);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetOwnE2eKeyJob job";
+        }
     }
 }
 
@@ -112,6 +123,15 @@ void MyAccount2e2ConfigureWidget::slotReset2E2KeyFailed(const QJsonObject &error
     const QString reason = errorObject.value("reason"_L1).toString();
     KMessageBox::error(this,
                        reason.isEmpty() ? i18n("The server refused to reset your E2E key.") : i18n("The server refused to reset your E2E key: %1", reason),
+                       i18nc("@title:window", "Reset E2E Key"));
+}
+
+void MyAccount2e2ConfigureWidget::slotReset2E2KeyOwnFailed(const QString &serverErrorStr, const QString &descriptionError)
+{
+    qCWarning(RUQOLAWIDGETS_LOG) << "slotReset2E2KeyOwnFailed, serverErrorStr:" << serverErrorStr << " descriptionError: " << descriptionError;
+    KMessageBox::error(this,
+                       descriptionError.isEmpty() ? i18n("The server refused to reset your E2E key.")
+                                                  : i18n("The server refused to reset your E2E key: %1", descriptionError),
                        i18nc("@title:window", "Reset E2E Key"));
 }
 

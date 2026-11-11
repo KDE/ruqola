@@ -28,6 +28,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotReset2E2KeyFailed(const QJsonObject &errorObject);
     LIBRUQOLAWIDGETS_NO_EXPORT void slotResetE2EKey();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotModifyPassword();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotReset2E2KeyOwnFailed(const QString &serverErrorStr, const QString &descriptionError);
     PasswordConfirmWidget *const mPasswordConfirmWidget;
     QPushButton *const mResetE2eKey;
     QPushButton *const mModifyE2ePassword;
