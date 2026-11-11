@@ -9,10 +9,10 @@
 #include "autogenerateui/autogenerateinteractionuiviewtext.h"
 #include "autogenerateui/autogenerateinteractionutil.h"
 #include "ruqola_autogenerateui_debug.h"
+#include <QHBoxLayout>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QLabel>
-#include <QLayout>
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;

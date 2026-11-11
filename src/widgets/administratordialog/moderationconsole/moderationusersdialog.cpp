@@ -6,6 +6,7 @@
 
 #include "moderationusersdialog.h"
 
+#include "moderation/moderationreportuserinfos.h"
 #include "moderationuserswidget.h"
 
 #include <KLocalizedString>

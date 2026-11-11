@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "moderation/moderationreportuserinfos.h"
+class ModerationReportUserInfos;
 #include <QDialog>
 
 class ModerationUsersWidget;

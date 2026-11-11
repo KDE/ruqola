@@ -6,6 +6,8 @@
 
 #include "autogenerateinteractionutil.h"
 
+#include <QDebug>
+
 using namespace Qt::Literals::StringLiterals;
 QJsonObject AutoGenerateInteractionUtil::createViewBlockActionUser(const ViewBlockActionUserInfo &info)
 {

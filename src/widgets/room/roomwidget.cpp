@@ -5,7 +5,6 @@
 */
 
 #include "roomwidget.h"
-#include "autogenerateui/autogenerateinteractionui.h"
 #include "autogenerateui/autogenerateinteractionuidialog.h"
 #include "encryption/e2ecopypassworddialog.h"
 #include "encryption/e2edecodeencryptionkeyfailedwidget.h"
@@ -16,6 +15,7 @@
 
 #include "accountroomsettings.h"
 #include "conferencecalldialog/conferencecalldialog.h"
+#include "config-ruqola.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "dialogs/addusersinroomdialog.h"
@@ -31,6 +31,7 @@
 #include "dialogs/showpinnedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
+#include "dialogs/unbanusersdialog.h"
 #include "discussions/showdiscussionsdialog.h"
 #include "exportmessages/exportmessagesdialog.h"
 #include "job/unbanuserinchanneljob.h"
@@ -70,7 +71,6 @@
 #include <QDropEvent>
 #include <QJsonArray>
 #include <QMimeData>
-#include <QPushButton>
 #include <QScrollBar>
 #include <QTimeZone>
 #include <QVBoxLayout>

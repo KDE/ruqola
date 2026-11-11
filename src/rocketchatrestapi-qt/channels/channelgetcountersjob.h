@@ -7,7 +7,6 @@
 #pragma once
 #include "channelgroupbasejob.h"
 #include "librocketchatrestapi-qt_export.h"
-class QNetworkRequest;
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelGetCountersJob : public ChannelGroupBaseJob

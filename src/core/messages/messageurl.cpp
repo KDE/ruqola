@@ -10,6 +10,7 @@
 #include "ruqolaglobalconfig.h"
 
 #include <QJsonObject>
+#include <QUrl>
 
 using namespace Qt::Literals::StringLiterals;
 MessageUrl::MessageUrl()

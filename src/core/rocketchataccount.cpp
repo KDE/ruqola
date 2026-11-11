@@ -117,7 +117,6 @@
 #include "away/awaymanager.h"
 #include "customsound/customsoundsmanager.h"
 #include "model/switchchannelhistorymodel.h"
-#include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 #include <KNotification>
 #include <QUrl>

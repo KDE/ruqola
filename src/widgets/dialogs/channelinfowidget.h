@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "rooms/saveroomsettingsjob.h"
 
+#include <QPointer>
 #include <QWidget>
 class QStackedWidget;
 class Room;

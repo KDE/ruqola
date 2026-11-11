@@ -9,7 +9,6 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
-class QJsonObject;
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelGroupBaseJob : public RestApiAbstractJob

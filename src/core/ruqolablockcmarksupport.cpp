@@ -6,7 +6,6 @@
 
 #include "ruqolablockcmarksupport.h"
 #include "colorsandmessageviewstyle.h"
-#include "config-ruqola.h"
 #include "emoticons/emojimanager.h"
 #include "ruqola_texttohtml_cmark_debug.h"
 #include <KSyntaxHighlighting/Theme>

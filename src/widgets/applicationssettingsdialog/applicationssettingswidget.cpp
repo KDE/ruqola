@@ -7,7 +7,6 @@
 #include "applicationssettingswidget.h"
 #include "applicationssettingsdialog/applicationssettingslistwidget.h"
 #include "applicationssettingsinprogresswidget.h"
-#include "applicationssettingslistview.h"
 #include "memorymanager/memorymanager.h"
 #include "rocketchataccount.h"
 

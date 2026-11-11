@@ -8,7 +8,6 @@
 
 #include <KLocalizedString>
 #include <QCheckBox>
-#include <QFormLayout>
 #include <QLineEdit>
 
 using namespace Qt::Literals::StringLiterals;

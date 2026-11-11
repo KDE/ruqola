@@ -6,7 +6,6 @@
 
 #pragma once
 #include "roles/roleinfo.h"
-#include "user.h"
 #include <QList>
 #include <QWidget>
 
@@ -17,6 +16,7 @@ class RocketChatAccount;
 class ResizablePixmapLabel;
 class QToolButton;
 class Room;
+class User;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelActionWidget : public QWidget
 {
     Q_OBJECT

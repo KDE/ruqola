@@ -9,7 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-#include "moderation/moderationreportuserinfos.h"
+class ModerationReportUserInfos;
 class RocketChatAccount;
 class QTextBrowser;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ModerationUsersWidget : public QWidget

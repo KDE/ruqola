@@ -11,7 +11,6 @@
 #include "ruqolautils.h"
 
 #include "messageattachmentdelegatehelperopenfilejob.h"
-#include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>

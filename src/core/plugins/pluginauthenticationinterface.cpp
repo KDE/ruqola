@@ -6,8 +6,6 @@
 
 #include "pluginauthenticationinterface.h"
 
-#include "rocketchataccount.h"
-
 PluginAuthenticationInterface::PluginAuthenticationInterface(QObject *parent)
     : QObject(parent)
 {

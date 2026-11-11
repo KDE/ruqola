@@ -6,7 +6,6 @@
 
 #include "rocketchataccountsettings.h"
 #include "accountcredentialstore.h"
-#include "config-ruqola.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
 

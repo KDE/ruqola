@@ -9,6 +9,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QPushButton>
+#include <QUuid>
 #include <QVBoxLayout>
 #include <QWidget>
 

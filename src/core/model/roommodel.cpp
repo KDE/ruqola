@@ -13,6 +13,7 @@
 #include "rocketchataccount.h"
 #include "ruqola_rooms_debug.h"
 #include "ruqolaserverconfig.h"
+#include "user.h"
 #include "usersforroommodel.h"
 #include <KLocalizedString>
 

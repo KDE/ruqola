@@ -11,6 +11,7 @@
 #include "ruqola_autogenerateui_debug.h"
 
 #include <QJsonObject>
+#include <QUuid>
 #include <QWidget>
 
 using namespace Qt::Literals::StringLiterals;

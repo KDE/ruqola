@@ -10,6 +10,7 @@
 #include "rocketchataccount.h"
 #include "room/usersinroommenu.h"
 #include "ruqolawidgets_debug.h"
+#include "user.h"
 
 #include "users/userinfojob.h"
 

@@ -7,7 +7,6 @@
 #include "applicationssettingsdialog.h"
 
 #include "applicationssettingswidget.h"
-#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>

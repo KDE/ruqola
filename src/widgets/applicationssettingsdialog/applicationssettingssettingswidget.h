@@ -8,6 +8,7 @@
 #include "apps/applicationssettingssettingsinfo.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class QJsonObject;
 class QVBoxLayout;
 class RocketChatAccount;
 class ApplictionSettingsCustomWidgetsBase;

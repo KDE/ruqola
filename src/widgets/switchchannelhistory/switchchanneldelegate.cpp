@@ -9,7 +9,6 @@
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
 #include "model/switchchannelhistorymodel.h"
-#include "rocketchataccount.h"
 
 #include <QPainter>
 

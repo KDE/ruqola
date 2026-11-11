@@ -5,6 +5,7 @@
 */
 
 #include "messagetextedit.h"
+#include "config-ruqola.h"
 
 #include "common/commandcompletiondelegate.h"
 #include "common/emojicompletiondelegate.h"

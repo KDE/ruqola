@@ -16,6 +16,7 @@
 
 #include <QJsonArray>
 #include <QScrollBar>
+#include <QShowEvent>
 #include <QVBoxLayout>
 
 using namespace Qt::Literals::StringLiterals;

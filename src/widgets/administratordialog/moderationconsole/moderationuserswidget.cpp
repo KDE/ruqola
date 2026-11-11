@@ -7,6 +7,7 @@
 #include "moderationuserswidget.h"
 
 #include "colorsandmessageviewstyle.h"
+#include "moderation/moderationreportuserinfos.h"
 #include <KLocalizedString>
 #include <QTextBrowser>
 #include <QVBoxLayout>

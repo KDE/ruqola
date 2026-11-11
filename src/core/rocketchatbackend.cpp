@@ -13,7 +13,6 @@
 #include "ruqola_reconnect_core_debug.h"
 
 #include "authenticationmanager/ddpauthenticationmanager.h"
-#include "config-ruqola.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "model/messagesmodel.h"
@@ -22,11 +21,11 @@
 #include "receivetypingnotificationmanager.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
-#include "ruqola.h"
 #include "ruqola_debug.h"
 #include "ruqola_message_debug.h"
 #include "ruqola_unknown_collectiontype_debug.h"
 #include "ruqolalogger.h"
+#include "ruqolaserverconfig.h"
 #include "videoconference/videoconferencemessageinfomanager.h"
 
 #include "authenticationmanager/restauthenticationmanager.h"

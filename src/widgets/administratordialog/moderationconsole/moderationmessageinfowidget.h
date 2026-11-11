@@ -6,7 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
-#include "moderation/moderationreportinfos.h"
+class ModerationReportInfos;
 #include <QWidget>
 class RocketChatAccount;
 class ModerationReportInfoWidget;

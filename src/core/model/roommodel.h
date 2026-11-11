@@ -10,10 +10,10 @@
 #include "categories/category.h"
 #include "libruqolacore_export.h"
 #include "room.h"
-#include "user.h"
 #include <QAbstractListModel>
 class RocketChatAccount;
 class MessagesModel;
+class User;
 
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {

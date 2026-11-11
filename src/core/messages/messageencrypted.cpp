@@ -9,6 +9,7 @@
 #include "encryption/encryptionutils.h"
 #include "ruqola_encryption_debug.h"
 
+#include <QJsonDocument>
 #include <QJsonObject>
 
 using namespace Qt::Literals::StringLiterals;

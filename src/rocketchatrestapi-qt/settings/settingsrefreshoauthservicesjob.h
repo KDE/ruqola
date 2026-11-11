@@ -9,8 +9,6 @@
 #include "librocketchatrestapi-qt_export.h"
 #include "restapiabstractjob.h"
 
-#include <QVariant>
-
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT_EXPORT SettingsRefreshOAuthServicesJob : public RestApiAbstractJob

@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "config-ruqola.h"
-
 #include "libruqolacore_export.h"
 #include "messages/message.h"
 #include <QList>
@@ -17,7 +15,6 @@
 #include <QStringList>
 
 class EmojiManager;
-class Message;
 class MessageCache;
 namespace TextConverter
 {

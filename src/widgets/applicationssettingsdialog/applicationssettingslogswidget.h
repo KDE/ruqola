@@ -7,6 +7,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+class QJsonObject;
 class QTextBrowser;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ApplicationsSettingsLogsWidget : public QWidget

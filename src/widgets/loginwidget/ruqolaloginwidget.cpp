@@ -8,7 +8,6 @@
 #include "config-ruqola.h"
 
 #include "colorsandmessageviewstyle.h"
-#include "common/authenticationoauthwidget.h"
 #include "loginwidget/ruqolaloginbutton.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
@@ -17,7 +16,6 @@
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
 #include <KLocalizedString>
-#include <QCheckBox>
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>

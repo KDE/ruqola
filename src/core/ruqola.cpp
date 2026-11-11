@@ -10,7 +10,6 @@
 
 #include "customemojiiconmanager.h"
 #include "managerdatapaths.h"
-#include "rocketchataccount.h"
 
 #include <KSharedConfig>
 

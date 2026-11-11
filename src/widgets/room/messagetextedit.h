@@ -5,7 +5,6 @@
 */
 
 #pragma once
-#include "config-ruqola.h"
 #include "inputtextmanager.h"
 #include <KTextEdit>
 

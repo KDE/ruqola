@@ -15,9 +15,9 @@
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
+#include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
 #include <QDrag>
-#include <QListView>
 #include <QMimeData>
 #include <QMouseEvent>
 

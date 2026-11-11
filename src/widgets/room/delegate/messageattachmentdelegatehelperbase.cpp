@@ -16,7 +16,6 @@
 #include <QDrag>
 #include <QListView>
 #include <QMimeData>
-#include <QPainter>
 #include <QRect>
 #include <QStyleOptionViewItem>
 #include <QToolTip>

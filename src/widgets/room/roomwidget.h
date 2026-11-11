@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "config-ruqola.h"
-#include "dialogs/unbanusersdialog.h"
 #include "libruqolawidgets_private_export.h"
 #include "messages/message.h"
 #include "rocketchataccount.h"
@@ -16,6 +14,7 @@
 #include <QPointer>
 class QVBoxLayout;
 class ShowThreadsDialog;
+class UnbanUsersDialog;
 
 class RocketChatAccount;
 class UsersInRoomFlowWidget;

@@ -6,6 +6,7 @@
 
 #include "moderationmessageinfowidget.h"
 
+#include "moderation/moderationreportinfos.h"
 #include "moderationreportinfowidget.h"
 
 #include <QVBoxLayout>

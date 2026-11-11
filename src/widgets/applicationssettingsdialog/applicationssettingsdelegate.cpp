@@ -11,14 +11,12 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "model/appsmarketplacemodel.h"
-#include "rocketchataccount.h"
 #if USE_SIZEHINT_CACHE_SUPPORT
 #include "ruqola_sizehint_cache_debug.h"
 #endif
 #include "colorsandmessageviewstyle.h"
 #include <KLocalizedString>
 #include <QPainter>
-#include <QTextDocument>
 
 using namespace Qt::Literals::StringLiterals;
 
