@@ -408,6 +408,11 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsAddCustomOAuth), QUrl(u"http://www.kde.org/api/v1/settings.addCustomOAuth"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsRemoveCustomOAuth), QUrl(u"http://www.kde.org/api/v1/settings.removeCustomOAuth"_s));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsRefreshOAuthServices), QUrl(u"http://www.kde.org/api/v1/settings.refreshOAuthServices"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersEnableTotp), QUrl(u"http://www.kde.org/api/v1/users.enableTotp"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersDisableTotp), QUrl(u"http://www.kde.org/api/v1/users.disableTotp"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRegenerateTotpCodes), QUrl(u"http://www.kde.org/api/v1/users.regenerateTotpCodes"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersValidateTotp), QUrl(u"http://www.kde.org/api/v1/users.validateTotp"_s));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersTotpCodesRemaining), QUrl(u"http://www.kde.org/api/v1/users.totpCodesRemaining"_s));
 }
 
 #include "moc_restapimethodtest.cpp"

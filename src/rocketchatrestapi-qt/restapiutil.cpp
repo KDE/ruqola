@@ -658,6 +658,16 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return u"settings.removeCustomOAuth"_s;
     case RestApiUtil::RestApiUrlType::SettingsRefreshOAuthServices:
         return u"settings.refreshOAuthServices"_s;
+    case RestApiUtil::RestApiUrlType::UsersEnableTotp:
+        return u"users.enableTotp"_s;
+    case RestApiUtil::RestApiUrlType::UsersDisableTotp:
+        return u"users.disableTotp"_s;
+    case RestApiUtil::RestApiUrlType::UsersRegenerateTotpCodes:
+        return u"users.regenerateTotpCodes"_s;
+    case RestApiUtil::RestApiUrlType::UsersValidateTotp:
+        return u"users.validateTotp"_s;
+    case RestApiUtil::RestApiUrlType::UsersTotpCodesRemaining:
+        return u"users.totpCodesRemaining"_s;
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

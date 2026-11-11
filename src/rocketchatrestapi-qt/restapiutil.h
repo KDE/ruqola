@@ -418,6 +418,12 @@ enum class RestApiUrlType {
     // Since 8.8.0
     SettingsRemoveCustomOAuth,
     SettingsRefreshOAuthServices,
+    // Since 9.0.0
+    UsersEnableTotp,
+    UsersDisableTotp,
+    UsersRegenerateTotpCodes,
+    UsersValidateTotp,
+    UsersTotpCodesRemaining,
 };
 LIBROCKETCHATRESTAPI_QT_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
