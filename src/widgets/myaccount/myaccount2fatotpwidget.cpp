@@ -6,8 +6,11 @@
 
 #include "myaccount2fatotpwidget.h"
 
+#include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
+#include "users/usersvalidatetotpjob.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -92,7 +95,19 @@ void MyAccount2FaTotpWidget::slotTotpInvalid()
 
 void MyAccount2FaTotpWidget::slotVerify()
 {
-    mRocketChatAccount->ddp()->validateTempToken2fa(mVerifyQrCode->text());
+    if (mRocketChatAccount->hasAtLeastVersion(9, 0, 0)) {
+        auto job = new RocketChatRestApi::UsersValidateTotpJob(this);
+        job->setCode(mVerifyQrCode->text());
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::UsersValidateTotpJob::usersValidateTotpDone, this, [this](const QJsonObject &obj) {
+            mRocketChatAccount->validateTempToken2fa(obj);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersValidateTotpJob job";
+        }
+    } else {
+        mRocketChatAccount->ddp()->validateTempToken2fa(mVerifyQrCode->text());
+    }
 }
 
 void MyAccount2FaTotpWidget::slotTotpResult(const QString &secret, const QString &url)
