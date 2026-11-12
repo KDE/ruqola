@@ -90,17 +90,17 @@ bool SpotlightJob::SpotlightJobInfo::isValid() const
 
 QString SpotlightJob::SpotlightJobInfo::convertSpotlightTypeToString() const
 {
-    switch (type) {
-    case SpotlightJobType::Users:
-        return u"{\"users\":true}"_s;
-    case SpotlightJobType::Rooms:
-        return u"{\"rooms\":true}"_s;
-    case SpotlightJobType::Mentions:
-        return u"{\"mentions\":true}"_s;
-    case SpotlightJobType::Unknown:
-        return {};
+    QStringList lst;
+    if (types & SpotlightJobType::Users) {
+        lst << u"\"users\":true"_s;
     }
-    return {};
+    if (types & SpotlightJobType::Rooms) {
+        lst << u"\"rooms\":true"_s;
+    }
+    if (types & SpotlightJobType::Mentions) {
+        lst << u"\"mentions\":true"_s;
+    }
+    return u'{' + lst.join(u',') + u'}';
 }
 
 void SpotlightJob::SpotlightJobInfo::addQueryItem(QUrlQuery &queryUrl) const
@@ -109,7 +109,7 @@ void SpotlightJob::SpotlightJobInfo::addQueryItem(QUrlQuery &queryUrl) const
     if (!roomId.isEmpty()) {
         queryUrl.addQueryItem(u"rid"_s, QString::fromLatin1(roomId));
     }
-    if (type != SpotlightJobType::Unknown) {
+    if (types != SpotlightJobType::Unknown) {
         queryUrl.addQueryItem(u"type"_s, convertSpotlightTypeToString());
     }
     if (!excludeUsernames.isEmpty()) {
@@ -121,7 +121,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::SpotlightJob::SpotlightJobI
 {
     d.space() << "pattern:" << t.pattern;
     d.space() << "excludeUsernames:" << t.excludeUsernames;
-    d.space() << "type:" << t.type;
+    d.space() << "types:" << t.types;
     d.space() << "roomId:" << t.roomId;
     return d;
 }

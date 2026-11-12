@@ -35,7 +35,7 @@ void SpotlightJobTest::shouldHaveDefaultValue()
     QVERIFY(info.excludeUsernames.isEmpty());
     QVERIFY(info.pattern.isEmpty());
     QVERIFY(info.roomId.isEmpty());
-    QCOMPARE(info.type, SpotlightJob::SpotlightJobType::Unknown);
+    QCOMPARE(info.types, SpotlightJob::SpotlightJobType::Unknown);
 }
 
 void SpotlightJobTest::shouldGenerateRequest()
@@ -60,18 +60,28 @@ void SpotlightJobTest::shouldGenerateRequest()
     }
     {
         info.roomId = "roo37"_ba;
-        info.type = SpotlightJob::SpotlightJobType::Rooms;
+        info.types = SpotlightJob::SpotlightJobType::Rooms;
         job.setSpotlightInfo(info);
         const QNetworkRequest request = job.request();
         QCOMPARE(request.url().toEncoded(), "http://www.kde.org/api/v1/spotlight?query=avat&rid=roo37&type=%7B%22rooms%22:true%7D"_ba);
     }
     {
         info.roomId = "roo39"_ba;
-        info.type = SpotlightJob::SpotlightJobType::Rooms;
+        info.types = SpotlightJob::SpotlightJobType::Rooms;
         info.excludeUsernames = {u"user1"_s, u"user3"_s};
         job.setSpotlightInfo(info);
         const QNetworkRequest request = job.request();
         QCOMPARE(request.url().toEncoded(), "http://www.kde.org/api/v1/spotlight?query=avat&rid=roo39&type=%7B%22rooms%22:true%7D&usernames=user1,user3"_ba);
+    }
+    {
+        info.roomId = "roo40"_ba;
+        info.types = SpotlightJob::SpotlightJobType::Rooms;
+        info.types |= SpotlightJob::SpotlightJobType::Mentions;
+        info.excludeUsernames = {u"user1"_s, u"user3"_s};
+        job.setSpotlightInfo(info);
+        const QNetworkRequest request = job.request();
+        QCOMPARE(request.url().toEncoded(),
+                 "http://www.kde.org/api/v1/spotlight?query=avat&rid=roo40&type=%7B%22rooms%22:true,%22mentions%22:true%7D&usernames=user1,user3"_ba);
     }
 }
 

@@ -29,7 +29,7 @@ public:
     struct LIBROCKETCHATRESTAPI_QT_EXPORT SpotlightJobInfo {
         QString pattern;
         QStringList excludeUsernames;
-        SpotlightJobType type = SpotlightJobType::Unknown;
+        SpotlightJobTypes types = SpotlightJobType::Unknown;
         QByteArray roomId;
         void addQueryItem(QUrlQuery &queryUrl) const;
         [[nodiscard]] bool isValid() const;
@@ -55,5 +55,6 @@ private:
     SpotlightJobInfo mSpotlightInfo;
 };
 }
+Q_DECLARE_OPERATORS_FOR_FLAGS(RocketChatRestApi::SpotlightJob::SpotlightJobTypes)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::SpotlightJob::SpotlightJobInfo, Q_RELOCATABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::SpotlightJob::SpotlightJobInfo &t);
