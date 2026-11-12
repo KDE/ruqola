@@ -6,6 +6,7 @@
 
 #include "myaccount2fadisabletotpwidget.h"
 
+#include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"

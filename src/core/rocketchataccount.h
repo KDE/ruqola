@@ -454,6 +454,9 @@ public:
     void resetE2eKey();
 
     [[nodiscard]] const QList<QRegularExpression> &highlightWordsRegularExpressions() const;
+
+    void validateTempToken2fa(const QJsonObject &root);
+
 Q_SIGNALS:
     void showUiInteraction(const QJsonArray &uiInteraction);
     void roomRemoved(const QByteArray &roomId);
@@ -618,7 +621,6 @@ private:
     LIBRUQOLACORE_NO_EXPORT void enable2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void regenerateCodes2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void disable2fa(const QJsonObject &root);
-    LIBRUQOLACORE_NO_EXPORT void validateTempToken2fa(const QJsonObject &root);
     LIBRUQOLACORE_NO_EXPORT void slotListCustomSounds(const QJsonObject &root);
 
     LIBRUQOLACORE_NO_EXPORT void processPublicsettingsAdministrator(const QJsonObject &obj);
