@@ -6,6 +6,7 @@
 
 #include "showreadreceiptswidget.h"
 
+#include "chat/getmessagereadreceiptsjob.h"
 #include "connection.h"
 #include "misc/methodcalljob.h"
 #include "model/readreceiptsfilterproxymodel.h"
@@ -61,27 +62,42 @@ void ShowReadReceiptsWidget::slotSearchReadReceiptsChanged(const QString &str)
 
 void ShowReadReceiptsWidget::setMessageId(const QByteArray &messageId)
 {
-    // TODO use "ChatMessageReadReceipts" enum here. Need to port method
-    auto job = new RocketChatRestApi::MethodCallJob(this);
-    RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
-    info.methodName = u"getReadReceipts"_s;
-    info.anonymous = false;
+    if (mCurrentRocketChatAccount->hasAtLeastVersion(9, 0, 0)) {
+        auto job = new RocketChatRestApi::GetMessageReadReceiptsJob(this);
+        job->setMessageId(messageId);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::GetMessageReadReceiptsJob::getMessageReadReceiptsDone, this, [this](const QJsonObject &replyObject) {
+            // qDebug() << " replyObject " << replyObject;
+            ReadReceipts receipts;
+            receipts.parseReadReceipts(replyObject["receipts"_L1].toArray());
+            mModel->setReadReceipts(receipts);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GetMessageReadReceiptsJob job";
+        }
+    } else {
+        auto job = new RocketChatRestApi::MethodCallJob(this);
+        RocketChatRestApi::MethodCallJob::MethodCallJobInfo info;
+        info.methodName = u"getReadReceipts"_s;
+        info.anonymous = false;
 
-    QJsonObject obj;
-    obj["messageId"_L1] = QString::fromLatin1(messageId);
-    const QJsonArray params{obj};
-    info.messageObj = mCurrentRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
-    job->setMethodCallJobInfo(info);
-    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-    // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
-    connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
-        // qDebug() << " replyObject " << replyObject;
-        ReadReceipts receipts;
-        receipts.parseReadReceipts(replyObject["result"_L1].toArray());
-        mModel->setReadReceipts(receipts);
-    });
-    if (!job->start()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getReadReceipts job";
+        QJsonObject obj;
+        obj["messageId"_L1] = QString::fromLatin1(messageId);
+        const QJsonArray params{obj};
+        info.messageObj = mCurrentRocketChatAccount->ddp()->generateJsonObject(info.methodName, params);
+        job->setMethodCallJobInfo(info);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // qDebug()<< " mRestApiConnection " << mRestApiConnection->serverUrl();
+        connect(job, &RocketChatRestApi::MethodCallJob::methodCallDone, this, [this](const QJsonObject &replyObject) {
+            // qDebug() << " replyObject " << replyObject;
+            ReadReceipts receipts;
+            receipts.parseReadReceipts(replyObject["result"_L1].toArray());
+            mModel->setReadReceipts(receipts);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start getReadReceipts job";
+        }
     }
 }
 

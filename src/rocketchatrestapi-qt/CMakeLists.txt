@@ -107,6 +107,8 @@ target_sources(
         chat/getmentionedmessagesjob.h
         chat/getmessagejob.cpp
         chat/getmessagejob.h
+        chat/getmessagereadreceiptsjob.cpp
+        chat/getmessagereadreceiptsjob.h
         chat/getpinnedmessagesjob.cpp
         chat/getpinnedmessagesjob.h
         chat/getstarredmessagesjob.cpp
