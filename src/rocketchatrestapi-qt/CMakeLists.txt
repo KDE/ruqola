@@ -304,6 +304,8 @@ target_sources(
         misc/methodcalljob.h
         misc/appsuiinteractionjob.cpp
         misc/appsuiinteractionjob.h
+        misc/spotlightjob.cpp
+        misc/spotlightjob.h
         permissions/permissionslistalljob.cpp
         permissions/permissionslistalljob.h
         permissions/permissionupdatejob.cpp
@@ -406,8 +408,6 @@ target_sources(
         settings/settingsremovecustomoauthjob.cpp
         settings/settingsaddcustomoauthjob.h
         settings/settingsaddcustomoauthjob.cpp
-        spotlightjob.cpp
-        spotlightjob.h
         subscriptions/markroomasreadjob.cpp
         subscriptions/markroomasreadjob.h
         subscriptions/markroomasunreadjob.cpp

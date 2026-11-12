@@ -6,8 +6,8 @@
 
 #include "spotlightjobtest.h"
 
+#include "misc/spotlightjob.h"
 #include "restapimethod.h"
-#include "spotlightjob.h"
 #include <QTest>
 
 using namespace Qt::Literals::StringLiterals;
