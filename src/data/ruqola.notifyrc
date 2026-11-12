@@ -265,6 +265,7 @@ Urgency=Normal
 
 [Event/Mcp-Tool-Confirmation]
 Name=MCP Tool Asks Confirmation
+Name[ar]=أداة MCP تطلب التأكيد
 Name[ca]=L'eina MCP demana confirmació
 Name[ca@valencia]=L'eina MCP demana confirmació
 Name[es]=Herramienta MCP pide confirmación
