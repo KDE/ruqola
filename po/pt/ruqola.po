@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 00:57+0000\n"
+"POT-Creation-Date: 2026-11-12 01:01+0000\n"
 "PO-Revision-Date: 2023-07-14 22:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -584,7 +584,7 @@ msgstr ""
 "autenticação."
 
 #: core/authenticationmanager.cpp:106
-#: widgets/loginwidget/ruqolaloginwidget.cpp:189
+#: widgets/loginwidget/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "A autenticação falhou: O código OTP é inválido."
@@ -942,7 +942,7 @@ msgid "Impossible to start search"
 msgstr "Não é possível exportar os dados."
 
 #: core/mcpserver/common/toolutils.cpp:17 core/model/directoryteamsmodel.cpp:95
-#: core/model/roommodel.cpp:695
+#: core/model/roommodel.cpp:696
 #: widgets/administratordialog/administratorwidget.cpp:57
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:15
 #, kde-format
@@ -1754,7 +1754,7 @@ msgstr "Papel"
 #: core/model/adminusersallmodel.cpp:79 core/model/adminusersallmodel.cpp:129
 #: core/model/adminuserspendingmodel.cpp:74
 #: core/model/adminuserspendingmodel.cpp:130
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:166
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:164
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:15
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:292
 #, kde-format
@@ -2010,7 +2010,7 @@ msgstr "Autenticação em Dois Factores"
 msgid "Last token part"
 msgstr "Última parte do código"
 
-#: core/model/roommodel.cpp:625
+#: core/model/roommodel.cpp:626
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "%1 Mention"
@@ -2018,7 +2018,7 @@ msgid_plural "%1 Mentions"
 msgstr[0] "Menções"
 msgstr[1] "Menções"
 
-#: core/model/roommodel.cpp:629
+#: core/model/roommodel.cpp:630
 #, fuzzy, kde-format
 #| msgid "Group mentions only"
 msgid "%1 Group Mention"
@@ -2026,7 +2026,7 @@ msgid_plural "%1 Group Mentions"
 msgstr[0] "Apenas as menções do grupo"
 msgstr[1] "Apenas as menções do grupo"
 
-#: core/model/roommodel.cpp:633
+#: core/model/roommodel.cpp:634
 #, fuzzy, kde-format
 #| msgid "Unread Threads Messages"
 msgid "%1 Unread Threaded Message"
@@ -2034,7 +2034,7 @@ msgid_plural "%1 Unread Threaded Messages"
 msgstr[0] "Mensagens dos Tópicos Não-Lidas"
 msgstr[1] "Mensagens dos Tópicos Não-Lidas"
 
-#: core/model/roommodel.cpp:637
+#: core/model/roommodel.cpp:638
 #, fuzzy, kde-format
 #| msgid "%1 has %2 Unread Message"
 msgid "%1 Unread Message"
@@ -2042,79 +2042,79 @@ msgid_plural "%1 Unread Messages"
 msgstr[0] "%1 Tem %2 Mensagens Não Lidas"
 msgstr[1] "%1 Tem %2 Mensagens Não Lidas"
 
-#: core/model/roommodel.cpp:663
+#: core/model/roommodel.cpp:664
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala das Equipas"
 
-#: core/model/roommodel.cpp:669
+#: core/model/roommodel.cpp:670
 #, kde-format
 msgid "Private Room"
 msgstr "Sala Privada"
 
-#: core/model/roommodel.cpp:671
+#: core/model/roommodel.cpp:672
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de Discussão"
 
-#: core/model/roommodel.cpp:675
+#: core/model/roommodel.cpp:676
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala do Canal"
 
-#: core/model/roommodel.cpp:689 widgets/dialogs/showtheadscombobox.cpp:16
+#: core/model/roommodel.cpp:690 widgets/dialogs/showtheadscombobox.cpp:16
 #, kde-format
 msgid "Unread"
 msgstr "Não Lido"
 
-#: core/model/roommodel.cpp:691
+#: core/model/roommodel.cpp:692
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:693
+#: core/model/roommodel.cpp:694
 #, kde-format
 msgid "Teams"
 msgstr "Equipas"
 
-#: core/model/roommodel.cpp:697
+#: core/model/roommodel.cpp:698
 #, kde-format
 msgid "Discussions"
 msgstr "Discussões"
 
-#: core/model/roommodel.cpp:699
+#: core/model/roommodel.cpp:700
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensagens Privadas"
 
-#: core/model/roommodel.cpp:701 core/model/usersforroommodel.cpp:314
+#: core/model/roommodel.cpp:702 core/model/usersforroommodel.cpp:314
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: core/model/roommodel.cpp:703
+#: core/model/roommodel.cpp:704
 #, fuzzy, kde-format
 #| msgid "InComing Call"
 msgid "Incoming Calls"
 msgstr "Chamada Recebida"
 
-#: core/model/roommodel.cpp:705
+#: core/model/roommodel.cpp:706
 #, fuzzy, kde-format
 #| msgid "InComing Call"
 msgid "Incoming Live Chats"
 msgstr "Chamada Recebida"
 
-#: core/model/roommodel.cpp:707
+#: core/model/roommodel.cpp:708
 #, kde-format
 msgid "Open Live chats"
 msgstr ""
 
-#: core/model/roommodel.cpp:709
+#: core/model/roommodel.cpp:710
 #, kde-format
 msgid "On Hold Chats"
 msgstr ""
 
-#: core/model/roommodel.cpp:711
+#: core/model/roommodel.cpp:712
 #, fuzzy, kde-format
 #| msgid "Start Conversation"
 msgid "Conversations"
@@ -2370,31 +2370,31 @@ msgctxt "WARNING!!!!!!: PLEASE We need a space between after </strong>"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:795
+#: core/rocketchataccount.cpp:794
 #, kde-format
 msgid ""
 "REST: %1\n"
 "DDP: %2"
 msgstr ""
 
-#: core/rocketchataccount.cpp:803 core/rocketchataccount.cpp:816
+#: core/rocketchataccount.cpp:802 core/rocketchataccount.cpp:815
 #, kde-format
 msgid "Not connected"
 msgstr "Não ligado"
 
-#: core/rocketchataccount.cpp:810
+#: core/rocketchataccount.cpp:809
 #, fuzzy, kde-format
 #| msgid "Not connected"
 msgid "Not connected yet"
 msgstr "Não ligado"
 
-#: core/rocketchataccount.cpp:3311
+#: core/rocketchataccount.cpp:3310
 #, fuzzy, kde-format
 #| msgid "Account name"
 msgid "Room Added"
 msgstr "Nome da conta"
 
-#: core/rocketchataccount.cpp:3312
+#: core/rocketchataccount.cpp:3311
 #, kde-format
 msgid "A new room was added in '%1'."
 msgstr ""
@@ -3638,7 +3638,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:55
 #: widgets/dialogs/channelinforeadonlywidget.cpp:35
 #: widgets/dialogs/createnewchannelwidget.cpp:36
-#: widgets/dialogs/directchannelinfowidget.cpp:100
+#: widgets/dialogs/directchannelinfowidget.cpp:101
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:30
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:65
 #: widgets/webdav/webdavaddserverwidget.cpp:34
@@ -3786,7 +3786,7 @@ msgstr "Editar o Estado do Utilizador"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:31
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:52
-#: widgets/dialogs/directchannelinfowidget.cpp:116
+#: widgets/dialogs/directchannelinfowidget.cpp:117
 #: widgets/dialogs/modifystatuswidget.cpp:34
 #, kde-format
 msgid "Status:"
@@ -3963,7 +3963,7 @@ msgctxt "@action"
 msgid "Previous month"
 msgstr "Canal Anterior"
 
-#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:25
+#: widgets/administratordialog/moderationconsole/moderationmessageinfodialog.cpp:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Mentions Messages - %1"
@@ -4180,7 +4180,7 @@ msgctxt "@info:placeholder"
 msgid "Search…"
 msgstr "Procurar..."
 
-#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:26
+#: widgets/administratordialog/moderationconsole/moderationusersdialog.cpp:27
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Mentions Messages - %1"
@@ -4188,23 +4188,23 @@ msgctxt "@title:window"
 msgid "Show Moderation Users"
 msgstr "Mostrar as Mensagens de Menção - %1"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:38
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:39
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:64
-#: widgets/dialogs/directchannelinfowidget.cpp:207
+#: widgets/dialogs/directchannelinfowidget.cpp:208
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:77
 #: widgets/registeruser/registeruserwidget.cpp:39
 #, kde-format
 msgid "Email:"
 msgstr "E-mail:"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:43
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:44
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:72
-#: widgets/dialogs/directchannelinfowidget.cpp:175
+#: widgets/dialogs/directchannelinfowidget.cpp:176
 #, kde-format
 msgid "Roles:"
 msgstr "Papéis:"
 
-#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:51
+#: widgets/administratordialog/moderationconsole/moderationuserswidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Reporting"
 msgid "Report #%1"
@@ -4816,7 +4816,7 @@ msgid "Mark email as verified"
 msgstr "Marcar como Verificado o E-Mail das Contas Externas"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
-#: widgets/dialogs/directchannelinfowidget.cpp:109
+#: widgets/dialogs/directchannelinfowidget.cpp:110
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:42
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:70
 #: widgets/registeruser/registeruserwidget.cpp:33
@@ -4838,7 +4838,7 @@ msgid "Password:"
 msgstr "Senha:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:67
-#: widgets/dialogs/directchannelinfowidget.cpp:132
+#: widgets/dialogs/directchannelinfowidget.cpp:133
 #, kde-format
 msgid "Bio:"
 msgstr "Biografia:"
@@ -5618,7 +5618,7 @@ msgstr "Esconder as Ligações de Saída"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:19
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:23
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgctxt "@option:check"
@@ -8261,35 +8261,35 @@ msgstr "ID da Aplicação (ISS)"
 msgid "Application Secret"
 msgstr "Senha da Aplicação"
 
-#: widgets/administratorsettingsdialog/webdav/webdavsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/webdav/webdavsettingswidget.cpp:15
 #, fuzzy, kde-format
 #| msgid "Webdav Integration Enabled"
 msgctxt "@option:check"
 msgid "Webdav Integration Enabled"
 msgstr "Integração com o WebDAV Activa"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
 #, fuzzy, kde-format
 #| msgid "Enable for Public Channels"
 msgctxt "@option:check"
 msgid "Enable for Public Channels"
 msgstr "Activar nos Canais Públicos"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Enable for Private Channels"
 msgctxt "@option:check"
 msgid "Enable for Private Channels"
 msgstr "Activar nos Canais Privados"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Enable for Direct Messages"
 msgctxt "@option:check"
 msgid "Enable for Direct Messages"
 msgstr "Activar nas Mensagens Directas"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:37
 #, kde-format
 msgid ""
 "A list of STUN and TURN servers separated by comma.\n"
@@ -8300,7 +8300,7 @@ msgstr ""
 "O utilizador, senha e porto são permitidos no formato utilizador:senha@stun:"
 "servidor:porto ou utilizador:senha@turn:servidor:porto."
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:39
 #, kde-format
 msgid "STUN/TURN Servers"
 msgstr "Servidores de STUN/TURN"
@@ -8342,19 +8342,19 @@ msgstr ""
 msgid "Want to use %1"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:133
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:131
 #: widgets/applicationssettingsdialog/applicationssettingspricecombobox.cpp:16
 #, kde-format
 msgid "Premium"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:162
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:160
 #: widgets/applicationssettingsdialog/applicationssettingsstatuscombobox.cpp:14
 #, kde-format
 msgid "Enabled"
 msgstr "Activo"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:175
+#: widgets/applicationssettingsdialog/applicationssettingsdelegate.cpp:173
 #, kde-format
 msgid "%1 request"
 msgid_plural "%1 requests"
@@ -8373,7 +8373,7 @@ msgstr "Versão"
 msgid "Settings"
 msgstr "&Configuração"
 
-#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:27
+#: widgets/applicationssettingsdialog/applicationssettingsdialog.cpp:26
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@title:window"
@@ -8468,28 +8468,28 @@ msgstr ""
 msgid "Paid Apps"
 msgstr ""
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:79
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:78
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
 msgid "Search Applications"
 msgstr "ID da Aplicação (ISS)"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:82
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
 msgid "Search Installed Applications"
 msgstr "ID da Aplicação (ISS)"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:85
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
 msgid "Search Requested Applications"
 msgstr "ID da Aplicação (ISS)"
 
-#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:88
+#: widgets/applicationssettingsdialog/applicationssettingssearchwidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "Application ID (iss)"
 msgctxt "@info:placeholder"
@@ -8771,28 +8771,28 @@ msgctxt "@title:window"
 msgid "Convert to Team"
 msgstr "Converter para uma Equipa"
 
-#: widgets/channellist/channellistwidget.cpp:58
+#: widgets/channellist/channellistwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Filter channels (CTRL + K)"
 msgctxt "@info:placeholder"
 msgid "Filter channels (%1)"
 msgstr "Filtrar os canais (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:67
+#: widgets/channellist/channellistwidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Search Channels"
 msgctxt "@action"
 msgid "Search Channels"
 msgstr "Procurar nos Canais"
 
-#: widgets/channellist/channellistwidget.cpp:74
+#: widgets/channellist/channellistwidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgctxt "@action"
 msgid "Previous Channel"
 msgstr "Canal Anterior"
 
-#: widgets/channellist/channellistwidget.cpp:82
+#: widgets/channellist/channellistwidget.cpp:83
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgctxt "@action"
@@ -9920,42 +9920,42 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informação do Utilizador"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:124
+#: widgets/dialogs/directchannelinfowidget.cpp:125
 #, kde-format
 msgid "Custom Status:"
 msgstr "Estado Personalizado:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:146
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Timezone:"
 msgstr "Fuso-horário:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:156
+#: widgets/dialogs/directchannelinfowidget.cpp:157
 #, kde-format
 msgid "Local Time:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:185
+#: widgets/dialogs/directchannelinfowidget.cpp:186
 #, kde-format
 msgid "Created At:"
 msgstr "Criado em:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:194
+#: widgets/dialogs/directchannelinfowidget.cpp:195
 #, kde-format
 msgid "Last Login:"
 msgstr "Última Autenticação:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:202
+#: widgets/dialogs/directchannelinfowidget.cpp:203
 #, kde-format
 msgid "Verified"
 msgstr "Verificado"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:202
+#: widgets/dialogs/directchannelinfowidget.cpp:203
 #, kde-format
 msgid "Not verified"
 msgstr "Não verificado"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:202
+#: widgets/dialogs/directchannelinfowidget.cpp:203
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -11096,7 +11096,7 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Entrar"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:53
+#: widgets/loginwidget/ruqolaloginwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid ""
 #| "You have enabled second factor authentication.\n"
@@ -11109,42 +11109,42 @@ msgstr ""
 "Activou a autenticação multi-factor.\n"
 "Por favor introduza o código gerado ou um código de segurança."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:185
+#: widgets/loginwidget/ruqolaloginwidget.cpp:183
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "A Autenticação Falhou: utilizador ou senha inválidos"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:201
+#: widgets/loginwidget/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Foi detectado um problema de instalação. Não foram encontrados 'plugins' "
 "aqui."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:208
+#: widgets/loginwidget/ruqolaloginwidget.cpp:206
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "A Autenticação Falhou: erro genérico"
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:215
+#: widgets/loginwidget/ruqolaloginwidget.cpp:213
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For IP."
 msgstr ""
 "A Autenticação Falhou: A conta foi temporariamente bloqueada pelo seu IP."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:222
+#: widgets/loginwidget/ruqolaloginwidget.cpp:220
 #, kde-format
 msgid "Login Failed: Login has been temporarily blocked For User."
 msgstr ""
 "A Autenticação Falhou: A conta foi temporariamente bloqueada pelo seu "
 "Utilizador."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:229
+#: widgets/loginwidget/ruqolaloginwidget.cpp:227
 #, kde-format
 msgid "Login Failed: User is not activated."
 msgstr "A Autenticação Falhou: O utilizador não está activo."
 
-#: widgets/loginwidget/ruqolaloginwidget.cpp:236
+#: widgets/loginwidget/ruqolaloginwidget.cpp:234
 #, kde-format
 msgid "Login Failed: App user is not allowed to login."
 msgstr ""
@@ -11372,21 +11372,21 @@ msgctxt "@action:button"
 msgid "Send new code"
 msgstr "Enviar um novo código"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:27
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Reset E2E Key"
 msgctxt "@action:button"
 msgid "Reset E2E Key"
 msgstr "Repor a Chave E2E"
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:28
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgctxt "@action:button"
 msgid "Modify"
 msgstr "Modificar..."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:36
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:37
 #, fuzzy, kde-format
 #| msgid ""
 #| "You can now create encrypted private groups and direct messages. You may "
@@ -11412,7 +11412,7 @@ msgstr ""
 "lhe-á pedido para a introduzir noutros dispositivos, caso deseje manter a "
 "encriptação ponto-a-ponto activada."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:54
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:55
 #, kde-format
 msgid ""
 "This option will remove your current E2E key and log you out. When you login "
@@ -11428,38 +11428,41 @@ msgstr ""
 "será capaz de repor o acesso a nenhuma sala encriptada que não tenha membros "
 "ligados."
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:114
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:125
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:133
 #, kde-format
 msgid "The server refused to reset your E2E key."
 msgstr ""
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:114
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:125
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:134
 #, kde-format
 msgid "The server refused to reset your E2E key: %1"
 msgstr ""
 
-#: widgets/myaccount/myaccount2e2configurewidget.cpp:115
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:126
+#: widgets/myaccount/myaccount2e2configurewidget.cpp:135
 #, fuzzy, kde-format
 #| msgid "Reset E2E Key"
 msgctxt "@title:window"
 msgid "Reset E2E Key"
 msgstr "Repor a Chave E2E"
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:26
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Activate Two Authentication Factor via Email"
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via Email"
 msgstr "Activar a Autenticação em Dois Passos por E-Mail"
 
-#: widgets/myaccount/myaccount2faconfigurewidget.cpp:27
+#: widgets/myaccount/myaccount2faconfigurewidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Activate Two Authentication Factor via TOTP"
 msgctxt "@option:check"
 msgid "Activate Two Authentication Factor via TOTP"
 msgstr "Activar a Autenticação em Dois Passos por TOTP"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:30
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:33
 #, fuzzy, kde-format
 #| msgid ""
 #| "Open your authentication app and enter the code.\n"
@@ -11472,7 +11475,7 @@ msgstr ""
 "Abra a sua aplicação de autenticação e introduza o código.\n"
 "Também poderá usar um dos seus códigos de segurança."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:40
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:43
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:55
 #, fuzzy, kde-format
 #| msgid "Enter authentication code"
@@ -11480,7 +11483,7 @@ msgctxt "@info:placeholder"
 msgid "Enter authentication code"
 msgstr "Indique o código de autenticação"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:44
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:47
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Verify"
@@ -11488,20 +11491,20 @@ msgctxt "@action:button"
 msgid "Verify"
 msgstr "Verificar"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:53
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Regenerate Code"
 msgctxt "@action:button"
 msgid "Regenerate Code"
 msgstr "Gerar de Novo o Código"
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:90
 #, kde-format
 msgid "Invalid two factor code."
 msgstr "O código de dois passos é inválido."
 
-#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:70
+#: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:73
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Check Two Factor Code"
@@ -12653,37 +12656,37 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Remover a Mensagem"
 
-#: widgets/room/messagetextedit.cpp:234
+#: widgets/room/messagetextedit.cpp:235
 #, kde-format
 msgid "Paste Image"
 msgstr "Colar a Imagem"
 
-#: widgets/room/messagetextedit.cpp:243
+#: widgets/room/messagetextedit.cpp:244
 #, kde-format
 msgid "Change Text Format"
 msgstr "Mudar o Formato do Texto"
 
-#: widgets/room/messagetextedit.cpp:245
+#: widgets/room/messagetextedit.cpp:246
 #, kde-format
 msgid "Bold"
 msgstr "Negrito"
 
-#: widgets/room/messagetextedit.cpp:246
+#: widgets/room/messagetextedit.cpp:247
 #, kde-format
 msgid "Italic"
 msgstr "Itálico"
 
-#: widgets/room/messagetextedit.cpp:247
+#: widgets/room/messagetextedit.cpp:248
 #, kde-format
 msgid "Strike-out"
 msgstr "Traçado"
 
-#: widgets/room/messagetextedit.cpp:249
+#: widgets/room/messagetextedit.cpp:250
 #, kde-format
 msgid "Code Block"
 msgstr "Bloco de Código"
 
-#: widgets/room/messagetextedit.cpp:251
+#: widgets/room/messagetextedit.cpp:252
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL do Markdown"
