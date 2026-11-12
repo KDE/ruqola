@@ -11,7 +11,7 @@ set(RUQOLA_STABLE_VERSION false)
 
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(QT_REQUIRED_VERSION "6.10.0")
-set(KF_MIN_VERSION "6.26.0")
+set(KF_MIN_VERSION "6.29.0")
 # Do NOT add quote
 set(RUQOLA_DEV_VERSION alpha)
 
