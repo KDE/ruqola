@@ -24,8 +24,8 @@ public:
 
     [[nodiscard]] QJsonDocument json() const;
 
-    [[nodiscard]] const QString &bannerId() const;
-    void setBannerId(const QString &newBannerId);
+    [[nodiscard]] const QByteArray &bannerId() const;
+    void setBannerId(const QByteArray &newBannerId);
 
 Q_SIGNALS:
     void dismissBannerDone();
@@ -34,6 +34,6 @@ protected:
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
-    QString mBannerId;
+    QByteArray mBannerId;
 };
 }

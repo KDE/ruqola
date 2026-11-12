@@ -6,10 +6,12 @@
 
 #include "ruqolamainwidget.h"
 
+#include "banner/bannersdismissjob.h"
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
 #include "config-ruqola.h"
+#include "connection.h"
 #include "ddpapi/ddpclient.h"
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
@@ -185,7 +187,16 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RuqolaMainWidget::slotMarkBannerAsRead(const QByteArray &identifier)
 {
-    mCurrentRocketChatAccount->ddp()->bannerDismiss(identifier);
+    if (mCurrentRocketChatAccount->hasAtLeastVersion(9, 0, 0)) {
+        auto job = new RocketChatRestApi::BannersDismissJob(this);
+        job->setBannerId(identifier);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start BannersDismissJob job";
+        }
+    } else {
+        mCurrentRocketChatAccount->ddp()->bannerDismiss(identifier);
+    }
 }
 
 void RuqolaMainWidget::updateBannerInfo()

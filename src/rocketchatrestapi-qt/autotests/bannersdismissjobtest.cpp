@@ -42,7 +42,7 @@ void BannersDismissJobTest::shouldGenerateRequest()
 void BannersDismissJobTest::shouldGenerateJson()
 {
     BannersDismissJob job;
-    const QString bannerId = u"foo1"_s;
+    const QByteArray bannerId = "foo1"_ba;
     job.setBannerId(bannerId);
 
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), uR"({"bannerId":"%1"})"_s.arg(bannerId).toLatin1());
@@ -53,7 +53,7 @@ void BannersDismissJobTest::shouldNotStarting()
     BannersDismissJob job;
 
     RuqolaRestApiHelper::verifyNotStartingJob(&job);
-    const QString bannerId = u"foo1"_s;
+    const QByteArray bannerId = "foo1"_ba;
     job.setBannerId(bannerId);
     QVERIFY(job.canStart());
 }

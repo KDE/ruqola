@@ -41,12 +41,12 @@ void BannersDismissJob::onPostRequestResponse(const QString &replyErrorString, c
     }
 }
 
-const QString &BannersDismissJob::bannerId() const
+const QByteArray &BannersDismissJob::bannerId() const
 {
     return mBannerId;
 }
 
-void BannersDismissJob::setBannerId(const QString &newBannerId)
+void BannersDismissJob::setBannerId(const QByteArray &newBannerId)
 {
     mBannerId = newBannerId;
 }
@@ -80,7 +80,7 @@ QNetworkRequest BannersDismissJob::request() const
 QJsonDocument BannersDismissJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj["bannerId"_L1] = mBannerId;
+    jsonObj["bannerId"_L1] = QString::fromLatin1(mBannerId);
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
