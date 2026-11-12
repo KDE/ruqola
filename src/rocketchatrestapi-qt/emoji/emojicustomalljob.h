@@ -12,7 +12,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT EmojiCustomAllJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT EmojiCustomAllJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

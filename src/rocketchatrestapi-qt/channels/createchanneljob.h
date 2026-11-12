@@ -12,7 +12,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT CreateChannelJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT CreateChannelJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

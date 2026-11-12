@@ -10,7 +10,7 @@
 #include "librocketchatrestapi-qt_export.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelRemoveLeaderJob : public ChannelGroupBaseJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT ChannelRemoveLeaderJob final : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:

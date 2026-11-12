@@ -10,7 +10,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT GoogleAuthJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GoogleAuthJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

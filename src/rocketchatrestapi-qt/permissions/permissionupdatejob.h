@@ -12,7 +12,7 @@
 #include <QMap>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT PermissionUpdateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT PermissionUpdateJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

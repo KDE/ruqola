@@ -13,7 +13,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT CustomSoundsCreateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT CustomSoundsCreateJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

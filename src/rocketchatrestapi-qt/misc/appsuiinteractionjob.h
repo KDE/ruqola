@@ -11,7 +11,7 @@
 #include <QJsonObject>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT AppsUiInteractionJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT AppsUiInteractionJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

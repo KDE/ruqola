@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT VideoConferenceStartJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT VideoConferenceStartJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

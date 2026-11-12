@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT ForgotPasswordJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT ForgotPasswordJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

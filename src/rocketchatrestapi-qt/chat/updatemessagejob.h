@@ -9,7 +9,7 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT UpdateMessageJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT UpdateMessageJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -38,7 +38,7 @@ Q_SIGNALS:
     void updateMessageFailed(const QString &str);
 
 protected:
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) final;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
     QByteArray mRoomId;

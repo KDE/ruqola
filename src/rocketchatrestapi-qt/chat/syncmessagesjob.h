@@ -13,7 +13,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT SyncMessagesJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT SyncMessagesJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -40,7 +40,7 @@ Q_SIGNALS:
     void syncMessagesDone(const QJsonObject &obj, const QByteArray &roomId);
 
 protected:
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) final;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
     QByteArray mRoomId;

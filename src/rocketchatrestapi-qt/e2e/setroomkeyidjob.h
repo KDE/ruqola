@@ -10,7 +10,7 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT SetRoomKeyIDJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT SetRoomKeyIDJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 

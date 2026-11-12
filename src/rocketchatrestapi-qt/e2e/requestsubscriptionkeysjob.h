@@ -12,7 +12,7 @@ namespace RocketChatRestApi
 {
 // Asks the server to notify the members of every encrypted room we are subscribed to but have
 // no key for, so that one of them encrypts the room key for us ("e2e.keyRequest").
-class LIBROCKETCHATRESTAPI_QT_EXPORT RequestSubscriptionKeysJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT RequestSubscriptionKeysJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

@@ -12,7 +12,7 @@
 #include "createchannelteaminfo.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT CreateGroupsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT CreateGroupsJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

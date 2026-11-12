@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT ModerationDismissUserReportsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT ModerationDismissUserReportsJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

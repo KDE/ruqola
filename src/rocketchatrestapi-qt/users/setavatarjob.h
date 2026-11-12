@@ -13,7 +13,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT SetAvatarJob : public UserBaseJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT SetAvatarJob final : public UserBaseJob
 {
     Q_OBJECT
 public:

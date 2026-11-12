@@ -10,7 +10,7 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT TranslateMessageJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT TranslateMessageJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

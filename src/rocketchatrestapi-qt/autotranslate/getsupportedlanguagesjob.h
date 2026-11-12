@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT GetSupportedLanguagesJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GetSupportedLanguagesJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

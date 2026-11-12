@@ -10,7 +10,7 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT MarkRoomAsUnReadJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT MarkRoomAsUnReadJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

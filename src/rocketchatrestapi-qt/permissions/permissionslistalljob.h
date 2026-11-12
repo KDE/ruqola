@@ -12,7 +12,7 @@
 #include <QDateTime>
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT PermissionsListAllJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT PermissionsListAllJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

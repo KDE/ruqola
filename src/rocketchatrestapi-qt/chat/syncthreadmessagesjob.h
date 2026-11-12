@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT SyncThreadMessagesJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT SyncThreadMessagesJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -37,7 +37,7 @@ Q_SIGNALS:
     void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
 
 protected:
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) final;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
     QString mThreadMessageId;

@@ -9,7 +9,7 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT DeleteMessageFileJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT DeleteMessageFileJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

@@ -35,7 +35,7 @@ struct SuggestedGroupKey {
     QList<SuggestedOldGroupKey> oldKeys;
 };
 
-class LIBROCKETCHATRESTAPI_QT_EXPORT ProvideUsersWithSuggestedGroupKeysJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT ProvideUsersWithSuggestedGroupKeysJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

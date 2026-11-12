@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT GroupAddOwnerJob : public ChannelGroupBaseJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GroupAddOwnerJob final : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:

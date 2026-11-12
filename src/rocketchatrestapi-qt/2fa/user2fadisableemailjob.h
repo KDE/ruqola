@@ -10,7 +10,7 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT User2FADisableEmailJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT User2FADisableEmailJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

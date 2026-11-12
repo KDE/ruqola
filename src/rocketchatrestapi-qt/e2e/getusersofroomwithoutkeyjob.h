@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT GetUsersOfRoomWithoutKeyJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GetUsersOfRoomWithoutKeyJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

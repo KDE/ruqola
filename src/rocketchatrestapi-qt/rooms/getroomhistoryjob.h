@@ -12,7 +12,7 @@ class QDebug;
 class QUrl;
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT GetRoomHistoryJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT GetRoomHistoryJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

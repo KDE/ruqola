@@ -11,7 +11,7 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT TeamsCreateJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT TeamsCreateJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

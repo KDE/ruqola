@@ -12,7 +12,7 @@ class QUrlQuery;
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsBannedUsersJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsBannedUsersJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

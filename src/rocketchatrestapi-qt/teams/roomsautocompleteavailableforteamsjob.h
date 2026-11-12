@@ -11,7 +11,7 @@
 
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsAutocompleteAvailableForTeamsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT RoomsAutocompleteAvailableForTeamsJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

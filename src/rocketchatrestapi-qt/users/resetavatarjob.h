@@ -10,7 +10,7 @@
 #include "userbasejob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT ResetAvatarJob : public UserBaseJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT ResetAvatarJob final : public UserBaseJob
 {
     Q_OBJECT
 public:

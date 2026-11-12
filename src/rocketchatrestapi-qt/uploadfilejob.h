@@ -12,7 +12,7 @@
 class QJsonObject;
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT UploadFileJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT UploadFileJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -46,7 +46,7 @@ public:
 
     [[nodiscard]] bool start() override;
 
-    [[nodiscard]] bool requireHttpAuthentication() const final;
+    [[nodiscard]] bool requireHttpAuthentication() const override;
 
     [[nodiscard]] QNetworkRequest request() const override;
     [[nodiscard]] bool canStart() const override;

@@ -12,7 +12,7 @@
 class QDebug;
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT MethodCallJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT MethodCallJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

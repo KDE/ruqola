@@ -10,7 +10,7 @@
 #include "userbasejob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT DeleteUserJob : public UserBaseJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT DeleteUserJob final : public UserBaseJob
 {
     Q_OBJECT
 public:

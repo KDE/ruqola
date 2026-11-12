@@ -11,7 +11,7 @@
 class QDebug;
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT_EXPORT SearchMessageJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT_EXPORT SearchMessageJob final : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -45,7 +45,7 @@ Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 
 protected:
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) final;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
     [[nodiscard]] LIBROCKETCHATRESTAPI_QT_NO_EXPORT QString convertSearchText() const;
