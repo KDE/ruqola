@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "users/usersdisabletotpjob.h"
+#include "users/usersregeneratetotpcodesjob.h"
 #include <KLineEditEventHandler>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -99,7 +100,16 @@ void MyAccount2FaDisableTotpWidget::slotUsersDisableTotpDone(const QJsonObject &
 
 void MyAccount2FaDisableTotpWidget::slotRegenerateCode()
 {
-    mRocketChatAccount->ddp()->regenerateCodes2fa(mDisableCodeLineEdit->text());
+    if (mRocketChatAccount->hasAtLeastVersion(9, 0, 0)) {
+        auto job = new RocketChatRestApi::UsersRegenerateTotpCodesJob(this);
+        job->setCode(mDisableCodeLineEdit->text());
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersRegenerateTotpCodesJob job";
+        }
+    } else {
+        mRocketChatAccount->ddp()->regenerateCodes2fa(mDisableCodeLineEdit->text());
+    }
 }
 
 #include "moc_myaccount2fadisabletotpwidget.cpp"
