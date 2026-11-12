@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkRequest>
@@ -41,14 +42,14 @@ void SpotlightJob::onGetRequestResponse(const QString &replyErrorString, const Q
     }
 }
 
-QString SpotlightJob::searchPattern() const
+SpotlightJob::SpotlightJobInfo SpotlightJob::spotlightInfo() const
 {
-    return mSearchPattern;
+    return mSpotlightInfo;
 }
 
-void SpotlightJob::setSearchPattern(const QString &searchPattern)
+void SpotlightJob::setSpotlightInfo(const SpotlightJobInfo &newSpotlightInfo)
 {
-    mSearchPattern = searchPattern;
+    mSpotlightInfo = newSpotlightInfo;
 }
 
 bool SpotlightJob::requireHttpAuthentication() const
@@ -60,7 +61,7 @@ QNetworkRequest SpotlightJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Spotlight);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(u"query"_s, mSearchPattern);
+    mSpotlightInfo.addQueryItem(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest req(url);
     addAuthRawHeader(req);
@@ -69,14 +70,60 @@ QNetworkRequest SpotlightJob::request() const
 
 bool SpotlightJob::canStart() const
 {
-    if (QStringView(mSearchPattern).trimmed().isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SpotlightJob: searchpattern is empty";
+    if (!mSpotlightInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SpotlightJob: spotlight info is invalid";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
     return true;
+}
+
+bool SpotlightJob::SpotlightJobInfo::isValid() const
+{
+    if (QStringView(pattern).trimmed().isEmpty()) {
+        return false;
+    }
+    return true;
+}
+
+QString SpotlightJob::SpotlightJobInfo::convertSpotlightTypeToString() const
+{
+    switch (type) {
+    case SpotlightJobType::Users:
+        return u"{\"users\":true}"_s;
+    case SpotlightJobType::Rooms:
+        return u"{\"rooms\":true}"_s;
+    case SpotlightJobType::Mentions:
+        return u"{\"mentions\":true}"_s;
+    case SpotlightJobType::Unknown:
+        return {};
+    }
+    return {};
+}
+
+void SpotlightJob::SpotlightJobInfo::addQueryItem(QUrlQuery &queryUrl) const
+{
+    queryUrl.addQueryItem(u"query"_s, pattern);
+    if (!roomId.isEmpty()) {
+        queryUrl.addQueryItem(u"rid"_s, QString::fromLatin1(roomId));
+    }
+    if (type != SpotlightJobType::Unknown) {
+        queryUrl.addQueryItem(u"type"_s, convertSpotlightTypeToString());
+    }
+    if (!excludeUsernames.isEmpty()) {
+        queryUrl.addQueryItem(u"usernames"_s, excludeUsernames.join(u','));
+    }
+}
+
+QDebug operator<<(QDebug d, const RocketChatRestApi::SpotlightJob::SpotlightJobInfo &t)
+{
+    d.space() << "pattern:" << t.pattern;
+    d.space() << "excludeUsernames:" << t.excludeUsernames;
+    d.space() << "type:" << t.type;
+    d.space() << "roomId:" << t.roomId;
+    return d;
 }
 
 #include "moc_spotlightjob.cpp"
